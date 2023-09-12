@@ -78,8 +78,46 @@ const constants = {
         { value: 'uttar_pradesh', label: 'Uttar Pradesh' },
         { value: 'uttarakhand', label: 'Uttarakhand' },
         { value: 'west_bengal', label: 'West Bengal' }
-    ]
+    ],
+    SCHOLARSHIP_TITLE: "Scholarship Finder",
+    NUMBER_STATES_IN_SCHOLARSHIP_SHEET: 8,
+    NUMBER_CITIES_IN_SCHOLARSHIP_SHEET: 4,
+    STATUS_LABEL: "Enter Scholarship Status:",
+    GRADE_LABEL: "Enter Grade:",
+    STREAM_LABEL: "Enter Stream:",
+    CITY_LABEL: "Enter City Name:",
+    FAMILY_INCOME_LABEL: "Enter your family income in lakhs",
+    FAMILY_INCOME_HELP_TEXT: "For example, Rs. 1,20,000 to be entered as 1.2",
+    GRADE_OPTIONS: [
+        { value: "11", label: "11" },
+        { value: "12", label: "12" },
+    ],
+    STREAM_OPTIONS: [
+        {value: "any", label: "Any Stream"},
+        {value: "engineering", label: "Engineering"},
+        {value: "medical", label: "Medical"}
+    ],
+    SCHOLARSHIP_GENDER_OPTIONS: [
+        { value: "show_both", label: "Show Both" },
+        { value: "male", label: "Male" },
+        { value: "female", label: "Female" }
+    ],
+    SCHOLARSHIP_STATUS_OPTIONS: [
+        { value: "open", label: "Open" },
+        { value: "closed", label: "Closed" },
+        { value: "show_both", label: "Both" },
+    ],
+    CITY_OPTIONS: [
+        { value: 'all_india', label: 'All India' },
+        { value: 'mumbai', label: 'Mumbai' },
+        { value: 'delhi_ncr', label: 'Delhi NCR' },
+        { value: 'ahmedabad', label: 'Ahmedabad' },
+        { value: 'bangalore', label: 'Bangalore' },
+        { value: 'pune', label: 'Pune' }
+    ],
 };
+
+constants["SCHOLARSHIP_CATEGORY_OPTIONS"] = [...constants["CATEGORY_OPTIONS"], { value: "others", label: "Others" }];
 
 export default function getConstants() {
     return constants;
