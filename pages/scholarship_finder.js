@@ -5,9 +5,16 @@ import getConstants from "../constants";
 
 const ScholarshipFinder = () => {
     const router = useRouter();
-    const { status, grade, gender, family_income, category, stateName, cityName, stream } = router.query;
+    const { status, grade, gender, familyIncome, category, stateName, cityName, stream } = router.query;
     const [filteredData, setFilteredData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [expandedRows, setExpandedRows] = useState([]);
+
+    const toggleRowExpansion = (index) => {
+        const updatedExpandedRows = [...expandedRows];
+        updatedExpandedRows[index] = !updatedExpandedRows[index];
+        setExpandedRows(updatedExpandedRows);
+      };
 
     useEffect(() => {
         const fetchData = async () => {
@@ -24,13 +31,13 @@ const ScholarshipFinder = () => {
                     const itemCategory = item["Category"];
                     
                     const itemStates = [];
-                    for (let i = 1; i <= getConstants.NUMBER_STATES_IN_SCHOLARSHIP_SHEET; i++) {
-                        itemStates.append(item[`State ${i}`]);
+                    for (let i = 1; i <= getConstants().NUMBER_STATES_IN_SCHOLARSHIP_SHEET; i++) {
+                        itemStates.push(item[`State ${i}`]);
                     }
 
                     const itemCities = [];
-                    for (let i = 1; i <= getConstants.NUMBER_CITIES_IN_SCHOLARSHIP_SHEET; i++) {
-                        itemCities.append(`City ${i}`);
+                    for (let i = 1; i <= getConstants().NUMBER_CITIES_IN_SCHOLARSHIP_SHEET; i++) {
+                        itemCities.push(item[`City ${i}`]);
                     }
 
                     // stream check
@@ -49,41 +56,37 @@ const ScholarshipFinder = () => {
                     let checkForGrade = false;
                     if (grade == "11" && itemGrade11 == "Yes") checkForGrade = true;
                     if (grade == "12" && itemGrade12 == "Yes") checkForGrade = true;
+                    if (grade == "Other" && itemGrade11 != "Yes" && itemGrade12 != "Yes") checkForGrade = true;
 
                     // category check
                     let checkForCategory = false;
                     // PwD in `OPEN (PwD)`
                     if (category.includes(itemCategory)) checkForCategory = true;
-                    if (itemCategory == "General" && category.includes("OPEN")) checkForCategory = true;
-                    if (category == "others") checkForCategory = true;
-                    if (itemCategory == "") checkForCategory = true; // empty
+                    if (category == "Other") checkForCategory = true;
+                    if (itemCategory == null) checkForCategory = true; // empty in json
 
                     // income check
                     let checkForIncome = false;
-                    if (itemIncome == "") checkForIncome = true; // empty
-                    console.log(family_income, itemIncome);
-                    if (family_income <= itemIncome) checkForIncome = true;
+                    if (itemIncome == null) checkForIncome = true; // empty
+                    if (familyIncome <= itemIncome) checkForIncome = true;
 
                     // status check
                     let checkForStatus = false;
-                    if (itemStatus == "") checkForStatus = true;
+                    if (itemStatus == null) checkForStatus = true;
                     if (itemStatus == status) checkForStatus = true;
                     if (status == "Both") checkForStatus = true;
                     
                     // statename check
                     let checkForState = false;
-                    if (item["State 1"] == "") checkForState = true;
-                    if (stateName in itemStates) checkForState = true;
+                    if (item["State 1"] == null) checkForState = true;
+                    if (itemStates.includes(stateName)) checkForState = true;
                     if (stateName == "All India") checkForState = true;
 
                     // cityname check
                     let checkForCity = false;
-                    if (item["City 1"] == "") checkForCity = true;
-                    if (cityName in itemCities) checkForCity = true;
+                    if (item["City 1"] == null) checkForCity = true;
+                    if (itemCities.includes(cityName)) checkForCity = true;
                     if (cityName == "All India") checkForCity = true;
-
-
-                    console.log(checkForIncome);
 
                     return (checkForCategory && checkForCity && checkForGender
                         && checkForGrade && checkForIncome
@@ -105,7 +108,7 @@ const ScholarshipFinder = () => {
             setIsLoading(true);
             fetchData();
         }
-    }, [status, grade, gender, family_income, category, stateName, cityName, stream]);
+    }, [status, grade, gender, familyIncome, category, stateName, cityName, stream]);
 
     return (
         <div className={styles.container}>
@@ -129,20 +132,19 @@ const ScholarshipFinder = () => {
                                 <tr className={styles.header_row}>
                                     <th>Scholarship Name</th>
                                     <th>Status</th>
-                                    <th>National</th>
+                                    <th>Gender</th>
                                     <th>Category</th>
                                     <th>Application Link</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {filteredData.map((item, index) => (
+                                    <React.Fragment key={index}>
                                     <tr
-                                        key={index}
-                                        className={
-                                            index % 2 === 0
-                                                ? styles.even_row
-                                                : styles.odd_row
-                                        }
+                                      onClick={() => toggleRowExpansion(index)} // Toggle expansion on row click
+                                      className={
+                                        index % 2 === 0 ? styles.even_row : styles.odd_row
+                                      }
                                     >
                                         <td className={styles.cell}>
                                             {item["Scholarship Name"]}
@@ -151,15 +153,36 @@ const ScholarshipFinder = () => {
                                             {item.Status}
                                         </td>
                                         <td className={styles.cell}>
-                                            {item["National Scholarship"]}
+                                            {item["Gender"]}
                                         </td>
                                         <td className={styles.cell}>
                                             {item.Category}
                                         </td>
                                         <td className={styles.cell}>
-                                            {item["Application Link"]}
+                                        <a href={item["Application Link"]} target="_blank">{item["Application Link"]}</a>
                                         </td>
                                     </tr>
+                                    {expandedRows[index] && ( // Render additional content if row is expanded
+                                    <tr className={`${
+                                        expandedRows[index] ? 'expanded-row' : 'expandable-row'
+                                      }`}>
+                                    <td colSpan="5"> {/* Span all columns */}
+                                        <div>
+                                        <b>Eligibility</b>: {item["Eligibility"]} <br /><br />
+                                        <b>Benefits</b>: {item["Benefits"]} <br /><br />
+                                        <b>Doc Required</b>: {item["Doc Required"]} <br /><br />
+                                        <b>National Scholarship</b>: {item["National Scholarship"]}<br /><br />
+                                        <b>Can Class 11 Apply</b>: {item["Class 11 can Apply"]} <br /><br />
+                                        <b>Can Class 12 Apply</b>: {item["Class 12 can Apply"]} <br /><br />
+                                        <b>Family Income (in LPA)</b>: {item["Family Income (in LPA)"]} <br /><br />
+                                        <b>Last Date</b>: {item["Last Date"]} <br /><br />
+                                        <b>Open for Stream</b>: {item["Open for Stream"]} <br /><br />
+                                        <b>Special Criteria</b>: {item["Special Criteria"]} <br /><br />
+                                        </div>
+                                    </td>
+                                    </tr>
+                                    )}
+                                    </React.Fragment>
                                 ))}
                             </tbody>
                         </table>
@@ -171,4 +194,3 @@ const ScholarshipFinder = () => {
 };
 
 export default ScholarshipFinder;
-

@@ -39,3 +39,16 @@
     background-color: #ddd;
     cursor: not-allowed;
 }
+
+.expandable-row {
+    display: none;
+  }
+  
+.expanded-row {
+    display: table-row;
+}
+
+.expanded-row td {
+    text-align: left;
+    align-items: left;
+}

@@ -91,6 +91,7 @@ const constants = {
     GRADE_OPTIONS: [
         { value: "11", label: "11" },
         { value: "12", label: "12" },
+        { value: "other", label: "Other"}
     ],
     STREAM_OPTIONS: [
         {value: "any", label: "Any Stream"},
@@ -115,9 +116,18 @@ const constants = {
         { value: 'bangalore', label: 'Bangalore' },
         { value: 'pune', label: 'Pune' }
     ],
+    SCHOLARSHIP_CATEGORY_OPTIONS: [
+        { value: "pwd", label: "PwD" },
+        { value: "sc", label: "SC" },
+        { value: "st", label: "ST" },
+        { value: "general", label: "General" },
+        { value: "minority", label: "Minority" },
+        { value: "cine_worker", label: "Cine worker community" },
+        { value: "beedi_worker", label: "Beedi worker community" },
+        { value: "mine_worker", label: "Mine worker community" },
+        { value: "other", label: "Other" },
+    ],
 };
-
-constants["SCHOLARSHIP_CATEGORY_OPTIONS"] = [...constants["CATEGORY_OPTIONS"], { value: "others", label: "Others" }];
 
 export default function getConstants() {
     return constants;

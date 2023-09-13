@@ -21,7 +21,7 @@ const ScholarshipPage = () => {
 
     const streamOptions = getConstants().STREAM_OPTIONS;
 
-    const [familyIncome, setFamilyIncome] = useState(0.0);
+    const [familyIncome, setFamilyIncome] = useState(0);
     const [category, setCategory] = useState("");
     const [gender, setGender] = useState("");
     const [status, setStatus] = useState("");
