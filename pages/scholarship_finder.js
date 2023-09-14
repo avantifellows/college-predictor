@@ -62,6 +62,7 @@ const ScholarshipFinder = () => {
                     let checkForCategory = false;
                     // PwD in `OPEN (PwD)`
                     if (category.includes(itemCategory)) checkForCategory = true;
+                    if (itemCategory != null && itemCategory.includes(category)) checkForCategory = true;
                     if (category == "Other") checkForCategory = true;
                     if (itemCategory == null) checkForCategory = true; // empty in json
 
@@ -117,6 +118,7 @@ const ScholarshipFinder = () => {
                 <h3>Chosen Grade: {grade}</h3>
                 <h3>Chosen Gender: {gender}</h3>
                 <h3>Chosen Stream: {stream}</h3>
+                <h3>Chosen Category: {category}</h3>
                 <h3>Chosen State: {stateName}</h3>
                 <h3>Chosen City: {cityName}</h3>
                 <h3>Scholarships:</h3>
@@ -163,15 +165,18 @@ const ScholarshipFinder = () => {
                                         </td>
                                     </tr>
                                     {expandedRows[index] && ( // Render additional content if row is expanded
-                                    <tr className={`${
-                                        expandedRows[index] ? 'expanded-row' : 'expandable-row'
-                                      }`}>
+                                    <tr
+                                    className={`${
+                                      expandedRows[index] ? 'expanded-row' : 'expandable-row'
+                                    } ${
+                                      index % 2 === 0 ? styles.even_row : styles.odd_row
+                                    }`}
+                                  >
                                     <td colSpan="5"> {/* Span all columns */}
                                         <div>
                                         <b>Eligibility</b>: {item["Eligibility"]} <br /><br />
                                         <b>Benefits</b>: {item["Benefits"]} <br /><br />
                                         <b>Doc Required</b>: {item["Doc Required"]} <br /><br />
-                                        <b>National Scholarship</b>: {item["National Scholarship"]}<br /><br />
                                         <b>Can Class 11 Apply</b>: {item["Class 11 can Apply"]} <br /><br />
                                         <b>Can Class 12 Apply</b>: {item["Class 12 can Apply"]} <br /><br />
                                         <b>Family Income (in LPA)</b>: {item["Family Income (in LPA)"]} <br /><br />

@@ -152,6 +152,10 @@ const ScholarshipPage = () => {
                 <label className={styles.label}>
                     {getConstants().CATEGORY_LABEL}
                 </label>
+                <br />
+                <label className={styles.help_label}>
+                    {getConstants().CATEGORY_HELP_TEXT}
+                </label>
                 <Dropdown
                     options={categoryOptions}
                     onChange={handleCategoryDropdownChange}

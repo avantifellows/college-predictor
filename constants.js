@@ -86,7 +86,7 @@ const constants = {
     GRADE_LABEL: "Enter Grade:",
     STREAM_LABEL: "Enter Stream:",
     CITY_LABEL: "Enter City Name:",
-    FAMILY_INCOME_LABEL: "Enter your family income in lakhs",
+    FAMILY_INCOME_LABEL: "Enter your annual family income in lakhs",
     FAMILY_INCOME_HELP_TEXT: "For example, Rs. 1,20,000 to be entered as 1.2",
     GRADE_OPTIONS: [
         { value: "11", label: "11" },
@@ -117,16 +117,14 @@ const constants = {
         { value: 'pune', label: 'Pune' }
     ],
     SCHOLARSHIP_CATEGORY_OPTIONS: [
-        { value: "pwd", label: "PwD" },
+        { value: "pwd", label: "PWD" },
         { value: "sc", label: "SC" },
         { value: "st", label: "ST" },
         { value: "general", label: "General" },
         { value: "minority", label: "Minority" },
-        { value: "cine_worker", label: "Cine worker community" },
-        { value: "beedi_worker", label: "Beedi worker community" },
-        { value: "mine_worker", label: "Mine worker community" },
-        { value: "other", label: "Other" },
+        { value: "others", label: "Others" },
     ],
+    CATEGORY_HELP_TEXT: "Choose 'Others' if relevant category is not present"
 };
 
 export default function getConstants() {
