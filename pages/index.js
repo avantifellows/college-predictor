@@ -97,6 +97,7 @@ const HomePage = () => {
 
                 gtag('config', 'G-FHGVRT52L7');
                 `}
+
       </Script>
       <div className={styles.content}>
         <Link href="/scholarships">
@@ -169,6 +170,7 @@ const HomePage = () => {
       </div>
     </div>
   );
+
 };
 
 export default HomePage;

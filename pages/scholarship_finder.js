@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import styles from "./scholarship_finder.module.css";
 import getConstants from "../constants";
+
 import ScholarshipTable from "../components/ScholarTable";
 
 const ScholarshipFinder = () => {
@@ -179,6 +180,7 @@ const ScholarshipFinder = () => {
       </div>
     </div>
   );
+
 };
 
 export default ScholarshipFinder;
