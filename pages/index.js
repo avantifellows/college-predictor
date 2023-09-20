@@ -3,6 +3,7 @@ import Script from "next/script";
 import Dropdown from "../components/dropdown";
 import { useRouter } from "next/router";
 import styles from "./index.module.css";
+import Link from "next/link";
 import getConstants from "../constants";
 
 const HomePage = () => {
@@ -103,6 +104,9 @@ const HomePage = () => {
                 `}
             </Script>
             <div className={styles.content}>
+                <Link href="/scholarships">
+                    <h3>To find scholarships relevant to you, click here</h3>
+                </Link>
                 <h1>{getConstants().TITLE}</h1>
                 <label className={styles.label}>
                     {getConstants().EXAM_LABEL}
