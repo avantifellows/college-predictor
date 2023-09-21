@@ -1,0 +1,54 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.content {
+    max-width: 600px;
+    text-align: center;
+}
+
+.input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #0070f3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #0052cc;
+}
+
+.button:active {
+    background-color: #003f99;
+}
+
+.button:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+}
+
+.expandable-row {
+    display: none;
+  }
+  
+.expanded-row {
+    display: table-row;
+}
+
+.expanded-row td {
+    text-align: left;
+    align-items: left;
+}
