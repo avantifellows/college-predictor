@@ -33,6 +33,7 @@ const ScholarshipTable = ({
                   href={item["Application Link"]}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
                 >
                   {item["Application Link"]}
                 </a>

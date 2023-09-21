@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import styles from "./scholarship_finder.module.css";
 import getConstants from "../constants";
-import ScholarshipTable from "../components/ScholarTable";
+import ScholarshipTable from "../components/ScholarshipTable";
 
 const ScholarshipFinder = () => {
   const router = useRouter();

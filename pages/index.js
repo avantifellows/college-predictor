@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Script from "next/script";
 import Dropdown from "../components/dropdown";
 import { useRouter } from "next/router";
-import styles from "./index.module.css";
+import styles from "../styles/index.module.css";
 import Link from "next/link";
 import getConstants from "../constants";
 
