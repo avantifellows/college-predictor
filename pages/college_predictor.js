@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import styles from "../styles/college_predictor.module.css";
 import getConstants from "../constants";
 import PredictedCollegesTable from "../components/PredictedCollegeTables";
 
@@ -89,26 +88,26 @@ const CollegePredictor = () => {
   }, [rank]);
 
   return (
-    <div className={styles.container}>
-      <div className={styles.content}>
-        <h1>{getConstants().TITLE}</h1>
-        <h2>
+    <div className="flex items-center">
+      <div className="flex border-4 border-red flex-col items-center justify-center m-auto  ">
+        <h1 className="text-2xl font-bold mb-5">{getConstants().TITLE}</h1>
+        <h2 className="mb-4">
           {exam != "NEET"
             ? "Your Category Rank: " + rank
             : "Your Rank: " + rank}
         </h2>
-        <h3>Chosen Round Number: {roundNumber}</h3>
-        <h3>Chosen Exam: {exam}</h3>
+        <h3 className="mb-4">Chosen Round Number: {roundNumber}</h3>
+        <h3 className="mb-4">Chosen Exam: {exam}</h3>
         {exam != "NEET" && (
           <>
-            <h3>Chosen Gender: {gender}</h3>
-            <h3>Chosen Home State: {stateName}</h3>
+            <h3 className="mb-4">Chosen Gender: {gender}</h3>
+            <h3 className="mb-4">Chosen Home State: {stateName}</h3>
           </>
         )}
-        <h3>Predicted colleges and courses for you</h3>
+        <h3 className="mb-4">Predicted colleges and courses for you</h3>
         {isLoading ? (
-          <div className={styles.loading}>
-            <div className={styles.spinner}></div>
+          <div className="flex items-center justify-center flex-col mt-8">
+            <div className="border-t-4 border-transparent border-t-blue-500 rounded-full w-8 h-8 animate-spin mb-4"></div>
             <p>Loading...</p>
           </div>
         ) : (

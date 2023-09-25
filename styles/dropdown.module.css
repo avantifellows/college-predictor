@@ -1,0 +1,28 @@
+.control {
+  border-radius: 0.25rem;
+  border-color: rgba(209, 213, 219);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.control:hover {
+  border-color: rgba(156, 163, 175);
+}
+
+.option {
+  padding: 0.5rem 1rem;
+  color: rgba(55, 65, 81);
+}
+
+.option--is-focused {
+  background-color: #b52326;
+}
+
+.option--is-selected {
+  background-color: #b52326;
+  color: white;
+}
+
+.menu {
+  border-radius: 0.25rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}

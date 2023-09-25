@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import styles from "./scholarship_finder.module.css";
 import getConstants from "../constants";
 import ScholarshipTable from "../components/ScholarshipTable";
 
@@ -154,19 +153,19 @@ const ScholarshipFinder = () => {
   ]);
 
   return (
-    <div className={styles.container}>
-      <div className={styles.content}>
-        <h1>{getConstants().SCHOLARSHIP_TITLE}</h1>
-        <h3>Chosen Grade: {grade}</h3>
-        <h3>Chosen Gender: {gender}</h3>
-        <h3>Chosen Stream: {stream}</h3>
-        <h3>Chosen Category: {category}</h3>
-        <h3>Chosen State: {stateName}</h3>
-        <h3>Chosen City: {cityName}</h3>
-        <h3>Scholarships:</h3>
+    <div className="m-auto max-w-xl p-5 h-screen">
+      <div className="max-w-xl p-5 text-center text-lg">
+        <h1 className="text-2xl mb-5">{getConstants().SCHOLARSHIP_TITLE}</h1>
+        <h3 className="mb-3">Chosen Grade: {grade}</h3>
+        <h3 className="mb-3">Chosen Gender: {gender}</h3>
+        <h3 className="mb-3">Chosen Stream: {stream}</h3>
+        <h3 className="mb-3">Chosen Category: {category}</h3>
+        <h3 className="mb-3">Chosen State: {stateName}</h3>
+        <h3 className="mb-3">Chosen City: {cityName}</h3>
+        <h3 className="mb-3">Scholarships:</h3>
         {isLoading ? (
-          <div className={styles.loading}>
-            <div className={styles.spinner}></div>
+          <div className="flex flex-col items-center justify-center mt-8">
+            <div className="border-t-4 border-[#B52326] border-solid w-7 h-7 animate-spin rounded-full mb-3"></div>
             <p>Loading...</p>
           </div>
         ) : (

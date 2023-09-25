@@ -1,5 +1,4 @@
 import React from "react";
-import styles from "./scholarship_finder.module.css";
 
 const ScholarshipTable = ({
   filteredData,
@@ -7,9 +6,9 @@ const ScholarshipTable = ({
   expandedRows,
 }) => {
   return (
-    <table className={styles.table}>
+    <table className="w-10/12 mx-auto border-collapse">
       <thead>
-        <tr className={styles.header_row}>
+        <tr className="bg-gray-300 font-bold text-center">
           <th>Scholarship Name</th>
           <th>Status</th>
           <th>Gender</th>
@@ -22,17 +21,26 @@ const ScholarshipTable = ({
           <React.Fragment key={index}>
             <tr
               onClick={() => toggleRowExpansion(index)}
-              className={index % 2 === 0 ? styles.even_row : styles.odd_row}
+              className={index % 2 === 0 ? "bg-gray-100" : "bg-gray-200"}
             >
-              <td className={styles.cell}>{item["Scholarship Name"]}</td>
-              <td className={styles.cell}>{item.Status}</td>
-              <td className={styles.cell}>{item.Gender}</td>
-              <td className={styles.cell}>{item.Category}</td>
-              <td className={styles.cell}>
+              <td className="px-5 py-3 border-b border-gray-400 text-center break-words w-56">
+                {item["Scholarship Name"]}
+              </td>
+              <td className="px-5 py-3 border-b border-gray-400 text-center">
+                {item.Status}
+              </td>
+              <td className="px-5 py-3 border-b border-gray-400 text-center">
+                {item.Gender}
+              </td>
+              <td className="px-5 py-3 border-b border-gray-400 text-center">
+                {item.Category}
+              </td>
+              <td className="px-5 py-3 border-b border-gray-400 text-center">
                 <a
                   href={item["Application Link"]}
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="text-blue-500 hover:underline"
                   onClick={(e) => e.stopPropagation()}
                 >
                   {item["Application Link"]}
@@ -40,10 +48,8 @@ const ScholarshipTable = ({
               </td>
             </tr>
             {expandedRows[index] && (
-              <tr
-                className={index % 2 === 0 ? styles.even_row : styles.odd_row}
-              >
-                <td colSpan="5">
+              <tr className={index % 2 === 0 ? "bg-gray-100" : "bg-gray-200"}>
+                <td colSpan="5" className="px-5 py-3">
                   <div>
                     <b>Eligibility</b>: {item.Eligibility} <br />
                     <b>Benefits</b>: {item.Benefits} <br />
