@@ -6,7 +6,7 @@ const ScholarshipTable = ({
   expandedRows,
 }) => {
   return (
-    <table className="w-10/12 mx-auto border-collapse">
+    <table className="w-10/12 text-center border-collapse">
       <thead>
         <tr className="bg-gray-300 font-bold text-center">
           <th>Scholarship Name</th>

@@ -102,7 +102,7 @@ const ScholarshipPage = () => {
     !isGradeInOptions;
 
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div className="flex justify-center items-center p-2">
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-FHGVRT52L7"
         strategy="afterInteractive"
@@ -118,12 +118,14 @@ const ScholarshipPage = () => {
       </Script>
       <div className="text-center">
         <Link href="/">
-          <h3 className="cursor-pointer">
+          <h3 className="cursor-pointer mt-10 font-bold text-sm md:text-xl lg:text-2xl">
             To find colleges relevant to you, click here
           </h3>
         </Link>
-        <h1 className="mt-4">{getConstants().SCHOLARSHIP_TITLE}</h1>
-        <label className="block text-sm font-medium text-gray-700 mb-1">
+        <h1 className="text-md font-semibold">
+          {getConstants().SCHOLARSHIP_TITLE}
+        </h1>
+        <label className="block text-md font-semibold text-gray-700 m-2">
           {getConstants().STATUS_LABEL}
         </label>
         <Dropdown
@@ -131,12 +133,12 @@ const ScholarshipPage = () => {
           onChange={handleStatusDropdownChange}
         />
 
-        <label className="block text-sm font-medium text-gray-700 mb-1">
+        <label className="block text-md font-semibold text-gray-700 m-2">
           {getConstants().GRADE_LABEL}
         </label>
         <Dropdown options={gradeOptions} onChange={handleGradeDropdownChange} />
 
-        <label className="block text-sm font-medium text-gray-700 mb-1">
+        <label className="block text-md font-semibold text-gray-700 m-2">
           {getConstants().STREAM_LABEL}
         </label>
         <Dropdown
@@ -144,9 +146,11 @@ const ScholarshipPage = () => {
           onChange={handleStreamDropdownChange}
         />
 
-        <label>{getConstants().CATEGORY_LABEL}</label>
+        <label className="font-semibold text-md text-gray-700">
+          {getConstants().CATEGORY_LABEL}
+        </label>
         <br />
-        <label className={styles.help_label}>
+        <label className="font-medium text-sm text-gray-700 m-2 block">
           {getConstants().CATEGORY_HELP_TEXT}
         </label>
         <Dropdown
@@ -154,21 +158,21 @@ const ScholarshipPage = () => {
           onChange={handleCategoryDropdownChange}
         />
 
-        <label className="block text-sm font-medium text-gray-700 mb-1">
+        <label className="text-md font-semibold text-gray-700 ">
           {getConstants().FAMILY_INCOME_LABEL}
         </label>
         <br />
-        <label className={styles.help_label}>
+        <label className="block m-2 text-sm font-medium text-gray-700">
           {getConstants().FAMILY_INCOME_HELP_TEXT}
         </label>
         <input
           type="number"
           value={familyIncome}
           onChange={handleFamilyIncomeChange}
-          className="p-2 border border-[#B52326]] rounded w-full mt-2"
+          className="p-1 border border-gray-400 rounded w-full "
         />
 
-        <label className="block text-sm font-medium text-gray-700 mb-1">
+        <label className="block text-md font-semibold text-gray-700 m-2">
           {getConstants().GENDER_LABEL}
         </label>
         <Dropdown
@@ -176,7 +180,7 @@ const ScholarshipPage = () => {
           onChange={handleGenderDropdownChange}
         />
 
-        <label className="block text-sm font-medium text-gray-700 mb-1">
+        <label className="block text-md font-semibold text-gray-700 m-2">
           {getConstants().STATE_LABEL}
         </label>
         <Dropdown
@@ -184,7 +188,7 @@ const ScholarshipPage = () => {
           onChange={handleStateNameDropdownChange}
         />
 
-        <label className="block text-sm font-medium text-gray-700 mb-1">
+        <label className="block text-md font-semibold text-gray-700 m-2">
           {getConstants().CITY_LABEL}
         </label>
         <Dropdown

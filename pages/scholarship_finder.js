@@ -153,18 +153,22 @@ const ScholarshipFinder = () => {
   ]);
 
   return (
-    <div className="m-auto max-w-xl p-5 h-screen">
-      <div className="max-w-xl p-5 text-center text-lg">
-        <h1 className="text-2xl mb-5">{getConstants().SCHOLARSHIP_TITLE}</h1>
-        <h3 className="mb-3">Chosen Grade: {grade}</h3>
-        <h3 className="mb-3">Chosen Gender: {gender}</h3>
-        <h3 className="mb-3">Chosen Stream: {stream}</h3>
-        <h3 className="mb-3">Chosen Category: {category}</h3>
-        <h3 className="mb-3">Chosen State: {stateName}</h3>
-        <h3 className="mb-3">Chosen City: {cityName}</h3>
-        <h3 className="mb-3">Scholarships:</h3>
+    <div className="flex items-center w-full text-md ">
+      <div className="flex flex-col items-center  text-xl md:text-2xl lg:text-3xl">
+        <h1 className="text-2xl m-2 font-semibold">
+          {getConstants().SCHOLARSHIP_TITLE}
+        </h1>
+        <h3 className="mb-2">Chosen Grade: {grade}</h3>
+        <h3 className="mb-2">Chosen Gender: {gender}</h3>
+        <h3 className="mb-2">Chosen Stream: {stream}</h3>
+        <h3 className="mb-2">Chosen Category: {category}</h3>
+        <h3 className="mb-2">Chosen State: {stateName}</h3>
+        <h3 className="mb-2">Chosen City: {cityName}</h3>
+        <h3 className="mb-2 font-bold text-2xl md:text-3xl lg:text-4xl">
+          Scholarships
+        </h3>
         {isLoading ? (
-          <div className="flex flex-col items-center justify-center mt-8">
+          <div className="flex flex-col items-center">
             <div className="border-t-4 border-[#B52326] border-solid w-7 h-7 animate-spin rounded-full mb-3"></div>
             <p>Loading...</p>
           </div>

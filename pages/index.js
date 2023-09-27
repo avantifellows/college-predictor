@@ -83,7 +83,7 @@ const HomePage = () => {
       (!isGenderInOptions || !isExamInOptions || !isStateNameInOptions));
 
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div className="flex justify-center items-center h-screen px-10">
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-FHGVRT52L7"
         strategy="afterInteractive"
@@ -104,29 +104,31 @@ const HomePage = () => {
           </h3>
         </Link>
         <h1>{getConstants().TITLE}</h1>
-        <label className="mt-4">{getConstants().EXAM_LABEL}</label>
+        <label className="mt-4 w-full">{getConstants().EXAM_LABEL}</label>
         <Dropdown options={examOptions} onChange={handleExamDropdownChange} />
-        <div className="my-4">
-          <label>{getConstants().CATEGORY_LABEL}</label>
-          <Dropdown
-            options={categoryOptions}
-            onChange={handleCategoryDropdownChange}
-          />
+        <div className="flex gap-4">
+          <div className="my-4 w-full">
+            <label>{getConstants().CATEGORY_LABEL}</label>
+            <Dropdown
+              options={categoryOptions}
+              onChange={handleCategoryDropdownChange}
+            />
+          </div>
+          <div className="my-4 w-full">
+            <label>
+              {exam === "NEET"
+                ? getConstants().NEET_RANK_LABEL + "(" + exam + "):"
+                : getConstants().RANK_LABEL + "(" + exam + "):"}
+            </label>
+            <input
+              type="number"
+              value={rank}
+              onChange={handleRankChange}
+              className="p-2 border border-gray-300 rounded w-1/3 md:w-1/2 lg:w-full"
+            />
+          </div>
         </div>
-        <div className="my-4">
-          <label>
-            {exam === "NEET"
-              ? getConstants().NEET_RANK_LABEL + "(" + exam + "):"
-              : getConstants().RANK_LABEL + "(" + exam + "):"}
-          </label>
-          <input
-            type="number"
-            value={rank}
-            onChange={handleRankChange}
-            className="p-2 border border-gray-300 rounded w-1/3 md:w-1/2 lg:w-full"
-          />
-        </div>
-        <div className="my-4">
+        <div className="my-4 w-full">
           <label>{getConstants().ROUND_NUMBER_LABEL}</label>
           <Dropdown
             options={roundNumberOptions}
@@ -135,7 +137,7 @@ const HomePage = () => {
         </div>
         {exam != "NEET" && (
           <>
-            <div className="my-4">
+            <div className="my-4 w-full">
               <label>{getConstants().GENDER_LABEL}</label>
               <Dropdown
                 options={genderOptions}
@@ -143,7 +145,7 @@ const HomePage = () => {
                 isDisabled={exam === "NEET"}
               />
             </div>
-            <div className="my-4">
+            <div className="my-4 w-full">
               <label>{getConstants().STATE_LABEL}</label>
               <Dropdown
                 options={stateOptions}
