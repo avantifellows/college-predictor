@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Script from "next/script";
 import Dropdown from "../components/dropdown";
 import { useRouter } from "next/router";
-import styles from "./index.module.css";
 import Link from "next/link";
 import getConstants from "../constants";
 
@@ -84,84 +83,81 @@ const HomePage = () => {
       (!isGenderInOptions || !isExamInOptions || !isStateNameInOptions));
 
   return (
-    <div className={styles.container}>
+    <div className="flex justify-center items-center h-screen px-10">
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-FHGVRT52L7"
         strategy="afterInteractive"
       />
       <Script id="google-analytics" strategy="afterInteractive">
         {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){window.dataLayer.push(arguments);}
-                gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){window.dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-                gtag('config', 'G-FHGVRT52L7');
-                `}
-
+        gtag('config', 'G-FHGVRT52L7');
+      `}
       </Script>
-      <div className={styles.content}>
+      <div className="md:text-xl lg:text-2xl  text-sm text-center flex flex-col items-center w-full md:w-1/2  ">
         <Link href="/scholarships">
-          <h3>To find scholarships relevant to you, click here</h3>
+          <h3 className="font-semibold text-lg md:text-xl lg:text-2xl ">
+            To find scholarships relevant to you, click here
+          </h3>
         </Link>
         <h1>{getConstants().TITLE}</h1>
-        <label className={styles.label}>{getConstants().EXAM_LABEL}</label>
+        <label className="mt-4 w-full">{getConstants().EXAM_LABEL}</label>
         <Dropdown options={examOptions} onChange={handleExamDropdownChange} />
-        <p />
-        <p />
-        <label className={styles.label}>{getConstants().CATEGORY_LABEL}</label>
-        <Dropdown
-          options={categoryOptions}
-          onChange={handleCategoryDropdownChange}
-        />
-        <p />
-        <p />
-        <label className={styles.label}>
-          {exam === "NEET"
-            ? getConstants().NEET_RANK_LABEL + "(" + exam + "):"
-            : getConstants().RANK_LABEL + "(" + exam + "):"}
-        </label>
-        <input
-          type="number"
-          value={rank}
-          onChange={handleRankChange}
-          className={styles.input}
-        />
-        <p />
-        <p />
-
-        <label className={styles.label}>
-          {getConstants().ROUND_NUMBER_LABEL}
-        </label>
-        <Dropdown
-          options={roundNumberOptions}
-          onChange={handleRoundNumberDropdownChange}
-        />
-        <p />
-        <p />
+        <div className="flex gap-4">
+          <div className="my-4 w-full">
+            <label>{getConstants().CATEGORY_LABEL}</label>
+            <Dropdown
+              options={categoryOptions}
+              onChange={handleCategoryDropdownChange}
+            />
+          </div>
+          <div className="my-4 w-full">
+            <label>
+              {exam === "NEET"
+                ? getConstants().NEET_RANK_LABEL + "(" + exam + "):"
+                : getConstants().RANK_LABEL + "(" + exam + "):"}
+            </label>
+            <input
+              type="number"
+              value={rank}
+              onChange={handleRankChange}
+              className="p-2 border border-gray-300 rounded w-1/3 md:w-1/2 lg:w-full"
+            />
+          </div>
+        </div>
+        <div className="my-4 w-full">
+          <label>{getConstants().ROUND_NUMBER_LABEL}</label>
+          <Dropdown
+            options={roundNumberOptions}
+            onChange={handleRoundNumberDropdownChange}
+          />
+        </div>
         {exam != "NEET" && (
           <>
-            <label className={styles.label}>
-              {getConstants().GENDER_LABEL}
-            </label>
-            <Dropdown
-              options={genderOptions}
-              onChange={handleGenderDropdownChange}
-              isDisabled={exam === "NEET"}
-            />
-            <p />
-            <p />
-            <label className={styles.label}>{getConstants().STATE_LABEL}</label>
-            <Dropdown
-              options={stateOptions}
-              onChange={handleStateNameDropdownChange}
-              isDisabled={exam === "NEET"}
-            />
-            <p />
+            <div className="my-4 w-full">
+              <label>{getConstants().GENDER_LABEL}</label>
+              <Dropdown
+                options={genderOptions}
+                onChange={handleGenderDropdownChange}
+                isDisabled={exam === "NEET"}
+              />
+            </div>
+            <div className="my-4 w-full">
+              <label>{getConstants().STATE_LABEL}</label>
+              <Dropdown
+                options={stateOptions}
+                onChange={handleStateNameDropdownChange}
+                isDisabled={exam === "NEET"}
+              />
+            </div>
           </>
         )}
 
         <button
-          className={styles.button}
+          className="mt-2 px-5 py-2 rounded-lg bg-red-600 text-white  cursor-pointer hover:bg-red-700 active:bg-red-800 disabled:bg-gray-300 disabled:cursor-not-allowed"
           onClick={handleSubmit}
           disabled={isSubmitDisabled}
         >
@@ -170,7 +166,6 @@ const HomePage = () => {
       </div>
     </div>
   );
-
 };
 
 export default HomePage;

@@ -2,14 +2,13 @@ import React, { useState } from "react";
 import Script from "next/script";
 import Dropdown from "../components/dropdown";
 import { useRouter } from "next/router";
-import styles from "./scholarships.module.css";
 import Link from "next/link";
 import getConstants from "../constants";
 
 const ScholarshipPage = () => {
-  const categoryOptions = getConstants().SCHOLARSHIP_CATEGORY_OPTIONS;
+  const categoryOptions = getConstants().SCHOLARSHIP_CATEGORY_OPTIONS || [];
 
-  const genderOptions = getConstants().SCHOLARSHIP_GENDER_OPTIONS;
+  const genderOptions = getConstants().SCHOLARSHIP_GENDER_OPTIONS || [];
 
   const statusOptions = getConstants().SCHOLARSHIP_STATUS_OPTIONS;
 
@@ -103,7 +102,7 @@ const ScholarshipPage = () => {
     !isGradeInOptions;
 
   return (
-    <div className={styles.container}>
+    <div className="flex justify-center items-center p-2">
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-FHGVRT52L7"
         strategy="afterInteractive"
@@ -117,70 +116,81 @@ const ScholarshipPage = () => {
                 gtag('config', 'G-FHGVRT52L7');
                 `}
       </Script>
-      <div className={styles.content}>
+      <div className="text-center">
         <Link href="/">
-          <h3>To find colleges relevant to you, click here</h3>
+          <h3 className="cursor-pointer mt-10 font-bold text-sm md:text-xl lg:text-2xl">
+            To find colleges relevant to you, click here
+          </h3>
         </Link>
-        <h1>{getConstants().SCHOLARSHIP_TITLE}</h1>
-        <label className={styles.label}>{getConstants().STATUS_LABEL}</label>
+        <h1 className="text-md font-semibold">
+          {getConstants().SCHOLARSHIP_TITLE}
+        </h1>
+        <label className="block text-md font-semibold text-gray-700 m-2">
+          {getConstants().STATUS_LABEL}
+        </label>
         <Dropdown
           options={statusOptions}
           onChange={handleStatusDropdownChange}
         />
-        <p />
-        <p />
-        <label className={styles.label}>{getConstants().GRADE_LABEL}</label>
+
+        <label className="block text-md font-semibold text-gray-700 m-2">
+          {getConstants().GRADE_LABEL}
+        </label>
         <Dropdown options={gradeOptions} onChange={handleGradeDropdownChange} />
-        <p />
-        <p />
-        <label className={styles.label}>{getConstants().STREAM_LABEL}</label>
+
+        <label className="block text-md font-semibold text-gray-700 m-2">
+          {getConstants().STREAM_LABEL}
+        </label>
         <Dropdown
           options={streamOptions}
           onChange={handleStreamDropdownChange}
         />
-        <p />
-        <p />
-        <label className={styles.label}>{getConstants().CATEGORY_LABEL}</label>
+
+        <label className="font-semibold text-md text-gray-700">
+          {getConstants().CATEGORY_LABEL}
+        </label>
         <br />
-        <label className={styles.help_label}>
+        <label className="font-medium text-sm text-gray-700 m-2 block">
           {getConstants().CATEGORY_HELP_TEXT}
         </label>
         <Dropdown
           options={categoryOptions}
           onChange={handleCategoryDropdownChange}
         />
-        <p />
-        <p />
-        <label className={styles.label}>
+
+        <label className="text-md font-semibold text-gray-700 ">
           {getConstants().FAMILY_INCOME_LABEL}
         </label>
         <br />
-        <label className={styles.help_label}>
+        <label className="block m-2 text-sm font-medium text-gray-700">
           {getConstants().FAMILY_INCOME_HELP_TEXT}
         </label>
         <input
           type="number"
           value={familyIncome}
           onChange={handleFamilyIncomeChange}
-          className={styles.input}
+          className="p-1 border border-gray-400 rounded w-full "
         />
-        <p />
-        <p />
-        <label className={styles.label}>{getConstants().GENDER_LABEL}</label>
+
+        <label className="block text-md font-semibold text-gray-700 m-2">
+          {getConstants().GENDER_LABEL}
+        </label>
         <Dropdown
           options={genderOptions}
           onChange={handleGenderDropdownChange}
         />
-        <p />
-        <p />
-        <label className={styles.label}>{getConstants().STATE_LABEL}</label>
+
+        <label className="block text-md font-semibold text-gray-700 m-2">
+          {getConstants().STATE_LABEL}
+        </label>
         <Dropdown
           options={stateOptions}
           onChange={handleStateNameDropdownChange}
         />
-        <p />
-        <p />
-        <label className={styles.label}>{getConstants().CITY_LABEL}</label>
+
+        <label className="block text-md font-semibold text-gray-700 m-2">
+          {getConstants().CITY_LABEL}
+        </label>
         <Dropdown
           options={cityOptions}
           onChange={handleCityNameDropdownChange}
@@ -189,7 +199,9 @@ const ScholarshipPage = () => {
         <p />
 
         <button
-          className={styles.button}
+          className={`mt-4 px-8 py-2.5 bg-[#B52326] text-white rounded cursor-pointer hover:bg-[#B52326] active:bg-[#B52326] focus:outline-none ${
+            isSubmitDisabled ? "bg-gray-300 cursor-not-allowed" : ""
+          }`}
           onClick={handleSubmit}
           disabled={isSubmitDisabled}
         >

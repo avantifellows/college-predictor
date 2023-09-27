@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import styles from "./scholarship_finder.module.css";
 import getConstants from "../constants";
-
-import ScholarshipTable from "../components/ScholarTable";
+import ScholarshipTable from "../components/ScholarshipTable";
 
 const ScholarshipFinder = () => {
   const router = useRouter();
@@ -155,19 +153,23 @@ const ScholarshipFinder = () => {
   ]);
 
   return (
-    <div className={styles.container}>
-      <div className={styles.content}>
-        <h1>{getConstants().SCHOLARSHIP_TITLE}</h1>
-        <h3>Chosen Grade: {grade}</h3>
-        <h3>Chosen Gender: {gender}</h3>
-        <h3>Chosen Stream: {stream}</h3>
-        <h3>Chosen Category: {category}</h3>
-        <h3>Chosen State: {stateName}</h3>
-        <h3>Chosen City: {cityName}</h3>
-        <h3>Scholarships:</h3>
+    <div className="flex items-center w-full text-md ">
+      <div className="flex flex-col items-center  text-xl md:text-2xl lg:text-3xl">
+        <h1 className="text-2xl m-2 font-semibold">
+          {getConstants().SCHOLARSHIP_TITLE}
+        </h1>
+        <h3 className="mb-2">Chosen Grade: {grade}</h3>
+        <h3 className="mb-2">Chosen Gender: {gender}</h3>
+        <h3 className="mb-2">Chosen Stream: {stream}</h3>
+        <h3 className="mb-2">Chosen Category: {category}</h3>
+        <h3 className="mb-2">Chosen State: {stateName}</h3>
+        <h3 className="mb-2">Chosen City: {cityName}</h3>
+        <h3 className="mb-2 font-bold text-2xl md:text-3xl lg:text-4xl">
+          Scholarships
+        </h3>
         {isLoading ? (
-          <div className={styles.loading}>
-            <div className={styles.spinner}></div>
+          <div className="flex flex-col items-center">
+            <div className="border-t-4 border-[#B52326] border-solid w-7 h-7 animate-spin rounded-full mb-3"></div>
             <p>Loading...</p>
           </div>
         ) : (
@@ -180,7 +182,6 @@ const ScholarshipFinder = () => {
       </div>
     </div>
   );
-
 };
 
 export default ScholarshipFinder;
