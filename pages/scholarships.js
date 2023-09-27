@@ -16,11 +16,13 @@ const ScholarshipPage = () => {
 
   const stateOptions = getConstants().STATE_OPTIONS;
 
+  const familyincomeOptions = getConstants().FAMILY_INCOME_OPTIONS;
+
   const cityOptions = getConstants().CITY_OPTIONS;
 
   const streamOptions = getConstants().STREAM_OPTIONS;
 
-  const [familyIncome, setFamilyIncome] = useState(0);
+  const [familyIncome, setFamilyIncome] = useState("");
   const [category, setCategory] = useState("");
   const [gender, setGender] = useState("");
   const [status, setStatus] = useState("");
@@ -58,9 +60,8 @@ const ScholarshipPage = () => {
     setCityName(selectedOption.label);
   };
 
-  const handleFamilyIncomeChange = (event) => {
-    const enteredIncome = event.target.value;
-    setFamilyIncome(enteredIncome);
+  const handleFamilyIncomeChange = (selectedOption) => {
+    setFamilyIncome(selectedOption.label);
   };
 
   const handleSubmit = () => {
@@ -90,9 +91,12 @@ const ScholarshipPage = () => {
   const isCityNameInOptions = cityOptions.some(
     (option) => option.label === cityName
   );
+  const isFamilyIncomeInOptions = familyincomeOptions.some(
+    (option) => option.label === familyIncome
+  );
 
   const isSubmitDisabled =
-    familyIncome <= 0 ||
+    !isFamilyIncomeInOptions ||
     !isCategoryInOptions ||
     !isStatusInOptions ||
     !isGenderInOptions ||
@@ -165,11 +169,9 @@ const ScholarshipPage = () => {
         <label className="block m-2 text-sm font-medium text-gray-700">
           {getConstants().FAMILY_INCOME_HELP_TEXT}
         </label>
-        <input
-          type="number"
-          value={familyIncome}
+        <Dropdown
+          options={familyincomeOptions}
           onChange={handleFamilyIncomeChange}
-          className="p-1 border border-gray-400 rounded w-full "
         />
 
         <label className="block text-md font-semibold text-gray-700 m-2">

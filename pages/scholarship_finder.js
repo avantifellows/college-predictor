@@ -153,7 +153,7 @@ const ScholarshipFinder = () => {
   ]);
 
   return (
-    <div className="flex items-center w-full text-md ">
+    <div className="flex items-center w-full text-md lg:flex-col ">
       <div className="flex flex-col items-center  text-xl md:text-2xl lg:text-3xl">
         <h1 className="text-2xl m-2 font-semibold">
           {getConstants().SCHOLARSHIP_TITLE}

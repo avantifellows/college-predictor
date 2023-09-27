@@ -6,7 +6,7 @@ const ScholarshipTable = ({
   expandedRows,
 }) => {
   return (
-    <table className="w-10/12 text-center border-collapse">
+    <table className="w-10/12 text-center border-collapse px-2">
       <thead>
         <tr className="bg-gray-300 font-bold text-center">
           <th>Scholarship Name</th>
@@ -23,7 +23,7 @@ const ScholarshipTable = ({
               onClick={() => toggleRowExpansion(index)}
               className={index % 2 === 0 ? "bg-gray-100" : "bg-gray-200"}
             >
-              <td className="px-5 py-3 border-b border-gray-400 text-center break-words w-56">
+              <td className="px-5 py-3 border-b border-gray-400 text-center break-words w-72">
                 {item["Scholarship Name"]}
               </td>
               <td className="px-5 py-3 border-b border-gray-400 text-center">
@@ -40,10 +40,10 @@ const ScholarshipTable = ({
                   href={item["Application Link"]}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-500 hover:underline"
+                  className="text-[#B52326] hover:underline"
                   onClick={(e) => e.stopPropagation()}
                 >
-                  {item["Application Link"]}
+                  Apply
                 </a>
               </td>
             </tr>
