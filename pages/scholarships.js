@@ -169,6 +169,9 @@ const ScholarshipPage = () => {
         <label className="block m-2 text-sm font-medium text-gray-700">
           {getConstants().FAMILY_INCOME_HELP_TEXT}
         </label>
+        <label className="block m-2 text-sm font-medium text-gray-700">
+          {getConstants().FAMILY_INCOME_HELP_TEXT_TWO}
+        </label>
         <Dropdown
           options={familyincomeOptions}
           onChange={handleFamilyIncomeChange}

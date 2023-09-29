@@ -88,6 +88,8 @@ const constants = {
   CITY_LABEL: "Enter City Name:",
   FAMILY_INCOME_LABEL: "Enter your annual family income in lakhs",
   FAMILY_INCOME_HELP_TEXT: "For example, Rs. 1,20,000 to be entered as 1.2",
+  FAMILY_INCOME_HELP_TEXT_TWO:
+    " Scholarships might have specific eligibility within the range check requirements",
   GRADE_OPTIONS: [
     { value: "11", label: "11" },
     { value: "12", label: "12" },
