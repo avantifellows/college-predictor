@@ -120,7 +120,6 @@ const constants = {
     { value: "pune", label: "Pune" },
   ],
   FAMILY_INCOME_OPTIONS: [
-    { value: "0.5_lakh_less", label: "Less than 0.5 Lakh" },
     { value: "0.5_lakh", label: "0.5 Lakh" },
     { value: "1_lakh", label: "1 Lakh" },
     { value: "1.5_lakh", label: "1.5 Lakh" },
@@ -128,7 +127,6 @@ const constants = {
     { value: "2.5_lakh", label: "2.5 Lakh" },
     { value: "3_lakh", label: "3 Lakh" },
     { value: "3.5_lakh", label: "3.5 Lakh" },
-    { value: "4_lakh_plus", label: "More than 4 Lakh" },
   ],
   SCHOLARSHIP_CATEGORY_OPTIONS: [
     { value: "pwd", label: "PWD" },

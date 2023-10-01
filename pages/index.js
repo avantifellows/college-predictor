@@ -4,6 +4,7 @@ import Dropdown from "../components/dropdown";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import getConstants from "../constants";
+import Navbar from "../components/navbar";
 
 const HomePage = () => {
   const categoryOptions = getConstants().CATEGORY_OPTIONS;
@@ -83,86 +84,89 @@ const HomePage = () => {
       (!isGenderInOptions || !isExamInOptions || !isStateNameInOptions));
 
   return (
-    <div className="flex justify-center items-center h-screen px-10">
-      <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-FHGVRT52L7"
-        strategy="afterInteractive"
-      />
-      <Script id="google-analytics" strategy="afterInteractive">
-        {`
+    <div className="flex flex-col h-screen">
+      <Navbar item1="College-Predictor" item2="Scholarship-Predictor" />
+      <div className="flex justify-center items-center flex-col flex-grow px-10">
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-FHGVRT52L7"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
         window.dataLayer = window.dataLayer || [];
         function gtag(){window.dataLayer.push(arguments);}
         gtag('js', new Date());
 
         gtag('config', 'G-FHGVRT52L7');
       `}
-      </Script>
-      <div className="md:text-xl lg:text-2xl  text-sm text-center flex flex-col items-center w-full md:w-1/2  ">
-        <Link href="/scholarships">
-          <h3 className="font-semibold text-lg md:text-xl lg:text-2xl ">
-            To find scholarships relevant to you, click here
-          </h3>
-        </Link>
-        <h1>{getConstants().TITLE}</h1>
-        <label className="mt-4 w-full">{getConstants().EXAM_LABEL}</label>
-        <Dropdown options={examOptions} onChange={handleExamDropdownChange} />
-        <div className="flex gap-4">
+        </Script>
+        <div className="md:text-xl lg:text-2xl  text-sm text-center flex flex-col items-center w-full md:w-1/2  ">
+          <Link href="/scholarships">
+            <h3 className="font-semibold text-lg md:text-xl lg:text-2xl ">
+              To find scholarships relevant to you, click here
+            </h3>
+          </Link>
+          <h1>{getConstants().TITLE}</h1>
+          <label className="mt-4 w-full">{getConstants().EXAM_LABEL}</label>
+          <Dropdown options={examOptions} onChange={handleExamDropdownChange} />
+          <div className="flex gap-4">
+            <div className="my-4 w-full">
+              <label>{getConstants().CATEGORY_LABEL}</label>
+              <Dropdown
+                options={categoryOptions}
+                onChange={handleCategoryDropdownChange}
+              />
+            </div>
+            <div className="my-4 w-full">
+              <label>
+                {exam === "NEET"
+                  ? getConstants().NEET_RANK_LABEL + "(" + exam + "):"
+                  : getConstants().RANK_LABEL + "(" + exam + "):"}
+              </label>
+              <input
+                type="number"
+                value={rank}
+                onChange={handleRankChange}
+                className="p-2 border border-gray-300 rounded w-1/3 md:w-1/2 lg:w-full"
+              />
+            </div>
+          </div>
           <div className="my-4 w-full">
-            <label>{getConstants().CATEGORY_LABEL}</label>
+            <label>{getConstants().ROUND_NUMBER_LABEL}</label>
             <Dropdown
-              options={categoryOptions}
-              onChange={handleCategoryDropdownChange}
+              options={roundNumberOptions}
+              onChange={handleRoundNumberDropdownChange}
             />
           </div>
-          <div className="my-4 w-full">
-            <label>
-              {exam === "NEET"
-                ? getConstants().NEET_RANK_LABEL + "(" + exam + "):"
-                : getConstants().RANK_LABEL + "(" + exam + "):"}
-            </label>
-            <input
-              type="number"
-              value={rank}
-              onChange={handleRankChange}
-              className="p-2 border border-gray-300 rounded w-1/3 md:w-1/2 lg:w-full"
-            />
-          </div>
-        </div>
-        <div className="my-4 w-full">
-          <label>{getConstants().ROUND_NUMBER_LABEL}</label>
-          <Dropdown
-            options={roundNumberOptions}
-            onChange={handleRoundNumberDropdownChange}
-          />
-        </div>
-        {exam != "NEET" && (
-          <>
-            <div className="my-4 w-full">
-              <label>{getConstants().GENDER_LABEL}</label>
-              <Dropdown
-                options={genderOptions}
-                onChange={handleGenderDropdownChange}
-                isDisabled={exam === "NEET"}
-              />
-            </div>
-            <div className="my-4 w-full">
-              <label>{getConstants().STATE_LABEL}</label>
-              <Dropdown
-                options={stateOptions}
-                onChange={handleStateNameDropdownChange}
-                isDisabled={exam === "NEET"}
-              />
-            </div>
-          </>
-        )}
+          {exam != "NEET" && (
+            <>
+              <div className="my-4 w-full">
+                <label>{getConstants().GENDER_LABEL}</label>
+                <Dropdown
+                  options={genderOptions}
+                  onChange={handleGenderDropdownChange}
+                  isDisabled={exam === "NEET"}
+                />
+              </div>
+              <div className="my-4 w-full">
+                <label>{getConstants().STATE_LABEL}</label>
+                <Dropdown
+                  options={stateOptions}
+                  onChange={handleStateNameDropdownChange}
+                  isDisabled={exam === "NEET"}
+                />
+              </div>
+            </>
+          )}
 
-        <button
-          className="mt-2 px-5 py-2 rounded-lg bg-red-600 text-white  cursor-pointer hover:bg-red-700 active:bg-red-800 disabled:bg-gray-300 disabled:cursor-not-allowed"
-          onClick={handleSubmit}
-          disabled={isSubmitDisabled}
-        >
-          Submit
-        </button>
+          <button
+            className="mt-2 px-5 py-2 rounded-lg bg-red-600 text-white  cursor-pointer hover:bg-red-700 active:bg-red-800 disabled:bg-gray-300 disabled:cursor-not-allowed"
+            onClick={handleSubmit}
+            disabled={isSubmitDisabled}
+          >
+            Submit
+          </button>
+        </div>
       </div>
     </div>
   );

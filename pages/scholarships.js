@@ -4,6 +4,7 @@ import Dropdown from "../components/dropdown";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import getConstants from "../constants";
+import Navbar from "../components/navbar";
 
 const ScholarshipPage = () => {
   const categoryOptions = getConstants().SCHOLARSHIP_CATEGORY_OPTIONS || [];
@@ -31,6 +32,10 @@ const ScholarshipPage = () => {
   const [stateName, setStateName] = useState("");
   const [cityName, setCityName] = useState("");
   const router = useRouter();
+
+  function incomeValueToFloat(value) {
+    return parseFloat(value.split("_")[0]) * 100000;
+  }
 
   const handleCategoryDropdownChange = (selectedOption) => {
     setCategory(selectedOption.label);
@@ -61,7 +66,8 @@ const ScholarshipPage = () => {
   };
 
   const handleFamilyIncomeChange = (selectedOption) => {
-    setFamilyIncome(selectedOption.label);
+    const floatValue = incomeValueToFloat(selectedOption.value);
+    setFamilyIncome(floatValue);
   };
 
   const handleSubmit = () => {
@@ -106,112 +112,118 @@ const ScholarshipPage = () => {
     !isGradeInOptions;
 
   return (
-    <div className="flex justify-center items-center p-2">
-      <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-FHGVRT52L7"
-        strategy="afterInteractive"
-      />
-      <Script id="google-analytics" strategy="afterInteractive">
-        {`
+    <div className="flex flex-col justify-start items-center p-2 w-full">
+      <Navbar item1="College-Predictor" item2="Scholarship-Predictor" />
+      <div>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-FHGVRT52L7"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){window.dataLayer.push(arguments);}
                 gtag('js', new Date());
 
                 gtag('config', 'G-FHGVRT52L7');
                 `}
-      </Script>
-      <div className="text-center">
-        <Link href="/">
-          <h3 className="cursor-pointer mt-10 font-bold text-sm md:text-xl lg:text-2xl">
-            To find colleges relevant to you, click here
-          </h3>
-        </Link>
-        <h1 className="text-md font-semibold">
-          {getConstants().SCHOLARSHIP_TITLE}
-        </h1>
-        <label className="block text-md font-semibold text-gray-700 m-2">
-          {getConstants().STATUS_LABEL}
-        </label>
-        <Dropdown
-          options={statusOptions}
-          onChange={handleStatusDropdownChange}
-        />
+        </Script>
+        <div className="text-center">
+          <Link href="/">
+            <h3 className="cursor-pointer mt-10 font-bold text-sm md:text-xl lg:text-2xl">
+              To find colleges relevant to you, click here
+            </h3>
+          </Link>
+          <h1 className="text-md font-semibold">
+            {getConstants().SCHOLARSHIP_TITLE}
+          </h1>
+          <label className="block text-md font-semibold text-gray-700 m-2">
+            {getConstants().STATUS_LABEL}
+          </label>
+          <Dropdown
+            options={statusOptions}
+            onChange={handleStatusDropdownChange}
+          />
 
-        <label className="block text-md font-semibold text-gray-700 m-2">
-          {getConstants().GRADE_LABEL}
-        </label>
-        <Dropdown options={gradeOptions} onChange={handleGradeDropdownChange} />
+          <label className="block text-md font-semibold text-gray-700 m-2">
+            {getConstants().GRADE_LABEL}
+          </label>
+          <Dropdown
+            options={gradeOptions}
+            onChange={handleGradeDropdownChange}
+          />
 
-        <label className="block text-md font-semibold text-gray-700 m-2">
-          {getConstants().STREAM_LABEL}
-        </label>
-        <Dropdown
-          options={streamOptions}
-          onChange={handleStreamDropdownChange}
-        />
+          <label className="block text-md font-semibold text-gray-700 m-2">
+            {getConstants().STREAM_LABEL}
+          </label>
+          <Dropdown
+            options={streamOptions}
+            onChange={handleStreamDropdownChange}
+          />
 
-        <label className="font-semibold text-md text-gray-700">
-          {getConstants().CATEGORY_LABEL}
-        </label>
-        <br />
-        <label className="font-medium text-sm text-gray-700 m-2 block">
-          {getConstants().CATEGORY_HELP_TEXT}
-        </label>
-        <Dropdown
-          options={categoryOptions}
-          onChange={handleCategoryDropdownChange}
-        />
+          <label className="font-semibold text-md text-gray-700">
+            {getConstants().CATEGORY_LABEL}
+          </label>
+          <br />
+          <label className="font-medium text-sm text-gray-700 m-2 block">
+            {getConstants().CATEGORY_HELP_TEXT}
+          </label>
+          <Dropdown
+            options={categoryOptions}
+            onChange={handleCategoryDropdownChange}
+          />
 
-        <label className="text-md font-semibold text-gray-700 ">
-          {getConstants().FAMILY_INCOME_LABEL}
-        </label>
-        <br />
-        <label className="block m-2 text-sm font-medium text-gray-700">
-          {getConstants().FAMILY_INCOME_HELP_TEXT}
-        </label>
-        <label className="block m-2 text-sm font-medium text-gray-700">
-          {getConstants().FAMILY_INCOME_HELP_TEXT_TWO}
-        </label>
-        <Dropdown
-          options={familyincomeOptions}
-          onChange={handleFamilyIncomeChange}
-        />
+          <label className="text-md font-semibold text-gray-700 ">
+            {getConstants().FAMILY_INCOME_LABEL}
+          </label>
+          <br />
+          <label className="block m-2 text-sm font-medium text-gray-700">
+            {getConstants().FAMILY_INCOME_HELP_TEXT}
+          </label>
+          <label className="block m-2 text-sm font-medium text-gray-700">
+            {getConstants().FAMILY_INCOME_HELP_TEXT_TWO}
+          </label>
+          <Dropdown
+            options={familyincomeOptions}
+            onChange={handleFamilyIncomeChange}
+          />
 
-        <label className="block text-md font-semibold text-gray-700 m-2">
-          {getConstants().GENDER_LABEL}
-        </label>
-        <Dropdown
-          options={genderOptions}
-          onChange={handleGenderDropdownChange}
-        />
+          <label className="block text-md font-semibold text-gray-700 m-2">
+            {getConstants().GENDER_LABEL}
+          </label>
+          <Dropdown
+            options={genderOptions}
+            onChange={handleGenderDropdownChange}
+          />
 
-        <label className="block text-md font-semibold text-gray-700 m-2">
-          {getConstants().STATE_LABEL}
-        </label>
-        <Dropdown
-          options={stateOptions}
-          onChange={handleStateNameDropdownChange}
-        />
+          <label className="block text-md font-semibold text-gray-700 m-2">
+            {getConstants().STATE_LABEL}
+          </label>
+          <Dropdown
+            options={stateOptions}
+            onChange={handleStateNameDropdownChange}
+          />
 
-        <label className="block text-md font-semibold text-gray-700 m-2">
-          {getConstants().CITY_LABEL}
-        </label>
-        <Dropdown
-          options={cityOptions}
-          onChange={handleCityNameDropdownChange}
-        />
-        <p />
-        <p />
+          <label className="block text-md font-semibold text-gray-700 m-2">
+            {getConstants().CITY_LABEL}
+          </label>
+          <Dropdown
+            options={cityOptions}
+            onChange={handleCityNameDropdownChange}
+          />
+          <p />
+          <p />
 
-        <button
-          className={`mt-4 px-8 py-2.5 bg-[#B52326] text-white rounded cursor-pointer hover:bg-[#B52326] active:bg-[#B52326] focus:outline-none ${
-            isSubmitDisabled ? "bg-gray-300 cursor-not-allowed" : ""
-          }`}
-          onClick={handleSubmit}
-          disabled={isSubmitDisabled}
-        >
-          Submit
-        </button>
+          <button
+            className={`mt-4 px-8 py-2.5 bg-[#B52326] text-white rounded cursor-pointer hover:bg-[#B52326] active:bg-[#B52326] focus:outline-none ${
+              isSubmitDisabled ? "bg-gray-300 cursor-not-allowed" : ""
+            }`}
+            onClick={handleSubmit}
+            disabled={isSubmitDisabled}
+          >
+            Submit
+          </button>
+        </div>
       </div>
     </div>
   );
