@@ -98,13 +98,13 @@ const HomePage = () => {
         gtag('config', 'G-FHGVRT52L7');
       `}
         </Script>
-        <div className="md:text-xl lg:text-2xl  text-sm text-center flex flex-col items-center w-full md:w-1/2  ">
+        <div className="md:text-xl lg:text-2xl text-sm text-center flex flex-col items-center w-full md:w-1/2  ">
           <h1 className="text-md font-semibold">{getConstants().TITLE}</h1>
           <label className="mt-4 w-full block text-md font-semibold text-gray-700 m-2">
             {getConstants().EXAM_LABEL}
           </label>
           <Dropdown options={examOptions} onChange={handleExamDropdownChange} />
-          <div className="flex gap-4">
+          <div className="flex gap-4 flex-wrap">
             <div className="my-4 w-full">
               <label className="block text-md font-semibold text-gray-700 m-2">
                 {getConstants().CATEGORY_LABEL}

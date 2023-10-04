@@ -6,7 +6,7 @@ const PredictedCollegesTable = ({ data = [] }) => {
         <p className="leading-5 mb-2.5">HS: Home State</p>
         <p className="leading-5 mb-2.5">OS: Out of State</p>
       </div>
-      <table className="w-10/12 mx-auto border-collapse">
+      <table className="w-full mx-auto border-collapse">
         <thead>
           <tr className="bg-gray-400 font-bold p-3 text-center">
             <th>Institute Rank</th>

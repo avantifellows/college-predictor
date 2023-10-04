@@ -90,7 +90,7 @@ const CollegePredictor = () => {
 
   return (
     <div className="flex flex-col items-center">
-      <div className="flex border-4 border-red flex-col items-center justify-center m-auto  ">
+      <div className="flex border-4 border-red flex-col items-center justify-center m-auto">
         <h1 className="text-2xl font-bold mb-5">{getConstants().TITLE}</h1>
         <h2 className="mb-4">
           {exam != "NEET"
