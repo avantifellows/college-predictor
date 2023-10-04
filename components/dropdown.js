@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useId } from "react";
 import Select from "react-select";
 import styles from "../styles/dropdown.module.css";
 
@@ -10,6 +10,7 @@ const Dropdown = ({ options, onChange, isDisabled }) => {
       classNamePrefix="option"
       isDisabled={isDisabled}
       className={styles.control}
+      instanceId={useId}
     />
   );
 };

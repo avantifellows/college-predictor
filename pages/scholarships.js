@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import Script from "next/script";
 import Dropdown from "../components/dropdown";
 import { useRouter } from "next/router";
-import Link from "next/link";
 import getConstants from "../constants";
-import Navbar from "../components/navbar";
 
 const ScholarshipPage = () => {
   const categoryOptions = getConstants().SCHOLARSHIP_CATEGORY_OPTIONS || [];
@@ -34,7 +32,7 @@ const ScholarshipPage = () => {
   const router = useRouter();
 
   function incomeValueToFloat(value) {
-    return parseFloat(value.split("_")[0]) * 100000;
+    return parseFloat(value.split("_")[0]);
   }
 
   const handleCategoryDropdownChange = (selectedOption) => {
@@ -71,49 +69,24 @@ const ScholarshipPage = () => {
   };
 
   const handleSubmit = () => {
+    console.log("Hello");
     router.push(
       `/scholarship_finder?status=${status}&category=${category}&familyIncome=${familyIncome}&stream=${stream}&grade=${grade}&stateName=${stateName}&cityName=${cityName}&gender=${gender}`
     );
   };
 
-  const isCategoryInOptions = categoryOptions.some(
-    (option) => option.label === category
-  );
-  const isGenderInOptions = genderOptions.some(
-    (option) => option.label === gender
-  );
-  const isGradeInOptions = gradeOptions.some(
-    (option) => option.label === grade
-  );
-  const isStreamInOptions = streamOptions.some(
-    (option) => option.label === stream
-  );
-  const isStatusInOptions = statusOptions.some(
-    (option) => option.label === status
-  );
-  const isStateNameInOptions = stateOptions.some(
-    (option) => option.label === stateName
-  );
-  const isCityNameInOptions = cityOptions.some(
-    (option) => option.label === cityName
-  );
-  const isFamilyIncomeInOptions = familyincomeOptions.some(
-    (option) => option.label === familyIncome
-  );
-
   const isSubmitDisabled =
-    !isFamilyIncomeInOptions ||
-    !isCategoryInOptions ||
-    !isStatusInOptions ||
-    !isGenderInOptions ||
-    !isStateNameInOptions ||
-    !isCityNameInOptions ||
-    !isStreamInOptions ||
-    !isGradeInOptions;
+    !familyIncome ||
+    !category ||
+    !status ||
+    !gender ||
+    !stateName ||
+    !cityName ||
+    !stream ||
+    !grade;
 
   return (
-    <div className="flex flex-col justify-start items-center p-2 w-full">
-      <Navbar item1="College-Predictor" item2="Scholarship-Predictor" />
+    <div className="flex flex-col justify-start items-center w-full">
       <div>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-FHGVRT52L7"
@@ -129,11 +102,6 @@ const ScholarshipPage = () => {
                 `}
         </Script>
         <div className="text-center">
-          <Link href="/">
-            <h3 className="cursor-pointer mt-10 font-bold text-sm md:text-xl lg:text-2xl">
-              To find colleges relevant to you, click here
-            </h3>
-          </Link>
           <h1 className="text-md font-semibold">
             {getConstants().SCHOLARSHIP_TITLE}
           </h1>
@@ -213,7 +181,6 @@ const ScholarshipPage = () => {
           />
           <p />
           <p />
-
           <button
             className={`mt-4 px-8 py-2.5 bg-[#B52326] text-white rounded cursor-pointer hover:bg-[#B52326] active:bg-[#B52326] focus:outline-none ${
               isSubmitDisabled ? "bg-gray-300 cursor-not-allowed" : ""

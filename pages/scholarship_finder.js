@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import getConstants from "../constants";
 import ScholarshipTable from "../components/ScholarshipTable";
+import Navbar from "../components/navbar";
 
 const ScholarshipFinder = () => {
   const router = useRouter();

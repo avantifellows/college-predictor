@@ -6,10 +6,10 @@ const ScholarshipTable = ({
   expandedRows,
 }) => {
   return (
-    <table className="w-10/12 text-center border-collapse px-2">
+    <table className="w-full text-center border-collapse px-2">
       <thead>
         <tr className="bg-gray-300 font-bold text-center">
-          <th>Scholarship Name</th>
+          <th className="w-1/2">Scholarship Name</th>
           <th>Status</th>
           <th>Gender</th>
           <th>Category</th>
@@ -23,19 +23,19 @@ const ScholarshipTable = ({
               onClick={() => toggleRowExpansion(index)}
               className={index % 2 === 0 ? "bg-gray-100" : "bg-gray-200"}
             >
-              <td className="px-5 py-3 border-b border-gray-400 text-center break-words w-72">
+              <td className="px-5 py-3 border-b border-gray-400">
                 {item["Scholarship Name"]}
               </td>
-              <td className="px-5 py-3 border-b border-gray-400 text-center">
+              <td className="px-5 py-3 border-b border-gray-400">
                 {item.Status}
               </td>
-              <td className="px-5 py-3 border-b border-gray-400 text-center">
+              <td className="px-5 py-3 border-b border-gray-400">
                 {item.Gender}
               </td>
-              <td className="px-5 py-3 border-b border-gray-400 text-center">
+              <td className="px-5 py-3 border-b border-gray-400">
                 {item.Category}
               </td>
-              <td className="px-5 py-3 border-b border-gray-400 text-center">
+              <td className="px-5 py-3 border-b border-gray-400">
                 <a
                   href={item["Application Link"]}
                   target="_blank"

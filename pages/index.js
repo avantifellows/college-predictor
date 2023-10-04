@@ -85,7 +85,6 @@ const HomePage = () => {
 
   return (
     <div className="flex flex-col h-screen">
-      <Navbar item1="College-Predictor" item2="Scholarship-Predictor" />
       <div className="flex justify-center items-center flex-col flex-grow px-10">
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-FHGVRT52L7"
@@ -101,11 +100,6 @@ const HomePage = () => {
       `}
         </Script>
         <div className="md:text-xl lg:text-2xl  text-sm text-center flex flex-col items-center w-full md:w-1/2  ">
-          <Link href="/scholarships">
-            <h3 className="font-semibold text-lg md:text-xl lg:text-2xl ">
-              To find scholarships relevant to you, click here
-            </h3>
-          </Link>
           <h1>{getConstants().TITLE}</h1>
           <label className="mt-4 w-full">{getConstants().EXAM_LABEL}</label>
           <Dropdown options={examOptions} onChange={handleExamDropdownChange} />

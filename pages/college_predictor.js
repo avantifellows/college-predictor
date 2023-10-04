@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import getConstants from "../constants";
 import PredictedCollegesTable from "../components/PredictedCollegeTables";
+import Navbar from "../components/navbar";
 
 const CollegePredictor = () => {
   const router = useRouter();
@@ -88,7 +89,7 @@ const CollegePredictor = () => {
   }, [rank]);
 
   return (
-    <div className="flex items-center">
+    <div className="flex flex-col items-center">
       <div className="flex border-4 border-red flex-col items-center justify-center m-auto  ">
         <h1 className="text-2xl font-bold mb-5">{getConstants().TITLE}</h1>
         <h2 className="mb-4">
