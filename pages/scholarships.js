@@ -69,7 +69,6 @@ const ScholarshipPage = () => {
   };
 
   const handleSubmit = () => {
-    console.log("Hello");
     router.push(
       `/scholarship_finder?status=${status}&category=${category}&familyIncome=${familyIncome}&stream=${stream}&grade=${grade}&stateName=${stateName}&cityName=${cityName}&gender=${gender}`
     );
@@ -101,7 +100,7 @@ const ScholarshipPage = () => {
                 gtag('config', 'G-FHGVRT52L7');
                 `}
         </Script>
-        <div className="text-center">
+        <div className="text-center md:text-xl lg:text-2xl">
           <h1 className="text-md font-semibold">
             {getConstants().SCHOLARSHIP_TITLE}
           </h1>

@@ -108,7 +108,7 @@ const CollegePredictor = () => {
         <h3 className="mb-4">Predicted colleges and courses for you</h3>
         {isLoading ? (
           <div className="flex items-center justify-center flex-col mt-8">
-            <div className="border-t-4 border-transparent border-t-blue-500 rounded-full w-8 h-8 animate-spin mb-4"></div>
+            <div className="border-t-4 border-transparent border-[#B52326] rounded-full w-8 h-8 animate-spin mb-4"></div>
             <p>Loading...</p>
           </div>
         ) : (

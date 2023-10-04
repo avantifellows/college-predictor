@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import Script from "next/script";
 import Dropdown from "../components/dropdown";
 import { useRouter } from "next/router";
-import Link from "next/link";
+
 import getConstants from "../constants";
-import Navbar from "../components/navbar";
 
 const HomePage = () => {
   const categoryOptions = getConstants().CATEGORY_OPTIONS;
@@ -100,19 +99,23 @@ const HomePage = () => {
       `}
         </Script>
         <div className="md:text-xl lg:text-2xl  text-sm text-center flex flex-col items-center w-full md:w-1/2  ">
-          <h1>{getConstants().TITLE}</h1>
-          <label className="mt-4 w-full">{getConstants().EXAM_LABEL}</label>
+          <h1 className="text-md font-semibold">{getConstants().TITLE}</h1>
+          <label className="mt-4 w-full block text-md font-semibold text-gray-700 m-2">
+            {getConstants().EXAM_LABEL}
+          </label>
           <Dropdown options={examOptions} onChange={handleExamDropdownChange} />
           <div className="flex gap-4">
             <div className="my-4 w-full">
-              <label>{getConstants().CATEGORY_LABEL}</label>
+              <label className="block text-md font-semibold text-gray-700 m-2">
+                {getConstants().CATEGORY_LABEL}
+              </label>
               <Dropdown
                 options={categoryOptions}
                 onChange={handleCategoryDropdownChange}
               />
             </div>
             <div className="my-4 w-full">
-              <label>
+              <label className="block text-md font-semibold text-gray-700 m-2">
                 {exam === "NEET"
                   ? getConstants().NEET_RANK_LABEL + "(" + exam + "):"
                   : getConstants().RANK_LABEL + "(" + exam + "):"}
@@ -121,12 +124,14 @@ const HomePage = () => {
                 type="number"
                 value={rank}
                 onChange={handleRankChange}
-                className="p-2 border border-gray-300 rounded w-1/3 md:w-1/2 lg:w-full"
+                className=" border border-gray-300 rounded w-1/3 md:w-1/2 lg:w-full"
               />
             </div>
           </div>
           <div className="my-4 w-full">
-            <label>{getConstants().ROUND_NUMBER_LABEL}</label>
+            <label className="block text-md font-semibold text-gray-700 m-2">
+              {getConstants().ROUND_NUMBER_LABEL}
+            </label>
             <Dropdown
               options={roundNumberOptions}
               onChange={handleRoundNumberDropdownChange}
@@ -135,7 +140,9 @@ const HomePage = () => {
           {exam != "NEET" && (
             <>
               <div className="my-4 w-full">
-                <label>{getConstants().GENDER_LABEL}</label>
+                <label className="block text-md font-semibold text-gray-700 m-2">
+                  {getConstants().GENDER_LABEL}
+                </label>
                 <Dropdown
                   options={genderOptions}
                   onChange={handleGenderDropdownChange}
@@ -143,7 +150,9 @@ const HomePage = () => {
                 />
               </div>
               <div className="my-4 w-full">
-                <label>{getConstants().STATE_LABEL}</label>
+                <label className="block text-md font-semibold text-gray-700 m-2">
+                  {getConstants().STATE_LABEL}
+                </label>
                 <Dropdown
                   options={stateOptions}
                   onChange={handleStateNameDropdownChange}
@@ -154,7 +163,7 @@ const HomePage = () => {
           )}
 
           <button
-            className="mt-2 px-5 py-2 rounded-lg bg-red-600 text-white  cursor-pointer hover:bg-red-700 active:bg-red-800 disabled:bg-gray-300 disabled:cursor-not-allowed"
+            className="mt-2 px-5 py-2 rounded-lg bg-red-600 text-white cursor-pointer hover:bg-red-700 active:bg-red-800 disabled:bg-gray-300 disabled:cursor-not-allowed"
             onClick={handleSubmit}
             disabled={isSubmitDisabled}
           >
