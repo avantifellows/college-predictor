@@ -39,6 +39,7 @@ const ScholarshipFinder = () => {
           const itemStatus = item["Status"];
           const itemGrade11 = item["Class 11 can Apply"];
           const itemGrade12 = item["Class 12 can Apply"];
+          const itemGradeUG = item["Can UG 1st year apply?"];
           const itemIncome = item["Family Income (in LPA)"];
           const itemCategory = item["Category"];
 
@@ -80,7 +81,8 @@ const ScholarshipFinder = () => {
           let checkForGrade = false;
           if (grade == "11" && itemGrade11 == "Yes") checkForGrade = true;
           if (grade == "12" && itemGrade12 == "Yes") checkForGrade = true;
-          if (grade == "Other" && itemGrade11 != "Yes" && itemGrade12 != "Yes")
+          if (grade == "ug" && itemGradeUG == "Yes") checkForGrade = true;
+          if (grade == "Other" && itemGrade11 != "Yes" && itemGrade12 != "Yes" && itemGradeUG != "Yes")
             checkForGrade = true;
 
           // category check
