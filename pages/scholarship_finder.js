@@ -154,8 +154,8 @@ const ScholarshipFinder = () => {
   ]);
 
   return (
-    <div className="flex items-center w-full text-md lg:flex-col ">
-      <div className="flex flex-col items-center  text-xl md:text-2xl lg:text-3xl">
+    <div className="flex items-center w-full lg:flex-col ">
+      <div className="flex flex-col items-center md:text-2xl lg:text-3xl">
         <h1 className="text-2xl m-2 font-semibold">
           {getConstants().SCHOLARSHIP_TITLE}
         </h1>
@@ -165,7 +165,7 @@ const ScholarshipFinder = () => {
         <h3 className="mb-2">Chosen Category: {category}</h3>
         <h3 className="mb-2">Chosen State: {stateName}</h3>
         <h3 className="mb-2">Chosen City: {cityName}</h3>
-        <h3 className="mb-2 font-bold text-2xl md:text-3xl lg:text-4xl">
+        <h3 className="mb-2  font-bold text-xl md:text-2xl lg:text-3xl">
           Scholarships
         </h3>
         {isLoading ? (
