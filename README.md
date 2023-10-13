@@ -1,6 +1,6 @@
 ## About
 
-College Predictor provides the list of colleges given :
+provides a list of colleges with opening and closing ranks given :
 
 - Exam
 - Category
@@ -9,7 +9,7 @@ College Predictor provides the list of colleges given :
 - Gender
 - Home State
 
-It also finds the Scholarships given :
+finds a list of applicable scholarships given :
 
 - Scholarhship Status
 - Grade
@@ -37,7 +37,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Deploy
 
-- Using AWS amplify
+- Using AWS Amplify
 
 ## Deployed Link
 
