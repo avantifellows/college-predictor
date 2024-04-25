@@ -83,7 +83,7 @@ const HomePage = () => {
       (!isGenderInOptions || !isExamInOptions || !isStateNameInOptions));
 
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col h-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
       <div className="flex justify-center items-center flex-col flex-grow px-10">
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-FHGVRT52L7"
