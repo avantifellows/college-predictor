@@ -89,12 +89,10 @@ const CollegePredictor = () => {
   }, [rank]);
 
   return (
-    <div className="flex flex-col items-center">
-      <div className="max-w-4xl mx-auto my-8 p-8 bg-white rounded-lg shadow-md">
-        <h1 className="text-2xl font-bold mb-4 text-center">
-          {getConstants().TITLE}
-        </h1>
-        <div className="mb-4">
+    <div className="flex flex-col items-center min-h-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+      <div className="max-w-5xl mx-auto my-8 p-8 bg-white rounded-lg shadow-md">
+        <h1 className="text-2xl font-bold mb-4 text-center">{getConstants().TITLE}</h1>
+        <div className="mb-8">
           <h2 className="text-lg font-semibold mb-2">
             {exam !== "NEET" ? "Your Category Rank: " : "Your Rank: "}
             <span className="text-indigo-600">{rank}</span>
@@ -115,7 +113,9 @@ const CollegePredictor = () => {
             <p className="text-gray-700">Loading...</p>
           </div>
         ) : (
-          <PredictedCollegesTable data={filteredData} />
+          <div>
+            <PredictedCollegesTable data={filteredData} />
+          </div>
         )}
       </div>
     </div>
