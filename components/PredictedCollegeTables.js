@@ -1,11 +1,11 @@
 const PredictedCollegesTable = ({ data = [] }) => {
   return (
-    <div>
-      <div className="flex flex-col items-center">
-        <p className="leading-5 mb-2.5">AI: All India</p>
-        <p className="leading-5 mb-2.5">HS: Home State</p>
-        <p className="leading-5 mb-2.5">OS: Out of State</p>
-      </div>
+    <div className="max-w-full mx-auto">
+    <div className="flex flex-col items-center mb-6">
+      <p className="text-sm font-semibold text-gray-600 mb-1">AI: All India</p>
+      <p className="text-sm font-semibold text-gray-600 mb-1">HS: Home State</p>
+      <p className="text-sm font-semibold text-gray-600">OS: Out of State</p>
+    </div>
       <table className="w-full mx-auto border-collapse">
         <thead>
           <tr className="bg-gray-400 font-bold p-3 text-center">
