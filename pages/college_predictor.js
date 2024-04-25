@@ -90,8 +90,9 @@ const CollegePredictor = () => {
 
   return (
     <div className="flex flex-col items-center">
-      <div className="flex border-4 border-red flex-col items-center justify-center m-auto text-xl  md:text-2xl lg:text-3xl">
-        <h1 className="text-2xl font-bold mb-3">{getConstants().TITLE}</h1>
+      <div className="max-w-4xl mx-auto my-8 p-8 bg-white rounded-lg shadow-md">
+      <h1 className="text-2xl font-bold mb-4 text-center">{getConstants().TITLE}</h1>
+      <div className="mb-4">
         <h2 className="mb-1">
           {exam != "NEET"
             ? "Your Category Rank: " + rank
@@ -105,6 +106,7 @@ const CollegePredictor = () => {
             <h3 className="mb-1">Chosen Home State: {stateName}</h3>
           </>
         )}
+        </div>
         <h3 className="mb-4">Predicted colleges and courses for you</h3>
         {isLoading ? (
           <div className="flex items-center justify-center flex-col mt-2">
