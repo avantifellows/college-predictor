@@ -6,16 +6,30 @@ const PredictedCollegesTable = ({ data = [] }) => {
       <p className="text-sm font-semibold text-gray-600 mb-1">HS: Home State</p>
       <p className="text-sm font-semibold text-gray-600">OS: Out of State</p>
     </div>
-      <table className="w-full mx-auto border-collapse">
-        <thead>
-          <tr className="bg-gray-400 font-bold p-3 text-center">
-            <th>Institute Rank</th>
-            <th>State</th>
-            <th>Institute</th>
-            <th>Academic Program Name</th>
-            <th>Opening Rank</th>
-            <th>Closing Rank</th>
-            <th>Quota</th>
+    <table className="min-w-full divide-y divide-gray-200 shadow-md rounded-lg overflow-hidden">
+        <thead className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+          <tr>
+            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+              Institute Rank
+            </th>
+            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+              State
+            </th>
+            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+              Institute
+            </th>
+            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+              Academic Program Name
+            </th>
+            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+              Opening Rank
+            </th>
+            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+              Closing Rank
+            </th>
+            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+              Quota
+            </th>
           </tr>
         </thead>
         <tbody>
