@@ -12,78 +12,40 @@ const PredictedCollegesTable = ({ data = [] }) => {
       </div>
       <table className="min-w-full divide-y divide-gray-200 shadow-md rounded-lg overflow-hidden">
         <thead className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
-          <tr>
-            <th
-              scope="col"
-              className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider"
-            >
+        <tr>
+            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
               Institute Rank
             </th>
-            <th
-              scope="col"
-              className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider"
-            >
+            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
               State
             </th>
-            <th
-              scope="col"
-              className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider"
-            >
+            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider w-1/4">
               Institute
             </th>
-            <th
-              scope="col"
-              className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider"
-            >
+            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider w-1/3">
               Academic Program Name
             </th>
-            <th
-              scope="col"
-              className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider"
-            >
+            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
               Opening Rank
             </th>
-            <th
-              scope="col"
-              className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider"
-            >
+            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
               Closing Rank
             </th>
-            <th
-              scope="col"
-              className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider"
-            >
+            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
               Quota
             </th>
           </tr>
         </thead>
         <tbody className="bg-white divide-y divide-gray-200">
           {data.map((item, index) => (
-            <tr
-              key={index}
-              className={index % 2 === 0 ? "bg-gray-100" : "bg-white"}
-            >
-              <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                {item["College Rank"]}
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                {item["State"]}
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                {item.Institute}
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                {item["Academic Program Name"]}
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                {item["Opening Rank"]}
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                {item["Closing Rank"]}
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                {item["Quota"]}
-              </td>
+            <tr key={index} className={index % 2 === 0 ? 'bg-gray-100' : 'bg-white'}>
+              <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{item["College Rank"]}</td>
+              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{item["State"]}</td>
+              <td className="px-6 py-4 whitespace-normal text-sm text-gray-500">{item.Institute}</td>
+              <td className="px-6 py-4 whitespace-normal text-sm text-gray-500">{item["Academic Program Name"]}</td>
+              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{item["Opening Rank"]}</td>
+              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{item["Closing Rank"]}</td>
+              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{item["Quota"]}</td>
             </tr>
           ))}
         </tbody>
