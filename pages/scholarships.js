@@ -102,7 +102,7 @@ const ScholarshipPage = () => {
         </Script>
         <div className="max-w-2xl w-full bg-white rounded-lg shadow-lg p-8 ">
           <h1 className="text-2xl font-bold text-center mb-6">
-            {getConstants().TITLE}
+            {getConstants().SCHOLARSHIP_TITLE}
           </h1>
           <div className="mb-4 flex gap-4">
             <div className="flex-1">
