@@ -85,8 +85,8 @@ const ScholarshipPage = () => {
     !grade;
 
   return (
-    <div className="flex flex-col justify-start items-center w-full">
-      <div>
+    <div className="flex flex-col min-h-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+      <div className="flex flex-col justify-center items-center flex-grow px-10">
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-FHGVRT52L7"
           strategy="afterInteractive"
@@ -100,7 +100,7 @@ const ScholarshipPage = () => {
                 gtag('config', 'G-FHGVRT52L7');
                 `}
         </Script>
-        <div className="max-w-2xl mt-4 w-full bg-white rounded-lg shadow-lg p-8 ">
+        <div className="max-w-2xl w-full bg-white rounded-lg shadow-lg p-8 ">
           <h1 className="text-2xl font-bold text-center mb-6">
             {getConstants().TITLE}
           </h1>
