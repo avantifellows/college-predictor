@@ -12,7 +12,8 @@ body {
   margin: 0;
   font-family: "Open Sans", "Lato", sans-serif;
   color: #414141;
-  background-color: white;
+  background-image: linear-gradient(to right, #6366f1, #8b5cf6, #ec4899);
+  height: 100%; 
 }
 
 h1,
