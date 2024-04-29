@@ -7,16 +7,12 @@ import getConstants from "../constants";
 
 const HomePage = () => {
   const categoryOptions = getConstants().CATEGORY_OPTIONS;
-
   const genderOptions = getConstants().GENDER_OPTIONS;
-
   const roundNumberOptions = getConstants().ROUND_NUMBER_OPTIONS;
-
   const examOptions = getConstants().EXAM_OPTIONS;
-
   const stateOptions = getConstants().STATE_OPTIONS;
 
-  const [rank, setRank] = useState(0);
+  const [rank, setRank] = useState("");
   const [roundNumber, setRoundNumber] = useState("");
   const [category, setCategory] = useState("");
   const [gender, setGender] = useState("");
@@ -45,27 +41,28 @@ const HomePage = () => {
   };
 
   const handleRankChange = (event) => {
-    const enteredRank = event.target.value;
-    setRank(enteredRank);
+    setRank(event.target.value);
   };
 
   const handleSubmit = () => {
-    if (exam == "NEET") {
-      router.push(
-        `/college_predictor?rank=${rank}&category=${category}&roundNumber=${roundNumber}&exam=${exam}`
-      );
-    } else {
-      router.push(
-        `/college_predictor?rank=${rank}&category=${category}&roundNumber=${roundNumber}&exam=${exam}&gender=${gender}&stateName=${stateName}`
-      );
-    }
+    const queryParams = {
+      rank,
+      category,
+      roundNumber,
+      exam,
+      ...(exam !== "NEET" && { gender, stateName })
+    };
+    const queryString = Object.keys(queryParams)
+      .map((key) => `${key}=${queryParams[key]}`)
+      .join("&");
+    router.push(`/college_predictor?${queryString}`);
   };
 
   const isCategoryInOptions = categoryOptions.some(
     (option) => option.label === category
   );
   const isRoundNumberInOptions = roundNumberOptions.some(
-    (option) => option.label == roundNumber
+    (option) => option.label === roundNumber
   );
   const isGenderInOptions = genderOptions.some(
     (option) => option.label === gender
@@ -76,100 +73,110 @@ const HomePage = () => {
   );
 
   const isSubmitDisabled =
-    rank <= 0 ||
+    !rank ||
     !isCategoryInOptions ||
     !isRoundNumberInOptions ||
     (exam !== "NEET" &&
       (!isGenderInOptions || !isExamInOptions || !isStateNameInOptions));
 
   return (
-    <div className="flex flex-col h-screen">
-      <div className="flex justify-center items-center flex-col flex-grow px-10">
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-FHGVRT52L7"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
+    <div className="flex flex-col h-screen justify-center items-center bg-gray-100">
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-FHGVRT52L7"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
         window.dataLayer = window.dataLayer || [];
         function gtag(){window.dataLayer.push(arguments);}
         gtag('js', new Date());
-
         gtag('config', 'G-FHGVRT52L7');
       `}
-        </Script>
-        <div className="md:text-xl lg:text-2xl text-sm text-center flex flex-col items-center w-full md:w-1/2  ">
-          <h1 className="text-md font-semibold">{getConstants().TITLE}</h1>
-          <label className="mt-4 w-full block text-md font-semibold text-gray-700 m-2">
+      </Script>
+      <div className="text-center flex flex-col items-center w-full md:w-1/2 p-6 bg-white rounded-lg shadow-lg">
+        <h1 className="text-xl font-semibold mb-4">{getConstants().TITLE}</h1>
+        <div className="flex flex-wrap justify-between w-full mb-4">
+          <label className="block w-full lg:w-1/3 font-semibold text-gray-700">
             {getConstants().EXAM_LABEL}
           </label>
-          <Dropdown options={examOptions} onChange={handleExamDropdownChange} />
-          <div className="flex gap-4 flex-wrap">
-            <div className="my-4 w-full">
-              <label className="block text-md font-semibold text-gray-700 m-2">
-                {getConstants().CATEGORY_LABEL}
-              </label>
-              <Dropdown
-                options={categoryOptions}
-                onChange={handleCategoryDropdownChange}
-              />
-            </div>
-            <div className="my-4 w-full">
-              <label className="block text-md font-semibold text-gray-700 m-2">
-                {exam === "NEET"
-                  ? getConstants().NEET_RANK_LABEL + "(" + exam + "):"
-                  : getConstants().RANK_LABEL + "(" + exam + "):"}
-              </label>
-              <input
-                type="number"
-                value={rank}
-                onChange={handleRankChange}
-                className=" border border-gray-300 rounded w-1/3 md:w-1/2 lg:w-full"
-              />
-            </div>
+          <div className="w-full lg:w-2/3">
+            <Dropdown
+              options={examOptions}
+              onChange={handleExamDropdownChange}
+            />
           </div>
-          <div className="my-4 w-full">
-            <label className="block text-md font-semibold text-gray-700 m-2">
-              {getConstants().ROUND_NUMBER_LABEL}
-            </label>
+        </div>
+        <div className="flex flex-wrap justify-between w-full mb-4">
+          <label className="block w-full lg:w-1/3 font-semibold text-gray-700">
+            {getConstants().CATEGORY_LABEL}
+          </label>
+          <div className="w-full lg:w-2/3">
+            <Dropdown
+              options={categoryOptions}
+              onChange={handleCategoryDropdownChange}
+            />
+          </div>
+        </div>
+        <div className="flex flex-wrap justify-between w-full mb-4">
+          <label className="block w-full lg:w-1/3 font-semibold text-gray-700">
+            {exam === "NEET"
+              ? `${getConstants().NEET_RANK_LABEL} (${exam}):`
+              : `${getConstants().RANK_LABEL} (${exam}):`}
+          </label>
+          <div className="w-full lg:w-2/3">
+            <input
+              type="number"
+              value={rank}
+              onChange={handleRankChange}
+              className="border border-gray-300 rounded px-3 py-2 w-full"
+              placeholder="Enter rank"
+            />
+          </div>
+        </div>
+        <div className="flex flex-wrap justify-between w-full mb-4">
+          <label className="block w-full lg:w-1/3 font-semibold text-gray-700">
+            {getConstants().ROUND_NUMBER_LABEL}
+          </label>
+          <div className="w-full lg:w-2/3">
             <Dropdown
               options={roundNumberOptions}
               onChange={handleRoundNumberDropdownChange}
             />
           </div>
-          {exam != "NEET" && (
-            <>
-              <div className="my-4 w-full">
-                <label className="block text-md font-semibold text-gray-700 m-2">
-                  {getConstants().GENDER_LABEL}
-                </label>
+        </div>
+        {exam !== "NEET" && (
+          <>
+            <div className="flex flex-wrap justify-between w-full mb-4">
+              <label className="block w-full lg:w-1/3 font-semibold text-gray-700">
+                {getConstants().GENDER_LABEL}
+              </label>
+              <div className="w-full lg:w-2/3">
                 <Dropdown
                   options={genderOptions}
                   onChange={handleGenderDropdownChange}
-                  isDisabled={exam === "NEET"}
                 />
               </div>
-              <div className="my-4 w-full">
-                <label className="block text-md font-semibold text-gray-700 m-2">
-                  {getConstants().STATE_LABEL}
-                </label>
+            </div>
+            <div className="flex flex-wrap justify-between w-full mb-4">
+              <label className="block w-full lg:w-1/3 font-semibold text-gray-700">
+                {getConstants().STATE_LABEL}
+              </label>
+              <div className="w-full lg:w-2/3">
                 <Dropdown
                   options={stateOptions}
                   onChange={handleStateNameDropdownChange}
-                  isDisabled={exam === "NEET"}
                 />
               </div>
-            </>
-          )}
-
-          <button
-            className="mt-2 px-5 py-2 rounded-lg bg-red-600 text-white cursor-pointer hover:bg-red-700 active:bg-red-800 disabled:bg-gray-300 disabled:cursor-not-allowed"
-            onClick={handleSubmit}
-            disabled={isSubmitDisabled}
-          >
-            Submit
-          </button>
-        </div>
+            </div>
+          </>
+        )}
+        <button
+          className={`mt-4 px-5 py-2 rounded-lg bg-red-600 text-white hover:bg-red-700 active:bg-red-800 disabled:bg-gray-300 disabled:cursor-not-allowed border border-transparent focus:outline-none focus:border-red-700`}
+          onClick={handleSubmit}
+          disabled={isSubmitDisabled}
+        >
+          Submit
+        </button>
       </div>
     </div>
   );
