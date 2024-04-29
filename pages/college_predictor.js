@@ -9,10 +9,12 @@ const CollegePredictor = () => {
   const {
     rank,
     category,
-    roundNumber,
     exam,
+    roundNumber = "",
     gender = "",
     stateName = "",
+    pwd = "",
+    defense = ""
   } = router.query;
   const [filteredData, setFilteredData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -23,14 +25,40 @@ const CollegePredictor = () => {
         let exam_fol;
         if (exam === "JEE Main" || exam === "JEE Advanced") {
           exam_fol = "JEE";
+        } else if (exam == "MHT CET") {
+          exam_fol = "MHTCET"
         } else exam_fol = "NEET";
-        const response = await fetch(
-          "/data/" + exam_fol + "/" + category + ".json"
-        );
+        
+        let response;
+        if (exam_fol == "MHTCET") {
+          response = await fetch(
+            "/data/" + exam_fol + "/" + "mhtcet_data.json"
+          );
+        } else {
+          response = await fetch(
+            "/data/" + exam_fol + "/" + category + ".json"
+          );
+        }
+        
         const data = await response.json();
 
         // Filter the data based on round number
         const dataForGivenQuery = data.filter((item) => {
+          if (exam === "MHT CET") {
+            const itemGender = item["Gender"];
+            const itemState = item["State"];
+            const itemPwd = item["PWD"];
+            const itemDefense = item["Defense"];
+            const itemCategory = item["Category"]
+
+            return (
+              itemGender == gender &&
+              itemState == stateName &&
+              itemPwd == pwd &&
+              itemDefense == defense &&
+              itemCategory == category
+            )
+          }
           const itemRound = parseInt(item["Round"], 10);
           const itemExam = item["Exam"];
           if (exam === "JEE Main" || exam === "JEE Advanced") {
@@ -61,18 +89,28 @@ const CollegePredictor = () => {
 
         // Sort the filteredData in ascending order of college rank
         // for same college (with same rank), sort with opening rank
-        filteredData.sort((a, b) => {
-          const rankA = a["College Rank"];
-          const rankB = b["College Rank"];
-
-          if (rankA !== rankB) {
+        if (exam != "MHT CET") {
+          filteredData.sort((a, b) => {
+            const rankA = a["College Rank"];
+            const rankB = b["College Rank"];
+  
+            if (rankA !== rankB) {
+              return rankA - rankB;
+            } else {
+              const openingRankA = a["Opening Rank"];
+              const openingRankB = b["Opening Rank"];
+              return openingRankA - openingRankB;
+            }
+          });
+        }
+        else {
+          filteredData.sort((a, b) => {
+            const rankA = a["Closing Rank"];
+            const rankB = b["Closing Rank"];
+  
             return rankA - rankB;
-          } else {
-            const openingRankA = a["Opening Rank"];
-            const openingRankB = b["Opening Rank"];
-            return openingRankA - openingRankB;
-          }
-        });
+          }); 
+        }
 
         setFilteredData(filteredData);
         setIsLoading(false);
@@ -97,7 +135,11 @@ const CollegePredictor = () => {
             ? "Your Category Rank: " + rank
             : "Your Rank: " + rank}
         </h2>
-        <h3 className="mb-1">Chosen Round Number: {roundNumber}</h3>
+        {exam != "MHT CET" && (
+          <>
+            <h3 className="mb-1">Chosen Round Number: {roundNumber}</h3>
+          </>
+        )}
         <h3 className="mb-1">Chosen Exam: {exam}</h3>
         {exam != "NEET" && (
           <>
@@ -112,7 +154,7 @@ const CollegePredictor = () => {
             <p>Loading...</p>
           </div>
         ) : (
-          <PredictedCollegesTable data={filteredData} />
+          <PredictedCollegesTable data={filteredData} exam={exam}/>
         )}
       </div>
     </div>

@@ -43,6 +43,7 @@ const constants = {
     { value: "jee_main", label: "JEE Main" },
     { value: "jee_advanced", label: "JEE Advanced" },
     { value: "neet", label: "NEET" },
+    { value: "mhtcet", label: "MHT CET" },
   ],
   STATE_OPTIONS: [
     { value: "all_india", label: "All India" },
@@ -139,6 +140,35 @@ const constants = {
     { value: "others", label: "Others" },
   ],
   CATEGORY_HELP_TEXT: "Choose 'Others' if relevant category is not present",
+  MHTCET_GENDER_OPTIONS: [
+    { value: "general", label: "General" },
+    { value: "female", label: "Female" },
+  ],
+  MHTCET_PWD_LABEL: "Are you a PWD Student?",
+  MHTCET_PWD_OPTIONS: [
+    { value: "No", label: "No" },
+    { value: "Yes", label: "Yes" },
+  ],
+  MHTCET_DEFENSE_LABEL: "Are you a Defense Ward Student?",
+  MHTCET_DEFENSE_OPTIONS: [
+    { value: "No", label: "No" },
+    { value: "Yes", label: "Yes" },
+  ],
+  MHTCET_CATEGORY_OPTIONS: [
+    { value: "OBC", label: "OBC" },
+    { value: "SC", label: "SC" },
+    { value: "ST", label: "ST" },
+    { value: "Open", label: "Open" },
+    { value: "Religious Minority", label: "Religious Minority" },
+    { value: "EWS", label: "EWS" },
+    { value: "VJ", label: "VJ" },
+    { value: "NT", label: "NT" },
+    { value: "Orphan", label: "Orphan" },
+  ],
+  MHTCET_STATE_OPTIONS: [
+    { value: "Maharashtra", label: "Maharashtra" },
+    { value: "Other", label: "Other" },
+  ]
 };
 
 export default function getConstants() {

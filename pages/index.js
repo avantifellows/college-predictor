@@ -7,14 +7,21 @@ import getConstants from "../constants";
 
 const HomePage = () => {
   const categoryOptions = getConstants().CATEGORY_OPTIONS;
+  const mhtcetCategoryOptions = getConstants().MHTCET_CATEGORY_OPTIONS;
 
   const genderOptions = getConstants().GENDER_OPTIONS;
+  const mhtcetGenderOptions = getConstants().MHTCET_GENDER_OPTIONS;
 
   const roundNumberOptions = getConstants().ROUND_NUMBER_OPTIONS;
+
+  const pwdOptions = getConstants().MHTCET_PWD_OPTIONS;
+
+  const defenseOptions = getConstants().MHTCET_DEFENSE_OPTIONS;
 
   const examOptions = getConstants().EXAM_OPTIONS;
 
   const stateOptions = getConstants().STATE_OPTIONS;
+  const mhtcetStateOptions = getConstants().MHTCET_STATE_OPTIONS;
 
   const [rank, setRank] = useState(0);
   const [roundNumber, setRoundNumber] = useState("");
@@ -22,6 +29,8 @@ const HomePage = () => {
   const [gender, setGender] = useState("");
   const [exam, setExam] = useState("");
   const [stateName, setStateName] = useState("");
+  const [defense, setDefense] = useState("");
+  const [pwd, setPwd] = useState("");
   const router = useRouter();
 
   const handleCategoryDropdownChange = (selectedOption) => {
@@ -44,6 +53,14 @@ const HomePage = () => {
     setStateName(selectedOption.label);
   };
 
+  const handlePwdDropdownChange = (selectedOption) => {
+    setPwd(selectedOption.label);
+  };
+
+  const handleDefenseDropdownChange = (selectedOption) => {
+    setDefense(selectedOption.label);
+  };
+
   const handleRankChange = (event) => {
     const enteredRank = event.target.value;
     setRank(enteredRank);
@@ -54,14 +71,21 @@ const HomePage = () => {
       router.push(
         `/college_predictor?rank=${rank}&category=${category}&roundNumber=${roundNumber}&exam=${exam}`
       );
-    } else {
+    } else if (exam == "JEE Main" || exam == "JEE Advanced") {
       router.push(
         `/college_predictor?rank=${rank}&category=${category}&roundNumber=${roundNumber}&exam=${exam}&gender=${gender}&stateName=${stateName}`
       );
+    } else if (exam == "MHT CET") {
+      router.push(
+        `/college_predictor?rank=${rank}&category=${category}&exam=${exam}&gender=${gender}&stateName=${stateName}&defense=${defense}&pwd=${pwd}`
+      )
     }
   };
 
   const isCategoryInOptions = categoryOptions.some(
+    (option) => option.label === category
+  );
+  const isMhtcetCategoryInOptions = mhtcetCategoryOptions.some(
     (option) => option.label === category
   );
   const isRoundNumberInOptions = roundNumberOptions.some(
@@ -70,17 +94,32 @@ const HomePage = () => {
   const isGenderInOptions = genderOptions.some(
     (option) => option.label === gender
   );
+  const isMhtcetGenderInOptions = mhtcetGenderOptions.some(
+    (option) => option.label === gender
+  );
   const isExamInOptions = examOptions.some((option) => option.label === exam);
   const isStateNameInOptions = stateOptions.some(
     (option) => option.label === stateName
   );
+  const isMhtcetStateNameInOptions = mhtcetStateOptions.some(
+    (option) => option.label === stateName
+  );
+  const isDefenseInOptions = defenseOptions.some(
+    (option) => option.label === defense
+  );
+  const isPwdInOptions = pwdOptions.some(
+    (option) => option.label === pwd
+  );
 
   const isSubmitDisabled =
     rank <= 0 ||
-    !isCategoryInOptions ||
-    !isRoundNumberInOptions ||
-    (exam !== "NEET" &&
-      (!isGenderInOptions || !isExamInOptions || !isStateNameInOptions));
+    (exam != "MHT CET" &&
+      (!isCategoryInOptions || !isRoundNumberInOptions)) ||
+    ((exam === "JEE Main" || exam === "JEE Advanced") &&
+      (!isGenderInOptions || !isExamInOptions || !isStateNameInOptions)) ||
+    (exam === "MHT CET" &&
+      (!isMhtcetCategoryInOptions || !isMhtcetGenderInOptions || !isMhtcetStateNameInOptions ||
+       !isDefenseInOptions || !isPwdInOptions));
 
   return (
     <div className="flex flex-col h-screen">
@@ -110,13 +149,15 @@ const HomePage = () => {
                 {getConstants().CATEGORY_LABEL}
               </label>
               <Dropdown
-                options={categoryOptions}
+                options={exam === "MHT CET"
+                          ? mhtcetCategoryOptions
+                          : categoryOptions}
                 onChange={handleCategoryDropdownChange}
               />
             </div>
             <div className="my-4 w-full">
               <label className="block text-md font-semibold text-gray-700 m-2">
-                {exam === "NEET"
+                {exam === "NEET" || exam === "MHT CET"
                   ? getConstants().NEET_RANK_LABEL + "(" + exam + "):"
                   : getConstants().RANK_LABEL + "(" + exam + "):"}
               </label>
@@ -128,15 +169,20 @@ const HomePage = () => {
               />
             </div>
           </div>
-          <div className="my-4 w-full">
-            <label className="block text-md font-semibold text-gray-700 m-2">
-              {getConstants().ROUND_NUMBER_LABEL}
-            </label>
-            <Dropdown
-              options={roundNumberOptions}
-              onChange={handleRoundNumberDropdownChange}
-            />
-          </div>
+          {exam != "MHT CET" && (
+            <>
+              <div className="my-4 w-full">
+              <label className="block text-md font-semibold text-gray-700 m-2">
+                {getConstants().ROUND_NUMBER_LABEL}
+              </label>
+              <Dropdown
+                options={roundNumberOptions}
+                onChange={handleRoundNumberDropdownChange}
+                isDisabled={exam === "MHT CET"}
+              />
+              </div>
+            </>
+          )}
           {exam != "NEET" && (
             <>
               <div className="my-4 w-full">
@@ -144,7 +190,9 @@ const HomePage = () => {
                   {getConstants().GENDER_LABEL}
                 </label>
                 <Dropdown
-                  options={genderOptions}
+                  options={exam === "MHT CET"
+                            ? mhtcetGenderOptions
+                            : genderOptions}
                   onChange={handleGenderDropdownChange}
                   isDisabled={exam === "NEET"}
                 />
@@ -154,10 +202,40 @@ const HomePage = () => {
                   {getConstants().STATE_LABEL}
                 </label>
                 <Dropdown
-                  options={stateOptions}
+                  options={exam === "MHT CET"
+                            ? mhtcetStateOptions
+                            : stateOptions}
                   onChange={handleStateNameDropdownChange}
                   isDisabled={exam === "NEET"}
                 />
+              </div>
+            </>
+          )}
+          {exam === "MHT CET" && (
+            <>
+              <div className="my-4 w-full">
+              <label className="block text-md font-semibold text-gray-700 m-2">
+                {getConstants().MHTCET_PWD_LABEL}
+              </label>
+              <Dropdown
+                options={pwdOptions}
+                onChange={handlePwdDropdownChange}
+                isDisabled={exam != "MHT CET"}
+              />
+              </div>
+            </>
+          )}
+          {exam === "MHT CET" && (
+            <>
+              <div className="my-4 w-full">
+              <label className="block text-md font-semibold text-gray-700 m-2">
+                {getConstants().MHTCET_DEFENSE_LABEL}
+              </label>
+              <Dropdown
+                options={defenseOptions}
+                onChange={handleDefenseDropdownChange}
+                isDisabled={exam != "MHT CET"}
+              />
               </div>
             </>
           )}
