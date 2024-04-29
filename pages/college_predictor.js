@@ -6,14 +6,8 @@ import Navbar from "../components/navbar";
 
 const CollegePredictor = () => {
   const router = useRouter();
-  const {
-    rank,
-    category,
-    roundNumber,
-    exam,
-    gender = "",
-    stateName = "",
-  } = router.query;
+  const { rank, category, roundNumber, exam, gender = "", stateName = "" } =
+    router.query;
   const [filteredData, setFilteredData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -89,33 +83,44 @@ const CollegePredictor = () => {
   }, [rank]);
 
   return (
-    <div className="flex flex-col items-center">
-      <div className="flex border-4 border-red flex-col items-center justify-center m-auto text-xl  md:text-2xl lg:text-3xl">
-        <h1 className="text-2xl font-bold mb-3">{getConstants().TITLE}</h1>
-        <h2 className="mb-1">
-          {exam != "NEET"
-            ? "Your Category Rank: " + rank
-            : "Your Rank: " + rank}
-        </h2>
-        <h3 className="mb-1">Chosen Round Number: {roundNumber}</h3>
-        <h3 className="mb-1">Chosen Exam: {exam}</h3>
-        {exam != "NEET" && (
-          <>
-            <h3 className="mb-1">Chosen Gender: {gender}</h3>
-            <h3 className="mb-1">Chosen Home State: {stateName}</h3>
-          </>
-        )}
-        <h3 className="mb-4">Predicted colleges and courses for you</h3>
-        {isLoading ? (
-          <div className="flex items-center justify-center flex-col mt-2">
-            <div className="border-t-2 border-transparent border-[#B52326] rounded-full w-8 h-8 animate-spin mb-2"></div>
-            <p>Loading...</p>
+    <>
+      <Navbar />
+      <div className="min-h-screen bg-gray-100">
+        <div className="container mx-auto px-4 py-8">
+          <h1 className="text-3xl font-bold mb-6 text-center">
+            {getConstants().TITLE}
+          </h1>
+          <div className="text-lg">
+            <p>
+              {exam !== "NEET"
+                ? `Your Category Rank: ${rank}`
+                : `Your Rank: ${rank}`}
+            </p>
+            <p>Chosen Round Number: {roundNumber}</p>
+            <p>Chosen Exam: {exam}</p>
+            {exam !== "NEET" && (
+              <>
+                <p>Chosen Gender: {gender}</p>
+                <p>Chosen Home State: {stateName}</p>
+              </>
+            )}
           </div>
-        ) : (
-          <PredictedCollegesTable data={filteredData} />
-        )}
+          <h2 className="mt-8 mb-4 text-xl font-bold text-center">
+            Predicted colleges and courses for you
+          </h2>
+          {isLoading ? (
+            <div className="flex items-center justify-center space-x-2 text-lg">
+              <div className="w-6 h-6 border-t-2 border-b-2 border-red-500 rounded-full animate-spin"></div>
+              <p>Loading...</p>
+            </div>
+          ) : (
+            <div className="overflow-x-auto">
+              <PredictedCollegesTable data={filteredData} />
+            </div>
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
