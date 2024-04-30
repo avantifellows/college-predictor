@@ -86,7 +86,7 @@ const ScholarshipPage = () => {
     !grade;
 
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+    <div className="flex flex-col min-h-screen">
       <div className="flex flex-col justify-center items-center flex-grow px-10">
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-FHGVRT52L7"
@@ -101,7 +101,7 @@ const ScholarshipPage = () => {
                 gtag('config', 'G-FHGVRT52L7');
                 `}
         </Script>
-        <div className="max-w-2xl w-full bg-white rounded-lg shadow-lg p-8 ">
+        <div className="max-w-2xl w-full bg-white rounded-xl shadow-2xl p-8 ">
           <h1 className="text-2xl font-bold text-center mb-6">
             {getConstants().SCHOLARSHIP_TITLE}
           </h1>
@@ -201,7 +201,7 @@ const ScholarshipPage = () => {
             </div>
           </div>
           <button
-            className={` w-full py-2 px-4 bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg ${
+            className={` w-full py-2 px-4  bg-red-600 hover:bg-red-700 focus:ring-red-500 focus:ring-offset-indigo-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg ${
               isSubmitDisabled ? "bg-gray-300 cursor-not-allowed" : ""
             }`}
             onClick={handleSubmit}

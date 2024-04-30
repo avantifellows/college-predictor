@@ -88,7 +88,7 @@ const CollegePredictor = () => {
   }, [rank]);
   return (
     <div className="flex flex-col items-center min-h-screen">
-      <div className="w-full max-w-6xl mx-auto my-8 p-4 bg-white rounded-lg shadow-md sm:p-8">
+      <div className="w-full max-w-6xl mx-auto my-8 p-4 bg-white rounded-lg shadow-lg sm:p-8">
         <h1 className="text-xl font-bold mb-4 text-center sm:text-2xl">
           {getConstants().TITLE}
         </h1>
