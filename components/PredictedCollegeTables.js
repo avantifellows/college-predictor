@@ -2,52 +2,13 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
   if (exam == "MHT CET") {
     return (
       <div>
-      <table className="w-full mx-auto border-collapse">
-        <thead>
-          <tr className="bg-gray-400 font-bold p-3 text-center">
-            <th>Institute</th>
-            <th>Academic Program Name</th>
-            <th>Closing Rank</th>
-            <th>Category</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          {data.map((item, index) => (
-            <tr
-              key={index}
-              className={`border-b border-gray-300 text-center ${
-                index % 2 === 0 ? "bg-gray-200" : "bg-gray-300"
-              }`}
-            >
-              <td className="py-5">{item.Institute}</td>
-              <td className="py-5">{item["Course"]}</td>
-              <td className="py-5">{item["Closing Rank"]}</td>
-              <td className="py-5">{item["Category_Key"]}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-    );
-  } else {
-    return (
-      <div>
-        <div className="flex flex-col items-center">
-          <p className="leading-5 mb-2.5">AI: All India</p>
-          <p className="leading-5 mb-2.5">HS: Home State</p>
-          <p className="leading-5 mb-2.5">OS: Out of State</p>
-        </div>
-        <table className="w-full mx-auto border-collapse">
+        <table className="w-full mx-auto border-collapse text-sm sm:text-base">
           <thead>
-            <tr className="bg-gray-400 font-bold p-3 text-center">
-              <th>Institute Rank</th>
-              <th>State</th>
-              <th>Institute</th>
-              <th>Academic Program Name</th>
-              <th>Opening Rank</th>
-              <th>Closing Rank</th>
-              <th>Quota</th>
+            <tr className="bg-gray-400 font-bold p-2 text-center">
+              <th className="p-2">Institute</th>
+              <th className="p-2">Academic Program Name</th>
+              <th className="p-2">Closing Rank</th>
+              <th className="p-2">Category</th>
             </tr>
           </thead>
           <tbody>
@@ -58,13 +19,51 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
                   index % 2 === 0 ? "bg-gray-200" : "bg-gray-300"
                 }`}
               >
-                <td className="py-5">{item["College Rank"]}</td>
-                <td className="py-5">{item["State"]}</td>
-                <td className="py-5">{item.Institute}</td>
-                <td className="py-5">{item["Academic Program Name"]}</td>
-                <td className="py-5">{item["Opening Rank"]}</td>
-                <td className="py-5">{item["Closing Rank"]}</td>
-                <td className="py-5">{item["Quota"]}</td>
+                <td className="p-2">{item.Institute}</td>
+                <td className="p-2">{item["Course"]}</td>
+                <td className="p-2">{item["Closing Rank"]}</td>
+                <td className="p-2">{item["Category_Key"]}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <div className="flex flex-col items-center text-sm sm:text-base">
+          <p className="leading-4 mb-1">AI: All India</p>
+          <p className="leading-4 mb-1">HS: Home State</p>
+          <p className="leading-4 mb-1">OS: Out of State</p>
+        </div>
+        <table className="w-full mx-auto border-collapse text-sm sm:text-base">
+          <thead>
+            <tr className="bg-gray-400 font-bold p-2 text-center">
+              <th className="p-2">Institute Rank</th>
+              <th className="p-2">State</th>
+              <th className="p-2">Institute</th>
+              <th className="p-2">Academic Program Name</th>
+              <th className="p-2">Opening Rank</th>
+              <th className="p-2">Closing Rank</th>
+              <th className="p-2">Quota</th>
+            </tr>
+          </thead>
+          <tbody>
+            {data.map((item, index) => (
+              <tr
+                key={index}
+                className={`border-b border-gray-300 text-center ${
+                  index % 2 === 0 ? "bg-gray-200" : "bg-gray-300"
+                }`}
+              >
+                <td className="p-2">{item["College Rank"]}</td>
+                <td className="p-2">{item["State"]}</td>
+                <td className="p-2">{item.Institute}</td>
+                <td className="p-2">{item["Academic Program Name"]}</td>
+                <td className="p-2">{item["Opening Rank"]}</td>
+                <td className="p-2">{item["Closing Rank"]}</td>
+                <td className="p-2">{item["Quota"]}</td>
               </tr>
             ))}
           </tbody>
@@ -72,7 +71,6 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
       </div>
     );
   }
-  
 };
 
 export default PredictedCollegesTable;

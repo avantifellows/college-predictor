@@ -7,7 +7,7 @@ const constants = {
     { value: "OS", label: "OS" },
   ],
   RANK_LABEL: "Enter Category Rank",
-  NEET_RANK_LABEL: "Enter Rank",
+  NEET_RANK_LABEL: "Enter Rank As Per Open Rank List",
   GENDER_LABEL: "Select Gender:",
   EXAM_LABEL: "Select Exam:",
   STATE_LABEL: "Select Your Home State:",

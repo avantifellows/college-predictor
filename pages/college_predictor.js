@@ -147,7 +147,7 @@ const CollegePredictor = () => {
             <h3 className="mb-1">Chosen Home State: {stateName}</h3>
           </>
         )}
-        <h3 className="mb-4">Predicted colleges and courses for you</h3>
+        <h3 className="mb-4">Predicted colleges and courses for you:</h3>
         {isLoading ? (
           <div className="flex items-center justify-center flex-col mt-2">
             <div className="border-t-2 border-transparent border-[#B52326] rounded-full w-8 h-8 animate-spin mb-2"></div>
