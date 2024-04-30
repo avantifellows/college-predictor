@@ -32,7 +32,7 @@ const ScholarshipTable = ({
   return (
     <div className="max-w-full mx-auto">
       <table className="min-w-full divide-y divide-gray-200 shadow-md rounded-lg overflow-hidden">
-        <thead className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+        <thead className="bg-gradient-to-r from-yellow-400 via-orange-400 to-red-500">
         <tr>
             <TableHeader label="Scholarship Name" />
             <TableHeader label="Status" />
