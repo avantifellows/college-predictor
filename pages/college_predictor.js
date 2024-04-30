@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import getConstants from "../constants";
 import PredictedCollegesTable from "../components/PredictedCollegeTables";
-import Navbar from "../components/navbar";
 
 const CollegePredictor = () => {
   const router = useRouter();
@@ -87,30 +86,41 @@ const CollegePredictor = () => {
       fetchData();
     }
   }, [rank]);
-
   return (
     <div className="flex flex-col items-center min-h-screen">
-      <div className="max-w-6xl mx-auto my-8 p-8 bg-white rounded-lg shadow-md">
-        <h1 className="text-2xl font-bold mb-4 text-center">{getConstants().TITLE}</h1>
-        <div className="mb-8">
-          <h2 className="text-lg font-semibold mb-2">
+      <div className="w-full max-w-6xl mx-auto my-8 p-4 bg-white rounded-lg shadow-md sm:p-8">
+        <h1 className="text-xl font-bold mb-4 text-center sm:text-2xl">
+          {getConstants().TITLE}
+        </h1>
+        <div className="mb-4 sm:mb-8">
+          <h2 className="text-base font-semibold mb-2 sm:text-lg">
             {exam !== "NEET" ? "Your Category Rank: " : "Your Rank: "}
             <span className="text-indigo-600">{rank}</span>
           </h2>
-          <h3 className="text-gray-700">Chosen Round Number: {roundNumber}</h3>
-          <h3 className="text-gray-700">Chosen Exam: {exam}</h3>
+          <h3 className="text-sm text-gray-700 sm:text-base">
+            Chosen Round Number: {roundNumber}
+          </h3>
+          <h3 className="text-sm text-gray-700 sm:text-base">
+            Chosen Exam: {exam}
+          </h3>
           {exam !== "NEET" && (
             <>
-              <h3 className="text-gray-700">Chosen Gender: {gender}</h3>
-              <h3 className="text-gray-700">Chosen Home State: {stateName}</h3>
+              <h3 className="text-sm text-gray-700 sm:text-base">
+                Chosen Gender: {gender}
+              </h3>
+              <h3 className="text-sm text-gray-700 sm:text-base">
+                Chosen Home State: {stateName}
+              </h3>
             </>
           )}
         </div>
-        <h3 className="text-lg font-semibold mb-4 text-center">Predicted colleges and courses for you</h3>
+        <h3 className="text-base font-semibold mb-4 text-center sm:text-lg">
+          Predicted colleges and courses for you
+        </h3>
         {isLoading ? (
-          <div className="flex items-center justify-center flex-col mt-8">
-            <div className="border-t-2 border-transparent border-indigo-600 rounded-full w-10 h-10 animate-spin mb-4"></div>
-            <p className="text-gray-700">Loading...</p>
+          <div className="flex items-center justify-center flex-col mt-4 sm:mt-8">
+            <div className="border-t-2 border-transparent border-indigo-600 rounded-full w-6 h-6 animate-spin mb-2 sm:w-10 sm:h-10 sm:mb-4"></div>
+            <p className="text-sm text-gray-700 sm:text-base">Loading...</p>
           </div>
         ) : (
           <div>
@@ -120,6 +130,6 @@ const CollegePredictor = () => {
       </div>
     </div>
   );
-};
+}
 
 export default CollegePredictor;
