@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import getConstants from "../constants";
 import ScholarshipTable from "../components/ScholarshipTable";
-import Navbar from "../components/navbar";
 
 const ScholarshipFinder = () => {
   const router = useRouter();
@@ -82,7 +81,12 @@ const ScholarshipFinder = () => {
           if (grade == "11" && itemGrade11 == "Yes") checkForGrade = true;
           if (grade == "12" && itemGrade12 == "Yes") checkForGrade = true;
           if (grade == "ug" && itemGradeUG == "Yes") checkForGrade = true;
-          if (grade == "Other" && itemGrade11 != "Yes" && itemGrade12 != "Yes" && itemGradeUG != "Yes")
+          if (
+            grade == "Other" &&
+            itemGrade11 != "Yes" &&
+            itemGrade12 != "Yes" &&
+            itemGradeUG != "Yes"
+          )
             checkForGrade = true;
 
           // category check
@@ -156,31 +160,33 @@ const ScholarshipFinder = () => {
   ]);
 
   return (
-    <div className="flex items-center w-full lg:flex-col ">
-      <div className="flex flex-col items-center md:text-2xl lg:text-3xl">
-        <h1 className="text-2xl m-2 font-semibold">
+    <div className="flex flex-col items-center min-h-screen ">
+      <div className="max-w-5xl mx-auto my-8 p-8 bg-white rounded-lg shadow-md">
+        <h1 className="text-2xl font-bold mb-4 text-center">
           {getConstants().SCHOLARSHIP_TITLE}
         </h1>
-        <h3 className="mb-2">Chosen Grade: {grade}</h3>
-        <h3 className="mb-2">Chosen Gender: {gender}</h3>
-        <h3 className="mb-2">Chosen Stream: {stream}</h3>
-        <h3 className="mb-2">Chosen Category: {category}</h3>
-        <h3 className="mb-2">Chosen State: {stateName}</h3>
-        <h3 className="mb-2">Chosen City: {cityName}</h3>
-        <h3 className="mb-2  font-bold text-xl md:text-2xl lg:text-3xl">
-          Scholarships
-        </h3>
+        <div className="mb-8">
+          <h3 className="text-gray-700">Chosen Grade: {grade}</h3>
+          <h3 className="text-gray-700">Chosen Gender: {gender}</h3>
+          <h3 className="text-gray-700">Chosen Stream: {stream}</h3>
+          <h3 className="text-gray-700">Chosen Category: {category}</h3>
+          <h3 className="text-gray-700">Chosen State: {stateName}</h3>
+          <h3 className="text-gray-700">Chosen City: {cityName}</h3>
+        </div>
+        <h3 className="text-lg font-semibold mb-4 text-center">Scholarships</h3>
         {isLoading ? (
-          <div className="flex flex-col items-center">
-            <div className="border-t-4 border-[#B52326] border-solid w-7 h-7 animate-spin rounded-full mb-3"></div>
-            <p>Loading...</p>
+          <div className="flex items-center justify-center flex-col mt-8">
+            <div className="border-t-2 border-transparent border-indigo-600 rounded-full w-10 h-10 animate-spin mb-4"></div>
+            <p className="text-gray-700">Loading...</p>
           </div>
         ) : (
-          <ScholarshipTable
-            filteredData={filteredData}
-            toggleRowExpansion={toggleRowExpansion}
-            expandedRows={expandedRows}
-          />
+          <div>
+            <ScholarshipTable
+              filteredData={filteredData}
+              toggleRowExpansion={toggleRowExpansion}
+              expandedRows={expandedRows}
+            />
+          </div>
         )}
       </div>
     </div>

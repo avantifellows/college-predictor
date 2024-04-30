@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import Script from "next/script";
 import Dropdown from "../components/dropdown";
@@ -85,8 +86,8 @@ const ScholarshipPage = () => {
     !grade;
 
   return (
-    <div className="flex flex-col justify-start items-center w-full">
-      <div>
+    <div className="flex flex-col min-h-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+      <div className="flex flex-col justify-center items-center flex-grow px-10">
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-FHGVRT52L7"
           strategy="afterInteractive"
@@ -100,88 +101,107 @@ const ScholarshipPage = () => {
                 gtag('config', 'G-FHGVRT52L7');
                 `}
         </Script>
-        <div className="text-center md:text-xl lg:text-2xl">
-          <h1 className="text-md font-semibold">
+        <div className="max-w-2xl w-full bg-white rounded-lg shadow-lg p-8 ">
+          <h1 className="text-2xl font-bold text-center mb-6">
             {getConstants().SCHOLARSHIP_TITLE}
           </h1>
-          <label className="block text-md font-semibold text-gray-700 m-2">
-            {getConstants().STATUS_LABEL}
-          </label>
-          <Dropdown
-            options={statusOptions}
-            onChange={handleStatusDropdownChange}
-          />
-
-          <label className="block text-md font-semibold text-gray-700 m-2">
-            {getConstants().GRADE_LABEL}
-          </label>
-          <Dropdown
-            options={gradeOptions}
-            onChange={handleGradeDropdownChange}
-          />
-
-          <label className="block text-md font-semibold text-gray-700 m-2">
-            {getConstants().STREAM_LABEL}
-          </label>
-          <Dropdown
-            options={streamOptions}
-            onChange={handleStreamDropdownChange}
-          />
-
-          <label className="font-semibold text-md text-gray-700">
-            {getConstants().CATEGORY_LABEL}
-          </label>
-          <br />
-          <label className="font-medium text-sm text-gray-700 m-2 block">
-            {getConstants().CATEGORY_HELP_TEXT}
-          </label>
-          <Dropdown
-            options={categoryOptions}
-            onChange={handleCategoryDropdownChange}
-          />
-
-          <label className="text-md font-semibold text-gray-700 ">
-            {getConstants().FAMILY_INCOME_LABEL}
-          </label>
-          <br />
-          <label className="block m-2 text-sm font-medium text-gray-700">
-            {getConstants().FAMILY_INCOME_HELP_TEXT}
-          </label>
-          <label className="block m-2 text-sm font-medium text-gray-700">
-            {getConstants().FAMILY_INCOME_HELP_TEXT_TWO}
-          </label>
-          <Dropdown
-            options={familyincomeOptions}
-            onChange={handleFamilyIncomeChange}
-          />
-
-          <label className="block text-md font-semibold text-gray-700 m-2">
-            {getConstants().GENDER_LABEL}
-          </label>
-          <Dropdown
-            options={genderOptions}
-            onChange={handleGenderDropdownChange}
-          />
-
-          <label className="block text-md font-semibold text-gray-700 m-2">
-            {getConstants().STATE_LABEL}
-          </label>
-          <Dropdown
-            options={stateOptions}
-            onChange={handleStateNameDropdownChange}
-          />
-
-          <label className="block text-md font-semibold text-gray-700 m-2">
-            {getConstants().CITY_LABEL}
-          </label>
-          <Dropdown
-            options={cityOptions}
-            onChange={handleCityNameDropdownChange}
-          />
-          <p />
-          <p />
+          <div className="mb-4 flex gap-4">
+            <div className="flex-1">
+              <label className="block text-gray-700 font-semibold mb-2">
+                {getConstants().STATUS_LABEL}
+              </label>
+              <Dropdown
+                options={statusOptions}
+                onChange={handleStatusDropdownChange}
+                className="w-full"
+              />
+            </div>
+            <div className="flex-1">
+              <label className="block text-gray-700 font-semibold mb-2">
+                {getConstants().GRADE_LABEL}
+              </label>
+              <Dropdown
+                options={gradeOptions}
+                onChange={handleGradeDropdownChange}
+                className="w-full"
+              />
+            </div>
+          </div>{" "}
+          <div className="mb-4">
+            <label className="block text-gray-700 font-semibold mb-2">
+              {getConstants().STREAM_LABEL}
+            </label>
+            <Dropdown
+              options={streamOptions}
+              onChange={handleStreamDropdownChange}
+              className="w-full"
+            />
+          </div>
+          <div className="mb-4">
+            <label className="block text-gray-700 font-semibold mb-2">
+              {getConstants().CATEGORY_LABEL}
+            </label>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              {getConstants().CATEGORY_HELP_TEXT}
+            </label>
+            <Dropdown
+              options={categoryOptions}
+              onChange={handleCategoryDropdownChange}
+              className="w-full"
+            />
+          </div>
+          <div className="mb-4">
+            <label className="block text-gray-700 font-semibold mb-2">
+              {getConstants().FAMILY_INCOME_LABEL}
+            </label>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              {getConstants().FAMILY_INCOME_HELP_TEXT}
+            </label>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              {getConstants().FAMILY_INCOME_HELP_TEXT_TWO}
+            </label>
+            <Dropdown
+              options={familyincomeOptions}
+              onChange={handleFamilyIncomeChange}
+              className="w-full"
+            />
+          </div>
+          <div className="mb-4">
+            <label className="block text-gray-700 font-semibold mb-2">
+              {getConstants().GENDER_LABEL}
+            </label>
+            <Dropdown
+              options={genderOptions}
+              onChange={handleGenderDropdownChange}
+              className="w-full"
+            />
+          </div>
+          <div className="mb-4 flex gap-4">
+            <div className="flex-1">
+              <label className="block text-gray-700 font-semibold mb-2">
+                {getConstants().STATE_LABEL}
+              </label>
+              <Dropdown
+                options={stateOptions}
+                onChange={handleStateNameDropdownChange}
+                className="w-full"
+              />
+            </div>
+            <div className="flex-1">
+              <label className="block text-gray-700 font-semibold mb-2">
+                {getConstants().CITY_LABEL}
+              </label>
+              <Dropdown
+                options={cityOptions}
+                onChange={handleCityNameDropdownChange}
+                className="w-full"
+              />
+              <p />
+              <p />
+            </div>
+          </div>
           <button
-            className={`mt-4 px-8 py-2.5 bg-[#B52326] text-white rounded cursor-pointer hover:bg-[#B52326] active:bg-[#B52326] focus:outline-none ${
+            className={` w-full py-2 px-4 bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg ${
               isSubmitDisabled ? "bg-gray-300 cursor-not-allowed" : ""
             }`}
             onClick={handleSubmit}
