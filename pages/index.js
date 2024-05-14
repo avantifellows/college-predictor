@@ -83,7 +83,7 @@ const HomePage = () => {
       (!isGenderInOptions || !isExamInOptions || !isStateNameInOptions));
 
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col h-fit">
       <div className="flex justify-center items-center flex-col flex-grow px-10">
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-FHGVRT52L7"
@@ -98,24 +98,34 @@ const HomePage = () => {
         gtag('config', 'G-FHGVRT52L7');
       `}
         </Script>
-        <div className="md:text-xl lg:text-2xl text-sm text-center flex flex-col items-center w-full md:w-1/2  ">
-          <h1 className="text-md font-semibold">{getConstants().TITLE}</h1>
-          <label className="mt-4 w-full block text-md font-semibold text-gray-700 m-2">
-            {getConstants().EXAM_LABEL}
-          </label>
-          <Dropdown options={examOptions} onChange={handleExamDropdownChange} />
-          <div className="flex gap-4 flex-wrap">
+        <div className="border-[#b52326] border-[5px] rounded-[10px] m-[5%] p-[15px] md:text-xl lg:text-2xl text-sm flex flex-col just w-full md:w-1/2  ">
+          <h1 className="text-md font-semibold m-auto">
+            {getConstants().TITLE}
+          </h1>
+
+          <div className="flex-col">
+            <label className="mt-4 w-full block text-[1.2rem]  font-semibold text-gray-700 m-2">
+              {getConstants().EXAM_LABEL}
+            </label>
+            <Dropdown
+              options={examOptions}
+              onChange={handleExamDropdownChange}
+            />
+          </div>
+
+          <div className="my-4 w-full">
+            <label className="block text-[1.2rem] font-semibold text-gray-700 mx-2">
+              {getConstants().CATEGORY_LABEL}
+            </label>
+            <Dropdown
+              options={categoryOptions}
+              onChange={handleCategoryDropdownChange}
+            />
+          </div>
+
+          <div className="flex">
             <div className="my-4 w-full">
-              <label className="block text-md font-semibold text-gray-700 m-2">
-                {getConstants().CATEGORY_LABEL}
-              </label>
-              <Dropdown
-                options={categoryOptions}
-                onChange={handleCategoryDropdownChange}
-              />
-            </div>
-            <div className="my-4 w-full">
-              <label className="block text-md font-semibold text-gray-700 m-2">
+              <label className="block text-[1.2rem] font-semibold text-gray-700 m-2">
                 {exam === "NEET"
                   ? getConstants().NEET_RANK_LABEL + "(" + exam + "):"
                   : getConstants().RANK_LABEL + "(" + exam + "):"}
@@ -124,23 +134,25 @@ const HomePage = () => {
                 type="number"
                 value={rank}
                 onChange={handleRankChange}
-                className=" border border-gray-300 rounded w-1/3 md:w-1/2 lg:w-full"
+                className=" border border-gray-300 rounded w-1/2 h-1/3 text-center"
+              />
+            </div>
+
+            <div className="my-4 w-full">
+              <label className="block text-[1.2rem] font-semibold text-gray-700 m-2">
+                {getConstants().ROUND_NUMBER_LABEL}
+              </label>
+              <Dropdown
+                options={roundNumberOptions}
+                onChange={handleRoundNumberDropdownChange}
               />
             </div>
           </div>
-          <div className="my-4 w-full">
-            <label className="block text-md font-semibold text-gray-700 m-2">
-              {getConstants().ROUND_NUMBER_LABEL}
-            </label>
-            <Dropdown
-              options={roundNumberOptions}
-              onChange={handleRoundNumberDropdownChange}
-            />
-          </div>
+
           {exam != "NEET" && (
             <>
               <div className="my-4 w-full">
-                <label className="block text-md font-semibold text-gray-700 m-2">
+                <label className="block text-[1.2rem] font-semibold text-gray-700 m-2">
                   {getConstants().GENDER_LABEL}
                 </label>
                 <Dropdown
@@ -150,7 +162,7 @@ const HomePage = () => {
                 />
               </div>
               <div className="my-4 w-full">
-                <label className="block text-md font-semibold text-gray-700 m-2">
+                <label className="block text-[1.2rem] font-semibold text-gray-700 m-2">
                   {getConstants().STATE_LABEL}
                 </label>
                 <Dropdown
