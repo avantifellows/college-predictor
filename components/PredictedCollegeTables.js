@@ -38,6 +38,10 @@ const PredictedCollegesTable = ({ data = [] }) => {
           ))}
         </tbody>
       </table>
+      <div className="flex justify-center">
+        {data.length>0?(null):
+        <p className="text-[1.5rem]">Sorry! No results found for the data provided.</p>}
+      </div>
     </div>
   );
 };
