@@ -92,25 +92,25 @@ const CollegePredictor = () => {
     <div className="flex flex-col items-center">
       <div className="flex border-4  border-red flex-col items-center justify-center m-auto text-xl  md:text-2xl lg:text-3xl">
         <h1 className="text-2xl font-bold mb-3">{getConstants().TITLE}</h1>
-        
+
         <div className="w-full text-[1.3rem] px-4">
-        <h2 className="mb-1">
-          {exam != "NEET"
-            ? "Your Category Rank: " + rank
-            : "Your Rank: " + rank}
-        </h2>
-        Options choosen by you:
-        <h2 >Round Number: {roundNumber}</h2>
-        <h2 >Exam: {exam}</h2>
-        {exam != "NEET" && (
-          <>
-            <h2>Gender: {gender}</h2>
-            <h2>Home State: {stateName}</h2>
-          </>
-        )}
+          <h3 className="font-bold">Data provided by you:</h3>
+          <h2 className="pl-2">
+            {exam != "NEET" ? "Category Rank: " + rank : "Rank: " + rank}
+          </h2>
+          <h2 className="pl-2">Round Number: {roundNumber}</h2>
+          <h2 className="pl-2">Exam: {exam}</h2>
+          {exam != "NEET" && (
+            <>
+              <h2 className="pl-2">Gender: {gender}</h2>
+              <h2 className="pl-2">Home State: {stateName}</h2>
+            </>
+          )}
         </div>
 
-        <h2 className="mb-4 text-[1.5rem] font-medium">Predicted colleges and courses for you</h2>
+        <h2 className="mb-4 text-[1.5rem] font-medium">
+          Predicted colleges and courses for you
+        </h2>
         {isLoading ? (
           <div className="flex items-center justify-center flex-col mt-2">
             <div className="border-t-2 border-transparent border-[#B52326] rounded-full w-8 h-8 animate-spin mb-2"></div>
