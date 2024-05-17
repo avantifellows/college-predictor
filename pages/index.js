@@ -61,26 +61,12 @@ const HomePage = () => {
     }
   };
 
-  const isCategoryInOptions = categoryOptions.some(
-    (option) => option.label === category
-  );
-  const isRoundNumberInOptions = roundNumberOptions.some(
-    (option) => option.label == roundNumber
-  );
-  const isGenderInOptions = genderOptions.some(
-    (option) => option.label === gender
-  );
-  const isExamInOptions = examOptions.some((option) => option.label === exam);
-  const isStateNameInOptions = stateOptions.some(
-    (option) => option.label === stateName
-  );
-
   const isSubmitDisabled =
     rank <= 0 ||
-    !isCategoryInOptions ||
-    !isRoundNumberInOptions ||
+    category.length == 0 ||
+    roundNumber.length == 0 ||
     (exam !== "NEET" &&
-      (!isGenderInOptions || !isExamInOptions || !isStateNameInOptions));
+      (gender.length == 0 || exam.length == 0 || stateName.length == 0));
 
   return (
     <div className="flex flex-col h-fit">
