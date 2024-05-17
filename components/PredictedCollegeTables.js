@@ -1,14 +1,15 @@
 const PredictedCollegesTable = ({ data = [] }) => {
   return (
-    <div>
-      <div className="flex flex-col items-center">
-        <p className="leading-5 mb-2.5">AI: All India</p>
-        <p className="leading-5 mb-2.5">HS: Home State</p>
-        <p className="leading-5 mb-2.5">OS: Out of State</p>
+    <div className="mx-4">
+      <div className="flex gap-4 text-[1.1rem] items-center bg-yellow-400 px-2">
+        <p className="font-semibold">*Important notations:</p>
+        <p>AI: All India</p>
+        <p>HS: Home State</p>
+        <p>OS: Out of State</p>
       </div>
       <table className="w-full mx-auto border-collapse">
         <thead>
-          <tr className="bg-gray-400 font-bold p-3 text-center">
+          <tr className=" font-bold text-center text-[1.3rem]" style={{ backgroundImage: 'linear-gradient(to right, #b52326, #cc5e18, #d79111, #d6c42f, #c9f664)' }}>
             <th>Institute Rank</th>
             <th>State</th>
             <th>Institute</th>
@@ -22,7 +23,7 @@ const PredictedCollegesTable = ({ data = [] }) => {
           {data.map((item, index) => (
             <tr
               key={index}
-              className={`border-b border-gray-300 text-center ${
+              className={`border-b border-gray-300 text-center text-[1.2rem] ${
                 index % 2 === 0 ? "bg-gray-200" : "bg-gray-300"
               }`}
             >
