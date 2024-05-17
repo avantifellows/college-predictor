@@ -1,0 +1,42 @@
+.cta {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font: bold;
+}
+
+.cta:active {
+  scale: 103%;
+}
+
+.cta span {
+  padding-bottom: 7px;
+  font-size: 1 rem;
+  font-weight: bold;
+}
+
+.cta span:hover {
+  color: #B52326;
+}
+
+.hover-underline-animation {
+  position: relative;
+}
+
+.hover-underline-animation:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  background-color: #B52326;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.cta:hover .hover-underline-animation:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
