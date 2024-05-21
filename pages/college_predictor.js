@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import getConstants from "../constants";
-import PredictedCollegesTable from "../components/PredictedCollegeTables";
-import Navbar from "../components/navbar";
+import PredictedCollegeTables from "../components/PredictedCollegeTables";
 
 const CollegePredictor = () => {
   const router = useRouter();
@@ -14,7 +13,9 @@ const CollegePredictor = () => {
     gender = "",
     stateName = "",
     pwd = "",
-    defense = ""
+    defense = "",
+    language = "",
+    rural = ""
   } = router.query;
   const [filteredData, setFilteredData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -25,55 +26,56 @@ const CollegePredictor = () => {
         let exam_fol;
         if (exam === "JEE Main" || exam === "JEE Advanced") {
           exam_fol = "JEE";
-        } else if (exam == "MHT CET") {
-          exam_fol = "MHTCET"
-        } else exam_fol = "NEET";
+        } else if (exam === "MHT CET") {
+          exam_fol = "MHTCET";
+        } else if (exam === "KCET") {
+          exam_fol = "KCET";
+        } else {
+          exam_fol = "NEET";
+        }
         
         let response;
-        if (exam_fol == "MHTCET") {
-          response = await fetch(
-            "/data/" + exam_fol + "/" + "mhtcet_data.json"
-          );
+        if (exam_fol === "MHTCET") {
+          response = await fetch(`/data/${exam_fol}/mhtcet_data.json`);
+        } else if (exam_fol === "KCET") {
+          response = await fetch(`/data/${exam_fol}/kcet_data.json`);
         } else {
-          response = await fetch(
-            "/data/" + exam_fol + "/" + category + ".json"
-          );
+          response = await fetch(`/data/${exam_fol}/${category}.json`);
         }
         
         const data = await response.json();
-
-        // Filter the data based on round number
         const dataForGivenQuery = data.filter((item) => {
           if (exam === "MHT CET") {
-            const itemGender = item["Gender"];
-            const itemState = item["State"];
-            const itemPwd = item["PWD"];
-            const itemDefense = item["Defense"];
-            const itemCategory = item["Category"]
-
             return (
-              itemGender == gender &&
-              itemState == stateName &&
-              itemPwd == pwd &&
-              itemDefense == defense &&
-              itemCategory == category
-            )
+              item.Gender === gender &&
+              item.State === stateName &&
+              item.PWD === pwd &&
+              item.Defense === defense &&
+              item.Category === category
+            );
           }
-          const itemRound = parseInt(item["Round"], 10);
-          const itemExam = item["Exam"];
+          
+          if (exam === "KCET") {
+            return (
+              item.Language === language &&
+              item.State === stateName &&
+              item["Rural/Urban"] === rural &&
+              item.Category === category
+            );
+          }
+
+          const itemRound = parseInt(item.Round, 10);
           if (exam === "JEE Main" || exam === "JEE Advanced") {
-            const itemGender = item["Gender"];
-            const itemState = item["State"];
-            const itemQuota = item["Quota"];
             const checkForState =
-              itemState == stateName ||
-              stateName == "All India" ||
-              itemQuota == "OS" ||
-              itemQuota == "AI";
+              item.State === stateName ||
+              stateName === "All India" ||
+              item.Quota === "OS" ||
+              item.Quota === "AI";
+            
             return (
               itemRound == roundNumber &&
-              itemGender == gender &&
-              itemExam == exam &&
+              item.Gender === gender &&
+              item.Exam === exam &&
               checkForState
             );
           } else if (exam === "NEET") {
@@ -81,35 +83,24 @@ const CollegePredictor = () => {
           }
         });
 
-        // Filter the data based on closing rank
         const filteredData = dataForGivenQuery.filter((item) => {
-          const closingRank = parseInt(item["Closing Rank"], 10);
-          return closingRank > parseInt(rank, 10);
+          return parseInt(item["Closing Rank"], 10) > 0.9 * parseInt(rank, 10);
         });
 
-        // Sort the filteredData in ascending order of college rank
-        // for same college (with same rank), sort with opening rank
-        if (exam != "MHT CET") {
+        if (exam !== "MHT CET" && exam !== "KCET") {
           filteredData.sort((a, b) => {
             const rankA = a["College Rank"];
             const rankB = b["College Rank"];
-  
             if (rankA !== rankB) {
               return rankA - rankB;
             } else {
-              const openingRankA = a["Opening Rank"];
-              const openingRankB = b["Opening Rank"];
-              return openingRankA - openingRankB;
+              return a["Opening Rank"] - b["Opening Rank"];
             }
           });
-        }
-        else {
+        } else {
           filteredData.sort((a, b) => {
-            const rankA = a["Closing Rank"];
-            const rankB = b["Closing Rank"];
-  
-            return rankA - rankB;
-          }); 
+            return a["Closing Rank"] - b["Closing Rank"];
+          });
         }
 
         setFilteredData(filteredData);
@@ -127,37 +118,41 @@ const CollegePredictor = () => {
   }, [rank]);
 
   return (
-    <div className="flex flex-col items-center">
-      <div className="flex border-4 border-red flex-col items-center justify-center m-auto text-xl  md:text-2xl lg:text-3xl">
-        <h1 className="text-2xl font-bold mb-3">{getConstants().TITLE}</h1>
-        <h2 className="mb-1">
-          {exam != "NEET"
-            ? "Your Category Rank: " + rank
-            : "Your Rank: " + rank}
-        </h2>
-        {exam != "MHT CET" && (
-          <>
-            <h3 className="mb-1">Chosen Round Number: {roundNumber}</h3>
-          </>
+    <div className="flex flex-col items-center p-4">
+    <div className="flex flex-col items-center justify-center w-full sm:w-5/6 md:w-3/4 lg:w-2/3 bg-white p-6 rounded-lg shadow-lg">
+      <h1 className="text-2xl font-bold mb-4 text-center">{getConstants().TITLE}</h1>
+      <div className="text-center mb-4 space-y-2">
+        <p className="text-base md:text-lg">{exam !== "NEET" ? `Your Category Rank: ${rank}` : `Your Rank: ${rank}`}</p>
+        {exam !== "MHT CET" && exam !== "KCET" && (
+          <p className="text-base md:text-lg">Chosen Round Number: {roundNumber}</p>
         )}
-        <h3 className="mb-1">Chosen Exam: {exam}</h3>
-        {exam != "NEET" && (
-          <>
-            <h3 className="mb-1">Chosen Gender: {gender}</h3>
-            <h3 className="mb-1">Chosen Home State: {stateName}</h3>
-          </>
+        <p className="text-base md:text-lg">Chosen Exam: {exam}</p>
+        {exam !== "NEET" && exam !== "KCET" && (
+          <p className="text-base md:text-lg">Chosen Gender: {gender}</p>
         )}
-        <h3 className="mb-4">Predicted colleges and courses for you:</h3>
-        {isLoading ? (
-          <div className="flex items-center justify-center flex-col mt-2">
-            <div className="border-t-2 border-transparent border-[#B52326] rounded-full w-8 h-8 animate-spin mb-2"></div>
-            <p>Loading...</p>
-          </div>
-        ) : (
-          <PredictedCollegesTable data={filteredData} exam={exam}/>
+        {exam !== "NEET" && (
+          <p className="text-base md:text-lg">Chosen Home State: {stateName}</p>
+        )}
+        {exam === "KCET" && (
+          <>
+            <p className="text-base md:text-lg">Chosen Language: {language}</p>
+            <p className="text-base md:text-lg">Chosen Region: {rural}</p>
+          </>
         )}
       </div>
+      <h3 className="text-lg md:text-xl mb-4 text-center">Predicted colleges and courses for you:</h3>
+      {isLoading ? (
+        <div className="flex items-center justify-center flex-col mt-2">
+          <div className="border-t-2 border-transparent border-[#B52326] rounded-full w-8 h-8 animate-spin mb-2"></div>
+          <p>Loading...</p>
+        </div>
+      ) : (
+        <div className="w-full overflow-x-auto">
+          <PredictedCollegeTables data={filteredData} exam={exam} />
+        </div>
+      )}
     </div>
+  </div>
   );
 };
 
