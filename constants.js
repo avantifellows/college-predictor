@@ -7,7 +7,7 @@ const constants = {
     { value: "OS", label: "OS" },
   ],
   RANK_LABEL: "Enter Category Rank",
-  NEET_RANK_LABEL: "Enter Rank",
+  NEET_RANK_LABEL: "Enter Rank As Per Open Rank List",
   GENDER_LABEL: "Select Gender:",
   EXAM_LABEL: "Select Exam:",
   STATE_LABEL: "Select Your Home State:",
@@ -43,6 +43,8 @@ const constants = {
     { value: "jee_main", label: "JEE Main" },
     { value: "jee_advanced", label: "JEE Advanced" },
     { value: "neet", label: "NEET" },
+    { value: "mhtcet", label: "MHT CET" },
+    { value: "kcet", label: "KCET" }
   ],
   STATE_OPTIONS: [
     { value: "all_india", label: "All India" },
@@ -139,6 +141,59 @@ const constants = {
     { value: "others", label: "Others" },
   ],
   CATEGORY_HELP_TEXT: "Choose 'Others' if relevant category is not present",
+  MHTCET_GENDER_OPTIONS: [
+    { value: "general", label: "General" },
+    { value: "female", label: "Female" },
+  ],
+  MHTCET_PWD_LABEL: "Are you a PWD Student?",
+  MHTCET_PWD_OPTIONS: [
+    { value: "No", label: "No" },
+    { value: "Yes", label: "Yes" },
+  ],
+  MHTCET_DEFENSE_LABEL: "Are you a Defense Ward Student?",
+  MHTCET_DEFENSE_OPTIONS: [
+    { value: "No", label: "No" },
+    { value: "Yes", label: "Yes" },
+  ],
+  MHTCET_CATEGORY_OPTIONS: [
+    { value: "OBC", label: "OBC" },
+    { value: "SC", label: "SC" },
+    { value: "ST", label: "ST" },
+    { value: "Open", label: "Open" },
+    { value: "Religious Minority", label: "Religious Minority" },
+    { value: "EWS", label: "EWS" },
+    { value: "VJ", label: "VJ" },
+    { value: "NT", label: "NT" },
+    { value: "Orphan", label: "Orphan" },
+  ],
+  MHTCET_STATE_OPTIONS: [
+    { value: "Maharashtra", label: "Maharashtra" },
+    { value: "Other", label: "Other" },
+  ],
+  KCET_CATEGORY_OPTIONS: [
+    { value: "1", label: "1"},
+    { value: "2A", label: "2A" },
+    { value: "2B", label: "2B" },
+    { value: "3A", label: "3A" },
+    { value: "3B", label: "3B" },
+    { value: "General", label: "General"},
+    { value: "SC", label: "SC"},
+    { value: "ST", label: "ST"}
+  ],
+  KCET_STATE_OPTIONS: [
+    { value: "All India", label: "All India" },
+    { value: "Karnataka", label: "Karnataka" }
+  ],
+  KCET_LANGUAGE_LABEL: "Choose your Class 1 - Class 10 Language",
+  KCET_LANGUAGE_OPTIONS: [
+    { value: "Any", label: "Any" },
+    { value: "Kannada", label: "Kannada" }
+  ],
+  KCET_RURAL_LABEL: "Choose Your Region",
+  KCET_RURAL_OPTIONS: [
+    { value: "Rural", label: "Rural" },
+    { value: "All", label: "All" }
+  ],
 };
 
 export default function getConstants() {
