@@ -1,11 +1,6 @@
 const constants = {
   TITLE: "Exam Rank College Predictor",
   CATEGORY_LABEL: "Select Category:",
-  CATEGORY_OPTIONS: [
-    { value: "AI", label: "AI" },
-    { value: "HS", label: "HS" },
-    { value: "OS", label: "OS" },
-  ],
   RANK_LABEL: "Enter Category Rank",
   NEET_RANK_LABEL: "Enter Rank As Per Open Rank List",
   GENDER_LABEL: "Select Gender:",
@@ -194,6 +189,23 @@ const constants = {
     { value: "Rural", label: "Rural" },
     { value: "All", label: "All" }
   ],
+  COUNSELLING_LABEL: "Choose Your Counselling Process",
+  COUNSELLING_OPTIONS: [
+    { value: "JOSAA", label: "JOSAA" },
+    { value: "JAC", label: "JAC" },
+  ],
+  JAC_STATE_OPTIONS: [
+    { value: "Delhi", label: "Delhi" },
+    { value: "Outside Delhi", label: "Outside Delhi" },
+  ],
+  JAC_CATEGORY_OPTIONS: [
+    { value: "EWS", label: "EWS"},
+    { value: "Kashmiri Minority", label: "Kashmiri Minority" },
+    { value: "OBC", label: "OBC" },
+    { value: "General", label: "General"},
+    { value: "SC", label: "SC"},
+    { value: "ST", label: "ST"}
+  ]
 };
 
 export default function getConstants() {

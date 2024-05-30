@@ -1,11 +1,11 @@
-const PredictedCollegesTable = ({ data = [], exam = "" }) => {
+const PredictedCollegesTable = ({ data = [], exam = "", counselling = "" }) => {
   const commonTableClass = "w-full mx-auto border-collapse text-sm sm:text-base";
   const commonHeaderClass = "bg-gray-200 font-bold text-center text-xs sm:text-sm md:text-base";
   const commonCellClass = "p-2 border border-gray-300 text-center text-xs sm:text-sm md:text-base";
 
   return (
     <div className="w-full mx-auto overflow-x-auto">
-      {exam === "MHT CET" || exam === "KCET" ? (
+      {exam === "MHT CET" || exam === "KCET" || (exam === "JEE Main" && counselling === "JAC") ? (
         <table className={`${commonTableClass} border border-gray-300`}>
           <thead>
             <tr className={commonHeaderClass}>
