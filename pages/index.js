@@ -8,6 +8,7 @@ const HomePage = () => {
   const categoryOptions = getConstants().CATEGORY_OPTIONS;
   const mhtcetCategoryOptions = getConstants().MHTCET_CATEGORY_OPTIONS;
   const kcetCategoryOptions = getConstants().KCET_CATEGORY_OPTIONS;
+  const jacCategoryOptions = getConstants().JAC_CATEGORY_OPTIONS;
 
   const genderOptions = getConstants().GENDER_OPTIONS;
   const mhtcetGenderOptions = getConstants().MHTCET_GENDER_OPTIONS;
@@ -23,6 +24,9 @@ const HomePage = () => {
   const stateOptions = getConstants().STATE_OPTIONS;
   const mhtcetStateOptions = getConstants().MHTCET_STATE_OPTIONS;
   const kcetStateOptions = getConstants().KCET_STATE_OPTIONS;
+  const jacStateOptions = getConstants().JAC_STATE_OPTIONS;
+
+  const counsellingOptions = getConstants().COUNSELLING_OPTIONS;
 
   const kcetLanguageOptions = getConstants().KCET_LANGUAGE_OPTIONS;
 
@@ -38,10 +42,15 @@ const HomePage = () => {
   const [pwd, setPwd] = useState("");
   const [language, setLanguage] = useState("");
   const [rural, setRural] = useState("");
+  const [counselling, setCounselling] = useState("");
   const router = useRouter();
 
   const handleCategoryDropdownChange = (selectedOption) => {
     setCategory(selectedOption.label);
+  };
+
+  const handleCounsellingDropdownChange = (selectedOption) => {
+    setCounselling(selectedOption.label);
   };
 
   const handleRoundNumberDropdownChange = (selectedOption) => {
@@ -87,9 +96,16 @@ const HomePage = () => {
         `/college_predictor?rank=${rank}&category=${category}&roundNumber=${roundNumber}&exam=${exam}`
       );
     } else if (exam === "JEE Main" || exam === "JEE Advanced") {
-      router.push(
-        `/college_predictor?rank=${rank}&category=${category}&roundNumber=${roundNumber}&exam=${exam}&gender=${gender}&stateName=${stateName}`
-      );
+      if (counselling == "JAC") {
+        router.push(
+          `/college_predictor?rank=${rank}&category=${category}&exam=${exam}&counselling=${counselling}&gender=${gender}&stateName=${stateName}&pwd=${pwd}&defense=${defense}`
+        );
+      } else {
+        router.push(
+          `/college_predictor?rank=${rank}&category=${category}&roundNumber=${roundNumber}&exam=${exam}&gender=${gender}&stateName=${stateName}`
+        );
+      }
+      
     } else if (exam === "MHT CET") {
       router.push(
         `/college_predictor?rank=${rank}&category=${category}&exam=${exam}&gender=${gender}&stateName=${stateName}&defense=${defense}&pwd=${pwd}`
@@ -104,10 +120,16 @@ const HomePage = () => {
   const isCategoryInOptions = categoryOptions.some(
     (option) => option.label === category
   );
+  const isCounsellingInOptions = counsellingOptions.some(
+    (option) => option.label === counselling
+  );
   const isMhtcetCategoryInOptions = mhtcetCategoryOptions.some(
     (option) => option.label === category
   );
   const isKcetCategoryInOptions = kcetCategoryOptions.some(
+    (option) => option.label === category
+  );
+  const isJacCategoryInOptions = jacCategoryOptions.some(
     (option) => option.label === category
   );
   const isRoundNumberInOptions = roundNumberOptions.some(
@@ -129,6 +151,9 @@ const HomePage = () => {
   const isKcetStateNameInOptions = kcetStateOptions.some(
     (option) => option.label === stateName
   );
+  const isJacStateNameInOptions = jacStateOptions.some(
+    (option) => option.label === stateName
+  );
   const isDefenseInOptions = defenseOptions.some(
     (option) => option.label === defense
   );
@@ -142,12 +167,15 @@ const HomePage = () => {
     (option) => option.label === rural
   );
 
+
   const isSubmitDisabled =
     rank <= 0 ||
-    ((exam !== "MHT CET" && exam !== "KCET") &&
+    ((exam !== "MHT CET" && exam !== "KCET" && counselling !== "JAC") &&
       (!isCategoryInOptions || !isRoundNumberInOptions)) ||
-    ((exam === "JEE Main" || exam === "JEE Advanced") &&
-      (!isGenderInOptions || !isExamInOptions || !isStateNameInOptions)) ||
+    (((exam === "JEE Main" && counselling === "JOSAA") || exam === "JEE Advanced") &&
+      (!isGenderInOptions || !isExamInOptions || !isStateNameInOptions || !isCounsellingInOptions)) ||
+    ((exam === "JEE Main" && counselling === "JAC") && 
+      (!isJacCategoryInOptions || !isJacStateNameInOptions || !isMhtcetGenderInOptions || !isPwdInOptions || !isDefenseInOptions)) ||
     (exam === "MHT CET" &&
       (!isMhtcetCategoryInOptions || !isMhtcetGenderInOptions || !isMhtcetStateNameInOptions ||
        !isDefenseInOptions || !isPwdInOptions)) ||
@@ -184,6 +212,19 @@ const HomePage = () => {
                 className="w-full"
               />
             </div>
+            {(exam == "JEE Main") && (
+            <div className="my-4 w-full">
+              <label className="block text-md font-semibold text-gray-700 mb-2">
+                {getConstants().COUNSELLING_LABEL}
+              </label>
+              <Dropdown
+                options={counsellingOptions}
+                onChange={handleCounsellingDropdownChange}
+                isDisabled={exam !== "JEE Main"}
+                className="w-full"
+              />
+            </div>
+            )}
             <div className="my-4 w-full">
               <label className="block text-md font-semibold text-gray-700 mb-2">
                 {getConstants().CATEGORY_LABEL}
@@ -194,6 +235,8 @@ const HomePage = () => {
                     ? mhtcetCategoryOptions
                     : exam === "KCET"
                     ? kcetCategoryOptions
+                    : (exam === "JEE Main" && counselling === "JAC")
+                    ? jacCategoryOptions
                     : categoryOptions
                 }
                 onChange={handleCategoryDropdownChange}
@@ -202,7 +245,7 @@ const HomePage = () => {
             </div>
             <div className="my-4 w-full">
               <label className="block text-md font-semibold text-gray-700 mb-2">
-                {exam === "NEET" || exam === "MHT CET" || exam === "KCET"
+                {exam === "NEET" || exam === "MHT CET" || exam === "KCET" || (exam === "JEE Main" && counselling === "JAC")
                   ? `${getConstants().NEET_RANK_LABEL} (${exam}):`
                   : `${getConstants().RANK_LABEL} (${exam}):`}
               </label>
@@ -214,7 +257,7 @@ const HomePage = () => {
               />
             </div>
           </div>
-          {(exam !== "MHT CET" && exam !== "KCET") && (
+          {(exam !== "MHT CET" && exam !== "KCET" && counselling !== "JAC") && (
             <div className="my-4 w-full">
               <label className="block text-md font-semibold text-gray-700 mb-2">
                 {getConstants().ROUND_NUMBER_LABEL}
@@ -222,7 +265,7 @@ const HomePage = () => {
               <Dropdown
                 options={roundNumberOptions}
                 onChange={handleRoundNumberDropdownChange}
-                isDisabled={exam === "MHT CET" || exam === "KCET"}
+                isDisabled={exam === "MHT CET" || exam === "KCET" || counselling === "JAC"}
                 className="w-full"
               />
             </div>
@@ -233,7 +276,7 @@ const HomePage = () => {
                 {getConstants().GENDER_LABEL}
               </label>
               <Dropdown
-                options={exam === "MHT CET" ? mhtcetGenderOptions : genderOptions}
+                options={exam === "MHT CET" || counselling === "JAC" ? mhtcetGenderOptions : genderOptions}
                 onChange={handleGenderDropdownChange}
                 isDisabled={exam === "NEET" || exam === "KCET"}
                 className="w-full"
@@ -251,6 +294,8 @@ const HomePage = () => {
                     ? mhtcetStateOptions
                     : exam === "KCET"
                     ? kcetStateOptions
+                    : (exam === "JEE Main" && counselling === "JAC")
+                    ? jacStateOptions
                     : stateOptions
                 }
                 onChange={handleStateNameDropdownChange}
@@ -259,7 +304,7 @@ const HomePage = () => {
               />
             </div>
           )}
-          {exam === "MHT CET" && (
+          {exam === "MHT CET" || counselling === "JAC" && (
             <>
               <div className="my-4 w-full">
                 <label className="block text-md font-semibold text-gray-700 mb-2">
@@ -268,7 +313,7 @@ const HomePage = () => {
                 <Dropdown
                   options={pwdOptions}
                   onChange={handlePwdDropdownChange}
-                  isDisabled={exam !== "MHT CET"}
+                  isDisabled={exam !== "MHT CET" && counselling !== "JAC"}
                   className="w-full"
                 />
               </div>
@@ -279,7 +324,7 @@ const HomePage = () => {
                 <Dropdown
                   options={defenseOptions}
                   onChange={handleDefenseDropdownChange}
-                  isDisabled={exam !== "MHT CET"}
+                  isDisabled={exam !== "MHT CET" && counselling !== "JAC"}
                   className="w-full"
                 />
               </div>

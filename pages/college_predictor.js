@@ -9,6 +9,7 @@ const CollegePredictor = () => {
     rank,
     category,
     exam,
+    counselling,
     roundNumber = "",
     gender = "",
     stateName = "",
@@ -40,7 +41,12 @@ const CollegePredictor = () => {
         } else if (exam_fol === "KCET") {
           response = await fetch(`/data/${exam_fol}/kcet_data.json`);
         } else {
-          response = await fetch(`/data/${exam_fol}/${category}.json`);
+          if (counselling == "JAC") {
+            response = await fetch(`/data/${exam_fol}/jac_data.json`);
+          } else {
+            response = await fetch(`/data/${exam_fol}/${category}.json`);
+          }
+          
         }
         
         const data = await response.json();
@@ -62,6 +68,20 @@ const CollegePredictor = () => {
               item["Rural/Urban"] === rural &&
               item.Category === category
             );
+          }
+
+          if (exam === "JEE Main" && counselling === "JAC") {
+            if (category === "Kashmiri Minority") {
+              return item.Category === category
+            }
+
+            return (
+              (item.Gender === gender || item.Gender === "Any") &&
+              item.PWD === pwd &&
+              item.Defense === defense &&
+              item.Category === category &&
+              item.State === stateName
+            )
           }
 
           const itemRound = parseInt(item.Round, 10);
@@ -87,7 +107,7 @@ const CollegePredictor = () => {
           return parseInt(item["Closing Rank"], 10) > 0.9 * parseInt(rank, 10);
         });
 
-        if (exam !== "MHT CET" && exam !== "KCET") {
+        if (exam !== "MHT CET" && exam !== "KCET" && counselling !== "JAC") {
           filteredData.sort((a, b) => {
             const rankA = a["College Rank"];
             const rankB = b["College Rank"];
@@ -148,7 +168,7 @@ const CollegePredictor = () => {
         </div>
       ) : (
         <div className="w-full overflow-x-auto">
-          <PredictedCollegeTables data={filteredData} exam={exam} />
+          <PredictedCollegeTables data={filteredData} exam={exam} counselling={counselling} />
         </div>
       )}
     </div>
