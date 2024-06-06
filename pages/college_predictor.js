@@ -16,7 +16,8 @@ const CollegePredictor = () => {
     pwd = "",
     defense = "",
     language = "",
-    rural = ""
+    rural = "",
+    courseType = ""
   } = router.query;
   const [filteredData, setFilteredData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -66,7 +67,8 @@ const CollegePredictor = () => {
               item.Language === language &&
               item.State === stateName &&
               item["Rural/Urban"] === rural &&
-              item.Category === category
+              item.Category === category &&
+              item["Course Type"] == courseType
             );
           }
 
@@ -76,7 +78,7 @@ const CollegePredictor = () => {
             }
 
             return (
-              (item.Gender === gender || item.Gender === "Any") &&
+              item.Gender === gender &&
               item.PWD === pwd &&
               item.Defense === defense &&
               item.Category === category &&
@@ -109,13 +111,14 @@ const CollegePredictor = () => {
 
         if (exam !== "MHT CET" && exam !== "KCET" && counselling !== "JAC") {
           filteredData.sort((a, b) => {
-            const rankA = a["College Rank"];
-            const rankB = b["College Rank"];
-            if (rankA !== rankB) {
-              return rankA - rankB;
-            } else {
-              return a["Opening Rank"] - b["Opening Rank"];
-            }
+            // const rankA = a["College Rank"];
+            // const rankB = b["College Rank"];
+            // if (rankA !== rankB) {
+            //   return rankA - rankB;
+            // } else {
+            //   return a["Opening Rank"] - b["Opening Rank"];
+            // }
+            return a["Closing Rank"] - b["Closing Rank"];
           });
         } else {
           filteredData.sort((a, b) => {
