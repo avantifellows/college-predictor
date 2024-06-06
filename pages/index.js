@@ -19,6 +19,8 @@ const HomePage = () => {
 
   const defenseOptions = getConstants().MHTCET_DEFENSE_OPTIONS;
 
+  const courseTypeOptions = getConstants().KCET_COURSETYPE_OPTIONS;
+
   const examOptions = getConstants().EXAM_OPTIONS;
 
   const stateOptions = getConstants().STATE_OPTIONS;
@@ -39,6 +41,7 @@ const HomePage = () => {
   const [exam, setExam] = useState("");
   const [stateName, setStateName] = useState("");
   const [defense, setDefense] = useState("");
+  const [courseType, setCourseType] = useState("");
   const [pwd, setPwd] = useState("");
   const [language, setLanguage] = useState("");
   const [rural, setRural] = useState("");
@@ -63,6 +66,10 @@ const HomePage = () => {
 
   const handleExamDropdownChange = (selectedOption) => {
     setExam(selectedOption.label);
+  };
+
+  const handleCourseTypeDropdownChange = (selectedOption) => {
+    setCourseType(selectedOption.label);
   };
 
   const handleStateNameDropdownChange = (selectedOption) => {
@@ -112,7 +119,7 @@ const HomePage = () => {
       );
     } else if (exam === "KCET") {
       router.push(
-        `/college_predictor?rank=${rank}&category=${category}&exam=${exam}&stateName=${stateName}&rural=${rural}&language=${language}`
+        `/college_predictor?rank=${rank}&category=${category}&exam=${exam}&stateName=${stateName}&rural=${rural}&language=${language}&courseType=${courseType}`
       );
     }
   };
@@ -122,6 +129,9 @@ const HomePage = () => {
   );
   const isCounsellingInOptions = counsellingOptions.some(
     (option) => option.label === counselling
+  );
+  const isCourseTypeInOptions = courseTypeOptions.some(
+    (option) => option.label === courseType
   );
   const isMhtcetCategoryInOptions = mhtcetCategoryOptions.some(
     (option) => option.label === category
@@ -180,7 +190,7 @@ const HomePage = () => {
       (!isMhtcetCategoryInOptions || !isMhtcetGenderInOptions || !isMhtcetStateNameInOptions ||
        !isDefenseInOptions || !isPwdInOptions)) ||
     (exam === "KCET" && 
-      (!isKcetCategoryInOptions || !isKcetStateNameInOptions || !isLanguageInOptions || !isRuralInOptions)
+      (!isKcetCategoryInOptions || !isKcetStateNameInOptions || !isLanguageInOptions || !isRuralInOptions || !isCourseTypeInOptions)
     );
 
   return (
@@ -243,6 +253,21 @@ const HomePage = () => {
                 className="w-full"
               />
             </div>
+            {exam === "KCET" && (
+            <>
+              <div className="my-4 w-full">
+                <label className="block text-md font-semibold text-gray-700 mb-2">
+                  {getConstants().KCET_COURSETYPE_LABEL}
+                </label>
+                <Dropdown
+                  options={courseTypeOptions}
+                  onChange={handleCourseTypeDropdownChange}
+                  isDisabled={exam !== "KCET"}
+                  className="w-full"
+                />
+              </div>
+            </>
+          )}
             <div className="my-4 w-full">
               <label className="block text-md font-semibold text-gray-700 mb-2">
                 {exam === "NEET" || exam === "MHT CET" || exam === "KCET" || (exam === "JEE Main" && counselling === "JAC")
@@ -253,7 +278,7 @@ const HomePage = () => {
                 type="number"
                 value={rank}
                 onChange={handleRankChange}
-                className="border border-gray-300 rounded w-full p-2"
+                className="border border-gray-300 rounded w-full p-2 text-center"
               />
             </div>
           </div>
@@ -304,7 +329,7 @@ const HomePage = () => {
               />
             </div>
           )}
-          {exam === "MHT CET" || counselling === "JAC" && (
+          {(exam === "MHT CET" || counselling === "JAC") && (
             <>
               <div className="my-4 w-full">
                 <label className="block text-md font-semibold text-gray-700 mb-2">

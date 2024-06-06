@@ -137,8 +137,8 @@ const constants = {
   ],
   CATEGORY_HELP_TEXT: "Choose 'Others' if relevant category is not present",
   MHTCET_GENDER_OPTIONS: [
-    { value: "general", label: "General" },
-    { value: "female", label: "Female" },
+    { value: "Gender-Neutral", label: "Gender-Neutral" },
+    { value: "Female-Only", label: "Female-Only" },
   ],
   MHTCET_PWD_LABEL: "Are you a PWD Student?",
   MHTCET_PWD_OPTIONS: [
@@ -188,6 +188,15 @@ const constants = {
   KCET_RURAL_OPTIONS: [
     { value: "Rural", label: "Rural" },
     { value: "All", label: "All" }
+  ],
+  KCET_COURSETYPE_LABEL: "Choose Course Type",
+  KCET_COURSETYPE_OPTIONS: [
+    { value: "Medical/Dental", label: "Medical/Dental" },
+    { value: "Agriculture", label: "Agriculture" },
+    { value: "BNYS", label: "BNYS" },
+    { value: "Pharma", label: "Pharma" },
+    { value: "Engineering", label: "Engineering" },
+    { value: "Architecture", label: "Architecture" }
   ],
   COUNSELLING_LABEL: "Choose Your Counselling Process",
   COUNSELLING_OPTIONS: [
