@@ -183,7 +183,7 @@ const HomePage = () => {
     ((exam !== "MHT CET" && exam !== "KCET" && counselling !== "JAC") &&
       (!isCategoryInOptions || !isRoundNumberInOptions)) ||
     (((exam === "JEE Main" && counselling === "JOSAA") || exam === "JEE Advanced") &&
-      (!isGenderInOptions || !isExamInOptions || !isStateNameInOptions || !isCounsellingInOptions)) ||
+      (!isGenderInOptions || !isExamInOptions || !isStateNameInOptions)) ||
     ((exam === "JEE Main" && counselling === "JAC") && 
       (!isJacCategoryInOptions || !isJacStateNameInOptions || !isMhtcetGenderInOptions || !isPwdInOptions || !isDefenseInOptions)) ||
     (exam === "MHT CET" &&
