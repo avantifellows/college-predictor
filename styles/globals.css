@@ -10,6 +10,7 @@
 
 body {
   margin: 0;
+  padding: 0;
   font-family: "Open Sans", "Lato", sans-serif;
   color: #414141;
   background-color: white;
@@ -34,4 +35,8 @@ ul {
 .center {
   margin: auto;
   text-align: center;
+}
+
+.input-placeholder-black::placeholder {
+  color: #000;
 }

@@ -26,11 +26,17 @@ const customStyles = {
     borderRadius: "0.25rem",
     boxShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
   }),
+  placeholder: (provided) => ({
+    ...provided,
+    color: "#000",
+  }),
 };
 
-const Dropdown = ({ options, onChange, isDisabled }) => {
+const Dropdown = ({ options, onChange, isDisabled, label }) => {
+  console.log(options);
   return (
     <Select
+      placeholder={label}
       options={options}
       onChange={onChange}
       isDisabled={isDisabled}

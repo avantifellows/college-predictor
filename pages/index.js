@@ -112,7 +112,6 @@ const HomePage = () => {
           `/college_predictor?rank=${rank}&category=${category}&roundNumber=${roundNumber}&exam=${exam}&gender=${gender}&stateName=${stateName}`
         );
       }
-      
     } else if (exam === "MHT CET") {
       router.push(
         `/college_predictor?rank=${rank}&category=${category}&exam=${exam}&gender=${gender}&stateName=${stateName}&defense=${defense}&pwd=${pwd}`
@@ -167,9 +166,7 @@ const HomePage = () => {
   const isDefenseInOptions = defenseOptions.some(
     (option) => option.label === defense
   );
-  const isPwdInOptions = pwdOptions.some(
-    (option) => option.label === pwd
-  );
+  const isPwdInOptions = pwdOptions.some((option) => option.label === pwd);
   const isLanguageInOptions = kcetLanguageOptions.some(
     (option) => option.label === language
   );
@@ -177,25 +174,38 @@ const HomePage = () => {
     (option) => option.label === rural
   );
 
-
   const isSubmitDisabled =
     rank <= 0 ||
-    ((exam !== "MHT CET" && exam !== "KCET" && counselling !== "JAC") &&
+    (exam !== "MHT CET" &&
+      exam !== "KCET" &&
+      counselling !== "JAC" &&
       (!isCategoryInOptions || !isRoundNumberInOptions)) ||
-    (((exam === "JEE Main" && counselling === "JOSAA") || exam === "JEE Advanced") &&
+    (((exam === "JEE Main" && counselling === "JOSAA") ||
+      exam === "JEE Advanced") &&
       (!isGenderInOptions || !isExamInOptions || !isStateNameInOptions)) ||
-    ((exam === "JEE Main" && counselling === "JAC") && 
-      (!isJacCategoryInOptions || !isJacStateNameInOptions || !isMhtcetGenderInOptions || !isPwdInOptions || !isDefenseInOptions)) ||
+    (exam === "JEE Main" &&
+      counselling === "JAC" &&
+      (!isJacCategoryInOptions ||
+        !isJacStateNameInOptions ||
+        !isMhtcetGenderInOptions ||
+        !isPwdInOptions ||
+        !isDefenseInOptions)) ||
     (exam === "MHT CET" &&
-      (!isMhtcetCategoryInOptions || !isMhtcetGenderInOptions || !isMhtcetStateNameInOptions ||
-       !isDefenseInOptions || !isPwdInOptions)) ||
-    (exam === "KCET" && 
-      (!isKcetCategoryInOptions || !isKcetStateNameInOptions || !isLanguageInOptions || !isRuralInOptions || !isCourseTypeInOptions)
-    );
+      (!isMhtcetCategoryInOptions ||
+        !isMhtcetGenderInOptions ||
+        !isMhtcetStateNameInOptions ||
+        !isDefenseInOptions ||
+        !isPwdInOptions)) ||
+    (exam === "KCET" &&
+      (!isKcetCategoryInOptions ||
+        !isKcetStateNameInOptions ||
+        !isLanguageInOptions ||
+        !isRuralInOptions ||
+        !isCourseTypeInOptions));
 
   return (
-    <div className="flex flex-col h-screen">
-      <div className="flex justify-center items-center flex-col flex-grow px-4 sm:px-10">
+    <div className="flex flex-col h-fit">
+      <div className="flex items-center justify-center flex-col flex-grow px-4 py-4 sm:px-10">
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-FHGVRT52L7"
           strategy="afterInteractive"
@@ -209,43 +219,48 @@ const HomePage = () => {
             gtag('config', 'G-FHGVRT52L7');
           `}
         </Script>
-        <div className="text-center flex flex-col items-center w-full sm:w-3/4 md:w-2/3 lg:w-1/2 mt-8 pb-10 border-b-2 border-gray-200">
-          <h1 className="text-2xl md:text-3xl font-bold mb-6">{getConstants().TITLE}</h1>
+        <div className="text-center flex flex-col items-center w-full sm:w-3/4 md:w-2/3 lg:w-1/2 mt-8 p-8 pb-10 bg-[#f8f9fa] shadow-inner drop-shadow-md rounded-md">
+          <h1 className="text-2xl md:text-3xl font-bold mb-6">
+            {getConstants().TITLE}
+          </h1>
           <div className="flex flex-col sm:flex-row gap-4 flex-wrap w-full">
             <div className="my-4 w-full">
-            <label className="block text-md font-semibold text-gray-700 mb-2">
+              {/* <label className="block text-md font-semibold text-gray-700 mb-2">
                 {getConstants().EXAM_LABEL}
-              </label>
+              </label> */}
               <Dropdown
+                label={getConstants().EXAM_LABEL}
                 options={examOptions}
                 onChange={handleExamDropdownChange}
                 className="w-full"
               />
             </div>
-            {(exam == "JEE Main") && (
-            <div className="my-4 w-full">
-              <label className="block text-md font-semibold text-gray-700 mb-2">
-                {getConstants().COUNSELLING_LABEL}
-              </label>
-              <Dropdown
-                options={counsellingOptions}
-                onChange={handleCounsellingDropdownChange}
-                isDisabled={exam !== "JEE Main"}
-                className="w-full"
-              />
-            </div>
+            {exam == "JEE Main" && (
+              <div className="my-4 w-full">
+                {/* <label className="block text-md font-semibold text-gray-700 mb-2">
+                  {getConstants().COUNSELLING_LABEL}
+                </label> */}
+                <Dropdown
+                  label={getConstants().COUNSELLING_LABEL}
+                  options={counsellingOptions}
+                  onChange={handleCounsellingDropdownChange}
+                  isDisabled={exam !== "JEE Main"}
+                  className="w-full"
+                />
+              </div>
             )}
             <div className="my-4 w-full">
-              <label className="block text-md font-semibold text-gray-700 mb-2">
+              {/* <label className="block text-md font-semibold text-gray-700 mb-2">
                 {getConstants().CATEGORY_LABEL}
-              </label>
+              </label> */}
               <Dropdown
+                label={getConstants().CATEGORY_LABEL}
                 options={
                   exam === "MHT CET"
                     ? mhtcetCategoryOptions
                     : exam === "KCET"
                     ? kcetCategoryOptions
-                    : (exam === "JEE Main" && counselling === "JAC")
+                    : exam === "JEE Main" && counselling === "JAC"
                     ? jacCategoryOptions
                     : categoryOptions
                 }
@@ -254,54 +269,70 @@ const HomePage = () => {
               />
             </div>
             {exam === "KCET" && (
-            <>
-              <div className="my-4 w-full">
-                <label className="block text-md font-semibold text-gray-700 mb-2">
-                  {getConstants().KCET_COURSETYPE_LABEL}
-                </label>
-                <Dropdown
-                  options={courseTypeOptions}
-                  onChange={handleCourseTypeDropdownChange}
-                  isDisabled={exam !== "KCET"}
-                  className="w-full"
-                />
-              </div>
-            </>
-          )}
+              <>
+                <div className="my-4 w-full">
+                  {/* <label className="block text-md font-semibold text-gray-700 mb-2">
+                    {getConstants().KCET_COURSETYPE_LABEL}
+                  </label> */}
+                  <Dropdown
+                    label={getConstants().KCET_COURSETYPE_LABEL}
+                    options={courseTypeOptions}
+                    onChange={handleCourseTypeDropdownChange}
+                    isDisabled={exam !== "KCET"}
+                    className="w-full"
+                  />
+                </div>
+              </>
+            )}
             <div className="my-4 w-full">
-              <label className="block text-md font-semibold text-gray-700 mb-2">
-                {exam === "NEET" || exam === "MHT CET" || exam === "KCET" || (exam === "JEE Main" && counselling === "JAC")
+              {/* <label className="block text-md font-semibold text-gray-700 mb-2">
+                {exam === "NEET" ||
+                exam === "MHT CET" ||
+                exam === "KCET" ||
+                (exam === "JEE Main" && counselling === "JAC")
                   ? `${getConstants().NEET_RANK_LABEL} (${exam}):`
                   : `${getConstants().RANK_LABEL} (${exam}):`}
-              </label>
+              </label> */}
               <input
+                placeholder={
+                  exam === "NEET" ||
+                  exam === "MHT CET" ||
+                  exam === "KCET" ||
+                  (exam === "JEE Main" && counselling === "JAC")
+                    ? `${getConstants().NEET_RANK_LABEL} (${exam}):`
+                    : `${getConstants().RANK_LABEL} (${exam}):`
+                }
                 type="number"
-                value={rank}
                 onChange={handleRankChange}
-                className="border border-gray-300 rounded w-full p-2 text-center"
+                className="border border-gray-300 rounded w-full p-2 text-center  input-placeholder-black"
               />
             </div>
           </div>
-          {(exam !== "MHT CET" && exam !== "KCET" && counselling !== "JAC") && (
+          {exam !== "MHT CET" && exam !== "KCET" && counselling !== "JAC" && (
             <div className="my-4 w-full">
-              <label className="block text-md font-semibold text-gray-700 mb-2">
-                {getConstants().ROUND_NUMBER_LABEL}
-              </label>
               <Dropdown
+                label={getConstants().ROUND_NUMBER_LABEL}
                 options={roundNumberOptions}
                 onChange={handleRoundNumberDropdownChange}
-                isDisabled={exam === "MHT CET" || exam === "KCET" || counselling === "JAC"}
+                isDisabled={
+                  exam === "MHT CET" || exam === "KCET" || counselling === "JAC"
+                }
                 className="w-full"
               />
             </div>
           )}
-          {(exam !== "NEET" && exam !== "KCET") && (
+          {exam !== "NEET" && exam !== "KCET" && (
             <div className="my-4 w-full">
-              <label className="block text-md font-semibold text-gray-700 mb-2">
+              {/* <label className="block text-md font-semibold text-gray-700 mb-2">
                 {getConstants().GENDER_LABEL}
-              </label>
+              </label> */}
               <Dropdown
-                options={exam === "MHT CET" || counselling === "JAC" ? mhtcetGenderOptions : genderOptions}
+                label={getConstants().GENDER_LABEL}
+                options={
+                  exam === "MHT CET" || counselling === "JAC"
+                    ? mhtcetGenderOptions
+                    : genderOptions
+                }
                 onChange={handleGenderDropdownChange}
                 isDisabled={exam === "NEET" || exam === "KCET"}
                 className="w-full"
@@ -310,16 +341,17 @@ const HomePage = () => {
           )}
           {exam !== "NEET" && (
             <div className="my-4 w-full">
-              <label className="block text-md font-semibold text-gray-700 mb-2">
+              {/* <label className="block text-md font-semibold text-gray-700 mb-2">
                 {getConstants().STATE_LABEL}
-              </label>
+              </label> */}
               <Dropdown
+                label={getConstants().STATE_LABEL}
                 options={
                   exam === "MHT CET"
                     ? mhtcetStateOptions
                     : exam === "KCET"
                     ? kcetStateOptions
-                    : (exam === "JEE Main" && counselling === "JAC")
+                    : exam === "JEE Main" && counselling === "JAC"
                     ? jacStateOptions
                     : stateOptions
                 }
@@ -332,10 +364,11 @@ const HomePage = () => {
           {(exam === "MHT CET" || counselling === "JAC") && (
             <>
               <div className="my-4 w-full">
-                <label className="block text-md font-semibold text-gray-700 mb-2">
+                {/* <label className="block text-md font-semibold text-gray-700 mb-2">
                   {getConstants().MHTCET_PWD_LABEL}
-                </label>
+                </label> */}
                 <Dropdown
+                  label={getConstants().MHTCET_PWD_LABEL}
                   options={pwdOptions}
                   onChange={handlePwdDropdownChange}
                   isDisabled={exam !== "MHT CET" && counselling !== "JAC"}
@@ -343,10 +376,11 @@ const HomePage = () => {
                 />
               </div>
               <div className="my-4 w-full">
-                <label className="block text-md font-semibold text-gray-700 mb-2">
+                {/* <label className="block text-md font-semibold text-gray-700 mb-2">
                   {getConstants().MHTCET_DEFENSE_LABEL}
-                </label>
+                </label> */}
                 <Dropdown
+                  label={getConstants().MHTCET_DEFENSE_LABEL}
                   options={defenseOptions}
                   onChange={handleDefenseDropdownChange}
                   isDisabled={exam !== "MHT CET" && counselling !== "JAC"}
@@ -358,10 +392,11 @@ const HomePage = () => {
           {exam === "KCET" && (
             <>
               <div className="my-4 w-full">
-                <label className="block text-md font-semibold text-gray-700 mb-2">
+                {/* <label className="block text-md font-semibold text-gray-700 mb-2">
                   {getConstants().KCET_LANGUAGE_LABEL}
-                </label>
+                </label> */}
                 <Dropdown
+                  label={getConstants().KCET_LANGUAGE_LABEL}
                   options={kcetLanguageOptions}
                   onChange={handleLanguageChange}
                   isDisabled={exam !== "KCET"}
@@ -369,10 +404,11 @@ const HomePage = () => {
                 />
               </div>
               <div className="my-4 w-full">
-                <label className="block text-md font-semibold text-gray-700 mb-2">
+                {/* <label className="block text-md font-semibold text-gray-700 mb-2">
                   {getConstants().KCET_RURAL_LABEL}
-                </label>
+                </label> */}
                 <Dropdown
+                  label={getConstants().KCET_RURAL_LABEL}
                   options={kcetRuralOptions}
                   onChange={handleRuralChange}
                   isDisabled={exam !== "KCET"}
@@ -389,7 +425,6 @@ const HomePage = () => {
             Submit
           </button>
         </div>
-
       </div>
     </div>
   );
