@@ -50,9 +50,6 @@ const Navbar = ({ item1, item2 }) => {
           </SocialIcon>
         </div>
       </div>
-      <div className="bg-[#B52326] text-xl w-full h-16 flex items-center justify-center text-white">
-        Your Future, Your College, Our Guidance
-      </div>
     </div>
   );
 };

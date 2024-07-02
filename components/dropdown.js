@@ -33,7 +33,6 @@ const customStyles = {
 };
 
 const Dropdown = ({ options, onChange, isDisabled, label }) => {
-  console.log(options);
   return (
     <Select
       placeholder={label}
