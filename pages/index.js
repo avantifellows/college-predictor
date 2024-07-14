@@ -140,16 +140,16 @@ const ExamForm = () => {
               </div>
               {renderFields()}
               {selectedExam && (
-                <div className="my-4 w-full sm:w-3/4">
-                  <label className="block text-md font-semibold text-gray-700 mb-2 -translate-x-3">
+                <div className="my-4 sm:w-3/4 flex">
+                  <label className="block text-md font-semibold text-gray-700 -translate-x-4 flex-1 content-center">
                     Enter Category Rank
                   </label>
                   <input
                     type="number"
                     value={formData.rank || ""}
                     onChange={handleRankChange}
-                    className="border border-gray-300 rounded w-full p-2 text-center"
-                    placeholder="Enter your rank"
+                    className="border border-gray-300 rounded text-center h-fit p-1 flex-1"
+                    placeholder="Rank"
                   />
                 </div>
               )}

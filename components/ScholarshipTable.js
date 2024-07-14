@@ -52,10 +52,9 @@ const ScholarshipTable = ({
   const headers = [
     "Scholarship Name",
     "Status",
-    "Eligible Gender",
     "Application Link",
   ];
-  const mainFields = ["Scholarship Name", "Status", "Eligible Gender"];
+  const mainFields = ["Scholarship Name", "Status"];
   const expandedFields = [
     { key: "Eligibility", label: "Eligibility" },
     { key: "Benefits", label: "Benefits" },

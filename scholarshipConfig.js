@@ -24,7 +24,7 @@ export const scholarshipConfig = {
     },
     {
       name: "stream",
-      label: "Enter Stream:",
+      label: "Enter Stream",
       options: [
         { value: "Engineering", label: "Engineering" },
         { value: "Medical", label: "Medical" },
@@ -49,7 +49,6 @@ export const scholarshipConfig = {
       name: "familyIncome",
       label: "Enter your annual family income in lakhs",
       helperText: [
-        "For example, Rs. 1,20,000 to be entered as 1.2",
         "Scholarships might have specific eligibility within the range check requirements",
       ],
       options: [
@@ -65,9 +64,9 @@ export const scholarshipConfig = {
       name: "category",
       label: "Select Category",
       options: [
-        { value: "open", label: "OPEN" },
-        { value: "sc", label: "SC" },
-        { value: "st", label: "ST" },
+        { value: "OPEN", label: "OPEN" },
+        { value: "SC", label: "SC" },
+        { value: "ST", label: "ST" },
         { value: "Minority", label: "Minority" },
         { value: "General", label: "General" },
       ],
