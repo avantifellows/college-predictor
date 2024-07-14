@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import getConstants from "../constants";
 import ScholarshipTable from "../components/ScholarshipTable";
 import Script from "next/script";
+import Head from "next/head";
 
 const ScholarshipFinder = () => {
   const router = useRouter();
@@ -156,44 +157,49 @@ const ScholarshipFinder = () => {
   ]);
 
   return (
-    <div className="flex flex-col items-center w-full mt-8 pb-10">
-      <div className="text-center flex flex-col items-center w-full sm:w-3/4 md:w-2/3 lg:w-1/2">
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-FHGVRT52L7"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
+    <>
+      <Head>
+        <title>Scholarship - Result</title>
+      </Head>
+      <div className="flex flex-col items-center w-full mt-8 pb-10">
+        <div className="text-center flex flex-col items-center w-full sm:w-3/4 md:w-2/3 lg:w-1/2">
+          <Script
+            src="https://www.googletagmanager.com/gtag/js?id=G-FHGVRT52L7"
+            strategy="afterInteractive"
+          />
+          <Script id="google-analytics" strategy="afterInteractive">
+            {`
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){window.dataLayer.push(arguments);}
                 gtag('js', new Date());
 
                 gtag('config', 'G-FHGVRT52L7');
                 `}
-        </Script>
-        <h1 className="text-2xl md:text-3xl font-bold mb-6">
-          {getConstants().SCHOLARSHIP_TITLE}
-        </h1>
-        <h3 className="mb-2 text-lg md:text-xl">Chosen Grade: {grade}</h3>
-        <h3 className="mb-2 text-lg md:text-xl">Chosen Gender: {gender}</h3>
-        <h3 className="mb-2 text-lg md:text-xl">Chosen Stream: {stream}</h3>
-        <h3 className="mb-2 text-lg md:text-xl">Chosen Category: {category}</h3>
-        <h3 className="mb-2 text-lg md:text-xl">Chosen State: {stateName}</h3>
-        <h3 className="mb-6 text-lg md:text-xl">Chosen City: {cityName}</h3>
-        {isLoading ? (
-          <div className="flex flex-col items-center">
-            <div className="border-t-4 border-[#B52326] border-solid w-7 h-7 animate-spin rounded-full mb-3"></div>
-            <p>Loading...</p>
-          </div>
-        ) : (
-          <ScholarshipTable
-            filteredData={filteredData}
-            toggleRowExpansion={toggleRowExpansion}
-            expandedRows={expandedRows}
-          />
-        )}
+          </Script>
+          <h1 className="text-2xl md:text-3xl font-bold mb-6">
+            {getConstants().SCHOLARSHIP_TITLE}
+          </h1>
+          <h3 className="mb-2 text-lg md:text-xl">Chosen Grade: {grade}</h3>
+          <h3 className="mb-2 text-lg md:text-xl">Chosen Gender: {gender}</h3>
+          <h3 className="mb-2 text-lg md:text-xl">Chosen Stream: {stream}</h3>
+          <h3 className="mb-2 text-lg md:text-xl">Chosen Category: {category}</h3>
+          <h3 className="mb-2 text-lg md:text-xl">Chosen State: {stateName}</h3>
+          <h3 className="mb-6 text-lg md:text-xl">Chosen City: {cityName}</h3>
+          {isLoading ? (
+            <div className="flex flex-col items-center">
+              <div className="border-t-4 border-[#B52326] border-solid w-7 h-7 animate-spin rounded-full mb-3"></div>
+              <p>Loading...</p>
+            </div>
+          ) : (
+            <ScholarshipTable
+              filteredData={filteredData}
+              toggleRowExpansion={toggleRowExpansion}
+              expandedRows={expandedRows}
+            />
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
