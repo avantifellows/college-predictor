@@ -2,10 +2,11 @@ import React, { useEffect, useState, useCallback } from "react";
 import { useRouter } from "next/router";
 import getConstants from "../constants";
 import PredictedCollegeTables from "../components/PredictedCollegeTables";
+import Head from "next/head";
 
 const fetchDataForExam = async (exam, counselling, category) => {
   const response = await fetch(
-    `/api/college-data?exam=${exam}&counselling=${counselling}&category=${category}`
+    `/api/college-data?exam=${exam}&counselling=${counselling}&category=${category}`,
   );
   if (!response.ok) {
     throw new Error("Network response was not ok");
@@ -77,7 +78,7 @@ const filterData = (data, queryParams) => {
       }
     })
     .filter(
-      (item) => parseInt(item["Closing Rank"], 10) > 0.9 * parseInt(rank, 10)
+      (item) => parseInt(item["Closing Rank"], 10) > 0.9 * parseInt(rank, 10),
     )
     .sort((a, b) => a["Closing Rank"] - b["Closing Rank"]);
 };
@@ -95,7 +96,7 @@ const CollegePredictor = () => {
         const data = await fetchDataForExam(
           query.exam,
           query.counselling,
-          query.category
+          query.category,
         );
         const filteredData = filterData(data, query);
         setFilteredData(filteredData);
@@ -112,63 +113,68 @@ const CollegePredictor = () => {
   }, [fetchAndFilterData]);
 
   return (
-    <div className="flex flex-col items-center p-4">
-      <div className="flex flex-col items-center justify-center w-full sm:w-5/6 md:w-3/4 lg:w-2/3 bg-white p-6 rounded-lg shadow-lg">
-        <h1 className="text-2xl font-bold mb-4 text-center">
-          {getConstants().TITLE}
-        </h1>
-        <div className="text-center mb-4 space-y-2">
-          <p className="text-base md:text-lg">
-            {query.exam !== "NEET"
-              ? `Your Category Rank: ${query.rank}`
-              : `Your Rank: ${query.rank}`}
-          </p>
-          {query.exam !== "MHT CET" && query.exam !== "KCET" && (
+    <>
+      <Head>
+        <title>College Predictor - Result</title>
+      </Head>
+      <div className="flex flex-col items-center p-4">
+        <div className="flex flex-col items-center justify-center w-full sm:w-5/6 md:w-3/4 lg:w-2/3 bg-white p-6 rounded-lg shadow-lg">
+          <h1 className="text-2xl font-bold mb-4 text-center">
+            {getConstants().TITLE}
+          </h1>
+          <div className="text-center mb-4 space-y-2">
             <p className="text-base md:text-lg">
-              Chosen Round Number: {query.roundNumber}
+              {query.exam !== "NEET"
+                ? `Your Category Rank: ${query.rank}`
+                : `Your Rank: ${query.rank}`}
             </p>
-          )}
-          <p className="text-base md:text-lg">Chosen Exam: {query.exam}</p>
-          {query.exam !== "NEET" && query.exam !== "KCET" && (
-            <p className="text-base md:text-lg">
-              Chosen Gender: {query.gender}
-            </p>
-          )}
-          {query.exam !== "NEET" && (
-            <p className="text-base md:text-lg">
-              Chosen Home State: {query.stateName}
-            </p>
-          )}
-          {query.exam === "KCET" && (
-            <>
+            {query.exam !== "MHT CET" && query.exam !== "KCET" && (
               <p className="text-base md:text-lg">
-                Chosen Language: {query.language}
+                Chosen Round Number: {query.roundNumber}
               </p>
+            )}
+            <p className="text-base md:text-lg">Chosen Exam: {query.exam}</p>
+            {query.exam !== "NEET" && query.exam !== "KCET" && (
               <p className="text-base md:text-lg">
-                Chosen Region: {query.rural}
+                Chosen Gender: {query.gender}
               </p>
-            </>
+            )}
+            {query.exam !== "NEET" && (
+              <p className="text-base md:text-lg">
+                Chosen Home State: {query.stateName}
+              </p>
+            )}
+            {query.exam === "KCET" && (
+              <>
+                <p className="text-base md:text-lg">
+                  Chosen Language: {query.language}
+                </p>
+                <p className="text-base md:text-lg">
+                  Chosen Region: {query.rural}
+                </p>
+              </>
+            )}
+          </div>
+          <h3 className="text-lg md:text-xl mb-4 text-center">
+            Predicted colleges and courses for you:
+          </h3>
+          {isLoading ? (
+            <div className="flex items-center justify-center flex-col mt-2">
+              <div className="border-t-2 border-transparent border-[#B52326] rounded-full w-8 h-8 animate-spin mb-2"></div>
+              <p>Loading...</p>
+            </div>
+          ) : (
+            <div className="w-full overflow-x-auto">
+              <PredictedCollegeTables
+                data={filteredData}
+                exam={query.exam}
+                counselling={query.counselling}
+              />
+            </div>
           )}
         </div>
-        <h3 className="text-lg md:text-xl mb-4 text-center">
-          Predicted colleges and courses for you:
-        </h3>
-        {isLoading ? (
-          <div className="flex items-center justify-center flex-col mt-2">
-            <div className="border-t-2 border-transparent border-[#B52326] rounded-full w-8 h-8 animate-spin mb-2"></div>
-            <p>Loading...</p>
-          </div>
-        ) : (
-          <div className="w-full overflow-x-auto">
-            <PredictedCollegeTables
-              data={filteredData}
-              exam={query.exam}
-              counselling={query.counselling}
-            />
-          </div>
-        )}
       </div>
-    </div>
+    </>
   );
 };
 
