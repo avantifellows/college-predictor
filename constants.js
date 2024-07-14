@@ -1,11 +1,11 @@
 const constants = {
   TITLE: "Exam Rank College Predictor",
-  CATEGORY_LABEL: "Select Category:",
+  CATEGORY_LABEL: "Select Category",
   RANK_LABEL: "Enter Category Rank",
   NEET_RANK_LABEL: "Enter Rank As Per Open Rank List",
-  GENDER_LABEL: "Select Gender:",
-  EXAM_LABEL: "Select Exam:",
-  STATE_LABEL: "Select Your Home State:",
+  GENDER_LABEL: "Select Gender",
+  EXAM_LABEL: "Select Exam",
+  STATE_LABEL: "Select Your Home State",
   ROUND_NUMBER_LABEL: "Select Round Number:",
   ROUND_NUMBER_OPTIONS: [
     { value: "1", label: "1" },
@@ -39,7 +39,7 @@ const constants = {
     { value: "jee_advanced", label: "JEE Advanced" },
     { value: "neet", label: "NEET" },
     { value: "mhtcet", label: "MHT CET" },
-    { value: "kcet", label: "KCET" }
+    { value: "kcet", label: "KCET" },
   ],
   STATE_OPTIONS: [
     { value: "all_india", label: "All India" },
@@ -166,28 +166,28 @@ const constants = {
     { value: "Other", label: "Other" },
   ],
   KCET_CATEGORY_OPTIONS: [
-    { value: "1", label: "1"},
+    { value: "1", label: "1" },
     { value: "2A", label: "2A" },
     { value: "2B", label: "2B" },
     { value: "3A", label: "3A" },
     { value: "3B", label: "3B" },
-    { value: "General", label: "General"},
-    { value: "SC", label: "SC"},
-    { value: "ST", label: "ST"}
+    { value: "General", label: "General" },
+    { value: "SC", label: "SC" },
+    { value: "ST", label: "ST" },
   ],
   KCET_STATE_OPTIONS: [
     { value: "All India", label: "All India" },
-    { value: "Karnataka", label: "Karnataka" }
+    { value: "Karnataka", label: "Karnataka" },
   ],
   KCET_LANGUAGE_LABEL: "Choose your Class 1 - Class 10 Language",
   KCET_LANGUAGE_OPTIONS: [
     { value: "Any", label: "Any" },
-    { value: "Kannada", label: "Kannada" }
+    { value: "Kannada", label: "Kannada" },
   ],
   KCET_RURAL_LABEL: "Choose Your Region",
   KCET_RURAL_OPTIONS: [
     { value: "Rural", label: "Rural" },
-    { value: "All", label: "All" }
+    { value: "All", label: "All" },
   ],
   KCET_COURSETYPE_LABEL: "Choose Course Type",
   KCET_COURSETYPE_OPTIONS: [
@@ -196,7 +196,7 @@ const constants = {
     { value: "BNYS", label: "BNYS" },
     { value: "Pharma", label: "Pharma" },
     { value: "Engineering", label: "Engineering" },
-    { value: "Architecture", label: "Architecture" }
+    { value: "Architecture", label: "Architecture" },
   ],
   COUNSELLING_LABEL: "Choose Your Counselling Process",
   COUNSELLING_OPTIONS: [
@@ -208,13 +208,13 @@ const constants = {
     { value: "Outside Delhi", label: "Outside Delhi" },
   ],
   JAC_CATEGORY_OPTIONS: [
-    { value: "EWS", label: "EWS"},
+    { value: "EWS", label: "EWS" },
     { value: "Kashmiri Minority", label: "Kashmiri Minority" },
     { value: "OBC", label: "OBC" },
-    { value: "General", label: "General"},
-    { value: "SC", label: "SC"},
-    { value: "ST", label: "ST"}
-  ]
+    { value: "General", label: "General" },
+    { value: "SC", label: "SC" },
+    { value: "ST", label: "ST" },
+  ],
 };
 
 export default function getConstants() {

@@ -18,8 +18,8 @@ const customStyles = {
     backgroundColor: state.isFocused
       ? "rgba(255, 182, 193, 0.8)"
       : state.isSelected
-      ? "#b52326"
-      : "white",
+        ? "#b52326"
+        : "white",
   }),
   menu: (provided) => ({
     ...provided,
@@ -32,10 +32,9 @@ const customStyles = {
   }),
 };
 
-const Dropdown = ({ options, onChange, isDisabled, label }) => {
+const Dropdown = ({ options, onChange, isDisabled }) => {
   return (
     <Select
-      placeholder={label}
       options={options}
       onChange={onChange}
       isDisabled={isDisabled}
