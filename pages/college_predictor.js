@@ -3,6 +3,31 @@ import { useRouter } from "next/router";
 import getConstants from "../constants";
 import PredictedCollegeTables from "../components/PredictedCollegeTables";
 import Head from "next/head";
+import Fuse from "fuse.js";
+
+const fuseOptions = {
+  isCaseSensitive: false,
+  includeScore: false,
+  shouldSort: true,
+  includeMatches: false,
+  findAllMatches: false,
+  minMatchCharLength: 1,
+  location: 0,
+  threshold: 0.3,
+  distance: 100,
+  useExtendedSearch: true,
+  ignoreLocation: true,
+  ignoreFieldNorm: false,
+  fieldNormWeight: 1,
+  keys: [
+    "Institute",
+    "State",
+    "Academic Program Name"
+  ]
+};
+
+// ignoreFieldNorm: false,
+// fieldNormWeight: 1,
 
 const fetchDataForExam = async (exam, counselling, category) => {
   const response = await fetch(
@@ -54,10 +79,10 @@ const filterData = (data, queryParams) => {
         return category === "Kashmiri Minority"
           ? item.Category === category
           : item.Gender === gender &&
-              item.PWD === pwd &&
-              item.Defense === defense &&
-              item.Category === category &&
-              item.State === stateName;
+          item.PWD === pwd &&
+          item.Defense === defense &&
+          item.Category === category &&
+          item.State === stateName;
       }
       const itemRound = parseInt(item.Round, 10);
       if (["JEE Main", "JEE Advanced"].includes(exam)) {
@@ -87,7 +112,19 @@ const CollegePredictor = () => {
   const router = useRouter();
   const { query } = router;
   const [filteredData, setFilteredData] = useState([]);
+  const [fullData, setFullData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const fuse = new Fuse(filteredData, fuseOptions);
+
+  const searchFun = (e) => {
+    if (e.target.value === "") {
+      setFilteredData(fullData);
+      return;
+    }
+    const searchValue = e.target.value;
+    const result = fuse.search(searchValue);
+    setFilteredData(result.map((r) => r.item));
+  };
 
   const fetchAndFilterData = useCallback(async () => {
     if (query.rank) {
@@ -100,8 +137,11 @@ const CollegePredictor = () => {
         );
         const filteredData = filterData(data, query);
         setFilteredData(filteredData);
+        setFullData(filteredData);
       } catch (error) {
         console.error("Error fetching data:", error);
+        setFilteredData([]);
+        setFullData([]);
       } finally {
         setIsLoading(false);
       }
@@ -155,6 +195,13 @@ const CollegePredictor = () => {
               </>
             )}
           </div>
+          <div>
+            <div className="flex flex-col items-center text-sm sm:text-base mb-4">
+              <p className="leading-4 mb-1">AI: All India</p>
+              <p className="leading-4 mb-1">HS: Home State</p>
+              <p className="leading-4 mb-1">OS: Out of State</p>
+            </div>
+          </div>
           <h3 className="text-lg md:text-xl mb-4 text-center">
             Predicted colleges and courses for you:
           </h3>
@@ -164,13 +211,21 @@ const CollegePredictor = () => {
               <p>Loading...</p>
             </div>
           ) : (
-            <div className="w-full overflow-x-auto">
-              <PredictedCollegeTables
-                data={filteredData}
-                exam={query.exam}
-                counselling={query.counselling}
-              />
-            </div>
+            <>
+              <div className="my-4 w-full flex max-sm:flex-col sm:flex-row left justify-end items-center">
+                <label className="block text-md font-semibold text-gray-700 content-center mx-2">
+                  Search: &#128269;
+                </label>
+                <input onChange={searchFun} placeholder="Name / State / Program" className="border border-gray-300 rounded text-center h-fit p-1 sm:w-5/12 w-3/4" />
+              </div>
+              <div className="w-full overflow-x-auto">
+                <PredictedCollegeTables
+                  data={filteredData}
+                  exam={query.exam}
+                  counselling={query.counselling}
+                />
+              </div>
+            </>
           )}
         </div>
       </div>

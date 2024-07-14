@@ -4,12 +4,33 @@ import getConstants from "../constants";
 import ScholarshipTable from "../components/ScholarshipTable";
 import Script from "next/script";
 import Head from "next/head";
+import Fuse from "fuse.js";
+
+const fuseOptions = {
+  isCaseSensitive: false,
+  includeScore: false,
+  shouldSort: true,
+  includeMatches: false,
+  findAllMatches: false,
+  minMatchCharLength: 1,
+  location: 0,
+  threshold: 0.3,
+  distance: 100,
+  useExtendedSearch: true,
+  ignoreLocation: true,
+  ignoreFieldNorm: false,
+  fieldNormWeight: 1,
+  keys: [
+    "Scholarship Name",
+  ]
+};
 
 const ScholarshipFinder = () => {
   const router = useRouter();
   const { status, grade, stream, gender, familyIncome, category } =
     router.query;
   const [filteredData, setFilteredData] = useState([]);
+  const [fullData, setFullData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [expandedRows, setExpandedRows] = useState([]);
 
@@ -17,6 +38,17 @@ const ScholarshipFinder = () => {
     const updatedExpandedRows = [...expandedRows];
     updatedExpandedRows[index] = !updatedExpandedRows[index];
     setExpandedRows(updatedExpandedRows);
+  };
+  const fuse = new Fuse(filteredData, fuseOptions);
+
+  const searchFun = (e) => {
+    if (e.target.value === "") {
+      setFilteredData(fullData);
+      return;
+    }
+    const searchValue = e.target.value;
+    const result = fuse.search(searchValue);
+    setFilteredData(result.map((r) => r.item));
   };
 
   useEffect(() => {
@@ -30,11 +62,13 @@ const ScholarshipFinder = () => {
         }
         const data = await response.json();
         setFilteredData(data);
+        setFullData(data);
         setIsLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
         setIsLoading(false);
         setFilteredData([]);
+        setFullData([]);
       }
     };
     fetchData();
@@ -78,11 +112,19 @@ const ScholarshipFinder = () => {
               <p>Loading...</p>
             </div>
           ) : (
-            <ScholarshipTable
-              filteredData={filteredData}
-              toggleRowExpansion={toggleRowExpansion}
-              expandedRows={expandedRows}
-            />
+            <>
+              <div className="my-4 w-full flex max-sm:flex-col sm:flex-row left justify-end items-center">
+                <label className="block text-md font-semibold text-gray-700 content-center mx-2">
+                  Search: &#128269;
+                </label>
+                <input onChange={searchFun} placeholder="Scholarship Name" className="border border-gray-300 rounded text-center h-fit p-1 sm:w-5/12 w-3/4" />
+              </div>
+              <ScholarshipTable
+                filteredData={filteredData}
+                toggleRowExpansion={toggleRowExpansion}
+                expandedRows={expandedRows}
+              />
+            </>
           )}
         </div>
       </div>
