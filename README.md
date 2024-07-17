@@ -1,6 +1,7 @@
 <div align="center">
 
 ![Avanti fellow logo](https://i.imgur.com/t0MrYMI.png)
+
 </div>
 
 <h1 align="center">Avanti-College Predictor</h1>
@@ -11,23 +12,25 @@
 </div>
 
 ## Project Overview
+
 The College Predictor application helps students find:
+
 1. A list of colleges with opening and closing ranks based on:
-	-   Exam
-	-   Category
-	-   Category rank
-	-   Round Number
-	-   Gender
-	-   Home State
+   - Exam
+   - Category
+   - Category rank
+   - Round Number
+   - Gender
+   - Home State
 2. A list of applicable scholarships based on:
-	-   Scholarhship Status
-	-   Grade
-	-   Stream
-	-   Category
-	-   Family Annual Income
-	-   Gender
-	-   Home State
-	-   City Name
+   - Scholarhship Status
+   - Grade
+   - Stream
+   - Category
+   - Family Annual Income
+   - Gender
+   - Home State
+   - City Name
 
 <div align="center">
 
@@ -38,22 +41,30 @@ The College Predictor application helps students find:
 </div>
 
 ## Getting Started
+
 ### Prerequisites
+
 1. Node.js (version 14 or above)
 2. npm (comes with Node.js)
+
 ### Installation
+
 1. Fork the `college-predictor` repository.
 2. Clone the forked repository to your local computer (replacing the values in `{{}}`):
-	```bash
-	git clone https://github.com/{{YOUR_GITHUB_USERNAME}}/college-predictor.git
-	cd college-predictor
-	```
-3. Install dependencies
-	```bash
-	npm install
-	```
-4. Run the local development server at [http://localhost:3000](http://localhost:3000)
-	```bash
-	npm run start
-	```
 
+   ```bash
+   git clone https://github.com/{{YOUR_GITHUB_USERNAME}}/college-predictor.git
+   cd college-predictor
+   ```
+
+3. Install dependencies
+
+   ```bash
+   npm install
+   ```
+
+4. Run the local development server at [http://localhost:3000](http://localhost:3000)
+
+   ```bash
+   npm run start
+   ```
