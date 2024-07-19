@@ -4,9 +4,9 @@ import Select from "react-select";
 const customStyles = {
   control: (provided) => ({
     ...provided,
-    borderRadius: "0.25rem",
-    borderColor: "rgba(209, 213, 219)",
-    boxShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
+    "borderRadius": "0.25rem",
+    "borderColor": "rgba(209, 213, 219)",
+    "boxShadow": "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
     "&:hover": {
       borderColor: "rgba(156, 163, 175)",
     },
@@ -18,8 +18,8 @@ const customStyles = {
     backgroundColor: state.isFocused
       ? "rgba(255, 182, 193, 0.8)"
       : state.isSelected
-        ? "#b52326"
-        : "white",
+      ? "#b52326"
+      : "white",
   }),
   menu: (provided) => ({
     ...provided,

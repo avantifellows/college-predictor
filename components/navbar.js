@@ -15,7 +15,7 @@ const Navbar = ({ item1, item2 }) => {
             src="https://cdn.avantifellows.org/af_logos/avanti_logo_black_text.webp"
             alt="Avanti Fellows logo"
             layout="fill"
-            objectFit="contain"
+            className="object-contain"
           />
         </div>
 

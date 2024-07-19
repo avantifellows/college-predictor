@@ -1,0 +1,31 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
+
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v3.0.0-alpha.9-for-vscode
+    hooks:
+      - id: prettier
+        files: \.(js|jsx|mjs|cjs|ts|tsx|css|less|yaml|yml)$
+        args: [--config, .prettierrc.json]
+
+  - repo: https://github.com/pre-commit/mirrors-eslint
+    rev: v8.38.0
+    hooks:
+      - id: eslint
+        files: \.(js|jsx|mjs|cjs)$
+        types: [file]
+        args: [--config, eslint.config.mjs, --fix]
+        additional_dependencies:
+          - eslint
+          - "@eslint/js"
+          - eslint-plugin-react
+          - eslint-plugin-react-hooks
+          - eslint-plugin-jsx-a11y
+          - "@next/eslint-plugin-next"
+          - globals

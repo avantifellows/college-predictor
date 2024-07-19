@@ -20,15 +20,12 @@ const fuseOptions = {
   ignoreLocation: true,
   ignoreFieldNorm: false,
   fieldNormWeight: 1,
-  keys: [
-    "Scholarship Name",
-  ]
+  keys: ["Scholarship Name"],
 };
 
 const ScholarshipFinder = () => {
   const router = useRouter();
-  const { status, grade, stream, gender, familyIncome, category } =
-    router.query;
+  const { grade, stream, gender, familyIncome, category } = router.query;
   const [filteredData, setFilteredData] = useState([]);
   const [fullData, setFullData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -54,9 +51,9 @@ const ScholarshipFinder = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(
-          `/api/scholarship-data?status=${status}&grade=${grade}&stream=${stream}&gender=${gender}&familyIncome=${familyIncome}&category=${category}`,
-        );
+        const params = new URLSearchParams(Object.entries(router.query));
+        const queryString = params.toString();
+        const response = await fetch(`/api/scholarship-data?${queryString}`);
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
@@ -72,7 +69,7 @@ const ScholarshipFinder = () => {
       }
     };
     fetchData();
-  }, [status, grade, stream, gender, familyIncome, category]);
+  }, [router.query]);
 
   return (
     <>
@@ -80,8 +77,8 @@ const ScholarshipFinder = () => {
         <title>Scholarship - Result</title>
       </Head>
 
-      <div className="flex flex-col items-center w-full mt-8 pb-10">
-        <div className="text-center flex flex-col items-center w-full sm:w-3/4 md:w-2/3 ">
+      <div className="flex flex-col items-center  mt-8 pb-10">
+        <div className="flex flex-col items-center justify-center w-full sm:w-5/6 md:w-3/4  bg-white p-6 rounded-lg shadow-lg">
           <Script
             src="https://www.googletagmanager.com/gtag/js?id=G-FHGVRT52L7"
             strategy="afterInteractive"
@@ -113,11 +110,15 @@ const ScholarshipFinder = () => {
             </div>
           ) : (
             <>
-              <div className="my-4 w-full flex max-sm:flex-col sm:flex-row left justify-end items-center">
+              <div className="mb-4 w-full flex flex-col left justify-center items-center">
                 <label className="block text-md font-semibold text-gray-700 content-center mx-2">
                   Search: &#128269;
                 </label>
-                <input onChange={searchFun} placeholder="Scholarship Name" className="border border-gray-300 rounded text-center h-fit p-1 sm:w-5/12 w-3/4" />
+                <input
+                  onChange={searchFun}
+                  placeholder="Scholarship Name"
+                  className="border border-gray-300 rounded text-center h-fit p-1 sm:w-5/12 w-3/4"
+                />
               </div>
               <ScholarshipTable
                 filteredData={filteredData}

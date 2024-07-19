@@ -8,7 +8,7 @@ export default async function handler(req, res) {
   const dataPath = path.join(
     process.cwd(),
     "public",
-    "/data/scholarships/scholarship_data.json",
+    "/data/scholarships/scholarship_data.json"
   );
 
   try {
@@ -38,7 +38,7 @@ export default async function handler(req, res) {
 
     // Filter scholarships using every method
     const filteredScholarships = scholarships.filter((scholarship) =>
-      filters.every((filter) => filter(scholarship)),
+      filters.every((filter) => filter(scholarship))
     );
 
     if (filteredScholarships.length === 0) {

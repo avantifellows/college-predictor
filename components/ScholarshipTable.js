@@ -49,11 +49,7 @@ const ScholarshipTable = ({
   toggleRowExpansion,
   expandedRows,
 }) => {
-  const headers = [
-    "Scholarship Name",
-    "Status",
-    "Application Link",
-  ];
+  const headers = ["Scholarship Name", "Status", "Application Link"];
   const mainFields = ["Scholarship Name", "Status"];
   const expandedFields = [
     { key: "Eligibility", label: "Eligibility" },
