@@ -75,6 +75,9 @@ const CollegePredictor = () => {
 
     return (
       <div className="text-center mb-4 space-y-2">
+        <p className="text-base md:text-lg">
+          Exam: {examConfig.name}
+        </p>
         {examConfig.fields.map((field) => (
           <p key={field.name} className="text-base md:text-lg">
             {field.label}: {router.query[field.name]}
