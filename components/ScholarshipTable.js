@@ -1,9 +1,71 @@
 import React from "react";
 
+<<<<<<< Updated upstream
 const ScholarshipTable = ({ filteredData, toggleRowExpansion, expandedRows }) => {
   const commonTableClass = "w-full mx-auto border-collapse text-sm sm:text-base";
   const commonHeaderClass = "bg-gray-200 font-bold text-center text-xs sm:text-sm md:text-base";
   const commonCellClass = "p-2 border border-gray-300 text-center text-xs sm:text-sm md:text-base";
+=======
+const TableHeader = ({ headers }) => (
+  <thead>
+    <tr className="bg-gray-200 font-bold text-center text-xs sm:text-sm md:text-base">
+      {headers.map((header, index) => (
+        <th
+          key={index}
+          className="p-2 border-r border-gray-300 last:border-r-0"
+        >
+          {header}
+        </th>
+      ))}
+    </tr>
+  </thead>
+);
+
+const TableCell = ({ children, className = "" }) => (
+  <td className={`p-2 border-r border-gray-300 last:border-r-0 ${className}`}>
+    {children}
+  </td>
+);
+
+const ExpandedRow = ({ item, expandedFields }) => (
+  <tr>
+    <td colSpan="4" className="p-4 border border-gray-300">
+      <div className="text-left text-sm sm:text-base">
+        {expandedFields.map((field, index) => (
+          <div key={index} className="mb-2">
+            <b>{field.label}:</b>{" "}
+            {field.key === "Doc Required" ? (
+              <ul className="list-disc list-inside ml-4">
+                {item[field.key].split("\n").map((line, i) => (
+                  <li key={i}>{line}</li>
+                ))}
+              </ul>
+            ) : (
+              <span>{item[field.key]}</span>
+            )}
+          </div>
+        ))}
+      </div>
+    </td>
+  </tr>
+);
+
+const ScholarshipTable = ({
+  filteredData,
+  toggleRowExpansion,
+  expandedRows,
+}) => {
+  const headers = ["Scholarship Name", "Status", "Application Link"];
+  const mainFields = ["Scholarship Name", "Status"];
+  const expandedFields = [
+    { key: "Eligibility", label: "Eligibility" },
+    { key: "Benefits", label: "Benefits" },
+    { key: "Doc Required", label: "Documents Required" },
+    { key: "Scholarship Amount", label: "Scholarship Amount" },
+    { key: "Last Date", label: "Last Date" },
+    { key: "Special Criteria", label: "Special Criteria" },
+  ];
+>>>>>>> Stashed changes
 
   return (
     <div className="w-full mx-auto overflow-x-auto">

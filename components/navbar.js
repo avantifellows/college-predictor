@@ -16,7 +16,7 @@ const Navbar = ({ item1, item2 }) => {
             src="/AvantiFellowsLogo.svg"
             alt="Avanti Fellows logo"
             layout="fill"
-            objectFit="contain"
+            className="object-contain"
           />
         </div>
         <div className="flex text-black text-lg gap-10">

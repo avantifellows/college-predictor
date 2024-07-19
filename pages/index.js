@@ -4,6 +4,7 @@ import Dropdown from "../components/dropdown";
 import { useRouter } from "next/router";
 import getConstants from "../constants";
 
+<<<<<<< Updated upstream
 const HomePage = () => {
   const categoryOptions = getConstants().CATEGORY_OPTIONS;
   const mhtcetCategoryOptions = getConstants().MHTCET_CATEGORY_OPTIONS;
@@ -120,6 +121,30 @@ const HomePage = () => {
       router.push(
         `/college_predictor?rank=${rank}&category=${category}&exam=${exam}&stateName=${stateName}&rural=${rural}&language=${language}&courseType=${courseType}`
       );
+=======
+const ExamForm = () => {
+  const [selectedExam, setSelectedExam] = useState("");
+  const [formData, setFormData] = useState({});
+  const [config, setConfig] = useState(null);
+  const router = useRouter();
+
+  const handleExamChange = (selectedOption) => {
+    setSelectedExam(selectedOption.value);
+    setConfig(examConfigs[selectedOption.value]);
+    if (selectedOption.code !== undefined) {
+      setFormData({
+        exam: selectedOption.value,
+        rank: 0,
+        code: selectedOption.code,
+        // apiEndpoint: selectedOption.apiEndpoint,
+      });
+    } else {
+      setFormData({
+        exam: selectedOption.value,
+        rank: 0,
+        // apiEndpoint: selectedOption.apiEndpoint,
+      });
+>>>>>>> Stashed changes
     }
   };
 
@@ -174,6 +199,7 @@ const HomePage = () => {
     (option) => option.label === rural
   );
 
+<<<<<<< Updated upstream
   const isSubmitDisabled =
     rank <= 0 ||
     (exam !== "MHT CET" &&
@@ -202,6 +228,44 @@ const HomePage = () => {
         !isLanguageInOptions ||
         !isRuralInOptions ||
         !isCourseTypeInOptions));
+=======
+  const handleRankChange = (e) => {
+    const enteredRank = e.target.value;
+    setFormData((prevData) => ({
+      ...prevData,
+      rank: enteredRank,
+    }));
+  };
+  const handleSubmit = async () => {
+    const queryString = Object.entries(formData)
+      .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
+      .join("&");
+    router.push(`/college_predictor?${queryString}`);
+  };
+  const isSubmitDisabled = Object.values(formData).some((value) => !value);
+  const renderFields = () => {
+    if (!selectedExam) return null;
+
+    if (!config) return null;
+
+    return config.fields.map((field) => (
+      <div key={field.name} className="my-4 w-full sm:w-3/4">
+        <label className="block text-md font-semibold text-gray-700 mb-2 -translate-x-4">
+          {field.label}
+        </label>
+        <Dropdown
+          options={field.options.map((option) =>
+            typeof option === "string"
+              ? { value: option, label: option }
+              : option
+          )}
+          onChange={handleInputChange(field.name)}
+          className="w-full"
+        />
+      </div>
+    ));
+  };
+>>>>>>> Stashed changes
 
   return (
     <div className="flex flex-col h-fit">
@@ -241,6 +305,7 @@ const HomePage = () => {
                   {getConstants().COUNSELLING_LABEL}
                 </label> */}
                 <Dropdown
+<<<<<<< Updated upstream
                   label={getConstants().COUNSELLING_LABEL}
                   options={counsellingOptions}
                   onChange={handleCounsellingDropdownChange}
@@ -280,6 +345,30 @@ const HomePage = () => {
                     onChange={handleCourseTypeDropdownChange}
                     isDisabled={exam !== "KCET"}
                     className="w-full"
+=======
+                  options={Object.keys(examConfigs).map((exam) => ({
+                    value: exam,
+                    label: exam,
+                    code: examConfigs[exam].code,
+                    apiEndpoint: examConfigs[exam].apiEndpoint,
+                  }))}
+                  onChange={handleExamChange}
+                  className="w-full"
+                />
+              </div>
+              {renderFields()}
+              {selectedExam && (
+                <div className="my-4 w-full sm:w-3/4">
+                  <label className="block text-md font-semibold text-gray-700 mb-2 -translate-x-3">
+                    Enter Category Rank
+                  </label>
+                  <input
+                    type="number"
+                    value={formData.rank || ""}
+                    onChange={handleRankChange}
+                    className="border border-gray-300 rounded w-full p-2 text-center"
+                    placeholder="Enter your rank"
+>>>>>>> Stashed changes
                   />
                 </div>
               </>
