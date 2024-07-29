@@ -24,7 +24,8 @@ export default async function handler(req, res) {
     const scholarships = JSON.parse(data);
     // List of filtering criteria
     const filters = [
-      (scholarship) => !status || scholarship.Status === status || status === "show_both",
+      (scholarship) =>
+        !status || scholarship.Status === status || status === "show_both",
       (scholarship) => !grade || scholarship.grade.includes(grade.toString()),
       (scholarship) =>
         !stream || scholarship["Open for Stream"].includes(stream),
