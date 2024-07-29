@@ -1,4 +1,7 @@
+import path from "path";
+
 const statesList = [
+  "All India",
   "Andhra Pradesh",
   "Arunachal Pradesh",
   "Assam",
@@ -38,23 +41,23 @@ const statesList = [
 ];
 
 export const jeeMainJossaConfig = {
+  name: "JEE Main-JOSAA",
   code: "JEE Main",
-  name: "JEE MAIN-JOSAA",
   fields: [
     {
       name: "category",
       label: "Select Category",
       options: [
         { value: "ews", label: "EWS" },
-        { value: "ews_pwd", label: "EWS PWD" },
-        { value: "obc_ncl", label: "OBC NCL" },
-        { value: "obc_ncl_pwd", label: "OBC NCL PWD" },
+        { value: "ews_pwd", label: "EWS (PwD)" },
+        { value: "obc_ncl", label: "OBC-NCL" },
+        { value: "obc_ncl_pwd", label: "OBC-NCL (PwD)" },
         { value: "open", label: "OPEN" },
-        { value: "open_pwd", label: "OPEN PWD" },
+        { value: "open_pwd", label: "OPEN (PwD)" },
         { value: "sc", label: "SC" },
-        { value: "sc_pwd", label: "SC PWD" },
+        { value: "sc_pwd", label: "SC (PwD)" },
         { value: "st", label: "ST" },
-        { value: "st_pwd", label: "ST PWD" },
+        { value: "st_pwd", label: "ST (PwD)" },
       ],
     },
     {
@@ -73,41 +76,26 @@ export const jeeMainJossaConfig = {
       options: statesList,
     },
   ],
-};
-export const jeeAdvancedConfig = {
-  name: "JEE Advanced",
-  fields: [
-    {
-      name: "category",
-      label: "Select Category",
-      options: [
-        { value: "ews", label: "EWS" },
-        { value: "ews_pwd", label: "EWS PWD" },
-        { value: "obc_ncl", label: "OBC NCL" },
-        { value: "obc_ncl_pwd", label: "OBC NCL PWD" },
-        { value: "open", label: "OPEN" },
-        { value: "open_pwd", label: "OPEN PWD" },
-        { value: "sc", label: "SC" },
-        { value: "sc_pwd", label: "SC PWD" },
-        { value: "st", label: "ST" },
-        { value: "st_pwd", label: "ST PWD" },
-      ],
-    },
-    {
-      name: "roundNumber",
-      label: "Select Round Number:",
-      options: ["1", "2", "3", "4", "5", "6"],
-    },
-    {
-      name: "gender",
-      label: "Select Gender",
-      options: ["Gender-Neutral", "Female-only (including Supernumerary)"],
-    },
-    {
-      name: "homeState",
-      label: "Select Your Home State",
-      options: statesList,
-    },
+  legend: [
+    { key: "AI", value: "All India" },
+    { key: "HS", value: "Home State" },
+    { key: "OS", value: "Out of State" },
+  ],
+  getDataPath: (category) => {
+    return path.join(
+      process.cwd(),
+      "public",
+      "data",
+      "JEE",
+      `${category}.json`
+    );
+  },
+  getFilters: (query) => [
+    (item) => item.Exam === query.code,
+    (item) => parseInt(item.Round, 10) === parseInt(query.roundNumber, 10),
+    (item) => item.Gender === query.gender,
+    (item) => item.Quota === "OS" || "AI",
+    (item) => item.State === query.homeState || "All India",
   ],
 };
 
@@ -151,6 +139,81 @@ export const jacExamConfig = {
       ],
     },
   ],
+  legend: [
+    { key: "D", value: "Delhi" },
+    { key: "OD", value: "Outside Delhi" },
+  ],
+  getDataPath: () => {
+    return path.join(process.cwd(), "public", "data", "JEE", "jac_data.json");
+  },
+  getFilters: (query) => [
+    (item) => item.State === query.homeState,
+    (item) => item.Category === query.category,
+    (item) => item.Defense === query.isDefenseWard,
+    (item) => item.PWD === query.isPWD,
+    (item) => item.Gender === query.gender,
+    (item) =>
+      parseInt(item["Closing Rank"], 10) > 0.9 * parseInt(query.rank, 10),
+  ],
+};
+
+export const jeeAdvancedConfig = {
+  name: "JEE Advanced",
+  code: "JEE Advanced",
+  fields: [
+    {
+      name: "category",
+      label: "Select Category",
+      options: [
+        { value: "ews", label: "EWS" },
+        { value: "ews_pwd", label: "EWS (PwD)" },
+        { value: "obc_ncl", label: "OBC-NCL" },
+        { value: "obc_ncl_pwd", label: "OBC-NCL (PwD)" },
+        { value: "open", label: "OPEN" },
+        { value: "open_pwd", label: "OPEN (PwD)" },
+        { value: "sc", label: "SC" },
+        { value: "sc_pwd", label: "SC (PwD)" },
+        { value: "st", label: "ST" },
+        { value: "st_pwd", label: "ST (PwD)" },
+      ],
+    },
+    {
+      name: "roundNumber",
+      label: "Select Round Number:",
+      options: ["1", "2", "3", "4", "5", "6"],
+    },
+    {
+      name: "gender",
+      label: "Select Gender",
+      options: ["Gender-Neutral", "Female-only (including Supernumerary)"],
+    },
+    {
+      name: "homeState",
+      label: "Select Your Home State",
+      options: statesList,
+    },
+  ],
+  legend: [
+    { key: "AI", value: "All India" },
+    { key: "HS", value: "Home State" },
+    { key: "OS", value: "Out of State" },
+  ],
+  getDataPath: (category) => {
+    return path.join(
+      process.cwd(),
+      "public",
+      "data",
+      "JEE",
+      `${category}.json`
+    );
+  },
+  getFilters: (query) => [
+    (item) => item.Exam === query.code,
+    (item) => parseInt(item.Round, 10) === parseInt(query.roundNumber, 10),
+    (item) => item.Gender === query.gender,
+    (item) => item.Quota === "OS" || "AI",
+    (item) => item.State === query.homeState || "All India",
+  ],
 };
 
 export const neetConfig = {
@@ -160,16 +223,16 @@ export const neetConfig = {
       name: "category",
       label: "Select Category",
       options: [
-        { value: "ews_pwd", label: "EWS (PwD)" },
         { value: "ews", label: "EWS" },
-        { value: "obc_ncl_pwd", label: "OBC-NCL (PwD)" },
+        { value: "ews_pwd", label: "EWS (PwD)" },
         { value: "obc_ncl", label: "OBC-NCL" },
-        { value: "open_pwd", label: "OPEN (PwD)" },
+        { value: "obc_ncl_pwd", label: "OBC-NCL (PwD)" },
         { value: "open", label: "OPEN" },
-        { value: "sc_pwd", label: "SC (PwD)" },
+        { value: "open_pwd", label: "OPEN (PwD)" },
         { value: "sc", label: "SC" },
-        { value: "st_pwd", label: "ST (PwD)" },
+        { value: "sc_pwd", label: "SC (PwD)" },
         { value: "st", label: "ST" },
+        { value: "st_pwd", label: "ST (PwD)" },
       ],
     },
     {
@@ -178,10 +241,28 @@ export const neetConfig = {
       options: ["1", "2", "3", "4", "5", "6"],
     },
   ],
+  legend: [
+    { key: "AI", value: "All India" },
+    { key: "SQ", value: "State Quota" },
+  ],
+  getDataPath: (category) => {
+    return path.join(
+      process.cwd(),
+      "public",
+      "data",
+      "NEET",
+      `${category}.json`
+    );
+  },
+  getFilters: (query) => [
+    (item) => item["Seat Type"].toLowerCase() === query.category.toLowerCase(),
+    (item) => item.Round.toString() === query.roundNumber,
+  ],
 };
 
 export const mhtCetConfig = {
   name: "MHT CET",
+  apiEndpoint: "mhtcet",
   fields: [
     {
       name: "category",
@@ -228,6 +309,26 @@ export const mhtCetConfig = {
       ],
     },
   ],
+  legend: [
+    { key: "AI", value: "All India" },
+    { key: "MH", value: "Maharashtra" },
+  ],
+  getDataPath: () => {
+    return path.join(
+      process.cwd(),
+      "public",
+      "data",
+      "MHTCET",
+      "mhtcet_data.json"
+    );
+  },
+  getFilters: (query) => [
+    (item) => item.Category === query.category,
+    (item) => item.Gender === query.gender,
+    (item) => item.State === query.homeState,
+    (item) => item.PWD === (query.isPWD === "Yes"),
+    (item) => item.Defense === (query.isDefenseWard === "Yes"),
+  ],
 };
 
 export const kcetConfig = {
@@ -249,6 +350,7 @@ export const kcetConfig = {
     },
     {
       name: "courseType",
+      label: "Select Course Type",
       options: [
         "Medical/Dental",
         "Agriculture",
@@ -283,14 +385,30 @@ export const kcetConfig = {
       ],
     },
   ],
+  legend: [
+    { key: "AI", value: "All India" },
+    { key: "KA", value: "Karnataka" },
+    { key: "HK", label: "Hyderabad-Karnataka Region" },
+  ],
+  getDataPath: () => {
+    return path.join(process.cwd(), "public", "data", "KCET", "kcet_data.json");
+  },
+  getFilters: (query) => [
+    (item) => item.Category === query.category,
+    (item) => item["Course Type"] === query.courseType,
+    (item) => item.State === query.homeState || item.State === "All India",
+    (item) => query.language === "Any" || item.Language === query.language,
+    (item) => query.region === "All" || item["Rural/Urban"] === query.region,
+  ],
 };
 
 export const examConfigs = {
-  "JEE Main - JOSAA": jeeMainJossaConfig,
-  "JEE Main - JAC": jacExamConfig,
+  "JEE Main-JOSAA": jeeMainJossaConfig,
+  "JEE Main-JAC": jacExamConfig,
   "JEE Advanced": jeeAdvancedConfig,
-  NEET: neetConfig,
+  "NEET": neetConfig,
   "MHT CET": mhtCetConfig,
-  KCET: kcetConfig,
+  "KCET": kcetConfig,
 };
+
 export default examConfigs;

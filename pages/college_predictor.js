@@ -1,9 +1,10 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import getConstants from "../constants";
 import PredictedCollegeTables from "../components/PredictedCollegeTables";
 import Head from "next/head";
 import Fuse from "fuse.js";
+import examConfigs from "../examConfig";
 
 const fuseOptions = {
   isCaseSensitive: false,
@@ -19,103 +20,19 @@ const fuseOptions = {
   ignoreLocation: true,
   ignoreFieldNorm: false,
   fieldNormWeight: 1,
-  keys: [
-    "Institute",
-    "State",
-    "Academic Program Name"
-  ]
-};
-
-// ignoreFieldNorm: false,
-// fieldNormWeight: 1,
-
-const fetchDataForExam = async (exam, counselling, category) => {
-  const response = await fetch(
-    `/api/college-data?exam=${exam}&counselling=${counselling}&category=${category}`,
-  );
-  if (!response.ok) {
-    throw new Error("Network response was not ok");
-  }
-  return response.json();
-};
-
-const filterData = (data, queryParams) => {
-  const {
-    rank,
-    category,
-    exam,
-    counselling,
-    roundNumber,
-    gender,
-    stateName,
-    pwd,
-    defense,
-    language,
-    rural,
-    courseType,
-  } = queryParams;
-
-  return data
-    .filter((item) => {
-      if (exam === "MHT CET") {
-        return (
-          item.Gender === gender &&
-          item.State === stateName &&
-          item.PWD === pwd &&
-          item.Defense === defense &&
-          item.Category === category
-        );
-      }
-      if (exam === "KCET") {
-        return (
-          item.Language === language &&
-          item.State === stateName &&
-          item["Rural/Urban"] === rural &&
-          item.Category === category &&
-          item["Course Type"] === courseType
-        );
-      }
-      if (exam === "JEE Main" && counselling === "JAC") {
-        return category === "Kashmiri Minority"
-          ? item.Category === category
-          : item.Gender === gender &&
-          item.PWD === pwd &&
-          item.Defense === defense &&
-          item.Category === category &&
-          item.State === stateName;
-      }
-      const itemRound = parseInt(item.Round, 10);
-      if (["JEE Main", "JEE Advanced"].includes(exam)) {
-        const checkForState =
-          item.State === stateName ||
-          stateName === "All India" ||
-          item.Quota === "OS" ||
-          item.Quota === "AI";
-
-        return (
-          itemRound == roundNumber &&
-          item.Gender === gender &&
-          item.Exam === exam &&
-          checkForState
-        );
-      } else if (exam === "NEET") {
-        return itemRound == roundNumber;
-      }
-    })
-    .filter(
-      (item) => parseInt(item["Closing Rank"], 10) > 0.9 * parseInt(rank, 10),
-    )
-    .sort((a, b) => a["Closing Rank"] - b["Closing Rank"]);
+  keys: ["Institute", "State", "Academic Program Name"],
 };
 
 const CollegePredictor = () => {
   const router = useRouter();
-  const { query } = router;
   const [filteredData, setFilteredData] = useState([]);
   const [fullData, setFullData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+
   const fuse = new Fuse(filteredData, fuseOptions);
 
+  //Search Function for fuse
   const searchFun = (e) => {
     if (e.target.value === "") {
       setFilteredData(fullData);
@@ -126,31 +43,48 @@ const CollegePredictor = () => {
     setFilteredData(result.map((r) => r.item));
   };
 
-  const fetchAndFilterData = useCallback(async () => {
-    if (query.rank) {
+  useEffect(() => {
+    const fetchData = async () => {
       setIsLoading(true);
+      setError(null);
       try {
-        const data = await fetchDataForExam(
-          query.exam,
-          query.counselling,
-          query.category,
-        );
-        const filteredData = filterData(data, query);
-        setFilteredData(filteredData);
-        setFullData(filteredData);
+        const params = new URLSearchParams(Object.entries(router.query));
+        const queryString = params.toString();
+        const response = await fetch(`/api/exam-result?${queryString}`);
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        setFilteredData(data);
+        setFullData(data);
       } catch (error) {
         console.error("Error fetching data:", error);
+        setError("Failed to fetch college predictions. Please try again.");
         setFilteredData([]);
-        setFullData([]);
       } finally {
         setIsLoading(false);
       }
-    }
-  }, [query]);
+    };
 
-  useEffect(() => {
-    fetchAndFilterData();
-  }, [fetchAndFilterData]);
+    fetchData();
+  }, [router.query]);
+
+  const renderQueryDetails = () => {
+    const examConfig = examConfigs[router.query.exam];
+    if (!examConfig) return null;
+
+    return (
+      <div className="text-center mb-4 space-y-2">
+        <p className="text-base md:text-lg">Exam: {examConfig.name}</p>
+        {examConfig.fields.map((field) => (
+          <p key={field.name} className="text-base md:text-lg">
+            {field.label}: {router.query[field.name]}
+          </p>
+        ))}
+        <p className="text-base md:text-lg">Your Rank: {router.query.rank}</p>
+      </div>
+    );
+  };
 
   return (
     <>
@@ -158,71 +92,42 @@ const CollegePredictor = () => {
         <title>College Predictor - Result</title>
       </Head>
       <div className="flex flex-col items-center p-4">
-        <div className="flex flex-col items-center justify-center w-full sm:w-5/6 md:w-3/4 lg:w-2/3 bg-white p-6 rounded-lg shadow-lg">
+        <div className="flex flex-col items-center justify-center w-full sm:w-5/6 md:w-3/4  bg-white p-6 rounded-lg shadow-lg">
           <h1 className="text-2xl font-bold mb-4 text-center">
             {getConstants().TITLE}
           </h1>
-          <div className="text-center mb-4 space-y-2">
-            <p className="text-base md:text-lg">
-              {query.exam !== "NEET"
-                ? `Your Category Rank: ${query.rank}`
-                : `Your Rank: ${query.rank}`}
-            </p>
-            {query.exam !== "MHT CET" && query.exam !== "KCET" && (
-              <p className="text-base md:text-lg">
-                Chosen Round Number: {query.roundNumber}
-              </p>
-            )}
-            <p className="text-base md:text-lg">Chosen Exam: {query.exam}</p>
-            {query.exam !== "NEET" && query.exam !== "KCET" && (
-              <p className="text-base md:text-lg">
-                Chosen Gender: {query.gender}
-              </p>
-            )}
-            {query.exam !== "NEET" && (
-              <p className="text-base md:text-lg">
-                Chosen Home State: {query.stateName}
-              </p>
-            )}
-            {query.exam === "KCET" && (
-              <>
-                <p className="text-base md:text-lg">
-                  Chosen Language: {query.language}
-                </p>
-                <p className="text-base md:text-lg">
-                  Chosen Region: {query.rural}
-                </p>
-              </>
-            )}
-          </div>
-          <div>
-            <div className="flex flex-col items-center text-sm sm:text-base mb-4">
-              <p className="leading-4 mb-1">AI: All India</p>
-              <p className="leading-4 mb-1">HS: Home State</p>
-              <p className="leading-4 mb-1">OS: Out of State</p>
-            </div>
-          </div>
-          <h3 className="text-lg md:text-xl mb-4 text-center">
-            Predicted colleges and courses for you:
-          </h3>
+          {renderQueryDetails()}
           {isLoading ? (
             <div className="flex items-center justify-center flex-col mt-2">
               <div className="border-t-2 border-transparent border-[#B52326] rounded-full w-8 h-8 animate-spin mb-2"></div>
-              <p>Loading...</p>
+              <p>Loading your college predictions...</p>
+            </div>
+          ) : error ? (
+            <div className="text-red-600 text-center">{error}</div>
+          ) : filteredData.length === 0 ? (
+            <div className="text-center">
+              <p>No colleges found matching your criteria.</p>
+              <p>Try adjusting your rank or other parameters.</p>
             </div>
           ) : (
             <>
-              <div className="my-4 w-full flex max-sm:flex-col sm:flex-row left justify-end items-center">
+              <div className="mb-4 w-full flex flex-col left justify-center items-center">
                 <label className="block text-md font-semibold text-gray-700 content-center mx-2">
                   Search: &#128269;
                 </label>
-                <input onChange={searchFun} placeholder="Name / State / Program" className="border border-gray-300 rounded text-center h-fit p-1 sm:w-5/12 w-3/4" />
+                <input
+                  onChange={searchFun}
+                  placeholder="Name / State / Program"
+                  className="border border-gray-300 rounded text-center h-fit p-1 sm:w-5/12 w-3/4"
+                />
               </div>
+              <h3 className="text-lg md:text-xl mb-4 text-center font-bold">
+                Predicted colleges and courses for you:
+              </h3>
               <div className="w-full overflow-x-auto">
                 <PredictedCollegeTables
                   data={filteredData}
-                  exam={query.exam}
-                  counselling={query.counselling}
+                  exam={router.query.exam}
                 />
               </div>
             </>

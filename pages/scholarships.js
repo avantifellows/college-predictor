@@ -8,7 +8,6 @@ import Head from "next/head";
 const ScholarshipPage = () => {
   const [formData, setFormData] = useState({});
   const [isClient, setIsClient] = useState(false);
-  console.log(formData);
 
   const router = useRouter();
 

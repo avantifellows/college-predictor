@@ -1,0 +1,15 @@
+{
+  "trailingComma": "es5",
+  "tabWidth": 2,
+  "semi": true,
+  "singleQuote": false,
+  "quoteProps": "preserve",
+  "overrides": [
+    {
+      "files": "*.json",
+      "options": {
+        "parser": "json-stringify"
+      }
+    }
+  ]
+}
