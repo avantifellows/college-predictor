@@ -1,3 +1,5 @@
+import { statesList } from "./examConfig";
+
 export const scholarshipConfig = {
   name: "Scholarship Finder",
   fields: [
@@ -70,6 +72,11 @@ export const scholarshipConfig = {
         { value: "Minority", label: "Minority" },
         { value: "General", label: "General" },
       ],
+    },
+    {
+      name: "state",
+      label: "Select Your Home State",
+      options: statesList,
     },
   ],
 };

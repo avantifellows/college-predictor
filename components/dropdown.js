@@ -32,7 +32,13 @@ const customStyles = {
   }),
 };
 
-const Dropdown = ({ options, onChange, isDisabled }) => {
+const Dropdown = ({
+  options,
+  onChange,
+  isDisabled,
+  selectedValue,
+  className,
+}) => {
   return (
     <Select
       options={options}
@@ -40,6 +46,11 @@ const Dropdown = ({ options, onChange, isDisabled }) => {
       isDisabled={isDisabled}
       styles={customStyles}
       instanceId={useId()}
+      className={className}
+      value={options.find(
+        (option) =>
+          option.label === selectedValue || option.value === selectedValue
+      )}
     />
   );
 };

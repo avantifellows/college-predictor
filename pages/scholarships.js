@@ -77,7 +77,11 @@ const ScholarshipPage = () => {
                   {field.label}
                 </label>
                 <Dropdown
-                  options={field.options}
+                  options={field.options.map((option) =>
+                    typeof option === "string"
+                      ? { value: option, label: option }
+                      : option
+                  )}
                   onChange={handleDropdownChange(field.name)}
                   {...dropdownProps}
                 />

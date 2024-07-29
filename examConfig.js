@@ -1,6 +1,17 @@
 import path from "path";
 
-const statesList = [
+/**
+ * This file contains configuration objects for various exams such as JEE Main-JOSAA, JEE Main-JAC, JEE Advanced, NEET, and MHT CET.
+ * Each configuration object includes details like the exam name, code, form fields, legends, and methods to get data paths and filters.
+ * These configurations are used to dynamically generate forms and filter data based on user inputs in the index.js and college_predictor.js files.
+ */
+
+/**
+ * Example URL with query parameters for JEE Main-JOSAA
+ *  http://futures.avantifellow.com/api/exam-result?exam=JEE%20Main&roundNumber=2&gender=Female-only%20(including%20Supernumerary)&homeState=Karnataka&category=obc_ncl
+ */
+
+export const statesList = [
   "All India",
   "Andhra Pradesh",
   "Arunachal Pradesh",

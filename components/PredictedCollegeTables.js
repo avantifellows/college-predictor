@@ -13,17 +13,17 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
   const examConfig = examConfigs[exam];
 
   const renderTableHeader = () => {
-    const columns = [
-      { key: "State", label: "State" },
-      { key: "Institute", label: "Institute" },
-      { key: "Academic Program Name", label: "Academic Program Name" },
-      { key: "Closing Rank", label: "Closing Rank" },
-      { key: "Quota", label: "Quota" },
+    const predicted_colleges_table_column = [
+      { key: "state", label: "State" },
+      { key: "institute", label: "Institute" },
+      { key: "academic_program_name", label: "Academic Program Name" },
+      { key: "closing_rank", label: "Closing Rank" },
+      { key: "quota", label: "Quota" },
     ];
 
     return (
       <tr className={commonHeaderClass}>
-        {columns.map((column) => (
+        {predicted_colleges_table_column.map((column) => (
           <th key={column.key} className="p-2 border-r border-gray-300">
             {column.label}
           </th>
