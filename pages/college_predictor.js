@@ -36,7 +36,6 @@ const CollegePredictor = () => {
     setQueryObject(router.query);
   }, [router.query]);
 
-  console.log(queryObject);
   const fuse = new Fuse(filteredData, fuseOptions);
 
   // Search Function for fuse
