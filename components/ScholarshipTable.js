@@ -28,9 +28,9 @@ const ExpandedRow = ({ item, expandedFields }) => (
         {expandedFields.map((field, index) => (
           <div key={index} className="mb-2">
             <b>{field.label}:</b>{" "}
-            {field.key === "Doc Required" ? (
+            {["Doc Required", "Benefits"].includes(field.key) ? (
               <ul className="list-disc list-inside ml-4">
-                {item[field.key].split("\n").map((line, i) => (
+                {item[field.key]?.split("\n").map((line, i) => (
                   <li key={i}>{line}</li>
                 ))}
               </ul>

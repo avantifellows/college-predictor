@@ -1,6 +1,11 @@
 import fs from "fs/promises";
 import examConfigs from "../../examConfig";
 
+/**
+ * Handles the API request for exam results.
+ * Example URL with query parameters for JEE Main-JOSAA
+ *  http://futures.avantifellow.com/api/exam-result?exam=JEE%20Main&roundNumber=2&gender=Female-only%20(including%20Supernumerary)&homeState=Karnataka&category=obc_ncl
+ */
 export default async function handler(req, res) {
   const { exam, rank } = req.query;
 

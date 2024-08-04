@@ -5,6 +5,7 @@ import PredictedCollegeTables from "../components/PredictedCollegeTables";
 import Head from "next/head";
 import Fuse from "fuse.js";
 import examConfigs from "../examConfig";
+import Dropdown from "../components/dropdown";
 
 const fuseOptions = {
   isCaseSensitive: false,
@@ -29,10 +30,15 @@ const CollegePredictor = () => {
   const [fullData, setFullData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [queryObject, setQueryObject] = useState({});
+
+  useEffect(() => {
+    setQueryObject(router.query);
+  }, [router.query]);
 
   const fuse = new Fuse(filteredData, fuseOptions);
 
-  //Search Function for fuse
+  // Search Function for fuse
   const searchFun = (e) => {
     if (e.target.value === "") {
       setFilteredData(fullData);
@@ -43,30 +49,54 @@ const CollegePredictor = () => {
     setFilteredData(result.map((r) => r.item));
   };
 
-  useEffect(() => {
-    const fetchData = async () => {
-      setIsLoading(true);
-      setError(null);
-      try {
-        const params = new URLSearchParams(Object.entries(router.query));
-        const queryString = params.toString();
-        const response = await fetch(`/api/exam-result?${queryString}`);
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        setFilteredData(data);
-        setFullData(data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-        setError("Failed to fetch college predictions. Please try again.");
-        setFilteredData([]);
-      } finally {
-        setIsLoading(false);
+  const fetchData = async (query) => {
+    setIsLoading(true);
+    setError(null);
+    try {
+      const params = new URLSearchParams(Object.entries(query));
+      const queryString = params.toString();
+      const response = await fetch(`/api/exam-result?${queryString}`);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
       }
-    };
+      const data = await response.json();
+      setFilteredData(data);
+      setFullData(data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      setError("Failed to fetch college predictions. Please try again.");
+      setFilteredData([]);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
-    fetchData();
+  const handleQueryObjectChange = (key) => async (selectedOption) => {
+    const newQueryObject = {
+      ...queryObject,
+      [key]: selectedOption.label,
+    };
+    setQueryObject(newQueryObject);
+    const params = new URLSearchParams(Object.entries(newQueryObject));
+    const queryString = params.toString();
+    router.push(`/college_predictor?${queryString}`);
+    await fetchData(newQueryObject);
+  };
+
+  const handleRankChange = async (e) => {
+    const newQueryObject = {
+      ...queryObject,
+      rank: e.target.value,
+    };
+    setQueryObject(newQueryObject);
+    const params = new URLSearchParams(Object.entries(newQueryObject));
+    const queryString = params.toString();
+    router.push(`/college_predictor?${queryString}`);
+    await fetchData(newQueryObject);
+  };
+
+  useEffect(() => {
+    fetchData(router.query);
   }, [router.query]);
 
   const renderQueryDetails = () => {
@@ -74,14 +104,42 @@ const CollegePredictor = () => {
     if (!examConfig) return null;
 
     return (
-      <div className="text-center mb-4 space-y-2">
-        <p className="text-base md:text-lg">Exam: {examConfig.name}</p>
+      <div className="flex flex-col justify-center items-start sm:items-center mb-4 gap-2">
+        <p className="text-sm md:text-base  font-semibold">
+          Exam: {router.query.exam}
+        </p>
         {examConfig.fields.map((field) => (
-          <p key={field.name} className="text-base md:text-lg">
-            {field.label}: {router.query[field.name]}
-          </p>
+          <div className="flex items-center justify-center gap-2">
+            <label
+              key={field.name}
+              className="font-semibold text-sm md:text-base "
+            >
+              {field.label}
+            </label>
+            <Dropdown
+              className="text-sm md:text-base "
+              options={field.options.map((option) =>
+                typeof option === "string"
+                  ? { value: option, label: option }
+                  : option
+              )}
+              selectedValue={router.query[field.name]}
+              onChange={handleQueryObjectChange(field.name)}
+            />
+          </div>
         ))}
-        <p className="text-base md:text-lg">Your Rank: {router.query.rank}</p>
+        <div className="flex gap-2 items-center">
+          <label className="block text-sm md:text-base font-semibold text-gray-700 mb-2 ">
+            Enter Category Rank
+          </label>
+          <input
+            type="number"
+            value={queryObject.rank}
+            onChange={handleRankChange}
+            className="border border-gray-300 rounded text-center"
+            placeholder="Enter your rank"
+          />
+        </div>
       </div>
     );
   };
