@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { useRouter } from "next/router";
 import getConstants from "../constants";
 import ScholarshipTable from "../components/ScholarshipTable";
@@ -32,12 +32,46 @@ const ScholarshipFinder = () => {
   const [error, setError] = useState(null);
   const [queryObject, setQueryObject] = useState({});
   const [expandedRows, setExpandedRows] = useState([]);
-
-  useEffect(() => {
-    setQueryObject(router.query);
-  }, [router.query]);
+  const [hasFetchedData, setHasFetchedData] = useState(false);
 
   const fuse = new Fuse(filteredData, fuseOptions);
+
+  const fetchData = useCallback(async (query) => {
+    setIsLoading(true);
+    setError(null);
+    try {
+      const params = new URLSearchParams(Object.entries(query));
+      const queryString = params.toString();
+      const response = await fetch(`/api/scholarship-data?${queryString}`);
+      if (!response.ok) {
+        throw new Error(
+          "No Scholarships found try to adjust your search criteria."
+        );
+      }
+      const data = await response.json();
+      setFilteredData(data);
+      setFullData(data);
+      setHasFetchedData(true);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      setError(error.message);
+      setFilteredData([]);
+    } finally {
+      setIsLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (router.isReady && !hasFetchedData) {
+      const initialQuery = { ...router.query };
+      setQueryObject(initialQuery);
+      if (Object.keys(initialQuery).length > 0) {
+        fetchData(initialQuery);
+      } else {
+        setIsLoading(false);
+      }
+    }
+  }, [router.isReady, router.query, fetchData, hasFetchedData]);
 
   const searchFun = (e) => {
     if (e.target.value === "") {
@@ -49,43 +83,19 @@ const ScholarshipFinder = () => {
     setFilteredData(result.map((r) => r.item));
   };
 
-  const fetchData = async (query) => {
-    setIsLoading(true);
-    setError(null);
-    try {
-      const params = new URLSearchParams(Object.entries(query));
-      const queryString = params.toString();
-      const response = await fetch(`/api/scholarship-data?${queryString}`);
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      const data = await response.json();
-      setFilteredData(data);
-      setFullData(data);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-      setError(error.error);
-      setFilteredData([]);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const handleQueryObjectChange = (key) => async (selectedOption) => {
+  const handleQueryObjectChange = (key) => (selectedOption) => {
     const newQueryObject = {
       ...queryObject,
       [key]: selectedOption.value,
     };
     setQueryObject(newQueryObject);
+    fetchData(newQueryObject);
     const params = new URLSearchParams(Object.entries(newQueryObject));
     const queryString = params.toString();
-    router.push(`/scholarships_result?${queryString}`);
-    await fetchData(newQueryObject);
+    router.push(`/scholarships_result?${queryString}`, undefined, {
+      shallow: true,
+    });
   };
-
-  useEffect(() => {
-    fetchData(router.query);
-  }, [router.query]);
 
   const toggleRowExpansion = (index) => {
     const updatedExpandedRows = [...expandedRows];
@@ -111,7 +121,7 @@ const ScholarshipFinder = () => {
                   ? { value: option, label: option }
                   : option
               )}
-              selectedValue={router.query[field.name]}
+              selectedValue={queryObject[field.name]}
               onChange={handleQueryObjectChange(field.name)}
             />
           </div>
