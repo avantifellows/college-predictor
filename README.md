@@ -63,3 +63,15 @@ The College Predictor application helps students find:
    ```bash
    npm run start
    ```
+
+### Configuration Guides
+To understand and modify the configurations for exams and scholarships, please refer to the following guide files:
+
+1. [Exam Configuration Guide](EXAM_CONFIG_GUIDE.md): This guide explains the structure of exam configurations and how to add support for new exams.
+2. [Scholarship Configuration Guide](SCHOLARSHIP_CONFIG_GUIDE.md): This guide details the scholarship finder configuration and how to modify or extend it.
+
+# Documentation
+
+1. Our code of conduct documentation in the [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) file.
+2. How we handle the processing of new and existing issues in our [ISSUE_GUIDELINES.md](ISSUE_GUIDELINES.md) file.
+3. The methodologies we use to manage our pull requests in our [PR_GUIDELINES.md](PR_GUIDELINES.md) file.
