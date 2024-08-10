@@ -55,7 +55,7 @@ const CollegePredictor = () => {
     try {
       const params = new URLSearchParams(Object.entries(query));
       const queryString = params.toString();
-      if (queryString === "") return
+      if (queryString === "") return;
       const response = await fetch(`/api/exam-result?${queryString}`);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);

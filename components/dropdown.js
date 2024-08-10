@@ -41,6 +41,7 @@ const Dropdown = ({
 }) => {
   return (
     <Select
+      classNamePrefix="react-select"
       options={options}
       onChange={onChange}
       isDisabled={isDisabled}
