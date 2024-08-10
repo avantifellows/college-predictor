@@ -337,8 +337,8 @@ export const mhtCetConfig = {
     (item) => item.Category === query.category,
     (item) => item.Gender === query.gender,
     (item) => item.State === query.homeState,
-    (item) => item.PWD === (query.isPWD === "Yes"),
-    (item) => item.Defense === (query.isDefenseWard === "Yes"),
+    (item) => item.PWD === query.isPWD,
+    (item) => item.Defense === query.isDefenseWard,
   ],
 };
 
