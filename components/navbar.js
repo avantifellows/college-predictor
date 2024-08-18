@@ -12,18 +12,18 @@ const Navbar = ({ item1, item2 }) => {
       <div className="flex flex-row justify-between items-center px-4 md:px-8 py-2">
         <div className="relative w-32 md:w-40 aspect-video">
           <img
-            src="https://cdn.avantifellows.org/af_logos/avanti_logo_black_text.webp"
-            alt="Avanti Fellows logo"
+            src="https://magnumopuscareer.com/wp-content/uploads/2024/05/magnum_opus_career_logo-1.png"
+            alt="Magnum Opus Career logo"
             layout="fill"
             className="object-contain"
           />
         </div>
 
         <div className="flex gap-4">
-          <SocialIcon socialLink={"https://www.facebook.com/avantifellows"}>
+          <SocialIcon socialLink={"https://www.facebook.com/"}>
             <Facebook color="#fff" fill="#fff" strokeWidth="0.1" />
           </SocialIcon>
-          <SocialIcon socialLink={"https://www.instagram.com/avantifellows"}>
+          <SocialIcon socialLink={"https://www.instagram.com/"}>
             <Instagram color="#fff" />
           </SocialIcon>
         </div>
