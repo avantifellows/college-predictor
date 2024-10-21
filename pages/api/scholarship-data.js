@@ -7,7 +7,7 @@ export default async function handler(req, res) {
     grade,
     stream,
     gender,
-    category,
+    // category,
     familyIncome,
     state: homeState,
   } = req.query;
@@ -36,41 +36,44 @@ export default async function handler(req, res) {
         return result;
       },
       (scholarship) => {
-        const scholarshipGrades = Array.isArray(scholarship.grade)
-          ? scholarship.grade
-          : [scholarship.grade];
+        const scholarshipGrades = Array.isArray(scholarship.Grade)
+          ? scholarship.Grade
+          : [scholarship.Grade];
 
         const result =
           !grade ||
           scholarshipGrades.some(
-            (g) =>
-              flexMatch(g, grade) ||
-              (grade === "12" && flexMatch(g, "12th pass")) ||
-              (grade === "12" && flexMatch(g, "2nd/3rd year"))
+            (g) => flexMatch(g, grade)
+            // (grade === "12" && flexMatch(g, "12th pass")) ||
+            // (grade === "12" && flexMatch(g, "2nd/3rd year"))
           );
         return result;
       },
       (scholarship) => {
         const result =
-          !stream || flexMatch(scholarship["Open for Stream"], stream);
+          !stream ||
+          stream == "Any" ||
+          flexMatch(scholarship["Stream"], stream) ||
+          scholarship.Stream == null;
         return result;
       },
       (scholarship) => {
         const result =
           !gender ||
           scholarship.Gender === "Both" ||
-          flexMatch(scholarship.Gender, gender);
+          flexMatch(scholarship.Gender, gender) ||
+          scholarship.Gender == null;
         return result;
       },
+      // (scholarship) => {
+      //   const result =
+      //     !category ||
+      //     flexMatch(scholarship.Category, category) ||
+      //     scholarship.Category.length === 0;
+      //   return result;
+      // },
       (scholarship) => {
-        const result =
-          !category ||
-          flexMatch(scholarship.Category, category) ||
-          scholarship.Category.length === 0;
-        return result;
-      },
-      (scholarship) => {
-        const scholarshipIncome = scholarship["Family Income (in LPA)"];
+        const scholarshipIncome = scholarship["Family Income (in INR)"];
         const result =
           !familyIncome ||
           scholarshipIncome === null ||

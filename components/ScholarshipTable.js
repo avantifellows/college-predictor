@@ -83,7 +83,7 @@ const ScholarshipTable = ({
                 ))}
                 <TableCell>
                   <a
-                    href={item["Application Link"]}
+                    href={item["Pre-filled Form Link"]}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-[#B52326] hover:underline"
