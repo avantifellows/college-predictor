@@ -58,11 +58,16 @@ const CollegePredictor = () => {
       if (queryString === "") return;
       const response = await fetch(`/api/exam-result?${queryString}`);
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        if (response.status === 429) {
+          setError("Rate limit exceeded. Please try again later.");
+        } else {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+      } else {
+        const data = await response.json();
+        setFilteredData(data);
+        setFullData(data);
       }
-      const data = await response.json();
-      setFilteredData(data);
-      setFullData(data);
     } catch (error) {
       console.error("Error fetching data:", error);
       setError("Failed to fetch college predictions. Please try again.");
