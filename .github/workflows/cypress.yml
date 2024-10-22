@@ -1,0 +1,43 @@
+name: Cypress Tests
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "cypress/**"
+      - "pages/**"
+      - "package*.json"
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "cypress/**"
+      - "pages/**"
+      - "package*.json"
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'  # Specify the Node.js version your project uses
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Start the Next.js application
+        run: npm run build && npm start &
+        env:
+          CI: true
+
+      - name: Run Cypress tests
+        run: npx cypress run
+        env:
+          NODE_ENV: test
