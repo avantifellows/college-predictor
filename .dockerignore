@@ -1,0 +1,11 @@
+# Ignore node_modules directory
+node_modules
+npm-debug.log
+yarn-error.log
+*.md
+.DS_Store
+*.env
+*.local
+*.git
+*.cache
+*.next
