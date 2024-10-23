@@ -28,8 +28,9 @@ const CollegePredictor = () => {
   const [error, setError] = useState(null);
   const [queryObject, setQueryObject] = useState({});
   const [rankError, setRankError] = useState(null);
-  const [inputError, setInputError] = useState(null); // Error state for general input validation
+  const [inputError, setInputError] = useState(null);
   const [showResults, setShowResults] = useState(false);
+  const [submitted, setSubmitted] = useState(false); // Track form submission
 
   useEffect(() => {
     setQueryObject(router.query);
@@ -50,14 +51,12 @@ const CollegePredictor = () => {
   const validateInputs = () => {
     const { exam, rank } = queryObject;
 
-    // Check for missing or invalid rank
     const newRank = parseInt(rank, 10);
     if (isNaN(newRank) || newRank <= 0) {
       setRankError("Please enter a valid positive rank.");
       return false;
     }
 
-    // Check for missing exam selection or other required fields
     const examConfig = examConfigs[exam];
     if (!exam || !examConfig) {
       setInputError(
@@ -73,7 +72,6 @@ const CollegePredictor = () => {
       }
     }
 
-    // Clear errors if all inputs are valid
     setRankError(null);
     setInputError(null);
     return true;
@@ -122,6 +120,7 @@ const CollegePredictor = () => {
   };
 
   const handleSearchClick = () => {
+    setSubmitted(true); // Mark as submitted
     if (validateInputs()) {
       setShowResults(true);
       fetchData(queryObject);
@@ -176,7 +175,7 @@ const CollegePredictor = () => {
             min="1"
           />
         </div>
-        {rankError && (
+        {submitted && rankError && (
           <div className="text-red-600 text-sm mt-2" role="alert">
             {rankError}
           </div>
@@ -216,11 +215,11 @@ const CollegePredictor = () => {
             <div className="text-red-600 text-center" role="alert">
               {error}
             </div>
-          ) : inputError ? (
+          ) : submitted && inputError ? (
             <div className="text-center text-red-600 mt-4">
               <p>{inputError}</p>
             </div>
-          ) : !showResults ? (
+          ) : !submitted ? (
             <div className="text-center text-red-600 mt-4">
               <p>
                 Please enter correct credentials to see college predictions.
