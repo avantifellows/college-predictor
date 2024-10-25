@@ -1,12 +1,20 @@
 import fs from "fs/promises";
 import examConfigs from "../../examConfig";
+import rateLimit from "express-rate-limit";
 
-/**
- * Handles the API request for exam results.
- * Example URL with query parameters for JEE Main-JOSAA
- *  http://futures.avantifellow.com/api/exam-result?exam=JEE%20Main&roundNumber=2&gender=Female-only%20(including%20Supernumerary)&homeState=Karnataka&category=obc_ncl
- */
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // limit each IP to 100 requests per windowMs
+  handler: (req, res) => {
+    res.status(429).json({
+      error: "Too many requests. Please try again later.",
+    });
+  },
+});
+
 export default async function handler(req, res) {
+  await limiter(req, res, () => {});
+
   const { exam, rank } = req.query;
 
   if (!exam || !examConfigs[exam]) {
