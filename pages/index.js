@@ -10,6 +10,7 @@ const ExamForm = () => {
   const [selectedExam, setSelectedExam] = useState("");
   const [formData, setFormData] = useState({});
   const [config, setConfig] = useState(null);
+  const [rankError, setRankError] = useState(""); // State for rank error message
   const router = useRouter();
 
   const handleExamChange = (selectedOption) => {
@@ -20,13 +21,11 @@ const ExamForm = () => {
         exam: selectedOption.value,
         rank: 0,
         code: selectedOption.code,
-        // apiEndpoint: selectedOption.apiEndpoint,
       });
     } else {
       setFormData({
         exam: selectedOption.value,
         rank: 0,
-        // apiEndpoint: selectedOption.apiEndpoint,
       });
     }
   };
@@ -40,18 +39,34 @@ const ExamForm = () => {
 
   const handleRankChange = (e) => {
     const enteredRank = e.target.value;
-    setFormData((prevData) => ({
-      ...prevData,
-      rank: enteredRank,
-    }));
+
+    // Validate if the entered rank is a natural number
+    if (enteredRank > 0) {
+      setFormData((prevData) => ({
+        ...prevData,
+        rank: enteredRank,
+      }));
+      setRankError(""); // Clear error if the rank is valid
+    } else {
+      // Set an error message if the rank is not a positive integer
+      setRankError("Please enter a valid positive number for rank.");
+      setFormData((prevData) => ({
+        ...prevData,
+        rank: "",
+      }));
+    }
   };
+
   const handleSubmit = async () => {
     const queryString = Object.entries(formData)
       .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
       .join("&");
     router.push(`/college_predictor?${queryString}`);
   };
-  const isSubmitDisabled = Object.values(formData).some((value) => !value);
+
+  const isSubmitDisabled =
+    Object.values(formData).some((value) => !value) || rankError;
+
   const renderFields = () => {
     if (!selectedExam) return null;
 
@@ -88,18 +103,18 @@ const ExamForm = () => {
           />
           <Script id="google-analytics" strategy="afterInteractive">
             {`
-                        window.dataLayer = window.dataLayer || [];
-                        function gtag(){window.dataLayer.push(arguments);}
-                        gtag('js', new Date());
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){window.dataLayer.push(arguments);}
+              gtag('js', new Date());
 
-                        gtag('config', 'G-FHGVRT52L7');
-                      `}
+              gtag('config', 'G-FHGVRT52L7');
+            `}
           </Script>
           <div className="text-center flex flex-col items-center w-full sm:w-3/4 md:w-2/3 lg:w-1/2 mt-8 p-8 pb-10 bg-[#f8f9fa] shadow-inner drop-shadow-md rounded-md">
             <h1 className="text-2xl md:text-3xl font-bold mb-6">
               {getConstants().TITLE}
             </h1>
-            <div className="flex flex-col justify-center sm:flex-row  flex-wrap w-full">
+            <div className="flex flex-col justify-center sm:flex-row flex-wrap w-full">
               <div className="my-4 w-full sm:w-3/4">
                 <label
                   htmlFor="exam"
@@ -131,6 +146,11 @@ const ExamForm = () => {
                     className="border border-gray-300 rounded w-full p-2 text-center"
                     placeholder="Enter your rank"
                   />
+                  {rankError && (
+                    <p className="text-red-600 text-sm mt-1 -translate-x-4">
+                      {rankError}
+                    </p>
+                  )}
                 </div>
               )}
             </div>
@@ -145,7 +165,7 @@ const ExamForm = () => {
                 </button>
                 {isSubmitDisabled && (
                   <p className="text-red-600 text-sm mt-2 -translate-x-4">
-                    Please fill all the fields before submitting!
+                    Please fill all the fields correctly before submitting!
                   </p>
                 )}
               </>
