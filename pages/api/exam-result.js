@@ -33,8 +33,13 @@ export default async function handler(req, res) {
     const filters = config.getFilters(req.query);
 
     // Common rank filter
-    const rankFilter = (item) =>
-      parseInt(item["Closing Rank"], 10) > 0.9 * parseInt(rank, 10);
+    const rankFilter = (item) => {
+      if (exam == "tnea") {
+        return parseFloat(item["Cutoff Marks"]) >= parseFloat(rank);
+      } else {
+        parseInt(item["Closing Rank"], 10) > 0.9 * parseInt(rank, 10);
+      }
+    };
 
     const filteredData = fullData
       .filter((item) => {
@@ -42,7 +47,10 @@ export default async function handler(req, res) {
 
         return filterResults.every((result) => result) && rankFilter(item);
       })
-      .sort((a, b) => a["Closing Rank"] - b["Closing Rank"]);
+      .sort((a, b) => {
+        const sortingKey = exam == "tnea" ? "Cutoff Marks" : "Closing Rank";
+        return a[sortingKey] - b[sortingKey];
+      });
 
     return res.status(200).json(filteredData);
   } catch (error) {

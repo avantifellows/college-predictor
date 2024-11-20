@@ -413,6 +413,50 @@ export const kcetConfig = {
   ],
 };
 
+export const tneaConfig = {
+  name: "TNEA",
+  fields: [
+    {
+      name: "category",
+      label: "Select Category",
+      options: [
+        { value: "General/OC", label: "General/OC" },
+        { value: "BC", label: "BC" },
+        { value: "BCM", label: "BCM" },
+        { value: "MBC", label: "MBC" },
+        { value: "SC", label: "SC" },
+        { value: "SCA", label: "SCA" },
+        { value: "ST", label: "ST" },
+        { value: "PwD", label: "PwD" },
+        { value: "OBC", label: "OBC" },
+      ],
+    },
+    {
+      name: "courseType",
+      label: "Select Course Type",
+      options: [
+        "Computer Science",
+        "Electronics and Communications (ECE)",
+        "Mechanical",
+        "Electronics and Electronics (EEE)",
+        "Civil",
+        "IT",
+        "Biomedical",
+        "Aerospace",
+        "Automobile",
+        "Robotics",
+      ],
+    },
+  ],
+  getDataPath: () => {
+    return path.join(process.cwd(), "public", "data", "TNEA", "tnea_data.json");
+  },
+  getFilters: (query) => [
+    (item) => item.Category === query.category,
+    (item) => item.Course === query.courseType,
+  ],
+};
+
 export const examConfigs = {
   "JEE Main-JOSAA": jeeMainJossaConfig,
   "JEE Main-JAC": jacExamConfig,
@@ -420,6 +464,7 @@ export const examConfigs = {
   "NEET": neetConfig,
   "MHT CET": mhtCetConfig,
   "KCET": kcetConfig,
+  "TNEA": tneaConfig,
 };
 
 export default examConfigs;
