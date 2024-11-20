@@ -136,18 +136,18 @@ const CollegePredictor = () => {
         ))}
         <div className="flex gap-2 items-center">
           <label className="block text-sm md:text-base font-semibold text-gray-700 mb-2 ">
-            {router.query.exam === "tnea"
+            {router.query.exam === "TNEA"
               ? "Enter Marks"
               : "Enter Category Rank"}
           </label>
           <input
             type="number"
-            step={router.query.exam === "tnea" ? "0.01" : "1"}
+            step={router.query.exam === "TNEA" ? "0.01" : "1"}
             value={queryObject.rank}
             onChange={handleRankChange}
             className="border border-gray-300 rounded text-center"
             placeholder={
-              router.query.exam === "tnea"
+              router.query.exam === "TNEA"
                 ? "Enter your marks"
                 : "Enter your rank"
             }

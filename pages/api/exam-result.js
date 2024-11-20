@@ -42,10 +42,10 @@ export default async function handler(req, res) {
 
     // Common rank filter
     const rankFilter = (item) => {
-      if (exam == "tnea") {
-        return parseFloat(item["Cutoff Marks"]) >= parseFloat(rank);
+      if (exam == "TNEA") {
+        return parseFloat(item["Cutoff Marks"]) <= parseFloat(rank);
       } else {
-        parseInt(item["Closing Rank"], 10) > 0.9 * parseInt(rank, 10);
+        return parseInt(item["Closing Rank"], 10) > 0.9 * parseInt(rank, 10);
       }
     };
 
@@ -56,8 +56,10 @@ export default async function handler(req, res) {
         return filterResults.every((result) => result) && rankFilter(item);
       })
       .sort((a, b) => {
-        const sortingKey = exam == "tnea" ? "Cutoff Marks" : "Closing Rank";
-        return a[sortingKey] - b[sortingKey];
+        const sortingKey = exam == "TNEA" ? "Cutoff Marks" : "Closing Rank";
+        if (exam == "TNEA") {
+          return b[sortingKey] - a[sortingKey];
+        } else return a[sortingKey] - b[sortingKey];
       });
 
     return res.status(200).json(filteredData);

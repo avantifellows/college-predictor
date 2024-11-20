@@ -5,7 +5,6 @@ import examConfigs from "../examConfig";
 import Dropdown from "../components/dropdown";
 import { useRouter } from "next/router";
 import Head from "next/head";
-import handler from "./api/scholarship-data";
 
 const ExamForm = () => {
   const [selectedExam, setSelectedExam] = useState("");
@@ -130,7 +129,7 @@ const ExamForm = () => {
                   <input
                     type="number"
                     step={selectedExam === "TNEA" ? "0.01" : "1"}
-                    value={formData.rankOrMarks || ""}
+                    value={formData.rank || ""}
                     onChange={handleRankChange}
                     className="border border-gray-300 rounded w-full p-2 text-center"
                     placeholder={
