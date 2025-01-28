@@ -11,6 +11,7 @@ const TableHeader = ({ headers }) => (
           {header}
         </th>
       ))}
+      <th className="p-2">Actions</th>
     </tr>
   </thead>
 );
@@ -23,7 +24,7 @@ const TableCell = ({ children, className = "" }) => (
 
 const ExpandedRow = ({ item, expandedFields }) => (
   <tr>
-    <td colSpan="4" className="p-4 border border-gray-300">
+    <td colSpan="5" className="p-4 border border-gray-300">
       <div className="text-left text-sm sm:text-base">
         {expandedFields.map((field, index) => (
           <div key={index} className="mb-2">
@@ -67,17 +68,14 @@ const ScholarshipTable = ({
         <tbody>
           {filteredData?.length === 0 && (
             <tr>
-              <td colSpan="4" className="p-4 text-center text-gray-700">
+              <td colSpan="5" className="p-4 text-center text-gray-700">
                 No scholarships found. Please try again with different filters.
               </td>
             </tr>
           )}
           {filteredData?.map((item, index) => (
             <React.Fragment key={index}>
-              <tr
-                className={`${index % 2 === 0 ? "bg-gray-100" : "bg-white"}`}
-                onClick={() => toggleRowExpansion(index)}
-              >
+              <tr className={`${index % 2 === 0 ? "bg-gray-100" : "bg-white"}`}>
                 {mainFields.map((field, fieldIndex) => (
                   <TableCell key={fieldIndex}>{item[field]}</TableCell>
                 ))}
@@ -87,10 +85,24 @@ const ScholarshipTable = ({
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-[#B52326] hover:underline"
-                    onClick={(e) => e.stopPropagation()}
                   >
                     Apply
                   </a>
+                </TableCell>
+                <TableCell>
+                <TableCell>
+  <button
+    className={`px-2 py-1 rounded ${
+      expandedRows[index]
+        ? "bg-red-500 text-white hover:bg-red-600"
+        : "bg-blue-500 text-white hover:bg-blue-600"
+    }`}
+    onClick={() => toggleRowExpansion(index)}
+  >
+    {expandedRows[index] ? "Show Less" : "Show More"}
+  </button>
+</TableCell>
+
                 </TableCell>
               </tr>
               {expandedRows[index] && (
