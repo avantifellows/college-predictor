@@ -41,28 +41,25 @@ const CollegePredictor = () => {
   // Search Function for fuse
   const searchFun = (e) => {
     const searchValue = e.target.value.trim();
-    
+
     // If the search box is empty, reset to full data
     if (searchValue === "") {
       setFilteredData(fullData); // Ensure `fullData` is not empty
       setError(null); // Clear any previous error message
       return;
     }
-  
+
     const result = fuse.search(searchValue);
-  
+
     // Handle no matches found
     if (result.length === 0) {
-     ``// Empty the table
+      ``; // Empty the table
       setError("No matches found. Please try again."); // Show error
     } else {
       setFilteredData(result.map((r) => r.item)); // Update filtered data
       setError(null); // Clear any error message
     }
   };
-  
-  
-  
 
   const fetchData = async (query) => {
     setIsLoading(true);
@@ -224,7 +221,6 @@ const CollegePredictor = () => {
       </div>
     </>
   );
-  
 };
 
 export default CollegePredictor;
