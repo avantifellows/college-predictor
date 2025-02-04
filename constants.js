@@ -40,6 +40,7 @@ const constants = {
     { value: "neet", label: "NEET" },
     { value: "mhtcet", label: "MHT CET" },
     { value: "kcet", label: "KCET" },
+    { value: "tnea", label: "TNEA" },
   ],
   STATE_OPTIONS: [
     { value: "all_india", label: "All India" },
@@ -214,6 +215,36 @@ const constants = {
     { value: "General", label: "General" },
     { value: "SC", label: "SC" },
     { value: "ST", label: "ST" },
+  ],
+  TNEA_CATEGORY_OPTIONS: [
+    { value: "General/OC", label: "General/OC" },
+    { value: "BC", label: "BC" },
+    { value: "BCM", label: "BCM" },
+    { value: "MBC", label: "MBC" },
+    { value: "SC", label: "SC" },
+    { value: "SCA", label: "SCA" },
+    { value: "ST", label: "ST" },
+    { value: "PwD", label: "PwD" },
+    { value: "OBC", label: "OBC" },
+  ],
+  TNEA_MARKS_LABEL: "Enter Your Marks",
+  TNEA_COURSE_OPTIONS: [
+    { value: "Computer Science", label: "Computer Science" },
+    {
+      value: "Electronics and Communications (ECE)",
+      label: "Electronics and Communications (ECE)",
+    },
+    { value: "Mechanical", label: "Mechanical" },
+    {
+      value: "Electronics and Electronics (EEE)",
+      label: "Electronics and Electronics (EEE)",
+    },
+    { value: "Civil", label: "Civil" },
+    { value: "IT", label: "IT" },
+    { value: "Biomedical", label: "Biomedical" },
+    { value: "Aerospace", label: "Aerospace" },
+    { value: "Automobile", label: "Automobile" },
+    { value: "Robotics", label: "Robotics" },
   ],
 };
 

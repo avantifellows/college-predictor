@@ -53,7 +53,9 @@ const CollegePredictor = () => {
 
     // Handle no matches found
     if (result.length === 0) {
-      `` // Empty the table
+
+      ``; // Empty the table
+
       setError("No matches found. Please try again."); // Show error
     } else {
       setFilteredData(result.map((r) => r.item)); // Update filtered data
@@ -70,11 +72,16 @@ const CollegePredictor = () => {
       if (queryString === "") return;
       const response = await fetch(`/api/exam-result?${queryString}`);
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        if (response.status === 429) {
+          setError("Rate limit exceeded. Please try again later.");
+        } else {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+      } else {
+        const data = await response.json();
+        setFilteredData(data);
+        setFullData(data);
       }
-      const data = await response.json();
-      setFilteredData(data);
-      setFullData(data);
     } catch (error) {
       console.error("Error fetching data:", error);
       setError("Failed to fetch college predictions. Please try again.");
@@ -143,14 +150,21 @@ const CollegePredictor = () => {
         ))}
         <div className="flex gap-2 items-center">
           <label className="block text-sm md:text-base font-semibold text-gray-700 mb-2 ">
-            Enter Category Rank
+            {router.query.exam === "TNEA"
+              ? "Enter Marks"
+              : "Enter Category Rank"}
           </label>
           <input
             type="number"
+            step={router.query.exam === "TNEA" ? "0.01" : "1"}
             value={queryObject.rank}
             onChange={handleRankChange}
             className="border border-gray-300 rounded text-center"
-            placeholder="Enter your rank"
+            placeholder={
+              router.query.exam === "TNEA"
+                ? "Enter your marks"
+                : "Enter your rank"
+            }
           />
         </div>
       </div>
