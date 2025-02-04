@@ -1,7 +1,20 @@
 import fs from "fs/promises";
 import path from "path";
+import rateLimit from "express-rate-limit";
+
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // limit each IP to 100 requests per windowMs
+  handler: (req, res) => {
+    res.status(429).json({
+      error: "Too many requests. Please try again later.",
+    });
+  },
+});
 
 export default async function handler(req, res) {
+  await limiter(req, res, () => {});
+
   const {
     status,
     grade,

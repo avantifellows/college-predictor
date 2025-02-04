@@ -44,14 +44,19 @@ const ScholarshipFinder = () => {
       const queryString = params.toString();
       const response = await fetch(`/api/scholarship-data?${queryString}`);
       if (!response.ok) {
-        throw new Error(
-          "No Scholarships found try to adjust your search criteria."
-        );
+        if (response.status === 429) {
+          setError("Rate limit exceeded. Please try again later.");
+        } else {
+          throw new Error(
+            "No Scholarships found try to adjust your search criteria."
+          );
+        }
+      } else {
+        const data = await response.json();
+        setFilteredData(data);
+        setFullData(data);
+        setHasFetchedData(true);
       }
-      const data = await response.json();
-      setFilteredData(data);
-      setFullData(data);
-      setHasFetchedData(true);
     } catch (error) {
       console.error("Error fetching data:", error);
       setError(error.message);

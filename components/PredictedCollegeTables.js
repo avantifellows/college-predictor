@@ -10,48 +10,91 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
   const commonCellClass =
     "p-2 border border-gray-300 text-center text-xs sm:text-sm md:text-base";
 
-  const examConfig = examConfigs[exam];
-
-  const renderTableHeader = () => {
-    const predicted_colleges_table_column = [
+  const examColumnMapping = {
+    TNEA: [
+      { key: "institute_id", label: "Institute ID" },
+      { key: "institute", label: "Institute" },
+      { key: "academic_program_name", label: "Course" },
+      { key: "closing_rank", label: "Cutoff Marks" },
+      { key: "quota", label: "Category" },
+    ],
+    DEFAULT: [
       { key: "state", label: "State" },
       { key: "institute", label: "Institute" },
       { key: "academic_program_name", label: "Academic Program Name" },
       { key: "closing_rank", label: "Closing Rank" },
       { key: "quota", label: "Quota" },
-    ];
-
-    return (
-      <tr className={commonHeaderClass}>
-        {predicted_colleges_table_column.map((column) => (
-          <th key={column.key} className="p-2 border-r border-gray-300">
-            {column.label}
-          </th>
-        ))}
-      </tr>
-    );
+    ],
   };
 
-  const renderTableBody = () => {
-    return data.map((item, index) => (
-      <tr
-        key={index}
-        className={`${commonCellClass} ${
-          index % 2 === 0 ? "bg-gray-100" : "bg-white"
-        }`}
-      >
-        <td className="p-2 border-r border-gray-300">{item["State"]}</td>
-        <td className="p-2 border-r border-gray-300">{item["Institute"]}</td>
-        <td className="p-2 border-r border-gray-300">
-          {item["Academic Program Name"]}
-        </td>
-        <td className="p-2 border-r border-gray-300">{item["Closing Rank"]}</td>
-        <td className="p-2">{item["Quota"]}</td>
-      </tr>
-    ));
+  const predicted_colleges_table_column =
+    examColumnMapping[exam] || examColumnMapping.DEFAULT;
+
+  const transformData = (item) => {
+    if (exam === "TNEA") {
+      return {
+        institute_id: item["Institute ID"],
+        institute: item["Institute"],
+        academic_program_name: item["Course"],
+        closing_rank: item["Cutoff Marks"],
+        quota: item["Category"],
+      };
+    }
+    return {
+      institute: item["Institute"],
+      state: item["State"],
+      academic_program_name: item["Academic Program Name"],
+      closing_rank: item["Closing Rank"],
+      quota: item["Category"],
+    };
   };
+
+  const renderTableHeader = () => (
+    <tr className={commonHeaderClass}>
+      {predicted_colleges_table_column.map((column) => (
+        <th key={column.key} className="p-2 border-r border-gray-300">
+          {column.label}
+        </th>
+      ))}
+    </tr>
+  );
+
+  const renderTableBody = () =>
+    data.map((item, index) => {
+      const transformedItem = transformData(item);
+      return (
+        <tr
+          key={index}
+          className={`${commonCellClass} ${
+            index % 2 === 0 ? "bg-gray-100" : "bg-white"
+          }`}
+        >
+          {exam !== "TNEA" && (
+            <td className="p-2 border-r border-gray-300">
+              {transformedItem.state || "N/A"}
+            </td>
+          )}
+          {exam === "TNEA" && (
+            <td className="p-2 border-r border-gray-300">
+              {transformedItem.institute_id || "N/A"}
+            </td>
+          )}
+          <td className="p-2 border-r border-gray-300">
+            {transformedItem.institute}
+          </td>
+          <td className="p-2 border-r border-gray-300">
+            {transformedItem.academic_program_name}
+          </td>
+          <td className="p-2 border-r border-gray-300">
+            {transformedItem.closing_rank}
+          </td>
+          <td className="p-2">{transformedItem.quota}</td>
+        </tr>
+      );
+    });
 
   const renderLegend = () => {
+    const examConfig = examConfigs[exam];
     if (!examConfig || !examConfig.legend) return null;
 
     return (
@@ -64,10 +107,6 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
       </div>
     );
   };
-
-  if (!examConfig) {
-    return <div>No configuration found for the selected exam.</div>;
-  }
 
   return (
     <div className="w-full mx-auto overflow-x-auto">
@@ -83,13 +122,15 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
 PredictedCollegesTable.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
-      "College Rank": PropTypes.number.isRequired,
-      "State": PropTypes.string.isRequired,
-      "Institute": PropTypes.string.isRequired,
-      "Academic Program Name": PropTypes.string.isRequired,
-      "Opening Rank": PropTypes.number.isRequired,
-      "Closing Rank": PropTypes.number.isRequired,
-      "Quota": PropTypes.string.isRequired,
+      "Institute ID": PropTypes.string, // For TNEA
+      Institute: PropTypes.string.isRequired,
+      Course: PropTypes.string, // TNEA-specific
+      Category: PropTypes.string.isRequired,
+      "Cutoff Marks": PropTypes.string, // TNEA-specific
+      State: PropTypes.string,
+      "Academic Program Name": PropTypes.string,
+      "Closing Rank": PropTypes.string,
+      Quota: PropTypes.string,
     })
   ),
   exam: PropTypes.string.isRequired,
