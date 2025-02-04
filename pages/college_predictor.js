@@ -53,7 +53,7 @@ const CollegePredictor = () => {
 
     // Handle no matches found
     if (result.length === 0) {
-      `` // Empty the table
+      ``; // Empty the table
       setError("No matches found. Please try again."); // Show error
     } else {
       setFilteredData(result.map((r) => r.item)); // Update filtered data
