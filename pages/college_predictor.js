@@ -39,28 +39,42 @@ const CollegePredictor = () => {
   const fuse = new Fuse(filteredData, fuseOptions);
 
   // Search Function for fuse
+
   const searchFun = (e) => {
     const searchValue = e.target.value.trim();
-
-    // If the search box is empty, reset to full data
     if (searchValue === "") {
-      setFilteredData(fullData); // Ensure `fullData` is not empty
-      setError(null); // Clear any previous error message
+      setFilteredData(
+        [...fullData].sort((a, b) => Number(a["Closing Rank"]) - Number(b["Closing Rank"]))
+      );
+      setError(null);
       return;
     }
-
+  
     const result = fuse.search(searchValue);
-
-    // Handle no matches found
+  
+    // If no matches are found, show an error
     if (result.length === 0) {
-      ``; // Empty the table
-      setError("No matches found. Please try again."); // Show error
+      setFilteredData([]);
+      setError("No matches found. Please try again.");
     } else {
-      setFilteredData(result.map((r) => r.item)); // Update filtered data
-      setError(null); // Clear any error message
+      // Extract matched items and sort by Closing Rank
+      const sortedData = result
+        .map((r) => r.item)
+        .filter((item) => item["Closing Rank"] && !isNaN(item["Closing Rank"])) // Ensure valid numbers
+        .map((item) => ({
+          ...item,
+          "Closing Rank": Number(item["Closing Rank"]), // Convert to number
+        }))
+        .sort((a, b) => a["Closing Rank"] - b["Closing Rank"]);
+  
+      console.log("Before Sorting:", result.map(r => r.item)); // Debugging
+      console.log("After Sorting:", sortedData); // Debugging
+  
+      setFilteredData(sortedData);
+      setError(null);
     }
   };
-
+  
   const fetchData = async (query) => {
     setIsLoading(true);
     setError(null);
