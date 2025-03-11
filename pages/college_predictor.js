@@ -10,7 +10,7 @@ import Dropdown from "../components/dropdown";
 const fuseOptions = {
   isCaseSensitive: false,
   includeScore: false,
-  shouldSort: true,
+  shouldSort: false,
   includeMatches: false,
   findAllMatches: false,
   minMatchCharLength: 1,
