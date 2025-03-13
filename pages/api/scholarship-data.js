@@ -56,6 +56,7 @@ export default async function handler(req, res) {
       (scholarship) => {
         const result =
           !gender ||
+          gender === "Any" || // Added functionality for "Any"
           scholarship.Gender === "Both" ||
           flexMatch(scholarship.Gender, gender) ||
           scholarship.Gender == null;

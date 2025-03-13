@@ -52,6 +52,7 @@ export const scholarshipConfig = {
       name: "gender",
       label: "Select Gender",
       options: [
+        { value: "Any", label: "Any" }, // New option added
         { value: "Others", label: "Others" },
         { value: "Both", label: "Male Only" }, // This is for handling the case when the scholarship is open for both.
         { value: "Female", label: "Female Only" },
