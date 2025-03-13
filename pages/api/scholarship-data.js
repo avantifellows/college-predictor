@@ -12,7 +12,7 @@ export default async function handler(req, res) {
   } = req.query;
 
   try {
-    const s3Url = `https://cdn.avantifellows.org/futures/scholarship_data.json`;
+    const s3Url = `https://avantifellows-assets.s3.ap-south-1.amazonaws.com/futures/scholarship_data.json`;
     const response = await axios.get(s3Url);
     const scholarships = response.data;
     // Helper function for flexible string matching
