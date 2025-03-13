@@ -33,11 +33,11 @@ def lambda_handler(event, context):
         response = urllib.request.urlopen(published_url)
 
         csv_data = response.read().decode('utf-8')
-        
+
         # 2. Parse the CSV
         csv_reader = csv.DictReader(io.StringIO(csv_data))
         parsed_data = list(csv_reader)
-        
+
         # 3. Process the data
         grade_columns = [
             "Class 10 or below can apply",
@@ -48,22 +48,22 @@ def lambda_handler(event, context):
             "Diploma/ITI",
             "Eligible for PG"
         ]
-        
+
         grade_labels = ["10", "11", "12", "12_pass", "UG", "Diploma", "PG"]
-        
+
         processed_data = []
         for row in parsed_data:
             # Clean the row keys by removing whitespace
             clean_row = {k.strip(): v for k, v in row.items()}
-            
+
             # Add grade array
             clean_row['Grade'] = create_grade_array(clean_row, grade_columns, grade_labels)
-            
+
             # Process family income
             clean_row['Family Income (in INR)'] = extract_income(clean_row.get('Family Income (in INR)'))
-            
+
             processed_data.append(clean_row)
-        
+
         # 4. Upload to S3
         # s3_client.put_object(
         #     Bucket="avantifellows-assets",
@@ -72,7 +72,7 @@ def lambda_handler(event, context):
         #     ContentType='application/json'
         # )
         print(processed_data[0])
-        
+
         print('Scholarship data updated successfully')
         return {
             'statusCode': 200,
@@ -91,5 +91,5 @@ def lambda_handler(event, context):
                 'details': str(error)
             })
         }
-    
+
 lambda_handler(event="", context="")
