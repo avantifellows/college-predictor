@@ -1,19 +1,6 @@
-import fs from "fs/promises";
-import path from "path";
-import rateLimit from "express-rate-limit";
-
-const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100, // limit each IP to 100 requests per windowMs
-  handler: (req, res) => {
-    res.status(429).json({
-      error: "Too many requests. Please try again later.",
-    });
-  },
-});
+import axios from 'axios';
 
 export default async function handler(req, res) {
-  await limiter(req, res, () => {});
 
   const {
     status,
@@ -24,15 +11,11 @@ export default async function handler(req, res) {
     familyIncome,
     state: homeState,
   } = req.query;
-  const dataPath = path.join(
-    process.cwd(),
-    "public",
-    "/data/scholarships/scholarship_data.json"
-  );
 
   try {
-    const data = await fs.readFile(dataPath, "utf8");
-    const scholarships = JSON.parse(data);
+    const s3Url = `https://cdn.avantifellows.org/futures/scholarship_data.json`;
+    const response = await axios.get(s3Url);
+    const scholarships = response.data;
     // Helper function for flexible string matching
     const flexMatch = (value, target) => {
       if (Array.isArray(value)) {
