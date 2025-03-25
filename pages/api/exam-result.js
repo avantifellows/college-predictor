@@ -40,12 +40,14 @@ export default async function handler(req, res) {
     // Get filters based on the exam config and query parameters
     const filters = config.getFilters(req.query);
 
-    // Common rank filter
+    // Common rank filter with category-specific handling
     const rankFilter = (item) => {
       if (exam == "TNEA") {
         return parseFloat(item["Cutoff Marks"]) <= parseFloat(rank);
       } else {
-        return parseInt(item["Closing Rank"], 10) > 0.9 * parseInt(rank, 10);
+        const categoryRankField = `${req.query.category}_rank`;
+        const rankToCompare = item[categoryRankField] || item["Closing Rank"];
+        return parseInt(rankToCompare, 10) > 0.9 * parseInt(rank, 10);
       }
     };
 
