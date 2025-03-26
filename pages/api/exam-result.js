@@ -15,7 +15,7 @@ const limiter = rateLimit({
 export default async function handler(req, res) {
   await limiter(req, res, () => {});
 
-  const { exam, rank } = req.query;
+  const { exam, rank, year } = req.query;
 
   if (!exam || !examConfigs[exam]) {
     return res.status(400).json({ error: "Invalid or missing exam parameter" });
@@ -33,7 +33,9 @@ export default async function handler(req, res) {
   }
 
   try {
-    const dataPath = config.getDataPath(req.query.category);
+    // Calculate the previous year based on the selected year
+    const previousYear = (parseInt(year) - 1).toString();
+    const dataPath = config.getDataPath(req.query.category).replace(year, previousYear);
     const data = await fs.readFile(dataPath, "utf8");
     const fullData = JSON.parse(data);
 

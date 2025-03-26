@@ -56,6 +56,11 @@ export const jeeMainJossaConfig = {
   code: "JEE Main",
   fields: [
     {
+      name: "year",
+      label: "Select Year",
+      options: ["2025","2024", "2023", "2022"],
+    },
+    {
       name: "category",
       label: "Select Category",
       options: [
@@ -105,15 +110,20 @@ export const jeeMainJossaConfig = {
     (item) => item.Exam === query.code,
     (item) => parseInt(item.Round, 10) === parseInt(query.roundNumber, 10),
     (item) => item.Gender === query.gender,
-    (item) => item.Quota === "OS" || "AI",
+    (item) => item.Quota === "OS" || item.Quota === "AI",
     (item) => item.State === query.homeState || "All India",
-  ],
-};
+  ]
+}
 
 export const jacExamConfig = {
   code: "JEE Main",
   name: "JEE Main-JAC",
   fields: [
+    {
+      name: "year",
+      label: "Select Year",
+      options: ["2025","2024", "2023", "2022"],
+    },
     {
       name: "category",
       label: "Select Category",
@@ -165,13 +175,18 @@ export const jacExamConfig = {
     (item) => item.Gender === query.gender,
     (item) =>
       parseInt(item["Closing Rank"], 10) > 0.9 * parseInt(query.rank, 10),
-  ],
-};
+  ]
+}
 
 export const jeeAdvancedConfig = {
   name: "JEE Advanced",
   code: "JEE Advanced",
   fields: [
+    {
+      name: "year",
+      label: "Select Year",
+      options: ["2025","2024", "2023", "2022"],
+    },
     {
       name: "category",
       label: "Select Category",
@@ -222,14 +237,19 @@ export const jeeAdvancedConfig = {
     (item) => item.Exam === query.code,
     (item) => parseInt(item.Round, 10) === parseInt(query.roundNumber, 10),
     (item) => item.Gender === query.gender,
-    (item) => item.Quota === "OS" || "AI",
+    (item) => item.Quota === "OS" || item.Quota === "AI",
     (item) => item.State === query.homeState || "All India",
-  ],
-};
+  ]
+}
 
 export const neetConfig = {
   name: "NEET",
   fields: [
+    {
+      name: "year",
+      label: "Select Year",
+      options: ["2025","2024", "2023", "2022"],
+    },
     {
       name: "category",
       label: "Select Category",
@@ -268,13 +288,18 @@ export const neetConfig = {
   getFilters: (query) => [
     (item) => item["Seat Type"].toLowerCase() === query.category.toLowerCase(),
     (item) => item.Round.toString() === query.roundNumber,
-  ],
-};
+  ]
+}
 
 export const mhtCetConfig = {
   name: "MHT CET",
   apiEndpoint: "mhtcet",
   fields: [
+    {
+      name: "year",
+      label: "Select Year",
+      options: ["2025","2024", "2023", "2022"],
+    },
     {
       name: "category",
       label: "Select Category",
@@ -339,8 +364,8 @@ export const mhtCetConfig = {
     (item) => item.State === query.homeState,
     (item) => item.PWD === query.isPWD,
     (item) => item.Defense === query.isDefenseWard,
-  ],
-};
+  ]
+}
 
 export const kcetConfig = {
   name: "KCET",
@@ -410,12 +435,17 @@ export const kcetConfig = {
     (item) => item.State === query.homeState || item.State === "All India",
     (item) => query.language === "Any" || item.Language === query.language,
     (item) => query.region === "All" || item["Rural/Urban"] === query.region,
-  ],
-};
+  ]
+}
 
 export const tneaConfig = {
   name: "TNEA",
   fields: [
+    {
+      name: "year",
+      label: "Select Year",
+      options: ["2025","2024", "2023", "2022"],
+    },
     {
       name: "category",
       label: "Select Category",
@@ -454,8 +484,8 @@ export const tneaConfig = {
   getFilters: (query) => [
     (item) => item.Category === query.category,
     (item) => item.Course === query.courseType,
-  ],
-};
+  ]
+}
 
 export const examConfigs = {
   "JEE Main-JOSAA": jeeMainJossaConfig,
