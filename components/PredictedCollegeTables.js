@@ -15,14 +15,22 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
       { key: "institute_id", label: "Institute ID" },
       { key: "institute", label: "Institute" },
       { key: "academic_program_name", label: "Course" },
-      { key: "closing_rank", label: "Cutoff Marks" },
+      { key: "closing_rank", label: "General Cutoff" },
+      { key: "obc_rank", label: "OBC Cutoff" },
+      { key: "sc_rank", label: "SC Cutoff" },
+      { key: "st_rank", label: "ST Cutoff" },
+      { key: "ews_rank", label: "EWS Cutoff" },
       { key: "quota", label: "Category" },
     ],
     DEFAULT: [
       { key: "state", label: "State" },
       { key: "institute", label: "Institute" },
       { key: "academic_program_name", label: "Academic Program Name" },
-      { key: "closing_rank", label: "Closing Rank" },
+      { key: "closing_rank", label: "General Rank" },
+      { key: "obc_rank", label: "OBC Rank" },
+      { key: "sc_rank", label: "SC Rank" },
+      { key: "st_rank", label: "ST Rank" },
+      { key: "ews_rank", label: "EWS Rank" },
       { key: "quota", label: "Quota" },
     ],
   };
@@ -33,10 +41,14 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
   const transformData = (item) => {
     if (exam === "TNEA") {
       return {
-        institute_id: item["Institute ID"],
-        institute: item["Institute"],
-        academic_program_name: item["Course"],
-        closing_rank: item["Cutoff Marks"],
+        institute_id: item["College ID"] || item["Institute ID"],
+        institute: item["College"] || item["Institute"],
+        academic_program_name: item["Branch"] || item["Course"],
+        closing_rank: item["General/OC"] || item["General Cutoff"] || item["Cutoff Marks"],
+        obc_rank: item["OBC"] || item["BC"] || item["BCM"] || item["MBC"] || "N/A",
+        sc_rank: item["SC"] || item["SCA"] || "N/A",
+        st_rank: item["ST"] || "N/A",
+        ews_rank: item["EWS"] || "N/A",
         quota: item["Category"],
       };
     }
@@ -45,7 +57,11 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
       state: item["State"],
       academic_program_name: item["Academic Program Name"],
       closing_rank: item["Closing Rank"],
-      quota: item["Category"],
+      obc_rank: item["OBC-NCL Rank"] || item["OBC Rank"] || "N/A",
+      sc_rank: item["SC Rank"] || "N/A",
+      st_rank: item["ST Rank"] || "N/A",
+      ews_rank: item["EWS Rank"] || "N/A",
+      quota: item["Quota"] || item["Category"],
     };
   };
 
@@ -88,6 +104,18 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
           <td className="p-2 border-r border-gray-300">
             {transformedItem.closing_rank}
           </td>
+          <td className="p-2 border-r border-gray-300">
+            {transformedItem.obc_rank}
+          </td>
+          <td className="p-2 border-r border-gray-300">
+            {transformedItem.sc_rank}
+          </td>
+          <td className="p-2 border-r border-gray-300">
+            {transformedItem.st_rank}
+          </td>
+          <td className="p-2 border-r border-gray-300">
+            {transformedItem.ews_rank}
+          </td>
           <td className="p-2">{transformedItem.quota}</td>
         </tr>
       );
@@ -98,9 +126,9 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
     if (!examConfig || !examConfig.legend) return null;
 
     return (
-      <div className="flex flex-col items-center text-sm sm:text-base mb-4">
+      <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm sm:text-base mb-4 px-4">
         {examConfig.legend.map((item, index) => (
-          <p key={index} className="leading-4 mb-1">
+          <p key={index} className="whitespace-nowrap font-medium">
             {item.key}: {item.value}
           </p>
         ))}
