@@ -23,7 +23,7 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
       { key: "institute", label: "Institute" },
       { key: "academic_program_name", label: "Academic Program Name" },
       { key: "closing_rank", label: "Closing Rank" },
-      { key: "quota", label: "Quota Type" },
+      { key: "quota", label: "Quota" },
     ],
   };
 
@@ -31,73 +31,22 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
     examColumnMapping[exam] || examColumnMapping.DEFAULT;
 
   const transformData = (item) => {
-    console.log("Transforming item:", item);
-    console.log("Exam type:", exam);
-    
     if (exam === "TNEA") {
-      const transformed = {
+      return {
         institute_id: item["Institute ID"],
         institute: item["Institute"],
         academic_program_name: item["Course"],
         closing_rank: item["Cutoff Marks"],
         quota: item["Category"],
       };
-      console.log("TNEA transformed:", transformed);
-      return transformed;
-    } else if (exam === "JEE Main-JAC") {
-      const transformed = {
-        institute: item["Institute"],
-        state: item["State"],
-        academic_program_name: item["Academic Program Name"],
-        closing_rank: item["Closing Rank"],
-        quota: item["State"],
-      };
-      console.log("JAC transformed:", transformed);
-      return transformed;
     }
-    const transformed = {
+    return {
       institute: item["Institute"],
       state: item["State"],
       academic_program_name: item["Academic Program Name"],
       closing_rank: item["Closing Rank"],
-      quota: item["Quota"] || item["Category"],
+      quota: item["Category"],
     };
-    console.log("Default transformed:", transformed);
-    return transformed;
-  };
-
-  const getQuotaLabel = (quota, exam) => {
-    console.log("Getting quota label for:", quota, "in exam:", exam);
-    const quotaLabels = {
-      "AI": "All India",
-      "HS": "Home State",
-      "OS": "Other State",
-      "SQ": "State Quota",
-      "OPEN": "Open",
-      "OBC": "OBC",
-      "SC": "SC",
-      "ST": "ST",
-      "EWS": "EWS"
-    };
-
-    // For state-specific exams, show the state name
-    if (exam === "MHT CET") {
-      return "Maharashtra";
-    } else if (exam === "KCET") {
-      return "Karnataka";
-    } else if (exam === "TNEA") {
-      return "Tamil Nadu";
-    } else if (exam === "JEE Main-JAC") {
-      return quota === "Delhi" ? "Delhi" : "Outside Delhi";
-    }
-
-    const label = quotaLabels[quota] || quota;
-    console.log("Final quota label:", label);
-    return label;
-  };
-
-  const getRowStyle = (item) => {
-    return ""; // Remove all color coding
   };
 
   const renderTableHeader = () => (
@@ -113,11 +62,10 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
   const renderTableBody = () =>
     data.map((item, index) => {
       const transformedItem = transformData(item);
-      const rowStyle = getRowStyle(transformedItem);
       return (
         <tr
           key={index}
-          className={`${commonCellClass} ${rowStyle} ${
+          className={`${commonCellClass} ${
             index % 2 === 0 ? "bg-gray-100" : "bg-white"
           }`}
         >
@@ -140,7 +88,7 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
           <td className="p-2 border-r border-gray-300">
             {transformedItem.closing_rank}
           </td>
-          <td className="p-2">{getQuotaLabel(transformedItem.quota, exam)}</td>
+          <td className="p-2">{transformedItem.quota}</td>
         </tr>
       );
     });
