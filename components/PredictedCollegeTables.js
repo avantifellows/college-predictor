@@ -126,9 +126,9 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
     if (!examConfig || !examConfig.legend) return null;
 
     return (
-      <div className="flex flex-col items-center text-sm sm:text-base mb-4">
+      <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm sm:text-base mb-4 px-4">
         {examConfig.legend.map((item, index) => (
-          <p key={index} className="leading-4 mb-1">
+          <p key={index} className="whitespace-nowrap font-medium">
             {item.key}: {item.value}
           </p>
         ))}
