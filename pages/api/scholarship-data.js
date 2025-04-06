@@ -11,6 +11,10 @@ export default async function handler(req, res) {
     state: homeState,
   } = req.query;
 
+  // Parse array inputs
+  const streams = stream ? stream.split(',') : [];
+  const states = homeState ? homeState.split(',') : [];
+
   try {
     const s3Url = `https://avantifellows-assets.s3.ap-south-1.amazonaws.com/futures/scholarship_data.json`;
     const response = await axios.get(s3Url);
@@ -45,12 +49,8 @@ export default async function handler(req, res) {
         return result;
       },
       (scholarship) => {
-        const result =
-          !stream ||
-          stream == "Any" ||
-          flexMatch(scholarship["Stream"], stream) ||
-          scholarship.Stream == null;
-        return result;
+        if (!stream || stream === "Any") return true;
+        return streams.some(s => flexMatch(scholarship["Stream"], s)) || scholarship.Stream == null;
       },
       (scholarship) => {
         const result =
@@ -70,19 +70,29 @@ export default async function handler(req, res) {
       // },
       (scholarship) => {
         const scholarshipIncome = scholarship["Family Income (in INR)"];
-        const result =
-          !familyIncome ||
-          scholarshipIncome === null ||
-          parseFloat(scholarshipIncome) >= parseFloat(familyIncome);
-        return result;
+        try {
+          if (!familyIncome) return true;
+          if (scholarshipIncome === null) return true;
+          if (familyIncome === "above") return true;
+          
+          const parsedScholarshipIncome = parseFloat(scholarshipIncome);
+          const parsedFamilyIncome = parseFloat(familyIncome);
+          
+          if (isNaN(parsedScholarshipIncome) || isNaN(parsedFamilyIncome)) {
+            throw new Error("Invalid income format");
+          }
+          
+          return parsedScholarshipIncome >= parsedFamilyIncome;
+        } catch (error) {
+          console.error("Error processing family income:", error);
+          return false;
+        }
       },
       (scholarship) => {
-        const result =
-          !homeState ||
-          flexMatch(scholarship.State, homeState) ||
-          flexMatch(scholarship.State, "All India") ||
-          scholarship.State === null;
-        return result;
+        if (!homeState) return true;
+        return states.some(s => flexMatch(scholarship.State, s)) ||
+               flexMatch(scholarship.State, "All India") ||
+               scholarship.State === null;
       },
     ];
 
