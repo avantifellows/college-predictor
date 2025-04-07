@@ -105,8 +105,15 @@ export const jeeMainJossaConfig = {
     (item) => item.Exam === query.code,
     (item) => parseInt(item.Round, 10) === parseInt(query.roundNumber, 10),
     (item) => item.Gender === query.gender,
-    (item) => item.Quota === "OS" || "AI",
-    (item) => item.State === query.homeState || "All India",
+    (item) => {
+      if (query.homeState === "All India") {
+        return item.Quota === "AI";
+      } else if (item.State === query.homeState) {
+        return item.Quota === "HS";
+      } else {
+        return item.Quota === "OS";
+      }
+    },
   ],
 };
 
@@ -176,16 +183,16 @@ export const jeeAdvancedConfig = {
       name: "category",
       label: "Select Category",
       options: [
-        { value: "ews", label: "EWS" },
-        { value: "ews_pwd", label: "EWS (PwD)" },
-        { value: "obc_ncl", label: "OBC-NCL" },
-        { value: "obc_ncl_pwd", label: "OBC-NCL (PwD)" },
-        { value: "open", label: "OPEN" },
-        { value: "open_pwd", label: "OPEN (PwD)" },
-        { value: "sc", label: "SC" },
-        { value: "sc_pwd", label: "SC (PwD)" },
-        { value: "st", label: "ST" },
-        { value: "st_pwd", label: "ST (PwD)" },
+        { value: "OPEN", label: "OPEN" },
+        { value: "OPEN (PwD)", label: "OPEN (PwD)" },
+        { value: "OBC-NCL", label: "OBC-NCL" },
+        { value: "OBC-NCL (PwD)", label: "OBC-NCL (PwD)" },
+        { value: "SC", label: "SC" },
+        { value: "SC (PwD)", label: "SC (PwD)" },
+        { value: "ST", label: "ST" },
+        { value: "ST (PwD)", label: "ST (PwD)" },
+        { value: "EWS", label: "EWS" },
+        { value: "EWS (PwD)", label: "EWS (PwD)" },
       ],
     },
     {
@@ -234,16 +241,16 @@ export const neetConfig = {
       name: "category",
       label: "Select Category",
       options: [
-        { value: "ews", label: "EWS" },
-        { value: "ews_pwd", label: "EWS (PwD)" },
-        { value: "obc_ncl", label: "OBC-NCL" },
-        { value: "obc_ncl_pwd", label: "OBC-NCL (PwD)" },
-        { value: "open", label: "OPEN" },
-        { value: "open_pwd", label: "OPEN (PwD)" },
-        { value: "sc", label: "SC" },
-        { value: "sc_pwd", label: "SC (PwD)" },
-        { value: "st", label: "ST" },
-        { value: "st_pwd", label: "ST (PwD)" },
+        { value: "OPEN", label: "OPEN" },
+        { value: "OPEN (PwD)", label: "OPEN (PwD)" },
+        { value: "OBC-NCL", label: "OBC-NCL" },
+        { value: "OBC-NCL (PwD)", label: "OBC-NCL (PwD)" },
+        { value: "SC", label: "SC" },
+        { value: "SC (PwD)", label: "SC (PwD)" },
+        { value: "ST", label: "ST" },
+        { value: "ST (PwD)", label: "ST (PwD)" },
+        { value: "EWS", label: "EWS" },
+        { value: "EWS (PwD)", label: "EWS (PwD)" },
       ],
     },
     {
@@ -266,7 +273,7 @@ export const neetConfig = {
     );
   },
   getFilters: (query) => [
-    (item) => item["Seat Type"].toLowerCase() === query.category.toLowerCase(),
+    (item) => item["Seat Type"] === query.category,
     (item) => item.Round.toString() === query.roundNumber,
   ],
 };
