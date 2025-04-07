@@ -1,7 +1,16 @@
 import path from "path";
 
 /**
- * This file contains configuration objects for various exams such as JEE Main-JOSAA, JEE Main-JAC, JEE Advanced, NEET, and MHT CET.
+ * 
+ * {
+  name: "quota",
+  label: "Select State Quota",
+  options: [
+    { value: "AI", label: "All India" },
+    { value: "HS", label: "Home State" },
+    { value: "OS", label: "Other State" },
+  ],
+}This file contains configuration objects for various exams such as JEE Main-JOSAA, JEE Main-JAC, JEE Advanced, NEET, and MHT CET.
  * Each configuration object includes details like the exam name, code, form fields, legends, and methods to get data paths and filters.
  * These configurations are used to dynamically generate forms and filter data based on user inputs in the index.js and college_predictor.js files.
  */
@@ -86,6 +95,15 @@ export const jeeMainJossaConfig = {
       label: "Select Your Home State",
       options: statesList,
     },
+    {
+      name: "quota",
+      label: "Select State Quota",
+      options: [
+        { value: "AI", label: "All India" },
+        { value: "HS", label: "Home State" },
+        { value: "OS", label: "Other State" },
+      ],
+    },
   ],
   legend: [
     { key: "AI", value: "All India" },
@@ -101,13 +119,21 @@ export const jeeMainJossaConfig = {
       `${category}.json`
     );
   },
-  getFilters: (query) => [
-    (item) => item.Exam === query.code,
-    (item) => parseInt(item.Round, 10) === parseInt(query.roundNumber, 10),
-    (item) => item.Gender === query.gender,
-    (item) => item.Quota === "OS" || "AI",
-    (item) => item.State === query.homeState || "All India",
-  ],
+  getFilters: (query) => {
+    const quotaMap = {
+      "All+India": "AI",
+      "Home+State": "HS",
+      "Out+of+State": "OS",
+    };
+    const quotaValue = quotaMap[query.quota] || query.quota;
+    return [
+      (item) => item.Exam === query.code,
+      (item) => parseInt(item.Round, 10) === parseInt(query.roundNumber, 10),
+      (item) => item.Gender === query.gender,
+      (item) => item.Quota === quotaValue,
+      (item) => item.State === query.homeState || "All India",
+    ];
+  },
 };
 
 export const jacExamConfig = {
@@ -149,6 +175,15 @@ export const jacExamConfig = {
         { value: "Yes", label: "Yes" },
       ],
     },
+    {
+      name: "quota",
+      label: "Select State Quota",
+      options: [
+        { value: "AI", label: "All India" },
+        { value: "HS", label: "Home State" },
+        { value: "OS", label: "Other State" },
+      ],
+    },
   ],
   legend: [
     { key: "D", value: "Delhi" },
@@ -157,15 +192,21 @@ export const jacExamConfig = {
   getDataPath: () => {
     return path.join(process.cwd(), "public", "data", "JEE", "jac_data.json");
   },
-  getFilters: (query) => [
-    (item) => item.State === query.homeState,
-    (item) => item.Category === query.category,
-    (item) => item.Defense === query.isDefenseWard,
-    (item) => item.PWD === query.isPWD,
-    (item) => item.Gender === query.gender,
-    (item) =>
-      parseInt(item["Closing Rank"], 10) > 0.9 * parseInt(query.rank, 10),
-  ],
+  getFilters: (query) => {
+    const quotaMap = {
+      "All+India": "AI",
+      "Home+State": "HS",
+      "Out+of+State": "OS",
+    };
+    const quotaValue = quotaMap[query.quota] || query.quota;
+    return [
+      (item) => item.Exam === query.code,
+      (item) => parseInt(item.Round, 10) === parseInt(query.roundNumber, 10),
+      (item) => item.Gender === query.gender,
+      (item) => item.Quota === quotaValue,
+      (item) => item.State === query.homeState || "All India",
+    ];
+  },
 };
 
 export const jeeAdvancedConfig = {
@@ -203,6 +244,15 @@ export const jeeAdvancedConfig = {
       label: "Select Your Home State",
       options: statesList,
     },
+    {
+      name: "quota",
+      label: "Select State Quota",
+      options: [
+        { value: "AI", label: "All India" },
+        { value: "HS", label: "Home State" },
+        { value: "OS", label: "Other State" },
+      ],
+    },
   ],
   legend: [
     { key: "AI", value: "All India" },
@@ -222,7 +272,8 @@ export const jeeAdvancedConfig = {
     (item) => item.Exam === query.code,
     (item) => parseInt(item.Round, 10) === parseInt(query.roundNumber, 10),
     (item) => item.Gender === query.gender,
-    (item) => item.Quota === "OS" || "AI",
+
+    (item) => item.Quota === query.quota,
     (item) => item.State === query.homeState || "All India",
   ],
 };
@@ -251,6 +302,15 @@ export const neetConfig = {
       label: "Select Round Number:",
       options: ["1", "2", "3", "4", "5", "6"],
     },
+    {
+      name: "quota",
+      label: "Select State Quota",
+      options: [
+        { value: "AI", label: "All India" },
+        { value: "HS", label: "Home State" },
+        { value: "OS", label: "Other State" },
+      ],
+    },
   ],
   legend: [
     { key: "AI", value: "All India" },
@@ -265,10 +325,21 @@ export const neetConfig = {
       `${category}.json`
     );
   },
-  getFilters: (query) => [
-    (item) => item["Seat Type"].toLowerCase() === query.category.toLowerCase(),
-    (item) => item.Round.toString() === query.roundNumber,
-  ],
+  getFilters: (query) => {
+    const quotaMap = {
+      "All+India": "AI",
+      "Home+State": "HS",
+      "Out+of+State": "OS",
+    };
+    const quotaValue = quotaMap[query.quota] || query.quota;
+    return [
+      (item) => item.Exam === query.code,
+      (item) => parseInt(item.Round, 10) === parseInt(query.roundNumber, 10),
+      (item) => item.Gender === query.gender,
+      (item) => item.Quota === quotaValue,
+      (item) => item.State === query.homeState || "All India",
+    ];
+  },
 };
 
 export const mhtCetConfig = {
@@ -319,6 +390,15 @@ export const mhtCetConfig = {
         { value: "Yes", label: "Yes" },
       ],
     },
+    {
+      name: "quota",
+      label: "Select State Quota",
+      options: [
+        { value: "AI", label: "All India" },
+        { value: "HS", label: "Home State" },
+        { value: "OS", label: "Other State" },
+      ],
+    },
   ],
   legend: [
     { key: "AI", value: "All India" },
@@ -333,13 +413,21 @@ export const mhtCetConfig = {
       "mhtcet_data.json"
     );
   },
-  getFilters: (query) => [
-    (item) => item.Category === query.category,
-    (item) => item.Gender === query.gender,
-    (item) => item.State === query.homeState,
-    (item) => item.PWD === query.isPWD,
-    (item) => item.Defense === query.isDefenseWard,
-  ],
+  getFilters: (query) => {
+    const quotaMap = {
+      "All+India": "AI",
+      "Home+State": "HS",
+      "Out+of+State": "OS",
+    };
+    const quotaValue = quotaMap[query.quota] || query.quota;
+    return [
+      (item) => item.Exam === query.code,
+      (item) => parseInt(item.Round, 10) === parseInt(query.roundNumber, 10),
+      (item) => item.Gender === query.gender,
+      (item) => item.Quota === quotaValue,
+      (item) => item.State === query.homeState || "All India",
+    ];
+  },
 };
 
 export const kcetConfig = {
@@ -395,6 +483,15 @@ export const kcetConfig = {
         { value: "All", label: "All" },
       ],
     },
+    {
+      name: "quota",
+      label: "Select State Quota",
+      options: [
+        { value: "AI", label: "All India" },
+        { value: "HS", label: "Home State" },
+        { value: "OS", label: "Other State" },
+      ],
+    },
   ],
   legend: [
     { key: "AI", value: "All India" },
@@ -404,13 +501,21 @@ export const kcetConfig = {
   getDataPath: () => {
     return path.join(process.cwd(), "public", "data", "KCET", "kcet_data.json");
   },
-  getFilters: (query) => [
-    (item) => item.Category === query.category,
-    (item) => item["Course Type"] === query.courseType,
-    (item) => item.State === query.homeState || item.State === "All India",
-    (item) => query.language === "Any" || item.Language === query.language,
-    (item) => query.region === "All" || item["Rural/Urban"] === query.region,
-  ],
+  getFilters: (query) => {
+    const quotaMap = {
+      "All+India": "AI",
+      "Home+State": "HS",
+      "Out+of+State": "OS",
+    };
+    const quotaValue = quotaMap[query.quota] || query.quota;
+    return [
+      (item) => item.Exam === query.code,
+      (item) => parseInt(item.Round, 10) === parseInt(query.roundNumber, 10),
+      (item) => item.Gender === query.gender,
+      (item) => item.Quota === quotaValue,
+      (item) => item.State === query.homeState || "All India",
+    ];
+  },
 };
 
 export const tneaConfig = {
