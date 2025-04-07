@@ -73,6 +73,7 @@ export default async function handler(req, res) {
         const result =
           !familyIncome ||
           scholarshipIncome === null ||
+          familyIncome === "Any" ||
           parseFloat(scholarshipIncome) >= parseFloat(familyIncome);
         return result;
       },
