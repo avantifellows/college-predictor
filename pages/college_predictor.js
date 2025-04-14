@@ -169,6 +169,56 @@ const CollegePredictor = () => {
     );
   };
 
+  const exportToCSV = () => {
+    if (filteredData.length === 0) {
+      setError("No data to export");
+      return;
+    }
+
+    const getColumnMapping = () => {
+      if (router.query.exam === "TNEA") {
+        return [
+          { key: "Institute ID", label: "Institute ID" },
+          { key: "Institute", label: "Institute" },
+          { key: "Course", label: "Course" },
+          { key: "Cutoff Marks", label: "Cutoff Marks" },
+          { key: "Category", label: "Category" }
+        ];
+      }
+      return [
+        { key: "State", label: "State" },
+        { key: "Institute", label: "Institute" },
+        { key: "Academic Program Name", label: "Academic Program Name" },
+        { key: "Closing Rank", label: "Closing Rank" },
+        { key: "Category", label: "Category" }
+      ];
+    };
+
+    const columns = getColumnMapping();
+    const headers = columns.map(col => col.label);
+    const csvContent = [
+      headers.join(","),
+      ...filteredData.map(row => 
+        columns.map(col => {
+          const value = row[col.key];
+          return typeof value === "string" && value.includes(",") 
+            ? `"${value}"` 
+            : value || "N/A";
+        }).join(",")
+      )
+    ].join("\n");
+
+    const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+    const link = document.createElement("a");
+    const url = URL.createObjectURL(blob);
+    link.setAttribute("href", url);
+    link.setAttribute("download", `${router.query.exam || "college"}_predictions.csv`);
+    link.style.visibility = "hidden";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <>
       <Head>
@@ -207,8 +257,16 @@ const CollegePredictor = () => {
               ) : (
                 <div className="w-full overflow-x-auto">
                   <h3 className="text-lg md:text-xl mb-4 text-center font-bold">
-                    Predicted colleges and courses for you:
+                    something for you colleges and courses for you:
                   </h3>
+                  <div className="flex justify-end mb-2">
+                    <button
+                      onClick={exportToCSV}
+                      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-sm"
+                    >
+                      Export to CSV
+                    </button>
+                  </div>
                   <PredictedCollegeTables
                     data={filteredData}
                     exam={router.query.exam}
