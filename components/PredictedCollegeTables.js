@@ -37,7 +37,7 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
         institute: item["Institute"],
         academic_program_name: item["Course"],
         closing_rank: item["Cutoff Marks"],
-        quota: item["Category"],
+         quota: item["Quota"] || item["Category"] || "N/A",
       };
     }
     return {
@@ -45,7 +45,7 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
       state: item["State"],
       academic_program_name: item["Academic Program Name"],
       closing_rank: item["Closing Rank"],
-      quota: item["Category"],
+       quota: item["Quota"] || item["Category"] || "N/A",
     };
   };
 
@@ -88,7 +88,7 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
           <td className="p-2 border-r border-gray-300">
             {transformedItem.closing_rank}
           </td>
-          <td className="p-2">{transformedItem.quota}</td>
+          <td className="p-2">{transformedItem.quota || "N/A"}</td>
         </tr>
       );
     });
