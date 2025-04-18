@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import examConfigs from "../examConfig";
+import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 
 const PredictedCollegesTable = ({ data = [], exam = "" }) => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10;
+  const totalPages = Math.ceil(data.length / itemsPerPage);
+  
+  const getCurrentPageData = () => {
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    return data.slice(startIndex, endIndex);
+  };
   const commonTableClass =
     "w-full mx-auto border-collapse text-sm sm:text-base";
   const commonHeaderClass =
@@ -60,7 +70,7 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
   );
 
   const renderTableBody = () =>
-    data.map((item, index) => {
+    getCurrentPageData().map((item, index) => {
       const transformedItem = transformData(item);
       return (
         <tr
@@ -108,13 +118,36 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
     );
   };
 
+  const renderPagination = () => (
+    <div className="mt-4 flex justify-center items-center gap-2">
+      <button
+        onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+        disabled={currentPage === 1}
+        className={`px-3 py-1 rounded ${currentPage === 1 ? 'bg-gray-300' : 'bg-blue-500 text-white hover:bg-blue-600'}`}
+      >
+        <ChevronLeftIcon className="w-4 h-4" />
+      </button>
+      <span className="text-sm">
+        Page {currentPage} of {totalPages}
+      </span>
+      <button
+        onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+        disabled={currentPage === totalPages}
+        className={`px-3 py-1 rounded ${currentPage === totalPages ? 'bg-gray-300' : 'bg-blue-500 text-white hover:bg-blue-600'}`}
+      >
+        <ChevronRightIcon className="w-4 h-4" />
+      </button>
+    </div>
+  );
+
   return (
-    <div className="w-full mx-auto overflow-x-auto">
+    <div className="w-full overflow-x-auto shadow-md rounded-lg">
       {renderLegend()}
-      <table className={`${commonTableClass} border border-gray-300`}>
+      <table className={commonTableClass}>
         <thead>{renderTableHeader()}</thead>
         <tbody>{renderTableBody()}</tbody>
       </table>
+      {data.length > itemsPerPage && renderPagination()}
     </div>
   );
 };
