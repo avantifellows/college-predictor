@@ -31,6 +31,7 @@ const CollegePredictor = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [queryObject, setQueryObject] = useState({});
+  const [isInputSectionExpanded, setIsInputSectionExpanded] = useState(true);
 
   useEffect(() => {
     setQueryObject(router.query);
@@ -179,7 +180,39 @@ const CollegePredictor = () => {
           <h1 className="text-2xl font-bold mb-4 text-center">
             {getConstants().TITLE}
           </h1>
-          {renderQueryDetails()}
+          <div className="w-full">
+            <button
+              onClick={() => setIsInputSectionExpanded(!isInputSectionExpanded)}
+              className="w-full max-w-md mx-auto mb-4 flex items-center justify-center gap-3 py-2.5 px-4 bg-white border-2 border-blue-500 rounded-lg text-blue-600 hover:bg-blue-50 hover:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-200 shadow-sm"
+              aria-expanded={isInputSectionExpanded}
+              aria-controls="input-section"
+            >
+              <svg
+                className={`w-5 h-5 transform transition-transform duration-200 ${isInputSectionExpanded ? 'rotate-180' : ''}`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+              <span className="font-medium text-base">
+                {isInputSectionExpanded ? 'Hide Input Options' : 'Show Input Options'}
+              </span>
+            </button>
+            <div
+              id="input-section"
+              className={`transition-all duration-300 ease-in-out overflow-hidden ${isInputSectionExpanded ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
+              aria-hidden={!isInputSectionExpanded}
+            >
+              {renderQueryDetails()}
+            </div>
+          </div>
           {isLoading ? (
             <div className="flex items-center justify-center flex-col mt-2">
               <div className="border-t-2 border-transparent border-[#B52326] rounded-full w-8 h-8 animate-spin mb-2"></div>
