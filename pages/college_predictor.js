@@ -174,12 +174,17 @@ const CollegePredictor = () => {
       <Head>
         <title>College Predictor - Result</title>
       </Head>
-      <div className="flex flex-col items-center p-4">
+      <div className="flex flex-col items-center p-4 gap-6">
+        {/* Form Card */}
         <div className="flex flex-col items-center justify-center w-full sm:w-5/6 md:w-3/4 bg-white p-6 rounded-lg shadow-lg">
           <h1 className="text-2xl font-bold mb-4 text-center">
             {getConstants().TITLE}
           </h1>
           {renderQueryDetails()}
+        </div>
+
+        {/* Results Card */}
+        <div className="flex flex-col items-center justify-center w-full sm:w-5/6 md:w-3/4 bg-white p-6 rounded-lg shadow-lg shadow-t-xl" style={{ boxShadow: '0 -4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}>
           {isLoading ? (
             <div className="flex items-center justify-center flex-col mt-2">
               <div className="border-t-2 border-transparent border-[#B52326] rounded-full w-8 h-8 animate-spin mb-2"></div>
@@ -187,7 +192,6 @@ const CollegePredictor = () => {
             </div>
           ) : (
             <>
-              {/* Always render the search box */}
               <div className="mb-4 w-full flex flex-col justify-center items-center">
                 <label className="block text-md font-semibold text-gray-700 content-center mx-2">
                   Search: &#128269;
