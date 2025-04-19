@@ -3,105 +3,58 @@ import PropTypes from "prop-types";
 import examConfigs from "../examConfig";
 
 const PredictedCollegesTable = ({ data = [], exam = "" }) => {
-  const commonTableClass =
-    "w-full mx-auto border-collapse text-sm sm:text-base";
-  const commonHeaderClass =
+  const tableClass = "w-full mx-auto border-collapse text-sm sm:text-base";
+  const headerClass =
     "bg-gray-200 font-bold text-center text-xs sm:text-sm md:text-base";
-  const commonCellClass =
-    "p-2 border border-gray-300 text-center text-xs sm:text-sm md:text-base";
+  const cellClass = "p-2 border border-gray-300 text-center text-xs sm:text-sm md:text-base";
 
-  const examColumnMapping = {
+  // Base columns per exam
+  const baseColumns = {
     TNEA: [
       { key: "institute_id", label: "Institute ID" },
-      { key: "institute", label: "Institute" },
+      { key: "institute",    label: "Institute"     },
       { key: "academic_program_name", label: "Course" },
-      { key: "closing_rank", label: "Cutoff Marks" },
-      { key: "quota", label: "Category" },
+      { key: "closing_rank",  label: "Cutoff Marks"  },
+      { key: "quota",         label: "Category"      },
     ],
     DEFAULT: [
-      { key: "state", label: "State" },
-      { key: "institute", label: "Institute" },
+      { key: "state",        label: "State"                   },
+      { key: "institute",    label: "Institute"               },
       { key: "academic_program_name", label: "Academic Program Name" },
-      { key: "closing_rank", label: "Closing Rank" },
-      { key: "quota", label: "Quota" },
+      { key: "closing_rank", label: "Closing Rank"            },
+      { key: "quota",        label: "Quota"                   },
     ],
   };
 
-  const predicted_colleges_table_column =
-    examColumnMapping[exam] || examColumnMapping.DEFAULT;
+  // Pick the right base, then append NIRF column
+  const columns = [
+    ...(baseColumns[exam] || baseColumns.DEFAULT),
+    { key: "nirf_rank", label: "NIRF Rank" },
+  ];
 
-  const transformData = (item) => {
-    if (exam === "TNEA") {
-      return {
-        institute_id: item["Institute ID"],
-        institute: item["Institute"],
-        academic_program_name: item["Course"],
-        closing_rank: item["Cutoff Marks"],
-        quota: item["Category"],
-      };
-    }
-    return {
-      institute: item["Institute"],
-      state: item["State"],
-      academic_program_name: item["Academic Program Name"],
-      closing_rank: item["Closing Rank"],
-      quota: item["Category"],
-    };
-  };
-
-  const renderTableHeader = () => (
-    <tr className={commonHeaderClass}>
-      {predicted_colleges_table_column.map((column) => (
-        <th key={column.key} className="p-2 border-r border-gray-300">
-          {column.label}
-        </th>
-      ))}
-    </tr>
-  );
-
-  const renderTableBody = () =>
-    data.map((item, index) => {
-      const transformedItem = transformData(item);
-      return (
-        <tr
-          key={index}
-          className={`${commonCellClass} ${
-            index % 2 === 0 ? "bg-gray-100" : "bg-white"
-          }`}
-        >
-          {exam !== "TNEA" && (
-            <td className="p-2 border-r border-gray-300">
-              {transformedItem.state || "N/A"}
-            </td>
-          )}
-          {exam === "TNEA" && (
-            <td className="p-2 border-r border-gray-300">
-              {transformedItem.institute_id || "N/A"}
-            </td>
-          )}
-          <td className="p-2 border-r border-gray-300">
-            {transformedItem.institute}
-          </td>
-          <td className="p-2 border-r border-gray-300">
-            {transformedItem.academic_program_name}
-          </td>
-          <td className="p-2 border-r border-gray-300">
-            {transformedItem.closing_rank}
-          </td>
-          <td className="p-2">{transformedItem.quota}</td>
-        </tr>
-      );
-    });
+  // Normalize each row to the keys above
+  const transformData = (item) => ({
+    // TNEA-specific
+    institute_id: item["Institute ID"] || item["institute_id"],
+    institute:   item["Institute"]    || item["institute"],
+    academic_program_name:
+      exam === "TNEA" ? item["Course"] : item["Academic Program Name"] || item["academic_program_name"],
+    closing_rank:
+      exam === "TNEA" ? item["Cutoff Marks"] : item["Closing Rank"]  || item["closing_rank"],
+    quota: item["Category"] || item["quota"],
+    state: item["State"] || item["state"],
+    // our new field
+    nirf_rank: item["nirf_rank"] != null ? item["nirf_rank"] : null,
+  });
 
   const renderLegend = () => {
     const examConfig = examConfigs[exam];
-    if (!examConfig || !examConfig.legend) return null;
-
+    if (!examConfig?.legend) return null;
     return (
       <div className="flex flex-col items-center text-sm sm:text-base mb-4">
-        {examConfig.legend.map((item, index) => (
-          <p key={index} className="leading-4 mb-1">
-            {item.key}: {item.value}
+        {examConfig.legend.map((lg, i) => (
+          <p key={i} className="leading-4 mb-1">
+            {lg.key}: {lg.value}
           </p>
         ))}
       </div>
@@ -111,29 +64,58 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
   return (
     <div className="w-full mx-auto overflow-x-auto">
       {renderLegend()}
-      <table className={`${commonTableClass} border border-gray-300`}>
-        <thead>{renderTableHeader()}</thead>
-        <tbody>{renderTableBody()}</tbody>
+      <table className={`${tableClass} border border-gray-300`}>
+        <thead>
+          <tr className={headerClass}>
+            {columns.map((col) => (
+              <th key={col.key} className="p-2 border-r border-gray-300">
+                {col.label}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((raw, idx) => {
+            const row = transformData(raw);
+            return (
+              <tr
+                key={idx}
+                className={`${cellClass} ${
+                  idx % 2 === 0 ? "bg-gray-100" : "bg-white"
+                }`}
+              >
+                {columns.map((col) => (
+                  <td key={col.key} className="p-2 border-r border-gray-300">
+                    {/* show number or blank */}
+                    {row[col.key] != null ? row[col.key] : ""}
+                  </td>
+                ))}
+              </tr>
+            );
+          })}
+        </tbody>
       </table>
     </div>
   );
 };
 
 PredictedCollegesTable.propTypes = {
+  exam: PropTypes.string.isRequired,
   data: PropTypes.arrayOf(
     PropTypes.shape({
-      "Institute ID": PropTypes.string, // For TNEA
-      Institute: PropTypes.string.isRequired,
-      Course: PropTypes.string, // TNEA-specific
-      Category: PropTypes.string.isRequired,
-      "Cutoff Marks": PropTypes.string, // TNEA-specific
+      "Institute ID": PropTypes.string,
+      Institute: PropTypes.string,
+      Course: PropTypes.string,
+      "Cutoff Marks": PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+      Category: PropTypes.string,
       State: PropTypes.string,
       "Academic Program Name": PropTypes.string,
-      "Closing Rank": PropTypes.string,
+      "Closing Rank": PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
       Quota: PropTypes.string,
+      // new field coming from your JSON
+      nirf_rank: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     })
   ),
-  exam: PropTypes.string.isRequired,
 };
 
 export default PredictedCollegesTable;
