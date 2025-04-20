@@ -32,6 +32,30 @@ The College Predictor application helps students find:
    - Home State
    - City Name
 
+## Project Structure
+
+```/components```
+Contains all React components used throughout the application.
+
+```/pages```
+Next.js pages that define the routes of the application.
+
+```/public```
+Static assets like images and icons.
+
+```/styles```
+CSS and styling files.
+
+## API Reference
+
+The application uses the following endpoints:
+
+- `GET /api/colleges` - Fetches the list of colleges
+- `GET /api/exams` - Fetches available exams
+- `POST /api/predict` - Predicts colleges based on rank and exam
+
+
+
 <div align="center">
 
 <a target="_blank" href="https://github.com/avantifellows/college-predictor/blob/8103b9c624061a34b0299915777b0a59fa47db83/LICENSE" style="background:none">
