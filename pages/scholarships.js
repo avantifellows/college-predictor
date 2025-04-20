@@ -104,7 +104,7 @@ const ScholarshipPage = () => {
             Submit
           </button>
           {isSubmitDisabled && (
-            <p className="text-red-600 text-sm mt-2 -translate-x-4">
+            <p className="text-red-600 text-sm mt-2 text-center">
               Please fill all the fields before submitting!
             </p>
           )}
