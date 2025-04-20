@@ -32,6 +32,7 @@ The College Predictor application helps students find:
    - Home State
    - City Name
 
+
 ## Project Structure
 
 ```/components```
@@ -53,6 +54,7 @@ The application uses the following endpoints:
 - `GET /api/colleges` - Fetches the list of colleges
 - `GET /api/exams` - Fetches available exams
 - `POST /api/predict` - Predicts colleges based on rank and exam
+
 
 
 
