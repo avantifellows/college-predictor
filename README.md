@@ -55,7 +55,6 @@ The application uses the following endpoints:
 - `POST /api/predict` - Predicts colleges based on rank and exam
 
 
-
 <div align="center">
 
 <a target="_blank" href="https://github.com/avantifellows/college-predictor/blob/8103b9c624061a34b0299915777b0a59fa47db83/LICENSE" style="background:none">
