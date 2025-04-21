@@ -65,12 +65,12 @@ export const scholarshipConfig = {
         "Scholarships might have specific eligibility within the range check requirements",
       ],
       options: [
-        { value: "2", label: "Up to 2 Lakh" },
-        { value: "4", label: "Up to 4 Lakh" },
-        { value: "6", label: "Up to 6 Lakh" },
-        { value: "8", label: "Up to 8 Lakh" },
-        { value: "10", label: "Up to 10 Lakh" },
-        { value: "above", label: "Above 10 Lakh" },
+        { value: "3", label: "Up to 3 lakhs per annum" },
+        { value: "4", label: "Up to 4 lakhs per annum" },
+        { value: "6", label: "Up to 6 lakhs per annum" },
+        { value: "8", label: "Up to 8 lakhs per annum" },
+        { value: "above", label: "More than 8 lakhs per annum" },
+        { value: "Any", label: "Any" },
       ],
     },
     // {
