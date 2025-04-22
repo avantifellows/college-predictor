@@ -1,15 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
+import ResponsiveTable from "./ResponsiveTable";
 import examConfigs from "../examConfig";
 
 const PredictedCollegesTable = ({ data = [], exam = "" }) => {
   const commonTableClass =
     "w-full mx-auto border-collapse text-sm sm:text-base";
-  const commonHeaderClass =
-    "bg-gray-200 font-bold text-center text-xs sm:text-sm md:text-base";
-  const commonCellClass =
-    "p-2 border border-gray-300 text-center text-xs sm:text-sm md:text-base";
-
+  
   const examColumnMapping = {
     TNEA: [
       { key: "institute_id", label: "Institute ID" },
@@ -33,65 +30,24 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
   const transformData = (item) => {
     if (exam === "TNEA") {
       return {
-        institute_id: item["Institute ID"],
-        institute: item["Institute"],
-        academic_program_name: item["Course"],
-        closing_rank: item["Cutoff Marks"],
-        quota: item["Category"],
+        institute_id: item["Institute ID"] || "N/A",
+        institute: item["Institute"] || "",
+        academic_program_name: item["Course"] || "",
+        closing_rank: item["Cutoff Marks"] || "",
+        quota: item["Category"] || "",
       };
     }
     return {
-      institute: item["Institute"],
-      state: item["State"],
-      academic_program_name: item["Academic Program Name"],
-      closing_rank: item["Closing Rank"],
-      quota: item["Category"],
+      state: item["State"] || "N/A",
+      institute: item["Institute"] || "",
+      academic_program_name: item["Academic Program Name"] || "",
+      closing_rank: item["Closing Rank"] || "",
+      quota: item["Category"] || item["Quota"] || "",
     };
   };
 
-  const renderTableHeader = () => (
-    <tr className={commonHeaderClass}>
-      {predicted_colleges_table_column.map((column) => (
-        <th key={column.key} className="p-2 border-r border-gray-300">
-          {column.label}
-        </th>
-      ))}
-    </tr>
-  );
-
-  const renderTableBody = () =>
-    data.map((item, index) => {
-      const transformedItem = transformData(item);
-      return (
-        <tr
-          key={index}
-          className={`${commonCellClass} ${
-            index % 2 === 0 ? "bg-gray-100" : "bg-white"
-          }`}
-        >
-          {exam !== "TNEA" && (
-            <td className="p-2 border-r border-gray-300">
-              {transformedItem.state || "N/A"}
-            </td>
-          )}
-          {exam === "TNEA" && (
-            <td className="p-2 border-r border-gray-300">
-              {transformedItem.institute_id || "N/A"}
-            </td>
-          )}
-          <td className="p-2 border-r border-gray-300">
-            {transformedItem.institute}
-          </td>
-          <td className="p-2 border-r border-gray-300">
-            {transformedItem.academic_program_name}
-          </td>
-          <td className="p-2 border-r border-gray-300">
-            {transformedItem.closing_rank}
-          </td>
-          <td className="p-2">{transformedItem.quota}</td>
-        </tr>
-      );
-    });
+  // Transform all data items
+  const transformedData = data.map(transformData);
 
   const renderLegend = () => {
     const examConfig = examConfigs[exam];
@@ -109,12 +65,13 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
   };
 
   return (
-    <div className="w-full mx-auto overflow-x-auto">
+    <div className="w-full mx-auto overflow-hidden">
       {renderLegend()}
-      <table className={`${commonTableClass} border border-gray-300`}>
-        <thead>{renderTableHeader()}</thead>
-        <tbody>{renderTableBody()}</tbody>
-      </table>
+      <ResponsiveTable 
+        columns={predicted_colleges_table_column}
+        data={transformedData}
+        className={`${commonTableClass} border border-gray-300`}
+      />
     </div>
   );
 };
