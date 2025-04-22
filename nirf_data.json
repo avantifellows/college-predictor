@@ -1,0 +1,402 @@
+[
+    {
+        "rank": "1",
+        "Institute": "Indian Institute of Technology Madras"
+    },
+    {
+        "rank": "2",
+        "Institute": "Indian Institute of Technology Delhi"
+    },
+    {
+        "rank": "3",
+        "Institute": "Indian Institute of Technology Bombay"
+    },
+    {
+        "rank": "4",
+        "Institute": "Indian Institute of Technology Kanpur"
+    },
+    {
+        "rank": "5",
+        "Institute": "Indian Institute of Technology Kharagpur"
+    },
+    {
+        "rank": "6",
+        "Institute": "Indian Institute of Technology Roorkee"
+    },
+    {
+        "rank": "7",
+        "Institute": "Indian Institute of Technology Guwahati"
+    },
+    {
+        "rank": "8",
+        "Institute": "Indian Institute of Technology Hyderabad"
+    },
+    {
+        "rank": "9",
+        "Institute": "National Institute of Technology Tiruchirappalli"
+    },
+    {
+        "rank": "10",
+        "Institute": "Indian Institute of Technology (Banaras Hindu University) Varanasi"
+    },
+    {
+        "rank": "11",
+        "Institute": "Vellore Institute of Technology"
+    },
+    {
+        "rank": "12",
+        "Institute": "Jadavpur University"
+    },
+    {
+        "rank": "13",
+        "Institute": "S.R.M. Institute of Science and Technology"
+    },
+    {
+        "rank": "14",
+        "Institute": "Anna University"
+    },
+    {
+        "rank": "15",
+        "Institute": "Indian Institute of Technology (Indian School of Mines) Dhanbad"
+    },
+    {
+        "rank": "16",
+        "Institute": "Indian Institute of Technology Indore"
+    },
+    {
+        "rank": "17",
+        "Institute": "National Institute of Technology Karnataka, Surathkal"
+    },
+    {
+        "rank": "18",
+        "Institute": "Indian Institute of Technology Gandhinagar"
+    },
+    {
+        "rank": "19",
+        "Institute": "National Institute of Technology Rourkela"
+    },
+    {
+        "rank": "20",
+        "Institute": "Birla Institute of Technology and Science, Pilani"
+    },
+    {
+        "rank": "21",
+        "Institute": "National Institute of Technology Warangal"
+    },
+    {
+        "rank": "22",
+        "Institute": "Indian Institute of Technology Ropar"
+    },
+    {
+        "rank": "23",
+        "Institute": "Amrita Vishwa Vidyapeetham"
+    },
+    {
+        "rank": "24",
+        "Institute": "Jamia Millia Islamia"
+    },
+    {
+        "rank": "25",
+        "Institute": "National Institute of Technology Calicut"
+    },
+    {
+        "rank": "26",
+        "Institute": "Siksha `O` Anusandhan"
+    },
+    {
+        "rank": "27",
+        "Institute": "Delhi Technological University"
+    },
+    {
+        "rank": "28",
+        "Institute": "Indian Institute of Technology Jodhpur"
+    },
+    {
+        "rank": "29",
+        "Institute": "Thapar Institute of Engineering and Technology (Deemed-to-be-university)"
+    },
+    {
+        "rank": "30",
+        "Institute": "Amity University"
+    },
+    {
+        "rank": "31",
+        "Institute": "Indian Institute of Technology Mandi"
+    },
+    {
+        "rank": "32",
+        "Institute": "Chandigarh University"
+    },
+    {
+        "rank": "33",
+        "Institute": "Aligarh Muslim University"
+    },
+    {
+        "rank": "34",
+        "Institute": "Indian Institute of Technology Patna"
+    },
+    {
+        "rank": "35",
+        "Institute": "Koneru Lakshmaiah Education Foundation University (K L College of Engineering)"
+    },
+    {
+        "rank": "36",
+        "Institute": "Kalasalingam Academy of Research and Education"
+    },
+    {
+        "rank": "37",
+        "Institute": "Kalinga Institute of Industrial Technology"
+    },
+    {
+        "rank": "38",
+        "Institute": "Shanmugha Arts Science Technology and Research Academy"
+    },
+    {
+        "rank": "39",
+        "Institute": "Visvesvaraya National Institute of Technology Nagpur"
+    },
+    {
+        "rank": "40",
+        "Institute": "National Institute of Technology Silchar"
+    },
+    {
+        "rank": "41",
+        "Institute": "Institute of Chemical Technology"
+    },
+    {
+        "rank": "42",
+        "Institute": "UPES"
+    },
+    {
+        "rank": "43",
+        "Institute": "Malaviya National Institute of Technology"
+    },
+    {
+        "rank": "44",
+        "Institute": "National Institute of Technology Durgapur"
+    },
+    {
+        "rank": "45",
+        "Institute": "National Institute of Technology Delhi"
+    },
+    {
+        "rank": "46",
+        "Institute": "Sri Sivasubramaniya Nadar College of Engineering"
+    },
+    {
+        "rank": "47",
+        "Institute": "International Institute of Information Technology Hyderabad"
+    },
+    {
+        "rank": "48",
+        "Institute": "Birla Institute of Technology"
+    },
+    {
+        "rank": "49",
+        "Institute": "Indian Institute of Engineering Science and Technology, Shibpur"
+    },
+    {
+        "rank": "50",
+        "Institute": "Lovely Professional University"
+    },
+    {
+        "rank": "51",
+        "Institute": "Indian Institute of Space Science and Technology"
+    },
+    {
+        "rank": "52",
+        "Institute": "Graphic Era University"
+    },
+    {
+        "rank": "53",
+        "Institute": "Saveetha Institute of Medical and Technical Sciences"
+    },
+    {
+        "rank": "54",
+        "Institute": "Indian Institute of Technology Bhubaneswar"
+    },
+    {
+        "rank": "55",
+        "Institute": "National Institute of Technology Patna"
+    },
+    {
+        "rank": "56",
+        "Institute": "Manipal Institute of Technology"
+    },
+    {
+        "rank": "57",
+        "Institute": "Netaji Subhas University of Technology (NSUT)"
+    },
+    {
+        "rank": "58",
+        "Institute": "Dr. B R Ambedkar National Institute of Technology Jalandhar"
+    },
+    {
+        "rank": "59",
+        "Institute": "Sardar Vallabhbhai National Institute of Technology"
+    },
+    {
+        "rank": "60",
+        "Institute": "Motilal Nehru National Institute of Technology"
+    },
+    {
+        "rank": "61",
+        "Institute": "Indian Institute of Technology Tirupati"
+    },
+    {
+        "rank": "62",
+        "Institute": "Indian Institute of Technology Jammu"
+    },
+    {
+        "rank": "63",
+        "Institute": "Defence Institute of Advanced Technology"
+    },
+    {
+        "rank": "64",
+        "Institute": "Indian Institute of Technology Palakkad"
+    },
+    {
+        "rank": "64",
+        "Institute": "Manipal University, Jaipur"
+    },
+    {
+        "rank": "66",
+        "Institute": "Sathyabama Institute of Science and Technology"
+    },
+    {
+        "rank": "67",
+        "Institute": "PSG College of Technology"
+    },
+    {
+        "rank": "68",
+        "Institute": "National Institute of Technology Meghalaya"
+    },
+    {
+        "rank": "69",
+        "Institute": "Visvesvaraya Technological University"
+    },
+    {
+        "rank": "70",
+        "Institute": "University of Hyderabad"
+    },
+    {
+        "rank": "71",
+        "Institute": "National Institute of Technology Raipur"
+    },
+    {
+        "rank": "72",
+        "Institute": "Maulana Azad National Institute of Technology"
+    },
+    {
+        "rank": "73",
+        "Institute": "Indian Institute of Technology Bhilai"
+    },
+    {
+        "rank": "74",
+        "Institute": "International Institute of Information Technology Bangalore"
+    },
+    {
+        "rank": "75",
+        "Institute": "M. S. Ramaiah Institute of Technology"
+    },
+    {
+        "rank": "76",
+        "Institute": "Sant Longowal Institute of Engineering and Technology"
+    },
+    {
+        "rank": "77",
+        "Institute": "COEP Technological University"
+    },
+    {
+        "rank": "78",
+        "Institute": "Banasthali Vidyapith"
+    },
+    {
+        "rank": "79",
+        "Institute": "National Institute of Technology Srinagar"
+    },
+    {
+        "rank": "80",
+        "Institute": "Rajiv Gandhi Institute of Petroleum Technology"
+    },
+    {
+        "rank": "81",
+        "Institute": "National Institute of Technology Kurukshetra"
+    },
+    {
+        "rank": "82",
+        "Institute": "National Institute of Technology Agartala"
+    },
+    {
+        "rank": "83",
+        "Institute": "Sri Krishna College of Engineering and Technology"
+    },
+    {
+        "rank": "84",
+        "Institute": "Madan Mohan Malaviya University of Technology"
+    },
+    {
+        "rank": "85",
+        "Institute": "Indraprastha Institute of Information Technology"
+    },
+    {
+        "rank": "86",
+        "Institute": "Vel Tech Rangarajan Dr. Sagunthala R & D Institute of Science and Technology"
+    },
+    {
+        "rank": "87",
+        "Institute": "Indian Institute of Information Technology Allahabad"
+    },
+    {
+        "rank": "88",
+        "Institute": "Jawaharlal Nehru Technological University"
+    },
+    {
+        "rank": "89",
+        "Institute": "Guru Gobind Singh Indraprastha University"
+    },
+    {
+        "rank": "90",
+        "Institute": "AU College of Engineering (A)"
+    },
+    {
+        "rank": "91",
+        "Institute": "Vignan's Foundation for Science, Technology and Research"
+    },
+    {
+        "rank": "92",
+        "Institute": "Shoolini University of Biotechnology and Management Sciences"
+    },
+    {
+        "rank": "93",
+        "Institute": "Christ University"
+    },
+    {
+        "rank": "94",
+        "Institute": "Chitkara University"
+    },
+    {
+        "rank": "95",
+        "Institute": "Jain University, Bangalore"
+    },
+    {
+        "rank": "96",
+        "Institute": "C.V. Raman Global University, Odisha"
+    },
+    {
+        "rank": "97",
+        "Institute": "National Institute of Technology Puducherry"
+    },
+    {
+        "rank": "98",
+        "Institute": "SR University"
+    },
+    {
+        "rank": "99",
+        "Institute": "R.V. College of Engineering"
+    },
+    {
+        "rank": "100",
+        "Institute": "Siddaganga Institute of Technology"
+    }
+]
