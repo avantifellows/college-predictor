@@ -3,6 +3,10 @@ import examConfigs from "../../examConfig";
 import rateLimit from "express-rate-limit";
 
 const limiter = rateLimit({
+  // Enable trust proxy to handle IP addresses correctly
+  trustProxy: true,
+  // Enable trust proxy to handle IP addresses correctly
+  trustProxy: true,
   windowMs: 15 * 60 * 1000, // 15 minutes
   max: 100, // limit each IP to 100 requests per windowMs
   handler: (req, res) => {
@@ -15,7 +19,7 @@ const limiter = rateLimit({
 export default async function handler(req, res) {
   await limiter(req, res, () => {});
 
-  const { exam, rank } = req.query;
+  const { exam, rank, year } = req.query; // Extract year from query
 
   if (!exam || !examConfigs[exam]) {
     return res.status(400).json({ error: "Invalid or missing exam parameter" });
@@ -33,7 +37,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const dataPath = config.getDataPath(req.query.category);
+    const dataPath = config.getDataPath(req.query.category, year); // Pass year to getDataPath
     const data = await fs.readFile(dataPath, "utf8");
     const fullData = JSON.parse(data);
 
@@ -49,11 +53,16 @@ export default async function handler(req, res) {
       }
     };
 
-    const filteredData = fullData
-      .filter((item) => {
-        const filterResults = filters.map((filter) => filter(item));
+    const filteredData = fullData.filter((item) => {
+      const filterResults = filters.map((filter) => filter(item));
 
-        return filterResults.every((result) => result) && rankFilter(item);
+      // Filter based on the selected year
+      if (year) {
+        const itemYear = parseInt(item["Year"], 10); // Assuming the data has a "Year" field
+        return itemYear === (parseInt(year, 10) - 1) && filterResults.every((result) => result) && rankFilter(item);
+      }
+      return filterResults.every((result) => result) && rankFilter(item); // Include all items if no year is selected
+
       })
       .sort((a, b) => {
         const sortingKey = exam == "TNEA" ? "Cutoff Marks" : "Closing Rank";

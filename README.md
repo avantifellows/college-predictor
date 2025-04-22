@@ -59,6 +59,10 @@ The College Predictor application helps students find:
    ```bash
    npm install
    ```
+4. there is no .build file in this project so that to create it   run this command
+   ```bash
+   npm run build
+   ```
 4. Run the local development server at [http://localhost:3000](http://localhost:3000)
    ```bash
    npm run start

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import getConstants from "../constants";
 import PredictedCollegeTables from "../components/PredictedCollegeTables";
+import YearDropdown from "../components/YearDropdown"; // Import YearDropdown
 import Head from "next/head";
 import Fuse from "fuse.js";
 import examConfigs from "../examConfig";
@@ -31,6 +32,7 @@ const CollegePredictor = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [queryObject, setQueryObject] = useState({});
+  const [selectedYear, setSelectedYear] = useState(""); // State for selected year
 
   useEffect(() => {
     setQueryObject(router.query);
@@ -96,6 +98,9 @@ const CollegePredictor = () => {
     };
     setQueryObject(newQueryObject);
     const params = new URLSearchParams(Object.entries(newQueryObject));
+    if (selectedYear) {
+      newQueryObject.year = selectedYear; // Include year in query object
+    }
     const queryString = params.toString();
     router.push(`/college_predictor?${queryString}`);
     await fetchData(newQueryObject);
@@ -126,6 +131,10 @@ const CollegePredictor = () => {
         <p className="text-sm md:text-base  font-semibold">
           Exam: {router.query.exam}
         </p>
+        <YearDropdown // Add YearDropdown component
+          selectedYear={selectedYear}
+          onYearChange={setSelectedYear}
+        />
         {examConfig.fields.map((field) => (
           <div className="flex items-center justify-center gap-2">
             <label
