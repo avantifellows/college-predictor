@@ -9,6 +9,7 @@ import Head from "next/head";
 const ExamForm = () => {
   const [selectedExam, setSelectedExam] = useState("");
   const [formData, setFormData] = useState({});
+  const [inputError, setInputError] = useState("");
   const [config, setConfig] = useState(null);
   const router = useRouter();
 
@@ -39,24 +40,40 @@ const ExamForm = () => {
   };
 
   const handleRankChange = (e) => {
-    const enteredRank = e.target.value;
+    const enteredValue = e.target.value;
+    const enteredRank = Number(enteredValue);
     setFormData((prevData) => ({
       ...prevData,
       rank: enteredRank,
     }));
+    // Error validation only for rank-based exams (not for TNEA)
+    if (selectedExam !== "TNEA") {
+      if (enteredValue === "") {
+        setInputError("Please enter a rank");
+      } else if (isNaN(enteredRank) || enteredRank < 0) {
+        setInputError("Please enter a valid rank");
+      } else {
+        setInputError("");
+      }
+    } else {
+      // No error for TNEA (marks input)
+      setInputError("");
+    }
   };
-  const handleSubmit = async () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (selectedExam !== "TNEA" && (inputError || isNaN(formData.rank) || formData.rank < 0)) {
+      return;
+    }
     const queryString = Object.entries(formData)
       .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
       .join("&");
     router.push(`/college_predictor?${queryString}`);
   };
-  const isSubmitDisabled = Object.values(formData).some((value) => !value);
+  const isSubmitDisabled =
+    selectedExam !== "TNEA" && (inputError.length > 0 || !formData.exam || formData.rank === "" || formData.rank === undefined);
   const renderFields = () => {
-    if (!selectedExam) return null;
-
-    if (!config) return null;
-
+    if (!selectedExam || !config) return null;
     return config.fields.map((field) => (
       <div key={field.name} className="my-4 w-full sm:w-3/4">
         <label className="block text-md font-semibold text-gray-700 mb-2 -translate-x-4">
@@ -99,64 +116,71 @@ const ExamForm = () => {
             <h1 className="text-2xl md:text-3xl font-bold mb-6">
               {getConstants().TITLE}
             </h1>
-            <div className="flex flex-col justify-center sm:flex-row  flex-wrap w-full">
-              <div className="my-4 w-full sm:w-3/4">
-                <label
-                  htmlFor="exam"
-                  className="block text-md font-semibold text-gray-700 mb-2 -translate-x-4"
-                >
-                  Select an exam
-                </label>
-                <Dropdown
-                  options={Object.keys(examConfigs).map((exam) => ({
-                    value: exam,
-                    label: exam,
-                    code: examConfigs[exam].code,
-                    apiEndpoint: examConfigs[exam].apiEndpoint,
-                  }))}
-                  onChange={handleExamChange}
-                  className="w-full"
-                />
-              </div>
-              {renderFields()}
-              {selectedExam && (
+            <form onSubmit={handleSubmit} className="w-full">
+              <div className="flex flex-col justify-center sm:flex-row flex-wrap w-full">
                 <div className="my-4 w-full sm:w-3/4">
-                  <label className="block text-md font-semibold text-gray-700 mb-2 -translate-x-3">
-                    {selectedExam === "TNEA"
-                      ? "Enter Marks"
-                      : "Enter Category Rank"}
+                 <label
+                   htmlFor="exam"
+                   className="block text-md font-semibold text-gray-700 mb-2 -translate-x-4"
+                  >
+                   Select an exam
                   </label>
-                  <input
-                    type="number"
-                    step={selectedExam === "TNEA" ? "0.01" : "1"}
-                    value={formData.rank || ""}
-                    onChange={handleRankChange}
-                    className="border border-gray-300 rounded w-full p-2 text-center"
-                    placeholder={
-                      selectedExam === "TNEA"
-                        ? "Enter your marks"
-                        : "Enter your rank"
-                    }
+                  <Dropdown
+                    options={Object.keys(examConfigs).map((exam) => ({
+                      value: exam,
+                      label: exam,
+                      code: examConfigs[exam].code,
+                      apiEndpoint: examConfigs[exam].apiEndpoint,
+                    }))}
+                    onChange={handleExamChange}
+                    className="w-full"
                   />
                 </div>
-              )}
-            </div>
-            {selectedExam && (
-              <>
-                <button
-                  className="mt-2 px-5 py-2 rounded-lg bg-red-600 text-white cursor-pointer hover:bg-red-700 active:bg-red-800 disabled:bg-gray-300 disabled:cursor-not-allowed -translate-x-4"
-                  disabled={isSubmitDisabled}
-                  onClick={handleSubmit}
-                >
-                  Submit
-                </button>
-                {isSubmitDisabled && (
-                  <p className="text-red-600 text-sm mt-2 -translate-x-4">
-                    Please fill all the fields before submitting!
-                  </p>
+                {renderFields()}
+                {selectedExam && (
+                  <div className="my-4 w-full sm:w-3/4">
+                    <label className="block text-md font-semibold text-gray-700 mb-2 -translate-x-3">
+                      {selectedExam === "TNEA" ? "Enter Marks" : "Enter Category Rank"}
+                    </label>
+                    <input
+                      type="number"
+                      min="0"
+                      step={selectedExam === "TNEA" ? "0.01" : "1"}
+                      value={formData.rank || ""}
+                      onChange={handleRankChange}
+                      className="border border-gray-300 rounded w-full p-2 text-center"
+                      placeholder={
+                        selectedExam === "TNEA"
+                          ? "Enter your marks"
+                          : "Enter your rank"
+                      }
+                    />
+                    {/* Show error only for rank-based exams */}
+                    {selectedExam !== "TNEA" && inputError && (
+                      <p className="text-red-600 text-sm mt-2 -translate-x-4 font-medium">
+                        {inputError}
+                      </p>
+                    )}
+                  </div>
                 )}
-              </>
-            )}
+            </div>
+              {selectedExam && (
+                <>
+                  <button
+                    type="submit"
+                    className="mt-2 px-5 py-2 rounded-lg bg-red-600 text-white cursor-pointer hover:bg-red-700 active:bg-red-800 disabled:bg-gray-300 disabled:cursor-not-allowed -translate-x-4"
+                    disabled={isSubmitDisabled}
+                  >
+                    Submit
+                  </button>
+                  {isSubmitDisabled && selectedExam !== "TNEA" && (
+                    <p className="text-red-600 text-sm mt-2 -translate-x-4">
+                      Please fill all the fields before submitting!
+                    </p>
+                  )}
+                </>
+              )}
+            </form>
           </div>
         </div>
       </div>
