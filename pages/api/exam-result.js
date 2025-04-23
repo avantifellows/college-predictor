@@ -15,7 +15,7 @@ const limiter = rateLimit({
 export default async function handler(req, res) {
   await limiter(req, res, () => {});
 
-  const { exam, rank } = req.query;
+  const { exam, rank, year } = req.query;
 
   if (!exam || !examConfigs[exam]) {
     return res.status(400).json({ error: "Invalid or missing exam parameter" });
@@ -33,19 +33,23 @@ export default async function handler(req, res) {
   }
 
   try {
-    const dataPath = config.getDataPath(req.query.category);
+    // Calculate the previous year based on the selected year
+    const previousYear = (parseInt(year) - 1).toString();
+    const dataPath = config.getDataPath(req.query.category).replace(year, previousYear);
     const data = await fs.readFile(dataPath, "utf8");
     const fullData = JSON.parse(data);
 
     // Get filters based on the exam config and query parameters
     const filters = config.getFilters(req.query);
 
-    // Common rank filter
+    // Common rank filter with category-specific handling
     const rankFilter = (item) => {
       if (exam == "TNEA") {
         return parseFloat(item["Cutoff Marks"]) <= parseFloat(rank);
       } else {
-        return parseInt(item["Closing Rank"], 10) > 0.9 * parseInt(rank, 10);
+        const categoryRankField = `${req.query.category}_rank`;
+        const rankToCompare = item[categoryRankField] || item["Closing Rank"];
+        return parseInt(rankToCompare, 10) > 0.9 * parseInt(rank, 10);
       }
     };
 
