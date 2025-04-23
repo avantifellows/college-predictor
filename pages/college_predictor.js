@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { useRouter } from "next/router";
 import getConstants from "../constants";
 import PredictedCollegeTables from "../components/PredictedCollegeTables";
@@ -24,6 +24,20 @@ const fuseOptions = {
   keys: ["Institute", "State", "Academic Program Name"],
 };
 
+const ERROR_MESSAGES = {
+  FETCH_FAILED: "Failed to fetch college predictions. Please try again.",
+  RATE_LIMIT: "Rate limit exceeded. Please try again later.",
+  NO_MATCHES: "No matches found. Please try again.",
+};
+
+const debounce = (func, delay) => {
+  let timeout;
+  return (...args) => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func(...args), delay);
+  };
+};
+
 const CollegePredictor = () => {
   const router = useRouter();
   const [filteredData, setFilteredData] = useState([]);
@@ -36,30 +50,28 @@ const CollegePredictor = () => {
     setQueryObject(router.query);
   }, [router.query]);
 
-  const fuse = new Fuse(filteredData, fuseOptions);
+  const fuse = useMemo(() => new Fuse(filteredData, fuseOptions), [filteredData]);
 
   // Search Function for fuse
-  const searchFun = (e) => {
+  const searchFun = debounce((e) => {
     const searchValue = e.target.value.trim();
 
-    // If the search box is empty, reset to full data
     if (searchValue === "") {
-      setFilteredData(fullData); // Ensure `fullData` is not empty
-      setError(null); // Clear any previous error message
+      setFilteredData(fullData);
+      setError(null);
       return;
     }
 
     const result = fuse.search(searchValue);
 
-    // Handle no matches found
     if (result.length === 0) {
-      ``; // Empty the table
-      setError("No matches found. Please try again."); // Show error
+      setFilteredData([]);
+      setError(ERROR_MESSAGES.NO_MATCHES);
     } else {
-      setFilteredData(result.map((r) => r.item)); // Update filtered data
-      setError(null); // Clear any error message
+      setFilteredData(result.map((r) => r.item));
+      setError(null);
     }
-  };
+  }, 300); // Debounce with a 300ms delay
 
   const fetchData = async (query) => {
     setIsLoading(true);
@@ -71,7 +83,7 @@ const CollegePredictor = () => {
       const response = await fetch(`/api/exam-result?${queryString}`);
       if (!response.ok) {
         if (response.status === 429) {
-          setError("Rate limit exceeded. Please try again later.");
+          setError(ERROR_MESSAGES.RATE_LIMIT);
         } else {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -82,7 +94,7 @@ const CollegePredictor = () => {
       }
     } catch (error) {
       console.error("Error fetching data:", error);
-      setError("Failed to fetch college predictions. Please try again.");
+      setError(ERROR_MESSAGES.FETCH_FAILED);
       setFilteredData([]);
     } finally {
       setIsLoading(false);
@@ -113,8 +125,23 @@ const CollegePredictor = () => {
     await fetchData(newQueryObject);
   };
 
+  const handleQueryChange = async (key, value) => {
+    const newQueryObject = { ...queryObject, [key]: value };
+    setQueryObject(newQueryObject);
+    const params = new URLSearchParams(Object.entries(newQueryObject));
+    const queryString = params.toString();
+    router.push(`/college_predictor?${queryString}`);
+    await fetchData(newQueryObject);
+  };
+
   useEffect(() => {
     fetchData(router.query);
+  }, [router.query]);
+
+  useEffect(() => {
+    if (JSON.stringify(router.query) !== JSON.stringify(queryObject)) {
+      fetchData(router.query);
+    }
   }, [router.query]);
 
   const renderQueryDetails = () => {
@@ -142,7 +169,7 @@ const CollegePredictor = () => {
                   : option
               )}
               selectedValue={router.query[field.name]}
-              onChange={handleQueryObjectChange(field.name)}
+              onChange={(selectedOption) => handleQueryChange(field.name, selectedOption.label)}
             />
           </div>
         ))}
@@ -156,7 +183,7 @@ const CollegePredictor = () => {
             type="number"
             step={router.query.exam === "TNEA" ? "0.01" : "1"}
             value={queryObject.rank}
-            onChange={handleRankChange}
+            onChange={(e) => handleQueryChange("rank", e.target.value)}
             className="border border-gray-300 rounded text-center"
             placeholder={
               router.query.exam === "TNEA"
@@ -181,9 +208,12 @@ const CollegePredictor = () => {
           </h1>
           {renderQueryDetails()}
           {isLoading ? (
-            <div className="flex items-center justify-center flex-col mt-2">
-              <div className="border-t-2 border-transparent border-[#B52326] rounded-full w-8 h-8 animate-spin mb-2"></div>
-              <p>Loading your college predictions...</p>
+            <div className="w-full">
+              <div className="animate-pulse">
+                <div className="h-4 bg-gray-300 rounded mb-4"></div>
+                <div className="h-4 bg-gray-300 rounded mb-4"></div>
+                <div className="h-4 bg-gray-300 rounded"></div>
+              </div>
             </div>
           ) : (
             <>
