@@ -77,6 +77,7 @@ const constants = {
     { value: "uttarakhand", label: "Uttarakhand" },
     { value: "west_bengal", label: "West Bengal" },
   ],
+  
   SCHOLARSHIP_TITLE: "Scholarship Finder",
   NUMBER_STATES_IN_SCHOLARSHIP_SHEET: 8,
   NUMBER_CITIES_IN_SCHOLARSHIP_SHEET: 4,
