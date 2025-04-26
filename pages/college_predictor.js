@@ -31,6 +31,7 @@ const CollegePredictor = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [queryObject, setQueryObject] = useState({});
+  const [validationError, setValidationError] = useState("");
 
   useEffect(() => {
     setQueryObject(router.query);
@@ -89,16 +90,83 @@ const CollegePredictor = () => {
     }
   };
 
+  const validateForm = (queryData) => {
+    // Checking if exam is selected
+    if (!queryData.exam) {
+      setValidationError("Please select an exam type to continue");
+      return false;
+    }
+  
+    const examConfig = examConfigs[queryData.exam];
+    if (!examConfig) {
+      setValidationError("Invalid exam selection");
+      return false;
+    }
+  
+    // examconfig fields validation are fetched and check ! heer
+    for (const field of examConfig.fields) {
+      if (!queryData[field.name]) {
+        let fieldName = field.label.toLowerCase();
+        switch (field.name) {
+          case 'category':
+            setValidationError("Please select your reservation category");
+            break;
+          case 'branch':
+            setValidationError("Please select your preferred branch");
+            break;
+          case 'gender':
+            setValidationError("Please select your gender");
+            break;
+          default:
+            setValidationError(`Please select ${fieldName}`);
+        }
+        return false;
+      }
+    }
+  
+    // Validate rank/marks with specific messages
+    if (!queryData.rank) {
+      if (queryData.exam === "TNEA") {
+        setValidationError("Please enter your cut-off marks (out of 200)");
+      } else {
+        setValidationError("Please enter your rank to get college predictions");
+      }
+      return false;
+    }
+  
+    // Additional validation for rank/marks values
+    const rankValue = parseFloat(queryData.rank);
+    if (isNaN(rankValue) || rankValue < 0) {
+      setValidationError(queryData.exam === "TNEA" ? 
+        "Marks cannot be negative" : 
+        "Rank cannot be negative");
+      return false;
+    }
+  
+    if (queryData.exam === "TNEA" && rankValue > 200) {
+      setValidationError("Cut-off marks cannot exceed 200");
+      return false;
+    }
+  
+    // Clear validation error if all checks pass
+    setValidationError("");
+    return true;
+  };
+
   const handleQueryObjectChange = (key) => async (selectedOption) => {
     const newQueryObject = {
       ...queryObject,
       [key]: selectedOption.label,
     };
     setQueryObject(newQueryObject);
-    const params = new URLSearchParams(Object.entries(newQueryObject));
-    const queryString = params.toString();
-    router.push(`/college_predictor?${queryString}`);
-    await fetchData(newQueryObject);
+    setValidationError(""); // Clear validation error on change
+
+    if (validateForm(newQueryObject)) {
+      const params = new URLSearchParams(Object.entries(newQueryObject));
+      const queryString = params.toString();
+      router.push(`/college_predictor?${queryString}`);
+      await fetchData(newQueryObject);
+    }
   };
 
   const handleRankChange = async (e) => {
@@ -107,10 +175,14 @@ const CollegePredictor = () => {
       rank: e.target.value,
     };
     setQueryObject(newQueryObject);
-    const params = new URLSearchParams(Object.entries(newQueryObject));
-    const queryString = params.toString();
-    router.push(`/college_predictor?${queryString}`);
-    await fetchData(newQueryObject);
+    setValidationError(""); // Clear validation if no eeror
+
+    if (validateForm(newQueryObject)) {
+      const params = new URLSearchParams(Object.entries(newQueryObject));
+      const queryString = params.toString();
+      router.push(`/college_predictor?${queryString}`);
+      await fetchData(newQueryObject);
+    }
   };
 
   useEffect(() => {
@@ -165,6 +237,12 @@ const CollegePredictor = () => {
             }
           />
         </div>
+        {/* validation message */}
+        {validationError && (
+          <div className="text-red-500 text-sm font-semibold mb-2 text-center">
+            {validationError}
+          </div>
+        )}
       </div>
     );
   };
