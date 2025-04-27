@@ -21,7 +21,6 @@ const ScholarshipPage = () => {
     setFormData(initialFormData);
   }, []);
 
-
   const handleDropdownChange = (name) => (selectedOption) => {
     setFormData((prevData) => ({
       ...prevData,
@@ -86,7 +85,7 @@ const ScholarshipPage = () => {
                   onChange={handleDropdownChange(field.name)}
                   {...dropdownProps}
                 />
-                
+
                 {field.helperText &&
                   field.helperText.map((text, index) => (
                     <p key={index} className="text-sm text-gray-700 mt-1">
