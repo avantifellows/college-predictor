@@ -48,6 +48,14 @@ const Navbar = ({ item1, item2 }) => {
           >
             {item2}
           </Link>
+          <Link
+            href="/bookmarks"
+            className={`link ${
+              pathname === "/bookmarks" ? "font-bold" : "hover:underline cursor-pointer"
+            }`}
+          >
+            Bookmarks
+          </Link>
         </div>
       </div>
     </div>
