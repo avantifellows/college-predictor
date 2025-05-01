@@ -1,4 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
+
+const BookmarkButton = ({ userId, itemId, itemType }) => {
+  const [bookmarked, setBookmarked] = useState(false);
+
+  const toggleBookmark = async () => {
+    try {
+      if (bookmarked) {
+        await axios.delete("/api/bookmarks", { data: { userId, itemId } });
+      } else {
+        await axios.post("/api/bookmarks", { userId, itemId, itemType });
+      }
+      setBookmarked(!bookmarked);
+    } catch (error) {
+      console.error("Failed to toggle bookmark:", error);
+    }
+  };
+
+  return (
+    <button
+      className={`px-4 py-2 rounded ${
+        bookmarked ? "bg-green-500" : "bg-gray-500"
+      } text-white hover:opacity-80`}
+      onClick={toggleBookmark}
+    >
+      {bookmarked ? "Unbookmark" : "Bookmark"}
+    </button>
+  );
+};
 
 const TableHeader = ({ headers }) => (
   <thead>
@@ -50,7 +79,7 @@ const ScholarshipTable = ({
   toggleRowExpansion,
   expandedRows,
 }) => {
-  const headers = ["Scholarship Name", "Status", "Application Link"];
+  const headers = ["Scholarship Name", "Status", "Application Link", "Bookmark"];
   const mainFields = ["Scholarship Name", "Status"];
   const expandedFields = [
     { key: "Eligibility", label: "Eligibility" },
@@ -100,6 +129,13 @@ const ScholarshipTable = ({
                       </button>
                     </div>
                   </TableCell>
+                </TableCell>
+                <TableCell>
+                  <BookmarkButton
+                    userId="user123" // Replace with actual user ID
+                    itemId={item["Scholarship Name"]}
+                    itemType="scholarship"
+                  />
                 </TableCell>
               </tr>
               {expandedRows[index] && (
