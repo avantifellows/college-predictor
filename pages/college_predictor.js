@@ -120,22 +120,19 @@ const CollegePredictor = () => {
   const renderQueryDetails = () => {
     const examConfig = examConfigs[router.query.exam];
     if (!examConfig) return null;
-
+  
     return (
-      <div className="flex flex-col justify-center items-start sm:items-center mb-4 gap-2">
-        <p className="text-sm md:text-base  font-semibold">
+      <div className="flex flex-col justify-center items-start sm:items-center mb-4 gap-4 w-full sm:w-3/4">
+        <p className="text-sm md:text-base font-semibold">
           Exam: {router.query.exam}
         </p>
         {examConfig.fields.map((field) => (
-          <div className="flex items-center justify-center gap-2">
-            <label
-              key={field.name}
-              className="font-semibold text-sm md:text-base "
-            >
+          <div key={field.name} className="flex flex-col items-center text-center my-2 w-full sm:w-3/4">
+            <label className="font-semibold text-sm md:text-base">
               {field.label}
             </label>
             <Dropdown
-              className="text-sm md:text-base "
+              className="text-sm md:text-base w-full"
               options={field.options.map((option) =>
                 typeof option === "string"
                   ? { value: option, label: option }
@@ -146,8 +143,8 @@ const CollegePredictor = () => {
             />
           </div>
         ))}
-        <div className="flex gap-2 items-center">
-          <label className="block text-sm md:text-base font-semibold text-gray-700 mb-2 ">
+        <div className="flex flex-col items-center text-center gap-1 w-full sm:w-3/4">
+          <label className="block text-sm md:text-base font-semibold text-gray-700">
             {router.query.exam === "TNEA"
               ? "Enter Marks"
               : "Enter Category Rank"}
@@ -157,7 +154,7 @@ const CollegePredictor = () => {
             step={router.query.exam === "TNEA" ? "0.01" : "1"}
             value={queryObject.rank}
             onChange={handleRankChange}
-            className="border border-gray-300 rounded text-center"
+            className="border border-gray-300 rounded text-center px-2 py-1 w-full"
             placeholder={
               router.query.exam === "TNEA"
                 ? "Enter your marks"
@@ -168,14 +165,15 @@ const CollegePredictor = () => {
       </div>
     );
   };
+  
 
   return (
     <>
       <Head>
         <title>College Predictor - Result</title>
       </Head>
-      <div className="flex flex-col items-center p-4">
-        <div className="flex flex-col items-center justify-center w-full sm:w-5/6 md:w-3/4 bg-white p-6 rounded-lg shadow-lg">
+      <div className="flex flex-col items-center p-4 mt-8">
+        <div className="flex flex-col items-center justify-center w-full sm:w-5/6 md:w-3/4 bg-[#f8f9fa] shadow-inner drop-shadow-md p-6 rounded-lg shadow-lg">
           <h1 className="text-2xl font-bold mb-4 text-center">
             {getConstants().TITLE}
           </h1>
@@ -188,14 +186,14 @@ const CollegePredictor = () => {
           ) : (
             <>
               {/* Always render the search box */}
-              <div className="mb-4 w-full flex flex-col justify-center items-center">
+              <div className="mb-4 w-full sm:w-3/4 flex flex-col justify-center items-center">
                 <label className="block text-md font-semibold text-gray-700 content-center mx-2">
                   Search: &#128269;
                 </label>
                 <input
                   onChange={searchFun}
                   placeholder="Name / State / Program"
-                  className="border border-gray-300 rounded text-center h-fit p-1 sm:w-5/12 w-3/4"
+                  className="border border-gray-300 rounded text-center h-fit p-1 w-full sm:w-3/4"
                 />
                 {error && <p className="text-red-600 mt-2">{error}</p>}
               </div>

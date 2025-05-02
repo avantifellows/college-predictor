@@ -110,17 +110,17 @@ const ScholarshipFinder = () => {
 
   const renderQueryDetails = () => {
     return (
-      <div className="flex flex-col justify-center items-start sm:items-center mb-4 gap-2">
+      <div className="flex flex-col justify-center items-start sm:items-center mb-4 gap-4 w-full sm:w-3/4">
         {scholarshipConfig.fields.map((field) => (
           <div
             key={field.name}
-            className="flex items-center justify-center gap-2"
+            className="flex flex-col text-center items-center justify-center my-2 w-full sm:w-3/4"
           >
             <label className="font-semibold text-sm md:text-base">
               {field.label}
             </label>
             <Dropdown
-              className="text-sm md:text-base"
+              className="text-sm md:text-base w-full"
               options={field.options.map((option) =>
                 typeof option === "string"
                   ? { value: option, label: option }
@@ -140,8 +140,8 @@ const ScholarshipFinder = () => {
       <Head>
         <title>Scholarship - Result</title>
       </Head>
-      <div className="flex flex-col items-center p-4">
-        <div className="flex flex-col items-center justify-center w-full sm:w-5/6 md:w-3/4 bg-white p-6 rounded-lg shadow-lg">
+      <div className="flex flex-col items-center p-4 mt-8">
+        <div className="flex flex-col items-center justify-center w-full sm:w-5/6 md:w-3/4 bg-[#f8f9fa] shadow-inner drop-shadow-md p-6 rounded-lg shadow-lg">
           <h1 className="text-2xl font-bold mb-4 text-center">
             {getConstants().SCHOLARSHIP_TITLE}
           </h1>
@@ -160,14 +160,14 @@ const ScholarshipFinder = () => {
             </div>
           ) : (
             <>
-              <div className="mb-4 w-full flex flex-col left justify-center items-center">
+              <div className="mb-4 w-full sm:w-3/4 flex flex-col left justify-center items-center">
                 <label className="block text-md font-semibold text-gray-700 content-center mx-2">
                   Search: &#128269;
                 </label>
                 <input
                   onChange={searchFun}
                   placeholder="Scholarship Name"
-                  className="border border-gray-300 rounded text-center h-fit p-1 sm:w-5/12 w-3/4"
+                  className="border border-gray-300 rounded text-center h-fit p-1 w-full sm:w-3/4"
                 />
               </div>
               <h3 className="text-lg md:text-xl mb-4 text-center font-bold">
