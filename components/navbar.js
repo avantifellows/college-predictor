@@ -11,12 +11,14 @@ const Navbar = ({ item1, item2 }) => {
     <div className="bg-white shadow-md">
       <div className="flex flex-row justify-between items-center px-4 md:px-8 py-2">
         <div className="relative w-32 md:w-40 aspect-video">
-          <img
-            src="https://cdn.avantifellows.org/af_logos/avanti_logo_black_text.webp"
-            alt="Avanti Fellows logo"
-            layout="fill"
-            className="object-contain"
-          />
+          <Link href="/">
+            <img
+              src="https://cdn.avantifellows.org/af_logos/avanti_logo_black_text.webp"
+              alt="Avanti Fellows logo"
+              layout="fill"
+              className="object-contain cursor-pointer"
+            />
+          </Link>
         </div>
 
         <div className="flex gap-4">
