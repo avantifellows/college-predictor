@@ -31,6 +31,9 @@ const CollegePredictor = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [queryObject, setQueryObject] = useState({});
+  const [selectedQuota, setSelectedQuota] = useState("AI"); // Default to All India
+  const [selectedExam, setSelectedExam] = useState("JEE Main-JOSAA");
+  const [rank, setRank] = useState("");
 
   useEffect(() => {
     setQueryObject(router.query);
@@ -38,27 +41,59 @@ const CollegePredictor = () => {
 
   const fuse = new Fuse(filteredData, fuseOptions);
 
-  // Search Function for fuse
+  const applyQuotaFilter = (data) => {
+    if (!data) return [];
+    
+    const exam = router.query.exam;
+
+    if (exam !== "JEE Main-JOSAA") {
+      return data;
+    }
+    
+    const filtered = data.filter((item) => {
+      if (selectedQuota === "AI") {
+        return true; 
+      } else if (selectedQuota === "HS") {
+        return item.Quota === "HS" || item.Quota === "Home State";
+      } else if (selectedQuota === "OS") {
+        return item.Quota === "OS" || item.Quota === "Other State";
+      }
+      return true; 
+    });
+    
+    return filtered;
+  };
+
+
+  useEffect(() => {
+    if (fullData.length > 0) {
+      setFilteredData(applyQuotaFilter(fullData));
+    }
+  }, [selectedQuota, fullData]);
+
+
   const searchFun = (e) => {
     const searchValue = e.target.value.trim();
 
-    // If the search box is empty, reset to full data
     if (searchValue === "") {
-      setFilteredData(fullData); // Ensure `fullData` is not empty
-      setError(null); // Clear any previous error message
+      setFilteredData(applyQuotaFilter(fullData));
+      setError(null);
       return;
     }
 
     const result = fuse.search(searchValue);
 
-    // Handle no matches found
     if (result.length === 0) {
-      ``; // Empty the table
-      setError("No matches found. Please try again."); // Show error
+      setFilteredData([]);
+      setError("No matches found. Please try again.");
     } else {
-      setFilteredData(result.map((r) => r.item)); // Update filtered data
-      setError(null); // Clear any error message
+      setFilteredData(applyQuotaFilter(result.map((r) => r.item)));
+      setError(null);
     }
+  };
+
+  const handleQuotaChange = (quotaType) => {
+    setSelectedQuota(quotaType);
   };
 
   const fetchData = async (query) => {
@@ -77,11 +112,10 @@ const CollegePredictor = () => {
         }
       } else {
         const data = await response.json();
-        setFilteredData(data);
         setFullData(data);
+        setFilteredData(applyQuotaFilter(data));
       }
     } catch (error) {
-      console.error("Error fetching data:", error);
       setError("Failed to fetch college predictions. Please try again.");
       setFilteredData([]);
     } finally {
@@ -169,6 +203,12 @@ const CollegePredictor = () => {
     );
   };
 
+  const handlePredict = async () => {
+    // Implement the logic to predict colleges based on the selected exam and rank
+    // This is a placeholder and should be replaced with the actual implementation
+    console.log("Predicting colleges...");
+  };
+
   return (
     <>
       <Head>
@@ -187,7 +227,46 @@ const CollegePredictor = () => {
             </div>
           ) : (
             <>
-              {/* Always render the search box */}
+              {/* Only show quota selection for JEE Main-JOSAA */}
+              {router.query.exam === "JEE Main-JOSAA" && (
+                <div className="mb-4 w-full flex flex-col justify-center items-center">
+                  <div className="flex flex-wrap gap-4 mb-4 justify-center">
+                    <label className="flex items-center space-x-2">
+                      <input
+                        type="radio"
+                        name="quota"
+                        value="AI"
+                        checked={selectedQuota === "AI"}
+                        onChange={() => handleQuotaChange("AI")}
+                        className="form-radio h-4 w-4 text-yellow-500"
+                      />
+                      <span>All India</span>
+                    </label>
+                    <label className="flex items-center space-x-2">
+                      <input
+                        type="radio"
+                        name="quota"
+                        value="HS"
+                        checked={selectedQuota === "HS"}
+                        onChange={() => handleQuotaChange("HS")}
+                        className="form-radio h-4 w-4 text-green-500"
+                      />
+                      <span>Home State</span>
+                    </label>
+                    <label className="flex items-center space-x-2">
+                      <input
+                        type="radio"
+                        name="quota"
+                        value="OS"
+                        checked={selectedQuota === "OS"}
+                        onChange={() => handleQuotaChange("OS")}
+                        className="form-radio h-4 w-4 text-blue-500"
+                      />
+                      <span>Other State</span>
+                    </label>
+                  </div>
+                </div>
+              )}
               <div className="mb-4 w-full flex flex-col justify-center items-center">
                 <label className="block text-md font-semibold text-gray-700 content-center mx-2">
                   Search: &#128269;
