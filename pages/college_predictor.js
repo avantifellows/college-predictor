@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import getConstants from "../constants";
 import PredictedCollegeTables from "../components/PredictedCollegeTables";
+import AlternativeColleges from "../components/AlternativeColleges";
 import Head from "next/head";
 import Fuse from "fuse.js";
 import examConfigs from "../examConfig";
 import Dropdown from "../components/dropdown";
+import { findSimilarColleges } from "../utils/collegeSimilarity";
 
 const fuseOptions = {
   isCaseSensitive: false,
@@ -31,6 +33,8 @@ const CollegePredictor = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [queryObject, setQueryObject] = useState({});
+  const [selectedCollege, setSelectedCollege] = useState(null);
+  const [alternativeColleges, setAlternativeColleges] = useState([]);
 
   useEffect(() => {
     setQueryObject(router.query);
@@ -117,6 +121,12 @@ const CollegePredictor = () => {
     fetchData(router.query);
   }, [router.query]);
 
+  const handleCollegeSelect = (college) => {
+    setSelectedCollege(college);
+    const alternatives = findSimilarColleges(college, fullData);
+    setAlternativeColleges(alternatives);
+  };
+
   const renderQueryDetails = () => {
     const examConfig = examConfigs[router.query.exam];
     if (!examConfig) return null;
@@ -187,7 +197,6 @@ const CollegePredictor = () => {
             </div>
           ) : (
             <>
-              {/* Always render the search box */}
               <div className="mb-4 w-full flex flex-col justify-center items-center">
                 <label className="block text-md font-semibold text-gray-700 content-center mx-2">
                   Search: &#128269;
@@ -212,8 +221,15 @@ const CollegePredictor = () => {
                   <PredictedCollegeTables
                     data={filteredData}
                     exam={router.query.exam}
+                    onCollegeSelect={handleCollegeSelect}
                   />
                 </div>
+              )}
+              {selectedCollege && (
+                <AlternativeColleges
+                  targetCollege={selectedCollege.institute}
+                  alternatives={alternativeColleges}
+                />
               )}
             </>
           )}

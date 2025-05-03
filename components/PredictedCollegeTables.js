@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import examConfigs from "../examConfig";
+import AlternativeColleges from "./AlternativeColleges";
+import { findSimilarColleges } from "../utils/collegeSimilarity";
 
-const PredictedCollegesTable = ({ data = [], exam = "" }) => {
+const PredictedCollegesTable = ({ data = [], exam = "", onCollegeSelect }) => {
+  const [selectedRowIndex, setSelectedRowIndex] = useState(null);
+  const [alternativeColleges, setAlternativeColleges] = useState([]);
+
   const commonTableClass =
     "w-full mx-auto border-collapse text-sm sm:text-base";
   const commonHeaderClass =
@@ -33,20 +38,37 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
   const transformData = (item) => {
     if (exam === "TNEA") {
       return {
-        institute_id: item["Institute ID"],
         institute: item["Institute"],
-        academic_program_name: item["Course"],
-        closing_rank: item["Cutoff Marks"],
+        course: item["Course"],
+        location: item["State"] || "Tamil Nadu",
+        closingRank: item["Cutoff Marks"],
         quota: item["Category"],
       };
     }
     return {
       institute: item["Institute"],
-      state: item["State"],
-      academic_program_name: item["Academic Program Name"],
-      closing_rank: item["Closing Rank"],
+      course: item["Academic Program Name"],
+      location: item["State"],
+      closingRank: item["Closing Rank"],
       quota: item["Quota"] || item["Category"],
     };
+  };
+
+  const handleRowClick = (item, index) => {
+    const transformedItem = transformData(item);
+    if (onCollegeSelect) {
+      onCollegeSelect(transformedItem);
+    }
+    
+    // Toggle selection
+    if (selectedRowIndex === index) {
+      setSelectedRowIndex(null);
+      setAlternativeColleges([]);
+    } else {
+      setSelectedRowIndex(index);
+      const alternatives = findSimilarColleges(transformedItem, data);
+      setAlternativeColleges(alternatives);
+    }
   };
 
   const renderTableHeader = () => (
@@ -59,39 +81,60 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
     </tr>
   );
 
-  const renderTableBody = () =>
-    data.map((item, index) => {
-      const transformedItem = transformData(item);
-      return (
-        <tr
-          key={index}
-          className={`${commonCellClass} ${
-            index % 2 === 0 ? "bg-gray-100" : "bg-white"
-          }`}
-        >
-          {exam !== "TNEA" && (
+  const renderTableBody = () => {
+    const rows = [];
+    data.forEach((item, index) => {
+      const isSelected = selectedRowIndex === index;
+      
+      // Add the main row
+      rows.push(
+        <React.Fragment key={`row-${index}`}>
+          <tr
+            className={`${commonCellClass} ${
+              index % 2 === 0 ? "bg-gray-100" : "bg-white"
+            } cursor-pointer hover:bg-blue-50 ${isSelected ? 'bg-blue-100' : ''}`}
+            onClick={() => handleRowClick(item, index)}
+          >
+            {exam !== "TNEA" && (
+              <td className="p-2 border-r border-gray-300">
+                {item["State"] || "N/A"}
+              </td>
+            )}
+            {exam === "TNEA" && (
+              <td className="p-2 border-r border-gray-300">
+                {item["Institute ID"] || "N/A"}
+              </td>
+            )}
             <td className="p-2 border-r border-gray-300">
-              {transformedItem.state || "N/A"}
+              {item["Institute"]}
             </td>
-          )}
-          {exam === "TNEA" && (
             <td className="p-2 border-r border-gray-300">
-              {transformedItem.institute_id || "N/A"}
+              {exam === "TNEA" ? item["Course"] : item["Academic Program Name"]}
             </td>
+            <td className="p-2 border-r border-gray-300">
+              {exam === "TNEA" ? item["Cutoff Marks"] : item["Closing Rank"]}
+            </td>
+            <td className="p-2">{item["Quota"] || item["Category"]}</td>
+          </tr>
+          
+          {/* Add alternative colleges row if this row is selected */}
+          {isSelected && alternativeColleges.length > 0 && (
+            <tr>
+              <td colSpan={exam === "TNEA" ? 5 : 6} className="p-0">
+                <div className="p-4 bg-gray-50">
+                  <AlternativeColleges
+                    targetCollege={item["Institute"]}
+                    alternatives={alternativeColleges}
+                  />
+                </div>
+              </td>
+            </tr>
           )}
-          <td className="p-2 border-r border-gray-300">
-            {transformedItem.institute}
-          </td>
-          <td className="p-2 border-r border-gray-300">
-            {transformedItem.academic_program_name}
-          </td>
-          <td className="p-2 border-r border-gray-300">
-            {transformedItem.closing_rank}
-          </td>
-          <td className="p-2">{transformedItem.quota}</td>
-        </tr>
+        </React.Fragment>
       );
     });
+    return rows;
+  };
 
   const renderLegend = () => {
     const examConfig = examConfigs[exam];
@@ -122,11 +165,11 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
 PredictedCollegesTable.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
-      "Institute ID": PropTypes.string, // For TNEA
+      "Institute ID": PropTypes.string,
       Institute: PropTypes.string.isRequired,
-      Course: PropTypes.string, // TNEA-specific
+      Course: PropTypes.string,
       Category: PropTypes.string.isRequired,
-      "Cutoff Marks": PropTypes.string, // TNEA-specific
+      "Cutoff Marks": PropTypes.string,
       State: PropTypes.string,
       "Academic Program Name": PropTypes.string,
       "Closing Rank": PropTypes.string,
@@ -134,6 +177,7 @@ PredictedCollegesTable.propTypes = {
     })
   ),
   exam: PropTypes.string.isRequired,
+  onCollegeSelect: PropTypes.func,
 };
 
 export default PredictedCollegesTable;
