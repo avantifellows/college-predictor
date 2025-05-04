@@ -3,18 +3,18 @@ import React from "react";
 import { Facebook } from "lucide-react";
 import { Instagram } from "lucide-react";
 import { usePathname } from "next/navigation";
+import { RiMoonLine, RiSunLine } from "@remixicon/react";
 
-// Renders Navbar as General Component
-const Navbar = ({ item1, item2 }) => {
+const Navbar = ({ item1, item2, theme, toggleTheme }) => {
   const pathname = usePathname();
+
   return (
-    <div className="bg-white shadow-md">
+    <div className={`${theme === 'dark' ? 'bg-[#F0F0F0]' : 'bg-white'} shadow-md transition-colors duration-300`}>
       <div className="flex flex-row justify-between items-center px-4 md:px-8 py-2">
         <div className="relative w-32 md:w-40 aspect-video">
           <img
             src="https://cdn.avantifellows.org/af_logos/avanti_logo_black_text.webp"
             alt="Avanti Fellows logo"
-            layout="fill"
             className="object-contain"
           />
         </div>
@@ -28,26 +28,45 @@ const Navbar = ({ item1, item2 }) => {
           </SocialIcon>
         </div>
       </div>
-      <div className="bg-[#B52326] text-xl w-full h-16 flex items-center justify-center text-white">
-        <div className="flex text-white text-lg gap-10">
+
+      <div className={`${theme === 'dark' ? 'bg-red-800' : 'bg-[#B52326]'} text-xl w-full h-16 flex items-center justify-center text-white transition-colors duration-300`}>
+        <div className="flex text-white text-lg gap-10 relative w-full justify-center items-center px-4">
           <Link
             href="/"
-            className={`link ${
-              pathname === "/" ? "font-bold" : "hover:underline cursor-pointer"
-            }`}
+            className={`link ${pathname === "/" ? "font-bold" : "hover:underline cursor-pointer"
+              }`}
           >
             {item1}
           </Link>
           <Link
             href="/scholarships"
-            className={`link ${
-              pathname === "/scholarships"
-                ? "font-bold"
-                : "hover:underline cursor-pointer"
-            }`}
+            className={`link ${pathname === "/scholarships"
+              ? "font-bold"
+              : "hover:underline cursor-pointer"
+              }`}
           >
             {item2}
           </Link>
+
+          <button
+            onClick={toggleTheme}
+            className="absolute right-4 top-1/2 transform -translate-y-1/2
+                      transition-colors duration-300 focus:outline-none"
+          >
+            {theme === 'light' ? <RiSunLine
+              size={50}
+              color="black"
+              className="my-icon bg-white
+              px-3 py-3 rounded-full"
+            /> : <RiMoonLine
+              size={50}
+              color="white"
+              bg-color="black"
+              className="my-icon bg-black 
+              px-3 py-3 rounded-full"
+            />}
+          </button>
+
         </div>
       </div>
     </div>
@@ -58,7 +77,7 @@ const SocialIcon = ({ children, socialLink }) => {
   return (
     <a
       href={socialLink}
-      className=" rounded-full bg-[#B52326] flex items-center justify-center h-10 w-10"
+      className={`bg-[#B52326] rounded-full flex items-center justify-center h-10 w-10 transition-colors duration-300`}
     >
       {children}
     </a>
