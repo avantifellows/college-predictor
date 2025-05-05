@@ -31,9 +31,17 @@ const CollegePredictor = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [queryObject, setQueryObject] = useState({});
+  const [physicsMarks, setPhysicsMarks] = useState("");
+  const [chemistryMarks, setChemistryMarks] = useState("");
+  const [mathsMarks, setMathsMarks] = useState("");
 
   useEffect(() => {
     setQueryObject(router.query);
+    
+    // Initialize subject marks if they exist in the query
+    if (router.query.physicsMarks) setPhysicsMarks(router.query.physicsMarks);
+    if (router.query.chemistryMarks) setChemistryMarks(router.query.chemistryMarks);
+    if (router.query.mathsMarks) setMathsMarks(router.query.mathsMarks);
   }, [router.query]);
 
   const fuse = new Fuse(filteredData, fuseOptions);
@@ -101,6 +109,90 @@ const CollegePredictor = () => {
     await fetchData(newQueryObject);
   };
 
+  const handlePhysicsMarksChange = async (e) => {
+    const value = e.target.value;
+    if (value === "" || (parseFloat(value) >= 0 && parseFloat(value) <= 100)) {
+      setPhysicsMarks(value);
+      
+      // Calculate composite score and update rank
+      const newQueryObject = {
+        ...queryObject,
+        physicsMarks: value,
+      };
+      
+      if (value !== "" && chemistryMarks !== "" && mathsMarks !== "") {
+        const scaledPhysics = (parseFloat(value) / 100) * 50;
+        const scaledChemistry = (parseFloat(chemistryMarks) / 100) * 50;
+        const scaledMaths = parseFloat(mathsMarks);
+        const compositeScore = scaledPhysics + scaledChemistry + scaledMaths;
+        
+        newQueryObject.rank = compositeScore.toFixed(2);
+      }
+      
+      setQueryObject(newQueryObject);
+      const params = new URLSearchParams(Object.entries(newQueryObject));
+      const queryString = params.toString();
+      router.push(`/college_predictor?${queryString}`);
+      await fetchData(newQueryObject);
+    }
+  };
+
+  const handleChemistryMarksChange = async (e) => {
+    const value = e.target.value;
+    if (value === "" || (parseFloat(value) >= 0 && parseFloat(value) <= 100)) {
+      setChemistryMarks(value);
+      
+      // Calculate composite score and update rank
+      const newQueryObject = {
+        ...queryObject,
+        chemistryMarks: value,
+      };
+      
+      if (physicsMarks !== "" && value !== "" && mathsMarks !== "") {
+        const scaledPhysics = (parseFloat(physicsMarks) / 100) * 50;
+        const scaledChemistry = (parseFloat(value) / 100) * 50;
+        const scaledMaths = parseFloat(mathsMarks);
+        const compositeScore = scaledPhysics + scaledChemistry + scaledMaths;
+        
+        newQueryObject.rank = compositeScore.toFixed(2);
+      }
+      
+      setQueryObject(newQueryObject);
+      const params = new URLSearchParams(Object.entries(newQueryObject));
+      const queryString = params.toString();
+      router.push(`/college_predictor?${queryString}`);
+      await fetchData(newQueryObject);
+    }
+  };
+
+  const handleMathsMarksChange = async (e) => {
+    const value = e.target.value;
+    if (value === "" || (parseFloat(value) >= 0 && parseFloat(value) <= 100)) {
+      setMathsMarks(value);
+      
+      // Calculate composite score and update rank
+      const newQueryObject = {
+        ...queryObject,
+        mathsMarks: value,
+      };
+      
+      if (physicsMarks !== "" && chemistryMarks !== "" && value !== "") {
+        const scaledPhysics = (parseFloat(physicsMarks) / 100) * 50;
+        const scaledChemistry = (parseFloat(chemistryMarks) / 100) * 50;
+        const scaledMaths = parseFloat(value);
+        const compositeScore = scaledPhysics + scaledChemistry + scaledMaths;
+        
+        newQueryObject.rank = compositeScore.toFixed(2);
+      }
+      
+      setQueryObject(newQueryObject);
+      const params = new URLSearchParams(Object.entries(newQueryObject));
+      const queryString = params.toString();
+      router.push(`/college_predictor?${queryString}`);
+      await fetchData(newQueryObject);
+    }
+  };
+
   const handleRankChange = async (e) => {
     const newQueryObject = {
       ...queryObject,
@@ -123,19 +215,16 @@ const CollegePredictor = () => {
 
     return (
       <div className="flex flex-col justify-center items-start sm:items-center mb-4 gap-2">
-        <p className="text-sm md:text-base  font-semibold">
+        <p className="text-sm md:text-base font-semibold">
           Exam: {router.query.exam}
         </p>
         {examConfig.fields.map((field) => (
-          <div className="flex items-center justify-center gap-2">
-            <label
-              key={field.name}
-              className="font-semibold text-sm md:text-base "
-            >
+          <div key={field.name} className="flex items-center justify-center gap-2">
+            <label className="font-semibold text-sm md:text-base">
               {field.label}
             </label>
             <Dropdown
-              className="text-sm md:text-base "
+              className="text-sm md:text-base"
               options={field.options.map((option) =>
                 typeof option === "string"
                   ? { value: option, label: option }
@@ -146,25 +235,87 @@ const CollegePredictor = () => {
             />
           </div>
         ))}
-        <div className="flex gap-2 items-center">
-          <label className="block text-sm md:text-base font-semibold text-gray-700 mb-2 ">
-            {router.query.exam === "TNEA"
-              ? "Enter Marks"
-              : "Enter Category Rank"}
-          </label>
-          <input
-            type="number"
-            step={router.query.exam === "TNEA" ? "0.01" : "1"}
-            value={queryObject.rank}
-            onChange={handleRankChange}
-            className="border border-gray-300 rounded text-center"
-            placeholder={
-              router.query.exam === "TNEA"
-                ? "Enter your marks"
-                : "Enter your rank"
-            }
-          />
-        </div>
+        
+        {router.query.exam === "TNEA" ? (
+          <>
+            <div className="flex gap-2 items-center">
+              <label className="block text-sm md:text-base font-semibold text-gray-700 mb-2">
+                Enter Physics marks out of 100
+              </label>
+              <input
+                type="number"
+                step="0.01"
+                min="0"
+                max="100"
+                value={physicsMarks}
+                onChange={handlePhysicsMarksChange}
+                className="border border-gray-300 rounded text-center"
+                placeholder="Physics marks"
+              />
+            </div>
+            
+            <div className="flex gap-2 items-center">
+              <label className="block text-sm md:text-base font-semibold text-gray-700 mb-2">
+                Enter Chemistry marks out of 100
+              </label>
+              <input
+                type="number"
+                step="0.01"
+                min="0"
+                max="100"
+                value={chemistryMarks}
+                onChange={handleChemistryMarksChange}
+                className="border border-gray-300 rounded text-center"
+                placeholder="Chemistry marks"
+              />
+            </div>
+            
+            <div className="flex gap-2 items-center">
+              <label className="block text-sm md:text-base font-semibold text-gray-700 mb-2">
+                Enter Mathematics marks out of 100
+              </label>
+              <input
+                type="number"
+                step="0.01"
+                min="0"
+                max="100"
+                value={mathsMarks}
+                onChange={handleMathsMarksChange}
+                className="border border-gray-300 rounded text-center"
+                placeholder="Mathematics marks"
+              />
+            </div>
+            
+            <div className="flex gap-2 items-center">
+              <label className="block text-sm md:text-base font-semibold text-gray-700 mb-2">
+                Composite Score (out of 200)
+              </label>
+              <input
+                type="text"
+                value={queryObject.rank || ""}
+                readOnly
+                className="border border-gray-300 rounded text-center bg-gray-100"
+              />
+            </div>
+            <p className="text-xs text-gray-600 mt-1">
+              (Physics × 0.5) + (Chemistry × 0.5) + Mathematics = Composite Score
+            </p>
+          </>
+        ) : (
+          <div className="flex gap-2 items-center">
+            <label className="block text-sm md:text-base font-semibold text-gray-700 mb-2">
+              Enter Category Rank
+            </label>
+            <input
+              type="number"
+              step="1"
+              value={queryObject.rank}
+              onChange={handleRankChange}
+              className="border border-gray-300 rounded text-center"
+              placeholder="Enter your rank"
+            />
+          </div>
+        )}
       </div>
     );
   };

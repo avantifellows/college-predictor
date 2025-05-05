@@ -435,16 +435,25 @@ export const tneaConfig = {
       name: "courseType",
       label: "Select Course Type",
       options: [
-        "Computer Science",
-        "Electronics and Communications (ECE)",
-        "Mechanical",
-        "Electronics and Electronics (EEE)",
-        "Civil",
-        "IT",
-        "Biomedical",
-        "Aerospace",
-        "Automobile",
-        "Robotics",
+        "Computer Science", "Electronics and Communications (ECE)", "Mechanical", "Electrical and Electronics (EEE)", "Civil", "Information Technology", "Biomedical", "Aerospace", "Automobile", "Robotics", "Electrical Engineering"
+      ],
+    },
+    {
+      name: "collegeType",
+      label: "Select College Type",
+      options: [
+        "State Government", 
+        "Private Aided (Government Aided)", 
+        "Private Un-Aided", 
+        "University",
+        "Any"
+      ],
+    },
+    {
+      name: "district",
+      label: "Select District",
+      options: [
+       "Any", "Ariyalur", "Chengalpattu", "Chennai", "Coimbatore", "Cuddalore", "Dharmapuri", "Dindigul", "Erode", "Hazaribagh", "Idukki", "Kancheepuram", "Kanniyakumari", "Karur", "Krishnagiri", "Madurai", "Mayiladuthurai", "Namakkal", "Perambalur", "Pudukkottai", "Ramanathapuram", "Salem", "Sivaganga", "Thanjavur", "Theni", "Thiruvallur", "Thiruvarur", "Thoothukkudi", "Tiruchirappalli", "Tirunelveli", "Tiruppur", "Tiruvannamalai", "Vellore", "Viluppuram", "Virudhunagar"
       ],
     },
   ],
@@ -454,6 +463,8 @@ export const tneaConfig = {
   getFilters: (query) => [
     (item) => item.Category === query.category,
     (item) => item.Course === query.courseType,
+    (item) => item.District === query.district || "Any" === query.district,
+    (item) => item["College Type"] === query.collegeType || "Any" === query.collegeType
   ],
 };
 

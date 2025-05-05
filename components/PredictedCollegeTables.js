@@ -15,6 +15,7 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
       { key: "institute_id", label: "Institute ID" },
       { key: "institute", label: "Institute" },
       { key: "academic_program_name", label: "Course" },
+      { key: "college_type", label: "Institute Type" },
       { key: "closing_rank", label: "Cutoff Marks" },
       { key: "quota", label: "Category" },
     ],
@@ -36,6 +37,7 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
         institute_id: item["Institute ID"],
         institute: item["Institute"],
         academic_program_name: item["Course"],
+        college_type: item["College Type"],
         closing_rank: item["Cutoff Marks"],
         quota: item["Category"],
       };
@@ -86,6 +88,9 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
             {transformedItem.academic_program_name}
           </td>
           <td className="p-2 border-r border-gray-300">
+            {transformedItem.college_type}
+          </td>
+          <td className="p-2 border-r border-gray-300">
             {transformedItem.closing_rank}
           </td>
           <td className="p-2">{transformedItem.quota}</td>
@@ -127,6 +132,7 @@ PredictedCollegesTable.propTypes = {
       Course: PropTypes.string, // TNEA-specific
       Category: PropTypes.string.isRequired,
       "Cutoff Marks": PropTypes.string, // TNEA-specific
+      "Institute Type": PropTypes.string, // TNEA-specific
       State: PropTypes.string,
       "Academic Program Name": PropTypes.string,
       "Closing Rank": PropTypes.string,
