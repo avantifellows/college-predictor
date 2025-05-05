@@ -298,7 +298,7 @@ const CollegePredictor = () => {
               />
             </div>
             <p className="text-xs text-gray-600 mt-1">
-              (Physics × 0.5) + (Chemistry × 0.5) + Mathematics = Composite Score
+              Calculated automatically using the formula: (Physics × 0.5) + (Chemistry × 0.5) + Mathematics = Composite Score
             </p>
           </>
         ) : (

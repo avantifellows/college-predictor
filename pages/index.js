@@ -239,7 +239,7 @@ const ExamForm = () => {
                       className="border border-gray-300 rounded w-full p-2 text-center bg-gray-100"
                     />
                     <p className="text-xs text-gray-600 mt-1">
-                      (Physics × 0.5) + (Chemistry × 0.5) + Mathematics = Composite Score
+                    Calculated automatically using the formula: (Physics × 0.5) + (Chemistry × 0.5) + Mathematics = Composite Score
                     </p>
                   </div>
                 </>
