@@ -21,7 +21,7 @@ const fuseOptions = {
   ignoreLocation: true,
   ignoreFieldNorm: false,
   fieldNormWeight: 1,
-  keys: ["Institute", "State", "Academic Program Name"],
+  keys: ["Institute", "State", "City", "Academic Program Name"],
 };
 
 const CollegePredictor = () => {
@@ -31,10 +31,29 @@ const CollegePredictor = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [queryObject, setQueryObject] = useState({});
+  const [states, setStates] = useState([]);
+  const [cities, setCities] = useState([]);
 
   useEffect(() => {
     setQueryObject(router.query);
   }, [router.query]);
+
+  useEffect(() => {
+    if (fullData.length > 0) {
+      // Extract unique states
+      const uniqueStates = [...new Set(fullData.map(item => item.State))].filter(Boolean);
+      setStates(uniqueStates.sort().map(state => ({ value: state, label: state })));
+      
+      // Extract cities based on selected state
+      const stateCities = fullData
+        .filter(item => (!queryObject.state || item.State === queryObject.state))
+        .map(item => item.City)
+        .filter(Boolean);
+      
+      const uniqueCities = [...new Set(stateCities)].sort();
+      setCities(uniqueCities.map(city => ({ value: city, label: city })));
+    }
+  }, [fullData, queryObject.state]);
 
   const fuse = new Fuse(filteredData, fuseOptions);
 
@@ -53,7 +72,7 @@ const CollegePredictor = () => {
 
     // Handle no matches found
     if (result.length === 0) {
-      ``; // Empty the table
+      setFilteredData([]); // Empty the table
       setError("No matches found. Please try again."); // Show error
     } else {
       setFilteredData(result.map((r) => r.item)); // Update filtered data
@@ -90,10 +109,17 @@ const CollegePredictor = () => {
   };
 
   const handleQueryObjectChange = (key) => async (selectedOption) => {
+    // If changing state, reset city
     const newQueryObject = {
       ...queryObject,
       [key]: selectedOption.label,
     };
+    
+    // Clear city if state changes
+    if (key === 'state') {
+      delete newQueryObject.city;
+    }
+    
     setQueryObject(newQueryObject);
     const params = new URLSearchParams(Object.entries(newQueryObject));
     const queryString = params.toString();
@@ -113,6 +139,27 @@ const CollegePredictor = () => {
     await fetchData(newQueryObject);
   };
 
+  const handleFilterClear = async () => {
+    const { exam, rank, ...examFields } = queryObject;
+    
+    // Keep only required exam fields from examConfig and remove state/city
+    const newQueryObject = { exam, rank };
+    
+    if (examConfigs[exam]) {
+      examConfigs[exam].fields.forEach(field => {
+        if (examFields[field.name]) {
+          newQueryObject[field.name] = examFields[field.name];
+        }
+      });
+    }
+    
+    setQueryObject(newQueryObject);
+    const params = new URLSearchParams(Object.entries(newQueryObject));
+    const queryString = params.toString();
+    router.push(`/college_predictor?${queryString}`);
+    await fetchData(newQueryObject);
+  };
+
   useEffect(() => {
     fetchData(router.query);
   }, [router.query]);
@@ -123,19 +170,16 @@ const CollegePredictor = () => {
 
     return (
       <div className="flex flex-col justify-center items-start sm:items-center mb-4 gap-2">
-        <p className="text-sm md:text-base  font-semibold">
+        <p className="text-sm md:text-base font-semibold">
           Exam: {router.query.exam}
         </p>
         {examConfig.fields.map((field) => (
-          <div className="flex items-center justify-center gap-2">
-            <label
-              key={field.name}
-              className="font-semibold text-sm md:text-base "
-            >
+          <div key={field.name} className="flex items-center justify-center gap-2">
+            <label className="font-semibold text-sm md:text-base">
               {field.label}
             </label>
             <Dropdown
-              className="text-sm md:text-base "
+              className="text-sm md:text-base"
               options={field.options.map((option) =>
                 typeof option === "string"
                   ? { value: option, label: option }
@@ -147,7 +191,7 @@ const CollegePredictor = () => {
           </div>
         ))}
         <div className="flex gap-2 items-center">
-          <label className="block text-sm md:text-base font-semibold text-gray-700 mb-2 ">
+          <label className="block text-sm md:text-base font-semibold text-gray-700 mb-2">
             {router.query.exam === "TNEA"
               ? "Enter Marks"
               : "Enter Category Rank"}
@@ -164,6 +208,40 @@ const CollegePredictor = () => {
                 : "Enter your rank"
             }
           />
+        </div>
+        
+        {/* Location Filters */}
+        <div className="mt-4 pt-4 border-t border-gray-200 w-full">
+          <h3 className="text-md font-semibold mb-2 text-center">Location Filters</h3>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex items-center gap-2">
+              <label className="text-sm md:text-base font-medium">State:</label>
+              <Dropdown
+                className="text-sm md:text-base"
+                options={[{ value: "", label: "All States" }, ...states]}
+                selectedValue={queryObject.state || ""}
+                onChange={handleQueryObjectChange("state")}
+              />
+            </div>
+            
+            <div className="flex items-center gap-2">
+              <label className="text-sm md:text-base font-medium">City:</label>
+              <Dropdown
+                className="text-sm md:text-base"
+                options={[{ value: "", label: "All Cities" }, ...cities]}
+                selectedValue={queryObject.city || ""}
+                onChange={handleQueryObjectChange("city")}
+                disabled={!queryObject.state}
+              />
+            </div>
+            
+            <button 
+              onClick={handleFilterClear}
+              className="px-3 py-1 bg-gray-200 hover:bg-gray-300 rounded text-sm font-medium"
+            >
+              Clear Filters
+            </button>
+          </div>
         </div>
       </div>
     );
@@ -194,11 +272,12 @@ const CollegePredictor = () => {
                 </label>
                 <input
                   onChange={searchFun}
-                  placeholder="Name / State / Program"
+                  placeholder="Name / State / City / Program"
                   className="border border-gray-300 rounded text-center h-fit p-1 sm:w-5/12 w-3/4"
                 />
                 {error && <p className="text-red-600 mt-2">{error}</p>}
               </div>
+              
               {filteredData.length === 0 ? (
                 <div className="text-center">
                   <p>No colleges found matching your criteria.</p>
@@ -209,6 +288,11 @@ const CollegePredictor = () => {
                   <h3 className="text-lg md:text-xl mb-4 text-center font-bold">
                     Predicted colleges and courses for you:
                   </h3>
+                  <div className="text-sm text-gray-500 mb-2 text-center">
+                    Showing {filteredData.length} colleges
+                    {queryObject.state ? ` in ${queryObject.state}` : ""}
+                    {queryObject.city ? `, ${queryObject.city}` : ""}
+                  </div>
                   <PredictedCollegeTables
                     data={filteredData}
                     exam={router.query.exam}
