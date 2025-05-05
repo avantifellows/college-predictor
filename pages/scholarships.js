@@ -53,7 +53,7 @@ const ScholarshipPage = () => {
         <title>Scholarships - Home</title>
       </Head>
 
-      <div className="flex flex-col justify-start items-center w-full mt-8 pb-10">
+      <div className="flex flex-col justify-start  items-center w-full mt-8 pb-10">
         <div className="text-center flex flex-col items-center w-full sm:w-3/4 md:w-2/3 lg:w-1/2 mt-8 p-8 pb-10 bg-[#f8f9fa] shadow-inner drop-shadow-md rounded-md">
           <Script
             src="https://www.googletagmanager.com/gtag/js?id=G-FHGVRT52L7"
@@ -85,6 +85,7 @@ const ScholarshipPage = () => {
                   onChange={handleDropdownChange(field.name)}
                   {...dropdownProps}
                 />
+
                 {field.helperText &&
                   field.helperText.map((text, index) => (
                     <p key={index} className="text-sm text-gray-700 mt-1">

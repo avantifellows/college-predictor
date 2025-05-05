@@ -24,7 +24,7 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
       { key: "institute", label: "Institute" },
       { key: "academic_program_name", label: "Academic Program Name" },
       { key: "closing_rank", label: "Closing Rank" },
-      { key: "quota", label: "Quota" },
+      { key: "quota", label: "Category" },
     ],
   };
 
@@ -47,7 +47,7 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
       state: item["State"],
       academic_program_name: item["Academic Program Name"],
       closing_rank: item["Closing Rank"],
-      quota: item["Category"],
+      quota: item["Quota"] || item["Category"],
     };
   };
 
