@@ -1,10 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Open+Sans:wght@400;700&display=swap");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+
   input[type="number"]::-webkit-inner-spin-button,
   input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
@@ -17,11 +17,19 @@
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  font-family: "Open Sans", "Lato", sans-serif;
-  color: #414141;
-  background-color: white;
+  background-color: #ffffff;
+  color: #333333;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode {
+  background-color: #121212;
+  color: #eeeeee;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode .navtop{
+  background-color: #F0F0F0 !important;
 }
 
 h1,
@@ -30,21 +38,104 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Lato", sans-serif;
-  color: #2b2b2b;
+  color: #333333;
+  transition: color 0.3s ease;
 }
 
-ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+  color: #ffffff;
 }
 
-.center {
-  margin: auto;
-  text-align: center;
+p {
+  color: #333333;
+  transition: color 0.3s ease;
 }
 
-.input-placeholder-black::placeholder {
-  color: #000;
+body.dark-mode p {
+  color: #eeeeee;
+}
+
+label {
+  color: #333333;
+  transition: color 0.3s ease;
+}
+
+body.dark-mode label {
+  color: #eeeeee;
+  transition: color 0.3s ease;
+}
+
+body.dark-mode input:not([type="checkbox"]):not([type="radio"]),
+body.dark-mode textarea {
+  color: #eeeeee;
+  background-color: #555555;
+  border-color: #777777;
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+  color: #bbbbbb;
+  transition: color 0.3s ease;
+}
+
+body.dark-mode table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  color: #eeeeee;
+}
+
+body.dark-mode th {
+  background-color: #2a2a2a;
+  color: #ffffff;
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #555555;
+
+}
+
+body.dark-mode td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #444444;
+  color: #eeeeee;
+}
+
+body.dark-mode tbody tr:nth-child(odd) {
+  background-color: #333333;
+}
+
+body.dark-mode tbody tr:hover {
+  background-color: #444444;
+}
+
+body.dark-mode .shadow-inner.drop-shadow-md.rounded-md {
+  background-color: #3a3a3a;
+  color: #eeeeee;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode .bg-white {
+  background-color: #3a3a3a !important;
+  transition: background-color 0.3s ease;
+}
+
+body.dark-mode .navtop{
+  background-color: #F0F0F0 !important;
+}
+
+body.dark-mode .togglebtn{
+  background-color: black !important;
+  color: white !important;
+}
+
+body.dark-mode select {
+  color: #333333;
+  background-color: #ffffff;
+  border-color: #cccccc;
 }
