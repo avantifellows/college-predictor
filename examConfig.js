@@ -12,7 +12,6 @@ import path from "path";
  */
 
 export const statesList = [
-  "All India",
   "Andhra Pradesh",
   "Arunachal Pradesh",
   "Assam",
@@ -135,31 +134,22 @@ export const jeeMainJosaaConfig = {
       },
     ];
 
-    if (query.homeState === "All India") {
-      return [
-        ...baseFilters,
-        (item) => item.Quota === "AI",
-        // For "All India" homeState selection, we assume the user is interested in All India quota seats.
-        // The item.State could be the specific state of the institute or a generic "All India" for some central ones.
-        // So, no explicit filter on item.State is applied here beyond what the data implies for AI quota.
-      ];
-    } else {
-      // User has selected a specific home state
-      return [
-        ...baseFilters,
-        (item) => {
-          // item.State is the state of the college/institute
-          // query.homeState is the state selected by the user
-          if (query.homeState === item.State) {
-            // College state matches user's home state
-            return item.Quota === "HS"; // Show only Home State quota
-          } else {
-            // College state differs from user's home state
-            return item.Quota === "OS" || item.Quota === "AI"; // Show Other State or All India quota
-          }
-        },
-      ];
-    }
+    // query.homeState will now always be a specific state (not "All India")
+    return [
+      ...baseFilters,
+      (item) => {
+        // Always include 'AI' quota items
+        if (item.Quota === "AI") {
+          return true;
+        }
+        // For HS/OS quota, apply state matching
+        if (query.homeState === item.State) {
+          return item.Quota === "HS";
+        } else {
+          return item.Quota === "OS";
+        }
+      },
+    ];
   },
 };
 
@@ -272,20 +262,22 @@ export const jeeAdvancedConfig = {
       (item) => item.Gender === query.gender,
     ];
 
-    if (query.homeState === "All India") {
-      return [...baseFilters, (item) => item.Quota === "AI"];
-    } else {
-      return [
-        ...baseFilters,
-        (item) => {
-          if (query.homeState === item.State) {
-            return item.Quota === "HS";
-          } else {
-            return item.Quota === "OS" || item.Quota === "AI";
-          }
-        },
-      ];
-    }
+    // query.homeState will now always be a specific state (not "All India")
+    return [
+      ...baseFilters,
+      (item) => {
+        // Always include 'AI' quota items
+        if (item.Quota === "AI") {
+          return true;
+        }
+        // For HS/OS quota, apply state matching
+        if (query.homeState === item.State) {
+          return item.Quota === "HS";
+        } else {
+          return item.Quota === "OS";
+        }
+      },
+    ];
   },
 };
 
