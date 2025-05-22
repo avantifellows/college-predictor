@@ -2,36 +2,33 @@ import React, { useState } from "react";
 import Script from "next/script";
 import getConstants from "../constants";
 import examConfigs from "../examConfig";
-import Dropdown from "../components/dropdown";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import dynamic from "next/dynamic";
+import TneaScoreCalculator from "../components/TneaScoreCalculator";
+
+// Dynamically import Dropdown with SSR disabled
+const Dropdown = dynamic(() => import("../components/dropdown"), {
+  ssr: false,
+});
 
 const ExamForm = () => {
   const [selectedExam, setSelectedExam] = useState("");
   const [formData, setFormData] = useState({});
   const [config, setConfig] = useState(null);
-  const [physicsMarks, setPhysicsMarks] = useState("");
-  const [chemistryMarks, setChemistryMarks] = useState("");
-  const [mathsMarks, setMathsMarks] = useState("");
   const router = useRouter();
 
   const handleExamChange = (selectedOption) => {
     setSelectedExam(selectedOption.value);
     setConfig(examConfigs[selectedOption.value]);
+    const baseFormData = {
+      exam: selectedOption.value,
+      rank: selectedOption.value === "TNEA" ? "" : 0,
+    };
     if (selectedOption.code !== undefined) {
-      setFormData({
-        exam: selectedOption.value,
-        rank: 0,
-        code: selectedOption.code,
-        // apiEndpoint: selectedOption.apiEndpoint,
-      });
-    } else {
-      setFormData({
-        exam: selectedOption.value,
-        rank: 0,
-        // apiEndpoint: selectedOption.apiEndpoint,
-      });
+      baseFormData.code = selectedOption.code;
     }
+    setFormData(baseFormData);
   };
 
   const handleInputChange = (name) => (selectedOption) => {
@@ -48,71 +45,47 @@ const ExamForm = () => {
       rank: enteredRank,
     }));
   };
-  
-  const handlePhysicsMarksChange = (e) => {
-    const value = e.target.value;
-    if (value === "" || (parseFloat(value) >= 0 && parseFloat(value) <= 100)) {
-      setPhysicsMarks(value);
-      calculateCompositeScore(value, chemistryMarks, mathsMarks);
-    }
+
+  const handleTneaScoreChange = (score, physics, chemistry, maths) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      rank: score,
+      physicsMarks: physics,
+      chemistryMarks: chemistry,
+      mathsMarks: maths,
+    }));
   };
-  
-  const handleChemistryMarksChange = (e) => {
-    const value = e.target.value;
-    if (value === "" || (parseFloat(value) >= 0 && parseFloat(value) <= 100)) {
-      setChemistryMarks(value);
-      calculateCompositeScore(physicsMarks, value, mathsMarks);
-    }
-  };
-  
-  const handleMathsMarksChange = (e) => {
-    const value = e.target.value;
-    if (value === "" || (parseFloat(value) >= 0 && parseFloat(value) <= 100)) {
-      setMathsMarks(value);
-      calculateCompositeScore(physicsMarks, chemistryMarks, value);
-    }
-  };
-  
-  const calculateCompositeScore = (physics, chemistry, maths) => {
-    if (physics !== "" && chemistry !== "" && maths !== "") {
-      // Scale Physics to 50
-      const scaledPhysics = (parseFloat(physics) / 100) * 50;
-      // Scale Chemistry to 50
-      const scaledChemistry = (parseFloat(chemistry) / 100) * 50;
-      // Scale Mathematics to 100
-      const scaledMaths = parseFloat(maths);
-      
-      // Calculate composite score
-      const compositeScore = scaledPhysics + scaledChemistry + scaledMaths;
-      
-      setFormData((prevData) => ({
-        ...prevData,
-        rank: compositeScore.toFixed(2),
-      }));
-    }
-  };
-  
+
   const handleSubmit = async () => {
     const queryString = Object.entries(formData)
       .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
       .join("&");
     router.push(`/college_predictor?${queryString}`);
   };
-  
+
   const isSubmitDisabled = () => {
     if (selectedExam === "TNEA") {
       return (
-        physicsMarks === "" || 
-        chemistryMarks === "" || 
-        mathsMarks === "" ||
+        !formData.rank ||
+        formData.rank === "" ||
         Object.entries(formData)
-          .filter(([key]) => key !== "rank")
+          .filter(
+            ([key]) =>
+              ![
+                "rank",
+                "physicsMarks",
+                "chemistryMarks",
+                "mathsMarks",
+              ].includes(key)
+          )
           .some(([_, value]) => !value)
       );
     }
-    return Object.values(formData).some((value) => !value);
+    return (
+      formData.rank === 0 || Object.values(formData).some((value) => !value)
+    );
   };
-  
+
   const renderFields = () => {
     if (!selectedExam) return null;
 
@@ -180,83 +153,25 @@ const ExamForm = () => {
                 />
               </div>
               {renderFields()}
-              
+
               {selectedExam && selectedExam === "TNEA" ? (
-                <>
+                <TneaScoreCalculator onScoreChange={handleTneaScoreChange} />
+              ) : (
+                selectedExam && (
                   <div className="my-4 w-full sm:w-3/4">
                     <label className="block text-md font-semibold text-gray-700 mb-2 -translate-x-3">
-                      Enter your Physics marks out of 100
+                      Enter Category Rank
                     </label>
                     <input
                       type="number"
-                      step="0.01"
-                      min="0"
-                      max="100"
-                      value={physicsMarks}
-                      onChange={handlePhysicsMarksChange}
-                      className="border border-gray-300 rounded w-full p-2 text-center"
-                      placeholder="Enter Physics marks (0-100)"
-                    />
-                  </div>
-                  <div className="my-4 w-full sm:w-3/4">
-                    <label className="block text-md font-semibold text-gray-700 mb-2 -translate-x-3">
-                      Enter your Chemistry marks out of 100
-                    </label>
-                    <input
-                      type="number"
-                      step="0.01"
-                      min="0"
-                      max="100"
-                      value={chemistryMarks}
-                      onChange={handleChemistryMarksChange}
-                      className="border border-gray-300 rounded w-full p-2 text-center"
-                      placeholder="Enter Chemistry marks (0-100)"
-                    />
-                  </div>
-                  <div className="my-4 w-full sm:w-3/4">
-                    <label className="block text-md font-semibold text-gray-700 mb-2 -translate-x-3">
-                      Enter your Mathematics marks out of 100
-                    </label>
-                    <input
-                      type="number"
-                      step="0.01"
-                      min="0"
-                      max="100"
-                      value={mathsMarks}
-                      onChange={handleMathsMarksChange}
-                      className="border border-gray-300 rounded w-full p-2 text-center"
-                      placeholder="Enter Mathematics marks (0-100)"
-                    />
-                  </div>
-                  <div className="my-4 w-full sm:w-3/4">
-                    <label className="block text-md font-semibold text-gray-700 mb-2 -translate-x-3">
-                      Composite Score (out of 200)
-                    </label>
-                    <input
-                      type="text"
+                      step="1"
                       value={formData.rank || ""}
-                      readOnly
-                      className="border border-gray-300 rounded w-full p-2 text-center bg-gray-100"
+                      onChange={handleRankChange}
+                      className="border border-gray-300 rounded w-full p-2 text-center"
+                      placeholder="Enter your rank"
                     />
-                    <p className="text-xs text-gray-600 mt-1">
-                    Calculated automatically using the formula: (Physics × 0.5) + (Chemistry × 0.5) + Mathematics = Composite Score
-                    </p>
                   </div>
-                </>
-              ) : selectedExam && (
-                <div className="my-4 w-full sm:w-3/4">
-                  <label className="block text-md font-semibold text-gray-700 mb-2 -translate-x-3">
-                    Enter Category Rank
-                  </label>
-                  <input
-                    type="number"
-                    step="1"
-                    value={formData.rank || ""}
-                    onChange={handleRankChange}
-                    className="border border-gray-300 rounded w-full p-2 text-center"
-                    placeholder="Enter your rank"
-                  />
-                </div>
+                )
               )}
             </div>
             {selectedExam && (

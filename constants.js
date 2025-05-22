@@ -255,11 +255,14 @@ const constants = {
 
   TNEA_COLLEGE_TYPE_OPTIONS: [
     { value: "State Government", label: "State Government" },
-    { value: "Private Aided (Government Aided)", label: "Private Aided (Government Aided)" },
+    {
+      value: "Private Aided (Government Aided)",
+      label: "Private Aided (Government Aided)",
+    },
     { value: "Private Un-Aided", label: "Private Un-Aided" },
     { value: "University", label: "University" },
   ],
-  
+
   TNEA_DISTRICT_OPTIONS: [
     { value: "Any", label: "Any" },
     { value: "Ariyalur", label: "Ariyalur" },
@@ -296,7 +299,7 @@ const constants = {
     { value: "Vellore", label: "Vellore" },
     { value: "Viluppuram", label: "Viluppuram" },
     { value: "Virudhunagar", label: "Virudhunagar" },
-  ]
+  ],
 };
 
 export default function getConstants() {
