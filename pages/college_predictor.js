@@ -1,11 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { useRouter } from "next/router";
 import getConstants from "../constants";
 import PredictedCollegeTables from "../components/PredictedCollegeTables";
 import Head from "next/head";
 import Fuse from "fuse.js";
 import examConfigs from "../examConfig";
-import Dropdown from "../components/dropdown";
+import dynamic from "next/dynamic";
+import TneaScoreCalculator from "../components/TneaScoreCalculator";
+import { debounce } from "lodash";
+
+// Dynamically import Dropdown with SSR disabled
+const Dropdown = dynamic(() => import("../components/dropdown"), {
+  ssr: false,
+});
 
 const fuseOptions = {
   isCaseSensitive: false,
@@ -31,62 +38,91 @@ const CollegePredictor = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [queryObject, setQueryObject] = useState({});
-  const [physicsMarks, setPhysicsMarks] = useState("");
-  const [chemistryMarks, setChemistryMarks] = useState("");
-  const [mathsMarks, setMathsMarks] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
-    setQueryObject(router.query);
-    
-    // Initialize subject marks if they exist in the query
-    if (router.query.physicsMarks) setPhysicsMarks(router.query.physicsMarks);
-    if (router.query.chemistryMarks) setChemistryMarks(router.query.chemistryMarks);
-    if (router.query.mathsMarks) setMathsMarks(router.query.mathsMarks);
+    // Initialize queryObject from router.query
+    // Ensure that numeric values like rank are stored appropriately if needed
+    const initialQuery = { ...router.query };
+    if (initialQuery.rank && !isNaN(parseFloat(initialQuery.rank))) {
+      initialQuery.rank = parseFloat(initialQuery.rank).toFixed(2);
+    } else if (router.query.exam === "TNEA" && !initialQuery.rank) {
+      // If TNEA and rank is not set, perhaps initialize from individual marks if they exist
+      if (
+        initialQuery.physicsMarks &&
+        initialQuery.chemistryMarks &&
+        initialQuery.mathsMarks
+      ) {
+        const p = parseFloat(initialQuery.physicsMarks);
+        const c = parseFloat(initialQuery.chemistryMarks);
+        const m = parseFloat(initialQuery.mathsMarks);
+        if (!isNaN(p) && !isNaN(c) && !isNaN(m)) {
+          initialQuery.rank = ((p / 100) * 50 + (c / 100) * 50 + m).toFixed(2);
+        }
+      }
+    }
+    setQueryObject(initialQuery);
   }, [router.query]);
 
-  const fuse = new Fuse(filteredData, fuseOptions);
+  const [fuseInstance, setFuseInstance] = useState(new Fuse([], fuseOptions));
+  useEffect(() => {
+    if (fullData && fullData.length > 0) {
+      setFuseInstance(new Fuse(fullData, fuseOptions));
+    }
+  }, [fullData]);
 
-  // Search Function for fuse
-  const searchFun = (e) => {
-    const searchValue = e.target.value.trim();
+  const handleSearchChange = (e) => {
+    const currentSearchTerm = e.target.value;
+    setSearchTerm(currentSearchTerm);
 
-    // If the search box is empty, reset to full data
-    if (searchValue === "") {
-      setFilteredData(fullData); // Ensure `fullData` is not empty
-      setError(null); // Clear any previous error message
+    if (currentSearchTerm.trim() === "") {
+      setFilteredData(fullData);
+      setError(null);
       return;
     }
 
-    const result = fuse.search(searchValue);
-
-    // Handle no matches found
-    if (result.length === 0) {
-      ``; // Empty the table
-      setError("No matches found. Please try again."); // Show error
+    if (fullData.length > 0) {
+      const result = fuseInstance.search(currentSearchTerm.trim());
+      if (result.length === 0) {
+        setFilteredData([]);
+        setError(
+          "No matches found for your search term within the current results."
+        );
+      } else {
+        setFilteredData(result.map((r) => r.item));
+        setError(null);
+      }
     } else {
-      setFilteredData(result.map((r) => r.item)); // Update filtered data
-      setError(null); // Clear any error message
+      setFilteredData([]);
+      setError("No data to search. Apply filters to load predictions first.");
     }
   };
 
   const fetchData = async (query) => {
     setIsLoading(true);
     setError(null);
+    setSearchTerm("");
     try {
       const params = new URLSearchParams(Object.entries(query));
       const queryString = params.toString();
-      if (queryString === "") return;
+      if (queryString === "") {
+        setIsLoading(false);
+        return;
+      }
       const response = await fetch(`/api/exam-result?${queryString}`);
       if (!response.ok) {
         if (response.status === 429) {
           setError("Rate limit exceeded. Please try again later.");
         } else {
-          throw new Error(`HTTP error! status: ${response.status}`);
+          setError(`HTTP error! status: ${response.status}`);
         }
+        setFullData([]);
+        setFilteredData([]);
       } else {
         const data = await response.json();
-        setFilteredData(data);
         setFullData(data);
+        setFilteredData(data);
+        setError(null);
       }
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -97,129 +133,85 @@ const CollegePredictor = () => {
     }
   };
 
-  const handleQueryObjectChange = (key) => async (selectedOption) => {
+  // Debounced version of router.push
+  const debouncedRouterPush = useCallback(
+    debounce((newQueryObject) => {
+      const params = new URLSearchParams(Object.entries(newQueryObject));
+      const queryString = params.toString();
+      router.push(`/college_predictor?${queryString}`, undefined, {
+        shallow: true,
+      });
+      fetchData(newQueryObject); // Fetch data after route push
+    }, 500),
+    [router] // router as dependency
+  );
+
+  const handleQueryObjectChange = (key) => (selectedOption) => {
     const newQueryObject = {
       ...queryObject,
       [key]: selectedOption.label,
     };
     setQueryObject(newQueryObject);
-    const params = new URLSearchParams(Object.entries(newQueryObject));
-    const queryString = params.toString();
-    router.push(`/college_predictor?${queryString}`);
-    await fetchData(newQueryObject);
+    debouncedRouterPush(newQueryObject);
   };
 
-  const handlePhysicsMarksChange = async (e) => {
-    const value = e.target.value;
-    if (value === "" || (parseFloat(value) >= 0 && parseFloat(value) <= 100)) {
-      setPhysicsMarks(value);
-      
-      // Calculate composite score and update rank
-      const newQueryObject = {
-        ...queryObject,
-        physicsMarks: value,
-      };
-      
-      if (value !== "" && chemistryMarks !== "" && mathsMarks !== "") {
-        const scaledPhysics = (parseFloat(value) / 100) * 50;
-        const scaledChemistry = (parseFloat(chemistryMarks) / 100) * 50;
-        const scaledMaths = parseFloat(mathsMarks);
-        const compositeScore = scaledPhysics + scaledChemistry + scaledMaths;
-        
-        newQueryObject.rank = compositeScore.toFixed(2);
-      }
-      
-      setQueryObject(newQueryObject);
-      const params = new URLSearchParams(Object.entries(newQueryObject));
-      const queryString = params.toString();
-      router.push(`/college_predictor?${queryString}`);
-      await fetchData(newQueryObject);
-    }
+  const handleTneaScoreChange = (score, physics, chemistry, maths) => {
+    const newQueryObject = {
+      ...queryObject,
+      rank: score,
+      physicsMarks: physics,
+      chemistryMarks: chemistry,
+      mathsMarks: maths,
+    };
+    setQueryObject(newQueryObject);
+    // Optimistically update queryObject, debouncedRouterPush will handle the actual route update and fetch
+    debouncedRouterPush(newQueryObject);
   };
 
-  const handleChemistryMarksChange = async (e) => {
-    const value = e.target.value;
-    if (value === "" || (parseFloat(value) >= 0 && parseFloat(value) <= 100)) {
-      setChemistryMarks(value);
-      
-      // Calculate composite score and update rank
-      const newQueryObject = {
-        ...queryObject,
-        chemistryMarks: value,
-      };
-      
-      if (physicsMarks !== "" && value !== "" && mathsMarks !== "") {
-        const scaledPhysics = (parseFloat(physicsMarks) / 100) * 50;
-        const scaledChemistry = (parseFloat(value) / 100) * 50;
-        const scaledMaths = parseFloat(mathsMarks);
-        const compositeScore = scaledPhysics + scaledChemistry + scaledMaths;
-        
-        newQueryObject.rank = compositeScore.toFixed(2);
-      }
-      
-      setQueryObject(newQueryObject);
-      const params = new URLSearchParams(Object.entries(newQueryObject));
-      const queryString = params.toString();
-      router.push(`/college_predictor?${queryString}`);
-      await fetchData(newQueryObject);
-    }
-  };
-
-  const handleMathsMarksChange = async (e) => {
-    const value = e.target.value;
-    if (value === "" || (parseFloat(value) >= 0 && parseFloat(value) <= 100)) {
-      setMathsMarks(value);
-      
-      // Calculate composite score and update rank
-      const newQueryObject = {
-        ...queryObject,
-        mathsMarks: value,
-      };
-      
-      if (physicsMarks !== "" && chemistryMarks !== "" && value !== "") {
-        const scaledPhysics = (parseFloat(physicsMarks) / 100) * 50;
-        const scaledChemistry = (parseFloat(chemistryMarks) / 100) * 50;
-        const scaledMaths = parseFloat(value);
-        const compositeScore = scaledPhysics + scaledChemistry + scaledMaths;
-        
-        newQueryObject.rank = compositeScore.toFixed(2);
-      }
-      
-      setQueryObject(newQueryObject);
-      const params = new URLSearchParams(Object.entries(newQueryObject));
-      const queryString = params.toString();
-      router.push(`/college_predictor?${queryString}`);
-      await fetchData(newQueryObject);
-    }
-  };
-
-  const handleRankChange = async (e) => {
+  const handleRankChange = (e) => {
     const newQueryObject = {
       ...queryObject,
       rank: e.target.value,
     };
     setQueryObject(newQueryObject);
-    const params = new URLSearchParams(Object.entries(newQueryObject));
-    const queryString = params.toString();
-    router.push(`/college_predictor?${queryString}`);
-    await fetchData(newQueryObject);
+    debouncedRouterPush(newQueryObject);
   };
 
   useEffect(() => {
-    fetchData(router.query);
-  }, [router.query]);
+    // Fetch data when queryObject changes, if not empty
+    // This might be redundant if debouncedRouterPush also calls fetchData
+    // Let's ensure fetchData is called primarily via debouncedRouterPush or initial load
+    if (Object.keys(queryObject).length > 0) {
+      // Initial fetch if queryObject is populated from URL, subsequent fetches handled by interaction
+      if (router.isReady && !isLoading) {
+        // Ensure router is ready and not already loading
+        // Check if this is the initial load based on router.query vs queryObject
+        // This condition needs to be robust to prevent multiple initial fetches
+      }
+    }
+  }, [queryObject, router.isReady]); // router.isReady is important here
+
+  useEffect(() => {
+    // Initial data fetch when component mounts and router.query is available
+    if (router.isReady && Object.keys(router.query).length > 0) {
+      fetchData(router.query);
+    }
+  }, [router.isReady, router.query]); // Removed fetchData from here, will be called by debouncedRouterPush or initial useEffect
 
   const renderQueryDetails = () => {
-    const examConfig = examConfigs[router.query.exam];
+    const examConfig = examConfigs[queryObject.exam];
     if (!examConfig) return null;
 
     return (
       <div className="flex flex-col justify-center items-start sm:items-center mb-4 gap-2">
         <p className="text-sm md:text-base font-semibold">
-          Exam: {router.query.exam}
+          Exam: {queryObject.exam}
         </p>
         {examConfig.fields.map((field) => (
-          <div key={field.name} className="flex items-center justify-center gap-2">
+          <div
+            key={field.name}
+            className="flex items-center justify-center gap-2"
+          >
             <label className="font-semibold text-sm md:text-base">
               {field.label}
             </label>
@@ -230,77 +222,20 @@ const CollegePredictor = () => {
                   ? { value: option, label: option }
                   : option
               )}
-              selectedValue={router.query[field.name]}
+              selectedValue={queryObject[field.name]}
               onChange={handleQueryObjectChange(field.name)}
             />
           </div>
         ))}
-        
-        {router.query.exam === "TNEA" ? (
-          <>
-            <div className="flex gap-2 items-center">
-              <label className="block text-sm md:text-base font-semibold text-gray-700 mb-2">
-                Enter Physics marks out of 100
-              </label>
-              <input
-                type="number"
-                step="0.01"
-                min="0"
-                max="100"
-                value={physicsMarks}
-                onChange={handlePhysicsMarksChange}
-                className="border border-gray-300 rounded text-center"
-                placeholder="Physics marks"
-              />
-            </div>
-            
-            <div className="flex gap-2 items-center">
-              <label className="block text-sm md:text-base font-semibold text-gray-700 mb-2">
-                Enter Chemistry marks out of 100
-              </label>
-              <input
-                type="number"
-                step="0.01"
-                min="0"
-                max="100"
-                value={chemistryMarks}
-                onChange={handleChemistryMarksChange}
-                className="border border-gray-300 rounded text-center"
-                placeholder="Chemistry marks"
-              />
-            </div>
-            
-            <div className="flex gap-2 items-center">
-              <label className="block text-sm md:text-base font-semibold text-gray-700 mb-2">
-                Enter Mathematics marks out of 100
-              </label>
-              <input
-                type="number"
-                step="0.01"
-                min="0"
-                max="100"
-                value={mathsMarks}
-                onChange={handleMathsMarksChange}
-                className="border border-gray-300 rounded text-center"
-                placeholder="Mathematics marks"
-              />
-            </div>
-            
-            <div className="flex gap-2 items-center">
-              <label className="block text-sm md:text-base font-semibold text-gray-700 mb-2">
-                Composite Score (out of 200)
-              </label>
-              <input
-                type="text"
-                value={queryObject.rank || ""}
-                readOnly
-                className="border border-gray-300 rounded text-center bg-gray-100"
-              />
-            </div>
-            <p className="text-xs text-gray-600 mt-1">
-              Calculated automatically using the formula: (Physics × 0.5) + (Chemistry × 0.5) + Mathematics = Composite Score
-            </p>
-          </>
+
+        {queryObject.exam === "TNEA" ? (
+          <TneaScoreCalculator
+            initialPhysics={queryObject.physicsMarks || ""}
+            initialChemistry={queryObject.chemistryMarks || ""}
+            initialMaths={queryObject.mathsMarks || ""}
+            onScoreChange={handleTneaScoreChange}
+            readOnlyRank={true} // Rank is part of queryObject, TNEA calculator here just for inputs
+          />
         ) : (
           <div className="flex gap-2 items-center">
             <label className="block text-sm md:text-base font-semibold text-gray-700 mb-2">
@@ -309,8 +244,14 @@ const CollegePredictor = () => {
             <input
               type="number"
               step="1"
-              value={queryObject.rank}
+              value={queryObject.rank || ""}
               onChange={handleRankChange}
+              onKeyDown={(e) => {
+                // Prevent entering '.', 'e', '+', '-'
+                if ([".", "e", "E", "+", "-"].includes(e.key)) {
+                  e.preventDefault();
+                }
+              }}
               className="border border-gray-300 rounded text-center"
               placeholder="Enter your rank"
             />
@@ -323,50 +264,65 @@ const CollegePredictor = () => {
   return (
     <>
       <Head>
-        <title>College Predictor - Result</title>
+        <title>College Predictor Results - {getConstants().TITLE_SHORT}</title>
       </Head>
-      <div className="flex flex-col items-center p-4">
-        <div className="flex flex-col items-center justify-center w-full sm:w-5/6 md:w-3/4 bg-white p-6 rounded-lg shadow-lg">
-          <h1 className="text-2xl font-bold mb-4 text-center">
-            {getConstants().TITLE}
+      <div className="min-h-screen bg-gray-50 flex flex-col items-center pt-8 px-4">
+        <div className="w-full max-w-6xl bg-white shadow-xl rounded-lg p-6 md:p-8">
+          <h1 className="text-2xl sm:text-3xl font-bold text-center text-gray-800 mb-6">
+            College Predictions
           </h1>
-          {renderQueryDetails()}
-          {isLoading ? (
-            <div className="flex items-center justify-center flex-col mt-2">
-              <div className="border-t-2 border-transparent border-[#B52326] rounded-full w-8 h-8 animate-spin mb-2"></div>
-              <p>Loading your college predictions...</p>
+
+          {/* Query Details and Filters Section */}
+          <div className="mb-6 p-4 border border-gray-200 rounded-md bg-gray-50">
+            <h2 className="text-xl font-semibold text-gray-700 mb-3 text-center sm:text-left">
+              Your Selection
+            </h2>
+            {renderQueryDetails()}
+          </div>
+
+          {/* Search Bar - more prominent and visually grouped */}
+          {queryObject.exam && fullData.length > 0 && (
+            <div className="mb-6 p-4 border border-gray-200 rounded-md">
+              <label
+                htmlFor="search"
+                className="block text-md font-semibold text-gray-700 mb-2"
+              >
+                Search within results (by Institute, State, Program):
+              </label>
+              <input
+                type="text"
+                id="search"
+                value={searchTerm}
+                onChange={handleSearchChange}
+                className="border border-gray-300 rounded w-full p-2 text-center focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                placeholder="Type to search..."
+              />
             </div>
+          )}
+
+          {isLoading ? (
+            <div className="text-center py-10">
+              <p className="text-xl text-blue-600">Loading predictions...</p>
+            </div>
+          ) : error ? (
+            <div className="text-center py-10 px-4">
+              <p className="text-xl text-red-600 bg-red-100 p-4 rounded-md">
+                {error}
+              </p>
+            </div>
+          ) : filteredData.length > 0 ? (
+            <PredictedCollegeTables
+              data={filteredData}
+              exam={queryObject.exam}
+            />
           ) : (
-            <>
-              {/* Always render the search box */}
-              <div className="mb-4 w-full flex flex-col justify-center items-center">
-                <label className="block text-md font-semibold text-gray-700 content-center mx-2">
-                  Search: &#128269;
-                </label>
-                <input
-                  onChange={searchFun}
-                  placeholder="Name / State / Program"
-                  className="border border-gray-300 rounded text-center h-fit p-1 sm:w-5/12 w-3/4"
-                />
-                {error && <p className="text-red-600 mt-2">{error}</p>}
-              </div>
-              {filteredData.length === 0 ? (
-                <div className="text-center">
-                  <p>No colleges found matching your criteria.</p>
-                  <p>Try adjusting your rank or other parameters.</p>
-                </div>
-              ) : (
-                <div className="w-full overflow-x-auto">
-                  <h3 className="text-lg md:text-xl mb-4 text-center font-bold">
-                    Predicted colleges and courses for you:
-                  </h3>
-                  <PredictedCollegeTables
-                    data={filteredData}
-                    exam={router.query.exam}
-                  />
-                </div>
-              )}
-            </>
+            <div className="text-center py-10">
+              <p className="text-xl text-gray-600">
+                {fullData.length === 0 && !isLoading
+                  ? "No predictions available for your current selection. Try adjusting the filters."
+                  : "No results match your search term."}
+              </p>
+            </div>
           )}
         </div>
       </div>

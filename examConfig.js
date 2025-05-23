@@ -12,7 +12,6 @@ import path from "path";
  */
 
 export const statesList = [
-  "All India",
   "Andhra Pradesh",
   "Arunachal Pradesh",
   "Assam",
@@ -51,7 +50,7 @@ export const statesList = [
   "Puducherry",
 ];
 
-export const jeeMainJossaConfig = {
+export const jeeMainJosaaConfig = {
   name: "JEE Main-JOSAA",
   code: "JEE Main",
   fields: [
@@ -71,15 +70,24 @@ export const jeeMainJossaConfig = {
         { value: "st_pwd", label: "ST (PwD)" },
       ],
     },
-    {
-      name: "roundNumber",
-      label: "Select Round Number",
-      options: ["1", "2", "3", "4", "5", "6"],
-    },
+    // {
+    //   name: "roundNumber",
+    //   label: "Select Round Number",
+    //   options: ["1", "2", "3", "4", "5", "6"],
+    // },
     {
       name: "gender",
       label: "Select Gender",
       options: ["Gender-Neutral", "Female-only (including Supernumerary)"],
+    },
+    {
+      name: "program",
+      label: "Select Program",
+      options: [
+        { value: "engineering", label: "Engineering" },
+        { value: "architecture", label: "Architecture" },
+        { value: "planning", label: "Planning" },
+      ],
     },
     {
       name: "homeState",
@@ -101,13 +109,48 @@ export const jeeMainJossaConfig = {
       `${category}.json`
     );
   },
-  getFilters: (query) => [
-    (item) => item.Exam === query.code,
-    (item) => parseInt(item.Round, 10) === parseInt(query.roundNumber, 10),
-    (item) => item.Gender === query.gender,
-    (item) => item.Quota === "OS" || "AI",
-    (item) => item.State === query.homeState || "All India",
-  ],
+  getFilters: (query) => {
+    const baseFilters = [
+      (item) => item.Exam === query.code,
+      (item) => item.Gender === query.gender,
+      (item) => {
+        if (query.program === "Architecture") {
+          return item["Academic Program Name"]
+            .toLowerCase()
+            .includes("architecture");
+        } else if (query.program === "Planning") {
+          return item["Academic Program Name"]
+            .toLowerCase()
+            .includes("planning");
+        } else {
+          // Default to Engineering
+          return (
+            !item["Academic Program Name"]
+              .toLowerCase()
+              .includes("architecture") &&
+            !item["Academic Program Name"].toLowerCase().includes("planning")
+          );
+        }
+      },
+    ];
+
+    // query.homeState will now always be a specific state (not "All India")
+    return [
+      ...baseFilters,
+      (item) => {
+        // Always include 'AI' quota items
+        if (item.Quota === "AI") {
+          return true;
+        }
+        // For HS/OS quota, apply state matching
+        if (query.homeState === item.State) {
+          return item.Quota === "HS";
+        } else {
+          return item.Quota === "OS";
+        }
+      },
+    ];
+  },
 };
 
 export const jacExamConfig = {
@@ -189,11 +232,6 @@ export const jeeAdvancedConfig = {
       ],
     },
     {
-      name: "roundNumber",
-      label: "Select Round Number:",
-      options: ["1", "2", "3", "4", "5", "6"],
-    },
-    {
       name: "gender",
       label: "Select Gender",
       options: ["Gender-Neutral", "Female-only (including Supernumerary)"],
@@ -218,13 +256,29 @@ export const jeeAdvancedConfig = {
       `${category}.json`
     );
   },
-  getFilters: (query) => [
-    (item) => item.Exam === query.code,
-    (item) => parseInt(item.Round, 10) === parseInt(query.roundNumber, 10),
-    (item) => item.Gender === query.gender,
-    (item) => item.Quota === "OS" || "AI",
-    (item) => item.State === query.homeState || "All India",
-  ],
+  getFilters: (query) => {
+    const baseFilters = [
+      (item) => item.Exam === query.code,
+      (item) => item.Gender === query.gender,
+    ];
+
+    // query.homeState will now always be a specific state (not "All India")
+    return [
+      ...baseFilters,
+      (item) => {
+        // Always include 'AI' quota items
+        if (item.Quota === "AI") {
+          return true;
+        }
+        // For HS/OS quota, apply state matching
+        if (query.homeState === item.State) {
+          return item.Quota === "HS";
+        } else {
+          return item.Quota === "OS";
+        }
+      },
+    ];
+  },
 };
 
 export const neetConfig = {
@@ -435,25 +489,69 @@ export const tneaConfig = {
       name: "courseType",
       label: "Select Course Type",
       options: [
-        "Computer Science", "Electronics and Communications (ECE)", "Mechanical", "Electrical and Electronics (EEE)", "Civil", "Information Technology", "Biomedical", "Aerospace", "Automobile", "Robotics", "Electrical Engineering"
+        "Computer Science",
+        "Electronics and Communications (ECE)",
+        "Mechanical",
+        "Electrical and Electronics (EEE)",
+        "Civil",
+        "Information Technology",
+        "Biomedical",
+        "Aerospace",
+        "Automobile",
+        "Robotics",
+        "Electrical Engineering",
       ],
     },
     {
       name: "collegeType",
       label: "Select College Type",
       options: [
-        "State Government", 
-        "Private Aided (Government Aided)", 
-        "Private Un-Aided", 
+        "State Government",
+        "Private Aided (Government Aided)",
+        "Private Un-Aided",
         "University",
-        "Any"
+        "Any",
       ],
     },
     {
       name: "district",
       label: "Select District",
       options: [
-       "Any", "Ariyalur", "Chengalpattu", "Chennai", "Coimbatore", "Cuddalore", "Dharmapuri", "Dindigul", "Erode", "Hazaribagh", "Idukki", "Kancheepuram", "Kanniyakumari", "Karur", "Krishnagiri", "Madurai", "Mayiladuthurai", "Namakkal", "Perambalur", "Pudukkottai", "Ramanathapuram", "Salem", "Sivaganga", "Thanjavur", "Theni", "Thiruvallur", "Thiruvarur", "Thoothukkudi", "Tiruchirappalli", "Tirunelveli", "Tiruppur", "Tiruvannamalai", "Vellore", "Viluppuram", "Virudhunagar"
+        "Any",
+        "Ariyalur",
+        "Chengalpattu",
+        "Chennai",
+        "Coimbatore",
+        "Cuddalore",
+        "Dharmapuri",
+        "Dindigul",
+        "Erode",
+        "Hazaribagh",
+        "Idukki",
+        "Kancheepuram",
+        "Kanniyakumari",
+        "Karur",
+        "Krishnagiri",
+        "Madurai",
+        "Mayiladuthurai",
+        "Namakkal",
+        "Perambalur",
+        "Pudukkottai",
+        "Ramanathapuram",
+        "Salem",
+        "Sivaganga",
+        "Thanjavur",
+        "Theni",
+        "Thiruvallur",
+        "Thiruvarur",
+        "Thoothukkudi",
+        "Tiruchirappalli",
+        "Tirunelveli",
+        "Tiruppur",
+        "Tiruvannamalai",
+        "Vellore",
+        "Viluppuram",
+        "Virudhunagar",
       ],
     },
   ],
@@ -464,12 +562,13 @@ export const tneaConfig = {
     (item) => item.Category === query.category,
     (item) => item.Course === query.courseType,
     (item) => item.District === query.district || "Any" === query.district,
-    (item) => item["College Type"] === query.collegeType || "Any" === query.collegeType
+    (item) =>
+      item["College Type"] === query.collegeType || "Any" === query.collegeType,
   ],
 };
 
 export const examConfigs = {
-  "JEE Main-JOSAA": jeeMainJossaConfig,
+  "JEE Main-JOSAA": jeeMainJosaaConfig,
   "JEE Main-JAC": jacExamConfig,
   "JEE Advanced": jeeAdvancedConfig,
   "NEET": neetConfig,
