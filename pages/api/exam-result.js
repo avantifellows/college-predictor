@@ -86,7 +86,7 @@ export default async function handler(req, res) {
       })
       .sort((a, b) => {
         // Exams that should not be sorted by Closing Rank or any specific key
-        const noSortExams = ["JEE Main", "JEE Advanced"];
+        const noSortExams = ["JEE Main-JOSAA", "JEE Advanced", "JEE Main"];
         if (noSortExams.includes(exam)) {
           return 0; // Maintain original order from JSON
         }

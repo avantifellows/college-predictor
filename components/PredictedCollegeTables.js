@@ -23,7 +23,12 @@ const ExpandedRowComponent = ({ item, fields, exam, examColumnMapping }) => (
       className="p-4 border border-gray-300"
     >
       <div className="text-left text-sm sm:text-base">
-        {fields.map((field, index) => {
+        {typeof item.index !== 'undefined' && (
+          <div className="mb-2">
+            <b>Data Index:</b> <span>{item.index}</span>
+          </div>
+        )}
+        {fields.map((field, idx) => {
           const rawValue = item[field.key];
           let displayValue = "N/A"; // Default to N/A
 
@@ -51,7 +56,7 @@ const ExpandedRowComponent = ({ item, fields, exam, examColumnMapping }) => (
           }
 
           return (
-            <div key={index} className="mb-2">
+            <div key={idx} className="mb-2">
               <b>{field.label}:</b> <span>{displayValue}</span>
             </div>
           );
