@@ -23,7 +23,7 @@ const ExpandedRowComponent = ({ item, fields, exam, examColumnMapping }) => (
       className="p-4 border border-gray-300"
     >
       <div className="text-left text-sm sm:text-base">
-        {typeof item.index !== 'undefined' && (
+        {typeof item.index !== "undefined" && (
           <div className="mb-2">
             <b>Data Index:</b> <span>{item.index}</span>
           </div>

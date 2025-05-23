@@ -61,12 +61,10 @@ const ScholarshipFinder = () => {
       const queryString = params.toString();
       const response = await fetch(`/api/scholarship-data?${queryString}`);
       if (!response.ok) {
-        const errorData = await response
-          .json()
-          .catch(() => ({
-            message:
-              "No Scholarships found or an error occurred. Try adjusting your search criteria.",
-          }));
+        const errorData = await response.json().catch(() => ({
+          message:
+            "No Scholarships found or an error occurred. Try adjusting your search criteria.",
+        }));
         setError(
           response.status === 429
             ? "Rate limit exceeded. Please try again later."
