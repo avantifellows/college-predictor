@@ -239,7 +239,7 @@ const CollegePredictor = () => {
         ) : (
           <div className="flex gap-2 items-center">
             <label className="block text-sm md:text-base font-semibold text-gray-700 mb-2">
-              Enter Category Rank
+              {queryObject.exam === "JEE Main-JAC" ? "Enter All India Rank" : "Enter Category Rank"}
             </label>
             <input
               type="number"
@@ -253,7 +253,7 @@ const CollegePredictor = () => {
                 }
               }}
               className="border border-gray-300 rounded text-center"
-              placeholder="Enter your rank"
+              placeholder={queryObject.exam === "JEE Main-JAC" ? "Enter All India Rank" : "Enter your rank"}
             />
           </div>
         )}

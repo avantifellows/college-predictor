@@ -156,22 +156,20 @@ const ExamForm = () => {
 
               {selectedExam && selectedExam === "TNEA" ? (
                 <TneaScoreCalculator onScoreChange={handleTneaScoreChange} />
-              ) : (
-                selectedExam && (
-                  <div className="my-4 w-full sm:w-3/4">
-                    <label className="block text-md font-semibold text-gray-700 mb-2 -translate-x-3">
-                      Enter Category Rank
-                    </label>
-                    <input
-                      type="number"
-                      step="1"
-                      value={formData.rank || ""}
-                      onChange={handleRankChange}
-                      className="border border-gray-300 rounded w-full p-2 text-center"
-                      placeholder="Enter your rank"
-                    />
-                  </div>
-                )
+              ) : selectedExam && (
+                <div className="my-4 w-full sm:w-3/4">
+                  <label className="block text-md font-semibold text-gray-700 mb-2 -translate-x-3">
+                    {selectedExam === "JEE Main-JAC" ? "Enter All India Rank" : "Enter Category Rank"}
+                  </label>
+                  <input
+                    type="number"
+                    step="1"
+                    value={formData.rank || ""}
+                    onChange={handleRankChange}
+                    className="border border-gray-300 rounded w-full p-2 text-center"
+                    placeholder={selectedExam === "JEE Main-JAC" ? "Enter All India Rank" : "Enter your rank"}
+                  />
+                </div>
               )}
             </div>
             {selectedExam && (
