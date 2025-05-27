@@ -20,8 +20,8 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Open Sans", "Lato", sans-serif;
-  color: #414141;
-  background-color: white;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  @apply bg-white text-[#414141] dark:bg-[#121212] dark:text-white;
 }
 
 h1,
@@ -31,7 +31,7 @@ h4,
 h5,
 h6 {
   font-family: "Lato", sans-serif;
-  color: #2b2b2b;
+  @apply text-[#2b2b2b] dark:text-white;
 }
 
 ul {
