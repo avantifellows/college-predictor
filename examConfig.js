@@ -659,21 +659,25 @@ export const josaaConfig = {
     // JEE Main filter
     if (query.mainRank && parseInt(query.mainRank) > 0) {
       examFilters.push((item) => {
-        if (item.Exam !== "JEE Main") return false;
         const closingRank = parseInt(item["Closing Rank"]);
         const mainRank = parseInt(query.mainRank);
         return !isNaN(closingRank) && !isNaN(mainRank) && closingRank >= mainRank;
       });
+      console.log("JEE Main filter applied");
+      console.log("JEE Main rank", query.mainRank)
+      console.log(examFilters)
     }
     
     // JEE Advanced filter - only apply if user qualified and provided his jee adv rank
     if (query.qualifiedJeeAdv === "Yes" && query.advRank && parseInt(query.advRank) > 0) {
       examFilters.push((item) => {
-        if (item.Exam !== "JEE Advanced") return false;
         const closingRank = parseInt(item["Closing Rank"]);
         const advRank = parseInt(query.advRank);
         return !isNaN(closingRank) && !isNaN(advRank) && closingRank >= advRank;
       });
+      console.log("JEE Advanced filter applied");
+      console.log("JEE Advanced rank", query.advRank)
+      console.log(examFilters)
     }
 
     // If no valid ranks are provided, returning empty false
@@ -681,7 +685,7 @@ export const josaaConfig = {
       return [...baseFilters, () => false];
     }
 
-    // Same
+    // State filter
     const stateFilter = (item) => {
       // Always include 'AI' quota items
       if (item.Quota === "AI") {
@@ -695,7 +699,7 @@ export const josaaConfig = {
       }
     };
 
-    // Combine all filters
+    // Combine all filters - a row should match if it passes either rank filter
     return [
       ...baseFilters,
       (item) => examFilters.some(filter => filter(item)),
