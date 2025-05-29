@@ -73,6 +73,9 @@ export default async function handler(req, res) {
     const rankFilter = (item) => {
       if (exam == "TNEA") {
         return parseFloat(item["Cutoff Marks"]) <= parseFloat(rank);
+      } else if (item["Exam"] === "JEE Advanced" && req.query.advRank) {
+        // Use advRank for JEE Advanced colleges when available
+        return parseInt(item["Closing Rank"], 10) > 0.9 * parseInt(req.query.advRank, 10);
       } else {
         return parseInt(item["Closing Rank"], 10) > 0.9 * parseInt(rank, 10);
       }
