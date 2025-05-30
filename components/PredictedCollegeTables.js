@@ -95,6 +95,14 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
       { key: "closing_rank", label: "Cutoff Marks" },
       { key: "quota", label: "Category" },
     ],
+    JoSAA: [
+      { key: "state", label: "State" },
+      { key: "institute", label: "Institute" },
+      { key: "academic_program_name", label: "Academic Program Name" },
+      { key: "exam_type", label: "Exam Type" },
+      { key: "closing_rank", label: "Closing Rank" },
+      { key: "quota", label: "Category" },
+    ],
     DEFAULT: [
       { key: "state", label: "State" },
       { key: "institute", label: "Institute" },
@@ -116,6 +124,16 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
         college_type: item["College Type"],
         closing_rank: item["Cutoff Marks"],
         quota: item["Category"],
+      };
+    }
+    if (exam === "JoSAA") {
+      return {
+        institute: item["Institute"],
+        state: item["State"],
+        academic_program_name: item["Academic Program Name"],
+        exam_type: item["Exam"],
+        closing_rank: item["Closing Rank"],
+        quota: item["Quota"] || item["Category"],
       };
     }
     return {
@@ -146,8 +164,6 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
       const transformedItem = transformData(item);
       return (
         <React.Fragment key={index}>
-          {" "}
-          {/* Added React.Fragment */}
           <tr
             className={`${commonCellClass} ${
               index % 2 === 0 ? "bg-gray-100" : "bg-white"
@@ -174,16 +190,18 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
                 {transformedItem.college_type}
               </td>
             )}
+            {exam === "JoSAA" && (
+              <td className="p-2 border-r border-gray-300">
+                {transformedItem.exam_type}
+              </td>
+            )}
             <td className="p-2 border-r border-gray-300">
               {transformedItem.closing_rank}
             </td>
             <td className="p-2 border-r border-gray-300">
               {transformedItem.quota}
-            </td>{" "}
-            {/* Added border class */}
+            </td>
             <td className="p-2">
-              {" "}
-              {/* Added Actions cell */}
               <div className="flex justify-center">
                 <button
                   className="px-4 py-2 rounded bg-red-500 text-white hover:bg-red-600"
@@ -194,7 +212,7 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
               </div>
             </td>
           </tr>
-          {expandedRows[index] /* Added expanded row rendering */ && (
+          {expandedRows[index] && (
             <ExpandedRowComponent
               item={item}
               fields={expandedFields}

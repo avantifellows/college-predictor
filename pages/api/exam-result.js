@@ -73,8 +73,22 @@ export default async function handler(req, res) {
     const rankFilter = (item) => {
       if (exam == "TNEA") {
         return parseFloat(item["Cutoff Marks"]) <= parseFloat(rank);
+      } else if (exam === "JoSAA") {
+        // For JoSAA, handle both JEE Main and JEE Advanced ranks
+        if (item["Exam"] === "JEE Advanced" && req.query.advRank) {
+          // Use advRank for JEE Advanced colleges when available
+          return parseInt(item["Closing Rank"], 10) >= 0.9 * parseInt(req.query.advRank, 10);
+        } else if (req.query.mainRank) {
+          // Use mainRank for JEE Main colleges
+          return parseInt(item["Closing Rank"], 10) >= 0.9 * parseInt(req.query.mainRank, 10);
+        }
+        // No fallback to rank - if neither mainRank nor advRank is provided, don't include the item
+        return false;
+      } else if (item["Exam"] === "JEE Advanced" && req.query.advRank) {
+        // For other exams, use advRank for JEE Advanced colleges when available
+        return parseInt(item["Closing Rank"], 10) >= 0.9 * parseInt(req.query.advRank, 10);
       } else {
-        return parseInt(item["Closing Rank"], 10) > 0.9 * parseInt(rank, 10);
+        return parseInt(item["Closing Rank"], 10) >= 0.9 * parseInt(rank, 10);
       }
     };
 

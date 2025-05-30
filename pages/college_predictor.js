@@ -136,18 +136,34 @@ const CollegePredictor = () => {
   // Debounced version of router.push
   const debouncedRouterPush = useCallback(
     debounce((newQueryObject) => {
-      const params = new URLSearchParams(Object.entries(newQueryObject));
+      // Ensure both mainRank and advRank are included in the query when appropriate
+      let updatedQueryObject = { ...newQueryObject };
+
+      // For JoSAA exam, handle mainRank and advRank
+      if (updatedQueryObject.exam === "JoSAA") {
+        // If rank is set but mainRank is not, use rank as mainRank
+        if (updatedQueryObject.rank && !updatedQueryObject.mainRank) {
+          updatedQueryObject.mainRank = updatedQueryObject.rank;
+        }
+
+        // If user didn't qualify for JEE Advanced, make sure advRank is not sent
+        if (updatedQueryObject.qualifiedJeeAdv === "No") {
+          delete updatedQueryObject.advRank;
+        }
+      }
+
+      const params = new URLSearchParams(Object.entries(updatedQueryObject));
       const queryString = params.toString();
       router.push(`/college_predictor?${queryString}`, undefined, {
         shallow: true,
       });
-      fetchData(newQueryObject); // Fetch data after route push
+      fetchData(updatedQueryObject); // Fetch data after route push
     }, 500),
     [router] // router as dependency
   );
 
   const handleQueryObjectChange = (key) => (selectedOption) => {
-    const newQueryObject = {
+    let newQueryObject = {
       ...queryObject,
       [key]: selectedOption.label,
     };
@@ -169,9 +185,24 @@ const CollegePredictor = () => {
   };
 
   const handleRankChange = (e) => {
-    const newQueryObject = {
+    const value = Math.floor(Number(e.target.value)); // Convert to integer
+    let newQueryObject = {
       ...queryObject,
-      rank: e.target.value,
+      rank: value,
+    };
+    // If JoSAA, set mainRank only if it's JEE Main rank
+    if (queryObject.exam === "JoSAA" && !queryObject.qualifiedJeeAdv) {
+      newQueryObject.mainRank = value;
+    }
+    setQueryObject(newQueryObject);
+    debouncedRouterPush(newQueryObject);
+  };
+
+  const handleJeeAdvancedRankChange = (e) => {
+    const value = Math.floor(Number(e.target.value));
+    let newQueryObject = {
+      ...queryObject,
+      advRank: value,
     };
     setQueryObject(newQueryObject);
     debouncedRouterPush(newQueryObject);
@@ -228,34 +259,101 @@ const CollegePredictor = () => {
           </div>
         ))}
 
+        {queryObject.exam === "JoSAA" && (
+          <>
+            <div className="flex gap-2 items-center">
+              <label className="block text-sm md:text-base font-semibold text-gray-700 mb-2">
+                Enter Category Rank for JEE Main
+              </label>
+              <input
+                type="number"
+                step="1"
+                value={
+                  queryObject.mainRank !== undefined
+                    ? Math.floor(Number(queryObject.mainRank))
+                    : queryObject.rank
+                    ? Math.floor(Number(queryObject.rank))
+                    : ""
+                }
+                onChange={(e) => {
+                  const value = Math.floor(Number(e.target.value));
+                  const newQueryObject = {
+                    ...queryObject,
+                    mainRank: value,
+                    rank: value, // keep in sync
+                  };
+                  setQueryObject(newQueryObject);
+                  debouncedRouterPush(newQueryObject);
+                }}
+                onKeyDown={(e) => {
+                  if ([".", "e", "E", "+", "-"].includes(e.key)) {
+                    e.preventDefault();
+                  }
+                }}
+                className="border border-gray-300 rounded text-center"
+                placeholder="Enter JEE Main rank"
+              />
+            </div>
+
+            {queryObject.qualifiedJeeAdv === "Yes" && (
+              <div className="flex gap-2 items-center">
+                <label className="block text-sm md:text-base font-semibold text-gray-700 mb-2">
+                  Enter Category Rank for JEE Advanced
+                </label>
+                <input
+                  type="number"
+                  step="1"
+                  value={queryObject.advRank || ""}
+                  onChange={handleJeeAdvancedRankChange}
+                  onKeyDown={(e) => {
+                    if ([".", "e", "E", "+", "-"].includes(e.key)) {
+                      e.preventDefault();
+                    }
+                  }}
+                  className="border border-gray-300 rounded text-center"
+                  placeholder="Enter JEE Advanced rank"
+                />
+              </div>
+            )}
+          </>
+        )}
+
         {queryObject.exam === "TNEA" ? (
           <TneaScoreCalculator
             initialPhysics={queryObject.physicsMarks || ""}
             initialChemistry={queryObject.chemistryMarks || ""}
             initialMaths={queryObject.mathsMarks || ""}
             onScoreChange={handleTneaScoreChange}
-            readOnlyRank={true} // Rank is part of queryObject, TNEA calculator here just for inputs
+            readOnlyRank={true}
           />
         ) : (
-          <div className="flex gap-2 items-center">
-            <label className="block text-sm md:text-base font-semibold text-gray-700 mb-2">
-              {queryObject.exam === "JEE Main-JAC" ? "Enter All India Rank" : "Enter Category Rank"}
-            </label>
-            <input
-              type="number"
-              step="1"
-              value={queryObject.rank || ""}
-              onChange={handleRankChange}
-              onKeyDown={(e) => {
-                // Prevent entering '.', 'e', '+', '-'
-                if ([".", "e", "E", "+", "-"].includes(e.key)) {
-                  e.preventDefault();
+          queryObject.exam !== "JoSAA" && (
+            <div className="flex gap-2 items-center">
+              <label className="block text-sm md:text-base font-semibold text-gray-700 mb-2">
+                {queryObject.exam === "JEE Main-JAC"
+                  ? "Enter All India Rank"
+                  : "Enter Category Rank"}
+              </label>
+              <input
+                type="number"
+                step="1"
+                value={queryObject.rank || ""}
+                onChange={handleRankChange}
+                onKeyDown={(e) => {
+                  // Prevent entering '.', 'e', '+', '-'
+                  if ([".", "e", "E", "+", "-"].includes(e.key)) {
+                    e.preventDefault();
+                  }
+                }}
+                className="border border-gray-300 rounded text-center"
+                placeholder={
+                  queryObject.exam === "JEE Main-JAC"
+                    ? "Enter All India Rank"
+                    : "Enter your rank"
                 }
-              }}
-              className="border border-gray-300 rounded text-center"
-              placeholder={queryObject.exam === "JEE Main-JAC" ? "Enter All India Rank" : "Enter your rank"}
-            />
-          </div>
+              />
+            </div>
+          )
         )}
       </div>
     );
