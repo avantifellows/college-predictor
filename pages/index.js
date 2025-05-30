@@ -36,7 +36,7 @@ const ExamForm = () => {
       ...formData,
       [name]: selectedOption.label,
     };
-    
+
     // If this is JoSAA exam and the user is changing qualifiedJeeAdv
     if (selectedExam === "JoSAA" && name === "qualifiedJeeAdv") {
       // If they select "No", remove advRank if it exists
@@ -44,7 +44,7 @@ const ExamForm = () => {
         delete newFormData.advRank;
       }
     }
-    
+
     setFormData(newFormData);
   };
 
@@ -53,7 +53,7 @@ const ExamForm = () => {
     const newFormData = {
       ...formData,
     };
-    
+
     // If this is JoSAA exam, set mainRank directly instead of using rank
     if (selectedExam === "JoSAA") {
       newFormData.mainRank = enteredRank;
@@ -61,10 +61,10 @@ const ExamForm = () => {
       // For other exams, use the general rank parameter
       newFormData.rank = enteredRank;
     }
-    
+
     setFormData(newFormData);
   };
-  
+
   const handleAdvancedRankChange = (e) => {
     const enteredRank = e.target.value;
     setFormData((prevData) => ({
@@ -91,19 +91,24 @@ const ExamForm = () => {
         alert("Please enter your JEE Main rank.");
         return;
       }
-      
+
       // Validate JEE Advanced rank if user selected Yes for JEE Advanced qualification
-      if (formData.qualifiedJeeAdv === "Yes" && (!formData.advRank || formData.advRank === "")) {
-        alert("Please enter your JEE Advanced rank since you qualified for JEE Advanced.");
+      if (
+        formData.qualifiedJeeAdv === "Yes" &&
+        (!formData.advRank || formData.advRank === "")
+      ) {
+        alert(
+          "Please enter your JEE Advanced rank since you qualified for JEE Advanced."
+        );
         return;
       }
-      
+
       // Remove general rank parameter for JoSAA if it exists
-      const cleanedFormData = {...formData};
+      const cleanedFormData = { ...formData };
       if (cleanedFormData.rank) {
         delete cleanedFormData.rank;
       }
-      
+
       const queryString = Object.entries(cleanedFormData)
         .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
         .join("&");
@@ -136,21 +141,35 @@ const ExamForm = () => {
           .some(([_, value]) => !value)
       );
     }
-    
+
     // For JoSAA exam with JEE Advanced qualification
     if (selectedExam === "JoSAA") {
       // Basic validation for all JoSAA fields
-      const requiredFields = ["exam", "category", "gender", "program", "homeState", "qualifiedJeeAdv", "mainRank"];
-      const missingRequiredField = requiredFields.some(field => !formData[field]);
-      
+      const requiredFields = [
+        "exam",
+        "category",
+        "gender",
+        "program",
+        "homeState",
+        "qualifiedJeeAdv",
+        "mainRank",
+      ];
+      const missingRequiredField = requiredFields.some(
+        (field) => !formData[field]
+      );
+
       // If user qualified for JEE Advanced, also require advRank
       if (formData.qualifiedJeeAdv === "Yes") {
-        return missingRequiredField || !formData.advRank || formData.advRank === "";
+        return (
+          missingRequiredField || !formData.advRank || formData.advRank === ""
+        );
       }
-      
-      return missingRequiredField || !formData.mainRank || formData.mainRank === "";
+
+      return (
+        missingRequiredField || !formData.mainRank || formData.mainRank === ""
+      );
     }
-    
+
     // For all other exams
     return (
       !formData.rank ||
@@ -215,11 +234,14 @@ const ExamForm = () => {
                   htmlFor="exam"
                   className="block text-md font-semibold text-gray-700 mb-2 -translate-x-4"
                 >
-                  Select an exam
+                  Select Exam/Counselling Process
                 </label>
                 <Dropdown
                   options={Object.keys(examConfigs)
-                    .filter(exam => exam !== "JEE Main-JOSAA" && exam !== "JEE Advanced") // Filter out these two exams
+                    .filter(
+                      (exam) =>
+                        exam !== "JEE Main-JOSAA" && exam !== "JEE Advanced"
+                    ) // Filter out these two exams
                     .map((exam) => ({
                       value: exam,
                       label: exam,
@@ -234,41 +256,56 @@ const ExamForm = () => {
 
               {selectedExam && selectedExam === "TNEA" ? (
                 <TneaScoreCalculator onScoreChange={handleTneaScoreChange} />
-              ) : selectedExam && (
-                <>
-                  <div className="my-4 w-full sm:w-3/4">
-                    <label className="block text-md font-semibold text-gray-700 mb-2 -translate-x-3">
-                      {selectedExam === "JEE Main-JAC" ? "Enter All India Rank" : 
-                       selectedExam === "JoSAA" ? "Enter JEE Main Rank" : "Enter Category Rank"}
-                    </label>
-                    <input
-                      type="number"
-                      step="1"
-                      value={selectedExam === "JoSAA" ? formData.mainRank || "" : formData.rank || ""}
-                      onChange={handleRankChange}
-                      className="border border-gray-300 rounded w-full p-2 text-center"
-                      placeholder={selectedExam === "JEE Main-JAC" ? "Enter All India Rank" : 
-                                  selectedExam === "JoSAA" ? "Enter JEE Main rank" : "Enter your rank"}
-                    />
-                  </div>
-                  
-                  {/* JEE Advanced Rank input field - only show if user selected Yes for qualifiedJeeAdv */}
-                  {selectedExam === "JoSAA" && formData.qualifiedJeeAdv === "Yes" && (
+              ) : (
+                selectedExam && (
+                  <>
                     <div className="my-4 w-full sm:w-3/4">
                       <label className="block text-md font-semibold text-gray-700 mb-2 -translate-x-3">
-                        Enter JEE Advanced Rank
+                        {selectedExam === "JEE Main-JAC"
+                          ? "Enter All India Rank"
+                          : selectedExam === "JoSAA"
+                          ? "Enter JEE Main Category Rank"
+                          : "Enter Category Rank"}
                       </label>
                       <input
                         type="number"
                         step="1"
-                        value={formData.advRank || ""}
-                        onChange={handleAdvancedRankChange}
+                        value={
+                          selectedExam === "JoSAA"
+                            ? formData.mainRank || ""
+                            : formData.rank || ""
+                        }
+                        onChange={handleRankChange}
                         className="border border-gray-300 rounded w-full p-2 text-center"
-                        placeholder="Enter JEE Advanced rank"
+                        placeholder={
+                          selectedExam === "JEE Main-JAC"
+                            ? "Enter All India Rank"
+                            : selectedExam === "JoSAA"
+                            ? "Enter JEE Main rank"
+                            : "Enter your rank"
+                        }
                       />
                     </div>
-                  )}
-                </>
+
+                    {/* JEE Advanced Rank input field - only show if user selected Yes for qualifiedJeeAdv */}
+                    {selectedExam === "JoSAA" &&
+                      formData.qualifiedJeeAdv === "Yes" && (
+                        <div className="my-4 w-full sm:w-3/4">
+                          <label className="block text-md font-semibold text-gray-700 mb-2 -translate-x-3">
+                            Enter JEE Advanced Category Rank
+                          </label>
+                          <input
+                            type="number"
+                            step="1"
+                            value={formData.advRank || ""}
+                            onChange={handleAdvancedRankChange}
+                            className="border border-gray-300 rounded w-full p-2 text-center"
+                            placeholder="Enter JEE Advanced rank"
+                          />
+                        </div>
+                      )}
+                  </>
+                )
               )}
             </div>
             {selectedExam && (
@@ -282,11 +319,14 @@ const ExamForm = () => {
                 </button>
                 {isSubmitDisabled() && (
                   <p className="text-red-600 text-sm mt-2 -translate-x-4">
-                    {selectedExam === "JoSAA" && formData.qualifiedJeeAdv === "Yes" && (!formData.advRank || formData.advRank === "") ?
-                      "Please enter your JEE Advanced rank." :
-                      selectedExam === "JoSAA" && (!formData.mainRank || formData.mainRank === "") ?
-                      "Please enter your JEE Main rank." :
-                      "Please fill all the required fields before submitting!"}
+                    {selectedExam === "JoSAA" &&
+                    formData.qualifiedJeeAdv === "Yes" &&
+                    (!formData.advRank || formData.advRank === "")
+                      ? "Please enter your JEE Advanced rank."
+                      : selectedExam === "JoSAA" &&
+                        (!formData.mainRank || formData.mainRank === "")
+                      ? "Please enter your JEE Main rank."
+                      : "Please fill all the required fields before submitting!"}
                   </p>
                 )}
               </>
