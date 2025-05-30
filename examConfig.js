@@ -663,9 +663,6 @@ export const josaaConfig = {
         const mainRank = parseInt(query.mainRank);
         return !isNaN(closingRank) && !isNaN(mainRank) && closingRank >= mainRank;
       });
-      console.log("JEE Main filter applied");
-      console.log("JEE Main rank", query.mainRank)
-      console.log(examFilters)
     }
     
     // JEE Advanced filter - only apply if user qualified and provided his jee adv rank
@@ -675,9 +672,6 @@ export const josaaConfig = {
         const advRank = parseInt(query.advRank);
         return !isNaN(closingRank) && !isNaN(advRank) && closingRank >= advRank;
       });
-      console.log("JEE Advanced filter applied");
-      console.log("JEE Advanced rank", query.advRank)
-      console.log(examFilters)
     }
 
     // If no valid ranks are provided, returning empty false
