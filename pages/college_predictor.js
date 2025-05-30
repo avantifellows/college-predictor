@@ -136,12 +136,28 @@ const CollegePredictor = () => {
   // Debounced version of router.push
   const debouncedRouterPush = useCallback(
     debounce((newQueryObject) => {
-      const params = new URLSearchParams(Object.entries(newQueryObject));
+      // Ensure both mainRank and advRank are included in the query when appropriate
+      let updatedQueryObject = { ...newQueryObject };
+
+      // For JoSAA exam, handle mainRank and advRank
+      if (updatedQueryObject.exam === "JoSAA") {
+        // If rank is set but mainRank is not, use rank as mainRank
+        if (updatedQueryObject.rank && !updatedQueryObject.mainRank) {
+          updatedQueryObject.mainRank = updatedQueryObject.rank;
+        }
+
+        // If user didn't qualify for JEE Advanced, make sure advRank is not sent
+        if (updatedQueryObject.qualifiedJeeAdv === "No") {
+          delete updatedQueryObject.advRank;
+        }
+      }
+
+      const params = new URLSearchParams(Object.entries(updatedQueryObject));
       const queryString = params.toString();
       router.push(`/college_predictor?${queryString}`, undefined, {
         shallow: true,
       });
-      fetchData(newQueryObject); // Fetch data after route push
+      fetchData(updatedQueryObject); // Fetch data after route push
     }, 500),
     [router] // router as dependency
   );

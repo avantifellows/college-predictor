@@ -32,17 +32,42 @@ const ExamForm = () => {
   };
 
   const handleInputChange = (name) => (selectedOption) => {
-    setFormData((prevData) => ({
-      ...prevData,
+    const newFormData = {
+      ...formData,
       [name]: selectedOption.label,
-    }));
+    };
+
+    // If this is JoSAA exam and the user is changing qualifiedJeeAdv
+    if (selectedExam === "JoSAA" && name === "qualifiedJeeAdv") {
+      // If they select "No", remove advRank if it exists
+      if (selectedOption.label === "No" && newFormData.advRank) {
+        delete newFormData.advRank;
+      }
+    }
+
+    setFormData(newFormData);
   };
 
   const handleRankChange = (e) => {
     const enteredRank = e.target.value;
+    const newFormData = {
+      ...formData,
+      rank: enteredRank,
+    };
+
+    // If this is JoSAA exam, also set mainRank to be the same as rank
+    if (selectedExam === "JoSAA") {
+      newFormData.mainRank = enteredRank;
+    }
+
+    setFormData(newFormData);
+  };
+
+  const handleAdvancedRankChange = (e) => {
+    const enteredRank = e.target.value;
     setFormData((prevData) => ({
       ...prevData,
-      rank: enteredRank,
+      advRank: enteredRank,
     }));
   };
 
@@ -156,20 +181,52 @@ const ExamForm = () => {
 
               {selectedExam && selectedExam === "TNEA" ? (
                 <TneaScoreCalculator onScoreChange={handleTneaScoreChange} />
-              ) : selectedExam && (
-                <div className="my-4 w-full sm:w-3/4">
-                  <label className="block text-md font-semibold text-gray-700 mb-2 -translate-x-3">
-                    {selectedExam === "JEE Main-JAC" ? "Enter All India Rank" : "Enter Category Rank"}
-                  </label>
-                  <input
-                    type="number"
-                    step="1"
-                    value={formData.rank || ""}
-                    onChange={handleRankChange}
-                    className="border border-gray-300 rounded w-full p-2 text-center"
-                    placeholder={selectedExam === "JEE Main-JAC" ? "Enter All India Rank" : "Enter your rank"}
-                  />
-                </div>
+              ) : (
+                selectedExam && (
+                  <>
+                    <div className="my-4 w-full sm:w-3/4">
+                      <label className="block text-md font-semibold text-gray-700 mb-2 -translate-x-3">
+                        {selectedExam === "JEE Main-JAC"
+                          ? "Enter All India Rank"
+                          : selectedExam === "JoSAA"
+                          ? "Enter JEE Main Rank"
+                          : "Enter Category Rank"}
+                      </label>
+                      <input
+                        type="number"
+                        step="1"
+                        value={formData.rank || ""}
+                        onChange={handleRankChange}
+                        className="border border-gray-300 rounded w-full p-2 text-center"
+                        placeholder={
+                          selectedExam === "JEE Main-JAC"
+                            ? "Enter All India Rank"
+                            : selectedExam === "JoSAA"
+                            ? "Enter JEE Main rank"
+                            : "Enter your rank"
+                        }
+                      />
+                    </div>
+
+                    {/* JEE Advanced Rank input field - only show if user selected Yes for qualifiedJeeAdv */}
+                    {selectedExam === "JoSAA" &&
+                      formData.qualifiedJeeAdv === "Yes" && (
+                        <div className="my-4 w-full sm:w-3/4">
+                          <label className="block text-md font-semibold text-gray-700 mb-2 -translate-x-3">
+                            Enter JEE Advanced Rank
+                          </label>
+                          <input
+                            type="number"
+                            step="1"
+                            value={formData.advRank || ""}
+                            onChange={handleAdvancedRankChange}
+                            className="border border-gray-300 rounded w-full p-2 text-center"
+                            placeholder="Enter JEE Advanced rank"
+                          />
+                        </div>
+                      )}
+                  </>
+                )
               )}
             </div>
             {selectedExam && (
