@@ -1,9 +1,9 @@
 import Link from "next/link";
 import React from "react";
-import { Facebook } from "lucide-react";
-import { Instagram } from "lucide-react";
+import { Facebook, Instagram } from "lucide-react";
 import { usePathname } from "next/navigation";
-import { RiMoonLine, RiSunLine } from "@remixicon/react";
+import { Moon } from 'lucide-react';
+import { Sun } from 'lucide-react';
 
 const Navbar = ({ item1, item2, theme, toggleTheme }) => {
   const pathname = usePathname();
@@ -53,17 +53,9 @@ const Navbar = ({ item1, item2, theme, toggleTheme }) => {
             className=" absolute right-4 top-1/2 transform -translate-y-1/2
                       transition-colors duration-300 focus:outline-none"
           >
-            {theme === 'dark' ? <RiMoonLine
-              size={50}
-              color="white"
-              className="my-icon bg-black 
-              px-3 py-3 rounded-full "
-            />:<RiSunLine
-              size={50}
-              color="black"
-              className="my-icon bg-white
-              px-3 py-3 rounded-full"
-            /> }
+            <div className={`text-3xl p-2 rounded-full ${theme === 'dark' ? 'bg-black text-white' : 'bg-white text-black'}`}>
+              {theme === 'dark' ? <Moon /> : <Sun />}
+            </div>
             
           </button>
 
