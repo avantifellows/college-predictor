@@ -2,9 +2,38 @@ import fs from "fs/promises";
 import examConfigs from "../../examConfig";
 import rateLimit from "express-rate-limit";
 
+// Helper function to get client IP address
+const getIp = (req) => {
+  const xForwardedFor = req.headers["x-forwarded-for"];
+  if (typeof xForwardedFor === "string") {
+    return xForwardedFor.split(",")[0].trim();
+  }
+  if (Array.isArray(xForwardedFor) && xForwardedFor.length > 0) {
+    return xForwardedFor[0].trim();
+  }
+  // Fallback to socket remoteAddress or connection remoteAddress
+  return req.socket?.remoteAddress || req.connection?.remoteAddress;
+};
+
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
   max: 100, // limit each IP to 100 requests per windowMs
+  standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
+  legacyHeaders: false, // Disable the `X-RateLimit-*` headers
+  // trustProxy: true, // Removed as we are using a custom keyGenerator
+  keyGenerator: (req, res) => {
+    const ip = getIp(req);
+    if (!ip) {
+      // This is a fallback, but ideally, an IP should always be found.
+      // If IP is consistently not found, the getIp logic might need adjustment
+      // for your specific environment/proxy setup.
+      console.warn(
+        "Rate limiter: IP address could not be determined. Using a default key for rate limiting. This might group multiple users."
+      );
+      return "default-fallback-key";
+    }
+    return ip;
+  },
   handler: (req, res) => {
     res.status(429).json({
       error: "Too many requests. Please try again later.",
@@ -44,8 +73,36 @@ export default async function handler(req, res) {
     const rankFilter = (item) => {
       if (exam == "TNEA") {
         return parseFloat(item["Cutoff Marks"]) <= parseFloat(rank);
+      } else if (exam === "JoSAA") {
+        // For JoSAA, handle both JEE Main and JEE Advanced ranks
+        if (item["Exam"] === "JEE Advanced") {
+          // Only show JEE Advanced colleges if user qualified for JEE Advanced and provided a rank
+          return (
+            req.query.qualifiedJeeAdv === "Yes" &&
+            req.query.advRank &&
+            parseInt(item["Closing Rank"], 10) >=
+              0.9 * parseInt(req.query.advRank, 10)
+          );
+        } else {
+          // For JEE Main colleges, check if mainRank is provided
+          return (
+            req.query.mainRank &&
+            parseInt(item["Closing Rank"], 10) >=
+              0.9 * parseInt(req.query.mainRank, 10)
+          );
+        }
+      } else if (item["Exam"] === "JEE Advanced") {
+        // For other exams, only show JEE Advanced colleges if advRank is provided
+        return (
+          req.query.advRank &&
+          parseInt(item["Closing Rank"], 10) >=
+            0.9 * parseInt(req.query.advRank, 10)
+        );
       } else {
-        return parseInt(item["Closing Rank"], 10) > 0.9 * parseInt(rank, 10);
+        // For other exams, use the general rank parameter
+        return (
+          rank && parseInt(item["Closing Rank"], 10) >= 0.9 * parseInt(rank, 10)
+        );
       }
     };
 
@@ -56,10 +113,20 @@ export default async function handler(req, res) {
         return filterResults.every((result) => result) && rankFilter(item);
       })
       .sort((a, b) => {
-        const sortingKey = exam == "TNEA" ? "Cutoff Marks" : "Closing Rank";
-        if (exam == "TNEA") {
-          return b[sortingKey] - a[sortingKey];
-        } else return a[sortingKey] - b[sortingKey];
+        // Exams that should not be sorted by Closing Rank or any specific key
+        const noSortExams = ["JEE Main-JOSAA", "JEE Advanced", "JEE Main"];
+        if (noSortExams.includes(exam)) {
+          return 0; // Maintain original order from JSON
+        }
+
+        const sortingKey = exam === "TNEA" ? "Cutoff Marks" : "Closing Rank";
+        if (exam === "TNEA") {
+          // TNEA sorts by Cutoff Marks (descending - higher is better)
+          return parseFloat(b[sortingKey]) - parseFloat(a[sortingKey]);
+        } else {
+          // Other exams sort by Closing Rank (ascending - lower is better)
+          return parseInt(a[sortingKey], 10) - parseInt(b[sortingKey], 10);
+        }
       });
 
     return res.status(200).json(filteredData);

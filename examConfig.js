@@ -12,7 +12,6 @@ import path from "path";
  */
 
 export const statesList = [
-  "All India",
   "Andhra Pradesh",
   "Arunachal Pradesh",
   "Assam",
@@ -51,7 +50,7 @@ export const statesList = [
   "Puducherry",
 ];
 
-export const jeeMainJossaConfig = {
+export const jeeMainJosaaConfig = {
   name: "JEE Main-JOSAA",
   code: "JEE Main",
   fields: [
@@ -71,15 +70,24 @@ export const jeeMainJossaConfig = {
         { value: "st_pwd", label: "ST (PwD)" },
       ],
     },
-    {
-      name: "roundNumber",
-      label: "Select Round Number",
-      options: ["1", "2", "3", "4", "5", "6"],
-    },
+    // {
+    //   name: "roundNumber",
+    //   label: "Select Round Number",
+    //   options: ["1", "2", "3", "4", "5", "6"],
+    // },
     {
       name: "gender",
       label: "Select Gender",
       options: ["Gender-Neutral", "Female-only (including Supernumerary)"],
+    },
+    {
+      name: "program",
+      label: "Select Program",
+      options: [
+        { value: "engineering", label: "Engineering" },
+        { value: "architecture", label: "Architecture" },
+        { value: "planning", label: "Planning" },
+      ],
     },
     {
       name: "homeState",
@@ -101,13 +109,48 @@ export const jeeMainJossaConfig = {
       `${category}.json`
     );
   },
-  getFilters: (query) => [
-    (item) => item.Exam === query.code,
-    (item) => parseInt(item.Round, 10) === parseInt(query.roundNumber, 10),
-    (item) => item.Gender === query.gender,
-    (item) => item.Quota === "OS" || "AI",
-    (item) => item.State === query.homeState || "All India",
-  ],
+  getFilters: (query) => {
+    const baseFilters = [
+      (item) => item.Exam === query.code,
+      (item) => item.Gender === query.gender,
+      (item) => {
+        if (query.program === "Architecture") {
+          return item["Academic Program Name"]
+            .toLowerCase()
+            .includes("architecture");
+        } else if (query.program === "Planning") {
+          return item["Academic Program Name"]
+            .toLowerCase()
+            .includes("planning");
+        } else {
+          // Default to Engineering
+          return (
+            !item["Academic Program Name"]
+              .toLowerCase()
+              .includes("architecture") &&
+            !item["Academic Program Name"].toLowerCase().includes("planning")
+          );
+        }
+      },
+    ];
+
+    // query.homeState will now always be a specific state (not "All India")
+    return [
+      ...baseFilters,
+      (item) => {
+        // Always include 'AI' quota items
+        if (item.Quota === "AI") {
+          return true;
+        }
+        // For HS/OS quota, apply state matching
+        if (query.homeState === item.State) {
+          return item.Quota === "HS";
+        } else {
+          return item.Quota === "OS";
+        }
+      },
+    ];
+  },
 };
 
 export const jacExamConfig = {
@@ -189,11 +232,6 @@ export const jeeAdvancedConfig = {
       ],
     },
     {
-      name: "roundNumber",
-      label: "Select Round Number:",
-      options: ["1", "2", "3", "4", "5", "6"],
-    },
-    {
       name: "gender",
       label: "Select Gender",
       options: ["Gender-Neutral", "Female-only (including Supernumerary)"],
@@ -218,13 +256,29 @@ export const jeeAdvancedConfig = {
       `${category}.json`
     );
   },
-  getFilters: (query) => [
-    (item) => item.Exam === query.code,
-    (item) => parseInt(item.Round, 10) === parseInt(query.roundNumber, 10),
-    (item) => item.Gender === query.gender,
-    (item) => item.Quota === "OS" || "AI",
-    (item) => item.State === query.homeState || "All India",
-  ],
+  getFilters: (query) => {
+    const baseFilters = [
+      (item) => item.Exam === query.code,
+      (item) => item.Gender === query.gender,
+    ];
+
+    // query.homeState will now always be a specific state (not "All India")
+    return [
+      ...baseFilters,
+      (item) => {
+        // Always include 'AI' quota items
+        if (item.Quota === "AI") {
+          return true;
+        }
+        // For HS/OS quota, apply state matching
+        if (query.homeState === item.State) {
+          return item.Quota === "HS";
+        } else {
+          return item.Quota === "OS";
+        }
+      },
+    ];
+  },
 };
 
 export const neetConfig = {
@@ -438,13 +492,66 @@ export const tneaConfig = {
         "Computer Science",
         "Electronics and Communications (ECE)",
         "Mechanical",
-        "Electronics and Electronics (EEE)",
+        "Electrical and Electronics (EEE)",
         "Civil",
-        "IT",
+        "Information Technology",
         "Biomedical",
         "Aerospace",
         "Automobile",
         "Robotics",
+        "Electrical Engineering",
+      ],
+    },
+    {
+      name: "collegeType",
+      label: "Select College Type",
+      options: [
+        "State Government",
+        "Private Aided (Government Aided)",
+        "Private Un-Aided",
+        "University",
+        "Any",
+      ],
+    },
+    {
+      name: "district",
+      label: "Select District",
+      options: [
+        "Any",
+        "Ariyalur",
+        "Chengalpattu",
+        "Chennai",
+        "Coimbatore",
+        "Cuddalore",
+        "Dharmapuri",
+        "Dindigul",
+        "Erode",
+        "Hazaribagh",
+        "Idukki",
+        "Kancheepuram",
+        "Kanniyakumari",
+        "Karur",
+        "Krishnagiri",
+        "Madurai",
+        "Mayiladuthurai",
+        "Namakkal",
+        "Perambalur",
+        "Pudukkottai",
+        "Ramanathapuram",
+        "Salem",
+        "Sivaganga",
+        "Thanjavur",
+        "Theni",
+        "Thiruvallur",
+        "Thiruvarur",
+        "Thoothukkudi",
+        "Tiruchirappalli",
+        "Tirunelveli",
+        "Tiruppur",
+        "Tiruvannamalai",
+        "Vellore",
+        "Viluppuram",
+        "Virudhunagar",
       ],
     },
   ],
@@ -454,13 +561,158 @@ export const tneaConfig = {
   getFilters: (query) => [
     (item) => item.Category === query.category,
     (item) => item.Course === query.courseType,
+    (item) => item.District === query.district || "Any" === query.district,
+    (item) =>
+      item["College Type"] === query.collegeType || "Any" === query.collegeType,
   ],
 };
 
+export const josaaConfig = {
+  name: "JoSAA",
+  code: "JoSAA",
+  fields: [
+    {
+      name: "category",
+      label: "Select Category",
+      options: [
+        { value: "ews", label: "EWS" },
+        { value: "ews_pwd", label: "EWS (PwD)" },
+        { value: "obc_ncl", label: "OBC-NCL" },
+        { value: "obc_ncl_pwd", label: "OBC-NCL (PwD)" },
+        { value: "open", label: "OPEN" },
+        { value: "open_pwd", label: "OPEN (PwD)" },
+        { value: "sc", label: "SC" },
+        { value: "sc_pwd", label: "SC (PwD)" },
+        { value: "st", label: "ST" },
+        { value: "st_pwd", label: "ST (PwD)" },
+      ],
+    },
+    {
+      name: "gender",
+      label: "Select Gender",
+      options: ["Gender-Neutral", "Female-only (including Supernumerary)"],
+    },
+    {
+      name: "program",
+      label: "Select Program",
+      options: [
+        { value: "engineering", label: "Engineering" },
+        { value: "architecture", label: "Architecture" },
+        { value: "planning", label: "Planning" },
+      ],
+    },
+    {
+      name: "homeState",
+      label: "Select Your Home State",
+      options: statesList,
+    },
+    {
+      name: "qualifiedJeeAdv",
+      label: "Did you qualify JEE Advanced?",
+      options: [
+        { value: "No", label: "No" },
+        { value: "Yes", label: "Yes" },
+      ],
+    },
+  ],
+  legend: [
+    { key: "AI", value: "All India" },
+    { key: "HS", value: "Home State" },
+    { key: "OS", value: "Out of State" },
+  ],
+  getDataPath: (category) => {
+    return path.join(
+      process.cwd(),
+      "public",
+      "data",
+      "JEE",
+      `${category}.json`
+    );
+  },
+  getFilters: (query) => {
+    const baseFilters = [
+      (item) => item.Gender === query.gender,
+      (item) => {
+        if (query.program === "architecture") {
+          return item["Academic Program Name"]
+            .toLowerCase()
+            .includes("architecture");
+        } else if (query.program === "planning") {
+          return item["Academic Program Name"]
+            .toLowerCase()
+            .includes("planning");
+        } else {
+          // Default to Engineering
+          return (
+            !item["Academic Program Name"]
+              .toLowerCase()
+              .includes("architecture") &&
+            !item["Academic Program Name"].toLowerCase().includes("planning")
+          );
+        }
+      },
+    ];
+
+    // Separate filters for JEE Main and JEE Advanced
+    const examFilters = [];
+
+    // JEE Main filter
+    if (query.mainRank && parseInt(query.mainRank) > 0) {
+      examFilters.push((item) => {
+        const closingRank = parseInt(item["Closing Rank"]);
+        const mainRank = parseInt(query.mainRank);
+        return (
+          !isNaN(closingRank) && !isNaN(mainRank) && closingRank >= 0.9*mainRank
+        );
+      });
+    }
+
+    // JEE Advanced filter - only apply if user qualified and provided his jee adv rank
+    if (
+      query.qualifiedJeeAdv === "Yes" &&
+      query.advRank &&
+      parseInt(query.advRank) > 0
+    ) {
+      examFilters.push((item) => {
+        const closingRank = parseInt(item["Closing Rank"]);
+        const advRank = parseInt(query.advRank);
+        return !isNaN(closingRank) && !isNaN(advRank) && closingRank >= 0.9*advRank;
+      });
+    }
+
+    // If no valid ranks are provided, returning empty false
+    if (examFilters.length === 0) {
+      return [...baseFilters, () => false];
+    }
+
+    // State filter
+    const stateFilter = (item) => {
+      // Always include 'AI' quota items
+      if (item.Quota === "AI") {
+        return true;
+      }
+      // For HS/OS quota, apply state matching
+      if (query.homeState === item.State) {
+        return item.Quota === "HS";
+      } else {
+        return item.Quota === "OS";
+      }
+    };
+
+    // Combine all filters - a row should match if it passes either rank filter
+    return [
+      ...baseFilters,
+      (item) => examFilters.some((filter) => filter(item)),
+      stateFilter,
+    ];
+  },
+};
+
 export const examConfigs = {
-  "JEE Main-JOSAA": jeeMainJossaConfig,
+  "JEE Main-JOSAA": jeeMainJosaaConfig,
   "JEE Main-JAC": jacExamConfig,
   "JEE Advanced": jeeAdvancedConfig,
+  "JoSAA": josaaConfig,
   "NEET": neetConfig,
   "MHT CET": mhtCetConfig,
   "KCET": kcetConfig,
