@@ -7,6 +7,7 @@ const expandedFields = [
   { key: "Opening Rank", label: "Opening Rank" },
   { key: "Closing Rank", label: "Closing Rank" },
   { key: "State", label: "State" },
+  { key: "Gender", label: "Gender" },
   { key: "College Type", label: "College Type" },
   { key: "Management Type", label: "Management Type" },
   { key: "Expected Salary", label: "Expected Salary" },
@@ -116,6 +117,8 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
     examColumnMapping[exam] || examColumnMapping.DEFAULT;
 
   const transformData = (item) => {
+    console.log("transforming data");
+    console.log(JSON.stringify(item, null, 2));
     if (exam === "TNEA") {
       return {
         institute_id: item["Institute ID"],
@@ -130,6 +133,7 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
       return {
         institute: item["Institute"],
         state: item["State"],
+        gender: item["Gender"],
         academic_program_name: item["Academic Program Name"],
         exam_type: item["Exam"],
         closing_rank: item["Closing Rank"],

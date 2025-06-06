@@ -631,7 +631,7 @@ export const josaaConfig = {
   },
   getFilters: (query) => {
     const baseFilters = [
-      (item) => item.Gender === query.gender,
+      (item) => item.Gender === query.gender || item.Gender === 'All',
       (item) => {
         if (query.program === "architecture") {
           return item["Academic Program Name"]
