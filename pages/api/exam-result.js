@@ -69,40 +69,77 @@ export default async function handler(req, res) {
     // Get filters based on the exam config and query parameters
     const filters = config.getFilters(req.query);
 
-    // Common rank filter
+    // Helper function to parse rank (handles 'P' suffix)
+    const parseRank = (rankStr) => {
+      if (!rankStr) return null;
+      const numStr = rankStr.toString().replace(/[^0-9]/g, '');
+      return numStr ? parseInt(numStr, 10) : null;
+    };
+
+    const hasPSuffix = (rankStr) => {
+      if (!rankStr) return false;
+      return rankStr.toString().trim().toUpperCase().endsWith('P');
+    };
+
     const rankFilter = (item) => {
-      if (exam == "TNEA") {
+      if (exam === "TNEA") {
         return parseFloat(item["Cutoff Marks"]) <= parseFloat(rank);
-      } else if (exam === "JoSAA") {
-        // For JoSAA, handle both JEE Main and JEE Advanced ranks
+      }
+
+      const itemRankStr = item["Closing Rank"]?.toString().trim() || '';
+      const itemRank = parseRank(itemRankStr);
+      const itemHasPSuffix = hasPSuffix(itemRankStr);
+
+      if (exam === "JoSAA") {
         if (item["Exam"] === "JEE Advanced") {
-          // Only show JEE Advanced colleges if user qualified for JEE Advanced and provided a rank
-          return (
-            req.query.qualifiedJeeAdv === "Yes" &&
-            req.query.advRank &&
-            parseInt(item["Closing Rank"], 10) >=
-              0.9 * parseInt(req.query.advRank, 10)
-          );
+          if (req.query.qualifiedJeeAdv !== "Yes" || !req.query.advRank) return false;
+          
+          const userRankStr = req.query.advRank?.toString().trim() || '';
+          const userRank = parseRank(userRankStr);
+          const userHasPSuffix = hasPSuffix(userRankStr);
+          
+          // If one has 'P' suffix and the other doesn't, they don't match
+          if (itemHasPSuffix !== userHasPSuffix) return false;
+          
+          return userRank && itemRank >= 0.9 * userRank;
         } else {
-          // For JEE Main colleges, check if mainRank is provided
-          return (
-            req.query.mainRank &&
-            parseInt(item["Closing Rank"], 10) >=
-              0.9 * parseInt(req.query.mainRank, 10)
-          );
+          if (!req.query.mainRank) return false;
+          
+          const userRankStr = req.query.mainRank?.toString().trim() || '';
+          const userRank = parseRank(userRankStr);
+          const userHasPSuffix = hasPSuffix(userRankStr);
+          
+          // If one has 'P' suffix and the other doesn't, they don't match
+          if (itemHasPSuffix !== userHasPSuffix) return false;
+          
+          return userRank && itemRank >= 0.9 * userRank;
         }
-      } else if (item["Exam"] === "JEE Advanced") {
-        // For other exams, only show JEE Advanced colleges if advRank is provided
-        return (
-          req.query.advRank &&
-          parseInt(item["Closing Rank"], 10) >=
-            0.9 * parseInt(req.query.advRank, 10)
-        );
+      } else if (exam === "JEE Advanced") {
+        if (item["Exam"] !== "JEE Advanced") return false;
+        if (!req.query.advRank) return false;
+        
+        const userRankStr = req.query.advRank?.toString().trim() || '';
+        const userRank = parseRank(userRankStr);
+        const userHasPSuffix = hasPSuffix(userRankStr);
+        
+        // If one has 'P' suffix and the other doesn't, they don't match
+        if (itemHasPSuffix !== userHasPSuffix) return false;
+        
+        return userRank && itemRank >= 0.9 * userRank;
+      } else if (exam === "JEE Main") {
+        if (item["Exam"] === "JEE Advanced") return false;
+        if (!req.query.mainRank) return false;
+        
+        const userRankStr = req.query.mainRank?.toString().trim() || '';
+        const userRank = parseRank(userRankStr);
+        const userHasPSuffix = hasPSuffix(userRankStr);
+        
+        // If one has 'P' suffix and the other doesn't, they don't match
+        if (itemHasPSuffix !== userHasPSuffix) return false;
+        
+        return userRank && itemRank >= 0.9 * userRank;
       } else {
-        // For other exams, use the general rank parameter
-        return (
-          rank && parseInt(item["Closing Rank"], 10) >= 0.9 * parseInt(rank, 10)
-        );
+        return true;
       }
     };
 
