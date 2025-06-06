@@ -631,7 +631,7 @@ export const josaaConfig = {
   },
   getFilters: (query) => {
     const baseFilters = [
-      (item) => item.Gender === query.gender,
+      (item) => item.Gender === query.gender || item.Gender === 'All',
       (item) => {
         if (query.program === "architecture") {
           return item["Academic Program Name"]
@@ -671,12 +671,25 @@ export const josaaConfig = {
     if (
       query.qualifiedJeeAdv === "Yes" &&
       query.advRank &&
-      parseInt(query.advRank) > 0
+      query.advRank.toString().trim() !== ''
     ) {
+      const advRankStr = query.advRank.toString().trim();
+      const hasPSuffix = advRankStr.endsWith('P');
+      const numericAdvRank = parseInt(advRankStr.replace(/[^0-9]/g, '')) || 0;
+      
       examFilters.push((item) => {
-        const closingRank = parseInt(item["Closing Rank"]);
-        const advRank = parseInt(query.advRank);
-        return !isNaN(closingRank) && !isNaN(advRank) && closingRank >= 0.9*advRank;
+        const closingRankStr = String(item["Closing Rank"] || '').trim();
+        const hasClosingPSuffix = closingRankStr.endsWith('P');
+        
+        // If input has 'P' suffix, only match ranks that also have 'P' suffix
+        // If input doesn't have 'P' suffix, only match ranks that also don't have 'P' suffix
+        if (hasPSuffix !== hasClosingPSuffix) {
+          return false;
+        }
+        
+        // Compare numeric values
+        const numericClosingRank = parseInt(closingRankStr.replace(/[^0-9]/g, '')) || 0;
+        return numericClosingRank >= 0.9 * numericAdvRank;
       });
     }
 

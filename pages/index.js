@@ -16,6 +16,7 @@ const ExamForm = () => {
   const [selectedExam, setSelectedExam] = useState("");
   const [formData, setFormData] = useState({});
   const [config, setConfig] = useState(null);
+  const [rankError, setRankError] = useState('');
   const router = useRouter();
 
   const handleExamChange = (selectedOption) => {
@@ -66,7 +67,22 @@ const ExamForm = () => {
   };
 
   const handleAdvancedRankChange = (e) => {
-    const enteredRank = e.target.value;
+    let enteredRank = e.target.value;
+    
+    // Validate input format: must be a positive integer or positive integer followed by 'P' or 'p'
+    const isValidFormat = /^\d+[pP]?$/.test(enteredRank) || enteredRank === '';
+    
+    if (!isValidFormat) {
+      setRankError('Please enter a valid rank (e.g., 104 or 104P)');
+    } else {
+      setRankError('');
+    }
+    
+    // Convert lowercase 'p' to uppercase 'P' if it's the last character
+    if (enteredRank.endsWith('p')) {
+      enteredRank = enteredRank.slice(0, -1) + 'P';
+    }
+    
     setFormData((prevData) => ({
       ...prevData,
       advRank: enteredRank,
@@ -292,16 +308,29 @@ const ExamForm = () => {
                       formData.qualifiedJeeAdv === "Yes" && (
                         <div className="my-4 w-full sm:w-3/4">
                           <label className="block text-md font-semibold text-gray-700 mb-2 -translate-x-3">
-                            Enter JEE Advanced Category Rank
+                            Enter JEE Advanced Category Rank 
                           </label>
-                          <input
-                            type="number"
-                            step="1"
-                            value={formData.advRank || ""}
-                            onChange={handleAdvancedRankChange}
-                            className="border border-gray-300 rounded w-full p-2 text-center"
-                            placeholder="Enter JEE Advanced rank"
-                          />
+                          <div className="flex flex-col w-full">
+                            <input
+                              type="string"
+                              step="1"
+                              value={formData.advRank || ""}
+                              onChange={handleAdvancedRankChange}
+                              onKeyDown={(e) => {
+                                if ([ ".", "e", "E", "+", "-", " "].includes(e.key)) {
+                                  e.preventDefault();
+                                }
+                              }}
+                              className={`border ${rankError ? 'border-red-500' : 'border-gray-300'} rounded w-full p-2 text-center`}
+                              placeholder="e.g., 104 or 104P"
+                            />
+                            {rankError && (
+                              <p className="text-red-500 text-sm mt-1">{rankError}</p>
+                            )}
+                            <p className="text-xs text-gray-500 mt-1">
+                              Enter rank (e.g., 104) or rank with 'P' suffix (e.g., 104P) 
+                            </p>
+                          </div>
                         </div>
                       )}
                   </>
