@@ -117,8 +117,6 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
     examColumnMapping[exam] || examColumnMapping.DEFAULT;
 
   const transformData = (item) => {
-    console.log("transforming data");
-    console.log(JSON.stringify(item, null, 2));
     if (exam === "TNEA") {
       return {
         institute_id: item["Institute ID"],
