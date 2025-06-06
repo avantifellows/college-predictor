@@ -109,24 +109,17 @@ export default async function handler(req, res) {
     const filteredData = fullData
       .filter((item) => {
         const filterResults = filters.map((filter) => filter(item));
-
         return filterResults.every((result) => result) && rankFilter(item);
       })
       .sort((a, b) => {
-        // Exams that should not be sorted by Closing Rank or any specific key
+        // Exams that should not be sorted
         const noSortExams = ["JEE Main-JOSAA", "JEE Advanced", "JEE Main"];
         if (noSortExams.includes(exam)) {
           return 0; // Maintain original order from JSON
         }
 
-        const sortingKey = exam === "TNEA" ? "Cutoff Marks" : "Closing Rank";
-        if (exam === "TNEA") {
-          // TNEA sorts by Cutoff Marks (descending - higher is better)
-          return parseFloat(b[sortingKey]) - parseFloat(a[sortingKey]);
-        } else {
-          // Other exams sort by Closing Rank (ascending - lower is better)
-          return parseInt(a[sortingKey], 10) - parseInt(b[sortingKey], 10);
-        }
+        // Sort by AF Hierarchy (ascending - lower is better)
+        return parseFloat(a["AF Hierarchy"]) - parseFloat(b["AF Hierarchy"]);
       });
 
     return res.status(200).json(filteredData);
