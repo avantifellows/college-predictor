@@ -198,14 +198,36 @@ const CollegePredictor = () => {
     debouncedRouterPush(newQueryObject);
   };
 
+  const [rankError, setRankError] = useState('');
+
   const handleJeeAdvancedRankChange = (e) => {
-    const value = Math.floor(Number(e.target.value));
+    let value = e.target.value;
+    
+    // Validate input format: must be a positive integer or positive integer followed by 'P' or 'p'
+    const isValidFormat = /^\d+[pP]?$/.test(value);
+    
+    if (!isValidFormat && value !== '') {
+      setRankError('Please enter a valid rank (e.g., 104 or 104P)');
+      return;
+    } else {
+      setRankError('');
+    }
+    
+    // Convert lowercase 'p' to uppercase 'P' if it's the last character
+    if (value.endsWith('p')) {
+      value = value.slice(0, -1) + 'P';
+    }
+    
     let newQueryObject = {
       ...queryObject,
       advRank: value,
     };
     setQueryObject(newQueryObject);
-    debouncedRouterPush(newQueryObject);
+    
+    // Only proceed with debounced router push if input is valid
+    if (isValidFormat) {
+      debouncedRouterPush(newQueryObject);
+    }
   };
 
   useEffect(() => {
@@ -296,23 +318,31 @@ const CollegePredictor = () => {
             </div>
 
             {queryObject.qualifiedJeeAdv === "Yes" && (
-              <div className="flex gap-2 items-center">
-                <label className="block text-sm md:text-base font-semibold text-gray-700 mb-2">
-                  Enter Category Rank for JEE Advanced
-                </label>
-                <input
-                  type="number"
-                  step="1"
-                  value={queryObject.advRank || ""}
-                  onChange={handleJeeAdvancedRankChange}
-                  onKeyDown={(e) => {
-                    if ([".", "e", "E", "+", "-"].includes(e.key)) {
-                      e.preventDefault();
-                    }
-                  }}
-                  className="border border-gray-300 rounded text-center"
-                  placeholder="Enter JEE Advanced rank"
-                />
+              <div className="flex flex-col gap-1">
+                <div className="flex gap-2 items-center">
+                  <label className="block text-sm md:text-base font-semibold text-gray-700">
+                    Enter Category Rank for JEE Advanced
+                  </label>
+                  <input
+                    type="string"
+                    step="1"
+                    value={queryObject.advRank || ""}
+                    onChange={handleJeeAdvancedRankChange}
+                    onKeyDown={(e) => {
+                      if ([".", "e", "E", "+", "-", " "].includes(e.key)) {
+                        e.preventDefault();
+                      }
+                    }}
+                    className={`border ${rankError ? 'border-red-500' : 'border-gray-300'} rounded text-center`}
+                    placeholder="e.g., 104 or 104P"
+                  />
+                </div>
+                {rankError && (
+                  <p className="text-red-500 text-sm mt-1 ml-2">{rankError}</p>
+                )}
+                <p className="text-xs text-gray-500 mt-1 ml-2">
+                  Enter rank (e.g., 104) or rank with 'P' suffix (e.g., 104P) for PwD category
+                </p>
               </div>
             )}
           </>
