@@ -607,6 +607,14 @@ export const josaaConfig = {
       options: statesList,
     },
     {
+      name: "preferHomeState",
+      label: "Would you like to prioritize colleges in your home state?",
+      options: [
+        { value: "Yes", label: "Yes" },
+        { value: "No", label: "No" },
+      ],
+    },
+    {
       name: "qualifiedJeeAdv",
       label: "Did you qualify JEE Advanced?",
       options: [
