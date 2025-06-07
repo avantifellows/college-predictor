@@ -152,10 +152,10 @@ export default async function handler(req, res) {
     // Apply sorting based on exam type
     if (exam === "TNEA") {
       // For TNEA, sort by cutoff marks in descending order
-      filteredData.sort((a, b) => {
-        const aMarks = parseFloat(a["Cutoff Marks"]) || 0;
-        const bMarks = parseFloat(b["Cutoff Marks"]) || 0;
-        return bMarks - aMarks; // Descending order (higher cutoff first)
+      filteredData.sort((collegeA, collegeB) => {
+        const collegeAMarks = parseFloat(collegeA["Cutoff Marks"]) || 0;
+        const collegeBMarks = parseFloat(collegeB["Cutoff Marks"]) || 0;
+        return collegeBMarks - collegeAMarks; // Descending order (higher cutoff first)
       });
     } else if (exam === "JEE Main" || exam === "JEE Advanced" || exam === "JoSAA") {
       // For JEE Main, JEE Advanced, and JoSAA, sort by AF Hierarchy in ascending order
@@ -163,21 +163,21 @@ export default async function handler(req, res) {
       const preferHomeState = req.query.preferHomeState === 'Yes';
       const homeState = req.query.homeState;
       
-      filteredData.sort((a, b) => {
+      filteredData.sort((collegeA, collegeB) => {
         // If preferHomeState is Yes and homeState is provided
         if (preferHomeState && homeState) {
-          const aIsHomeState = a.State === homeState;
-          const bIsHomeState = b.State === homeState;
+          const isCollegeAHomeState = collegeA.State === homeState;
+          const isCollegeBHomeState = collegeB.State === homeState;
           
           // If one is from home state and the other is not, prioritize home state
-          if (aIsHomeState && !bIsHomeState) return -1;
-          if (!aIsHomeState && bIsHomeState) return 1;
+          if (isCollegeAHomeState && !isCollegeBHomeState) return -1;
+          if (!isCollegeAHomeState && isCollegeBHomeState) return 1;
         }
         
         // If both are from home state or both are not, sort by AF Hierarchy
-        const aAF = parseFloat(a["AF Hierarchy"]) || 0;
-        const bAF = parseFloat(b["AF Hierarchy"]) || 0;
-        return aAF - bAF; // Ascending order (lower AF Hierarchy first)
+        const collegeAAFHierarchy = parseFloat(collegeA["AF Hierarchy"]) || 0;
+        const collegeBAFHierarchy = parseFloat(collegeB["AF Hierarchy"]) || 0;
+        return collegeAAFHierarchy - collegeBAFHierarchy; // Ascending order (lower AF Hierarchy first)
       });
     }
 

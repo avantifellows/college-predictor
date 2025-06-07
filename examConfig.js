@@ -608,7 +608,7 @@ export const josaaConfig = {
     },
     {
       name: "preferHomeState",
-      label: "Would you like to prioritize colleges in your home state?",
+      label: (values) => `Do you want us to list colleges in ${values.homeState || 'your home state'} first?`,
       options: [
         { value: "Yes", label: "Yes" },
         { value: "No", label: "No" },
