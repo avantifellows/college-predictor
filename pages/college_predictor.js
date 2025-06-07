@@ -266,7 +266,7 @@ const CollegePredictor = () => {
             className="flex items-center justify-center gap-2"
           >
             <label className="font-semibold text-sm md:text-base">
-              {field.label}
+              {typeof field.label === 'function' ? field.label(queryObject) : field.label}
             </label>
             <Dropdown
               className="text-sm md:text-base"
