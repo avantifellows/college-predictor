@@ -205,7 +205,7 @@ const ExamForm = () => {
     return config.fields.map((field) => (
       <div key={field.name} className="my-4 w-full sm:w-3/4">
         <label className="block text-md font-semibold text-gray-700 mb-2 -translate-x-4">
-          {field.label}
+          {typeof field.label === 'function' ? field.label(formData) : field.label}
         </label>
         <Dropdown
           options={field.options.map((option) =>
