@@ -198,32 +198,32 @@ const CollegePredictor = () => {
     debouncedRouterPush(newQueryObject);
   };
 
-  const [rankError, setRankError] = useState('');
+  const [rankError, setRankError] = useState("");
 
   const handleJeeAdvancedRankChange = (e) => {
     let value = e.target.value;
-    
+
     // Validate input format: must be a positive integer or positive integer followed by 'P' or 'p'
     const isValidFormat = /^\d+[pP]?$/.test(value);
-    
-    if (!isValidFormat && value !== '') {
-      setRankError('Please enter a valid rank (e.g., 104 or 104P)');
+
+    if (!isValidFormat && value !== "") {
+      setRankError("Please enter a valid rank (e.g., 104 or 104P)");
       return;
     } else {
-      setRankError('');
+      setRankError("");
     }
-    
+
     // Convert lowercase 'p' to uppercase 'P' if it's the last character
-    if (value.endsWith('p')) {
-      value = value.slice(0, -1) + 'P';
+    if (value.endsWith("p")) {
+      value = value.slice(0, -1) + "P";
     }
-    
+
     let newQueryObject = {
       ...queryObject,
       advRank: value,
     };
     setQueryObject(newQueryObject);
-    
+
     // Only proceed with debounced router push if input is valid
     if (isValidFormat) {
       debouncedRouterPush(newQueryObject);
@@ -266,7 +266,9 @@ const CollegePredictor = () => {
             className="flex items-center justify-center gap-2"
           >
             <label className="font-semibold text-sm md:text-base">
-              {typeof field.label === 'function' ? field.label(queryObject) : field.label}
+              {typeof field.label === "function"
+                ? field.label(queryObject)
+                : field.label}
             </label>
             <Dropdown
               className="text-sm md:text-base"
@@ -333,7 +335,9 @@ const CollegePredictor = () => {
                         e.preventDefault();
                       }
                     }}
-                    className={`border ${rankError ? 'border-red-500' : 'border-gray-300'} rounded text-center`}
+                    className={`border ${
+                      rankError ? "border-red-500" : "border-gray-300"
+                    } rounded text-center`}
                     placeholder="e.g., 104 or 104P"
                   />
                 </div>
@@ -341,7 +345,8 @@ const CollegePredictor = () => {
                   <p className="text-red-500 text-sm mt-1 ml-2">{rankError}</p>
                 )}
                 <p className="text-xs text-gray-500 mt-1 ml-2">
-                  Enter rank (e.g., 104) or rank with 'P' suffix (e.g., 104P) for PwD category
+                  Enter rank (e.g., 104) or rank with 'P' suffix (e.g., 104P)
+                  for PwD category
                 </p>
               </div>
             )}
