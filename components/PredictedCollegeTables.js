@@ -148,7 +148,9 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
         closing_rank: item.closing_rank || "N/A",
         // Keep all other fields for the expanded view
         place: item.place || "N/A",
-        year_of_establish: item.year_of_establish || "N/A",
+        year_of_establish: item.year_of_establish
+          ? Math.floor(Number(item.year_of_establish)).toString()
+          : "N/A",
         tuition_fee: item.tuition_fee || "N/A",
         affiliated_to: item.affiliated_to || "N/A",
       };
