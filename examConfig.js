@@ -735,15 +735,92 @@ export const josaaConfig = {
   },
 };
 
+export const tseApertConfig = {
+  name: "TSEAPERT",
+  code: "TSEAPERT",
+  fields: [
+    {
+      name: "category",
+      label: "Select Category",
+      options: [
+        { value: "oc", label: "OC" },
+        { value: "bc_a", label: "BC-A" },
+        { value: "bc_b", label: "BC-B" },
+        { value: "bc_c", label: "BC-C" },
+        { value: "bc_d", label: "BC-D" },
+        { value: "bc_e", label: "BC-E" },
+        { value: "sc", label: "SC" },
+        { value: "st", label: "ST" },
+        { value: "ews", label: "EWS" },
+      ],
+    },
+    {
+      name: "gender",
+      label: "Select Gender",
+      options: ["Male", "Female"],
+    },
+    {
+      name: "region",
+      label: "Select Region",
+      options: ["OU", "Other"],
+    },
+  ],
+  legend: [
+    { key: "AI", value: "All India" },
+    { key: "OU", value: "OU Region" },
+    { key: "OTHER", value: "Other Region" },
+  ],
+  getDataPath: () => {
+    return path.join(
+      process.cwd(),
+      "public",
+      "data",
+      "TSEAPERT",
+      "tseapert.json"
+    );
+  },
+  getFilters: (query) => {
+    const userRank = parseInt(query.rank, 10);
+
+    const baseFilters = [
+      (item) => {
+        // Convert query category from URL format (with hyphens) to data format (with underscores)
+        const queryCategory = query.category?.toUpperCase().replace(/-/g, "_");
+        return item.category === queryCategory;
+      },
+      (item) => item.gender?.toLowerCase() === query.gender?.toLowerCase(),
+      (item) => {
+        // Only include items where closing_rank is greater than or equal to user's rank
+        const itemRank = parseInt(item.closing_rank, 10);
+        return !isNaN(itemRank) && itemRank >= userRank;
+      },
+    ];
+
+    // Add region filter if specified
+    if (query.region) {
+      baseFilters.push((item) => {
+        if (query.region === "OU") {
+          return item.region === "OU";
+        } else {
+          return item.region !== "OU";
+        }
+      });
+    }
+
+    return baseFilters;
+  },
+};
+
 export const examConfigs = {
   "JEE Main-JOSAA": jeeMainJosaaConfig,
   "JEE Main-JAC": jacExamConfig,
   "JEE Advanced": jeeAdvancedConfig,
-  "JoSAA": josaaConfig,
   "NEET": neetConfig,
   "MHT CET": mhtCetConfig,
   "KCET": kcetConfig,
   "TNEA": tneaConfig,
+  "JoSAA": josaaConfig,
+  "TSEAPERT": tseApertConfig,
 };
 
 export default examConfigs;

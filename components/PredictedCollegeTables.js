@@ -3,69 +3,64 @@ import PropTypes from "prop-types";
 import examConfigs from "../examConfig";
 
 // Define fields for the expanded view
-const expandedFields = [
-  { key: "Opening Rank", label: "Opening Rank" },
-  { key: "Closing Rank", label: "Closing Rank" },
-  { key: "State", label: "State" },
-  { key: "Gender", label: "Gender" },
-  { key: "College Type", label: "College Type" },
-  { key: "Management Type", label: "Management Type" },
-  { key: "Expected Salary", label: "Expected Salary" },
-  { key: "Salary Tier", label: "Salary Tier" },
-];
+const expandedFields = {
+  TSEAPERT: [
+    { key: "inst_code", label: "Institute Code" },
+    { key: "place", label: "Location" },
+    { key: "dist_code", label: "District Code" },
+    { key: "college_type", label: "College Type" },
+    { key: "year_of_establish", label: "Year Established" },
+    { key: "branch_code", label: "Branch Code" },
+    { key: "category", label: "Category" },
+    { key: "gender", label: "Gender" },
+    { key: "region", label: "Region" },
+  ],
+  DEFAULT: [
+    { key: "Opening Rank", label: "Opening Rank" },
+    { key: "Closing Rank", label: "Closing Rank" },
+    { key: "State", label: "State" },
+    { key: "Gender", label: "Gender" },
+    { key: "College Type", label: "College Type" },
+    { key: "Management Type", label: "Management Type" },
+    { key: "Expected Salary", label: "Expected Salary" },
+    { key: "Salary Tier", label: "Salary Tier" },
+  ],
+};
 
 // New ExpandedRow component
-const ExpandedRowComponent = ({ item, fields, exam, examColumnMapping }) => (
-  <tr>
-    <td
-      colSpan={
-        (examColumnMapping[exam] || examColumnMapping.DEFAULT).length + 1
-      }
-      className="p-4 border border-gray-300"
-    >
-      <div className="text-left text-sm sm:text-base">
-        {typeof item.index !== "undefined" && (
-          <div className="mb-2">
-            <b>Data Index:</b> <span>{item.index}</span>
-          </div>
-        )}
-        {fields.map((field, idx) => {
-          const rawValue = item[field.key];
-          let displayValue = "N/A"; // Default to N/A
+const ExpandedRowComponent = ({ item, fields, exam, examColumnMapping }) => {
+  const getFieldValue = (item, key) => {
+    if (key in item) {
+      const value = item[key];
+      return value !== null &&
+        value !== undefined &&
+        String(value).trim() !== ""
+        ? String(value)
+        : "N/A";
+    }
+    return "N/A";
+  };
 
-          if (
-            rawValue !== null &&
-            typeof rawValue !== "undefined" &&
-            String(rawValue).trim() !== ""
-          ) {
-            if (field.key === "Salary Tier") {
-              const parsedValue = parseFloat(String(rawValue));
-              if (!isNaN(parsedValue)) {
-                displayValue = parseInt(parsedValue, 10);
-              }
-            } else if (field.key === "Expected Salary") {
-              const cleanedValue = String(rawValue).replace(/[^0-9.]/g, "");
-              const numericValue = parseFloat(cleanedValue);
-              if (!isNaN(numericValue)) {
-                displayValue = `Rs. ${Number(numericValue).toLocaleString(
-                  "en-IN"
-                )}`;
-              }
-            } else {
-              displayValue = String(rawValue);
-            }
-          }
+  // Get the appropriate fields based on the exam type
+  const fieldsToShow = fields[exam] || fields.DEFAULT;
+  const columns = examColumnMapping[exam] || examColumnMapping.DEFAULT;
 
-          return (
-            <div key={idx} className="mb-2">
-              <b>{field.label}:</b> <span>{displayValue}</span>
+  return (
+    <tr>
+      <td colSpan={columns.length + 1} className="p-4 border border-gray-300">
+        <div className="grid grid-cols-2 gap-4 text-sm">
+          {fieldsToShow.map((field, idx) => (
+            <div key={idx}>
+              <p>
+                <strong>{field.label}:</strong> {getFieldValue(item, field.key)}
+              </p>
             </div>
-          );
-        })}
-      </div>
-    </td>
-  </tr>
-);
+          ))}
+        </div>
+      </td>
+    </tr>
+  );
+};
 
 const ROWS_PER_PAGE_INITIAL = 30; // Variable for initial rows
 
@@ -104,6 +99,11 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
       { key: "closing_rank", label: "Closing Rank" },
       { key: "quota", label: "Category" },
     ],
+    TSEAPERT: [
+      { key: "institute_name", label: "Institute Name" },
+      { key: "branch_name", label: "Academic Program" },
+      { key: "closing_rank", label: "Closing Rank" },
+    ],
     DEFAULT: [
       { key: "state", label: "State" },
       { key: "institute", label: "Institute" },
@@ -138,6 +138,25 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
         quota: item["Quota"] || item["Category"],
       };
     }
+    if (exam === "TSEAPERT") {
+      // Return all original item data plus formatted fields
+      return {
+        ...item,
+        institute_name: item.institute_name || "N/A",
+        branch_name: item.branch_name || "N/A",
+        closing_rank: item.closing_rank || "N/A",
+        // Keep all other fields for the expanded view
+        place: item.place || "N/A",
+        dist_code: item.dist_code || "N/A",
+        co_ed: item.co_ed || "N/A",
+        college_type: item.college_type || "N/A",
+        year_of_establish: item.year_of_establish || "N/A",
+        branch_code: item.branch_code || "N/A",
+        category: item.category || "N/A",
+        gender: item.gender || "N/A",
+        region: item.region || "N/A",
+      };
+    }
     return {
       institute: item["Institute"],
       state: item["State"],
@@ -164,6 +183,7 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
       : data.slice(0, ROWS_PER_PAGE_INITIAL);
     return rowsToRender.map((item, index) => {
       const transformedItem = transformData(item);
+
       return (
         <React.Fragment key={index}>
           <tr
@@ -171,38 +191,54 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
               index % 2 === 0 ? "bg-gray-100" : "bg-white"
             }`}
           >
-            {exam !== "TNEA" && (
-              <td className="p-2 border-r border-gray-300">
-                {transformedItem.state || "N/A"}
-              </td>
+            {exam === "TSEAPERT" ? (
+              <>
+                <td className="p-2 border-r border-gray-300">
+                  {transformedItem.institute_name}
+                </td>
+                <td className="p-2 border-r border-gray-300">
+                  {transformedItem.branch_name}
+                </td>
+                <td className="p-2 border-r border-gray-300">
+                  {transformedItem.closing_rank}
+                </td>
+              </>
+            ) : (
+              <>
+                {exam !== "TNEA" && (
+                  <td className="p-2 border-r border-gray-300">
+                    {transformedItem.state || "N/A"}
+                  </td>
+                )}
+                {exam === "TNEA" && (
+                  <td className="p-2 border-r border-gray-300">
+                    {transformedItem.institute_id || "N/A"}
+                  </td>
+                )}
+                <td className="p-2 border-r border-gray-300">
+                  {transformedItem.institute}
+                </td>
+                <td className="p-2 border-r border-gray-300">
+                  {transformedItem.academic_program_name}
+                </td>
+                {exam === "TNEA" && (
+                  <td className="p-2 border-r border-gray-300">
+                    {transformedItem.college_type}
+                  </td>
+                )}
+                {exam === "JoSAA" && (
+                  <td className="p-2 border-r border-gray-300">
+                    {transformedItem.exam_type}
+                  </td>
+                )}
+                <td className="p-2 border-r border-gray-300">
+                  {transformedItem.closing_rank}
+                </td>
+                <td className="p-2 border-r border-gray-300">
+                  {transformedItem.quota}
+                </td>
+              </>
             )}
-            {exam === "TNEA" && (
-              <td className="p-2 border-r border-gray-300">
-                {transformedItem.institute_id || "N/A"}
-              </td>
-            )}
-            <td className="p-2 border-r border-gray-300">
-              {transformedItem.institute}
-            </td>
-            <td className="p-2 border-r border-gray-300">
-              {transformedItem.academic_program_name}
-            </td>
-            {exam === "TNEA" && (
-              <td className="p-2 border-r border-gray-300">
-                {transformedItem.college_type}
-              </td>
-            )}
-            {exam === "JoSAA" && (
-              <td className="p-2 border-r border-gray-300">
-                {transformedItem.exam_type}
-              </td>
-            )}
-            <td className="p-2 border-r border-gray-300">
-              {transformedItem.closing_rank}
-            </td>
-            <td className="p-2 border-r border-gray-300">
-              {transformedItem.quota}
-            </td>
             <td className="p-2">
               <div className="flex justify-center">
                 <button
@@ -216,7 +252,7 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
           </tr>
           {expandedRows[index] && (
             <ExpandedRowComponent
-              item={item}
+              item={transformedItem}
               fields={expandedFields}
               exam={exam}
               examColumnMapping={examColumnMapping}
