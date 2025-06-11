@@ -1,7 +1,7 @@
 const constants = {
   TITLE: "Exam Rank College Predictor",
   CATEGORY_LABEL: "Select Category",
-  RANK_LABEL: "Enter Category Rank",
+  RANK_LABEL: "Enter Rank",
   NEET_RANK_LABEL: "Enter Rank As Per Open Rank List",
   GENDER_LABEL: "Select Gender",
   EXAM_LABEL: "Select Exam",

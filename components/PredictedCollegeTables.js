@@ -7,13 +7,14 @@ const expandedFields = {
   TSEAPERT: [
     { key: "inst_code", label: "Institute Code" },
     { key: "place", label: "Location" },
-    { key: "dist_code", label: "District Code" },
-    { key: "college_type", label: "College Type" },
     { key: "year_of_establish", label: "Year Established" },
-    { key: "branch_code", label: "Branch Code" },
-    { key: "category", label: "Category" },
-    { key: "gender", label: "Gender" },
-    { key: "region", label: "Region" },
+    { key: "branch_name", label: "Branch Name" },
+    {
+      key: "tuition_fee",
+      label: "Tuition Fee (per year)",
+      format: (value) => `₹${Number(value).toLocaleString("en-IN")}`,
+    },
+    { key: "affiliated_to", label: "Affiliated University" },
   ],
   DEFAULT: [
     { key: "Opening Rank", label: "Opening Rank" },
@@ -147,14 +148,9 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
         closing_rank: item.closing_rank || "N/A",
         // Keep all other fields for the expanded view
         place: item.place || "N/A",
-        dist_code: item.dist_code || "N/A",
-        co_ed: item.co_ed || "N/A",
-        college_type: item.college_type || "N/A",
         year_of_establish: item.year_of_establish || "N/A",
-        branch_code: item.branch_code || "N/A",
-        category: item.category || "N/A",
-        gender: item.gender || "N/A",
-        region: item.region || "N/A",
+        tuition_fee: item.tuition_fee || "N/A",
+        affiliated_to: item.affiliated_to || "N/A",
       };
     }
     return {
