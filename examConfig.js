@@ -781,14 +781,23 @@ export const tseApertConfig = {
   },
   getFilters: (query) => {
     const userRank = parseInt(query.rank, 10);
+    const queryCategory = query.category?.toUpperCase().replace(/-/g, "_");
+    const queryGender = query.gender?.toLowerCase();
+    const queryRegion = query.region;
 
     const baseFilters = [
       (item) => {
-        // Convert query category from URL format (with hyphens) to data format (with underscores)
-        const queryCategory = query.category?.toUpperCase().replace(/-/g, "_");
+        // Case 1: If EWS category is selected, also include OC category
+        if (queryCategory === "EWS") {
+          return item.category === "EWS" || item.category === "OC";
+        }
+        // Normal category matching
         return item.category === queryCategory;
       },
-      (item) => item.gender?.toLowerCase() === query.gender?.toLowerCase(),
+      (item) => {
+        // Gender filter
+        return item.gender?.toLowerCase() === queryGender;
+      },
       (item) => {
         // Only include items where closing_rank is greater than or equal to user's rank
         const itemRank = parseInt(item.closing_rank, 10);
@@ -797,13 +806,14 @@ export const tseApertConfig = {
     ];
 
     // Add region filter if specified
-    if (query.region) {
+    if (queryRegion) {
       baseFilters.push((item) => {
-        if (query.region === "OU") {
-          return item.region === "OU";
-        } else {
-          return item.region !== "OU";
+        // Case 2: If OU region is selected, also include items with same category/gender from Other region
+        if (queryRegion === "OU") {
+          return item.region === "OU" || item.region === "other";
         }
+        // For Other region, only include items from Other region
+        return item.region !== "OU";
       });
     }
 
