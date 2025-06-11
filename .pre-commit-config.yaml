@@ -9,6 +9,7 @@ repos:
       - id: check-yaml
       - id: check-merge-conflict
       - id: check-added-large-files
+        args: ['--maxkb=10240']  # 10MB limit
   - repo: https://github.com/pre-commit/mirrors-prettier
     rev: v2.5.1
     hooks:
