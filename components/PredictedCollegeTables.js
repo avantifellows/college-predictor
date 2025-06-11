@@ -100,7 +100,7 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
       { key: "closing_rank", label: "Closing Rank" },
       { key: "quota", label: "Category" },
     ],
-    TSEAPERT: [
+    TGEAPCET: [
       { key: "institute_name", label: "Institute Name" },
       { key: "branch_name", label: "Academic Program" },
       { key: "closing_rank", label: "Closing Rank" },
@@ -139,7 +139,7 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
         quota: item["Quota"] || item["Category"],
       };
     }
-    if (exam === "TSEAPERT") {
+    if (exam === "TGEAPCET") {
       // Return all original item data plus formatted fields
       return {
         ...item,
@@ -189,7 +189,7 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
               index % 2 === 0 ? "bg-gray-100" : "bg-white"
             }`}
           >
-            {exam === "TSEAPERT" ? (
+            {exam === "TGEAPCET" ? (
               <>
                 <td className="p-2 border-r border-gray-300">
                   {transformedItem.institute_name}

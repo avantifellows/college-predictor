@@ -394,9 +394,9 @@ const CollegePredictor = () => {
     );
   };
 
-  // Check for TSEAPERT disclaimer conditions
+  // Check for TGEAPCET disclaimer conditions
   const showTSEAPERTDisclaimer =
-    queryObject.exam === "TSEAPERT" &&
+    queryObject.exam === "TGEAPCET" &&
     (queryObject.category === "EWS" || queryObject.region === "OU");
 
   return (
@@ -410,7 +410,7 @@ const CollegePredictor = () => {
             College Predictor Results
           </h1>
 
-          {/* TSEAPERT Disclaimer - Shows when EWS or OU is selected */}
+          {/* TGEAPCET Disclaimer - Shows when EWS or OU is selected */}
           {showTSEAPERTDisclaimer && (
             <div className="bg-red-50 border-l-4 border-red-400 p-4 mb-6 max-w-3xl mx-auto w-full">
               <p className="text-red-700 text-sm">

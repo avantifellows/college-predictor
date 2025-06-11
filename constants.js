@@ -41,7 +41,7 @@ const constants = {
     { value: "mhtcet", label: "MHT CET" },
     { value: "kcet", label: "KCET" },
     { value: "tnea", label: "TNEA" },
-    { value: "tseapert", label: "TSEAPERT" },
+    { value: "tseapert", label: "TGEAPCET" },
   ],
   STATE_OPTIONS: [
     { value: "all_india", label: "All India" },

@@ -150,8 +150,8 @@ export default async function handler(req, res) {
     });
 
     // Apply sorting based on exam type
-    if (exam === "TSEAPERT") {
-      // For TSEAPERT, sort by closing_rank in ascending order
+    if (exam === "TGEAPCET") {
+      // For TGEAPCET, sort by closing_rank in ascending order
       filteredData.sort((a, b) => {
         const rankA = parseInt(a.closing_rank, 10) || 0;
         const rankB = parseInt(b.closing_rank, 10) || 0;

@@ -736,8 +736,8 @@ export const josaaConfig = {
 };
 
 export const tseApertConfig = {
-  name: "TSEAPERT",
-  code: "TSEAPERT",
+  name: "TGEAPCET",
+  code: "TGEAPCET",
   fields: [
     {
       name: "category",
@@ -830,7 +830,7 @@ export const examConfigs = {
   "KCET": kcetConfig,
   "TNEA": tneaConfig,
   "JoSAA": josaaConfig,
-  "TSEAPERT": tseApertConfig,
+  "TGEAPCET": tseApertConfig,
 };
 
 export default examConfigs;
