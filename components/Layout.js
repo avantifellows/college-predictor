@@ -2,29 +2,29 @@ import React, { useState, useEffect } from "react";
 import Navbar from "./navbar";
 const Layout = ({ children }) => {
   const [theme, setTheme] = useState(() => {
-    if (typeof window !== 'undefined') {
-      const savedTheme = localStorage.getItem('theme');
-      return savedTheme || 'light';
+    if (typeof window !== "undefined") {
+      const savedTheme = localStorage.getItem("theme");
+      return savedTheme || "light";
     }
-    return 'light';
+    return "light";
   });
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       const body = document.body;
-      if (theme === 'dark') {
-        body.classList.add('dark-mode');
-        body.classList.remove('light-mode');
+      if (theme === "dark") {
+        body.classList.add("dark-mode");
+        body.classList.remove("light-mode");
       } else {
-        body.classList.remove('dark-mode');
-        body.classList.add('light-mode');
+        body.classList.remove("dark-mode");
+        body.classList.add("light-mode");
       }
-      localStorage.setItem('theme', theme);
+      localStorage.setItem("theme", theme);
     }
   }, [theme]);
 
   const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
+    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
   };
 
   return (
@@ -41,4 +41,3 @@ const Layout = ({ children }) => {
   );
 };
 export default Layout;
-
