@@ -394,6 +394,11 @@ const CollegePredictor = () => {
     );
   };
 
+  // Check for TGEAPCET disclaimer conditions
+  const showTSEAPERTDisclaimer =
+    queryObject.exam === "TGEAPCET" &&
+    (queryObject.category === "EWS" || queryObject.region === "OU");
+
   return (
     <>
       <Head>
@@ -401,9 +406,22 @@ const CollegePredictor = () => {
       </Head>
       <div className="min-h-screen bg-gray-50 flex flex-col items-center pt-8 px-4">
         <div className="w-full max-w-6xl bg-white shadow-xl rounded-lg p-6 md:p-8">
-          <h1 className="text-2xl sm:text-3xl font-bold text-center text-gray-800 mb-6">
-            College Predictions
+          <h1 className="text-2xl sm:text-3xl font-bold text-center text-gray-800 mb-4">
+            College Predictor Results
           </h1>
+
+          {/* TGEAPCET Disclaimer - Shows when EWS or OU is selected */}
+          {showTSEAPERTDisclaimer && (
+            <div className="bg-red-50 border-l-4 border-red-400 p-4 mb-6 max-w-3xl mx-auto w-full">
+              <p className="text-red-700 text-sm">
+                {queryObject.category === "EWS" &&
+                  "Showing OC category data as EWS-specific data is limited. "}
+                {queryObject.region === "OU" &&
+                  "Including other regions as OU-specific data is limited. "}
+                (Limited data available)
+              </p>
+            </div>
+          )}
 
           {/* Query Details and Filters Section */}
           <div className="mb-6 p-4 border border-gray-200 rounded-md bg-gray-50">
@@ -458,6 +476,15 @@ const CollegePredictor = () => {
             </div>
           )}
         </div>
+        {showTSEAPERTDisclaimer && (
+          <div className="bg-red-50 border-l-4 border-red-400 p-4 mb-4">
+            <p className="text-red-700 text-sm">
+              {queryObject.category === "EWS" && "Showing OC category data. "}
+              {queryObject.region === "OU" && "Including other regions. "}
+              (Limited data available)
+            </p>
+          </div>
+        )}
       </div>
     </>
   );

@@ -150,7 +150,14 @@ export default async function handler(req, res) {
     });
 
     // Apply sorting based on exam type
-    if (exam === "TNEA") {
+    if (exam === "TGEAPCET") {
+      // For TGEAPCET, sort by closing_rank in ascending order
+      filteredData.sort((a, b) => {
+        const rankA = parseInt(a.closing_rank, 10) || 0;
+        const rankB = parseInt(b.closing_rank, 10) || 0;
+        return rankA - rankB; // Ascending order (lower ranks first)
+      });
+    } else if (exam === "TNEA") {
       // For TNEA, sort by cutoff marks in descending order
       filteredData.sort((collegeA, collegeB) => {
         const collegeAMarks = parseFloat(collegeA["Cutoff Marks"]) || 0;
