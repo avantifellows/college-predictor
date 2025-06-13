@@ -69,65 +69,128 @@ export default async function handler(req, res) {
     // Get filters based on the exam config and query parameters
     const filters = config.getFilters(req.query);
 
-    // Common rank filter
+    // Helper function to parse rank (handles 'P' suffix)
+    const parseRank = (rankStr) => {
+      if (!rankStr) return null;
+      const numStr = rankStr.toString().replace(/[^0-9]/g, "");
+      return numStr ? parseInt(numStr, 10) : null;
+    };
+
+    const hasPSuffix = (rankStr) => {
+      if (!rankStr) return false;
+      return rankStr.toString().trim().toUpperCase().endsWith("P");
+    };
+
     const rankFilter = (item) => {
-      if (exam == "TNEA") {
+      if (exam === "TNEA") {
         return parseFloat(item["Cutoff Marks"]) <= parseFloat(rank);
-      } else if (exam === "JoSAA") {
-        // For JoSAA, handle both JEE Main and JEE Advanced ranks
+      }
+
+      const itemRankStr = item["Closing Rank"]?.toString().trim() || "";
+      const itemRank = parseRank(itemRankStr);
+      const itemHasPSuffix = hasPSuffix(itemRankStr);
+
+      if (exam === "JoSAA") {
         if (item["Exam"] === "JEE Advanced") {
-          // Only show JEE Advanced colleges if user qualified for JEE Advanced and provided a rank
-          return (
-            req.query.qualifiedJeeAdv === "Yes" &&
-            req.query.advRank &&
-            parseInt(item["Closing Rank"], 10) >=
-              0.9 * parseInt(req.query.advRank, 10)
-          );
+          if (req.query.qualifiedJeeAdv !== "Yes" || !req.query.advRank)
+            return false;
+
+          const userRankStr = req.query.advRank?.toString().trim() || "";
+          const userRank = parseRank(userRankStr);
+          const userHasPSuffix = hasPSuffix(userRankStr);
+
+          // If one has 'P' suffix and the other doesn't, they don't match
+          if (itemHasPSuffix !== userHasPSuffix) return false;
+
+          return userRank && itemRank >= 0.9 * userRank;
         } else {
-          // For JEE Main colleges, check if mainRank is provided
-          return (
-            req.query.mainRank &&
-            parseInt(item["Closing Rank"], 10) >=
-              0.9 * parseInt(req.query.mainRank, 10)
-          );
+          if (!req.query.mainRank) return false;
+
+          const userRankStr = req.query.mainRank?.toString().trim() || "";
+          const userRank = parseRank(userRankStr);
+          const userHasPSuffix = hasPSuffix(userRankStr);
+
+          // If one has 'P' suffix and the other doesn't, they don't match
+          if (itemHasPSuffix !== userHasPSuffix) return false;
+
+          return userRank && itemRank >= 0.9 * userRank;
         }
-      } else if (item["Exam"] === "JEE Advanced") {
-        // For other exams, only show JEE Advanced colleges if advRank is provided
-        return (
-          req.query.advRank &&
-          parseInt(item["Closing Rank"], 10) >=
-            0.9 * parseInt(req.query.advRank, 10)
-        );
+      } else if (exam === "JEE Advanced") {
+        if (item["Exam"] !== "JEE Advanced") return false;
+        if (!req.query.advRank) return false;
+
+        const userRankStr = req.query.advRank?.toString().trim() || "";
+        const userRank = parseRank(userRankStr);
+        const userHasPSuffix = hasPSuffix(userRankStr);
+
+        // If one has 'P' suffix and the other doesn't, they don't match
+        if (itemHasPSuffix !== userHasPSuffix) return false;
+
+        return userRank && itemRank >= 0.9 * userRank;
+      } else if (exam === "JEE Main") {
+        if (item["Exam"] === "JEE Advanced") return false;
+        if (!req.query.mainRank) return false;
+
+        const userRankStr = req.query.mainRank?.toString().trim() || "";
+        const userRank = parseRank(userRankStr);
+        const userHasPSuffix = hasPSuffix(userRankStr);
+
+        // If one has 'P' suffix and the other doesn't, they don't match
+        if (itemHasPSuffix !== userHasPSuffix) return false;
+
+        return userRank && itemRank >= 0.9 * userRank;
       } else {
-        // For other exams, use the general rank parameter
-        return (
-          rank && parseInt(item["Closing Rank"], 10) >= 0.9 * parseInt(rank, 10)
-        );
+        return true;
       }
     };
 
-    const filteredData = fullData
-      .filter((item) => {
-        const filterResults = filters.map((filter) => filter(item));
+    const filteredData = fullData.filter((item) => {
+      const filterResults = filters.map((filter) => filter(item));
+      return filterResults.every((result) => result) && rankFilter(item);
+    });
 
-        return filterResults.every((result) => result) && rankFilter(item);
-      })
-      .sort((a, b) => {
-        // Exams that should not be sorted by Closing Rank or any specific key
-        const noSortExams = ["JEE Main-JOSAA", "JEE Advanced", "JEE Main"];
-        if (noSortExams.includes(exam)) {
-          return 0; // Maintain original order from JSON
-        }
-
-        const sortingKey = exam === "TNEA" ? "Cutoff Marks" : "Closing Rank";
-        if (exam === "TNEA") {
-          // TNEA sorts by Cutoff Marks (descending - higher is better)
-          return parseFloat(b[sortingKey]) - parseFloat(a[sortingKey]);
-        } else {
-          // Other exams sort by Closing Rank (ascending - lower is better)
-          return parseInt(a[sortingKey], 10) - parseInt(b[sortingKey], 10);
-        }
+    // Apply sorting based on exam type
+    if (exam === "TGEAPCET") {
+      // For TGEAPCET, sort by closing_rank in ascending order
+      filteredData.sort((a, b) => {
+        const rankA = parseInt(a.closing_rank, 10) || 0;
+        const rankB = parseInt(b.closing_rank, 10) || 0;
+        return rankA - rankB; // Ascending order (lower ranks first)
       });
+    } else if (exam === "TNEA") {
+      // For TNEA, sort by cutoff marks in descending order
+      filteredData.sort((collegeA, collegeB) => {
+        const collegeAMarks = parseFloat(collegeA["Cutoff Marks"]) || 0;
+        const collegeBMarks = parseFloat(collegeB["Cutoff Marks"]) || 0;
+        return collegeBMarks - collegeAMarks; // Descending order (higher cutoff first)
+      });
+    } else if (
+      exam === "JEE Main" ||
+      exam === "JEE Advanced" ||
+      exam === "JoSAA"
+    ) {
+      // For JEE Main, JEE Advanced, and JoSAA, sort by AF Hierarchy in ascending order
+      // and prioritize home state colleges if preferHomeState is Yes
+      const preferHomeState = req.query.preferHomeState === "Yes";
+      const homeState = req.query.homeState;
+
+      filteredData.sort((collegeA, collegeB) => {
+        // If preferHomeState is Yes and homeState is provided
+        if (preferHomeState && homeState) {
+          const isCollegeAHomeState = collegeA.State === homeState;
+          const isCollegeBHomeState = collegeB.State === homeState;
+
+          // If one is from home state and the other is not, prioritize home state
+          if (isCollegeAHomeState && !isCollegeBHomeState) return -1;
+          if (!isCollegeAHomeState && isCollegeBHomeState) return 1;
+        }
+
+        // If both are from home state or both are not, sort by AF Hierarchy
+        const collegeAAFHierarchy = parseFloat(collegeA["AF Hierarchy"]) || 0;
+        const collegeBAFHierarchy = parseFloat(collegeB["AF Hierarchy"]) || 0;
+        return collegeAAFHierarchy - collegeBAFHierarchy; // Ascending order (lower AF Hierarchy first)
+      });
+    }
 
     return res.status(200).json(filteredData);
   } catch (error) {

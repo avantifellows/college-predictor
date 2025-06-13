@@ -607,6 +607,17 @@ export const josaaConfig = {
       options: statesList,
     },
     {
+      name: "preferHomeState",
+      label: (values) =>
+        `Do you want us to list colleges in ${
+          values.homeState || "your home state"
+        } first?`,
+      options: [
+        { value: "Yes", label: "Yes" },
+        { value: "No", label: "No" },
+      ],
+    },
+    {
       name: "qualifiedJeeAdv",
       label: "Did you qualify JEE Advanced?",
       options: [
@@ -631,7 +642,7 @@ export const josaaConfig = {
   },
   getFilters: (query) => {
     const baseFilters = [
-      (item) => item.Gender === query.gender,
+      (item) => item.Gender === query.gender || item.Gender === "All",
       (item) => {
         if (query.program === "architecture") {
           return item["Academic Program Name"]
@@ -662,7 +673,9 @@ export const josaaConfig = {
         const closingRank = parseInt(item["Closing Rank"]);
         const mainRank = parseInt(query.mainRank);
         return (
-          !isNaN(closingRank) && !isNaN(mainRank) && closingRank >= 0.9*mainRank
+          !isNaN(closingRank) &&
+          !isNaN(mainRank) &&
+          closingRank >= 0.9 * mainRank
         );
       });
     }
@@ -671,12 +684,26 @@ export const josaaConfig = {
     if (
       query.qualifiedJeeAdv === "Yes" &&
       query.advRank &&
-      parseInt(query.advRank) > 0
+      query.advRank.toString().trim() !== ""
     ) {
+      const advRankStr = query.advRank.toString().trim();
+      const hasPSuffix = advRankStr.endsWith("P");
+      const numericAdvRank = parseInt(advRankStr.replace(/[^0-9]/g, "")) || 0;
+
       examFilters.push((item) => {
-        const closingRank = parseInt(item["Closing Rank"]);
-        const advRank = parseInt(query.advRank);
-        return !isNaN(closingRank) && !isNaN(advRank) && closingRank >= 0.9*advRank;
+        const closingRankStr = String(item["Closing Rank"] || "").trim();
+        const hasClosingPSuffix = closingRankStr.endsWith("P");
+
+        // If input has 'P' suffix, only match ranks that also have 'P' suffix
+        // If input doesn't have 'P' suffix, only match ranks that also don't have 'P' suffix
+        if (hasPSuffix !== hasClosingPSuffix) {
+          return false;
+        }
+
+        // Compare numeric values
+        const numericClosingRank =
+          parseInt(closingRankStr.replace(/[^0-9]/g, "")) || 0;
+        return numericClosingRank >= 0.9 * numericAdvRank;
       });
     }
 
@@ -708,15 +735,102 @@ export const josaaConfig = {
   },
 };
 
+export const tseApertConfig = {
+  name: "TGEAPCET",
+  code: "TGEAPCET",
+  fields: [
+    {
+      name: "category",
+      label: "Select Category",
+      options: [
+        { value: "oc", label: "OC" },
+        { value: "bc_a", label: "BC-A" },
+        { value: "bc_b", label: "BC-B" },
+        { value: "bc_c", label: "BC-C" },
+        { value: "bc_d", label: "BC-D" },
+        { value: "bc_e", label: "BC-E" },
+        { value: "sc", label: "SC" },
+        { value: "st", label: "ST" },
+        { value: "ews", label: "EWS" },
+      ],
+    },
+    {
+      name: "gender",
+      label: "Select Gender",
+      options: ["Male", "Female"],
+    },
+    {
+      name: "region",
+      label: "Select Region",
+      options: ["OU", "Other"],
+    },
+  ],
+  legend: [
+    { key: "AI", value: "All India" },
+    { key: "OU", value: "OU Region" },
+    { key: "OTHER", value: "Other Region" },
+  ],
+  getDataPath: () => {
+    return path.join(
+      process.cwd(),
+      "public",
+      "data",
+      "TSEAPERT",
+      "tseapert.json"
+    );
+  },
+  getFilters: (query) => {
+    const userRank = parseInt(query.rank, 10);
+    const queryCategory = query.category?.toUpperCase().replace(/-/g, "_");
+    const queryGender = query.gender?.toLowerCase();
+    const queryRegion = query.region;
+
+    const baseFilters = [
+      (item) => {
+        // Case 1: If EWS category is selected, also include OC category
+        if (queryCategory === "EWS") {
+          return item.category === "EWS" || item.category === "OC";
+        }
+        // Normal category matching
+        return item.category === queryCategory;
+      },
+      (item) => {
+        // Gender filter
+        return item.gender?.toLowerCase() === queryGender;
+      },
+      (item) => {
+        // Only include items where closing_rank is greater than or equal to user's rank
+        const itemRank = parseInt(item.closing_rank, 10);
+        return !isNaN(itemRank) && itemRank >= userRank;
+      },
+    ];
+
+    // Add region filter if specified
+    if (queryRegion) {
+      baseFilters.push((item) => {
+        // Case 2: If OU region is selected, also include items with same category/gender from Other region
+        if (queryRegion === "OU") {
+          return item.region === "OU" || item.region === "other";
+        }
+        // For Other region, only include items from Other region
+        return item.region !== "OU";
+      });
+    }
+
+    return baseFilters;
+  },
+};
+
 export const examConfigs = {
   "JEE Main-JOSAA": jeeMainJosaaConfig,
   "JEE Main-JAC": jacExamConfig,
   "JEE Advanced": jeeAdvancedConfig,
-  "JoSAA": josaaConfig,
   "NEET": neetConfig,
   "MHT CET": mhtCetConfig,
   "KCET": kcetConfig,
   "TNEA": tneaConfig,
+  "JoSAA": josaaConfig,
+  "TGEAPCET": tseApertConfig,
 };
 
 export default examConfigs;
