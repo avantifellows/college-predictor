@@ -246,17 +246,7 @@ const ExamForm = () => {
             <h1 className="text-2xl md:text-3xl font-bold mb-6">
               {getConstants().TITLE}
             </h1>
-
-            {/* TGEAPCET Disclaimer - Shows when EWS category is selected */}
-            {selectedExam === "TGEAPCET" && formData.category === "EWS" && (
-              <div className="bg-red-50 border-l-4 border-red-400 p-4 mb-6 w-full">
-                <p className="text-red-700 text-sm">
-                  Showing OC category data as EWS-specific data is limited.
-                </p>
-              </div>
-            )}
-
-            <div className="flex flex-col justify-center sm:flex-row flex-wrap w-full">
+            <div className="flex flex-col justify-center sm:flex-row  flex-wrap w-full">
               <div className="my-4 w-full sm:w-3/4">
                 <label
                   htmlFor="exam"
@@ -268,7 +258,9 @@ const ExamForm = () => {
                   options={Object.keys(examConfigs)
                     .filter(
                       (exam) =>
-                        exam !== "JEE Main-JOSAA" && exam !== "JEE Advanced"
+                        exam !== "JEE Main-JOSAA" &&
+                        exam !== "JEE Advanced" &&
+                        exam !== "NEET"
                     ) // Filter out these two exams
                     .map((exam) => ({
                       value: exam,
@@ -356,7 +348,6 @@ const ExamForm = () => {
                 )
               )}
             </div>
-
             {selectedExam && (
               <>
                 <button
