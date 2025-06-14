@@ -268,8 +268,10 @@ const ExamForm = () => {
                   options={Object.keys(examConfigs)
                     .filter(
                       (exam) =>
-                        exam !== "JEE Main-JOSAA" && exam !== "JEE Advanced"
-                    ) // Filter out these two exams
+                        exam !== "JEE Main-JOSAA" &&
+                        exam !== "JEE Advanced" &&
+                        exam !== "NEET"
+                    ) // Temporarily removed JEE MAIN/Advanced(merged into JOSSA) and NEET(cus of old data)
                     .map((exam) => ({
                       value: exam,
                       label: exam,
