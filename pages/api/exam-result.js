@@ -82,7 +82,12 @@ export default async function handler(req, res) {
     };
 
     const rankFilter = (item) => {
-      if (exam === "TNEA") {
+      if (exam === "GUJCET") {
+        // For GUJCET, filter based on closing_marks
+        const cutoffMarks = parseFloat(item.closing_marks) || 0;
+        const userMarks = parseFloat(rank) || 0;
+        return userMarks >= cutoffMarks * 0.9; // Show if user marks are >= 90% of cutoff
+      } else if (exam === "TNEA") {
         return parseFloat(item["Cutoff Marks"]) <= parseFloat(rank);
       }
 
@@ -144,13 +149,42 @@ export default async function handler(req, res) {
       }
     };
 
-    const filteredData = fullData.filter((item) => {
-      const filterResults = filters.map((filter) => filter(item));
-      return filterResults.every((result) => result) && rankFilter(item);
-    });
+    let filteredData = fullData;
+
+    // Apply filters if they exist
+    if (Array.isArray(filters)) {
+      filteredData = filteredData.filter((item) => {
+        return filters.every((filterFn) => filterFn(item));
+      });
+    }
+
+    // Apply rank filter if it exists
+    if (rankFilter) {
+      filteredData = filteredData.filter(rankFilter);
+    }
 
     // Apply sorting based on exam type
-    if (exam === "TGEAPCET") {
+    if (config.getSort) {
+      const sortConfig = config.getSort();
+      if (sortConfig && sortConfig.length > 0) {
+        const [sortKey, sortOrder] = sortConfig[0];
+        filteredData.sort((a, b) => {
+          let valA = a[sortKey];
+          let valB = b[sortKey];
+
+          // Convert to numbers if possible for proper numeric comparison
+          if (!isNaN(parseFloat(valA)) && !isNaN(parseFloat(valB))) {
+            valA = parseFloat(valA);
+            valB = parseFloat(valB);
+          }
+
+          if (sortOrder === "DESC") {
+            return valB - valA;
+          }
+          return valA - valB;
+        });
+      }
+    } else if (exam === "TGEAPCET") {
       // For TGEAPCET, sort by closing_rank in ascending order
       filteredData.sort((a, b) => {
         const rankA = parseInt(a.closing_rank, 10) || 0;

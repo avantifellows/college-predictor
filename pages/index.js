@@ -295,6 +295,8 @@ const ExamForm = () => {
                           ? "Enter All India Rank"
                           : selectedExam === "JoSAA"
                           ? "Enter JEE Main Category Rank"
+                          : selectedExam === "GUJCET"
+                          ? "Enter your Marks"
                           : "Enter Category Rank"}
                       </label>
                       <input
@@ -312,6 +314,8 @@ const ExamForm = () => {
                             ? "Enter All India Rank"
                             : selectedExam === "JoSAA"
                             ? "Enter JEE Main rank"
+                            : selectedExam === "GUJCET"
+                            ? "100"
                             : "Enter your rank"
                         }
                       />
