@@ -37,6 +37,11 @@ const expandedFields = {
       format: (value) =>
         value ? `₹${Number(value).toLocaleString("en-IN")}` : "N/A",
     },
+    {
+      key: "Avg Placement",
+      label: "Average Placement %",
+      format: (value) => (value ? `${value}%` : "N/A"),
+    },
     { key: "Total Seats", label: "Total Seats" },
     {
       key: "Course Fees (per year)",
