@@ -821,9 +821,55 @@ export const tseApertConfig = {
   },
 };
 
+export const gujcetConfig = {
+  name: "GUJCET",
+  code: "GUJCET",
+  fields: [
+    {
+      name: "category",
+      label: "Select Category",
+      options: [
+        { value: "general", label: "General" },
+
+        { value: "st", label: "ST" },
+      ],
+    },
+    {
+      name: "program",
+      label: "Select Program",
+      options: [
+        { value: "Engineering", label: "Engineering" },
+        { value: "Medical", label: "Medical" },
+        { value: "Pharmacy", label: "Pharmacy" },
+      ],
+    },
+  ],
+  getDataPath: () => {
+    return path.join(process.cwd(), "public/data/GUJCET/GUJCET.json");
+  },
+  getFilters: (query) => {
+    return [
+      (item) => {
+        if (query.category) {
+          return item.category === query.category.toLowerCase();
+        }
+        return true;
+      },
+      (item) => {
+        if (query.program) {
+          return item.Program === query.program;
+        }
+        return true;
+      },
+    ];
+  },
+  getSort: () => [["closing_marks", "DESC"]], // Sort by closing_marks in descending order
+};
+
 export const examConfigs = {
   "JEE Main-JOSAA": jeeMainJosaaConfig,
   "JEE Main-JAC": jacExamConfig,
+  "GUJCET": gujcetConfig,
   "JEE Advanced": jeeAdvancedConfig,
   "NEET": neetConfig,
   "MHT CET": mhtCetConfig,

@@ -26,6 +26,30 @@ const expandedFields = {
     { key: "Expected Salary", label: "Expected Salary" },
     { key: "Salary Tier", label: "Salary Tier" },
   ],
+  GUJCET: [
+    { key: "AISHE Code", label: "AISHE Code" },
+    { key: "District", label: "District" },
+    { key: "Course", label: "Course" },
+    { key: "Type of College", label: "Type of College" },
+    {
+      key: "Median Salary",
+      label: "Median Salary",
+      format: (value) =>
+        value ? `₹${Number(value).toLocaleString("en-IN")}` : "N/A",
+    },
+    {
+      key: "Avg Placement",
+      label: "Average Placement %",
+      format: (value) => (value ? `${value}%` : "N/A"),
+    },
+    { key: "Total Seats", label: "Total Seats" },
+    {
+      key: "Course Fees (per year)",
+      label: "Course Fees (per year)",
+      format: (value) =>
+        value ? `₹${Number(value).toLocaleString("en-IN")}` : "N/A",
+    },
+  ],
 };
 
 // New ExpandedRow component
@@ -105,12 +129,17 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
       { key: "branch_name", label: "Academic Program" },
       { key: "closing_rank", label: "Closing Rank" },
     ],
+    GUJCET: [
+      { key: "College Name", label: "College Name" },
+      { key: "District", label: "District" },
+      { key: "Course", label: "Course" },
+      { key: "closing_marks", label: "Cutoff Marks" },
+    ],
     DEFAULT: [
       { key: "state", label: "State" },
       { key: "institute", label: "Institute" },
       { key: "academic_program_name", label: "Academic Program Name" },
       { key: "closing_rank", label: "Closing Rank" },
-      { key: "quota", label: "Category" },
     ],
   };
 
@@ -118,6 +147,15 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
     examColumnMapping[exam] || examColumnMapping.DEFAULT;
 
   const transformData = (item) => {
+    if (exam === "GUJCET") {
+      return {
+        ...item,
+        institute: item["College Name"],
+        academic_program_name: item["Course"],
+        closing_rank: item["closing_marks"],
+        state: item["District"],
+      };
+    }
     if (exam === "TNEA") {
       return {
         institute_id: item["Institute ID"],
@@ -136,7 +174,6 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
         academic_program_name: item["Academic Program Name"],
         exam_type: item["Exam"],
         closing_rank: item["Closing Rank"],
-        quota: item["Quota"] || item["Category"],
       };
     }
     if (exam === "TGEAPCET") {
@@ -179,6 +216,7 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
     const rowsToRender = showAllRows
       ? data
       : data.slice(0, ROWS_PER_PAGE_INITIAL);
+
     return rowsToRender.map((item, index) => {
       const transformedItem = transformData(item);
 
@@ -189,54 +227,11 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
               index % 2 === 0 ? "bg-gray-100" : "bg-white"
             }`}
           >
-            {exam === "TGEAPCET" ? (
-              <>
-                <td className="p-2 border-r border-gray-300">
-                  {transformedItem.institute_name}
-                </td>
-                <td className="p-2 border-r border-gray-300">
-                  {transformedItem.branch_name}
-                </td>
-                <td className="p-2 border-r border-gray-300">
-                  {transformedItem.closing_rank}
-                </td>
-              </>
-            ) : (
-              <>
-                {exam !== "TNEA" && (
-                  <td className="p-2 border-r border-gray-300">
-                    {transformedItem.state || "N/A"}
-                  </td>
-                )}
-                {exam === "TNEA" && (
-                  <td className="p-2 border-r border-gray-300">
-                    {transformedItem.institute_id || "N/A"}
-                  </td>
-                )}
-                <td className="p-2 border-r border-gray-300">
-                  {transformedItem.institute}
-                </td>
-                <td className="p-2 border-r border-gray-300">
-                  {transformedItem.academic_program_name}
-                </td>
-                {exam === "TNEA" && (
-                  <td className="p-2 border-r border-gray-300">
-                    {transformedItem.college_type}
-                  </td>
-                )}
-                {exam === "JoSAA" && (
-                  <td className="p-2 border-r border-gray-300">
-                    {transformedItem.exam_type}
-                  </td>
-                )}
-                <td className="p-2 border-r border-gray-300">
-                  {transformedItem.closing_rank}
-                </td>
-                <td className="p-2 border-r border-gray-300">
-                  {transformedItem.quota}
-                </td>
-              </>
-            )}
+            {predicted_colleges_table_column.map((column) => (
+              <td key={column.key} className="p-2 border-r border-gray-300">
+                {transformedItem[column.key] || "N/A"}
+              </td>
+            ))}
             <td className="p-2">
               <div className="flex justify-center">
                 <button
