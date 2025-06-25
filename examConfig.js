@@ -283,46 +283,126 @@ export const jeeAdvancedConfig = {
 
 export const neetConfig = {
   name: "NEET",
+  code: "NEET",
   fields: [
+    {
+      name: "program",
+      label: "Select Program",
+      options: [
+        { value: "MBBS", label: "MBBS" },
+        { value: "BDS", label: "BDS" },
+        { value: "BSC Nursing", label: "BSC Nursing" },
+      ],
+    },
+    {
+      name: "gender",
+      label: "Select Gender",
+      options: [
+        { value: "Open", label: "Open" },
+        { value: "Female", label: "Female" },
+      ],
+    },
     {
       name: "category",
       label: "Select Category",
       options: [
-        { value: "ews", label: "EWS" },
-        { value: "ews_pwd", label: "EWS (PwD)" },
-        { value: "obc_ncl", label: "OBC-NCL" },
-        { value: "obc_ncl_pwd", label: "OBC-NCL (PwD)" },
-        { value: "open", label: "OPEN" },
-        { value: "open_pwd", label: "OPEN (PwD)" },
-        { value: "sc", label: "SC" },
-        { value: "sc_pwd", label: "SC (PwD)" },
-        { value: "st", label: "ST" },
-        { value: "st_pwd", label: "ST (PwD)" },
+        { value: "EWS", label: "EWS" },
+        { value: "EWS PwD", label: "EWS PwD" },
+        { value: "Open", label: "Open" },
+        { value: "Open PwD", label: "Open PwD" },
+        { value: "OBC", label: "OBC" },
+        { value: "OBC PwD", label: "OBC PwD" },
+        { value: "SC", label: "SC" },
+        { value: "SC PwD", label: "SC PwD" },
+        { value: "ST", label: "ST" },
+        { value: "ST PwD", label: "ST PwD" },
       ],
     },
     {
-      name: "roundNumber",
-      label: "Select Round Number:",
-      options: ["1", "2", "3", "4", "5", "6"],
+      name: "religion",
+      label: "Select Religion",
+      options: [
+        { value: "jain", label: "Jain" },
+        { value: "muslim", label: "Muslim" },
+        { value: "other", label: "Other" },
+      ],
+    },
+    {
+      name: "nationality",
+      label: "Select Nationality",
+      options: [
+        { value: "indian", label: "Indian" },
+        { value: "non resident", label: "Non Resident" },
+        { value: "other", label: "Other" },
+      ],
+    },
+    {
+      name: "region",
+      label: "Select Region",
+      options: [
+        { value: "delhi ncr", label: "Delhi NCR" },
+        { value: "puducherry", label: "Puducherry" },
+        { value: "other", label: "Other" },
+      ],
+    },
+    {
+      name: "defence_war",
+      label: "Defence War Quota",
+      options: [
+        { value: "Yes", label: "Yes" },
+        { value: "No", label: "No" },
+      ],
     },
   ],
   legend: [
     { key: "AI", value: "All India" },
     { key: "SQ", value: "State Quota" },
   ],
-  getDataPath: (category) => {
-    return path.join(
-      process.cwd(),
-      "public",
-      "data",
-      "NEET",
-      `${category}.json`
-    );
+  getDataPath: () => {
+    return path.join(process.cwd(), "public/data/NEET/NEET.json");
   },
-  getFilters: (query) => [
-    (item) => item["Seat Type"].toLowerCase() === query.category.toLowerCase(),
-    (item) => item.Round.toString() === query.roundNumber,
-  ],
+  getFilters: (query) => {
+    return [
+      (item) => {
+        if (query.program) {
+          return item["Academic Program Name"] === query.program;
+        }
+        return true;
+      },
+      (item) => {
+        if (query.gender === "Female") {
+          return (
+            item["Seat Type"].includes("Female") || item.gender === "Female"
+          );
+        }
+        return true;
+      },
+      (item) => {
+        if (query.category) {
+          const seatType = String(item["Seat Type"] || "").toLowerCase();
+          const isPWD = String(item["is_PWD"] || "No").toLowerCase();
+          const queryCat = query.category.toLowerCase();
+
+          if (queryCat.includes("pwd")) {
+            return isPWD === "yes" || isPWD === "ph";
+          }
+          return seatType.includes(
+            queryCat.toLowerCase().replace(/\s+pwd$/, "")
+          );
+        }
+        return true;
+      },
+      (item) => {
+        if (query.defence_war === "Yes") {
+          return item.quota && item.quota.toLowerCase().includes("defence");
+        } else if (query.defence_war === "No") {
+          return !item.quota || !item.quota.toLowerCase().includes("defence");
+        }
+        return true;
+      },
+    ];
+  },
+  getSort: () => [["Closing Rank", "ASC"]],
 };
 
 export const mhtCetConfig = {

@@ -4,6 +4,17 @@ import examConfigs from "../examConfig";
 
 // Define fields for the expanded view
 const expandedFields = {
+  NEET: [
+    { key: "inst_code", label: "Institute Code" },
+    { key: "place", label: "Location" },
+    { key: "year_of_establish", label: "Year Established" },
+    { key: "branch_name", label: "Branch Name" },
+    {
+      key: "tuition_fee",
+      label: "Tuition Fee (per year)",
+      format: (value) => `₹${Number(value).toLocaleString("en-IN")}`,
+    },
+  ],
   TSEAPERT: [
     { key: "inst_code", label: "Institute Code" },
     { key: "place", label: "Location" },
