@@ -31,7 +31,6 @@ const expandedFields = {
     { key: "Opening Rank", label: "Opening Rank" },
     { key: "Closing Rank", label: "Closing Rank" },
     { key: "State", label: "State" },
-    { key: "Gender", label: "Gender" },
     { key: "College Type", label: "College Type" },
     { key: "Management Type", label: "Management Type" },
     { key: "Expected Salary", label: "Expected Salary" },
@@ -133,7 +132,7 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
       { key: "academic_program_name", label: "Academic Program Name" },
       { key: "exam_type", label: "Exam Type" },
       { key: "closing_rank", label: "Closing Rank" },
-      { key: "quota", label: "Category" },
+      { key: "Seat Type", label: "Category" },
     ],
     TGEAPCET: [
       { key: "institute_name", label: "Institute Name" },
@@ -181,10 +180,21 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
       return {
         institute: item["Institute"],
         state: item["State"],
-        gender: item["Gender"],
         academic_program_name: item["Academic Program Name"],
         exam_type: item["Exam"],
         closing_rank: item["Closing Rank"],
+        "Seat Type": item["Seat Type"],
+        "State": item["State"],
+        "Quota": item["Quota"] || "AI",
+        "Closing Rank": item["Closing Rank"],
+        "Opening Rank": item["Opening Rank"],
+        "College Type": item["College Type"] || "Gen 1 IIT",
+        "Management Type":
+          item["Management Type"] ||
+          "IIT/NIT/IIIT - Government Funded Technical Institute",
+        "Expected Salary": item["Expected Salary"] || 0,
+        "Salary Tier": item["Salary Tier"] || 1.0,
+        "Exam": item["Exam"] || "JEE Advanced",
       };
     }
     if (exam === "TGEAPCET") {
