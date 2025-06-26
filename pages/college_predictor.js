@@ -365,7 +365,8 @@ const CollegePredictor = () => {
           queryObject.exam !== "JoSAA" && (
             <div className="flex gap-2 items-center">
               <label className="block text-sm md:text-base font-semibold text-gray-700 mb-2">
-                {queryObject.exam === "JEE Main-JAC" || queryObject.exam === "NEET"
+                {queryObject.exam === "JEE Main-JAC" ||
+                queryObject.exam === "NEET"
                   ? "Enter All India Rank"
                   : "Enter Category Rank"}
               </label>
@@ -382,7 +383,8 @@ const CollegePredictor = () => {
                 }}
                 className="border border-gray-300 rounded text-center"
                 placeholder={
-                  queryObject.exam === "JEE Main-JAC" || queryObject.exam === "NEET"
+                  queryObject.exam === "JEE Main-JAC" ||
+                  queryObject.exam === "NEET"
                     ? "Enter All India Rank"
                     : "Enter your rank"
                 }
