@@ -404,6 +404,17 @@ export const neetConfig = {
         return true;
       },
       (item) => {
+        // 0.9 * rank coefficient filter for NEET closing rank
+        if (query.rank) {
+          const closingRank = parseInt(item["Closing Rank"], 10);
+          const userRank = parseInt(query.rank, 10);
+          if (!isNaN(closingRank) && !isNaN(userRank)) {
+            return closingRank >= 0.9 * userRank;
+          }
+        }
+        return true;
+      },
+      (item) => {
         if (query.defence_war === "Yes") {
           return item.quota && item.quota.toLowerCase().includes("defence");
         } else if (query.defence_war === "No") {
