@@ -362,10 +362,18 @@ export const neetConfig = {
     return path.join(process.cwd(), "public/data/NEET/NEET.json");
   },
   getFilters: (query) => {
+    // Helper to normalize program names for comparison
+    const normalize = (str) =>
+      String(str || "")
+        .replace(/[^a-zA-Z0-9]/g, "")
+        .toLowerCase();
     return [
       (item) => {
         if (query.program) {
-          return item["Academic Program Name"] === query.program;
+          return (
+            normalize(item["Academic Program Name"]) ===
+            normalize(query.program)
+          );
         }
         return true;
       },
