@@ -391,12 +391,15 @@ export const neetConfig = {
           const isPWD = String(item["is_PWD"] || "No").toLowerCase();
           const queryCat = query.category.toLowerCase();
 
+          // If user selected a PwD category, require is_PWD to be yes
           if (queryCat.includes("pwd")) {
-            return isPWD === "yes" || isPWD === "ph";
+            return (
+              isPWD === "yes" &&
+              seatType.includes(queryCat.replace(/\s+pwd$/, ""))
+            );
           }
-          return seatType.includes(
-            queryCat.toLowerCase().replace(/\s+pwd$/, "")
-          );
+          // If user selected a non-PwD category, require is_PWD to be no
+          return isPWD === "no" && seatType === queryCat;
         }
         return true;
       },
