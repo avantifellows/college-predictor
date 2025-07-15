@@ -174,6 +174,7 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
         college_type: item["College Type"],
         closing_rank: item["Cutoff Marks"],
         quota: item["Category"],
+        Category: item["Category"],
       };
     }
     if (exam === "JoSAA") {
@@ -195,6 +196,19 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
         "Expected Salary": item["Expected Salary"] || 0,
         "Salary Tier": item["Salary Tier"] || 1.0,
         "Exam": item["Exam"] || "JEE Advanced",
+        Category: item["Seat Type"] || item["Category"] || "",
+      };
+    }
+    if (exam === "NEET") {
+      return {
+        ...item,
+        institute:
+          item["Institute"] || item["institute"] || item["inst_code"] || "",
+        state: item["State"] || item["state"] || "",
+        academic_program_name:
+          item["Academic Program Name"] || item["branch_name"] || "",
+        closing_rank: item["Closing Rank"] || item["closing_rank"] || "",
+        Category: item["Seat Type"] || item["Category"] || "",
       };
     }
     if (exam === "TGEAPCET") {
@@ -219,6 +233,7 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
       academic_program_name: item["Academic Program Name"],
       closing_rank: item["Closing Rank"],
       quota: item["Quota"] || item["Category"],
+      Category: item["Category"] || "",
     };
   };
 
