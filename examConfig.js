@@ -362,10 +362,18 @@ export const neetConfig = {
     return path.join(process.cwd(), "public/data/NEET/NEET.json");
   },
   getFilters: (query) => {
+    // Helper to normalize program names for comparison
+    const normalize = (str) =>
+      String(str || "")
+        .replace(/[^a-zA-Z0-9]/g, "")
+        .toLowerCase();
     return [
       (item) => {
         if (query.program) {
-          return item["Academic Program Name"] === query.program;
+          return (
+            normalize(item["Academic Program Name"]) ===
+            normalize(query.program)
+          );
         }
         return true;
       },
@@ -383,12 +391,26 @@ export const neetConfig = {
           const isPWD = String(item["is_PWD"] || "No").toLowerCase();
           const queryCat = query.category.toLowerCase();
 
+          // If user selected a PwD category, require is_PWD to be yes
           if (queryCat.includes("pwd")) {
-            return isPWD === "yes" || isPWD === "ph";
+            return (
+              isPWD === "yes" &&
+              seatType.includes(queryCat.replace(/\s+pwd$/, ""))
+            );
           }
-          return seatType.includes(
-            queryCat.toLowerCase().replace(/\s+pwd$/, "")
-          );
+          // If user selected a non-PwD category, require is_PWD to be no
+          return isPWD === "no" && seatType === queryCat;
+        }
+        return true;
+      },
+      (item) => {
+        // 0.9 * rank coefficient filter for NEET closing rank
+        if (query.rank) {
+          const closingRank = parseInt(item["Closing Rank"], 10);
+          const userRank = parseInt(query.rank, 10);
+          if (!isNaN(closingRank) && !isNaN(userRank)) {
+            return closingRank >= 0.9 * userRank;
+          }
         }
         return true;
       },

@@ -88,10 +88,10 @@ export default async function handler(req, res) {
         const userMarks = parseFloat(rank) || 0;
         return userMarks >= cutoffMarks * 0.9; // Show if user marks are >= 90% of cutoff
       } else if (exam === "NEET") {
-        // For NEET, filter based on closing rank
+        // For NEET, filter based on closing rank with 0.9 coefficient
         const closingRank = parseFloat(item["Closing Rank"]) || 0;
         const userRank = parseFloat(rank) || 0;
-        return closingRank >= userRank; // Show colleges where closing rank is >= user's rank
+        return closingRank >= 0.9 * userRank; // Show colleges where closing rank is >= 90% of user's rank
       } else if (exam === "TNEA") {
         return parseFloat(item["Cutoff Marks"]) <= parseFloat(rank);
       }
