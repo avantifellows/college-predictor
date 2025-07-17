@@ -282,8 +282,8 @@ export const jeeAdvancedConfig = {
 };
 
 export const neetConfig = {
-  name: "NEET",
-  code: "NEET",
+  name: "NEET MCC",
+  code: "NEET MCC",
   fields: [
     {
       name: "program",
@@ -973,7 +973,7 @@ export const examConfigs = {
   "JEE Main-JAC": jacExamConfig,
   "GUJCET": gujcetConfig,
   "JEE Advanced": jeeAdvancedConfig,
-  "NEET": neetConfig,
+  "NEET MCC": neetConfig,
   "MHT CET": mhtCetConfig,
   "KCET": kcetConfig,
   "TNEA": tneaConfig,
