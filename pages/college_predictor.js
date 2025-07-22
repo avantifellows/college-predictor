@@ -378,7 +378,6 @@ const CollegePredictor = () => {
                     ? Number(queryObject.rank) | 0
                     : ""
                 }
-
                 onChange={handleRankChange}
                 onKeyDown={(e) => {
                   // Prevent entering '.', 'e', '+', '-'
