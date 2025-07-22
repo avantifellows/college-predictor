@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import { useRouter } from "next/router";
 import getConstants from "../constants";
 import ScholarshipTable from "../components/ScholarshipTable";
+import ScholarshipCard from "../components/ScholarshipCard";
 import Head from "next/head";
 import Fuse from "fuse.js";
 import { scholarshipConfig } from "../scholarshipConfig";
@@ -234,12 +235,10 @@ const ScholarshipFinder = () => {
               <h3 className="text-lg md:text-xl mb-4 text-center font-bold">
                 Scholarships matching your criteria:
               </h3>
-              <div className="w-full overflow-x-auto">
-                <ScholarshipTable
-                  filteredData={filteredData}
-                  toggleRowExpansion={toggleRowExpansion}
-                  expandedRows={expandedRows}
-                />
+              <div className="inline-grid grid-cols-3 gap-4">
+                {filteredData.map((scholarship) => (
+                  <ScholarshipCard key={scholarship["Scholarship Name"]} scholarship={scholarship} />
+                ))}
               </div>
             </>
           ) : (
