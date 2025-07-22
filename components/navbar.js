@@ -54,7 +54,7 @@ const Navbar = ({ item1, item2 }) => {
         </div>
         <Link
           href="https://cv-generator.avantifellows.org/"
-          className="link hover:underline cursor-pointer text-lg"
+          className="px-5 py-2.5 bg-white bg-opacity-95 hover:bg-opacity-30 text-black text-sm rounded-3xl transition-all duration-200 cursor-pointer font-semibold font-sans"
           target="_blank"
           rel="noopener noreferrer"
         >
