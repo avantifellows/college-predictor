@@ -377,7 +377,7 @@ const CollegePredictor = () => {
                   queryObject.rank?.toString().length
                     ? Number(queryObject.rank) | 0
                     : ""
-                  }
+                }
 
                 onChange={handleRankChange}
                 onKeyDown={(e) => {
