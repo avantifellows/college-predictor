@@ -429,7 +429,10 @@ export const jeeAdvancedConfig = {
 // };
 // New NEET UG Exam
 // Mapping from filter values to database values for seat type
+
+
 const seatTypeMap = {
+  "All India/Open Seat":"Open Seat",
   "Deemed/Paid": "Deemed/Paid Seats",
   "Non-Resident Indian": "Non-Resident Indian",
   "Foreign National": "Foreign Country",
@@ -438,6 +441,8 @@ const seatTypeMap = {
   "Jamia": "Jamia Internal",
   "Delhi University": "Delhi University",
 };
+
+
 export const neetUGConfig = {
   name: "NEETUG",
   code: "NEETUG",
@@ -514,7 +519,8 @@ export const neetUGConfig = {
       name: "seat_type",
       label: "Seat Type",
       options: [
-        { value: "All India", label: "Any" },
+        { value: "Any", label: "Any" },
+        { value: "All India/Open Seat", label: "All India/Open Seat" },
         { value: "Deemed/Paid", label: "Deemed/Paid" },
         { value: "Non-Resident Indian", label: "Non-Resident Indian" },
         { value: "Foreign National", label: "Foreign National" },
@@ -583,8 +589,16 @@ export const neetUGConfig = {
       },
       (item) => {
         // If seat_type is 'All India' (Any), skip filtering
+        
         if (query.seat_type && String(query.seat_type).trim().toLowerCase() !== "any") {
           const dbValue = seatTypeMap[query.seat_type] || query.seat_type;
+          if(dbValue=="Open Seat"){
+            return(
+              String(item["Seat Type"]||"").trim().toLowerCase()===String(dbValue).trim().toLowerCase()
+              ||
+              String(item["Seat Type"]||"").trim().toLowerCase()===String("All India").trim().toLowerCase()
+            )
+          }
           return (
             String(item["Seat Type"] || "").trim().toLowerCase() ===
             String(dbValue).trim().toLowerCase()
