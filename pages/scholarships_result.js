@@ -235,9 +235,12 @@ const ScholarshipFinder = () => {
               <h3 className="text-lg md:text-xl mb-4 text-center font-bold">
                 Scholarships matching your criteria:
               </h3>
-              <div className="inline-grid grid-cols-3 gap-4">
+              <div className="inline-grid gap-4 grid-cols-1 md:grid-cols-3">
                 {filteredData.map((scholarship) => (
-                  <ScholarshipCard key={scholarship["Scholarship Name"]} scholarship={scholarship} />
+                  <ScholarshipCard
+                    key={scholarship["Scholarship Name"]}
+                    scholarship={scholarship}
+                  />
                 ))}
               </div>
             </>
