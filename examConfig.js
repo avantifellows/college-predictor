@@ -580,9 +580,9 @@ export const neetUGConfig = {
         return true;
       },
       (item) => {
-        if (query.religion!="Other" ) {
+        if (query.religion=="Jain" ) {
          return(
-          item["Seat Type"]==query.religion
+          item["Seat Type"]=="Jain Minority"
          ) 
         }
         return true;
