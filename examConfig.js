@@ -281,9 +281,166 @@ export const jeeAdvancedConfig = {
   },
 };
 
-export const neetConfig = {
-  name: "NEET MCC",
-  code: "NEET MCC",
+// export const neetConfig = {
+//   name: "NEET MCC",
+//   code: "NEET MCC",
+//   fields: [
+//     {
+//       name: "program",
+//       label: "Select Program",
+//       options: [
+//         { value: "MBBS", label: "MBBS" },
+//         { value: "BDS", label: "BDS" },
+//         { value: "BSC Nursing", label: "BSC Nursing" },
+//       ],
+//     },
+//     {
+//       name: "gender",
+//       label: "Select Gender",
+//       options: [
+//         { value: "Open", label: "Open" },
+//         { value: "Female", label: "Female" },
+//       ],
+//     },
+//     {
+//       name: "category",
+//       label: "Select Category",
+//       options: [
+//         { value: "EWS", label: "EWS" },
+//         { value: "EWS PwD", label: "EWS PwD" },
+//         { value: "Open", label: "Open" },
+//         { value: "Open PwD", label: "Open PwD" },
+//         { value: "OBC", label: "OBC" },
+//         { value: "OBC PwD", label: "OBC PwD" },
+//         { value: "SC", label: "SC" },
+//         { value: "SC PwD", label: "SC PwD" },
+//         { value: "ST", label: "ST" },
+//         { value: "ST PwD", label: "ST PwD" },
+//       ],
+//     },
+//     {
+//       name: "religion",
+//       label: "Select Religion",
+//       options: [
+//         { value: "jain", label: "Jain" },
+//         { value: "muslim", label: "Muslim" },
+//         { value: "other", label: "Other" },
+//       ],
+//     },
+//     {
+//       name: "nationality",
+//       label: "Select Nationality",
+//       options: [
+//         { value: "indian", label: "Indian" },
+//         { value: "non resident", label: "Non Resident" },
+//         { value: "other", label: "Other" },
+//       ],
+//     },
+//     {
+//       name: "region",
+//       label: "Select Region",
+//       options: [
+//         { value: "delhi ncr", label: "Delhi NCR" },
+//         { value: "puducherry", label: "Puducherry" },
+//         { value: "other", label: "Other" },
+//       ],
+//     },
+//     {
+//       name: "defence_war",
+//       label: "Defence War Quota",
+//       options: [
+//         { value: "Yes", label: "Yes" },
+//         { value: "No", label: "No" },
+//       ],
+//     },
+//   ],
+//   legend: [
+//     { key: "AI", value: "All India" },
+//     { key: "SQ", value: "State Quota" },
+//   ],
+//   getDataPath: () => {
+//     return path.join(process.cwd(), "public/data/NEET/NEET.json");
+//   },
+//   getFilters: (query) => {
+//     console.log(query)
+//     // Helper to normalize program names for comparison
+//     const normalize = (str) =>
+//       String(str || "")
+//         .replace(/[^a-zA-Z0-9]/g, "")
+//         .toLowerCase();
+//     return [
+//       (item) => {
+//         if (query.program) {
+//           return (
+//             normalize(item["Academic Program Name"]) ===
+//             normalize(query.program)
+//           );
+//         }
+//         return true;
+//       },
+//       (item) => {
+//         if (query.gender === "Female") {
+//           return (
+//             item["Seat Type"].includes("Female") || item.gender === "Female"
+//           );
+//         }
+//         return true;
+//       },
+//       (item) => {
+//         if (query.category) {
+//           const seatType = String(item["Seat Type"] || "").toLowerCase();
+//           const isPWD = String(item["is_PWD"] || "No").toLowerCase();
+//           const queryCat = query.category.toLowerCase();
+
+//           // If user selected a PwD category, require is_PWD to be yes
+//           if (queryCat.includes("pwd")) {
+//             return (
+//               isPWD === "yes" &&
+//               seatType.includes(queryCat.replace(/\s+pwd$/, ""))
+//             );
+//           }
+//           // If user selected a non-PwD category, require is_PWD to be no
+//           return isPWD === "no" && seatType === queryCat;
+//         }
+//         return true;
+//       },
+//       (item) => {
+//         // 0.9 * rank coefficient filter for NEET closing rank
+//         if (query.rank) {
+//           const closingRank = parseInt(item["Closing Rank"], 10);
+//           const userRank = parseInt(query.rank, 10);
+//           if (!isNaN(closingRank) && !isNaN(userRank)) {
+//             return closingRank >= 0.9 * userRank;
+//           }
+//         }
+//         return true;
+//       },
+//       (item) => {
+//         if (query.defence_war === "Yes") {
+//           return item.quota && item.quota.toLowerCase().includes("defence");
+//         } else if (query.defence_war === "No") {
+//           return !item.quota || !item.quota.toLowerCase().includes("defence");
+//         }
+//         return true;
+//       },
+//     ];
+//   },
+//   getSort: () => [["Closing Rank", "ASC"]],
+// };
+// New NEET UG Exam
+// Mapping from filter values to database values for seat type
+const seatTypeMap = {
+  "Deemed/Paid": "Deemed/Paid Seats",
+  "Non-Resident Indian": "Non-Resident Indian",
+  "Foreign National": "Foreign Country",
+  "Aligarh Muslim University": "Aligarh Muslim University (AMU)",
+  "Employees State Insurance": "Employees State Insurance Scheme(ESI)",
+  "Jamia": "Jamia Internal",
+  "Delhi University": "Delhi University",
+};
+export const neetUGConfig = {
+  name: "NEETUG",
+  code: "NEETUG",
   fields: [
     {
       name: "program",
@@ -353,15 +510,30 @@ export const neetConfig = {
         { value: "No", label: "No" },
       ],
     },
+    {
+      name: "seat_type",
+      label: "Seat Type",
+      options: [
+        { value: "All India", label: "Any" },
+        { value: "Deemed/Paid", label: "Deemed/Paid" },
+        { value: "Non-Resident Indian", label: "Non-Resident Indian" },
+        { value: "Foreign National", label: "Foreign National" },
+        { value: "Aligarh Muslim University", label: "Aligarh Muslim University" },
+        { value: "Employees State Insurance", label: "Employees State Insurance" },
+        { value: "Jamia", label: "Jamia" },
+        { value: "Delhi University", label: "Delhi University" },
+      ],
+    },
   ],
   legend: [
     { key: "AI", value: "All India" },
     { key: "SQ", value: "State Quota" },
   ],
   getDataPath: () => {
-    return path.join(process.cwd(), "public/data/NEET/NEET.json");
+    return path.join(process.cwd(), "public/data/NEETUG/NEETUG.json");
   },
   getFilters: (query) => {
+    console.log(query)
     // Helper to normalize program names for comparison
     const normalize = (str) =>
       String(str || "")
@@ -378,28 +550,45 @@ export const neetConfig = {
         return true;
       },
       (item) => {
-        if (query.gender === "Female") {
+        if (query.gender === "Open") {
+          // Only show items where Gender is exactly 'Open'
+          return item["Gender"] === "Open" || item.gender === "Open";
+        } else if (query.gender === "Female") {
+          // Show items where Gender is 'Female' or 'Open'
           return (
-            item["Seat Type"].includes("Female") || item.gender === "Female"
+            item["Gender"] === "Female" ||
+            item["Gender"] === "Open" ||
+            item.gender === "Female" ||
+            item.gender === "Open"
           );
         }
         return true;
       },
       (item) => {
         if (query.category) {
-          const seatType = String(item["Seat Type"] || "").toLowerCase();
-          const isPWD = String(item["is_PWD"] || "No").toLowerCase();
-          const queryCat = query.category.toLowerCase();
-
-          // If user selected a PwD category, require is_PWD to be yes
-          if (queryCat.includes("pwd")) {
-            return (
-              isPWD === "yes" &&
-              seatType.includes(queryCat.replace(/\s+pwd$/, ""))
-            );
-          }
-          // If user selected a non-PwD category, require is_PWD to be no
-          return isPWD === "no" && seatType === queryCat;
+         return(
+          item["Category"]==query.category
+         ) 
+         
+        }
+        return true;
+      },
+      (item) => {
+        if (query.religion!="Other" ) {
+         return(
+          item["Seat Type"]==query.religion
+         ) 
+        }
+        return true;
+      },
+      (item) => {
+        // If seat_type is 'All India' (Any), skip filtering
+        if (query.seat_type && String(query.seat_type).trim().toLowerCase() !== "any") {
+          const dbValue = seatTypeMap[query.seat_type] || query.seat_type;
+          return (
+            String(item["Seat Type"] || "").trim().toLowerCase() ===
+            String(dbValue).trim().toLowerCase()
+          );
         }
         return true;
       },
@@ -411,14 +600,6 @@ export const neetConfig = {
           if (!isNaN(closingRank) && !isNaN(userRank)) {
             return closingRank >= 0.9 * userRank;
           }
-        }
-        return true;
-      },
-      (item) => {
-        if (query.defence_war === "Yes") {
-          return item.quota && item.quota.toLowerCase().includes("defence");
-        } else if (query.defence_war === "No") {
-          return !item.quota || !item.quota.toLowerCase().includes("defence");
         }
         return true;
       },
@@ -973,7 +1154,8 @@ export const examConfigs = {
   "JEE Main-JAC": jacExamConfig,
   "GUJCET": gujcetConfig,
   "JEE Advanced": jeeAdvancedConfig,
-  "NEET MCC": neetConfig,
+  // "NEET MCC": neetConfig,
+  "NEETUG": neetUGConfig,
   "MHT CET": mhtCetConfig,
   "KCET": kcetConfig,
   "TNEA": tneaConfig,
