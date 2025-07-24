@@ -34,7 +34,7 @@ function ScholarshipCard({ scholarship }) {
             href={scholarship["Pre-filled Form Link"] || "#"}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2 bg-emerald-500 hover:bg-emerald-600 text-white rounded-lg transition-colors duration-200 inline-block text-center"
+            className="px-4 py-2 bg-[#B52326] hover:bg-[#9c1e21] text-white rounded-lg transition-colors duration-200 inline-block text-center"
           >
             Apply Now
           </Link>

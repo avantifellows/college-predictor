@@ -25,7 +25,7 @@ const Navbar = ({ item1, item2 }) => {
           {/* Mobile CV Generator link */}
           <Link
             href="https://cv-generator.avantifellows.org/"
-            className="md:hidden px-3 py-2 bg-[#B52326] text-white text-xs rounded-2xl transition-all duration-200 cursor-pointer font-semibold font-sans"
+            className="md:hidden px-3 py-2 bg-[#B52326] text-white text-sm rounded-2xl transition-all duration-200 cursor-pointer font-semibold font-sans whitespace-nowrap"
             target="_blank"
             rel="noopener noreferrer"
           >

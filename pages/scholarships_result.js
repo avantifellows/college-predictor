@@ -201,11 +201,11 @@ const ScholarshipFinder = () => {
             {renderQueryDetails()}
           </div>
 
-          {!isLoading && !error && fullData.length > 0 && (
+          {!isLoading && fullData.length > 0 && (
             <div className="mb-6 p-4 border border-gray-200 rounded-md">
               <label
                 htmlFor="scholarshipSearch"
-                className="block text-md font-semibold text-gray-700 mb-2"
+                className="block text-xs sm:text-sm md:text-md font-semibold text-gray-700 mb-2 whitespace-nowrap"
               >
                 Search within results (by Scholarship Name):
               </label>
@@ -215,7 +215,7 @@ const ScholarshipFinder = () => {
                 value={searchTerm}
                 onChange={handleSearchChange}
                 placeholder="Type to search scholarships..."
-                className="border border-gray-300 rounded w-full p-2 text-center focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="border border-gray-300 rounded w-full p-2 text-xs sm:text-sm md:text-base text-center focus:ring-2 focus:ring-[#B52326] focus:border-transparent"
               />
             </div>
           )}
