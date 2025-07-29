@@ -690,7 +690,18 @@ export const mhtCetConfig = {
     (item) => item.State === query.homeState,
     (item) => item.PWD === query.isPWD,
     (item) => item.Defense === query.isDefenseWard,
+    (item) => {
+      if (query.rank) {
+        const closingRank = parseInt(item["Closing Rank"], 10);
+        const userRank = parseInt(query.rank, 10);
+        if (!isNaN(closingRank) && !isNaN(userRank)) {
+          return closingRank >= userRank;
+        }
+      }
+      return true;
+    },
   ],
+  getSort: () => [["Closing Rank", "ASC"]],
 };
 
 export const kcetConfig = {
