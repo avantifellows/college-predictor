@@ -1,0 +1,81 @@
+
+{
+  "overview": {
+    "total_scholarships": 197,
+    "average_onetime_amount": 63000,
+    "average_annual_amount": 74000,
+    "average_monthly_amount": 34000
+  },
+  "by_state": {
+    "goa": 4,
+    "gujarat": 17,
+    "maharashtra": 16,
+    "himachal_pradesh": 5,
+    "andhra_pradesh": 17,
+    "all_india": 142,
+    "karnataka": 13,
+    "telangana": 5,
+    "tamil_nadu": 12,
+    "bihar": 6,
+    "delhi": 6,
+    "haryana": 1,
+    "uttarakhand": 2,
+    "assam": 3,
+    "arunachal_pradesh": 3,
+    "manipur": 3,
+    "meghalaya": 3,
+    "mizoram": 3,
+    "nagaland": 2,
+    "tripura": 3,
+    "rajasthan": 9,
+    "west_bengal": 1,
+    "sikkim": 1,
+    "punjab": 2,
+    "jharkhand": 2,
+    "kerala":  1,
+    "odisha": 5,
+    "chhattisgarh": 5,
+    "madhya_pradesh": 2,
+    "uttar_pradesh": 1,
+    "puducherry": 3,
+    "ladakh": 1,
+
+    "all_india_average_amount": 62000,
+    "other_states_average_amount": 63000
+  },
+  "by_gender": {
+    "any": 152,
+    "female": 37,
+    "other": 4,
+    "female_other": 3,
+    "_comment": "the above is the category 'female, other'",
+
+    "any_average_amount": 59000,
+    "female_average_amount": 72000,
+    "other_average_amount": 110000,
+    "female_other_average_amount": 67000
+  },
+  "by_type":{
+    "engineering_btech": {"count": 54, "average_amount": 65000},
+    "medical_bds": {"count":17, "average_amount": 67000},
+    "any": {"count": 105, "average_amount": 67000},
+    "science_bsc": {"count": 24, "average_amount": 78000},
+    "commerce_bcom": {"count": 18, "average_amount": 80000},
+    "arts_ba": {"count": 17, "average_amount": 61000},
+    "medical_mbbs": {"count": 23, "average_amount": 43000},
+    "law_llb": {"count": 6, "average_amount": 110000},
+    "architecture_barch": {"count": 7, "average_amount": 100000},
+    "nursing_bsc": {"count": 5, "average_amount": 190000},
+    "management_bba_mba": {"count": 14, "average_amount": 55000},
+    "pharmacy_bpharm": {"count": 14, "average_amount": 63000},
+    "diploma": {"count": 16, "average_amount": 37000},
+    "iti": {"count": 7, "average_amount": 38000},
+    "design_bdes": {"count": 1, "average_amount": 50000},
+    "_comment": "design only has one entry so average_amount is just the amount for that scholarship",
+    "bca": {"count": 6, "average_amount": 43500}
+  }, 
+  "category": {
+    "pwd_only": {"count": 6, "average_amount": 59000},
+    "any": {"count": 191, "average_amount": 64000}
+  }
+}

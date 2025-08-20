@@ -40,6 +40,7 @@ const Navbar = ({ item1, item2 }) => {
           </SocialIcon>
         </div>
       </div>
+
       <div className="bg-[#B52326] text-xl w-full h-16 flex items-center justify-center md:justify-between text-white px-4 md:px-8">
         <div className="hidden md:block"></div>
         <div className="flex justify-center md:justify-start text-white text-lg gap-10">
