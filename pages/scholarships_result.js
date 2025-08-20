@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import { useRouter } from "next/router";
 import getConstants from "../constants";
 import ScholarshipTable from "../components/ScholarshipTable";
+import ScholarshipCard from "../components/ScholarshipCard";
 import Head from "next/head";
 import Fuse from "fuse.js";
 import { scholarshipConfig } from "../scholarshipConfig";
@@ -200,11 +201,11 @@ const ScholarshipFinder = () => {
             {renderQueryDetails()}
           </div>
 
-          {!isLoading && !error && fullData.length > 0 && (
+          {!isLoading && fullData.length > 0 && (
             <div className="mb-6 p-4 border border-gray-200 rounded-md">
               <label
                 htmlFor="scholarshipSearch"
-                className="block text-md font-semibold text-gray-700 mb-2"
+                className="block text-xs sm:text-sm md:text-md font-semibold text-gray-700 mb-2 whitespace-nowrap"
               >
                 Search within results (by Scholarship Name):
               </label>
@@ -214,7 +215,7 @@ const ScholarshipFinder = () => {
                 value={searchTerm}
                 onChange={handleSearchChange}
                 placeholder="Type to search scholarships..."
-                className="border border-gray-300 rounded w-full p-2 text-center focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="border border-gray-300 rounded w-full p-2 text-xs sm:text-sm md:text-base text-center focus:ring-2 focus:ring-[#B52326] focus:border-transparent"
               />
             </div>
           )}
@@ -234,12 +235,13 @@ const ScholarshipFinder = () => {
               <h3 className="text-lg md:text-xl mb-4 text-center font-bold">
                 Scholarships matching your criteria:
               </h3>
-              <div className="w-full overflow-x-auto">
-                <ScholarshipTable
-                  filteredData={filteredData}
-                  toggleRowExpansion={toggleRowExpansion}
-                  expandedRows={expandedRows}
-                />
+              <div className="inline-grid gap-4 grid-cols-1 md:grid-cols-3">
+                {filteredData.map((scholarship) => (
+                  <ScholarshipCard
+                    key={scholarship["Scholarship Name"]}
+                    scholarship={scholarship}
+                  />
+                ))}
               </div>
             </>
           ) : (
