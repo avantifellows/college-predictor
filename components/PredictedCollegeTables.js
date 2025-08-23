@@ -296,7 +296,7 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
 
   const renderLegend = () => {
     const examConfig = examConfigs[exam];
-    console.log("this is the exam type",examConfig)
+    console.log("this is the exam type", examConfig);
     if (!examConfig || !examConfig.legend) return null;
 
     return (
