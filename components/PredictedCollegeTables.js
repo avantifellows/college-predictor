@@ -100,6 +100,8 @@ const ExpandedRowComponent = ({ item, fields, exam, examColumnMapping }) => {
 const ROWS_PER_PAGE_INITIAL = 30; // Variable for initial rows
 
 const PredictedCollegesTable = ({ data = [], exam = "" }) => {
+  console.log("PredictedCollegeTables data:", data);
+  console.log("PredictedCollegeTables exam:", exam);
   const [expandedRows, setExpandedRows] = useState({});
   const [showAllRows, setShowAllRows] = useState(false); // State for showing all rows
 
@@ -294,6 +296,7 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
 
   const renderLegend = () => {
     const examConfig = examConfigs[exam];
+    console.log("this is the exam type",examConfig)
     if (!examConfig || !examConfig.legend) return null;
 
     return (
