@@ -32,7 +32,7 @@ const Navbar = ({ item1, item2 }) => {
       </div>
       <div className="bg-[#B52326] text-xl w-full h-16 flex items-center justify-between text-white px-4 md:px-8">
         <div></div>
-        <div className="flex text-white text-lg gap-10">
+        <div className="flex text-white text-sm sm:text-base md:text-lg gap-4 sm:gap-6 md:gap-10">
           <Link
             href="/"
             className={`link ${
@@ -51,14 +51,26 @@ const Navbar = ({ item1, item2 }) => {
           >
             {item2}
           </Link>
+          <Link
+            href="/rankpredictor"
+            className={`link ${
+              pathname === "/rankpredictor"
+                ? "font-bold"
+                : "hover:underline cursor-pointer"
+            }`}
+          >
+            <span className="hidden sm:inline">Rank Predictor</span>
+            <span className="sm:hidden">Rank</span>
+          </Link>
         </div>
         <Link
           href="https://cv-generator.avantifellows.org/"
-          className="px-5 py-2.5 bg-white bg-opacity-95 text-black text-sm rounded-3xl transition-all duration-200 cursor-pointer font-semibold font-sans"
+          className="px-3 py-1.5 sm:px-4 sm:py-2 md:px-5 md:py-2.5 bg-white bg-opacity-95 text-black text-xs sm:text-sm rounded-2xl sm:rounded-3xl transition-all duration-200 cursor-pointer font-semibold font-sans"
           target="_blank"
           rel="noopener noreferrer"
         >
-          CV Generator
+          <span className="hidden sm:inline">CV Generator</span>
+          <span className="sm:hidden">CV</span>
         </Link>
       </div>
     </div>

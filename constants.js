@@ -37,7 +37,7 @@ const constants = {
   EXAM_OPTIONS: [
     { value: "jee_main", label: "JEE Main" },
     { value: "jee_advanced", label: "JEE Advanced" },
-    { value: "neet", label: "NEET" },
+    { value: "neet", label: "NEET MCC" },
     { value: "mhtcet", label: "MHT CET" },
     { value: "kcet", label: "KCET" },
     { value: "tnea", label: "TNEA" },
