@@ -98,12 +98,18 @@ async function predictFromMarks(marksOutOf300, category, noiseStd = 0.0) {
   const session = await initServerModel();
 
   // Validation
-  if (
-    typeof marksOutOf300 !== "number" ||
-    marksOutOf300 < 0 ||
-    marksOutOf300 > 300
-  ) {
-    throw new Error("Marks must be a number between 0 and 300");
+  if (typeof marksOutOf300 !== "number") {
+    throw new Error("Marks must be a number");
+  }
+
+  // Check if marks are decimal
+  if (!Number.isInteger(marksOutOf300)) {
+    throw new Error("Marks must be a whole number (no decimals allowed)");
+  }
+
+  // Check if marks are within valid range (-75 to 300)
+  if (marksOutOf300 < -75 || marksOutOf300 > 300) {
+    throw new Error("Marks must be between -75 and 300");
   }
 
   const validCategories = ["GEN", "OBC", "SC"];
@@ -184,13 +190,21 @@ export default async function handler(req, res) {
             category: studentCategory,
           } = student;
 
-          if (
-            typeof studentMarks !== "number" ||
-            studentMarks < 0 ||
-            studentMarks > 300
-          ) {
+          if (typeof studentMarks !== "number") {
             return res.status(400).json({
-              error: `Invalid marks for student ${name}: ${studentMarks}`,
+              error: `Marks for student ${name} must be a number: ${studentMarks}`,
+            });
+          }
+
+          if (!Number.isInteger(studentMarks)) {
+            return res.status(400).json({
+              error: `Marks for student ${name} must be a whole number (no decimals): ${studentMarks}`,
+            });
+          }
+
+          if (studentMarks < -75 || studentMarks > 300) {
+            return res.status(400).json({
+              error: `Marks for student ${name} must be between -75 and 300: ${studentMarks}`,
             });
           }
 
@@ -218,9 +232,16 @@ export default async function handler(req, res) {
         });
       } else if (typeof marks === "number" && category) {
         // Single prediction
-        if (marks < 0 || marks > 300) {
+        // Check if marks are decimal
+        if (!Number.isInteger(marks)) {
           return res.status(400).json({
-            error: "Marks must be between 0 and 300",
+            error: "Marks must be a whole number (no decimals allowed)",
+          });
+        }
+
+        if (marks < -75 || marks > 300) {
+          return res.status(400).json({
+            error: "Marks must be between -75 and 300",
           });
         }
 
