@@ -10,6 +10,9 @@ const nextConfig = {
       config.externals.push({
         "onnxruntime-node": "commonjs onnxruntime-node",
       });
+
+      // Additional configuration for Amplify/serverless environments
+      config.externals.push("onnxruntime-node");
     }
 
     return config;
@@ -19,6 +22,12 @@ const nextConfig = {
   experimental: {
     serverComponentsExternalPackages: ["onnxruntime-node"],
   },
+
+  // Amplify-specific optimizations
+  output: "standalone",
+
+  // Reduce bundle size for serverless
+  productionBrowserSourceMaps: false,
 };
 
 module.exports = nextConfig;
