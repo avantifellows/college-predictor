@@ -13,6 +13,30 @@ const nextConfig = {
 
       // Additional configuration for Amplify/serverless environments
       config.externals.push("onnxruntime-node");
+    } else {
+      // Client-side: completely ignore any ONNX runtime references
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        "onnxruntime-web": false,
+        "onnxruntime-node": false,
+      };
+    }
+
+    // Exclude any ONNX files from being processed by Terser
+    if (config.optimization && config.optimization.minimizer) {
+      config.optimization.minimizer.forEach((minimizer) => {
+        if (minimizer.constructor.name === "TerserPlugin") {
+          if (!minimizer.options) {
+            minimizer.options = {};
+          }
+          if (!minimizer.options.exclude) {
+            minimizer.options.exclude = [];
+          }
+          // Exclude ONNX files from minification
+          minimizer.options.exclude.push(/ort\.bundle/);
+          minimizer.options.exclude.push(/onnxruntime/);
+        }
+      });
     }
 
     return config;
@@ -22,9 +46,6 @@ const nextConfig = {
   experimental: {
     serverComponentsExternalPackages: ["onnxruntime-node"],
   },
-
-  // Amplify-specific optimizations
-  output: "standalone",
 
   // Reduce bundle size for serverless
   productionBrowserSourceMaps: false,
