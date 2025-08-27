@@ -18,8 +18,15 @@ async function initServerModel() {
     try {
       // Dynamic import to avoid issues during build
       if (typeof window === "undefined") {
-        // Server-side: use onnxruntime-node
-        ort = require("onnxruntime-node");
+        // Server-side: use onnxruntime-node with fallback handling
+        try {
+          ort = require("onnxruntime-node");
+        } catch (requireError) {
+          console.error("Failed to require onnxruntime-node:", requireError);
+          // Try dynamic import as fallback
+          const onnxModule = await import("onnxruntime-node");
+          ort = onnxModule.default || onnxModule;
+        }
       } else {
         // Client-side: this shouldn't happen in API routes, but just in case
         throw new Error("API routes should only run server-side");
@@ -27,7 +34,7 @@ async function initServerModel() {
 
       const fs = require("fs");
       const path = require("path");
-
+      console.log("hello");
       const modelPath = path.join(
         process.cwd(),
         "public",
