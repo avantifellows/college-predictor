@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+"use client";
+
+import { useState } from "react";
 import Script from "next/script";
 import getConstants from "../constants";
 import examConfigs from "../examConfig";
@@ -202,9 +204,13 @@ const ExamForm = () => {
 
     if (!config) return null;
 
-    return config.fields.map((field) => (
-      <div key={field.name} className="my-4 w-full sm:w-3/4">
-        <label className="block text-md font-semibold text-gray-700 mb-2 -translate-x-4">
+    return config.fields.map((field, index) => (
+      <div
+        key={field.name}
+        className="space-y-2 relative"
+        style={{ zIndex: 50 - index }}
+      >
+        <label className="block text-sm font-medium text-slate-700">
           {typeof field.label === "function"
             ? field.label(formData)
             : field.label}
@@ -227,8 +233,8 @@ const ExamForm = () => {
       <Head>
         <title>College Predictor - Home</title>
       </Head>
-      <div className="flex flex-col h-fit">
-        <div className="flex flex-col justify-start items-center w-full mt-8 pb-10">
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-red-50 to-red-100">
+        <div className="container mx-auto px-4 py-8">
           <Script
             src="https://www.googletagmanager.com/gtag/js?id=G-FHGVRT52L7"
             strategy="afterInteractive"
@@ -242,150 +248,218 @@ const ExamForm = () => {
                         gtag('config', 'G-FHGVRT52L7');
                       `}
           </Script>
-          <div className="text-center flex flex-col items-center w-full sm:w-3/4 md:w-2/3 lg:w-1/2 mt-8 p-8 pb-10 bg-[#f8f9fa] shadow-inner drop-shadow-md rounded-md">
-            <h1 className="text-2xl md:text-3xl font-bold mb-6">
-              {getConstants().TITLE}
-            </h1>
 
-            {/* TGEAPCET Disclaimer - Shows when EWS category is selected */}
-            {selectedExam === "TGEAPCET" && formData.category === "EWS" && (
-              <div className="bg-red-50 border-l-4 border-red-400 p-4 mb-6 w-full">
-                <p className="text-red-700 text-sm">
-                  Showing OC category data as EWS-specific data is limited.
-                </p>
+          <div className="max-w-2xl mx-auto">
+            <div className="bg-white rounded-2xl shadow-xl border border-slate-200/60 overflow-visible">
+              <div
+                className="px-8 py-6"
+                style={{
+                  background: "linear-gradient(to right, #B52326, #B52326)",
+                }}
+              >
+                <h1 className="text-2xl md:text-3xl font-bold text-white text-center">
+                  {getConstants().TITLE}
+                </h1>
               </div>
-            )}
 
-            <div className="flex flex-col justify-center sm:flex-row flex-wrap w-full">
-              <div className="my-4 w-full sm:w-3/4">
-                <label
-                  htmlFor="exam"
-                  className="block text-md font-semibold text-gray-700 mb-2 -translate-x-4"
-                >
-                  Select Exam/Counselling Process
-                </label>
-                <Dropdown
-                  options={Object.keys(examConfigs)
-                    .filter(
-                      (exam) =>
-                        exam !== "JEE Main-JOSAA" && exam !== "JEE Advanced"
-                    ) // Temporarily removed JEE MAIN/Advanced(merged into JOSSA) and NEET(cus of old data)
-                    .map((exam) => ({
-                      value: exam,
-                      label: exam,
-                      code: examConfigs[exam].code,
-                      apiEndpoint: examConfigs[exam].apiEndpoint,
-                    }))}
-                  onChange={handleExamChange}
-                  className="w-full"
-                />
-              </div>
-              {renderFields()}
+              <div className="p-8">
+                {selectedExam === "TGEAPCET" && formData.category === "EWS" && (
+                  <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-6">
+                    <div className="flex items-center">
+                      <div
+                        className="w-2 h-2 rounded-full mr-3"
+                        style={{ backgroundColor: "#B52326" }}
+                      ></div>
+                      <p className="text-amber-800 text-sm font-medium">
+                        Showing OC category data as EWS-specific data is
+                        limited.
+                      </p>
+                    </div>
+                  </div>
+                )}
 
-              {selectedExam && selectedExam === "TNEA" ? (
-                <TneaScoreCalculator onScoreChange={handleTneaScoreChange} />
-              ) : (
-                selectedExam && (
-                  <>
-                    <div className="my-4 w-full sm:w-3/4">
-                      <label className="block text-md font-semibold text-gray-700 mb-2 -translate-x-3">
-                        {selectedExam === "JEE Main-JAC"
-                          ? "Enter All India Rank"
-                          : selectedExam === "JoSAA"
-                          ? "Enter JEE Main Category Rank"
-                          : selectedExam === "GUJCET"
-                          ? "Enter your Marks"
-                          : selectedExam === "NEETUG"
-                          ? "Enter All India Rank"
-                          : "Enter Category Rank"}
-                      </label>
-                      <input
-                        type="number"
-                        step="1"
-                        value={
-                          selectedExam === "JoSAA"
-                            ? formData.mainRank || ""
-                            : formData.rank || ""
-                        }
-                        onChange={handleRankChange}
-                        className="border border-gray-300 rounded w-full p-2 text-center"
-                        placeholder={
-                          selectedExam === "JEE Main-JAC"
-                            ? "Enter All India Rank"
-                            : selectedExam === "JoSAA"
-                            ? "Enter JEE Main rank"
-                            : selectedExam === "GUJCET"
-                            ? "100"
-                            : "Enter your rank"
-                        }
+                <div className="space-y-6">
+                  <div className="space-y-2">
+                    <label className="block text-sm font-medium text-slate-700">
+                      Select Exam/Counselling Process
+                    </label>
+                    <div className="relative z-50">
+                      <Dropdown
+                        options={Object.keys(examConfigs)
+                          .filter(
+                            (exam) =>
+                              exam !== "JEE Main-JOSAA" &&
+                              exam !== "JEE Advanced"
+                          )
+                          .map((exam) => ({
+                            value: exam,
+                            label: exam,
+                            code: examConfigs[exam].code,
+                            apiEndpoint: examConfigs[exam].apiEndpoint,
+                          }))}
+                        onChange={handleExamChange}
+                        className="w-full"
                       />
                     </div>
+                  </div>
 
-                    {/* JEE Advanced Rank input field - only show if user selected Yes for qualifiedJeeAdv */}
-                    {selectedExam === "JoSAA" &&
-                      formData.qualifiedJeeAdv === "Yes" && (
-                        <div className="my-4 w-full sm:w-3/4">
-                          <label className="block text-md font-semibold text-gray-700 mb-2 -translate-x-3">
-                            Enter JEE Advanced Category Rank
+                  <div className="grid gap-6">{renderFields()}</div>
+
+                  {selectedExam && selectedExam === "TNEA" ? (
+                    <TneaScoreCalculator
+                      onScoreChange={handleTneaScoreChange}
+                    />
+                  ) : (
+                    selectedExam && (
+                      <>
+                        <div className="space-y-2">
+                          <label className="block text-sm font-medium text-slate-700">
+                            {selectedExam === "JEE Main-JAC"
+                              ? "Enter All India Rank"
+                              : selectedExam === "JoSAA"
+                              ? "Enter JEE Main Category Rank"
+                              : selectedExam === "GUJCET"
+                              ? "Enter your Marks"
+                              : selectedExam === "NEETUG"
+                              ? "Enter All India Rank"
+                              : "Enter Category Rank"}
                           </label>
-                          <div className="flex flex-col w-full">
-                            <input
-                              type="string"
-                              step="1"
-                              value={formData.advRank || ""}
-                              onChange={handleAdvancedRankChange}
-                              onKeyDown={(e) => {
-                                if (
-                                  [".", "e", "E", "+", "-", " "].includes(e.key)
-                                ) {
-                                  e.preventDefault();
-                                }
-                              }}
-                              className={`border ${
-                                rankError ? "border-red-500" : "border-gray-300"
-                              } rounded w-full p-2 text-center`}
-                              placeholder="e.g., 104 or 104P"
-                            />
-                            {rankError && (
-                              <p className="text-red-500 text-sm mt-1">
-                                {rankError}
-                              </p>
-                            )}
-                            <p className="text-xs text-gray-500 mt-1">
-                              Enter rank (e.g., 104) or rank with 'P' suffix
-                              (e.g., 104P)
-                            </p>
-                          </div>
+                          <input
+                            type="number"
+                            step="1"
+                            value={
+                              selectedExam === "JoSAA"
+                                ? formData.mainRank || ""
+                                : formData.rank || ""
+                            }
+                            onChange={handleRankChange}
+                            className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:border-transparent transition-colors"
+                            style={{ "--tw-ring-color": "#B52326" }}
+                            onFocus={(e) =>
+                              (e.target.style.boxShadow = `0 0 0 2px #B52326`)
+                            }
+                            onBlur={(e) => (e.target.style.boxShadow = "none")}
+                            placeholder={
+                              selectedExam === "JEE Main-JAC"
+                                ? "Enter All India Rank"
+                                : selectedExam === "JoSAA"
+                                ? "Enter JEE Main rank"
+                                : selectedExam === "GUJCET"
+                                ? "100"
+                                : "Enter your rank"
+                            }
+                          />
                         </div>
-                      )}
-                  </>
-                )
-              )}
-            </div>
 
-            {selectedExam && (
-              <>
-                <button
-                  className="mt-2 px-5 py-2 rounded-lg bg-red-600 text-white cursor-pointer hover:bg-red-700 active:bg-red-800 disabled:bg-gray-300 disabled:cursor-not-allowed -translate-x-4"
-                  disabled={isSubmitDisabled()}
-                  onClick={handleSubmit}
-                >
-                  Submit
-                </button>
-                {isSubmitDisabled() && (
-                  <p className="text-red-600 text-sm mt-2 -translate-x-4">
-                    {selectedExam === "JoSAA" &&
-                    formData.qualifiedJeeAdv === "Yes" &&
-                    (!formData.advRank || formData.advRank === "")
-                      ? "Please enter your JEE Advanced rank."
-                      : selectedExam === "JoSAA" &&
-                        (!formData.mainRank || formData.mainRank === "")
-                      ? "Please enter your JEE Main rank."
-                      : "Please fill all the required fields before submitting!"}
-                  </p>
+                        {selectedExam === "JoSAA" &&
+                          formData.qualifiedJeeAdv === "Yes" && (
+                            <div className="space-y-2">
+                              <label className="block text-sm font-medium text-slate-700">
+                                Enter JEE Advanced Category Rank
+                              </label>
+                              <div className="space-y-2">
+                                <input
+                                  type="string"
+                                  step="1"
+                                  value={formData.advRank || ""}
+                                  onChange={handleAdvancedRankChange}
+                                  onKeyDown={(e) => {
+                                    if (
+                                      [".", "e", "E", "+", "-", " "].includes(
+                                        e.key
+                                      )
+                                    ) {
+                                      e.preventDefault();
+                                    }
+                                  }}
+                                  className={`w-full px-4 py-3 border rounded-lg transition-colors ${
+                                    rankError
+                                      ? "border-red-300 focus:ring-red-500 focus:border-red-500"
+                                      : "border-slate-300 focus:border-transparent"
+                                  }`}
+                                  style={
+                                    !rankError
+                                      ? { "--tw-ring-color": "#B52326" }
+                                      : {}
+                                  }
+                                  onFocus={(e) =>
+                                    !rankError &&
+                                    (e.target.style.boxShadow = `0 0 0 2px #B52326`)
+                                  }
+                                  onBlur={(e) =>
+                                    (e.target.style.boxShadow = "none")
+                                  }
+                                  placeholder="e.g., 104 or 104P"
+                                />
+                                {rankError && (
+                                  <p className="text-red-600 text-sm flex items-center">
+                                    <span className="w-1 h-1 bg-red-600 rounded-full mr-2"></span>
+                                    {rankError}
+                                  </p>
+                                )}
+                                <p className="text-xs text-slate-500">
+                                  Enter rank (e.g., 104) or rank with 'P' suffix
+                                  (e.g., 104P)
+                                </p>
+                              </div>
+                            </div>
+                          )}
+                      </>
+                    )
+                  )}
+                </div>
+
+                {selectedExam && (
+                  <div className="mt-8 space-y-4">
+                    <button
+                      className="w-full px-6 py-3 text-white font-semibold rounded-lg focus:ring-4 disabled:cursor-not-allowed transition-all duration-200 shadow-lg hover:shadow-xl"
+                      style={{
+                        background: isSubmitDisabled()
+                          ? "linear-gradient(to right, #94a3b8, #94a3b8)"
+                          : "linear-gradient(to right, #B52326, #B52326)",
+                        focusRingColor: "#B52326",
+                      }}
+                      onMouseEnter={(e) => {
+                        if (!isSubmitDisabled()) {
+                          e.target.style.background =
+                            "linear-gradient(to right, #9e1f22, #9e1f22)";
+                          e.target.style.transform = "translateY(-1px)";
+                        }
+                      }}
+                      onMouseLeave={(e) => {
+                        if (!isSubmitDisabled()) {
+                          e.target.style.background =
+                            "linear-gradient(to right, #B52326, #B52326)";
+                          e.target.style.transform = "translateY(0)";
+                        }
+                      }}
+                      disabled={isSubmitDisabled()}
+                      onClick={handleSubmit}
+                    >
+                      Get College Predictions
+                    </button>
+                    {isSubmitDisabled() && (
+                      <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+                        <p className="text-red-700 text-sm flex items-center">
+                          <span
+                            className="w-2 h-2 rounded-full mr-3"
+                            style={{ backgroundColor: "#B52326" }}
+                          ></span>
+                          {selectedExam === "JoSAA" &&
+                          formData.qualifiedJeeAdv === "Yes" &&
+                          (!formData.advRank || formData.advRank === "")
+                            ? "Please enter your JEE Advanced rank."
+                            : selectedExam === "JoSAA" &&
+                              (!formData.mainRank || formData.mainRank === "")
+                            ? "Please enter your JEE Main rank."
+                            : "Please fill all the required fields before submitting!"}
+                        </p>
+                      </div>
+                    )}
+                  </div>
                 )}
-              </>
-            )}
+              </div>
+            </div>
           </div>
         </div>
       </div>
