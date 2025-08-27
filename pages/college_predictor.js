@@ -1,4 +1,6 @@
-import React, { useEffect, useState, useCallback } from "react";
+"use client";
+
+import { useEffect, useState, useCallback } from "react";
 import { useRouter } from "next/router";
 import getConstants from "../constants";
 import PredictedCollegeTables from "../components/PredictedCollegeTables";
@@ -8,6 +10,7 @@ import examConfigs from "../examConfig";
 import dynamic from "next/dynamic";
 import TneaScoreCalculator from "../components/TneaScoreCalculator";
 import { debounce } from "lodash";
+import { ChevronLeft, ChevronRight, Search, Filter, X } from "lucide-react";
 
 // Dynamically import Dropdown with SSR disabled
 const Dropdown = dynamic(() => import("../components/dropdown"), {
@@ -39,13 +42,28 @@ const CollegePredictor = () => {
   const [error, setError] = useState(null);
   const [queryObject, setQueryObject] = useState({});
   const [searchTerm, setSearchTerm] = useState("");
+  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+      if (window.innerWidth < 768) {
+        setSidebarOpen(false);
+      }
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   useEffect(() => {
     // Initialize queryObject from router.query
     // Ensure that numeric values like rank are stored appropriately if needed
     const initialQuery = { ...router.query };
-    if (initialQuery.rank && !isNaN(parseFloat(initialQuery.rank))) {
-      initialQuery.rank = parseFloat(initialQuery.rank).toFixed(2);
+    if (initialQuery.rank && !isNaN(Number.parseFloat(initialQuery.rank))) {
+      initialQuery.rank = Number.parseFloat(initialQuery.rank).toFixed(2);
     } else if (router.query.exam === "TNEA" && !initialQuery.rank) {
       // If TNEA and rank is not set, perhaps initialize from individual marks if they exist
       if (
@@ -53,9 +71,9 @@ const CollegePredictor = () => {
         initialQuery.chemistryMarks &&
         initialQuery.mathsMarks
       ) {
-        const p = parseFloat(initialQuery.physicsMarks);
-        const c = parseFloat(initialQuery.chemistryMarks);
-        const m = parseFloat(initialQuery.mathsMarks);
+        const p = Number.parseFloat(initialQuery.physicsMarks);
+        const c = Number.parseFloat(initialQuery.chemistryMarks);
+        const m = Number.parseFloat(initialQuery.mathsMarks);
         if (!isNaN(p) && !isNaN(c) && !isNaN(m)) {
           initialQuery.rank = ((p / 100) * 50 + (c / 100) * 50 + m).toFixed(2);
         }
@@ -137,7 +155,7 @@ const CollegePredictor = () => {
   const debouncedRouterPush = useCallback(
     debounce((newQueryObject) => {
       // Ensure both mainRank and advRank are included in the query when appropriate
-      let updatedQueryObject = { ...newQueryObject };
+      const updatedQueryObject = { ...newQueryObject };
 
       // For JoSAA exam, handle mainRank and advRank
       if (updatedQueryObject.exam === "JoSAA") {
@@ -158,12 +176,12 @@ const CollegePredictor = () => {
         shallow: true,
       });
       fetchData(updatedQueryObject); // Fetch data after route push
-    }, 500),
+    }, 1000),
     [router] // router as dependency
   );
 
   const handleQueryObjectChange = (key) => (selectedOption) => {
-    let newQueryObject = {
+    const newQueryObject = {
       ...queryObject,
       [key]: selectedOption.label,
     };
@@ -186,7 +204,7 @@ const CollegePredictor = () => {
 
   const handleRankChange = (e) => {
     const value = Math.floor(Number(e.target.value)); // Convert to integer
-    let newQueryObject = {
+    const newQueryObject = {
       ...queryObject,
       rank: value,
     };
@@ -218,7 +236,7 @@ const CollegePredictor = () => {
       value = value.slice(0, -1) + "P";
     }
 
-    let newQueryObject = {
+    const newQueryObject = {
       ...queryObject,
       advRank: value,
     };
@@ -256,38 +274,46 @@ const CollegePredictor = () => {
     if (!examConfig) return null;
 
     return (
-      <div className="flex flex-col justify-center items-start sm:items-center mb-4 gap-2">
-        <p className="text-sm md:text-base font-semibold">
-          Exam: {queryObject.exam}
-        </p>
-        {examConfig.fields.map((field) => (
-          <div
-            key={field.name}
-            className="flex items-center justify-center gap-2"
-          >
-            <label className="font-semibold text-sm md:text-base">
-              {typeof field.label === "function"
-                ? field.label(queryObject)
-                : field.label}
-            </label>
-            <Dropdown
-              className="text-sm md:text-base"
-              options={field.options.map((option) =>
-                typeof option === "string"
-                  ? { value: option, label: option }
-                  : option
-              )}
-              selectedValue={queryObject[field.name]}
-              onChange={handleQueryObjectChange(field.name)}
-            />
+      <div className="space-y-6">
+        <div className="bg-gradient-to-r from-red-50 to-red-50 p-4 rounded-xl border border-red-200">
+          <div className="flex items-center gap-2 mb-3">
+            <div
+              className="w-2 h-2 rounded-full"
+              style={{ backgroundColor: "#B52326" }}
+            ></div>
+            <p className="text-lg font-semibold text-gray-800">
+              {queryObject.exam}
+            </p>
           </div>
-        ))}
+        </div>
+
+        <div className="space-y-4">
+          {examConfig.fields.map((field) => (
+            <div key={field.name} className="space-y-2">
+              <label className="block text-sm font-medium text-gray-700">
+                {typeof field.label === "function"
+                  ? field.label(queryObject)
+                  : field.label}
+              </label>
+              <Dropdown
+                className="w-full"
+                options={field.options.map((option) =>
+                  typeof option === "string"
+                    ? { value: option, label: option }
+                    : option
+                )}
+                selectedValue={queryObject[field.name]}
+                onChange={handleQueryObjectChange(field.name)}
+              />
+            </div>
+          ))}
+        </div>
 
         {queryObject.exam === "JoSAA" && (
-          <>
-            <div className="flex gap-2 items-center">
-              <label className="block text-sm md:text-base font-semibold text-gray-700 mb-2">
-                Enter Category Rank for JEE Main
+          <div className="space-y-4 pt-4 border-t border-gray-200">
+            <div className="space-y-2">
+              <label className="block text-sm font-medium text-gray-700">
+                JEE Main Category Rank
               </label>
               <input
                 type="number"
@@ -314,61 +340,71 @@ const CollegePredictor = () => {
                     e.preventDefault();
                   }
                 }}
-                className="border border-gray-300 rounded text-center"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:border-transparent transition-colors"
+                style={{ "--tw-ring-color": "#B52326" }}
+                onFocus={(e) =>
+                  (e.target.style.boxShadow = `0 0 0 2px #B52326`)
+                }
+                onBlur={(e) => (e.target.style.boxShadow = "none")}
                 placeholder="Enter JEE Main rank"
               />
             </div>
 
             {queryObject.qualifiedJeeAdv === "Yes" && (
-              <div className="flex flex-col gap-1">
-                <div className="flex gap-2 items-center">
-                  <label className="block text-sm md:text-base font-semibold text-gray-700">
-                    Enter Category Rank for JEE Advanced
-                  </label>
-                  <input
-                    type="string"
-                    step="1"
-                    value={queryObject.advRank || ""}
-                    onChange={handleJeeAdvancedRankChange}
-                    onKeyDown={(e) => {
-                      if ([".", "e", "E", "+", "-", " "].includes(e.key)) {
-                        e.preventDefault();
-                      }
-                    }}
-                    className={`border ${
-                      rankError ? "border-red-500" : "border-gray-300"
-                    } rounded text-center`}
-                    placeholder="e.g., 104 or 104P"
-                  />
-                </div>
+              <div className="space-y-2">
+                <label className="block text-sm font-medium text-gray-700">
+                  JEE Advanced Category Rank
+                </label>
+                <input
+                  type="string"
+                  step="1"
+                  value={queryObject.advRank || ""}
+                  onChange={handleJeeAdvancedRankChange}
+                  onKeyDown={(e) => {
+                    if ([".", "e", "E", "+", "-", " "].includes(e.key)) {
+                      e.preventDefault();
+                    }
+                  }}
+                  className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:border-transparent transition-colors ${
+                    rankError ? "border-red-500" : "border-gray-300"
+                  }`}
+                  style={{ "--tw-ring-color": "#B52326" }}
+                  onFocus={(e) =>
+                    (e.target.style.boxShadow = `0 0 0 2px #B52326`)
+                  }
+                  onBlur={(e) => (e.target.style.boxShadow = "none")}
+                  placeholder="e.g., 104 or 104P"
+                />
                 {rankError && (
-                  <p className="text-red-500 text-sm mt-1 ml-2">{rankError}</p>
+                  <p className="text-red-500 text-sm">{rankError}</p>
                 )}
-                <p className="text-xs text-gray-500 mt-1 ml-2">
+                <p className="text-xs text-gray-500">
                   Enter rank (e.g., 104) or rank with 'P' suffix (e.g., 104P)
                   for PwD category
                 </p>
               </div>
             )}
-          </>
+          </div>
         )}
 
         {queryObject.exam === "TNEA" ? (
-          <TneaScoreCalculator
-            initialPhysics={queryObject.physicsMarks || ""}
-            initialChemistry={queryObject.chemistryMarks || ""}
-            initialMaths={queryObject.mathsMarks || ""}
-            onScoreChange={handleTneaScoreChange}
-            readOnlyRank={true}
-          />
+          <div className="pt-4 border-t border-gray-200">
+            <TneaScoreCalculator
+              initialPhysics={queryObject.physicsMarks || ""}
+              initialChemistry={queryObject.chemistryMarks || ""}
+              initialMaths={queryObject.mathsMarks || ""}
+              onScoreChange={handleTneaScoreChange}
+              readOnlyRank={true}
+            />
+          </div>
         ) : (
           queryObject.exam !== "JoSAA" && (
-            <div className="flex gap-2 items-center">
-              <label className="block text-sm md:text-base font-semibold text-gray-700 mb-2">
+            <div className="space-y-2 pt-4 border-t border-gray-200">
+              <label className="block text-sm font-medium text-gray-700">
                 {queryObject.exam === "JEE Main-JAC" ||
                 queryObject.exam === "NEET"
-                  ? "Enter All India Rank"
-                  : "Enter Category Rank"}
+                  ? "All India Rank"
+                  : "Category Rank"}
               </label>
               <input
                 type="number"
@@ -385,7 +421,12 @@ const CollegePredictor = () => {
                     e.preventDefault();
                   }
                 }}
-                className="border border-gray-300 rounded text-center"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:border-transparent transition-colors"
+                style={{ "--tw-ring-color": "#B52326" }}
+                onFocus={(e) =>
+                  (e.target.style.boxShadow = `0 0 0 2px #B52326`)
+                }
+                onBlur={(e) => (e.target.style.boxShadow = "none")}
                 placeholder={
                   queryObject.exam === "JEE Main-JAC" ||
                   queryObject.exam === "NEET"
@@ -410,86 +451,181 @@ const CollegePredictor = () => {
       <Head>
         <title>College Predictor Results - {getConstants().TITLE_SHORT}</title>
       </Head>
-      <div className="min-h-screen bg-gray-50 flex flex-col items-center pt-8 px-4">
-        <div className="w-full max-w-6xl bg-white shadow-xl rounded-lg p-6 md:p-8">
-          <h1 className="text-2xl sm:text-3xl font-bold text-center text-gray-800 mb-4">
-            College Predictor Results
-          </h1>
 
-          {/* TGEAPCET Disclaimer - Shows when EWS or OU is selected */}
-          {showTSEAPERTDisclaimer && (
-            <div className="bg-red-50 border-l-4 border-red-400 p-4 mb-6 max-w-3xl mx-auto w-full">
-              <p className="text-red-700 text-sm">
-                {queryObject.category === "EWS" &&
-                  "Showing OC category data as EWS-specific data is limited. "}
-                {queryObject.region === "OU" &&
-                  "Including other regions as OU-specific data is limited. "}
-                (Limited data available)
-              </p>
-            </div>
-          )}
-
-          {/* Query Details and Filters Section */}
-          <div className="mb-6 p-4 border border-gray-200 rounded-md bg-gray-50">
-            <h2 className="text-xl font-semibold text-gray-700 mb-3 text-center sm:text-left">
-              Your Selection
-            </h2>
-            {renderQueryDetails()}
-          </div>
-
-          {/* Search Bar - more prominent and visually grouped */}
-          {queryObject.exam && fullData.length > 0 && (
-            <div className="mb-6 p-4 border border-gray-200 rounded-md">
-              <label
-                htmlFor="search"
-                className="block text-md font-semibold text-gray-700 mb-2"
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-red-50 to-red-100">
+        <div className="flex h-screen">
+          {/* Sidebar */}
+          <div
+            className={`${
+              sidebarOpen ? "w-80" : "w-0"
+            } transition-all duration-300 ease-in-out bg-white shadow-xl border-r border-gray-200 overflow-hidden ${
+              isMobile ? "fixed inset-y-0 right-0 z-50" : "relative"
+            }`}
+          >
+            <div className="h-full flex flex-col">
+              {/* Sidebar Header */}
+              <div
+                className="p-6 border-b border-gray-200"
+                style={{
+                  background: "linear-gradient(to right, #B52326, #B52326)",
+                }}
               >
-                Search within results (by Institute, State, Program):
-              </label>
-              <input
-                type="text"
-                id="search"
-                value={searchTerm}
-                onChange={handleSearchChange}
-                className="border border-gray-300 rounded w-full p-2 text-center focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                placeholder="Type to search..."
-              />
-            </div>
-          )}
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Filter className="w-5 h-5 text-white" />
+                    <h2 className="text-lg font-semibold text-white">
+                      Filters
+                    </h2>
+                  </div>
+                  <button
+                    onClick={() => setSidebarOpen(false)}
+                    className="p-1 hover:bg-white/20 rounded-lg transition-colors"
+                  >
+                    <X className="w-5 h-5 text-white" />
+                  </button>
+                </div>
+              </div>
 
-          {isLoading ? (
-            <div className="text-center py-10">
-              <p className="text-xl text-blue-600">Loading predictions...</p>
+              {/* Sidebar Content */}
+              <div className="flex-1 overflow-y-auto p-6">
+                {/* TGEAPCET Disclaimer */}
+                {showTSEAPERTDisclaimer && (
+                  <div className="bg-amber-50 border-l-4 border-amber-400 p-4 mb-6 rounded-r-lg">
+                    <p className="text-amber-800 text-sm">
+                      {queryObject.category === "EWS" &&
+                        "Showing OC category data as EWS-specific data is limited. "}
+                      {queryObject.region === "OU" &&
+                        "Including other regions as OU-specific data is limited. "}
+                      (Limited data available)
+                    </p>
+                  </div>
+                )}
+
+                {renderQueryDetails()}
+              </div>
             </div>
-          ) : error ? (
-            <div className="text-center py-10 px-4">
-              <p className="text-xl text-red-600 bg-red-100 p-4 rounded-md">
-                {error}
-              </p>
-            </div>
-          ) : filteredData.length > 0 ? (
-            <PredictedCollegeTables
-              data={filteredData}
-              exam={queryObject.exam}
-            />
-          ) : (
-            <div className="text-center py-10">
-              <p className="text-xl text-gray-600">
-                {fullData.length === 0 && !isLoading
-                  ? "No predictions available for your current selection. Try adjusting the filters."
-                  : "No results match your search term."}
-              </p>
-            </div>
-          )}
-        </div>
-        {showTSEAPERTDisclaimer && (
-          <div className="bg-red-50 border-l-4 border-red-400 p-4 mb-4">
-            <p className="text-red-700 text-sm">
-              {queryObject.category === "EWS" && "Showing OC category data. "}
-              {queryObject.region === "OU" && "Including other regions. "}
-              (Limited data available)
-            </p>
           </div>
+
+          {/* Main Content */}
+          <div className="flex-1 flex flex-col overflow-hidden">
+            {/* Header */}
+            <div className="bg-white shadow-sm border-b border-gray-200 p-4">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-4">
+                  <button
+                    onClick={() => setSidebarOpen(!sidebarOpen)}
+                    className="p-2 hover:bg-gray-100 rounded-lg transition-colors flex items-center gap-2"
+                  >
+                    {sidebarOpen ? (
+                      <ChevronRight className="w-5 h-5" />
+                    ) : (
+                      <ChevronLeft className="w-5 h-5" />
+                    )}
+                    <span className="text-sm font-medium">
+                      {sidebarOpen ? "Hide" : "Show"} Filters
+                    </span>
+                  </button>
+                  <h1 className="text-2xl font-bold text-gray-800">
+                    College Viewer
+                  </h1>
+                </div>
+              </div>
+            </div>
+
+            {/* Search Bar */}
+            {queryObject.exam && fullData.length > 0 && (
+              <div className="bg-white border-b border-gray-200 p-4">
+                <div className="max-w-2xl">
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Search within results
+                  </label>
+                  <div className="relative">
+                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                    <input
+                      type="text"
+                      value={searchTerm}
+                      onChange={handleSearchChange}
+                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:border-transparent transition-colors"
+                      style={{ "--tw-ring-color": "#B52326" }}
+                      onFocus={(e) =>
+                        (e.target.style.boxShadow = `0 0 0 2px #B52326`)
+                      }
+                      onBlur={(e) => (e.target.style.boxShadow = "none")}
+                      placeholder="Search by institute, state, or program..."
+                    />
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Results Area */}
+            <div className="flex-1 overflow-y-auto p-6">
+              {isLoading ? (
+                <div className="flex items-center justify-center h-64">
+                  <div className="text-center">
+                    <div
+                      className="animate-spin rounded-full h-12 w-12 border-b-2 mx-auto mb-4"
+                      style={{ borderBottomColor: "#B52326" }}
+                    ></div>
+                    <p
+                      className="text-xl font-medium"
+                      style={{ color: "#B52326" }}
+                    >
+                      Loading predictions...
+                    </p>
+                  </div>
+                </div>
+              ) : error ? (
+                <div className="flex items-center justify-center h-64">
+                  <div className="bg-red-50 border border-red-200 rounded-xl p-8 max-w-md text-center">
+                    <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <X className="w-6 h-6 text-red-600" />
+                    </div>
+                    <p className="text-lg text-red-800 font-medium mb-2">
+                      Error
+                    </p>
+                    <p className="text-red-600">{error}</p>
+                  </div>
+                </div>
+              ) : filteredData.length > 0 ? (
+                <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                  <PredictedCollegeTables
+                    data={filteredData}
+                    exam={queryObject.exam}
+                    userRank={
+                      queryObject.mainRank ||
+                      queryObject.advRank ||
+                      queryObject.rank
+                    }
+                  />
+                </div>
+              ) : (
+                <div className="flex items-center justify-center h-64">
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <Search className="w-8 h-8 text-gray-400" />
+                    </div>
+                    <p className="text-xl text-gray-600 font-medium mb-2">
+                      No Results Found
+                    </p>
+                    <p className="text-gray-500">
+                      {fullData.length === 0 && !isLoading
+                        ? "No predictions available for your current selection. Try adjusting the filters."
+                        : "No results match your search term."}
+                    </p>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Overlay */}
+        {isMobile && sidebarOpen && (
+          <div
+            className="fixed inset-0 bg-black bg-opacity-50 z-40"
+            onClick={() => setSidebarOpen(false)}
+          />
         )}
       </div>
     </>

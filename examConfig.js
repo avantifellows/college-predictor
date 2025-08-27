@@ -543,7 +543,6 @@ export const neetUGConfig = {
     return path.join(process.cwd(), "public/data/NEETUG/NEETUG.json");
   },
   getFilters: (query) => {
-    console.log(query);
     // Helper to normalize program names for comparison
     const normalize = (str) =>
       String(str || "")

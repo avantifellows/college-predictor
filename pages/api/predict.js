@@ -1,75 +1,30 @@
+import {
+  TOTAL_CANDIDATES,
+  MIN_PERCENTILE,
+  MAX_PERCENTILE,
+  marksToPercentage,
+  percentileToAIR,
+  airToCategoryRank,
+  safeClipPercentile,
+  validateMarks,
+  validateCategory,
+} from "../../lib/predictorService.js";
+
 let serverSession = null;
 let ort = null;
-
-// Constants
-const TOTAL_CANDIDATES = 1200000;
-const MIN_PERCENTILE = 0.001;
-const MAX_PERCENTILE = 99.999;
-
-// Helper functions (matching your Python implementation)
-function marksToPercentage(marksOutOf300) {
-  return Math.max(0.0, Math.min(100.0, (marksOutOf300 / 300.0) * 100.0));
-}
-
-function percentileToAIR(percentile, totalCandidates = TOTAL_CANDIDATES) {
-  const air = totalCandidates * (1.0 - percentile / 100.0);
-  return Math.max(1, Math.round(air));
-}
-
-function airToCategoryRank(category, air) {
-  const cat = category.toUpperCase();
-
-  if (cat === "GEN") {
-    return Math.max(1, Math.round(air));
-  } else if (cat === "OBC") {
-    let cr;
-    if (air >= 1 && air < 10000) {
-      cr = 0.232 * air - 131;
-    } else if (air >= 10000 && air <= 50000) {
-      cr = 0.313 * air - 1180;
-    } else if (air >= 50000 && air <= 100000) {
-      cr = 0.351 * air - 2833;
-    } else {
-      cr = 0.389 * air - 7865;
-    }
-    return Math.max(1, Math.round(cr));
-  } else if (cat === "SC") {
-    let cr;
-    if (air < 10000) {
-      cr = 0.0251 * air - 19.5;
-    } else if (air <= 30000) {
-      cr = 0.0276 * air - 51.9;
-    } else if (air <= 50000) {
-      cr = 0.0383 * air - 373;
-    } else if (air <= 75000) {
-      cr = 0.0429 * air - 605;
-    } else if (air <= 100000) {
-      cr = 0.0515 * air - 1297;
-    } else if (air <= 150000) {
-      cr = 0.0571 * air - 1854;
-    } else if (air <= 300000) {
-      cr = 0.0738 * air - 4542;
-    } else if (air <= 500000) {
-      cr = 0.0892 * air - 9217;
-    } else if (air <= 1000000) {
-      cr = 0.106 * air - 17937;
-    } else {
-      cr = 0.118 * air - 30183;
-    }
-    return Math.max(1, Math.round(cr));
-  } else {
-    throw new Error("Unsupported category. Use GEN, OBC, or SC.");
-  }
-}
-
-function safeClipPercentile(percentile) {
-  return Math.max(MIN_PERCENTILE, Math.min(MAX_PERCENTILE, percentile));
-}
 
 async function initServerModel() {
   if (!serverSession) {
     try {
-      ort = require("onnxruntime-node");
+      // Dynamic import to avoid issues during build
+      if (typeof window === "undefined") {
+        // Server-side: use onnxruntime-node
+        ort = require("onnxruntime-node");
+      } else {
+        // Client-side: this shouldn't happen in API routes, but just in case
+        throw new Error("API routes should only run server-side");
+      }
+
       const fs = require("fs");
       const path = require("path");
 
@@ -95,61 +50,59 @@ async function initServerModel() {
 }
 
 async function predictFromMarks(marksOutOf300, category, noiseStd = 0.0) {
-  const session = await initServerModel();
+  let session;
+
+  try {
+    session = await initServerModel();
+  } catch (error) {
+    console.error("Failed to initialize model:", error);
+    throw new Error("Model initialization failed. Please try again later.");
+  }
 
   // Validation
-  if (typeof marksOutOf300 !== "number") {
-    throw new Error("Marks must be a number");
-  }
-
-  // Check if marks are decimal
-  if (!Number.isInteger(marksOutOf300)) {
-    throw new Error("Marks must be a whole number (no decimals allowed)");
-  }
-
-  // Check if marks are within valid range (-75 to 300)
-  if (marksOutOf300 < -75 || marksOutOf300 > 300) {
-    throw new Error("Marks must be between -75 and 300");
-  }
-
-  const validCategories = ["GEN", "OBC", "SC"];
-  if (!validCategories.includes(category.toUpperCase())) {
-    throw new Error("Category must be one of: GEN, OBC, SC");
-  }
+  validateMarks(marksOutOf300);
+  validateCategory(category);
 
   // Convert marks to percentage (model input)
   const scorePercentage = marksToPercentage(marksOutOf300);
 
-  // Predict percentile using the model
-  const inputName = session.inputNames[0];
-  const inputTensor = new ort.Tensor("float32", [scorePercentage], [1, 1]);
+  try {
+    // Predict percentile using the model
+    const inputName = session.inputNames[0];
+    const inputTensor = new ort.Tensor("float32", [scorePercentage], [1, 1]);
 
-  const feeds = { [inputName]: inputTensor };
-  const results = await session.run(feeds);
+    const feeds = { [inputName]: inputTensor };
+    const results = await session.run(feeds);
 
-  const outputName = session.outputNames[0];
-  let percentile = results[outputName].data[0];
+    const outputName = session.outputNames[0];
+    let percentile = results[outputName].data[0];
 
-  // Add optional noise for realistic variation
-  if (noiseStd && noiseStd > 0) {
-    percentile += (Math.random() - 0.5) * 2 * noiseStd;
+    // Add optional noise for realistic variation
+    if (noiseStd && noiseStd > 0) {
+      percentile += (Math.random() - 0.5) * 2 * noiseStd;
+    }
+
+    // Clip percentile to safe range
+    percentile = safeClipPercentile(percentile);
+
+    // Calculate AIR and category rank
+    const air = percentileToAIR(percentile);
+    const categoryRank = airToCategoryRank(category, air);
+
+    return {
+      marksOutOf300: Math.round(marksOutOf300 * 100) / 100,
+      scorePercentage: Math.round(scorePercentage * 100) / 100,
+      percentile: Math.round(percentile * 1000) / 1000,
+      air: air,
+      categoryRank: categoryRank,
+      category: category.toUpperCase(),
+    };
+  } catch (error) {
+    console.error("Prediction error:", error);
+    throw new Error(
+      "Failed to run prediction. Please check your input and try again."
+    );
   }
-
-  // Clip percentile to safe range
-  percentile = safeClipPercentile(percentile);
-
-  // Calculate AIR and category rank
-  const air = percentileToAIR(percentile);
-  const categoryRank = airToCategoryRank(category, air);
-
-  return {
-    marksOutOf300: Math.round(marksOutOf300 * 100) / 100,
-    scorePercentage: Math.round(scorePercentage * 100) / 100,
-    percentile: Math.round(percentile * 1000) / 1000,
-    air: air,
-    categoryRank: categoryRank,
-    category: category.toUpperCase(),
-  };
 }
 
 export default async function handler(req, res) {
@@ -190,29 +143,11 @@ export default async function handler(req, res) {
             category: studentCategory,
           } = student;
 
-          if (typeof studentMarks !== "number") {
-            return res.status(400).json({
-              error: `Marks for student ${name} must be a number: ${studentMarks}`,
-            });
-          }
-
-          if (!Number.isInteger(studentMarks)) {
-            return res.status(400).json({
-              error: `Marks for student ${name} must be a whole number (no decimals): ${studentMarks}`,
-            });
-          }
-
-          if (studentMarks < -75 || studentMarks > 300) {
-            return res.status(400).json({
-              error: `Marks for student ${name} must be between -75 and 300: ${studentMarks}`,
-            });
-          }
-
-          const validCategories = ["GEN", "OBC", "SC"];
-          if (!validCategories.includes(studentCategory.toUpperCase())) {
-            return res.status(400).json({
-              error: `Invalid category for student ${name}: ${studentCategory}`,
-            });
+          try {
+            validateMarks(studentMarks, name);
+            validateCategory(studentCategory, name);
+          } catch (error) {
+            return res.status(400).json({ error: error.message });
           }
 
           const prediction = await predictFromMarks(
@@ -232,24 +167,11 @@ export default async function handler(req, res) {
         });
       } else if (typeof marks === "number" && category) {
         // Single prediction
-        // Check if marks are decimal
-        if (!Number.isInteger(marks)) {
-          return res.status(400).json({
-            error: "Marks must be a whole number (no decimals allowed)",
-          });
-        }
-
-        if (marks < -75 || marks > 300) {
-          return res.status(400).json({
-            error: "Marks must be between -75 and 300",
-          });
-        }
-
-        const validCategories = ["GEN", "OBC", "SC"];
-        if (!validCategories.includes(category.toUpperCase())) {
-          return res.status(400).json({
-            error: "Category must be one of: GEN, OBC, SC",
-          });
+        try {
+          validateMarks(marks);
+          validateCategory(category);
+        } catch (error) {
+          return res.status(400).json({ error: error.message });
         }
 
         const prediction = await predictFromMarks(marks, category);

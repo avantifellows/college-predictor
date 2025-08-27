@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import {
   predictFromMarks,
   getPerformanceCategory,
-  loadModel,
 } from "../lib/predictorService";
 
 export default function JEEPredictor() {
@@ -12,22 +11,9 @@ export default function JEEPredictor() {
   const [category, setCategory] = useState("GEN");
   const [prediction, setPrediction] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [modelLoaded, setModelLoaded] = useState(false);
   const [error, setError] = useState("");
 
-  // Load model on component mount
-  useEffect(() => {
-    async function initModel() {
-      try {
-        await loadModel();
-        setModelLoaded(true);
-      } catch (err) {
-        setError("Failed to load model: " + err.message);
-      }
-    }
-
-    initModel();
-  }, []);
+  // No need to load model - handled server-side
 
   const handleSinglePredict = async () => {
     if (!marks || isNaN(marks)) {
@@ -99,18 +85,11 @@ export default function JEEPredictor() {
         <div className="bg-white rounded-2xl sm:rounded-3xl shadow-xl border border-slate-200 overflow-hidden">
           <div className="bg-slate-50 border-b border-slate-200 px-4 sm:px-8 py-4 sm:py-6">
             <div className="flex items-center justify-center gap-2 sm:gap-3">
-              <div
-                className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full ${
-                  modelLoaded ? "bg-emerald-500" : "bg-amber-500"
-                } animate-pulse`}
-              ></div>
+              <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-emerald-500"></div>
               <span className="font-semibold text-slate-700 text-sm sm:text-base">
-                Model Status:{" "}
-                {modelLoaded ? "Ready to Predict" : "Loading Model..."}
+                Model Status: Ready to Predict
               </span>
-              <span className="text-lg sm:text-xl">
-                {modelLoaded ? "✨" : "⏳"}
-              </span>
+              <span className="text-lg sm:text-xl">✨</span>
             </div>
           </div>
 
@@ -152,7 +131,6 @@ export default function JEEPredictor() {
                       onChange={(e) => setMarks(e.target.value)}
                       className="w-full px-3 py-3 sm:px-4 sm:py-4 bg-slate-50 border border-slate-200 rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-[#B52326] focus:border-[#B52326] transition-all duration-200 text-base sm:text-lg font-medium"
                       placeholder="Enter marks (-75 to 300)"
-                      disabled={!modelLoaded}
                     />
                     <div className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 text-xs sm:text-sm text-slate-400 font-medium">
                       /300
@@ -168,7 +146,6 @@ export default function JEEPredictor() {
                     value={category}
                     onChange={(e) => setCategory(e.target.value)}
                     className="w-full px-3 py-3 sm:px-4 sm:py-4 bg-slate-50 border border-slate-200 rounded-xl sm:rounded-2xl focus:ring-2 focus:ring-[#B52326] focus:border-[#B52326] transition-all duration-200 text-base sm:text-lg font-medium"
-                    disabled={!modelLoaded}
                   >
                     <option value="GEN">General (GEN)</option>
                     <option value="OBC">Other Backward Class (OBC)</option>
@@ -179,15 +156,11 @@ export default function JEEPredictor() {
 
               <button
                 onClick={handleSinglePredict}
-                disabled={loading || !modelLoaded}
+                disabled={loading}
                 className={`w-full px-6 py-3 sm:px-8 sm:py-4 rounded-xl sm:rounded-2xl font-semibold text-base sm:text-lg transition-all duration-200 transform shadow-lg text-white ${
-                  loading || !modelLoaded
-                    ? "bg-slate-300 cursor-not-allowed"
-                    : ""
+                  loading ? "bg-slate-300 cursor-not-allowed" : ""
                 }`}
-                style={
-                  loading || !modelLoaded ? {} : { backgroundColor: "#B52326" }
-                }
+                style={loading ? {} : { backgroundColor: "#B52326" }}
               >
                 {loading ? (
                   <div className="flex items-center justify-center gap-2 sm:gap-3">
