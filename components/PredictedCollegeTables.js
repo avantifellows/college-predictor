@@ -125,8 +125,6 @@ const MobileCardView = ({
   index,
   transformedItem,
   predicted_colleges_table_column,
-  itemRank,
-  rowColorClass,
   expandedRows,
   toggleRowExpansion,
   exam,
@@ -156,14 +154,7 @@ const MobileCardView = ({
   return (
     <div
       key={index}
-      className={`mb-4 rounded-xl border border-gray-200 overflow-hidden shadow-sm ${
-        rowColorClass
-          ? rowColorClass
-              .replace("border-l-4", "border-l-4")
-              .replace("bg-green-50", "bg-green-50")
-              .replace("bg-red-50", "bg-red-50")
-          : "bg-white"
-      }`}
+      className="mb-4 rounded-xl border border-gray-200 overflow-hidden shadow-sm bg-white"
     >
       <div className="p-4">
         {/* Primary content - always visible */}
@@ -344,26 +335,6 @@ const PredictedCollegesTable = ({ data = [], exam = "", userRank = null }) => {
     }));
   };
 
-  // Function to get row color based on rank comparison
-  const getRowColorClass = (itemRank) => {
-    if (!userRank || !itemRank || itemRank === "N/A") return "";
-
-    const userRankNum = parseFloat(userRank);
-    const itemRankNum = parseFloat(itemRank);
-
-    if (isNaN(userRankNum) || isNaN(itemRankNum)) return "";
-
-    // For ranks, lower number = better rank
-    // Green: item rank is higher (worse) than user rank - user has better chance
-    // Red: item rank is lower (better) than user rank - harder to get
-    if (itemRankNum > userRankNum) {
-      return "bg-green-50 hover:bg-green-100 border-l-4 border-green-400";
-    } else if (itemRankNum < userRankNum) {
-      return "bg-red-50 hover:bg-red-100 border-l-4 border-red-400";
-    }
-    return "";
-  };
-
   const commonTableClass =
     "w-full mx-auto border-collapse text-xs sm:text-sm lg:text-base shadow-lg rounded-lg overflow-hidden";
   const commonHeaderClass =
@@ -517,26 +488,14 @@ const PredictedCollegesTable = ({ data = [], exam = "", userRank = null }) => {
     // Desktop table view only
     return rowsToRender.map((item, index) => {
       const transformedItem = transformData(item);
-      // Extract rank more comprehensively
-      const itemRank =
-        transformedItem.closing_rank ||
-        transformedItem.closing_marks ||
-        transformedItem["Closing Rank"] ||
-        transformedItem["closing_marks"] ||
-        item["Closing Rank"] ||
-        item["closing_rank"] ||
-        item["closing_marks"];
-
-      const rowColorClass = getRowColorClass(itemRank);
 
       return (
         <React.Fragment key={index}>
           <tr
             className={`${commonCellClass} ${
-              rowColorClass ||
-              (index % 2 === 0
+              index % 2 === 0
                 ? "bg-white hover:bg-red-50"
-                : "bg-gray-50 hover:bg-red-50")
+                : "bg-gray-50 hover:bg-red-50"
             } transition-colors duration-200`}
           >
             {predicted_colleges_table_column.map((column, colIndex) => (
@@ -625,38 +584,6 @@ const PredictedCollegesTable = ({ data = [], exam = "", userRank = null }) => {
     <div className="w-full mx-auto px-1 sm:px-0">
       {renderLegend()}
 
-      {/* Rank Color Legend */}
-      {userRank && userRank !== "0" && userRank !== "0.00" && (
-        <div className="bg-gray-50 border border-gray-200 rounded-lg p-3 sm:p-4 mb-4">
-          <div className="flex items-center gap-2 mb-2">
-            <div
-              className="w-2 h-2 rounded-full"
-              style={{ backgroundColor: "#B52326" }}
-            ></div>
-            <h4 className="text-xs sm:text-sm font-semibold text-gray-800">
-              Your Rank:{" "}
-              {parseFloat(userRank) % 1 === 0
-                ? parseInt(userRank)
-                : parseFloat(userRank)}
-            </h4>
-          </div>
-          <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 text-xs sm:text-sm">
-            <div className="flex items-center gap-2">
-              <div className="w-4 h-4 bg-green-100 border-l-2 border-green-400 rounded"></div>
-              <span className="text-gray-700">
-                Easier to get (rank higher than yours)
-              </span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-4 h-4 bg-red-100 border-l-2 border-red-400 rounded"></div>
-              <span className="text-gray-700">
-                Harder to get (rank lower than yours)
-              </span>
-            </div>
-          </div>
-        </div>
-      )}
-
       {/* MOBILE ONLY - NO TABLE EVER */}
       {isMobile ? (
         <div className="space-y-3">
@@ -672,16 +599,6 @@ const PredictedCollegesTable = ({ data = [], exam = "", userRank = null }) => {
                 : data.slice(0, ROWS_PER_PAGE_INITIAL);
               return rowsToRender.map((item, index) => {
                 const transformedItem = transformData(item);
-                const itemRank =
-                  transformedItem.closing_rank ||
-                  transformedItem.closing_marks ||
-                  transformedItem["Closing Rank"] ||
-                  transformedItem["closing_marks"] ||
-                  item["Closing Rank"] ||
-                  item["closing_rank"] ||
-                  item["closing_marks"];
-
-                const rowColorClass = getRowColorClass(itemRank);
 
                 return (
                   <MobileCardView
@@ -692,8 +609,6 @@ const PredictedCollegesTable = ({ data = [], exam = "", userRank = null }) => {
                     predicted_colleges_table_column={
                       predicted_colleges_table_column
                     }
-                    itemRank={itemRank}
-                    rowColorClass={rowColorClass}
                     expandedRows={expandedRows}
                     toggleRowExpansion={toggleRowExpansion}
                     exam={exam}
