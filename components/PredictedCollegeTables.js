@@ -60,6 +60,14 @@ const expandedFields = {
         value ? `₹${Number(value).toLocaleString("en-IN")}` : "N/A",
     },
   ],
+  KCET: [
+    { key: "Course Type", label: "Course Type" },
+    { key: "State", label: "State" },
+    { key: "Language", label: "Language" },
+    { key: "Rural/Urban", label: "Region" },
+    { key: "Category_Key", label: "Category Key" },
+    { key: "Closing Rank", label: "Closing Rank" },
+  ],
 };
 
 // New ExpandedRow component
@@ -145,6 +153,12 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
       { key: "Course", label: "Course" },
       { key: "closing_marks", label: "Cutoff Marks" },
     ],
+    KCET: [
+      { key: "institute", label: "Institute" },
+      { key: "academic_program_name", label: "Academic Program Name" },
+      { key: "closing_rank", label: "Closing Rank" },
+      { key: "category", label: "Category" },
+    ],
     DEFAULT: [
       { key: "state", label: "State" },
       { key: "institute", label: "Institute" },
@@ -164,6 +178,21 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
         academic_program_name: item["Course"],
         closing_rank: item["closing_marks"],
         state: item["District"],
+      };
+    }
+    if (exam === "KCET") {
+      return {
+        ...item,
+        institute: item["Institute"],
+        academic_program_name: item["Academic Program Name"],
+        closing_rank: item["Closing Rank"],
+        category: item["Category"],
+        "Course Type": item["Course Type"],
+        "State": item["State"],
+        "Language": item["Language"],
+        "Rural/Urban": item["Rural/Urban"],
+        "Category_Key": item["Category_Key"],
+        "Closing Rank": item["Closing Rank"],
       };
     }
     if (exam === "TNEA") {
