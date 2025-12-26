@@ -431,9 +431,8 @@ export const jeeAdvancedConfig = {
 // New NEET UG Exam
 // Mapping from filter values to database values for seat type
 
-
 const seatTypeMap = {
-  "All India/Open Seat":"Open Seat",
+  "All India/Open Seat": "Open Seat",
   "Deemed/Paid": "Deemed/Paid Seats",
   "Non-Resident Indian": "Non-Resident Indian",
   "Foreign National": "Foreign Country",
@@ -442,7 +441,6 @@ const seatTypeMap = {
   "Jamia": "Jamia Internal",
   "Delhi University": "Delhi University",
 };
-
 
 export const neetUGConfig = {
   name: "NEETUG",
@@ -525,8 +523,14 @@ export const neetUGConfig = {
         { value: "Deemed/Paid", label: "Deemed/Paid" },
         { value: "Non-Resident Indian", label: "Non-Resident Indian" },
         { value: "Foreign National", label: "Foreign National" },
-        { value: "Aligarh Muslim University", label: "Aligarh Muslim University" },
-        { value: "Employees State Insurance", label: "Employees State Insurance" },
+        {
+          value: "Aligarh Muslim University",
+          label: "Aligarh Muslim University",
+        },
+        {
+          value: "Employees State Insurance",
+          label: "Employees State Insurance",
+        },
         { value: "Jamia", label: "Jamia" },
         { value: "Delhi University", label: "Delhi University" },
       ],
@@ -540,7 +544,7 @@ export const neetUGConfig = {
     return path.join(process.cwd(), "public/data/NEETUG/NEETUG.json");
   },
   getFilters: (query) => {
-    console.log(query)
+    console.log(query);
     // Helper to normalize program names for comparison
     const normalize = (str) =>
       String(str || "")
@@ -573,36 +577,38 @@ export const neetUGConfig = {
       },
       (item) => {
         if (query.category) {
-         return(
-          item["Category"]==query.category
-         ) 
-         
+          return item["Category"] == query.category;
         }
         return true;
       },
       (item) => {
-        if (query.religion!="Other" ) {
-         return(
-          item["Seat Type"]==query.religion
-         ) 
+        if (query.religion != "Other") {
+          return item["Seat Type"] == query.religion;
         }
         return true;
       },
       (item) => {
         // If seat_type is 'All India' (Any), skip filtering
-        
-        if (query.seat_type && String(query.seat_type).trim().toLowerCase() !== "any") {
+
+        if (
+          query.seat_type &&
+          String(query.seat_type).trim().toLowerCase() !== "any"
+        ) {
           const dbValue = seatTypeMap[query.seat_type] || query.seat_type;
-          if(dbValue=="Open Seat"){
-            return(
-              String(item["Seat Type"]||"").trim().toLowerCase()===String(dbValue).trim().toLowerCase()
-              ||
-              String(item["Seat Type"]||"").trim().toLowerCase()===String("All India").trim().toLowerCase()
-            )
+          if (dbValue == "Open Seat") {
+            return (
+              String(item["Seat Type"] || "")
+                .trim()
+                .toLowerCase() === String(dbValue).trim().toLowerCase() ||
+              String(item["Seat Type"] || "")
+                .trim()
+                .toLowerCase() === String("All India").trim().toLowerCase()
+            );
           }
           return (
-            String(item["Seat Type"] || "").trim().toLowerCase() ===
-            String(dbValue).trim().toLowerCase()
+            String(item["Seat Type"] || "")
+              .trim()
+              .toLowerCase() === String(dbValue).trim().toLowerCase()
           );
         }
         return true;
