@@ -50,9 +50,13 @@ export const statesList = [
   "Puducherry",
 ];
 
+// Default search keys for most exams
+const defaultSearchKeys = ["Institute", "State", "Academic Program Name"];
+
 export const jeeMainJosaaConfig = {
   name: "JEE Main-JOSAA",
   code: "JEE Main",
+  searchKeys: defaultSearchKeys,
   fields: [
     {
       name: "category",
@@ -156,6 +160,7 @@ export const jeeMainJosaaConfig = {
 export const jacExamConfig = {
   code: "JEE Main",
   name: "JEE Main-JAC",
+  searchKeys: defaultSearchKeys,
   fields: [
     {
       name: "category",
@@ -215,6 +220,7 @@ export const jacExamConfig = {
 export const jeeAdvancedConfig = {
   name: "JEE Advanced",
   code: "JEE Advanced",
+  searchKeys: defaultSearchKeys,
   fields: [
     {
       name: "category",
@@ -282,153 +288,6 @@ export const jeeAdvancedConfig = {
   },
 };
 
-// export const neetConfig = {
-//   name: "NEET MCC",
-//   code: "NEET MCC",
-//   fields: [
-//     {
-//       name: "program",
-//       label: "Select Program",
-//       options: [
-//         { value: "MBBS", label: "MBBS" },
-//         { value: "BDS", label: "BDS" },
-//         { value: "BSC Nursing", label: "BSC Nursing" },
-//       ],
-//     },
-//     {
-//       name: "gender",
-//       label: "Select Gender",
-//       options: [
-//         { value: "Open", label: "Open" },
-//         { value: "Female", label: "Female" },
-//       ],
-//     },
-//     {
-//       name: "category",
-//       label: "Select Category",
-//       options: [
-//         { value: "EWS", label: "EWS" },
-//         { value: "EWS PwD", label: "EWS PwD" },
-//         { value: "Open", label: "Open" },
-//         { value: "Open PwD", label: "Open PwD" },
-//         { value: "OBC", label: "OBC" },
-//         { value: "OBC PwD", label: "OBC PwD" },
-//         { value: "SC", label: "SC" },
-//         { value: "SC PwD", label: "SC PwD" },
-//         { value: "ST", label: "ST" },
-//         { value: "ST PwD", label: "ST PwD" },
-//       ],
-//     },
-//     {
-//       name: "religion",
-//       label: "Select Religion",
-//       options: [
-//         { value: "jain", label: "Jain" },
-//         { value: "muslim", label: "Muslim" },
-//         { value: "other", label: "Other" },
-//       ],
-//     },
-//     {
-//       name: "nationality",
-//       label: "Select Nationality",
-//       options: [
-//         { value: "indian", label: "Indian" },
-//         { value: "non resident", label: "Non Resident" },
-//         { value: "other", label: "Other" },
-//       ],
-//     },
-//     {
-//       name: "region",
-//       label: "Select Region",
-//       options: [
-//         { value: "delhi ncr", label: "Delhi NCR" },
-//         { value: "puducherry", label: "Puducherry" },
-//         { value: "other", label: "Other" },
-//       ],
-//     },
-//     {
-//       name: "defence_war",
-//       label: "Defence War Quota",
-//       options: [
-//         { value: "Yes", label: "Yes" },
-//         { value: "No", label: "No" },
-//       ],
-//     },
-//   ],
-//   legend: [
-//     { key: "AI", value: "All India" },
-//     { key: "SQ", value: "State Quota" },
-//   ],
-//   getDataPath: () => {
-//     return path.join(process.cwd(), "public/data/NEET/NEET.json");
-//   },
-//   getFilters: (query) => {
-//     console.log(query)
-//     // Helper to normalize program names for comparison
-//     const normalize = (str) =>
-//       String(str || "")
-//         .replace(/[^a-zA-Z0-9]/g, "")
-//         .toLowerCase();
-//     return [
-//       (item) => {
-//         if (query.program) {
-//           return (
-//             normalize(item["Academic Program Name"]) ===
-//             normalize(query.program)
-//           );
-//         }
-//         return true;
-//       },
-//       (item) => {
-//         if (query.gender === "Female") {
-//           return (
-//             item["Seat Type"].includes("Female") || item.gender === "Female"
-//           );
-//         }
-//         return true;
-//       },
-//       (item) => {
-//         if (query.category) {
-//           const seatType = String(item["Seat Type"] || "").toLowerCase();
-//           const isPWD = String(item["is_PWD"] || "No").toLowerCase();
-//           const queryCat = query.category.toLowerCase();
-
-//           // If user selected a PwD category, require is_PWD to be yes
-//           if (queryCat.includes("pwd")) {
-//             return (
-//               isPWD === "yes" &&
-//               seatType.includes(queryCat.replace(/\s+pwd$/, ""))
-//             );
-//           }
-//           // If user selected a non-PwD category, require is_PWD to be no
-//           return isPWD === "no" && seatType === queryCat;
-//         }
-//         return true;
-//       },
-//       (item) => {
-//         // 0.9 * rank coefficient filter for NEET closing rank
-//         if (query.rank) {
-//           const closingRank = parseInt(item["Closing Rank"], 10);
-//           const userRank = parseInt(query.rank, 10);
-//           if (!isNaN(closingRank) && !isNaN(userRank)) {
-//             return closingRank >= 0.9 * userRank;
-//           }
-//         }
-//         return true;
-//       },
-//       (item) => {
-//         if (query.defence_war === "Yes") {
-//           return item.quota && item.quota.toLowerCase().includes("defence");
-//         } else if (query.defence_war === "No") {
-//           return !item.quota || !item.quota.toLowerCase().includes("defence");
-//         }
-//         return true;
-//       },
-//     ];
-//   },
-//   getSort: () => [["Closing Rank", "ASC"]],
-// };
-// New NEET UG Exam
 // Mapping from filter values to database values for seat type
 
 const seatTypeMap = {
@@ -445,6 +304,7 @@ const seatTypeMap = {
 export const neetUGConfig = {
   name: "NEETUG",
   code: "NEETUG",
+  searchKeys: defaultSearchKeys,
   fields: [
     {
       name: "program",
@@ -544,7 +404,6 @@ export const neetUGConfig = {
     return path.join(process.cwd(), "public/data/NEETUG/NEETUG.json");
   },
   getFilters: (query) => {
-    console.log(query);
     // Helper to normalize program names for comparison
     const normalize = (str) =>
       String(str || "")
@@ -632,6 +491,7 @@ export const neetUGConfig = {
 export const mhtCetConfig = {
   name: "MHT CET",
   apiEndpoint: "mhtcet",
+  searchKeys: defaultSearchKeys,
   fields: [
     {
       name: "category",
@@ -713,6 +573,7 @@ export const mhtCetConfig = {
 
 export const kcetConfig = {
   name: "KCET",
+  searchKeys: ["Institute", "State", "Academic Program Name"],
   fields: [
     {
       name: "category",
@@ -768,7 +629,7 @@ export const kcetConfig = {
   legend: [
     { key: "AI", value: "All India" },
     { key: "KA", value: "Karnataka" },
-    { key: "HK", label: "Hyderabad-Karnataka Region" },
+    { key: "HK", value: "Hyderabad-Karnataka Region" },
   ],
   getDataPath: () => {
     return path.join(process.cwd(), "public", "data", "KCET", "kcet_data.json");
@@ -785,6 +646,7 @@ export const kcetConfig = {
 
 export const tneaConfig = {
   name: "TNEA",
+  searchKeys: ["Institute", "Course", "District"],
   fields: [
     {
       name: "category",
@@ -886,6 +748,7 @@ export const tneaConfig = {
 export const josaaConfig = {
   name: "JoSAA",
   code: "JoSAA",
+  searchKeys: defaultSearchKeys,
   fields: [
     {
       name: "category",
@@ -1054,6 +917,7 @@ export const josaaConfig = {
 export const tseApertConfig = {
   name: "TGEAPCET",
   code: "TGEAPCET",
+  searchKeys: ["institute_name", "branch_name", "place"],
   fields: [
     {
       name: "category",
@@ -1140,6 +1004,7 @@ export const tseApertConfig = {
 export const gujcetConfig = {
   name: "GUJCET",
   code: "GUJCET",
+  searchKeys: ["College Name", "District", "Course"],
   fields: [
     {
       name: "category",

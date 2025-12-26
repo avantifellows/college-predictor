@@ -4,7 +4,8 @@ import examConfigs from "../examConfig";
 
 // Define fields for the expanded view
 const expandedFields = {
-  NEET: [
+  // TGEAPCET - Telangana Engineering, Agriculture and Pharmacy Common Entrance Test
+  TGEAPCET: [
     { key: "inst_code", label: "Institute Code" },
     { key: "place", label: "Location" },
     { key: "year_of_establish", label: "Year Established" },
@@ -12,30 +13,75 @@ const expandedFields = {
     {
       key: "tuition_fee",
       label: "Tuition Fee (per year)",
-      format: (value) => `₹${Number(value).toLocaleString("en-IN")}`,
-    },
-  ],
-  TSEAPERT: [
-    { key: "inst_code", label: "Institute Code" },
-    { key: "place", label: "Location" },
-    { key: "year_of_establish", label: "Year Established" },
-    { key: "branch_name", label: "Branch Name" },
-    {
-      key: "tuition_fee",
-      label: "Tuition Fee (per year)",
-      format: (value) => `₹${Number(value).toLocaleString("en-IN")}`,
+      format: (value) =>
+        value ? `₹${Number(value).toLocaleString("en-IN")}` : "N/A",
     },
     { key: "affiliated_to", label: "Affiliated University" },
   ],
+  // JoSAA / JEE Main / JEE Advanced
+  JoSAA: [
+    { key: "Opening Rank", label: "Opening Rank" },
+    { key: "Closing Rank", label: "Closing Rank" },
+    { key: "State", label: "State" },
+    { key: "College Type", label: "College Type" },
+    { key: "Management Type", label: "Management Type" },
+    {
+      key: "Expected Salary",
+      label: "Expected Salary",
+      format: (value) =>
+        value ? `₹${Number(value).toLocaleString("en-IN")}` : "N/A",
+    },
+  ],
+  "JEE Main-JOSAA": [
+    { key: "Opening Rank", label: "Opening Rank" },
+    { key: "Closing Rank", label: "Closing Rank" },
+    { key: "State", label: "State" },
+    { key: "College Type", label: "College Type" },
+    { key: "Management Type", label: "Management Type" },
+    {
+      key: "Expected Salary",
+      label: "Expected Salary",
+      format: (value) =>
+        value ? `₹${Number(value).toLocaleString("en-IN")}` : "N/A",
+    },
+  ],
+  "JEE Main-JAC": [
+    { key: "Closing Rank", label: "Closing Rank" },
+    { key: "State", label: "State" },
+    { key: "Category", label: "Category" },
+    { key: "Gender", label: "Gender" },
+    { key: "Defense", label: "Defense Quota" },
+    { key: "PWD", label: "PWD Status" },
+    { key: "Category_Key", label: "Category Key" },
+  ],
+  "JEE Advanced": [
+    { key: "Opening Rank", label: "Opening Rank" },
+    { key: "Closing Rank", label: "Closing Rank" },
+    { key: "State", label: "State" },
+    { key: "College Type", label: "College Type" },
+    { key: "Management Type", label: "Management Type" },
+    {
+      key: "Expected Salary",
+      label: "Expected Salary",
+      format: (value) =>
+        value ? `₹${Number(value).toLocaleString("en-IN")}` : "N/A",
+    },
+  ],
+  // Default fallback
   DEFAULT: [
     { key: "Opening Rank", label: "Opening Rank" },
     { key: "Closing Rank", label: "Closing Rank" },
     { key: "State", label: "State" },
     { key: "College Type", label: "College Type" },
     { key: "Management Type", label: "Management Type" },
-    { key: "Expected Salary", label: "Expected Salary" },
-    { key: "Salary Tier", label: "Salary Tier" },
+    {
+      key: "Expected Salary",
+      label: "Expected Salary",
+      format: (value) =>
+        value ? `₹${Number(value).toLocaleString("en-IN")}` : "N/A",
+    },
   ],
+  // GUJCET - Gujarat Common Entrance Test
   GUJCET: [
     { key: "AISHE Code", label: "AISHE Code" },
     { key: "District", label: "District" },
@@ -60,12 +106,38 @@ const expandedFields = {
         value ? `₹${Number(value).toLocaleString("en-IN")}` : "N/A",
     },
   ],
+  // KCET - Karnataka Common Entrance Test
   KCET: [
     { key: "Course Type", label: "Course Type" },
     { key: "State", label: "State" },
     { key: "Language", label: "Language" },
     { key: "Rural/Urban", label: "Region" },
     { key: "Category_Key", label: "Category Key" },
+    { key: "Closing Rank", label: "Closing Rank" },
+  ],
+  // TNEA - Tamil Nadu Engineering Admissions
+  TNEA: [
+    { key: "Institute ID", label: "Institute ID" },
+    { key: "District", label: "District" },
+    { key: "College Type", label: "College Type" },
+    { key: "Cutoff Marks", label: "Cutoff Marks" },
+  ],
+  // MHT CET - Maharashtra Common Entrance Test
+  "MHT CET": [
+    { key: "Category", label: "Category" },
+    { key: "Gender", label: "Gender" },
+    { key: "Defense", label: "Defense Quota" },
+    { key: "PWD", label: "PWD Status" },
+    { key: "State", label: "State" },
+    { key: "Category_Key", label: "Category Key" },
+    { key: "Closing Rank", label: "Closing Rank" },
+  ],
+  // NEETUG - National Eligibility cum Entrance Test for Undergraduate
+  NEETUG: [
+    { key: "State", label: "State" },
+    { key: "Seat Type", label: "Seat Type" },
+    { key: "Gender", label: "Gender" },
+    { key: "Category", label: "Category" },
     { key: "Closing Rank", label: "Closing Rank" },
   ],
 };
@@ -142,6 +214,28 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
       { key: "closing_rank", label: "Closing Rank" },
       { key: "Seat Type", label: "Category" },
     ],
+    "JEE Main-JOSAA": [
+      { key: "state", label: "State" },
+      { key: "institute", label: "Institute" },
+      { key: "academic_program_name", label: "Academic Program Name" },
+      { key: "exam_type", label: "Exam Type" },
+      { key: "closing_rank", label: "Closing Rank" },
+      { key: "Seat Type", label: "Category" },
+    ],
+    "JEE Main-JAC": [
+      { key: "state", label: "State" },
+      { key: "institute", label: "Institute" },
+      { key: "academic_program_name", label: "Academic Program Name" },
+      { key: "closing_rank", label: "Closing Rank" },
+      { key: "Category", label: "Category" },
+    ],
+    "JEE Advanced": [
+      { key: "state", label: "State" },
+      { key: "institute", label: "Institute" },
+      { key: "academic_program_name", label: "Academic Program Name" },
+      { key: "closing_rank", label: "Closing Rank" },
+      { key: "Seat Type", label: "Category" },
+    ],
     TGEAPCET: [
       { key: "institute_name", label: "Institute Name" },
       { key: "branch_name", label: "Academic Program" },
@@ -154,6 +248,18 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
       { key: "closing_marks", label: "Cutoff Marks" },
     ],
     KCET: [
+      { key: "institute", label: "Institute" },
+      { key: "academic_program_name", label: "Academic Program Name" },
+      { key: "closing_rank", label: "Closing Rank" },
+      { key: "category", label: "Category" },
+    ],
+    "MHT CET": [
+      { key: "institute", label: "Institute" },
+      { key: "academic_program_name", label: "Academic Program Name" },
+      { key: "closing_rank", label: "Closing Rank" },
+      { key: "category", label: "Category" },
+    ],
+    NEETUG: [
       { key: "institute", label: "Institute" },
       { key: "academic_program_name", label: "Academic Program Name" },
       { key: "closing_rank", label: "Closing Rank" },
@@ -197,6 +303,7 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
     }
     if (exam === "TNEA") {
       return {
+        ...item,
         institute_id: item["Institute ID"],
         institute: item["Institute"],
         academic_program_name: item["Course"],
@@ -204,10 +311,20 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
         closing_rank: item["Cutoff Marks"],
         quota: item["Category"],
         Category: item["Category"],
+        "Institute ID": item["Institute ID"],
+        "District": item["District"],
+        "College Type": item["College Type"],
+        "Cutoff Marks": item["Cutoff Marks"],
       };
     }
-    if (exam === "JoSAA") {
+    // Handle JoSAA, JEE Main-JOSAA, and JEE Advanced (uses JEE data with full fields)
+    if (
+      exam === "JoSAA" ||
+      exam === "JEE Main-JOSAA" ||
+      exam === "JEE Advanced"
+    ) {
       return {
+        ...item,
         institute: item["Institute"],
         state: item["State"],
         academic_program_name: item["Academic Program Name"],
@@ -218,26 +335,61 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
         "Quota": item["Quota"] || "AI",
         "Closing Rank": item["Closing Rank"],
         "Opening Rank": item["Opening Rank"],
-        "College Type": item["College Type"] || "Gen 1 IIT",
-        "Management Type":
-          item["Management Type"] ||
-          "IIT/NIT/IIIT - Government Funded Technical Institute",
-        "Expected Salary": item["Expected Salary"] || 0,
-        "Salary Tier": item["Salary Tier"] || 1.0,
-        "Exam": item["Exam"] || "JEE Advanced",
+        "College Type": item["College Type"],
+        "Management Type": item["Management Type"],
+        "Expected Salary": item["Expected Salary"],
+        "Salary Tier": item["Salary Tier"],
+        "Exam": item["Exam"],
         Category: item["Seat Type"] || item["Category"] || "",
       };
     }
-    if (exam === "NEET") {
+    // Handle JEE Main-JAC (uses JAC data with different fields)
+    if (exam === "JEE Main-JAC") {
       return {
         ...item,
-        institute:
-          item["Institute"] || item["institute"] || item["inst_code"] || "",
-        state: item["State"] || item["state"] || "",
-        academic_program_name:
-          item["Academic Program Name"] || item["branch_name"] || "",
-        closing_rank: item["Closing Rank"] || item["closing_rank"] || "",
-        Category: item["Seat Type"] || item["Category"] || "",
+        institute: item["Institute"],
+        state: item["State"],
+        academic_program_name: item["Academic Program Name"],
+        closing_rank: item["Closing Rank"],
+        "State": item["State"],
+        "Closing Rank": item["Closing Rank"],
+        "Category": item["Category"],
+        "Gender": item["Gender"],
+        "Defense": item["Defense"],
+        "PWD": item["PWD"],
+        "Category_Key": item["Category_Key"],
+        Category: item["Category"] || "",
+      };
+    }
+    if (exam === "NEETUG") {
+      return {
+        ...item,
+        institute: item["Institute"] || "",
+        state: item["State"] || "",
+        academic_program_name: item["Academic Program Name"] || "",
+        closing_rank: item["Closing Rank"] || "",
+        category: item["Category"] || "",
+        "State": item["State"],
+        "Seat Type": item["Seat Type"],
+        "Gender": item["Gender"],
+        "Category": item["Category"],
+        "Closing Rank": item["Closing Rank"],
+      };
+    }
+    if (exam === "MHT CET") {
+      return {
+        ...item,
+        institute: item["Institute"] || "",
+        academic_program_name: item["Academic Program Name"] || "",
+        closing_rank: item["Closing Rank"] || "",
+        category: item["Category"] || "",
+        "Category": item["Category"],
+        "Gender": item["Gender"],
+        "Defense": item["Defense"],
+        "PWD": item["PWD"],
+        "State": item["State"],
+        "Category_Key": item["Category_Key"],
+        "Closing Rank": item["Closing Rank"],
       };
     }
     if (exam === "TGEAPCET") {

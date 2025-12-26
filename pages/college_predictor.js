@@ -14,7 +14,8 @@ const Dropdown = dynamic(() => import("../components/dropdown"), {
   ssr: false,
 });
 
-const fuseOptions = {
+// Base Fuse options - keys will be added dynamically based on exam
+const baseFuseOptions = {
   isCaseSensitive: false,
   includeScore: false,
   shouldSort: false,
@@ -28,8 +29,10 @@ const fuseOptions = {
   ignoreLocation: true,
   ignoreFieldNorm: false,
   fieldNormWeight: 1,
-  keys: ["Institute", "State", "Academic Program Name"],
 };
+
+// Default search keys fallback
+const defaultSearchKeys = ["Institute", "State", "Academic Program Name"];
 
 const CollegePredictor = () => {
   const router = useRouter();
@@ -64,12 +67,16 @@ const CollegePredictor = () => {
     setQueryObject(initialQuery);
   }, [router.query]);
 
-  const [fuseInstance, setFuseInstance] = useState(new Fuse([], fuseOptions));
+  const [fuseInstance, setFuseInstance] = useState(null);
   useEffect(() => {
-    if (fullData && fullData.length > 0) {
+    if (fullData && fullData.length > 0 && queryObject.exam) {
+      // Get search keys from exam config, fallback to defaults
+      const examConfig = examConfigs[queryObject.exam];
+      const searchKeys = examConfig?.searchKeys || defaultSearchKeys;
+      const fuseOptions = { ...baseFuseOptions, keys: searchKeys };
       setFuseInstance(new Fuse(fullData, fuseOptions));
     }
-  }, [fullData]);
+  }, [fullData, queryObject.exam]);
 
   const handleSearchChange = (e) => {
     const currentSearchTerm = e.target.value;
@@ -81,7 +88,7 @@ const CollegePredictor = () => {
       return;
     }
 
-    if (fullData.length > 0) {
+    if (fullData.length > 0 && fuseInstance) {
       const result = fuseInstance.search(currentSearchTerm.trim());
       if (result.length === 0) {
         setFilteredData([]);
