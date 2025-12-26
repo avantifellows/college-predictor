@@ -209,6 +209,7 @@ export const jacExamConfig = {
     (item) =>
       parseInt(item["Closing Rank"], 10) > 0.9 * parseInt(query.rank, 10),
   ],
+  getSort: () => [["Closing Rank", "ASC"]],
 };
 
 export const jeeAdvancedConfig = {
@@ -773,6 +774,7 @@ export const kcetConfig = {
     (item) => query.language === "Any" || item.Language === query.language,
     (item) => query.region === "All" || item["Rural/Urban"] === query.region,
   ],
+  getSort: () => [["Closing Rank", "ASC"]],
 };
 
 export const tneaConfig = {
