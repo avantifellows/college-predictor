@@ -1048,6 +1048,7 @@ export const gujcetConfig = {
 };
 
 export const examConfigs = {
+  "JoSAA": josaaConfig,
   "JEE Main-JOSAA": jeeMainJosaaConfig,
   "JEE Main-JAC": jacExamConfig,
   "GUJCET": gujcetConfig,
@@ -1057,7 +1058,6 @@ export const examConfigs = {
   "MHT CET": mhtCetConfig,
   "KCET": kcetConfig,
   "TNEA": tneaConfig,
-  "JoSAA": josaaConfig,
   "TGEAPCET": tseApertConfig,
 };
 

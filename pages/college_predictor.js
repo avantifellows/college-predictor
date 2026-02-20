@@ -42,6 +42,13 @@ const CollegePredictor = () => {
   const [error, setError] = useState(null);
   const [queryObject, setQueryObject] = useState({});
   const [searchTerm, setSearchTerm] = useState("");
+  const [rankMode, setRankMode] = useState("estimate");
+  const [marksInput, setMarksInput] = useState("");
+  const [marksError, setMarksError] = useState("");
+  const [estimateError, setEstimateError] = useState("");
+  const [estimatedRank, setEstimatedRank] = useState(null);
+  const [isEstimating, setIsEstimating] = useState(false);
+  const [currentExam, setCurrentExam] = useState(null);
 
   useEffect(() => {
     // Initialize queryObject from router.query
@@ -238,6 +245,124 @@ const CollegePredictor = () => {
   };
 
   useEffect(() => {
+    if (!queryObject.exam || queryObject.exam === currentExam) return;
+    setCurrentExam(queryObject.exam);
+    if (queryObject.exam === "JoSAA") {
+      const hasAdvanced =
+        queryObject.qualifiedJeeAdv === "Yes" ||
+        (queryObject.advRank && queryObject.advRank !== "");
+      const mainRankValue =
+        queryObject.mainRank !== undefined
+          ? queryObject.mainRank
+          : queryObject.rank;
+      const hasMainRank =
+        mainRankValue !== undefined &&
+        mainRankValue !== "" &&
+        Number(mainRankValue) > 0;
+      setRankMode(hasAdvanced || hasMainRank ? "known" : "estimate");
+      setMarksInput("");
+      setMarksError("");
+      setEstimateError("");
+      setEstimatedRank(null);
+    } else {
+      setRankMode("known");
+    }
+  }, [
+    queryObject.exam,
+    queryObject.qualifiedJeeAdv,
+    queryObject.advRank,
+    queryObject.mainRank,
+    queryObject.rank,
+    currentExam,
+  ]);
+
+  const handleRankModeChange = (mode) => {
+    setRankMode(mode);
+    if (mode === "estimate") {
+      const newQueryObject = {
+        ...queryObject,
+        qualifiedJeeAdv: "No",
+      };
+      delete newQueryObject.advRank;
+      setQueryObject(newQueryObject);
+      debouncedRouterPush(newQueryObject);
+      setEstimatedRank(null);
+      setMarksInput("");
+      setMarksError("");
+      setEstimateError("");
+    } else {
+      setEstimatedRank(null);
+      setMarksInput("");
+      setMarksError("");
+      setEstimateError("");
+    }
+  };
+
+  const handleMarksChange = (e) => {
+    const value = e.target.value;
+    setMarksInput(value);
+    setEstimatedRank(null);
+    setEstimateError("");
+    if (value === "") {
+      setMarksError("");
+      return;
+    }
+    const marks = Number(value);
+    if (Number.isNaN(marks) || marks < 0 || marks > 300) {
+      setMarksError("Please enter marks between 0 and 300.");
+      return;
+    }
+    setMarksError("");
+  };
+
+  const handleEstimateRank = async () => {
+    if (!queryObject.category) {
+      setEstimateError("Please select your category first.");
+      return;
+    }
+    if (marksInput === "") {
+      setMarksError("Please enter your marks.");
+      return;
+    }
+    if (marksError) return;
+
+    setIsEstimating(true);
+    setEstimateError("");
+    try {
+      const response = await fetch("/api/jee-predict", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          marks: Number(marksInput),
+          category: queryObject.category,
+        }),
+      });
+
+      const data = await response.json();
+      if (!response.ok) {
+        setEstimateError(data.error || "Unable to estimate rank.");
+        setIsEstimating(false);
+        return;
+      }
+
+      setEstimatedRank(data.categoryRank);
+      const newQueryObject = {
+        ...queryObject,
+        mainRank: String(data.categoryRank),
+        rank: String(data.categoryRank),
+        qualifiedJeeAdv: "No",
+      };
+      delete newQueryObject.advRank;
+      setQueryObject(newQueryObject);
+      debouncedRouterPush(newQueryObject);
+    } catch (error) {
+      setEstimateError("Unable to estimate rank right now.");
+    } finally {
+      setIsEstimating(false);
+    }
+  };
+
+  useEffect(() => {
     // Fetch data when queryObject changes, if not empty
     // This might be redundant if debouncedRouterPush also calls fetchData
     // Let's ensure fetchData is called primarily via debouncedRouterPush or initial load
@@ -267,66 +392,157 @@ const CollegePredictor = () => {
         <p className="text-sm md:text-base font-semibold">
           Exam: {queryObject.exam}
         </p>
-        {examConfig.fields.map((field) => (
-          <div
-            key={field.name}
-            className="flex items-center justify-center gap-2"
-          >
-            <label className="font-semibold text-sm md:text-base">
-              {typeof field.label === "function"
-                ? field.label(queryObject)
-                : field.label}
-            </label>
-            <Dropdown
-              className="text-sm md:text-base"
-              options={field.options.map((option) =>
-                typeof option === "string"
-                  ? { value: option, label: option }
-                  : option
-              )}
-              selectedValue={queryObject[field.name]}
-              onChange={handleQueryObjectChange(field.name)}
-            />
-          </div>
-        ))}
+        {examConfig.fields
+          .filter(
+            (field) =>
+              !(
+                queryObject.exam === "JoSAA" &&
+                rankMode === "estimate" &&
+                field.name === "qualifiedJeeAdv"
+              )
+          )
+          .map((field) => (
+            <div
+              key={field.name}
+              className="flex items-center justify-center gap-2"
+            >
+              <label className="font-semibold text-sm md:text-base">
+                {typeof field.label === "function"
+                  ? field.label(queryObject)
+                  : field.label}
+              </label>
+              <Dropdown
+                className="text-sm md:text-base"
+                options={field.options.map((option) =>
+                  typeof option === "string"
+                    ? { value: option, label: option }
+                    : option
+                )}
+                selectedValue={queryObject[field.name]}
+                onChange={handleQueryObjectChange(field.name)}
+              />
+            </div>
+          ))}
 
         {queryObject.exam === "JoSAA" && (
           <>
-            <div className="flex gap-2 items-center">
-              <label className="block text-sm md:text-base font-semibold text-gray-700 mb-2">
-                Enter Category Rank for JEE Main
+            <div className="flex flex-col gap-2 items-start sm:items-center">
+              <label className="block text-sm md:text-base font-semibold text-gray-700">
+                Do you want rank prediction?
               </label>
-              <input
-                type="number"
-                step="1"
-                value={
-                  queryObject.mainRank !== undefined
-                    ? Math.floor(Number(queryObject.mainRank))
-                    : queryObject.rank
-                    ? Math.floor(Number(queryObject.rank))
-                    : ""
-                }
-                onChange={(e) => {
-                  const value = Math.floor(Number(e.target.value));
-                  const newQueryObject = {
-                    ...queryObject,
-                    mainRank: value,
-                    rank: value, // keep in sync
-                  };
-                  setQueryObject(newQueryObject);
-                  debouncedRouterPush(newQueryObject);
-                }}
-                onKeyDown={(e) => {
-                  if ([".", "e", "E", "+", "-"].includes(e.key)) {
-                    e.preventDefault();
-                  }
-                }}
-                className="border border-gray-300 rounded text-center"
-                placeholder="Enter JEE Main rank"
-              />
+              <div className="flex justify-center w-full">
+                <div className="inline-flex w-full overflow-hidden rounded-md border border-gray-300">
+                  <button
+                    type="button"
+                    onClick={() => handleRankModeChange("estimate")}
+                    className={`flex-1 px-4 py-2 text-sm ${
+                      rankMode === "estimate"
+                        ? "bg-[#B52326] text-white"
+                        : "bg-white text-gray-700"
+                    }`}
+                  >
+                    Yes, estimate from marks
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => handleRankModeChange("known")}
+                    className={`flex-1 px-4 py-2 text-sm ${
+                      rankMode === "known"
+                        ? "bg-[#B52326] text-white"
+                        : "bg-white text-gray-700"
+                    }`}
+                  >
+                    No, I know my rank
+                  </button>
+                </div>
+              </div>
             </div>
 
-            {queryObject.qualifiedJeeAdv === "Yes" && (
+            {rankMode === "estimate" ? (
+              <div className="flex flex-col gap-2 items-start sm:items-center">
+                <label className="block text-sm md:text-base font-semibold text-gray-700">
+                  Enter your JEE Main marks (out of 300)
+                </label>
+                <input
+                  type="number"
+                  step="1"
+                  min="0"
+                  max="300"
+                  value={marksInput}
+                  onChange={handleMarksChange}
+                  onKeyDown={(e) => {
+                    if ([".", "e", "E", "+", "-", " "].includes(e.key)) {
+                      e.preventDefault();
+                    }
+                  }}
+                  className={`border ${
+                    marksError ? "border-red-500" : "border-gray-300"
+                  } rounded text-center w-full sm:w-64`}
+                  placeholder="e.g., 182"
+                />
+                {marksError && (
+                  <p className="text-red-500 text-sm">{marksError}</p>
+                )}
+                <button
+                  type="button"
+                  onClick={handleEstimateRank}
+                  disabled={
+                    isEstimating ||
+                    marksInput === "" ||
+                    !!marksError ||
+                    !queryObject.category
+                  }
+                  className="px-4 py-2 rounded bg-[#B52326] text-white hover:bg-[#9E1F22] disabled:bg-gray-300 disabled:text-gray-600"
+                >
+                  {isEstimating ? "Estimating..." : "Estimate Rank"}
+                </button>
+                {estimateError && (
+                  <p className="text-red-500 text-sm">{estimateError}</p>
+                )}
+                {estimatedRank && (
+                  <p className="text-sm text-gray-700">
+                    Estimated JEE Main Category Rank:{" "}
+                    <strong>{estimatedRank}</strong>
+                  </p>
+                )}
+              </div>
+            ) : (
+              <div className="flex gap-2 items-center">
+                <label className="block text-sm md:text-base font-semibold text-gray-700 mb-2">
+                  Enter Category Rank for JEE Main
+                </label>
+                <input
+                  type="number"
+                  step="1"
+                  value={
+                    queryObject.mainRank !== undefined
+                      ? Math.floor(Number(queryObject.mainRank))
+                      : queryObject.rank
+                      ? Math.floor(Number(queryObject.rank))
+                      : ""
+                  }
+                  onChange={(e) => {
+                    const value = Math.floor(Number(e.target.value));
+                    const newQueryObject = {
+                      ...queryObject,
+                      mainRank: value,
+                      rank: value, // keep in sync
+                    };
+                    setQueryObject(newQueryObject);
+                    debouncedRouterPush(newQueryObject);
+                  }}
+                  onKeyDown={(e) => {
+                    if ([".", "e", "E", "+", "-"].includes(e.key)) {
+                      e.preventDefault();
+                    }
+                  }}
+                  className="border border-gray-300 rounded text-center"
+                  placeholder="Enter JEE Main rank"
+                />
+              </div>
+            )}
+
+            {rankMode === "known" && queryObject.qualifiedJeeAdv === "Yes" && (
               <div className="flex flex-col gap-1">
                 <div className="flex gap-2 items-center">
                   <label className="block text-sm md:text-base font-semibold text-gray-700">
