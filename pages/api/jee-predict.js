@@ -163,10 +163,13 @@ export default function handler(req, res) {
     categoryRank = 1;
   }
 
+  const percentageRounded = Number(percentage.toFixed(5));
+  const percentileRounded = Number(percentile.toFixed(5));
+
   return res.status(200).json({
     marks: Math.round(marks),
-    percentage: Number(percentage.toFixed(2)),
-    percentile: Number(percentile.toFixed(2)),
+    percentage: percentageRounded,
+    percentile: percentileRounded,
     allIndiaRank,
     categoryRank,
   });
