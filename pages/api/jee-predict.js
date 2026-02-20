@@ -70,11 +70,7 @@ const marksToPercentage = (score) => (score * 100) / TOTAL_MARKS;
 
 const percentageToPercentile = (percentage) => {
   if (percentage <= 25) {
-    return (
-      LFIT +
-      (UFIT - LFIT) /
-        (1 + Math.exp(-KFIT * (percentage - X0_FIT)))
-    );
+    return LFIT + (UFIT - LFIT) / (1 + Math.exp(-KFIT * (percentage - X0_FIT)));
   }
   if (percentage <= 40) {
     return 65.1 + 8.95 * Math.log(percentage);
@@ -153,15 +149,19 @@ export default function handler(req, res) {
 
   const marks = Number(marksRaw);
   if (Number.isNaN(marks) || marks < 0 || marks > TOTAL_MARKS) {
-    return res
-      .status(400)
-      .json({ error: "Marks must be between 0 and 300" });
+    return res.status(400).json({ error: "Marks must be between 0 and 300" });
   }
 
   const percentage = marksToPercentage(marks);
-  const percentile = percentageToPercentile(percentage);
-  const allIndiaRank = percentileToAir(percentile);
-  const categoryRank = airToCat(category, allIndiaRank);
+  let percentile = percentageToPercentile(percentage);
+  let allIndiaRank = percentileToAir(percentile);
+  let categoryRank = airToCat(category, allIndiaRank);
+
+  if (marks >= TOTAL_MARKS) {
+    percentile = 100;
+    allIndiaRank = 1;
+    categoryRank = 1;
+  }
 
   return res.status(200).json({
     marks: Math.round(marks),
