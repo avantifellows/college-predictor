@@ -211,26 +211,11 @@ export default async function handler(req, res) {
       exam === "JEE Advanced" ||
       exam === "JoSAA"
     ) {
-      // For JEE Main, JEE Advanced, and JoSAA, sort by AF Hierarchy in ascending order
-      // and prioritize home state colleges if preferHomeState is Yes
-      const preferHomeState = req.query.preferHomeState === "Yes";
-      const homeState = req.query.homeState;
-
+      // For JEE Main, JEE Advanced, and JoSAA, sort by Closing Rank ascending
       filteredData.sort((collegeA, collegeB) => {
-        // If preferHomeState is Yes and homeState is provided
-        if (preferHomeState && homeState) {
-          const isCollegeAHomeState = collegeA.State === homeState;
-          const isCollegeBHomeState = collegeB.State === homeState;
-
-          // If one is from home state and the other is not, prioritize home state
-          if (isCollegeAHomeState && !isCollegeBHomeState) return -1;
-          if (!isCollegeAHomeState && isCollegeBHomeState) return 1;
-        }
-
-        // If both are from home state or both are not, sort by AF Hierarchy
-        const collegeAAFHierarchy = parseFloat(collegeA["AF Hierarchy"]) || 0;
-        const collegeBAFHierarchy = parseFloat(collegeB["AF Hierarchy"]) || 0;
-        return collegeAAFHierarchy - collegeBAFHierarchy; // Ascending order (lower AF Hierarchy first)
+        const rankA = parseFloat(collegeA["Closing Rank"]) || 0;
+        const rankB = parseFloat(collegeB["Closing Rank"]) || 0;
+        return rankA - rankB;
       });
     }
 

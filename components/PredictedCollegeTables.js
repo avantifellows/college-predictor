@@ -183,7 +183,10 @@ const ROWS_PER_PAGE_INITIAL = 30; // Variable for initial rows
 const PredictedCollegesTable = ({ data = [], exam = "" }) => {
   const [expandedRows, setExpandedRows] = useState({});
   const [showAllRows, setShowAllRows] = useState(false); // State for showing all rows
-  const [salarySortOrder, setSalarySortOrder] = useState(null);
+  const [sortConfig, setSortConfig] = useState({
+    key: "closing_rank",
+    order: "asc",
+  });
 
   const toggleRowExpansion = (index) => {
     setExpandedRows((prev) => ({
@@ -204,6 +207,7 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
   const supportsExpandedView = !isJosaaExam;
   const supportsSalarySort = isJosaaExam;
   const salaryColumnKey = "expected_salary";
+  const rankColumnKey = "closing_rank";
 
   const formatSalary = (value) => {
     const numericValue = Number(value);
@@ -212,8 +216,9 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
   };
 
   useEffect(() => {
-    setSalarySortOrder(null);
-  }, [exam]);
+    if (!supportsSalarySort) return;
+    setSortConfig({ key: rankColumnKey, order: "asc" });
+  }, [exam, data, supportsSalarySort, rankColumnKey]);
 
   const examColumnMapping = {
     TNEA: [
@@ -461,19 +466,42 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
     return Number.isFinite(numericValue) ? numericValue : null;
   };
 
+  const getClosingRankValue = (item) => {
+    const raw =
+      item?.["Closing Rank"] ??
+      item?.closing_rank ??
+      item?.["Cutoff Marks"] ??
+      item?.closing_marks;
+    const numericValue = Number(raw);
+    return Number.isFinite(numericValue) ? numericValue : null;
+  };
+
   const sortedData = useMemo(() => {
-    if (!supportsSalarySort || !salarySortOrder) return data;
+    if (!supportsSalarySort) return data;
+    if (!data.length) return data;
+    const { key, order } = sortConfig || {};
     const copy = [...data];
+
     copy.sort((a, b) => {
-      const aVal = getSalaryValue(a);
-      const bVal = getSalaryValue(b);
+      let aVal = null;
+      let bVal = null;
+
+      if (key === salaryColumnKey) {
+        aVal = getSalaryValue(a);
+        bVal = getSalaryValue(b);
+      } else {
+        aVal = getClosingRankValue(a);
+        bVal = getClosingRankValue(b);
+      }
+
       if (aVal === null && bVal === null) return 0;
       if (aVal === null) return 1;
       if (bVal === null) return -1;
-      return salarySortOrder === "desc" ? bVal - aVal : aVal - bVal;
+      return order === "desc" ? bVal - aVal : aVal - bVal;
     });
+
     return copy;
-  }, [data, salarySortOrder, supportsSalarySort]);
+  }, [data, sortConfig, supportsSalarySort]);
 
   const getDisplayValue = (column, transformedItem) => {
     const rawValue = transformedItem[column.key];
@@ -486,20 +514,37 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
 
   const toggleSalarySort = () => {
     if (!supportsSalarySort) return;
-    setSalarySortOrder((prev) => {
-      if (!prev) return "desc";
-      return prev === "desc" ? "asc" : "desc";
+    setSortConfig((prev) => {
+      if (!prev || prev.key !== salaryColumnKey) {
+        return { key: salaryColumnKey, order: "desc" };
+      }
+      return {
+        key: salaryColumnKey,
+        order: prev.order === "desc" ? "asc" : "desc",
+      };
     });
   };
 
-  const renderSalarySortIcon = () => {
-    if (salarySortOrder === "desc") {
+  const toggleRankSort = () => {
+    setSortConfig((prev) => {
+      if (!prev || prev.key !== rankColumnKey) {
+        return { key: rankColumnKey, order: "asc" };
+      }
+      return {
+        key: rankColumnKey,
+        order: prev.order === "asc" ? "desc" : "asc",
+      };
+    });
+  };
+
+  const renderSortIcon = (key) => {
+    if (!sortConfig || sortConfig.key !== key) {
+      return <ArrowUpDown size={16} />;
+    }
+    if (sortConfig.order === "desc") {
       return <ArrowDown size={16} />;
     }
-    if (salarySortOrder === "asc") {
-      return <ArrowUp size={16} />;
-    }
-    return <ArrowUpDown size={16} />;
+    return <ArrowUp size={16} />;
   };
 
   const downloadCsv = () => {
@@ -534,14 +579,23 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
     <tr className={commonHeaderClass}>
       {predicted_colleges_table_column.map((column) => (
         <th key={column.key} className="p-2 border-r border-gray-300">
-          {supportsSalarySort && column.key === salaryColumnKey ? (
+          {supportsSalarySort && column.key === rankColumnKey ? (
+            <button
+              type="button"
+              onClick={toggleRankSort}
+              className="font-bold inline-flex items-center gap-1"
+            >
+              {column.label}
+              {renderSortIcon(rankColumnKey)}
+            </button>
+          ) : supportsSalarySort && column.key === salaryColumnKey ? (
             <button
               type="button"
               onClick={toggleSalarySort}
               className="font-bold inline-flex items-center gap-1"
             >
               {column.label}
-              {renderSalarySortIcon()}
+              {renderSortIcon(salaryColumnKey)}
             </button>
           ) : (
             column.label
