@@ -67,6 +67,8 @@ const F4_C5_B = -11081;
 const ALLOWED_CATEGORIES = new Set(["OPEN", "OBC-NCL", "SC", "ST", "EWS"]);
 
 const marksToPercentage = (score) => (score * 100) / TOTAL_MARKS;
+const percentageToMarks = (percentage) =>
+  Math.floor((percentage * TOTAL_MARKS) / 100);
 
 const percentageToPercentile = (percentage) => {
   if (percentage <= 25) {
@@ -76,6 +78,37 @@ const percentageToPercentile = (percentage) => {
     return 65.1 + 8.95 * Math.log(percentage);
   }
   return 100 * (1 - Math.exp(-0.095 * percentage));
+};
+
+const PERCENTILE_AT_25 =
+  LFIT + (UFIT - LFIT) / (1 + Math.exp(-KFIT * (25 - X0_FIT)));
+const PERCENTILE_AT_40 = 65.1 + 8.95 * Math.log(40);
+
+const percentileToPercentage = (percentile) => {
+  if (percentile <= PERCENTILE_AT_25) {
+    let low = 0;
+    let high = 25;
+    for (let i = 0; i < 50; i += 1) {
+      const mid = (low + high) / 2;
+      const testPercentile = percentageToPercentile(mid);
+      if (Math.abs(testPercentile - percentile) < 0.001) {
+        return mid;
+      }
+      if (testPercentile < percentile) {
+        low = mid;
+      } else {
+        high = mid;
+      }
+    }
+    return (low + high) / 2;
+  }
+
+  if (percentile <= PERCENTILE_AT_40) {
+    return Math.exp((percentile - 65.1) / 8.95);
+  }
+
+  if (percentile >= 100) return 100;
+  return -Math.log(1 - percentile / 100) / 0.095;
 };
 
 const percentileToAir = (percentile) =>
@@ -139,6 +172,7 @@ export default function handler(req, res) {
 
   const body = typeof req.body === "string" ? JSON.parse(req.body) : req.body;
   const marksRaw = body?.marks;
+  const percentileRaw = body?.percentile;
   const category = body?.category;
 
   if (!ALLOWED_CATEGORIES.has(category)) {
@@ -147,20 +181,45 @@ export default function handler(req, res) {
       .json({ error: "Unsupported category for estimation" });
   }
 
-  const marks = Number(marksRaw);
-  if (Number.isNaN(marks) || marks < 0 || marks > TOTAL_MARKS) {
-    return res.status(400).json({ error: "Marks must be between 0 and 300" });
+  let marks;
+  let percentage;
+  let percentile;
+
+  if (marksRaw !== undefined && marksRaw !== null && marksRaw !== "") {
+    marks = Number(marksRaw);
+    if (Number.isNaN(marks) || marks < 0 || marks > TOTAL_MARKS) {
+      return res.status(400).json({ error: "Marks must be between 0 and 300" });
+    }
+    percentage = marksToPercentage(marks);
+    percentile = percentageToPercentile(percentage);
+  } else if (
+    percentileRaw !== undefined &&
+    percentileRaw !== null &&
+    percentileRaw !== ""
+  ) {
+    percentile = Number(percentileRaw);
+    if (Number.isNaN(percentile) || percentile < 0 || percentile > 100) {
+      return res
+        .status(400)
+        .json({ error: "Percentile must be between 0 and 100" });
+    }
+    percentage = percentileToPercentage(percentile);
+    marks = percentageToMarks(percentage);
+  } else {
+    return res
+      .status(400)
+      .json({ error: "Provide either marks or percentile" });
   }
 
-  const percentage = marksToPercentage(marks);
-  let percentile = percentageToPercentile(percentage);
   let allIndiaRank = percentileToAir(percentile);
   let categoryRank = airToCat(category, allIndiaRank);
 
-  if (marks >= TOTAL_MARKS) {
+  if (marks >= TOTAL_MARKS || percentile >= 100) {
     percentile = 100;
     allIndiaRank = 1;
     categoryRank = 1;
+    marks = TOTAL_MARKS;
+    percentage = 100;
   }
 
   const percentageRounded = Number(percentage.toFixed(5));

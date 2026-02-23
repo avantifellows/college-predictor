@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
+import { ArrowDown, ArrowUp, ArrowUpDown } from "lucide-react";
 import PropTypes from "prop-types";
 import examConfigs from "../examConfig";
 
@@ -182,6 +183,7 @@ const ROWS_PER_PAGE_INITIAL = 30; // Variable for initial rows
 const PredictedCollegesTable = ({ data = [], exam = "" }) => {
   const [expandedRows, setExpandedRows] = useState({});
   const [showAllRows, setShowAllRows] = useState(false); // State for showing all rows
+  const [salarySortOrder, setSalarySortOrder] = useState(null);
 
   const toggleRowExpansion = (index) => {
     setExpandedRows((prev) => ({
@@ -196,6 +198,22 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
     "bg-gray-200 font-bold text-center text-xs sm:text-sm md:text-base";
   const commonCellClass =
     "p-2 border border-gray-300 text-center text-xs sm:text-sm md:text-base";
+
+  const isJosaaExam =
+    exam === "JoSAA" || exam === "JEE Main-JOSAA" || exam === "JEE Advanced";
+  const supportsExpandedView = !isJosaaExam;
+  const supportsSalarySort = isJosaaExam;
+  const salaryColumnKey = "expected_salary";
+
+  const formatSalary = (value) => {
+    const numericValue = Number(value);
+    if (!Number.isFinite(numericValue) || numericValue <= 0) return "N/A";
+    return `₹${numericValue.toLocaleString("en-IN")}`;
+  };
+
+  useEffect(() => {
+    setSalarySortOrder(null);
+  }, [exam]);
 
   const examColumnMapping = {
     TNEA: [
@@ -212,6 +230,11 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
       { key: "academic_program_name", label: "Academic Program Name" },
       { key: "exam_type", label: "Exam Type" },
       { key: "closing_rank", label: "Closing Rank" },
+      {
+        key: "expected_salary",
+        label: "Expected Salary (NIRF)",
+        format: formatSalary,
+      },
       { key: "Seat Type", label: "Category" },
     ],
     "JEE Main-JOSAA": [
@@ -220,6 +243,11 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
       { key: "academic_program_name", label: "Academic Program Name" },
       { key: "exam_type", label: "Exam Type" },
       { key: "closing_rank", label: "Closing Rank" },
+      {
+        key: "expected_salary",
+        label: "Expected Salary (NIRF)",
+        format: formatSalary,
+      },
       { key: "Seat Type", label: "Category" },
     ],
     "JEE Main-JAC": [
@@ -234,6 +262,11 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
       { key: "institute", label: "Institute" },
       { key: "academic_program_name", label: "Academic Program Name" },
       { key: "closing_rank", label: "Closing Rank" },
+      {
+        key: "expected_salary",
+        label: "Expected Salary (NIRF)",
+        format: formatSalary,
+      },
       { key: "Seat Type", label: "Category" },
     ],
     TGEAPCET: [
@@ -330,6 +363,7 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
         academic_program_name: item["Academic Program Name"],
         exam_type: item["Exam"],
         closing_rank: item["Closing Rank"],
+        expected_salary: item["Expected Salary"],
         "Seat Type": item["Seat Type"],
         "State": item["State"],
         "Quota": item["Quota"] || "AI",
@@ -418,21 +452,110 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
     };
   };
 
+  const getSalaryValue = (item) => {
+    const raw =
+      item?.["Expected Salary"] ??
+      item?.expected_salary ??
+      item?.["Expected Salary as per NIRF"];
+    const numericValue = Number(raw);
+    return Number.isFinite(numericValue) ? numericValue : null;
+  };
+
+  const sortedData = useMemo(() => {
+    if (!supportsSalarySort || !salarySortOrder) return data;
+    const copy = [...data];
+    copy.sort((a, b) => {
+      const aVal = getSalaryValue(a);
+      const bVal = getSalaryValue(b);
+      if (aVal === null && bVal === null) return 0;
+      if (aVal === null) return 1;
+      if (bVal === null) return -1;
+      return salarySortOrder === "desc" ? bVal - aVal : aVal - bVal;
+    });
+    return copy;
+  }, [data, salarySortOrder, supportsSalarySort]);
+
+  const getDisplayValue = (column, transformedItem) => {
+    const rawValue = transformedItem[column.key];
+    if (column.format) {
+      return column.format(rawValue);
+    }
+    if (rawValue === 0) return 0;
+    return rawValue || "N/A";
+  };
+
+  const toggleSalarySort = () => {
+    if (!supportsSalarySort) return;
+    setSalarySortOrder((prev) => {
+      if (!prev) return "desc";
+      return prev === "desc" ? "asc" : "desc";
+    });
+  };
+
+  const renderSalarySortIcon = () => {
+    if (salarySortOrder === "desc") {
+      return <ArrowDown size={16} />;
+    }
+    if (salarySortOrder === "asc") {
+      return <ArrowUp size={16} />;
+    }
+    return <ArrowUpDown size={16} />;
+  };
+
+  const downloadCsv = () => {
+    if (!sortedData.length) return;
+    const headers = predicted_colleges_table_column.map((column) =>
+      column.label.replace(/"/g, '""')
+    );
+    const rows = sortedData.map((item) => {
+      const transformedItem = transformData(item);
+      return predicted_colleges_table_column.map((column) => {
+        const value = getDisplayValue(column, transformedItem);
+        const stringValue =
+          value === null || value === undefined ? "" : String(value);
+        return `"${stringValue.replace(/"/g, '""')}"`;
+      });
+    });
+
+    const csvContent = [
+      headers.map((h) => `"${h}"`).join(","),
+      ...rows.map((r) => r.join(",")),
+    ].join("\n");
+    const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `college_predictions_${exam || "results"}.csv`;
+    link.click();
+    URL.revokeObjectURL(url);
+  };
+
   const renderTableHeader = () => (
     <tr className={commonHeaderClass}>
       {predicted_colleges_table_column.map((column) => (
         <th key={column.key} className="p-2 border-r border-gray-300">
-          {column.label}
+          {supportsSalarySort && column.key === salaryColumnKey ? (
+            <button
+              type="button"
+              onClick={toggleSalarySort}
+              className="font-bold inline-flex items-center gap-1"
+            >
+              {column.label}
+              {renderSalarySortIcon()}
+            </button>
+          ) : (
+            column.label
+          )}
         </th>
       ))}
-      <th className="p-2">Actions</th> {/* Added Actions header */}
+      {supportsExpandedView && <th className="p-2">Actions</th>}
     </tr>
   );
 
   const renderTableBody = () => {
     const rowsToRender = showAllRows
-      ? data
-      : data.slice(0, ROWS_PER_PAGE_INITIAL);
+      ? sortedData
+      : sortedData.slice(0, ROWS_PER_PAGE_INITIAL);
 
     return rowsToRender.map((item, index) => {
       const transformedItem = transformData(item);
@@ -446,21 +569,23 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
           >
             {predicted_colleges_table_column.map((column) => (
               <td key={column.key} className="p-2 border-r border-gray-300">
-                {transformedItem[column.key] || "N/A"}
+                {getDisplayValue(column, transformedItem)}
               </td>
             ))}
-            <td className="p-2">
-              <div className="flex justify-center">
-                <button
-                  className="px-4 py-2 rounded bg-red-500 text-white hover:bg-red-600"
-                  onClick={() => toggleRowExpansion(index)}
-                >
-                  {expandedRows[index] ? "Show Less" : "Show More"}
-                </button>
-              </div>
-            </td>
+            {supportsExpandedView && (
+              <td className="p-2">
+                <div className="flex justify-center">
+                  <button
+                    className="px-4 py-2 rounded bg-red-500 text-white hover:bg-red-600"
+                    onClick={() => toggleRowExpansion(index)}
+                  >
+                    {expandedRows[index] ? "Show Less" : "Show More"}
+                  </button>
+                </div>
+              </td>
+            )}
           </tr>
-          {expandedRows[index] && (
+          {supportsExpandedView && expandedRows[index] && (
             <ExpandedRowComponent
               item={transformedItem}
               fields={expandedFields}
@@ -491,6 +616,16 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
   return (
     <div className="w-full mx-auto overflow-x-auto">
       {renderLegend()}
+      {data.length > 0 && (
+        <div className="flex justify-end mb-3">
+          <button
+            className="px-4 py-2 rounded bg-[#B52326] text-white hover:bg-[#9E1F22]"
+            onClick={downloadCsv}
+          >
+            Download CSV
+          </button>
+        </div>
+      )}
       <table className={`${commonTableClass} border border-gray-300`}>
         <thead>{renderTableHeader()}</thead>
         <tbody>{renderTableBody()}</tbody>
@@ -526,7 +661,10 @@ PredictedCollegesTable.propTypes = {
       "Opening Rank": PropTypes.string,
       "College Type": PropTypes.string,
       "Management Type": PropTypes.string,
-      "Expected Salary": PropTypes.string,
+      "Expected Salary": PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number,
+      ]),
       "Salary Tier": PropTypes.string,
     })
   ),

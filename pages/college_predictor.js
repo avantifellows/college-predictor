@@ -45,8 +45,12 @@ const CollegePredictor = () => {
   const [rankMode, setRankMode] = useState("estimate");
   const [marksInput, setMarksInput] = useState("");
   const [marksError, setMarksError] = useState("");
+  const [percentileInput, setPercentileInput] = useState("");
+  const [percentileError, setPercentileError] = useState("");
+  const [estimateInputType, setEstimateInputType] = useState("marks");
   const [estimateError, setEstimateError] = useState("");
   const [estimatedRank, setEstimatedRank] = useState(null);
+  const [estimatedPercentile, setEstimatedPercentile] = useState(null);
   const [isEstimating, setIsEstimating] = useState(false);
   const [currentExam, setCurrentExam] = useState(null);
 
@@ -181,6 +185,17 @@ const CollegePredictor = () => {
       ...queryObject,
       [key]: selectedOption.label,
     };
+    if (
+      queryObject.exam === "JoSAA" &&
+      rankMode === "estimate" &&
+      key === "category"
+    ) {
+      newQueryObject.mainRank = "";
+      newQueryObject.rank = "";
+      setEstimatedRank(null);
+      setEstimatedPercentile(null);
+      setEstimateError("");
+    }
     setQueryObject(newQueryObject);
     debouncedRouterPush(newQueryObject);
   };
@@ -262,8 +277,12 @@ const CollegePredictor = () => {
       setRankMode(hasAdvanced || hasMainRank ? "known" : "estimate");
       setMarksInput("");
       setMarksError("");
+      setPercentileInput("");
+      setPercentileError("");
+      setEstimateInputType("marks");
       setEstimateError("");
       setEstimatedRank(null);
+      setEstimatedPercentile(null);
     } else {
       setRankMode("known");
     }
@@ -287,21 +306,41 @@ const CollegePredictor = () => {
       setQueryObject(newQueryObject);
       debouncedRouterPush(newQueryObject);
       setEstimatedRank(null);
+      setEstimatedPercentile(null);
       setMarksInput("");
       setMarksError("");
+      setPercentileInput("");
+      setPercentileError("");
+      setEstimateInputType("marks");
       setEstimateError("");
     } else {
       setEstimatedRank(null);
+      setEstimatedPercentile(null);
       setMarksInput("");
       setMarksError("");
+      setPercentileInput("");
+      setPercentileError("");
+      setEstimateInputType("marks");
       setEstimateError("");
     }
+  };
+
+  const handleEstimateInputTypeChange = (type) => {
+    setEstimateInputType(type);
+    setEstimatedRank(null);
+    setEstimatedPercentile(null);
+    setEstimateError("");
+    setMarksInput("");
+    setMarksError("");
+    setPercentileInput("");
+    setPercentileError("");
   };
 
   const handleMarksChange = (e) => {
     const value = e.target.value;
     setMarksInput(value);
     setEstimatedRank(null);
+    setEstimatedPercentile(null);
     setEstimateError("");
     if (value === "") {
       setMarksError("");
@@ -315,16 +354,46 @@ const CollegePredictor = () => {
     setMarksError("");
   };
 
+  const handlePercentileChange = (e) => {
+    const value = e.target.value;
+    setPercentileInput(value);
+    setEstimatedRank(null);
+    setEstimatedPercentile(null);
+    setEstimateError("");
+    if (value === "") {
+      setPercentileError("");
+      return;
+    }
+    const percentileValue = Number(value);
+    if (
+      Number.isNaN(percentileValue) ||
+      percentileValue < 0 ||
+      percentileValue > 100
+    ) {
+      setPercentileError("Please enter percentile between 0 and 100.");
+      return;
+    }
+    setPercentileError("");
+  };
+
   const handleEstimateRank = async () => {
     if (!queryObject.category) {
       setEstimateError("Please select your category first.");
       return;
     }
-    if (marksInput === "") {
-      setMarksError("Please enter your marks.");
-      return;
+    if (estimateInputType === "marks") {
+      if (marksInput === "") {
+        setMarksError("Please enter your marks.");
+        return;
+      }
+      if (marksError) return;
+    } else {
+      if (percentileInput === "") {
+        setPercentileError("Please enter your percentile.");
+        return;
+      }
+      if (percentileError) return;
     }
-    if (marksError) return;
 
     setIsEstimating(true);
     setEstimateError("");
@@ -333,7 +402,11 @@ const CollegePredictor = () => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          marks: Number(marksInput),
+          marks: estimateInputType === "marks" ? Number(marksInput) : undefined,
+          percentile:
+            estimateInputType === "percentile"
+              ? Number(percentileInput)
+              : undefined,
           category: queryObject.category,
         }),
       });
@@ -346,6 +419,7 @@ const CollegePredictor = () => {
       }
 
       setEstimatedRank(data.categoryRank);
+      setEstimatedPercentile(data.percentile);
       const newQueryObject = {
         ...queryObject,
         mainRank: String(data.categoryRank),
@@ -401,28 +475,44 @@ const CollegePredictor = () => {
                 field.name === "qualifiedJeeAdv"
               )
           )
-          .map((field) => (
-            <div
-              key={field.name}
-              className="flex items-center justify-center gap-2"
-            >
-              <label className="font-semibold text-sm md:text-base">
-                {typeof field.label === "function"
-                  ? field.label(queryObject)
-                  : field.label}
-              </label>
-              <Dropdown
-                className="text-sm md:text-base"
-                options={field.options.map((option) =>
-                  typeof option === "string"
-                    ? { value: option, label: option }
-                    : option
+          .map((field) => {
+            const showHomeStateNote =
+              queryObject.exam === "JoSAA" && field.name === "homeState";
+            return (
+              <div
+                key={field.name}
+                className={`flex gap-2 ${
+                  showHomeStateNote
+                    ? "flex-col items-start"
+                    : "items-center justify-center"
+                }`}
+              >
+                <div className="flex items-center gap-2">
+                  <label className="font-semibold text-sm md:text-base">
+                    {typeof field.label === "function"
+                      ? field.label(queryObject)
+                      : field.label}
+                  </label>
+                  <Dropdown
+                    className="text-sm md:text-base"
+                    options={field.options.map((option) =>
+                      typeof option === "string"
+                        ? { value: option, label: option }
+                        : option
+                    )}
+                    selectedValue={queryObject[field.name]}
+                    onChange={handleQueryObjectChange(field.name)}
+                  />
+                </div>
+                {showHomeStateNote && (
+                  <p className="text-xs text-gray-500">
+                    Colleges in your home state will be displayed with closing
+                    ranks as per the home state quota wherever applicable.
+                  </p>
                 )}
-                selectedValue={queryObject[field.name]}
-                onChange={handleQueryObjectChange(field.name)}
-              />
-            </div>
-          ))}
+              </div>
+            );
+          })}
 
         {queryObject.exam === "JoSAA" && (
           <>
@@ -441,7 +531,7 @@ const CollegePredictor = () => {
                         : "bg-white text-gray-700"
                     }`}
                   >
-                    Yes, estimate from marks
+                    Yes, estimate rank
                   </button>
                   <button
                     type="button"
@@ -461,35 +551,91 @@ const CollegePredictor = () => {
             {rankMode === "estimate" ? (
               <div className="flex flex-col gap-2 items-start sm:items-center">
                 <label className="block text-sm md:text-base font-semibold text-gray-700">
-                  Enter your JEE Main marks (out of 300)
+                  Enter your JEE Main details
                 </label>
-                <input
-                  type="number"
-                  step="1"
-                  min="0"
-                  max="300"
-                  value={marksInput}
-                  onChange={handleMarksChange}
-                  onKeyDown={(e) => {
-                    if ([".", "e", "E", "+", "-", " "].includes(e.key)) {
-                      e.preventDefault();
-                    }
-                  }}
-                  className={`border ${
-                    marksError ? "border-red-500" : "border-gray-300"
-                  } rounded text-center w-full sm:w-64`}
-                  placeholder="e.g., 182"
-                />
-                {marksError && (
-                  <p className="text-red-500 text-sm">{marksError}</p>
+                <div className="flex justify-center w-full">
+                  <div className="inline-flex w-full overflow-hidden rounded-md border border-gray-300">
+                    <button
+                      type="button"
+                      onClick={() => handleEstimateInputTypeChange("marks")}
+                      className={`flex-1 px-4 py-2 text-sm ${
+                        estimateInputType === "marks"
+                          ? "bg-[#B52326] text-white"
+                          : "bg-white text-gray-700"
+                      }`}
+                    >
+                      Marks
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() =>
+                        handleEstimateInputTypeChange("percentile")
+                      }
+                      className={`flex-1 px-4 py-2 text-sm ${
+                        estimateInputType === "percentile"
+                          ? "bg-[#B52326] text-white"
+                          : "bg-white text-gray-700"
+                      }`}
+                    >
+                      Percentile
+                    </button>
+                  </div>
+                </div>
+                {estimateInputType === "marks" ? (
+                  <>
+                    <input
+                      type="number"
+                      step="1"
+                      min="0"
+                      max="300"
+                      value={marksInput}
+                      onChange={handleMarksChange}
+                      onKeyDown={(e) => {
+                        if ([".", "e", "E", "+", "-", " "].includes(e.key)) {
+                          e.preventDefault();
+                        }
+                      }}
+                      className={`border ${
+                        marksError ? "border-red-500" : "border-gray-300"
+                      } rounded text-center w-full sm:w-64`}
+                      placeholder="e.g., 182"
+                    />
+                    {marksError && (
+                      <p className="text-red-500 text-sm">{marksError}</p>
+                    )}
+                  </>
+                ) : (
+                  <>
+                    <input
+                      type="number"
+                      step="0.01"
+                      min="0"
+                      max="100"
+                      value={percentileInput}
+                      onChange={handlePercentileChange}
+                      onKeyDown={(e) => {
+                        if (["e", "E", "+", "-", " "].includes(e.key)) {
+                          e.preventDefault();
+                        }
+                      }}
+                      className={`border ${
+                        percentileError ? "border-red-500" : "border-gray-300"
+                      } rounded text-center w-full sm:w-64`}
+                      placeholder="e.g., 97.45"
+                    />
+                    {percentileError && (
+                      <p className="text-red-500 text-sm">{percentileError}</p>
+                    )}
+                  </>
                 )}
                 <button
                   type="button"
                   onClick={handleEstimateRank}
                   disabled={
                     isEstimating ||
-                    marksInput === "" ||
-                    !!marksError ||
+                    (estimateInputType === "marks"
+                      ? marksInput === "" || !!marksError
+                      : percentileInput === "" || !!percentileError) ||
                     !queryObject.category
                   }
                   className="px-4 py-2 rounded bg-[#B52326] text-white hover:bg-[#9E1F22] disabled:bg-gray-300 disabled:text-gray-600"
@@ -499,11 +645,21 @@ const CollegePredictor = () => {
                 {estimateError && (
                   <p className="text-red-500 text-sm">{estimateError}</p>
                 )}
-                {estimatedRank && (
-                  <p className="text-sm text-gray-700">
-                    Estimated JEE Main Category Rank:{" "}
-                    <strong>{estimatedRank}</strong>
-                  </p>
+                {estimatedRank && estimatedPercentile !== null && (
+                  <div className="text-sm text-gray-700">
+                    <p>
+                      Predicted Percentile:{" "}
+                      <strong>{estimatedPercentile}</strong>
+                    </p>
+                    <p>
+                      Predicted Category Rank: <strong>{estimatedRank}</strong>
+                    </p>
+                    <p className="text-xs text-gray-500 mt-1">
+                      Results are based on average data of 10k+ students from
+                      2024 and 2025. Actual 2025/26 results may vary depending
+                      on the paper slot.
+                    </p>
+                  </div>
                 )}
               </div>
             ) : (
@@ -638,6 +794,12 @@ const CollegePredictor = () => {
           <h1 className="text-2xl sm:text-3xl font-bold text-center text-gray-800 mb-4">
             College Predictor Results
           </h1>
+
+          {queryObject.exam === "JoSAA" && (
+            <div className="bg-gray-50 border border-gray-200 rounded-md p-3 mb-6">
+              <p className="text-sm text-gray-700">Based on JoSAA 2024.</p>
+            </div>
+          )}
 
           {/* TGEAPCET Disclaimer - Shows when EWS or OU is selected */}
           {showTSEAPERTDisclaimer && (
