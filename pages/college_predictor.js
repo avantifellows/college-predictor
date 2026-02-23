@@ -470,9 +470,7 @@ const CollegePredictor = () => {
           .filter(
             (field) =>
               !(
-                queryObject.exam === "JoSAA" &&
-                rankMode === "estimate" &&
-                field.name === "qualifiedJeeAdv"
+                queryObject.exam === "JoSAA" && field.name === "qualifiedJeeAdv"
               )
           )
           .map((field) => {
@@ -547,6 +545,33 @@ const CollegePredictor = () => {
                 </div>
               </div>
             </div>
+
+            {rankMode === "known" &&
+              examConfig.fields.find(
+                (field) => field.name === "qualifiedJeeAdv"
+              ) && (
+                <div className="flex flex-col gap-2 items-start sm:items-center">
+                  <label className="block text-sm md:text-base font-semibold text-gray-700">
+                    {
+                      examConfig.fields.find(
+                        (field) => field.name === "qualifiedJeeAdv"
+                      ).label
+                    }
+                  </label>
+                  <Dropdown
+                    className="text-sm md:text-base"
+                    options={examConfig.fields
+                      .find((field) => field.name === "qualifiedJeeAdv")
+                      .options.map((option) =>
+                        typeof option === "string"
+                          ? { value: option, label: option }
+                          : option
+                      )}
+                    selectedValue={queryObject.qualifiedJeeAdv}
+                    onChange={handleQueryObjectChange("qualifiedJeeAdv")}
+                  />
+                </div>
+              )}
 
             {rankMode === "estimate" ? (
               <div className="flex flex-col gap-2 items-start sm:items-center">

@@ -389,7 +389,7 @@ const ExamForm = () => {
     if (!config) return null;
 
     const fieldsToRender =
-      selectedExam === "JoSAA" && rankMode === "estimate"
+      selectedExam === "JoSAA"
         ? config.fields.filter((field) => field.name !== "qualifiedJeeAdv")
         : config.fields;
 
@@ -511,6 +511,34 @@ const ExamForm = () => {
                         </div>
                       </div>
                     )}
+
+                    {selectedExam === "JoSAA" &&
+                      rankMode === "known" &&
+                      config?.fields?.find(
+                        (field) => field.name === "qualifiedJeeAdv"
+                      ) && (
+                        <div className="my-4 w-full sm:w-3/4">
+                          <label className="block text-md font-semibold text-gray-700 mb-2 -translate-x-4">
+                            {
+                              config.fields.find(
+                                (field) => field.name === "qualifiedJeeAdv"
+                              ).label
+                            }
+                          </label>
+                          <Dropdown
+                            options={config.fields
+                              .find((field) => field.name === "qualifiedJeeAdv")
+                              .options.map((option) =>
+                                typeof option === "string"
+                                  ? { value: option, label: option }
+                                  : option
+                              )}
+                            onChange={handleInputChange("qualifiedJeeAdv")}
+                            className="w-full"
+                            selectedValue={formData.qualifiedJeeAdv}
+                          />
+                        </div>
+                      )}
 
                     {selectedExam === "JoSAA" && rankMode === "estimate" ? (
                       <div className="my-4 w-full sm:w-3/4">
