@@ -795,12 +795,6 @@ const CollegePredictor = () => {
             College Predictor Results
           </h1>
 
-          {queryObject.exam === "JoSAA" && (
-            <div className="bg-gray-50 border border-gray-200 rounded-md p-3 mb-6">
-              <p className="text-sm text-gray-700">Based on JoSAA 2024.</p>
-            </div>
-          )}
-
           {/* TGEAPCET Disclaimer - Shows when EWS or OU is selected */}
           {showTSEAPERTDisclaimer && (
             <div className="bg-red-50 border-l-4 border-red-400 p-4 mb-6 max-w-3xl mx-auto w-full">
@@ -853,10 +847,17 @@ const CollegePredictor = () => {
               </p>
             </div>
           ) : filteredData.length > 0 ? (
-            <PredictedCollegeTables
-              data={filteredData}
-              exam={queryObject.exam}
-            />
+            <>
+              {queryObject.exam === "JoSAA" && (
+                <div className="mb-3 text-sm text-gray-700">
+                  Based on JoSAA 2024.
+                </div>
+              )}
+              <PredictedCollegeTables
+                data={filteredData}
+                exam={queryObject.exam}
+              />
+            </>
           ) : (
             <div className="text-center py-10">
               <p className="text-xl text-gray-600">

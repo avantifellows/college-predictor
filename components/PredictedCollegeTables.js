@@ -602,6 +602,17 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
     const examConfig = examConfigs[exam];
     if (!examConfig || !examConfig.legend) return null;
 
+    if (isJosaaExam) {
+      return (
+        <div className="flex flex-col items-center text-sm sm:text-base mb-4">
+          <p className="leading-4 mb-1">
+            Closing ranks for colleges in your home state are as per the home
+            state quota.
+          </p>
+        </div>
+      );
+    }
+
     return (
       <div className="flex flex-col items-center text-sm sm:text-base mb-4">
         {examConfig.legend.map((item, index) => (
