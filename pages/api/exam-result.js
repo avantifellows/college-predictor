@@ -54,6 +54,9 @@ export default async function handler(req, res) {
 
   // Check for required parameters
   for (const field of config.fields) {
+    if (exam === "JoSAA" && field.name === "preferHomeState") {
+      continue;
+    }
     if (!req.query[field.name]) {
       return res
         .status(400)

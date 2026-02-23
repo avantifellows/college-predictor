@@ -17,6 +17,16 @@ const ExamForm = () => {
   const [formData, setFormData] = useState({});
   const [config, setConfig] = useState(null);
   const [rankError, setRankError] = useState("");
+  const [rankMode, setRankMode] = useState("estimate");
+  const [marksInput, setMarksInput] = useState("");
+  const [marksError, setMarksError] = useState("");
+  const [percentileInput, setPercentileInput] = useState("");
+  const [percentileError, setPercentileError] = useState("");
+  const [estimateInputType, setEstimateInputType] = useState("marks");
+  const [estimateError, setEstimateError] = useState("");
+  const [estimatedRank, setEstimatedRank] = useState(null);
+  const [estimatedPercentile, setEstimatedPercentile] = useState(null);
+  const [isEstimating, setIsEstimating] = useState(false);
   const router = useRouter();
 
   const handleExamChange = (selectedOption) => {
@@ -28,6 +38,28 @@ const ExamForm = () => {
     };
     if (selectedOption.code !== undefined) {
       baseFormData.code = selectedOption.code;
+    }
+    if (selectedOption.value === "JoSAA") {
+      baseFormData.qualifiedJeeAdv = "No";
+      setRankMode("estimate");
+      setMarksInput("");
+      setMarksError("");
+      setPercentileInput("");
+      setPercentileError("");
+      setEstimateInputType("marks");
+      setEstimateError("");
+      setEstimatedRank(null);
+      setEstimatedPercentile(null);
+    } else {
+      setRankMode("known");
+      setMarksInput("");
+      setMarksError("");
+      setPercentileInput("");
+      setPercentileError("");
+      setEstimateInputType("marks");
+      setEstimateError("");
+      setEstimatedRank(null);
+      setEstimatedPercentile(null);
     }
     setFormData(baseFormData);
   };
@@ -46,7 +78,161 @@ const ExamForm = () => {
       }
     }
 
+    if (
+      selectedExam === "JoSAA" &&
+      rankMode === "estimate" &&
+      name === "category"
+    ) {
+      newFormData.mainRank = "";
+      setEstimatedRank(null);
+      setEstimatedPercentile(null);
+      setEstimateError("");
+    }
+
     setFormData(newFormData);
+  };
+
+  const handleRankModeChange = (mode) => {
+    setRankMode(mode);
+    if (mode === "estimate") {
+      setFormData((prevData) => {
+        const nextData = {
+          ...prevData,
+          qualifiedJeeAdv: "No",
+          mainRank: "",
+        };
+        delete nextData.advRank;
+        return nextData;
+      });
+      setEstimatedRank(null);
+      setEstimatedPercentile(null);
+      setMarksInput("");
+      setMarksError("");
+      setPercentileInput("");
+      setPercentileError("");
+      setEstimateInputType("marks");
+      setEstimateError("");
+    } else {
+      setEstimatedRank(null);
+      setEstimatedPercentile(null);
+      setMarksInput("");
+      setMarksError("");
+      setPercentileInput("");
+      setPercentileError("");
+      setEstimateInputType("marks");
+      setEstimateError("");
+    }
+  };
+
+  const handleEstimateInputTypeChange = (type) => {
+    setEstimateInputType(type);
+    setEstimatedRank(null);
+    setEstimatedPercentile(null);
+    setEstimateError("");
+    setMarksInput("");
+    setMarksError("");
+    setPercentileInput("");
+    setPercentileError("");
+  };
+
+  const handleMarksChange = (e) => {
+    const value = e.target.value;
+    setMarksInput(value);
+    setEstimatedRank(null);
+    setEstimatedPercentile(null);
+    setEstimateError("");
+    if (value === "") {
+      setMarksError("");
+      return;
+    }
+    const marks = Number(value);
+    if (Number.isNaN(marks) || marks < 0 || marks > 300) {
+      setMarksError("Please enter marks between 0 and 300.");
+      return;
+    }
+    setMarksError("");
+  };
+
+  const handlePercentileChange = (e) => {
+    const value = e.target.value;
+    setPercentileInput(value);
+    setEstimatedRank(null);
+    setEstimatedPercentile(null);
+    setEstimateError("");
+    if (value === "") {
+      setPercentileError("");
+      return;
+    }
+    const percentileValue = Number(value);
+    if (
+      Number.isNaN(percentileValue) ||
+      percentileValue < 0 ||
+      percentileValue > 100
+    ) {
+      setPercentileError("Please enter percentile between 0 and 100.");
+      return;
+    }
+    setPercentileError("");
+  };
+
+  const handleEstimateRank = async () => {
+    if (!formData.category) {
+      setEstimateError("Please select your category first.");
+      return;
+    }
+    if (estimateInputType === "marks") {
+      if (marksInput === "") {
+        setMarksError("Please enter your marks.");
+        return;
+      }
+      if (marksError) return;
+    } else {
+      if (percentileInput === "") {
+        setPercentileError("Please enter your percentile.");
+        return;
+      }
+      if (percentileError) return;
+    }
+
+    setIsEstimating(true);
+    setEstimateError("");
+    try {
+      const response = await fetch("/api/jee-predict", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          marks: estimateInputType === "marks" ? Number(marksInput) : undefined,
+          percentile:
+            estimateInputType === "percentile"
+              ? Number(percentileInput)
+              : undefined,
+          category: formData.category,
+        }),
+      });
+
+      const data = await response.json();
+      if (!response.ok) {
+        setEstimateError(data.error || "Unable to estimate rank.");
+        setIsEstimating(false);
+        return;
+      }
+
+      setEstimatedRank(data.categoryRank);
+      setEstimatedPercentile(data.percentile);
+      setFormData((prevData) => {
+        const nextData = {
+          ...prevData,
+          mainRank: String(data.categoryRank),
+          qualifiedJeeAdv: "No",
+        };
+        delete nextData.advRank;
+        return nextData;
+      });
+    } catch (error) {
+      setEstimateError("Unable to estimate rank right now.");
+    } finally {
+      setIsEstimating(false);
+    }
   };
 
   const handleRankChange = (e) => {
@@ -202,7 +388,12 @@ const ExamForm = () => {
 
     if (!config) return null;
 
-    return config.fields.map((field) => (
+    const fieldsToRender =
+      selectedExam === "JoSAA"
+        ? config.fields.filter((field) => field.name !== "qualifiedJeeAdv")
+        : config.fields;
+
+    return fieldsToRender.map((field) => (
       <div key={field.name} className="my-4 w-full sm:w-3/4">
         <label className="block text-md font-semibold text-gray-700 mb-2 -translate-x-4">
           {typeof field.label === "function"
@@ -287,42 +478,243 @@ const ExamForm = () => {
               ) : (
                 selectedExam && (
                   <>
-                    <div className="my-4 w-full sm:w-3/4">
-                      <label className="block text-md font-semibold text-gray-700 mb-2 -translate-x-3">
-                        {selectedExam === "JEE Main-JAC"
-                          ? "Enter All India Rank"
-                          : selectedExam === "JoSAA"
-                          ? "Enter JEE Main Category Rank"
-                          : selectedExam === "GUJCET"
-                          ? "Enter your Marks"
-                          : selectedExam === "NEETUG"
-                          ? "Enter All India Rank"
-                          : "Enter Category Rank"}
-                      </label>
-                      <input
-                        type="number"
-                        step="1"
-                        value={
-                          selectedExam === "JoSAA"
-                            ? formData.mainRank || ""
-                            : formData.rank || ""
-                        }
-                        onChange={handleRankChange}
-                        className="border border-gray-300 rounded w-full p-2 text-center"
-                        placeholder={
-                          selectedExam === "JEE Main-JAC"
+                    {selectedExam === "JoSAA" && (
+                      <div className="my-4 w-full sm:w-3/4">
+                        <label className="block text-md font-semibold text-gray-700 mb-2 -translate-x-3">
+                          Do you want rank prediction?
+                        </label>
+                        <div className="flex justify-center w-full">
+                          <div className="inline-flex w-full overflow-hidden rounded-md border border-gray-300">
+                            <button
+                              type="button"
+                              onClick={() => handleRankModeChange("estimate")}
+                              className={`flex-1 px-4 py-2 text-sm ${
+                                rankMode === "estimate"
+                                  ? "bg-[#B52326] text-white"
+                                  : "bg-white text-gray-700"
+                              }`}
+                            >
+                              Yes, estimate rank
+                            </button>
+                            <button
+                              type="button"
+                              onClick={() => handleRankModeChange("known")}
+                              className={`flex-1 px-4 py-2 text-sm ${
+                                rankMode === "known"
+                                  ? "bg-[#B52326] text-white"
+                                  : "bg-white text-gray-700"
+                              }`}
+                            >
+                              No, I know my rank
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+
+                    {selectedExam === "JoSAA" &&
+                      rankMode === "known" &&
+                      config?.fields?.find(
+                        (field) => field.name === "qualifiedJeeAdv"
+                      ) && (
+                        <div className="my-4 w-full sm:w-3/4">
+                          <label className="block text-md font-semibold text-gray-700 mb-2 -translate-x-4">
+                            {
+                              config.fields.find(
+                                (field) => field.name === "qualifiedJeeAdv"
+                              ).label
+                            }
+                          </label>
+                          <Dropdown
+                            options={config.fields
+                              .find((field) => field.name === "qualifiedJeeAdv")
+                              .options.map((option) =>
+                                typeof option === "string"
+                                  ? { value: option, label: option }
+                                  : option
+                              )}
+                            onChange={handleInputChange("qualifiedJeeAdv")}
+                            className="w-full"
+                            selectedValue={formData.qualifiedJeeAdv}
+                          />
+                        </div>
+                      )}
+
+                    {selectedExam === "JoSAA" && rankMode === "estimate" ? (
+                      <div className="my-4 w-full sm:w-3/4">
+                        <label className="block text-md font-semibold text-gray-700 mb-2 -translate-x-3">
+                          Enter your JEE Main details
+                        </label>
+                        <div className="flex flex-col gap-2">
+                          <div className="flex justify-center w-full">
+                            <div className="inline-flex w-full overflow-hidden rounded-md border border-gray-300">
+                              <button
+                                type="button"
+                                onClick={() =>
+                                  handleEstimateInputTypeChange("marks")
+                                }
+                                className={`flex-1 px-4 py-2 text-sm ${
+                                  estimateInputType === "marks"
+                                    ? "bg-[#B52326] text-white"
+                                    : "bg-white text-gray-700"
+                                }`}
+                              >
+                                Marks
+                              </button>
+                              <button
+                                type="button"
+                                onClick={() =>
+                                  handleEstimateInputTypeChange("percentile")
+                                }
+                                className={`flex-1 px-4 py-2 text-sm ${
+                                  estimateInputType === "percentile"
+                                    ? "bg-[#B52326] text-white"
+                                    : "bg-white text-gray-700"
+                                }`}
+                              >
+                                Percentile
+                              </button>
+                            </div>
+                          </div>
+                          {estimateInputType === "marks" ? (
+                            <>
+                              <input
+                                type="number"
+                                step="1"
+                                min="0"
+                                max="300"
+                                value={marksInput}
+                                onChange={handleMarksChange}
+                                onKeyDown={(e) => {
+                                  if (
+                                    [".", "e", "E", "+", "-", " "].includes(
+                                      e.key
+                                    )
+                                  ) {
+                                    e.preventDefault();
+                                  }
+                                }}
+                                className={`border ${
+                                  marksError
+                                    ? "border-red-500"
+                                    : "border-gray-300"
+                                } rounded w-full p-2 text-center`}
+                                placeholder="e.g., 182"
+                              />
+                              {marksError && (
+                                <p className="text-red-500 text-sm">
+                                  {marksError}
+                                </p>
+                              )}
+                            </>
+                          ) : (
+                            <>
+                              <input
+                                type="number"
+                                step="0.01"
+                                min="0"
+                                max="100"
+                                value={percentileInput}
+                                onChange={handlePercentileChange}
+                                onKeyDown={(e) => {
+                                  if (
+                                    ["e", "E", "+", "-", " "].includes(e.key)
+                                  ) {
+                                    e.preventDefault();
+                                  }
+                                }}
+                                className={`border ${
+                                  percentileError
+                                    ? "border-red-500"
+                                    : "border-gray-300"
+                                } rounded w-full p-2 text-center`}
+                                placeholder="e.g., 97.45"
+                              />
+                              {percentileError && (
+                                <p className="text-red-500 text-sm">
+                                  {percentileError}
+                                </p>
+                              )}
+                            </>
+                          )}
+                          <button
+                            type="button"
+                            onClick={handleEstimateRank}
+                            disabled={
+                              isEstimating ||
+                              (estimateInputType === "marks"
+                                ? marksInput === "" || !!marksError
+                                : percentileInput === "" ||
+                                  !!percentileError) ||
+                              !formData.category
+                            }
+                            className="px-4 py-2 rounded bg-[#B52326] text-white hover:bg-[#9E1F22] disabled:bg-gray-300 disabled:text-gray-600"
+                          >
+                            {isEstimating ? "Estimating..." : "Estimate Rank"}
+                          </button>
+                          {estimateError && (
+                            <p className="text-red-500 text-sm">
+                              {estimateError}
+                            </p>
+                          )}
+                          {estimatedRank && estimatedPercentile !== null && (
+                            <div className="text-sm text-gray-700">
+                              <p>
+                                Predicted Percentile:{" "}
+                                <strong>{estimatedPercentile}</strong>
+                              </p>
+                              <p>
+                                Predicted Category Rank:{" "}
+                                <strong>{estimatedRank}</strong>
+                              </p>
+                              <p className="text-xs text-gray-500 mt-1">
+                                Results are based on average data of 10k+
+                                students from 2024 and 2025. Actual 2025/26
+                                results may vary depending on the paper slot.
+                              </p>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="my-4 w-full sm:w-3/4">
+                        <label className="block text-md font-semibold text-gray-700 mb-2 -translate-x-3">
+                          {selectedExam === "JEE Main-JAC"
                             ? "Enter All India Rank"
                             : selectedExam === "JoSAA"
-                            ? "Enter JEE Main rank"
+                            ? "Enter JEE Main Category Rank"
                             : selectedExam === "GUJCET"
-                            ? "100"
-                            : "Enter your rank"
-                        }
-                      />
-                    </div>
+                            ? "Enter your Marks"
+                            : selectedExam === "NEETUG"
+                            ? "Enter All India Rank"
+                            : "Enter Category Rank"}
+                        </label>
+                        <input
+                          type="number"
+                          step="1"
+                          value={
+                            selectedExam === "JoSAA"
+                              ? formData.mainRank || ""
+                              : formData.rank || ""
+                          }
+                          onChange={handleRankChange}
+                          className="border border-gray-300 rounded w-full p-2 text-center"
+                          placeholder={
+                            selectedExam === "JEE Main-JAC"
+                              ? "Enter All India Rank"
+                              : selectedExam === "JoSAA"
+                              ? "Enter JEE Main rank"
+                              : selectedExam === "GUJCET"
+                              ? "100"
+                              : "Enter your rank"
+                          }
+                        />
+                      </div>
+                    )}
 
                     {/* JEE Advanced Rank input field - only show if user selected Yes for qualifiedJeeAdv */}
                     {selectedExam === "JoSAA" &&
+                      rankMode === "known" &&
                       formData.qualifiedJeeAdv === "Yes" && (
                         <div className="my-4 w-full sm:w-3/4">
                           <label className="block text-md font-semibold text-gray-700 mb-2 -translate-x-3">
@@ -366,7 +758,7 @@ const ExamForm = () => {
             {selectedExam && (
               <>
                 <button
-                  className="mt-2 px-5 py-2 rounded-lg bg-red-600 text-white cursor-pointer hover:bg-red-700 active:bg-red-800 disabled:bg-gray-300 disabled:cursor-not-allowed -translate-x-4"
+                  className="mt-2 px-5 py-2 rounded-lg bg-[#B52326] text-white cursor-pointer hover:bg-[#9E1F22] active:bg-[#8A1B1E] disabled:bg-gray-300 disabled:cursor-not-allowed -translate-x-4"
                   disabled={isSubmitDisabled()}
                   onClick={handleSubmit}
                 >
