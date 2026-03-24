@@ -1,4 +1,4 @@
-import axios from "axios";
+import dataRepository from "../../utils/dataRepository";
 
 export default async function handler(req, res) {
   const {
@@ -12,9 +12,7 @@ export default async function handler(req, res) {
   } = req.query;
 
   try {
-    const s3Url = `https://avantifellows-assets.s3.ap-south-1.amazonaws.com/futures/scholarship_data.json`;
-    const response = await axios.get(s3Url);
-    const scholarships = response.data;
+    const scholarships = await dataRepository.getScholarshipData();
     // Helper function for flexible string matching
     const flexMatch = (value, target) => {
       if (Array.isArray(value)) {
