@@ -1,4 +1,4 @@
-import fs from "fs/promises";
+import dataRepository from "../../utils/dataRepository";
 import examConfigs from "../../examConfig";
 import rateLimit from "express-rate-limit";
 
@@ -65,9 +65,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const dataPath = config.getDataPath(req.query.category);
-    const data = await fs.readFile(dataPath, "utf8");
-    const fullData = JSON.parse(data);
+    const fullData = await dataRepository.getExamData(exam, req.query.category);
 
     // Get filters based on the exam config and query parameters
     const filters = config.getFilters(req.query);

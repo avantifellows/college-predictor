@@ -61,5 +61,5 @@ The College Predictor application helps students find:
    ```
 4. Run the local development server at [http://localhost:3000](http://localhost:3000)
    ```bash
-   npm run start
+   npm run dev
    ```
