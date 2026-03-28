@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { ArrowDown, ArrowUp, ArrowUpDown } from "lucide-react";
 import PropTypes from "prop-types";
 import examConfigs from "../examConfig";
+import { trackEvent } from "../lib/analytics";
 
 // Define fields for the expanded view
 const expandedFields = {
@@ -188,7 +189,17 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
     order: "asc",
   });
 
-  const toggleRowExpansion = (index) => {
+  const toggleRowExpansion = (index, rowItem) => {
+    // Phase 4 metrics tracking: Capture specific colleges students are interested in when they expand details
+    if (!expandedRows[index]) {
+      const collegeName = rowItem.institute || rowItem.Institute || rowItem["College Name"] || "Unknown College";
+      trackEvent("college_row_expanded", {
+        exam,
+        college: collegeName,
+        course: rowItem.academic_program_name || rowItem.Course || "Unknown Course"
+      });
+    }
+
     setExpandedRows((prev) => ({
       ...prev,
       [index]: !prev[index],
@@ -209,7 +220,19 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
   const salaryColumnKey = "expected_salary";
   const rankColumnKey = "closing_rank";
 
-  const formatSalary = (value) => {
+  const formatSalary = (value, item) => {
+    if (item) {
+      const highest = item["Highest Package"] || item.highest_package;
+      const average = item["Average Package"] || item.average_package;
+
+      if (highest || average) {
+        const highestStr = highest ? `Highest: ₹${Number(highest).toLocaleString("en-IN")}` : "";
+        const avgStr = average ? `Avg: ₹${Number(average).toLocaleString("en-IN")}` : "";
+        if (highest && average) return `${highestStr} / ${avgStr}`;
+        return highestStr || avgStr;
+      }
+    }
+
     const numericValue = Number(value);
     if (!Number.isFinite(numericValue) || numericValue <= 0) return "N/A";
     return `₹${numericValue.toLocaleString("en-IN")}`;
@@ -222,6 +245,8 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
 
   const examColumnMapping = {
     TNEA: [
+      { key: "prediction_probability", label: "Probability" },
+      { key: "admission_chance", label: "Prediction" },
       { key: "institute_id", label: "Institute ID" },
       { key: "institute", label: "Institute" },
       { key: "academic_program_name", label: "Course" },
@@ -233,26 +258,14 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
       { key: "state", label: "State" },
       { key: "institute", label: "Institute" },
       { key: "academic_program_name", label: "Academic Program Name" },
-      { key: "exam_type", label: "Exam Type" },
       { key: "closing_rank", label: "Closing Rank" },
-      {
-        key: "expected_salary",
-        label: "Expected Salary (NIRF)",
-        format: formatSalary,
-      },
       { key: "Seat Type", label: "Category" },
     ],
     "JEE Main-JOSAA": [
       { key: "state", label: "State" },
       { key: "institute", label: "Institute" },
       { key: "academic_program_name", label: "Academic Program Name" },
-      { key: "exam_type", label: "Exam Type" },
       { key: "closing_rank", label: "Closing Rank" },
-      {
-        key: "expected_salary",
-        label: "Expected Salary (NIRF)",
-        format: formatSalary,
-      },
       { key: "Seat Type", label: "Category" },
     ],
     "JEE Main-JAC": [
@@ -269,7 +282,7 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
       { key: "closing_rank", label: "Closing Rank" },
       {
         key: "expected_salary",
-        label: "Expected Salary (NIRF)",
+        label: "Expected Salary (NIRF) / Packages",
         format: formatSalary,
       },
       { key: "Seat Type", label: "Category" },
@@ -366,9 +379,11 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
         institute: item["Institute"],
         state: item["State"],
         academic_program_name: item["Academic Program Name"],
-        exam_type: item["Exam"],
+        fee: item["Fee"] || item["Fees"] || item["course_fees_per_year"] || item["Course Fee"] || "N/A",
         closing_rank: item["Closing Rank"],
         expected_salary: item["Expected Salary"],
+        highest_package: item["Highest Package"],
+        average_package: item["Average Package"],
         "Seat Type": item["Seat Type"],
         "State": item["State"],
         "Quota": item["Quota"] || "AI",
@@ -506,7 +521,7 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
   const getDisplayValue = (column, transformedItem) => {
     const rawValue = transformedItem[column.key];
     if (column.format) {
-      return column.format(rawValue);
+      return column.format(rawValue, transformedItem);
     }
     if (rawValue === 0) return 0;
     return rawValue || "N/A";
@@ -621,17 +636,40 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
               index % 2 === 0 ? "bg-gray-100" : "bg-white"
             }`}
           >
-            {predicted_colleges_table_column.map((column) => (
-              <td key={column.key} className="p-2 border-r border-gray-300">
-                {getDisplayValue(column, transformedItem)}
-              </td>
-            ))}
+            {predicted_colleges_table_column.map((column) => {
+              const displayValue = getDisplayValue(column, transformedItem);
+
+              // Hide safe/moderate conditional tags if not parsed by Phase 3 backend
+              if (
+                 (column.key === "admission_chance" || column.key === "prediction_probability") &&
+                 !transformedItem.admission_chance
+              ) {
+                 return null;
+              }
+
+              let chipClass = "";
+              if (column.key === "admission_chance") {
+                 if (displayValue === "Safe") chipClass = "bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-bold";
+                 else if (displayValue === "Moderate") chipClass = "bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs font-bold";
+                 else if (displayValue === "Ambitious") chipClass = "bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs font-bold";
+              }
+
+              return (
+                <td key={column.key} className="p-2 border-r border-gray-300">
+                  {chipClass ? (
+                    <span className={chipClass}>{displayValue}</span>
+                  ) : (
+                    displayValue
+                  )}
+                </td>
+              );
+            })}
             {supportsExpandedView && (
               <td className="p-2">
                 <div className="flex justify-center">
                   <button
                     className="px-4 py-2 rounded bg-red-500 text-white hover:bg-red-600"
-                    onClick={() => toggleRowExpansion(index)}
+                    onClick={() => toggleRowExpansion(index, transformedItem)}
                   >
                     {expandedRows[index] ? "Show Less" : "Show More"}
                   </button>
