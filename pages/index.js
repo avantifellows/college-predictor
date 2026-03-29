@@ -236,7 +236,7 @@ const ExamForm = () => {
       });
     } catch (error) {
       console.error(error);
-      setEstimateError("Unable to estimate rank right now. " + error.message);
+      setEstimateError("Unable to estimate rank right now.");
     } finally {
       setIsEstimating(false);
     }
