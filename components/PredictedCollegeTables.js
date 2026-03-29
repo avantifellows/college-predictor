@@ -637,18 +637,20 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
             }`}
           >
             {predicted_colleges_table_column.map((column) => {
-              const displayValue = getDisplayValue(column, transformedItem);
+              const hasAdmissionChance = Boolean(transformedItem.admission_chance);
+              const hasPredictionProbability = Boolean(transformedItem.prediction_probability);
 
-              // Hide safe/moderate conditional tags if not parsed by Phase 3 backend
-              if (
-                 (column.key === "admission_chance" || column.key === "prediction_probability") &&
-                 !transformedItem.admission_chance
-              ) {
-                 return null;
-              }
+              // Decide whether to hide the content (but still render the cell)
+              const shouldHideValue =
+                (column.key === "admission_chance" && !hasAdmissionChance) ||
+                (column.key === "prediction_probability" && !hasPredictionProbability);
+
+              const displayValue = shouldHideValue
+                ? ""
+                : getDisplayValue(column, transformedItem);
 
               let chipClass = "";
-              if (column.key === "admission_chance") {
+              if (column.key === "admission_chance" && hasAdmissionChance) {
                  if (displayValue === "Safe") chipClass = "bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-bold";
                  else if (displayValue === "Moderate") chipClass = "bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs font-bold";
                  else if (displayValue === "Ambitious") chipClass = "bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs font-bold";
