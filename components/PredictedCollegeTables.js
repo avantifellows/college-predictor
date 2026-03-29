@@ -220,21 +220,37 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
   const salaryColumnKey = "expected_salary";
   const rankColumnKey = "closing_rank";
 
+  const parseSalaryValue = (raw) => {
+    if (raw === null || raw === undefined) return null;
+    const cleaned = String(raw).replace(/[^0-9.]/g, "");
+    if (!cleaned) return null;
+    const numeric = Number(cleaned);
+    if (!Number.isFinite(numeric) || numeric <= 0) return null;
+    return numeric;
+  };
+
   const formatSalary = (value, item) => {
     if (item) {
-      const highest = item["Highest Package"] || item.highest_package;
-      const average = item["Average Package"] || item.average_package;
+      const highestRaw = item["Highest Package"] || item.highest_package;
+      const averageRaw = item["Average Package"] || item.average_package;
 
-      if (highest || average) {
-        const highestStr = highest ? `Highest: ₹${Number(highest).toLocaleString("en-IN")}` : "";
-        const avgStr = average ? `Avg: ₹${Number(average).toLocaleString("en-IN")}` : "";
-        if (highest && average) return `${highestStr} / ${avgStr}`;
+      const highestNum = parseSalaryValue(highestRaw);
+      const averageNum = parseSalaryValue(averageRaw);
+
+      if (highestNum || averageNum) {
+        const highestStr = highestNum
+          ? `Highest: ₹${highestNum.toLocaleString("en-IN")}`
+          : "";
+        const avgStr = averageNum
+          ? `Avg: ₹${averageNum.toLocaleString("en-IN")}`
+          : "";
+        if (highestNum && averageNum) return `${highestStr} / ${avgStr}`;
         return highestStr || avgStr;
       }
     }
 
-    const numericValue = Number(value);
-    if (!Number.isFinite(numericValue) || numericValue <= 0) return "N/A";
+    const numericValue = parseSalaryValue(value);
+    if (!numericValue) return "N/A";
     return `₹${numericValue.toLocaleString("en-IN")}`;
   };
 
