@@ -210,7 +210,13 @@ const ExamForm = () => {
         }),
       });
 
-      const data = await response.json();
+      let data;
+      try {
+        data = await response.json();
+      } catch (e) {
+        throw new Error(`Invalid response from server (${response.status})`);
+      }
+
       if (!response.ok) {
         setEstimateError(data.error || "Unable to estimate rank.");
         setIsEstimating(false);
@@ -229,6 +235,7 @@ const ExamForm = () => {
         return nextData;
       });
     } catch (error) {
+      console.error(error);
       setEstimateError("Unable to estimate rank right now.");
     } finally {
       setIsEstimating(false);
@@ -373,13 +380,19 @@ const ExamForm = () => {
     }
 
     // For all other exams
+    const hasEmptyField = Object.entries(formData)
+      .filter(([key]) => key !== "rank")
+      .some(([_, value]) => !value);
+
+    // Check if all fields from config are present
+    const missingAnyField = config && config.fields.some(field => !formData[field.name]);
+
     return (
       !formData.rank ||
       formData.rank === "" ||
       formData.rank === 0 ||
-      Object.entries(formData)
-        .filter(([key]) => key !== "rank")
-        .some(([_, value]) => !value)
+      hasEmptyField ||
+      missingAnyField
     );
   };
 
@@ -407,6 +420,7 @@ const ExamForm = () => {
               : option
           )}
           onChange={handleInputChange(field.name)}
+          selectedValue={formData[field.name]}
           className="w-full"
         />
       </div>
@@ -468,6 +482,7 @@ const ExamForm = () => {
                       apiEndpoint: examConfigs[exam].apiEndpoint,
                     }))}
                   onChange={handleExamChange}
+                  selectedValue={selectedExam}
                   className="w-full"
                 />
               </div>

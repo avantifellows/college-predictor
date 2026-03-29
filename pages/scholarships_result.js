@@ -7,6 +7,7 @@ import Fuse from "fuse.js";
 import { scholarshipConfig } from "../scholarshipConfig";
 import Dropdown from "../components/dropdown";
 import { debounce } from "lodash";
+import { trackEvent } from "../lib/analytics";
 
 const fuseOptions = {
   isCaseSensitive: false,
@@ -56,6 +57,15 @@ const ScholarshipFinder = () => {
     setIsLoading(true);
     setError(null);
     setSearchTerm("");
+    
+    // Explicitly track telemetry for scholarship searches
+    trackEvent("search_scholarship", {
+      grade: query.grade,
+      stream: query.stream,
+      gender: query.gender,
+      state: query.state
+    });
+
     try {
       const params = new URLSearchParams(Object.entries(query));
       const queryString = params.toString();
