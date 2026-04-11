@@ -12,11 +12,69 @@ const Dropdown = dynamic(() => import("../components/dropdown"), {
   ssr: false,
 });
 
+const defaultPrimaryInputConfig = {
+  label: "Enter Rank",
+  placeholder: "Enter your rank",
+  step: "1",
+  min: "0",
+  allowDecimal: false,
+};
+
+const getPrimaryInputConfig = (exam) =>
+  examConfigs[exam]?.primaryInput || defaultPrimaryInputConfig;
+
+const validatePrimaryInputValue = (exam, value) => {
+  if (value === "") return "";
+
+  const inputConfig = getPrimaryInputConfig(exam);
+  const numericValue = Number(value);
+  const rangeMessage =
+    inputConfig.max !== undefined
+      ? `Please enter a value between ${inputConfig.min} and ${inputConfig.max}.`
+      : `Please enter a value greater than or equal to ${inputConfig.min}.`;
+
+  if (Number.isNaN(numericValue)) {
+    return "Please enter a valid value.";
+  }
+
+  if (
+    inputConfig.min !== undefined &&
+    numericValue < Number(inputConfig.min)
+  ) {
+    return rangeMessage;
+  }
+
+  if (
+    inputConfig.max !== undefined &&
+    numericValue > Number(inputConfig.max)
+  ) {
+    return rangeMessage;
+  }
+
+  return "";
+};
+
+const normalizePrimaryInputValue = (exam, value) => {
+  if (value === "") return "";
+  const inputConfig = getPrimaryInputConfig(exam);
+  if (inputConfig.allowDecimal) {
+    return value;
+  }
+
+  const numericValue = Number(value);
+  if (Number.isNaN(numericValue)) return "";
+  return String(Math.floor(numericValue));
+};
+
+const getCleanQueryEntries = (data) =>
+  Object.entries(data).filter(([, value]) => value !== undefined && value !== null && value !== "");
+
 const ExamForm = () => {
   const [selectedExam, setSelectedExam] = useState("");
   const [formData, setFormData] = useState({});
   const [config, setConfig] = useState(null);
   const [rankError, setRankError] = useState("");
+  const [primaryInputError, setPrimaryInputError] = useState("");
   const [rankMode, setRankMode] = useState("estimate");
   const [marksInput, setMarksInput] = useState("");
   const [marksError, setMarksError] = useState("");
@@ -32,15 +90,17 @@ const ExamForm = () => {
   const handleExamChange = (selectedOption) => {
     setSelectedExam(selectedOption.value);
     setConfig(examConfigs[selectedOption.value]);
+    setPrimaryInputError("");
     const baseFormData = {
       exam: selectedOption.value,
-      rank: selectedOption.value === "TNEA" ? "" : 0,
+      rank: "",
     };
     if (selectedOption.code !== undefined) {
       baseFormData.code = selectedOption.code;
     }
     if (selectedOption.value === "JoSAA") {
       baseFormData.qualifiedJeeAdv = "No";
+      baseFormData.rankMode = "estimate";
       setRankMode("estimate");
       setMarksInput("");
       setMarksError("");
@@ -100,6 +160,7 @@ const ExamForm = () => {
           ...prevData,
           qualifiedJeeAdv: "No",
           mainRank: "",
+          rankMode: "estimate",
         };
         delete nextData.advRank;
         return nextData;
@@ -113,6 +174,10 @@ const ExamForm = () => {
       setEstimateInputType("marks");
       setEstimateError("");
     } else {
+      setFormData((prevData) => ({
+        ...prevData,
+        rankMode: "known",
+      }));
       setEstimatedRank(null);
       setEstimatedPercentile(null);
       setMarksInput("");
@@ -224,6 +289,7 @@ const ExamForm = () => {
           ...prevData,
           mainRank: String(data.categoryRank),
           qualifiedJeeAdv: "No",
+          rankMode: "estimate",
         };
         delete nextData.advRank;
         return nextData;
@@ -236,7 +302,14 @@ const ExamForm = () => {
   };
 
   const handleRankChange = (e) => {
-    const enteredRank = e.target.value;
+    const enteredRank = normalizePrimaryInputValue(
+      selectedExam,
+      e.target.value
+    );
+    const validationError = validatePrimaryInputValue(
+      selectedExam,
+      enteredRank
+    );
     const newFormData = {
       ...formData,
     };
@@ -249,6 +322,7 @@ const ExamForm = () => {
       newFormData.rank = enteredRank;
     }
 
+    setPrimaryInputError(validationError);
     setFormData(newFormData);
   };
 
@@ -311,13 +385,17 @@ const ExamForm = () => {
         delete cleanedFormData.rank;
       }
 
-      const queryString = Object.entries(cleanedFormData)
+      const queryString = getCleanQueryEntries(cleanedFormData)
         .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
         .join("&");
       router.push(`/college_predictor?${queryString}`);
     } else {
       // For other exams, proceed as usual
-      const queryString = Object.entries(formData)
+      if (primaryInputError) {
+        alert(primaryInputError);
+        return;
+      }
+      const queryString = getCleanQueryEntries(formData)
         .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
         .join("&");
       router.push(`/college_predictor?${queryString}`);
@@ -374,6 +452,7 @@ const ExamForm = () => {
 
     // For all other exams
     return (
+      !!primaryInputError ||
       !formData.rank ||
       formData.rank === "" ||
       formData.rank === 0 ||
@@ -382,6 +461,29 @@ const ExamForm = () => {
         .some(([_, value]) => !value)
     );
   };
+
+  const renderFormCard = (
+    key,
+    label,
+    control,
+    helperText = null,
+    errorText = null,
+    fullWidth = false
+  ) => (
+    <div
+      key={key}
+      className={`${fullWidth ? "md:col-span-2" : ""} rounded-xl border border-[#eaded8] bg-[#fffdfa] p-4 text-left shadow-sm`}
+    >
+      <label className="mb-2 block text-sm font-semibold text-[#4a3935]">
+        {label}
+      </label>
+      {control}
+      {helperText && (
+        <p className="mt-2 text-xs leading-5 text-[#6d5550]">{helperText}</p>
+      )}
+      {errorText && <p className="mt-2 text-sm text-red-500">{errorText}</p>}
+    </div>
+  );
 
   const renderFields = () => {
     if (!selectedExam) return null;
@@ -393,13 +495,12 @@ const ExamForm = () => {
         ? config.fields.filter((field) => field.name !== "qualifiedJeeAdv")
         : config.fields;
 
-    return fieldsToRender.map((field) => (
-      <div key={field.name} className="my-4 w-full sm:w-3/4">
-        <label className="block text-md font-semibold text-gray-700 mb-2 -translate-x-4">
-          {typeof field.label === "function"
-            ? field.label(formData)
-            : field.label}
-        </label>
+    return fieldsToRender.map((field) =>
+      renderFormCard(
+        field.name,
+        typeof field.label === "function"
+          ? field.label(formData)
+          : field.label,
         <Dropdown
           options={field.options.map((option) =>
             typeof option === "string"
@@ -407,10 +508,11 @@ const ExamForm = () => {
               : option
           )}
           onChange={handleInputChange(field.name)}
+          selectedValue={formData[field.name]}
           className="w-full"
         />
-      </div>
-    ));
+      )
+    );
   };
 
   return (
@@ -418,8 +520,8 @@ const ExamForm = () => {
       <Head>
         <title>College Predictor - Home</title>
       </Head>
-      <div className="flex flex-col h-fit">
-        <div className="flex flex-col justify-start items-center w-full mt-8 pb-10">
+      <div className="flex min-h-[calc(100vh-120px)] flex-col">
+        <div className="mt-6 flex w-full flex-col items-center justify-start px-4 pb-10 sm:mt-8">
           <Script
             src="https://www.googletagmanager.com/gtag/js?id=G-FHGVRT52L7"
             strategy="afterInteractive"
@@ -433,11 +535,10 @@ const ExamForm = () => {
                         gtag('config', 'G-FHGVRT52L7');
                       `}
           </Script>
-          <div className="text-center flex flex-col items-center w-full sm:w-3/4 md:w-2/3 lg:w-1/2 mt-8 p-8 pb-10 bg-[#f8f9fa] shadow-inner drop-shadow-md rounded-md">
-            <h1 className="text-2xl md:text-3xl font-bold mb-6">
+          <div className="mt-4 flex w-full max-w-4xl flex-col items-center rounded-2xl border border-[#eaded8] bg-white p-5 pb-6 text-center shadow-sm sm:mt-6 sm:p-6">
+            <h1 className="mb-2 text-2xl font-bold text-[#2f2320] md:text-3xl">
               {getConstants().TITLE}
             </h1>
-
             {/* TGEAPCET Disclaimer - Shows when EWS category is selected */}
             {selectedExam === "TGEAPCET" && formData.category === "EWS" && (
               <div className="bg-red-50 border-l-4 border-red-400 p-4 mb-6 w-full">
@@ -447,20 +548,16 @@ const ExamForm = () => {
               </div>
             )}
 
-            <div className="flex flex-col justify-center sm:flex-row flex-wrap w-full">
-              <div className="my-4 w-full sm:w-3/4">
-                <label
-                  htmlFor="exam"
-                  className="block text-md font-semibold text-gray-700 mb-2 -translate-x-4"
-                >
-                  Select Exam/Counselling Process
-                </label>
+            <div className="grid w-full grid-cols-1 gap-3 md:grid-cols-2">
+              {renderFormCard(
+                "exam",
+                "Select Exam/Counselling Process",
                 <Dropdown
                   options={Object.keys(examConfigs)
                     .filter(
                       (exam) =>
                         exam !== "JEE Main-JOSAA" && exam !== "JEE Advanced"
-                    ) // Temporarily removed JEE MAIN/Advanced(merged into JOSSA) and NEET(cus of old data)
+                    )
                     .map((exam) => ({
                       value: exam,
                       label: exam,
@@ -468,23 +565,28 @@ const ExamForm = () => {
                       apiEndpoint: examConfigs[exam].apiEndpoint,
                     }))}
                   onChange={handleExamChange}
+                  selectedValue={selectedExam}
                   className="w-full"
-                />
-              </div>
+                />,
+                null,
+                null,
+                true
+              )}
               {renderFields()}
 
               {selectedExam && selectedExam === "TNEA" ? (
-                <TneaScoreCalculator onScoreChange={handleTneaScoreChange} />
+                <div className="md:col-span-2">
+                  <TneaScoreCalculator onScoreChange={handleTneaScoreChange} />
+                </div>
               ) : (
                 selectedExam && (
                   <>
                     {selectedExam === "JoSAA" && (
-                      <div className="my-4 w-full sm:w-3/4">
-                        <label className="block text-md font-semibold text-gray-700 mb-2 -translate-x-3">
-                          Do you want rank prediction?
-                        </label>
+                      renderFormCard(
+                        "rankMode",
+                        "Do you want rank prediction?",
                         <div className="flex justify-center w-full">
-                          <div className="inline-flex w-full overflow-hidden rounded-md border border-gray-300">
+                          <div className="inline-flex w-full overflow-hidden rounded-xl border border-[#d8c7c1]">
                             <button
                               type="button"
                               onClick={() => handleRankModeChange("estimate")}
@@ -508,8 +610,11 @@ const ExamForm = () => {
                               No, I know my rank
                             </button>
                           </div>
-                        </div>
-                      </div>
+                        </div>,
+                        null,
+                        null,
+                        true
+                      )
                     )}
 
                     {selectedExam === "JoSAA" &&
@@ -517,14 +622,11 @@ const ExamForm = () => {
                       config?.fields?.find(
                         (field) => field.name === "qualifiedJeeAdv"
                       ) && (
-                        <div className="my-4 w-full sm:w-3/4">
-                          <label className="block text-md font-semibold text-gray-700 mb-2 -translate-x-4">
-                            {
-                              config.fields.find(
-                                (field) => field.name === "qualifiedJeeAdv"
-                              ).label
-                            }
-                          </label>
+                        renderFormCard(
+                          "qualifiedJeeAdv",
+                          config.fields.find(
+                            (field) => field.name === "qualifiedJeeAdv"
+                          ).label,
                           <Dropdown
                             options={config.fields
                               .find((field) => field.name === "qualifiedJeeAdv")
@@ -537,17 +639,20 @@ const ExamForm = () => {
                             className="w-full"
                             selectedValue={formData.qualifiedJeeAdv}
                           />
-                        </div>
+                        )
                       )}
 
                     {selectedExam === "JoSAA" && rankMode === "estimate" ? (
-                      <div className="my-4 w-full sm:w-3/4">
-                        <label className="block text-md font-semibold text-gray-700 mb-2 -translate-x-3">
-                          Enter your JEE Main details
-                        </label>
-                        <div className="flex flex-col gap-2">
+                      renderFormCard(
+                        "estimate",
+                        estimateInputType === "marks"
+                          ? config?.estimateMarksInput?.label ||
+                            "Enter JEE Main marks out of 300"
+                          : config?.estimatePercentileInput?.label ||
+                            "Enter JEE Main percentile",
+                        <div className="flex flex-col gap-2.5">
                           <div className="flex justify-center w-full">
-                            <div className="inline-flex w-full overflow-hidden rounded-md border border-gray-300">
+                            <div className="inline-flex w-full overflow-hidden rounded-xl border border-[#d8c7c1]">
                               <button
                                 type="button"
                                 onClick={() =>
@@ -594,12 +699,15 @@ const ExamForm = () => {
                                     e.preventDefault();
                                   }
                                 }}
-                                className={`border ${
+                                className={`w-full rounded-xl border bg-[#fffdfa] p-3 text-center outline-none transition focus:ring-2 focus:ring-[#f4d5d6] ${
                                   marksError
-                                    ? "border-red-500"
-                                    : "border-gray-300"
-                                } rounded w-full p-2 text-center`}
-                                placeholder="e.g., 182"
+                                    ? "border-red-500 focus:border-red-500"
+                                    : "border-[#d8c7c1] focus:border-[#b52326]"
+                                }`}
+                                placeholder={
+                                  config?.estimateMarksInput?.placeholder ||
+                                  "e.g., 182"
+                                }
                               />
                               {marksError && (
                                 <p className="text-red-500 text-sm">
@@ -623,12 +731,15 @@ const ExamForm = () => {
                                     e.preventDefault();
                                   }
                                 }}
-                                className={`border ${
+                                className={`w-full rounded-xl border bg-[#fffdfa] p-3 text-center outline-none transition focus:ring-2 focus:ring-[#f4d5d6] ${
                                   percentileError
-                                    ? "border-red-500"
-                                    : "border-gray-300"
-                                } rounded w-full p-2 text-center`}
-                                placeholder="e.g., 97.45"
+                                    ? "border-red-500 focus:border-red-500"
+                                    : "border-[#d8c7c1] focus:border-[#b52326]"
+                                }`}
+                                placeholder={
+                                  config?.estimatePercentileInput
+                                    ?.placeholder || "e.g., 97.45"
+                                }
                               />
                               {percentileError && (
                                 <p className="text-red-500 text-sm">
@@ -648,7 +759,7 @@ const ExamForm = () => {
                                   !!percentileError) ||
                               !formData.category
                             }
-                            className="px-4 py-2 rounded bg-[#B52326] text-white hover:bg-[#9E1F22] disabled:bg-gray-300 disabled:text-gray-600"
+                            className="rounded-lg bg-[#B52326] px-4 py-2 text-white hover:bg-[#9E1F22] disabled:bg-gray-300 disabled:text-gray-600"
                           >
                             {isEstimating ? "Estimating..." : "Estimate Rank"}
                           </button>
@@ -658,7 +769,7 @@ const ExamForm = () => {
                             </p>
                           )}
                           {estimatedRank && estimatedPercentile !== null && (
-                            <div className="text-sm text-gray-700">
+                            <div className="rounded-xl border border-[#eaded8] bg-[#fffdfa] p-4 text-left text-sm text-gray-700">
                               <p>
                                 Predicted Percentile:{" "}
                                 <strong>{estimatedPercentile}</strong>
@@ -674,52 +785,58 @@ const ExamForm = () => {
                               </p>
                             </div>
                           )}
-                        </div>
-                      </div>
+                        </div>,
+                        null,
+                        null,
+                        true
+                      )
                     ) : (
-                      <div className="my-4 w-full sm:w-3/4">
-                        <label className="block text-md font-semibold text-gray-700 mb-2 -translate-x-3">
-                          {selectedExam === "JEE Main-JAC"
-                            ? "Enter All India Rank"
-                            : selectedExam === "JoSAA"
-                            ? "Enter JEE Main Category Rank"
-                            : selectedExam === "GUJCET"
-                            ? "Enter your Marks"
-                            : selectedExam === "NEETUG"
-                            ? "Enter All India Rank"
-                            : "Enter Category Rank"}
-                        </label>
+                      renderFormCard(
+                        "primaryInput",
+                        getPrimaryInputConfig(selectedExam).label,
                         <input
                           type="number"
-                          step="1"
+                          step={getPrimaryInputConfig(selectedExam).step}
+                          min={getPrimaryInputConfig(selectedExam).min}
+                          max={getPrimaryInputConfig(selectedExam).max}
                           value={
                             selectedExam === "JoSAA"
                               ? formData.mainRank || ""
                               : formData.rank || ""
                           }
                           onChange={handleRankChange}
-                          className="border border-gray-300 rounded w-full p-2 text-center"
+                          onKeyDown={(e) => {
+                            if (
+                              ["e", "E", "+", "-", " "].includes(e.key) ||
+                              (!getPrimaryInputConfig(selectedExam)
+                                .allowDecimal &&
+                                e.key === ".")
+                            ) {
+                              e.preventDefault();
+                            }
+                          }}
+                          className={`w-full rounded-xl border bg-white px-4 py-3 text-left text-sm outline-none transition focus:ring-2 focus:ring-[#f4d5d6] sm:text-base ${
+                            primaryInputError
+                              ? "border-red-500 focus:border-red-500"
+                              : "border-[#d8c7c1] focus:border-[#b52326]"
+                          }`}
                           placeholder={
-                            selectedExam === "JEE Main-JAC"
-                              ? "Enter All India Rank"
-                              : selectedExam === "JoSAA"
-                              ? "Enter JEE Main rank"
-                              : selectedExam === "GUJCET"
-                              ? "100"
-                              : "Enter your rank"
+                            getPrimaryInputConfig(selectedExam).placeholder
                           }
-                        />
-                      </div>
+                        />,
+                        getPrimaryInputConfig(selectedExam).helperText,
+                        primaryInputError
+                      )
                     )}
 
                     {/* JEE Advanced Rank input field - only show if user selected Yes for qualifiedJeeAdv */}
                     {selectedExam === "JoSAA" &&
                       rankMode === "known" &&
                       formData.qualifiedJeeAdv === "Yes" && (
-                        <div className="my-4 w-full sm:w-3/4">
-                          <label className="block text-md font-semibold text-gray-700 mb-2 -translate-x-3">
-                            Enter JEE Advanced Category Rank
-                          </label>
+                        renderFormCard(
+                          "advRank",
+                          config?.advancedInput?.label ||
+                            "Enter JEE Advanced Category Rank",
                           <div className="flex flex-col w-full">
                             <input
                               type="string"
@@ -733,22 +850,24 @@ const ExamForm = () => {
                                   e.preventDefault();
                                 }
                               }}
-                              className={`border ${
-                                rankError ? "border-red-500" : "border-gray-300"
-                              } rounded w-full p-2 text-center`}
-                              placeholder="e.g., 104 or 104P"
+                              className={`w-full rounded-xl border bg-[#fffdfa] p-3 text-center outline-none transition focus:ring-2 focus:ring-[#f4d5d6] ${
+                                rankError
+                                  ? "border-red-500 focus:border-red-500"
+                                  : "border-[#d8c7c1] focus:border-[#b52326]"
+                              }`}
+                              placeholder={
+                                config?.advancedInput?.placeholder ||
+                                "e.g., 104 or 104P"
+                              }
                             />
-                            {rankError && (
-                              <p className="text-red-500 text-sm mt-1">
-                                {rankError}
-                              </p>
-                            )}
-                            <p className="text-xs text-gray-500 mt-1">
+                            <p className="text-xs text-gray-500 mt-2 leading-5">
                               Enter rank (e.g., 104) or rank with 'P' suffix
                               (e.g., 104P)
                             </p>
-                          </div>
-                        </div>
+                          </div>,
+                          null,
+                          rankError
+                        )
                       )}
                   </>
                 )
@@ -756,16 +875,16 @@ const ExamForm = () => {
             </div>
 
             {selectedExam && (
-              <>
+              <div className="mt-4 w-full max-w-xl">
                 <button
-                  className="mt-2 px-5 py-2 rounded-lg bg-[#B52326] text-white cursor-pointer hover:bg-[#9E1F22] active:bg-[#8A1B1E] disabled:bg-gray-300 disabled:cursor-not-allowed -translate-x-4"
+                  className="w-full rounded-lg bg-[#B52326] px-5 py-3 text-white cursor-pointer hover:bg-[#9E1F22] active:bg-[#8A1B1E] disabled:bg-gray-300 disabled:cursor-not-allowed sm:w-auto"
                   disabled={isSubmitDisabled()}
                   onClick={handleSubmit}
                 >
                   Submit
                 </button>
                 {isSubmitDisabled() && (
-                  <p className="text-red-600 text-sm mt-2 -translate-x-4">
+                  <p className="mt-2 text-sm text-red-600">
                     {selectedExam === "JoSAA" &&
                     formData.qualifiedJeeAdv === "Yes" &&
                     (!formData.advRank || formData.advRank === "")
@@ -776,7 +895,7 @@ const ExamForm = () => {
                       : "Please fill all the required fields before submitting!"}
                   </p>
                 )}
-              </>
+              </div>
             )}
           </div>
         </div>

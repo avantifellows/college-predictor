@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { ArrowDown, ArrowUp, ArrowUpDown } from "lucide-react";
+import { ArrowDown, ArrowUp, ArrowUpDown, Info } from "lucide-react";
 import PropTypes from "prop-types";
 import examConfigs from "../examConfig";
 
@@ -113,7 +113,6 @@ const expandedFields = {
     { key: "State", label: "State" },
     { key: "Language", label: "Language" },
     { key: "Rural/Urban", label: "Region" },
-    { key: "Category_Key", label: "Category Key" },
     { key: "Closing Rank", label: "Closing Rank" },
   ],
   // TNEA - Tamil Nadu Engineering Admissions
@@ -143,16 +142,23 @@ const expandedFields = {
   ],
 };
 
+const SALARY_HELP_TEXT =
+  "Product of median salary and placement percentage of the graduating batch as reported by the college to NIRF. Data is reported as a college level aggregate";
+
 // New ExpandedRow component
 const ExpandedRowComponent = ({ item, fields, exam, examColumnMapping }) => {
-  const getFieldValue = (item, key) => {
+  const getFieldValue = (item, field) => {
+    const { key, format } = field;
     if (key in item) {
       const value = item[key];
-      return value !== null &&
+      if (
+        value !== null &&
         value !== undefined &&
         String(value).trim() !== ""
-        ? String(value)
-        : "N/A";
+      ) {
+        return format ? format(value) : String(value);
+      }
+      return "N/A";
     }
     return "N/A";
   };
@@ -163,12 +169,15 @@ const ExpandedRowComponent = ({ item, fields, exam, examColumnMapping }) => {
 
   return (
     <tr>
-      <td colSpan={columns.length + 1} className="p-4 border border-gray-300">
+      <td
+        colSpan={columns.length + 1}
+        className="border-b border-[#eaded8] bg-[#fffdfa] p-4"
+      >
         <div className="grid grid-cols-2 gap-4 text-sm">
           {fieldsToShow.map((field, idx) => (
             <div key={idx}>
               <p>
-                <strong>{field.label}:</strong> {getFieldValue(item, field.key)}
+                <strong>{field.label}:</strong> {getFieldValue(item, field)}
               </p>
             </div>
           ))}
@@ -180,13 +189,19 @@ const ExpandedRowComponent = ({ item, fields, exam, examColumnMapping }) => {
 
 const ROWS_PER_PAGE_INITIAL = 30; // Variable for initial rows
 
-const PredictedCollegesTable = ({ data = [], exam = "" }) => {
+const PredictedCollegesTable = ({
+  data = [],
+  exam = "",
+  searchTerm = "",
+  onSearchChange = null,
+}) => {
   const [expandedRows, setExpandedRows] = useState({});
   const [showAllRows, setShowAllRows] = useState(false); // State for showing all rows
   const [sortConfig, setSortConfig] = useState({
     key: "closing_rank",
     order: "asc",
   });
+  const [salaryTooltip, setSalaryTooltip] = useState(null);
 
   const toggleRowExpansion = (index) => {
     setExpandedRows((prev) => ({
@@ -195,12 +210,23 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
     }));
   };
 
-  const commonTableClass =
-    "w-full mx-auto border-collapse text-sm sm:text-base";
+  const showSalaryTooltip = (event) => {
+    const rect = event.currentTarget.getBoundingClientRect();
+    setSalaryTooltip({
+      top: rect.bottom + 10,
+      left: rect.right - 280,
+    });
+  };
+
+  const hideSalaryTooltip = () => {
+    setSalaryTooltip(null);
+  };
+
+  const commonTableClass = "w-full min-w-[720px] border-collapse text-sm";
   const commonHeaderClass =
-    "bg-gray-200 font-bold text-center text-xs sm:text-sm md:text-base";
+    "bg-[#f8efec] text-[#5b1f20] font-semibold text-left text-xs sm:text-sm";
   const commonCellClass =
-    "p-2 border border-gray-300 text-center text-xs sm:text-sm md:text-base";
+    "border-b border-[#eaded8] text-xs sm:text-sm text-[#332724]";
 
   const isJosaaExam =
     exam === "JoSAA" || exam === "JEE Main-JOSAA" || exam === "JEE Advanced";
@@ -213,6 +239,12 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
     const numericValue = Number(value);
     if (!Number.isFinite(numericValue) || numericValue <= 0) return "N/A";
     return `₹${numericValue.toLocaleString("en-IN")}`;
+  };
+
+  const formatPercentage = (value) => {
+    const numericValue = Number(value);
+    if (!Number.isFinite(numericValue)) return "N/A";
+    return `${numericValue.toFixed(2)}%`;
   };
 
   useEffect(() => {
@@ -232,47 +264,47 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
     JoSAA: [
       { key: "state", label: "State" },
       { key: "institute", label: "Institute" },
-      { key: "academic_program_name", label: "Academic Program Name" },
-      { key: "exam_type", label: "Exam Type" },
+      { key: "academic_program_name", label: "Program" },
+      { key: "exam_type", label: "Exam" },
       { key: "closing_rank", label: "Closing Rank" },
       {
         key: "expected_salary",
-        label: "Expected Salary (NIRF)",
+        label: "Expected Salary",
         format: formatSalary,
       },
-      { key: "Seat Type", label: "Category" },
+      { key: "Seat Type", label: "Seat Type" },
     ],
     "JEE Main-JOSAA": [
       { key: "state", label: "State" },
       { key: "institute", label: "Institute" },
-      { key: "academic_program_name", label: "Academic Program Name" },
-      { key: "exam_type", label: "Exam Type" },
+      { key: "academic_program_name", label: "Program" },
+      { key: "exam_type", label: "Exam" },
       { key: "closing_rank", label: "Closing Rank" },
       {
         key: "expected_salary",
-        label: "Expected Salary (NIRF)",
+        label: "Expected Salary",
         format: formatSalary,
       },
-      { key: "Seat Type", label: "Category" },
+      { key: "Seat Type", label: "Seat Type" },
     ],
     "JEE Main-JAC": [
       { key: "state", label: "State" },
       { key: "institute", label: "Institute" },
-      { key: "academic_program_name", label: "Academic Program Name" },
+      { key: "academic_program_name", label: "Program" },
       { key: "closing_rank", label: "Closing Rank" },
       { key: "Category", label: "Category" },
     ],
     "JEE Advanced": [
       { key: "state", label: "State" },
       { key: "institute", label: "Institute" },
-      { key: "academic_program_name", label: "Academic Program Name" },
+      { key: "academic_program_name", label: "Program" },
       { key: "closing_rank", label: "Closing Rank" },
       {
         key: "expected_salary",
-        label: "Expected Salary (NIRF)",
+        label: "Expected Salary",
         format: formatSalary,
       },
-      { key: "Seat Type", label: "Category" },
+      { key: "Seat Type", label: "Seat Type" },
     ],
     TGEAPCET: [
       { key: "institute_name", label: "Institute Name" },
@@ -283,30 +315,33 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
       { key: "College Name", label: "College Name" },
       { key: "District", label: "District" },
       { key: "Course", label: "Course" },
-      { key: "closing_marks", label: "Cutoff Marks" },
+      {
+        key: "closing_marks",
+        label: "Cutoff Percentage",
+        format: formatPercentage,
+      },
     ],
     KCET: [
       { key: "institute", label: "Institute" },
-      { key: "academic_program_name", label: "Academic Program Name" },
+      { key: "academic_program_name", label: "Program" },
       { key: "closing_rank", label: "Closing Rank" },
-      { key: "category", label: "Category" },
     ],
     "MHT CET": [
       { key: "institute", label: "Institute" },
-      { key: "academic_program_name", label: "Academic Program Name" },
+      { key: "academic_program_name", label: "Program" },
       { key: "closing_rank", label: "Closing Rank" },
       { key: "category", label: "Category" },
     ],
     NEETUG: [
       { key: "institute", label: "Institute" },
-      { key: "academic_program_name", label: "Academic Program Name" },
+      { key: "academic_program_name", label: "Program" },
       { key: "closing_rank", label: "Closing Rank" },
       { key: "category", label: "Category" },
     ],
     DEFAULT: [
       { key: "state", label: "State" },
       { key: "institute", label: "Institute" },
-      { key: "academic_program_name", label: "Academic Program Name" },
+      { key: "academic_program_name", label: "Program" },
       { key: "closing_rank", label: "Closing Rank" },
     ],
   };
@@ -578,25 +613,41 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
   const renderTableHeader = () => (
     <tr className={commonHeaderClass}>
       {predicted_colleges_table_column.map((column) => (
-        <th key={column.key} className="p-2 border-r border-gray-300">
+        <th
+          key={column.key}
+          className="px-4 py-3 border-b border-[#decac3] whitespace-nowrap"
+        >
           {supportsSalarySort && column.key === rankColumnKey ? (
             <button
               type="button"
               onClick={toggleRankSort}
-              className="font-bold inline-flex items-center gap-1"
+              className="font-semibold inline-flex items-center gap-1"
             >
               {column.label}
               {renderSortIcon(rankColumnKey)}
             </button>
           ) : supportsSalarySort && column.key === salaryColumnKey ? (
-            <button
-              type="button"
-              onClick={toggleSalarySort}
-              className="font-bold inline-flex items-center gap-1"
-            >
-              {column.label}
-              {renderSortIcon(salaryColumnKey)}
-            </button>
+            <div className="inline-flex items-center gap-2">
+              <button
+                type="button"
+                onClick={toggleSalarySort}
+                className="font-semibold inline-flex items-center gap-1"
+              >
+                {column.label}
+                {renderSortIcon(salaryColumnKey)}
+              </button>
+              <button
+                type="button"
+                onMouseEnter={showSalaryTooltip}
+                onMouseLeave={hideSalaryTooltip}
+                onFocus={showSalaryTooltip}
+                onBlur={hideSalaryTooltip}
+                className="inline-flex h-5 w-5 items-center justify-center rounded-full border border-[#d6b8ae] text-[#8f2e31] hover:bg-[#f8efec]"
+                aria-label="How expected salary is calculated"
+              >
+                <Info size={12} />
+              </button>
+            </div>
           ) : (
             column.label
           )}
@@ -618,19 +669,19 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
         <React.Fragment key={index}>
           <tr
             className={`${commonCellClass} ${
-              index % 2 === 0 ? "bg-gray-100" : "bg-white"
+              index % 2 === 0 ? "bg-[#fffdfa]" : "bg-white"
             }`}
           >
             {predicted_colleges_table_column.map((column) => (
-              <td key={column.key} className="p-2 border-r border-gray-300">
+              <td key={column.key} className="px-4 py-3 align-top">
                 {getDisplayValue(column, transformedItem)}
               </td>
             ))}
             {supportsExpandedView && (
-              <td className="p-2">
+              <td className="px-4 py-3">
                 <div className="flex justify-center">
                   <button
-                    className="px-4 py-2 rounded bg-red-500 text-white hover:bg-red-600"
+                    className="whitespace-nowrap rounded-lg bg-[#B52326] px-4 py-2 text-white hover:bg-[#9E1F22]"
                     onClick={() => toggleRowExpansion(index)}
                   >
                     {expandedRows[index] ? "Show Less" : "Show More"}
@@ -658,48 +709,88 @@ const PredictedCollegesTable = ({ data = [], exam = "" }) => {
 
     if (isJosaaExam) {
       return (
-        <div className="flex flex-col items-center text-sm sm:text-base mb-4">
-          <p className="leading-4 mb-1">
-            Closing ranks for colleges in your home state are as per the home
-            state quota.
-          </p>
+        <div className="mb-3 flex flex-wrap items-center gap-2 text-xs sm:text-sm text-[#5b3a34]">
+          <span className="inline-flex items-center rounded-full border border-[#e3d1cb] bg-[#fffdfa] px-3 py-1 font-medium">
+            Based on JoSAA 2024
+          </span>
+          <span className="text-[#6d5550]">
+            Home-state quota is used where applicable; other colleges use
+            all-India or out-of-state cutoffs.
+          </span>
         </div>
       );
     }
 
     return (
-      <div className="flex flex-col items-center text-sm sm:text-base mb-4">
+      <div className="mb-3 flex flex-wrap items-center gap-2 text-xs sm:text-sm text-[#5b3a34]">
+        <span className="font-semibold text-[#5b1f20]">Quota labels:</span>
         {examConfig.legend.map((item, index) => (
-          <p key={index} className="leading-4 mb-1">
-            {item.key}: {item.value}
-          </p>
+          <span
+            key={index}
+            className="inline-flex items-center gap-2 rounded-full border border-[#e3d1cb] bg-[#fffdfa] px-3 py-1"
+          >
+            <strong className="text-[#8f2e31]">{item.key}</strong>
+            <span>{item.value}</span>
+          </span>
         ))}
       </div>
     );
   };
 
   return (
-    <div className="w-full mx-auto overflow-x-auto">
-      {renderLegend()}
-      {data.length > 0 && (
-        <div className="flex justify-end mb-3">
-          <button
-            className="px-4 py-2 rounded bg-[#B52326] text-white hover:bg-[#9E1F22]"
-            onClick={downloadCsv}
-          >
-            Download CSV
-          </button>
+    <div className="w-full">
+      {salaryTooltip && (
+        <div
+          className="pointer-events-none fixed z-50 w-72 rounded-xl border border-[#decac3] bg-white p-3 text-left text-xs font-normal leading-5 text-[#5b3a34] shadow-lg"
+          style={{
+            top: `${Math.max(salaryTooltip.top, 12)}px`,
+            left: `${Math.max(salaryTooltip.left, 12)}px`,
+          }}
+        >
+          {SALARY_HELP_TEXT}
         </div>
       )}
-      <table className={`${commonTableClass} border border-gray-300`}>
-        <thead>{renderTableHeader()}</thead>
-        <tbody>{renderTableBody()}</tbody>
-      </table>
+      {renderLegend()}
+      {data.length > 0 && (
+        <div className="mb-3 flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
+          <div className="w-full max-w-md">
+            {onSearchChange && (
+              <input
+                type="text"
+                id="results-search"
+                aria-label="Filter results by institute, state, or program"
+                value={searchTerm}
+                onChange={onSearchChange}
+                className="w-full rounded-xl border border-[#d8c7c1] bg-white px-4 py-3 text-left text-sm outline-none transition focus:border-[#b52326] focus:ring-2 focus:ring-[#f4d5d6] sm:text-base"
+                placeholder="Filter by institute, state, or program"
+              />
+            )}
+          </div>
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center lg:justify-end">
+            <p className="text-sm text-[#5b3a34]">
+              Showing {sortedData.length.toLocaleString("en-IN")} matching
+              options.
+            </p>
+            <button
+              className="w-full rounded-lg bg-[#B52326] px-4 py-2 text-white hover:bg-[#9E1F22] sm:w-auto"
+              onClick={downloadCsv}
+            >
+              Download CSV
+            </button>
+          </div>
+        </div>
+      )}
+      <div className="overflow-x-auto rounded-xl border border-[#eaded8] bg-white shadow-sm">
+        <table className={commonTableClass}>
+          <thead>{renderTableHeader()}</thead>
+          <tbody>{renderTableBody()}</tbody>
+        </table>
+      </div>
       {data.length > ROWS_PER_PAGE_INITIAL &&
         !showAllRows && ( // Conditional button rendering
           <div className="flex justify-center mt-4">
             <button
-              className="px-6 py-3 rounded bg-red-500 text-white hover:bg-red-600 font-semibold"
+              className="whitespace-nowrap rounded-lg bg-[#B52326] px-6 py-3 font-semibold text-white hover:bg-[#9E1F22]"
               onClick={() => setShowAllRows(true)}
             >
               Show More Recommendations
@@ -734,6 +825,8 @@ PredictedCollegesTable.propTypes = {
     })
   ),
   exam: PropTypes.string.isRequired,
+  searchTerm: PropTypes.string,
+  onSearchChange: PropTypes.func,
 };
 
 export default PredictedCollegesTable;
