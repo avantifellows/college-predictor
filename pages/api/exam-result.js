@@ -46,7 +46,7 @@ export default async function handler(req, res) {
 
   const { exam, rank } = req.query;
 
-  if (!exam || !examConfigs[exam]) {
+  if (!exam || !Object.prototype.hasOwnProperty.call(examConfigs, exam)) {
     return res.status(400).json({ error: "Invalid or missing exam parameter" });
   }
 
@@ -105,9 +105,17 @@ export default async function handler(req, res) {
   }
 
   try {
-    const dataPath = config.getDataPath(req.query.category);
+    const categoryStr = req.query.category || "";
+    // Sanitize category to prevent path traversal
+    const category = require("path").basename(categoryStr);
+
+    const dataPath = config.getDataPath(category);
     const data = await fs.readFile(dataPath, "utf8");
     const fullData = JSON.parse(data);
+
+    if (!Array.isArray(fullData)) {
+      throw new Error("Invalid data format: expected an array of results");
+    }
 
     // Get filters based on the exam config and query parameters
     const filters = config.getFilters(req.query);
@@ -264,7 +272,7 @@ export default async function handler(req, res) {
     console.error("Error reading file:", error);
     res.status(500).json({
       error: "Unable to retrieve data",
-      details: error.message,
+      details: error.code === "ENOENT" ? "Data not found" : error.message,
     });
   }
 }
