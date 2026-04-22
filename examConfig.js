@@ -476,14 +476,17 @@ export const neetUGConfig = {
         return true;
       },
       (item) => {
-        if (query.religion != "Other") {
+        // If a religion is specifically selected, use it to strictly filter 'Seat Type'
+        if (query.religion && query.religion != "Other") {
+          if (query.religion === "Jain") {
+            return item["Seat Type"] === "Jain Minority";
+          } else if (query.religion === "Muslim") {
+            return item["Seat Type"] && item["Seat Type"].includes("Muslim");
+          }
           return item["Seat Type"] == query.religion;
         }
-        return true;
-      },
-      (item) => {
-        // If seat_type is 'All India' (Any), skip filtering
 
+        // If seat_type is specifically selected (and not overridden by Religion)
         if (
           query.seat_type &&
           String(query.seat_type).trim().toLowerCase() !== "any"

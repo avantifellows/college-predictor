@@ -130,7 +130,7 @@ export default async function handler(req, res) {
         const cutoffMarks = parseFloat(item.closing_marks) || 0;
         const userMarks = parseFloat(rank) || 0;
         return userMarks >= cutoffMarks * 0.9; // Show if user marks are >= 90% of cutoff
-      } else if (exam === "NEET") {
+      } else if (exam === "NEET" || exam === "NEETUG") {
         // For NEET, filter based on closing rank with 0.9 coefficient
         const closingRank = parseFloat(item["Closing Rank"]) || 0;
         const userRank = parseFloat(rank) || 0;

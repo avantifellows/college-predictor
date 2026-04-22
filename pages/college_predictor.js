@@ -8,6 +8,7 @@ import examConfigs from "../examConfig";
 import dynamic from "next/dynamic";
 import TneaScoreCalculator from "../components/TneaScoreCalculator";
 import { debounce } from "lodash";
+import { trackEvent } from "../lib/analytics";
 
 // Dynamically import Dropdown with SSR disabled
 const Dropdown = dynamic(() => import("../components/dropdown"), {
@@ -201,6 +202,14 @@ const CollegePredictor = () => {
         setIsLoading(false);
         return;
       }
+
+      // Explicitly track telemetry what users are searching for
+      trackEvent("search_college_prediction", {
+        exam: query.exam,
+        category: query.category,
+        rank: query.rank || query.mainRank || query.advRank,
+      });
+
       const response = await fetch(`/api/exam-result?${queryString}`);
       if (!response.ok) {
         let errorMessage = `HTTP error! status: ${response.status}`;
