@@ -53,10 +53,33 @@ export const statesList = [
 // Default search keys for most exams
 const defaultSearchKeys = ["Institute", "State", "Academic Program Name"];
 
+const integerInput = (label, placeholder = label) => ({
+  label,
+  placeholder,
+  inputType: "number",
+  step: "1",
+  min: "0",
+  allowDecimal: false,
+});
+
+const decimalInput = (label, placeholder, max = "100") => ({
+  label,
+  placeholder,
+  inputType: "number",
+  step: "0.01",
+  min: "0",
+  max,
+  allowDecimal: true,
+});
+
 export const jeeMainJosaaConfig = {
   name: "JEE Main-JOSAA",
   code: "JEE Main",
   searchKeys: defaultSearchKeys,
+  primaryInput: integerInput(
+    "Enter JEE Main Category Rank",
+    "Enter JEE Main category rank"
+  ),
   fields: [
     {
       name: "category",
@@ -161,6 +184,10 @@ export const jacExamConfig = {
   code: "JEE Main",
   name: "JEE Main-JAC",
   searchKeys: defaultSearchKeys,
+  primaryInput: integerInput(
+    "Enter All India Rank",
+    "Enter All India Rank"
+  ),
   fields: [
     {
       name: "category",
@@ -221,6 +248,10 @@ export const jeeAdvancedConfig = {
   name: "JEE Advanced",
   code: "JEE Advanced",
   searchKeys: defaultSearchKeys,
+  primaryInput: integerInput(
+    "Enter JEE Advanced Category Rank",
+    "Enter JEE Advanced category rank"
+  ),
   fields: [
     {
       name: "category",
@@ -305,6 +336,10 @@ export const neetUGConfig = {
   name: "NEETUG",
   code: "NEETUG",
   searchKeys: defaultSearchKeys,
+  primaryInput: integerInput(
+    "Enter All India Rank",
+    "Enter All India Rank"
+  ),
   fields: [
     {
       name: "program",
@@ -495,6 +530,7 @@ export const mhtCetConfig = {
   name: "MHT CET",
   apiEndpoint: "mhtcet",
   searchKeys: defaultSearchKeys,
+  primaryInput: integerInput("Enter MHT CET Rank", "Enter MHT CET rank"),
   fields: [
     {
       name: "category",
@@ -577,6 +613,7 @@ export const mhtCetConfig = {
 export const kcetConfig = {
   name: "KCET",
   searchKeys: ["Institute", "State", "Academic Program Name"],
+  primaryInput: integerInput("Enter KCET Rank", "Enter KCET rank"),
   fields: [
     {
       name: "category",
@@ -643,6 +680,14 @@ export const kcetConfig = {
     (item) => item.State === query.homeState || item.State === "All India",
     (item) => query.language === "Any" || item.Language === query.language,
     (item) => query.region === "All" || item["Rural/Urban"] === query.region,
+    (item) => {
+      if (!query.rank) return true;
+      const closingRank = parseInt(item["Closing Rank"], 10);
+      const userRank = parseInt(query.rank, 10);
+      if (isNaN(closingRank) || isNaN(userRank)) return false;
+      if (closingRank <= 0) return false;
+      return closingRank >= userRank;
+    },
   ],
   getSort: () => [["Closing Rank", "ASC"]],
 };
@@ -752,6 +797,24 @@ export const josaaConfig = {
   name: "JoSAA",
   code: "JoSAA",
   searchKeys: defaultSearchKeys,
+  primaryInput: integerInput(
+    "Enter JEE Main Category Rank",
+    "Enter JEE Main category rank"
+  ),
+  estimateMarksInput: {
+    label: "Enter JEE Main marks out of 300",
+    placeholder: "e.g., 182",
+    min: "0",
+    max: "300",
+  },
+  estimatePercentileInput: decimalInput(
+    "Enter JEE Main percentile",
+    "e.g., 97.45"
+  ),
+  advancedInput: {
+    label: "Enter JEE Advanced Category Rank",
+    placeholder: "e.g., 104 or 104P",
+  },
   fields: [
     {
       name: "category",
@@ -910,6 +973,10 @@ export const tseApertConfig = {
   name: "TGEAPCET",
   code: "TGEAPCET",
   searchKeys: ["institute_name", "branch_name", "place"],
+  primaryInput: integerInput(
+    "Enter TG EAPCET Rank",
+    "Enter TG EAPCET rank"
+  ),
   fields: [
     {
       name: "category",
@@ -997,6 +1064,7 @@ export const gujcetConfig = {
   name: "GUJCET",
   code: "GUJCET",
   searchKeys: ["College Name", "District", "Course"],
+  primaryInput: decimalInput("Enter Percentage Score", "e.g., 78.45"),
   fields: [
     {
       name: "category",

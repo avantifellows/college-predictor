@@ -51,6 +51,46 @@ export default async function handler(req, res) {
   }
 
   const config = examConfigs[exam];
+  const primaryInputConfig = config.primaryInput;
+  const queryValue =
+    exam === "JoSAA"
+      ? req.query.mainRank || req.query.rank
+      : req.query.rank;
+
+  if (
+    primaryInputConfig &&
+    queryValue !== undefined &&
+    queryValue !== null &&
+    queryValue !== ""
+  ) {
+    const numericValue = Number(queryValue);
+    if (Number.isNaN(numericValue)) {
+      return res
+        .status(400)
+        .json({ error: `Invalid value for ${exam} input parameter.` });
+    }
+
+    if (
+      primaryInputConfig.min !== undefined &&
+      numericValue < Number(primaryInputConfig.min)
+    ) {
+      return res.status(400).json({
+        error:
+          primaryInputConfig.max !== undefined
+            ? `Please enter a value between ${primaryInputConfig.min} and ${primaryInputConfig.max}.`
+            : `Please enter a value greater than or equal to ${primaryInputConfig.min}.`,
+      });
+    }
+
+    if (
+      primaryInputConfig.max !== undefined &&
+      numericValue > Number(primaryInputConfig.max)
+    ) {
+      return res.status(400).json({
+        error: `Please enter a value between ${primaryInputConfig.min} and ${primaryInputConfig.max}.`,
+      });
+    }
+  }
 
   // Check for required parameters
   for (const field of config.fields) {

@@ -1,7 +1,3 @@
-import React, { useEffect, useState, useCallback } from "react";
-import { useRouter } from "next/router";
-import getConstants from "../constants";
-import ScholarshipTable from "../components/ScholarshipTable";
 import Head from "next/head";
 import Fuse from "fuse.js";
 import { scholarshipConfig } from "../scholarshipConfig";
@@ -192,79 +188,15 @@ const ScholarshipFinder = () => {
     );
   };
 
+const ScholarshipsResultPage = () => {
   return (
     <>
       <Head>
-        <title>Scholarship Results - {getConstants().TITLE_SHORT}</title>
+        <title>Scholarships Reference - Home</title>
       </Head>
-      <div className="min-h-screen bg-gray-50 flex flex-col items-center pt-8 px-4">
-        <div className="w-full max-w-6xl bg-white shadow-xl rounded-lg p-6 md:p-8">
-          <h1 className="text-2xl sm:text-3xl font-bold text-center text-gray-800 mb-6">
-            {getConstants().SCHOLARSHIP_TITLE || "Scholarship Finder"}
-          </h1>
-
-          <div className="mb-6 p-4 border border-gray-200 rounded-md bg-gray-50">
-            <h2 className="text-xl font-semibold text-gray-700 mb-3 text-center sm:text-left">
-              Filter Options
-            </h2>
-            {renderQueryDetails()}
-          </div>
-
-          {!isLoading && !error && fullData.length > 0 && (
-            <div className="mb-6 p-4 border border-gray-200 rounded-md">
-              <label
-                htmlFor="scholarshipSearch"
-                className="block text-md font-semibold text-gray-700 mb-2"
-              >
-                Search within results (by Scholarship Name):
-              </label>
-              <input
-                type="text"
-                id="scholarshipSearch"
-                value={searchTerm}
-                onChange={handleSearchChange}
-                placeholder="Type to search scholarships..."
-                className="border border-gray-300 rounded w-full p-2 text-center focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              />
-            </div>
-          )}
-
-          {isLoading ? (
-            <div className="text-center py-10">
-              <p className="text-xl text-blue-600">Loading scholarships...</p>
-            </div>
-          ) : error ? (
-            <div className="text-center py-10 px-4">
-              <p className="text-xl text-red-600 bg-red-100 p-4 rounded-md">
-                {error}
-              </p>
-            </div>
-          ) : filteredData.length > 0 ? (
-            <>
-              <h3 className="text-lg md:text-xl mb-4 text-center font-bold">
-                Scholarships matching your criteria:
-              </h3>
-              <div className="w-full overflow-x-auto">
-                <ScholarshipTable
-                  filteredData={filteredData}
-                  toggleRowExpansion={toggleRowExpansion}
-                  expandedRows={expandedRows}
-                />
-              </div>
-            </>
-          ) : (
-            <div className="text-center py-10">
-              <p className="text-xl text-gray-600">
-                {fullData.length === 0 && !isLoading
-                  ? "No scholarships found for your current selection. Try adjusting the filters."
-                  : "No results match your search or filter criteria."}
-              </p>
-            </div>
-          )}
-        </div>
-      </div>
+      <ScholarshipReferenceBrowser />
     </>
   );
 };
 
-export default ScholarshipFinder;
+export default ScholarshipsResultPage;
