@@ -1,6 +1,7 @@
 import fs from "fs/promises";
 import examConfigs from "../../examConfig";
 import rateLimit from "express-rate-limit";
+import { classifyCollege } from "../../utils/ClassifyCollege";
 
 // Helper function to get client IP address
 const getIp = (req) => {
@@ -259,7 +260,33 @@ export default async function handler(req, res) {
       });
     }
 
-    return res.status(200).json(filteredData);
+    const getStudentRank = () => {
+      if (exam === "JEE Advanced") return parseFloat(req.query.advRank) || null;
+      if (exam === "JEE Main" || exam === "JoSAA") return parseFloat(req.query.mainRank) || null;
+      if (exam === "GUJCET") return null; // marks-based, not rank — skip classification
+      if (exam === "TNEA") return null;   // marks-based, not rank — skip classification
+      return parseFloat(req.query.rank) || null;
+    };
+
+    const studentRank = getStudentRank();
+
+    const classifiedData = filteredData.map((item) => {
+      const rawClosingRank =
+        item["Closing Rank"] ?? // JEE Main, JEE Advanced, JoSAA, NEET, KCET, MHT CET
+        item["closing_rank"] ?? // TGEAPCET
+        null;
+
+      return {
+        ...item,
+        admissionCategory: classifyCollege(
+          studentRank,
+          parseFloat(rawClosingRank) || null
+        ),
+      };
+    });
+
+    return res.status(200).json(classifiedData);
+
   } catch (error) {
     console.error("Error reading file:", error);
     res.status(500).json({

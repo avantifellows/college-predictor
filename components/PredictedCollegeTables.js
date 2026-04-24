@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { ArrowDown, ArrowUp, ArrowUpDown, Info } from "lucide-react";
 import PropTypes from "prop-types";
 import examConfigs from "../examConfig";
+import CollegeCategoryBadge from "./CollegeCategoryBadge";
 
 // Define fields for the expanded view
 const expandedFields = {
@@ -194,6 +195,9 @@ const PredictedCollegesTable = ({
   exam = "",
   searchTerm = "",
   onSearchChange = null,
+  activeCategory = "All",
+  onCategoryChange = null,
+
 }) => {
   const [expandedRows, setExpandedRows] = useState({});
   const [showAllRows, setShowAllRows] = useState(false); // State for showing all rows
@@ -538,6 +542,11 @@ const PredictedCollegesTable = ({
     return copy;
   }, [data, sortConfig, supportsSalarySort]);
 
+  const categoryFilteredData =
+    activeCategory === "All"
+      ? sortedData
+      : sortedData.filter((item) => item.admissionCategory === activeCategory);
+
   const getDisplayValue = (column, transformedItem) => {
     const rawValue = transformedItem[column.key];
     if (column.format) {
@@ -653,14 +662,17 @@ const PredictedCollegesTable = ({
           )}
         </th>
       ))}
+      <th className="px-4 py-3 border-b border-[#decac3] whitespace-nowrap">
+        Chance
+      </th>
       {supportsExpandedView && <th className="p-2">Actions</th>}
     </tr>
   );
 
   const renderTableBody = () => {
     const rowsToRender = showAllRows
-      ? sortedData
-      : sortedData.slice(0, ROWS_PER_PAGE_INITIAL);
+      ? categoryFilteredData
+      : categoryFilteredData.slice(0, ROWS_PER_PAGE_INITIAL);
 
     return rowsToRender.map((item, index) => {
       const transformedItem = transformData(item);
@@ -677,6 +689,9 @@ const PredictedCollegesTable = ({
                 {getDisplayValue(column, transformedItem)}
               </td>
             ))}
+            <td className="px-4 py-3 align-top">
+              <CollegeCategoryBadge category={item.admissionCategory} />
+            </td>
             {supportsExpandedView && (
               <td className="px-4 py-3">
                 <div className="flex justify-center">
@@ -767,8 +782,26 @@ const PredictedCollegesTable = ({
             )}
           </div>
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center lg:justify-end">
+            <div className="flex gap-2 flex-wrap">
+              {["All", "Safe", "Moderate", "Dream"].map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => {
+                    onCategoryChange?.(cat);
+                    setShowAllRows(false);
+                  }}
+                  className={`px-3 py-1 rounded-full text-xs font-semibold border transition-colors
+                    ${activeCategory === cat
+                      ? "bg-[#5b3a34] text-white border-[#5b3a34]"
+                      : "bg-white text-[#5b3a34] border-[#5b3a34] hover:bg-[#f5ece9]"
+                    }`}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
             <p className="text-sm text-[#5b3a34]">
-              Showing {sortedData.length.toLocaleString("en-IN")} matching
+              Showing {categoryFilteredData.length.toLocaleString("en-IN")} matching
               options.
             </p>
             <button
@@ -786,7 +819,7 @@ const PredictedCollegesTable = ({
           <tbody>{renderTableBody()}</tbody>
         </table>
       </div>
-      {data.length > ROWS_PER_PAGE_INITIAL &&
+      {categoryFilteredData.length > ROWS_PER_PAGE_INITIAL &&
         !showAllRows && ( // Conditional button rendering
           <div className="flex justify-center mt-4">
             <button
@@ -827,6 +860,8 @@ PredictedCollegesTable.propTypes = {
   exam: PropTypes.string.isRequired,
   searchTerm: PropTypes.string,
   onSearchChange: PropTypes.func,
+  activeCategory: PropTypes.string,
+  onCategoryChange: PropTypes.func,
 };
 
 export default PredictedCollegesTable;
