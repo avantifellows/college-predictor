@@ -30,16 +30,19 @@ const isReferenceClosed = (scholarship) => {
   return deadline < now;
 };
 
+const PAGE_SIZE = 20;
+
 const ScholarshipReferenceBrowser = () => {
   const [scholarships, setScholarships] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
   const [expandedRows, setExpandedRows] = useState({});
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     const loadScholarships = async () => {
       try {
-        const response = await fetch("/data/scholarships/scholarship_data.json");
+        const response = await fetch("/api/scholarship-data");
         const data = await response.json();
         const sortedData = [...data].sort((a, b) =>
           String(a["Scholarship Name"] || "").localeCompare(
@@ -63,11 +66,18 @@ const ScholarshipReferenceBrowser = () => {
   );
 
   const filteredScholarships = useMemo(() => {
+    setCurrentPage(1);
     if (!searchTerm.trim()) {
       return scholarships;
     }
     return fuseInstance.search(searchTerm.trim()).map((result) => result.item);
   }, [fuseInstance, scholarships, searchTerm]);
+
+  const totalPages = Math.ceil(filteredScholarships.length / PAGE_SIZE);
+  const paginatedScholarships = filteredScholarships.slice(
+    (currentPage - 1) * PAGE_SIZE,
+    currentPage * PAGE_SIZE
+  );
 
   const closedCount = useMemo(
     () => scholarships.filter((item) => isReferenceClosed(item)).length,
@@ -128,11 +138,46 @@ const ScholarshipReferenceBrowser = () => {
             Loading scholarship reference list...
           </div>
         ) : filteredScholarships.length > 0 ? (
-          <ScholarshipTable
-            filteredData={filteredScholarships}
-            toggleRowExpansion={toggleRowExpansion}
-            expandedRows={expandedRows}
-          />
+          <>
+            <ScholarshipTable
+              filteredData={paginatedScholarships}
+              toggleRowExpansion={toggleRowExpansion}
+              expandedRows={expandedRows}
+            />
+            {totalPages > 1 && (
+              <div className="flex items-center justify-between mt-4 px-1">
+                <p className="text-sm text-[#5b3a34]">
+                  Showing{" "}
+                  <span className="font-semibold">
+                    {(currentPage - 1) * PAGE_SIZE + 1}–
+                    {Math.min(currentPage * PAGE_SIZE, filteredScholarships.length)}
+                  </span>{" "}
+                  of{" "}
+                  <span className="font-semibold">{filteredScholarships.length}</span>{" "}
+                  scholarships
+                </p>
+                <div className="flex gap-2">
+                  <button
+                    onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+                    disabled={currentPage <= 1}
+                    className="px-4 py-2 text-sm rounded-md border border-[#d8c7c1] bg-white hover:bg-[#f8efec] disabled:opacity-40 disabled:cursor-not-allowed"
+                  >
+                    ← Prev
+                  </button>
+                  <span className="px-3 py-2 text-sm text-[#5b3a34]">
+                    Page {currentPage} of {totalPages}
+                  </span>
+                  <button
+                    onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+                    disabled={currentPage >= totalPages}
+                    className="px-4 py-2 text-sm rounded-md border border-[#d8c7c1] bg-white hover:bg-[#f8efec] disabled:opacity-40 disabled:cursor-not-allowed"
+                  >
+                    Next →
+                  </button>
+                </div>
+              </div>
+            )}
+          </>
         ) : (
           <div className="rounded-2xl border border-[#eaded8] bg-white px-6 py-12 text-center text-[#5b3a34] shadow-sm">
             No scholarships matched your search. Try a broader keyword.
