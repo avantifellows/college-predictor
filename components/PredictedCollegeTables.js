@@ -142,6 +142,16 @@ const expandedFields = {
   ],
 };
 
+// Keys treated as the card header (institute name + program) — excluded from the details grid
+const CARD_HEADER_KEYS = new Set([
+  "institute",
+  "institute_name",
+  "academic_program_name",
+  "branch_name",
+  "College Name",
+  "Course",
+]);
+
 const SALARY_HELP_TEXT =
   "Product of median salary and placement percentage of the graduating batch as reported by the college to NIRF. Data is reported as a college level aggregate";
 
@@ -196,12 +206,13 @@ const PredictedCollegesTable = ({
   onSearchChange = null,
 }) => {
   const [expandedRows, setExpandedRows] = useState({});
-  const [showAllRows, setShowAllRows] = useState(false); // State for showing all rows
+  const [showAllRows, setShowAllRows] = useState(false);
   const [sortConfig, setSortConfig] = useState({
     key: "closing_rank",
     order: "asc",
   });
   const [salaryTooltip, setSalaryTooltip] = useState(null);
+  const [viewMode, setViewMode] = useState("card");
 
   const toggleRowExpansion = (index) => {
     setExpandedRows((prev) => ({
@@ -737,6 +748,147 @@ const PredictedCollegesTable = ({
     );
   };
 
+  const renderCardSortBar = () => {
+    if (!supportsSalarySort) return null;
+    return (
+      <div className="mb-3 flex flex-wrap items-center gap-2 text-xs">
+        <span className="font-medium text-[#5b3a34]">Sort by:</span>
+        <button
+          type="button"
+          onClick={toggleRankSort}
+          className={`inline-flex items-center gap-1 rounded-lg border px-3 py-1.5 font-semibold transition ${
+            sortConfig?.key === rankColumnKey
+              ? "border-[#B52326] bg-[#B52326] text-white"
+              : "border-[#d8c7c1] bg-[#fffdfa] text-[#5b1f20] hover:border-[#b52326]"
+          }`}
+        >
+          Closing Rank {renderSortIcon(rankColumnKey)}
+        </button>
+        <button
+          type="button"
+          onClick={toggleSalarySort}
+          className={`inline-flex items-center gap-1 rounded-lg border px-3 py-1.5 font-semibold transition ${
+            sortConfig?.key === salaryColumnKey
+              ? "border-[#B52326] bg-[#B52326] text-white"
+              : "border-[#d8c7c1] bg-[#fffdfa] text-[#5b1f20] hover:border-[#b52326]"
+          }`}
+        >
+          Expected Salary {renderSortIcon(salaryColumnKey)}
+        </button>
+      </div>
+    );
+  };
+
+  const renderCardView = () => {
+    const columns = predicted_colleges_table_column;
+    const rowsToRender = showAllRows
+      ? sortedData
+      : sortedData.slice(0, ROWS_PER_PAGE_INITIAL);
+
+    const detailColumns = columns.filter((col) => !CARD_HEADER_KEYS.has(col.key));
+
+    const nameKey =
+      ["institute", "institute_name", "College Name"].find((k) =>
+        columns.some((c) => c.key === k)
+      ) || columns[0]?.key;
+
+    const programKey = ["academic_program_name", "branch_name", "Course"].find(
+      (k) => columns.some((c) => c.key === k)
+    );
+
+    return (
+      <>
+        {renderCardSortBar()}
+        <div className="grid gap-4 grid-cols-1 sm:grid-cols-2">
+          {rowsToRender.length === 0 && (
+            <div className="col-span-full rounded-xl border border-[#eaded8] bg-white px-4 py-6 text-center text-[#5b3a34]">
+              No matching colleges found.
+            </div>
+          )}
+          {rowsToRender.map((item, index) => {
+            const transformedItem = transformData(item);
+            const instituteName = transformedItem[nameKey] || "N/A";
+            const programName = programKey ? transformedItem[programKey] : null;
+            const fieldsForExpand =
+              expandedFields[exam] || expandedFields.DEFAULT;
+
+            return (
+              <div
+                key={index}
+                className="flex flex-col gap-3 rounded-xl border border-[#eaded8] bg-white p-4 shadow-sm"
+              >
+                {/* Card header */}
+                <div>
+                  <h3 className="text-sm font-semibold leading-snug text-[#2f2320]">
+                    {instituteName}
+                  </h3>
+                  {programName && (
+                    <p className="mt-1 text-xs text-[#5b3a34]">{programName}</p>
+                  )}
+                </div>
+
+                {/* Detail columns in 2-col grid */}
+                {detailColumns.length > 0 && (
+                  <div className="grid grid-cols-2 gap-x-4 gap-y-2 border-t border-[#eaded8] pt-3 text-xs">
+                    {detailColumns.map((column) => (
+                      <div key={column.key}>
+                        <p className="font-semibold text-[#8f2e31]">
+                          {column.label}
+                        </p>
+                        <p className="mt-0.5 text-[#332724]">
+                          {getDisplayValue(column, transformedItem)}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {/* Expand button */}
+                {supportsExpandedView && (
+                  <div className="border-t border-[#eaded8] pt-3">
+                    <button
+                      className="w-full rounded-lg bg-[#B52326] px-3 py-2 text-xs font-semibold text-white transition hover:bg-[#9E1F22]"
+                      onClick={() => toggleRowExpansion(index)}
+                    >
+                      {expandedRows[index] ? "Show Less" : "Show More"}
+                    </button>
+                  </div>
+                )}
+
+                {/* Expanded fields */}
+                {supportsExpandedView && expandedRows[index] && (
+                  <div className="grid grid-cols-2 gap-3 border-t border-[#eaded8] pt-3 text-xs">
+                    {fieldsForExpand.map((field, idx) => {
+                      const { key, format } = field;
+                      const raw =
+                        key in transformedItem ? transformedItem[key] : null;
+                      const displayVal =
+                        raw !== null &&
+                        raw !== undefined &&
+                        String(raw).trim() !== ""
+                          ? format
+                            ? format(raw)
+                            : String(raw)
+                          : "N/A";
+                      return (
+                        <div key={idx}>
+                          <p className="font-semibold text-[#8f2e31]">
+                            {field.label}
+                          </p>
+                          <p className="mt-0.5 text-[#332724]">{displayVal}</p>
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </>
+    );
+  };
+
   return (
     <div className="w-full">
       {salaryTooltip && (
@@ -771,6 +923,30 @@ const PredictedCollegesTable = ({
               Showing {sortedData.length.toLocaleString("en-IN")} matching
               options.
             </p>
+            <div className="flex gap-2 md:hidden">
+              <button
+                type="button"
+                onClick={() => setViewMode("card")}
+                className={`rounded-lg px-4 py-2 text-sm font-semibold transition ${
+                  viewMode === "card"
+                    ? "bg-[#B52326] text-white"
+                    : "border border-[#d8c7c1] bg-[#fffdfa] text-[#5b1f20] hover:border-[#b52326]"
+                }`}
+              >
+                Card View
+              </button>
+              <button
+                type="button"
+                onClick={() => setViewMode("table")}
+                className={`rounded-lg px-4 py-2 text-sm font-semibold transition ${
+                  viewMode === "table"
+                    ? "bg-[#B52326] text-white"
+                    : "border border-[#d8c7c1] bg-[#fffdfa] text-[#5b1f20] hover:border-[#b52326]"
+                }`}
+              >
+                Table View
+              </button>
+            </div>
             <button
               className="w-full rounded-lg bg-[#B52326] px-4 py-2 text-white hover:bg-[#9E1F22] sm:w-auto"
               onClick={downloadCsv}
@@ -780,23 +956,38 @@ const PredictedCollegesTable = ({
           </div>
         </div>
       )}
-      <div className="overflow-x-auto rounded-xl border border-[#eaded8] bg-white shadow-sm">
+      {/* Desktop: always table */}
+      <div className="hidden md:block overflow-x-auto rounded-xl border border-[#eaded8] bg-white shadow-sm">
         <table className={commonTableClass}>
           <thead>{renderTableHeader()}</thead>
           <tbody>{renderTableBody()}</tbody>
         </table>
       </div>
-      {data.length > ROWS_PER_PAGE_INITIAL &&
-        !showAllRows && ( // Conditional button rendering
-          <div className="flex justify-center mt-4">
-            <button
-              className="whitespace-nowrap rounded-lg bg-[#B52326] px-6 py-3 font-semibold text-white hover:bg-[#9E1F22]"
-              onClick={() => setShowAllRows(true)}
-            >
-              Show More Recommendations
-            </button>
+
+      {/* Mobile: card view or scrollable table based on viewMode */}
+      <div className="md:hidden">
+        {viewMode === "card" ? (
+          renderCardView()
+        ) : (
+          <div className="overflow-x-auto rounded-xl border border-[#eaded8] bg-white shadow-sm">
+            <table className={commonTableClass}>
+              <thead>{renderTableHeader()}</thead>
+              <tbody>{renderTableBody()}</tbody>
+            </table>
           </div>
         )}
+      </div>
+
+      {data.length > ROWS_PER_PAGE_INITIAL && !showAllRows && (
+        <div className="flex justify-center mt-4">
+          <button
+            className="whitespace-nowrap rounded-lg bg-[#B52326] px-6 py-3 font-semibold text-white hover:bg-[#9E1F22]"
+            onClick={() => setShowAllRows(true)}
+          >
+            Show More Recommendations
+          </button>
+        </div>
+      )}
     </div>
   );
 };
