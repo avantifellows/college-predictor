@@ -194,6 +194,7 @@ const PredictedCollegesTable = ({
   exam = "",
   searchTerm = "",
   onSearchChange = null,
+  totalCount = null,
 }) => {
   const [expandedRows, setExpandedRows] = useState({});
   const [showAllRows, setShowAllRows] = useState(false); // State for showing all rows
@@ -768,7 +769,7 @@ const PredictedCollegesTable = ({
           </div>
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center lg:justify-end">
             <p className="text-sm text-[#5b3a34]">
-              Showing {sortedData.length.toLocaleString("en-IN")} matching
+              Showing {(totalCount ?? sortedData.length).toLocaleString("en-IN")} matching
               options.
             </p>
             <button
@@ -826,6 +827,7 @@ PredictedCollegesTable.propTypes = {
   ),
   exam: PropTypes.string.isRequired,
   searchTerm: PropTypes.string,
+  totalCount: PropTypes.number,
   onSearchChange: PropTypes.func,
 };
 

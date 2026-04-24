@@ -46,6 +46,10 @@ export default async function handler(req, res) {
 
   const { exam, rank } = req.query;
 
+  // Pagination 
+  const page = Math.max(1, parseInt(req.query.page) || 1);
+  const limit = Math.min(100, Math.max(1, parseInt(req.query.limit) || 25));
+
   if (!exam || !examConfigs[exam]) {
     return res.status(400).json({ error: "Invalid or missing exam parameter" });
   }
@@ -259,7 +263,20 @@ export default async function handler(req, res) {
       });
     }
 
-    return res.status(200).json(filteredData);
+    const totalCount = filteredData.length;
+    const totalPages = Math.ceil(totalCount / limit);
+    const startIndex = (page - 1) * limit;
+    const paginatedData = filteredData.slice(startIndex, startIndex + limit);
+
+    return res.status(200).json({
+      data: paginatedData,
+      pagination: {
+        totalCount,
+        totalPages,
+        currentPage: page,
+        limit,
+      },
+    });
   } catch (error) {
     console.error("Error reading file:", error);
     res.status(500).json({

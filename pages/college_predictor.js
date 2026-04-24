@@ -116,6 +116,8 @@ const CollegePredictor = () => {
   const [currentExam, setCurrentExam] = useState(null);
   const [showSelectionDetails, setShowSelectionDetails] = useState(false);
   const [primaryInputError, setPrimaryInputError] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pagination, setPagination] = useState(null);
 
   useEffect(() => {
     // Initialize queryObject from router.query
@@ -188,16 +190,17 @@ const CollegePredictor = () => {
     }
   };
 
-  const fetchData = async (query) => {
+  const fetchData = async (query, page = 1) => {
     setIsLoading(true);
     setError(null);
     setSearchTerm("");
     try {
+      const cleanQuery = getCleanQueryObject(query);
       const params = new URLSearchParams(
-        Object.entries(getCleanQueryObject(query))
+        Object.entries({ ...cleanQuery, page, limit: 25 })
       );
       const queryString = params.toString();
-      if (queryString === "") {
+      if (!cleanQuery || Object.keys(cleanQuery).length === 0) {
         setIsLoading(false);
         return;
       }
@@ -218,16 +221,21 @@ const CollegePredictor = () => {
         }
         setFullData([]);
         setFilteredData([]);
+        setPagination(null);
       } else {
-        const data = await response.json();
+        const result = await response.json();
+        const data = result.data ?? result;
         setFullData(data);
         setFilteredData(data);
+        setPagination(result.pagination ?? null);
+        setCurrentPage(page);
         setError(null);
       }
     } catch (error) {
       console.error("Error fetching data:", error);
       setError("Failed to fetch college predictions. Please try again.");
       setFilteredData([]);
+      setPagination(null);
     } finally {
       setIsLoading(false);
     }
@@ -1083,7 +1091,41 @@ const CollegePredictor = () => {
                 exam={queryObject.exam}
                 searchTerm={searchTerm}
                 onSearchChange={handleSearchChange}
+                totalCount={pagination?.totalCount ?? filteredData.length}
               />
+              {pagination && pagination.totalPages > 1 && (
+                <div className="flex items-center justify-between mt-4 px-2">
+                  <p className="text-sm text-gray-600">
+                    Showing{" "}
+                    <span className="font-semibold">
+                      {(currentPage - 1) * pagination.limit + 1}–
+                      {Math.min(currentPage * pagination.limit, pagination.totalCount)}
+                    </span>{" "}
+                    of{" "}
+                    <span className="font-semibold">{pagination.totalCount}</span>{" "}
+                    results
+                  </p>
+                  <div className="flex gap-2">
+                    <button
+                      onClick={() => fetchData(queryObject, currentPage - 1)}
+                      disabled={currentPage <= 1}
+                      className="px-4 py-2 text-sm rounded-md border border-gray-300 bg-white hover:bg-gray-50 disabled:opacity-40 disabled:cursor-not-allowed"
+                    >
+                      ← Prev
+                    </button>
+                    <span className="px-3 py-2 text-sm text-gray-700">
+                      Page {currentPage} of {pagination.totalPages}
+                    </span>
+                    <button
+                      onClick={() => fetchData(queryObject, currentPage + 1)}
+                      disabled={currentPage >= pagination.totalPages}
+                      className="px-4 py-2 text-sm rounded-md border border-gray-300 bg-white hover:bg-gray-50 disabled:opacity-40 disabled:cursor-not-allowed"
+                    >
+                      Next →
+                    </button>
+                  </div>
+                </div>
+              )}
             </>
           ) : (
             <div className="text-center py-10">
