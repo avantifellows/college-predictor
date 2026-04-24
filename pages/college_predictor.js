@@ -116,6 +116,7 @@ const CollegePredictor = () => {
   const [currentExam, setCurrentExam] = useState(null);
   const [showSelectionDetails, setShowSelectionDetails] = useState(false);
   const [primaryInputError, setPrimaryInputError] = useState("");
+  const [activeCategory, setActiveCategory] = useState("All");
 
   useEffect(() => {
     // Initialize queryObject from router.query
@@ -222,6 +223,7 @@ const CollegePredictor = () => {
         const data = await response.json();
         setFullData(data);
         setFilteredData(data);
+        setActiveCategory("All");
         setError(null);
       }
     } catch (error) {
@@ -1083,6 +1085,8 @@ const CollegePredictor = () => {
                 exam={queryObject.exam}
                 searchTerm={searchTerm}
                 onSearchChange={handleSearchChange}
+                activeCategory={activeCategory}
+                onCategoryChange={setActiveCategory}
               />
             </>
           ) : (
