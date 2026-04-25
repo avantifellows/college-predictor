@@ -4,48 +4,48 @@ import Select from "react-select";
 const customStyles = {
   control: (provided, state) => ({
     ...provided,
-    minHeight: "48px",
-    borderRadius: "0.75rem",
-    borderColor: state.isFocused ? "#b52326" : "#d8c7c1",
-    backgroundColor: "#fffdfa",
+    minHeight: "46px",
+    borderRadius: "0.9rem",
+    borderColor: state.isFocused ? "var(--brand)" : "var(--stroke)",
+    backgroundColor: "var(--surface)",
     boxShadow: state.isFocused
-      ? "0 0 0 3px rgba(181, 35, 38, 0.12)"
-      : "0 1px 2px 0 rgba(47, 35, 32, 0.05)",
+      ? "0 0 0 3px rgba(182, 58, 48, 0.16)"
+      : "0 1px 2px 0 rgba(15, 23, 42, 0.06)",
     "&:hover": {
-      borderColor: "#b52326",
+      borderColor: "var(--brand)",
     },
   }),
   option: (provided, state) => ({
     ...provided,
     padding: "0.75rem 1rem",
-    color: state.isSelected ? "white" : "#332724",
+    color: state.isSelected ? "white" : "var(--text)",
     backgroundColor: state.isSelected
-      ? "#b52326"
+      ? "var(--brand)"
       : state.isFocused
-      ? "#f8efec"
+      ? "var(--bg-soft)"
       : "white",
     "&:active": {
-      backgroundColor: state.isSelected ? "#9e1f22" : "#f3dfd9",
+      backgroundColor: state.isSelected ? "var(--brand-strong)" : "var(--bg-soft)",
     },
   }),
   menu: (provided) => ({
     ...provided,
-    borderRadius: "0.75rem",
+    borderRadius: "0.95rem",
     overflow: "hidden",
-    boxShadow: "0 10px 30px rgba(47, 35, 32, 0.12)",
-    border: "1px solid #eaded8",
+    boxShadow: "0 14px 32px rgba(15, 23, 42, 0.12)",
+    border: "1px solid #e2e8f0",
   }),
   singleValue: (provided) => ({
     ...provided,
-    color: "#2f2320",
+    color: "#111827",
   }),
   input: (provided) => ({
     ...provided,
-    color: "#2f2320",
+    color: "#111827",
   }),
   placeholder: (provided) => ({
     ...provided,
-    color: "#7a6159",
+    color: "var(--text-muted)",
   }),
 };
 

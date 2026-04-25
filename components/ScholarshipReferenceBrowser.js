@@ -82,23 +82,26 @@ const ScholarshipReferenceBrowser = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#fdf8f6] px-4 py-8">
-      <div className="mx-auto w-full max-w-6xl">
-        <div className="mb-6 rounded-2xl border border-[#eaded8] bg-white p-6 shadow-sm">
-          <h1 className="text-2xl sm:text-3xl font-bold text-[#2f2320]">
+    <div className="flex min-h-[calc(100vh-138px)] flex-col pb-12 pt-6 sm:pt-8">
+      <div className="app-page w-full max-w-6xl">
+        <div className="glass-card mb-6 p-6">
+          <div className="mb-3 inline-flex rounded-full border border-[var(--stroke)] bg-[var(--bg-soft)] px-3 py-1 text-xs font-semibold text-[var(--text-muted)]">
+            Scholarship Discovery
+          </div>
+          <h1 className="text-2xl font-bold text-[#0f172a] sm:text-3xl">
             Scholarship Reference List
           </h1>
-          <p className="mt-2 max-w-3xl text-sm sm:text-base text-[#5b3a34]">
+          <p className="mt-2 max-w-3xl text-sm text-[var(--text-muted)] sm:text-base">
             This is a reference list. Scholarships shown here should be treated
             as closed or deadline-passed.
           </p>
           {!isLoading && scholarships.length > 0 && (
-            <div className="mt-4 flex flex-wrap gap-2 text-sm text-[#5b3a34]">
-              <span className="rounded-full border border-[#e3d1cb] bg-[#fff7f4] px-3 py-1">
+            <div className="mt-4 flex flex-wrap gap-2 text-sm text-[var(--text-muted)]">
+              <span className="rounded-full border border-[var(--stroke)] bg-[var(--bg-soft)] px-3 py-1">
                 {scholarships.length.toLocaleString("en-IN")} scholarships in
                 the reference list
               </span>
-              <span className="rounded-full border border-[#f0c7c8] bg-[#fff1f1] px-3 py-1 text-[#8f2e31]">
+              <span className="rounded-full border border-[var(--accent-border)] bg-[var(--accent-soft)] px-3 py-1 text-[#9f2f2f]">
                 {closedCount.toLocaleString("en-IN")} currently closed or past
                 deadline
               </span>
@@ -106,10 +109,10 @@ const ScholarshipReferenceBrowser = () => {
           )}
         </div>
 
-        <div className="mb-6 rounded-2xl border border-[#eaded8] bg-white p-5 shadow-sm">
+        <div className="mb-6 rounded-2xl border border-[var(--stroke)] bg-[var(--surface)] p-5 shadow-sm">
           <label
             htmlFor="scholarship-search"
-            className="mb-2 block text-sm font-semibold text-[#5b1f20]"
+            className="mb-2 block text-sm font-semibold text-[#1e293b]"
           >
             Search by scholarship name, stream, state, or eligibility
           </label>
@@ -119,12 +122,12 @@ const ScholarshipReferenceBrowser = () => {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             placeholder="Try: engineering, girls scholarship, Maharashtra..."
-            className="w-full rounded-xl border border-[#d8c7c1] bg-[#fffdfa] px-4 py-3 text-sm text-[#2f2320] outline-none transition focus:border-[#b52326] focus:ring-2 focus:ring-[#f4d5d6]"
+            className="w-full rounded-xl border border-[var(--stroke)] bg-[var(--surface)] px-4 py-3 text-sm text-[var(--text)] outline-none transition focus:border-[var(--brand)] focus:ring-2 focus:ring-[rgba(182,58,48,0.22)]"
           />
         </div>
 
         {isLoading ? (
-          <div className="rounded-2xl border border-[#eaded8] bg-white px-6 py-12 text-center text-[#5b3a34] shadow-sm">
+          <div className="rounded-2xl border border-[var(--stroke)] bg-[var(--surface)] px-6 py-12 text-center text-[var(--text-muted)] shadow-sm">
             Loading scholarship reference list...
           </div>
         ) : filteredScholarships.length > 0 ? (
@@ -134,7 +137,7 @@ const ScholarshipReferenceBrowser = () => {
             expandedRows={expandedRows}
           />
         ) : (
-          <div className="rounded-2xl border border-[#eaded8] bg-white px-6 py-12 text-center text-[#5b3a34] shadow-sm">
+          <div className="rounded-2xl border border-[var(--stroke)] bg-[var(--surface)] px-6 py-12 text-center text-[var(--text-muted)] shadow-sm">
             No scholarships matched your search. Try a broader keyword.
           </div>
         )}

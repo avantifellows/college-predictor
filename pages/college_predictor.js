@@ -8,6 +8,7 @@ import examConfigs from "../examConfig";
 import dynamic from "next/dynamic";
 import TneaScoreCalculator from "../components/TneaScoreCalculator";
 import { debounce } from "lodash";
+import { ChevronRight } from "lucide-react"; // Added ChevronRight import
 
 // Dynamically import Dropdown with SSR disabled
 const Dropdown = dynamic(() => import("../components/dropdown"), {
@@ -555,14 +556,26 @@ const CollegePredictor = () => {
     const renderSelectionCard = (key, label, control, helperText) => (
       <div
         key={key}
-        className="rounded-xl border border-[#eaded8] bg-white px-4 py-3 shadow-sm"
+        className="rounded-2xl border border-[var(--stroke)] bg-[var(--surface)] p-4 shadow-sm"
       >
-        <label className="mb-2 block text-sm font-semibold text-[#332724]">
-          {label}
-        </label>
-        {control}
+        <div className="mb-3 flex items-start justify-between gap-3">
+          <div>
+            <label className="block text-sm font-semibold text-[var(--text)]">
+              {label}
+            </label>
+            <p className="mt-1 text-xs leading-5 text-[var(--text-muted)]">
+              Select the value that best matches your profile.
+            </p>
+          </div>
+          <span className="rounded-full border border-[var(--stroke)] bg-[var(--bg-soft)] px-2 py-1 text-[11px] font-semibold uppercase tracking-wide text-[var(--text-muted)]">
+            Filter
+          </span>
+        </div>
+        <div className="rounded-xl border border-[var(--stroke)] bg-[var(--bg-soft)] p-3">{control}</div>
         {helperText && (
-          <p className="mt-2 text-xs leading-5 text-[#6d5550]">{helperText}</p>
+          <p className="mt-3 text-xs leading-5 text-[var(--text-muted)]">
+            {helperText}
+          </p>
         )}
       </div>
     );
@@ -628,10 +641,10 @@ const CollegePredictor = () => {
                     e.preventDefault();
                   }
                 }}
-                className={`w-full rounded-xl border bg-[#fffdfa] px-4 py-3 text-left text-sm outline-none transition focus:ring-2 focus:ring-[#f4d5d6] sm:text-base ${
+                className={`w-full rounded-xl border bg-[var(--surface)] px-4 py-3 text-left text-sm outline-none transition focus:ring-2 focus:ring-[rgba(187,47,40,0.2)] sm:text-base ${
                   primaryInputError
                     ? "border-red-500 focus:border-red-500"
-                    : "border-[#d8c7c1] focus:border-[#b52326]"
+                    : "border-[#dfc8c3] focus:border-[#bb2f28]"
                 }`}
                 placeholder={getPrimaryInputConfig(queryObject.exam).placeholder}
               />
@@ -647,40 +660,98 @@ const CollegePredictor = () => {
 
     return (
       <div className="space-y-4">
-        <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3">
-          {selectionCards}
-          {primaryInputCard}
+        <div className="rounded-2xl border border-[var(--stroke)] bg-[var(--bg-soft)] px-4 py-4">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--text-muted)]">
+                Edit Filters
+              </p>
+              <h3 className="mt-1 text-base font-semibold text-[var(--text)]">
+                Update the inputs used for predictions
+              </h3>
+            </div>
+            <p className="text-sm text-[var(--text-muted)]">
+              Every field below is aligned to keep the form easy to scan.
+            </p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 gap-4 xl:grid-cols-12">
+          <div className="xl:col-span-4">
+            <div className="sticky top-4 rounded-2xl border border-[var(--stroke)] bg-[var(--surface)] p-4 shadow-sm">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--text-muted)]">
+                Current context
+              </p>
+              <div className="mt-3 space-y-3">
+                <div className="rounded-xl border border-[var(--stroke)] bg-[var(--bg-soft)] px-3 py-2">
+                  <p className="text-[11px] font-semibold uppercase tracking-wide text-[var(--text-muted)]">
+                    Exam
+                  </p>
+                  <p className="mt-1 text-sm font-semibold text-[var(--text)]">
+                    {queryObject.exam || "Not selected"}
+                  </p>
+                </div>
+                <div className="rounded-xl border border-[var(--stroke)] bg-[var(--bg-soft)] px-3 py-2">
+                  <p className="text-[11px] font-semibold uppercase tracking-wide text-[var(--text-muted)]">
+                    Active filters
+                  </p>
+                  <p className="mt-1 text-sm font-semibold text-[var(--text)]">
+                    {selectionCards.length + (primaryInputCard ? 1 : 0)} fields
+                  </p>
+                </div>
+                <div className="rounded-xl border border-[var(--stroke)] bg-[var(--bg-soft)] px-3 py-2">
+                  <p className="text-[11px] font-semibold uppercase tracking-wide text-[var(--text-muted)]">
+                    Mode
+                  </p>
+                  <p className="mt-1 text-sm font-semibold text-[var(--text)]">
+                    {queryObject.exam === "JoSAA"
+                      ? rankMode === "estimate"
+                        ? "Estimate"
+                        : "Known"
+                      : "Direct input"}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="xl:col-span-8">
+            <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+              {selectionCards}
+              {primaryInputCard}
+            </div>
+          </div>
         </div>
 
         {queryObject.exam === "JoSAA" && (
           <>
-            <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3">
+            <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-3">
               {renderSelectionCard(
                 "rankMode",
-                "Do you want rank prediction?",
+                "Rank mode",
                 <div className="flex w-full justify-center">
-                  <div className="inline-flex w-full overflow-hidden rounded-xl border border-[#d8c7c1]">
+                  <div className="inline-flex w-full overflow-hidden rounded-xl border border-[var(--stroke)] bg-[var(--surface)]">
                     <button
                       type="button"
                       onClick={() => handleRankModeChange("estimate")}
                       className={`flex-1 px-4 py-2 text-sm ${
                         rankMode === "estimate"
-                          ? "bg-[#B52326] text-white"
-                          : "bg-white text-gray-700"
+                          ? "bg-[var(--brand)] text-[var(--brand-contrast)]"
+                          : "bg-[var(--surface)] text-[var(--text-muted)]"
                       }`}
                     >
-                      Yes, estimate rank
+                      Estimate
                     </button>
                     <button
                       type="button"
                       onClick={() => handleRankModeChange("known")}
                       className={`flex-1 px-4 py-2 text-sm ${
                         rankMode === "known"
-                          ? "bg-[#B52326] text-white"
-                          : "bg-white text-gray-700"
+                          ? "bg-[var(--brand)] text-[var(--brand-contrast)]"
+                          : "bg-[var(--surface)] text-[var(--text-muted)]"
                       }`}
                     >
-                      No, I know my rank
+                      Known rank
                     </button>
                   </div>
                 </div>
@@ -692,6 +763,7 @@ const CollegePredictor = () => {
               ) && (
                 renderSelectionCard(
                   "qualifiedJeeAdv",
+                  "JEE Advanced qualification",
                   examConfig.fields.find(
                     (field) => field.name === "qualifiedJeeAdv"
                   ).label,
@@ -720,14 +792,14 @@ const CollegePredictor = () => {
                     "Enter JEE Main percentile",
                 <div className="flex flex-col gap-3">
                   <div className="flex w-full justify-center">
-                    <div className="inline-flex w-full overflow-hidden rounded-xl border border-[#d8c7c1]">
+                    <div className="inline-flex w-full overflow-hidden rounded-xl border border-[var(--stroke)] bg-[var(--surface)]">
                       <button
                         type="button"
                         onClick={() => handleEstimateInputTypeChange("marks")}
                         className={`flex-1 px-4 py-2 text-sm ${
                           estimateInputType === "marks"
-                            ? "bg-[#B52326] text-white"
-                            : "bg-white text-gray-700"
+                            ? "bg-[var(--brand)] text-[var(--brand-contrast)]"
+                            : "bg-[var(--surface)] text-[var(--text-muted)]"
                         }`}
                       >
                         Marks
@@ -739,8 +811,8 @@ const CollegePredictor = () => {
                         }
                         className={`flex-1 px-4 py-2 text-sm ${
                           estimateInputType === "percentile"
-                            ? "bg-[#B52326] text-white"
-                            : "bg-white text-gray-700"
+                            ? "bg-[var(--brand)] text-[var(--brand-contrast)]"
+                            : "bg-[var(--surface)] text-[var(--text-muted)]"
                         }`}
                       >
                         Percentile
@@ -763,10 +835,10 @@ const CollegePredictor = () => {
                             e.preventDefault();
                           }
                         }}
-                        className={`w-full rounded-xl border bg-[#fffdfa] px-4 py-3 text-center outline-none transition focus:ring-2 focus:ring-[#f4d5d6] ${
+                        className={`w-full rounded-xl border bg-[var(--surface)] px-4 py-3 text-center outline-none transition focus:ring-2 focus:ring-[rgba(182,58,48,0.18)] ${
                           marksError
                             ? "border-red-500 focus:border-red-500"
-                            : "border-[#d8c7c1] focus:border-[#b52326]"
+                            : "border-[var(--stroke)] focus:border-[var(--brand)]"
                         }`}
                         placeholder={
                           examConfig.estimateMarksInput?.placeholder ||
@@ -791,10 +863,10 @@ const CollegePredictor = () => {
                             e.preventDefault();
                           }
                         }}
-                        className={`w-full rounded-xl border bg-[#fffdfa] px-4 py-3 text-center outline-none transition focus:ring-2 focus:ring-[#f4d5d6] ${
+                        className={`w-full rounded-xl border bg-[var(--surface)] px-4 py-3 text-center outline-none transition focus:ring-2 focus:ring-[rgba(182,58,48,0.18)] ${
                           percentileError
                             ? "border-red-500 focus:border-red-500"
-                            : "border-[#d8c7c1] focus:border-[#b52326]"
+                            : "border-[var(--stroke)] focus:border-[var(--brand)]"
                         }`}
                         placeholder={
                           examConfig.estimatePercentileInput?.placeholder ||
@@ -818,7 +890,7 @@ const CollegePredictor = () => {
                         : percentileInput === "" || !!percentileError) ||
                       !queryObject.category
                     }
-                    className="w-full rounded-lg bg-[#B52326] px-4 py-2 text-white hover:bg-[#9E1F22] disabled:bg-gray-300 disabled:text-gray-600"
+                    className="accent-button w-full px-4 py-2 disabled:bg-slate-200 disabled:text-slate-500"
                   >
                     {isEstimating ? "Estimating..." : "Estimate Rank"}
                   </button>
@@ -874,9 +946,8 @@ const CollegePredictor = () => {
                       e.preventDefault();
                     }
                   }}
-                  className="w-full rounded-xl border border-[#d8c7c1] bg-[#fffdfa] px-4 py-3 text-center outline-none transition focus:border-[#b52326] focus:ring-2 focus:ring-[#f4d5d6]"
+                  className="w-full rounded-xl border border-[var(--stroke)] bg-[var(--surface)] px-4 py-3 text-center outline-none transition focus:border-[var(--brand)] focus:ring-2 focus:ring-[rgba(182,58,48,0.18)]"
                   placeholder={
-                    examConfig.primaryInput?.placeholder ||
                     "Enter JEE Main category rank"
                   }
                 />
@@ -899,10 +970,10 @@ const CollegePredictor = () => {
                         e.preventDefault();
                       }
                     }}
-                    className={`w-full rounded-xl border bg-[#fffdfa] px-4 py-3 text-center outline-none transition focus:ring-2 focus:ring-[#f4d5d6] ${
+                    className={`w-full rounded-xl border bg-[var(--surface)] px-4 py-3 text-center outline-none transition focus:ring-2 focus:ring-[rgba(182,58,48,0.18)] ${
                       rankError
                         ? "border-red-500 focus:border-red-500"
-                        : "border-[#d8c7c1] focus:border-[#b52326]"
+                        : "border-[var(--stroke)] focus:border-[var(--brand)]"
                     }`}
                     placeholder={
                       examConfig.advancedInput?.placeholder ||
@@ -985,9 +1056,9 @@ const CollegePredictor = () => {
         {summaryItems.map((item) => (
           <span
             key={item.key}
-            className="inline-flex items-center gap-2 rounded-full border border-[#e3d1cb] bg-white px-3 py-1 text-xs text-[#5b3a34] sm:text-sm"
+            className="inline-flex items-center gap-2 rounded-full border border-[var(--stroke)] bg-[var(--bg-soft)] px-3 py-1 text-xs text-[var(--text-muted)] sm:text-sm"
           >
-            <span className="font-semibold text-[#7a2628]">{item.label}:</span>
+            <span className="font-semibold text-[var(--brand)]">{item.label}:</span>
             <span>{item.value}</span>
           </span>
         ))}
@@ -1005,16 +1076,12 @@ const CollegePredictor = () => {
       <Head>
         <title>College Predictor Results - {getConstants().TITLE_SHORT}</title>
       </Head>
-      <div className="min-h-screen bg-[#fdf8f6] flex flex-col items-center pt-8 px-4">
-        <div className="w-full max-w-6xl rounded-2xl border border-[#eaded8] bg-white p-6 shadow-sm md:p-8">
-          <h1 className="mb-2 text-center text-2xl font-bold text-[#2f2320] sm:text-3xl">
-            College Predictor Results
-          </h1>
-
+      <div className="flex min-h-[calc(100vh-138px)] flex-col pb-10 pt-5 sm:pt-7">
+        <div className="app-page w-full space-y-4">
           {/* TGEAPCET Disclaimer - Shows when EWS or OU is selected */}
           {showTSEAPERTDisclaimer && (
-            <div className="bg-red-50 border-l-4 border-red-400 p-4 mb-6 max-w-3xl mx-auto w-full">
-              <p className="text-red-700 text-sm">
+            <div className="section-shell border-[var(--accent-border)] bg-[var(--accent-soft)] p-4">
+              <p className="text-sm text-[#9f2f2f]">
                 {queryObject.category === "EWS" &&
                   "Showing OC category data as EWS-specific data is limited. "}
                 {queryObject.region === "OU" &&
@@ -1025,28 +1092,30 @@ const CollegePredictor = () => {
           )}
 
           {/* Query Details and Filters Section */}
-          <div className="mb-6 rounded-2xl border border-[#eaded8] bg-[#fffdfa] p-4 sm:p-5">
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+          <section className="section-shell p-4 sm:p-5">
+            <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
               <div className="space-y-3">
                 <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
-                  <h2 className="text-lg font-semibold text-[#5b1f20] text-center sm:text-left">
-                    Your Selection
+                  <h2 className="text-center text-lg font-semibold text-[var(--text)] sm:text-left">
+                    Selection Snapshot
                   </h2>
                   <div className="flex justify-center sm:justify-start">
-                    <span className="inline-flex rounded-full border border-[#e3d1cb] bg-white px-3 py-1 text-sm font-semibold text-[#8f2e31]">
-                      {queryObject.exam}
+                    <span className="inline-flex rounded-full border border-[var(--stroke)] bg-[var(--bg-soft)] px-3 py-1 text-sm font-semibold text-[var(--brand)]">
+                      {queryObject.exam || "Exam not chosen"}
                     </span>
                   </div>
                 </div>
+                <p className="max-w-3xl text-sm text-[var(--text-muted)] sm:text-base">
+                  These are the active filters driving your current result list. Use Edit Filters to change exam, category, rank, or any exam-specific options.
+                </p>
                 {renderSelectionSummary()}
                 {queryObject.exam === "JoSAA" &&
                   rankMode === "estimate" &&
                   estimatedRank &&
                   estimatedPercentile !== null && (
-                    <p className="text-sm text-[#6d5550]">
-                      Using JEE Main estimate only. Predicted percentile:{" "}
-                      <strong>{estimatedPercentile}</strong>.
-                    </p>
+                    <div className="rounded-xl border border-[var(--stroke)] bg-[var(--bg-soft)] px-4 py-3 text-sm text-[var(--text-muted)]">
+                      Using the JEE Main estimate flow. Predicted percentile: <strong className="text-[var(--brand)]">{estimatedPercentile}</strong>, predicted category rank: <strong className="text-[var(--brand)]">{estimatedRank}</strong>.
+                    </div>
                   )}
               </div>
               <div className="flex justify-center sm:justify-end">
@@ -1055,27 +1124,28 @@ const CollegePredictor = () => {
                   onClick={() =>
                     setShowSelectionDetails((currentValue) => !currentValue)
                   }
-                  className="inline-flex rounded-full border border-[#d8c7c1] bg-white px-4 py-2 text-sm font-semibold text-[#7a2628] transition hover:bg-[#f8efec]"
+                  className="inline-flex items-center gap-1 rounded-full px-1 py-1 text-sm font-medium text-[var(--text-muted)] transition hover:text-[var(--text)] hover:underline"
                 >
+                  <ChevronRight size={14} className={showSelectionDetails ? "rotate-90 transition-transform" : "transition-transform"} />
                   {showSelectionDetails ? "Hide Filters" : "Edit Filters"}
                 </button>
               </div>
             </div>
             {showSelectionDetails && (
-              <div className="mt-4">{renderQueryDetails()}</div>
+              <div className="mt-4 subtle-divider pt-4">{renderQueryDetails()}</div>
             )}
-          </div>
+          </section>
 
           {isLoading ? (
-            <div className="text-center py-10">
-              <p className="text-xl text-[#8f2e31]">Loading predictions...</p>
-            </div>
+            <section className="section-shell py-12 text-center">
+              <p className="text-xl text-[var(--text)]">Loading predictions...</p>
+            </section>
           ) : error ? (
-            <div className="text-center py-10 px-4">
-              <p className="text-xl text-red-600 bg-red-100 p-4 rounded-md">
+            <section className="section-shell px-4 py-10 text-center">
+              <p className="rounded-md bg-[var(--accent-soft)] p-4 text-xl text-[#b91c1c]">
                 {error}
               </p>
-            </div>
+            </section>
           ) : filteredData.length > 0 ? (
             <>
               <PredictedCollegeTables
@@ -1086,13 +1156,13 @@ const CollegePredictor = () => {
               />
             </>
           ) : (
-            <div className="text-center py-10">
-              <p className="text-xl text-gray-600">
+            <section className="section-shell py-12 text-center">
+              <p className="text-xl text-[var(--text-muted)]">
                 {fullData.length === 0 && !isLoading
                   ? "No predictions available for your current selection. Try adjusting the filters."
                   : "No results match your search term."}
               </p>
-            </div>
+            </section>
           )}
         </div>
       </div>

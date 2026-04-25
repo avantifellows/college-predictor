@@ -7,38 +7,41 @@ import { usePathname } from "next/navigation";
 // Renders Navbar as General Component
 const Navbar = ({ item1, item2 }) => {
   const pathname = usePathname();
+  const isScholarshipsRoute =
+    pathname === "/scholarships" || pathname === "/scholarships_result";
+
   return (
-    <div className="border-b border-[#eaded8] bg-white shadow-sm">
-      <div className="flex flex-row items-center justify-between px-4 py-1.5 md:px-8">
-        <div className="relative h-8 w-28 md:h-10 md:w-36">
+    <header className="sticky top-0 z-40 border-b border-[#e2e8f0] bg-white/96 backdrop-blur-sm">
+      <div className="app-page flex items-center justify-between gap-4 py-3">
+        <div className="relative h-8 w-28 sm:h-9 sm:w-32 md:h-10 md:w-36">
           <Link href="/">
             <img
               src="https://cdn.avantifellows.org/af_logos/avanti_logo_black_text.webp"
               alt="Avanti Fellows logo"
-              className="h-full w-full object-contain cursor-pointer"
+              className="h-full w-full cursor-pointer object-contain"
             />
           </Link>
         </div>
 
-        <div className="flex gap-1.5">
+        <div className="hidden items-center gap-2.5 sm:flex">
           <SocialIcon socialLink={"https://www.facebook.com/avantifellows"}>
-            <Facebook color="#fff" fill="#fff" strokeWidth="0.1" />
+            <Facebook size={16} color="#fff" fill="#fff" strokeWidth="0.4" />
           </SocialIcon>
           <SocialIcon socialLink={"https://www.instagram.com/avantifellows"}>
-            <Instagram color="#fff" />
+            <Instagram size={16} color="#fff" />
           </SocialIcon>
         </div>
       </div>
-      <div className="w-full bg-[#B52326] px-4 py-2 text-white md:px-8">
-        <div className="mx-auto grid max-w-6xl grid-cols-[1fr_auto_1fr] items-center gap-2">
-          <div />
-          <div className="flex flex-wrap items-center justify-center gap-2">
+
+      <div className="border-t border-[#e2e8f0] bg-white">
+        <div className="app-page flex flex-wrap items-center justify-between gap-2 py-2.5">
+          <div className="flex flex-wrap items-center gap-2">
             <Link
               href="/"
               className={`rounded-full px-3 py-1.5 text-sm font-semibold transition ${
                 pathname === "/"
-                  ? "bg-white/20"
-                  : "hover:bg-white/10 cursor-pointer"
+                  ? "bg-[#b63a30] text-white"
+                  : "text-[#475569] hover:bg-[#f8fafc]"
               }`}
             >
               {item1}
@@ -46,17 +49,18 @@ const Navbar = ({ item1, item2 }) => {
             <Link
               href="/scholarships"
               className={`rounded-full px-3 py-1.5 text-sm font-semibold transition ${
-                pathname === "/scholarships"
-                  ? "bg-white/20"
-                  : "hover:bg-white/10 cursor-pointer"
+                isScholarshipsRoute
+                  ? "bg-[#b63a30] text-white"
+                  : "text-[#475569] hover:bg-[#f8fafc]"
               }`}
             >
               {item2}
             </Link>
           </div>
+
           <Link
             href="https://cv-generator.avantifellows.org/"
-            className="ml-auto inline-flex shrink-0 items-center justify-center rounded-full bg-white px-3 py-1.5 text-sm font-semibold text-black transition hover:bg-[#f8efec]"
+            className="inline-flex shrink-0 items-center justify-center rounded-full border border-[#d1d5db] bg-white px-3 py-1.5 text-sm font-semibold text-[#b63a30] transition hover:border-[#b63a30] hover:bg-[#f8fafc]"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -64,7 +68,7 @@ const Navbar = ({ item1, item2 }) => {
           </Link>
         </div>
       </div>
-    </div>
+    </header>
   );
 };
 
@@ -72,7 +76,9 @@ const SocialIcon = ({ children, socialLink }) => {
   return (
     <a
       href={socialLink}
-      className="flex h-7 w-7 items-center justify-center rounded-full bg-[#B52326]"
+      className="flex h-8 w-8 items-center justify-center rounded-full bg-[#b63a30] shadow-sm transition hover:scale-105 hover:bg-[#9e3128]"
+      target="_blank"
+      rel="noopener noreferrer"
     >
       {children}
     </a>
