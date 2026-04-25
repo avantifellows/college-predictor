@@ -57,8 +57,8 @@ const TneaScoreCalculator = ({
 
   return (
     <>
-      <div className="my-4 w-full sm:w-3/4">
-        <label className="mb-2 block text-left text-md font-semibold text-gray-700">
+      <div className="my-4 w-full rounded-2xl border border-[#e2e8f0] bg-white p-4 shadow-sm sm:w-3/4">
+        <label className="mb-2 block text-left text-sm font-semibold text-[#1f2937]">
           Enter your Physics marks out of 100
         </label>
         <input
@@ -68,12 +68,12 @@ const TneaScoreCalculator = ({
           max="100"
           value={physicsMarks}
           onChange={handleInputChange(setPhysicsMarks)}
-          className="w-full rounded-xl border border-[#d8c7c1] bg-[#fffdfa] p-3 text-center outline-none transition focus:border-[#b52326] focus:ring-2 focus:ring-[#f4d5d6]"
+          className="ui-field text-center"
           placeholder="Enter Physics marks (0-100)"
         />
       </div>
-      <div className="my-4 w-full sm:w-3/4">
-        <label className="mb-2 block text-left text-md font-semibold text-gray-700">
+      <div className="my-4 w-full rounded-2xl border border-[#e2e8f0] bg-white p-4 shadow-sm sm:w-3/4">
+        <label className="mb-2 block text-left text-sm font-semibold text-[#1f2937]">
           Enter your Chemistry marks out of 100
         </label>
         <input
@@ -83,12 +83,12 @@ const TneaScoreCalculator = ({
           max="100"
           value={chemistryMarks}
           onChange={handleInputChange(setChemistryMarks)}
-          className="w-full rounded-xl border border-[#d8c7c1] bg-[#fffdfa] p-3 text-center outline-none transition focus:border-[#b52326] focus:ring-2 focus:ring-[#f4d5d6]"
+          className="ui-field text-center"
           placeholder="Enter Chemistry marks (0-100)"
         />
       </div>
-      <div className="my-4 w-full sm:w-3/4">
-        <label className="mb-2 block text-left text-md font-semibold text-gray-700">
+      <div className="my-4 w-full rounded-2xl border border-[#e2e8f0] bg-white p-4 shadow-sm sm:w-3/4">
+        <label className="mb-2 block text-left text-sm font-semibold text-[#1f2937]">
           Enter your Mathematics marks out of 100
         </label>
         <input
@@ -98,22 +98,22 @@ const TneaScoreCalculator = ({
           max="100"
           value={mathsMarks}
           onChange={handleInputChange(setMathsMarks)}
-          className="w-full rounded-xl border border-[#d8c7c1] bg-[#fffdfa] p-3 text-center outline-none transition focus:border-[#b52326] focus:ring-2 focus:ring-[#f4d5d6]"
+          className="ui-field text-center"
           placeholder="Enter Mathematics marks (0-100)"
         />
       </div>
-      <div className="my-4 w-full sm:w-3/4">
-        <label className="mb-2 block text-left text-md font-semibold text-gray-700">
+      <div className="my-4 w-full rounded-2xl border border-[#e2e8f0] bg-white p-4 shadow-sm sm:w-3/4">
+        <label className="mb-2 block text-left text-sm font-semibold text-[#1f2937]">
           Composite Score (out of 200)
         </label>
         <input
           type="text"
           value={compositeScore}
           readOnly
-          className="w-full rounded-xl border border-[#d8c7c1] bg-[#f8efec] p-3 text-center"
+          className="w-full rounded-xl border border-[#d1d5db] bg-[#f8fafc] p-3 text-center text-[#111827]"
         />
         {!readOnlyRank && (
-          <p className="text-xs text-gray-600 mt-1">
+          <p className="mt-2 text-xs text-[#64748b]">
             Calculated automatically using the formula: (Physics × 0.5) +
             (Chemistry × 0.5) + Mathematics = Composite Score
           </p>

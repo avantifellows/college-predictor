@@ -171,7 +171,7 @@ const ExpandedRowComponent = ({ item, fields, exam, examColumnMapping }) => {
     <tr>
       <td
         colSpan={columns.length + 1}
-        className="border-b border-[#eaded8] bg-[#fffdfa] p-4"
+        className="border-b border-[var(--stroke)] bg-[var(--bg-soft)] p-4"
       >
         <div className="grid grid-cols-2 gap-4 text-sm">
           {fieldsToShow.map((field, idx) => (
@@ -187,7 +187,7 @@ const ExpandedRowComponent = ({ item, fields, exam, examColumnMapping }) => {
   );
 };
 
-const ROWS_PER_PAGE_INITIAL = 30; // Variable for initial rows
+const ROWS_PER_PAGE = 20;
 
 const PredictedCollegesTable = ({
   data = [],
@@ -196,7 +196,7 @@ const PredictedCollegesTable = ({
   onSearchChange = null,
 }) => {
   const [expandedRows, setExpandedRows] = useState({});
-  const [showAllRows, setShowAllRows] = useState(false); // State for showing all rows
+  const [currentPage, setCurrentPage] = useState(1);
   const [sortConfig, setSortConfig] = useState({
     key: "closing_rank",
     order: "asc",
@@ -224,9 +224,9 @@ const PredictedCollegesTable = ({
 
   const commonTableClass = "w-full min-w-[720px] border-collapse text-sm";
   const commonHeaderClass =
-    "bg-[#f8efec] text-[#5b1f20] font-semibold text-left text-xs sm:text-sm";
+    "bg-[var(--bg-soft)] text-[var(--text)] font-semibold text-left text-xs sm:text-sm";
   const commonCellClass =
-    "border-b border-[#eaded8] text-xs sm:text-sm text-[#332724]";
+    "border-b border-[var(--stroke)] text-xs sm:text-sm text-[var(--text)]";
 
   const isJosaaExam =
     exam === "JoSAA" || exam === "JEE Main-JOSAA" || exam === "JEE Advanced";
@@ -251,6 +251,11 @@ const PredictedCollegesTable = ({
     if (!supportsSalarySort) return;
     setSortConfig({ key: rankColumnKey, order: "asc" });
   }, [exam, data, supportsSalarySort, rankColumnKey]);
+
+  useEffect(() => {
+    setCurrentPage(1);
+    setExpandedRows({});
+  }, [data, exam, searchTerm, sortConfig.key, sortConfig.order]);
 
   const examColumnMapping = {
     TNEA: [
@@ -538,6 +543,19 @@ const PredictedCollegesTable = ({
     return copy;
   }, [data, sortConfig, supportsSalarySort]);
 
+  const totalRows = sortedData.length;
+  const totalPages = Math.max(1, Math.ceil(totalRows / ROWS_PER_PAGE));
+  const safeCurrentPage = Math.min(currentPage, totalPages);
+  const startIndex = (safeCurrentPage - 1) * ROWS_PER_PAGE;
+  const endIndex = startIndex + ROWS_PER_PAGE;
+  const paginatedData = sortedData.slice(startIndex, endIndex);
+
+  useEffect(() => {
+    if (currentPage !== safeCurrentPage) {
+      setCurrentPage(safeCurrentPage);
+    }
+  }, [currentPage, safeCurrentPage]);
+
   const getDisplayValue = (column, transformedItem) => {
     const rawValue = transformedItem[column.key];
     if (column.format) {
@@ -615,7 +633,7 @@ const PredictedCollegesTable = ({
       {predicted_colleges_table_column.map((column) => (
         <th
           key={column.key}
-          className="px-4 py-3 border-b border-[#decac3] whitespace-nowrap"
+          className="whitespace-nowrap border-b border-[var(--stroke)] px-4 py-3"
         >
           {supportsSalarySort && column.key === rankColumnKey ? (
             <button
@@ -642,7 +660,7 @@ const PredictedCollegesTable = ({
                 onMouseLeave={hideSalaryTooltip}
                 onFocus={showSalaryTooltip}
                 onBlur={hideSalaryTooltip}
-                className="inline-flex h-5 w-5 items-center justify-center rounded-full border border-[#d6b8ae] text-[#8f2e31] hover:bg-[#f8efec]"
+                className="inline-flex h-5 w-5 items-center justify-center rounded-full border border-[var(--stroke)] text-[var(--text-muted)] hover:bg-[var(--bg-soft)]"
                 aria-label="How expected salary is calculated"
               >
                 <Info size={12} />
@@ -658,18 +676,15 @@ const PredictedCollegesTable = ({
   );
 
   const renderTableBody = () => {
-    const rowsToRender = showAllRows
-      ? sortedData
-      : sortedData.slice(0, ROWS_PER_PAGE_INITIAL);
-
-    return rowsToRender.map((item, index) => {
+    return paginatedData.map((item, index) => {
       const transformedItem = transformData(item);
+      const absoluteIndex = startIndex + index;
 
       return (
         <React.Fragment key={index}>
           <tr
             className={`${commonCellClass} ${
-              index % 2 === 0 ? "bg-[#fffdfa]" : "bg-white"
+              absoluteIndex % 2 === 0 ? "bg-[#fcfdff]" : "bg-[var(--surface)]"
             }`}
           >
             {predicted_colleges_table_column.map((column) => (
@@ -681,16 +696,16 @@ const PredictedCollegesTable = ({
               <td className="px-4 py-3">
                 <div className="flex justify-center">
                   <button
-                    className="whitespace-nowrap rounded-lg bg-[#B52326] px-4 py-2 text-white hover:bg-[#9E1F22]"
-                    onClick={() => toggleRowExpansion(index)}
+                    className="accent-button whitespace-nowrap px-4 py-2"
+                    onClick={() => toggleRowExpansion(absoluteIndex)}
                   >
-                    {expandedRows[index] ? "Show Less" : "Show More"}
+                    {expandedRows[absoluteIndex] ? "Show Less" : "Show More"}
                   </button>
                 </div>
               </td>
             )}
           </tr>
-          {supportsExpandedView && expandedRows[index] && (
+          {supportsExpandedView && expandedRows[absoluteIndex] && (
             <ExpandedRowComponent
               item={transformedItem}
               fields={expandedFields}
@@ -703,17 +718,34 @@ const PredictedCollegesTable = ({
     });
   };
 
+  const getVisiblePageNumbers = () => {
+    if (totalPages <= 7) {
+      return Array.from({ length: totalPages }, (_, index) => index + 1);
+    }
+
+    const pages = [1];
+    const left = Math.max(2, safeCurrentPage - 1);
+    const right = Math.min(totalPages - 1, safeCurrentPage + 1);
+
+    if (left > 2) pages.push("ellipsis-left");
+    for (let page = left; page <= right; page += 1) pages.push(page);
+    if (right < totalPages - 1) pages.push("ellipsis-right");
+    pages.push(totalPages);
+
+    return pages;
+  };
+
   const renderLegend = () => {
     const examConfig = examConfigs[exam];
     if (!examConfig || !examConfig.legend) return null;
 
     if (isJosaaExam) {
       return (
-        <div className="mb-3 flex flex-wrap items-center gap-2 text-xs sm:text-sm text-[#5b3a34]">
-          <span className="inline-flex items-center rounded-full border border-[#e3d1cb] bg-[#fffdfa] px-3 py-1 font-medium">
+        <div className="mb-3 flex flex-wrap items-center gap-2 text-xs sm:text-sm text-[var(--text-muted)]">
+          <span className="inline-flex items-center rounded-full border border-[var(--stroke)] bg-[var(--bg-soft)] px-3 py-1 font-medium">
             Based on JoSAA 2024
           </span>
-          <span className="text-[#6d5550]">
+          <span className="text-[var(--text-muted)]">
             Home-state quota is used where applicable; other colleges use
             all-India or out-of-state cutoffs.
           </span>
@@ -722,14 +754,14 @@ const PredictedCollegesTable = ({
     }
 
     return (
-      <div className="mb-3 flex flex-wrap items-center gap-2 text-xs sm:text-sm text-[#5b3a34]">
-        <span className="font-semibold text-[#5b1f20]">Quota labels:</span>
+      <div className="mb-3 flex flex-wrap items-center gap-2 text-xs sm:text-sm text-[var(--text-muted)]">
+        <span className="font-semibold text-[var(--text)]">Quota labels:</span>
         {examConfig.legend.map((item, index) => (
           <span
             key={index}
-            className="inline-flex items-center gap-2 rounded-full border border-[#e3d1cb] bg-[#fffdfa] px-3 py-1"
+            className="inline-flex items-center gap-2 rounded-full border border-[var(--stroke)] bg-[var(--bg-soft)] px-3 py-1"
           >
-            <strong className="text-[#8f2e31]">{item.key}</strong>
+            <strong className="text-[var(--brand)]">{item.key}</strong>
             <span>{item.value}</span>
           </span>
         ))}
@@ -741,7 +773,7 @@ const PredictedCollegesTable = ({
     <div className="w-full">
       {salaryTooltip && (
         <div
-          className="pointer-events-none fixed z-50 w-72 rounded-xl border border-[#decac3] bg-white p-3 text-left text-xs font-normal leading-5 text-[#5b3a34] shadow-lg"
+          className="pointer-events-none fixed z-50 w-72 rounded-xl border border-[var(--stroke)] bg-[var(--surface)] p-3 text-left text-xs font-normal leading-5 text-[var(--text-muted)] shadow-lg"
           style={{
             top: `${Math.max(salaryTooltip.top, 12)}px`,
             left: `${Math.max(salaryTooltip.left, 12)}px`,
@@ -752,7 +784,7 @@ const PredictedCollegesTable = ({
       )}
       {renderLegend()}
       {data.length > 0 && (
-        <div className="mb-3 flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
+        <div className="mb-4 flex flex-col gap-3 rounded-2xl border border-[var(--stroke)] bg-[var(--surface)] p-4 shadow-sm lg:flex-row lg:items-end lg:justify-between">
           <div className="w-full max-w-md">
             {onSearchChange && (
               <input
@@ -761,18 +793,22 @@ const PredictedCollegesTable = ({
                 aria-label="Filter results by institute, state, or program"
                 value={searchTerm}
                 onChange={onSearchChange}
-                className="w-full rounded-xl border border-[#d8c7c1] bg-white px-4 py-3 text-left text-sm outline-none transition focus:border-[#b52326] focus:ring-2 focus:ring-[#f4d5d6] sm:text-base"
+                className="w-full rounded-xl border border-[var(--stroke)] bg-[var(--surface)] px-4 py-3 text-left text-sm outline-none transition focus:border-[var(--brand)] focus:ring-2 focus:ring-[rgba(182,58,48,0.18)] sm:text-base"
                 placeholder="Filter by institute, state, or program"
               />
             )}
           </div>
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-center lg:justify-end">
-            <p className="text-sm text-[#5b3a34]">
-              Showing {sortedData.length.toLocaleString("en-IN")} matching
-              options.
-            </p>
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-center lg:justify-end">
+            <div className="flex flex-wrap gap-2 text-xs sm:text-sm">
+              <span className="inline-flex items-center rounded-full border border-[var(--stroke)] bg-[var(--bg-soft)] px-3 py-1 text-[var(--text-muted)]">
+                {sortedData.length.toLocaleString("en-IN")} matching options
+              </span>
+              <span className="inline-flex items-center rounded-full border border-[var(--stroke)] bg-[var(--bg-soft)] px-3 py-1 text-[var(--text-muted)]">
+                Page {safeCurrentPage} of {totalPages}
+              </span>
+            </div>
             <button
-              className="w-full rounded-lg bg-[#B52326] px-4 py-2 text-white hover:bg-[#9E1F22] sm:w-auto"
+              className="accent-button w-full px-4 py-2 sm:w-auto"
               onClick={downloadCsv}
             >
               Download CSV
@@ -780,23 +816,57 @@ const PredictedCollegesTable = ({
           </div>
         </div>
       )}
-      <div className="overflow-x-auto rounded-xl border border-[#eaded8] bg-white shadow-sm">
+      <div className="overflow-x-auto rounded-2xl border border-[var(--stroke)] bg-[var(--surface)] shadow-sm">
         <table className={commonTableClass}>
           <thead>{renderTableHeader()}</thead>
           <tbody>{renderTableBody()}</tbody>
         </table>
       </div>
-      {data.length > ROWS_PER_PAGE_INITIAL &&
-        !showAllRows && ( // Conditional button rendering
-          <div className="flex justify-center mt-4">
+      {totalPages > 1 && (
+        <div className="mt-4 flex flex-col items-center justify-between gap-3 rounded-2xl border border-[var(--stroke)] bg-[var(--surface)] px-4 py-4 shadow-sm sm:flex-row">
+          <p className="text-sm text-[var(--text-muted)]">
+            Showing {startIndex + 1}-{Math.min(endIndex, totalRows)} of {totalRows.toLocaleString("en-IN")} results
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-2">
             <button
-              className="whitespace-nowrap rounded-lg bg-[#B52326] px-6 py-3 font-semibold text-white hover:bg-[#9E1F22]"
-              onClick={() => setShowAllRows(true)}
+              type="button"
+              onClick={() => setCurrentPage((page) => Math.max(1, page - 1))}
+              disabled={safeCurrentPage === 1}
+              className="rounded-lg border border-[var(--stroke)] bg-[var(--surface)] px-3 py-2 text-sm font-semibold text-[var(--text-muted)] transition hover:bg-[var(--bg-soft)] disabled:cursor-not-allowed disabled:text-slate-300"
             >
-              Show More Recommendations
+              Previous
+            </button>
+            {getVisiblePageNumbers().map((page) =>
+              typeof page === "string" ? (
+                <span key={page} className="px-2 text-sm text-[var(--text-muted)]">
+                  ...
+                </span>
+              ) : (
+                <button
+                  key={page}
+                  type="button"
+                  onClick={() => setCurrentPage(page)}
+                  className={`min-w-10 rounded-lg border px-3 py-2 text-sm font-semibold transition ${
+                    page === safeCurrentPage
+                      ? "border-[var(--brand)] bg-[var(--accent-soft)] text-[var(--brand)]"
+                      : "border-[var(--stroke)] bg-[var(--surface)] text-[var(--text-muted)] hover:bg-[var(--bg-soft)]"
+                  }`}
+                >
+                  {page}
+                </button>
+              )
+            )}
+            <button
+              type="button"
+              onClick={() => setCurrentPage((page) => Math.min(totalPages, page + 1))}
+              disabled={safeCurrentPage === totalPages}
+              className="rounded-lg border border-[var(--stroke)] bg-[var(--surface)] px-3 py-2 text-sm font-semibold text-[var(--text-muted)] transition hover:bg-[var(--bg-soft)] disabled:cursor-not-allowed disabled:text-slate-300"
+            >
+              Next
             </button>
           </div>
-        )}
+        </div>
+      )}
     </div>
   );
 };
