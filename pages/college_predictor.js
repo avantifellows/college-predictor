@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import { useRouter } from "next/router";
 import getConstants from "../constants";
 import PredictedCollegeTables from "../components/PredictedCollegeTables";
+import TableSkeleton from "../components/TableSkeleton";
 import Head from "next/head";
 import Fuse from "fuse.js";
 import examConfigs from "../examConfig";
@@ -1067,9 +1068,7 @@ const CollegePredictor = () => {
           </div>
 
           {isLoading ? (
-            <div className="text-center py-10">
-              <p className="text-xl text-[#8f2e31]">Loading predictions...</p>
-            </div>
+            <TableSkeleton />
           ) : error ? (
             <div className="text-center py-10 px-4">
               <p className="text-xl text-red-600 bg-red-100 p-4 rounded-md">
