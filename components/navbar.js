@@ -29,13 +29,13 @@ const Navbar = ({ item1, item2 }) => {
           </SocialIcon>
         </div>
       </div>
-      <div className="w-full bg-[#B52326] px-4 py-2 text-white md:px-8">
-        <div className="mx-auto grid max-w-6xl grid-cols-[1fr_auto_1fr] items-center gap-2">
-          <div />
-          <div className="flex flex-wrap items-center justify-center gap-2">
+      <div className="w-full bg-[#B52326] px-1 py-2 text-white md:px-8">
+        <div className="mx-auto flex max-w-6xl items-center justify-around md:grid md:grid-cols-[1fr_auto_1fr]">
+          <div className="hidden md:block" />
+          <div className="contents md:flex md:flex-wrap md:items-center md:justify-center md:gap-2">
             <Link
               href="/"
-              className={`rounded-full px-3 py-1.5 text-sm font-semibold transition ${
+              className={`whitespace-nowrap rounded-full px-2 py-1.5 text-sm font-semibold transition md:px-3 ${
                 pathname === "/"
                   ? "bg-white/20"
                   : "hover:bg-white/10 cursor-pointer"
@@ -45,7 +45,7 @@ const Navbar = ({ item1, item2 }) => {
             </Link>
             <Link
               href="/scholarships"
-              className={`rounded-full px-3 py-1.5 text-sm font-semibold transition ${
+              className={`rounded-full px-2 py-1.5 text-sm font-semibold transition whitespace-nowrap md:px-3 ${
                 pathname === "/scholarships"
                   ? "bg-white/20"
                   : "hover:bg-white/10 cursor-pointer"
@@ -56,7 +56,7 @@ const Navbar = ({ item1, item2 }) => {
           </div>
           <Link
             href="https://cv-generator.avantifellows.org/"
-            className="ml-auto inline-flex shrink-0 items-center justify-center rounded-full bg-white px-3 py-1.5 text-sm font-semibold text-black transition hover:bg-[#f8efec]"
+            className="inline-flex shrink-0 items-center justify-center whitespace-nowrap rounded-full bg-white px-2 py-1.5 text-sm font-semibold text-black transition hover:bg-[#f8efec] md:px-3 md:ml-auto"
             target="_blank"
             rel="noopener noreferrer"
           >
