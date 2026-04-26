@@ -9,8 +9,9 @@ const Navbar = ({ item1, item2 }) => {
   const pathname = usePathname();
   return (
     <div className="border-b border-[#eaded8] bg-white shadow-sm">
-      <div className="flex flex-row items-center justify-between px-4 py-1.5 md:px-8">
-        <div className="relative h-8 w-28 md:h-10 md:w-36">
+      {/* Top Section */}
+      <div className="flex items-center justify-between px-3 py-1.5 md:px-8">
+        <div className="relative h-7 w-20 md:h-10 md:w-36 shrink-0">
           <Link href="/">
             <img
               src="https://cdn.avantifellows.org/af_logos/avanti_logo_black_text.webp"
@@ -20,43 +21,47 @@ const Navbar = ({ item1, item2 }) => {
           </Link>
         </div>
 
-        <div className="flex gap-1.5">
+        <div className="flex gap-1">
           <SocialIcon socialLink={"https://www.facebook.com/avantifellows"}>
-            <Facebook color="#fff" fill="#fff" strokeWidth="0.1" />
+            <Facebook className="h-3.5 w-3.5 md:h-5 md:w-5 text-white"/>
           </SocialIcon>
           <SocialIcon socialLink={"https://www.instagram.com/avantifellows"}>
-            <Instagram color="#fff" />
+            <Instagram className="h-3.5 w-3.5 md:h-5 md:w-5 text-white"/>
           </SocialIcon>
         </div>
       </div>
-      <div className="w-full bg-[#B52326] px-4 py-2 text-white md:px-8">
-        <div className="mx-auto grid max-w-6xl grid-cols-[1fr_auto_1fr] items-center gap-2">
-          <div />
-          <div className="flex flex-wrap items-center justify-center gap-2">
+
+      {/* Bottom Section */}
+      <div className="w-full bg-[#B52326] px-2 py-2 text-white md:px-8">
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-1 flex-nowrap">
+          
+          <div className="flex items-center justify-center gap-1 min-w-0">
             <Link
               href="/"
-              className={`rounded-full px-3 py-1.5 text-sm font-semibold transition ${
+              className={`rounded-full px-2 py-1 text-[10px] md:text-sm font-semibold transition whitespace-nowrap ${
                 pathname === "/"
                   ? "bg-white/20"
-                  : "hover:bg-white/10 cursor-pointer"
+                  : "hover:bg-white/10"
               }`}
             >
               {item1}
             </Link>
+
             <Link
               href="/scholarships"
-              className={`rounded-full px-3 py-1.5 text-sm font-semibold transition ${
+              className={`rounded-full px-2 py-1 text-[10px] md:text-sm font-semibold transition whitespace-nowrap ${
                 pathname === "/scholarships"
                   ? "bg-white/20"
-                  : "hover:bg-white/10 cursor-pointer"
+                  : "hover:bg-white/10"
               }`}
             >
               {item2}
             </Link>
           </div>
+
           <Link
             href="https://cv-generator.avantifellows.org/"
-            className="ml-auto inline-flex shrink-0 items-center justify-center rounded-full bg-white px-3 py-1.5 text-sm font-semibold text-black transition hover:bg-[#f8efec]"
+            className="inline-flex shrink items-center justify-center rounded-full bg-white px-2 py-1 text-[10px] md:text-sm font-semibold text-black transition hover:bg-[#f8efec] whitespace-nowrap"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -72,7 +77,7 @@ const SocialIcon = ({ children, socialLink }) => {
   return (
     <a
       href={socialLink}
-      className="flex h-7 w-7 items-center justify-center rounded-full bg-[#B52326]"
+      className="flex h-7 w-7 md:h-8 md:w-8 items-center justify-center rounded-full bg-[#B52326]"
     >
       {children}
     </a>
