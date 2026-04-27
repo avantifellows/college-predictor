@@ -1104,6 +1104,61 @@ export const gujcetConfig = {
   getSort: () => [["closing_marks", "DESC"]], // Sort by closing_marks in descending order
 };
 
+export const wbjeeConfig = {
+  name: "WBJEE",
+  code: "WBJEE",
+  searchKeys: ["Institute", "State", "Academic Program Name"],
+  primaryInput: integerInput("Enter WBJEE Rank", "Enter your WBJEE rank"),
+  fields: [
+    {
+      name: "category",
+      label: "Select Category",
+      options: [
+        { value: "General", label: "General" },
+        { value: "OBC-A", label: "OBC (A)" },
+        { value: "OBC-B", label: "OBC (B)" },
+        { value: "SC", label: "SC" },
+        { value: "ST", label: "ST" },
+        { value: "PwD", label: "PwD" },
+      ],
+    },
+    {
+      name: "domicile",
+      label: "Domicile Status",
+      options: [
+        { value: "WB Domicile", label: "West Bengal Domicile" },
+        { value: "Non-WB Domicile", label: "Non-WB Domicile" },
+      ],
+    },
+    {
+      name: "gender",
+      label: "Gender",
+      options: [
+        { value: "Male", label: "Male" },
+        { value: "Female", label: "Female" },
+        { value: "Gender-Neutral", label: "Gender-Neutral" },
+      ],
+    },
+  ],
+  getDataPath: () => {
+    return path.join(process.cwd(), "public/data/WBJEE/wbjee_data.json");
+  },
+  getFilters: (query) => [
+    (item) => item.Category === query.category,
+    (item) => item.Domicile === query.domicile,
+    (item) => item.Gender === query.gender,
+    (item) => {
+      if (!query.rank) return true;
+      const closingRank = parseInt(item["Closing Rank"], 10);
+      const userRank = parseInt(query.rank, 10);
+      if (isNaN(closingRank) || isNaN(userRank)) return false;
+      if (closingRank <= 0) return false;
+      return closingRank >= userRank;
+    },
+  ],
+  getSort: () => [["Closing Rank", "ASC"]],
+};
+
 export const examConfigs = {
   "JoSAA": josaaConfig,
   "JEE Main-JOSAA": jeeMainJosaaConfig,
@@ -1116,6 +1171,7 @@ export const examConfigs = {
   "KCET": kcetConfig,
   "TNEA": tneaConfig,
   "TGEAPCET": tseApertConfig,
+  "WBJEE": wbjeeConfig,
 };
 
 export default examConfigs;
