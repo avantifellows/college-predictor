@@ -20,10 +20,15 @@ const getDisplayStatus = (item) => {
   return deadline < now ? "Closed" : rawStatus || "Status unavailable";
 };
 
+const APPLICATION_LINK_KEYS = [
+  "officialLink",
+  "Application Link",
+  "applyLink",
+  "link",
+];
+
 const resolveApplicationLink = (item) => {
-  const possibleKeys = ["officialLink", "Application Link", "applyLink", "link"];
-  
-  for (const key of possibleKeys) {
+  for (const key of APPLICATION_LINK_KEYS) {
     let link = item[key];
     if (typeof link === "string") {
       link = link.trim();
