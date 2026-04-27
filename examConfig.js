@@ -1153,7 +1153,7 @@ export const wbjeeConfig = {
       const userRank = parseInt(query.rank, 10);
       if (isNaN(closingRank) || isNaN(userRank)) return false;
       if (closingRank <= 0) return false;
-      return closingRank >= userRank;
+      return closingRank <= userRank;
     },
   ],
   getSort: () => [["Closing Rank", "ASC"]],
