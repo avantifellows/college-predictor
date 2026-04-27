@@ -15,8 +15,9 @@ from pathlib import Path
 
 # Sample WBJEE colleges with typical cutoff data
 # Based on major engineering institutions in West Bengal
+# Expanded dataset with better coverage for all genders and rank ranges
 WBJEE_COLLEGES = [
-    # Jadavpur University
+    # Jadavpur University - Gender Neutral
     {
         "College ID": "WBJEE-001",
         "Institute": "Jadavpur University",
@@ -26,6 +27,36 @@ WBJEE_COLLEGES = [
         "Domicile": "WB Domicile",
         "Gender": "Gender-Neutral",
         "Closing Rank": "500",
+        "Opening Rank": "1",
+        "Course Type": "Engineering",
+        "Exam": "WBJEE",
+        "Management Type": "Government"
+    },
+    # Jadavpur University - Female
+    {
+        "College ID": "WBJEE-001F",
+        "Institute": "Jadavpur University",
+        "Academic Program Name": "Computer Science and Engineering",
+        "State": "West Bengal",
+        "Category": "General",
+        "Domicile": "WB Domicile",
+        "Gender": "Female",
+        "Closing Rank": "400",
+        "Opening Rank": "1",
+        "Course Type": "Engineering",
+        "Exam": "WBJEE",
+        "Management Type": "Government"
+    },
+    # Jadavpur University - Male
+    {
+        "College ID": "WBJEE-001M",
+        "Institute": "Jadavpur University",
+        "Academic Program Name": "Computer Science and Engineering",
+        "State": "West Bengal",
+        "Category": "General",
+        "Domicile": "WB Domicile",
+        "Gender": "Male",
+        "Closing Rank": "450",
         "Opening Rank": "1",
         "Course Type": "Engineering",
         "Exam": "WBJEE",
