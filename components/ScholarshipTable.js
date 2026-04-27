@@ -33,7 +33,7 @@ const resolveApplicationLink = (item) => {
     if (typeof link === "string") {
       link = link.trim();
       if (link) {
-        if (!link.startsWith("http://") && !link.startsWith("https://")) {
+        if (!/^https?:\/\//i.test(link)) {
           return `https://${link}`;
         }
         return link;
