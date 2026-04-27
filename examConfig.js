@@ -1115,8 +1115,8 @@ export const wbjeeConfig = {
       label: "Select Category",
       options: [
         { value: "General", label: "General" },
-        { value: "OBC-A", label: "OBC (A)" },
-        { value: "OBC-B", label: "OBC (B)" },
+        { value: "OBC-A", label: "OBC-A" },
+        { value: "OBC-B", label: "OBC-B" },
         { value: "SC", label: "SC" },
         { value: "ST", label: "ST" },
         { value: "PwD", label: "PwD" },
@@ -1126,7 +1126,7 @@ export const wbjeeConfig = {
       name: "domicile",
       label: "Domicile Status",
       options: [
-        { value: "WB Domicile", label: "West Bengal Domicile" },
+        { value: "WB Domicile", label: "WB Domicile" },
         { value: "Non-WB Domicile", label: "Non-WB Domicile" },
       ],
     },
