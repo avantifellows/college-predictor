@@ -1104,6 +1104,71 @@ export const gujcetConfig = {
   getSort: () => [["closing_marks", "DESC"]], // Sort by closing_marks in descending order
 };
 
+export const wbjeeConfig = {
+  name: "WBJEE",
+  code: "WBJEE",
+  searchKeys: defaultSearchKeys,
+  primaryInput: integerInput("Enter WBJEE GMR Rank", "Enter WBJEE GMR rank"),
+  fields: [
+    {
+      name: "category",
+      label: "Select Category",
+      options: [
+        { value: "General", label: "General" },
+        { value: "SC", label: "SC" },
+        { value: "ST", label: "ST" },
+        { value: "OBC-A", label: "OBC-A" },
+        { value: "OBC-B", label: "OBC-B" },
+        { value: "EWS", label: "EWS" },
+        { value: "TFW", label: "TFW" },
+      ],
+    },
+    {
+      name: "gender",
+      label: "Select Gender",
+      options: [
+        { value: "Gender-Neutral", label: "Gender-Neutral" },
+        { value: "Female-Only", label: "Female-Only" },
+      ],
+    },
+    {
+      name: "homeState",
+      label: "Select Your Home State",
+      options: ["West Bengal", "Other"],
+    },
+  ],
+  legend: [
+    { key: "AI", value: "All India" },
+    { key: "HS", value: "Home State" },
+  ],
+  getDataPath: () => {
+    return path.join(process.cwd(), "public", "data", "WBJEE", "wbjee_data.json");
+  },
+  getFilters: (query) => [
+    (item) => item.Category === query.category,
+    (item) => {
+      // Home State filter
+      if (query.homeState === "West Bengal") {
+        return item.Quota === "HS" || item.Quota === "AI";
+      } else {
+        return item.Quota === "AI";
+      }
+    },
+    (item) => {
+      if (query.rank) {
+        const closingRank = parseInt(item["Closing Rank"], 10);
+        const userRank = parseInt(query.rank, 10);
+        if (!isNaN(closingRank) && !isNaN(userRank)) {
+          return closingRank >= 0.9 * userRank;
+        }
+      }
+
+      return true;
+    },
+  ],
+  getSort: () => [["Closing Rank", "ASC"]],
+};
+
 export const examConfigs = {
   "JoSAA": josaaConfig,
   "JEE Main-JOSAA": jeeMainJosaaConfig,
@@ -1116,6 +1181,7 @@ export const examConfigs = {
   "KCET": kcetConfig,
   "TNEA": tneaConfig,
   "TGEAPCET": tseApertConfig,
+  "WBJEE": wbjeeConfig,
 };
 
 export default examConfigs;
