@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import dynamic from "next/dynamic";
 import TneaScoreCalculator from "../components/TneaScoreCalculator";
+import { GraduationCap, Search, Award, TrendingUp, CheckCircle, ArrowRight } from "lucide-react";
 
 // Dynamically import Dropdown with SSR disabled
 const Dropdown = dynamic(() => import("../components/dropdown"), {
@@ -520,8 +521,53 @@ const ExamForm = () => {
       <Head>
         <title>College Predictor - Home</title>
       </Head>
-      <div className="flex min-h-[calc(100vh-120px)] flex-col">
-        <div className="mt-6 flex w-full flex-col items-center justify-start px-4 pb-10 sm:mt-8">
+      <div className="flex min-h-[calc(100vh-120px)] flex-col bg-[#fdf8f6]">
+        {/* Hero Section - Only show when no exam is selected */}
+        {!selectedExam && (
+          <div className="relative w-full overflow-hidden bg-white py-12 md:py-20">
+            <div className="mx-auto max-w-6xl px-4 md:px-8">
+              <div className="flex flex-col items-center gap-10 md:flex-row">
+                <div className="flex-1 text-center md:text-left">
+                  <span className="mb-4 inline-block rounded-full bg-[#f4d5d6] px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#b52326]">
+                    Welcome to Futures
+                  </span>
+                  <h2 className="mb-6 text-4xl font-extrabold leading-tight text-[#2f2320] md:text-5xl lg:text-6xl">
+                    Find Your Perfect <span className="text-[#b52326]">College</span> & <span className="text-[#b52326]">Scholarship</span>
+                  </h2>
+                  <p className="mb-8 text-lg text-[#6d5550] md:text-xl">
+                    Smart predictions for JoSAA, NEET, WBJEE, and more. Use our AI-powered tool to navigate your path to higher education.
+                  </p>
+                  <div className="flex flex-col justify-center gap-4 sm:flex-row md:justify-start">
+                    <button 
+                      onClick={() => document.getElementById('exam-selector').scrollIntoView({ behavior: 'smooth' })}
+                      className="group flex items-center justify-center gap-2 rounded-full bg-[#b52326] px-8 py-4 text-lg font-bold text-white transition hover:bg-[#9e1f22]"
+                    >
+                      Start Prediction <ArrowRight className="h-5 w-5 transition group-hover:translate-x-1" />
+                    </button>
+                    <button 
+                      onClick={() => router.push('/scholarships')}
+                      className="rounded-full border-2 border-[#b52326] px-8 py-4 text-lg font-bold text-[#b52326] transition hover:bg-[#b52326] hover:text-white"
+                    >
+                      Explore Scholarships
+                    </button>
+                  </div>
+                </div>
+                <div className="flex-1">
+                  <div className="relative h-[300px] w-full overflow-hidden rounded-3xl border-4 border-[#eaded8] shadow-2xl md:h-[400px]">
+                    <img
+                      src="/images/hero-predictor.png"
+                      alt="Hero Predictor"
+                      className="h-full w-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#2f2320]/40 to-transparent" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        <div id="exam-selector" className="flex w-full flex-col items-center justify-start px-4 pb-16 pt-8 sm:pt-12">
           <Script
             src="https://www.googletagmanager.com/gtag/js?id=G-FHGVRT52L7"
             strategy="afterInteractive"
@@ -898,6 +944,60 @@ const ExamForm = () => {
               </div>
             )}
           </div>
+
+          {/* Additional Content - Only show when no exam is selected */}
+          {!selectedExam && (
+            <div className="mt-16 w-full max-w-6xl space-y-20">
+              {/* Stats Section */}
+              <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+                {[
+                  { icon: GraduationCap, label: "10+ Exams", sub: "Comprehensive coverage" },
+                  { icon: Award, label: "50+ Scholarships", sub: "Funding your future" },
+                  { icon: TrendingUp, label: "Thousands of Ranks", sub: "Accurate 2024 data" },
+                ].map((stat, i) => (
+                  <div key={i} className="flex flex-col items-center rounded-2xl bg-white p-8 text-center shadow-sm border border-[#eaded8]">
+                    <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#fdf8f6] text-[#b52326]">
+                      <stat.icon className="h-8 w-8" />
+                    </div>
+                    <h3 className="mb-1 text-2xl font-bold text-[#2f2320]">{stat.label}</h3>
+                    <p className="text-sm text-[#6d5550]">{stat.sub}</p>
+                  </div>
+                ))}
+              </div>
+
+              {/* How it Works */}
+              <div className="rounded-3xl bg-white p-8 md:p-12 shadow-sm border border-[#eaded8]">
+                <h3 className="mb-12 text-center text-3xl font-bold text-[#2f2320]">How it Works</h3>
+                <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
+                  {[
+                    { step: "01", title: "Select Your Exam", desc: "Choose your target counselling process from our list of supported exams." },
+                    { step: "02", title: "Enter Your Rank", desc: "Provide your category, rank, and other details for accurate predictions." },
+                    { step: "03", title: "Get Results", desc: "Instant list of colleges you're likely to get based on previous years' trends." },
+                  ].map((step, i) => (
+                    <div key={i} className="relative">
+                      <span className="text-5xl font-black text-[#f4d5d6] opacity-50">{step.step}</span>
+                      <div className="relative -mt-6 ml-4">
+                        <h4 className="mb-2 text-xl font-bold text-[#b52326]">{step.title}</h4>
+                        <p className="text-[#6d5550]">{step.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Trust Section */}
+              <div className="text-center">
+                <h4 className="mb-8 text-sm font-bold uppercase tracking-widest text-[#6d5550]">Trusted by Students Across India</h4>
+                <div className="flex flex-wrap justify-center gap-8 opacity-60 grayscale filter">
+                   {/* Placeholder for logos or just text badges */}
+                   <span className="text-2xl font-bold italic text-[#2f2320]">Jadavpur Univ.</span>
+                   <span className="text-2xl font-bold italic text-[#2f2320]">NIT Trichy</span>
+                   <span className="text-2xl font-bold italic text-[#2f2320]">IIT Bombay</span>
+                   <span className="text-2xl font-bold italic text-[#2f2320]">VJTI Mumbai</span>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </>
