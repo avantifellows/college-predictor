@@ -175,44 +175,53 @@ export default function handler(req, res) {
   const percentileRaw = body?.percentile;
   const category = body?.category;
 
-  if (!ALLOWED_CATEGORIES.has(category)) {
-    return res
-      .status(400)
-      .json({ error: "Unsupported category for estimation" });
+  // Validate category exists
+  if (!category) {
+    return res.status(400).json({ error: "Category is required" });
+  }
+
+  // Normalize category to uppercase to handle case-insensitive input
+  const normalizedCategory = String(category).toUpperCase().trim();
+  if (!ALLOWED_CATEGORIES.has(normalizedCategory)) {
+    return res.status(400).json({
+      error: `Unsupported category '${category}'. Allowed values are: ${[...ALLOWED_CATEGORIES].join(", ")}`,
+    });
+  }
+
+  // Reject if both marks and percentile are provided
+  const hasMarks = marksRaw !== undefined && marksRaw !== null && marksRaw !== "";
+  const hasPercentile = percentileRaw !== undefined && percentileRaw !== null && percentileRaw !== "";
+
+  if (hasMarks && hasPercentile) {
+    return res.status(400).json({
+      error: "Provide either marks or percentile, not both",
+    });
   }
 
   let marks;
   let percentage;
   let percentile;
 
-  if (marksRaw !== undefined && marksRaw !== null && marksRaw !== "") {
+  if (hasMarks) {
     marks = Number(marksRaw);
     if (Number.isNaN(marks) || marks < 0 || marks > TOTAL_MARKS) {
-      return res.status(400).json({ error: "Marks must be between 0 and 300" });
+      return res.status(400).json({ error: `Marks must be between 0 and ${TOTAL_MARKS}` });
     }
     percentage = marksToPercentage(marks);
     percentile = percentageToPercentile(percentage);
-  } else if (
-    percentileRaw !== undefined &&
-    percentileRaw !== null &&
-    percentileRaw !== ""
-  ) {
+  } else if (hasPercentile) {
     percentile = Number(percentileRaw);
     if (Number.isNaN(percentile) || percentile < 0 || percentile > 100) {
-      return res
-        .status(400)
-        .json({ error: "Percentile must be between 0 and 100" });
+      return res.status(400).json({ error: "Percentile must be between 0 and 100" });
     }
     percentage = percentileToPercentage(percentile);
     marks = percentageToMarks(percentage);
   } else {
-    return res
-      .status(400)
-      .json({ error: "Provide either marks or percentile" });
+    return res.status(400).json({ error: "Provide either marks or percentile" });
   }
 
   let allIndiaRank = percentileToAir(percentile);
-  let categoryRank = airToCat(category, allIndiaRank);
+  let categoryRank = airToCat(normalizedCategory, allIndiaRank);
 
   if (marks >= TOTAL_MARKS || percentile >= 100) {
     percentile = 100;
