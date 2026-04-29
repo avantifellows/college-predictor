@@ -3,13 +3,13 @@ import urllib.request
 import re
 import csv
 import io
-# import boto3
-# from botocore.exceptions import ClientError
-# import os
+import boto3
+from botocore.exceptions import ClientError
+import os
+import sys
+csv.field_size_limit(sys.maxsize)  # Set to maximum system size
 
-# s3_client = boto3.client('s3')
-# import sys
-# csv.field_size_limit(sys.maxsize)  # Set to maximum system size
+s3_client = boto3.client('s3')
 
 def create_grade_array(row, grade_columns, grade_labels):
     grades = []
@@ -29,7 +29,7 @@ def extract_income(value):
 def lambda_handler(event, context):
     try:
         # 1. Get the CSV from Google Sheets
-        published_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRBCqBFvIMpaTcHz4Pl6mJ5zxazM-0EBVu_adM8KfLsUXcpclW2a4t29Jy0PH63CBSJR5z5hJxU342y/pub?output=csv"
+        published_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRBCqBFvIMpaTcHz4Pl6mJ5zxazM-0EBVu_adM8KfLsUXcpclW2a4t29Jy0PH63CBSJR5z5hJxU342y/pub?gid=0&single=true&output=csv"
         response = urllib.request.urlopen(published_url)
 
         csv_data = response.read().decode('utf-8')
@@ -65,15 +65,16 @@ def lambda_handler(event, context):
             processed_data.append(clean_row)
 
         # 4. Upload to S3
-        # s3_client.put_object(
-        #     Bucket="avantifellows-assets",
-        #     Key='futures/scholarship_data.json',
-        #     Body=json.dumps(processed_data, indent=2),
-        #     ContentType='application/json'
-        # )
-        print(processed_data[0])
+        s3_client.put_object(
+            Bucket="avantifellows-assets",
+            Key='futures/scholarship_data.json',
+            Body=json.dumps(processed_data, indent=2),
+            ContentType='application/json'
+        )
 
+        print(f'Successfully uploaded {len(processed_data)} scholarship records to S3')
         print('Scholarship data updated successfully')
+
         return {
             'statusCode': 200,
             'body': json.dumps({
@@ -82,6 +83,19 @@ def lambda_handler(event, context):
                 'count': len(processed_data)
             })
         }
+
+    except ClientError as e:
+        error_code = e.response['Error']['Code']
+        error_message = e.response['Error']['Message']
+        print(f'S3 upload failed: {error_code} - {error_message}')
+        return {
+            'statusCode': 500,
+            'body': json.dumps({
+                'error': 'Failed to upload scholarship data to S3',
+                'details': f'{error_code}: {error_message}'
+            })
+        }
+
     except Exception as error:
         print(f'Failed to update scholarship data: {str(error)}')
         return {
@@ -91,5 +105,3 @@ def lambda_handler(event, context):
                 'details': str(error)
             })
         }
-
-lambda_handler(event="", context="")
