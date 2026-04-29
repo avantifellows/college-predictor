@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
+import { useRouter } from "next/router";
 import Fuse from "fuse.js";
 import ScholarshipTable from "./ScholarshipTable";
 
@@ -35,6 +36,17 @@ const ScholarshipReferenceBrowser = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
   const [expandedRows, setExpandedRows] = useState({});
+  const router = useRouter();
+
+  useEffect(() => {
+    if (router.isReady) {
+      const { state, category, stream } = router.query;
+      const initialSearch = [state, category, stream].filter(Boolean).join(" ");
+      if (initialSearch && !searchTerm) {
+        setSearchTerm(initialSearch);
+      }
+    }
+  }, [router.isReady, router.query]);
 
   useEffect(() => {
     const loadScholarships = async () => {
