@@ -1000,6 +1000,27 @@ const CollegePredictor = () => {
     queryObject.exam === "TGEAPCET" &&
     (queryObject.category === "EWS" || queryObject.region === "OU");
 
+  const handleFindScholarships = () => {
+    const params = new URLSearchParams();
+    if (queryObject.homeState || queryObject.state) {
+      params.set("state", queryObject.homeState || queryObject.state);
+    }
+    if (queryObject.category) {
+      params.set("category", queryObject.category);
+    }
+
+    // Map exam/program to scholarship streams
+    if (queryObject.exam === "JoSAA" || queryObject.exam === "WBJEE" || queryObject.exam === "MHT-CET") {
+      params.set("stream", "Engineering");
+    } else if (queryObject.exam === "NEET") {
+      params.set("stream", "Medical");
+    } else if (queryObject.program) {
+      params.set("stream", queryObject.program);
+    }
+
+    router.push(`/scholarships?${params.toString()}`);
+  };
+
   return (
     <>
       <Head>
@@ -1049,7 +1070,14 @@ const CollegePredictor = () => {
                     </p>
                   )}
               </div>
-              <div className="flex justify-center sm:justify-end">
+              <div className="flex flex-wrap justify-center sm:justify-end gap-2">
+                <button
+                  type="button"
+                  onClick={handleFindScholarships}
+                  className="inline-flex rounded-full border border-[#B52326] bg-[#B52326] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#9E1F22]"
+                >
+                  Find Scholarships for Me
+                </button>
                 <button
                   type="button"
                   onClick={() =>
