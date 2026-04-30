@@ -2,6 +2,10 @@ import fs from "fs/promises";
 import path from "path";
 
 export default async function handler(req, res) {
+  if (req.method !== "GET") {
+    return res.status(405).json({ error: "Method not allowed" });
+  }
+
   try {
     const dataPath = path.join(
       process.cwd(),
