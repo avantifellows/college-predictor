@@ -173,12 +173,9 @@ const CollegePredictor = () => {
 
     if (fullData.length > 0 && fuseInstance) {
       const result = fuseInstance.search(currentSearchTerm.trim());
-      if (result.length === 0) {
-        setFilteredData([]);
-        setError(
-          "No matches found for your search term within the current results."
-        );
-      } else {
+if (result.length === 0) {
+  setFilteredData([]);
+} else {
         setFilteredData(result.map((r) => r.item));
         setError(null);
       }
@@ -1076,16 +1073,28 @@ const CollegePredictor = () => {
                 {error}
               </p>
             </div>
-          ) : filteredData.length > 0 ? (
-            <>
-              <PredictedCollegeTables
-                data={filteredData}
-                exam={queryObject.exam}
-                searchTerm={searchTerm}
-                onSearchChange={handleSearchChange}
-              />
-            </>
-          ) : (
+         ) : (
+  <>
+    {fullData.length > 0 && (
+      <div className="mb-4">
+        <input
+          type="text"
+          value={searchTerm}
+          onChange={handleSearchChange}
+          placeholder="Search by institute, state, or program..."
+          className="w-full rounded-xl border border-[#d8c7c1] bg-[#fffdfa] px-4 py-3 text-sm text-[#2f2320] outline-none transition focus:border-[#b52326] focus:ring-2 focus:ring-[#f4d5d6]"
+        />
+      </div>
+    )}
+
+    {filteredData.length > 0 ? (
+      <PredictedCollegeTables
+        data={filteredData}
+        exam={queryObject.exam}
+        searchTerm={searchTerm}
+        
+      />
+    ) : (
             <div className="text-center py-10">
               <p className="text-xl text-gray-600">
                 {fullData.length === 0 && !isLoading
@@ -1094,6 +1103,8 @@ const CollegePredictor = () => {
               </p>
             </div>
           )}
+        </>
+        )}
         </div>
       </div>
     </>
