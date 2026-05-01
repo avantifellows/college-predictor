@@ -173,15 +173,8 @@ const CollegePredictor = () => {
 
     if (fullData.length > 0 && fuseInstance) {
       const result = fuseInstance.search(currentSearchTerm.trim());
-      if (result.length === 0) {
-        setFilteredData([]);
-        setError(
-          "No matches found for your search term within the current results."
-        );
-      } else {
-        setFilteredData(result.map((r) => r.item));
-        setError(null);
-      }
+      setFilteredData(result.map((r) => r.item));
+      setError(null);
     } else {
       setFilteredData([]);
       setError("No data to search. Apply filters to load predictions first.");
@@ -1076,10 +1069,11 @@ const CollegePredictor = () => {
                 {error}
               </p>
             </div>
-          ) : filteredData.length > 0 ? (
+          ) : fullData.length > 0 ? (
             <>
               <PredictedCollegeTables
                 data={filteredData}
+                fullData={fullData}
                 exam={queryObject.exam}
                 searchTerm={searchTerm}
                 onSearchChange={handleSearchChange}
@@ -1088,9 +1082,7 @@ const CollegePredictor = () => {
           ) : (
             <div className="text-center py-10">
               <p className="text-xl text-gray-600">
-                {fullData.length === 0 && !isLoading
-                  ? "No predictions available for your current selection. Try adjusting the filters."
-                  : "No results match your search term."}
+                No predictions available for your current selection. Try adjusting the filters.
               </p>
             </div>
           )}
