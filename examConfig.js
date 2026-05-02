@@ -899,53 +899,44 @@ export const josaaConfig = {
       },
     ];
 
-    // Separate filters for JEE Main and JEE Advanced
-    const examFilters = [];
+    const parseRank = (rankStr) => {
+      if (!rankStr) return null;
+      const numStr = rankStr.toString().replace(/[^0-9]/g, "");
+      return numStr ? parseInt(numStr, 10) : null;
+    };
 
-    // JEE Main filter
-    if (query.mainRank && parseInt(query.mainRank) > 0) {
-      examFilters.push((item) => {
-        const closingRank = parseInt(item["Closing Rank"]);
-        const mainRank = parseInt(query.mainRank);
-        return (
-          !isNaN(closingRank) &&
-          !isNaN(mainRank) &&
-          closingRank >= 0.9 * mainRank
-        );
-      });
-    }
+    const hasPSuffix = (rankStr) => {
+      if (!rankStr) return false;
+      return rankStr.toString().trim().toUpperCase().endsWith("P");
+    };
 
-    // JEE Advanced filter - only apply if user qualified and provided his jee adv rank
-    if (
-      query.qualifiedJeeAdv === "Yes" &&
-      query.advRank &&
-      query.advRank.toString().trim() !== ""
-    ) {
-      const advRankStr = query.advRank.toString().trim();
-      const hasPSuffix = advRankStr.endsWith("P");
-      const numericAdvRank = parseInt(advRankStr.replace(/[^0-9]/g, "")) || 0;
+    const rankFilter = (item) => {
+      const itemRankStr = item["Closing Rank"]?.toString().trim() || "";
+      const itemRank = parseRank(itemRankStr);
+      const itemHasPSuffix = hasPSuffix(itemRankStr);
 
-      examFilters.push((item) => {
-        const closingRankStr = String(item["Closing Rank"] || "").trim();
-        const hasClosingPSuffix = closingRankStr.endsWith("P");
+      if (item["Exam"] === "JEE Advanced") {
+        if (query.qualifiedJeeAdv !== "Yes" || !query.advRank) return false;
 
-        // If input has 'P' suffix, only match ranks that also have 'P' suffix
-        // If input doesn't have 'P' suffix, only match ranks that also don't have 'P' suffix
-        if (hasPSuffix !== hasClosingPSuffix) {
-          return false;
-        }
+        const userRankStr = query.advRank?.toString().trim() || "";
+        const userRank = parseRank(userRankStr);
+        const userHasPSuffix = hasPSuffix(userRankStr);
 
-        // Compare numeric values
-        const numericClosingRank =
-          parseInt(closingRankStr.replace(/[^0-9]/g, "")) || 0;
-        return numericClosingRank >= 0.9 * numericAdvRank;
-      });
-    }
+        if (itemHasPSuffix !== userHasPSuffix) return false;
 
-    // If no valid ranks are provided, returning empty false
-    if (examFilters.length === 0) {
-      return [...baseFilters, () => false];
-    }
+        return userRank && itemRank >= 0.9 * userRank;
+      } else {
+        if (!query.mainRank) return false;
+
+        const userRankStr = query.mainRank?.toString().trim() || "";
+        const userRank = parseRank(userRankStr);
+        const userHasPSuffix = hasPSuffix(userRankStr);
+
+        if (itemHasPSuffix !== userHasPSuffix) return false;
+
+        return userRank && itemRank >= 0.9 * userRank;
+      }
+    };
 
     // State filter
     const stateFilter = (item) => {
@@ -961,10 +952,10 @@ export const josaaConfig = {
       }
     };
 
-    // Combine all filters - a row should match if it passes either rank filter
+    // Combine all filters
     return [
       ...baseFilters,
-      (item) => examFilters.some((filter) => filter(item)),
+      rankFilter,
       stateFilter,
     ];
   },
