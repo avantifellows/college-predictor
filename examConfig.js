@@ -787,6 +787,10 @@ export const tneaConfig = {
     (item) => item.District === query.district || "Any" === query.district,
     (item) =>
       item["College Type"] === query.collegeType || "Any" === query.collegeType,
+    (item) => {
+      if (!query.rank) return true;
+      return parseFloat(item["Cutoff Marks"]) <= parseFloat(query.rank);
+    },
   ],
 };
 
@@ -1098,6 +1102,12 @@ export const gujcetConfig = {
           return item.Program === query.program;
         }
         return true;
+      },
+      (item) => {
+        if (!query.rank) return true;
+        const cutoffMarks = parseFloat(item.closing_marks) || 0;
+        const userMarks = parseFloat(query.rank) || 0;
+        return userMarks >= cutoffMarks * 0.9;
       },
     ];
   },
