@@ -174,7 +174,6 @@ export default async function handler(req, res) {
     console.error("Error reading file:", error);
     res.status(500).json({
       error: "Unable to retrieve data",
-      details: error.message,
     });
   }
 }
