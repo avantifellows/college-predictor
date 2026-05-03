@@ -787,6 +787,13 @@ export const tneaConfig = {
     (item) => item.District === query.district || "Any" === query.district,
     (item) =>
       item["College Type"] === query.collegeType || "Any" === query.collegeType,
+    (item) => {
+      // Rank filtering for TNEA based on cutoff marks
+      if (query.rank !== undefined && query.rank !== null && query.rank !== "") {
+        return parseFloat(item["Cutoff Marks"]) <= parseFloat(query.rank);
+      }
+      return true;
+    },
   ],
 };
 
@@ -1096,6 +1103,15 @@ export const gujcetConfig = {
       (item) => {
         if (query.program) {
           return item.Program === query.program;
+        }
+        return true;
+      },
+      (item) => {
+        // Rank filtering for GUJCET based on closing marks
+        if (query.rank !== undefined && query.rank !== null && query.rank !== "") {
+          const cutoffMarks = parseFloat(item.closing_marks) || 0;
+          const userMarks = parseFloat(query.rank) || 0;
+          return userMarks >= cutoffMarks * 0.9; // Show if user marks are >= 90% of cutoff
         }
         return true;
       },
