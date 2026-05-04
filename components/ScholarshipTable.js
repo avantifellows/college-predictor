@@ -39,7 +39,9 @@ const TableHeader = ({ headers }) => (
 );
 
 const TableCell = ({ children, className = "" }) => (
-  <td className={`px-4 py-3 align-top text-[#332724] break-words ${className}`}>
+<td
+    className={`px-5 py-4 align-top text-[#332724] break-words border-b border-[#f1e7e2] ${className}`}
+  >
     {children}
   </td>
 );
@@ -164,7 +166,7 @@ const ScholarshipTable = ({
 
   return (
     <div className="overflow-x-auto rounded-2xl border border-[#eaded8] bg-white shadow-sm">
-      <table className="w-full min-w-[760px] table-fixed border-collapse text-sm">
+      <table className="scholarship-table w-full min-w-[760px] table-fixed border-separate text-sm">
         <TableHeader headers={headers} />
         <tbody>
           {filteredData?.length === 0 && (
@@ -176,11 +178,7 @@ const ScholarshipTable = ({
           )}
           {filteredData?.map((item, index) => (
             <React.Fragment key={index}>
-              <tr
-                className={`border-b border-[#eaded8] ${
-                  index % 2 === 0 ? "bg-[#fffdfa]" : "bg-white"
-                }`}
-              >
+              <tr className="scholarship-table-row">
                 <TableCell className="font-medium">{item["Scholarship Name"]}</TableCell>
                 <TableCell>
                   {(() => {
@@ -213,7 +211,7 @@ const ScholarshipTable = ({
                 </TableCell>
                 <TableCell>
                   <button
-                    className="whitespace-nowrap rounded-lg bg-[#B52326] px-4 py-2 text-white hover:bg-[#9E1F22]"
+                   className="whitespace-nowrap rounded-xl border border-[#9E1F22] bg-[#B52326] px-5 py-2.5 font-medium text-white transition-colors duration-200 hover:bg-[#9E1F22]"
                     onClick={() => toggleRowExpansion(index)}
                   >
                     {expandedRows[index] ? "Show Less" : "Show More"}
