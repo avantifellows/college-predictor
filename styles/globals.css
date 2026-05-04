@@ -53,3 +53,54 @@ ul {
 .input-placeholder-black::placeholder {
   color: #000;
 }
+
+/* added: scholarship table UI polish */
+.scholarship-table {
+  border-spacing: 0 10px;
+}
+
+.scholarship-table thead tr th {
+  background: #f8efec;
+  font-weight: 700;
+  padding: 0.9rem 1rem;
+}
+
+.scholarship-table tbody tr td {
+  padding: 0.95rem 1rem;
+  background: #fffdfa;
+}
+
+.scholarship-table-row td:first-child {
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+
+.scholarship-table-row td:last-child {
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.scholarship-table-row {
+  box-shadow: 0 4px 12px rgba(91, 31, 32, 0.06);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.scholarship-table-row:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(91, 31, 32, 0.12);
+}
+
+.scholarship-apply-btn {
+  padding: 0.55rem 1.1rem;
+  border-radius: 0.7rem;
+  font-weight: 600;
+  background: #a91f22;
+  transition: transform 180ms ease, background-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.scholarship-apply-btn:hover {
+  background: #8f1a1d;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(143, 26, 29, 0.25);
+}
