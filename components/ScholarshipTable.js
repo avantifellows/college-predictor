@@ -196,7 +196,10 @@ const ScholarshipTable = ({
                     );
                   })()}
                 </TableCell>
-                <TableCell>{item["Last Date"] || "Not available"}</TableCell>
+                <TableCell>{
+                item["Last Date"] ? new Date(item["Last Date"]).toLocaleDateString("en-IN") : "Not available"
+                  }
+                </TableCell>
                 <TableCell>
                   {item["Application Link"] ? (
                     <a
