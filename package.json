@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "verify:local": "node scripts/verify-local-routes.mjs"
+    "verify:local": "node scripts/verify-local-routes.mjs",
+    "validate:data": "python scripts/validate_and_clean_data.py"
   },
   "dependencies": {
     "axios": "^1.8.3",

@@ -1,3 +1,10 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Generated validation outputs
+outputs/
+
 # mac ds store
 .DS_Store
 # Logs
