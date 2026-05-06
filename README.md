@@ -61,14 +61,5 @@ The College Predictor application helps students find:
    ```
 4. Run the local development server at [http://localhost:3000](http://localhost:3000)
    ```bash
-   npm run dev
+   npm run start
    ```
-
-### Production Run
-
-If you want to run the app in production mode locally, first create a build and then start the server:
-
-```bash
-npm run build
-npm run start
-```
