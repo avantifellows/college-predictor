@@ -137,15 +137,16 @@ export const jeeMainJosaaConfig = {
     );
   },
   getFilters: (query) => {
+    const normalizedProgram = String(query.program || "").toLowerCase();
     const baseFilters = [
       (item) => item.Exam === query.code,
       (item) => item.Gender === query.gender,
       (item) => {
-        if (query.program === "Architecture") {
+        if (normalizedProgram === "architecture") {
           return item["Academic Program Name"]
             .toLowerCase()
             .includes("architecture");
-        } else if (query.program === "Planning") {
+        } else if (normalizedProgram === "planning") {
           return item["Academic Program Name"]
             .toLowerCase()
             .includes("planning");
@@ -872,14 +873,15 @@ export const josaaConfig = {
     );
   },
   getFilters: (query) => {
+    const normalizedProgram = String(query.program || "").toLowerCase();
     const baseFilters = [
       (item) => item.Gender === query.gender || item.Gender === "All",
       (item) => {
-        if (query.program === "architecture") {
+        if (normalizedProgram === "architecture") {
           return item["Academic Program Name"]
             .toLowerCase()
             .includes("architecture");
-        } else if (query.program === "planning") {
+        } else if (normalizedProgram === "planning") {
           return item["Academic Program Name"]
             .toLowerCase()
             .includes("planning");
