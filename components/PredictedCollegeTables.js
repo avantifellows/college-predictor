@@ -536,8 +536,7 @@ const PredictedCollegesTable = ({
   };
 
   const sortedData = useMemo(() => {
-    if (!supportsSalarySort) return data;
-    if (!data.length) return data;
+    if (!data.length) return data; // updated
     const { key, order } = sortConfig || {};
     const copy = [...data];
 
@@ -560,7 +559,7 @@ const PredictedCollegesTable = ({
     });
 
     return copy;
-  }, [data, sortConfig, supportsSalarySort]);
+  }, [data, sortConfig, salaryColumnKey]); // updated
 
   const getDisplayValue = (column, transformedItem) => {
     const rawValue = transformedItem[column.key];
@@ -817,13 +816,15 @@ const PredictedCollegesTable = ({
               />
             )}
           </div>
-          <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center lg:justify-end">
+          {/* updated */}
+          <div className="flex w-full flex-wrap items-center gap-3 lg:w-auto lg:justify-end">
+            {/* updated */}
             <label className="flex w-full items-center gap-2 text-sm text-[#5b3a34] sm:w-auto">
               <span className="shrink-0">Sort by</span>
               <select
                 value={selectedSort}
                 onChange={handleSortChange}
-                className="h-11 w-full min-w-0 rounded-xl border border-[#d8c7c1] bg-white px-3 py-2 text-sm text-[#332724] outline-none transition focus:border-[#b52326] focus:ring-2 focus:ring-[#f4d5d6] sm:w-auto sm:min-w-[260px]"
+                className="h-10 w-full min-w-0 rounded-xl border border-[#d8c7c1] bg-white px-3 text-sm text-[#332724] outline-none transition focus:border-[#b52326] focus:ring-2 focus:ring-[#f4d5d6] sm:w-auto sm:min-w-[260px]"
               >
                 {sortOptions.map((option) => (
                   <option key={option.value} value={option.value}>
@@ -832,12 +833,13 @@ const PredictedCollegesTable = ({
                 ))}
               </select>
             </label>
-            <p className="text-sm text-[#5b3a34]">
+            {/* updated */}
+            <p className="text-sm text-[#5b3a34] whitespace-nowrap">
               Showing {sortedData.length.toLocaleString("en-IN")} matching
               options.
             </p>
             <button
-              className="w-full rounded-lg bg-[#B52326] px-4 py-2 text-white hover:bg-[#9E1F22] sm:w-auto"
+              className="h-10 w-full rounded-lg bg-[#B52326] px-4 text-white hover:bg-[#9E1F22] sm:w-auto"
               onClick={downloadCsv}
             >
               Download CSV
