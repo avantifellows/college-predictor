@@ -618,7 +618,19 @@ const PredictedCollegesTable = ({
       ];
 
   const handleSortChange = (event) => {
-    setSelectedSort(event.target.value);
+    const value = event.target.value; // updated
+    setSelectedSort(value); // updated
+    if (value.startsWith("salary")) {
+      setSortConfig({
+        key: salaryColumnKey,
+        order: value.endsWith("desc") ? "desc" : "asc",
+      });
+      return;
+    }
+    setSortConfig({
+      key: rankColumnKey,
+      order: value.endsWith("desc") ? "desc" : "asc",
+    });
   };
 
   const downloadCsv = () => {
@@ -805,13 +817,13 @@ const PredictedCollegesTable = ({
               />
             )}
           </div>
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-center lg:justify-end">
-            <label className="text-sm text-[#5b3a34]">
-              <span className="mr-2">Sort by</span>
+          <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center lg:justify-end">
+            <label className="flex w-full items-center gap-2 text-sm text-[#5b3a34] sm:w-auto">
+              <span className="shrink-0">Sort by</span>
               <select
                 value={selectedSort}
                 onChange={handleSortChange}
-                className="rounded-lg border border-[#d8c7c1] bg-white px-3 py-2 text-sm text-[#332724] outline-none focus:border-[#b52326] focus:ring-2 focus:ring-[#f4d5d6]"
+                className="h-11 w-full min-w-0 rounded-xl border border-[#d8c7c1] bg-white px-3 py-2 text-sm text-[#332724] outline-none transition focus:border-[#b52326] focus:ring-2 focus:ring-[#f4d5d6] sm:w-auto sm:min-w-[260px]"
               >
                 {sortOptions.map((option) => (
                   <option key={option.value} value={option.value}>
