@@ -249,32 +249,17 @@ const PredictedCollegesTable = ({
   };
 
   useEffect(() => {
-    if (!supportsSalarySort) {
+    if (!supportsSalarySort && selectedSort.startsWith("salary")) {
       setSelectedSort("rank_asc");
       setSortConfig({ key: rankColumnKey, order: "asc" });
       return;
     }
 
-    if (selectedSort.startsWith("salary")) {
-      setSortConfig({
-        key: salaryColumnKey,
-        order: selectedSort.endsWith("desc") ? "desc" : "asc",
-      });
-      return;
-    }
-
     setSortConfig({
-      key: rankColumnKey,
+      key: selectedSort.startsWith("salary") ? salaryColumnKey : rankColumnKey,
       order: selectedSort.endsWith("desc") ? "desc" : "asc",
     });
-  }, [
-    exam,
-    data,
-    rankColumnKey,
-    salaryColumnKey,
-    selectedSort,
-    supportsSalarySort,
-  ]);
+  }, [rankColumnKey, salaryColumnKey, selectedSort, supportsSalarySort]);
 
   const examColumnMapping = {
     TNEA: [
@@ -802,8 +787,8 @@ const PredictedCollegesTable = ({
       )}
       {renderLegend()}
       {data.length > 0 && (
-        <div className="mb-3 flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
-          <div className="w-full max-w-md">
+        <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
+          <div className="w-full max-w-md flex-1">
             {onSearchChange && (
               <input
                 type="text"
@@ -817,9 +802,9 @@ const PredictedCollegesTable = ({
             )}
           </div>
           {/* updated */}
-          <div className="flex w-full flex-wrap items-center gap-3 lg:w-auto lg:justify-end">
+          <div className="flex w-full flex-wrap items-center justify-end gap-3 lg:w-auto">
             {/* updated */}
-            <label className="flex w-full items-center gap-2 text-sm text-[#5b3a34] sm:w-auto">
+            <div className="flex items-center gap-2 text-sm text-[#5b3a34]">
               <span className="shrink-0">Sort by</span>
               <select
                 value={selectedSort}
@@ -832,7 +817,7 @@ const PredictedCollegesTable = ({
                   </option>
                 ))}
               </select>
-            </label>
+            </div>
             {/* updated */}
             <p className="text-sm text-[#5b3a34] whitespace-nowrap">
               Showing {sortedData.length.toLocaleString("en-IN")} matching
