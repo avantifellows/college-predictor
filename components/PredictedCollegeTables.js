@@ -145,6 +145,103 @@ const expandedFields = {
 const SALARY_HELP_TEXT =
   "Product of median salary and placement percentage of the graduating batch as reported by the college to NIRF. Data is reported as a college level aggregate";
 
+const COMPARE_LIMIT = 4;
+
+const getFormattedFieldValue = (field, item) => {
+  const rawValue = item?.[field.key];
+  if (field.format) {
+    return field.format(rawValue);
+  }
+  if (rawValue === 0) return "0";
+  if (rawValue === null || rawValue === undefined) return "N/A";
+  const stringValue = String(rawValue).trim();
+  return stringValue === "" ? "N/A" : stringValue;
+};
+
+const getFirstAvailableValue = (item, keys) => {
+  for (const key of keys) {
+    const value = item?.[key];
+    if (value === 0) return "0";
+    if (value === null || value === undefined) continue;
+    const stringValue = String(value).trim();
+    if (stringValue !== "") {
+      return stringValue;
+    }
+  }
+  return "";
+};
+
+const getUniqueCompareFields = (exam, columns, fields) => {
+  const seenLabels = new Set();
+  return [...columns, ...(fields[exam] || fields.DEFAULT)].filter((field) => {
+    if (!field?.label || seenLabels.has(field.label)) {
+      return false;
+    }
+    seenLabels.add(field.label);
+    return true;
+  });
+};
+
+const buildCompareSnapshot = (exam, item, columns, fields) => {
+  const compareFields = getUniqueCompareFields(exam, columns, fields);
+  const title =
+    getFirstAvailableValue(item, [
+      "institute",
+      "institute_name",
+      "Institute",
+      "College Name",
+    ]) || "Unknown Institute";
+  const program = getFirstAvailableValue(item, [
+    "academic_program_name",
+    "branch_name",
+    "Academic Program Name",
+    "Course",
+  ]);
+  const location = getFirstAvailableValue(item, [
+    "state",
+    "State",
+    "District",
+    "place",
+  ]);
+  const closingRank = getFirstAvailableValue(item, [
+    "closing_rank",
+    "Closing Rank",
+    "closing_marks",
+    "Cutoff Marks",
+  ]);
+  const category = getFirstAvailableValue(item, [
+    "quota",
+    "Quota",
+    "Seat Type",
+    "Category",
+    "category",
+  ]);
+  const id = [
+    exam,
+    title,
+    program,
+    location,
+    closingRank,
+    category,
+  ]
+    .map((value) => String(value || "").trim())
+    .join("::");
+
+  return {
+    id,
+    title,
+    subtitle: [program, location].filter(Boolean).join(" | "),
+    chips: [
+      closingRank ? { label: "Closing", value: closingRank } : null,
+      category ? { label: "Category", value: category } : null,
+    ].filter(Boolean),
+    details: compareFields.map((field) => ({
+      label: field.label,
+      value: getFormattedFieldValue(field, item),
+    })),
+  };
+};
+
 // New ExpandedRow component
 const ExpandedRowComponent = ({ item, fields, exam, examColumnMapping }) => {
   const getFieldValue = (item, field) => {
@@ -202,6 +299,7 @@ const PredictedCollegesTable = ({
     order: "asc",
   });
   const [salaryTooltip, setSalaryTooltip] = useState(null);
+  const [compareShortlist, setCompareShortlist] = useState([]);
 
   const toggleRowExpansion = (index) => {
     setExpandedRows((prev) => ({
@@ -251,6 +349,12 @@ const PredictedCollegesTable = ({
     if (!supportsSalarySort) return;
     setSortConfig({ key: rankColumnKey, order: "asc" });
   }, [exam, data, supportsSalarySort, rankColumnKey]);
+
+  useEffect(() => {
+    setCompareShortlist([]);
+    setExpandedRows({});
+    setShowAllRows(false);
+  }, [exam]);
 
   const examColumnMapping = {
     TNEA: [
@@ -547,6 +651,40 @@ const PredictedCollegesTable = ({
     return rawValue || "N/A";
   };
 
+  const toggleCompareShortlist = (compareItem) => {
+    setCompareShortlist((currentList) => {
+      const alreadySelected = currentList.some(
+        (item) => item.id === compareItem.id
+      );
+
+      if (alreadySelected) {
+        return currentList.filter((item) => item.id !== compareItem.id);
+      }
+
+      if (currentList.length >= COMPARE_LIMIT) {
+        return currentList;
+      }
+
+      return [...currentList, compareItem];
+    });
+  };
+
+  const clearCompareShortlist = () => {
+    setCompareShortlist([]);
+  };
+
+  const comparisonLabels = useMemo(
+    () =>
+      Array.from(
+        new Set(
+          compareShortlist.flatMap((item) =>
+            item.details.map((detail) => detail.label)
+          )
+        )
+      ),
+    [compareShortlist]
+  );
+
   const toggleSalarySort = () => {
     if (!supportsSalarySort) return;
     setSortConfig((prev) => {
@@ -610,6 +748,130 @@ const PredictedCollegesTable = ({
     URL.revokeObjectURL(url);
   };
 
+  const renderComparePanel = () => (
+    <div className="mb-5 rounded-2xl border border-[#eaded8] bg-[#fff8f5] p-4 shadow-sm sm:p-5">
+      <div className="flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
+        <div className="space-y-2">
+          <div className="flex flex-wrap items-center gap-2">
+            <h3 className="text-lg font-semibold text-[#5b1f20]">
+              Compare Shortlist
+            </h3>
+            <span className="inline-flex rounded-full border border-[#e3d1cb] bg-white px-3 py-1 text-xs font-semibold text-[#8f2e31]">
+              {compareShortlist.length}/{COMPARE_LIMIT} selected
+            </span>
+          </div>
+          <p className="max-w-3xl text-sm text-[#6d5550]">
+            Save up to {COMPARE_LIMIT} colleges to compare program, cutoff,
+            quota, and salary details side by side.
+          </p>
+        </div>
+        {compareShortlist.length > 0 && (
+          <button
+            type="button"
+            onClick={clearCompareShortlist}
+            className="inline-flex rounded-lg border border-[#d8c7c1] bg-white px-4 py-2 text-sm font-semibold text-[#7a2628] hover:bg-[#f8efec]"
+          >
+            Clear Shortlist
+          </button>
+        )}
+      </div>
+
+      {compareShortlist.length === 0 ? (
+        <div className="mt-4 rounded-xl border border-dashed border-[#d8c7c1] bg-white px-4 py-6 text-center text-sm text-[#6d5550]">
+          Add colleges from the results table to start a side-by-side
+          comparison.
+        </div>
+      ) : (
+        <>
+          <div className="mt-4 grid gap-3 xl:grid-cols-4 md:grid-cols-2">
+            {compareShortlist.map((item) => (
+              <div
+                key={item.id}
+                className="rounded-xl border border-[#eaded8] bg-white p-4 shadow-sm"
+              >
+                <div className="flex items-start justify-between gap-3">
+                  <div className="space-y-1">
+                    <h4 className="text-sm font-semibold text-[#332724]">
+                      {item.title}
+                    </h4>
+                    {item.subtitle && (
+                      <p className="text-xs leading-5 text-[#6d5550]">
+                        {item.subtitle}
+                      </p>
+                    )}
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => toggleCompareShortlist(item)}
+                    className="rounded-md border border-[#d8c7c1] px-2 py-1 text-xs font-semibold text-[#7a2628] hover:bg-[#f8efec]"
+                  >
+                    Remove
+                  </button>
+                </div>
+                {item.chips.length > 0 && (
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {item.chips.map((chip) => (
+                      <span
+                        key={`${item.id}-${chip.label}`}
+                        className="inline-flex items-center gap-1 rounded-full border border-[#e3d1cb] bg-[#fffdfa] px-2.5 py-1 text-xs text-[#5b3a34]"
+                      >
+                        <strong className="text-[#8f2e31]">{chip.label}:</strong>
+                        <span>{chip.value}</span>
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-4 overflow-x-auto rounded-xl border border-[#eaded8] bg-white">
+            <table className="w-full min-w-[720px] border-collapse text-sm">
+              <thead>
+                <tr className={commonHeaderClass}>
+                  <th className="border-b border-[#decac3] px-4 py-3 text-left">
+                    Attribute
+                  </th>
+                  {compareShortlist.map((item) => (
+                    <th
+                      key={`compare-header-${item.id}`}
+                      className="border-b border-[#decac3] px-4 py-3 text-left"
+                    >
+                      {item.title}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {comparisonLabels.map((label, index) => (
+                  <tr
+                    key={`compare-row-${label}`}
+                    className={`${commonCellClass} ${
+                      index % 2 === 0 ? "bg-[#fffdfa]" : "bg-white"
+                    }`}
+                  >
+                    <td className="px-4 py-3 font-semibold text-[#5b1f20]">
+                      {label}
+                    </td>
+                    {compareShortlist.map((item) => (
+                      <td
+                        key={`compare-cell-${item.id}-${label}`}
+                        className="px-4 py-3 align-top"
+                      >
+                        {item.details.find((detail) => detail.label === label)
+                          ?.value || "N/A"}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </>
+      )}
+    </div>
+  );
+
   const renderTableHeader = () => (
     <tr className={commonHeaderClass}>
       {predicted_colleges_table_column.map((column) => (
@@ -653,7 +915,7 @@ const PredictedCollegesTable = ({
           )}
         </th>
       ))}
-      {supportsExpandedView && <th className="p-2">Actions</th>}
+      <th className="p-2">Actions</th>
     </tr>
   );
 
@@ -664,6 +926,17 @@ const PredictedCollegesTable = ({
 
     return rowsToRender.map((item, index) => {
       const transformedItem = transformData(item);
+      const compareSnapshot = buildCompareSnapshot(
+        exam,
+        transformedItem,
+        predicted_colleges_table_column,
+        expandedFields
+      );
+      const isShortlisted = compareShortlist.some(
+        (shortlistedItem) => shortlistedItem.id === compareSnapshot.id
+      );
+      const disableCompareAction =
+        !isShortlisted && compareShortlist.length >= COMPARE_LIMIT;
 
       return (
         <React.Fragment key={index}>
@@ -677,18 +950,30 @@ const PredictedCollegesTable = ({
                 {getDisplayValue(column, transformedItem)}
               </td>
             ))}
-            {supportsExpandedView && (
-              <td className="px-4 py-3">
-                <div className="flex justify-center">
+            <td className="px-4 py-3">
+              <div className="flex flex-col items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => toggleCompareShortlist(compareSnapshot)}
+                  disabled={disableCompareAction}
+                  className={`whitespace-nowrap rounded-lg px-4 py-2 text-white ${
+                    isShortlisted
+                      ? "bg-[#7a2628] hover:bg-[#641f21]"
+                      : "bg-[#B52326] hover:bg-[#9E1F22]"
+                  } disabled:cursor-not-allowed disabled:bg-[#d6b8ae]`}
+                >
+                  {isShortlisted ? "Remove Compare" : "Add to Compare"}
+                </button>
+                {supportsExpandedView && (
                   <button
                     className="whitespace-nowrap rounded-lg bg-[#B52326] px-4 py-2 text-white hover:bg-[#9E1F22]"
                     onClick={() => toggleRowExpansion(index)}
                   >
                     {expandedRows[index] ? "Show Less" : "Show More"}
                   </button>
-                </div>
-              </td>
-            )}
+                )}
+              </div>
+            </td>
           </tr>
           {supportsExpandedView && expandedRows[index] && (
             <ExpandedRowComponent
@@ -780,6 +1065,7 @@ const PredictedCollegesTable = ({
           </div>
         </div>
       )}
+      {data.length > 0 && renderComparePanel()}
       <div className="overflow-x-auto rounded-xl border border-[#eaded8] bg-white shadow-sm">
         <table className={commonTableClass}>
           <thead>{renderTableHeader()}</thead>
