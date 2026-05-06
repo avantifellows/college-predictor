@@ -1,18 +1,27 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { useRouter } from "next/router";
 import getConstants from "../constants";
-import PredictedCollegeTables from "../components/PredictedCollegeTables";
 import Head from "next/head";
 import Fuse from "fuse.js";
 import examConfigs from "../examConfig";
 import dynamic from "next/dynamic";
 import TneaScoreCalculator from "../components/TneaScoreCalculator";
 import { debounce } from "lodash";
+import { CollegeTableSkeleton } from "../components/SkeletonLoader";
 
 // Dynamically import Dropdown with SSR disabled
 const Dropdown = dynamic(() => import("../components/dropdown"), {
   ssr: false,
 });
+
+// Lazy-load the heavy results table; show skeleton while the chunk loads
+const PredictedCollegeTables = dynamic(
+  () => import("../components/PredictedCollegeTables"),
+  {
+    ssr: false,
+    loading: () => <CollegeTableSkeleton />,
+  }
+);
 
 // Base Fuse options - keys will be added dynamically based on exam
 const baseFuseOptions = {
@@ -1067,9 +1076,7 @@ const CollegePredictor = () => {
           </div>
 
           {isLoading ? (
-            <div className="text-center py-10">
-              <p className="text-xl text-[#8f2e31]">Loading predictions...</p>
-            </div>
+            <CollegeTableSkeleton />
           ) : error ? (
             <div className="text-center py-10 px-4">
               <p className="text-xl text-red-600 bg-red-100 p-4 rounded-md">

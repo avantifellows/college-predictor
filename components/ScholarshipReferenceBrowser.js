@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import Fuse from "fuse.js";
 import ScholarshipTable from "./ScholarshipTable";
+import { ScholarshipTableSkeleton } from "./SkeletonLoader";
 
 const fuseOptions = {
   includeScore: false,
@@ -124,9 +125,7 @@ const ScholarshipReferenceBrowser = () => {
         </div>
 
         {isLoading ? (
-          <div className="rounded-2xl border border-[#eaded8] bg-white px-6 py-12 text-center text-[#5b3a34] shadow-sm">
-            Loading scholarship reference list...
-          </div>
+          <ScholarshipTableSkeleton />
         ) : filteredScholarships.length > 0 ? (
           <ScholarshipTable
             filteredData={filteredScholarships}
