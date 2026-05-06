@@ -1,4 +1,5 @@
 import Head from "next/head";
+import ErrorBoundary from "../components/ErrorBoundary";
 import Layout from "../components/Layout";
 import "../styles/globals.css";
 
@@ -8,9 +9,11 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <ErrorBoundary>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </ErrorBoundary>
     </>
   );
 }
