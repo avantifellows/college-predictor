@@ -197,6 +197,7 @@ const PredictedCollegesTable = ({
 }) => {
   const [expandedRows, setExpandedRows] = useState({});
   const [showAllRows, setShowAllRows] = useState(false); // State for showing all rows
+  const [selectedSort, setSelectedSort] = useState("rank_asc");
   const [sortConfig, setSortConfig] = useState({
     key: "closing_rank",
     order: "asc",
@@ -248,9 +249,32 @@ const PredictedCollegesTable = ({
   };
 
   useEffect(() => {
-    if (!supportsSalarySort) return;
-    setSortConfig({ key: rankColumnKey, order: "asc" });
-  }, [exam, data, supportsSalarySort, rankColumnKey]);
+    if (!supportsSalarySort) {
+      setSelectedSort("rank_asc");
+      setSortConfig({ key: rankColumnKey, order: "asc" });
+      return;
+    }
+
+    if (selectedSort.startsWith("salary")) {
+      setSortConfig({
+        key: salaryColumnKey,
+        order: selectedSort.endsWith("desc") ? "desc" : "asc",
+      });
+      return;
+    }
+
+    setSortConfig({
+      key: rankColumnKey,
+      order: selectedSort.endsWith("desc") ? "desc" : "asc",
+    });
+  }, [
+    exam,
+    data,
+    rankColumnKey,
+    salaryColumnKey,
+    selectedSort,
+    supportsSalarySort,
+  ]);
 
   const examColumnMapping = {
     TNEA: [
@@ -581,6 +605,21 @@ const PredictedCollegesTable = ({
     }
     return <ArrowUp size={16} />;
   };
+ const sortOptions = supportsSalarySort
+    ? [
+        { value: "rank_asc", label: "Closing Rank: Low to High" },
+        { value: "rank_desc", label: "Closing Rank: High to Low" },
+        { value: "salary_desc", label: "Expected Salary: High to Low" },
+        { value: "salary_asc", label: "Expected Salary: Low to High" },
+      ]
+    : [
+        { value: "rank_asc", label: "Closing Rank: Low to High" },
+        { value: "rank_desc", label: "Closing Rank: High to Low" },
+      ];
+
+  const handleSortChange = (event) => {
+    setSelectedSort(event.target.value);
+  };
 
   const downloadCsv = () => {
     if (!sortedData.length) return;
@@ -767,6 +806,20 @@ const PredictedCollegesTable = ({
             )}
           </div>
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center lg:justify-end">
+            <label className="text-sm text-[#5b3a34]">
+              <span className="mr-2">Sort by</span>
+              <select
+                value={selectedSort}
+                onChange={handleSortChange}
+                className="rounded-lg border border-[#d8c7c1] bg-white px-3 py-2 text-sm text-[#332724] outline-none focus:border-[#b52326] focus:ring-2 focus:ring-[#f4d5d6]"
+              >
+                {sortOptions.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
+            </label>
             <p className="text-sm text-[#5b3a34]">
               Showing {sortedData.length.toLocaleString("en-IN")} matching
               options.
