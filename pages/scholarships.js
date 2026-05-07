@@ -7,7 +7,7 @@ const ScholarshipsPage = () => {
       <Head>
         <title>Scholarships Reference - Home</title>
       </Head>
-      <ScholarshipReferenceBrowser />
+      <ScholarshipReferenceBrowser maxSearchLength={120} />
     </>
   );
 };

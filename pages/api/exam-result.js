@@ -1,6 +1,8 @@
 import fs from "fs/promises";
 import examConfigs from "../../examConfig";
 import rateLimit from "express-rate-limit";
+import { withValidation } from "../../middleware/validateInput";
+import { validateExamResultQuery } from "../../utils/validators";
 
 // Helper function to get client IP address
 const getIp = (req) => {
@@ -41,76 +43,20 @@ const limiter = rateLimit({
   },
 });
 
-export default async function handler(req, res) {
+async function handler(req, res) {
   await limiter(req, res, () => {});
 
-  const { exam, rank } = req.query;
-
-  if (!exam || !examConfigs[exam]) {
-    return res.status(400).json({ error: "Invalid or missing exam parameter" });
-  }
-
+  const query = req.validatedQuery || req.query;
+  const { exam, rank } = query;
   const config = examConfigs[exam];
-  const primaryInputConfig = config.primaryInput;
-  const queryValue =
-    exam === "JoSAA"
-      ? req.query.mainRank || req.query.rank
-      : req.query.rank;
-
-  if (
-    primaryInputConfig &&
-    queryValue !== undefined &&
-    queryValue !== null &&
-    queryValue !== ""
-  ) {
-    const numericValue = Number(queryValue);
-    if (Number.isNaN(numericValue)) {
-      return res
-        .status(400)
-        .json({ error: `Invalid value for ${exam} input parameter.` });
-    }
-
-    if (
-      primaryInputConfig.min !== undefined &&
-      numericValue < Number(primaryInputConfig.min)
-    ) {
-      return res.status(400).json({
-        error:
-          primaryInputConfig.max !== undefined
-            ? `Please enter a value between ${primaryInputConfig.min} and ${primaryInputConfig.max}.`
-            : `Please enter a value greater than or equal to ${primaryInputConfig.min}.`,
-      });
-    }
-
-    if (
-      primaryInputConfig.max !== undefined &&
-      numericValue > Number(primaryInputConfig.max)
-    ) {
-      return res.status(400).json({
-        error: `Please enter a value between ${primaryInputConfig.min} and ${primaryInputConfig.max}.`,
-      });
-    }
-  }
-
-  // Check for required parameters
-  for (const field of config.fields) {
-    if (exam === "JoSAA" && field.name === "preferHomeState") {
-      continue;
-    }
-    if (!req.query[field.name]) {
-      return res
-        .status(400)
-        .json({ error: `Missing required parameter: ${field.name}` });
-    }
-  }
 
   try {
-    const dataPath = config.getDataPath(req.query.category);
+    const dataPath = config.getDataPath(query.category);
     const data = await fs.readFile(dataPath, "utf8");
     const fullData = JSON.parse(data);
 
     // Get filters based on the exam config and query parameters
-    const filters = config.getFilters(req.query);
+    const filters = config.getFilters(query);
 
     // Helper function to parse rank (handles 'P' suffix)
     const parseRank = (rankStr) => {
@@ -145,10 +91,9 @@ export default async function handler(req, res) {
 
       if (exam === "JoSAA") {
         if (item["Exam"] === "JEE Advanced") {
-          if (req.query.qualifiedJeeAdv !== "Yes" || !req.query.advRank)
-            return false;
+          if (query.qualifiedJeeAdv !== "Yes" || !query.advRank) return false;
 
-          const userRankStr = req.query.advRank?.toString().trim() || "";
+          const userRankStr = query.advRank?.toString().trim() || "";
           const userRank = parseRank(userRankStr);
           const userHasPSuffix = hasPSuffix(userRankStr);
 
@@ -157,9 +102,9 @@ export default async function handler(req, res) {
 
           return userRank && itemRank >= 0.9 * userRank;
         } else {
-          if (!req.query.mainRank) return false;
+          if (!query.mainRank) return false;
 
-          const userRankStr = req.query.mainRank?.toString().trim() || "";
+          const userRankStr = query.mainRank?.toString().trim() || "";
           const userRank = parseRank(userRankStr);
           const userHasPSuffix = hasPSuffix(userRankStr);
 
@@ -170,9 +115,9 @@ export default async function handler(req, res) {
         }
       } else if (exam === "JEE Advanced") {
         if (item["Exam"] !== "JEE Advanced") return false;
-        if (!req.query.advRank) return false;
+        if (!query.advRank) return false;
 
-        const userRankStr = req.query.advRank?.toString().trim() || "";
+        const userRankStr = query.advRank?.toString().trim() || "";
         const userRank = parseRank(userRankStr);
         const userHasPSuffix = hasPSuffix(userRankStr);
 
@@ -182,9 +127,9 @@ export default async function handler(req, res) {
         return userRank && itemRank >= 0.9 * userRank;
       } else if (exam === "JEE Main") {
         if (item["Exam"] === "JEE Advanced") return false;
-        if (!req.query.mainRank) return false;
+        if (!query.mainRank) return false;
 
-        const userRankStr = req.query.mainRank?.toString().trim() || "";
+        const userRankStr = query.mainRank?.toString().trim() || "";
         const userRank = parseRank(userRankStr);
         const userHasPSuffix = hasPSuffix(userRankStr);
 
@@ -268,3 +213,8 @@ export default async function handler(req, res) {
     });
   }
 }
+
+export default withValidation(
+  { validateQuery: validateExamResultQuery },
+  handler
+);

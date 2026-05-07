@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import Fuse from "fuse.js";
 import ScholarshipTable from "./ScholarshipTable";
+import { sanitizeSearchTerm } from "../utils/validators";
 
 const fuseOptions = {
   includeScore: false,
@@ -12,7 +13,9 @@ const fuseOptions = {
 
 const parseDeadline = (value) => {
   if (!value) return null;
-  const parts = String(value).split("/").map((part) => Number(part));
+  const parts = String(value)
+    .split("/")
+    .map((part) => Number(part));
   if (parts.length !== 3 || parts.some((part) => Number.isNaN(part))) {
     return null;
   }
@@ -30,16 +33,19 @@ const isReferenceClosed = (scholarship) => {
   return deadline < now;
 };
 
-const ScholarshipReferenceBrowser = () => {
+const ScholarshipReferenceBrowser = ({ maxSearchLength = 120 }) => {
   const [scholarships, setScholarships] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
+  const [searchNotice, setSearchNotice] = useState("");
   const [expandedRows, setExpandedRows] = useState({});
 
   useEffect(() => {
     const loadScholarships = async () => {
       try {
-        const response = await fetch("/data/scholarships/scholarship_data.json");
+        const response = await fetch(
+          "/data/scholarships/scholarship_data.json"
+        );
         const data = await response.json();
         const sortedData = [...data].sort((a, b) =>
           String(a["Scholarship Name"] || "").localeCompare(
@@ -81,6 +87,24 @@ const ScholarshipReferenceBrowser = () => {
     }));
   };
 
+  const handleSearchChange = (event) => {
+    const rawValue = event.target.value;
+    const sanitizedValue = sanitizeSearchTerm(rawValue, {
+      maxLength: maxSearchLength,
+    });
+
+    setSearchTerm(sanitizedValue);
+
+    if (rawValue !== sanitizedValue) {
+      setSearchNotice(
+        `Unsupported characters were removed and search text is limited to ${maxSearchLength} characters.`
+      );
+      return;
+    }
+
+    setSearchNotice("");
+  };
+
   return (
     <div className="min-h-screen bg-[#fdf8f6] px-4 py-8">
       <div className="mx-auto w-full max-w-6xl">
@@ -117,10 +141,14 @@ const ScholarshipReferenceBrowser = () => {
             id="scholarship-search"
             type="text"
             value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
+            onChange={handleSearchChange}
+            maxLength={maxSearchLength}
             placeholder="Try: engineering, girls scholarship, Maharashtra..."
             className="w-full rounded-xl border border-[#d8c7c1] bg-[#fffdfa] px-4 py-3 text-sm text-[#2f2320] outline-none transition focus:border-[#b52326] focus:ring-2 focus:ring-[#f4d5d6]"
           />
+          {searchNotice && (
+            <p className="mt-2 text-sm text-[#8f2e31]">{searchNotice}</p>
+          )}
         </div>
 
         {isLoading ? (
