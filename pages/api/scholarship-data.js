@@ -1,7 +1,27 @@
 import fs from "fs/promises";
 import path from "path";
+import { createRateLimiter } from "../../utils/rateLimit";
+
+const scholarshipDataLimiter = createRateLimiter({
+  namespace: "api:scholarship-data",
+  windowMs: 15 * 60 * 1000,
+  maxRequests: 120,
+  message:
+    "Too many scholarship data requests from this IP. Please wait a few minutes and try again.",
+});
 
 export default async function handler(req, res) {
+  if (req.method !== "GET") {
+    return res
+      .status(405)
+      .json({ error: "Method not allowed. Use GET for this endpoint." });
+  }
+
+  const rateLimitResult = await scholarshipDataLimiter(req, res);
+  if (!rateLimitResult.allowed) {
+    return;
+  }
+
   try {
     const dataPath = path.join(
       process.cwd(),

@@ -1,5 +1,15 @@
+import { createRateLimiter } from "../../utils/rateLimit";
+
 const TOTAL_MARKS = 300;
 const TOTAL_TEST_TAKERS = 1500000;
+
+const jeePredictLimiter = createRateLimiter({
+  namespace: "api:jee-predict",
+  windowMs: 15 * 60 * 1000,
+  maxRequests: 60,
+  message:
+    "Too many rank estimation requests from this IP. Please wait a few minutes and try again.",
+});
 
 // Percentage -> Percentile (piecewise)
 const LFIT = -86.555129;
@@ -165,12 +175,27 @@ const airToCat = (category, rank) => {
   return rounded <= 0 ? 1 : rounded;
 };
 
-export default function handler(req, res) {
+export default async function handler(req, res) {
   if (req.method !== "POST") {
-    return res.status(405).json({ error: "Method not allowed" });
+    return res
+      .status(405)
+      .json({ error: "Method not allowed. Use POST for this endpoint." });
   }
 
-  const body = typeof req.body === "string" ? JSON.parse(req.body) : req.body;
+  const rateLimitResult = await jeePredictLimiter(req, res);
+  if (!rateLimitResult.allowed) {
+    return;
+  }
+
+  let body;
+  try {
+    body = typeof req.body === "string" ? JSON.parse(req.body) : req.body;
+  } catch (error) {
+    return res.status(400).json({
+      error: "Invalid request body. Please send valid JSON.",
+    });
+  }
+
   const marksRaw = body?.marks;
   const percentileRaw = body?.percentile;
   const category = body?.category;
@@ -178,7 +203,7 @@ export default function handler(req, res) {
   if (!ALLOWED_CATEGORIES.has(category)) {
     return res
       .status(400)
-      .json({ error: "Unsupported category for estimation" });
+      .json({ error: "Unsupported category for estimation." });
   }
 
   let marks;
@@ -188,7 +213,9 @@ export default function handler(req, res) {
   if (marksRaw !== undefined && marksRaw !== null && marksRaw !== "") {
     marks = Number(marksRaw);
     if (Number.isNaN(marks) || marks < 0 || marks > TOTAL_MARKS) {
-      return res.status(400).json({ error: "Marks must be between 0 and 300" });
+      return res
+        .status(400)
+        .json({ error: "Marks must be between 0 and 300." });
     }
     percentage = marksToPercentage(marks);
     percentile = percentageToPercentile(percentage);
@@ -201,14 +228,14 @@ export default function handler(req, res) {
     if (Number.isNaN(percentile) || percentile < 0 || percentile > 100) {
       return res
         .status(400)
-        .json({ error: "Percentile must be between 0 and 100" });
+        .json({ error: "Percentile must be between 0 and 100." });
     }
     percentage = percentileToPercentage(percentile);
     marks = percentageToMarks(percentage);
   } else {
     return res
       .status(400)
-      .json({ error: "Provide either marks or percentile" });
+      .json({ error: "Provide either marks or percentile." });
   }
 
   let allIndiaRank = percentileToAir(percentile);

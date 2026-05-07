@@ -1,61 +1,39 @@
 import fs from "fs/promises";
 import examConfigs from "../../examConfig";
-import rateLimit from "express-rate-limit";
+import { createRateLimiter } from "../../utils/rateLimit";
 
-// Helper function to get client IP address
-const getIp = (req) => {
-  const xForwardedFor = req.headers["x-forwarded-for"];
-  if (typeof xForwardedFor === "string") {
-    return xForwardedFor.split(",")[0].trim();
-  }
-  if (Array.isArray(xForwardedFor) && xForwardedFor.length > 0) {
-    return xForwardedFor[0].trim();
-  }
-  // Fallback to socket remoteAddress or connection remoteAddress
-  return req.socket?.remoteAddress || req.connection?.remoteAddress;
-};
-
-const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100, // limit each IP to 100 requests per windowMs
-  standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
-  legacyHeaders: false, // Disable the `X-RateLimit-*` headers
-  // trustProxy: true, // Removed as we are using a custom keyGenerator
-  keyGenerator: (req, res) => {
-    const ip = getIp(req);
-    if (!ip) {
-      // This is a fallback, but ideally, an IP should always be found.
-      // If IP is consistently not found, the getIp logic might need adjustment
-      // for your specific environment/proxy setup.
-      console.warn(
-        "Rate limiter: IP address could not be determined. Using a default key for rate limiting. This might group multiple users."
-      );
-      return "default-fallback-key";
-    }
-    return ip;
-  },
-  handler: (req, res) => {
-    res.status(429).json({
-      error: "Too many requests. Please try again later.",
-    });
-  },
+const examResultLimiter = createRateLimiter({
+  namespace: "api:exam-result",
+  windowMs: 15 * 60 * 1000,
+  maxRequests: 100,
+  message:
+    "Too many college predictor requests from this IP. Please wait a few minutes and try again.",
 });
 
 export default async function handler(req, res) {
-  await limiter(req, res, () => {});
+  if (req.method !== "GET") {
+    return res
+      .status(405)
+      .json({ error: "Method not allowed. Use GET for this endpoint." });
+  }
+
+  const rateLimitResult = await examResultLimiter(req, res);
+  if (!rateLimitResult.allowed) {
+    return;
+  }
 
   const { exam, rank } = req.query;
 
   if (!exam || !examConfigs[exam]) {
-    return res.status(400).json({ error: "Invalid or missing exam parameter" });
+    return res
+      .status(400)
+      .json({ error: "Invalid or missing exam parameter." });
   }
 
   const config = examConfigs[exam];
   const primaryInputConfig = config.primaryInput;
   const queryValue =
-    exam === "JoSAA"
-      ? req.query.mainRank || req.query.rank
-      : req.query.rank;
+    exam === "JoSAA" ? req.query.mainRank || req.query.rank : req.query.rank;
 
   if (
     primaryInputConfig &&
@@ -100,7 +78,7 @@ export default async function handler(req, res) {
     if (!req.query[field.name]) {
       return res
         .status(400)
-        .json({ error: `Missing required parameter: ${field.name}` });
+        .json({ error: `Missing required parameter: ${field.name}.` });
     }
   }
 
