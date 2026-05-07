@@ -1,7 +1,8 @@
 import fs from "fs/promises";
 import path from "path";
+import { withErrorHandler, sendError } from "../../utils/errorHandler";
 
-export default async function handler(req, res) {
+async function handler(req, res, requestId) {
   try {
     const dataPath = path.join(
       process.cwd(),
@@ -14,10 +15,9 @@ export default async function handler(req, res) {
     const scholarships = JSON.parse(data);
     return res.status(200).json(scholarships);
   } catch (error) {
-    console.error("Error loading scholarship data:", error);
-    return res.status(500).json({
-      error: "Unable to retrieve scholarship data",
-      details: error.message,
-    });
+    console.error(`[${requestId}] Error loading scholarship data:`, error);
+    sendError(res, 500, "Unable to retrieve scholarship data", requestId);
   }
 }
+
+export default withErrorHandler(handler);

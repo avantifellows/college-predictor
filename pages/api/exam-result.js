@@ -6,6 +6,7 @@ import {
   applyFilters,
   sortColleges,
 } from "../../utils/collegeDataLoader";
+import { withErrorHandler, sendError } from "../../utils/errorHandler";
 
 // Helper function to get client IP address
 const getIp = (req) => {
@@ -46,7 +47,7 @@ const limiter = rateLimit({
   },
 });
 
-export default async function handler(req, res) {
+async function handler(req, res, requestId) {
   await limiter(req, res, () => {});
 
   const { exam, rank } = req.query;
@@ -121,10 +122,9 @@ export default async function handler(req, res) {
 
     return res.status(200).json(filteredData);
   } catch (error) {
-    console.error("Error reading file:", error);
-    res.status(500).json({
-      error: "Unable to retrieve data",
-      details: error.message,
-    });
+    console.error(`[${requestId}] Error reading file:`, error);
+    sendError(res, 500, "Unable to retrieve data", requestId);
   }
 }
+
+export default withErrorHandler(handler);

@@ -1,3 +1,5 @@
+import { withErrorHandler, sendError } from "../../utils/errorHandler";
+
 const TOTAL_MARKS = 300;
 const TOTAL_TEST_TAKERS = 1500000;
 
@@ -165,12 +167,18 @@ const airToCat = (category, rank) => {
   return rounded <= 0 ? 1 : rounded;
 };
 
-export default function handler(req, res) {
+function handler(req, res, requestId) {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
-  const body = typeof req.body === "string" ? JSON.parse(req.body) : req.body;
+  let body;
+  try {
+    body = typeof req.body === "string" ? JSON.parse(req.body) : req.body;
+  } catch (error) {
+    console.error(`[${requestId}] Invalid JSON in request body:`, error);
+    return sendError(res, 400, "Invalid request body. Please ensure the body is valid JSON.", requestId);
+  }
   const marksRaw = body?.marks;
   const percentileRaw = body?.percentile;
   const category = body?.category;
@@ -233,3 +241,5 @@ export default function handler(req, res) {
     categoryRank,
   });
 }
+
+export default withErrorHandler(handler);
