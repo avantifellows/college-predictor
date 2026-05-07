@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import Fuse from "fuse.js";
 import ScholarshipTable from "./ScholarshipTable";
+import { createRetryMessage, fetchJsonWithRetry } from "../utils/apiClient";
 
 const fuseOptions = {
   includeScore: false,
@@ -12,7 +13,9 @@ const fuseOptions = {
 
 const parseDeadline = (value) => {
   if (!value) return null;
-  const parts = String(value).split("/").map((part) => Number(part));
+  const parts = String(value)
+    .split("/")
+    .map((part) => Number(part));
   if (parts.length !== 3 || parts.some((part) => Number.isNaN(part))) {
     return null;
   }
@@ -30,32 +33,74 @@ const isReferenceClosed = (scholarship) => {
   return deadline < now;
 };
 
-const ScholarshipReferenceBrowser = () => {
+const ScholarshipReferenceBrowser = ({ retryOptions }) => {
   const [scholarships, setScholarships] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState("");
+  const [retryNotice, setRetryNotice] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
   const [expandedRows, setExpandedRows] = useState({});
 
   useEffect(() => {
+    let isCancelled = false;
+
     const loadScholarships = async () => {
+      setIsLoading(true);
+      setError("");
+      setRetryNotice("");
+
       try {
-        const response = await fetch("/data/scholarships/scholarship_data.json");
-        const data = await response.json();
+        const { data } = await fetchJsonWithRetry(
+          "/data/scholarships/scholarship_data.json",
+          {},
+          {
+            ...retryOptions,
+            onRetry: ({ attempt, maxRetries, delayMs }) => {
+              if (isCancelled) return;
+
+              setRetryNotice(
+                createRetryMessage({
+                  attempt,
+                  maxRetries,
+                  delayMs,
+                  resourceLabel: "Loading scholarships",
+                })
+              );
+            },
+          }
+        );
         const sortedData = [...data].sort((a, b) =>
           String(a["Scholarship Name"] || "").localeCompare(
             String(b["Scholarship Name"] || "")
           )
         );
-        setScholarships(sortedData);
+        if (!isCancelled) {
+          setScholarships(sortedData);
+          setError("");
+        }
       } catch (error) {
         console.error("Failed to load scholarship reference data:", error);
+        if (!isCancelled) {
+          setError(
+            error.message ||
+              "Failed to load scholarship reference data. Please try again."
+          );
+          setScholarships([]);
+        }
       } finally {
-        setIsLoading(false);
+        if (!isCancelled) {
+          setIsLoading(false);
+          setRetryNotice("");
+        }
       }
     };
 
     loadScholarships();
-  }, []);
+
+    return () => {
+      isCancelled = true;
+    };
+  }, [retryOptions]);
 
   const fuseInstance = useMemo(
     () => new Fuse(scholarships, fuseOptions),
@@ -125,7 +170,14 @@ const ScholarshipReferenceBrowser = () => {
 
         {isLoading ? (
           <div className="rounded-2xl border border-[#eaded8] bg-white px-6 py-12 text-center text-[#5b3a34] shadow-sm">
-            Loading scholarship reference list...
+            <p>Loading scholarship reference list...</p>
+            {retryNotice && (
+              <p className="mt-3 text-sm text-[#8f2e31]">{retryNotice}</p>
+            )}
+          </div>
+        ) : error ? (
+          <div className="rounded-2xl border border-[#f0c7c8] bg-[#fff1f1] px-6 py-12 text-center text-[#8f2e31] shadow-sm">
+            {error}
           </div>
         ) : filteredScholarships.length > 0 ? (
           <ScholarshipTable
