@@ -1,6 +1,7 @@
 import fs from "fs/promises";
 import examConfigs from "../../examConfig";
 import rateLimit from "express-rate-limit";
+import logger from "../../utils/logger";
 
 // Helper function to get client IP address
 const getIp = (req) => {
@@ -27,8 +28,12 @@ const limiter = rateLimit({
       // This is a fallback, but ideally, an IP should always be found.
       // If IP is consistently not found, the getIp logic might need adjustment
       // for your specific environment/proxy setup.
-      console.warn(
-        "Rate limiter: IP address could not be determined. Using a default key for rate limiting. This might group multiple users."
+      logger.warn(
+        "Rate limiter: IP address could not be determined. Using a default key for rate limiting.",
+        {
+          path: req.url || null,
+          method: req.method || null,
+        }
       );
       return "default-fallback-key";
     }
@@ -53,9 +58,7 @@ export default async function handler(req, res) {
   const config = examConfigs[exam];
   const primaryInputConfig = config.primaryInput;
   const queryValue =
-    exam === "JoSAA"
-      ? req.query.mainRank || req.query.rank
-      : req.query.rank;
+    exam === "JoSAA" ? req.query.mainRank || req.query.rank : req.query.rank;
 
   if (
     primaryInputConfig &&
@@ -261,7 +264,10 @@ export default async function handler(req, res) {
 
     return res.status(200).json(filteredData);
   } catch (error) {
-    console.error("Error reading file:", error);
+    logger.error("Error reading file for exam results.", error, {
+      exam,
+      category: req.query.category || null,
+    });
     res.status(500).json({
       error: "Unable to retrieve data",
       details: error.message,

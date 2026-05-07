@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import Fuse from "fuse.js";
 import ScholarshipTable from "./ScholarshipTable";
+import logger from "../utils/logger";
 
 const fuseOptions = {
   includeScore: false,
@@ -12,7 +13,9 @@ const fuseOptions = {
 
 const parseDeadline = (value) => {
   if (!value) return null;
-  const parts = String(value).split("/").map((part) => Number(part));
+  const parts = String(value)
+    .split("/")
+    .map((part) => Number(part));
   if (parts.length !== 3 || parts.some((part) => Number.isNaN(part))) {
     return null;
   }
@@ -39,7 +42,9 @@ const ScholarshipReferenceBrowser = () => {
   useEffect(() => {
     const loadScholarships = async () => {
       try {
-        const response = await fetch("/data/scholarships/scholarship_data.json");
+        const response = await fetch(
+          "/data/scholarships/scholarship_data.json"
+        );
         const data = await response.json();
         const sortedData = [...data].sort((a, b) =>
           String(a["Scholarship Name"] || "").localeCompare(
@@ -48,7 +53,9 @@ const ScholarshipReferenceBrowser = () => {
         );
         setScholarships(sortedData);
       } catch (error) {
-        console.error("Failed to load scholarship reference data:", error);
+        logger.error("Failed to load scholarship reference data.", error, {
+          source: "ScholarshipReferenceBrowser",
+        });
       } finally {
         setIsLoading(false);
       }
