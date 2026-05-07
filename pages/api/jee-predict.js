@@ -1,3 +1,10 @@
+import {
+  attachRequestId,
+  badRequest,
+  internalServerError,
+  methodNotAllowed,
+} from "../../utils/errorHandler";
+
 const TOTAL_MARKS = 300;
 const TOTAL_TEST_TAKERS = 1500000;
 
@@ -166,70 +173,98 @@ const airToCat = (category, rank) => {
 };
 
 export default function handler(req, res) {
+  attachRequestId(req, res);
+
   if (req.method !== "POST") {
-    return res.status(405).json({ error: "Method not allowed" });
+    return methodNotAllowed(req, res, ["POST"]);
   }
 
-  const body = typeof req.body === "string" ? JSON.parse(req.body) : req.body;
-  const marksRaw = body?.marks;
-  const percentileRaw = body?.percentile;
-  const category = body?.category;
+  try {
+    let body;
 
-  if (!ALLOWED_CATEGORIES.has(category)) {
-    return res
-      .status(400)
-      .json({ error: "Unsupported category for estimation" });
-  }
-
-  let marks;
-  let percentage;
-  let percentile;
-
-  if (marksRaw !== undefined && marksRaw !== null && marksRaw !== "") {
-    marks = Number(marksRaw);
-    if (Number.isNaN(marks) || marks < 0 || marks > TOTAL_MARKS) {
-      return res.status(400).json({ error: "Marks must be between 0 and 300" });
+    try {
+      body = typeof req.body === "string" ? JSON.parse(req.body) : req.body;
+    } catch (error) {
+      return badRequest(req, res, "Invalid request body.", {
+        code: "INVALID_JSON_BODY",
+        logLevel: "warn",
+        logLabel: "[API_BAD_REQUEST]",
+        error,
+      });
     }
-    percentage = marksToPercentage(marks);
-    percentile = percentageToPercentile(percentage);
-  } else if (
-    percentileRaw !== undefined &&
-    percentileRaw !== null &&
-    percentileRaw !== ""
-  ) {
-    percentile = Number(percentileRaw);
-    if (Number.isNaN(percentile) || percentile < 0 || percentile > 100) {
-      return res
-        .status(400)
-        .json({ error: "Percentile must be between 0 and 100" });
+
+    const marksRaw = body?.marks;
+    const percentileRaw = body?.percentile;
+    const category = body?.category;
+
+    if (!ALLOWED_CATEGORIES.has(category)) {
+      return badRequest(req, res, "Unsupported category for estimation.", {
+        code: "UNSUPPORTED_CATEGORY",
+      });
     }
-    percentage = percentileToPercentage(percentile);
-    marks = percentageToMarks(percentage);
-  } else {
-    return res
-      .status(400)
-      .json({ error: "Provide either marks or percentile" });
+
+    let marks;
+    let percentage;
+    let percentile;
+
+    if (marksRaw !== undefined && marksRaw !== null && marksRaw !== "") {
+      marks = Number(marksRaw);
+      if (Number.isNaN(marks) || marks < 0 || marks > TOTAL_MARKS) {
+        return badRequest(req, res, "Marks must be between 0 and 300.", {
+          code: "INVALID_MARKS",
+        });
+      }
+      percentage = marksToPercentage(marks);
+      percentile = percentageToPercentile(percentage);
+    } else if (
+      percentileRaw !== undefined &&
+      percentileRaw !== null &&
+      percentileRaw !== ""
+    ) {
+      percentile = Number(percentileRaw);
+      if (Number.isNaN(percentile) || percentile < 0 || percentile > 100) {
+        return badRequest(req, res, "Percentile must be between 0 and 100.", {
+          code: "INVALID_PERCENTILE",
+        });
+      }
+      percentage = percentileToPercentage(percentile);
+      marks = percentageToMarks(percentage);
+    } else {
+      return badRequest(req, res, "Provide either marks or percentile.", {
+        code: "MISSING_ESTIMATION_INPUT",
+      });
+    }
+
+    let allIndiaRank = percentileToAir(percentile);
+    let categoryRank = airToCat(category, allIndiaRank);
+
+    if (marks >= TOTAL_MARKS || percentile >= 100) {
+      percentile = 100;
+      allIndiaRank = 1;
+      categoryRank = 1;
+      marks = TOTAL_MARKS;
+      percentage = 100;
+    }
+
+    const percentageRounded = Number(percentage.toFixed(5));
+    const percentileRounded = Number(percentile.toFixed(5));
+
+    return res.status(200).json({
+      marks: Math.round(marks),
+      percentage: percentageRounded,
+      percentile: percentileRounded,
+      allIndiaRank,
+      categoryRank,
+    });
+  } catch (error) {
+    return internalServerError(
+      req,
+      res,
+      "Unable to estimate rank. Please try again later.",
+      {
+        error,
+        code: "RANK_ESTIMATION_FAILED",
+      }
+    );
   }
-
-  let allIndiaRank = percentileToAir(percentile);
-  let categoryRank = airToCat(category, allIndiaRank);
-
-  if (marks >= TOTAL_MARKS || percentile >= 100) {
-    percentile = 100;
-    allIndiaRank = 1;
-    categoryRank = 1;
-    marks = TOTAL_MARKS;
-    percentage = 100;
-  }
-
-  const percentageRounded = Number(percentage.toFixed(5));
-  const percentileRounded = Number(percentile.toFixed(5));
-
-  return res.status(200).json({
-    marks: Math.round(marks),
-    percentage: percentageRounded,
-    percentile: percentileRounded,
-    allIndiaRank,
-    categoryRank,
-  });
 }

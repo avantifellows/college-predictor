@@ -1,7 +1,18 @@
 import fs from "fs/promises";
 import path from "path";
+import {
+  attachRequestId,
+  internalServerError,
+  methodNotAllowed,
+} from "../../utils/errorHandler";
 
 export default async function handler(req, res) {
+  attachRequestId(req, res);
+
+  if (req.method !== "GET") {
+    return methodNotAllowed(req, res, ["GET"]);
+  }
+
   try {
     const dataPath = path.join(
       process.cwd(),
@@ -14,10 +25,14 @@ export default async function handler(req, res) {
     const scholarships = JSON.parse(data);
     return res.status(200).json(scholarships);
   } catch (error) {
-    console.error("Error loading scholarship data:", error);
-    return res.status(500).json({
-      error: "Unable to retrieve scholarship data",
-      details: error.message,
-    });
+    return internalServerError(
+      req,
+      res,
+      "Unable to retrieve scholarship data. Please try again later.",
+      {
+        error,
+        code: "SCHOLARSHIP_DATA_LOAD_FAILED",
+      }
+    );
   }
 }

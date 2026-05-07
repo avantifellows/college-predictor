@@ -1,6 +1,13 @@
 import fs from "fs/promises";
 import examConfigs from "../../examConfig";
 import rateLimit from "express-rate-limit";
+import {
+  attachRequestId,
+  badRequest,
+  internalServerError,
+  methodNotAllowed,
+  rateLimitExceeded,
+} from "../../utils/errorHandler";
 
 // Helper function to get client IP address
 const getIp = (req) => {
@@ -35,27 +42,38 @@ const limiter = rateLimit({
     return ip;
   },
   handler: (req, res) => {
-    res.status(429).json({
-      error: "Too many requests. Please try again later.",
+    return rateLimitExceeded(req, res, {
+      context: {
+        ip: getIp(req),
+      },
     });
   },
 });
 
 export default async function handler(req, res) {
+  attachRequestId(req, res);
+
+  if (req.method !== "GET") {
+    return methodNotAllowed(req, res, ["GET"]);
+  }
+
   await limiter(req, res, () => {});
+  if (res.headersSent) {
+    return;
+  }
 
   const { exam, rank } = req.query;
 
   if (!exam || !examConfigs[exam]) {
-    return res.status(400).json({ error: "Invalid or missing exam parameter" });
+    return badRequest(req, res, "Invalid or missing exam parameter.", {
+      code: "INVALID_EXAM",
+    });
   }
 
   const config = examConfigs[exam];
   const primaryInputConfig = config.primaryInput;
   const queryValue =
-    exam === "JoSAA"
-      ? req.query.mainRank || req.query.rank
-      : req.query.rank;
+    exam === "JoSAA" ? req.query.mainRank || req.query.rank : req.query.rank;
 
   if (
     primaryInputConfig &&
@@ -65,42 +83,64 @@ export default async function handler(req, res) {
   ) {
     const numericValue = Number(queryValue);
     if (Number.isNaN(numericValue)) {
-      return res
-        .status(400)
-        .json({ error: `Invalid value for ${exam} input parameter.` });
+      return badRequest(
+        req,
+        res,
+        `Invalid value for ${exam} input parameter.`,
+        {
+          code: "INVALID_INPUT_VALUE",
+        }
+      );
     }
 
     if (
       primaryInputConfig.min !== undefined &&
       numericValue < Number(primaryInputConfig.min)
     ) {
-      return res.status(400).json({
-        error:
-          primaryInputConfig.max !== undefined
-            ? `Please enter a value between ${primaryInputConfig.min} and ${primaryInputConfig.max}.`
-            : `Please enter a value greater than or equal to ${primaryInputConfig.min}.`,
-      });
+      return badRequest(
+        req,
+        res,
+        primaryInputConfig.max !== undefined
+          ? `Please enter a value between ${primaryInputConfig.min} and ${primaryInputConfig.max}.`
+          : `Please enter a value greater than or equal to ${primaryInputConfig.min}.`,
+        {
+          code: "INPUT_OUT_OF_RANGE",
+        }
+      );
     }
 
     if (
       primaryInputConfig.max !== undefined &&
       numericValue > Number(primaryInputConfig.max)
     ) {
-      return res.status(400).json({
-        error: `Please enter a value between ${primaryInputConfig.min} and ${primaryInputConfig.max}.`,
-      });
+      return badRequest(
+        req,
+        res,
+        `Please enter a value between ${primaryInputConfig.min} and ${primaryInputConfig.max}.`,
+        {
+          code: "INPUT_OUT_OF_RANGE",
+        }
+      );
     }
   }
 
-  // Check for required parameters
   for (const field of config.fields) {
     if (exam === "JoSAA" && field.name === "preferHomeState") {
       continue;
     }
     if (!req.query[field.name]) {
-      return res
-        .status(400)
-        .json({ error: `Missing required parameter: ${field.name}` });
+      return badRequest(
+        req,
+        res,
+        `Missing required parameter: ${field.name}.`,
+        {
+          code: "MISSING_REQUIRED_PARAMETER",
+          context: {
+            field: field.name,
+            exam,
+          },
+        }
+      );
     }
   }
 
@@ -261,10 +301,18 @@ export default async function handler(req, res) {
 
     return res.status(200).json(filteredData);
   } catch (error) {
-    console.error("Error reading file:", error);
-    res.status(500).json({
-      error: "Unable to retrieve data",
-      details: error.message,
-    });
+    return internalServerError(
+      req,
+      res,
+      "Unable to retrieve data. Please try again later.",
+      {
+        error,
+        code: "DATA_RETRIEVAL_FAILED",
+        context: {
+          exam,
+          category: req.query.category || null,
+        },
+      }
+    );
   }
 }
