@@ -1,6 +1,6 @@
-import fs from "fs/promises";
 import examConfigs from "../../examConfig";
 import rateLimit from "express-rate-limit";
+import dataRepository from "../../utils/dataRepository";
 
 // Helper function to get client IP address
 const getIp = (req) => {
@@ -42,7 +42,14 @@ const limiter = rateLimit({
 });
 
 export default async function handler(req, res) {
-  await limiter(req, res, () => {});
+  let shouldContinue = false;
+  await limiter(req, res, () => {
+    shouldContinue = true;
+  });
+
+  if (!shouldContinue || res.writableEnded) {
+    return;
+  }
 
   const { exam, rank } = req.query;
 
@@ -105,9 +112,10 @@ export default async function handler(req, res) {
   }
 
   try {
-    const dataPath = config.getDataPath(req.query.category);
-    const data = await fs.readFile(dataPath, "utf8");
-    const fullData = JSON.parse(data);
+    const fullData = await dataRepository.getExamData(
+      exam,
+      req.query.category
+    );
 
     // Get filters based on the exam config and query parameters
     const filters = config.getFilters(req.query);
@@ -261,7 +269,7 @@ export default async function handler(req, res) {
 
     return res.status(200).json(filteredData);
   } catch (error) {
-    console.error("Error reading file:", error);
+    console.error("Error retrieving exam data:", error);
     res.status(500).json({
       error: "Unable to retrieve data",
       details: error.message,

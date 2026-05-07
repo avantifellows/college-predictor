@@ -1,17 +1,8 @@
-import fs from "fs/promises";
-import path from "path";
+import dataRepository from "../../utils/dataRepository";
 
 export default async function handler(req, res) {
   try {
-    const dataPath = path.join(
-      process.cwd(),
-      "public",
-      "data",
-      "scholarships",
-      "scholarship_data.json"
-    );
-    const data = await fs.readFile(dataPath, "utf8");
-    const scholarships = JSON.parse(data);
+    const scholarships = await dataRepository.getScholarshipData();
     return res.status(200).json(scholarships);
   } catch (error) {
     console.error("Error loading scholarship data:", error);

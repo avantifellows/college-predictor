@@ -63,6 +63,28 @@ const cases = [
   },
   {
     name: "Scholarship data",
+    path: "/api/scholarship-data",
+    expectJsonArray: true,
+    validate: (rows) => {
+      const parseDeadline = (value) => {
+        if (!value) return null;
+        const parts = String(value).split("/").map(Number);
+        if (parts.length !== 3 || parts.some(Number.isNaN)) return null;
+        return new Date(parts[2], parts[0] - 1, parts[1], 23, 59, 59, 999);
+      };
+      const allClosed = rows.every((row) => {
+        const status = String(row.Status || "").toLowerCase();
+        if (status === "closed") return true;
+        const deadline = parseDeadline(row["Last Date"]);
+        return deadline ? deadline < new Date() : false;
+      });
+      if (!allClosed) {
+        throw new Error("Some scholarships are still marked active by status/deadline logic");
+      }
+    },
+  },
+  {
+    name: "Scholarship static data",
     path: "/data/scholarships/scholarship_data.json",
     expectJsonArray: true,
     validate: (rows) => {

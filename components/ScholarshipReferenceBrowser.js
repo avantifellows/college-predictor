@@ -39,7 +39,7 @@ const ScholarshipReferenceBrowser = () => {
   useEffect(() => {
     const loadScholarships = async () => {
       try {
-        const response = await fetch("/data/scholarships/scholarship_data.json");
+        const response = await fetch("/api/scholarship-data");
         const data = await response.json();
         const sortedData = [...data].sort((a, b) =>
           String(a["Scholarship Name"] || "").localeCompare(
