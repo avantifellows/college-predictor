@@ -139,12 +139,16 @@ CSV files should have headers corresponding to the fields above.
 - Detects invalid rank formats
 
 ### 4. Category Normalization
-Standardizes categories to:
-- `GEN` (General/Open)
-- `OBC` (Other Backward Classes)
-- `SC` (Scheduled Castes)
-- `ST` (Scheduled Tribes)
-- `EWS` (Economically Weaker Sections)
+Standardizes categories using pattern matching and preserves metadata:
+- **Pattern-based normalization**: Matches keywords like "obc", "sc", "st", "ews", "open"
+- **Metadata preservation**: Stores original_category, normalized_category, is_pwd for each record
+- **Heuristic warnings**: Alerts when pattern-based normalization is applied
+- **Standard categories**: `GEN`, `OBC`, `SC`, `ST`, `EWS`
+
+Examples:
+- `"OBC-NCL (PwD)"` → `OBC` with `is_pwd: true`
+- `"OPEN (PwD)"` → `GEN` with `is_pwd: true`
+- `"GOPENS"` → `GEN` (heuristic warning applied)
 
 ## Output Files
 

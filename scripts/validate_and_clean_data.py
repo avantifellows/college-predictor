@@ -1,25 +1,19 @@
 #!/usr/bin/env python3
 """
-Data Validation and Cleaning Utility for College Predictor
+Data Validation and Cleaning Utility 
 
 This script validates and cleans college/cutoff data from JSON or CSV files.
 It handles missing values, duplicates, inconsistent categories, and invalid ranks.
 
-Author: Avanti Fellows College Predictor Team
 """
 
 import json
-import csv
 import pandas as pd
 import logging
 import argparse
-from pathlib import Path
 from typing import Dict, List, Any, Tuple, Optional
 from datetime import datetime
 import sys
-
-# Configure logging
-import os
 from pathlib import Path
 
 # Create outputs directory if it doesn't exist
@@ -37,7 +31,49 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Standard category mappings
-CATEGORY_MAPPING = {
+def normalize_category_with_metadata(category_value: str) -> Dict[str, Any]:
+    """Normalize category value using pattern matching and preserve metadata."""
+    if not category_value:
+        return {
+            "original_category": category_value,
+            "normalized_category": "UNKNOWN",
+            "is_pwd": False
+        }
+    
+    category_lower = str(category_value).lower().strip()
+    
+    # Check for PWD indicators
+    pwd_indicators = ['pwd']
+    is_pwd = any(pwd in category_lower for pwd in pwd_indicators)
+    
+    # Pattern-based normalization
+    if 'obc' in category_lower:
+        normalized = 'OBC'
+    elif 'sc' in category_lower or 'scheduled caste' in category_lower:
+        normalized = 'SC'
+    elif 'st' in category_lower or 'scheduled tribe' in category_lower:
+        normalized = 'ST'
+    elif 'ews' in category_lower or 'economically weaker' in category_lower:
+        normalized = 'EWS'
+    elif 'open' in category_lower or 'gen' in category_lower or 'general' in category_lower:
+        normalized = 'GEN'
+    elif category_lower in LEGACY_CATEGORY_MAPPING:
+        # Fallback to exact mapping for edge cases
+        normalized = LEGACY_CATEGORY_MAPPING[category_lower]
+    else:
+        # For unknown categories, preserve original but standardize format
+        normalized = category_value.strip().upper()
+        if not normalized:
+            normalized = "UNKNOWN"
+    
+    return {
+        "original_category": category_value,
+        "normalized_category": normalized,
+        "is_pwd": is_pwd
+    }
+
+# Legacy mapping for fallback cases
+LEGACY_CATEGORY_MAPPING = {
     'general': 'GEN',
     'gen': 'GEN',
     'open': 'GEN',
@@ -50,8 +86,6 @@ CATEGORY_MAPPING = {
     'ews': 'EWS',
     'economically weaker section': 'EWS'
 }
-
-# Required fields for validation
 REQUIRED_FIELDS = {
     "JEE": ["College ID", "Academic Program Name", "Opening Rank", "Closing Rank"],
     "GUJCET": ["College Name", "Course", "category"],
@@ -290,11 +324,13 @@ class DataValidator:
         self.validation_report['invalid_ranks'] = invalid_ranks
     
     def _check_inconsistent_categories(self):
-        """Check for inconsistent category naming."""
+        """Check for inconsistent category naming and track normalization."""
         logger.info("Checking for inconsistent category naming")
         
         category_counts = {}
         inconsistent_categories = {}
+        normalization_warnings = []
+        normalization_details = []
         
         for i, record in enumerate(self.data):
             # Handle different category field names
@@ -310,16 +346,44 @@ class DataValidator:
                 category_lower = str(category).lower().strip()
                 category_counts[category_lower] = category_counts.get(category_lower, 0) + 1
                 
-                # Check if category needs normalization
-                if category_lower not in CATEGORY_MAPPING and category_lower not in inconsistent_categories:
-                    inconsistent_categories[category_lower] = {
-                        'original': category,
-                        'count': 1,
-                        'indices': [i]
-                    }
-                elif category_lower in inconsistent_categories:
-                    inconsistent_categories[category_lower]['count'] += 1
-                    inconsistent_categories[category_lower]['indices'].append(i)
+                # Apply new normalization with metadata
+                norm_result = normalize_category_with_metadata(category)
+                
+                # Check if normalization was heuristic (pattern-based)
+                if norm_result['original_category'] != norm_result['normalized_category']:
+                    # Add to normalization details
+                    normalization_details.append({
+                        'index': i,
+                        'original': norm_result['original_category'],
+                        'normalized': norm_result['normalized_category'],
+                        'is_pwd': norm_result['is_pwd']
+                    })
+                    
+                    # Add warning if heuristic was used
+                    if category_lower not in LEGACY_CATEGORY_MAPPING:
+                        normalization_warnings.append({
+                            'original': norm_result['original_category'],
+                            'normalized': norm_result['normalized_category'],
+                            'is_pwd': norm_result['is_pwd'],
+                            'index': i
+                        })
+                
+                # Track inconsistent categories (non-standard after normalization)
+                if norm_result['normalized_category'] not in ['GEN', 'OBC', 'SC', 'ST', 'EWS']:
+                    key = norm_result['normalized_category']
+                    if key not in inconsistent_categories:
+                        inconsistent_categories[key] = {
+                            'original': norm_result['original_category'],
+                            'count': 1,
+                            'indices': [i]
+                        }
+                    else:
+                        inconsistent_categories[key]['count'] += 1
+                        inconsistent_categories[key]['indices'].append(i)
+        
+        self.validation_report['inconsistent_categories'] = inconsistent_categories
+        self.validation_report['normalization_warnings'] = normalization_warnings
+        self.validation_report['normalization_details'] = normalization_details
         
         self.validation_report['inconsistent_categories'] = inconsistent_categories
         
@@ -348,8 +412,20 @@ class DataValidator:
             
             cleaned_record = record.copy()
             
-            # Normalize category
-            cleaned_record = self._normalize_category(cleaned_record)
+            # Normalize category with metadata preservation
+            category_field = None
+            if 'Seat Type' in record:
+                category_field = 'Seat Type'
+            elif 'category' in record:
+                category_field = 'category'
+            elif 'Category' in record:
+                category_field = 'Category'
+            
+            if category_field and record[category_field]:
+                norm_result = normalize_category_with_metadata(record[category_field])
+                cleaned_record[category_field] = norm_result['normalized_category']
+                # Store metadata in record for downstream use
+                cleaned_record[f'{category_field}_metadata'] = norm_result
             
             # Handle missing values (simple strategy - keep as is but log)
             cleaned_record = self._handle_missing_values(cleaned_record, i)
@@ -366,7 +442,7 @@ class DataValidator:
         return cleaned_data
     
     def _normalize_category(self, record: Dict[str, Any]) -> Dict[str, Any]:
-        """Normalize category values to standard format."""
+        """Legacy method - kept for backward compatibility."""
         # Handle different category field names
         category_field = None
         if 'Seat Type' in record:
@@ -377,9 +453,10 @@ class DataValidator:
             category_field = 'Category'
         
         if category_field and record[category_field]:
-            category_lower = str(record[category_field]).lower().strip()
-            if category_lower in CATEGORY_MAPPING:
-                record[category_field] = CATEGORY_MAPPING[category_lower]
+            norm_result = normalize_category_with_metadata(record[category_field])
+            record[category_field] = norm_result['normalized_category']
+            # Store metadata in record for downstream use
+            record[f'{category_field}_metadata'] = norm_result
         
         return record
     
@@ -444,6 +521,31 @@ class DataValidator:
             ])
             for field, count in sorted(self.validation_report['field_presence'].items()):
                 report_lines.append(f"- {field}: present in {count} records")
+            report_lines.append("")
+        
+        # Normalization details section
+        if 'normalization_details' in self.validation_report:
+            report_lines.extend([
+                "NORMALIZATION DETAILS:",
+                "-" * 25
+            ])
+            for detail in self.validation_report['normalization_details'][:10]:
+                report_lines.append(f"  - Index {detail['index']}: '{detail['original']}' -> '{detail['normalized']}' (PWD: {detail['is_pwd']})")
+            if len(self.validation_report['normalization_details']) > 10:
+                report_lines.append(f"  ... and {len(self.validation_report['normalization_details']) - 10} more")
+            report_lines.append("")
+        
+        # Normalization warnings section
+        if 'normalization_warnings' in self.validation_report:
+            report_lines.extend([
+                "NORMALIZATION WARNINGS:",
+                "-" * 26,
+                f"- Heuristic normalization applied to {len(self.validation_report['normalization_warnings'])} categories"
+            ])
+            for warning in self.validation_report['normalization_warnings'][:5]:
+                report_lines.append(f"  - '{warning['original']}' -> '{warning['normalized']}' (PWD: {warning['is_pwd']})")
+            if len(self.validation_report['normalization_warnings']) > 5:
+                report_lines.append(f"  ... and {len(self.validation_report['normalization_warnings']) - 5} more")
             report_lines.append("")
         
         # Missing values section
