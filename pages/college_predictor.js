@@ -8,6 +8,7 @@ import examConfigs from "../examConfig";
 import dynamic from "next/dynamic";
 import TneaScoreCalculator from "../components/TneaScoreCalculator";
 import { debounce } from "lodash";
+import SkeletonLoader from "../components/SkeletonLoader";
 
 // Dynamically import Dropdown with SSR disabled
 const Dropdown = dynamic(() => import("../components/dropdown"), {
@@ -545,6 +546,8 @@ const CollegePredictor = () => {
     // Initial data fetch when component mounts and router.query is available
     if (router.isReady && Object.keys(router.query).length > 0) {
       fetchData(router.query);
+    } else if (router.isReady) {
+      setIsLoading(false);
     }
   }, [router.isReady, router.query]); // Removed fetchData from here, will be called by debouncedRouterPush or initial useEffect
 
@@ -1062,29 +1065,36 @@ const CollegePredictor = () => {
               </div>
             </div>
             {showSelectionDetails && (
-              <div className="mt-4">{renderQueryDetails()}</div>
+              <div className="mt-4">
+                {isLoading && !queryObject.exam ? (
+                  <SkeletonLoader variant="filters" columns={3} />
+                ) : (
+                  renderQueryDetails()
+                )}
+              </div>
+            )}
+            {isLoading && (
+              <p className="mt-4 text-sm font-medium text-[#8f2e31]" role="status">
+                Updating recommendations...
+              </p>
             )}
           </div>
 
-          {isLoading ? (
-            <div className="text-center py-10">
-              <p className="text-xl text-[#8f2e31]">Loading predictions...</p>
-            </div>
-          ) : error ? (
+          <div className="transition-opacity duration-300" aria-busy={isLoading}>
+          {error && !isLoading ? (
             <div className="text-center py-10 px-4">
               <p className="text-xl text-red-600 bg-red-100 p-4 rounded-md">
                 {error}
               </p>
             </div>
-          ) : filteredData.length > 0 ? (
-            <>
-              <PredictedCollegeTables
-                data={filteredData}
-                exam={queryObject.exam}
-                searchTerm={searchTerm}
-                onSearchChange={handleSearchChange}
-              />
-            </>
+          ) : isLoading || filteredData.length > 0 ? (
+            <PredictedCollegeTables
+              data={filteredData}
+              exam={queryObject.exam}
+              searchTerm={searchTerm}
+              onSearchChange={handleSearchChange}
+              isLoading={isLoading}
+            />
           ) : (
             <div className="text-center py-10">
               <p className="text-xl text-gray-600">
@@ -1094,6 +1104,7 @@ const CollegePredictor = () => {
               </p>
             </div>
           )}
+          </div>
         </div>
       </div>
     </>

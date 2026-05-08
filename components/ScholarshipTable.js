@@ -1,4 +1,5 @@
 import React from "react";
+import SkeletonLoader from "./SkeletonLoader";
 
 const parseDeadline = (value) => {
   if (!value) return null;
@@ -140,6 +141,7 @@ const ScholarshipTable = ({
   filteredData,
   toggleRowExpansion,
   expandedRows,
+  isLoading = false,
 }) => {
   const headers = [
     "Scholarship Name",
@@ -161,6 +163,10 @@ const ScholarshipTable = ({
     String(status || "").toLowerCase() === "closed"
       ? "border border-[#f0c7c8] bg-[#fff1f1] text-[#8f2e31]"
       : "border border-[#d8d3ad] bg-[#fff9e8] text-[#7a5b00]";
+
+  if (isLoading) {
+    return <SkeletonLoader columns={5} rows={8} />;
+  }
 
   return (
     <div className="overflow-x-auto rounded-2xl border border-[#eaded8] bg-white shadow-sm">

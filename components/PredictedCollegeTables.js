@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { ArrowDown, ArrowUp, ArrowUpDown, Info } from "lucide-react";
 import PropTypes from "prop-types";
 import examConfigs from "../examConfig";
+import SkeletonLoader from "./SkeletonLoader";
 
 // Define fields for the expanded view
 const expandedFields = {
@@ -194,6 +195,7 @@ const PredictedCollegesTable = ({
   exam = "",
   searchTerm = "",
   onSearchChange = null,
+  isLoading = false,
 }) => {
   const [expandedRows, setExpandedRows] = useState({});
   const [showAllRows, setShowAllRows] = useState(false); // State for showing all rows
@@ -348,6 +350,27 @@ const PredictedCollegesTable = ({
 
   const predicted_colleges_table_column =
     examColumnMapping[exam] || examColumnMapping.DEFAULT;
+
+  if (isLoading) {
+    return (
+      <div className="w-full space-y-3 transition-opacity duration-300">
+        <div className="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
+          <div className="h-12 w-full max-w-md animate-pulse rounded-xl bg-[#f0e2dd]" />
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+            <div className="h-5 w-48 animate-pulse rounded-md bg-[#f0e2dd]" />
+            <div className="h-10 w-full animate-pulse rounded-lg bg-[#f0e2dd] sm:w-36" />
+          </div>
+        </div>
+        <SkeletonLoader
+          columns={
+            predicted_colleges_table_column.length +
+            (supportsExpandedView ? 1 : 0)
+          }
+          rows={8}
+        />
+      </div>
+    );
+  }
 
   const transformData = (item) => {
     if (exam === "GUJCET") {
@@ -827,6 +850,7 @@ PredictedCollegesTable.propTypes = {
   exam: PropTypes.string.isRequired,
   searchTerm: PropTypes.string,
   onSearchChange: PropTypes.func,
+  isLoading: PropTypes.bool,
 };
 
 export default PredictedCollegesTable;

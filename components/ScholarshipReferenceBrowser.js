@@ -30,7 +30,7 @@ const isReferenceClosed = (scholarship) => {
   return deadline < now;
 };
 
-const ScholarshipReferenceBrowser = () => {
+const ScholarshipReferenceBrowser = ({ onLoadingChange = () => {} }) => {
   const [scholarships, setScholarships] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
@@ -38,6 +38,7 @@ const ScholarshipReferenceBrowser = () => {
 
   useEffect(() => {
     const loadScholarships = async () => {
+      onLoadingChange(true);
       try {
         const response = await fetch("/data/scholarships/scholarship_data.json");
         const data = await response.json();
@@ -51,11 +52,12 @@ const ScholarshipReferenceBrowser = () => {
         console.error("Failed to load scholarship reference data:", error);
       } finally {
         setIsLoading(false);
+        onLoadingChange(false);
       }
     };
 
     loadScholarships();
-  }, []);
+  }, [onLoadingChange]);
 
   const fuseInstance = useMemo(
     () => new Fuse(scholarships, fuseOptions),
@@ -118,20 +120,27 @@ const ScholarshipReferenceBrowser = () => {
             type="text"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            placeholder="Try: engineering, girls scholarship, Maharashtra..."
-            className="w-full rounded-xl border border-[#d8c7c1] bg-[#fffdfa] px-4 py-3 text-sm text-[#2f2320] outline-none transition focus:border-[#b52326] focus:ring-2 focus:ring-[#f4d5d6]"
+            disabled={isLoading}
+            placeholder={
+              isLoading
+                ? "Loading scholarship filters..."
+                : "Try: engineering, girls scholarship, Maharashtra..."
+            }
+            className="w-full rounded-xl border border-[#d8c7c1] bg-[#fffdfa] px-4 py-3 text-sm text-[#2f2320] outline-none transition focus:border-[#b52326] focus:ring-2 focus:ring-[#f4d5d6] disabled:cursor-wait disabled:bg-[#f3ebe7] disabled:text-[#8a7770]"
           />
+          {isLoading && (
+            <p className="mt-2 text-sm text-[#8f2e31]" role="status">
+              Preparing scholarship filters...
+            </p>
+          )}
         </div>
 
-        {isLoading ? (
-          <div className="rounded-2xl border border-[#eaded8] bg-white px-6 py-12 text-center text-[#5b3a34] shadow-sm">
-            Loading scholarship reference list...
-          </div>
-        ) : filteredScholarships.length > 0 ? (
+        {isLoading || filteredScholarships.length > 0 ? (
           <ScholarshipTable
             filteredData={filteredScholarships}
             toggleRowExpansion={toggleRowExpansion}
             expandedRows={expandedRows}
+            isLoading={isLoading}
           />
         ) : (
           <div className="rounded-2xl border border-[#eaded8] bg-white px-6 py-12 text-center text-[#5b3a34] shadow-sm">
