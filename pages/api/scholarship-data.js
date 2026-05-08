@@ -2,6 +2,8 @@ import fs from "fs/promises";
 import path from "path";
 
 export default async function handler(req, res) {
+  res.setHeader("Cache-Control", "public, max-age=3600, immutable");
+
   try {
     const dataPath = path.join(
       process.cwd(),
