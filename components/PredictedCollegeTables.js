@@ -173,7 +173,7 @@ const ExpandedRowComponent = ({ item, fields, exam, examColumnMapping }) => {
         colSpan={columns.length + 1}
         className="border-b border-[#eaded8] bg-[#fffdfa] p-4"
       >
-        <div className="grid grid-cols-2 gap-4 text-sm">
+        <div className="grid grid-cols-1 gap-3 text-sm sm:grid-cols-2 sm:gap-4">
           {fieldsToShow.map((field, idx) => (
             <div key={idx}>
               <p>
@@ -222,7 +222,9 @@ const PredictedCollegesTable = ({
     setSalaryTooltip(null);
   };
 
-  const commonTableClass = "w-full min-w-[720px] border-collapse text-sm";
+  const buttonClass =
+    "touch-target inline-flex items-center justify-center whitespace-nowrap rounded-lg bg-[#B52326] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#9E1F22]";
+  const commonTableClass = "w-full min-w-[900px] border-collapse text-sm";
   const commonHeaderClass =
     "bg-[#f8efec] text-[#5b1f20] font-semibold text-left text-xs sm:text-sm";
   const commonCellClass =
@@ -642,7 +644,7 @@ const PredictedCollegesTable = ({
                 onMouseLeave={hideSalaryTooltip}
                 onFocus={showSalaryTooltip}
                 onBlur={hideSalaryTooltip}
-                className="inline-flex h-5 w-5 items-center justify-center rounded-full border border-[#d6b8ae] text-[#8f2e31] hover:bg-[#f8efec]"
+                className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-[#d6b8ae] text-[#8f2e31] hover:bg-[#f8efec] sm:h-5 sm:w-5"
                 aria-label="How expected salary is calculated"
               >
                 <Info size={12} />
@@ -681,7 +683,7 @@ const PredictedCollegesTable = ({
               <td className="px-4 py-3">
                 <div className="flex justify-center">
                   <button
-                    className="whitespace-nowrap rounded-lg bg-[#B52326] px-4 py-2 text-white hover:bg-[#9E1F22]"
+                    className={buttonClass}
                     onClick={() => toggleRowExpansion(index)}
                   >
                     {expandedRows[index] ? "Show Less" : "Show More"}
@@ -701,6 +703,89 @@ const PredictedCollegesTable = ({
         </React.Fragment>
       );
     });
+  };
+
+  const renderMobileCards = () => {
+    const rowsToRender = showAllRows
+      ? sortedData
+      : sortedData.slice(0, ROWS_PER_PAGE_INITIAL);
+    const fieldsToShow = expandedFields[exam] || expandedFields.DEFAULT;
+
+    return (
+      <div className="space-y-3 md:hidden">
+        {rowsToRender.map((item, index) => {
+          const transformedItem = transformData(item);
+          const primaryColumn =
+            predicted_colleges_table_column.find((column) =>
+              ["institute", "institute_name", "College Name"].includes(
+                column.key
+              )
+            ) || predicted_colleges_table_column[0];
+          const secondaryColumns = predicted_colleges_table_column.filter(
+            (column) => column.key !== primaryColumn.key
+          );
+
+          return (
+            <article
+              key={index}
+              className="rounded-xl border border-[#eaded8] bg-white p-4 shadow-sm"
+            >
+              <div className="mb-3 border-b border-[#f0e3df] pb-3">
+                <p className="text-xs font-semibold uppercase text-[#8f2e31]">
+                  {primaryColumn.label}
+                </p>
+                <h3 className="mt-1 text-base font-semibold leading-6 text-[#2f2320]">
+                  {getDisplayValue(primaryColumn, transformedItem)}
+                </h3>
+              </div>
+              <dl className="grid grid-cols-1 gap-3 text-sm">
+                {secondaryColumns.map((column) => (
+                  <div key={column.key} className="min-w-0">
+                    <dt className="text-xs font-semibold text-[#7a6159]">
+                      {column.label}
+                    </dt>
+                    <dd className="mt-1 break-words text-[#332724]">
+                      {getDisplayValue(column, transformedItem)}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+              {supportsExpandedView && (
+                <div className="mt-4">
+                  <button
+                    className={`${buttonClass} w-full`}
+                    onClick={() => toggleRowExpansion(index)}
+                  >
+                    {expandedRows[index] ? "Show Less" : "Show More"}
+                  </button>
+                  {expandedRows[index] && (
+                    <dl className="mt-4 grid grid-cols-1 gap-3 rounded-lg bg-[#fffdfa] p-3 text-sm">
+                      {fieldsToShow.map((field) => (
+                        <div key={field.key}>
+                          <dt className="text-xs font-semibold text-[#8f2e31]">
+                            {field.label}
+                          </dt>
+                          <dd className="mt-1 break-words text-[#332724]">
+                            {field.key in transformedItem &&
+                            transformedItem[field.key] !== null &&
+                            transformedItem[field.key] !== undefined &&
+                            String(transformedItem[field.key]).trim() !== ""
+                              ? field.format
+                                ? field.format(transformedItem[field.key])
+                                : String(transformedItem[field.key])
+                              : "N/A"}
+                          </dd>
+                        </div>
+                      ))}
+                    </dl>
+                  )}
+                </div>
+              )}
+            </article>
+          );
+        })}
+      </div>
+    );
   };
 
   const renderLegend = () => {
@@ -741,7 +826,7 @@ const PredictedCollegesTable = ({
     <div className="w-full">
       {salaryTooltip && (
         <div
-          className="pointer-events-none fixed z-50 w-72 rounded-xl border border-[#decac3] bg-white p-3 text-left text-xs font-normal leading-5 text-[#5b3a34] shadow-lg"
+          className="pointer-events-none fixed z-50 w-[calc(100vw-24px)] max-w-72 rounded-xl border border-[#decac3] bg-white p-3 text-left text-xs font-normal leading-5 text-[#5b3a34] shadow-lg"
           style={{
             top: `${Math.max(salaryTooltip.top, 12)}px`,
             left: `${Math.max(salaryTooltip.left, 12)}px`,
@@ -761,7 +846,7 @@ const PredictedCollegesTable = ({
                 aria-label="Filter results by institute, state, or program"
                 value={searchTerm}
                 onChange={onSearchChange}
-                className="w-full rounded-xl border border-[#d8c7c1] bg-white px-4 py-3 text-left text-sm outline-none transition focus:border-[#b52326] focus:ring-2 focus:ring-[#f4d5d6] sm:text-base"
+                className="w-full rounded-xl border border-[#d8c7c1] bg-white px-4 py-3 text-left text-base outline-none transition focus:border-[#b52326] focus:ring-2 focus:ring-[#f4d5d6]"
                 placeholder="Filter by institute, state, or program"
               />
             )}
@@ -772,7 +857,7 @@ const PredictedCollegesTable = ({
               options.
             </p>
             <button
-              className="w-full rounded-lg bg-[#B52326] px-4 py-2 text-white hover:bg-[#9E1F22] sm:w-auto"
+              className={`${buttonClass} w-full sm:w-auto`}
               onClick={downloadCsv}
             >
               Download CSV
@@ -780,7 +865,8 @@ const PredictedCollegesTable = ({
           </div>
         </div>
       )}
-      <div className="overflow-x-auto rounded-xl border border-[#eaded8] bg-white shadow-sm">
+      {renderMobileCards()}
+      <div className="mobile-scroll-shadow hidden overflow-x-auto rounded-xl border border-[#eaded8] bg-white shadow-sm md:block">
         <table className={commonTableClass}>
           <thead>{renderTableHeader()}</thead>
           <tbody>{renderTableBody()}</tbody>
@@ -790,7 +876,7 @@ const PredictedCollegesTable = ({
         !showAllRows && ( // Conditional button rendering
           <div className="flex justify-center mt-4">
             <button
-              className="whitespace-nowrap rounded-lg bg-[#B52326] px-6 py-3 font-semibold text-white hover:bg-[#9E1F22]"
+              className={`${buttonClass} px-6 py-3`}
               onClick={() => setShowAllRows(true)}
             >
               Show More Recommendations

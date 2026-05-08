@@ -44,6 +44,9 @@ const TableCell = ({ children, className = "" }) => (
   </td>
 );
 
+const detailButtonClass =
+  "touch-target inline-flex w-full items-center justify-center whitespace-nowrap rounded-lg bg-[#B52326] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#9E1F22] sm:w-auto";
+
 const formatRichText = (value) => {
   if (!value) return [];
 
@@ -163,8 +166,98 @@ const ScholarshipTable = ({
       : "border border-[#d8d3ad] bg-[#fff9e8] text-[#7a5b00]";
 
   return (
-    <div className="overflow-x-auto rounded-2xl border border-[#eaded8] bg-white shadow-sm">
-      <table className="w-full min-w-[760px] table-fixed border-collapse text-sm">
+    <>
+      <div className="space-y-3 md:hidden">
+        {filteredData?.length === 0 && (
+          <div className="rounded-xl border border-[#eaded8] bg-white px-4 py-6 text-center text-[#5b3a34]">
+            No scholarships found. Please try again with different filters.
+          </div>
+        )}
+        {filteredData?.map((item, index) => {
+          const displayStatus = getDisplayStatus(item);
+
+          return (
+            <article
+              key={index}
+              className="rounded-xl border border-[#eaded8] bg-white p-4 shadow-sm"
+            >
+              <div className="mb-3 border-b border-[#f0e3df] pb-3">
+                <p className="text-xs font-semibold uppercase text-[#8f2e31]">
+                  Scholarship Name
+                </p>
+                <h3 className="mt-1 text-base font-semibold leading-6 text-[#2f2320]">
+                  {item["Scholarship Name"]}
+                </h3>
+              </div>
+              <dl className="grid grid-cols-1 gap-3 text-sm">
+                <div>
+                  <dt className="text-xs font-semibold text-[#7a6159]">
+                    Status
+                  </dt>
+                  <dd className="mt-1">
+                    <span
+                      className={`inline-flex rounded-full px-3 py-1 text-xs font-semibold ${getStatusPillClass(
+                        displayStatus
+                      )}`}
+                    >
+                      {displayStatus}
+                    </span>
+                  </dd>
+                </div>
+                <div>
+                  <dt className="text-xs font-semibold text-[#7a6159]">
+                    Last Date
+                  </dt>
+                  <dd className="mt-1 text-[#332724]">
+                    {item["Last Date"] || "Not available"}
+                  </dd>
+                </div>
+                <div>
+                  <dt className="text-xs font-semibold text-[#7a6159]">
+                    Official Link
+                  </dt>
+                  <dd className="mt-1">
+                    {item["Application Link"] ? (
+                      <a
+                        href={item["Application Link"]}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="touch-target inline-flex items-center font-medium text-[#B52326] hover:underline"
+                      >
+                        Visit source
+                      </a>
+                    ) : (
+                      <span className="text-[#332724]">Not available</span>
+                    )}
+                  </dd>
+                </div>
+              </dl>
+              <button
+                className={`${detailButtonClass} mt-4`}
+                onClick={() => toggleRowExpansion(index)}
+              >
+                {expandedRows[index] ? "Show Less" : "Show More"}
+              </button>
+              {expandedRows[index] && (
+                <div className="mt-4 space-y-3 rounded-lg bg-[#fffdfa] p-3">
+                  {expandedFields.map((field) => (
+                    <div key={field.key}>
+                      <p className="mb-1 text-xs font-semibold text-[#8f2e31]">
+                        {field.label}
+                      </p>
+                      <div className="break-words text-sm text-[#332724]">
+                        {renderFieldContent(item[field.key])}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </article>
+          );
+        })}
+      </div>
+      <div className="mobile-scroll-shadow hidden overflow-x-auto rounded-2xl border border-[#eaded8] bg-white shadow-sm md:block">
+      <table className="w-full min-w-[860px] table-fixed border-collapse text-sm">
         <TableHeader headers={headers} />
         <tbody>
           {filteredData?.length === 0 && (
@@ -213,7 +306,7 @@ const ScholarshipTable = ({
                 </TableCell>
                 <TableCell>
                   <button
-                    className="whitespace-nowrap rounded-lg bg-[#B52326] px-4 py-2 text-white hover:bg-[#9E1F22]"
+                    className={detailButtonClass}
                     onClick={() => toggleRowExpansion(index)}
                   >
                     {expandedRows[index] ? "Show Less" : "Show More"}
@@ -228,6 +321,7 @@ const ScholarshipTable = ({
         </tbody>
       </table>
     </div>
+    </>
   );
 };
 

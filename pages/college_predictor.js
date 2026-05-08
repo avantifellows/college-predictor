@@ -555,7 +555,7 @@ const CollegePredictor = () => {
     const renderSelectionCard = (key, label, control, helperText) => (
       <div
         key={key}
-        className="rounded-xl border border-[#eaded8] bg-white px-4 py-3 shadow-sm"
+        className="rounded-xl border border-[#eaded8] bg-white px-3 py-3 shadow-sm sm:px-4"
       >
         <label className="mb-2 block text-sm font-semibold text-[#332724]">
           {label}
@@ -628,7 +628,7 @@ const CollegePredictor = () => {
                     e.preventDefault();
                   }
                 }}
-                className={`w-full rounded-xl border bg-[#fffdfa] px-4 py-3 text-left text-sm outline-none transition focus:ring-2 focus:ring-[#f4d5d6] sm:text-base ${
+                className={`w-full rounded-xl border bg-[#fffdfa] px-4 py-3 text-left text-base outline-none transition focus:ring-2 focus:ring-[#f4d5d6] ${
                   primaryInputError
                     ? "border-red-500 focus:border-red-500"
                     : "border-[#d8c7c1] focus:border-[#b52326]"
@@ -647,14 +647,14 @@ const CollegePredictor = () => {
 
     return (
       <div className="space-y-4">
-        <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3">
           {selectionCards}
           {primaryInputCard}
         </div>
 
         {queryObject.exam === "JoSAA" && (
           <>
-            <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3">
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3">
               {renderSelectionCard(
                 "rankMode",
                 "Do you want rank prediction?",
@@ -663,7 +663,7 @@ const CollegePredictor = () => {
                     <button
                       type="button"
                       onClick={() => handleRankModeChange("estimate")}
-                      className={`flex-1 px-4 py-2 text-sm ${
+                      className={`touch-target flex-1 px-3 py-2 text-sm sm:px-4 ${
                         rankMode === "estimate"
                           ? "bg-[#B52326] text-white"
                           : "bg-white text-gray-700"
@@ -674,7 +674,7 @@ const CollegePredictor = () => {
                     <button
                       type="button"
                       onClick={() => handleRankModeChange("known")}
-                      className={`flex-1 px-4 py-2 text-sm ${
+                      className={`touch-target flex-1 px-3 py-2 text-sm sm:px-4 ${
                         rankMode === "known"
                           ? "bg-[#B52326] text-white"
                           : "bg-white text-gray-700"
@@ -724,7 +724,7 @@ const CollegePredictor = () => {
                       <button
                         type="button"
                         onClick={() => handleEstimateInputTypeChange("marks")}
-                        className={`flex-1 px-4 py-2 text-sm ${
+                        className={`touch-target flex-1 px-3 py-2 text-sm sm:px-4 ${
                           estimateInputType === "marks"
                             ? "bg-[#B52326] text-white"
                             : "bg-white text-gray-700"
@@ -737,7 +737,7 @@ const CollegePredictor = () => {
                         onClick={() =>
                           handleEstimateInputTypeChange("percentile")
                         }
-                        className={`flex-1 px-4 py-2 text-sm ${
+                        className={`touch-target flex-1 px-3 py-2 text-sm sm:px-4 ${
                           estimateInputType === "percentile"
                             ? "bg-[#B52326] text-white"
                             : "bg-white text-gray-700"
@@ -763,7 +763,7 @@ const CollegePredictor = () => {
                             e.preventDefault();
                           }
                         }}
-                        className={`w-full rounded-xl border bg-[#fffdfa] px-4 py-3 text-center outline-none transition focus:ring-2 focus:ring-[#f4d5d6] ${
+                        className={`w-full rounded-xl border bg-[#fffdfa] px-4 py-3 text-center text-base outline-none transition focus:ring-2 focus:ring-[#f4d5d6] ${
                           marksError
                             ? "border-red-500 focus:border-red-500"
                             : "border-[#d8c7c1] focus:border-[#b52326]"
@@ -791,7 +791,7 @@ const CollegePredictor = () => {
                             e.preventDefault();
                           }
                         }}
-                        className={`w-full rounded-xl border bg-[#fffdfa] px-4 py-3 text-center outline-none transition focus:ring-2 focus:ring-[#f4d5d6] ${
+                        className={`w-full rounded-xl border bg-[#fffdfa] px-4 py-3 text-center text-base outline-none transition focus:ring-2 focus:ring-[#f4d5d6] ${
                           percentileError
                             ? "border-red-500 focus:border-red-500"
                             : "border-[#d8c7c1] focus:border-[#b52326]"
@@ -818,7 +818,7 @@ const CollegePredictor = () => {
                         : percentileInput === "" || !!percentileError) ||
                       !queryObject.category
                     }
-                    className="w-full rounded-lg bg-[#B52326] px-4 py-2 text-white hover:bg-[#9E1F22] disabled:bg-gray-300 disabled:text-gray-600"
+                    className="touch-target w-full rounded-lg bg-[#B52326] px-4 py-2 text-white hover:bg-[#9E1F22] disabled:bg-gray-300 disabled:text-gray-600"
                   >
                     {isEstimating ? "Estimating..." : "Estimate Rank"}
                   </button>
@@ -874,7 +874,7 @@ const CollegePredictor = () => {
                       e.preventDefault();
                     }
                   }}
-                  className="w-full rounded-xl border border-[#d8c7c1] bg-[#fffdfa] px-4 py-3 text-center outline-none transition focus:border-[#b52326] focus:ring-2 focus:ring-[#f4d5d6]"
+                  className="w-full rounded-xl border border-[#d8c7c1] bg-[#fffdfa] px-4 py-3 text-center text-base outline-none transition focus:border-[#b52326] focus:ring-2 focus:ring-[#f4d5d6]"
                   placeholder={
                     examConfig.primaryInput?.placeholder ||
                     "Enter JEE Main category rank"
@@ -899,7 +899,7 @@ const CollegePredictor = () => {
                         e.preventDefault();
                       }
                     }}
-                    className={`w-full rounded-xl border bg-[#fffdfa] px-4 py-3 text-center outline-none transition focus:ring-2 focus:ring-[#f4d5d6] ${
+                    className={`w-full rounded-xl border bg-[#fffdfa] px-4 py-3 text-center text-base outline-none transition focus:ring-2 focus:ring-[#f4d5d6] ${
                       rankError
                         ? "border-red-500 focus:border-red-500"
                         : "border-[#d8c7c1] focus:border-[#b52326]"
@@ -985,7 +985,7 @@ const CollegePredictor = () => {
         {summaryItems.map((item) => (
           <span
             key={item.key}
-            className="inline-flex items-center gap-2 rounded-full border border-[#e3d1cb] bg-white px-3 py-1 text-xs text-[#5b3a34] sm:text-sm"
+            className="inline-flex min-h-8 items-center gap-2 rounded-full border border-[#e3d1cb] bg-white px-3 py-1 text-xs text-[#5b3a34] sm:text-sm"
           >
             <span className="font-semibold text-[#7a2628]">{item.label}:</span>
             <span>{item.value}</span>
@@ -1005,9 +1005,9 @@ const CollegePredictor = () => {
       <Head>
         <title>College Predictor Results - {getConstants().TITLE_SHORT}</title>
       </Head>
-      <div className="min-h-screen bg-[#fdf8f6] flex flex-col items-center pt-8 px-4">
-        <div className="w-full max-w-6xl rounded-2xl border border-[#eaded8] bg-white p-6 shadow-sm md:p-8">
-          <h1 className="mb-2 text-center text-2xl font-bold text-[#2f2320] sm:text-3xl">
+      <div className="min-h-screen bg-[#fdf8f6] flex flex-col items-center px-3 py-4 sm:px-4 sm:pt-8">
+        <div className="w-full max-w-6xl rounded-xl border border-[#eaded8] bg-white p-4 shadow-sm sm:rounded-2xl sm:p-6 md:p-8">
+          <h1 className="mb-2 text-center text-xl font-bold text-[#2f2320] sm:text-3xl">
             College Predictor Results
           </h1>
 
@@ -1025,7 +1025,7 @@ const CollegePredictor = () => {
           )}
 
           {/* Query Details and Filters Section */}
-          <div className="mb-6 rounded-2xl border border-[#eaded8] bg-[#fffdfa] p-4 sm:p-5">
+          <div className="mb-4 rounded-xl border border-[#eaded8] bg-[#fffdfa] p-3 sm:mb-6 sm:rounded-2xl sm:p-5">
             <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
               <div className="space-y-3">
                 <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
@@ -1033,7 +1033,7 @@ const CollegePredictor = () => {
                     Your Selection
                   </h2>
                   <div className="flex justify-center sm:justify-start">
-                    <span className="inline-flex rounded-full border border-[#e3d1cb] bg-white px-3 py-1 text-sm font-semibold text-[#8f2e31]">
+                    <span className="inline-flex min-h-8 items-center rounded-full border border-[#e3d1cb] bg-white px-3 py-1 text-sm font-semibold text-[#8f2e31]">
                       {queryObject.exam}
                     </span>
                   </div>
@@ -1055,7 +1055,7 @@ const CollegePredictor = () => {
                   onClick={() =>
                     setShowSelectionDetails((currentValue) => !currentValue)
                   }
-                  className="inline-flex rounded-full border border-[#d8c7c1] bg-white px-4 py-2 text-sm font-semibold text-[#7a2628] transition hover:bg-[#f8efec]"
+                  className="touch-target inline-flex items-center justify-center rounded-full border border-[#d8c7c1] bg-white px-4 py-2 text-sm font-semibold text-[#7a2628] transition hover:bg-[#f8efec]"
                 >
                   {showSelectionDetails ? "Hide Filters" : "Edit Filters"}
                 </button>

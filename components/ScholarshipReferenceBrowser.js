@@ -82,10 +82,10 @@ const ScholarshipReferenceBrowser = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#fdf8f6] px-4 py-8">
+    <div className="min-h-screen bg-[#fdf8f6] px-3 py-4 sm:px-4 sm:py-8">
       <div className="mx-auto w-full max-w-6xl">
-        <div className="mb-6 rounded-2xl border border-[#eaded8] bg-white p-6 shadow-sm">
-          <h1 className="text-2xl sm:text-3xl font-bold text-[#2f2320]">
+        <div className="mb-4 rounded-xl border border-[#eaded8] bg-white p-4 shadow-sm sm:mb-6 sm:rounded-2xl sm:p-6">
+          <h1 className="text-xl font-bold text-[#2f2320] sm:text-3xl">
             Scholarship Reference List
           </h1>
           <p className="mt-2 max-w-3xl text-sm sm:text-base text-[#5b3a34]">
@@ -94,11 +94,11 @@ const ScholarshipReferenceBrowser = () => {
           </p>
           {!isLoading && scholarships.length > 0 && (
             <div className="mt-4 flex flex-wrap gap-2 text-sm text-[#5b3a34]">
-              <span className="rounded-full border border-[#e3d1cb] bg-[#fff7f4] px-3 py-1">
+              <span className="inline-flex min-h-8 items-center rounded-full border border-[#e3d1cb] bg-[#fff7f4] px-3 py-1">
                 {scholarships.length.toLocaleString("en-IN")} scholarships in
                 the reference list
               </span>
-              <span className="rounded-full border border-[#f0c7c8] bg-[#fff1f1] px-3 py-1 text-[#8f2e31]">
+              <span className="inline-flex min-h-8 items-center rounded-full border border-[#f0c7c8] bg-[#fff1f1] px-3 py-1 text-[#8f2e31]">
                 {closedCount.toLocaleString("en-IN")} currently closed or past
                 deadline
               </span>
@@ -106,7 +106,7 @@ const ScholarshipReferenceBrowser = () => {
           )}
         </div>
 
-        <div className="mb-6 rounded-2xl border border-[#eaded8] bg-white p-5 shadow-sm">
+        <div className="mb-4 rounded-xl border border-[#eaded8] bg-white p-4 shadow-sm sm:mb-6 sm:rounded-2xl sm:p-5">
           <label
             htmlFor="scholarship-search"
             className="mb-2 block text-sm font-semibold text-[#5b1f20]"
@@ -119,12 +119,12 @@ const ScholarshipReferenceBrowser = () => {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             placeholder="Try: engineering, girls scholarship, Maharashtra..."
-            className="w-full rounded-xl border border-[#d8c7c1] bg-[#fffdfa] px-4 py-3 text-sm text-[#2f2320] outline-none transition focus:border-[#b52326] focus:ring-2 focus:ring-[#f4d5d6]"
+            className="w-full rounded-xl border border-[#d8c7c1] bg-[#fffdfa] px-4 py-3 text-base text-[#2f2320] outline-none transition focus:border-[#b52326] focus:ring-2 focus:ring-[#f4d5d6]"
           />
         </div>
 
         {isLoading ? (
-          <div className="rounded-2xl border border-[#eaded8] bg-white px-6 py-12 text-center text-[#5b3a34] shadow-sm">
+          <div className="rounded-xl border border-[#eaded8] bg-white px-4 py-10 text-center text-[#5b3a34] shadow-sm sm:rounded-2xl sm:px-6 sm:py-12">
             Loading scholarship reference list...
           </div>
         ) : filteredScholarships.length > 0 ? (
@@ -134,7 +134,7 @@ const ScholarshipReferenceBrowser = () => {
             expandedRows={expandedRows}
           />
         ) : (
-          <div className="rounded-2xl border border-[#eaded8] bg-white px-6 py-12 text-center text-[#5b3a34] shadow-sm">
+          <div className="rounded-xl border border-[#eaded8] bg-white px-4 py-10 text-center text-[#5b3a34] shadow-sm sm:rounded-2xl sm:px-6 sm:py-12">
             No scholarships matched your search. Try a broader keyword.
           </div>
         )}
