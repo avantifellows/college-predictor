@@ -2,6 +2,12 @@ import fs from "fs/promises";
 import path from "path";
 
 export default async function handler(req, res) {
+  if (req.method !== "GET") {
+    return res.status(405).json({ error: "Method not allowed" });
+  }
+
+  res.setHeader("Cache-Control", "public, max-age=3600, immutable");
+
   try {
     const dataPath = path.join(
       process.cwd(),
@@ -17,7 +23,6 @@ export default async function handler(req, res) {
     console.error("Error loading scholarship data:", error);
     return res.status(500).json({
       error: "Unable to retrieve scholarship data",
-      details: error.message,
     });
   }
 }
