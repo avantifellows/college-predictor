@@ -26,12 +26,13 @@ const TableHeader = ({ headers }) => (
       {headers.map((header, index) => (
         <th
           key={index}
+          scope="col"
           className="px-4 py-3 border-b border-[#decac3] last:border-r-0 whitespace-nowrap"
         >
           {header}
         </th>
       ))}
-      <th className="px-4 py-3 border-b border-[#decac3] whitespace-nowrap">
+      <th scope="col" className="px-4 py-3 border-b border-[#decac3] whitespace-nowrap">
         Details
       </th>
     </tr>
@@ -84,7 +85,7 @@ const renderFieldContent = (value) => {
   );
 };
 
-const ExpandedRow = ({ item, expandedFields }) => {
+const ExpandedRow = ({ id, item, expandedFields }) => {
   const compactFields = expandedFields.filter((field) =>
     compactFieldKeys.has(field.key)
   );
@@ -93,7 +94,7 @@ const ExpandedRow = ({ item, expandedFields }) => {
   );
 
   return (
-    <tr>
+    <tr id={id}>
       <td
         colSpan="5"
         className="border-b border-[#eaded8] bg-[#fffdfa] px-4 py-4"
@@ -164,7 +165,7 @@ const ScholarshipTable = ({
 
   return (
     <div className="overflow-x-auto rounded-2xl border border-[#eaded8] bg-white shadow-sm">
-      <table className="w-full min-w-[760px] table-fixed border-collapse text-sm">
+      <table className="w-full min-w-[760px] table-fixed border-collapse text-sm" aria-label="Scholarship reference list">
         <TableHeader headers={headers} />
         <tbody>
           {filteredData?.length === 0 && (
@@ -204,6 +205,7 @@ const ScholarshipTable = ({
                       target="_blank"
                       rel="noopener noreferrer"
                       className="font-medium text-[#B52326] hover:underline"
+                      aria-label={`Visit official source for ${item["Scholarship Name"]} (opens in new tab)`}
                     >
                       Visit source
                     </a>
@@ -213,15 +215,23 @@ const ScholarshipTable = ({
                 </TableCell>
                 <TableCell>
                   <button
+                    type="button"
                     className="whitespace-nowrap rounded-lg bg-[#B52326] px-4 py-2 text-white hover:bg-[#9E1F22]"
                     onClick={() => toggleRowExpansion(index)}
+                    aria-expanded={!!expandedRows[index]}
+                    aria-controls={`scholarship-details-${index}`}
+                    aria-label={`${expandedRows[index] ? "Hide" : "Show"} details for ${item["Scholarship Name"]}`}
                   >
                     {expandedRows[index] ? "Show Less" : "Show More"}
                   </button>
                 </TableCell>
               </tr>
               {expandedRows[index] && (
-                <ExpandedRow item={item} expandedFields={expandedFields} />
+                <ExpandedRow
+                  id={`scholarship-details-${index}`}
+                  item={item}
+                  expandedFields={expandedFields}
+                />
               )}
             </React.Fragment>
           ))}

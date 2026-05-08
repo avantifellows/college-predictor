@@ -21,11 +21,17 @@ const Navbar = ({ item1, item2 }) => {
         </div>
 
         <div className="flex gap-1.5">
-          <SocialIcon socialLink={"https://www.facebook.com/avantifellows"}>
-            <Facebook color="#fff" fill="#fff" strokeWidth="0.1" />
+          <SocialIcon
+            socialLink={"https://www.facebook.com/avantifellows"}
+            label="Avanti Fellows on Facebook (opens in new tab)"
+          >
+            <Facebook color="#fff" fill="#fff" strokeWidth="0.1" aria-hidden="true" />
           </SocialIcon>
-          <SocialIcon socialLink={"https://www.instagram.com/avantifellows"}>
-            <Instagram color="#fff" />
+          <SocialIcon
+            socialLink={"https://www.instagram.com/avantifellows"}
+            label="Avanti Fellows on Instagram (opens in new tab)"
+          >
+            <Instagram color="#fff" aria-hidden="true" />
           </SocialIcon>
         </div>
       </div>
@@ -35,6 +41,7 @@ const Navbar = ({ item1, item2 }) => {
           <div className="flex flex-wrap items-center justify-center gap-2">
             <Link
               href="/"
+              aria-current={pathname === "/" ? "page" : undefined}
               className={`rounded-full px-3 py-1.5 text-sm font-semibold transition ${
                 pathname === "/"
                   ? "bg-white/20"
@@ -45,6 +52,7 @@ const Navbar = ({ item1, item2 }) => {
             </Link>
             <Link
               href="/scholarships"
+              aria-current={pathname === "/scholarships" ? "page" : undefined}
               className={`rounded-full px-3 py-1.5 text-sm font-semibold transition ${
                 pathname === "/scholarships"
                   ? "bg-white/20"
@@ -68,10 +76,13 @@ const Navbar = ({ item1, item2 }) => {
   );
 };
 
-const SocialIcon = ({ children, socialLink }) => {
+const SocialIcon = ({ children, socialLink, label }) => {
   return (
     <a
       href={socialLink}
+      aria-label={label}
+      target="_blank"
+      rel="noopener noreferrer"
       className="flex h-7 w-7 items-center justify-center rounded-full bg-[#B52326]"
     >
       {children}

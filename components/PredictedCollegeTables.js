@@ -146,7 +146,7 @@ const SALARY_HELP_TEXT =
   "Product of median salary and placement percentage of the graduating batch as reported by the college to NIRF. Data is reported as a college level aggregate";
 
 // New ExpandedRow component
-const ExpandedRowComponent = ({ item, fields, exam, examColumnMapping }) => {
+const ExpandedRowComponent = ({ id, item, fields, exam, examColumnMapping }) => {
   const getFieldValue = (item, field) => {
     const { key, format } = field;
     if (key in item) {
@@ -168,7 +168,7 @@ const ExpandedRowComponent = ({ item, fields, exam, examColumnMapping }) => {
   const columns = examColumnMapping[exam] || examColumnMapping.DEFAULT;
 
   return (
-    <tr>
+    <tr id={id}>
       <td
         colSpan={columns.length + 1}
         className="border-b border-[#eaded8] bg-[#fffdfa] p-4"
@@ -574,12 +574,12 @@ const PredictedCollegesTable = ({
 
   const renderSortIcon = (key) => {
     if (!sortConfig || sortConfig.key !== key) {
-      return <ArrowUpDown size={16} />;
+      return <ArrowUpDown size={16} aria-hidden="true" />;
     }
     if (sortConfig.order === "desc") {
-      return <ArrowDown size={16} />;
+      return <ArrowDown size={16} aria-hidden="true" />;
     }
-    return <ArrowUp size={16} />;
+    return <ArrowUp size={16} aria-hidden="true" />;
   };
 
   const downloadCsv = () => {
@@ -610,52 +610,81 @@ const PredictedCollegesTable = ({
     URL.revokeObjectURL(url);
   };
 
-  const renderTableHeader = () => (
-    <tr className={commonHeaderClass}>
-      {predicted_colleges_table_column.map((column) => (
-        <th
-          key={column.key}
-          className="px-4 py-3 border-b border-[#decac3] whitespace-nowrap"
-        >
-          {supportsSalarySort && column.key === rankColumnKey ? (
-            <button
-              type="button"
-              onClick={toggleRankSort}
-              className="font-semibold inline-flex items-center gap-1"
+  const renderTableHeader = () => {
+    const getAriaSortAttr = (key) => {
+      if (!sortConfig || sortConfig.key !== key) return "none";
+      return sortConfig.order === "asc" ? "ascending" : "descending";
+    };
+
+    return (
+      <tr className={commonHeaderClass}>
+        {predicted_colleges_table_column.map((column) => {
+          const isSortableRank =
+            supportsSalarySort && column.key === rankColumnKey;
+          const isSortableSalary =
+            supportsSalarySort && column.key === salaryColumnKey;
+
+          return (
+            <th
+              key={column.key}
+              scope="col"
+              aria-sort={
+                isSortableRank
+                  ? getAriaSortAttr(rankColumnKey)
+                  : isSortableSalary
+                  ? getAriaSortAttr(salaryColumnKey)
+                  : undefined
+              }
+              className="px-4 py-3 border-b border-[#decac3] whitespace-nowrap"
             >
-              {column.label}
-              {renderSortIcon(rankColumnKey)}
-            </button>
-          ) : supportsSalarySort && column.key === salaryColumnKey ? (
-            <div className="inline-flex items-center gap-2">
-              <button
-                type="button"
-                onClick={toggleSalarySort}
-                className="font-semibold inline-flex items-center gap-1"
-              >
-                {column.label}
-                {renderSortIcon(salaryColumnKey)}
-              </button>
-              <button
-                type="button"
-                onMouseEnter={showSalaryTooltip}
-                onMouseLeave={hideSalaryTooltip}
-                onFocus={showSalaryTooltip}
-                onBlur={hideSalaryTooltip}
-                className="inline-flex h-5 w-5 items-center justify-center rounded-full border border-[#d6b8ae] text-[#8f2e31] hover:bg-[#f8efec]"
-                aria-label="How expected salary is calculated"
-              >
-                <Info size={12} />
-              </button>
-            </div>
-          ) : (
-            column.label
-          )}
-        </th>
-      ))}
-      {supportsExpandedView && <th className="p-2">Actions</th>}
-    </tr>
-  );
+              {isSortableRank ? (
+                <button
+                  type="button"
+                  onClick={toggleRankSort}
+                  aria-label={`Sort by ${column.label}`}
+                  className="font-semibold inline-flex items-center gap-1"
+                >
+                  {column.label}
+                  {renderSortIcon(rankColumnKey)}
+                </button>
+              ) : isSortableSalary ? (
+                <div className="inline-flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={toggleSalarySort}
+                    aria-label={`Sort by ${column.label}`}
+                    className="font-semibold inline-flex items-center gap-1"
+                  >
+                    {column.label}
+                    {renderSortIcon(salaryColumnKey)}
+                  </button>
+                  <button
+                    type="button"
+                    onMouseEnter={showSalaryTooltip}
+                    onMouseLeave={hideSalaryTooltip}
+                    onFocus={showSalaryTooltip}
+                    onBlur={hideSalaryTooltip}
+                    className="inline-flex h-5 w-5 items-center justify-center rounded-full border border-[#d6b8ae] text-[#8f2e31] hover:bg-[#f8efec]"
+                    aria-label="How expected salary is calculated"
+                    aria-describedby="salary-help-tooltip"
+                  >
+                    <Info size={12} aria-hidden="true" />
+                  </button>
+                </div>
+              ) : (
+                column.label
+              )}
+            </th>
+          );
+        })}
+        {supportsExpandedView && (
+          <th scope="col" className="p-2">
+            Actions
+          </th>
+        )}
+      </tr>
+    );
+  };
 
   const renderTableBody = () => {
     const rowsToRender = showAllRows
@@ -681,8 +710,12 @@ const PredictedCollegesTable = ({
               <td className="px-4 py-3">
                 <div className="flex justify-center">
                   <button
+                    type="button"
                     className="whitespace-nowrap rounded-lg bg-[#B52326] px-4 py-2 text-white hover:bg-[#9E1F22]"
                     onClick={() => toggleRowExpansion(index)}
+                    aria-expanded={!!expandedRows[index]}
+                    aria-controls={`college-details-${index}`}
+                    aria-label={`${expandedRows[index] ? "Hide" : "Show"} details for ${transformedItem.institute || transformedItem.institute_name || "this college"}`}
                   >
                     {expandedRows[index] ? "Show Less" : "Show More"}
                   </button>
@@ -692,6 +725,7 @@ const PredictedCollegesTable = ({
           </tr>
           {supportsExpandedView && expandedRows[index] && (
             <ExpandedRowComponent
+              id={`college-details-${index}`}
               item={transformedItem}
               fields={expandedFields}
               exam={exam}
@@ -741,6 +775,8 @@ const PredictedCollegesTable = ({
     <div className="w-full">
       {salaryTooltip && (
         <div
+          id="salary-help-tooltip"
+          role="tooltip"
           className="pointer-events-none fixed z-50 w-72 rounded-xl border border-[#decac3] bg-white p-3 text-left text-xs font-normal leading-5 text-[#5b3a34] shadow-lg"
           style={{
             top: `${Math.max(salaryTooltip.top, 12)}px`,
@@ -781,7 +817,7 @@ const PredictedCollegesTable = ({
         </div>
       )}
       <div className="overflow-x-auto rounded-xl border border-[#eaded8] bg-white shadow-sm">
-        <table className={commonTableClass}>
+        <table className={commonTableClass} aria-label={`College predictions for ${exam}`}>
           <thead>{renderTableHeader()}</thead>
           <tbody>{renderTableBody()}</tbody>
         </table>
@@ -790,8 +826,10 @@ const PredictedCollegesTable = ({
         !showAllRows && ( // Conditional button rendering
           <div className="flex justify-center mt-4">
             <button
+              type="button"
               className="whitespace-nowrap rounded-lg bg-[#B52326] px-6 py-3 font-semibold text-white hover:bg-[#9E1F22]"
               onClick={() => setShowAllRows(true)}
+              aria-label={`Show all ${data.length.toLocaleString("en-IN")} college recommendations`}
             >
               Show More Recommendations
             </button>
