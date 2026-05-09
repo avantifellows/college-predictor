@@ -62,6 +62,10 @@ const Dropdown = ({
       onChange={onChange}
       isDisabled={isDisabled}
       styles={customStyles}
+      menuPlacement="auto"
+      menuShouldBlockScroll={true}
+      closeMenuOnSelect={true}
+      menuPortalTarget={typeof document !== "undefined" ? document.body : null}
       instanceId={useId()}
       className={className}
       value={options.find(

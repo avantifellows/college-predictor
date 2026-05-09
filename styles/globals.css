@@ -53,3 +53,29 @@ ul {
 .input-placeholder-black::placeholder {
   color: #000;
 }
+
+/* Ensure touch-friendly form controls on mobile */
+@layer components {
+  select,
+  input,
+  textarea,
+  .react-select__control,
+  .css-1pahdxg-control /* react-select v5 generated class fallback */ {
+    min-height: 48px;
+    height: 48px;
+    padding-top: 0.375rem;
+    padding-bottom: 0.375rem;
+  }
+
+  /* Make native select arrow area easier to tap */
+  select {
+    padding-left: 0.75rem;
+    padding-right: 2.5rem;
+  }
+
+  /* Ensure react-select menus render above other content on small screens */
+  .react-select__menu,
+  .css-1gtu0rj-menu {
+    z-index: 9999;
+  }
+}

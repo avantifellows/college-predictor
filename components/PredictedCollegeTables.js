@@ -772,7 +772,7 @@ const PredictedCollegesTable = ({
               options.
             </p>
             <button
-              className="w-full rounded-lg bg-[#B52326] px-4 py-2 text-white hover:bg-[#9E1F22] sm:w-auto"
+              className="w-full rounded-lg bg-[#B52326] px-4 py-2 text-white hover:bg-[#9E1F22] sm:w-auto h-12 flex items-center justify-center"
               onClick={downloadCsv}
             >
               Download CSV
@@ -780,11 +780,62 @@ const PredictedCollegesTable = ({
           </div>
         </div>
       )}
-      <div className="overflow-x-auto rounded-xl border border-[#eaded8] bg-white shadow-sm">
+      {/* Desktop / tablet table view */}
+      <div className="hidden sm:block overflow-x-auto rounded-xl border border-[#eaded8] bg-white shadow-sm">
         <table className={commonTableClass}>
           <thead>{renderTableHeader()}</thead>
           <tbody>{renderTableBody()}</tbody>
         </table>
+      </div>
+
+      {/* Mobile card view */}
+      <div className="block sm:hidden">
+        {sortedData.slice(0, showAllRows ? sortedData.length : ROWS_PER_PAGE_INITIAL).map((item, index) => {
+          const transformedItem = transformData(item);
+          return (
+            <div key={index} className="mb-3 rounded-lg border border-[#eaded8] bg-white p-4 shadow-sm">
+              <div className="flex items-start justify-between gap-3">
+                <div className="flex-1 min-w-0">
+                  <p className="truncate text-base font-semibold text-[#332724]">{transformedItem.institute || transformedItem.institute_name || 'N/A'}</p>
+                  <p className="text-sm text-[#5b3a34]">{transformedItem.academic_program_name || transformedItem.branch_name || ''}</p>
+                </div>
+                <div className="flex-shrink-0 text-right">
+                  <p className="text-sm font-medium text-[#8f2e31]">{getDisplayValue(predicted_colleges_table_column.find(c=>c.key==='closing_rank')||{}, transformedItem) || transformedItem.closing_rank}</p>
+                </div>
+              </div>
+              <div className="mt-3 grid grid-cols-2 gap-2 text-sm text-[#332724]">
+                {predicted_colleges_table_column.slice(0,4).map((col)=> (
+                  <div key={col.key} className="break-words">
+                    <p className="text-xs text-[#7a6159]">{col.label}</p>
+                    <p className="font-medium">{getDisplayValue(col, transformedItem)}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-3 flex justify-end">
+                {supportsExpandedView ? (
+                  <button
+                    className="whitespace-nowrap rounded-lg bg-[#B52326] px-4 text-white hover:bg-[#9E1F22] h-12 flex items-center justify-center"
+                    onClick={() => toggleRowExpansion(index)}
+                  >
+                    {expandedRows[index] ? "Show Less" : "Show More"}
+                  </button>
+                ) : null}
+              </div>
+              {supportsExpandedView && expandedRows[index] && (
+                <div className="mt-3 border-t pt-3">
+                  <div className="grid grid-cols-1 gap-2 text-sm">
+                    {(expandedFields[exam] || expandedFields.DEFAULT).map((field, idx) => (
+                      <div key={idx}>
+                        <p className="text-xs text-[#7a6159]"><strong>{field.label}:</strong></p>
+                        <p className="font-medium">{(transformedItem[field.key] !== undefined && transformedItem[field.key] !== null && String(transformedItem[field.key]).trim() !== '') ? (field.format ? field.format(transformedItem[field.key]) : String(transformedItem[field.key])) : 'N/A'}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          );
+        })}
       </div>
       {data.length > ROWS_PER_PAGE_INITIAL &&
         !showAllRows && ( // Conditional button rendering

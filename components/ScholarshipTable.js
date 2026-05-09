@@ -163,10 +163,12 @@ const ScholarshipTable = ({
       : "border border-[#d8d3ad] bg-[#fff9e8] text-[#7a5b00]";
 
   return (
-    <div className="overflow-x-auto rounded-2xl border border-[#eaded8] bg-white shadow-sm">
-      <table className="w-full min-w-[760px] table-fixed border-collapse text-sm">
-        <TableHeader headers={headers} />
-        <tbody>
+    <div>
+      {/* Desktop / tablet table view */}
+      <div className="hidden sm:block overflow-x-auto rounded-2xl border border-[#eaded8] bg-white shadow-sm">
+        <table className="w-full min-w-[760px] table-fixed border-collapse text-sm">
+          <TableHeader headers={headers} />
+          <tbody>
           {filteredData?.length === 0 && (
             <tr>
               <td colSpan="5" className="px-4 py-6 text-center text-[#5b3a34]">
@@ -213,7 +215,7 @@ const ScholarshipTable = ({
                 </TableCell>
                 <TableCell>
                   <button
-                    className="whitespace-nowrap rounded-lg bg-[#B52326] px-4 py-2 text-white hover:bg-[#9E1F22]"
+                    className="whitespace-nowrap rounded-lg bg-[#B52326] px-4 text-white hover:bg-[#9E1F22] h-12 flex items-center justify-center"
                     onClick={() => toggleRowExpansion(index)}
                   >
                     {expandedRows[index] ? "Show Less" : "Show More"}
@@ -225,8 +227,50 @@ const ScholarshipTable = ({
               )}
             </React.Fragment>
           ))}
-        </tbody>
-      </table>
+          </tbody>
+        </table>
+      </div>
+
+      {/* Mobile card view */}
+      <div className="block sm:hidden space-y-3">
+        {filteredData?.length === 0 && (
+          <div className="rounded-lg border border-[#eaded8] bg-white p-4 text-center text-[#5b3a34]">
+            No scholarships found. Please try again with different filters.
+          </div>
+        )}
+        {filteredData?.map((item, index) => (
+          <div key={index} className={`rounded-lg border border-[#eaded8] bg-white p-4 ${index % 2 === 0 ? 'bg-[#fffdfa]' : 'bg-white'}`}>
+            <div className="flex items-start justify-between gap-3">
+              <div className="flex-1 min-w-0">
+                <p className="truncate text-base font-semibold text-[#332724]">{item['Scholarship Name']}</p>
+                <p className="mt-1 text-sm text-[#5b3a34]">Last date: {item['Last Date'] || 'Not available'}</p>
+              </div>
+              <div className="flex-shrink-0 text-right">
+                <span className={`inline-flex rounded-full px-3 py-1 text-xs font-semibold ${getStatusPillClass(getDisplayStatus(item))}`}>{getDisplayStatus(item)}</span>
+              </div>
+            </div>
+            <div className="mt-3 text-sm text-[#332724] space-y-2">
+              <div>
+                {item['Application Link'] ? (
+                  <a href={item['Application Link']} target="_blank" rel="noopener noreferrer" className="font-medium text-[#B52326] hover:underline">Visit source</a>
+                ) : (
+                  'Not available'
+                )}
+              </div>
+              <div className="flex justify-end">
+                <button className="rounded-lg bg-[#B52326] px-4 text-white hover:bg-[#9E1F22] h-12 flex items-center justify-center" onClick={() => toggleRowExpansion(index)}>
+                  {expandedRows[index] ? 'Show Less' : 'Show More'}
+                </button>
+              </div>
+            </div>
+            {expandedRows[index] && (
+              <div className="mt-3 border-t pt-3">
+                <ExpandedRow item={item} expandedFields={expandedFields} />
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
