@@ -7,6 +7,7 @@ import Fuse from "fuse.js";
 import examConfigs from "../examConfig";
 import dynamic from "next/dynamic";
 import TneaScoreCalculator from "../components/TneaScoreCalculator";
+import GujcetScoreCalculator from "../components/GujcetScoreCalculator";
 import { debounce } from "lodash";
 
 // Dynamically import Dropdown with SSR disabled
@@ -144,6 +145,19 @@ const CollegePredictor = () => {
         const m = parseFloat(initialQuery.mathsMarks);
         if (!isNaN(p) && !isNaN(c) && !isNaN(m)) {
           initialQuery.rank = ((p / 100) * 50 + (c / 100) * 50 + m).toFixed(2);
+        }
+      }
+    } else if (router.query.exam === "GUJCET" && !initialQuery.rank) {
+      if (initialQuery.boardPercentage && initialQuery.gujcetPercentile) {
+        const board = parseFloat(initialQuery.boardPercentage);
+        const gujcet = parseFloat(initialQuery.gujcetPercentile);
+        if (!isNaN(board) && !isNaN(gujcet)) {
+          initialQuery.rank = (board * 0.6 + gujcet * 0.4).toFixed(2);
+        }
+      } else if (initialQuery.boardPercentage && initialQuery.program === "Medical") {
+        const board = parseFloat(initialQuery.boardPercentage);
+        if (!isNaN(board)) {
+          initialQuery.rank = board.toFixed(2);
         }
       }
     }
@@ -296,6 +310,17 @@ const CollegePredictor = () => {
     };
     setQueryObject(newQueryObject);
     // Optimistically update queryObject, debouncedRouterPush will handle the actual route update and fetch
+    debouncedRouterPush(newQueryObject);
+  };
+
+  const handleGujcetScoreChange = (score, board, gujcet) => {
+    const newQueryObject = {
+      ...queryObject,
+      rank: score,
+      boardPercentage: board,
+      gujcetPercentile: gujcet,
+    };
+    setQueryObject(newQueryObject);
     debouncedRouterPush(newQueryObject);
   };
 
@@ -600,7 +625,7 @@ const CollegePredictor = () => {
       });
 
     const primaryInputCard =
-      queryObject.exam !== "JoSAA" && queryObject.exam !== "TNEA"
+      queryObject.exam !== "JoSAA" && queryObject.exam !== "TNEA" && queryObject.exam !== "GUJCET"
           ? renderSelectionCard(
             "rank",
             getPrimaryInputConfig(queryObject.exam).label,
@@ -926,6 +951,14 @@ const CollegePredictor = () => {
             initialChemistry={queryObject.chemistryMarks || ""}
             initialMaths={queryObject.mathsMarks || ""}
             onScoreChange={handleTneaScoreChange}
+            readOnlyRank={true}
+          />
+        ) : queryObject.exam === "GUJCET" ? (
+          <GujcetScoreCalculator
+            program={queryObject.program || ""}
+            initialBoardPercentage={queryObject.boardPercentage || ""}
+            initialGujcetPercentile={queryObject.gujcetPercentile || ""}
+            onScoreChange={handleGujcetScoreChange}
             readOnlyRank={true}
           />
         ) : null}
