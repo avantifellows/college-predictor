@@ -30,12 +30,12 @@ const Navbar = ({ item1, item2 }) => {
         </div>
       </div>
       <div className="w-full bg-[#B52326] px-4 py-2 text-white md:px-8">
-        <div className="mx-auto grid max-w-6xl grid-cols-[1fr_auto_1fr] items-center gap-2">
+        <div className="mx-auto grid max-w-6xl grid-cols-[1fr_auto_1fr] items-center gap-1 sm:gap-2">
           <div />
-          <div className="flex flex-wrap items-center justify-center gap-2">
+          <div className="flex items-center justify-center gap-1 sm:gap-2">
             <Link
               href="/"
-              className={`rounded-full px-3 py-1.5 text-sm font-semibold transition ${
+              className={`whitespace-nowrap rounded-full px-2 py-1 text-xs font-semibold transition sm:px-3 sm:py-1.5 sm:text-sm ${
                 pathname === "/"
                   ? "bg-white/20"
                   : "hover:bg-white/10 cursor-pointer"
@@ -45,7 +45,7 @@ const Navbar = ({ item1, item2 }) => {
             </Link>
             <Link
               href="/scholarships"
-              className={`rounded-full px-3 py-1.5 text-sm font-semibold transition ${
+              className={`whitespace-nowrap rounded-full px-2 py-1 text-xs font-semibold transition sm:px-3 sm:py-1.5 sm:text-sm ${
                 pathname === "/scholarships"
                   ? "bg-white/20"
                   : "hover:bg-white/10 cursor-pointer"
@@ -56,7 +56,7 @@ const Navbar = ({ item1, item2 }) => {
           </div>
           <Link
             href="https://cv-generator.avantifellows.org/"
-            className="ml-auto inline-flex shrink-0 items-center justify-center rounded-full bg-white px-3 py-1.5 text-sm font-semibold text-black transition hover:bg-[#f8efec]"
+            className="ml-auto inline-flex shrink-0 items-center justify-center whitespace-nowrap rounded-full bg-white px-2 py-1 text-xs font-semibold text-black transition hover:bg-[#f8efec] sm:px-3 sm:py-1.5 sm:text-sm"
             target="_blank"
             rel="noopener noreferrer"
           >
