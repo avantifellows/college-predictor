@@ -6,6 +6,7 @@
 
 <h1 align="center">Avanti-College Predictor</h1>
 <div align="center">
+**Live App:** https://futures.avantifellows.org
 
 **[Avanti](https://www.avantifellows.org/) provides high-school students free test preparation programs, mentorship and career services that help them place into top-tier Science and Technology colleges across India. Our students more than double their household income on graduating and escape the cycle of intergenerational poverty.**
 
@@ -23,7 +24,7 @@ The College Predictor application helps students find:
    - Gender
    - Home State
 2. A list of applicable scholarships based on:
-   - Scholarhship Status
+   - Scholarship Status
    - Grade
    - Stream
    - Category
@@ -61,5 +62,5 @@ The College Predictor application helps students find:
    ```
 4. Run the local development server at [http://localhost:3000](http://localhost:3000)
    ```bash
-   npm run start
+   npm run dev
    ```
