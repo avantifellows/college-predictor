@@ -85,6 +85,8 @@ const cases = [
   },
 ];
 
+import logger from "../utils/logger.js";
+
 const getTitle = (html) => {
   const match = html.match(/<title>([^<]+)<\/title>/i);
   return match ? match[1] : null;
@@ -97,14 +99,14 @@ for (const testCase of cases) {
   const response = await fetch(url);
 
   if (!response.ok) {
-    console.error(`[FAIL] ${testCase.name}: HTTP ${response.status}`);
+    logger.error(`[FAIL] ${testCase.name}: HTTP ${response.status}`);
     failed = true;
     continue;
   }
 
   if (testCase.expectBinary) {
     const buffer = Buffer.from(await response.arrayBuffer());
-    console.log(`[PASS] ${testCase.name}: ${buffer.length} bytes`);
+    logger.info(`[PASS] ${testCase.name}: ${buffer.length} bytes`);
     continue;
   }
 
@@ -113,20 +115,20 @@ for (const testCase of cases) {
   if (testCase.expectTitle) {
     const title = getTitle(text);
     if (title !== testCase.expectTitle) {
-      console.error(
+      logger.error(
         `[FAIL] ${testCase.name}: expected title "${testCase.expectTitle}" but got "${title}"`
       );
       failed = true;
       continue;
     }
-    console.log(`[PASS] ${testCase.name}: ${title}`);
+    logger.info(`[PASS] ${testCase.name}: ${title}`);
     continue;
   }
 
   if (testCase.expectJsonArray) {
     const rows = JSON.parse(text);
     if (!Array.isArray(rows) || rows.length === 0) {
-      console.error(`[FAIL] ${testCase.name}: expected non-empty JSON array`);
+      logger.error(`[FAIL] ${testCase.name}: expected non-empty JSON array`);
       failed = true;
       continue;
     }
@@ -134,12 +136,12 @@ for (const testCase of cases) {
       try {
         testCase.validate(rows);
       } catch (error) {
-        console.error(`[FAIL] ${testCase.name}: ${error.message}`);
+        logger.error(`[FAIL] ${testCase.name}: ${error.message}`);
         failed = true;
         continue;
       }
     }
-    console.log(`[PASS] ${testCase.name}: ${rows.length} rows`);
+    logger.info(`[PASS] ${testCase.name}: ${rows.length} rows`);
   }
 }
 

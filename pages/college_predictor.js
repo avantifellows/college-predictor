@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useCallback } from "react";
+import logger from "../utils/logger";
 import { useRouter } from "next/router";
 import getConstants from "../constants";
 import PredictedCollegeTables from "../components/PredictedCollegeTables";
@@ -225,7 +226,7 @@ const CollegePredictor = () => {
         setError(null);
       }
     } catch (error) {
-      console.error("Error fetching data:", error);
+      logger.error("Error fetching data:", error);
       setError("Failed to fetch college predictions. Please try again.");
       setFilteredData([]);
     } finally {

@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
+import logger from "../utils/logger";
 import Fuse from "fuse.js";
 import ScholarshipTable from "./ScholarshipTable";
 
@@ -48,7 +49,7 @@ const ScholarshipReferenceBrowser = () => {
         );
         setScholarships(sortedData);
       } catch (error) {
-        console.error("Failed to load scholarship reference data:", error);
+        logger.error("Failed to load scholarship reference data:", error);
       } finally {
         setIsLoading(false);
       }
