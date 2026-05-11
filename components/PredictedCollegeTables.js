@@ -191,6 +191,7 @@ const ROWS_PER_PAGE_INITIAL = 30; // Variable for initial rows
 
 const PredictedCollegesTable = ({
   data = [],
+  fullData = [],
   exam = "",
   searchTerm = "",
   onSearchChange = null,
@@ -751,7 +752,7 @@ const PredictedCollegesTable = ({
         </div>
       )}
       {renderLegend()}
-      {data.length > 0 && (
+      {fullData.length > 0 && (
         <div className="mb-3 flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
           <div className="w-full max-w-md">
             {onSearchChange && (
@@ -771,21 +772,31 @@ const PredictedCollegesTable = ({
               Showing {sortedData.length.toLocaleString("en-IN")} matching
               options.
             </p>
-            <button
-              className="w-full rounded-lg bg-[#B52326] px-4 py-2 text-white hover:bg-[#9E1F22] sm:w-auto"
-              onClick={downloadCsv}
-            >
-              Download CSV
-            </button>
+            {data.length > 0 && (
+              <button
+                className="w-full rounded-lg bg-[#B52326] px-4 py-2 text-white hover:bg-[#9E1F22] sm:w-auto"
+                onClick={downloadCsv}
+              >
+                Download CSV
+              </button>
+            )}
           </div>
         </div>
       )}
-      <div className="overflow-x-auto rounded-xl border border-[#eaded8] bg-white shadow-sm">
-        <table className={commonTableClass}>
-          <thead>{renderTableHeader()}</thead>
-          <tbody>{renderTableBody()}</tbody>
-        </table>
-      </div>
+      {data.length > 0 ? (
+        <div className="overflow-x-auto rounded-xl border border-[#eaded8] bg-white shadow-sm">
+          <table className={commonTableClass}>
+            <thead>{renderTableHeader()}</thead>
+            <tbody>{renderTableBody()}</tbody>
+          </table>
+        </div>
+      ) : fullData.length > 0 ? (
+        <div className="text-center py-10">
+          <p className="text-xl text-gray-600">
+            No results match your search term.
+          </p>
+        </div>
+      ) : null}
       {data.length > ROWS_PER_PAGE_INITIAL &&
         !showAllRows && ( // Conditional button rendering
           <div className="flex justify-center mt-4">
@@ -824,6 +835,7 @@ PredictedCollegesTable.propTypes = {
       "Salary Tier": PropTypes.string,
     })
   ),
+  fullData: PropTypes.array,
   exam: PropTypes.string.isRequired,
   searchTerm: PropTypes.string,
   onSearchChange: PropTypes.func,
