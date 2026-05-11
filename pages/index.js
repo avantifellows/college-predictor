@@ -32,9 +32,9 @@ const validatePrimaryInputValue = (exam, value) => {
     inputConfig.max !== undefined
       ? `Please enter a value between ${inputConfig.min} and ${inputConfig.max}.`
       : inputConfig.label.toLowerCase().includes("rank") &&
-          inputConfig.min === "1"
-        ? "Please enter a rank greater than 0."
-        : `Please enter a value greater than or equal to ${inputConfig.min}.`;
+        inputConfig.min === "1"
+      ? "Please enter a rank greater than 0."
+      : `Please enter a value greater than or equal to ${inputConfig.min}.`;
 
   if (Number.isNaN(numericValue)) {
     return "Please enter a valid value.";
@@ -489,7 +489,9 @@ const ExamForm = () => {
   ) => (
     <div
       key={key}
-      className={`${fullWidth ? "md:col-span-2" : ""} rounded-xl border border-[#eaded8] bg-[#fffdfa] p-4 text-left shadow-sm`}
+      className={`${
+        fullWidth ? "md:col-span-2" : ""
+      } rounded-xl border border-[#eaded8] bg-[#fffdfa] p-4 text-left shadow-sm`}
     >
       <label className="mb-2 block text-sm font-semibold text-[#4a3935]">
         {label}
@@ -911,9 +913,9 @@ const ExamForm = () => {
                     (!formData.advRank || formData.advRank === "")
                       ? "Please enter your JEE Advanced rank."
                       : selectedExam === "JoSAA" &&
-                          (!formData.mainRank || formData.mainRank === "")
-                        ? "Please enter your JEE Main rank."
-                        : "Please fill all the required fields before submitting!"}
+                        (!formData.mainRank || formData.mainRank === "")
+                      ? "Please enter your JEE Main rank."
+                      : "Please fill all the required fields before submitting!"}
                   </p>
                 )}
               </div>

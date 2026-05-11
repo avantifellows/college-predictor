@@ -22,8 +22,8 @@ const customStyles = {
     backgroundColor: state.isSelected
       ? "#b52326"
       : state.isFocused
-        ? "#f8efec"
-        : "white",
+      ? "#f8efec"
+      : "white",
     "&:active": {
       backgroundColor: state.isSelected ? "#9e1f22" : "#f3dfd9",
     },

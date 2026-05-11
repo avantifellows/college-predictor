@@ -108,9 +108,9 @@ export default async function handler(req, res) {
           primaryInputConfig.max !== undefined
             ? `Please enter a value between ${primaryInputConfig.min} and ${primaryInputConfig.max}.`
             : primaryInputConfig.label.toLowerCase().includes("rank") &&
-                primaryInputConfig.min === "1"
-              ? "Please enter a rank greater than 0."
-              : `Please enter a value greater than or equal to ${primaryInputConfig.min}.`,
+              primaryInputConfig.min === "1"
+            ? "Please enter a rank greater than 0."
+            : `Please enter a value greater than or equal to ${primaryInputConfig.min}.`,
       });
     }
 
