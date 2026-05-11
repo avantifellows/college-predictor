@@ -200,8 +200,7 @@ const ScholarshipTable = ({
           {filteredData?.map((item, index) => (
             <React.Fragment key={index}>
               <tr
-                className={`border-b border-[#eaded8] ${index % 2 === 0 ? "bg-[#fffdfa]" : "bg-white"
-                  }`}
+                className={`border-b border-[#eaded8] ${index % 2 === 0 ? "bg-[#fffdfa]" : "bg-white"}`}
               >
                 <TableCell className="font-medium">{item["Scholarship Name"]}</TableCell>
                 <TableCell>
