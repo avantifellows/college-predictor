@@ -20,6 +20,29 @@ const getDisplayStatus = (item) => {
   return deadline < now ? "Closed" : rawStatus || "Status unavailable";
 };
 
+const APPLICATION_LINK_KEYS = [
+  "officialLink",
+  "Application Link",
+  "applyLink",
+  "link",
+];
+
+const resolveApplicationLink = (item) => {
+  for (const key of APPLICATION_LINK_KEYS) {
+    let link = item[key];
+    if (typeof link === "string") {
+      link = link.trim();
+      if (link) {
+        if (!/^https?:\/\//i.test(link)) {
+          return `https://${link}`;
+        }
+        return link;
+      }
+    }
+  }
+  return null;
+};
+
 const TableHeader = ({ headers }) => (
   <thead>
     <tr className="bg-[#f8efec] text-[#5b1f20] font-semibold text-left text-xs sm:text-sm">
@@ -198,18 +221,21 @@ const ScholarshipTable = ({
                 </TableCell>
                 <TableCell>{item["Last Date"] || "Not available"}</TableCell>
                 <TableCell>
-                  {item["Application Link"] ? (
-                    <a
-                      href={item["Application Link"]}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-medium text-[#B52326] hover:underline"
-                    >
-                      Visit source
-                    </a>
-                  ) : (
-                    "Not available"
-                  )}
+                  {(() => {
+                    const appLink = resolveApplicationLink(item);
+                    return appLink ? (
+                      <a
+                        href={appLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-medium text-[#B52326] hover:underline"
+                      >
+                        Visit source
+                      </a>
+                    ) : (
+                      "Not available"
+                    );
+                  })()}
                 </TableCell>
                 <TableCell>
                   <button
