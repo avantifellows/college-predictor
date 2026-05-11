@@ -22,6 +22,34 @@ const cases = [
     expectJsonArray: true,
   },
   {
+    name: "JoSAA Architecture Filter",
+    path: "/api/exam-result?exam=JoSAA&qualifiedJeeAdv=No&category=OPEN&mainRank=14000&gender=Gender-Neutral&program=Architecture&homeState=Andhra%20Pradesh",
+    expectJsonArray: true,
+    validate: (rows) => {
+      const invalidProgramRow = rows.find((row) => {
+        const programName = String(row["Academic Program Name"] || "").toLowerCase();
+        return !programName.includes("architecture");
+      });
+      if (invalidProgramRow) {
+        throw new Error("JoSAA Architecture filter returned a non-architecture program");
+      }
+    },
+  },
+  {
+    name: "JoSAA Planning Filter",
+    path: "/api/exam-result?exam=JoSAA&qualifiedJeeAdv=No&category=OPEN&mainRank=25000&gender=Gender-Neutral&program=Planning&homeState=Andhra%20Pradesh",
+    expectJsonArray: true,
+    validate: (rows) => {
+      const invalidProgramRow = rows.find((row) => {
+        const programName = String(row["Academic Program Name"] || "").toLowerCase();
+        return !programName.includes("planning");
+      });
+      if (invalidProgramRow) {
+        throw new Error("JoSAA Planning filter returned a non-planning program");
+      }
+    },
+  },
+  {
     name: "GUJCET API",
     path: "/api/exam-result?exam=GUJCET&category=General&program=Engineering&rank=80",
     expectJsonArray: true,
