@@ -72,7 +72,7 @@ const formatRichText = (value) => {
 
   return String(value)
     .replace(/[\u200B-\u200D\uFEFF]/g, "")
-    .replace(/\s*[●•▪◦]+\s*/g, "\n• ")
+    .replace(/\s*[\u25CF\u2022\u25AA\u25E6●•▪◦]+\s*/g, "\n\u2022 ")
     .split(/\n+/)
     .map((item) => item.replace(/^•\s*/, "").trim())
     .filter(Boolean);
