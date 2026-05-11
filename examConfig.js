@@ -58,7 +58,7 @@ const integerInput = (label, placeholder = label) => ({
   placeholder,
   inputType: "number",
   step: "1",
-  min: "0",
+  min: "1",
   allowDecimal: false,
 });
 

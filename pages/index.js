@@ -16,7 +16,7 @@ const defaultPrimaryInputConfig = {
   label: "Enter Rank",
   placeholder: "Enter your rank",
   step: "1",
-  min: "0",
+  min: "1",
   allowDecimal: false,
 };
 
@@ -31,6 +31,8 @@ const validatePrimaryInputValue = (exam, value) => {
   const rangeMessage =
     inputConfig.max !== undefined
       ? `Please enter a value between ${inputConfig.min} and ${inputConfig.max}.`
+      : inputConfig.label.toLowerCase().includes("rank") && inputConfig.min === "1"
+      ? "Please enter a rank greater than 0."
       : `Please enter a value greater than or equal to ${inputConfig.min}.`;
 
   if (Number.isNaN(numericValue)) {
