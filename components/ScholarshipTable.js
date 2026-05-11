@@ -2,7 +2,9 @@ import React from "react";
 
 const parseDeadline = (value) => {
   if (!value) return null;
-  const parts = String(value).split("/").map((part) => Number(part));
+  const parts = String(value)
+    .split("/")
+    .map((part) => Number(part));
   if (parts.length !== 3 || parts.some((part) => Number.isNaN(part))) {
     return null;
   }
@@ -72,9 +74,12 @@ const formatRichText = (value) => {
 
   return String(value)
     .replace(/[\u200B-\u200D\uFEFF]/g, "")
-    .replace(/\s*[\u25CF\u2022\u25AA\u25E6●•▪◦]+\s*/g, "\n\u2022 ")
+    .replace(
+      /\s*[\u25CF\u2022\u25AA\u25E6\u25CF\u2022\u25AA\u25E6]+\s*/g,
+      "\n\u2022 "
+    )
     .split(/\n+/)
-    .map((item) => item.replace(/^•\s*/, "").trim())
+    .map((item) => item.replace(/^\u2022\s*/, "").trim())
     .filter(Boolean);
 };
 
@@ -164,12 +169,7 @@ const ScholarshipTable = ({
   toggleRowExpansion,
   expandedRows,
 }) => {
-  const headers = [
-    "Scholarship Name",
-    "Status",
-    "Last Date",
-    "Official Link",
-  ];
+  const headers = ["Scholarship Name", "Status", "Last Date", "Official Link"];
   const expandedFields = [
     { key: "Stream", label: "Stream" },
     { key: "State", label: "State" },
@@ -197,33 +197,31 @@ const ScholarshipTable = ({
               </td>
             </tr>
           )}
-          {filteredData?.map((item, index) => (
-            <React.Fragment key={index}>
-              <tr
-                className={`border-b border-[#eaded8] ${
-                  index % 2 === 0 ? "bg-[#fffdfa]" : "bg-white"
-                }`}
-              >
-                <TableCell className="font-medium">{item["Scholarship Name"]}</TableCell>
-                <TableCell>
-                  {(() => {
-                    const displayStatus = getDisplayStatus(item);
-                    return (
-                  <span
-                    className={`inline-flex rounded-full px-3 py-1 text-xs font-semibold ${getStatusPillClass(
-                      displayStatus
-                    )}`}
-                  >
-                    {displayStatus}
-                  </span>
-                    );
-                  })()}
-                </TableCell>
-                <TableCell>{item["Last Date"] || "Not available"}</TableCell>
-                <TableCell>
-                  {(() => {
-                    const appLink = resolveApplicationLink(item);
-                    return appLink ? (
+          {filteredData?.map((item, index) => {
+            const displayStatus = getDisplayStatus(item);
+            const appLink = resolveApplicationLink(item);
+            return (
+              <React.Fragment key={index}>
+                <tr
+                  className={`border-b border-[#eaded8] ${
+                    index % 2 === 0 ? "bg-[#fffdfa]" : "bg-white"
+                  }`}
+                >
+                  <TableCell className="font-medium">
+                    {item["Scholarship Name"]}
+                  </TableCell>
+                  <TableCell>
+                    <span
+                      className={`inline-flex rounded-full px-3 py-1 text-xs font-semibold ${getStatusPillClass(
+                        displayStatus
+                      )}`}
+                    >
+                      {displayStatus}
+                    </span>
+                  </TableCell>
+                  <TableCell>{item["Last Date"] || "Not available"}</TableCell>
+                  <TableCell>
+                    {appLink ? (
                       <a
                         href={appLink}
                         target="_blank"
@@ -234,23 +232,23 @@ const ScholarshipTable = ({
                       </a>
                     ) : (
                       "Not available"
-                    );
-                  })()}
-                </TableCell>
-                <TableCell>
-                  <button
-                    className="whitespace-nowrap rounded-lg bg-[#B52326] px-4 py-2 text-white hover:bg-[#9E1F22]"
-                    onClick={() => toggleRowExpansion(index)}
-                  >
-                    {expandedRows[index] ? "Show Less" : "Show More"}
-                  </button>
-                </TableCell>
-              </tr>
-              {expandedRows[index] && (
-                <ExpandedRow item={item} expandedFields={expandedFields} />
-              )}
-            </React.Fragment>
-          ))}
+                    )}
+                  </TableCell>
+                  <TableCell>
+                    <button
+                      className="whitespace-nowrap rounded-lg bg-[#B52326] px-4 py-2 text-white hover:bg-[#9E1F22]"
+                      onClick={() => toggleRowExpansion(index)}
+                    >
+                      {expandedRows[index] ? "Show Less" : "Show More"}
+                    </button>
+                  </TableCell>
+                </tr>
+                {expandedRows[index] && (
+                  <ExpandedRow item={item} expandedFields={expandedFields} />
+                )}
+              </React.Fragment>
+            );
+          })}
         </tbody>
       </table>
     </div>
