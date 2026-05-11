@@ -1,12 +1,13 @@
 import Link from "next/link";
 import React from "react";
+import { useRouter } from "next/router";
 import { Facebook } from "lucide-react";
 import { Instagram } from "lucide-react";
-import { usePathname } from "next/navigation";
 
 // Renders Navbar as General Component
 const Navbar = ({ item1, item2 }) => {
-  const pathname = usePathname();
+  const router = useRouter();
+  const pathname = router.pathname;
   return (
     <div className="border-b border-[#eaded8] bg-white shadow-sm">
       <div className="flex flex-row items-center justify-between px-4 py-1.5 md:px-8">
