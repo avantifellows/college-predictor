@@ -7,7 +7,9 @@ const ScholarshipsPage = () => {
       <Head>
         <title>Scholarships Reference - Home</title>
       </Head>
-      <ScholarshipReferenceBrowser />
+      <main className="min-w-0">
+        <ScholarshipReferenceBrowser />
+      </main>
     </>
   );
 };

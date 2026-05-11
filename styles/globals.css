@@ -15,6 +15,40 @@
     outline: 3px solid rgba(181, 35, 38, 0.18);
     outline-offset: 2px;
   }
+
+  @media (max-width: 767px) {
+    input,
+    select,
+    textarea,
+    button,
+    [role="button"] {
+      min-height: 48px;
+    }
+
+    input,
+    select,
+    textarea {
+      font-size: 16px;
+    }
+  }
+}
+
+@layer utilities {
+  .touch-target {
+    min-height: 48px;
+    min-width: 48px;
+  }
+
+  .mobile-scroll-shadow {
+    background:
+      linear-gradient(90deg, #ffffff 30%, rgba(255, 255, 255, 0)),
+      linear-gradient(90deg, rgba(255, 255, 255, 0), #ffffff 70%) 100% 0,
+      radial-gradient(farthest-side at 0 50%, rgba(47, 35, 32, 0.16), rgba(47, 35, 32, 0)),
+      radial-gradient(farthest-side at 100% 50%, rgba(47, 35, 32, 0.16), rgba(47, 35, 32, 0)) 100% 0;
+    background-attachment: local, local, scroll, scroll;
+    background-repeat: no-repeat;
+    background-size: 40px 100%, 40px 100%, 14px 100%, 14px 100%;
+  }
 }
 
 * {
