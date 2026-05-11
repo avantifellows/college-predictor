@@ -522,6 +522,7 @@ const ExamForm = () => {
           ? field.label(formData)
           : field.label,
         <Dropdown
+          key={`${selectedExam}-${field.name}`}
           options={field.options.map((option) =>
             typeof option === "string"
               ? { value: option, label: option }
