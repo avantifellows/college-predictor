@@ -379,6 +379,41 @@ const ExamForm = () => {
     }));
   };
 
+  const getSubmitDisabledMessage = () => {
+    if (selectedExam === "JoSAA") {
+      const requiredDetailFields = [
+        "exam",
+        "category",
+        "gender",
+        "program",
+        "homeState",
+      ];
+      const hasMissingDetails = requiredDetailFields.some(
+        (field) => !formData[field]
+      );
+
+      if (hasMissingDetails) {
+        return "Please fill all the required fields before submitting!";
+      }
+
+      if (!formData.mainRank) {
+        return rankMode === "estimate"
+          ? "Estimate your JEE Main rank before submitting."
+          : "Enter your JEE Main rank.";
+      }
+
+      if (formData.qualifiedJeeAdv === "Yes" && !formData.advRank) {
+        return "Enter your JEE Advanced rank.";
+      }
+
+      if (rankError) {
+        return rankError;
+      }
+    }
+
+    return "Please fill all the required fields before submitting!";
+  };
+
   const handleSubmit = async () => {
     // For JoSAA exam
     if (selectedExam === "JoSAA") {
@@ -916,14 +951,7 @@ const ExamForm = () => {
                 </button>
                 {isSubmitDisabled() && (
                   <p className="mt-2 text-sm text-red-600">
-                    {selectedExam === "JoSAA" &&
-                    formData.qualifiedJeeAdv === "Yes" &&
-                    (!formData.advRank || formData.advRank === "")
-                      ? "Please enter your JEE Advanced rank."
-                      : selectedExam === "JoSAA" &&
-                        (!formData.mainRank || formData.mainRank === "")
-                      ? "Please enter your JEE Main rank."
-                      : "Please fill all the required fields before submitting!"}
+                    {getSubmitDisabledMessage()}
                   </p>
                 )}
               </div>
