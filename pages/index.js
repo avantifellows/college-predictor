@@ -16,7 +16,7 @@ const defaultPrimaryInputConfig = {
   label: "Enter Rank",
   placeholder: "Enter your rank",
   step: "1",
-  min: "0",
+  min: "1",
   allowDecimal: false,
 };
 
@@ -31,6 +31,8 @@ const validatePrimaryInputValue = (exam, value) => {
   const rangeMessage =
     inputConfig.max !== undefined
       ? `Please enter a value between ${inputConfig.min} and ${inputConfig.max}.`
+      : inputConfig.label.toLowerCase().includes("rank") && inputConfig.min === "1"
+      ? "Please enter a rank greater than 0."
       : `Please enter a value greater than or equal to ${inputConfig.min}.`;
 
   if (Number.isNaN(numericValue)) {
@@ -68,6 +70,20 @@ const normalizePrimaryInputValue = (exam, value) => {
 
 const getCleanQueryEntries = (data) =>
   Object.entries(data).filter(([, value]) => value !== undefined && value !== null && value !== "");
+
+const josaaEstimationSupportedCategories = new Set([
+  "OPEN",
+  "OBC-NCL",
+  "SC",
+  "ST",
+  "EWS",
+]);
+
+const isJosaaEstimationSupportedCategory = (category) =>
+  josaaEstimationSupportedCategories.has(category);
+
+const josaaPwdEstimateError =
+  "Rank estimation is currently unavailable for PwD categories. Please switch to 'No, I know my rank' and enter your rank directly.";
 
 const ExamForm = () => {
   const [selectedExam, setSelectedExam] = useState("");
@@ -243,6 +259,10 @@ const ExamForm = () => {
   const handleEstimateRank = async () => {
     if (!formData.category) {
       setEstimateError("Please select your category first.");
+      return;
+    }
+    if (!isJosaaEstimationSupportedCategory(formData.category)) {
+      setEstimateError(josaaPwdEstimateError);
       return;
     }
     if (estimateInputType === "marks") {
@@ -757,12 +777,23 @@ const ExamForm = () => {
                                 ? marksInput === "" || !!marksError
                                 : percentileInput === "" ||
                                   !!percentileError) ||
-                              !formData.category
+                              !formData.category ||
+                              !isJosaaEstimationSupportedCategory(
+                                formData.category
+                              )
                             }
                             className="rounded-lg bg-[#B52326] px-4 py-2 text-white hover:bg-[#9E1F22] disabled:bg-gray-300 disabled:text-gray-600"
                           >
                             {isEstimating ? "Estimating..." : "Estimate Rank"}
                           </button>
+                          {formData.category &&
+                            !isJosaaEstimationSupportedCategory(
+                              formData.category
+                            ) && (
+                              <p className="text-sm text-[#6d5550]">
+                                {josaaPwdEstimateError}
+                              </p>
+                            )}
                           {estimateError && (
                             <p className="text-red-500 text-sm">
                               {estimateError}

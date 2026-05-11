@@ -58,7 +58,7 @@ const integerInput = (label, placeholder = label) => ({
   placeholder,
   inputType: "number",
   step: "1",
-  min: "0",
+  min: "1",
   allowDecimal: false,
 });
 
@@ -137,15 +137,16 @@ export const jeeMainJosaaConfig = {
     );
   },
   getFilters: (query) => {
+    const normalizedProgram = String(query.program || "").toLowerCase();
     const baseFilters = [
       (item) => item.Exam === query.code,
       (item) => item.Gender === query.gender,
       (item) => {
-        if (query.program === "Architecture") {
+        if (normalizedProgram === "architecture") {
           return item["Academic Program Name"]
             .toLowerCase()
             .includes("architecture");
-        } else if (query.program === "Planning") {
+        } else if (normalizedProgram === "planning") {
           return item["Academic Program Name"]
             .toLowerCase()
             .includes("planning");
@@ -319,18 +320,32 @@ export const jeeAdvancedConfig = {
   },
 };
 
-// Mapping from filter values to database values for seat type
-
-const seatTypeMap = {
-  "All India/Open Seat": "Open Seat",
-  "Deemed/Paid": "Deemed/Paid Seats",
-  "Non-Resident Indian": "Non-Resident Indian",
-  "Foreign National": "Foreign Country",
-  "Aligarh Muslim University": "Aligarh Muslim University (AMU)",
-  "Employees State Insurance": "Employees State Insurance Scheme(ESI)",
-  "Jamia": "Jamia Internal",
-  "Delhi University": "Delhi University",
-};
+const neetUgSeatTypeOptions = [
+  "Any",
+  "All India",
+  "Open Seat",
+  "Deemed/Paid Seats",
+  "Delhi University",
+  "IP University",
+  "Delhi NCR Children/Widows of Personnel of the Armed Forces (CW)",
+  "Aligarh Muslim University (AMU)",
+  "Jamia Internal",
+  "Jain Minority",
+  "Muslim",
+  "Muslim Minority",
+  "Muslim OBC",
+  "Muslim ST",
+  "Muslim Women",
+  "Employees State Insurance Scheme(ESI)",
+  "Employees State Insurance Scheme Nursing",
+  "Internal -Puducherry UT Domicile",
+  "Non-Resident Indian",
+  "Non-Resident Indian(AMU)",
+  "Foreign Country",
+  "B.Sc Nursing All India",
+  "B.Sc Nursing Delhi NCR",
+  "B.Sc Nursing Delhi NCR CW",
+];
 
 export const neetUGConfig = {
   name: "NEETUG",
@@ -375,60 +390,9 @@ export const neetUGConfig = {
       ],
     },
     {
-      name: "religion",
-      label: "Select Religion",
-      options: [
-        { value: "jain", label: "Jain" },
-        { value: "muslim", label: "Muslim" },
-        { value: "other", label: "Other" },
-      ],
-    },
-    {
-      name: "nationality",
-      label: "Select Nationality",
-      options: [
-        { value: "indian", label: "Indian" },
-        { value: "non resident", label: "Non Resident" },
-        { value: "other", label: "Other" },
-      ],
-    },
-    {
-      name: "region",
-      label: "Select Region",
-      options: [
-        { value: "delhi ncr", label: "Delhi NCR" },
-        { value: "puducherry", label: "Puducherry" },
-        { value: "other", label: "Other" },
-      ],
-    },
-    {
-      name: "defence_war",
-      label: "Defence War Quota",
-      options: [
-        { value: "Yes", label: "Yes" },
-        { value: "No", label: "No" },
-      ],
-    },
-    {
       name: "seat_type",
-      label: "Seat Type",
-      options: [
-        { value: "Any", label: "Any" },
-        { value: "All India/Open Seat", label: "All India/Open Seat" },
-        { value: "Deemed/Paid", label: "Deemed/Paid" },
-        { value: "Non-Resident Indian", label: "Non-Resident Indian" },
-        { value: "Foreign National", label: "Foreign National" },
-        {
-          value: "Aligarh Muslim University",
-          label: "Aligarh Muslim University",
-        },
-        {
-          value: "Employees State Insurance",
-          label: "Employees State Insurance",
-        },
-        { value: "Jamia", label: "Jamia" },
-        { value: "Delhi University", label: "Delhi University" },
-      ],
+      label: "Seat Type / Quota",
+      options: neetUgSeatTypeOptions,
     },
   ],
   legend: [
@@ -444,6 +408,7 @@ export const neetUGConfig = {
       String(str || "")
         .replace(/[^a-zA-Z0-9]/g, "")
         .toLowerCase();
+    const selectedSeatType = query.seat_type;
     return [
       (item) => {
         if (query.program) {
@@ -471,39 +436,16 @@ export const neetUGConfig = {
       },
       (item) => {
         if (query.category) {
-          return item["Category"] == query.category;
+          return normalize(item["Category"]) === normalize(query.category);
         }
         return true;
       },
       (item) => {
-        if (query.religion != "Other") {
-          return item["Seat Type"] == query.religion;
-        }
-        return true;
-      },
-      (item) => {
-        // If seat_type is 'All India' (Any), skip filtering
-
         if (
-          query.seat_type &&
-          String(query.seat_type).trim().toLowerCase() !== "any"
+          selectedSeatType &&
+          normalize(selectedSeatType) !== normalize("Any")
         ) {
-          const dbValue = seatTypeMap[query.seat_type] || query.seat_type;
-          if (dbValue == "Open Seat") {
-            return (
-              String(item["Seat Type"] || "")
-                .trim()
-                .toLowerCase() === String(dbValue).trim().toLowerCase() ||
-              String(item["Seat Type"] || "")
-                .trim()
-                .toLowerCase() === String("All India").trim().toLowerCase()
-            );
-          }
-          return (
-            String(item["Seat Type"] || "")
-              .trim()
-              .toLowerCase() === String(dbValue).trim().toLowerCase()
-          );
+          return normalize(item["Seat Type"]) === normalize(selectedSeatType);
         }
         return true;
       },
@@ -872,14 +814,15 @@ export const josaaConfig = {
     );
   },
   getFilters: (query) => {
+    const normalizedProgram = String(query.program || "").toLowerCase();
     const baseFilters = [
       (item) => item.Gender === query.gender || item.Gender === "All",
       (item) => {
-        if (query.program === "architecture") {
+        if (normalizedProgram === "architecture") {
           return item["Academic Program Name"]
             .toLowerCase()
             .includes("architecture");
-        } else if (query.program === "planning") {
+        } else if (normalizedProgram === "planning") {
           return item["Academic Program Name"]
             .toLowerCase()
             .includes("planning");

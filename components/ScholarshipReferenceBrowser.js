@@ -44,6 +44,9 @@ const ScholarshipReferenceBrowser = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [statusFilter, setStatusFilter] = useState("all");
   const [dateSort, setDateSort] = useState("desc");
+  const [expandedRows, setExpandedRows] = useState({});
+  const [showOnlyOpen, setShowOnlyOpen] = useState(false);
+
 
   useEffect(() => {
     const loadScholarships = async () => {
@@ -101,6 +104,11 @@ const ScholarshipReferenceBrowser = () => {
         : firstDate.getTime() - secondDate.getTime();
     });
   }, [dateSort, fuseInstance, scholarships, searchTerm, statusFilter]);
+    const base = searchTerm.trim()
+      ? fuseInstance.search(searchTerm.trim()).map((result) => result.item)
+      : scholarships;
+    return showOnlyOpen ? base.filter((s) => !isReferenceClosed(s)) : base;
+  }, [fuseInstance, scholarships, searchTerm, showOnlyOpen]);
 
   const closedCount = useMemo(
     () => scholarships.filter((item) => isReferenceClosed(item)).length,
@@ -129,6 +137,12 @@ const ScholarshipReferenceBrowser = () => {
                 {closedCount.toLocaleString("en-IN")} currently closed or past
                 deadline
               </span>
+              {showOnlyOpen && (
+                <span className="rounded-full border border-[#c3e6cb] bg-[#f0fff4] px-3 py-1 text-sm text-green-800">
+                  {filteredScholarships.length.toLocaleString("en-IN")} open now
+                </span>
+              )}
+
             </div>
           )}
         </div>
@@ -148,6 +162,18 @@ const ScholarshipReferenceBrowser = () => {
             placeholder="Try: engineering, girls scholarship, Maharashtra..."
             className="w-full rounded-xl border border-[#d8c7c1] bg-[#fffdfa] px-4 py-3 text-base text-[#2f2320] outline-none transition focus:border-[#b52326] focus:ring-2 focus:ring-[#f4d5d6]"
           />
+          <button
+            onClick={() => setShowOnlyOpen((prev) => !prev)}
+            aria-pressed={showOnlyOpen}
+            className="mt-3 flex items-center gap-3 text-sm font-semibold text-[#5b1f20]"
+          >
+            <div className={`relative h-6 w-11 rounded-full transition-colors duration-200 ${showOnlyOpen ? "bg-green-500" : "bg-[#d8c7c1]"
+              }`}>
+              <span className={`absolute left-1 top-1 h-4 w-4 rounded-full bg-white shadow-sm transition-transform duration-200 ${showOnlyOpen ? "translate-x-5" : "translate-x-0"
+                }`} />
+            </div>
+            Show open only
+          </button>
         </div>
 
         {isLoading ? (
@@ -168,6 +194,12 @@ const ScholarshipReferenceBrowser = () => {
               closed: closedCount,
             }}
           />
+        ) : (
+          <div className="rounded-2xl border border-[#eaded8] bg-white px-6 py-12 text-center text-[#5b3a34] shadow-sm">
+            {showOnlyOpen
+              ? "No open scholarships found. Try turning off the filter or broadening your search."
+              : "No scholarships matched your search. Try a broader keyword."}
+          </div>
         )}
       </div>
     </div>

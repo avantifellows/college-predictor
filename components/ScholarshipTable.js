@@ -86,6 +86,36 @@ const HeaderIconSelect = ({
           aria-expanded={isOpen}
           title={selectedOption?.label || ariaLabel}
           onClick={() => setIsOpen((currentValue) => !currentValue)}
+const APPLICATION_LINK_KEYS = [
+  "officialLink",
+  "Application Link",
+  "applyLink",
+  "link",
+];
+
+const resolveApplicationLink = (item) => {
+  for (const key of APPLICATION_LINK_KEYS) {
+    let link = item[key];
+    if (typeof link === "string") {
+      link = link.trim();
+      if (link) {
+        if (!/^https?:\/\//i.test(link)) {
+          return `https://${link}`;
+        }
+        return link;
+      }
+    }
+  }
+  return null;
+};
+
+const TableHeader = ({ headers }) => (
+  <thead>
+    <tr className="bg-[#f8efec] text-[#5b1f20] font-semibold text-left text-xs sm:text-sm">
+      {headers.map((header, index) => (
+        <th
+          key={index}
+          className="px-4 py-3 border-b border-[#decac3] last:border-r-0 whitespace-nowrap"
         >
           {icon}
         </button>
@@ -547,6 +577,49 @@ const ScholarshipTable = ({
                         target="_blank"
                         rel="noopener noreferrer"
                         className="touch-target inline-flex items-center font-medium text-[#B52326] hover:underline"
+    <div className="overflow-x-auto rounded-2xl border border-[#eaded8] bg-white shadow-sm">
+      <table className="w-full min-w-[760px] table-fixed border-collapse text-sm">
+        <TableHeader headers={headers} />
+        <tbody>
+          {filteredData?.length === 0 && (
+            <tr>
+              <td colSpan="5" className="px-4 py-6 text-center text-[#5b3a34]">
+                No scholarships found. Please try again with different filters.
+              </td>
+            </tr>
+          )}
+          {filteredData?.map((item, index) => (
+            <React.Fragment key={index}>
+              <tr
+                className={`border-b border-[#eaded8] ${
+                  index % 2 === 0 ? "bg-[#fffdfa]" : "bg-white"
+                }`}
+              >
+                <TableCell className="font-medium">{item["Scholarship Name"]}</TableCell>
+                <TableCell>
+                  {(() => {
+                    const displayStatus = getDisplayStatus(item);
+                    return (
+                  <span
+                    className={`inline-flex rounded-full px-3 py-1 text-xs font-semibold ${getStatusPillClass(
+                      displayStatus
+                    )}`}
+                  >
+                    {displayStatus}
+                  </span>
+                    );
+                  })()}
+                </TableCell>
+                <TableCell>{item["Last Date"] || "Not available"}</TableCell>
+                <TableCell>
+                  {(() => {
+                    const appLink = resolveApplicationLink(item);
+                    return appLink ? (
+                      <a
+                        href={appLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-medium text-[#B52326] hover:underline"
                       >
                         Visit source
                       </a>
@@ -586,6 +659,18 @@ const ScholarshipTable = ({
                   No scholarships found. Please try again with different
                   filters.
                 </td>
+                      "Not available"
+                    );
+                  })()}
+                </TableCell>
+                <TableCell>
+                  <button
+                    className="whitespace-nowrap rounded-lg bg-[#B52326] px-4 py-2 text-white hover:bg-[#9E1F22]"
+                    onClick={() => toggleRowExpansion(index)}
+                  >
+                    {expandedRows[index] ? "Show Less" : "Show More"}
+                  </button>
+                </TableCell>
               </tr>
             )}
             {filteredData?.map((item, index) => (
