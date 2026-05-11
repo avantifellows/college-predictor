@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import dynamic from "next/dynamic";
 import TneaScoreCalculator from "../components/TneaScoreCalculator";
+import GujcetScoreCalculator from "../components/GujcetScoreCalculator";
 
 // Dynamically import Dropdown with SSR disabled
 const Dropdown = dynamic(() => import("../components/dropdown"), {
@@ -361,6 +362,15 @@ const ExamForm = () => {
     }));
   };
 
+  const handleGujcetScoreChange = (score, board, gujcet) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      rank: score,
+      boardPercentage: board,
+      gujcetPercentile: gujcet,
+    }));
+  };
+
   const handleSubmit = async () => {
     // For JoSAA exam
     if (selectedExam === "JoSAA") {
@@ -418,6 +428,24 @@ const ExamForm = () => {
                 "physicsMarks",
                 "chemistryMarks",
                 "mathsMarks",
+              ].includes(key)
+          )
+          .some(([_, value]) => !value)
+      );
+    }
+
+    // For GUJCET exam
+    if (selectedExam === "GUJCET") {
+      return (
+        !formData.rank ||
+        formData.rank === "" ||
+        Object.entries(formData)
+          .filter(
+            ([key]) =>
+              ![
+                "rank",
+                "boardPercentage",
+                "gujcetPercentile",
               ].includes(key)
           )
           .some(([_, value]) => !value)
@@ -579,6 +607,13 @@ const ExamForm = () => {
               {selectedExam && selectedExam === "TNEA" ? (
                 <div className="md:col-span-2">
                   <TneaScoreCalculator onScoreChange={handleTneaScoreChange} />
+                </div>
+              ) : selectedExam && selectedExam === "GUJCET" ? (
+                <div className="md:col-span-2">
+                  <GujcetScoreCalculator 
+                    program={formData.program} 
+                    onScoreChange={handleGujcetScoreChange} 
+                  />
                 </div>
               ) : (
                 selectedExam && (

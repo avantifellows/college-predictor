@@ -1061,7 +1061,7 @@ export const gujcetConfig = {
   name: "GUJCET",
   code: "GUJCET",
   searchKeys: ["College Name", "District", "Course"],
-  primaryInput: decimalInput("Enter Percentage Score", "e.g., 78.45"),
+  primaryInput: decimalInput("Enter ACPC Merit Score Percentage", "e.g., 78.45"),
   fields: [
     {
       name: "category",
