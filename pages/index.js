@@ -379,6 +379,11 @@ const ExamForm = () => {
     }));
   };
 
+  const hasMissingConfiguredFields = () => {
+    if (!config?.fields) return true;
+    return config.fields.some((field) => !formData[field.name]);
+  };
+
   const handleSubmit = async () => {
     // For JoSAA exam
     if (selectedExam === "JoSAA") {
@@ -428,17 +433,7 @@ const ExamForm = () => {
       return (
         !formData.rank ||
         formData.rank === "" ||
-        Object.entries(formData)
-          .filter(
-            ([key]) =>
-              ![
-                "rank",
-                "physicsMarks",
-                "chemistryMarks",
-                "mathsMarks",
-              ].includes(key)
-          )
-          .some(([_, value]) => !value)
+        hasMissingConfiguredFields()
       );
     }
 
@@ -476,9 +471,7 @@ const ExamForm = () => {
       !formData.rank ||
       formData.rank === "" ||
       formData.rank === 0 ||
-      Object.entries(formData)
-        .filter(([key]) => key !== "rank")
-        .some(([_, value]) => !value)
+      hasMissingConfiguredFields()
     );
   };
 
