@@ -12,7 +12,9 @@ const fuseOptions = {
 
 const parseDeadline = (value) => {
   if (!value) return null;
-  const parts = String(value).split("/").map((part) => Number(part));
+  const parts = String(value)
+    .split("/")
+    .map((part) => Number(part));
   if (parts.length !== 3 || parts.some((part) => Number.isNaN(part))) {
     return null;
   }
@@ -37,13 +39,20 @@ const ScholarshipReferenceBrowser = () => {
   const [expandedRows, setExpandedRows] = useState({});
   const [showOnlyOpen, setShowOnlyOpen] = useState(false);
 
-
   useEffect(() => {
     const loadScholarships = async () => {
       try {
-        const response = await fetch("/data/scholarships/scholarship_data.json");
+        const response = await fetch(
+          "/data/scholarships/scholarship_data.json"
+        );
         const data = await response.json();
-        const sortedData = [...data].sort((a, b) =>
+        const dataWithIds = data.map((item, idx) => {
+          return {
+            ...item,
+            id: idx,
+          };
+        });
+        const sortedData = [...dataWithIds].sort((a, b) =>
           String(a["Scholarship Name"] || "").localeCompare(
             String(b["Scholarship Name"] || "")
           )
@@ -76,10 +85,10 @@ const ScholarshipReferenceBrowser = () => {
     [scholarships]
   );
 
-  const toggleRowExpansion = (index) => {
+  const toggleRowExpansion = (id) => {
     setExpandedRows((prev) => ({
       ...prev,
-      [index]: !prev[index],
+      [id]: !prev[id],
     }));
   };
 
@@ -109,7 +118,6 @@ const ScholarshipReferenceBrowser = () => {
                   {filteredScholarships.length.toLocaleString("en-IN")} open now
                 </span>
               )}
-
             </div>
           )}
         </div>
@@ -134,10 +142,16 @@ const ScholarshipReferenceBrowser = () => {
             aria-pressed={showOnlyOpen}
             className="mt-3 flex items-center gap-3 text-sm font-semibold text-[#5b1f20]"
           >
-            <div className={`relative h-6 w-11 rounded-full transition-colors duration-200 ${showOnlyOpen ? "bg-green-500" : "bg-[#d8c7c1]"
-              }`}>
-              <span className={`absolute left-1 top-1 h-4 w-4 rounded-full bg-white shadow-sm transition-transform duration-200 ${showOnlyOpen ? "translate-x-5" : "translate-x-0"
-                }`} />
+            <div
+              className={`relative h-6 w-11 rounded-full transition-colors duration-200 ${
+                showOnlyOpen ? "bg-green-500" : "bg-[#d8c7c1]"
+              }`}
+            >
+              <span
+                className={`absolute left-1 top-1 h-4 w-4 rounded-full bg-white shadow-sm transition-transform duration-200 ${
+                  showOnlyOpen ? "translate-x-5" : "translate-x-0"
+                }`}
+              />
             </div>
             Show open only
           </button>
