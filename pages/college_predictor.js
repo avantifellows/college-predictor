@@ -97,6 +97,20 @@ const getCleanQueryObject = (query) =>
     )
   );
 
+const josaaEstimationSupportedCategories = new Set([
+  "OPEN",
+  "OBC-NCL",
+  "SC",
+  "ST",
+  "EWS",
+]);
+
+const isJosaaEstimationSupportedCategory = (category) =>
+  josaaEstimationSupportedCategories.has(category);
+
+const josaaPwdEstimateError =
+  "Rank estimation is currently unavailable for PwD categories. Please switch to 'No,I know my rank' and enter your rank directly.";
+
 const CollegePredictor = () => {
   const router = useRouter();
   const [filteredData, setFilteredData] = useState([]);
@@ -479,6 +493,10 @@ const CollegePredictor = () => {
       setEstimateError("Please select your category first.");
       return;
     }
+    if (!isJosaaEstimationSupportedCategory(queryObject.category)) {
+      setEstimateError(josaaPwdEstimateError);
+      return;
+    }
     if (estimateInputType === "marks") {
       if (marksInput === "") {
         setMarksError("Please enter your marks.");
@@ -811,12 +829,21 @@ const CollegePredictor = () => {
                       (estimateInputType === "marks"
                         ? marksInput === "" || !!marksError
                         : percentileInput === "" || !!percentileError) ||
-                      !queryObject.category
+                      !queryObject.category ||
+                      !isJosaaEstimationSupportedCategory(queryObject.category)
                     }
                     className="w-full rounded-lg bg-[#B52326] px-4 py-2 text-white hover:bg-[#9E1F22] disabled:bg-gray-300 disabled:text-gray-600"
                   >
                     {isEstimating ? "Estimating..." : "Estimate Rank"}
                   </button>
+                  {queryObject.category &&
+                    !isJosaaEstimationSupportedCategory(
+                      queryObject.category
+                    ) && (
+                      <p className="text-sm text-[#6d5550]">
+                        {josaaPwdEstimateError}
+                      </p>
+                    )}
                   {estimateError && (
                     <p className="text-sm text-red-500">{estimateError}</p>
                   )}
