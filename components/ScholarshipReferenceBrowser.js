@@ -43,7 +43,13 @@ const ScholarshipReferenceBrowser = () => {
       try {
         const response = await fetch("/data/scholarships/scholarship_data.json");
         const data = await response.json();
-        const sortedData = [...data].sort((a, b) =>
+        const dataWithIds = data.map((item, idx) => {
+          return {
+            ...item,
+            id: idx,
+          }
+        })
+        const sortedData = [...dataWithIds].sort((a, b) =>
           String(a["Scholarship Name"] || "").localeCompare(
             String(b["Scholarship Name"] || "")
           )
@@ -76,10 +82,10 @@ const ScholarshipReferenceBrowser = () => {
     [scholarships]
   );
 
-  const toggleRowExpansion = (index) => {
+  const toggleRowExpansion = (id) => {
     setExpandedRows((prev) => ({
       ...prev,
-      [index]: !prev[index],
+      [id]: !prev[id],
     }));
   };
 

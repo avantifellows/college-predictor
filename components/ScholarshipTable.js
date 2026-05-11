@@ -200,22 +200,21 @@ const ScholarshipTable = ({
           {filteredData?.map((item, index) => (
             <React.Fragment key={index}>
               <tr
-                className={`border-b border-[#eaded8] ${
-                  index % 2 === 0 ? "bg-[#fffdfa]" : "bg-white"
-                }`}
+                className={`border-b border-[#eaded8] ${index % 2 === 0 ? "bg-[#fffdfa]" : "bg-white"
+                  }`}
               >
                 <TableCell className="font-medium">{item["Scholarship Name"]}</TableCell>
                 <TableCell>
                   {(() => {
                     const displayStatus = getDisplayStatus(item);
                     return (
-                  <span
-                    className={`inline-flex rounded-full px-3 py-1 text-xs font-semibold ${getStatusPillClass(
-                      displayStatus
-                    )}`}
-                  >
-                    {displayStatus}
-                  </span>
+                      <span
+                        className={`inline-flex rounded-full px-3 py-1 text-xs font-semibold ${getStatusPillClass(
+                          displayStatus
+                        )}`}
+                      >
+                        {displayStatus}
+                      </span>
                     );
                   })()}
                 </TableCell>
@@ -240,13 +239,13 @@ const ScholarshipTable = ({
                 <TableCell>
                   <button
                     className="whitespace-nowrap rounded-lg bg-[#B52326] px-4 py-2 text-white hover:bg-[#9E1F22]"
-                    onClick={() => toggleRowExpansion(index)}
+                    onClick={() => toggleRowExpansion(item.id)}
                   >
-                    {expandedRows[index] ? "Show Less" : "Show More"}
+                    {expandedRows[item.id] ? "Show Less" : "Show More"}
                   </button>
                 </TableCell>
               </tr>
-              {expandedRows[index] && (
+              {expandedRows[item.id] && (
                 <ExpandedRow item={item} expandedFields={expandedFields} />
               )}
             </React.Fragment>
