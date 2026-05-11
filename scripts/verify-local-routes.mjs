@@ -1,4 +1,5 @@
-const baseUrl = process.argv[2] || process.env.BASE_URL || "http://localhost:3001";
+const baseUrl =
+  process.argv[2] || process.env.BASE_URL || "http://localhost:3001";
 
 const cases = [
   {
@@ -52,12 +53,12 @@ const cases = [
     expectJsonArray: true,
     validate: (rows) => {
       const allowedSeatTypes = new Set(
-        rows
-          .map((row) => String(row["Seat Type"] || "").trim())
-          .filter(Boolean)
+        rows.map((row) => String(row["Seat Type"] || "").trim()).filter(Boolean)
       );
       if (!allowedSeatTypes.has("All India")) {
-        throw new Error("Expected All India seat type in baseline NEETUG results");
+        throw new Error(
+          "Expected All India seat type in baseline NEETUG results"
+        );
       }
     },
   },
@@ -67,11 +68,12 @@ const cases = [
     expectJsonArray: true,
     validate: (rows) => {
       const invalidSeatTypeRow = rows.find(
-        (row) =>
-          String(row["Seat Type"] || "").trim() !== "Non-Resident Indian"
+        (row) => String(row["Seat Type"] || "").trim() !== "Non-Resident Indian"
       );
       if (invalidSeatTypeRow) {
-        throw new Error("NEETUG seat_type filter returned rows from other quotas");
+        throw new Error(
+          "NEETUG seat_type filter returned rows from other quotas"
+        );
       }
     },
   },
@@ -103,7 +105,9 @@ const cases = [
         return deadline ? deadline < new Date() : false;
       });
       if (!allClosed) {
-        throw new Error("Some scholarships are still marked active by status/deadline logic");
+        throw new Error(
+          "Some scholarships are still marked active by status/deadline logic"
+        );
       }
     },
   },
