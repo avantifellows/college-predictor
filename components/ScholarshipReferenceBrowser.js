@@ -12,7 +12,9 @@ const fuseOptions = {
 
 const parseDeadline = (value) => {
   if (!value) return null;
-  const parts = String(value).split("/").map((part) => Number(part));
+  const parts = String(value)
+    .split("/")
+    .map((part) => Number(part));
   if (parts.length !== 3 || parts.some((part) => Number.isNaN(part))) {
     return null;
   }
@@ -30,16 +32,25 @@ const isReferenceClosed = (scholarship) => {
   return deadline < now;
 };
 
+const statusOptions = [
+  { value: "all", label: "All" },
+  { value: "open", label: "Open" },
+  { value: "closed", label: "Closed" },
+];
+
 const ScholarshipReferenceBrowser = () => {
   const [scholarships, setScholarships] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
-  const [expandedRows, setExpandedRows] = useState({});
+  const [statusFilter, setStatusFilter] = useState("all");
+  const [dateSort, setDateSort] = useState("desc");
 
   useEffect(() => {
     const loadScholarships = async () => {
       try {
-        const response = await fetch("/data/scholarships/scholarship_data.json");
+        const response = await fetch(
+          "/data/scholarships/scholarship_data.json"
+        );
         const data = await response.json();
         const sortedData = [...data].sort((a, b) =>
           String(a["Scholarship Name"] || "").localeCompare(
@@ -63,23 +74,39 @@ const ScholarshipReferenceBrowser = () => {
   );
 
   const filteredScholarships = useMemo(() => {
-    if (!searchTerm.trim()) {
-      return scholarships;
-    }
-    return fuseInstance.search(searchTerm.trim()).map((result) => result.item);
-  }, [fuseInstance, scholarships, searchTerm]);
+    const searchedScholarships = searchTerm.trim()
+      ? fuseInstance.search(searchTerm.trim()).map((result) => result.item)
+      : scholarships;
+
+    const statusFilteredScholarships = searchedScholarships.filter((item) => {
+      if (statusFilter === "all") return true;
+      const isClosed = isReferenceClosed(item);
+      return statusFilter === "closed" ? isClosed : !isClosed;
+    });
+
+    return [...statusFilteredScholarships].sort((a, b) => {
+      const firstDate = parseDeadline(a["Last Date"]);
+      const secondDate = parseDeadline(b["Last Date"]);
+
+      if (!firstDate && !secondDate) {
+        return String(a["Scholarship Name"] || "").localeCompare(
+          String(b["Scholarship Name"] || "")
+        );
+      }
+      if (!firstDate) return 1;
+      if (!secondDate) return -1;
+
+      return dateSort === "desc"
+        ? secondDate.getTime() - firstDate.getTime()
+        : firstDate.getTime() - secondDate.getTime();
+    });
+  }, [dateSort, fuseInstance, scholarships, searchTerm, statusFilter]);
 
   const closedCount = useMemo(
     () => scholarships.filter((item) => isReferenceClosed(item)).length,
     [scholarships]
   );
-
-  const toggleRowExpansion = (index) => {
-    setExpandedRows((prev) => ({
-      ...prev,
-      [index]: !prev[index],
-    }));
-  };
+  const openCount = scholarships.length - closedCount;
 
   return (
     <div className="min-h-screen bg-[#fdf8f6] px-3 py-4 sm:px-4 sm:py-8">
@@ -127,16 +154,20 @@ const ScholarshipReferenceBrowser = () => {
           <div className="rounded-xl border border-[#eaded8] bg-white px-4 py-10 text-center text-[#5b3a34] shadow-sm sm:rounded-2xl sm:px-6 sm:py-12">
             Loading scholarship reference list...
           </div>
-        ) : filteredScholarships.length > 0 ? (
+        ) : (
           <ScholarshipTable
             filteredData={filteredScholarships}
-            toggleRowExpansion={toggleRowExpansion}
-            expandedRows={expandedRows}
+            statusFilter={statusFilter}
+            onStatusFilterChange={setStatusFilter}
+            dateSort={dateSort}
+            onDateSortChange={setDateSort}
+            statusOptions={statusOptions}
+            statusCounts={{
+              all: scholarships.length,
+              open: openCount,
+              closed: closedCount,
+            }}
           />
-        ) : (
-          <div className="rounded-xl border border-[#eaded8] bg-white px-4 py-10 text-center text-[#5b3a34] shadow-sm sm:rounded-2xl sm:px-6 sm:py-12">
-            No scholarships matched your search. Try a broader keyword.
-          </div>
         )}
       </div>
     </div>
