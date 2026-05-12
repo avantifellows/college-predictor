@@ -1,5 +1,5 @@
 const constants = {
-  TITLE: "Exam Rank College Predictor",
+  TITLE: "",
   TITLE_SHORT: "College Predictor",
 };
 
