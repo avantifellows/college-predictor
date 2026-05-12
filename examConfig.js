@@ -654,6 +654,7 @@ export const tneaConfig = {
       name: "courseType",
       label: "Select Course Type",
       options: [
+        "Any",
         "Computer Science",
         "Electronics and Communications (ECE)",
         "Mechanical",
@@ -725,7 +726,7 @@ export const tneaConfig = {
   },
   getFilters: (query) => [
     (item) => item.Category === query.category,
-    (item) => item.Course === query.courseType,
+    (item) => query.courseType === "Any" || item.Course === query.courseType,
     (item) => item.District === query.district || "Any" === query.district,
     (item) =>
       item["College Type"] === query.collegeType || "Any" === query.collegeType,
