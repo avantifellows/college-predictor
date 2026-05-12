@@ -691,8 +691,6 @@ export const tneaConfig = {
         "Dharmapuri",
         "Dindigul",
         "Erode",
-        "Hazaribagh",
-        "Idukki",
         "Kancheepuram",
         "Kanniyakumari",
         "Karur",
