@@ -465,6 +465,84 @@ export const neetUGConfig = {
   getSort: () => [["Closing Rank", "ASC"]],
 };
 
+const getMhtCetCategory = (programName) => {
+  if (!programName) return "Other Specializations";
+  const name = programName.replace(/\n/g, " ").trim().toLowerCase();
+
+  if (
+    name.includes("mechatronics") ||
+    name.includes("robotics") ||
+    name.includes("automation")
+  )
+    return "Mechatronics & Automation";
+  if (
+    name.includes("artificial") ||
+    name.includes("data science") ||
+    name.includes("data engineering") ||
+    name.includes("machine learning")
+  )
+    return "AI, ML & Data Science";
+  if (
+    name.includes("computer") ||
+    name.includes("information technology") ||
+    name.includes("software") ||
+    name.includes("cyber") ||
+    name.includes("iot") ||
+    name.includes("internet of things") ||
+    name.includes("business systems") ||
+    name.includes("design")
+  )
+    return "Computer Science & IT";
+  if (
+    name.includes("electronics") ||
+    name.includes("telecommunication") ||
+    name.includes("communication") ||
+    name.includes("vlsi") ||
+    name.includes("instrumentation")
+  )
+    return "Electronics & Telecommunication";
+  if (name.includes("electrical")) return "Electrical Engineering";
+  if (
+    name.includes("mechanical") ||
+    name.includes("automobile") ||
+    name.includes("aeronautical") ||
+    name.includes("manufacturing") ||
+    name.includes("production")
+  )
+    return "Mechanical Engineering";
+  if (
+    name.includes("civil") ||
+    name.includes("structural") ||
+    name.includes("infrastructure") ||
+    name.includes("environmental")
+  )
+    return "Civil Engineering";
+  if (
+    name.includes("chemical") ||
+    name.includes("petro") ||
+    name.includes("oil") ||
+    name.includes("paints") ||
+    name.includes("plastic") ||
+    name.includes("polymer") ||
+    name.includes("paper") ||
+    name.includes("dyestuff") ||
+    name.includes("surface coating") ||
+    name.includes("metallurgy") ||
+    name.includes("material")
+  )
+    return "Chemical & Materials";
+  if (
+    name.includes("food") ||
+    name.includes("bio") ||
+    name.includes("pharmaceutical")
+  )
+    return "Food, Bio & Pharma";
+  if (name.includes("textile") || name.includes("fibres"))
+    return "Textile Engineering";
+
+  return "Other Specializations";
+};
+
 export const mhtCetConfig = {
   name: "MHT CET",
   apiEndpoint: "mhtcet",
@@ -515,6 +593,24 @@ export const mhtCetConfig = {
         { value: "Yes", label: "Yes" },
       ],
     },
+    {
+      name: "courseType",
+      label: "Select Course/Branch",
+      options: [
+        "Any",
+        "Computer Science & IT",
+        "AI, ML & Data Science",
+        "Electronics & Telecommunication",
+        "Electrical Engineering",
+        "Mechanical Engineering",
+        "Mechatronics & Automation",
+        "Civil Engineering",
+        "Chemical & Materials",
+        "Food, Bio & Pharma",
+        "Textile Engineering",
+        "Other Specializations",
+      ],
+    },
   ],
   legend: [
     { key: "AI", value: "All India" },
@@ -535,6 +631,9 @@ export const mhtCetConfig = {
     (item) => item.State === query.homeState,
     (item) => item.PWD === query.isPWD,
     (item) => item.Defense === query.isDefenseWard,
+    (item) =>
+      query.courseType === "Any" ||
+      getMhtCetCategory(item["Academic Program Name"]) === query.courseType,
     (item) => {
       if (query.rank) {
         const closingRank = parseInt(item["Closing Rank"], 10);
