@@ -1025,12 +1025,12 @@ const CollegePredictor = () => {
   return (
     <>
       <Head>
-        <title>College Predictor Results - {getConstants().TITLE_SHORT}</title>
+        <title>College & Scholarship Results - {getConstants().TITLE_SHORT}</title>
       </Head>
       <div className="min-h-screen bg-[#fdf8f6] flex flex-col items-center pt-8 px-4">
         <div className="w-full max-w-6xl rounded-2xl border border-[#eaded8] bg-white p-6 shadow-sm md:p-8">
           <h1 className="mb-2 text-center text-2xl font-bold text-[#2f2320] sm:text-3xl">
-            College Predictor Results
+            College & Scholarship Results
           </h1>
 
           {/* TGEAPCET Disclaimer - Shows when EWS or OU is selected */}

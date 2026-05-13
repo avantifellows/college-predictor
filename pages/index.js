@@ -567,11 +567,14 @@ const ExamForm = () => {
                 </p>
               </div>
             )}
+            <p className="text-gray-500 text-center">
+            Find colleges based on your exam rank and category
+            </p>
 
             <div className="grid w-full grid-cols-1 gap-3 md:grid-cols-2">
               {renderFormCard(
                 "exam",
-                "Select Exam/Counselling Process",
+                "Select Your Exam or Counselling Process",
                 <Dropdown
                   options={Object.keys(examConfigs)
                     .filter(
