@@ -11,6 +11,19 @@ import io
 # import sys
 # csv.field_size_limit(sys.maxsize)  # Set to maximum system size
 
+# Schema definition: required fields and their expected types.
+REQUIRED_FIELDS = [
+    "Scholarship Name",
+    "Provider Name",
+    "District",
+    "State",
+    "Application Deadline",
+]
+
+NUMERIC_FIELDS = [
+    "Family Income (in INR)",
+]
+
 def create_grade_array(row, grade_columns, grade_labels):
     grades = []
     for col, label in zip(grade_columns, grade_labels):
@@ -26,6 +39,18 @@ def extract_income(value):
         return float(match.group(1))
     return value
 
+def validate_scholarship_row(row, row_index):
+    """Validate a single scholarship CSV row and return a list of error messages."""
+    errors = []
+    for field in REQUIRED_FIELDS:
+        if not row.get(field, "").strip():
+            errors.append(f"Row {row_index}: missing required field '{field}'")
+    for field in NUMERIC_FIELDS:
+        value = row.get(field, "").strip()
+        if value and not re.match(r'^\d+(\.\d+)?$', value.replace(",", "")):
+            errors.append(f"Row {row_index}: field '{field}' should be numeric, got '{value}'")
+    return errors
+
 def lambda_handler(event, context):
     try:
         # 1. Get the CSV from Google Sheets
@@ -38,7 +63,26 @@ def lambda_handler(event, context):
         csv_reader = csv.DictReader(io.StringIO(csv_data))
         parsed_data = list(csv_reader)
 
-        # 3. Process the data
+        # 3. Validate incoming data
+        all_errors = []
+        for i, row in enumerate(parsed_data):
+            row_errors = validate_scholarship_row(row, i + 2)  # +2 for header + 0-index
+            all_errors.extend(row_errors)
+
+        if all_errors:
+            error_msg = "\n".join(all_errors)
+            print(f"Validation errors ({len(all_errors)}):\n{error_msg}")
+            return {
+                'statusCode': 422,
+                'body': json.dumps({
+                    'success': False,
+                    'error': 'Data validation failed',
+                    'validation_errors': all_errors,
+                    'error_count': len(all_errors)
+                })
+            }
+
+        # 4. Process the data
         grade_columns = [
             "Class 10 or below can apply",
             "Class 11 can Apply",
