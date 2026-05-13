@@ -48,8 +48,32 @@ const cases = [
   },
   {
     name: "NEETUG API",
-    path: "/api/exam-result?exam=NEETUG&program=MBBS&gender=Open&category=Open&religion=Other&nationality=Indian&region=Other&defence_war=No&seat_type=Any&rank=50000",
+    path: "/api/exam-result?exam=NEETUG&program=MBBS&gender=Open&category=Open&seat_type=Any&rank=50000",
     expectJsonArray: true,
+    validate: (rows) => {
+      const allowedSeatTypes = new Set(
+        rows
+          .map((row) => String(row["Seat Type"] || "").trim())
+          .filter(Boolean)
+      );
+      if (!allowedSeatTypes.has("All India")) {
+        throw new Error("Expected All India seat type in baseline NEETUG results");
+      }
+    },
+  },
+  {
+    name: "NEETUG Seat Type Filter",
+    path: "/api/exam-result?exam=NEETUG&program=MBBS&gender=Open&category=Open&seat_type=Non-Resident%20Indian&rank=50000",
+    expectJsonArray: true,
+    validate: (rows) => {
+      const invalidSeatTypeRow = rows.find(
+        (row) =>
+          String(row["Seat Type"] || "").trim() !== "Non-Resident Indian"
+      );
+      if (invalidSeatTypeRow) {
+        throw new Error("NEETUG seat_type filter returned rows from other quotas");
+      }
+    },
   },
   {
     name: "TGEAPCET API",

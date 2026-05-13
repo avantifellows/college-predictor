@@ -51,6 +51,37 @@ export default async function handler(req, res) {
   }
 
   const config = examConfigs[exam];
+  const category = Array.isArray(req.query.category)
+    ? req.query.category[0]
+    : req.query.category;
+
+  if (category) {
+    const categoryField = config.fields?.find(
+      (field) => field.name === "category"
+    );
+
+    if (categoryField) {
+      const isValidCategory = categoryField.options.some((option) => {
+        const value = typeof option === "string" ? option : option.value;
+        const label = typeof option === "string" ? undefined : option.label;
+
+        const normalizedCategory = String(category).trim().toLowerCase();
+        const matchesValue =
+          String(value).trim().toLowerCase() === normalizedCategory;
+        const matchesLabel =
+          label && String(label).trim().toLowerCase() === normalizedCategory;
+
+        return matchesValue || matchesLabel;
+      });
+
+      if (!isValidCategory) {
+        return res.status(400).json({
+          error: "Invalid category",
+        });
+      }
+    }
+  }
+
   const primaryInputConfig = config.primaryInput;
   const queryValue =
     exam === "JoSAA"
@@ -78,6 +109,8 @@ export default async function handler(req, res) {
         error:
           primaryInputConfig.max !== undefined
             ? `Please enter a value between ${primaryInputConfig.min} and ${primaryInputConfig.max}.`
+            : primaryInputConfig.label.toLowerCase().includes("rank") && primaryInputConfig.min === "1"
+            ? "Please enter a rank greater than 0."
             : `Please enter a value greater than or equal to ${primaryInputConfig.min}.`,
       });
     }
@@ -267,7 +300,7 @@ export default async function handler(req, res) {
   } catch (error) {
     console.error("Error reading file:", error);
     res.status(500).json({
-      error: "Unable to retrieve data",
+      error: "Unable to retrieve data. Please try again later.",
     });
   }
 }

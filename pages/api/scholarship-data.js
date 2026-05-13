@@ -21,7 +21,7 @@ export default async function handler(req, res) {
   } catch (error) {
     console.error("Error loading scholarship data:", error);
     return res.status(500).json({
-      error: "Unable to retrieve scholarship data",
+      error: "Unable to retrieve scholarship data. Please try again later.",
     });
   }
 }

@@ -38,7 +38,7 @@ const defaultPrimaryInputConfig = {
   label: "Enter Rank",
   placeholder: "Enter your rank",
   step: "1",
-  min: "0",
+  min: "1",
   allowDecimal: false,
 };
 
@@ -53,6 +53,8 @@ const validatePrimaryInputValue = (exam, value) => {
   const rangeMessage =
     inputConfig.max !== undefined
       ? `Please enter a value between ${inputConfig.min} and ${inputConfig.max}.`
+      : inputConfig.label.toLowerCase().includes("rank") && inputConfig.min === "1"
+      ? "Please enter a rank greater than 0."
       : `Please enter a value greater than or equal to ${inputConfig.min}.`;
 
   if (Number.isNaN(numericValue)) {
@@ -94,6 +96,20 @@ const getCleanQueryObject = (query) =>
       ([, value]) => value !== undefined && value !== null && value !== ""
     )
   );
+
+const josaaEstimationSupportedCategories = new Set([
+  "OPEN",
+  "OBC-NCL",
+  "SC",
+  "ST",
+  "EWS",
+]);
+
+const isJosaaEstimationSupportedCategory = (category) =>
+  josaaEstimationSupportedCategories.has(category);
+
+const josaaPwdEstimateError =
+  "Rank estimation is currently unavailable for PwD categories. Please switch to 'No,I know my rank' and enter your rank directly.";
 
 const CollegePredictor = () => {
   const router = useRouter();
@@ -173,15 +189,8 @@ const CollegePredictor = () => {
 
     if (fullData.length > 0 && fuseInstance) {
       const result = fuseInstance.search(currentSearchTerm.trim());
-      if (result.length === 0) {
-        setFilteredData([]);
-        setError(
-          "No matches found for your search term within the current results."
-        );
-      } else {
-        setFilteredData(result.map((r) => r.item));
-        setError(null);
-      }
+      setFilteredData(result.map((r) => r.item));
+      setError(null);
     } else {
       setFilteredData([]);
       setError("No data to search. Apply filters to load predictions first.");
@@ -482,6 +491,10 @@ const CollegePredictor = () => {
   const handleEstimateRank = async () => {
     if (!queryObject.category) {
       setEstimateError("Please select your category first.");
+      return;
+    }
+    if (!isJosaaEstimationSupportedCategory(queryObject.category)) {
+      setEstimateError(josaaPwdEstimateError);
       return;
     }
     if (estimateInputType === "marks") {
@@ -816,12 +829,21 @@ const CollegePredictor = () => {
                       (estimateInputType === "marks"
                         ? marksInput === "" || !!marksError
                         : percentileInput === "" || !!percentileError) ||
-                      !queryObject.category
+                      !queryObject.category ||
+                      !isJosaaEstimationSupportedCategory(queryObject.category)
                     }
                     className="w-full rounded-lg bg-[#B52326] px-4 py-2 text-white hover:bg-[#9E1F22] disabled:bg-gray-300 disabled:text-gray-600"
                   >
                     {isEstimating ? "Estimating..." : "Estimate Rank"}
                   </button>
+                  {queryObject.category &&
+                    !isJosaaEstimationSupportedCategory(
+                      queryObject.category
+                    ) && (
+                      <p className="text-sm text-[#6d5550]">
+                        {josaaPwdEstimateError}
+                      </p>
+                    )}
                   {estimateError && (
                     <p className="text-sm text-red-500">{estimateError}</p>
                   )}
@@ -1076,10 +1098,11 @@ const CollegePredictor = () => {
                 {error}
               </p>
             </div>
-          ) : filteredData.length > 0 ? (
+          ) : fullData.length > 0 ? (
             <>
               <PredictedCollegeTables
                 data={filteredData}
+                fullData={fullData}
                 exam={queryObject.exam}
                 searchTerm={searchTerm}
                 onSearchChange={handleSearchChange}
@@ -1088,9 +1111,7 @@ const CollegePredictor = () => {
           ) : (
             <div className="text-center py-10">
               <p className="text-xl text-gray-600">
-                {fullData.length === 0 && !isLoading
-                  ? "No predictions available for your current selection. Try adjusting the filters."
-                  : "No results match your search term."}
+                No predictions available for your current selection. Try adjusting the filters.
               </p>
             </div>
           )}

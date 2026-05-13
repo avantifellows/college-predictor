@@ -64,7 +64,16 @@ const F4_C4_B = -1146;
 const F4_C5_M = 0.0396;
 const F4_C5_B = -11081;
 
-const ALLOWED_CATEGORIES = new Set(["OPEN", "OBC-NCL", "SC", "ST", "EWS"]);
+const ESTIMATION_SUPPORTED_CATEGORIES = new Set([
+  "OPEN",
+  "OBC-NCL",
+  "SC",
+  "ST",
+  "EWS",
+]);
+const PWD_CATEGORY_SUFFIX = "(PwD)";
+const PWD_CATEGORY_ERROR =
+  "Rank estimation is currently unavailable for PwD categories. Please switch to 'No, I know my rank' and enter your rank directly.";
 
 const marksToPercentage = (score) => (score * 100) / TOTAL_MARKS;
 const percentageToMarks = (percentage) =>
@@ -175,7 +184,11 @@ export default function handler(req, res) {
   const percentileRaw = body?.percentile;
   const category = body?.category;
 
-  if (!ALLOWED_CATEGORIES.has(category)) {
+  if (String(category || "").includes(PWD_CATEGORY_SUFFIX)) {
+    return res.status(400).json({ error: PWD_CATEGORY_ERROR });
+  }
+
+  if (!ESTIMATION_SUPPORTED_CATEGORIES.has(category)) {
     return res
       .status(400)
       .json({ error: "Unsupported category for estimation" });
