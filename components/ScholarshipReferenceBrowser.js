@@ -83,6 +83,43 @@ const ScholarshipReferenceBrowser = () => {
     }));
   };
 
+  const CSV_COLUMNS = [
+    { key: "Scholarship Name", label: "Scholarship Name" },
+    { key: "Status", label: "Status" },
+    { key: "Last Date", label: "Last Date" },
+    { key: "Stream", label: "Stream" },
+    { key: "State", label: "State" },
+    { key: "Eligibility", label: "Eligibility" },
+    { key: "Benefits", label: "Benefits" },
+    { key: "Scholarship Amount", label: "Scholarship Amount" },
+    { key: "Doc Required", label: "Documents Required" },
+    { key: "Special Criteria", label: "Special Criteria" },
+    { key: "Application Link", label: "Application Link" },
+  ];
+
+  const downloadCsv = () => {
+    if (!filteredScholarships.length) return;
+
+    const escape = (val) => {
+      const str = val === null || val === undefined ? "" : String(val);
+      return `"${str.replace(/"/g, '""')}"`;
+    };
+
+    const headerRow = CSV_COLUMNS.map((c) => escape(c.label)).join(",");
+    const dataRows = filteredScholarships.map((item) =>
+      CSV_COLUMNS.map((c) => escape(item[c.key])).join(",")
+    );
+
+    const csvContent = [headerRow, ...dataRows].join("\n");
+    const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `scholarships_${filteredScholarships.length}.csv`;
+    link.click();
+    URL.revokeObjectURL(url);
+  };
+
   return (
     <div className="min-h-screen bg-[#fdf8f6] px-4 py-8">
       <div className="mx-auto w-full max-w-6xl">
@@ -95,21 +132,29 @@ const ScholarshipReferenceBrowser = () => {
             as closed or deadline-passed.
           </p>
           {!isLoading && scholarships.length > 0 && (
-            <div className="mt-4 flex flex-wrap gap-2 text-sm text-[#5b3a34]">
-              <span className="rounded-full border border-[#e3d1cb] bg-[#fff7f4] px-3 py-1">
-                {scholarships.length.toLocaleString("en-IN")} scholarships in
-                the reference list
-              </span>
-              <span className="rounded-full border border-[#f0c7c8] bg-[#fff1f1] px-3 py-1 text-[#8f2e31]">
-                {closedCount.toLocaleString("en-IN")} currently closed or past
-                deadline
-              </span>
-              {showOnlyOpen && (
-                <span className="rounded-full border border-[#c3e6cb] bg-[#f0fff4] px-3 py-1 text-sm text-green-800">
-                  {filteredScholarships.length.toLocaleString("en-IN")} open now
+            <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
+              <div className="flex flex-wrap gap-2 text-sm text-[#5b3a34]">
+                <span className="rounded-full border border-[#e3d1cb] bg-[#fff7f4] px-3 py-1">
+                  {scholarships.length.toLocaleString("en-IN")} scholarships in
+                  the reference list
                 </span>
-              )}
-
+                <span className="rounded-full border border-[#f0c7c8] bg-[#fff1f1] px-3 py-1 text-[#8f2e31]">
+                  {closedCount.toLocaleString("en-IN")} currently closed or past
+                  deadline
+                </span>
+                {showOnlyOpen && (
+                  <span className="rounded-full border border-[#c3e6cb] bg-[#f0fff4] px-3 py-1 text-sm text-green-800">
+                    {filteredScholarships.length.toLocaleString("en-IN")} open now
+                  </span>
+                )}
+              </div>
+              <button
+                onClick={downloadCsv}
+                disabled={filteredScholarships.length === 0}
+                className="rounded-lg bg-[#B52326] px-4 py-2 text-sm font-semibold text-white hover:bg-[#9E1F22] disabled:cursor-not-allowed disabled:bg-gray-300 disabled:text-gray-500"
+              >
+                Download CSV
+              </button>
             </div>
           )}
         </div>
