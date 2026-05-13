@@ -106,7 +106,7 @@ const ScholarshipReferenceBrowser = () => {
               </span>
               {showOnlyOpen && (
                 <span className="rounded-full border border-[#c3e6cb] bg-[#f0fff4] px-3 py-1 text-sm text-green-800">
-                  {filteredScholarships.length.toLocaleString("en-IN")} open now
+                  {filteredScholarships.length.toLocaleString("en-IN")} scholarships currently open
                 </span>
               )}
 
@@ -126,7 +126,7 @@ const ScholarshipReferenceBrowser = () => {
             type="text"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            placeholder="Try: engineering, girls scholarship, Maharashtra..."
+            placeholder="Search scholarships by name, stream, or state..."
             className="w-full rounded-xl border border-[#d8c7c1] bg-[#fffdfa] px-4 py-3 text-sm text-[#2f2320] outline-none transition focus:border-[#b52326] focus:ring-2 focus:ring-[#f4d5d6]"
           />
           <button
@@ -139,13 +139,13 @@ const ScholarshipReferenceBrowser = () => {
               <span className={`absolute left-1 top-1 h-4 w-4 rounded-full bg-white shadow-sm transition-transform duration-200 ${showOnlyOpen ? "translate-x-5" : "translate-x-0"
                 }`} />
             </div>
-            Show open only
+            Show only open scholarships
           </button>
         </div>
 
         {isLoading ? (
           <div className="rounded-2xl border border-[#eaded8] bg-white px-6 py-12 text-center text-[#5b3a34] shadow-sm">
-            Loading scholarship reference list...
+            Loading scholarships...
           </div>
         ) : filteredScholarships.length > 0 ? (
           <ScholarshipTable
@@ -156,7 +156,7 @@ const ScholarshipReferenceBrowser = () => {
         ) : (
           <div className="rounded-2xl border border-[#eaded8] bg-white px-6 py-12 text-center text-[#5b3a34] shadow-sm">
             {showOnlyOpen
-              ? "No open scholarships found. Try turning off the filter or broadening your search."
+              ? "No active scholarships found matching your search. Try changing keywords or disabling the 'Show only open scholarships' filter."
               : "No scholarships matched your search. Try a broader keyword."}
           </div>
         )}
