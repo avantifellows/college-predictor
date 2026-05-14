@@ -1,6 +1,7 @@
 import fs from "fs/promises";
 import examConfigs from "../../examConfig";
 import rateLimit from "express-rate-limit";
+import { createRankFilter } from "../../utils/rankFilter";
 
 // Helper function to get client IP address
 const getIp = (req) => {
@@ -145,90 +146,8 @@ export default async function handler(req, res) {
     // Get filters based on the exam config and query parameters
     const filters = config.getFilters(req.query);
 
-    // Helper function to parse rank (handles 'P' suffix)
-    const parseRank = (rankStr) => {
-      if (!rankStr) return null;
-      const numStr = rankStr.toString().replace(/[^0-9]/g, "");
-      return numStr ? parseInt(numStr, 10) : null;
-    };
-
-    const hasPSuffix = (rankStr) => {
-      if (!rankStr) return false;
-      return rankStr.toString().trim().toUpperCase().endsWith("P");
-    };
-
-    const rankFilter = (item) => {
-      if (exam === "GUJCET") {
-        // For GUJCET, filter based on closing_marks
-        const cutoffMarks = parseFloat(item.closing_marks) || 0;
-        const userMarks = parseFloat(rank) || 0;
-        return userMarks >= cutoffMarks * 0.9; // Show if user marks are >= 90% of cutoff
-      } else if (exam === "NEET") {
-        // For NEET, filter based on closing rank with 0.9 coefficient
-        const closingRank = parseFloat(item["Closing Rank"]) || 0;
-        const userRank = parseFloat(rank) || 0;
-        return closingRank >= 0.9 * userRank; // Show colleges where closing rank is >= 90% of user's rank
-      } else if (exam === "TNEA") {
-        return parseFloat(item["Cutoff Marks"]) <= parseFloat(rank);
-      }
-
-      const itemRankStr = item["Closing Rank"]?.toString().trim() || "";
-      const itemRank = parseRank(itemRankStr);
-      const itemHasPSuffix = hasPSuffix(itemRankStr);
-
-      if (exam === "JoSAA") {
-        if (item["Exam"] === "JEE Advanced") {
-          if (req.query.qualifiedJeeAdv !== "Yes" || !req.query.advRank)
-            return false;
-
-          const userRankStr = req.query.advRank?.toString().trim() || "";
-          const userRank = parseRank(userRankStr);
-          const userHasPSuffix = hasPSuffix(userRankStr);
-
-          // If one has 'P' suffix and the other doesn't, they don't match
-          if (itemHasPSuffix !== userHasPSuffix) return false;
-
-          return userRank && itemRank >= 0.9 * userRank;
-        } else {
-          if (!req.query.mainRank) return false;
-
-          const userRankStr = req.query.mainRank?.toString().trim() || "";
-          const userRank = parseRank(userRankStr);
-          const userHasPSuffix = hasPSuffix(userRankStr);
-
-          // If one has 'P' suffix and the other doesn't, they don't match
-          if (itemHasPSuffix !== userHasPSuffix) return false;
-
-          return userRank && itemRank >= 0.9 * userRank;
-        }
-      } else if (exam === "JEE Advanced") {
-        if (item["Exam"] !== "JEE Advanced") return false;
-        if (!req.query.advRank) return false;
-
-        const userRankStr = req.query.advRank?.toString().trim() || "";
-        const userRank = parseRank(userRankStr);
-        const userHasPSuffix = hasPSuffix(userRankStr);
-
-        // If one has 'P' suffix and the other doesn't, they don't match
-        if (itemHasPSuffix !== userHasPSuffix) return false;
-
-        return userRank && itemRank >= 0.9 * userRank;
-      } else if (exam === "JEE Main") {
-        if (item["Exam"] === "JEE Advanced") return false;
-        if (!req.query.mainRank) return false;
-
-        const userRankStr = req.query.mainRank?.toString().trim() || "";
-        const userRank = parseRank(userRankStr);
-        const userHasPSuffix = hasPSuffix(userRankStr);
-
-        // If one has 'P' suffix and the other doesn't, they don't match
-        if (itemHasPSuffix !== userHasPSuffix) return false;
-
-        return userRank && itemRank >= 0.9 * userRank;
-      } else {
-        return true;
-      }
-    };
+    // Create rank filter from utility function
+    const rankFilter = createRankFilter(exam, req.query);
 
     let filteredData = fullData;
 
@@ -239,10 +158,8 @@ export default async function handler(req, res) {
       });
     }
 
-    // Apply rank filter if it exists
-    if (rankFilter) {
-      filteredData = filteredData.filter(rankFilter);
-    }
+    // Apply rank filter
+    filteredData = filteredData.filter(rankFilter);
 
     // Apply sorting based on exam type
     if (config.getSort) {
