@@ -236,8 +236,9 @@ export const jacExamConfig = {
   getFilters: (query) => [
     (item) => item.State === query.homeState,
     (item) => item.Category === query.category,
-    (item) => item.Defense === query.isDefenseWard,
-    (item) => item.PWD === query.isPWD,
+    (item) => query.isDefenseWard === "No" ? item.Defense === "No" : true,
+    // Fixed code
+    (item) => query.isPWD === "No" ? item.PWD === "No" : true,
     (item) => item.Gender === query.gender,
     (item) =>
       parseInt(item["Closing Rank"], 10) > 0.9 * parseInt(query.rank, 10),
@@ -533,8 +534,9 @@ export const mhtCetConfig = {
     (item) => item.Category === query.category,
     (item) => item.Gender === query.gender,
     (item) => item.State === query.homeState,
-    (item) => item.PWD === query.isPWD,
-    (item) => item.Defense === query.isDefenseWard,
+    // Fixed code
+    (item) => query.isPWD === "No" ? item.PWD === "No" : true,
+    (item) => query.isDefenseWard === "No" ? item.Defense === "No" : true,
     (item) => {
       if (query.rank) {
         const closingRank = parseInt(item["Closing Rank"], 10);
