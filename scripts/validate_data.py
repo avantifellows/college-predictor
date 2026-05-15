@@ -9,7 +9,7 @@ SCHOLARSHIP_URL = (
     "https://docs.google.com/spreadsheets/d/e/2PACX-1vRBCqBFvIMpaTcHz4Pl6mJ5zxazM-0EBVu_adM8KfLsUXcpclW2a4t29Jy0PH63CBSJR5z5hJxU342y/pub?output=csv"
 )
 
-PUBLIC_DATA_DIR = os.path.join(os.path.dirname(__file__), "..", "public")
+PUBLIC_DATA_DIR = os.path.join(os.path.dirname(__file__), "..", "public","data")
 
 SCHOLARSHIP_REQUIRED_FIELDS = [
     "Scholarship Name",
@@ -113,7 +113,11 @@ def validate_cutoff_files():
         print(f"Skipping cutoff validation.")
         return
 
-    json_files = [f for f in os.listdir(PUBLIC_DATA_DIR) if f.endswith(".json")]
+    json_files=[]
+    for roots,dirs,files in os.walk(PUBLIC_DATA_DIR):
+        for f in files:
+            if f.endswith(".json"):
+                json_files.append(os.path.join(roots,f))
 
     if not json_files:
         print(" No JSON files found in public/ folder")
@@ -122,8 +126,9 @@ def validate_cutoff_files():
     print(f"Found {len(json_files)} JSON files: {json_files}")
 
     for filename in json_files:
-        filepath = os.path.join(PUBLIC_DATA_DIR, filename)
-        print(f"\n Checking {filename}...")
+        filepath = filename
+        relative_name = os.path.relpath(filepath, PUBLIC_DATA_DIR)
+        print(f"\n Checking {relative_name}...")
         try:
             with open(filepath, "r", encoding="utf-8") as f:
                 data = json.load(f)
@@ -138,7 +143,7 @@ def validate_cutoff_files():
             elif isinstance(data, list):
                 rows = data
             else:
-                print(f"Unexpected data format in {filename}")
+                print(f"Unexpected data format in {relative_name}")
                 continue
 
             print(f"Loaded {len(rows)} rows")
@@ -151,7 +156,7 @@ def validate_cutoff_files():
                         continue  # field doesn't exist in this file — skip
                     val = row[field]
                     if val is None or str(val).strip() == "":
-                        log_issue(filename, row_num, field, "MISSING_VALUE", "")
+                        log_issue(relative_name, row_num, field, "MISSING_VALUE", "")
 
                 # ── Check 2b: Invalid closing rank ──
                 closing = row.get("closing_rank")
@@ -160,13 +165,13 @@ def validate_cutoff_files():
                         closing_num = float(closing)
                         if closing_num <= 0:
                             log_issue(
-                                filename, row_num,
+                                relative_name, row_num,
                                 "closing_rank", "INVALID_RANK_ZERO_OR_NEGATIVE",
                                 closing
                             )
                     except (ValueError, TypeError):
                         log_issue(
-                            filename, row_num,
+                            relative_name, row_num,
                             "closing_rank", "NON_NUMERIC_RANK", closing
                         )
                 # ── Check 2c: Opening rank > closing rank (impossible) ──
@@ -177,7 +182,7 @@ def validate_cutoff_files():
                     try:
                         if float(opening) > float(closing):
                             log_issue(
-                                filename, row_num,
+                                relative_name, row_num,
                                 "opening_rank",
                                 "OPENING_RANK_EXCEEDS_CLOSING_RANK",
                                 f"opening={opening}, closing={closing}"
@@ -193,27 +198,27 @@ def validate_cutoff_files():
                 df = pd.DataFrame(rows)
                 duplicate_keys = [
                     c for c in
-                    ["college_name", "branch", "year", "category", "round"]
+                    ["college_name", "branch", "year", "category", "round","gender","institute_name","branch_name","place","Course","College Name","Institute","Round","Quota","Seat Type","Academic Program Name","is_PWD","Category","Gender","District","College Type","Cutoff Marks","PWD","Defense","State","Category_Key","Closing Rank","Language","State", "Language", "Rural/Urban", "Category_Key","Scholarship Name"]
                     if c in df.columns
                 ]
                 if duplicate_keys:
                     dupes = df[df.duplicated(subset=duplicate_keys, keep=False)]
                     for idx in dupes.index:
                         log_issue(
-                            filename, idx + 2,
+                            relative_name, idx + 2,
                             str(duplicate_keys), "DUPLICATE_ENTRY",
                             str({k: df.loc[idx, k] for k in duplicate_keys})
                         )
             except Exception:
                 pass  # If pandas can't process it, skip duplicate check
 
-            file_issues = [i for i in all_issues if i["file"] == filename]
-            print(f"   Found {len(file_issues)} issues in {filename}")
+            file_issues = [i for i in all_issues if i["file"] == relative_name]
+            print(f"   Found {len(file_issues)} issues in {relative_name}")
 
         except json.JSONDecodeError as e:
-            print(f"Could not parse {filename}: {e}")
+            print(f"Could not parse {relative_name}: {e}")
         except Exception as e:
-            print(f"Error reading {filename}: {e}")
+            print(f"Error reading {relative_name}: {e}")
 
 # FINAL REPORT
 
