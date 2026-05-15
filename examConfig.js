@@ -139,7 +139,7 @@ export const jeeMainJosaaConfig = {
   getFilters: (query) => {
     const normalizedProgram = String(query.program || "").toLowerCase();
     const baseFilters = [
-      (item) => item.Exam === query.code,
+      (item) => item.Exam === "JEE Main",
       (item) => item.Gender === query.gender,
       (item) => {
         if (normalizedProgram === "architecture") {
