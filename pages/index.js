@@ -517,7 +517,7 @@ const ExamForm = () => {
 
     return fieldsToRender.map((field) =>
       renderFormCard(
-        field.name,
+        `${selectedExam}-${field.name}`,
         typeof field.label === "function"
           ? field.label(formData)
           : field.label,
