@@ -515,8 +515,10 @@ const ExamForm = () => {
 
     return fieldsToRender.map((field) =>
       renderFormCard(
-        field.name,
-        typeof field.label === "function" ? field.label(formData) : field.label,
+        `${selectedExam}-${field.name}`,
+        typeof field.label === "function"
+          ? field.label(formData)
+          : field.label,
         <Dropdown
           options={field.options.map((option) =>
             typeof option === "string"
