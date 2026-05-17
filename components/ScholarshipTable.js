@@ -197,8 +197,10 @@ const ScholarshipTable = ({
               </td>
             </tr>
           )}
-          {filteredData?.map((item, index) => (
-            <React.Fragment key={index}>
+          {filteredData?.map((item, index) => {
+            const scholarshipKey = item["Scholarship Name"] || String(index);
+            return (
+            <React.Fragment key={scholarshipKey}>
               <tr
                 className={`border-b border-[#eaded8] ${
                   index % 2 === 0 ? "bg-[#fffdfa]" : "bg-white"
@@ -240,17 +242,18 @@ const ScholarshipTable = ({
                 <TableCell>
                   <button
                     className="whitespace-nowrap rounded-lg bg-[#B52326] px-4 py-2 text-white hover:bg-[#9E1F22]"
-                    onClick={() => toggleRowExpansion(index)}
+                    onClick={() => toggleRowExpansion(scholarshipKey)}
                   >
-                    {expandedRows[index] ? "Show Less" : "Show More"}
+                    {expandedRows[scholarshipKey] ? "Show Less" : "Show More"}
                   </button>
                 </TableCell>
               </tr>
-              {expandedRows[index] && (
+              {expandedRows[scholarshipKey] && (
                 <ExpandedRow item={item} expandedFields={expandedFields} />
               )}
             </React.Fragment>
-          ))}
+            );
+          })}
         </tbody>
       </table>
     </div>

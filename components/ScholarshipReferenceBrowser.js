@@ -76,10 +76,10 @@ const ScholarshipReferenceBrowser = () => {
     [scholarships]
   );
 
-  const toggleRowExpansion = (index) => {
+  const toggleRowExpansion = (scholarshipName) => {
     setExpandedRows((prev) => ({
       ...prev,
-      [index]: !prev[index],
+      [scholarshipName]: !prev[scholarshipName],
     }));
   };
 
