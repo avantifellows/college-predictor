@@ -239,7 +239,7 @@ export const jacExamConfig = {
     (item) => item.PWD === query.isPWD,
     (item) => item.Gender === query.gender,
     (item) =>
-      parseInt(item["Closing Rank"], 10) > 0.9 * parseInt(query.rank, 10),
+      parseInt(item["Closing Rank"], 10) >= 0.9 * parseInt(query.rank, 10),
   ],
   getSort: () => [["Closing Rank", "ASC"]],
 };
