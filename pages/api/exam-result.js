@@ -141,6 +141,9 @@ export default async function handler(req, res) {
     const dataPath = config.getDataPath(req.query.category);
     const data = await fs.readFile(dataPath, "utf8");
     const fullData = JSON.parse(data);
+    if (!Array.isArray(fullData)) {
+      return res.status(500).json({ error: "Data format invalid. Please try again later." });
+    }
 
     // Get filters based on the exam config and query parameters
     const filters = config.getFilters(req.query);
