@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState, useCallback, useRef } from "react";
 import { useRouter } from "next/router";
 import getConstants from "../constants";
 import PredictedCollegeTables from "../components/PredictedCollegeTables";
@@ -132,6 +132,7 @@ const CollegePredictor = () => {
   const [currentExam, setCurrentExam] = useState(null);
   const [showSelectionDetails, setShowSelectionDetails] = useState(false);
   const [primaryInputError, setPrimaryInputError] = useState("");
+  const abortControllerRef = useRef(null);
 
   useEffect(() => {
     // Initialize queryObject from router.query
@@ -198,6 +199,12 @@ const CollegePredictor = () => {
   };
 
   const fetchData = async (query) => {
+    if (abortControllerRef.current) {
+      abortControllerRef.current.abort();
+    }
+    const controller = new AbortController();
+    abortControllerRef.current = controller;
+
     setIsLoading(true);
     setError(null);
     setSearchTerm("");
@@ -210,7 +217,9 @@ const CollegePredictor = () => {
         setIsLoading(false);
         return;
       }
-      const response = await fetch(`/api/exam-result?${queryString}`);
+      const response = await fetch(`/api/exam-result?${queryString}`, {
+        signal: controller.signal,
+      });
       if (!response.ok) {
         let errorMessage = `HTTP error! status: ${response.status}`;
         try {
@@ -234,11 +243,16 @@ const CollegePredictor = () => {
         setError(null);
       }
     } catch (error) {
+      if (error.name === "AbortError") {
+        return;
+      }
       console.error("Error fetching data:", error);
       setError("Failed to fetch college predictions. Please try again.");
       setFilteredData([]);
     } finally {
-      setIsLoading(false);
+      if (!controller.signal.aborted) {
+        setIsLoading(false);
+      }
     }
   };
 
@@ -270,7 +284,6 @@ const CollegePredictor = () => {
       router.push(`/college_predictor?${queryString}`, undefined, {
         shallow: true,
       });
-      fetchData(updatedQueryObject); // Fetch data after route push
     }, 500),
     [router, rankMode] // router as dependency
   );
