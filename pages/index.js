@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import dynamic from "next/dynamic";
 import TneaScoreCalculator from "../components/TneaScoreCalculator";
+import { ExternalLink, PlayCircle } from "lucide-react";
 
 // Dynamically import Dropdown with SSR disabled
 const Dropdown = dynamic(() => import("../components/dropdown"), {
@@ -84,6 +85,11 @@ const isJosaaEstimationSupportedCategory = (category) =>
 
 const josaaPwdEstimateError =
   "Rank estimation is currently unavailable for PwD categories. Please switch to 'No, I know my rank' and enter your rank directly.";
+
+const helpVideoUrl =
+  "https://drive.google.com/file/d/10bBx7LSUd-3aFmRzqX4OZoMqNLeuPfpA/preview";
+const helpVideoViewUrl =
+  "https://drive.google.com/file/d/10bBx7LSUd-3aFmRzqX4OZoMqNLeuPfpA/view?usp=sharing";
 
 const ExamForm = () => {
   const [selectedExam, setSelectedExam] = useState("");
@@ -929,6 +935,43 @@ const ExamForm = () => {
               </div>
             )}
           </div>
+
+          <section className="mt-5 w-full max-w-4xl overflow-hidden rounded-2xl border border-[#eaded8] bg-white shadow-sm">
+            <div className="flex flex-col gap-3 border-b border-[#eaded8] bg-[#fffdfa] px-5 py-4 text-left sm:flex-row sm:items-center sm:justify-between">
+              <div className="flex items-start gap-3">
+                <span className="mt-0.5 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#f8efec] text-[#B52326]">
+                  <PlayCircle size={20} aria-hidden="true" />
+                </span>
+                <div>
+                  <h2 className="text-lg font-bold text-[#2f2320]">
+                    Need help using the predictor?
+                  </h2>
+                  <p className="mt-1 text-sm leading-5 text-[#6d5550]">
+                    Watch this quick guide before filling the form, or scroll
+                    back here anytime.
+                  </p>
+                </div>
+              </div>
+              <a
+                href={helpVideoViewUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full border border-[#d8c7c1] bg-white px-4 py-2 text-sm font-semibold text-[#7a2628] transition hover:bg-[#f8efec]"
+              >
+                Open video
+                <ExternalLink size={15} aria-hidden="true" />
+              </a>
+            </div>
+            <div className="bg-black">
+              <iframe
+                src={helpVideoUrl}
+                title="College predictor help video"
+                className="aspect-video w-full border-0"
+                allow="autoplay; encrypted-media; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          </section>
         </div>
       </div>
     </>
