@@ -185,10 +185,7 @@ export const jacExamConfig = {
   code: "JEE Main",
   name: "JEE Main-JAC",
   searchKeys: defaultSearchKeys,
-  primaryInput: integerInput(
-    "Enter All India Rank",
-    "Enter All India Rank"
-  ),
+  primaryInput: integerInput("Enter All India Rank", "Enter All India Rank"),
   fields: [
     {
       name: "category",
@@ -351,10 +348,7 @@ export const neetUGConfig = {
   name: "NEETUG",
   code: "NEETUG",
   searchKeys: defaultSearchKeys,
-  primaryInput: integerInput(
-    "Enter All India Rank",
-    "Enter All India Rank"
-  ),
+  primaryInput: integerInput("Enter All India Rank", "Enter All India Rank"),
   fields: [
     {
       name: "program",
@@ -913,10 +907,7 @@ export const tseApertConfig = {
   name: "TGEAPCET",
   code: "TGEAPCET",
   searchKeys: ["institute_name", "branch_name", "place"],
-  primaryInput: integerInput(
-    "Enter TG EAPCET Rank",
-    "Enter TG EAPCET rank"
-  ),
+  primaryInput: integerInput("Enter TG EAPCET Rank", "Enter TG EAPCET rank"),
   fields: [
     {
       name: "category",

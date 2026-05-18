@@ -2,7 +2,9 @@ import React from "react";
 
 const parseDeadline = (value) => {
   if (!value) return null;
-  const parts = String(value).split("/").map((part) => Number(part));
+  const parts = String(value)
+    .split("/")
+    .map((part) => Number(part));
   if (parts.length !== 3 || parts.some((part) => Number.isNaN(part))) {
     return null;
   }
@@ -164,12 +166,7 @@ const ScholarshipTable = ({
   toggleRowExpansion,
   expandedRows,
 }) => {
-  const headers = [
-    "Scholarship Name",
-    "Status",
-    "Last Date",
-    "Official Link",
-  ];
+  const headers = ["Scholarship Name", "Status", "Last Date", "Official Link"];
   const expandedFields = [
     { key: "Stream", label: "Stream" },
     { key: "State", label: "State" },
@@ -204,18 +201,20 @@ const ScholarshipTable = ({
                   index % 2 === 0 ? "bg-[#fffdfa]" : "bg-white"
                 }`}
               >
-                <TableCell className="font-medium">{item["Scholarship Name"]}</TableCell>
+                <TableCell className="font-medium">
+                  {item["Scholarship Name"]}
+                </TableCell>
                 <TableCell>
                   {(() => {
                     const displayStatus = getDisplayStatus(item);
                     return (
-                  <span
-                    className={`inline-flex rounded-full px-3 py-1 text-xs font-semibold ${getStatusPillClass(
-                      displayStatus
-                    )}`}
-                  >
-                    {displayStatus}
-                  </span>
+                      <span
+                        className={`inline-flex rounded-full px-3 py-1 text-xs font-semibold ${getStatusPillClass(
+                          displayStatus
+                        )}`}
+                      >
+                        {displayStatus}
+                      </span>
                     );
                   })()}
                 </TableCell>

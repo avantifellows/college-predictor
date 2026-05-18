@@ -714,6 +714,9 @@ const PredictedCollegesTable = ({
           <span className="inline-flex items-center rounded-full border border-[#e3d1cb] bg-[#fffdfa] px-3 py-1 font-medium">
             Based on JoSAA 2024
           </span>
+          <span className="inline-flex items-center rounded-full border border-[#d8c7c1] bg-white px-3 py-1 font-semibold text-[#8f2e31]">
+            Cutoffs are shown with a 10% margin above your category rank
+          </span>
           <span className="text-[#6d5550]">
             Home-state quota is used where applicable; other colleges use
             all-India or out-of-state cutoffs.
