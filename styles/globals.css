@@ -27,6 +27,41 @@ body {
   font-family: "Open Sans", "Lato", sans-serif;
   color: #414141;
   background-color: #fdf8f6;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.dark body {
+  color: #e8e5e3;
+  background-color: #161514;
+}
+
+.dark :focus-visible {
+  outline-color: rgba(220, 60, 63, 0.35);
+}
+
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5,
+.dark h6 {
+  color: #eae7e5;
+}
+
+.dark .text-\[\#B52326\],
+.dark .text-\[\#b52326\],
+.dark .text-\[\#8f2e31\],
+.dark .text-\[\#7a2628\] {
+  color: #e03e42;
+}
+
+.dark .bg-\[\#B52326\],
+.dark .bg-\[\#b52326\] {
+  background-color: #cc3033;
+}
+
+.dark .hover\:bg-\[\#8f2e31\]:hover {
+  background-color: #b52326;
 }
 
 h1,

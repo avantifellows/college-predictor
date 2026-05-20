@@ -84,28 +84,28 @@ const ScholarshipReferenceBrowser = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#fdf8f6] px-4 py-8">
+    <div className="min-h-screen bg-[#fdf8f6] px-4 py-8 dark:bg-espresso-900">
       <div className="mx-auto w-full max-w-6xl">
-        <div className="mb-6 rounded-2xl border border-[#eaded8] bg-white p-6 shadow-sm">
-          <h1 className="text-2xl sm:text-3xl font-bold text-[#2f2320]">
+        <div className="mb-6 rounded-2xl border border-[#eaded8] bg-white p-6 shadow-sm dark:border-espresso-600/50 dark:bg-espresso-800">
+          <h1 className="text-2xl sm:text-3xl font-bold text-[#2f2320] dark:text-white">
             Scholarship Reference List
           </h1>
-          <p className="mt-2 max-w-3xl text-sm sm:text-base text-[#5b3a34]">
+          <p className="mt-2 max-w-3xl text-sm sm:text-base text-[#5b3a34] dark:text-gray-300">
             This is a reference list. Scholarships shown here should be treated
             as closed or deadline-passed.
           </p>
           {!isLoading && scholarships.length > 0 && (
-            <div className="mt-4 flex flex-wrap gap-2 text-sm text-[#5b3a34]">
-              <span className="rounded-full border border-[#e3d1cb] bg-[#fff7f4] px-3 py-1">
+            <div className="mt-4 flex flex-wrap gap-2 text-sm text-[#5b3a34] dark:text-gray-300">
+              <span className="rounded-full border border-[#e3d1cb] bg-[#fff7f4] px-3 py-1 dark:border-espresso-500/50 dark:bg-espresso-700 dark:text-gray-300">
                 {scholarships.length.toLocaleString("en-IN")} scholarships in
                 the reference list
               </span>
-              <span className="rounded-full border border-[#f0c7c8] bg-[#fff1f1] px-3 py-1 text-[#8f2e31]">
+              <span className="rounded-full border border-[#f0c7c8] bg-[#fff1f1] px-3 py-1 text-[#8f2e31] dark:border-red-900/50 dark:bg-red-900/20 dark:text-red-300">
                 {closedCount.toLocaleString("en-IN")} currently closed or past
                 deadline
               </span>
               {showOnlyOpen && (
-                <span className="rounded-full border border-[#c3e6cb] bg-[#f0fff4] px-3 py-1 text-sm text-green-800">
+                <span className="rounded-full border border-[#c3e6cb] bg-[#f0fff4] px-3 py-1 text-sm text-green-800 dark:border-green-900/50 dark:bg-green-900/20 dark:text-green-400">
                   {filteredScholarships.length.toLocaleString("en-IN")} open now
                 </span>
               )}
@@ -114,10 +114,10 @@ const ScholarshipReferenceBrowser = () => {
           )}
         </div>
 
-        <div className="mb-6 rounded-2xl border border-[#eaded8] bg-white p-5 shadow-sm">
+        <div className="mb-6 rounded-2xl border border-[#eaded8] bg-white p-5 shadow-sm dark:border-espresso-600/50 dark:bg-espresso-800">
           <label
             htmlFor="scholarship-search"
-            className="mb-2 block text-sm font-semibold text-[#5b1f20]"
+            className="mb-2 block text-sm font-semibold text-[#5b1f20] dark:text-gray-200"
           >
             Search by scholarship name, stream, state, or eligibility
           </label>
@@ -127,12 +127,12 @@ const ScholarshipReferenceBrowser = () => {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             placeholder="Try: engineering, girls scholarship, Maharashtra..."
-            className="w-full rounded-xl border border-[#d8c7c1] bg-[#fffdfa] px-4 py-3 text-sm text-[#2f2320] outline-none transition focus:border-[#b52326] focus:ring-2 focus:ring-[#f4d5d6]"
+            className="w-full rounded-xl border border-[#d8c7c1] bg-[#fffdfa] px-4 py-3 text-sm text-[#2f2320] outline-none transition focus:border-[#b52326] focus:ring-2 focus:ring-[#f4d5d6] dark:border-espresso-500/50 dark:bg-espresso-700 dark:text-gray-100 dark:placeholder-[#a08070]"
           />
           <button
             onClick={() => setShowOnlyOpen((prev) => !prev)}
             aria-pressed={showOnlyOpen}
-            className="mt-3 flex items-center gap-3 text-sm font-semibold text-[#5b1f20]"
+            className="mt-3 flex items-center gap-3 text-sm font-semibold text-[#5b1f20] dark:text-gray-200"
           >
             <div className={`relative h-6 w-11 rounded-full transition-colors duration-200 ${showOnlyOpen ? "bg-green-500" : "bg-[#d8c7c1]"
               }`}>
@@ -144,7 +144,7 @@ const ScholarshipReferenceBrowser = () => {
         </div>
 
         {isLoading ? (
-          <div className="rounded-2xl border border-[#eaded8] bg-white px-6 py-12 text-center text-[#5b3a34] shadow-sm">
+          <div className="rounded-2xl border border-[#eaded8] bg-white px-6 py-12 text-center text-[#5b3a34] shadow-sm dark:border-espresso-600/50 dark:bg-espresso-800 dark:text-gray-300">
             Loading scholarship reference list...
           </div>
         ) : filteredScholarships.length > 0 ? (
@@ -154,7 +154,7 @@ const ScholarshipReferenceBrowser = () => {
             expandedRows={expandedRows}
           />
         ) : (
-          <div className="rounded-2xl border border-[#eaded8] bg-white px-6 py-12 text-center text-[#5b3a34] shadow-sm">
+          <div className="rounded-2xl border border-[#eaded8] bg-white px-6 py-12 text-center text-[#5b3a34] shadow-sm dark:border-espresso-600/50 dark:bg-espresso-800 dark:text-gray-300">
             {showOnlyOpen
               ? "No open scholarships found. Try turning off the filter or broadening your search."
               : "No scholarships matched your search. Try a broader keyword."}
@@ -166,3 +166,5 @@ const ScholarshipReferenceBrowser = () => {
 };
 
 export default ScholarshipReferenceBrowser;
+
+

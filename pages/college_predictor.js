@@ -568,14 +568,14 @@ const CollegePredictor = () => {
     const renderSelectionCard = (key, label, control, helperText) => (
       <div
         key={key}
-        className="rounded-xl border border-[#eaded8] bg-white px-4 py-3 shadow-sm"
+        className="rounded-xl border border-[#eaded8] bg-white px-4 py-3 shadow-sm dark:border-espresso-600/50 dark:bg-espresso-800"
       >
-        <label className="mb-2 block text-sm font-semibold text-[#332724]">
+        <label className="mb-2 block text-sm font-semibold text-[#332724] dark:text-gray-200">
           {label}
         </label>
         {control}
         {helperText && (
-          <p className="mt-2 text-xs leading-5 text-[#6d5550]">{helperText}</p>
+          <p className="mt-2 text-xs leading-5 text-[#6d5550] dark:text-gray-400">{helperText}</p>
         )}
       </div>
     );
@@ -641,10 +641,10 @@ const CollegePredictor = () => {
                     e.preventDefault();
                   }
                 }}
-                className={`w-full rounded-xl border bg-[#fffdfa] px-4 py-3 text-left text-sm outline-none transition focus:ring-2 focus:ring-[#f4d5d6] sm:text-base ${
+                className={`w-full rounded-xl border bg-[#fffdfa] px-4 py-3 text-left text-sm outline-none transition focus:ring-2 focus:ring-[#f4d5d6] sm:text-base dark:bg-espresso-700 dark:text-gray-100 dark:placeholder-[#a08070] ${
                   primaryInputError
                     ? "border-red-500 focus:border-red-500"
-                    : "border-[#d8c7c1] focus:border-[#b52326]"
+                    : "border-[#d8c7c1] focus:border-[#b52326] dark:border-espresso-500/50 dark:focus:border-gray-400"
                 }`}
                 placeholder={getPrimaryInputConfig(queryObject.exam).placeholder}
               />
@@ -679,7 +679,7 @@ const CollegePredictor = () => {
                       className={`flex-1 px-4 py-2 text-sm ${
                         rankMode === "estimate"
                           ? "bg-[#B52326] text-white"
-                          : "bg-white text-gray-700"
+                          : "bg-white text-gray-700 dark:bg-espresso-700 dark:text-gray-200"
                       }`}
                     >
                       Yes, estimate rank
@@ -690,7 +690,7 @@ const CollegePredictor = () => {
                       className={`flex-1 px-4 py-2 text-sm ${
                         rankMode === "known"
                           ? "bg-[#B52326] text-white"
-                          : "bg-white text-gray-700"
+                          : "bg-white text-gray-700 dark:bg-espresso-700 dark:text-gray-200"
                       }`}
                     >
                       No, I know my rank
@@ -740,7 +740,7 @@ const CollegePredictor = () => {
                         className={`flex-1 px-4 py-2 text-sm ${
                           estimateInputType === "marks"
                             ? "bg-[#B52326] text-white"
-                            : "bg-white text-gray-700"
+                            : "bg-white text-gray-700 dark:bg-espresso-700 dark:text-gray-200"
                         }`}
                       >
                         Marks
@@ -753,7 +753,7 @@ const CollegePredictor = () => {
                         className={`flex-1 px-4 py-2 text-sm ${
                           estimateInputType === "percentile"
                             ? "bg-[#B52326] text-white"
-                            : "bg-white text-gray-700"
+                            : "bg-white text-gray-700 dark:bg-espresso-700 dark:text-gray-200"
                         }`}
                       >
                         Percentile
@@ -776,7 +776,7 @@ const CollegePredictor = () => {
                             e.preventDefault();
                           }
                         }}
-                        className={`w-full rounded-xl border bg-[#fffdfa] px-4 py-3 text-center outline-none transition focus:ring-2 focus:ring-[#f4d5d6] ${
+                        className={`w-full rounded-xl border bg-[#fffdfa] px-4 py-3 text-center outline-none transition focus:ring-2 focus:ring-[#f4d5d6] dark:bg-espresso-700 dark:text-gray-100 dark:placeholder-[#a08070] ${
                           marksError
                             ? "border-red-500 focus:border-red-500"
                             : "border-[#d8c7c1] focus:border-[#b52326]"
@@ -804,7 +804,7 @@ const CollegePredictor = () => {
                             e.preventDefault();
                           }
                         }}
-                        className={`w-full rounded-xl border bg-[#fffdfa] px-4 py-3 text-center outline-none transition focus:ring-2 focus:ring-[#f4d5d6] ${
+                        className={`w-full rounded-xl border bg-[#fffdfa] px-4 py-3 text-center outline-none transition focus:ring-2 focus:ring-[#f4d5d6] dark:bg-espresso-700 dark:text-gray-100 dark:placeholder-[#a08070] ${
                           percentileError
                             ? "border-red-500 focus:border-red-500"
                             : "border-[#d8c7c1] focus:border-[#b52326]"
@@ -840,7 +840,7 @@ const CollegePredictor = () => {
                     !isJosaaEstimationSupportedCategory(
                       queryObject.category
                     ) && (
-                      <p className="text-sm text-[#6d5550]">
+                      <p className="text-sm text-[#6d5550] dark:text-gray-400">
                         {josaaPwdEstimateError}
                       </p>
                     )}
@@ -896,7 +896,7 @@ const CollegePredictor = () => {
                       e.preventDefault();
                     }
                   }}
-                  className="w-full rounded-xl border border-[#d8c7c1] bg-[#fffdfa] px-4 py-3 text-center outline-none transition focus:border-[#b52326] focus:ring-2 focus:ring-[#f4d5d6]"
+                  className="w-full rounded-xl border border-[#d8c7c1] bg-[#fffdfa] px-4 py-3 text-center outline-none transition focus:border-[#b52326] focus:ring-2 focus:ring-[#f4d5d6] dark:border-espresso-500/50 dark:bg-espresso-700 dark:text-gray-100 dark:placeholder-[#a08070]"
                   placeholder={
                     examConfig.primaryInput?.placeholder ||
                     "Enter JEE Main category rank"
@@ -921,7 +921,7 @@ const CollegePredictor = () => {
                         e.preventDefault();
                       }
                     }}
-                    className={`w-full rounded-xl border bg-[#fffdfa] px-4 py-3 text-center outline-none transition focus:ring-2 focus:ring-[#f4d5d6] ${
+                    className={`w-full rounded-xl border bg-[#fffdfa] px-4 py-3 text-center outline-none transition focus:ring-2 focus:ring-[#f4d5d6] dark:bg-espresso-700 dark:text-gray-100 dark:placeholder-[#a08070] ${
                       rankError
                         ? "border-red-500 focus:border-red-500"
                         : "border-[#d8c7c1] focus:border-[#b52326]"
@@ -1007,9 +1007,9 @@ const CollegePredictor = () => {
         {summaryItems.map((item) => (
           <span
             key={item.key}
-            className="inline-flex items-center gap-2 rounded-full border border-[#e3d1cb] bg-white px-3 py-1 text-xs text-[#5b3a34] sm:text-sm"
+            className="inline-flex items-center gap-2 rounded-full border border-[#e3d1cb] bg-white px-3 py-1 text-xs text-[#5b3a34] sm:text-sm dark:border-espresso-500/50 dark:bg-espresso-700 dark:text-gray-300"
           >
-            <span className="font-semibold text-[#7a2628]">{item.label}:</span>
+            <span className="font-semibold text-[#7a2628] dark:text-gray-100">{item.label}:</span>
             <span>{item.value}</span>
           </span>
         ))}
@@ -1027,9 +1027,9 @@ const CollegePredictor = () => {
       <Head>
         <title>College Predictor Results - {getConstants().TITLE_SHORT}</title>
       </Head>
-      <div className="min-h-screen bg-[#fdf8f6] flex flex-col items-center pt-8 px-4">
-        <div className="w-full max-w-6xl rounded-2xl border border-[#eaded8] bg-white p-6 shadow-sm md:p-8">
-          <h1 className="mb-2 text-center text-2xl font-bold text-[#2f2320] sm:text-3xl">
+      <div className="min-h-screen bg-[#fdf8f6] flex flex-col items-center pt-8 px-4 dark:bg-espresso-900">
+        <div className="w-full max-w-6xl rounded-2xl border border-[#eaded8] bg-white p-6 shadow-sm md:p-8 dark:border-espresso-600/50 dark:bg-espresso-800">
+          <h1 className="mb-2 text-center text-2xl font-bold text-[#2f2320] sm:text-3xl dark:text-white">
             College Predictor Results
           </h1>
 
@@ -1047,15 +1047,15 @@ const CollegePredictor = () => {
           )}
 
           {/* Query Details and Filters Section */}
-          <div className="mb-6 rounded-2xl border border-[#eaded8] bg-[#fffdfa] p-4 sm:p-5">
+          <div className="mb-6 rounded-2xl border border-[#eaded8] bg-[#fffdfa] p-4 sm:p-5 dark:border-espresso-600/50 dark:bg-espresso-700">
             <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
               <div className="space-y-3">
                 <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
-                  <h2 className="text-lg font-semibold text-[#5b1f20] text-center sm:text-left">
+                  <h2 className="text-lg font-semibold text-[#5b1f20] text-center sm:text-left dark:text-gray-100">
                     Your Selection
                   </h2>
                   <div className="flex justify-center sm:justify-start">
-                    <span className="inline-flex rounded-full border border-[#e3d1cb] bg-white px-3 py-1 text-sm font-semibold text-[#8f2e31]">
+                    <span className="inline-flex rounded-full border border-[#e3d1cb] bg-white px-3 py-1 text-sm font-semibold text-[#8f2e31] dark:border-gray-500 dark:bg-espresso-600 dark:text-gray-200">
                       {queryObject.exam}
                     </span>
                   </div>
@@ -1065,7 +1065,7 @@ const CollegePredictor = () => {
                   rankMode === "estimate" &&
                   estimatedRank &&
                   estimatedPercentile !== null && (
-                    <p className="text-sm text-[#6d5550]">
+                    <p className="text-sm text-[#6d5550] dark:text-gray-400">
                       Using JEE Main estimate only. Predicted percentile:{" "}
                       <strong>{estimatedPercentile}</strong>.
                     </p>
@@ -1077,7 +1077,7 @@ const CollegePredictor = () => {
                   onClick={() =>
                     setShowSelectionDetails((currentValue) => !currentValue)
                   }
-                  className="inline-flex rounded-full border border-[#d8c7c1] bg-white px-4 py-2 text-sm font-semibold text-[#7a2628] transition hover:bg-[#f8efec]"
+                  className="inline-flex rounded-full border border-[#d8c7c1] bg-white px-4 py-2 text-sm font-semibold text-[#7a2628] transition hover:bg-[#f8efec] dark:border-espresso-500/50 dark:bg-espresso-600 dark:text-gray-200 dark:hover:bg-espresso-500"
                 >
                   {showSelectionDetails ? "Hide Filters" : "Edit Filters"}
                 </button>
@@ -1090,7 +1090,7 @@ const CollegePredictor = () => {
 
           {isLoading ? (
             <div className="text-center py-10">
-              <p className="text-xl text-[#8f2e31]">Loading predictions...</p>
+              <p className="text-xl text-[#8f2e31] dark:text-gray-200">Loading predictions...</p>
             </div>
           ) : error ? (
             <div className="text-center py-10 px-4">
@@ -1110,7 +1110,7 @@ const CollegePredictor = () => {
             </>
           ) : (
             <div className="text-center py-10">
-              <p className="text-xl text-gray-600">
+              <p className="text-xl text-gray-600 dark:text-gray-400">
                 No predictions available for your current selection. Try adjusting the filters.
               </p>
             </div>
@@ -1122,3 +1122,5 @@ const CollegePredictor = () => {
 };
 
 export default CollegePredictor;
+
+

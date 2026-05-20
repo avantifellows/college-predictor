@@ -45,7 +45,7 @@ const resolveApplicationLink = (item) => {
 
 const TableHeader = ({ headers }) => (
   <thead>
-    <tr className="bg-[#f8efec] text-[#5b1f20] font-semibold text-left text-xs sm:text-sm">
+    <tr className="bg-[#f8efec] text-[#5b1f20] font-semibold text-left text-xs sm:text-sm dark:bg-espresso-700 dark:text-gray-200">
       {headers.map((header, index) => (
         <th
           key={index}
@@ -62,7 +62,7 @@ const TableHeader = ({ headers }) => (
 );
 
 const TableCell = ({ children, className = "" }) => (
-  <td className={`px-4 py-3 align-top text-[#332724] break-words ${className}`}>
+  <td className={`px-4 py-3 align-top text-[#332724] break-words dark:text-gray-300 ${className}`}>
     {children}
   </td>
 );
@@ -119,19 +119,19 @@ const ExpandedRow = ({ item, expandedFields }) => {
     <tr>
       <td
         colSpan="5"
-        className="border-b border-[#eaded8] bg-[#fffdfa] px-4 py-4"
+        className="border-b border-[#eaded8] bg-[#fffdfa] px-4 py-4 dark:border-espresso-600/50 dark:bg-espresso-700"
       >
-        <div className="space-y-3 text-left text-sm text-[#332724]">
+        <div className="space-y-3 text-left text-sm text-[#332724] dark:text-gray-200">
           <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
             {compactFields.map((field, index) => (
               <div
                 key={index}
-                className="rounded-lg border border-[#eaded8] bg-white px-4 py-3"
+                className="rounded-lg border border-[#eaded8] bg-white px-4 py-3 dark:border-espresso-500/50 dark:bg-espresso-800"
               >
-                <p className="mb-1 text-xs font-semibold text-[#8f2e31]">
+                <p className="mb-1 text-xs font-semibold text-[#8f2e31] dark:text-gray-200">
                   {field.label}
                 </p>
-                <div className="break-words text-sm">
+                <div className="break-words text-sm dark:text-gray-300">
                   {renderFieldContent(item[field.key])}
                 </div>
               </div>
@@ -142,12 +142,12 @@ const ExpandedRow = ({ item, expandedFields }) => {
             {detailedFields.map((field, index) => (
               <div
                 key={index}
-                className="rounded-lg border border-[#eaded8] bg-white px-4 py-3"
+                className="rounded-lg border border-[#eaded8] bg-white px-4 py-3 dark:border-espresso-500/50 dark:bg-espresso-800"
               >
-                <p className="mb-2 text-sm font-semibold text-[#8f2e31]">
+                <p className="mb-2 text-sm font-semibold text-[#8f2e31] dark:text-gray-200">
                   {field.label}
                 </p>
-                <div className="break-words text-sm">
+                <div className="break-words text-sm dark:text-gray-300">
                   {renderFieldContent(item[field.key])}
                 </div>
               </div>
@@ -181,18 +181,18 @@ const ScholarshipTable = ({
   ];
 
   const getStatusPillClass = (status) =>
-    String(status || "").toLowerCase() === "closed"
-      ? "border border-[#f0c7c8] bg-[#fff1f1] text-[#8f2e31]"
-      : "border border-[#d8d3ad] bg-[#fff9e8] text-[#7a5b00]";
+    status === "Closed"
+      ? "border border-[#f0c7c8] bg-[#fff1f1] text-[#8f2e31] dark:border-red-900/50 dark:bg-red-900/20 dark:text-red-300"
+      : "border border-[#d8d3ad] bg-[#fff9e8] text-[#7a5b00] dark:border-yellow-900/50 dark:bg-yellow-900/20 dark:text-yellow-300";
 
   return (
-    <div className="overflow-x-auto rounded-2xl border border-[#eaded8] bg-white shadow-sm">
+    <div className="overflow-x-auto rounded-2xl border border-[#eaded8] bg-white shadow-sm dark:border-espresso-600/50 dark:bg-espresso-800">
       <table className="w-full min-w-[760px] table-fixed border-collapse text-sm">
         <TableHeader headers={headers} />
         <tbody>
           {filteredData?.length === 0 && (
             <tr>
-              <td colSpan="5" className="px-4 py-6 text-center text-[#5b3a34]">
+              <td colSpan="5" className="px-4 py-6 text-center text-[#5b3a34] dark:text-gray-300">
                 No scholarships found. Please try again with different filters.
               </td>
             </tr>
@@ -200,8 +200,8 @@ const ScholarshipTable = ({
           {filteredData?.map((item, index) => (
             <React.Fragment key={index}>
               <tr
-                className={`border-b border-[#eaded8] ${
-                  index % 2 === 0 ? "bg-[#fffdfa]" : "bg-white"
+                className={`border-b border-[#eaded8] dark:border-espresso-600/50 ${
+                  index % 2 === 0 ? "bg-[#fffdfa] dark:bg-espresso-800" : "bg-white dark:bg-espresso-900"
                 }`}
               >
                 <TableCell className="font-medium">{item["Scholarship Name"]}</TableCell>
@@ -228,7 +228,7 @@ const ScholarshipTable = ({
                         href={appLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="font-medium text-[#B52326] hover:underline"
+                        className="font-medium text-[#B52326] hover:underline dark:text-red-500"
                       >
                         Visit source
                       </a>
@@ -258,3 +258,4 @@ const ScholarshipTable = ({
 };
 
 export default ScholarshipTable;
+

@@ -171,13 +171,14 @@ const ExpandedRowComponent = ({ item, fields, exam, examColumnMapping }) => {
     <tr>
       <td
         colSpan={columns.length + 1}
-        className="border-b border-[#eaded8] bg-[#fffdfa] p-4"
+        className="border-b border-[#eaded8] bg-[#fffdfa] p-4 dark:border-espresso-600/50 dark:bg-espresso-700"
       >
-        <div className="grid grid-cols-2 gap-4 text-sm">
+        <div className="grid grid-cols-2 gap-4 text-sm dark:text-gray-200">
           {fieldsToShow.map((field, idx) => (
             <div key={idx}>
               <p>
-                <strong>{field.label}:</strong> {getFieldValue(item, field)}
+                <strong className="dark:text-gray-100">{field.label}:</strong>{" "}
+                <span className="dark:text-gray-300">{getFieldValue(item, field)}</span>
               </p>
             </div>
           ))}
@@ -225,9 +226,9 @@ const PredictedCollegesTable = ({
 
   const commonTableClass = "w-full min-w-[720px] border-collapse text-sm";
   const commonHeaderClass =
-    "bg-[#f8efec] text-[#5b1f20] font-semibold text-left text-xs sm:text-sm";
+    "bg-[#f8efec] text-[#5b1f20] font-semibold text-left text-xs sm:text-sm dark:bg-espresso-700 dark:text-gray-200";
   const commonCellClass =
-    "border-b border-[#eaded8] text-xs sm:text-sm text-[#332724]";
+    "border-b border-[#eaded8] text-xs sm:text-sm text-[#332724] dark:border-espresso-600/50 dark:text-gray-300";
 
   const isJosaaExam =
     exam === "JoSAA" || exam === "JEE Main-JOSAA" || exam === "JEE Advanced";
@@ -643,7 +644,7 @@ const PredictedCollegesTable = ({
                 onMouseLeave={hideSalaryTooltip}
                 onFocus={showSalaryTooltip}
                 onBlur={hideSalaryTooltip}
-                className="inline-flex h-5 w-5 items-center justify-center rounded-full border border-[#d6b8ae] text-[#8f2e31] hover:bg-[#f8efec]"
+                className="inline-flex h-5 w-5 items-center justify-center rounded-full border border-[#d6b8ae] text-[#8f2e31] hover:bg-[#f8efec] dark:border-espresso-500/50 dark:text-gray-300 dark:hover:bg-espresso-600"
                 aria-label="How expected salary is calculated"
               >
                 <Info size={12} />
@@ -670,7 +671,7 @@ const PredictedCollegesTable = ({
         <React.Fragment key={index}>
           <tr
             className={`${commonCellClass} ${
-              index % 2 === 0 ? "bg-[#fffdfa]" : "bg-white"
+              index % 2 === 0 ? "bg-[#fffdfa] dark:bg-espresso-800" : "bg-white dark:bg-espresso-900"
             }`}
           >
             {predicted_colleges_table_column.map((column) => (
@@ -710,11 +711,11 @@ const PredictedCollegesTable = ({
 
     if (isJosaaExam) {
       return (
-        <div className="mb-3 flex flex-wrap items-center gap-2 text-xs sm:text-sm text-[#5b3a34]">
-          <span className="inline-flex items-center rounded-full border border-[#e3d1cb] bg-[#fffdfa] px-3 py-1 font-medium">
+        <div className="mb-3 flex flex-wrap items-center gap-2 text-xs sm:text-sm text-[#5b3a34] dark:text-gray-300">
+          <span className="inline-flex items-center rounded-full border border-[#e3d1cb] bg-[#fffdfa] px-3 py-1 font-medium dark:border-espresso-500/50 dark:bg-espresso-700">
             Based on JoSAA 2024
           </span>
-          <span className="text-[#6d5550]">
+          <span className="text-[#6d5550] dark:text-gray-400">
             Home-state quota is used where applicable; other colleges use
             all-India or out-of-state cutoffs.
           </span>
@@ -723,15 +724,15 @@ const PredictedCollegesTable = ({
     }
 
     return (
-      <div className="mb-3 flex flex-wrap items-center gap-2 text-xs sm:text-sm text-[#5b3a34]">
-        <span className="font-semibold text-[#5b1f20]">Quota labels:</span>
+      <div className="mb-3 flex flex-wrap items-center gap-2 text-xs sm:text-sm text-[#5b3a34] dark:text-gray-300">
+        <span className="font-semibold text-[#5b1f20] dark:text-gray-200">Quota labels:</span>
         {examConfig.legend.map((item, index) => (
           <span
             key={index}
-            className="inline-flex items-center gap-2 rounded-full border border-[#e3d1cb] bg-[#fffdfa] px-3 py-1"
+            className="inline-flex items-center gap-2 rounded-full border border-[#e3d1cb] bg-[#fffdfa] px-3 py-1 dark:border-espresso-500/50 dark:bg-espresso-700"
           >
-            <strong className="text-[#8f2e31]">{item.key}</strong>
-            <span>{item.value}</span>
+            <strong className="text-[#8f2e31] dark:text-gray-200">{item.key}</strong>
+            <span className="dark:text-gray-300">{item.value}</span>
           </span>
         ))}
       </div>
@@ -742,7 +743,7 @@ const PredictedCollegesTable = ({
     <div className="w-full">
       {salaryTooltip && (
         <div
-          className="pointer-events-none fixed z-50 w-72 rounded-xl border border-[#decac3] bg-white p-3 text-left text-xs font-normal leading-5 text-[#5b3a34] shadow-lg"
+          className="pointer-events-none fixed z-50 w-72 rounded-xl border border-[#decac3] bg-white p-3 text-left text-xs font-normal leading-5 text-[#5b3a34] shadow-lg dark:border-espresso-500/50 dark:bg-espresso-800 dark:text-gray-300"
           style={{
             top: `${Math.max(salaryTooltip.top, 12)}px`,
             left: `${Math.max(salaryTooltip.left, 12)}px`,
@@ -762,13 +763,13 @@ const PredictedCollegesTable = ({
                 aria-label="Filter results by institute, state, or program"
                 value={searchTerm}
                 onChange={onSearchChange}
-                className="w-full rounded-xl border border-[#d8c7c1] bg-white px-4 py-3 text-left text-sm outline-none transition focus:border-[#b52326] focus:ring-2 focus:ring-[#f4d5d6] sm:text-base"
+                className="w-full rounded-xl border border-[#d8c7c1] bg-white px-4 py-3 text-left text-sm outline-none transition focus:border-[#b52326] focus:ring-2 focus:ring-[#f4d5d6] sm:text-base dark:border-espresso-500/50 dark:bg-espresso-700 dark:text-gray-100 dark:placeholder-[#a08070]"
                 placeholder="Filter by institute, state, or program"
               />
             )}
           </div>
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center lg:justify-end">
-            <p className="text-sm text-[#5b3a34]">
+            <p className="text-sm text-[#5b3a34] dark:text-gray-300">
               Showing {sortedData.length.toLocaleString("en-IN")} matching
               options.
             </p>
@@ -784,7 +785,7 @@ const PredictedCollegesTable = ({
         </div>
       )}
       {data.length > 0 ? (
-        <div className="overflow-x-auto rounded-xl border border-[#eaded8] bg-white shadow-sm">
+        <div className="overflow-x-auto rounded-xl border border-[#eaded8] bg-white shadow-sm dark:border-espresso-600/50 dark:bg-espresso-800">
           <table className={commonTableClass}>
             <thead>{renderTableHeader()}</thead>
             <tbody>{renderTableBody()}</tbody>
@@ -792,7 +793,7 @@ const PredictedCollegesTable = ({
         </div>
       ) : fullData.length > 0 ? (
         <div className="text-center py-10">
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-gray-600 dark:text-gray-400">
             No results match your search term.
           </p>
         </div>
@@ -842,3 +843,5 @@ PredictedCollegesTable.propTypes = {
 };
 
 export default PredictedCollegesTable;
+
+

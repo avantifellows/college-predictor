@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: "class",
   content: [
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -24,6 +25,19 @@ module.exports = {
           "Segoe UI Symbol",
           "Noto Color Emoji",
         ],
+      },
+      colors: {
+        espresso: {
+          950: "#0f0e0e",
+          900: "#161514",
+          800: "#1e1c1b",
+          750: "#232120",
+          700: "#2a2826",
+          650: "#302e2c",
+          600: "#383533",
+          500: "#484442",
+          400: "#625e5b",
+        },
       },
     },
   },

@@ -446,7 +446,6 @@ const ExamForm = () => {
     if (selectedExam === "JoSAA") {
       // Basic validation for all JoSAA fields
       const requiredFields = [
-        "exam",
         "category",
         "gender",
         "program",
@@ -492,14 +491,14 @@ const ExamForm = () => {
   ) => (
     <div
       key={key}
-      className={`${fullWidth ? "md:col-span-2" : ""} rounded-xl border border-[#eaded8] bg-[#fffdfa] p-4 text-left shadow-sm`}
+      className={`${fullWidth ? "md:col-span-2" : ""} rounded-xl border border-[#eaded8] bg-[#fffdfa] p-4 text-left shadow-sm dark:border-espresso-600/50 dark:bg-espresso-800`}
     >
-      <label className="mb-2 block text-sm font-semibold text-[#4a3935]">
+      <label className="mb-2 block text-sm font-semibold text-[#4a3935] dark:text-gray-200">
         {label}
       </label>
       {control}
       {helperText && (
-        <p className="mt-2 text-xs leading-5 text-[#6d5550]">{helperText}</p>
+        <p className="mt-2 text-xs leading-5 text-[#6d5550] dark:text-gray-400">{helperText}</p>
       )}
       {errorText && <p className="mt-2 text-sm text-red-500">{errorText}</p>}
     </div>
@@ -540,7 +539,7 @@ const ExamForm = () => {
       <Head>
         <title>College Predictor - Home</title>
       </Head>
-      <div className="flex min-h-[calc(100vh-120px)] flex-col">
+      <div className="flex min-h-[calc(100vh-120px)] flex-col bg-[#fdf8f6] dark:bg-espresso-900">
         <div className="mt-6 flex w-full flex-col items-center justify-start px-4 pb-10 sm:mt-8">
           <Script
             src="https://www.googletagmanager.com/gtag/js?id=G-FHGVRT52L7"
@@ -555,8 +554,8 @@ const ExamForm = () => {
                         gtag('config', 'G-FHGVRT52L7');
                       `}
           </Script>
-          <div className="mt-4 flex w-full max-w-4xl flex-col items-center rounded-2xl border border-[#eaded8] bg-white p-5 pb-6 text-center shadow-sm sm:mt-6 sm:p-6">
-            <h1 className="mb-2 text-2xl font-bold text-[#2f2320] md:text-3xl">
+          <div className="mt-4 flex w-full max-w-4xl flex-col items-center rounded-2xl border border-[#eaded8] bg-white p-5 pb-6 text-center shadow-sm sm:mt-6 sm:p-6 dark:border-espresso-600/50 dark:bg-espresso-800">
+            <h1 className="mb-2 text-2xl font-bold text-[#2f2320] md:text-3xl dark:text-white">
               {getConstants().TITLE}
             </h1>
             {/* TGEAPCET Disclaimer - Shows when EWS category is selected */}
@@ -606,14 +605,14 @@ const ExamForm = () => {
                         "rankMode",
                         "Do you want rank prediction?",
                         <div className="flex justify-center w-full">
-                          <div className="inline-flex w-full overflow-hidden rounded-xl border border-[#d8c7c1]">
+                          <div className="inline-flex w-full overflow-hidden rounded-xl border border-[#d8c7c1] dark:border-espresso-500/50">
                             <button
                               type="button"
                               onClick={() => handleRankModeChange("estimate")}
                               className={`flex-1 px-4 py-2 text-sm ${
                                 rankMode === "estimate"
                                   ? "bg-[#B52326] text-white"
-                                  : "bg-white text-gray-700"
+                                  : "bg-white text-gray-700 dark:bg-espresso-700 dark:text-gray-200"
                               }`}
                             >
                               Yes, estimate rank
@@ -624,7 +623,7 @@ const ExamForm = () => {
                               className={`flex-1 px-4 py-2 text-sm ${
                                 rankMode === "known"
                                   ? "bg-[#B52326] text-white"
-                                  : "bg-white text-gray-700"
+                                  : "bg-white text-gray-700 dark:bg-espresso-700 dark:text-gray-200"
                               }`}
                             >
                               No, I know my rank
@@ -672,7 +671,7 @@ const ExamForm = () => {
                             "Enter JEE Main percentile",
                         <div className="flex flex-col gap-2.5">
                           <div className="flex justify-center w-full">
-                            <div className="inline-flex w-full overflow-hidden rounded-xl border border-[#d8c7c1]">
+                            <div className="inline-flex w-full overflow-hidden rounded-xl border border-[#d8c7c1] dark:border-espresso-500/50">
                               <button
                                 type="button"
                                 onClick={() =>
@@ -681,7 +680,7 @@ const ExamForm = () => {
                                 className={`flex-1 px-4 py-2 text-sm ${
                                   estimateInputType === "marks"
                                     ? "bg-[#B52326] text-white"
-                                    : "bg-white text-gray-700"
+                                    : "bg-white text-gray-700 dark:bg-espresso-700 dark:text-gray-200"
                                 }`}
                               >
                                 Marks
@@ -694,7 +693,7 @@ const ExamForm = () => {
                                 className={`flex-1 px-4 py-2 text-sm ${
                                   estimateInputType === "percentile"
                                     ? "bg-[#B52326] text-white"
-                                    : "bg-white text-gray-700"
+                                    : "bg-white text-gray-700 dark:bg-espresso-700 dark:text-gray-200"
                                 }`}
                               >
                                 Percentile
@@ -719,10 +718,10 @@ const ExamForm = () => {
                                     e.preventDefault();
                                   }
                                 }}
-                                className={`w-full rounded-xl border bg-[#fffdfa] p-3 text-center outline-none transition focus:ring-2 focus:ring-[#f4d5d6] ${
+                                className={`w-full rounded-xl border bg-[#fffdfa] p-3 text-center outline-none transition focus:ring-2 focus:ring-[#f4d5d6] dark:bg-espresso-700 dark:text-gray-100 dark:placeholder-[#a08070] ${
                                   marksError
                                     ? "border-red-500 focus:border-red-500"
-                                    : "border-[#d8c7c1] focus:border-[#b52326]"
+                                    : "border-[#d8c7c1] focus:border-[#b52326] dark:border-espresso-500/50"
                                 }`}
                                 placeholder={
                                   config?.estimateMarksInput?.placeholder ||
@@ -751,10 +750,10 @@ const ExamForm = () => {
                                     e.preventDefault();
                                   }
                                 }}
-                                className={`w-full rounded-xl border bg-[#fffdfa] p-3 text-center outline-none transition focus:ring-2 focus:ring-[#f4d5d6] ${
+                                className={`w-full rounded-xl border bg-[#fffdfa] p-3 text-center outline-none transition focus:ring-2 focus:ring-[#f4d5d6] dark:bg-espresso-700 dark:text-gray-100 dark:placeholder-[#a08070] ${
                                   percentileError
                                     ? "border-red-500 focus:border-red-500"
-                                    : "border-[#d8c7c1] focus:border-[#b52326]"
+                                    : "border-[#d8c7c1] focus:border-[#b52326] dark:border-espresso-500/50"
                                 }`}
                                 placeholder={
                                   config?.estimatePercentileInput
@@ -790,7 +789,7 @@ const ExamForm = () => {
                             !isJosaaEstimationSupportedCategory(
                               formData.category
                             ) && (
-                              <p className="text-sm text-[#6d5550]">
+                              <p className="text-sm text-[#6d5550] dark:text-gray-400">
                                 {josaaPwdEstimateError}
                               </p>
                             )}
@@ -800,7 +799,7 @@ const ExamForm = () => {
                             </p>
                           )}
                           {estimatedRank && estimatedPercentile !== null && (
-                            <div className="rounded-xl border border-[#eaded8] bg-[#fffdfa] p-4 text-left text-sm text-gray-700">
+                            <div className="rounded-xl border border-[#eaded8] bg-[#fffdfa] p-4 text-left text-sm text-gray-700 dark:border-espresso-600/50 dark:bg-espresso-700 dark:text-gray-200">
                               <p>
                                 Predicted Percentile:{" "}
                                 <strong>{estimatedPercentile}</strong>
@@ -809,7 +808,7 @@ const ExamForm = () => {
                                 Predicted Category Rank:{" "}
                                 <strong>{estimatedRank}</strong>
                               </p>
-                              <p className="text-xs text-gray-500 mt-1">
+                              <p className="text-xs text-gray-500 mt-1 dark:text-gray-400">
                                 Results are based on average data of 10k+
                                 students from 2024 and 2025. Actual 2025/26
                                 results may vary depending on the paper slot.
@@ -846,10 +845,10 @@ const ExamForm = () => {
                               e.preventDefault();
                             }
                           }}
-                          className={`w-full rounded-xl border bg-white px-4 py-3 text-left text-sm outline-none transition focus:ring-2 focus:ring-[#f4d5d6] sm:text-base ${
+                          className={`w-full rounded-xl border bg-white px-4 py-3 text-left text-sm outline-none transition focus:ring-2 focus:ring-[#f4d5d6] sm:text-base dark:bg-espresso-700 dark:text-gray-100 dark:placeholder-[#a08070] ${
                             primaryInputError
                               ? "border-red-500 focus:border-red-500"
-                              : "border-[#d8c7c1] focus:border-[#b52326]"
+                              : "border-[#d8c7c1] focus:border-[#b52326] dark:border-espresso-500/50"
                           }`}
                           placeholder={
                             getPrimaryInputConfig(selectedExam).placeholder
@@ -881,17 +880,17 @@ const ExamForm = () => {
                                   e.preventDefault();
                                 }
                               }}
-                              className={`w-full rounded-xl border bg-[#fffdfa] p-3 text-center outline-none transition focus:ring-2 focus:ring-[#f4d5d6] ${
+                              className={`w-full rounded-xl border bg-[#fffdfa] p-3 text-center outline-none transition focus:ring-2 focus:ring-[#f4d5d6] dark:bg-espresso-700 dark:text-gray-100 dark:placeholder-[#a08070] ${
                                 rankError
                                   ? "border-red-500 focus:border-red-500"
-                                  : "border-[#d8c7c1] focus:border-[#b52326]"
+                                  : "border-[#d8c7c1] focus:border-[#b52326] dark:border-espresso-500/50"
                               }`}
                               placeholder={
                                 config?.advancedInput?.placeholder ||
                                 "e.g., 104 or 104P"
                               }
                             />
-                            <p className="text-xs text-gray-500 mt-2 leading-5">
+                            <p className="text-xs text-gray-500 mt-2 leading-5 dark:text-gray-400">
                               Enter rank (e.g., 104) or rank with 'P' suffix
                               (e.g., 104P)
                             </p>
@@ -915,7 +914,7 @@ const ExamForm = () => {
                   Submit
                 </button>
                 {isSubmitDisabled() && (
-                  <p className="mt-2 text-sm text-red-600">
+                  <p className="mt-2 text-sm text-red-600 dark:text-red-400">
                     {selectedExam === "JoSAA" &&
                     formData.qualifiedJeeAdv === "Yes" &&
                     (!formData.advRank || formData.advRank === "")
@@ -936,3 +935,5 @@ const ExamForm = () => {
 };
 
 export default ExamForm;
+
+

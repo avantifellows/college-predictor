@@ -58,7 +58,7 @@ const TneaScoreCalculator = ({
   return (
     <>
       <div className="my-4 w-full sm:w-3/4">
-        <label className="mb-2 block text-left text-md font-semibold text-gray-700">
+        <label className="mb-2 block text-left text-md font-semibold text-gray-700 dark:text-gray-200">
           Enter your Physics marks out of 100
         </label>
         <input
@@ -68,12 +68,12 @@ const TneaScoreCalculator = ({
           max="100"
           value={physicsMarks}
           onChange={handleInputChange(setPhysicsMarks)}
-          className="w-full rounded-xl border border-[#d8c7c1] bg-[#fffdfa] p-3 text-center outline-none transition focus:border-[#b52326] focus:ring-2 focus:ring-[#f4d5d6]"
+          className="w-full rounded-xl border border-[#d8c7c1] bg-[#fffdfa] p-3 text-center outline-none transition focus:border-[#b52326] focus:ring-2 focus:ring-[#f4d5d6] dark:border-espresso-500/50 dark:bg-espresso-700 dark:text-gray-100 dark:placeholder-[#a08070]"
           placeholder="Enter Physics marks (0-100)"
         />
       </div>
       <div className="my-4 w-full sm:w-3/4">
-        <label className="mb-2 block text-left text-md font-semibold text-gray-700">
+        <label className="mb-2 block text-left text-md font-semibold text-gray-700 dark:text-gray-200">
           Enter your Chemistry marks out of 100
         </label>
         <input
@@ -83,12 +83,12 @@ const TneaScoreCalculator = ({
           max="100"
           value={chemistryMarks}
           onChange={handleInputChange(setChemistryMarks)}
-          className="w-full rounded-xl border border-[#d8c7c1] bg-[#fffdfa] p-3 text-center outline-none transition focus:border-[#b52326] focus:ring-2 focus:ring-[#f4d5d6]"
+          className="w-full rounded-xl border border-[#d8c7c1] bg-[#fffdfa] p-3 text-center outline-none transition focus:border-[#b52326] focus:ring-2 focus:ring-[#f4d5d6] dark:border-espresso-500/50 dark:bg-espresso-700 dark:text-gray-100 dark:placeholder-[#a08070]"
           placeholder="Enter Chemistry marks (0-100)"
         />
       </div>
       <div className="my-4 w-full sm:w-3/4">
-        <label className="mb-2 block text-left text-md font-semibold text-gray-700">
+        <label className="mb-2 block text-left text-md font-semibold text-gray-700 dark:text-gray-200">
           Enter your Mathematics marks out of 100
         </label>
         <input
@@ -98,22 +98,22 @@ const TneaScoreCalculator = ({
           max="100"
           value={mathsMarks}
           onChange={handleInputChange(setMathsMarks)}
-          className="w-full rounded-xl border border-[#d8c7c1] bg-[#fffdfa] p-3 text-center outline-none transition focus:border-[#b52326] focus:ring-2 focus:ring-[#f4d5d6]"
+          className="w-full rounded-xl border border-[#d8c7c1] bg-[#fffdfa] p-3 text-center outline-none transition focus:border-[#b52326] focus:ring-2 focus:ring-[#f4d5d6] dark:border-espresso-500/50 dark:bg-espresso-700 dark:text-gray-100 dark:placeholder-[#a08070]"
           placeholder="Enter Mathematics marks (0-100)"
         />
       </div>
       <div className="my-4 w-full sm:w-3/4">
-        <label className="mb-2 block text-left text-md font-semibold text-gray-700">
+        <label className="mb-2 block text-left text-md font-semibold text-gray-700 dark:text-gray-200">
           Composite Score (out of 200)
         </label>
         <input
           type="text"
           value={compositeScore}
           readOnly
-          className="w-full rounded-xl border border-[#d8c7c1] bg-[#f8efec] p-3 text-center"
+          className="w-full rounded-xl border border-[#d8c7c1] bg-[#f8efec] p-3 text-center dark:border-espresso-500/50 dark:bg-espresso-700 dark:text-gray-300"
         />
         {!readOnlyRank && (
-          <p className="text-xs text-gray-600 mt-1">
+          <p className="text-xs text-gray-600 mt-1 dark:text-gray-400">
             Calculated automatically using the formula: (Physics × 0.5) +
             (Chemistry × 0.5) + Mathematics = Composite Score
           </p>
@@ -124,3 +124,5 @@ const TneaScoreCalculator = ({
 };
 
 export default TneaScoreCalculator;
+
+
