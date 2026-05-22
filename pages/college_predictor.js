@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import { useRouter } from "next/router";
 import getConstants from "../constants";
 import PredictedCollegeTables from "../components/PredictedCollegeTables";
-import Head from "next/head";
+import SeoHead from "../components/SeoHead";
 import Fuse from "fuse.js";
 import examConfigs from "../examConfig";
 import dynamic from "next/dynamic";
@@ -1021,9 +1021,10 @@ const CollegePredictor = () => {
 
   return (
     <>
-      <Head>
-        <title>College Predictor Results - {getConstants().TITLE_SHORT}</title>
-      </Head>
+      <SeoHead 
+        title={`College Predictor Results - ${getConstants().TITLE_SHORT}`} 
+        description="View your predicted colleges based on your exam scores and ranks." 
+      />
       <div className="min-h-screen bg-[#fdf8f6] flex flex-col items-center pt-8 px-4">
         <div className="w-full max-w-6xl rounded-2xl border border-[#eaded8] bg-white p-6 shadow-sm md:p-8">
           <h1 className="mb-2 text-center text-2xl font-bold text-[#2f2320] sm:text-3xl">

@@ -1,12 +1,13 @@
-import Head from "next/head";
+import SeoHead from "../components/SeoHead";
 import ScholarshipReferenceBrowser from "../components/ScholarshipReferenceBrowser";
 
 const ScholarshipsResultPage = () => {
   return (
     <>
-      <Head>
-        <title>Scholarships Reference - Home</title>
-      </Head>
+      <SeoHead 
+        title="Scholarships Results | Avanti Fellows" 
+        description="View scholarships applicable to your profile." 
+      />
       <ScholarshipReferenceBrowser />
     </>
   );

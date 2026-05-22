@@ -1,4 +1,4 @@
-import Head from "next/head";
+import SeoHead from "../components/SeoHead";
 import React, { useMemo, useState } from "react";
 import { AlertCircle, Download, FileSpreadsheet, Upload } from "lucide-react";
 
@@ -172,9 +172,10 @@ const BatchPredict = () => {
 
   return (
     <>
-      <Head>
-        <title>Batch Predictor</title>
-      </Head>
+      <SeoHead 
+        title="Batch Predictor | Avanti Fellows" 
+        description="Upload a CSV to generate batch college predictions for multiple students."
+      />
       <div className="flex min-h-[calc(100vh-120px)] flex-col">
         <div className="mt-6 flex w-full flex-col items-center justify-start px-4 pb-10 sm:mt-8">
           <div className="mt-4 flex w-full max-w-3xl flex-col rounded-2xl border border-[#eaded8] bg-white p-5 shadow-sm sm:mt-6 sm:p-6">

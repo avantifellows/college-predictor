@@ -3,7 +3,7 @@ import Script from "next/script";
 import getConstants from "../constants";
 import examConfigs from "../examConfig";
 import { useRouter } from "next/router";
-import Head from "next/head";
+import SeoHead from "../components/SeoHead";
 import dynamic from "next/dynamic";
 import TneaScoreCalculator from "../components/TneaScoreCalculator";
 import { ExternalLink, PlayCircle } from "lucide-react";
@@ -540,9 +540,10 @@ const ExamForm = () => {
 
   return (
     <>
-      <Head>
-        <title>College Predictor - Home</title>
-      </Head>
+      <SeoHead 
+        title="College Predictor - Home | Avanti Fellows" 
+        description="Predict your college admissions based on your ranks in JEE, JoSAA, TNEA, and more with Avanti Fellows College Predictor." 
+      />
       <div className="flex min-h-[calc(100vh-120px)] flex-col">
         <div className="mt-6 flex w-full flex-col items-center justify-start px-4 pb-10 sm:mt-8">
           <Script
