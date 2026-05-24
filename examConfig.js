@@ -8,7 +8,7 @@ import path from "path";
 
 /**
  * Example URL with query parameters for JEE Main-JOSAA
- *  http://futures.avantifellow.com/api/exam-result?exam=JEE%20Main&roundNumber=2&gender=Female-only%20(including%20Supernumerary)&homeState=Karnataka&category=obc_ncl
+ *  http://futures.avantifellow.com/api/exam-result?exam=JEE%20Main-JOSAA&gender=Female-only%20(including%20Supernumerary)&homeState=Karnataka&category=obc_ncl
  */
 
 export const statesList = [
@@ -139,7 +139,7 @@ export const jeeMainJosaaConfig = {
   getFilters: (query) => {
     const normalizedProgram = String(query.program || "").toLowerCase();
     const baseFilters = [
-      (item) => item.Exam === query.code,
+      (item) => item.Exam === "JEE Main",
       (item) => item.Gender === query.gender,
       (item) => {
         if (normalizedProgram === "architecture") {
@@ -237,7 +237,7 @@ export const jacExamConfig = {
     (item) => item.PWD === query.isPWD,
     (item) => item.Gender === query.gender,
     (item) =>
-      parseInt(item["Closing Rank"], 10) > 0.9 * parseInt(query.rank, 10),
+      parseInt(item["Closing Rank"], 10) >= 0.9 * parseInt(query.rank, 10),
   ],
   getSort: () => [["Closing Rank", "ASC"]],
 };
@@ -294,7 +294,7 @@ export const jeeAdvancedConfig = {
   },
   getFilters: (query) => {
     const baseFilters = [
-      (item) => item.Exam === query.code,
+      (item) => item.Exam === "JEE Advanced",
       (item) => item.Gender === query.gender,
     ];
 

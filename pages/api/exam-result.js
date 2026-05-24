@@ -206,9 +206,9 @@ export default async function handler(req, res) {
         }
       } else if (exam === "JEE Advanced") {
         if (item["Exam"] !== "JEE Advanced") return false;
-        if (!req.query.advRank) return false;
+        if (!req.query.rank) return false;
 
-        const userRankStr = req.query.advRank?.toString().trim() || "";
+        const userRankStr = req.query.rank?.toString().trim() || "";
         const userRank = parseRank(userRankStr);
         const userHasPSuffix = hasPSuffix(userRankStr);
 
