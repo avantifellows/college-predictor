@@ -12,6 +12,11 @@ export default async function handler(req, res) {
     );
     const data = await fs.readFile(dataPath, "utf8");
     const scholarships = JSON.parse(data);
+
+    if (!Array.isArray(scholarships)) {
+      return res.status(500).json({ error: "Data format invalid" });
+    }
+
     return res.status(200).json(scholarships);
   } catch (error) {
     console.error("Error loading scholarship data:", error);
