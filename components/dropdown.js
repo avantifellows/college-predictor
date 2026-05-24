@@ -64,10 +64,12 @@ const Dropdown = ({
       styles={customStyles}
       instanceId={useId()}
       className={className}
-      value={options.find(
-        (option) =>
-          option.label === selectedValue || option.value === selectedValue
-      )}
+      value={
+        options.find(
+          (option) =>
+            option.label === selectedValue || option.value === selectedValue
+        ) ?? null
+      }
     />
   );
 };

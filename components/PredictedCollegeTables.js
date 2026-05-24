@@ -204,11 +204,23 @@ const PredictedCollegesTable = ({
   });
   const [salaryTooltip, setSalaryTooltip] = useState(null);
 
-  const toggleRowExpansion = (index) => {
+  const toggleRowExpansion = (rowKey) => {
     setExpandedRows((prev) => ({
       ...prev,
-      [index]: !prev[index],
+      [rowKey]: !prev[rowKey],
     }));
+  };
+
+  const getRowKey = (transformedItem) => {
+    const parts = [
+      transformedItem.institute,
+      transformedItem.institute_name,
+      transformedItem.academic_program_name,
+      transformedItem.branch_name,
+      transformedItem.category || transformedItem.Category,
+      transformedItem.closing_rank,
+    ];
+    return parts.filter(Boolean).join("-");
   };
 
   const showSalaryTooltip = (event) => {
@@ -665,9 +677,10 @@ const PredictedCollegesTable = ({
 
     return rowsToRender.map((item, index) => {
       const transformedItem = transformData(item);
+      const rowKey = getRowKey(transformedItem);
 
       return (
-        <React.Fragment key={index}>
+        <React.Fragment key={rowKey}>
           <tr
             className={`${commonCellClass} ${
               index % 2 === 0 ? "bg-[#fffdfa]" : "bg-white"
@@ -683,15 +696,15 @@ const PredictedCollegesTable = ({
                 <div className="flex justify-center">
                   <button
                     className="whitespace-nowrap rounded-lg bg-[#B52326] px-4 py-2 text-white hover:bg-[#9E1F22]"
-                    onClick={() => toggleRowExpansion(index)}
+                    onClick={() => toggleRowExpansion(rowKey)}
                   >
-                    {expandedRows[index] ? "Show Less" : "Show More"}
+                    {expandedRows[rowKey] ? "Show Less" : "Show More"}
                   </button>
                 </div>
               </td>
             )}
           </tr>
-          {supportsExpandedView && expandedRows[index] && (
+          {supportsExpandedView && expandedRows[rowKey] && (
             <ExpandedRowComponent
               item={transformedItem}
               fields={expandedFields}
