@@ -478,6 +478,7 @@ export const mhtCetConfig = {
         { value: "VJ", label: "VJ" },
         { value: "NT", label: "NT" },
         { value: "Orphan", label: "Orphan" },
+        { value: "TFWS", label: "TFWS" },
       ],
     },
     {
@@ -524,7 +525,12 @@ export const mhtCetConfig = {
     );
   },
   getFilters: (query) => [
-    (item) => item.Category === query.category,
+    (item) => {
+      if (query.category === "TFWS") {
+        return item.Category_Key === "TFWS";
+      }
+      return item.Category === query.category;
+    },
     (item) => item.Gender === query.gender,
     (item) => item.State === query.homeState,
     (item) => item.PWD === query.isPWD,
