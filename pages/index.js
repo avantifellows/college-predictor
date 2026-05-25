@@ -33,9 +33,9 @@ const validatePrimaryInputValue = (exam, value) => {
     inputConfig.max !== undefined
       ? `Please enter a value between ${inputConfig.min} and ${inputConfig.max}.`
       : inputConfig.label.toLowerCase().includes("rank") &&
-        inputConfig.min === "1"
-      ? "Please enter a rank greater than 0."
-      : `Please enter a value greater than or equal to ${inputConfig.min}.`;
+          inputConfig.min === "1"
+        ? "Please enter a rank greater than 0."
+        : `Please enter a value greater than or equal to ${inputConfig.min}.`;
 
   if (Number.isNaN(numericValue)) {
     return "Please enter a valid value.";
@@ -434,9 +434,7 @@ const ExamForm = () => {
     // For TNEA exam
     if (selectedExam === "TNEA") {
       return (
-        !formData.rank ||
-        formData.rank === "" ||
-        hasMissingConfiguredFields()
+        !formData.rank || formData.rank === "" || hasMissingConfiguredFields()
       );
     }
 
@@ -516,9 +514,7 @@ const ExamForm = () => {
     return fieldsToRender.map((field) =>
       renderFormCard(
         `${selectedExam}-${field.name}`,
-        typeof field.label === "function"
-          ? field.label(formData)
-          : field.label,
+        typeof field.label === "function" ? field.label(formData) : field.label,
         <Dropdown
           options={field.options.map((option) =>
             typeof option === "string"
@@ -919,9 +915,9 @@ const ExamForm = () => {
                     (!formData.advRank || formData.advRank === "")
                       ? "Please enter your JEE Advanced rank."
                       : selectedExam === "JoSAA" &&
-                        (!formData.mainRank || formData.mainRank === "")
-                      ? "Please enter your JEE Main rank."
-                      : "Please fill all the required fields before submitting!"}
+                          (!formData.mainRank || formData.mainRank === "")
+                        ? "Please enter your JEE Main rank."
+                        : "Please fill all the required fields before submitting!"}
                   </p>
                 )}
               </div>
