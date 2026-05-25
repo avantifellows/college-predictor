@@ -1,95 +1,63 @@
 import fs from "fs/promises";
-import examConfigs from "../../examConfig";
+import ExcelJS from "exceljs";
+import examConfigs, { statesList } from "../../examConfig";
 
-const TOTAL_MARKS = 300;
-const TOTAL_TEST_TAKERS = 1500000;
-const MAX_RECOMMENDATIONS = 10;
-
-const LFIT = -86.555129;
-const UFIT = 98.24994;
-const KFIT = 0.153249;
-const X0_FIT = 0.624824;
-
-const F1_C1_M = 0.0251;
-const F1_C1_B = -19.5;
-const F1_C2_M = 0.0276;
-const F1_C2_B = -51.9;
-const F1_C3_M = 0.0383;
-const F1_C3_B = -373;
-const F1_C4_M = 0.0429;
-const F1_C4_B = -605;
-const F1_C5_M = 0.0515;
-const F1_C5_B = -1297;
-const F1_C6_M = 0.0571;
-const F1_C6_B = -1854;
-const F1_C7_M = 0.0738;
-const F1_C7_B = -4542;
-const F1_C8_M = 0.0892;
-const F1_C8_B = -9217;
-const F1_C9_M = 0.106;
-const F1_C9_B = -17937;
-const F1_C10_M = 0.118;
-const F1_C10_B = -30183;
-
-const F2_C1_M = 0.232;
-const F2_C1_B = -131;
-const F2_C2_M = 0.313;
-const F2_C2_B = -1180;
-const F2_C3_M = 0.351;
-const F2_C3_B = -2833;
-const F2_C4_M = 0.389;
-const F2_C4_B = -7865;
-
-const F3_C1_M = 0.129;
-const F3_C1_B = -77.2;
-const F3_C2_M = 0.145;
-const F3_C2_B = -100;
-const F3_C3_M = 0.118;
-const F3_C3_B = 7517;
-const F3_C4_M = 0.098;
-const F3_C4_B = 19862;
-const F3_C5_M = 0.0788;
-const F3_C5_B = 39286;
-
-const F4_C1_M = 0.00725;
-const F4_C1_B = -32.2;
-const F4_C2_M = 0.0122;
-const F4_C2_B = -326;
-const F4_C3_M = 0.0165;
-const F4_C3_B = -930;
-const F4_C4_M_LINEAR = 0.0136;
-const F4_C4_M_QUAD = 1.76e-8;
-const F4_C4_B = -1146;
-const F4_C5_M = 0.0396;
-const F4_C5_B = -11081;
-
-const supportedJosaaEstimateCategories = new Set([
-  "OPEN",
-  "OBC-NCL",
-  "SC",
-  "ST",
-  "EWS",
-]);
-
-const requiredJosaaColumns = ["State", "Category", "Gender"];
-const derivedOutputColumns = [
-  "Percentage Score",
-  "Percentile Estimate",
-  "AIR Estimate",
-  "Category Rank (Estimate)",
+const MAX_RECOMMENDATIONS = 5;
+const TEMPLATE_ROW_COUNT = 300;
+const requiredJosaaColumns = [
+  "State",
+  "Category",
+  "Gender",
+  "JEE Main Category Rank",
+  "JEE Advanced Category Rank",
 ];
-const recommendationOutputColumns = [];
-const outputColumns = [...derivedOutputColumns, ...recommendationOutputColumns];
 
+const optionalIdentityColumns = ["Student Name", "Student ID", "POC"];
+const categoryOptions = [
+  "OPEN",
+  "OPEN (PwD)",
+  "OBC-NCL",
+  "OBC-NCL (PwD)",
+  "SC",
+  "SC (PwD)",
+  "ST",
+  "ST (PwD)",
+  "EWS",
+  "EWS (PwD)",
+];
+const genderOptions = [
+  "Gender-Neutral",
+  "Female-only (including Supernumerary)",
+];
+
+const mainOutputColumns = [];
+const advancedOutputColumns = [];
 for (let index = 1; index <= MAX_RECOMMENDATIONS; index += 1) {
-  recommendationOutputColumns.push(`College ${index}`, `Course ${index}`);
-  outputColumns.push(`College ${index}`, `Course ${index}`);
+  mainOutputColumns.push(
+    `JEE Main College ${index}`,
+    `JEE Main Course ${index}`
+  );
+  advancedOutputColumns.push(
+    `JEE Advanced College ${index}`,
+    `JEE Advanced Course ${index}`
+  );
 }
+
+const statusColumns = [
+  "JEE Main Prediction Status",
+  "JEE Advanced Prediction Status",
+  "Prediction Status",
+];
+const outputColumns = [
+  ...mainOutputColumns,
+  ...advancedOutputColumns,
+  ...statusColumns,
+];
 
 export const config = {
   api: {
     bodyParser: {
-      sizeLimit: "4mb",
+      sizeLimit: "10mb",
     },
   },
 };
@@ -99,7 +67,6 @@ const normalizeText = (value) => String(value || "").trim();
 const normalizeCategory = (value) => {
   const normalized = normalizeText(value);
   const normalizedUpper = normalized.replace(/\s+/g, " ").toUpperCase();
-
   const isPwd = /\bPWD\b|\(PWD\)/i.test(normalizedUpper);
   let baseCategory = normalizedUpper
     .replace(/\(PWD\)/g, "")
@@ -107,139 +74,26 @@ const normalizeCategory = (value) => {
     .replace(/\s+/g, " ")
     .trim();
 
-  if (baseCategory === "GENERAL") baseCategory = "OPEN";
-  if (baseCategory === "OBC") baseCategory = "OBC-NCL";
+  if (baseCategory === "GEN" || baseCategory === "GENERAL") {
+    baseCategory = "OPEN";
+  }
+  if (baseCategory === "OBC") {
+    baseCategory = "OBC-NCL";
+  }
 
   if (!baseCategory) return "";
   return isPwd ? `${baseCategory} (PwD)` : baseCategory;
 };
 
-const getCategoryForEstimate = (category) =>
-  category.replace(/\s+\(PwD\)$/i, "");
-
-const isPwdCategory = (category) => /\(PwD\)$/i.test(category);
-
 const normalizeGender = (value) => {
   const normalized = normalizeText(value).toLowerCase();
-  if (normalized === "female" || normalized === "female-only") {
+  if (["female", "female-only", "girl"].includes(normalized)) {
     return "Female-only (including Supernumerary)";
   }
-  if (normalized === "male" || normalized === "gender-neutral") {
+  if (["male", "boy", "gender-neutral"].includes(normalized)) {
     return "Gender-Neutral";
   }
   return normalizeText(value);
-};
-
-const marksToPercentage = (score) => (score * 100) / TOTAL_MARKS;
-
-const percentageToPercentile = (percentage) => {
-  if (percentage <= 25) {
-    return LFIT + (UFIT - LFIT) / (1 + Math.exp(-KFIT * (percentage - X0_FIT)));
-  }
-  if (percentage <= 40) {
-    return 65.1 + 8.95 * Math.log(percentage);
-  }
-  return 100 * (1 - Math.exp(-0.095 * percentage));
-};
-
-const percentileToAir = (percentile) =>
-  Math.floor(TOTAL_TEST_TAKERS * (1 - percentile / 100));
-
-const calculateFunction1 = (value) => {
-  if (value < 10000) return F1_C1_M * value + F1_C1_B;
-  if (value <= 30000) return F1_C2_M * value + F1_C2_B;
-  if (value <= 50000) return F1_C3_M * value + F1_C3_B;
-  if (value <= 75000) return F1_C4_M * value + F1_C4_B;
-  if (value <= 100000) return F1_C5_M * value + F1_C5_B;
-  if (value <= 150000) return F1_C6_M * value + F1_C6_B;
-  if (value <= 300000) return F1_C7_M * value + F1_C7_B;
-  if (value <= 500000) return F1_C8_M * value + F1_C8_B;
-  if (value <= 1000000) return F1_C9_M * value + F1_C9_B;
-  return F1_C10_M * value + F1_C10_B;
-};
-
-const calculateFunction2 = (value) => {
-  if (value <= 10000) return F2_C1_M * value + F2_C1_B;
-  if (value <= 50000) return F2_C2_M * value + F2_C2_B;
-  if (value <= 100000) return F2_C3_M * value + F2_C3_B;
-  return F2_C4_M * value + F2_C4_B;
-};
-
-const calculateFunction3 = (value) => {
-  if (value <= 10000) return F3_C1_M * value + F3_C1_B;
-  if (value <= 300000) return F3_C2_M * value + F3_C2_B;
-  if (value <= 600000) return F3_C3_M * value + F3_C3_B;
-  if (value <= 1000000) return F3_C4_M * value + F3_C4_B;
-  return F3_C5_M * value + F3_C5_B;
-};
-
-const calculateFunction4 = (value) => {
-  if (value <= 50000) return F4_C1_M * value + F4_C1_B;
-  if (value <= 150000) return F4_C2_M * value + F4_C2_B;
-  if (value <= 200000) return F4_C3_M * value + F4_C3_B;
-  if (value <= 750000) {
-    return F4_C4_M_QUAD * value * value + F4_C4_M_LINEAR * value + F4_C4_B;
-  }
-  return F4_C5_B + F4_C5_M * value;
-};
-
-const airToCat = (category, rank) => {
-  let raw;
-  if (category === "SC") raw = calculateFunction1(rank);
-  else if (category === "OBC-NCL") raw = calculateFunction2(rank);
-  else if (category === "EWS") raw = calculateFunction3(rank);
-  else if (category === "OPEN") raw = rank;
-  else if (category === "ST") raw = calculateFunction4(rank);
-  else throw new Error("Invalid category");
-
-  const rounded = Math.round(raw);
-  return rounded <= 0 ? 1 : rounded;
-};
-
-const estimateJosaaRank = (row, category) => {
-  const scoreRaw = normalizeText(row.Score);
-  const percentileRaw =
-    normalizeText(row["Percentile Estimate"]) || normalizeText(row.Percentile);
-
-  let marks;
-  let percentage;
-  let percentile;
-
-  if (scoreRaw) {
-    marks = Number(scoreRaw);
-    if (Number.isNaN(marks) || marks < 0 || marks > TOTAL_MARKS) {
-      throw new Error("Score must be between 0 and 300");
-    }
-    percentage = marksToPercentage(marks);
-    percentile = percentageToPercentile(percentage);
-  } else if (percentileRaw) {
-    percentile = Number(percentileRaw);
-    if (Number.isNaN(percentile) || percentile < 0 || percentile > 100) {
-      throw new Error("Percentile must be between 0 and 100");
-    }
-    percentage = 0;
-    marks = "";
-  } else {
-    return null;
-  }
-
-  let allIndiaRank = percentileToAir(percentile);
-  let categoryRank = airToCat(category, allIndiaRank);
-
-  if (marks >= TOTAL_MARKS || percentile >= 100) {
-    percentile = 100;
-    allIndiaRank = 1;
-    categoryRank = 1;
-    marks = TOTAL_MARKS;
-    percentage = 100;
-  }
-
-  return {
-    percentage: percentage ? Number(percentage.toFixed(8)) : "",
-    percentile: Number(percentile.toFixed(8)),
-    allIndiaRank,
-    categoryRank,
-  };
 };
 
 const parseCsv = (text) => {
@@ -297,6 +151,36 @@ const parseCsv = (text) => {
   return { headers, records };
 };
 
+const parseXlsx = async (base64) => {
+  const workbook = new ExcelJS.Workbook();
+  await workbook.xlsx.load(Buffer.from(base64, "base64"));
+  const worksheet = workbook.worksheets[0];
+  if (!worksheet) return { headers: [], records: [] };
+
+  const headerRow = worksheet.getRow(1);
+  const headers = [];
+  headerRow.eachCell({ includeEmpty: false }, (cell, columnNumber) => {
+    headers[columnNumber - 1] = normalizeText(cell.text || cell.value);
+  });
+
+  const records = [];
+  worksheet.eachRow((row, rowNumber) => {
+    if (rowNumber === 1) return;
+    const record = {};
+    let hasValue = false;
+    headers.forEach((header, index) => {
+      if (!header) return;
+      const cell = row.getCell(index + 1);
+      const value = normalizeText(cell.text || cell.value);
+      record[header] = value;
+      if (value) hasValue = true;
+    });
+    if (hasValue) records.push(record);
+  });
+
+  return { headers: headers.filter(Boolean), records };
+};
+
 const escapeCsvValue = (value) => {
   const stringValue =
     value === undefined || value === null ? "" : String(value);
@@ -323,18 +207,10 @@ const parseRank = (rankStr) => {
 const hasPSuffix = (rankStr) =>
   Boolean(rankStr && rankStr.toString().trim().toUpperCase().endsWith("P"));
 
-const applyProgramFilter = (item, program) => {
-  const normalizedProgram = String(program || "engineering").toLowerCase();
+const applyProgramFilter = (item) => {
   const academicProgram = String(
     item["Academic Program Name"] || ""
   ).toLowerCase();
-
-  if (normalizedProgram === "architecture") {
-    return academicProgram.includes("architecture");
-  }
-  if (normalizedProgram === "planning") {
-    return academicProgram.includes("planning");
-  }
   return (
     !academicProgram.includes("architecture") &&
     !academicProgram.includes("planning")
@@ -347,36 +223,37 @@ const applyStateFilter = (item, homeState) => {
   return item.Quota === "OS";
 };
 
-const applyRankFilter = (item, query) => {
+const applyRankFilter = (item, rank) => {
   const itemRankStr = item["Closing Rank"]?.toString().trim() || "";
   const itemRank = parseRank(itemRankStr);
-  const itemHasPSuffix = hasPSuffix(itemRankStr);
-
-  if (item.Exam === "JEE Advanced") {
-    if (query.qualifiedJeeAdv !== "Yes" || !query.advRank) return false;
-    const userRankStr = query.advRank?.toString().trim() || "";
-    const userRank = parseRank(userRankStr);
-    if (itemHasPSuffix !== hasPSuffix(userRankStr)) return false;
-    return userRank && itemRank >= 0.9 * userRank;
-  }
-
-  if (!query.mainRank) return false;
-  const userRankStr = query.mainRank?.toString().trim() || "";
-  const userRank = parseRank(userRankStr);
-  if (itemHasPSuffix !== hasPSuffix(userRankStr)) return false;
-  return userRank && itemRank >= 0.9 * userRank;
+  const userRank = parseRank(rank);
+  if (!itemRank || !userRank) return false;
+  if (hasPSuffix(itemRankStr) !== hasPSuffix(rank)) return false;
+  return itemRank >= 0.9 * userRank;
 };
 
-const predictJosaaColleges = async (query) => {
+const predictJosaaColleges = async ({
+  category,
+  gender,
+  homeState,
+  rank,
+  exam,
+}) => {
+  if (!rank) return [];
   const josaaConfig = examConfigs.JoSAA;
-  const dataPath = josaaConfig.getDataPath(query.category);
+  const dataPath = josaaConfig.getDataPath(category);
   const data = JSON.parse(await fs.readFile(dataPath, "utf8"));
 
   return data
-    .filter((item) => item.Gender === query.gender || item.Gender === "All")
-    .filter((item) => applyProgramFilter(item, query.program))
-    .filter((item) => applyStateFilter(item, query.homeState))
-    .filter((item) => applyRankFilter(item, query))
+    .filter((item) =>
+      exam === "JEE Advanced"
+        ? item.Exam === "JEE Advanced"
+        : item.Exam !== "JEE Advanced"
+    )
+    .filter((item) => item.Gender === gender || item.Gender === "All")
+    .filter((item) => applyProgramFilter(item))
+    .filter((item) => applyStateFilter(item, homeState))
+    .filter((item) => applyRankFilter(item, rank))
     .sort((collegeA, collegeB) => {
       const rankA = parseFloat(collegeA["Closing Rank"]) || 0;
       const rankB = parseFloat(collegeB["Closing Rank"]) || 0;
@@ -392,99 +269,321 @@ const getCompletedHeaders = (headers) => {
       nextHeaders.push(column);
     }
   });
-  if (!nextHeaders.includes("Prediction Status")) {
-    nextHeaders.push("Prediction Status");
-  }
   return nextHeaders;
 };
 
-const clearRecommendationColumns = (row) => {
-  recommendationOutputColumns.forEach((column) => {
+const clearOutputColumns = (row) => {
+  outputColumns.forEach((column) => {
     row[column] = "";
   });
 };
 
-const getExcelColumnWidth = (header) => {
-  if (/^Course \d+$/.test(header)) return 62;
-  if (/^College \d+$/.test(header)) return 42;
-  if (["Student Name", "Prediction Status"].includes(header)) return 28;
-  if (["POC", "State", "Category", "Gender"].includes(header)) return 18;
-  if (
-    ["Student ID", "Percentile Estimate", "Category Rank (Estimate)"].includes(
-      header
-    )
-  ) {
-    return 22;
+const fillPredictions = (row, predictions, prefix) => {
+  if (predictions.length === 0) return;
+  predictions.forEach((prediction, index) => {
+    row[`${prefix} College ${index + 1}`] = prediction.Institute;
+    row[`${prefix} Course ${index + 1}`] = prediction["Academic Program Name"];
+  });
+};
+
+const getMissingColumns = (headers) =>
+  requiredJosaaColumns.filter((column) => !headers.includes(column));
+
+const processRecords = async (headers, records) => {
+  const completedHeaders = getCompletedHeaders(headers);
+  let mainPredictedRows = 0;
+  let advancedPredictedRows = 0;
+  let rowsWithErrors = 0;
+  let rowsWithAnyPrediction = 0;
+  const completedRecords = [];
+
+  for (const originalRow of records) {
+    const row = { ...originalRow };
+    clearOutputColumns(row);
+
+    try {
+      const category = normalizeCategory(row.Category);
+      const gender = normalizeGender(row.Gender);
+      const homeState = normalizeText(row.State);
+      const mainRank = normalizeText(row["JEE Main Category Rank"]);
+      const advancedRank = normalizeText(row["JEE Advanced Category Rank"]);
+
+      if (!homeState) throw new Error("State is required");
+      if (!statesList.includes(homeState)) throw new Error("Invalid State");
+      if (!category) throw new Error("Category is required");
+      if (!categoryOptions.includes(category))
+        throw new Error("Invalid Category");
+      if (!gender) throw new Error("Gender is required");
+      if (!genderOptions.includes(gender)) throw new Error("Invalid Gender");
+      if (!mainRank && !advancedRank) {
+        throw new Error(
+          "Provide JEE Main Category Rank or JEE Advanced Category Rank"
+        );
+      }
+
+      const mainPredictions = mainRank
+        ? await predictJosaaColleges({
+            category,
+            gender,
+            homeState,
+            rank: mainRank,
+            exam: "JEE Main",
+          })
+        : [];
+      const advancedPredictions = advancedRank
+        ? await predictJosaaColleges({
+            category,
+            gender,
+            homeState,
+            rank: advancedRank,
+            exam: "JEE Advanced",
+          })
+        : [];
+
+      fillPredictions(row, mainPredictions, "JEE Main");
+      fillPredictions(row, advancedPredictions, "JEE Advanced");
+
+      if (!mainRank) {
+        row["JEE Main Prediction Status"] = "No JEE Main rank provided";
+      } else if (mainPredictions.length === 0) {
+        row["JEE Main Prediction Status"] = "No eligible colleges";
+      } else {
+        row["JEE Main Prediction Status"] = "Predicted";
+        mainPredictedRows += 1;
+      }
+
+      if (!advancedRank) {
+        row["JEE Advanced Prediction Status"] = "No JEE Advanced rank provided";
+      } else if (advancedPredictions.length === 0) {
+        row["JEE Advanced Prediction Status"] = "No eligible colleges";
+      } else {
+        row["JEE Advanced Prediction Status"] = "Predicted";
+        advancedPredictedRows += 1;
+      }
+
+      if (mainPredictions.length > 0 || advancedPredictions.length > 0) {
+        row["Prediction Status"] = "Predicted";
+        rowsWithAnyPrediction += 1;
+      } else {
+        row["Prediction Status"] = "No eligible colleges";
+      }
+    } catch (error) {
+      row["Prediction Status"] = error.message || "Unable to predict";
+      row["JEE Main Prediction Status"] = "";
+      row["JEE Advanced Prediction Status"] = "";
+      rowsWithErrors += 1;
+    }
+
+    completedRecords.push(row);
   }
+
+  return {
+    completedHeaders,
+    completedRecords,
+    summary: {
+      totalRows: completedRecords.length,
+      mainPredictedRows,
+      advancedPredictedRows,
+      rowsWithAnyPrediction,
+      rowsWithErrors,
+      noEligibleRows:
+        completedRecords.length - rowsWithAnyPrediction - rowsWithErrors,
+    },
+  };
+};
+
+const getExcelColumnWidth = (header) => {
+  if (/^JEE (Main|Advanced) Course \d+$/.test(header)) return 62;
+  if (/^JEE (Main|Advanced) College \d+$/.test(header)) return 42;
+  if (header === "Prediction Status") return 28;
+  if (header.includes("Prediction Status")) return 32;
+  if (header.includes("Category Rank")) return 24;
+  if (["State", "Category", "Gender"].includes(header)) return 24;
+  if (["Student Name", "Student ID", "POC"].includes(header)) return 24;
   return 16;
 };
 
+const styleCellBorder = {
+  top: { style: "thin", color: { argb: "FFEADDD8" } },
+  left: { style: "thin", color: { argb: "FFEADDD8" } },
+  bottom: { style: "thin", color: { argb: "FFEADDD8" } },
+  right: { style: "thin", color: { argb: "FFEADDD8" } },
+};
+
+const styleHeaderCell = (cell, fillColor = "FFB52326") => {
+  cell.font = { bold: true, color: { argb: "FFFFFFFF" } };
+  cell.fill = {
+    type: "pattern",
+    pattern: "solid",
+    fgColor: { argb: fillColor },
+  };
+  cell.alignment = {
+    vertical: "middle",
+    horizontal: "center",
+    wrapText: true,
+  };
+  cell.border = {
+    top: { style: "thin", color: { argb: "FF7A2628" } },
+    left: { style: "thin", color: { argb: "FF7A2628" } },
+    bottom: { style: "thin", color: { argb: "FF7A2628" } },
+    right: { style: "thin", color: { argb: "FF7A2628" } },
+  };
+};
+
+const addOptionsSheet = (workbook) => {
+  const optionsSheet = workbook.addWorksheet("Options");
+  optionsSheet.state = "veryHidden";
+  const optionColumns = [
+    ["States", statesList],
+    ["Categories", categoryOptions],
+    ["Genders", genderOptions],
+  ];
+
+  optionColumns.forEach(([label, values], columnIndex) => {
+    const columnNumber = columnIndex + 1;
+    optionsSheet.getCell(1, columnNumber).value = label;
+    values.forEach((value, valueIndex) => {
+      optionsSheet.getCell(valueIndex + 2, columnNumber).value = value;
+    });
+  });
+};
+
+const applyTemplateValidations = (worksheet) => {
+  for (let rowNumber = 2; rowNumber <= TEMPLATE_ROW_COUNT + 1; rowNumber += 1) {
+    worksheet.getCell(`A${rowNumber}`).dataValidation = {
+      type: "list",
+      allowBlank: false,
+      formulae: [`Options!$A$2:$A$${statesList.length + 1}`],
+      showErrorMessage: true,
+      errorTitle: "Invalid state",
+      error: "Choose a state from the dropdown.",
+    };
+    worksheet.getCell(`B${rowNumber}`).dataValidation = {
+      type: "list",
+      allowBlank: false,
+      formulae: [`Options!$B$2:$B$${categoryOptions.length + 1}`],
+      showErrorMessage: true,
+      errorTitle: "Invalid category",
+      error: "Choose a category from the dropdown.",
+    };
+    worksheet.getCell(`C${rowNumber}`).dataValidation = {
+      type: "list",
+      allowBlank: false,
+      formulae: [`Options!$C$2:$C$${genderOptions.length + 1}`],
+      showErrorMessage: true,
+      errorTitle: "Invalid gender",
+      error: "Choose a gender from the dropdown.",
+    };
+  }
+};
+
+const buildTemplateWorkbookBuffer = async () => {
+  const workbook = new ExcelJS.Workbook();
+  workbook.creator = "Avanti Fellows";
+  workbook.created = new Date();
+
+  const worksheet = workbook.addWorksheet("JoSAA Template", {
+    views: [{ state: "frozen", ySplit: 1 }],
+  });
+  worksheet.columns = requiredJosaaColumns.map((header) => ({
+    header,
+    key: header,
+    width: getExcelColumnWidth(header),
+  }));
+  worksheet.getRow(1).height = 28;
+  worksheet.getRow(1).eachCell((cell) => styleHeaderCell(cell));
+  worksheet.autoFilter = {
+    from: { row: 1, column: 1 },
+    to: { row: 1, column: requiredJosaaColumns.length },
+  };
+  applyTemplateValidations(worksheet);
+  addOptionsSheet(workbook);
+
+  return workbook.xlsx.writeBuffer();
+};
+
+const getSectionForHeader = (header, inputHeaderCount) => {
+  if (
+    requiredJosaaColumns.includes(header) ||
+    optionalIdentityColumns.includes(header)
+  ) {
+    return "Student details and ranks";
+  }
+  if (mainOutputColumns.includes(header)) return "Top 5 through JEE Main";
+  if (advancedOutputColumns.includes(header))
+    return "Top 5 through JEE Advanced";
+  if (statusColumns.includes(header)) return "Status";
+  return inputHeaderCount > 0 ? "Student details and ranks" : "";
+};
+
 const buildStyledWorkbookBuffer = async (headers, records) => {
-  const ExcelJS = (await import("exceljs")).default;
   const workbook = new ExcelJS.Workbook();
   workbook.creator = "Avanti Fellows";
   workbook.created = new Date();
 
   const worksheet = workbook.addWorksheet("Predictions", {
-    views: [{ state: "frozen", ySplit: 1 }],
+    views: [{ state: "frozen", ySplit: 2 }],
   });
-
   worksheet.columns = headers.map((header) => ({
-    header,
     key: header,
     width: getExcelColumnWidth(header),
   }));
 
-  records.forEach((record) => {
-    const row = {};
-    headers.forEach((header) => {
-      row[header] = record[header] ?? "";
-    });
-    worksheet.addRow(row);
+  const sectionRow = worksheet.getRow(1);
+  const headerRow = worksheet.getRow(2);
+  const inputHeaderCount = headers.length - outputColumns.length;
+  headers.forEach((header, index) => {
+    const columnNumber = index + 1;
+    sectionRow.getCell(columnNumber).value = getSectionForHeader(
+      header,
+      inputHeaderCount
+    );
+    headerRow.getCell(columnNumber).value = header;
   });
 
-  const headerRow = worksheet.getRow(1);
-  headerRow.height = 24;
-  headerRow.eachCell((cell) => {
-    cell.font = { bold: true, color: { argb: "FFFFFFFF" } };
-    cell.fill = {
-      type: "pattern",
-      pattern: "solid",
-      fgColor: { argb: "FFB52326" },
-    };
-    cell.alignment = {
-      vertical: "middle",
-      horizontal: "center",
-      wrapText: true,
-    };
-    cell.border = {
-      top: { style: "thin", color: { argb: "FF7A2628" } },
-      left: { style: "thin", color: { argb: "FF7A2628" } },
-      bottom: { style: "thin", color: { argb: "FF7A2628" } },
-      right: { style: "thin", color: { argb: "FF7A2628" } },
-    };
+  const mergeSameSection = (label) => {
+    const indexes = headers
+      .map((header, index) =>
+        getSectionForHeader(header, inputHeaderCount) === label
+          ? index + 1
+          : null
+      )
+      .filter(Boolean);
+    if (indexes.length > 1) {
+      worksheet.mergeCells(1, indexes[0], 1, indexes[indexes.length - 1]);
+    }
+  };
+  [
+    "Student details and ranks",
+    "Top 5 through JEE Main",
+    "Top 5 through JEE Advanced",
+    "Status",
+  ].forEach(mergeSameSection);
+
+  sectionRow.height = 26;
+  headerRow.height = 34;
+  sectionRow.eachCell((cell) => styleHeaderCell(cell, "FF7A2628"));
+  headerRow.eachCell((cell) => styleHeaderCell(cell));
+
+  records.forEach((record) => {
+    worksheet.addRow(headers.map((header) => record[header] ?? ""));
   });
 
   worksheet.eachRow((row, rowNumber) => {
-    if (rowNumber === 1) return;
+    if (rowNumber <= 2) return;
     const status = String(
       row.getCell(headers.indexOf("Prediction Status") + 1).value || ""
     );
-    row.height = 38;
-    row.eachCell((cell, columnNumber) => {
+    row.height = 42;
+    row.eachCell({ includeEmpty: true }, (cell, columnNumber) => {
       const header = headers[columnNumber - 1];
       const isRecommendation =
-        /^College \d+$/.test(header) || /^Course \d+$/.test(header);
+        /^JEE (Main|Advanced) (College|Course) \d+$/.test(header);
       cell.alignment = {
         vertical: "top",
-        wrapText: isRecommendation || header === "Prediction Status",
+        wrapText: isRecommendation || header.includes("Prediction Status"),
       };
-      cell.border = {
-        top: { style: "thin", color: { argb: "FFEADDD8" } },
-        left: { style: "thin", color: { argb: "FFEADDD8" } },
-        bottom: { style: "thin", color: { argb: "FFEADDD8" } },
-        right: { style: "thin", color: { argb: "FFEADDD8" } },
-      };
+      cell.border = styleCellBorder;
       cell.fill = {
         type: "pattern",
         pattern: "solid",
@@ -501,11 +600,30 @@ const buildStyledWorkbookBuffer = async (headers, records) => {
   });
 
   worksheet.autoFilter = {
-    from: { row: 1, column: 1 },
-    to: { row: 1, column: headers.length },
+    from: { row: 2, column: 1 },
+    to: { row: 2, column: headers.length },
   };
 
   return workbook.xlsx.writeBuffer();
+};
+
+const parseUploadedRows = async (body) => {
+  if (body?.csvText && typeof body.csvText === "string") {
+    return parseCsv(body.csvText);
+  }
+  if (body?.xlsxBase64 && typeof body.xlsxBase64 === "string") {
+    return parseXlsx(body.xlsxBase64);
+  }
+  return null;
+};
+
+const sendWorkbook = (res, workbookBuffer, filename) => {
+  res.setHeader(
+    "Content-Type",
+    "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+  );
+  res.setHeader("Content-Disposition", `attachment; filename="${filename}"`);
+  return res.status(200).send(Buffer.from(workbookBuffer));
 };
 
 export default async function handler(req, res) {
@@ -521,142 +639,45 @@ export default async function handler(req, res) {
       .json({ error: "Only JoSAA batch prediction is supported." });
   }
 
-  if (!body?.csvText || typeof body.csvText !== "string") {
-    return res.status(400).json({ error: "Please upload a CSV file." });
+  if (body?.responseType === "template") {
+    return sendWorkbook(
+      res,
+      await buildTemplateWorkbookBuffer(),
+      "josaa-batch-prediction-template.xlsx"
+    );
   }
 
-  const { headers, records } = parseCsv(body.csvText);
-  const missingColumns = requiredJosaaColumns.filter(
-    (column) => !headers.includes(column)
-  );
+  const parsedRows = await parseUploadedRows(body);
+  if (!parsedRows) {
+    return res.status(400).json({ error: "Please upload a CSV or XLSX file." });
+  }
 
+  const { headers, records } = parsedRows;
+  const missingColumns = getMissingColumns(headers);
   if (missingColumns.length > 0) {
     return res.status(400).json({
       error: `Missing required columns: ${missingColumns.join(", ")}`,
     });
   }
 
-  const completedHeaders = getCompletedHeaders(headers);
-  let predictedRows = 0;
-  let rowsWithErrors = 0;
+  const { completedHeaders, completedRecords, summary } = await processRecords(
+    headers,
+    records
+  );
 
-  const completedRecords = [];
-
-  for (const originalRow of records) {
-    const row = { ...originalRow };
-    clearRecommendationColumns(row);
-
-    try {
-      const category = normalizeCategory(row.Category);
-      const gender = normalizeGender(row.Gender);
-      const homeState = normalizeText(row.State);
-
-      if (!homeState) throw new Error("State is required");
-      if (!gender) throw new Error("Gender is required");
-      if (!category) throw new Error("Category is required");
-
-      const existingMainRank = normalizeText(row["Category Rank (Estimate)"]);
-      let mainRank = existingMainRank;
-      const categoryForEstimate = getCategoryForEstimate(category);
-
-      if (
-        !existingMainRank &&
-        isPwdCategory(category) &&
-        (normalizeText(row.Score) ||
-          normalizeText(row["Percentile Estimate"]) ||
-          normalizeText(row.Percentile))
-      ) {
-        throw new Error("Rank estimation is unavailable for this category");
-      }
-
-      if (!supportedJosaaEstimateCategories.has(categoryForEstimate)) {
-        throw new Error("Unsupported category");
-      }
-
-      const rankEstimate =
-        existingMainRank && isPwdCategory(category)
-          ? null
-          : estimateJosaaRank(row, categoryForEstimate);
-
-      if (rankEstimate) {
-        if (!normalizeText(row["Percentage Score"])) {
-          row["Percentage Score"] = rankEstimate.percentage;
-        }
-        if (!normalizeText(row["Percentile Estimate"])) {
-          row["Percentile Estimate"] = rankEstimate.percentile;
-        }
-        if (!normalizeText(row["AIR Estimate"])) {
-          row["AIR Estimate"] = rankEstimate.allIndiaRank;
-        }
-        if (!existingMainRank) {
-          row["Category Rank (Estimate)"] = rankEstimate.categoryRank;
-          mainRank = String(rankEstimate.categoryRank);
-        }
-      }
-
-      if (!mainRank) {
-        throw new Error(
-          "Provide Score, Percentile, or Category Rank (Estimate)"
-        );
-      }
-
-      const predictions = await predictJosaaColleges({
-        category,
-        gender,
-        homeState,
-        program: normalizeText(row.Program) || "engineering",
-        qualifiedJeeAdv: normalizeText(row["Qualified JEE Advanced"]) || "No",
-        advRank: normalizeText(row["JEE Advanced Rank"]),
-        mainRank,
-      });
-
-      if (predictions.length === 0) {
-        row["College 1"] = "No eligible colleges";
-        row["Prediction Status"] = "No eligible colleges";
-      } else {
-        predictions.forEach((prediction, index) => {
-          row[`College ${index + 1}`] = prediction.Institute;
-          row[`Course ${index + 1}`] = prediction["Academic Program Name"];
-        });
-        row["Prediction Status"] = "Predicted";
-        predictedRows += 1;
-      }
-    } catch (error) {
-      row["Prediction Status"] = error.message || "Unable to predict";
-      rowsWithErrors += 1;
-    }
-
-    completedRecords.push(row);
+  if (body?.responseType === "xlsx") {
+    return sendWorkbook(
+      res,
+      await buildStyledWorkbookBuffer(completedHeaders, completedRecords),
+      "batch-predictions-completed.xlsx"
+    );
   }
 
-  const responsePayload = {
-    summary: {
-      totalRows: completedRecords.length,
-      predictedRows,
-      rowsWithErrors,
-      noEligibleRows: completedRecords.length - predictedRows - rowsWithErrors,
-    },
+  return res.status(200).json({
+    summary,
     headers: completedHeaders,
     records: completedRecords,
     preview: completedRecords.slice(0, 5),
     csv: toCsv(completedHeaders, completedRecords),
-  };
-
-  if (body?.responseType === "xlsx") {
-    const workbookBuffer = await buildStyledWorkbookBuffer(
-      completedHeaders,
-      completedRecords
-    );
-    res.setHeader(
-      "Content-Type",
-      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-    );
-    res.setHeader(
-      "Content-Disposition",
-      'attachment; filename="batch-predictions-completed.xlsx"'
-    );
-    return res.status(200).send(Buffer.from(workbookBuffer));
-  }
-
-  return res.status(200).json(responsePayload);
+  });
 }

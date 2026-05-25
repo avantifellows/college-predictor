@@ -2,21 +2,26 @@ import Head from "next/head";
 import React, { useMemo, useState } from "react";
 import { AlertCircle, Download, FileSpreadsheet, Upload } from "lucide-react";
 
-const sampleColumns = ["State", "Category", "Gender", "Score"];
-
 const previewColumns = [
-  "Student Name",
   "State",
   "Category",
   "Gender",
-  "Score",
-  "Category Rank (Estimate)",
-  "College 1",
-  "Course 1",
+  "JEE Main Category Rank",
+  "JEE Main College 1",
+  "JEE Main Course 1",
+  "JEE Advanced Category Rank",
+  "JEE Advanced College 1",
+  "JEE Advanced Course 1",
   "Prediction Status",
 ];
 
-const requiredColumns = ["State", "Category", "Gender"];
+const requiredColumns = [
+  "State",
+  "Category",
+  "Gender",
+  "JEE Main Category Rank",
+  "JEE Advanced Category Rank",
+];
 
 const countCsvRows = (text) =>
   text
@@ -42,26 +47,41 @@ const getCsvOutputFilename = (filename) => {
 };
 
 const getExcelOutputFilename = (filename) => {
-  const baseName = filename.replace(/\.csv$/i, "") || "batch-predictions";
+  const baseName =
+    filename.replace(/\.(csv|xlsx)$/i, "") || "batch-predictions";
   return `${baseName} - completed.xlsx`;
+};
+
+const arrayBufferToBase64 = (buffer) => {
+  let binary = "";
+  const bytes = new Uint8Array(buffer);
+  const chunkSize = 0x8000;
+  for (let index = 0; index < bytes.length; index += chunkSize) {
+    const chunk = bytes.subarray(index, index + chunkSize);
+    binary += String.fromCharCode(...chunk);
+  }
+  return window.btoa(binary);
 };
 
 const BatchPredict = () => {
   const [fileName, setFileName] = useState("");
   const [csvText, setCsvText] = useState("");
+  const [xlsxBase64, setXlsxBase64] = useState("");
   const [rowCount, setRowCount] = useState(0);
   const [isProcessing, setIsProcessing] = useState(false);
   const [isDownloadingExcel, setIsDownloadingExcel] = useState(false);
+  const [isDownloadingTemplate, setIsDownloadingTemplate] = useState(false);
   const [error, setError] = useState("");
   const [result, setResult] = useState(null);
 
-  const canSubmit = Boolean(csvText) && !isProcessing;
+  const canSubmit = Boolean(csvText || xlsxBase64) && !isProcessing;
 
   const statusCards = useMemo(() => {
     if (!result?.summary) return [];
     return [
       { label: "Rows", value: result.summary.totalRows },
-      { label: "Predicted", value: result.summary.predictedRows },
+      { label: "JEE Main", value: result.summary.mainPredictedRows },
+      { label: "JEE Advanced", value: result.summary.advancedPredictedRows },
       { label: "No eligible", value: result.summary.noEligibleRows },
       { label: "Needs review", value: result.summary.rowsWithErrors },
     ];
@@ -75,23 +95,42 @@ const BatchPredict = () => {
     if (!file) {
       setFileName("");
       setCsvText("");
+      setXlsxBase64("");
       setRowCount(0);
       return;
     }
 
-    if (!file.name.toLowerCase().endsWith(".csv")) {
-      setError("Please upload a CSV file.");
+    const isCsv = file.name.toLowerCase().endsWith(".csv");
+    const isXlsx = file.name.toLowerCase().endsWith(".xlsx");
+    if (!isCsv && !isXlsx) {
+      setError("Please upload a CSV or XLSX file.");
       setFileName("");
       setCsvText("");
+      setXlsxBase64("");
       setRowCount(0);
       return;
     }
 
-    const text = await file.text();
     setFileName(file.name);
-    setCsvText(text);
-    setRowCount(Math.max(countCsvRows(text), 0));
+    if (isCsv) {
+      const text = await file.text();
+      setCsvText(text);
+      setXlsxBase64("");
+      setRowCount(Math.max(countCsvRows(text), 0));
+    } else {
+      const buffer = await file.arrayBuffer();
+      setCsvText("");
+      setXlsxBase64(arrayBufferToBase64(buffer));
+      setRowCount(0);
+    }
   };
+
+  const getUploadPayload = (extraFields = {}) => ({
+    exam: "JoSAA",
+    csvText: csvText || undefined,
+    xlsxBase64: xlsxBase64 || undefined,
+    ...extraFields,
+  });
 
   const handlePredict = async () => {
     setIsProcessing(true);
@@ -102,10 +141,7 @@ const BatchPredict = () => {
       const response = await fetch("/api/batch-predict", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          exam: "JoSAA",
-          csvText,
-        }),
+        body: JSON.stringify(getUploadPayload()),
       });
 
       const data = await response.json();
@@ -122,6 +158,38 @@ const BatchPredict = () => {
     }
   };
 
+  const handleDownloadTemplate = async () => {
+    setIsDownloadingTemplate(true);
+    setError("");
+
+    try {
+      const response = await fetch("/api/batch-predict", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          exam: "JoSAA",
+          responseType: "template",
+        }),
+      });
+
+      if (!response.ok) {
+        setError("Unable to download template right now.");
+        return;
+      }
+
+      const workbookBlob = await response.blob();
+      downloadFile(
+        workbookBlob,
+        "josaa-batch-prediction-template.xlsx",
+        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+      );
+    } catch (apiError) {
+      setError("Unable to download template right now.");
+    } finally {
+      setIsDownloadingTemplate(false);
+    }
+  };
+
   const handleDownloadCsv = () => {
     if (!result?.csv) return;
     downloadFile(
@@ -132,7 +200,7 @@ const BatchPredict = () => {
   };
 
   const handleDownloadExcel = async () => {
-    if (!result?.csv || !csvText) return;
+    if (!result?.csv || (!csvText && !xlsxBase64)) return;
     setIsDownloadingExcel(true);
     setError("");
 
@@ -140,11 +208,11 @@ const BatchPredict = () => {
       const response = await fetch("/api/batch-predict", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          exam: "JoSAA",
-          csvText,
-          responseType: "xlsx",
-        }),
+        body: JSON.stringify(
+          getUploadPayload({
+            responseType: "xlsx",
+          })
+        ),
       });
 
       if (!response.ok) {
@@ -187,8 +255,8 @@ const BatchPredict = () => {
                   Batch Predictor
                 </h1>
                 <p className="mt-2 max-w-2xl text-sm leading-6 text-[#6d5550]">
-                  Upload one student CSV and download the same sheet with rank
-                  estimates and top college-course predictions filled in.
+                  Upload the fixed JoSAA rank template and download top 5
+                  college-course predictions through JEE Main and JEE Advanced.
                 </p>
               </div>
               <div className="rounded-xl border border-[#eaded8] bg-[#fffdfa] p-4 text-sm text-[#4a3935]">
@@ -204,35 +272,35 @@ const BatchPredict = () => {
                   ))}
                 </div>
                 <p className="mt-3 font-semibold text-[#2f2320]">
-                  Also include one of these:
+                  Use the template to avoid spelling mistakes in category,
+                  gender, and state.
                 </p>
-                <div className="mt-2 flex flex-wrap gap-2">
-                  {["Score", "Percentile", "Category Rank (Estimate)"].map(
-                    (column) => (
-                      <span
-                        key={column}
-                        className="rounded-full bg-white px-3 py-1 text-xs font-semibold text-[#5b1f20] ring-1 ring-[#eaded8]"
-                      >
-                        {column}
-                      </span>
-                    )
-                  )}
-                </div>
+                <button
+                  type="button"
+                  onClick={handleDownloadTemplate}
+                  disabled={isDownloadingTemplate}
+                  className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-lg border border-[#d8c7c1] bg-white px-4 py-2.5 text-sm font-semibold text-[#7a2628] transition hover:bg-[#f8efec] disabled:cursor-not-allowed disabled:text-gray-500 sm:w-auto"
+                >
+                  <Download size={17} aria-hidden="true" />
+                  {isDownloadingTemplate
+                    ? "Preparing template..."
+                    : "Download template sheet"}
+                </button>
               </div>
             </div>
 
             <div className="flex flex-col gap-4 py-5">
               <div className="rounded-xl border border-[#eaded8] bg-[#fffdfa] p-4">
                 <label className="mb-3 block text-sm font-semibold text-[#4a3935]">
-                  Upload student CSV
+                  Upload completed template
                 </label>
                 <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
                   <label className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg bg-[#B52326] px-4 py-3 text-sm font-semibold text-white transition hover:bg-[#9E1F22]">
                     <Upload size={18} aria-hidden="true" />
-                    Choose CSV
+                    Choose file
                     <input
                       type="file"
-                      accept=".csv,text/csv"
+                      accept=".csv,.xlsx,text/csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
                       onChange={handleFileChange}
                       className="sr-only"
                     />
@@ -241,28 +309,19 @@ const BatchPredict = () => {
                     {fileName ? (
                       <>
                         <p className="truncate font-semibold">{fileName}</p>
-                        <p className="text-xs text-[#6d5550]">
-                          {rowCount} student rows detected
-                        </p>
+                        {csvText ? (
+                          <p className="text-xs text-[#6d5550]">
+                            {rowCount} student rows detected
+                          </p>
+                        ) : (
+                          <p className="text-xs text-[#6d5550]">
+                            XLSX file selected
+                          </p>
+                        )}
                       </>
                     ) : (
                       <p>No file selected</p>
                     )}
-                  </div>
-                </div>
-                <div className="mt-4 rounded-lg border border-[#eaded8] bg-white p-3">
-                  <p className="text-xs font-semibold uppercase tracking-wide text-[#7a2628]">
-                    Simple template
-                  </p>
-                  <div className="mt-2 flex flex-wrap gap-2">
-                    {sampleColumns.map((column) => (
-                      <span
-                        key={column}
-                        className="rounded-full bg-[#f8efec] px-3 py-1 text-xs font-semibold text-[#5b1f20]"
-                      >
-                        {column}
-                      </span>
-                    ))}
                   </div>
                 </div>
               </div>
@@ -277,9 +336,8 @@ const BatchPredict = () => {
                       Output columns
                     </h2>
                     <p className="mt-1 text-sm leading-6 text-[#6d5550]">
-                      The completed file keeps original columns and fills
-                      percentile, AIR, category rank, and College/Course 1-10.
-                      Download Excel for cleaner column widths.
+                      The completed file keeps original columns and adds clearly
+                      separated JEE Main and JEE Advanced output sections.
                     </p>
                   </div>
                 </div>
