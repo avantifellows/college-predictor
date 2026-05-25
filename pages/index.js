@@ -434,9 +434,7 @@ const ExamForm = () => {
     // For TNEA exam
     if (selectedExam === "TNEA") {
       return (
-        !formData.rank ||
-        formData.rank === "" ||
-        hasMissingConfiguredFields()
+        !formData.rank || formData.rank === "" || hasMissingConfiguredFields()
       );
     }
 
@@ -516,9 +514,7 @@ const ExamForm = () => {
     return fieldsToRender.map((field) =>
       renderFormCard(
         `${selectedExam}-${field.name}`,
-        typeof field.label === "function"
-          ? field.label(formData)
-          : field.label,
+        typeof field.label === "function" ? field.label(formData) : field.label,
         <Dropdown
           options={field.options.map((option) =>
             typeof option === "string"
@@ -557,14 +553,18 @@ const ExamForm = () => {
             <h1 className="mb-2 text-2xl font-bold text-[#2f2320] md:text-3xl">
               {getConstants().TITLE}
             </h1>
-            {/* TGEAPCET Disclaimer - Shows when EWS category is selected */}
-            {selectedExam === "TGEAPCET" && formData.category === "EWS" && (
-              <div className="bg-red-50 border-l-4 border-red-400 p-4 mb-6 w-full">
-                <p className="text-red-700 text-sm">
-                  Showing OC category data as EWS-specific data is limited.
-                </p>
-              </div>
-            )}
+            {/* TGEAPCET Disclaimer - Shows when EWS category or OU region is selected */}
+            {selectedExam === "TGEAPCET" &&
+              (formData.category === "EWS" || formData.region === "OU") && (
+                <div className="bg-red-50 border-l-4 border-red-400 p-4 mb-6 w-full">
+                  <p className="text-red-700 text-sm">
+                    {formData.category === "EWS" &&
+                      "Showing OC category data as EWS-specific data is limited. "}
+                    {formData.region === "OU" &&
+                      "Including other regions as OU-specific data is limited."}
+                  </p>
+                </div>
+              )}
 
             <div className="grid w-full grid-cols-1 gap-3 md:grid-cols-2">
               {renderFormCard(

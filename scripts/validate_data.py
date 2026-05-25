@@ -16,7 +16,7 @@ SCHOLARSHIP_REQUIRED_FIELDS = [
     "Family Income (in INR)",
 ]
 CUTOFF_REQUIRED_FIELDS = [
-    "college_name",  
+    "college_name",
     "closing_rank",
     "opening_rank",
 ]
@@ -74,7 +74,7 @@ def validate_scholarship_data():
             for field in ["Stream", "State", "Eligibility"]:
                 if field in df.columns:
                     duplicate_keys.append(field)
-            
+
             dupes = df[df.duplicated(subset=duplicate_keys, keep=False)]
             for idx in dupes.index:
                 dup_combo = {k: df.loc[idx, k] for k in duplicate_keys}
@@ -102,7 +102,7 @@ def validate_scholarship_data():
         print(f" Found {len(scholarship_issues)} issues in scholarship data")
 
     except Exception as e:
-        print(f"Could not load scholarship data: {e}")        
+        print(f"Could not load scholarship data: {e}")
 
 def validate_cutoff_files():
     print("\n Validating college/cutoff JSON files...")

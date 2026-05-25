@@ -592,8 +592,8 @@ const buildStyledWorkbookBuffer = async (headers, records) => {
             status === "Predicted"
               ? "FFFFFDFA"
               : status === "No eligible colleges"
-                ? "FFFFF7E6"
-                : "FFFFEEEE",
+              ? "FFFFF7E6"
+              : "FFFFEEEE",
         },
       };
     });
