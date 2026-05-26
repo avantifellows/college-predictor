@@ -1038,6 +1038,16 @@ export const gujcetConfig = {
         }
         return true;
       },
+      (item) => {
+        if (query.rank) {
+          const closingMarks = parseFloat(item.closing_marks);
+          const userScore = parseFloat(query.rank);
+          if (!isNaN(closingMarks) && !isNaN(userScore)) {
+            return userScore >= closingMarks;
+          }
+        }
+        return true;
+      },
     ];
   },
   getSort: () => [["closing_marks", "DESC"]], // Sort by closing_marks in descending order
