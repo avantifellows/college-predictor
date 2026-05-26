@@ -562,7 +562,8 @@ export const kcetConfig = {
       options: [
         {
           value: "1",
-          label: "1 (Scheduled Castes in hilly/forest areas and specific backward groups)",
+          label:
+            "1 (Scheduled Castes in hilly/forest areas and specific backward groups)",
         },
         { value: "2A", label: "2A (Other Backward Classes)" },
         { value: "2B", label: "2B (Muslim communities and Vishwakarma)" },
