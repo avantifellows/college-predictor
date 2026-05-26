@@ -617,7 +617,7 @@ const CollegePredictor = () => {
           />,
           showHomeStateNote
             ? "We show home-state closing ranks wherever that quota applies."
-            : null
+            : field.helperText || null
         );
       });
 
