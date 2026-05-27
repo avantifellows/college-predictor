@@ -434,9 +434,7 @@ const ExamForm = () => {
     // For TNEA exam
     if (selectedExam === "TNEA") {
       return (
-        !formData.rank ||
-        formData.rank === "" ||
-        hasMissingConfiguredFields()
+        !formData.rank || formData.rank === "" || hasMissingConfiguredFields()
       );
     }
 
@@ -516,9 +514,7 @@ const ExamForm = () => {
     return fieldsToRender.map((field) =>
       renderFormCard(
         `${selectedExam}-${field.name}`,
-        typeof field.label === "function"
-          ? field.label(formData)
-          : field.label,
+        typeof field.label === "function" ? field.label(formData) : field.label,
         <Dropdown
           options={field.options.map((option) =>
             typeof option === "string"
@@ -528,7 +524,8 @@ const ExamForm = () => {
           onChange={handleInputChange(field.name)}
           selectedValue={formData[field.name]}
           className="w-full"
-        />
+        />,
+        field.helperText || null
       )
     );
   };
