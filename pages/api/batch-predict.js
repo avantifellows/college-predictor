@@ -872,8 +872,8 @@ const buildStyledWorkbookBuffer = async (headers, records, exam) => {
             status === "Predicted"
               ? "FFFFFDFA"
               : status === "No eligible colleges"
-                ? "FFFFF7E6"
-                : "FFFFEEEE",
+              ? "FFFFF7E6"
+              : "FFFFEEEE",
         },
       };
     });
@@ -915,11 +915,9 @@ export default async function handler(req, res) {
 
   const exam = body?.exam;
   if (!["JoSAA", "JAC Delhi"].includes(exam)) {
-    return res
-      .status(400)
-      .json({
-        error: "Only JoSAA and JAC Delhi batch prediction are supported.",
-      });
+    return res.status(400).json({
+      error: "Only JoSAA and JAC Delhi batch prediction are supported.",
+    });
   }
 
   if (body?.responseType === "template") {
