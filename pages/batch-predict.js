@@ -15,12 +15,60 @@ const previewColumns = [
   "Prediction Status",
 ];
 
+const jacDelhiPreviewColumns = [
+  "Region",
+  "Category",
+  "Gender",
+  "All India Rank",
+  "PWD",
+  "Defense Ward",
+  "JAC Delhi College 1",
+  "JAC Delhi Course 1",
+  "Prediction Status",
+];
+
 const requiredColumns = [
   "State",
   "Category",
   "Gender",
   "JEE Main Category Rank",
   "JEE Advanced Category Rank",
+];
+
+const jacDelhiRequiredColumns = [
+  "Region",
+  "Category",
+  "Gender",
+  "All India Rank",
+  "PWD",
+  "Defense Ward",
+];
+
+const counsellingOptions = [
+  {
+    value: "JoSAA",
+    label: "JoSAA",
+    title: "JoSAA",
+    description:
+      "Upload the fixed JoSAA rank template and download top 5 college-course predictions through JEE Main and JEE Advanced.",
+    templateFilename: "josaa-batch-prediction-template.xlsx",
+    outputDescription:
+      "The completed file keeps original columns and adds clearly separated JEE Main and JEE Advanced output sections.",
+    previewColumns,
+    requiredColumns,
+  },
+  {
+    value: "JAC Delhi",
+    label: "JAC Delhi",
+    title: "JAC Delhi",
+    description:
+      "Upload the fixed JAC Delhi rank template and download top 5 college-course predictions.",
+    templateFilename: "jac-delhi-batch-prediction-template.xlsx",
+    outputDescription:
+      "The completed file keeps original columns and adds a clearly separated JAC Delhi output section.",
+    previewColumns: jacDelhiPreviewColumns,
+    requiredColumns: jacDelhiRequiredColumns,
+  },
 ];
 
 const countCsvRows = (text) =>
@@ -64,6 +112,7 @@ const arrayBufferToBase64 = (buffer) => {
 };
 
 const BatchPredict = () => {
+  const [selectedExam, setSelectedExam] = useState("JoSAA");
   const [fileName, setFileName] = useState("");
   const [csvText, setCsvText] = useState("");
   const [xlsxBase64, setXlsxBase64] = useState("");
@@ -75,9 +124,20 @@ const BatchPredict = () => {
   const [result, setResult] = useState(null);
 
   const canSubmit = Boolean(csvText || xlsxBase64) && !isProcessing;
+  const selectedConfig =
+    counsellingOptions.find((option) => option.value === selectedExam) ||
+    counsellingOptions[0];
 
   const statusCards = useMemo(() => {
     if (!result?.summary) return [];
+    if (selectedExam === "JAC Delhi") {
+      return [
+        { label: "Rows", value: result.summary.totalRows },
+        { label: "JAC Delhi", value: result.summary.jacDelhiPredictedRows },
+        { label: "No eligible", value: result.summary.noEligibleRows },
+        { label: "Needs review", value: result.summary.rowsWithErrors },
+      ];
+    }
     return [
       { label: "Rows", value: result.summary.totalRows },
       { label: "JEE Main", value: result.summary.mainPredictedRows },
@@ -85,7 +145,17 @@ const BatchPredict = () => {
       { label: "No eligible", value: result.summary.noEligibleRows },
       { label: "Needs review", value: result.summary.rowsWithErrors },
     ];
-  }, [result]);
+  }, [result, selectedExam]);
+
+  const handleExamChange = (exam) => {
+    setSelectedExam(exam);
+    setFileName("");
+    setCsvText("");
+    setXlsxBase64("");
+    setRowCount(0);
+    setResult(null);
+    setError("");
+  };
 
   const handleFileChange = async (event) => {
     const file = event.target.files?.[0];
@@ -126,7 +196,7 @@ const BatchPredict = () => {
   };
 
   const getUploadPayload = (extraFields = {}) => ({
-    exam: "JoSAA",
+    exam: selectedExam,
     csvText: csvText || undefined,
     xlsxBase64: xlsxBase64 || undefined,
     ...extraFields,
@@ -167,7 +237,7 @@ const BatchPredict = () => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          exam: "JoSAA",
+          exam: selectedExam,
           responseType: "template",
         }),
       });
@@ -180,7 +250,7 @@ const BatchPredict = () => {
       const workbookBlob = await response.blob();
       downloadFile(
         workbookBlob,
-        "josaa-batch-prediction-template.xlsx",
+        selectedConfig.templateFilename,
         "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
       );
     } catch (apiError) {
@@ -249,20 +319,38 @@ const BatchPredict = () => {
             <div className="flex flex-col gap-4 border-b border-[#eaded8] pb-5">
               <div>
                 <p className="text-sm font-semibold uppercase tracking-wide text-[#B52326]">
-                  JoSAA
+                  Counselling
                 </p>
                 <h1 className="mt-1 text-2xl font-bold text-[#2f2320] md:text-3xl">
                   Batch Predictor
                 </h1>
                 <p className="mt-2 max-w-2xl text-sm leading-6 text-[#6d5550]">
-                  Upload the fixed JoSAA rank template and download top 5
-                  college-course predictions through JEE Main and JEE Advanced.
+                  {selectedConfig.description}
                 </p>
+              </div>
+              <div className="grid gap-2 rounded-xl border border-[#eaded8] bg-[#fffdfa] p-2 sm:grid-cols-2">
+                {counsellingOptions.map((option) => {
+                  const isSelected = option.value === selectedExam;
+                  return (
+                    <button
+                      key={option.value}
+                      type="button"
+                      onClick={() => handleExamChange(option.value)}
+                      className={`rounded-lg px-4 py-3 text-left text-sm font-semibold transition ${
+                        isSelected
+                          ? "bg-[#B52326] text-white"
+                          : "bg-white text-[#4a3935] hover:bg-[#f8efec]"
+                      }`}
+                    >
+                      {option.label}
+                    </button>
+                  );
+                })}
               </div>
               <div className="rounded-xl border border-[#eaded8] bg-[#fffdfa] p-4 text-sm text-[#4a3935]">
                 <p className="font-semibold text-[#2f2320]">Required columns</p>
                 <div className="mt-2 flex flex-wrap gap-2">
-                  {requiredColumns.map((column) => (
+                  {selectedConfig.requiredColumns.map((column) => (
                     <span
                       key={column}
                       className="rounded-full bg-[#f8efec] px-3 py-1 text-xs font-semibold text-[#5b1f20]"
@@ -272,8 +360,8 @@ const BatchPredict = () => {
                   ))}
                 </div>
                 <p className="mt-3 font-semibold text-[#2f2320]">
-                  Use the template to avoid spelling mistakes in category,
-                  gender, and state.
+                  Use the template to avoid spelling mistakes in dropdown
+                  fields.
                 </p>
                 <button
                   type="button"
@@ -336,8 +424,7 @@ const BatchPredict = () => {
                       Output columns
                     </h2>
                     <p className="mt-1 text-sm leading-6 text-[#6d5550]">
-                      The completed file keeps original columns and adds clearly
-                      separated JEE Main and JEE Advanced output sections.
+                      {selectedConfig.outputDescription}
                     </p>
                   </div>
                 </div>
@@ -412,7 +499,7 @@ const BatchPredict = () => {
                   <table className="w-full min-w-[900px] border-collapse text-left text-sm">
                     <thead className="bg-[#f8efec] text-xs font-semibold uppercase tracking-wide text-[#5b1f20]">
                       <tr>
-                        {previewColumns.map((column) => (
+                        {selectedConfig.previewColumns.map((column) => (
                           <th key={column} className="px-3 py-3">
                             {column}
                           </th>
@@ -425,7 +512,7 @@ const BatchPredict = () => {
                           key={`${row["Student ID"] || rowIndex}-${rowIndex}`}
                           className="border-t border-[#eaded8] bg-white"
                         >
-                          {previewColumns.map((column) => (
+                          {selectedConfig.previewColumns.map((column) => (
                             <td
                               key={column}
                               className="max-w-[260px] truncate px-3 py-3 text-xs text-[#4a3935]"

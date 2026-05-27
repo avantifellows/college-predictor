@@ -11,6 +11,14 @@ const requiredJosaaColumns = [
   "JEE Main Category Rank",
   "JEE Advanced Category Rank",
 ];
+const requiredJacDelhiColumns = [
+  "Region",
+  "Category",
+  "Gender",
+  "All India Rank",
+  "PWD",
+  "Defense Ward",
+];
 
 const optionalIdentityColumns = ["Student Name", "Student ID", "POC"];
 const categoryOptions = [
@@ -29,6 +37,17 @@ const genderOptions = [
   "Gender-Neutral",
   "Female-only (including Supernumerary)",
 ];
+const jacDelhiCategoryOptions = [
+  "General",
+  "OBC",
+  "EWS",
+  "SC",
+  "ST",
+  "Kashmiri Minority",
+];
+const jacDelhiGenderOptions = ["Gender-Neutral", "Female-Only"];
+const jacDelhiRegionOptions = ["Delhi", "Outside Delhi"];
+const yesNoOptions = ["No", "Yes"];
 
 const mainOutputColumns = [];
 const advancedOutputColumns = [];
@@ -48,11 +67,30 @@ const statusColumns = [
   "JEE Advanced Prediction Status",
   "Prediction Status",
 ];
+const jacDelhiOutputColumns = [];
+for (let index = 1; index <= MAX_RECOMMENDATIONS; index += 1) {
+  jacDelhiOutputColumns.push(
+    `JAC Delhi College ${index}`,
+    `JAC Delhi Course ${index}`
+  );
+}
+const jacDelhiStatusColumns = [
+  "JAC Delhi Prediction Status",
+  "Prediction Status",
+];
 const outputColumns = [
   ...mainOutputColumns,
   ...advancedOutputColumns,
   ...statusColumns,
 ];
+
+const getOutputColumns = (exam) =>
+  exam === "JAC Delhi"
+    ? [...jacDelhiOutputColumns, ...jacDelhiStatusColumns]
+    : outputColumns;
+
+const getRequiredColumns = (exam) =>
+  exam === "JAC Delhi" ? requiredJacDelhiColumns : requiredJosaaColumns;
 
 export const config = {
   api: {
@@ -93,6 +131,54 @@ const normalizeGender = (value) => {
   if (["male", "boy", "gender-neutral"].includes(normalized)) {
     return "Gender-Neutral";
   }
+  return normalizeText(value);
+};
+
+const normalizeJacDelhiCategory = (value) => {
+  const normalized = normalizeText(value).toLowerCase();
+  if (["open", "gen", "general"].includes(normalized)) return "General";
+  if (["obc", "obc-ncl", "obc ncl"].includes(normalized)) return "OBC";
+  if (["ews", "sc", "st"].includes(normalized)) return normalized.toUpperCase();
+  if (["km", "kashmiri minority"].includes(normalized)) {
+    return "Kashmiri Minority";
+  }
+  return normalizeText(value);
+};
+
+const normalizeJacDelhiGender = (value) => {
+  const normalized = normalizeText(value).toLowerCase();
+  if (
+    [
+      "female",
+      "female-only",
+      "female only",
+      "female-only (including supernumerary)",
+      "girl",
+    ].includes(normalized)
+  ) {
+    return "Female-Only";
+  }
+  if (
+    ["male", "boy", "gender-neutral", "gender neutral"].includes(normalized)
+  ) {
+    return "Gender-Neutral";
+  }
+  return normalizeText(value);
+};
+
+const normalizeJacDelhiRegion = (value) => {
+  const normalized = normalizeText(value).toLowerCase();
+  if (normalized === "delhi") return "Delhi";
+  if (["outside delhi", "outside-delhi", "od"].includes(normalized)) {
+    return "Outside Delhi";
+  }
+  return normalizeText(value);
+};
+
+const normalizeYesNo = (value) => {
+  const normalized = normalizeText(value).toLowerCase();
+  if (["yes", "y", "true"].includes(normalized)) return "Yes";
+  if (["no", "n", "false"].includes(normalized)) return "No";
   return normalizeText(value);
 };
 
@@ -262,9 +348,42 @@ const predictJosaaColleges = async ({
     .slice(0, MAX_RECOMMENDATIONS);
 };
 
-const getCompletedHeaders = (headers) => {
+const predictJacDelhiColleges = async ({
+  category,
+  gender,
+  region,
+  rank,
+  pwd,
+  defenseWard,
+}) => {
+  if (!rank) return [];
+  const jacConfig = examConfigs["JEE Main-JAC"];
+  const dataPath = jacConfig.getDataPath();
+  const data = JSON.parse(await fs.readFile(dataPath, "utf8"));
+  const userRank = parseRank(rank);
+  if (!userRank) return [];
+
+  return data
+    .filter((item) => item.State === region)
+    .filter((item) => item.Category === category)
+    .filter((item) => item.Gender === gender)
+    .filter((item) => item.PWD === pwd)
+    .filter((item) => item.Defense === defenseWard)
+    .filter((item) => {
+      const closingRank = parseInt(item["Closing Rank"], 10);
+      return closingRank >= 0.9 * userRank;
+    })
+    .sort((collegeA, collegeB) => {
+      const rankA = parseFloat(collegeA["Closing Rank"]) || 0;
+      const rankB = parseFloat(collegeB["Closing Rank"]) || 0;
+      return rankA - rankB;
+    })
+    .slice(0, MAX_RECOMMENDATIONS);
+};
+
+const getCompletedHeaders = (headers, exam) => {
   const nextHeaders = [...headers];
-  outputColumns.forEach((column) => {
+  getOutputColumns(exam).forEach((column) => {
     if (!nextHeaders.includes(column)) {
       nextHeaders.push(column);
     }
@@ -272,8 +391,8 @@ const getCompletedHeaders = (headers) => {
   return nextHeaders;
 };
 
-const clearOutputColumns = (row) => {
-  outputColumns.forEach((column) => {
+const clearOutputColumns = (row, exam) => {
+  getOutputColumns(exam).forEach((column) => {
     row[column] = "";
   });
 };
@@ -286,11 +405,11 @@ const fillPredictions = (row, predictions, prefix) => {
   });
 };
 
-const getMissingColumns = (headers) =>
-  requiredJosaaColumns.filter((column) => !headers.includes(column));
+const getMissingColumns = (headers, exam) =>
+  getRequiredColumns(exam).filter((column) => !headers.includes(column));
 
-const processRecords = async (headers, records) => {
-  const completedHeaders = getCompletedHeaders(headers);
+const processJosaaRecords = async (headers, records) => {
+  const completedHeaders = getCompletedHeaders(headers, "JoSAA");
   let mainPredictedRows = 0;
   let advancedPredictedRows = 0;
   let rowsWithErrors = 0;
@@ -299,7 +418,7 @@ const processRecords = async (headers, records) => {
 
   for (const originalRow of records) {
     const row = { ...originalRow };
-    clearOutputColumns(row);
+    clearOutputColumns(row, "JoSAA");
 
     try {
       const category = normalizeCategory(row.Category);
@@ -392,13 +511,101 @@ const processRecords = async (headers, records) => {
   };
 };
 
+const processJacDelhiRecords = async (headers, records) => {
+  const completedHeaders = getCompletedHeaders(headers, "JAC Delhi");
+  let jacDelhiPredictedRows = 0;
+  let rowsWithErrors = 0;
+  const completedRecords = [];
+
+  for (const originalRow of records) {
+    const row = { ...originalRow };
+    clearOutputColumns(row, "JAC Delhi");
+
+    try {
+      const region = normalizeJacDelhiRegion(row.Region);
+      const category = normalizeJacDelhiCategory(row.Category);
+      const gender = normalizeJacDelhiGender(row.Gender);
+      const rank = normalizeText(row["All India Rank"]);
+      const pwd = normalizeYesNo(row.PWD);
+      const defenseWard = normalizeYesNo(row["Defense Ward"]);
+
+      if (!region) throw new Error("Region is required");
+      if (!jacDelhiRegionOptions.includes(region))
+        throw new Error("Invalid Region");
+      if (!category) throw new Error("Category is required");
+      if (!jacDelhiCategoryOptions.includes(category))
+        throw new Error("Invalid Category");
+      if (!gender) throw new Error("Gender is required");
+      if (!jacDelhiGenderOptions.includes(gender))
+        throw new Error("Invalid Gender");
+      if (!rank) throw new Error("All India Rank is required");
+      if (!parseRank(rank)) throw new Error("Invalid All India Rank");
+      if (!pwd) throw new Error("PWD is required");
+      if (!yesNoOptions.includes(pwd)) throw new Error("Invalid PWD");
+      if (!defenseWard) throw new Error("Defense Ward is required");
+      if (!yesNoOptions.includes(defenseWard))
+        throw new Error("Invalid Defense Ward");
+
+      const predictions = await predictJacDelhiColleges({
+        category,
+        gender,
+        region,
+        rank,
+        pwd,
+        defenseWard,
+      });
+
+      fillPredictions(row, predictions, "JAC Delhi");
+      if (predictions.length === 0) {
+        row["JAC Delhi Prediction Status"] = "No eligible colleges";
+        row["Prediction Status"] = "No eligible colleges";
+      } else {
+        row["JAC Delhi Prediction Status"] = "Predicted";
+        row["Prediction Status"] = "Predicted";
+        jacDelhiPredictedRows += 1;
+      }
+    } catch (error) {
+      row["Prediction Status"] = error.message || "Unable to predict";
+      row["JAC Delhi Prediction Status"] = "";
+      rowsWithErrors += 1;
+    }
+
+    completedRecords.push(row);
+  }
+
+  return {
+    completedHeaders,
+    completedRecords,
+    summary: {
+      totalRows: completedRecords.length,
+      jacDelhiPredictedRows,
+      rowsWithErrors,
+      noEligibleRows:
+        completedRecords.length - jacDelhiPredictedRows - rowsWithErrors,
+    },
+  };
+};
+
+const processRecords = async (headers, records, exam) =>
+  exam === "JAC Delhi"
+    ? processJacDelhiRecords(headers, records)
+    : processJosaaRecords(headers, records);
+
 const getExcelColumnWidth = (header) => {
   if (/^JEE (Main|Advanced) Course \d+$/.test(header)) return 62;
   if (/^JEE (Main|Advanced) College \d+$/.test(header)) return 42;
+  if (/^JAC Delhi Course \d+$/.test(header)) return 62;
+  if (/^JAC Delhi College \d+$/.test(header)) return 42;
   if (header === "Prediction Status") return 28;
   if (header.includes("Prediction Status")) return 32;
-  if (header.includes("Category Rank")) return 24;
-  if (["State", "Category", "Gender"].includes(header)) return 24;
+  if (header.includes("Category Rank") || header === "All India Rank")
+    return 24;
+  if (
+    ["State", "Region", "Category", "Gender", "PWD", "Defense Ward"].includes(
+      header
+    )
+  )
+    return 24;
   if (["Student Name", "Student ID", "POC"].includes(header)) return 24;
   return 16;
 };
@@ -430,14 +637,23 @@ const styleHeaderCell = (cell, fillColor = "FFB52326") => {
   };
 };
 
-const addOptionsSheet = (workbook) => {
+const addOptionsSheet = (workbook, exam) => {
   const optionsSheet = workbook.addWorksheet("Options");
   optionsSheet.state = "veryHidden";
-  const optionColumns = [
-    ["States", statesList],
-    ["Categories", categoryOptions],
-    ["Genders", genderOptions],
-  ];
+  const optionColumns =
+    exam === "JAC Delhi"
+      ? [
+          ["Regions", jacDelhiRegionOptions],
+          ["Categories", jacDelhiCategoryOptions],
+          ["Genders", jacDelhiGenderOptions],
+          ["PWD", yesNoOptions],
+          ["Defense Ward", yesNoOptions],
+        ]
+      : [
+          ["States", statesList],
+          ["Categories", categoryOptions],
+          ["Genders", genderOptions],
+        ];
 
   optionColumns.forEach(([label, values], columnIndex) => {
     const columnNumber = columnIndex + 1;
@@ -448,8 +664,52 @@ const addOptionsSheet = (workbook) => {
   });
 };
 
-const applyTemplateValidations = (worksheet) => {
+const applyTemplateValidations = (worksheet, exam) => {
   for (let rowNumber = 2; rowNumber <= TEMPLATE_ROW_COUNT + 1; rowNumber += 1) {
+    if (exam === "JAC Delhi") {
+      worksheet.getCell(`A${rowNumber}`).dataValidation = {
+        type: "list",
+        allowBlank: false,
+        formulae: [`Options!$A$2:$A$${jacDelhiRegionOptions.length + 1}`],
+        showErrorMessage: true,
+        errorTitle: "Invalid region",
+        error: "Choose Delhi or Outside Delhi from the dropdown.",
+      };
+      worksheet.getCell(`B${rowNumber}`).dataValidation = {
+        type: "list",
+        allowBlank: false,
+        formulae: [`Options!$B$2:$B$${jacDelhiCategoryOptions.length + 1}`],
+        showErrorMessage: true,
+        errorTitle: "Invalid category",
+        error: "Choose a category from the dropdown.",
+      };
+      worksheet.getCell(`C${rowNumber}`).dataValidation = {
+        type: "list",
+        allowBlank: false,
+        formulae: [`Options!$C$2:$C$${jacDelhiGenderOptions.length + 1}`],
+        showErrorMessage: true,
+        errorTitle: "Invalid gender",
+        error: "Choose a gender from the dropdown.",
+      };
+      worksheet.getCell(`E${rowNumber}`).dataValidation = {
+        type: "list",
+        allowBlank: false,
+        formulae: [`Options!$D$2:$D$${yesNoOptions.length + 1}`],
+        showErrorMessage: true,
+        errorTitle: "Invalid PWD",
+        error: "Choose No or Yes from the dropdown.",
+      };
+      worksheet.getCell(`F${rowNumber}`).dataValidation = {
+        type: "list",
+        allowBlank: false,
+        formulae: [`Options!$E$2:$E$${yesNoOptions.length + 1}`],
+        showErrorMessage: true,
+        errorTitle: "Invalid defense ward",
+        error: "Choose No or Yes from the dropdown.",
+      };
+      continue;
+    }
+
     worksheet.getCell(`A${rowNumber}`).dataValidation = {
       type: "list",
       allowBlank: false,
@@ -477,15 +737,16 @@ const applyTemplateValidations = (worksheet) => {
   }
 };
 
-const buildTemplateWorkbookBuffer = async () => {
+const buildTemplateWorkbookBuffer = async (exam) => {
   const workbook = new ExcelJS.Workbook();
   workbook.creator = "Avanti Fellows";
   workbook.created = new Date();
 
-  const worksheet = workbook.addWorksheet("JoSAA Template", {
+  const requiredColumns = getRequiredColumns(exam);
+  const worksheet = workbook.addWorksheet(`${exam} Template`, {
     views: [{ state: "frozen", ySplit: 1 }],
   });
-  worksheet.columns = requiredJosaaColumns.map((header) => ({
+  worksheet.columns = requiredColumns.map((header) => ({
     header,
     key: header,
     width: getExcelColumnWidth(header),
@@ -494,15 +755,28 @@ const buildTemplateWorkbookBuffer = async () => {
   worksheet.getRow(1).eachCell((cell) => styleHeaderCell(cell));
   worksheet.autoFilter = {
     from: { row: 1, column: 1 },
-    to: { row: 1, column: requiredJosaaColumns.length },
+    to: { row: 1, column: requiredColumns.length },
   };
-  applyTemplateValidations(worksheet);
-  addOptionsSheet(workbook);
+  applyTemplateValidations(worksheet, exam);
+  addOptionsSheet(workbook, exam);
 
   return workbook.xlsx.writeBuffer();
 };
 
-const getSectionForHeader = (header, inputHeaderCount) => {
+const getSectionForHeader = (header, inputHeaderCount, exam) => {
+  if (exam === "JAC Delhi") {
+    if (
+      requiredJacDelhiColumns.includes(header) ||
+      optionalIdentityColumns.includes(header)
+    ) {
+      return "Student details and rank";
+    }
+    if (jacDelhiOutputColumns.includes(header))
+      return "Top 5 through JAC Delhi";
+    if (jacDelhiStatusColumns.includes(header)) return "Status";
+    return inputHeaderCount > 0 ? "Student details and rank" : "";
+  }
+
   if (
     requiredJosaaColumns.includes(header) ||
     optionalIdentityColumns.includes(header)
@@ -516,7 +790,7 @@ const getSectionForHeader = (header, inputHeaderCount) => {
   return inputHeaderCount > 0 ? "Student details and ranks" : "";
 };
 
-const buildStyledWorkbookBuffer = async (headers, records) => {
+const buildStyledWorkbookBuffer = async (headers, records, exam) => {
   const workbook = new ExcelJS.Workbook();
   workbook.creator = "Avanti Fellows";
   workbook.created = new Date();
@@ -531,12 +805,13 @@ const buildStyledWorkbookBuffer = async (headers, records) => {
 
   const sectionRow = worksheet.getRow(1);
   const headerRow = worksheet.getRow(2);
-  const inputHeaderCount = headers.length - outputColumns.length;
+  const inputHeaderCount = headers.length - getOutputColumns(exam).length;
   headers.forEach((header, index) => {
     const columnNumber = index + 1;
     sectionRow.getCell(columnNumber).value = getSectionForHeader(
       header,
-      inputHeaderCount
+      inputHeaderCount,
+      exam
     );
     headerRow.getCell(columnNumber).value = header;
   });
@@ -544,7 +819,7 @@ const buildStyledWorkbookBuffer = async (headers, records) => {
   const mergeSameSection = (label) => {
     const indexes = headers
       .map((header, index) =>
-        getSectionForHeader(header, inputHeaderCount) === label
+        getSectionForHeader(header, inputHeaderCount, exam) === label
           ? index + 1
           : null
       )
@@ -553,12 +828,16 @@ const buildStyledWorkbookBuffer = async (headers, records) => {
       worksheet.mergeCells(1, indexes[0], 1, indexes[indexes.length - 1]);
     }
   };
-  [
-    "Student details and ranks",
-    "Top 5 through JEE Main",
-    "Top 5 through JEE Advanced",
-    "Status",
-  ].forEach(mergeSameSection);
+  const sectionLabels =
+    exam === "JAC Delhi"
+      ? ["Student details and rank", "Top 5 through JAC Delhi", "Status"]
+      : [
+          "Student details and ranks",
+          "Top 5 through JEE Main",
+          "Top 5 through JEE Advanced",
+          "Status",
+        ];
+  sectionLabels.forEach(mergeSameSection);
 
   sectionRow.height = 26;
   headerRow.height = 34;
@@ -578,7 +857,8 @@ const buildStyledWorkbookBuffer = async (headers, records) => {
     row.eachCell({ includeEmpty: true }, (cell, columnNumber) => {
       const header = headers[columnNumber - 1];
       const isRecommendation =
-        /^JEE (Main|Advanced) (College|Course) \d+$/.test(header);
+        /^JEE (Main|Advanced) (College|Course) \d+$/.test(header) ||
+        /^JAC Delhi (College|Course) \d+$/.test(header);
       cell.alignment = {
         vertical: "top",
         wrapText: isRecommendation || header.includes("Prediction Status"),
@@ -633,18 +913,21 @@ export default async function handler(req, res) {
 
   const body = typeof req.body === "string" ? JSON.parse(req.body) : req.body;
 
-  if (body?.exam !== "JoSAA") {
+  const exam = body?.exam;
+  if (!["JoSAA", "JAC Delhi"].includes(exam)) {
     return res
       .status(400)
-      .json({ error: "Only JoSAA batch prediction is supported." });
+      .json({
+        error: "Only JoSAA and JAC Delhi batch prediction are supported.",
+      });
   }
 
   if (body?.responseType === "template") {
-    return sendWorkbook(
-      res,
-      await buildTemplateWorkbookBuffer(),
-      "josaa-batch-prediction-template.xlsx"
-    );
+    const filename =
+      exam === "JAC Delhi"
+        ? "jac-delhi-batch-prediction-template.xlsx"
+        : "josaa-batch-prediction-template.xlsx";
+    return sendWorkbook(res, await buildTemplateWorkbookBuffer(exam), filename);
   }
 
   const parsedRows = await parseUploadedRows(body);
@@ -653,7 +936,7 @@ export default async function handler(req, res) {
   }
 
   const { headers, records } = parsedRows;
-  const missingColumns = getMissingColumns(headers);
+  const missingColumns = getMissingColumns(headers, exam);
   if (missingColumns.length > 0) {
     return res.status(400).json({
       error: `Missing required columns: ${missingColumns.join(", ")}`,
@@ -662,13 +945,14 @@ export default async function handler(req, res) {
 
   const { completedHeaders, completedRecords, summary } = await processRecords(
     headers,
-    records
+    records,
+    exam
   );
 
   if (body?.responseType === "xlsx") {
     return sendWorkbook(
       res,
-      await buildStyledWorkbookBuffer(completedHeaders, completedRecords),
+      await buildStyledWorkbookBuffer(completedHeaders, completedRecords, exam),
       "batch-predictions-completed.xlsx"
     );
   }
