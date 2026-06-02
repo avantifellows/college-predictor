@@ -22,10 +22,10 @@ const Navbar = ({ item1, item2 }) => {
 
         <div className="flex gap-1.5">
           <SocialIcon socialLink={"https://www.facebook.com/avantifellows"}>
-            <Facebook color="#fff" fill="#fff" strokeWidth="0.1" />
+            <Facebook size={18} color="#fff" fill="#fff" strokeWidth="0.1" />
           </SocialIcon>
           <SocialIcon socialLink={"https://www.instagram.com/avantifellows"}>
-            <Instagram color="#fff" />
+            <Instagram size={18} color="#fff" strokeWidth={2.2} />
           </SocialIcon>
         </div>
       </div>
@@ -72,7 +72,9 @@ const SocialIcon = ({ children, socialLink }) => {
   return (
     <a
       href={socialLink}
-      className="flex h-7 w-7 items-center justify-center rounded-full bg-[#B52326]"
+      className="flex h-8 w-8 items-center justify-center rounded-full bg-[#B52326]"
+      target="_blank"
+      rel="noopener noreferrer"
     >
       {children}
     </a>

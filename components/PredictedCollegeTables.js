@@ -675,49 +675,56 @@ const PredictedCollegesTable = ({
 
     return (
       <div
-        className="flex w-full flex-col gap-2 sm:w-auto"
+        className="mb-4 rounded-xl border border-[#eaded8] bg-[#fffdfa] p-3 sm:p-4"
         aria-label="Choose JoSAA college group"
       >
-        <span className="text-xs font-semibold text-[#5b3a34]">
-          Compare within one rank system
-        </span>
-        <div className="grid w-full grid-cols-1 gap-2 rounded-xl border border-[#d8c7c1] bg-[#fffdfa] p-1 sm:w-auto sm:grid-cols-2">
-          {options.map((option) => {
-            const isActive = josaaCollegeGroup === option.value;
-            return (
-              <button
-                key={option.value}
-                type="button"
-                onClick={() => setJosaaCollegeGroup(option.value)}
-                className={`rounded-lg px-3 py-2 text-left transition ${
-                  isActive
-                    ? "bg-[#B52326] text-white shadow-sm"
-                    : "bg-white text-[#5b3a34] hover:bg-[#f8efec]"
-                }`}
-                aria-pressed={isActive}
-              >
-                <span className="flex items-center justify-between gap-3 text-sm font-semibold">
-                  {option.label}
+        <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+          <div>
+            <p className="text-sm font-semibold text-[#5b1f20]">
+              Show colleges by exam
+            </p>
+            <p className="mt-1 text-xs text-[#6d5550]">
+              JEE Main and JEE Advanced ranks are listed separately.
+            </p>
+          </div>
+          <div className="grid w-full grid-cols-1 gap-2 sm:grid-cols-2 lg:w-auto">
+            {options.map((option) => {
+              const isActive = josaaCollegeGroup === option.value;
+              return (
+                <button
+                  key={option.value}
+                  type="button"
+                  onClick={() => setJosaaCollegeGroup(option.value)}
+                  className={`min-w-[210px] rounded-lg border px-4 py-3 text-left transition ${
+                    isActive
+                      ? "border-[#B52326] bg-[#B52326] text-white shadow-sm"
+                      : "border-[#e3d1cb] bg-white text-[#5b3a34] hover:bg-[#f8efec]"
+                  }`}
+                  aria-pressed={isActive}
+                >
+                  <span className="flex items-center justify-between gap-3 text-sm font-semibold">
+                    {option.label}
+                    <span
+                      className={`rounded-full px-2 py-0.5 text-xs ${
+                        isActive
+                          ? "bg-white/20 text-white"
+                          : "bg-[#f8efec] text-[#8f2e31]"
+                      }`}
+                    >
+                      {option.count.toLocaleString("en-IN")}
+                    </span>
+                  </span>
                   <span
-                    className={`rounded-full px-2 py-0.5 text-xs ${
-                      isActive
-                        ? "bg-white/20 text-white"
-                        : "bg-[#f8efec] text-[#8f2e31]"
+                    className={`mt-0.5 block text-xs ${
+                      isActive ? "text-white/85" : "text-[#6d5550]"
                     }`}
                   >
-                    {option.count.toLocaleString("en-IN")}
+                    {option.detail}
                   </span>
-                </span>
-                <span
-                  className={`mt-0.5 block text-xs ${
-                    isActive ? "text-white/85" : "text-[#6d5550]"
-                  }`}
-                >
-                  {option.detail}
-                </span>
-              </button>
-            );
-          })}
+                </button>
+              );
+            })}
+          </div>
         </div>
       </div>
     );
@@ -854,14 +861,14 @@ const PredictedCollegesTable = ({
 
     if (isJosaaExam) {
       return (
-        <div className="mb-3 flex flex-wrap items-center gap-2 text-xs sm:text-sm text-[#5b3a34]">
+        <div className="mb-4 flex flex-wrap items-center gap-2 text-xs sm:text-sm text-[#5b3a34]">
           <span className="inline-flex items-center rounded-full border border-[#e3d1cb] bg-[#fffdfa] px-3 py-1 font-medium">
             Based on JoSAA 2024
           </span>
-          <span className="inline-flex items-center rounded-full border border-[#d8c7c1] bg-white px-3 py-1 font-semibold text-[#8f2e31]">
+          <span className="inline-flex items-center rounded-full border border-[#e3d1cb] bg-[#fffdfa] px-3 py-1 font-medium">
             Cutoffs are shown with a 10% margin above your category rank
           </span>
-          <span className="text-[#6d5550]">
+          <span className="basis-full pt-1 text-[#6d5550]">
             Home-state quota is used where applicable; other colleges use
             all-India or out-of-state cutoffs.
           </span>
@@ -900,10 +907,11 @@ const PredictedCollegesTable = ({
       )}
       {renderLegend()}
       {fullData.length > 0 && (
-        <div className="mb-3 flex flex-col gap-3 xl:flex-row xl:items-end xl:justify-between">
-          <div className="flex w-full flex-col gap-3 lg:flex-row lg:items-end">
+        <div className="mb-4">
+          {renderJosaaCollegeGroupToggle()}
+          <div className="flex flex-col gap-3 xl:flex-row xl:items-center xl:justify-between">
             {onSearchChange && (
-              <div className="w-full max-w-md">
+              <div className="w-full max-w-xl">
                 <input
                   type="text"
                   id="results-search"
@@ -915,25 +923,24 @@ const PredictedCollegesTable = ({
                 />
               </div>
             )}
-            {renderJosaaCollegeGroupToggle()}
-          </div>
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-center xl:justify-end">
-            <p className="text-sm text-[#5b3a34]">
-              Showing {sortedData.length.toLocaleString("en-IN")}{" "}
-              {showJosaaCollegeGroupToggle
-                ? josaaCollegeGroup === "advanced"
-                  ? "JEE Advanced college options."
-                  : "JEE Main college options."
-                : "matching options."}
-            </p>
-            {sortedData.length > 0 && (
-              <button
-                className="w-full rounded-lg bg-[#B52326] px-4 py-2 text-white hover:bg-[#9E1F22] sm:w-auto"
-                onClick={downloadCsv}
-              >
-                Download CSV
-              </button>
-            )}
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center xl:justify-end">
+              <p className="text-sm text-[#5b3a34]">
+                Showing {sortedData.length.toLocaleString("en-IN")}{" "}
+                {showJosaaCollegeGroupToggle
+                  ? josaaCollegeGroup === "advanced"
+                    ? "JEE Advanced college options."
+                    : "JEE Main college options."
+                  : "matching options."}
+              </p>
+              {sortedData.length > 0 && (
+                <button
+                  className="w-full rounded-lg bg-[#B52326] px-4 py-2 text-white hover:bg-[#9E1F22] sm:w-auto"
+                  onClick={downloadCsv}
+                >
+                  Download CSV
+                </button>
+              )}
+            </div>
           </div>
         </div>
       )}
