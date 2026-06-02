@@ -683,9 +683,6 @@ const PredictedCollegesTable = ({
             <p className="text-sm font-semibold text-[#5b1f20]">
               Show colleges by exam
             </p>
-            <p className="mt-1 text-xs text-[#6d5550]">
-              JEE Main and JEE Advanced ranks are listed separately.
-            </p>
           </div>
           <div className="grid w-full grid-cols-1 gap-2 sm:grid-cols-2 lg:w-auto">
             {options.map((option) => {
