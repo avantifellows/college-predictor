@@ -188,6 +188,20 @@ const ExpandedRowComponent = ({ item, fields, exam, examColumnMapping }) => {
 };
 
 const ROWS_PER_PAGE_INITIAL = 30; // Variable for initial rows
+const getJeeExamType = (item) => item?.Exam || item?.exam_type || "";
+const countJeeExamTypes = (items) =>
+  items.reduce(
+    (counts, item) => {
+      const examType = getJeeExamType(item);
+      if (examType === "JEE Advanced") {
+        counts.advanced += 1;
+      } else if (examType === "JEE Main") {
+        counts.main += 1;
+      }
+      return counts;
+    },
+    { main: 0, advanced: 0 }
+  );
 
 const PredictedCollegesTable = ({
   data = [],
@@ -203,6 +217,7 @@ const PredictedCollegesTable = ({
     order: "asc",
   });
   const [salaryTooltip, setSalaryTooltip] = useState(null);
+  const [josaaCollegeGroup, setJosaaCollegeGroup] = useState("main");
 
   const toggleRowExpansion = (rowKey) => {
     setExpandedRows((prev) => ({
@@ -243,10 +258,47 @@ const PredictedCollegesTable = ({
 
   const isJosaaExam =
     exam === "JoSAA" || exam === "JEE Main-JOSAA" || exam === "JEE Advanced";
+  const isCombinedJosaaExam = exam === "JoSAA";
   const supportsExpandedView = !isJosaaExam;
   const supportsSalarySort = isJosaaExam;
   const salaryColumnKey = "expected_salary";
   const rankColumnKey = "closing_rank";
+
+  const fullDataExamCounts = useMemo(
+    () => countJeeExamTypes(fullData),
+    [fullData]
+  );
+  const searchedDataExamCounts = useMemo(() => countJeeExamTypes(data), [data]);
+
+  const showJosaaCollegeGroupToggle =
+    isCombinedJosaaExam &&
+    fullDataExamCounts.main > 0 &&
+    fullDataExamCounts.advanced > 0;
+
+  useEffect(() => {
+    if (!isCombinedJosaaExam) {
+      setJosaaCollegeGroup("main");
+      return;
+    }
+    if (
+      josaaCollegeGroup === "advanced" &&
+      fullDataExamCounts.advanced === 0 &&
+      fullDataExamCounts.main > 0
+    ) {
+      setJosaaCollegeGroup("main");
+    }
+    if (
+      josaaCollegeGroup === "main" &&
+      fullDataExamCounts.main === 0 &&
+      fullDataExamCounts.advanced > 0
+    ) {
+      setJosaaCollegeGroup("advanced");
+    }
+  }, [exam, fullDataExamCounts, isCombinedJosaaExam, josaaCollegeGroup]);
+
+  useEffect(() => {
+    setShowAllRows(false);
+  }, [josaaCollegeGroup, searchTerm]);
 
   const formatSalary = (value) => {
     const numericValue = Number(value);
@@ -263,7 +315,7 @@ const PredictedCollegesTable = ({
   useEffect(() => {
     if (!supportsSalarySort) return;
     setSortConfig({ key: rankColumnKey, order: "asc" });
-  }, [exam, data, supportsSalarySort, rankColumnKey]);
+  }, [exam, data, josaaCollegeGroup, supportsSalarySort, rankColumnKey]);
 
   const examColumnMapping = {
     TNEA: [
@@ -524,11 +576,19 @@ const PredictedCollegesTable = ({
     return Number.isFinite(numericValue) ? numericValue : null;
   };
 
+  const examFilteredData = useMemo(() => {
+    if (!showJosaaCollegeGroupToggle) return data;
+
+    const activeExam =
+      josaaCollegeGroup === "advanced" ? "JEE Advanced" : "JEE Main";
+    return data.filter((item) => getJeeExamType(item) === activeExam);
+  }, [data, josaaCollegeGroup, showJosaaCollegeGroupToggle]);
+
   const sortedData = useMemo(() => {
-    if (!supportsSalarySort) return data;
-    if (!data.length) return data;
+    if (!supportsSalarySort) return examFilteredData;
+    if (!examFilteredData.length) return examFilteredData;
     const { key, order } = sortConfig || {};
-    const copy = [...data];
+    const copy = [...examFilteredData];
 
     copy.sort((a, b) => {
       let aVal = null;
@@ -549,7 +609,7 @@ const PredictedCollegesTable = ({
     });
 
     return copy;
-  }, [data, sortConfig, supportsSalarySort]);
+  }, [examFilteredData, sortConfig, supportsSalarySort]);
 
   const getDisplayValue = (column, transformedItem) => {
     const rawValue = transformedItem[column.key];
@@ -595,6 +655,74 @@ const PredictedCollegesTable = ({
     return <ArrowUp size={16} />;
   };
 
+  const renderJosaaCollegeGroupToggle = () => {
+    if (!showJosaaCollegeGroupToggle) return null;
+
+    const options = [
+      {
+        value: "main",
+        label: "JEE Main colleges",
+        detail: "NITs, IIITs, GFTIs",
+        count: searchedDataExamCounts.main,
+      },
+      {
+        value: "advanced",
+        label: "JEE Advanced colleges",
+        detail: "IITs",
+        count: searchedDataExamCounts.advanced,
+      },
+    ];
+
+    return (
+      <div
+        className="flex w-full flex-col gap-2 sm:w-auto"
+        aria-label="Choose JoSAA college group"
+      >
+        <span className="text-xs font-semibold text-[#5b3a34]">
+          Compare within one rank system
+        </span>
+        <div className="grid w-full grid-cols-1 gap-2 rounded-xl border border-[#d8c7c1] bg-[#fffdfa] p-1 sm:w-auto sm:grid-cols-2">
+          {options.map((option) => {
+            const isActive = josaaCollegeGroup === option.value;
+            return (
+              <button
+                key={option.value}
+                type="button"
+                onClick={() => setJosaaCollegeGroup(option.value)}
+                className={`rounded-lg px-3 py-2 text-left transition ${
+                  isActive
+                    ? "bg-[#B52326] text-white shadow-sm"
+                    : "bg-white text-[#5b3a34] hover:bg-[#f8efec]"
+                }`}
+                aria-pressed={isActive}
+              >
+                <span className="flex items-center justify-between gap-3 text-sm font-semibold">
+                  {option.label}
+                  <span
+                    className={`rounded-full px-2 py-0.5 text-xs ${
+                      isActive
+                        ? "bg-white/20 text-white"
+                        : "bg-[#f8efec] text-[#8f2e31]"
+                    }`}
+                  >
+                    {option.count.toLocaleString("en-IN")}
+                  </span>
+                </span>
+                <span
+                  className={`mt-0.5 block text-xs ${
+                    isActive ? "text-white/85" : "text-[#6d5550]"
+                  }`}
+                >
+                  {option.detail}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+    );
+  };
+
   const downloadCsv = () => {
     if (!sortedData.length) return;
     const headers = predicted_colleges_table_column.map((column) =>
@@ -618,7 +746,10 @@ const PredictedCollegesTable = ({
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = url;
-    link.download = `college_predictions_${exam || "results"}.csv`;
+    const groupSuffix = showJosaaCollegeGroupToggle
+      ? `_${josaaCollegeGroup}`
+      : "";
+    link.download = `college_predictions_${exam || "results"}${groupSuffix}.csv`;
     link.click();
     URL.revokeObjectURL(url);
   };
@@ -769,26 +900,33 @@ const PredictedCollegesTable = ({
       )}
       {renderLegend()}
       {fullData.length > 0 && (
-        <div className="mb-3 flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
-          <div className="w-full max-w-md">
+        <div className="mb-3 flex flex-col gap-3 xl:flex-row xl:items-end xl:justify-between">
+          <div className="flex w-full flex-col gap-3 lg:flex-row lg:items-end">
             {onSearchChange && (
-              <input
-                type="text"
-                id="results-search"
-                aria-label="Filter results by institute, state, or program"
-                value={searchTerm}
-                onChange={onSearchChange}
-                className="w-full rounded-xl border border-[#d8c7c1] bg-white px-4 py-3 text-left text-sm outline-none transition focus:border-[#b52326] focus:ring-2 focus:ring-[#f4d5d6] sm:text-base"
-                placeholder="Filter by institute, state, or program"
-              />
+              <div className="w-full max-w-md">
+                <input
+                  type="text"
+                  id="results-search"
+                  aria-label="Filter results by institute, state, or program"
+                  value={searchTerm}
+                  onChange={onSearchChange}
+                  className="w-full rounded-xl border border-[#d8c7c1] bg-white px-4 py-3 text-left text-sm outline-none transition focus:border-[#b52326] focus:ring-2 focus:ring-[#f4d5d6] sm:text-base"
+                  placeholder="Filter by institute, state, or program"
+                />
+              </div>
             )}
+            {renderJosaaCollegeGroupToggle()}
           </div>
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-center lg:justify-end">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center xl:justify-end">
             <p className="text-sm text-[#5b3a34]">
-              Showing {sortedData.length.toLocaleString("en-IN")} matching
-              options.
+              Showing {sortedData.length.toLocaleString("en-IN")}{" "}
+              {showJosaaCollegeGroupToggle
+                ? josaaCollegeGroup === "advanced"
+                  ? "JEE Advanced college options."
+                  : "JEE Main college options."
+                : "matching options."}
             </p>
-            {data.length > 0 && (
+            {sortedData.length > 0 && (
               <button
                 className="w-full rounded-lg bg-[#B52326] px-4 py-2 text-white hover:bg-[#9E1F22] sm:w-auto"
                 onClick={downloadCsv}
@@ -799,7 +937,7 @@ const PredictedCollegesTable = ({
           </div>
         </div>
       )}
-      {data.length > 0 ? (
+      {sortedData.length > 0 ? (
         <div className="overflow-x-auto rounded-xl border border-[#eaded8] bg-white shadow-sm">
           <table className={commonTableClass}>
             <thead>{renderTableHeader()}</thead>
@@ -813,7 +951,7 @@ const PredictedCollegesTable = ({
           </p>
         </div>
       ) : null}
-      {data.length > ROWS_PER_PAGE_INITIAL &&
+      {sortedData.length > ROWS_PER_PAGE_INITIAL &&
         !showAllRows && ( // Conditional button rendering
           <div className="flex justify-center mt-4">
             <button
