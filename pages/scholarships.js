@@ -5,7 +5,7 @@ const ScholarshipsPage = () => {
   return (
     <>
       <Head>
-        <title>Scholarships Reference - Home</title>
+        <title>Scholarship Finder</title>
       </Head>
       <ScholarshipReferenceBrowser />
     </>
