@@ -72,6 +72,29 @@ const decimalInput = (label, placeholder, max = "100") => ({
   allowDecimal: true,
 });
 
+const josaaSpecialQuotaByHomeState = {
+  Goa: "GO",
+  "Jammu and Kashmir": "JK",
+  Ladakh: "LA",
+};
+
+const matchesJosaaQuota = (item, homeState) => {
+  if (item.Quota === "AI") {
+    return true;
+  }
+
+  const specialQuota = josaaSpecialQuotaByHomeState[homeState];
+  if (specialQuota && item.Quota === specialQuota) {
+    return true;
+  }
+
+  if (homeState === item.State) {
+    return item.Quota === "HS";
+  }
+
+  return item.Quota === "OS";
+};
+
 export const jeeMainJosaaConfig = {
   name: "JEE Main-JOSAA",
   code: "JEE Main",
@@ -163,21 +186,7 @@ export const jeeMainJosaaConfig = {
     ];
 
     // query.homeState will now always be a specific state (not "All India")
-    return [
-      ...baseFilters,
-      (item) => {
-        // Always include 'AI' quota items
-        if (item.Quota === "AI") {
-          return true;
-        }
-        // For HS/OS quota, apply state matching
-        if (query.homeState === item.State) {
-          return item.Quota === "HS";
-        } else {
-          return item.Quota === "OS";
-        }
-      },
-    ];
+    return [...baseFilters, (item) => matchesJosaaQuota(item, query.homeState)];
   },
 };
 
@@ -299,21 +308,7 @@ export const jeeAdvancedConfig = {
     ];
 
     // query.homeState will now always be a specific state (not "All India")
-    return [
-      ...baseFilters,
-      (item) => {
-        // Always include 'AI' quota items
-        if (item.Quota === "AI") {
-          return true;
-        }
-        // For HS/OS quota, apply state matching
-        if (query.homeState === item.State) {
-          return item.Quota === "HS";
-        } else {
-          return item.Quota === "OS";
-        }
-      },
-    ];
+    return [...baseFilters, (item) => matchesJosaaQuota(item, query.homeState)];
   },
 };
 
@@ -886,18 +881,7 @@ export const josaaConfig = {
     }
 
     // State filter
-    const stateFilter = (item) => {
-      // Always include 'AI' quota items
-      if (item.Quota === "AI") {
-        return true;
-      }
-      // For HS/OS quota, apply state matching
-      if (query.homeState === item.State) {
-        return item.Quota === "HS";
-      } else {
-        return item.Quota === "OS";
-      }
-    };
+    const stateFilter = (item) => matchesJosaaQuota(item, query.homeState);
 
     // Combine all filters - a row should match if it passes either rank filter
     return [

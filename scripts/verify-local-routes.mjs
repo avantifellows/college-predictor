@@ -10,7 +10,7 @@ const cases = [
   {
     name: "Scholarships page",
     path: "/scholarships",
-    expectTitle: "Scholarships Reference - Home",
+    expectTitle: "Scholarship Finder",
   },
   {
     name: "Favicon",

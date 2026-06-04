@@ -860,7 +860,7 @@ const PredictedCollegesTable = ({
       return (
         <div className="mb-4 flex flex-wrap items-center gap-2 text-xs sm:text-sm text-[#5b3a34]">
           <span className="inline-flex items-center rounded-full border border-[#e3d1cb] bg-[#fffdfa] px-3 py-1 font-medium">
-            Based on JoSAA 2024
+            Based on JoSAA 2025
           </span>
           <span className="inline-flex items-center rounded-full border border-[#e3d1cb] bg-[#fffdfa] px-3 py-1 font-medium">
             Cutoffs are shown with a 10% margin above your category rank

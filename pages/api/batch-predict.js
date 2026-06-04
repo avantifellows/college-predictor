@@ -305,6 +305,12 @@ const applyProgramFilter = (item) => {
 
 const applyStateFilter = (item, homeState) => {
   if (item.Quota === "AI") return true;
+  const specialQuotaByHomeState = {
+    Goa: "GO",
+    "Jammu and Kashmir": "JK",
+    Ladakh: "LA",
+  };
+  if (item.Quota === specialQuotaByHomeState[homeState]) return true;
   if (homeState === item.State) return item.Quota === "HS";
   return item.Quota === "OS";
 };
@@ -915,11 +921,9 @@ export default async function handler(req, res) {
 
   const exam = body?.exam;
   if (!["JoSAA", "JAC Delhi"].includes(exam)) {
-    return res
-      .status(400)
-      .json({
-        error: "Only JoSAA and JAC Delhi batch prediction are supported.",
-      });
+    return res.status(400).json({
+      error: "Only JoSAA and JAC Delhi batch prediction are supported.",
+    });
   }
 
   if (body?.responseType === "template") {
