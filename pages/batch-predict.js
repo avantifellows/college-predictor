@@ -47,8 +47,8 @@ const jacDelhiRequiredColumns = [
 const counsellingOptions = [
   {
     value: "JoSAA",
-    label: "JoSAA",
-    title: "JoSAA",
+    label: "JoSAA (JEE Main and Advanced)",
+    title: "JoSAA (JEE Main and Advanced)",
     description:
       "Upload the fixed JoSAA rank template and download top 5 college-course predictions through JEE Main and JEE Advanced.",
     templateFilename: "josaa-batch-prediction-template.xlsx",

@@ -727,7 +727,7 @@ export const tneaConfig = {
 };
 
 export const josaaConfig = {
-  name: "JoSAA",
+  name: "JoSAA (JEE Main and Advanced)",
   code: "JoSAA",
   searchKeys: defaultSearchKeys,
   primaryInput: integerInput(
