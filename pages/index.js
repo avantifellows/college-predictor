@@ -578,7 +578,7 @@ const ExamForm = () => {
                     )
                     .map((exam) => ({
                       value: exam,
-                      label: exam,
+                      label: examConfigs[exam].name || exam,
                       code: examConfigs[exam].code,
                       apiEndpoint: examConfigs[exam].apiEndpoint,
                     }))}
