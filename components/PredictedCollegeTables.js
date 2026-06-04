@@ -753,7 +753,9 @@ const PredictedCollegesTable = ({
     const groupSuffix = showJosaaCollegeGroupToggle
       ? `_${josaaCollegeGroup}`
       : "";
-    link.download = `college_predictions_${exam || "results"}${groupSuffix}.csv`;
+    link.download = `college_predictions_${
+      exam || "results"
+    }${groupSuffix}.csv`;
     link.click();
     URL.revokeObjectURL(url);
   };

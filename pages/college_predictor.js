@@ -54,9 +54,9 @@ const validatePrimaryInputValue = (exam, value) => {
     inputConfig.max !== undefined
       ? `Please enter a value between ${inputConfig.min} and ${inputConfig.max}.`
       : inputConfig.label.toLowerCase().includes("rank") &&
-          inputConfig.min === "1"
-        ? "Please enter a rank greater than 0."
-        : `Please enter a value greater than or equal to ${inputConfig.min}.`;
+        inputConfig.min === "1"
+      ? "Please enter a rank greater than 0."
+      : `Please enter a value greater than or equal to ${inputConfig.min}.`;
 
   if (Number.isNaN(numericValue)) {
     return "Please enter a valid value.";
@@ -883,11 +883,11 @@ const CollegePredictor = () => {
                               String(queryObject.mainRank)
                             )
                           : queryObject.rank
-                            ? normalizePrimaryInputValue(
-                                "JoSAA",
-                                String(queryObject.rank)
-                              )
-                            : ""
+                          ? normalizePrimaryInputValue(
+                              "JoSAA",
+                              String(queryObject.rank)
+                            )
+                          : ""
                       }
                       onChange={(e) => {
                         const value = normalizePrimaryInputValue(
