@@ -10,6 +10,7 @@ SOURCE_COLUMNS = {
     "college_id": "College ID",
     "state": "State",
     "expected_salary": "Expected Salary",
+    "nirf_rank": "NIRF Rank",
     "Entrance Exam": "Exam",
 }
 
@@ -28,6 +29,7 @@ OUTPUT_COLUMNS = [
     "Management Type",
     "Expected Salary",
     "Salary Tier",
+    "NIRF Rank",
     "Exam",
 ]
 
@@ -38,7 +40,7 @@ ENRICHMENT_COLUMNS = [
     "Salary Tier",
 ]
 
-NUMERIC_COLUMNS = ["AF Hierarchy", "Expected Salary", "Salary Tier"]
+NUMERIC_COLUMNS = ["AF Hierarchy", "Expected Salary", "Salary Tier", "NIRF Rank"]
 
 EXPECTED_SEAT_TYPES = {
     "OPEN",
@@ -90,7 +92,12 @@ def load_existing_enrichment(data_dir):
             institute = canonical_institute(row.get("Institute"))
             enrichment = {
                 key: row.get(key)
-                for key in ["State", "Expected Salary", *ENRICHMENT_COLUMNS]
+                for key in [
+                    "State",
+                    "Expected Salary",
+                    "NIRF Rank",
+                    *ENRICHMENT_COLUMNS,
+                ]
                 if row.get(key) is not None
             }
             if college_id and college_id not in by_college_id:
@@ -121,6 +128,8 @@ def normalize_row(raw_row, enrichment_by_id, enrichment_by_institute):
 
     if row.get("Expected Salary") is None and enrichment.get("Expected Salary") is not None:
         row["Expected Salary"] = enrichment["Expected Salary"]
+    if row.get("NIRF Rank") is None and enrichment.get("NIRF Rank") is not None:
+        row["NIRF Rank"] = enrichment["NIRF Rank"]
 
     for key in OUTPUT_COLUMNS:
         row.setdefault(key, None)
@@ -191,7 +200,7 @@ def main():
     )
     parser.add_argument(
         "--source",
-        default="JoSAA 2025 - cutoffs.csv",
+        default="JoSAA 2025 - cutoffs - nirf.csv",
         help="Path to the JoSAA 2025 cutoff CSV.",
     )
     parser.add_argument(

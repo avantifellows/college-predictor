@@ -330,7 +330,7 @@ const PredictedCollegesTable = ({
       { key: "state", label: "State" },
       { key: "institute", label: "Institute" },
       { key: "academic_program_name", label: "Program" },
-      { key: "exam_type", label: "Exam" },
+      { key: "nirf_rank", label: "NIRF Rank" },
       { key: "closing_rank", label: "Closing Rank" },
       {
         key: "expected_salary",
@@ -343,7 +343,7 @@ const PredictedCollegesTable = ({
       { key: "state", label: "State" },
       { key: "institute", label: "Institute" },
       { key: "academic_program_name", label: "Program" },
-      { key: "exam_type", label: "Exam" },
+      { key: "nirf_rank", label: "NIRF Rank" },
       { key: "closing_rank", label: "Closing Rank" },
       {
         key: "expected_salary",
@@ -467,6 +467,7 @@ const PredictedCollegesTable = ({
         state: item["State"],
         academic_program_name: item["Academic Program Name"],
         exam_type: item["Exam"],
+        nirf_rank: item["NIRF Rank"],
         closing_rank: item["Closing Rank"],
         expected_salary: item["Expected Salary"],
         "Seat Type": item["Seat Type"],
@@ -478,6 +479,7 @@ const PredictedCollegesTable = ({
         "Management Type": item["Management Type"],
         "Expected Salary": item["Expected Salary"],
         "Salary Tier": item["Salary Tier"],
+        "NIRF Rank": item["NIRF Rank"],
         "Exam": item["Exam"],
         Category: item["Seat Type"] || item["Category"] || "",
       };
@@ -993,6 +995,7 @@ PredictedCollegesTable.propTypes = {
         PropTypes.number,
       ]),
       "Salary Tier": PropTypes.string,
+      "NIRF Rank": PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     })
   ),
   fullData: PropTypes.array,
