@@ -552,12 +552,23 @@ export const kcetConfig = {
     {
       name: "category",
       label: "Select Category",
+      helperText:
+        "Category codes follow the Karnataka Backward Classes list. Check your caste/income certificate or the KEA information brochure (cetonline.karnataka.gov.in) to confirm your category.",
       options: [
-        { value: "1", label: "1" },
-        { value: "2A", label: "2A" },
-        { value: "2B", label: "2B" },
-        { value: "3A", label: "3A" },
-        { value: "3B", label: "3B" },
+        { value: "1", label: "1 (Category I - Other Backward Classes)" },
+        {
+          value: "2A",
+          label: "2A (Category IIA - Other Backward Classes)",
+        },
+        {
+          value: "2B",
+          label: "2B (Category IIB - Muslim Backward Classes)",
+        },
+        { value: "3A", label: "3A (Category IIIA - Vokkaliga)" },
+        {
+          value: "3B",
+          label: "3B (Category IIIB - Veerashaiva Lingayat)",
+        },
         { value: "General", label: "General" },
         { value: "ST", label: "ST" },
         { value: "SC", label: "SC" },
@@ -609,7 +620,12 @@ export const kcetConfig = {
     return path.join(process.cwd(), "public", "data", "KCET", "kcet_data.json");
   },
   getFilters: (query) => [
-    (item) => item.Category === query.category,
+    (item) => {
+      // Labels may include a description after the code, e.g. "2A (Other Backward Classes)".
+      // Extract just the code portion so it matches the data's Category field.
+      const categoryCode = (query.category || "").split(" (")[0].trim();
+      return item.Category === categoryCode;
+    },
     (item) => item["Course Type"] === query.courseType,
     (item) => item.State === query.homeState || item.State === "All India",
     (item) => query.language === "Any" || item.Language === query.language,
