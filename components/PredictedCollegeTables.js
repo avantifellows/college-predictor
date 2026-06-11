@@ -263,6 +263,7 @@ const PredictedCollegesTable = ({
   const supportsSalarySort = isJosaaExam;
   const salaryColumnKey = "expected_salary";
   const rankColumnKey = "closing_rank";
+  const nirfRankColumnKey = "nirf_rank";
 
   const fullDataExamCounts = useMemo(
     () => countJeeExamTypes(fullData),
@@ -330,8 +331,8 @@ const PredictedCollegesTable = ({
       { key: "state", label: "State" },
       { key: "institute", label: "Institute" },
       { key: "academic_program_name", label: "Program" },
-      { key: "nirf_rank", label: "NIRF Rank" },
       { key: "closing_rank", label: "Closing Rank" },
+      { key: "nirf_rank", label: "NIRF Rank" },
       {
         key: "expected_salary",
         label: "Expected Salary",
@@ -343,8 +344,8 @@ const PredictedCollegesTable = ({
       { key: "state", label: "State" },
       { key: "institute", label: "Institute" },
       { key: "academic_program_name", label: "Program" },
-      { key: "nirf_rank", label: "NIRF Rank" },
       { key: "closing_rank", label: "Closing Rank" },
+      { key: "nirf_rank", label: "NIRF Rank" },
       {
         key: "expected_salary",
         label: "Expected Salary",
@@ -364,6 +365,7 @@ const PredictedCollegesTable = ({
       { key: "institute", label: "Institute" },
       { key: "academic_program_name", label: "Program" },
       { key: "closing_rank", label: "Closing Rank" },
+      { key: "nirf_rank", label: "NIRF Rank" },
       {
         key: "expected_salary",
         label: "Expected Salary",
@@ -578,6 +580,12 @@ const PredictedCollegesTable = ({
     return Number.isFinite(numericValue) ? numericValue : null;
   };
 
+  const getNirfRankValue = (item) => {
+    const raw = item?.["NIRF Rank"] ?? item?.nirf_rank;
+    const numericValue = Number(raw);
+    return Number.isFinite(numericValue) ? numericValue : null;
+  };
+
   const examFilteredData = useMemo(() => {
     if (!showJosaaCollegeGroupToggle) return data;
 
@@ -599,6 +607,9 @@ const PredictedCollegesTable = ({
       if (key === salaryColumnKey) {
         aVal = getSalaryValue(a);
         bVal = getSalaryValue(b);
+      } else if (key === nirfRankColumnKey) {
+        aVal = getNirfRankValue(a);
+        bVal = getNirfRankValue(b);
       } else {
         aVal = getClosingRankValue(a);
         bVal = getClosingRankValue(b);
@@ -642,6 +653,18 @@ const PredictedCollegesTable = ({
       }
       return {
         key: rankColumnKey,
+        order: prev.order === "asc" ? "desc" : "asc",
+      };
+    });
+  };
+
+  const toggleNirfRankSort = () => {
+    setSortConfig((prev) => {
+      if (!prev || prev.key !== nirfRankColumnKey) {
+        return { key: nirfRankColumnKey, order: "asc" };
+      }
+      return {
+        key: nirfRankColumnKey,
         order: prev.order === "asc" ? "desc" : "asc",
       };
     });
@@ -777,6 +800,15 @@ const PredictedCollegesTable = ({
             >
               {column.label}
               {renderSortIcon(rankColumnKey)}
+            </button>
+          ) : supportsSalarySort && column.key === nirfRankColumnKey ? (
+            <button
+              type="button"
+              onClick={toggleNirfRankSort}
+              className="font-semibold inline-flex items-center gap-1"
+            >
+              {column.label}
+              {renderSortIcon(nirfRankColumnKey)}
             </button>
           ) : supportsSalarySort && column.key === salaryColumnKey ? (
             <div className="inline-flex items-center gap-2">
