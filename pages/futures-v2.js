@@ -802,19 +802,40 @@ const QuizPanel = ({
           <>
             <div className="mb-5">
               <div className="text-xs font-bold uppercase tracking-wide text-[#B52326]">
-                Your path
+                Path complete
               </div>
               <h2 className="mt-1 text-3xl font-black leading-tight text-[#2f2320]">
-                {career.name}
+                How to become a {career.name}
               </h2>
             </div>
-            <div className="space-y-3">
-              <MetricCard label="Career" value={career.name} />
-              <MetricCard label="Degree / branch" value={`${degreeShort(selectedBranch?.degree_label) || ""} · ${selectedBranch?.name || ""}`} />
-              <MetricCard label="College" value={selectedCollege.college_name} />
-              <MetricCard label="Exam" value={selectedCollege.exam} />
-              <MetricCard label="Closing rank" value={actualCutoff?.closing_rank?.toLocaleString("en-IN")} />
-            </div>
+            <ol className="relative ml-2 border-l-2 border-[#eaded8]">
+              {[
+                {
+                  label: "Branch",
+                  value: `${degreeShort(selectedBranch?.degree_label) || ""}${
+                    selectedBranch?.degree_label && selectedBranch?.name ? " · " : ""
+                  }${selectedBranch?.name || ""}`,
+                },
+                { label: "College", value: selectedCollege.college_name },
+                { label: "Entrance exam", value: selectedCollege.exam },
+                {
+                  label: "Closing rank",
+                  value: actualCutoff?.closing_rank?.toLocaleString("en-IN"),
+                },
+              ]
+                .filter((step) => step.value)
+                .map((step) => (
+                  <li key={step.label} className="relative mb-5 pl-6 last:mb-0">
+                    <span className="absolute -left-[7px] top-1.5 h-3 w-3 rounded-full border-2 border-white bg-[#B52326]" />
+                    <div className="text-xs font-semibold uppercase tracking-wide text-[#8a6d63]">
+                      {step.label}
+                    </div>
+                    <div className="mt-0.5 break-words text-base font-bold text-[#2f2320]">
+                      {step.value}
+                    </div>
+                  </li>
+                ))}
+            </ol>
             <div className="mt-6 flex items-center gap-3">
               <button onClick={restart} className="rounded-lg border border-[#eaded8] px-4 py-3 text-sm font-bold text-[#4f403a]">
                 Start again
