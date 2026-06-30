@@ -44,19 +44,66 @@ const selectBestCutoffs = (cutoffs, limit = 8) => {
   ).slice(0, limit);
 };
 
-const getCutoffForFilters = (cutoffs, category, gender) => {
-  const exact = cutoffs
-    .filter((row) => row.seat_type === category && row.gender_pool === gender)
-    .sort(byRank);
-  if (exact.length) return exact[0];
+// Quota choices the student sees, mapped to the quota codes in the cutoff data.
+// AI = All India (IITs and the all-India pool); HS/OS = Home / Other state
+// (matters for NITs, IIITs and other state-quota institutes).
+const QUOTA_OPTIONS = [
+  { value: "AI", label: "All India" },
+  { value: "HS", label: "Home state" },
+  { value: "OS", label: "Other state" },
+];
 
-  const categoryOnly = cutoffs
-    .filter((row) => row.seat_type === category)
-    .sort(byRank);
-  if (categoryOnly.length) return categoryOnly[0];
-
+const getCutoffForFilters = (cutoffs, category, gender, quota) => {
+  const tiers = [
+    (row) =>
+      row.seat_type === category &&
+      row.gender_pool === gender &&
+      (!quota || row.quota === quota),
+    (row) => row.seat_type === category && (!quota || row.quota === quota),
+    (row) => row.seat_type === category && row.gender_pool === gender,
+    (row) => row.seat_type === category,
+  ];
+  for (const match of tiers) {
+    const hit = cutoffs.filter(match).sort(byRank);
+    if (hit.length) return hit[0];
+  }
   return cutoffs.slice().sort(byRank)[0] || null;
 };
+
+// Which quota codes actually exist for a given set of cutoffs, in display order.
+const availableQuotas = (cutoffs) => {
+  const present = new Set(cutoffs.map((row) => row.quota));
+  return QUOTA_OPTIONS.filter((option) => present.has(option.value));
+};
+
+// Friendly, demo-fixed wrong answers for the degree quiz. These do not exist in
+// the JoSAA engineering data, which is the point — they teach what does NOT lead
+// to an engineering seat. Correct answers are derived from real cutoff data.
+const DEGREE_DISTRACTORS = ["3yr B.Sc", "5yr B.Sc + M.Sc"];
+
+// Degrees that genuinely have JoSAA cutoffs for a career, most-offered first.
+const degreesForCareer = (lookups, careerId) => {
+  const links = lookups.careerBranchesByCareer[careerId] || [];
+  const counts = {};
+  links.forEach((link) => {
+    const branch = lookups.branchesById[link.branch_id];
+    const rows = (lookups.cutoffsByBranch[link.branch_id] || []).length;
+    if (!branch || !branch.degree_label || !rows) return;
+    counts[branch.degree_label] = (counts[branch.degree_label] || 0) + rows;
+  });
+  return Object.entries(counts)
+    .sort((a, b) => b[1] - a[1])
+    .map(([label]) => label);
+};
+
+// Branch ids for a career that match the chosen degree (all variants merged).
+const branchIdsForCareerDegree = (lookups, careerId, degreeLabel) =>
+  (lookups.careerBranchesByCareer[careerId] || [])
+    .filter(
+      (link) =>
+        lookups.branchesById[link.branch_id]?.degree_label === degreeLabel
+    )
+    .map((link) => link.branch_id);
 
 const MetricCard = ({ label, value }) => {
   if (!value) return null;
@@ -275,8 +322,6 @@ const QuizPanel = ({
   data,
   selectedCareerId,
   setSelectedCareerId,
-  selectedBranchId,
-  setSelectedBranchId,
   selectedCollegeId,
   setSelectedCollegeId,
   onLearnMore,
@@ -284,38 +329,91 @@ const QuizPanel = ({
   const [stage, setStage] = useState("career");
   const [category, setCategory] = useState("OPEN");
   const [gender, setGender] = useState("Gender-Neutral");
+  const [quota, setQuota] = useState("AI");
   const [rankGuess, setRankGuess] = useState("");
   const [examGuess, setExamGuess] = useState("");
   const [examRevealed, setExamRevealed] = useState(false);
+  const [degreeGuesses, setDegreeGuesses] = useState([]);
+  const [degreeRevealed, setDegreeRevealed] = useState(false);
+  const [selectedDegree, setSelectedDegree] = useState("");
+  const [collegeSearch, setCollegeSearch] = useState("");
+  const [showHelper, setShowHelper] = useState(false);
+  const [prefState, setPrefState] = useState("");
+  const [prefType, setPrefType] = useState("");
+  const [prefPriority, setPrefPriority] = useState("nirf");
   const cardRef = useRef(null);
   const didMountRef = useRef(false);
 
   const lookups = useLookups(data);
   const career = lookups.careersById[selectedCareerId];
-  const branchLinks = lookups.careerBranchesByCareer[selectedCareerId] || [];
-  const branches = branchLinks
-    .map((link) => lookups.branchesById[link.branch_id])
-    .filter(Boolean);
-  const selectedBranch = lookups.branchesById[selectedBranchId] || branches[0];
-  const branchCutoffs = selectedBranch
-    ? lookups.cutoffsByBranch[selectedBranch.id] || []
-    : [];
-  const collegeOptions = selectBestCutoffs(branchCutoffs, 12);
+
+  // Degrees that actually have JoSAA cutoffs for this career (the real answers).
+  const careerDegrees = degreesForCareer(lookups, selectedCareerId);
+  // The degree the student picked drives which branches (merged) we resolve.
+  const activeDegree =
+    selectedDegree && careerDegrees.includes(selectedDegree)
+      ? selectedDegree
+      : careerDegrees[0] || "";
+  const activeBranchIds = branchIdsForCareerDegree(
+    lookups,
+    selectedCareerId,
+    activeDegree
+  );
+  // Pool cutoffs across every branch variant of the chosen career + degree.
+  const pooledCutoffs = activeBranchIds.flatMap(
+    (id) => lookups.cutoffsByBranch[id] || []
+  );
+  // One best (OPEN / Gender-Neutral) row per college, sorted by closing rank.
+  const collegeOptions = selectBestCutoffs(pooledCutoffs, 200);
+
+  // Enrich each college option with NIRF / state / salary for the chooser.
+  const enrichedColleges = collegeOptions.map((cutoff) => ({
+    ...cutoff,
+    college: lookups.collegesById[cutoff.college_id] || {},
+  }));
+
+  const collegeTypes = uniqueBy(
+    enrichedColleges
+      .map((row) => row.college.type)
+      .filter(Boolean)
+      .map((type) => ({ type })),
+    (row) => row.type
+  ).map((row) => row.type);
+  const collegeStates = uniqueBy(
+    enrichedColleges
+      .map((row) => row.college.state)
+      .filter(Boolean)
+      .map((state) => ({ state })),
+    (row) => row.state
+  )
+    .map((row) => row.state)
+    .sort();
+
+  const searchedColleges = enrichedColleges.filter((row) => {
+    const q = collegeSearch.trim().toLowerCase();
+    if (!q) return true;
+    return [row.college_name, row.college.state, row.college.type]
+      .filter(Boolean)
+      .join(" ")
+      .toLowerCase()
+      .includes(q);
+  });
+
   const selectedCollege =
-    collegeOptions.find((cutoff) => cutoff.college_id === selectedCollegeId) ||
-    collegeOptions[0] ||
-    null;
+    enrichedColleges.find((row) => row.college_id === selectedCollegeId) || null;
   const selectedCollegeCutoffs = selectedCollege
-    ? branchCutoffs.filter(
+    ? pooledCutoffs.filter(
         (cutoff) =>
           cutoff.college_id === selectedCollege.college_id &&
           cutoff.rank_space === selectedCollege.rank_space
       )
     : [];
+  const quotaOptions = availableQuotas(selectedCollegeCutoffs);
   const actualCutoff = getCutoffForFilters(
     selectedCollegeCutoffs,
     category,
-    gender
+    gender,
+    quota
   );
   const numericGuess = Number(rankGuess);
   const resultText =
@@ -324,10 +422,10 @@ const QuizPanel = ({
         ? "Your guessed rank is inside this cutoff."
         : "Your guessed rank is above this cutoff."
       : null;
-  const stages = ["Career", "Branch", "College", "Exam", "Rank", "Path"];
+  const stages = ["Career", "Degree", "College", "Exam", "Rank", "Path"];
   const stageIndex = {
     career: 0,
-    branch: 1,
+    degree: 1,
     college: 2,
     review: 2,
     exam: 3,
@@ -335,31 +433,43 @@ const QuizPanel = ({
     reveal: 4,
     final: 5,
   }[stage];
-  const shouldShowBranchInPath = stageIndex >= 1;
+  // Don't reveal the degree in the path banner while the student is still on the
+  // degree-guess step — that would spoil the answer. Show it from college onward.
+  const shouldShowDegreeInPath = stageIndex >= 2;
   const shouldShowCollegeInPath = stageIndex >= 2;
 
+  // Clear the college if it's no longer valid for the current options (e.g. the
+  // career or degree changed). We do NOT auto-pick one — the student chooses.
   useEffect(() => {
-    if (!branches.find((branch) => branch.id === selectedBranchId)) {
-      setSelectedBranchId(branches[0]?.id || "");
-    }
-  }, [branches, selectedBranchId, setSelectedBranchId]);
-
-  useEffect(() => {
-    if (!collegeOptions.find((cutoff) => cutoff.college_id === selectedCollegeId)) {
-      setSelectedCollegeId(collegeOptions[0]?.college_id || "");
+    if (
+      selectedCollegeId &&
+      !collegeOptions.find((cutoff) => cutoff.college_id === selectedCollegeId)
+    ) {
+      setSelectedCollegeId("");
     }
   }, [collegeOptions, selectedCollegeId, setSelectedCollegeId]);
 
+  // Keep quota valid for the current college's available quotas.
+  useEffect(() => {
+    if (quotaOptions.length && !quotaOptions.find((q) => q.value === quota)) {
+      setQuota(quotaOptions[0].value);
+    }
+  }, [quotaOptions, quota]);
+
+  // Changing career resets the quiz back to the degree step.
   useEffect(() => {
     setRankGuess("");
-    if (stage !== "career") setStage("branch");
+    setSelectedDegree("");
+    setDegreeGuesses([]);
+    setDegreeRevealed(false);
+    if (stage !== "career") setStage("degree");
   }, [selectedCareerId]);
 
   useEffect(() => {
     if (stage === "reveal") setStage("rank");
     setExamGuess("");
     setExamRevealed(false);
-  }, [selectedBranchId, selectedCollegeId, category, gender]);
+  }, [selectedDegree, selectedCollegeId, category, gender, quota]);
 
   // On each step change, bring the top of the quiz card into view so the new
   // step's heading is visible without manual scrolling (mobile especially).
@@ -373,6 +483,31 @@ const QuizPanel = ({
 
   if (!career) return null;
 
+  // Degree quiz options: real answers (have cutoffs) + fixed wrong distractors.
+  const degreeOptions = uniqueBy(
+    [
+      ...careerDegrees.map((label) => ({ label: degreeShort(label), correct: true })),
+      ...DEGREE_DISTRACTORS.map((label) => ({ label, correct: false })),
+    ],
+    (option) => option.label
+  );
+
+  const toggleDegreeGuess = (label) =>
+    setDegreeGuesses((current) =>
+      current.includes(label)
+        ? current.filter((item) => item !== label)
+        : [...current, label]
+    );
+
+  // "Select all that apply" is right only if every picked option is correct and
+  // every correct option was picked.
+  const degreeAllCorrect =
+    degreeGuesses.length > 0 &&
+    degreeGuesses.every(
+      (label) => degreeOptions.find((o) => o.label === label)?.correct
+    ) &&
+    degreeOptions.filter((o) => o.correct).every((o) => degreeGuesses.includes(o.label));
+
   const optionClass = (isSelected) =>
     `flex w-full items-center gap-3 rounded-xl border px-4 py-3 text-left transition ${
       isSelected
@@ -382,8 +517,8 @@ const QuizPanel = ({
 
   const back = () => {
     const next = {
-      branch: "career",
-      college: "branch",
+      degree: "career",
+      college: "degree",
       review: "college",
       exam: "review",
       rank: "exam",
@@ -398,9 +533,30 @@ const QuizPanel = ({
     setRankGuess("");
     setExamGuess("");
     setExamRevealed(false);
+    setDegreeGuesses([]);
+    setDegreeRevealed(false);
+    setSelectedDegree("");
+    setCollegeSearch("");
+    setShowHelper(false);
+    setPrefState("");
+    setPrefType("");
     setCategory("OPEN");
     setGender("Gender-Neutral");
+    setQuota("AI");
   };
+
+  // "Help me choose" ranks the full college set by the student's preference.
+  // It never ranks by cutoff — guessing the cutoff is the point of a later step.
+  const helperResults = (() => {
+    let rows = enrichedColleges;
+    if (prefState) rows = rows.filter((r) => r.college.state === prefState);
+    if (prefType) rows = rows.filter((r) => r.college.type === prefType);
+    const score = (r) =>
+      prefPriority === "salary"
+        ? -(r.college.median_salary ?? 0)
+        : r.college.nirf_rank ?? Number.MAX_SAFE_INTEGER;
+    return rows.slice().sort((a, b) => score(a) - score(b)).slice(0, 6);
+  })();
 
   return (
     <section ref={cardRef} className="mx-auto max-w-[760px] scroll-mt-4">
@@ -440,11 +596,11 @@ const QuizPanel = ({
             </div>
             <div className="mt-1 text-sm text-[#4f403a]">
               {career.name}
-              {shouldShowBranchInPath && selectedBranch
-                ? ` -> ${selectedBranch.name}`
+              {shouldShowDegreeInPath && activeDegree
+                ? ` → ${degreeShort(activeDegree)}`
                 : ""}
               {shouldShowCollegeInPath && selectedCollege
-                ? ` -> ${selectedCollege.college_name}`
+                ? ` → ${selectedCollege.college_name}`
                 : ""}
             </div>
           </div>
@@ -460,7 +616,7 @@ const QuizPanel = ({
                 Which engineering career do you want to explore?
               </h2>
               <p className="mt-2 text-sm text-[#7a635d]">
-                Pick a career and explore possible branch paths and JoSAA colleges.
+                Pick a career and walk the path from degree to college to cutoff.
               </p>
             </div>
             <div className="grid gap-3">
@@ -493,7 +649,7 @@ const QuizPanel = ({
               </button>
               <span className="flex-1" />
               <button
-                onClick={() => setStage("branch")}
+                onClick={() => setStage("degree")}
                 className="inline-flex items-center gap-2 rounded-lg bg-[#B52326] px-5 py-3 text-sm font-bold text-white"
               >
                 Continue <ArrowRight size={16} />
@@ -502,45 +658,115 @@ const QuizPanel = ({
           </>
         )}
 
-        {stage === "branch" && (
+        {stage === "degree" && (
           <>
             <div className="mb-5">
               <div className="text-xs font-bold uppercase tracking-wide text-[#B52326]">
-                Step 2 · Branch
+                Step 2 · Degree
               </div>
               <h2 className="mt-1 text-2xl font-black leading-tight text-[#2f2320]">
-                Which branch path should lead to {career.name}?
+                Which degree leads to a career in {career.name}?
               </h2>
+              <p className="mt-2 text-sm text-[#7a635d]">
+                Select every degree you think leads there — more than one can be
+                right — then reveal the answer.
+              </p>
             </div>
-            <div className="grid gap-3">
-              {branches.slice(0, 8).map((branch, index) => (
-                <button
-                  key={branch.id}
-                  className={optionClass(branch.id === selectedBranch?.id)}
-                  onClick={() => setSelectedBranchId(branch.id)}
-                >
-                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-[#e0cdc6] text-xs font-black text-[#7a635d]">
-                    {index + 1}
-                  </span>
-                  <span className="min-w-0 flex-1">
-                    <span className="block break-words font-black text-[#2f2320]">
-                      {branch.name}
-                    </span>
-                    <span className="mt-0.5 block text-xs text-[#7a635d]">
-                      {degreeShort(branch.degree_label)}
-                    </span>
-                  </span>
-                </button>
-              ))}
+            <div className="space-y-3">
+              {degreeOptions.map((option) => {
+                const isPicked = degreeGuesses.includes(option.label);
+                const showCorrect = degreeRevealed && option.correct;
+                const showWrong = degreeRevealed && isPicked && !option.correct;
+                const showMissed = degreeRevealed && option.correct && !isPicked;
+                return (
+                  <button
+                    key={option.label}
+                    disabled={degreeRevealed}
+                    onClick={() => toggleDegreeGuess(option.label)}
+                    className={`w-full rounded-xl border px-4 py-3 text-left transition ${
+                      showCorrect
+                        ? "border-[#1f8a5b] bg-[#e8f5ee]"
+                        : showWrong
+                        ? "border-[#B52326] bg-[#fbeeec]"
+                        : isPicked
+                        ? "border-[#B52326] bg-[#fbeeec]"
+                        : "border-[#e0cdc6] bg-white"
+                    }`}
+                  >
+                    <div className="flex items-center gap-3">
+                      <span
+                        className={`flex h-7 w-7 items-center justify-center rounded-full text-xs font-black ${
+                          showCorrect
+                            ? "bg-[#1f8a5b] text-white"
+                            : showWrong || isPicked
+                            ? "bg-[#B52326] text-white"
+                            : "bg-[#f5ece8] text-[#7a635d]"
+                        }`}
+                      >
+                        {showCorrect ? "✓" : showWrong ? "✕" : isPicked ? "✓" : "•"}
+                      </span>
+                      <span className="font-black text-[#2f2320]">{option.label}</span>
+                      {showMissed && (
+                        <span className="ml-auto text-xs font-bold text-[#1f8a5b]">
+                          also correct
+                        </span>
+                      )}
+                    </div>
+                  </button>
+                );
+              })}
             </div>
+            {degreeRevealed && (
+              <div
+                className={`mt-4 rounded-lg border p-3 text-sm text-[#2f2320] ${
+                  degreeAllCorrect
+                    ? "border-[#1f8a5b] bg-[#e8f5ee]"
+                    : "border-[#B52326] bg-[#fbeeec]"
+                }`}
+              >
+                <div className="font-black">
+                  {degreeAllCorrect ? "Correct" : "Not quite"}
+                </div>
+                <div className="mt-1 text-[#5f514c]">
+                  {career.name} is reached through{" "}
+                  {careerDegrees.map((label) => degreeShort(label)).join(" or ")}.
+                  A B.Sc route does not lead to a JoSAA engineering seat.
+                </div>
+              </div>
+            )}
             <div className="mt-6 flex items-center gap-3">
               <button onClick={back} className="rounded-lg border border-[#eaded8] px-4 py-3 text-sm font-bold text-[#4f403a]">
                 Back
               </button>
               <span className="flex-1" />
-              <button onClick={() => setStage("college")} className="inline-flex items-center gap-2 rounded-lg bg-[#B52326] px-5 py-3 text-sm font-bold text-white">
-                Choose colleges <ArrowRight size={16} />
-              </button>
+              {!degreeRevealed ? (
+                <button
+                  disabled={!degreeGuesses.length}
+                  onClick={() => setDegreeRevealed(true)}
+                  className="inline-flex items-center gap-2 rounded-lg bg-[#B52326] px-5 py-3 text-sm font-bold text-white disabled:bg-[#d8aaa3]"
+                >
+                  Reveal answer <ArrowRight size={16} />
+                </button>
+              ) : (
+                <div className="flex items-center gap-2">
+                  {careerDegrees.length > 1 && (
+                    <select
+                      value={activeDegree}
+                      onChange={(event) => setSelectedDegree(event.target.value)}
+                      className="rounded-lg border border-[#d8c8c0] px-3 py-3 text-sm"
+                    >
+                      {careerDegrees.map((label) => (
+                        <option key={label} value={label}>
+                          {degreeShort(label)}
+                        </option>
+                      ))}
+                    </select>
+                  )}
+                  <button onClick={() => setStage("college")} className="inline-flex items-center gap-2 rounded-lg bg-[#B52326] px-5 py-3 text-sm font-bold text-white">
+                    Choose college <ArrowRight size={16} />
+                  </button>
+                </div>
+              )}
             </div>
           </>
         )}
@@ -549,40 +775,197 @@ const QuizPanel = ({
           <>
             <div className="mb-5">
               <div className="text-xs font-bold uppercase tracking-wide text-[#B52326]">
-                Step 3 · Colleges
+                Step 3 · College
               </div>
               <h2 className="mt-1 text-2xl font-black leading-tight text-[#2f2320]">
-                Pick a college
+                Choose a college
               </h2>
-              <p className="mt-2 text-sm text-[#7a635d]">
-                These colleges offer this branch through JoSAA.
-              </p>
             </div>
-            <div className="grid gap-3">
-              {collegeOptions.slice(0, 8).map((cutoff, index) => (
-                <button
-                  key={cutoff.id}
-                  className={optionClass(cutoff.college_id === selectedCollege?.college_id)}
-                  onClick={() => setSelectedCollegeId(cutoff.college_id)}
-                >
-                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-[#e0cdc6] text-xs font-black text-[#7a635d]">
-                    {index + 1}
-                  </span>
-                  <span className="min-w-0 flex-1">
-                    <span className="block break-words font-black text-[#2f2320]">
-                      {cutoff.college_name}
+
+            {/* Current pick, or a prompt to make one */}
+            {selectedCollege ? (
+              <div className="rounded-xl border-2 border-[#B52326] bg-[#fbeeec] p-4">
+                <div className="text-[11px] font-bold uppercase tracking-wide text-[#B52326]">
+                  Selected college
+                </div>
+                <div className="mt-1 break-words text-lg font-black text-[#2f2320]">
+                  {selectedCollege.college_name}
+                </div>
+                <div className="mt-0.5 text-xs text-[#7a635d]">
+                  {[
+                    selectedCollege.college.type,
+                    selectedCollege.college.state,
+                    selectedCollege.college.nirf_rank
+                      ? `NIRF #${selectedCollege.college.nirf_rank}`
+                      : null,
+                  ]
+                    .filter(Boolean)
+                    .join(" · ")}
+                </div>
+              </div>
+            ) : (
+              <div className="rounded-xl border border-dashed border-[#d8c8c0] bg-white/70 p-4 text-sm text-[#6b5a53]">
+                No college chosen yet. Search for one, or tap{" "}
+                <span className="font-bold text-[#B52326]">Help me choose</span>.
+              </div>
+            )}
+
+            {/* Change it: search or guided helper */}
+            <div className="mt-4 flex items-center gap-2 rounded-md border border-[#eaded8] bg-[#fdf8f6] px-3 py-2">
+              <Search size={16} className="text-[#8a6d63]" />
+              <input
+                value={collegeSearch}
+                onChange={(event) => {
+                  setCollegeSearch(event.target.value);
+                  if (event.target.value) setShowHelper(false);
+                }}
+                className="w-full bg-transparent text-sm outline-none"
+                placeholder="Search to change college"
+              />
+              <button
+                onClick={() => {
+                  setShowHelper((value) => !value);
+                  setCollegeSearch("");
+                }}
+                className={`shrink-0 rounded-md border px-3 py-1.5 text-xs font-bold ${
+                  showHelper
+                    ? "border-[#B52326] bg-[#B52326] text-white"
+                    : "border-[#B52326] text-[#B52326]"
+                }`}
+              >
+                Help me choose
+              </button>
+            </div>
+
+            {/* Search results — only while typing */}
+            {collegeSearch.trim() && (
+              <div className="mt-3 grid max-h-[300px] gap-2 overflow-auto pr-1">
+                {searchedColleges.slice(0, 8).map((row) => (
+                  <button
+                    key={row.id}
+                    className={optionClass(row.college_id === selectedCollege?.college_id)}
+                    onClick={() => {
+                      setSelectedCollegeId(row.college_id);
+                      setCollegeSearch("");
+                    }}
+                  >
+                    <span className="min-w-0 flex-1">
+                      <span className="block break-words font-black text-[#2f2320]">
+                        {row.college_name}
+                      </span>
+                      <span className="mt-0.5 block text-xs text-[#7a635d]">
+                        {[row.college.type, row.college.state]
+                          .filter(Boolean)
+                          .join(" · ")}
+                      </span>
                     </span>
-                  </span>
-                </button>
-              ))}
-            </div>
+                  </button>
+                ))}
+                {!searchedColleges.length && (
+                  <EmptyState>No colleges match your search.</EmptyState>
+                )}
+              </div>
+            )}
+
+            {/* Guided helper — pick closes it */}
+            {showHelper && (
+              <div className="mt-3 rounded-lg border border-[#eaded8] bg-[#fdf8f6] p-4">
+                <div className="grid gap-3 sm:grid-cols-3">
+                  <label className="block">
+                    <span className="text-xs font-bold text-[#2f2320]">State</span>
+                    <select
+                      value={prefState}
+                      onChange={(event) => setPrefState(event.target.value)}
+                      className="mt-1 w-full rounded-lg border border-[#d8c8c0] px-3 py-2 text-sm"
+                    >
+                      <option value="">Any state</option>
+                      {collegeStates.map((state) => (
+                        <option key={state} value={state}>
+                          {state}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                  <label className="block">
+                    <span className="text-xs font-bold text-[#2f2320]">Type</span>
+                    <select
+                      value={prefType}
+                      onChange={(event) => setPrefType(event.target.value)}
+                      className="mt-1 w-full rounded-lg border border-[#d8c8c0] px-3 py-2 text-sm"
+                    >
+                      <option value="">Any type</option>
+                      {collegeTypes.map((type) => (
+                        <option key={type} value={type}>
+                          {type}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                  <label className="block">
+                    <span className="text-xs font-bold text-[#2f2320]">Rank by</span>
+                    <select
+                      value={prefPriority}
+                      onChange={(event) => setPrefPriority(event.target.value)}
+                      className="mt-1 w-full rounded-lg border border-[#d8c8c0] px-3 py-2 text-sm"
+                    >
+                      <option value="nirf">NIRF rank</option>
+                      <option value="salary">Median salary</option>
+                    </select>
+                  </label>
+                </div>
+                <p className="mt-3 text-xs text-[#8a6d63]">
+                  NIRF and salary aren&apos;t available for every college; those
+                  are listed last.
+                </p>
+                <div className="mt-3 grid gap-2">
+                  {helperResults.map((row) => (
+                    <button
+                      key={row.id}
+                      onClick={() => {
+                        setSelectedCollegeId(row.college_id);
+                        setShowHelper(false);
+                      }}
+                      className={optionClass(row.college_id === selectedCollege?.college_id)}
+                    >
+                      <span className="min-w-0 flex-1">
+                        <span className="block break-words font-black text-[#2f2320]">
+                          {row.college_name}
+                        </span>
+                        <span className="mt-0.5 block text-xs text-[#7a635d]">
+                          {[
+                            row.college.type,
+                            row.college.state,
+                            row.college.nirf_rank
+                              ? `NIRF #${row.college.nirf_rank}`
+                              : null,
+                            prefPriority === "salary" && row.college.median_salary
+                              ? `₹${(row.college.median_salary / 100000).toFixed(1)}L median`
+                              : null,
+                          ]
+                            .filter(Boolean)
+                            .join(" · ")}
+                        </span>
+                      </span>
+                    </button>
+                  ))}
+                  {!helperResults.length && (
+                    <EmptyState>No colleges match those preferences.</EmptyState>
+                  )}
+                </div>
+              </div>
+            )}
+
             <div className="mt-6 flex items-center gap-3">
               <button onClick={back} className="rounded-lg border border-[#eaded8] px-4 py-3 text-sm font-bold text-[#4f403a]">
                 Back
               </button>
               <span className="flex-1" />
-              <button onClick={() => setStage("review")} className="inline-flex items-center gap-2 rounded-lg bg-[#B52326] px-5 py-3 text-sm font-bold text-white">
-                Review path <ArrowRight size={16} />
+              <button
+                disabled={!selectedCollege}
+                onClick={() => setStage("review")}
+                className="inline-flex items-center gap-2 rounded-lg bg-[#B52326] px-5 py-3 text-sm font-bold text-white disabled:bg-[#d8aaa3]"
+              >
+                Continue <ArrowRight size={16} />
               </button>
             </div>
           </>
@@ -600,18 +983,7 @@ const QuizPanel = ({
             </div>
             <div className="space-y-3">
               <MetricCard label="Career" value={career.name} />
-              <MetricCard
-                label="Branch"
-                value={
-                  selectedBranch
-                    ? `${selectedBranch.name}${
-                        degreeShort(selectedBranch.degree_label)
-                          ? ` · ${degreeShort(selectedBranch.degree_label)}`
-                          : ""
-                      }`
-                    : ""
-                }
-              />
+              <MetricCard label="Degree" value={degreeShort(activeDegree)} />
               <MetricCard label="College" value={selectedCollege.college_name} />
             </div>
             <div className="mt-6 flex items-center gap-3">
@@ -727,7 +1099,7 @@ const QuizPanel = ({
                 What rank gets you into {selectedCollege.college_name}?
               </h2>
             </div>
-            <div className="grid gap-4 md:grid-cols-3">
+            <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4">
               <label className="block">
                 <span className="text-sm font-bold text-[#2f2320]">Category</span>
                 <select className="mt-2 w-full rounded-lg border border-[#d8c8c0] px-3 py-3 text-sm" value={category} onChange={(event) => setCategory(event.target.value)}>
@@ -741,10 +1113,31 @@ const QuizPanel = ({
                 </select>
               </label>
               <label className="block">
+                <span className="text-sm font-bold text-[#2f2320]">Home state?</span>
+                <select
+                  className="mt-2 w-full rounded-lg border border-[#d8c8c0] px-3 py-3 text-sm disabled:bg-[#f5ece8]"
+                  value={quota}
+                  disabled={quotaOptions.length <= 1}
+                  onChange={(event) => setQuota(event.target.value)}
+                >
+                  {quotaOptions.map((option) => (
+                    <option key={option.value} value={option.value}>
+                      {option.label}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              <label className="block">
                 <span className="text-sm font-bold text-[#2f2320]">Your guess</span>
                 <input className="mt-2 w-full rounded-lg border border-[#d8c8c0] px-3 py-3 text-sm" type="number" min="1" value={rankGuess} onChange={(event) => setRankGuess(event.target.value)} placeholder="e.g. 5000" />
               </label>
             </div>
+            {quotaOptions.length > 1 && (
+              <p className="mt-3 text-xs text-[#8a6d63]">
+                This college has separate home-state and other-state cutoffs, so
+                where you live changes the rank you need.
+              </p>
+            )}
             <div className="mt-6 flex items-center gap-3">
               <button onClick={back} className="rounded-lg border border-[#eaded8] px-4 py-3 text-sm font-bold text-[#4f403a]">
                 Back
@@ -784,7 +1177,11 @@ const QuizPanel = ({
               </div>
             )}
             <div className="mt-4 rounded-lg border border-[#eaded8] bg-white p-4 text-sm text-[#5f514c]">
-              {category} · {gender} · {selectedCollege.exam} · JoSAA {actualCutoff.year} Round {actualCutoff.round}
+              {category} · {gender} ·{" "}
+              {QUOTA_OPTIONS.find((q) => q.value === actualCutoff.quota)?.label ||
+                actualCutoff.quota}{" "}
+              · {selectedCollege.exam} · JoSAA {actualCutoff.year} Round{" "}
+              {actualCutoff.round}
             </div>
             <div className="mt-6 flex items-center gap-3">
               <button onClick={back} className="rounded-lg border border-[#eaded8] px-4 py-3 text-sm font-bold text-[#4f403a]">
@@ -805,17 +1202,12 @@ const QuizPanel = ({
                 Path complete
               </div>
               <h2 className="mt-1 text-3xl font-black leading-tight text-[#2f2320]">
-                How to become a {career.name}
+                Your path into {career.name}
               </h2>
             </div>
             <ol className="relative ml-2 border-l-2 border-[#eaded8]">
               {[
-                {
-                  label: "Branch",
-                  value: `${degreeShort(selectedBranch?.degree_label) || ""}${
-                    selectedBranch?.degree_label && selectedBranch?.name ? " · " : ""
-                  }${selectedBranch?.name || ""}`,
-                },
+                { label: "Degree", value: degreeShort(activeDegree) },
                 { label: "College", value: selectedCollege.college_name },
                 { label: "Entrance exam", value: selectedCollege.exam },
                 {
@@ -883,7 +1275,6 @@ export default function FuturesV2Page() {
   const [activeTab, setActiveTab] = useState("careers");
   const [search, setSearch] = useState("");
   const [selectedCareerId, setSelectedCareerId] = useState("");
-  const [selectedBranchId, setSelectedBranchId] = useState("");
   const [selectedCollegeId, setSelectedCollegeId] = useState("");
 
   useEffect(() => {
@@ -1007,8 +1398,6 @@ export default function FuturesV2Page() {
               data={data}
               selectedCareerId={selectedCareerId}
               setSelectedCareerId={setSelectedCareerId}
-              selectedBranchId={selectedBranchId}
-              setSelectedBranchId={setSelectedBranchId}
               selectedCollegeId={selectedCollegeId}
               setSelectedCollegeId={setSelectedCollegeId}
               onLearnMore={() => setActiveTab("careers")}

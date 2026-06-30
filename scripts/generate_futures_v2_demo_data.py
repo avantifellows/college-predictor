@@ -86,6 +86,12 @@ def number_or_none(value, cast=float):
     return number
 
 
+def int_or_none(value):
+    """Parse ints that may arrive as float strings like "39.0"."""
+    number = number_or_none(value, float)
+    return None if number is None else int(number)
+
+
 def split_list(value):
     value = clean(value)
     if not value:
@@ -275,7 +281,7 @@ def main():
                 "name": clean(row.get("college_name")),
                 "state": clean(row.get("state")),
                 "type": institute_type(row.get("college_name"), row.get("college_type")),
-                "nirf_rank": number_or_none(row.get("nirf_rank"), int),
+                "nirf_rank": int_or_none(row.get("nirf_rank")),
                 "placement_rate": number_or_none(row.get("placement_rate"), float),
                 "median_salary": number_or_none(row.get("median_salary"), float),
                 "naac_grade": clean(row.get("naac_grade")),
