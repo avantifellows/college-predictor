@@ -329,7 +329,7 @@ const QuizPanel = ({
   const [stage, setStage] = useState("career");
   const [category, setCategory] = useState("OPEN");
   const [gender, setGender] = useState("Gender-Neutral");
-  const [quota, setQuota] = useState("AI");
+  const [homeState, setHomeState] = useState("");
   const [rankGuess, setRankGuess] = useState("");
   const [examGuess, setExamGuess] = useState("");
   const [examRevealed, setExamRevealed] = useState(false);
@@ -409,11 +409,25 @@ const QuizPanel = ({
       )
     : [];
   const quotaOptions = availableQuotas(selectedCollegeCutoffs);
+  // Does this college distinguish home vs other state at all? (NIT/IIIT do; IITs
+  // are all-India only.) Drives whether we ask the student for their state.
+  const hasStateQuota =
+    quotaOptions.some((q) => q.value === "HS") &&
+    quotaOptions.some((q) => q.value === "OS");
+  // Derive the seat quota from the student's home state vs the college's state,
+  // rather than asking them to know "AI / HS / OS" directly.
+  const derivedQuota = !hasStateQuota
+    ? quotaOptions[0]?.value || "AI"
+    : !homeState
+    ? "HS" // not answered yet — show a home-state figure as the default
+    : homeState === selectedCollege?.college?.state
+    ? "HS"
+    : "OS";
   const actualCutoff = getCutoffForFilters(
     selectedCollegeCutoffs,
     category,
     gender,
-    quota
+    derivedQuota
   );
   const numericGuess = Number(rankGuess);
   const resultText =
@@ -449,13 +463,6 @@ const QuizPanel = ({
     }
   }, [collegeOptions, selectedCollegeId, setSelectedCollegeId]);
 
-  // Keep quota valid for the current college's available quotas.
-  useEffect(() => {
-    if (quotaOptions.length && !quotaOptions.find((q) => q.value === quota)) {
-      setQuota(quotaOptions[0].value);
-    }
-  }, [quotaOptions, quota]);
-
   // Changing career resets the quiz back to the degree step.
   useEffect(() => {
     setRankGuess("");
@@ -469,7 +476,12 @@ const QuizPanel = ({
     if (stage === "reveal") setStage("rank");
     setExamGuess("");
     setExamRevealed(false);
-  }, [selectedDegree, selectedCollegeId, category, gender, quota]);
+  }, [selectedDegree, selectedCollegeId, category, gender, homeState]);
+
+  // Reset the home-state answer when the college changes (it's college-relative).
+  useEffect(() => {
+    setHomeState("");
+  }, [selectedCollegeId]);
 
   // On each step change, bring the top of the quiz card into view so the new
   // step's heading is visible without manual scrolling (mobile especially).
@@ -542,7 +554,7 @@ const QuizPanel = ({
     setPrefType("");
     setCategory("OPEN");
     setGender("Gender-Neutral");
-    setQuota("AI");
+    setHomeState("");
   };
 
   // "Help me choose" ranks the full college set by the student's preference.
@@ -730,7 +742,7 @@ const QuizPanel = ({
                 <div className="mt-1 text-[#5f514c]">
                   {career.name} is reached through{" "}
                   {careerDegrees.map((label) => degreeShort(label)).join(" or ")}.
-                  A B.Sc route does not lead to a JoSAA engineering seat.
+                  The B.Sc options aren&apos;t the usual JoSAA B.Tech route here.
                 </div>
               </div>
             )}
@@ -1113,18 +1125,23 @@ const QuizPanel = ({
                 </select>
               </label>
               <label className="block">
-                <span className="text-sm font-bold text-[#2f2320]">Home state?</span>
+                <span className="text-sm font-bold text-[#2f2320]">Where are you from?</span>
                 <select
                   className="mt-2 w-full rounded-lg border border-[#d8c8c0] px-3 py-3 text-sm disabled:bg-[#f5ece8]"
-                  value={quota}
-                  disabled={quotaOptions.length <= 1}
-                  onChange={(event) => setQuota(event.target.value)}
+                  value={homeState}
+                  disabled={!hasStateQuota}
+                  onChange={(event) => setHomeState(event.target.value)}
                 >
-                  {quotaOptions.map((option) => (
-                    <option key={option.value} value={option.value}>
-                      {option.label}
-                    </option>
-                  ))}
+                  {!hasStateQuota ? (
+                    <option value="">All-India seats</option>
+                  ) : (
+                    <>
+                      <option value={selectedCollege.college.state}>
+                        {selectedCollege.college.state} (home state)
+                      </option>
+                      <option value="__other__">Another state</option>
+                    </>
+                  )}
                 </select>
               </label>
               <label className="block">
@@ -1132,10 +1149,11 @@ const QuizPanel = ({
                 <input className="mt-2 w-full rounded-lg border border-[#d8c8c0] px-3 py-3 text-sm" type="number" min="1" value={rankGuess} onChange={(event) => setRankGuess(event.target.value)} placeholder="e.g. 5000" />
               </label>
             </div>
-            {quotaOptions.length > 1 && (
+            {hasStateQuota && (
               <p className="mt-3 text-xs text-[#8a6d63]">
-                This college has separate home-state and other-state cutoffs, so
-                where you live changes the rank you need.
+                {selectedCollege.college_name} reserves seats for{" "}
+                {selectedCollege.college.state} students, so a home-state student
+                and an out-of-state student need different ranks.
               </p>
             )}
             <div className="mt-6 flex items-center gap-3">
