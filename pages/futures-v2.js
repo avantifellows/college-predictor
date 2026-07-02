@@ -746,6 +746,28 @@ const QuizPanel = ({
                 </div>
               </div>
             )}
+            {degreeRevealed && careerDegrees.length > 1 && (
+              <div className="mt-5">
+                <div className="text-sm font-bold text-[#2f2320]">
+                  Pick a degree to continue
+                </div>
+                <div className="mt-2 space-y-2">
+                  {careerDegrees.map((label) => (
+                    <button
+                      key={label}
+                      onClick={() => setSelectedDegree(label)}
+                      className={`w-full rounded-xl border px-4 py-3 text-left text-sm font-bold transition ${
+                        activeDegree === label
+                          ? "border-[#B52326] bg-[#fbeeec] text-[#2f2320]"
+                          : "border-[#e0cdc6] bg-white text-[#4f403a] hover:border-[#B52326] hover:bg-[#fbeeec]"
+                      }`}
+                    >
+                      {degreeShort(label)}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
             <div className="mt-6 flex items-center gap-3">
               <button onClick={back} className="rounded-lg border border-[#eaded8] px-4 py-3 text-sm font-bold text-[#4f403a]">
                 Back
@@ -760,24 +782,9 @@ const QuizPanel = ({
                   Reveal answer <ArrowRight size={16} />
                 </button>
               ) : (
-                <div className="flex items-center gap-2">
-                  {careerDegrees.length > 1 && (
-                    <select
-                      value={activeDegree}
-                      onChange={(event) => setSelectedDegree(event.target.value)}
-                      className="rounded-lg border border-[#d8c8c0] px-3 py-3 text-sm"
-                    >
-                      {careerDegrees.map((label) => (
-                        <option key={label} value={label}>
-                          {degreeShort(label)}
-                        </option>
-                      ))}
-                    </select>
-                  )}
-                  <button onClick={() => setStage("college")} className="inline-flex items-center gap-2 rounded-lg bg-[#B52326] px-5 py-3 text-sm font-bold text-white">
-                    Choose college <ArrowRight size={16} />
-                  </button>
-                </div>
+                <button onClick={() => setStage("college")} className="inline-flex items-center gap-2 rounded-lg bg-[#B52326] px-5 py-3 text-sm font-bold text-white">
+                  Choose college <ArrowRight size={16} />
+                </button>
               )}
             </div>
           </>
@@ -1247,7 +1254,7 @@ const QuizPanel = ({
                 ))}
             </ol>
             <div className="mt-6 flex items-center gap-3">
-              <button onClick={restart} className="rounded-lg border border-[#eaded8] px-4 py-3 text-sm font-bold text-[#4f403a]">
+              <button onClick={restart} className="inline-flex items-center gap-2 rounded-lg bg-[#B52326] px-5 py-3 text-sm font-bold text-white">
                 Start again
               </button>
             </div>
