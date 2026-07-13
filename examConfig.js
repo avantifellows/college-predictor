@@ -395,6 +395,16 @@ export const neetUGConfig = {
       label: "Select Category (as in your NEET form)",
       options: neetCentralCategoryOptions,
     },
+    {
+      // Options are populated at runtime from public/data/NEETUG/
+      // neet_state_categories.json for the chosen home state (each state uses
+      // its own codes). Only shown once a home state with data is selected.
+      name: "stateCategory",
+      label: "Select Home-State Category (optional)",
+      dynamicOptionsByHomeState: true,
+      optional: true,
+      options: [],
+    },
   ],
   legend: [
     { key: "All India", value: "All India Quota (open to every state)" },
@@ -445,7 +455,15 @@ export const neetUGConfig = {
           if (!wanted) return true; // unknown category -> don't over-filter
           return neetCategoryCanonical(item["Category"]) === wanted;
         }
-        return true; // state-quota: show all home-state rows regardless of code
+        return true; // AIQ category handled above; state rows handled next
+      },
+      // Home-state category: only constrains STATE-quota rows, using that state's
+      // own code (from the state-category dropdown). AIQ rows are unaffected.
+      // If no state category chosen, show all of the home state's rows.
+      (item) => {
+        if (!query.stateCategory) return true;
+        if (item["Seat Type"] !== "State Quota") return true;
+        return normalize(item["Category"]) === normalize(query.stateCategory);
       },
       // Closing-rank filter: show colleges whose closing rank is within reach
       // (0.9 * user AIR headroom, same convention as before).

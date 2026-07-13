@@ -24,7 +24,7 @@ Input CSVs are expected under --extracted (default: the futures-v2 sibling repo)
 This script does NOT parse PDFs — run the parsers first.
 """
 from __future__ import annotations
-import argparse, csv, json
+import argparse, csv, json, re
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
@@ -53,14 +53,61 @@ CATEGORY_LABELS = {
     "OPEN": "Open (General)", "SE": "SEBC", "EW": "EWS",
 }
 
-OUTPUT_COLUMNS = ["Institute", "State", "Seat Type", "Academic Program Name",
-                  "Category", "Category Label", "Closing Rank", "Round",
-                  "rank_space", "Source"]
+OUTPUT_COLUMNS = ["Institute", "Address", "State", "Seat Type",
+                  "Academic Program Name", "Category", "Category Label",
+                  "Closing Rank", "Round", "rank_space", "Source"]
 
 
 def load_csv(path: Path):
     with path.open(encoding="utf-8") as f:
         return list(csv.DictReader(f))
+
+
+def split_institute(raw):
+    """Split a raw institute string into (name, address, state).
+
+    The MCC/AIQ format is 'Name, City,ADDRESS BLOB, State, pincode'. We keep the
+    college NAME (+ city) for display and preserve the rest as ADDRESS — we never
+    discard the address, just move it out of the name column. Returns
+    (name, address, state). State is best-effort from the trailing ', State, pincode'.
+    """
+    raw = (raw or "").strip()
+    # A double comma ('Name,,ADDRESS') means the city slot is empty and the
+    # address starts immediately — the name is just the first segment.
+    had_empty_city = ",," in raw.replace(", ,", ",,")
+    parts = [p.strip() for p in raw.split(",") if p.strip() != ""]
+    if len(parts) <= 1:
+        return raw, "", ""
+
+    # name = first part; include the 2nd part as city only if it looks like a
+    # city (short, title-case-ish, no long digit run, not an all-caps street) and
+    # the original didn't signal an empty city slot.
+    name = parts[0]
+    city = parts[1] if len(parts) >= 2 else ""
+    looks_like_city = (
+        city
+        and not had_empty_city
+        and len(city) <= 18
+        and not re.search(r"\d{3,}", city)
+        # a real city is usually one or two words, not an ALL-CAPS street phrase
+        and len(city.split()) <= 2
+    )
+    if looks_like_city:
+        name = f"{parts[0]}, {city}"
+        rest = parts[2:]
+    else:
+        rest = parts[1:]
+
+    # state = the part before a trailing pincode, if present
+    state = ""
+    if rest:
+        tail = rest[-1]
+        if re.fullmatch(r"\d{5,6}", tail) and len(rest) >= 2:
+            state = rest[-2]
+        elif not re.fullmatch(r"\d{5,6}", tail):
+            state = tail
+    address = ", ".join(rest)
+    return name, address, state
 
 
 def build(extracted: Path):
@@ -77,9 +124,11 @@ def build(extracted: Path):
                 continue
             cat = (r.get("Category") or "").strip()
             seat_type = "All India" if is_national else "State Quota"
+            name, address, inferred_state = split_institute(r.get("Institute"))
             out.append({
-                "Institute": (r.get("Institute") or "").strip(),
-                "State": state if not is_national else _infer_state(r),
+                "Institute": name,
+                "Address": address,
+                "State": state if not is_national else inferred_state,
                 "Seat Type": seat_type,
                 "Academic Program Name": (r.get("Academic Program Name") or "").strip(),
                 "Category": cat,
@@ -91,15 +140,6 @@ def build(extracted: Path):
             })
         print(f"  {fname}: {len(rows)} rows -> {state}")
     return out
-
-
-def _infer_state(row):
-    # AIQ colleges carry their physical state inside the messy Institute string
-    # ("... , <State>, <pincode>"). Best-effort; national rows show to everyone
-    # regardless, so this is only for display/search.
-    inst = row.get("Institute", "")
-    parts = [p.strip() for p in inst.split(",")]
-    return parts[-2] if len(parts) >= 2 else ""
 
 
 def main():
@@ -115,8 +155,23 @@ def main():
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(out, ensure_ascii=False, indent=0))
     print(f"\nwrote {args.out}: {len(out):,} rows")
-    # summary
-    from collections import Counter
+
+    # Per-state category list -> the UI's home-state category dropdown. Each state
+    # uses its own codes (Amogh: "take the unique list per state"); we surface them
+    # sorted, with the label where we know one.
+    from collections import Counter, defaultdict
+    state_cats = defaultdict(set)
+    for r in out:
+        if r["Seat Type"] == "State Quota" and r["State"] and r["Category"]:
+            state_cats[r["State"]].add(r["Category"])
+    state_cat_options = {
+        st: [{"value": c, "label": CATEGORY_LABELS.get(c, c)} for c in sorted(cats)]
+        for st, cats in state_cats.items()
+    }
+    cats_path = args.out.parent / "neet_state_categories.json"
+    cats_path.write_text(json.dumps(state_cat_options, ensure_ascii=False, indent=2))
+    print(f"wrote {cats_path}: {len(state_cat_options)} states")
+
     print("  seat types:", dict(Counter(r["Seat Type"] for r in out)))
     print("  programs:", dict(Counter(r["Academic Program Name"] for r in out)))
     print("  state-quota states:", sorted({r["State"] for r in out if r["Seat Type"] == "State Quota"}))

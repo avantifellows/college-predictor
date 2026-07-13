@@ -104,6 +104,9 @@ const ExamForm = () => {
   const [estimatedRank, setEstimatedRank] = useState(null);
   const [estimatedPercentile, setEstimatedPercentile] = useState(null);
   const [isEstimating, setIsEstimating] = useState(false);
+  // NEET home-state -> that state's own category codes (for the optional
+  // home-state category dropdown). Loaded once when NEET is selected.
+  const [neetStateCategories, setNeetStateCategories] = useState(null);
   const router = useRouter();
 
   const handleExamChange = (selectedOption) => {
@@ -121,25 +124,28 @@ const ExamForm = () => {
       baseFormData.qualifiedJeeAdv = "No";
       baseFormData.rankMode = "estimate";
       setRankMode("estimate");
-      setMarksInput("");
-      setMarksError("");
-      setPercentileInput("");
-      setPercentileError("");
-      setEstimateInputType("marks");
-      setEstimateError("");
-      setEstimatedRank(null);
-      setEstimatedPercentile(null);
+    } else if (selectedOption.value === "NEETUG") {
+      // NEET is marks-first: default to the estimate flow.
+      baseFormData.rankMode = "estimate";
+      setRankMode("estimate");
+      // Load each state's own category codes for the optional dropdown.
+      if (!neetStateCategories) {
+        fetch("/data/NEETUG/neet_state_categories.json")
+          .then((r) => (r.ok ? r.json() : null))
+          .then((data) => data && setNeetStateCategories(data))
+          .catch(() => {});
+      }
     } else {
       setRankMode("known");
-      setMarksInput("");
-      setMarksError("");
-      setPercentileInput("");
-      setPercentileError("");
-      setEstimateInputType("marks");
-      setEstimateError("");
-      setEstimatedRank(null);
-      setEstimatedPercentile(null);
     }
+    setMarksInput("");
+    setMarksError("");
+    setPercentileInput("");
+    setPercentileError("");
+    setEstimateInputType("marks");
+    setEstimateError("");
+    setEstimatedRank(null);
+    setEstimatedPercentile(null);
     setFormData(baseFormData);
   };
 
@@ -544,17 +550,38 @@ const ExamForm = () => {
 
     if (!config) return null;
 
-    const fieldsToRender =
+    let fieldsToRender =
       selectedExam === "JoSAA"
         ? config.fields.filter((field) => field.name !== "qualifiedJeeAdv")
         : config.fields;
 
-    return fieldsToRender.map((field) =>
-      renderFormCard(
+    // The NEET home-state category dropdown only makes sense once a home state
+    // that we actually have state-quota data for is chosen.
+    fieldsToRender = fieldsToRender.filter((field) => {
+      if (field.dynamicOptionsByHomeState) {
+        const hs = formData.homeState;
+        return (
+          hs &&
+          hs !== "Other" &&
+          neetStateCategories &&
+          Array.isArray(neetStateCategories[hs]) &&
+          neetStateCategories[hs].length > 0
+        );
+      }
+      return true;
+    });
+
+    return fieldsToRender.map((field) => {
+      // Resolve options: state-dependent for the dynamic field, else the static list.
+      const rawOptions = field.dynamicOptionsByHomeState
+        ? neetStateCategories?.[formData.homeState] || []
+        : field.options;
+
+      return renderFormCard(
         `${selectedExam}-${field.name}`,
         typeof field.label === "function" ? field.label(formData) : field.label,
         <Dropdown
-          options={field.options.map((option) =>
+          options={rawOptions.map((option) =>
             typeof option === "string"
               ? { value: option, label: option }
               : option
@@ -563,8 +590,8 @@ const ExamForm = () => {
           selectedValue={formData[field.name]}
           className="w-full"
         />
-      )
-    );
+      );
+    });
   };
 
   return (

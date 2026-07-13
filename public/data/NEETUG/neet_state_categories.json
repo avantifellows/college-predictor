@@ -1,0 +1,478 @@
+{
+  "Karnataka": [
+    {
+      "value": "1G",
+      "label": "1G"
+    },
+    {
+      "value": "1H",
+      "label": "1H"
+    },
+    {
+      "value": "1R",
+      "label": "1R"
+    },
+    {
+      "value": "2AG",
+      "label": "2AG"
+    },
+    {
+      "value": "2AH",
+      "label": "2AH"
+    },
+    {
+      "value": "2AK",
+      "label": "2AK"
+    },
+    {
+      "value": "2AR",
+      "label": "2AR"
+    },
+    {
+      "value": "2ARH",
+      "label": "2ARH"
+    },
+    {
+      "value": "2BG",
+      "label": "2BG"
+    },
+    {
+      "value": "2BH",
+      "label": "2BH"
+    },
+    {
+      "value": "3AG",
+      "label": "3AG"
+    },
+    {
+      "value": "3AH",
+      "label": "3AH"
+    },
+    {
+      "value": "3BG",
+      "label": "3BG"
+    },
+    {
+      "value": "3BH",
+      "label": "3BH"
+    },
+    {
+      "value": "3BR",
+      "label": "3BR"
+    },
+    {
+      "value": "3BRH",
+      "label": "3BRH"
+    },
+    {
+      "value": "GM",
+      "label": "GM"
+    },
+    {
+      "value": "GMH",
+      "label": "GMH"
+    },
+    {
+      "value": "GMK",
+      "label": "GMK"
+    },
+    {
+      "value": "GMKH",
+      "label": "GMKH"
+    },
+    {
+      "value": "GMP",
+      "label": "GMP"
+    },
+    {
+      "value": "GMPH",
+      "label": "GMPH"
+    },
+    {
+      "value": "GMR",
+      "label": "GMR"
+    },
+    {
+      "value": "GMRH",
+      "label": "GMRH"
+    },
+    {
+      "value": "MA",
+      "label": "MA"
+    },
+    {
+      "value": "MC",
+      "label": "MC"
+    },
+    {
+      "value": "ME",
+      "label": "ME"
+    },
+    {
+      "value": "MM",
+      "label": "MM"
+    },
+    {
+      "value": "MMH",
+      "label": "MMH"
+    },
+    {
+      "value": "MU",
+      "label": "MU"
+    },
+    {
+      "value": "NRI",
+      "label": "NRI"
+    },
+    {
+      "value": "OPN",
+      "label": "OPN"
+    },
+    {
+      "value": "OTH",
+      "label": "OTH"
+    },
+    {
+      "value": "SCG",
+      "label": "SCG"
+    },
+    {
+      "value": "SCH",
+      "label": "SCH"
+    },
+    {
+      "value": "SCK",
+      "label": "SCK"
+    },
+    {
+      "value": "SCR",
+      "label": "SCR"
+    },
+    {
+      "value": "SCRH",
+      "label": "SCRH"
+    },
+    {
+      "value": "STG",
+      "label": "STG"
+    },
+    {
+      "value": "STH",
+      "label": "STH"
+    },
+    {
+      "value": "STR",
+      "label": "STR"
+    },
+    {
+      "value": "STRH",
+      "label": "STRH"
+    }
+  ],
+  "Gujarat": [
+    {
+      "value": "EW",
+      "label": "EWS"
+    },
+    {
+      "value": "OPEN",
+      "label": "Open (General)"
+    },
+    {
+      "value": "SC",
+      "label": "SC"
+    },
+    {
+      "value": "SE",
+      "label": "SEBC"
+    },
+    {
+      "value": "ST",
+      "label": "ST"
+    }
+  ],
+  "West Bengal": [
+    {
+      "value": "EWS",
+      "label": "EWS"
+    },
+    {
+      "value": "OBC (Non-Creamy Layer)",
+      "label": "OBC (Non-Creamy Layer)"
+    },
+    {
+      "value": "OBC-A (Non- Creamy Layer)",
+      "label": "OBC-A (Non- Creamy Layer)"
+    },
+    {
+      "value": "OBC-A (Non- Creamy Layer) PwD",
+      "label": "OBC-A (Non- Creamy Layer) PwD"
+    },
+    {
+      "value": "OBC-B (Non- Creamy Layer)",
+      "label": "OBC-B (Non- Creamy Layer)"
+    },
+    {
+      "value": "OBC-B (Non- Creamy Layer) PwD",
+      "label": "OBC-B (Non- Creamy Layer) PwD"
+    },
+    {
+      "value": "SC",
+      "label": "SC"
+    },
+    {
+      "value": "SC PwD",
+      "label": "SC (PwD)"
+    },
+    {
+      "value": "ST",
+      "label": "ST"
+    },
+    {
+      "value": "UR",
+      "label": "UR"
+    },
+    {
+      "value": "UR PwD",
+      "label": "UR PwD"
+    }
+  ],
+  "Madhya Pradesh": [
+    {
+      "value": "EWS/FF/OP",
+      "label": "EWS/FF/OP"
+    },
+    {
+      "value": "EWS/GS/OP",
+      "label": "EWS/GS/OP"
+    },
+    {
+      "value": "EWS/PH/OP",
+      "label": "EWS/PH/OP"
+    },
+    {
+      "value": "EWS/SN/OP",
+      "label": "EWS/SN/OP"
+    },
+    {
+      "value": "EWS/X/OP",
+      "label": "EWS/X/OP"
+    },
+    {
+      "value": "NRI",
+      "label": "NRI"
+    },
+    {
+      "value": "OBC/FF/OP",
+      "label": "OBC/FF/OP"
+    },
+    {
+      "value": "OBC/GS/OP",
+      "label": "OBC/GS/OP"
+    },
+    {
+      "value": "OBC/PH/OP",
+      "label": "OBC/PH/OP"
+    },
+    {
+      "value": "OBC/SN/OP",
+      "label": "OBC/SN/OP"
+    },
+    {
+      "value": "OBC/X/OP",
+      "label": "OBC/X/OP"
+    },
+    {
+      "value": "SC/FF/OP",
+      "label": "SC/FF/OP"
+    },
+    {
+      "value": "SC/GS/OP",
+      "label": "SC/GS/OP"
+    },
+    {
+      "value": "SC/PH/OP",
+      "label": "SC/PH/OP"
+    },
+    {
+      "value": "SC/SN/OP",
+      "label": "SC/SN/OP"
+    },
+    {
+      "value": "SC/X/OP",
+      "label": "SC/X/OP"
+    },
+    {
+      "value": "ST/GS/OP",
+      "label": "ST/GS/OP"
+    },
+    {
+      "value": "ST/PH/OP",
+      "label": "ST/PH/OP"
+    },
+    {
+      "value": "ST/SN/OP",
+      "label": "ST/SN/OP"
+    },
+    {
+      "value": "ST/X/OP",
+      "label": "ST/X/OP"
+    },
+    {
+      "value": "UR/FF/OP",
+      "label": "UR/FF/OP"
+    },
+    {
+      "value": "UR/GS/OP",
+      "label": "UR/GS/OP"
+    },
+    {
+      "value": "UR/PH/OP",
+      "label": "UR/PH/OP"
+    },
+    {
+      "value": "UR/SN/OP",
+      "label": "UR/SN/OP"
+    },
+    {
+      "value": "UR/X/OP",
+      "label": "UR/X/OP"
+    }
+  ],
+  "Punjab": [
+    {
+      "value": "2B",
+      "label": "2B"
+    },
+    {
+      "value": "2C",
+      "label": "2C"
+    },
+    {
+      "value": "2D",
+      "label": "2D"
+    },
+    {
+      "value": "2E",
+      "label": "2E"
+    },
+    {
+      "value": "2G",
+      "label": "2G"
+    },
+    {
+      "value": "AIQ",
+      "label": "AIQ"
+    },
+    {
+      "value": "Backward Area",
+      "label": "Backward Area"
+    },
+    {
+      "value": "Backward Classes",
+      "label": "Backward Classes"
+    },
+    {
+      "value": "Border Area",
+      "label": "Border Area"
+    },
+    {
+      "value": "Defence",
+      "label": "Defence"
+    },
+    {
+      "value": "EWS",
+      "label": "EWS"
+    },
+    {
+      "value": "J & K",
+      "label": "J & K"
+    },
+    {
+      "value": "NRI",
+      "label": "NRI"
+    },
+    {
+      "value": "Open",
+      "label": "Open (General)"
+    },
+    {
+      "value": "PP",
+      "label": "PP"
+    },
+    {
+      "value": "PWD",
+      "label": "PWD"
+    },
+    {
+      "value": "Riots Affected",
+      "label": "Riots Affected"
+    },
+    {
+      "value": "Scheduled Caste",
+      "label": "Scheduled Caste"
+    },
+    {
+      "value": "Sports Person",
+      "label": "Sports Person"
+    },
+    {
+      "value": "Terrorist Affected",
+      "label": "Terrorist Affected"
+    }
+  ],
+  "Andhra Pradesh": [
+    {
+      "value": "ANGLO",
+      "label": "ANGLO"
+    },
+    {
+      "value": "BCA",
+      "label": "BCA"
+    },
+    {
+      "value": "BCB",
+      "label": "BCB"
+    },
+    {
+      "value": "BCC",
+      "label": "BCC"
+    },
+    {
+      "value": "BCD",
+      "label": "BCD"
+    },
+    {
+      "value": "BCE",
+      "label": "BCE"
+    },
+    {
+      "value": "EWS",
+      "label": "EWS"
+    },
+    {
+      "value": "MINORITY",
+      "label": "MINORITY"
+    },
+    {
+      "value": "OC",
+      "label": "OC"
+    },
+    {
+      "value": "SC1",
+      "label": "SC1"
+    },
+    {
+      "value": "SC2",
+      "label": "SC2"
+    },
+    {
+      "value": "SC3",
+      "label": "SC3"
+    },
+    {
+      "value": "ST",
+      "label": "ST"
+    }
+  ]
+}

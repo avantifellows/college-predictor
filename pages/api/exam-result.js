@@ -129,6 +129,9 @@ export default async function handler(req, res) {
     if (exam === "JoSAA" && field.name === "preferHomeState") {
       continue;
     }
+    if (field.optional) {
+      continue; // e.g. NEET home-state category — filters only if provided
+    }
     if (!req.query[field.name]) {
       return res
         .status(400)
