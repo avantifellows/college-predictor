@@ -626,6 +626,18 @@ const PredictedCollegesTable = ({
     return copy;
   }, [examFilteredData, sortConfig, supportsSalarySort]);
 
+  // NEET: a home-state student's own state-quota seats are the distinctive value,
+  // but they close at worse ranks than AIQ so a pure rank sort buries them below
+  // the initial page. Reorder so State-Quota seats come first (rank-sorted),
+  // then All-India (rank-sorted); the body renders a section header at the break.
+  const isNeet = exam === "NEETUG";
+  const displayData = useMemo(() => {
+    if (!isNeet) return sortedData;
+    const state = sortedData.filter((r) => r["Seat Type"] === "State Quota");
+    const india = sortedData.filter((r) => r["Seat Type"] !== "State Quota");
+    return [...state, ...india];
+  }, [isNeet, sortedData]);
+
   const getDisplayValue = (column, transformedItem) => {
     const rawValue = transformedItem[column.key];
     if (column.format) {
@@ -845,15 +857,41 @@ const PredictedCollegesTable = ({
 
   const renderTableBody = () => {
     const rowsToRender = showAllRows
-      ? sortedData
-      : sortedData.slice(0, ROWS_PER_PAGE_INITIAL);
+      ? displayData
+      : displayData.slice(0, ROWS_PER_PAGE_INITIAL);
+
+    const nCols =
+      predicted_colleges_table_column.length + (supportsExpandedView ? 1 : 0);
+    const sectionLabel = (item) =>
+      item["Seat Type"] === "State Quota"
+        ? `Your ${item["State"] || "home"}-state quota seats`
+        : "All India Quota seats (open to every state)";
+
+    let lastSeatType = null;
 
     return rowsToRender.map((item, index) => {
       const transformedItem = transformData(item);
       const rowKey = getRowKey(transformedItem);
 
+      // For NEET, emit a section header row whenever the seat type changes.
+      let header = null;
+      if (isNeet && item["Seat Type"] !== lastSeatType) {
+        lastSeatType = item["Seat Type"];
+        header = (
+          <tr key={`hdr-${lastSeatType}-${index}`}>
+            <td
+              colSpan={nCols}
+              className="bg-[#f4e9e6] px-4 py-2 text-sm font-semibold text-[#8A1B1E]"
+            >
+              {sectionLabel(item)}
+            </td>
+          </tr>
+        );
+      }
+
       return (
         <React.Fragment key={rowKey}>
+          {header}
           <tr
             className={`${commonCellClass} ${
               index % 2 === 0 ? "bg-[#fffdfa]" : "bg-white"

@@ -123,6 +123,9 @@ const CollegePredictor = () => {
   const [estimateError, setEstimateError] = useState("");
   const [estimatedRank, setEstimatedRank] = useState(null);
   const [estimatedPercentile, setEstimatedPercentile] = useState(null);
+  // NEET: each home state's own category codes, for the Edit-Filters
+  // home-state category dropdown (loaded once when viewing NEET results).
+  const [neetStateCategories, setNeetStateCategories] = useState(null);
   const [isEstimating, setIsEstimating] = useState(false);
   const [currentExam, setCurrentExam] = useState(null);
   const [showSelectionDetails, setShowSelectionDetails] = useState(false);
@@ -161,6 +164,16 @@ const CollegePredictor = () => {
     }
     setQueryObject(initialQuery);
   }, [router.query]);
+
+  // Load NEET per-state category codes for the Edit-Filters dropdown.
+  useEffect(() => {
+    if (queryObject.exam === "NEETUG" && !neetStateCategories) {
+      fetch("/data/NEETUG/neet_state_categories.json")
+        .then((r) => (r.ok ? r.json() : null))
+        .then((data) => data && setNeetStateCategories(data))
+        .catch(() => {});
+    }
+  }, [queryObject.exam, neetStateCategories]);
 
   const [fuseInstance, setFuseInstance] = useState(null);
   useEffect(() => {
@@ -596,9 +609,29 @@ const CollegePredictor = () => {
         (field) =>
           !(queryObject.exam === "JoSAA" && field.name === "qualifiedJeeAdv")
       )
+      .filter((field) => {
+        // NEET home-state category dropdown: only show once a home state we have
+        // state-quota data for is selected (options come from that state).
+        if (field.dynamicOptionsByHomeState) {
+          const hs = queryObject.homeState;
+          return (
+            hs &&
+            hs !== "Other" &&
+            neetStateCategories &&
+            Array.isArray(neetStateCategories[hs]) &&
+            neetStateCategories[hs].length > 0
+          );
+        }
+        return true;
+      })
       .map((field) => {
         const showHomeStateNote =
           queryObject.exam === "JoSAA" && field.name === "homeState";
+
+        // Resolve options: state-dependent for the dynamic field, else static.
+        const rawOptions = field.dynamicOptionsByHomeState
+          ? neetStateCategories?.[queryObject.homeState] || []
+          : field.options;
 
         return renderSelectionCard(
           field.name,
@@ -607,7 +640,7 @@ const CollegePredictor = () => {
             : field.label,
           <Dropdown
             className="w-full text-sm md:text-base"
-            options={field.options.map((option) =>
+            options={rawOptions.map((option) =>
               typeof option === "string"
                 ? { value: option, label: option }
                 : option
