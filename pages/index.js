@@ -428,7 +428,10 @@ const ExamForm = () => {
 
   const hasMissingConfiguredFields = () => {
     if (!config?.fields) return true;
-    return config.fields.some((field) => !formData[field.name]);
+    // Optional fields (e.g. NEET's home-state category) don't block submit.
+    return config.fields.some(
+      (field) => !field.optional && !formData[field.name]
+    );
   };
 
   const handleSubmit = async () => {
