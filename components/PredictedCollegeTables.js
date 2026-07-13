@@ -218,6 +218,8 @@ const PredictedCollegesTable = ({
   });
   const [salaryTooltip, setSalaryTooltip] = useState(null);
   const [josaaCollegeGroup, setJosaaCollegeGroup] = useState("main");
+  // NEET: which seat pool the results tab is showing — home-state vs All India.
+  const [neetSeatTab, setNeetSeatTab] = useState("home");
 
   const toggleRowExpansion = (rowKey) => {
     setExpandedRows((prev) => ({
@@ -626,17 +628,38 @@ const PredictedCollegesTable = ({
     return copy;
   }, [examFilteredData, sortConfig, supportsSalarySort]);
 
-  // NEET: a home-state student's own state-quota seats are the distinctive value,
-  // but they close at worse ranks than AIQ so a pure rank sort buries them below
-  // the initial page. Reorder so State-Quota seats come first (rank-sorted),
-  // then All-India (rank-sorted); the body renders a section header at the break.
+  // NEET: home-state seats and All-India-Quota seats live on different rank
+  // scales, so instead of one list (where AIQ's tighter ranks bury the home-state
+  // seats) we split them into two TABS. neetSeatCounts drives the tab labels;
+  // displayData is the active tab's rows (all rank-sorted).
   const isNeet = exam === "NEETUG";
+  const neetSeatCounts = useMemo(() => {
+    if (!isNeet) return { home: 0, india: 0 };
+    let home = 0,
+      india = 0;
+    for (const r of sortedData) {
+      if (r["Seat Type"] === "State Quota") home += 1;
+      else india += 1;
+    }
+    return { home, india };
+  }, [isNeet, sortedData]);
+
   const displayData = useMemo(() => {
     if (!isNeet) return sortedData;
-    const state = sortedData.filter((r) => r["Seat Type"] === "State Quota");
-    const india = sortedData.filter((r) => r["Seat Type"] !== "State Quota");
-    return [...state, ...india];
-  }, [isNeet, sortedData]);
+    const wantState = neetSeatTab === "home";
+    return sortedData.filter(
+      (r) => (r["Seat Type"] === "State Quota") === wantState
+    );
+  }, [isNeet, sortedData, neetSeatTab]);
+
+  // If the student has no home-state seats (e.g. "Other" state, or the current
+  // filters leave none), fall back to the All-India tab so they never see a
+  // confusingly empty "home" tab.
+  useEffect(() => {
+    if (isNeet && neetSeatTab === "home" && neetSeatCounts.home === 0) {
+      setNeetSeatTab("india");
+    }
+  }, [isNeet, neetSeatTab, neetSeatCounts.home]);
 
   const getDisplayValue = (column, transformedItem) => {
     const rawValue = transformedItem[column.key];
@@ -766,6 +789,80 @@ const PredictedCollegesTable = ({
     );
   };
 
+  const renderNeetSeatTabs = () => {
+    if (!isNeet) return null;
+    // Only offer the home tab when there are home-state seats to show.
+    if (neetSeatCounts.home === 0 && neetSeatCounts.india === 0) return null;
+    const homeState = (sortedData.find(
+      (r) => r["Seat Type"] === "State Quota"
+    ) || {})["State"];
+    const tabs = [
+      {
+        value: "home",
+        label: homeState ? `${homeState} state quota` : "Home-state quota",
+        detail: "Seats reserved for your home state",
+        count: neetSeatCounts.home,
+        disabled: neetSeatCounts.home === 0,
+      },
+      {
+        value: "india",
+        label: "All India Quota",
+        detail: "Open to students from every state",
+        count: neetSeatCounts.india,
+        disabled: neetSeatCounts.india === 0,
+      },
+    ];
+    return (
+      <div
+        className="mb-4 rounded-xl border border-[#eaded8] bg-[#fffdfa] p-3 sm:p-4"
+        aria-label="Choose NEET seat pool"
+      >
+        <p className="mb-2 text-sm font-semibold text-[#5b1f20]">
+          Show seats by quota
+        </p>
+        <div className="grid w-full grid-cols-1 gap-2 sm:grid-cols-2">
+          {tabs.map((tab) => {
+            const isActive = neetSeatTab === tab.value;
+            return (
+              <button
+                key={tab.value}
+                type="button"
+                disabled={tab.disabled}
+                onClick={() => setNeetSeatTab(tab.value)}
+                className={`rounded-lg border px-4 py-3 text-left transition disabled:cursor-not-allowed disabled:opacity-50 ${
+                  isActive
+                    ? "border-[#B52326] bg-[#B52326] text-white shadow-sm"
+                    : "border-[#e3d1cb] bg-white text-[#5b3a34] hover:bg-[#f8efec]"
+                }`}
+                aria-pressed={isActive}
+              >
+                <span className="flex items-center justify-between gap-3 text-sm font-semibold">
+                  {tab.label}
+                  <span
+                    className={`rounded-full px-2 py-0.5 text-xs ${
+                      isActive
+                        ? "bg-white/20 text-white"
+                        : "bg-[#f8efec] text-[#8f2e31]"
+                    }`}
+                  >
+                    {tab.count.toLocaleString("en-IN")}
+                  </span>
+                </span>
+                <span
+                  className={`mt-1 block text-xs ${
+                    isActive ? "text-white/80" : "text-[#8a6b64]"
+                  }`}
+                >
+                  {tab.detail}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+    );
+  };
+
   const downloadCsv = () => {
     if (!sortedData.length) return;
     const headers = predicted_colleges_table_column.map((column) =>
@@ -860,38 +957,12 @@ const PredictedCollegesTable = ({
       ? displayData
       : displayData.slice(0, ROWS_PER_PAGE_INITIAL);
 
-    const nCols =
-      predicted_colleges_table_column.length + (supportsExpandedView ? 1 : 0);
-    const sectionLabel = (item) =>
-      item["Seat Type"] === "State Quota"
-        ? `Your ${item["State"] || "home"}-state quota seats`
-        : "All India Quota seats (open to every state)";
-
-    let lastSeatType = null;
-
     return rowsToRender.map((item, index) => {
       const transformedItem = transformData(item);
       const rowKey = getRowKey(transformedItem);
 
-      // For NEET, emit a section header row whenever the seat type changes.
-      let header = null;
-      if (isNeet && item["Seat Type"] !== lastSeatType) {
-        lastSeatType = item["Seat Type"];
-        header = (
-          <tr key={`hdr-${lastSeatType}-${index}`}>
-            <td
-              colSpan={nCols}
-              className="bg-[#f4e9e6] px-4 py-2 text-sm font-semibold text-[#8A1B1E]"
-            >
-              {sectionLabel(item)}
-            </td>
-          </tr>
-        );
-      }
-
       return (
         <React.Fragment key={rowKey}>
-          {header}
           <tr
             className={`${commonCellClass} ${
               index % 2 === 0 ? "bg-[#fffdfa]" : "bg-white"
@@ -982,6 +1053,7 @@ const PredictedCollegesTable = ({
       {fullData.length > 0 && (
         <div className="mb-4">
           {renderJosaaCollegeGroupToggle()}
+          {renderNeetSeatTabs()}
           <div className="flex flex-col gap-3 xl:flex-row xl:items-center xl:justify-between">
             {onSearchChange && (
               <div className="w-full max-w-xl">
@@ -998,14 +1070,18 @@ const PredictedCollegesTable = ({
             )}
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center xl:justify-end">
               <p className="text-sm text-[#5b3a34]">
-                Showing {sortedData.length.toLocaleString("en-IN")}{" "}
+                Showing {displayData.length.toLocaleString("en-IN")}{" "}
                 {showJosaaCollegeGroupToggle
                   ? josaaCollegeGroup === "advanced"
                     ? "JEE Advanced college options."
                     : "JEE Main college options."
+                  : isNeet
+                  ? neetSeatTab === "home"
+                    ? "home-state seats."
+                    : "All India Quota seats."
                   : "matching options."}
               </p>
-              {sortedData.length > 0 && (
+              {displayData.length > 0 && (
                 <button
                   className="w-full rounded-lg bg-[#B52326] px-4 py-2 text-white hover:bg-[#9E1F22] sm:w-auto"
                   onClick={downloadCsv}
@@ -1017,7 +1093,7 @@ const PredictedCollegesTable = ({
           </div>
         </div>
       )}
-      {sortedData.length > 0 ? (
+      {displayData.length > 0 ? (
         <div className="overflow-x-auto rounded-xl border border-[#eaded8] bg-white shadow-sm">
           <table className={commonTableClass}>
             <thead>{renderTableHeader()}</thead>
@@ -1031,7 +1107,7 @@ const PredictedCollegesTable = ({
           </p>
         </div>
       ) : null}
-      {sortedData.length > ROWS_PER_PAGE_INITIAL &&
+      {displayData.length > ROWS_PER_PAGE_INITIAL &&
         !showAllRows && ( // Conditional button rendering
           <div className="flex justify-center mt-4">
             <button
