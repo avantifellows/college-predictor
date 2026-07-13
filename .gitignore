@@ -137,3 +137,4 @@ dist
 .pnp.*
 
 scripts/validate_report.csv
+scripts/__pycache__/

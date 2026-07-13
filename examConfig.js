@@ -312,38 +312,58 @@ export const jeeAdvancedConfig = {
   },
 };
 
-const neetUgSeatTypeOptions = [
-  "Any",
-  "All India",
-  "Open Seat",
-  "Deemed/Paid Seats",
-  "Delhi University",
-  "IP University",
-  "Delhi NCR Children/Widows of Personnel of the Armed Forces (CW)",
-  "Aligarh Muslim University (AMU)",
-  "Jamia Internal",
-  "Jain Minority",
-  "Muslim",
-  "Muslim Minority",
-  "Muslim OBC",
-  "Muslim ST",
-  "Muslim Women",
-  "Employees State Insurance Scheme(ESI)",
-  "Employees State Insurance Scheme Nursing",
-  "Internal -Puducherry UT Domicile",
-  "Non-Resident Indian",
-  "Non-Resident Indian(AMU)",
-  "Foreign Country",
-  "B.Sc Nursing All India",
-  "B.Sc Nursing Delhi NCR",
-  "B.Sc Nursing Delhi NCR CW",
+// Central NEET categories the student self-identifies with (from their NEET form).
+// These filter the All-India-Quota rows directly. State-quota rows use each
+// state's own category codes and are matched separately (see getFilters).
+const neetCentralCategoryOptions = [
+  { value: "Open", label: "Open (General)" },
+  { value: "OBC", label: "OBC-NCL" },
+  { value: "EWS", label: "EWS" },
+  { value: "SC", label: "SC" },
+  { value: "ST", label: "ST" },
+  { value: "Open PwD", label: "Open (PwD)" },
+  { value: "OBC PwD", label: "OBC-NCL (PwD)" },
+  { value: "EWS PwD", label: "EWS (PwD)" },
+  { value: "SC PwD", label: "SC (PwD)" },
+  { value: "ST PwD", label: "ST (PwD)" },
 ];
+
+// The form submits the selected dropdown LABEL (see handleInputChange), while
+// the data uses the central-category VALUE ("OBC" not "OBC-NCL"). Map any
+// incoming label OR value to the canonical AIQ category so filtering is robust.
+const neetCategoryCanonical = (() => {
+  const map = {};
+  for (const { value, label } of neetCentralCategoryOptions) {
+    const norm = (s) => String(s || "").replace(/[^a-z0-9]/gi, "").toLowerCase();
+    map[norm(value)] = value;
+    map[norm(label)] = value;
+  }
+  return (input) => {
+    const norm = String(input || "").replace(/[^a-z0-9]/gi, "").toLowerCase();
+    return map[norm] || null;
+  };
+})();
 
 export const neetUGConfig = {
   name: "NEETUG",
   code: "NEETUG",
-  searchKeys: defaultSearchKeys,
-  primaryInput: integerInput("Enter All India Rank", "Enter All India Rank"),
+  // Institute + State cover both AIQ and state-quota rows for search.
+  searchKeys: ["Institute", "State", "Academic Program Name", "Category"],
+  primaryInput: integerInput(
+    "Enter your NEET All India Rank",
+    "Enter your NEET All India Rank"
+  ),
+  // NEET is scored out of 720; marks -> AIR via /api/neet-predict (score_rank_model).
+  estimateMarksInput: {
+    label: "Enter your NEET marks (out of 720)",
+    placeholder: "e.g., 545",
+    min: "0",
+    max: "720",
+  },
+  estimateApi: "/api/neet-predict",
+  // NEET-UG has a single All India Rank (no separate category rank), so the
+  // estimated AIR is used directly — no category-rank conversion step.
+  estimateReturnsCategoryRank: false,
   fields: [
     {
       name: "program",
@@ -351,103 +371,90 @@ export const neetUGConfig = {
       options: [
         { value: "MBBS", label: "MBBS" },
         { value: "BDS", label: "BDS" },
-        { value: "BSC Nursing", label: "BSC Nursing" },
+        { value: "BSc Nursing", label: "BSc Nursing" },
       ],
     },
     {
-      name: "gender",
-      label: "Select Gender",
+      name: "homeState",
+      label: "Select Home State",
+      // Used for cross-state scoping: a student sees All-India-Quota cutoffs for
+      // every college, plus their HOME state's state-quota cutoffs. Options are
+      // the states we currently have state-quota data for.
       options: [
-        { value: "Open", label: "Open" },
-        { value: "Female", label: "Female" },
+        { value: "Andhra Pradesh", label: "Andhra Pradesh" },
+        { value: "Gujarat", label: "Gujarat" },
+        { value: "Karnataka", label: "Karnataka" },
+        { value: "Madhya Pradesh", label: "Madhya Pradesh" },
+        { value: "Punjab", label: "Punjab" },
+        { value: "West Bengal", label: "West Bengal" },
+        { value: "Other", label: "Other / Not listed (All India only)" },
       ],
     },
     {
       name: "category",
-      label: "Select Category",
-      options: [
-        { value: "EWS", label: "EWS" },
-        { value: "EWS PwD", label: "EWS PwD" },
-        { value: "Open", label: "Open" },
-        { value: "Open PwD", label: "Open PwD" },
-        { value: "OBC", label: "OBC" },
-        { value: "OBC PwD", label: "OBC PwD" },
-        { value: "SC", label: "SC" },
-        { value: "SC PwD", label: "SC PwD" },
-        { value: "ST", label: "ST" },
-        { value: "ST PwD", label: "ST PwD" },
-      ],
-    },
-    {
-      name: "seat_type",
-      label: "Seat Type / Quota",
-      options: neetUgSeatTypeOptions,
+      label: "Select Category (as in your NEET form)",
+      options: neetCentralCategoryOptions,
     },
   ],
   legend: [
-    { key: "AI", value: "All India" },
-    { key: "SQ", value: "State Quota" },
+    { key: "All India", value: "All India Quota (open to every state)" },
+    { key: "State Quota", value: "Home-state quota (your home state only)" },
   ],
   getDataPath: () => {
     return path.join(process.cwd(), "public/data/NEETUG/NEETUG.json");
   },
   getFilters: (query) => {
-    // Helper to normalize program names for comparison
     const normalize = (str) =>
       String(str || "")
         .replace(/[^a-zA-Z0-9]/g, "")
         .toLowerCase();
-    const selectedSeatType = query.seat_type;
+
     return [
+      // Program
       (item) => {
-        if (query.program) {
-          return (
-            normalize(item["Academic Program Name"]) ===
-            normalize(query.program)
-          );
+        if (!query.program) return true;
+        return (
+          normalize(item["Academic Program Name"]) === normalize(query.program)
+        );
+      },
+      // Cross-state scoping (mirrors JoSAA AI/HS/OS):
+      //   - All India Quota rows: always shown.
+      //   - State Quota rows: only for the student's home state.
+      (item) => {
+        if (item["Seat Type"] === "All India") return true;
+        if (item["Seat Type"] === "State Quota") {
+          if (!query.homeState || query.homeState === "Other") return false;
+          return normalize(item["State"]) === normalize(query.homeState);
         }
         return true;
       },
+      // Category:
+      //   - All India Quota rows use central categories -> match the student's
+      //     chosen NEET-form category exactly.
+      //   - State Quota rows use the state's own codes (which don't map cleanly
+      //     to central categories); we surface all of the home state's rows and
+      //     let the student read the Category / Category Label column. This is
+      //     the deliberate "labeled state codes" choice (per Amogh) — we do not
+      //     fabricate a state->central mapping.
       (item) => {
-        if (query.gender === "Open") {
-          // Only show items where Gender is exactly 'Open'
-          return item["Gender"] === "Open" || item.gender === "Open";
-        } else if (query.gender === "Female") {
-          // Show items where Gender is 'Female' or 'Open'
-          return (
-            item["Gender"] === "Female" ||
-            item["Gender"] === "Open" ||
-            item.gender === "Female" ||
-            item.gender === "Open"
-          );
+        if (!query.category) return true;
+        if (item["Seat Type"] === "All India") {
+          // query.category may arrive as the label ("OBC-NCL") or value ("OBC");
+          // canonicalize both sides before comparing.
+          const wanted = neetCategoryCanonical(query.category);
+          if (!wanted) return true; // unknown category -> don't over-filter
+          return neetCategoryCanonical(item["Category"]) === wanted;
         }
-        return true;
+        return true; // state-quota: show all home-state rows regardless of code
       },
+      // Closing-rank filter: show colleges whose closing rank is within reach
+      // (0.9 * user AIR headroom, same convention as before).
       (item) => {
-        if (query.category) {
-          return normalize(item["Category"]) === normalize(query.category);
-        }
-        return true;
-      },
-      (item) => {
-        if (
-          selectedSeatType &&
-          normalize(selectedSeatType) !== normalize("Any")
-        ) {
-          return normalize(item["Seat Type"]) === normalize(selectedSeatType);
-        }
-        return true;
-      },
-      (item) => {
-        // 0.9 * rank coefficient filter for NEET closing rank
-        if (query.rank) {
-          const closingRank = parseInt(item["Closing Rank"], 10);
-          const userRank = parseInt(query.rank, 10);
-          if (!isNaN(closingRank) && !isNaN(userRank)) {
-            return closingRank >= 0.9 * userRank;
-          }
-        }
-        return true;
+        if (!query.rank) return true;
+        const closingRank = parseInt(item["Closing Rank"], 10);
+        const userRank = parseInt(query.rank, 10);
+        if (isNaN(closingRank) || isNaN(userRank)) return true;
+        return closingRank >= 0.9 * userRank;
       },
     ];
   },

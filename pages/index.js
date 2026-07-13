@@ -229,9 +229,11 @@ const ExamForm = () => {
       setMarksError("");
       return;
     }
+    // Max marks is exam-specific: NEET is out of 720, JEE Main out of 300.
+    const maxMarks = Number(config?.estimateMarksInput?.max) || 300;
     const marks = Number(value);
-    if (Number.isNaN(marks) || marks < 0 || marks > 300) {
-      setMarksError("Please enter marks between 0 and 300.");
+    if (Number.isNaN(marks) || marks < 0 || marks > maxMarks) {
+      setMarksError(`Please enter marks between 0 and ${maxMarks}.`);
       return;
     }
     setMarksError("");
@@ -317,6 +319,42 @@ const ExamForm = () => {
         delete nextData.advRank;
         return nextData;
       });
+    } catch (error) {
+      setEstimateError("Unable to estimate rank right now.");
+    } finally {
+      setIsEstimating(false);
+    }
+  };
+
+  // NEET marks -> All India Rank. Simpler than JoSAA: NEET has a single AIR
+  // (no separate category rank), so the estimate becomes formData.rank directly.
+  const handleNeetEstimateRank = async () => {
+    if (marksInput === "") {
+      setMarksError("Please enter your NEET marks.");
+      return;
+    }
+    if (marksError) return;
+
+    setIsEstimating(true);
+    setEstimateError("");
+    try {
+      const response = await fetch("/api/neet-predict", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ marks: Number(marksInput) }),
+      });
+      const data = await response.json();
+      if (!response.ok) {
+        setEstimateError(data.error || "Unable to estimate rank.");
+        return;
+      }
+      setEstimatedRank(data.allIndiaRank);
+      setEstimatedPercentile(null);
+      setFormData((prevData) => ({
+        ...prevData,
+        rank: String(data.allIndiaRank),
+        rankMode: "estimate",
+      }));
     } catch (error) {
       setEstimateError("Unable to estimate rank right now.");
     } finally {
@@ -595,6 +633,112 @@ const ExamForm = () => {
               ) : (
                 selectedExam && (
                   <>
+                    {selectedExam === "NEETUG" &&
+                      renderFormCard(
+                        "rankMode",
+                        "Do you know your NEET All India Rank?",
+                        <div className="flex justify-center w-full">
+                          <div className="inline-flex w-full overflow-hidden rounded-xl border border-[#d8c7c1]">
+                            <button
+                              type="button"
+                              onClick={() => handleRankModeChange("estimate")}
+                              className={`flex-1 px-4 py-2 text-sm ${
+                                rankMode === "estimate"
+                                  ? "bg-[#B52326] text-white"
+                                  : "bg-white text-gray-700"
+                              }`}
+                            >
+                              No, estimate from my marks
+                            </button>
+                            <button
+                              type="button"
+                              onClick={() => handleRankModeChange("known")}
+                              className={`flex-1 px-4 py-2 text-sm ${
+                                rankMode === "known"
+                                  ? "bg-[#B52326] text-white"
+                                  : "bg-white text-gray-700"
+                              }`}
+                            >
+                              Yes, I know my rank
+                            </button>
+                          </div>
+                        </div>,
+                        null,
+                        null,
+                        true
+                      )}
+
+                    {selectedExam === "NEETUG" && rankMode === "estimate" &&
+                      renderFormCard(
+                        "estimate",
+                        config?.estimateMarksInput?.label ||
+                          "Enter your NEET marks (out of 720)",
+                        <div className="flex flex-col gap-2.5">
+                          <input
+                            type="number"
+                            step="1"
+                            min="0"
+                            max="720"
+                            value={marksInput}
+                            onChange={handleMarksChange}
+                            onKeyDown={(e) => {
+                              if (
+                                [".", "e", "E", "+", "-", " "].includes(e.key)
+                              ) {
+                                e.preventDefault();
+                              }
+                            }}
+                            className={`w-full rounded-xl border bg-[#fffdfa] p-3 text-center outline-none transition focus:ring-2 focus:ring-[#f4d5d6] ${
+                              marksError
+                                ? "border-red-500 focus:border-red-500"
+                                : "border-[#d8c7c1] focus:border-[#b52326]"
+                            }`}
+                            placeholder={
+                              config?.estimateMarksInput?.placeholder ||
+                              "e.g., 545"
+                            }
+                          />
+                          {marksError && (
+                            <p className="text-red-500 text-sm">{marksError}</p>
+                          )}
+                          <button
+                            type="button"
+                            onClick={handleNeetEstimateRank}
+                            disabled={
+                              isEstimating || marksInput === "" || !!marksError
+                            }
+                            className="rounded-lg bg-[#B52326] px-4 py-2 text-white hover:bg-[#9E1F22] disabled:bg-gray-300 disabled:text-gray-600"
+                          >
+                            {isEstimating ? "Estimating..." : "Estimate Rank"}
+                          </button>
+                          {estimateError && (
+                            <p className="text-red-500 text-sm">
+                              {estimateError}
+                            </p>
+                          )}
+                          {estimatedRank && (
+                            <div className="rounded-xl border border-[#eaded8] bg-[#fffdfa] p-4 text-left text-sm text-gray-700">
+                              <p>
+                                Estimated All India Rank:{" "}
+                                <strong>
+                                  {Number(marksInput) > 640
+                                    ? `~${estimatedRank} (top tier)`
+                                    : estimatedRank}
+                                </strong>
+                              </p>
+                              <p className="text-xs text-gray-500 mt-1">
+                                Estimated from a NEET 2025 marks-vs-rank model
+                                (~32k students). Actual 2026 rank varies with
+                                paper difficulty.
+                              </p>
+                            </div>
+                          )}
+                        </div>,
+                        null,
+                        null,
+                        true
+                      )}
+
                     {selectedExam === "JoSAA" &&
                       renderFormCard(
                         "rankMode",
@@ -654,7 +798,9 @@ const ExamForm = () => {
                         />
                       )}
 
-                    {selectedExam === "JoSAA" && rankMode === "estimate"
+                    {/* NEET in estimate mode already renders its own card
+                        above, so suppress the plain rank input for that case. */}
+                    {selectedExam === "NEETUG" && rankMode === "estimate" ? null : selectedExam === "JoSAA" && rankMode === "estimate"
                       ? renderFormCard(
                           "estimate",
                           estimateInputType === "marks"

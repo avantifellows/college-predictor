@@ -402,6 +402,8 @@ const PredictedCollegesTable = ({
     NEETUG: [
       { key: "institute", label: "Institute" },
       { key: "academic_program_name", label: "Program" },
+      { key: "seat_type", label: "Seat Type" },
+      { key: "state", label: "State" },
       { key: "closing_rank", label: "Closing Rank" },
       { key: "category", label: "Category" },
     ],
@@ -509,12 +511,12 @@ const PredictedCollegesTable = ({
         ...item,
         institute: item["Institute"] || "",
         state: item["State"] || "",
+        seat_type: item["Seat Type"] || "",
         academic_program_name: item["Academic Program Name"] || "",
         closing_rank: item["Closing Rank"] || "",
         category: item["Category"] || "",
         "State": item["State"],
         "Seat Type": item["Seat Type"],
-        "Gender": item["Gender"],
         "Category": item["Category"],
         "Closing Rank": item["Closing Rank"],
       };
