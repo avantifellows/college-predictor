@@ -162,7 +162,11 @@ def build(extracted: Path):
                 "Academic Program Name": (r.get("Academic Program Name") or "").strip(),
                 "Category": cat,
                 "Category Label": CATEGORY_LABELS.get(cat, cat),
-                "Closing Rank": int(rank),
+                # Stored as a STRING to match every other exam's data (the
+                # results component's PropTypes expect string); sorted numerically
+                # below via _rank_num.
+                "Closing Rank": str(int(rank)),
+                "_rank_num": int(rank),
                 "Round": (r.get("Round") or "").strip(),
                 "rank_space": (r.get("rank_space") or "NEET AIR").strip(),
                 "Source": fname.replace("neet_", "").replace(".csv", ""),
@@ -179,7 +183,9 @@ def main():
 
     print(f"Reading extracted CSVs from {args.extracted}")
     out = build(args.extracted)
-    out.sort(key=lambda x: (x["Seat Type"] != "All India", x["Closing Rank"]))
+    out.sort(key=lambda x: (x["Seat Type"] != "All India", x["_rank_num"]))
+    for row in out:
+        del row["_rank_num"]  # helper only; not part of the output schema
 
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(out, ensure_ascii=False, indent=0))

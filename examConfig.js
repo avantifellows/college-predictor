@@ -385,6 +385,7 @@ export const neetUGConfig = {
         { value: "Gujarat", label: "Gujarat" },
         { value: "Karnataka", label: "Karnataka" },
         { value: "Madhya Pradesh", label: "Madhya Pradesh" },
+        { value: "Maharashtra", label: "Maharashtra" },
         { value: "Punjab", label: "Punjab" },
         { value: "West Bengal", label: "West Bengal" },
         { value: "Other", label: "Other / Not listed (All India only)" },
