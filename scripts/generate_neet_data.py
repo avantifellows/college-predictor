@@ -124,7 +124,15 @@ def build(extracted: Path):
                 continue
             cat = (r.get("Category") or "").strip()
             seat_type = "All India" if is_national else "State Quota"
-            name, address, inferred_state = split_institute(r.get("Institute"))
+            # Prefer the parser-provided clean columns (AIQ splits name/address/
+            # state at the parser layer). Fall back to splitting here only if a
+            # source CSV still ships a combined Institute blob.
+            if r.get("Address") is not None:
+                name = (r.get("Institute") or "").strip()
+                address = (r.get("Address") or "").strip()
+                inferred_state = (r.get("State") or "").strip()
+            else:
+                name, address, inferred_state = split_institute(r.get("Institute"))
             out.append({
                 "Institute": name,
                 "Address": address,

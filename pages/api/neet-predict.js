@@ -33,9 +33,24 @@ function polyval(coeffs, x) {
 }
 
 function scoreToAir(score, model) {
-  const s = Math.max(score, model.min_trusted_score);
-  const capped = Math.min(s, model.max_trusted_score);
-  const air = Math.round(Math.pow(10, polyval(model.coeffs, capped)));
+  // Below the trusted range: floor at the min-score AIR.
+  if (score <= model.min_trusted_score) {
+    const air = Math.round(Math.pow(10, polyval(model.coeffs, model.min_trusted_score)));
+    return air < 1 ? 1 : air;
+  }
+  // Within the trusted range: the fitted polynomial.
+  if (score <= model.max_trusted_score) {
+    const air = Math.round(Math.pow(10, polyval(model.coeffs, score)));
+    return air < 1 ? 1 : air;
+  }
+  // Top segment (max_trusted_score .. top_score): log-linear interpolation from
+  // the AIR at the top anchor down toward top_air, so 720 != 650 (no flat cap).
+  const s0 = model.max_trusted_score;
+  const s1 = model.top_score;
+  const logA0 = Math.log10(model.air_at_max_trusted);
+  const logA1 = Math.log10(Math.max(model.top_air, 1));
+  const frac = Math.min((score - s0) / (s1 - s0), 1);
+  const air = Math.round(Math.pow(10, logA0 + frac * (logA1 - logA0)));
   return air < 1 ? 1 : air;
 }
 

@@ -1,6 +1,6 @@
 {
   "kind": "neet_score_to_air",
-  "note": "log10(AIR) = polyval(coeffs, score). Valid for score <= max_trusted_score.",
+  "note": "For score in [min_trusted_score, max_trusted_score]: AIR = 10**polyval(coeffs, score). For score in (max_trusted_score, top_score]: log-linear interpolation from air_at_max_trusted down to top_air. Below min: floored.",
   "coeffs": [
     -1.388688023109396e-10,
     1.4810440981640817e-07,
@@ -9,8 +9,11 @@
     5.790685168331877
   ],
   "poly_degree": 4,
-  "max_trusted_score": 640,
+  "max_trusted_score": 638,
   "min_trusted_score": 150,
+  "air_at_max_trusted": 136.30554473237265,
+  "top_score": 720,
+  "top_air": 1,
   "calibration_sources": [
     "telangana_2025_merit_list",
     "mp_2025",

@@ -43420,19 +43420,6 @@
 "Source": "westbengal_2025_cutoffs"
 },
 {
-"Institute": "Christian Medical College, Ludhiana",
-"Address": "",
-"State": "Punjab",
-"Seat Type": "State Quota",
-"Academic Program Name": "MBBS",
-"Category": "AIQ",
-"Category Label": "AIQ",
-"Closing Rank": 22583,
-"Round": "R2",
-"rank_space": "NEET AIR",
-"Source": "punjab_2025_cutoffs"
-},
-{
 "Institute": "Shri M.P.Shah Government Medical College Jamnagar",
 "Address": "",
 "State": "Gujarat",
@@ -50919,19 +50906,6 @@
 "Round": "R3",
 "rank_space": "NEET AIR",
 "Source": "karnataka_2025_r3_cutoffs"
-},
-{
-"Institute": "Christian Dental College, Ludhiana",
-"Address": "",
-"State": "Punjab",
-"Seat Type": "State Quota",
-"Academic Program Name": "BDS",
-"Category": "AIQ",
-"Category Label": "AIQ",
-"Closing Rank": 104029,
-"Round": "R2",
-"rank_space": "NEET AIR",
-"Source": "punjab_2025_cutoffs"
 },
 {
 "Institute": "Farookh Academy of Medical Education Hospital and Research Institute",

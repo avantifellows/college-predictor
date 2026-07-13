@@ -45,8 +45,14 @@ import numpy as np
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parent
 
-# score at/above which real data is too thin to trust a precise fit
-MAX_TRUSTED_SCORE = 640
+# The polynomial is fit where data is dense. Real (score, AIR) pairs exist up to
+# ~638; above that almost no students exist. Rather than flat-cap the whole top
+# (which mapped 650 and 720 to the same rank), we anchor a TOP SEGMENT: from the
+# highest real anchor up to the perfect score, interpolate log-linearly toward
+# AIR = TOP_AIR. This keeps the top monotonic and sensible without inventing dense data.
+MAX_TRUSTED_SCORE = 638   # highest score with a real anchor
+TOP_SCORE = 720           # perfect NEET score
+TOP_AIR = 1               # AIR at (near) a perfect score
 POLY_DEGREE = 4
 
 
@@ -126,14 +132,25 @@ def main():
     print("\nerror by band:")
     error_report(coeffs, pairs)
 
+    # AIR at the top anchor, from the poly, so the top segment joins continuously.
+    air_at_max = float(predict(coeffs, MAX_TRUSTED_SCORE))
+
     # write model json for the app
     model = {
         "kind": "neet_score_to_air",
-        "note": "log10(AIR) = polyval(coeffs, score). Valid for score <= max_trusted_score.",
+        "note": (
+            "For score in [min_trusted_score, max_trusted_score]: "
+            "AIR = 10**polyval(coeffs, score). "
+            "For score in (max_trusted_score, top_score]: log-linear interpolation "
+            "from air_at_max_trusted down to top_air. Below min: floored."
+        ),
         "coeffs": [float(c) for c in coeffs],
         "poly_degree": POLY_DEGREE,
         "max_trusted_score": MAX_TRUSTED_SCORE,
         "min_trusted_score": 150,
+        "air_at_max_trusted": air_at_max,
+        "top_score": TOP_SCORE,
+        "top_air": TOP_AIR,
         "calibration_sources": ["telangana_2025_merit_list", "mp_2025", "punjab_2025"],
         "calibration_n": len(pairs),
     }
