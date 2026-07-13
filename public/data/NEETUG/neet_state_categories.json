@@ -1,4 +1,258 @@
 {
+  "Maharashtra": [
+    {
+      "value": "DEF1",
+      "label": "DEF1"
+    },
+    {
+      "value": "DEF1 (Female)",
+      "label": "DEF1 (Female)"
+    },
+    {
+      "value": "DEF2",
+      "label": "DEF2"
+    },
+    {
+      "value": "DEF2 (Female)",
+      "label": "DEF2 (Female)"
+    },
+    {
+      "value": "DEF3",
+      "label": "DEF3"
+    },
+    {
+      "value": "DEF3 (Female)",
+      "label": "DEF3 (Female)"
+    },
+    {
+      "value": "EWS",
+      "label": "EWS"
+    },
+    {
+      "value": "EWS (Female)",
+      "label": "EWS (Female)"
+    },
+    {
+      "value": "EWS (Home Univ)",
+      "label": "EWS (Home Univ)"
+    },
+    {
+      "value": "EWS (Home Univ, Female)",
+      "label": "EWS (Home Univ, Female)"
+    },
+    {
+      "value": "I.Q.",
+      "label": "I.Q."
+    },
+    {
+      "value": "MINO",
+      "label": "MINO"
+    },
+    {
+      "value": "MINO (Female)",
+      "label": "MINO (Female)"
+    },
+    {
+      "value": "MKB",
+      "label": "MKB"
+    },
+    {
+      "value": "MKB (Female)",
+      "label": "MKB (Female)"
+    },
+    {
+      "value": "NTB",
+      "label": "NTB"
+    },
+    {
+      "value": "NTB (EWS-Minority)",
+      "label": "NTB (EWS-Minority)"
+    },
+    {
+      "value": "NTB (EWS-Minority, Female)",
+      "label": "NTB (EWS-Minority, Female)"
+    },
+    {
+      "value": "NTB (Female)",
+      "label": "NTB (Female)"
+    },
+    {
+      "value": "NTB (Home Univ)",
+      "label": "NTB (Home Univ)"
+    },
+    {
+      "value": "NTB (Home Univ, Female)",
+      "label": "NTB (Home Univ, Female)"
+    },
+    {
+      "value": "NTC",
+      "label": "NTC"
+    },
+    {
+      "value": "NTC (EWS-Minority)",
+      "label": "NTC (EWS-Minority)"
+    },
+    {
+      "value": "NTC (EWS-Minority, Female)",
+      "label": "NTC (EWS-Minority, Female)"
+    },
+    {
+      "value": "NTC (Female)",
+      "label": "NTC (Female)"
+    },
+    {
+      "value": "NTC (Home Univ)",
+      "label": "NTC (Home Univ)"
+    },
+    {
+      "value": "NTC (Home Univ, Female)",
+      "label": "NTC (Home Univ, Female)"
+    },
+    {
+      "value": "NTD",
+      "label": "NTD"
+    },
+    {
+      "value": "NTD (EWS-Minority)",
+      "label": "NTD (EWS-Minority)"
+    },
+    {
+      "value": "NTD (EWS-Minority, Female)",
+      "label": "NTD (EWS-Minority, Female)"
+    },
+    {
+      "value": "NTD (Female)",
+      "label": "NTD (Female)"
+    },
+    {
+      "value": "NTD (Home Univ)",
+      "label": "NTD (Home Univ)"
+    },
+    {
+      "value": "NTD (Home Univ, Female)",
+      "label": "NTD (Home Univ, Female)"
+    },
+    {
+      "value": "OBC",
+      "label": "OBC"
+    },
+    {
+      "value": "OBC (EWS-Minority)",
+      "label": "OBC (EWS-Minority)"
+    },
+    {
+      "value": "OBC (EWS-Minority, Female)",
+      "label": "OBC (EWS-Minority, Female)"
+    },
+    {
+      "value": "OBC (Female)",
+      "label": "OBC (Female)"
+    },
+    {
+      "value": "OBC (Home Univ)",
+      "label": "OBC (Home Univ)"
+    },
+    {
+      "value": "OBC (Home Univ, Female)",
+      "label": "OBC (Home Univ, Female)"
+    },
+    {
+      "value": "OPEN",
+      "label": "OPEN"
+    },
+    {
+      "value": "OPEN (Female)",
+      "label": "OPEN (Female)"
+    },
+    {
+      "value": "OPEN (Home Univ)",
+      "label": "OPEN (Home Univ)"
+    },
+    {
+      "value": "ORPHAN",
+      "label": "ORPHAN"
+    },
+    {
+      "value": "ORPHANC",
+      "label": "ORPHANC"
+    },
+    {
+      "value": "SC",
+      "label": "SC"
+    },
+    {
+      "value": "SC (EWS-Minority)",
+      "label": "SC (EWS-Minority)"
+    },
+    {
+      "value": "SC (EWS-Minority, Female)",
+      "label": "SC (EWS-Minority, Female)"
+    },
+    {
+      "value": "SC (Female)",
+      "label": "SC (Female)"
+    },
+    {
+      "value": "SC (Home Univ)",
+      "label": "SC (Home Univ)"
+    },
+    {
+      "value": "SEBC",
+      "label": "SEBC"
+    },
+    {
+      "value": "SEBC (EWS-Minority)",
+      "label": "SEBC (EWS-Minority)"
+    },
+    {
+      "value": "SEBC (EWS-Minority, Female)",
+      "label": "SEBC (EWS-Minority, Female)"
+    },
+    {
+      "value": "SEBC (Female)",
+      "label": "SEBC (Female)"
+    },
+    {
+      "value": "SEBC (Home Univ)",
+      "label": "SEBC (Home Univ)"
+    },
+    {
+      "value": "SEBC (Home Univ, Female)",
+      "label": "SEBC (Home Univ, Female)"
+    },
+    {
+      "value": "ST",
+      "label": "ST"
+    },
+    {
+      "value": "ST (Female)",
+      "label": "ST (Female)"
+    },
+    {
+      "value": "ST (Home Univ)",
+      "label": "ST (Home Univ)"
+    },
+    {
+      "value": "VJA",
+      "label": "VJA"
+    },
+    {
+      "value": "VJA (EWS-Minority)",
+      "label": "VJA (EWS-Minority)"
+    },
+    {
+      "value": "VJA (EWS-Minority, Female)",
+      "label": "VJA (EWS-Minority, Female)"
+    },
+    {
+      "value": "VJA (Female)",
+      "label": "VJA (Female)"
+    },
+    {
+      "value": "VJA (Home Univ)",
+      "label": "VJA (Home Univ)"
+    }
+  ],
   "Karnataka": [
     {
       "value": "1G",

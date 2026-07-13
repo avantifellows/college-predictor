@@ -40,7 +40,23 @@ SOURCES = {
     "neet_mp_2025_cutoffs.csv":             ("Madhya Pradesh", False),
     "neet_punjab_2025_cutoffs.csv":         ("Punjab", False),
     "neet_andhra_2025_r3_cutoffs.csv":      ("Andhra Pradesh", False),
+    "neet_maharashtra_2025_r3_cutoffs.csv": ("Maharashtra", False),
 }
+
+# Maharashtra alone splits a seat pool along extra axes (female / home-university
+# / EWS-minority). We fold those into a single readable Category string so each
+# pool stays a distinct cutoff AND shows as a pickable dropdown option, with no
+# special UI. e.g. base "OPEN" + female -> "OPEN (Female)".
+def compose_mh_category(row):
+    base = (row.get("Category") or "").strip()
+    tags = []
+    if (row.get("Is Home University") or "").strip() == "Yes":
+        tags.append("Home Univ")
+    if (row.get("Is EWS Minority") or "").strip() == "Yes":
+        tags.append("EWS-Minority")
+    if (row.get("Is Female Seat") or "").strip() == "Yes":
+        tags.append("Female")
+    return f"{base} ({', '.join(tags)})" if tags else base
 
 # Minimal, safe category-label expansions (extended per state as we learn them).
 # Where a code isn't known, the label falls back to the raw code (honest, per Amogh).
@@ -122,7 +138,12 @@ def build(extracted: Path):
             rank = str(r.get("Closing Rank", "")).strip()
             if not rank.isdigit():
                 continue
-            cat = (r.get("Category") or "").strip()
+            # Maharashtra folds its female/home-univ/EWS-minority flags into the
+            # category string so each seat pool is a distinct, pickable cutoff.
+            if state == "Maharashtra":
+                cat = compose_mh_category(r)
+            else:
+                cat = (r.get("Category") or "").strip()
             seat_type = "All India" if is_national else "State Quota"
             # Prefer the parser-provided clean columns (AIQ splits name/address/
             # state at the parser layer). Fall back to splitting here only if a
