@@ -403,9 +403,6 @@ export const neetUGConfig = {
       label: "Select Home-State Category (optional)",
       dynamicOptionsByHomeState: true,
       optional: true,
-      // Store the option VALUE (the state's code, e.g. "EW") not the label
-      // ("EWS"), since state-quota rows are filtered on the raw code.
-      submitValue: true,
       options: [],
     },
   ],

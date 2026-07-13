@@ -297,18 +297,9 @@ const CollegePredictor = () => {
   );
 
   const handleQueryObjectChange = (key) => (selectedOption) => {
-    // Fields flagged submitValue store the option VALUE (a code like "EW") rather
-    // than the LABEL ("EWS"), matching how the data is filtered. Mirrors index.js.
-    const fieldCfg = examConfigs[queryObject.exam]?.fields?.find(
-      (f) => f.name === key
-    );
-    const stored =
-      fieldCfg?.submitValue && selectedOption.value !== undefined
-        ? selectedOption.value
-        : selectedOption.label;
     let newQueryObject = {
       ...queryObject,
-      [key]: stored,
+      [key]: selectedOption.label,
     };
     if (
       queryObject.exam === "JoSAA" &&

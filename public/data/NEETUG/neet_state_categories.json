@@ -172,11 +172,11 @@
   "Gujarat": [
     {
       "value": "EW",
-      "label": "EWS"
+      "label": "EW"
     },
     {
       "value": "OPEN",
-      "label": "Open (General)"
+      "label": "OPEN"
     },
     {
       "value": "SC",
@@ -184,7 +184,7 @@
     },
     {
       "value": "SE",
-      "label": "SEBC"
+      "label": "SE"
     },
     {
       "value": "ST",
@@ -222,7 +222,7 @@
     },
     {
       "value": "SC PwD",
-      "label": "SC (PwD)"
+      "label": "SC PwD"
     },
     {
       "value": "ST",
@@ -390,7 +390,7 @@
     },
     {
       "value": "Open",
-      "label": "Open (General)"
+      "label": "Open"
     },
     {
       "value": "PP",

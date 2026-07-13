@@ -165,15 +165,16 @@ def main():
     print(f"\nwrote {args.out}: {len(out):,} rows")
 
     # Per-state category list -> the UI's home-state category dropdown. Each state
-    # uses its own codes (Amogh: "take the unique list per state"); we surface them
-    # sorted, with the label where we know one.
+    # uses its own codes (Amogh: "take the unique list per state, student knows
+    # their code"). We show the RAW code as both value and label — no relabeling —
+    # so value == label and there is no code/label divergence to mishandle.
     from collections import Counter, defaultdict
     state_cats = defaultdict(set)
     for r in out:
         if r["Seat Type"] == "State Quota" and r["State"] and r["Category"]:
             state_cats[r["State"]].add(r["Category"])
     state_cat_options = {
-        st: [{"value": c, "label": CATEGORY_LABELS.get(c, c)} for c in sorted(cats)]
+        st: [{"value": c, "label": c} for c in sorted(cats)]
         for st, cats in state_cats.items()
     }
     cats_path = args.out.parent / "neet_state_categories.json"
