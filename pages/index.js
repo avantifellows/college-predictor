@@ -150,9 +150,18 @@ const ExamForm = () => {
   };
 
   const handleInputChange = (name) => (selectedOption) => {
+    // Most fields historically store the LABEL (exam data matches labels). Fields
+    // flagged submitValue store the option VALUE instead — needed where the data
+    // uses a code distinct from its display label (e.g. NEET state category:
+    // value "EW" vs label "EWS").
+    const fieldCfg = config?.fields?.find((f) => f.name === name);
+    const stored =
+      fieldCfg?.submitValue && selectedOption.value !== undefined
+        ? selectedOption.value
+        : selectedOption.label;
     const newFormData = {
       ...formData,
-      [name]: selectedOption.label,
+      [name]: stored,
     };
 
     // If this is JoSAA exam and the user is changing qualifiedJeeAdv
