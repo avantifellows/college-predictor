@@ -41,8 +41,8 @@
       "label": "EWS (Home Univ, Female)"
     },
     {
-      "value": "I.Q.",
-      "label": "I.Q."
+      "value": "EWS (PwD)",
+      "label": "EWS (PwD)"
     },
     {
       "value": "MINO",
@@ -65,12 +65,8 @@
       "label": "NTB"
     },
     {
-      "value": "NTB (EWS-Minority)",
-      "label": "NTB (EWS-Minority)"
-    },
-    {
-      "value": "NTB (EWS-Minority, Female)",
-      "label": "NTB (EWS-Minority, Female)"
+      "value": "NTB (EarMark)",
+      "label": "NTB (EarMark)"
     },
     {
       "value": "NTB (Female)",
@@ -85,16 +81,16 @@
       "label": "NTB (Home Univ, Female)"
     },
     {
+      "value": "NTB (PwD)",
+      "label": "NTB (PwD)"
+    },
+    {
       "value": "NTC",
       "label": "NTC"
     },
     {
-      "value": "NTC (EWS-Minority)",
-      "label": "NTC (EWS-Minority)"
-    },
-    {
-      "value": "NTC (EWS-Minority, Female)",
-      "label": "NTC (EWS-Minority, Female)"
+      "value": "NTC (EarMark)",
+      "label": "NTC (EarMark)"
     },
     {
       "value": "NTC (Female)",
@@ -109,16 +105,20 @@
       "label": "NTC (Home Univ, Female)"
     },
     {
+      "value": "NTC (PwD)",
+      "label": "NTC (PwD)"
+    },
+    {
+      "value": "NTC (PwD, EarMark)",
+      "label": "NTC (PwD, EarMark)"
+    },
+    {
       "value": "NTD",
       "label": "NTD"
     },
     {
-      "value": "NTD (EWS-Minority)",
-      "label": "NTD (EWS-Minority)"
-    },
-    {
-      "value": "NTD (EWS-Minority, Female)",
-      "label": "NTD (EWS-Minority, Female)"
+      "value": "NTD (EarMark)",
+      "label": "NTD (EarMark)"
     },
     {
       "value": "NTD (Female)",
@@ -133,16 +133,16 @@
       "label": "NTD (Home Univ, Female)"
     },
     {
+      "value": "NTD (PwD)",
+      "label": "NTD (PwD)"
+    },
+    {
       "value": "OBC",
       "label": "OBC"
     },
     {
-      "value": "OBC (EWS-Minority)",
-      "label": "OBC (EWS-Minority)"
-    },
-    {
-      "value": "OBC (EWS-Minority, Female)",
-      "label": "OBC (EWS-Minority, Female)"
+      "value": "OBC (EarMark)",
+      "label": "OBC (EarMark)"
     },
     {
       "value": "OBC (Female)",
@@ -157,8 +157,24 @@
       "label": "OBC (Home Univ, Female)"
     },
     {
+      "value": "OBC (PwD)",
+      "label": "OBC (PwD)"
+    },
+    {
+      "value": "OBC (PwD, EarMark)",
+      "label": "OBC (PwD, EarMark)"
+    },
+    {
       "value": "OPEN",
       "label": "OPEN"
+    },
+    {
+      "value": "OPEN (EarMark)",
+      "label": "OPEN (EarMark)"
+    },
+    {
+      "value": "OPEN (EarMark) (Female)",
+      "label": "OPEN (EarMark) (Female)"
     },
     {
       "value": "OPEN (Female)",
@@ -169,24 +185,28 @@
       "label": "OPEN (Home Univ)"
     },
     {
-      "value": "ORPHAN",
-      "label": "ORPHAN"
+      "value": "OPEN (PwD)",
+      "label": "OPEN (PwD)"
     },
     {
-      "value": "ORPHANC",
-      "label": "ORPHANC"
+      "value": "OPEN (PwD, EarMark)",
+      "label": "OPEN (PwD, EarMark)"
+    },
+    {
+      "value": "ORPHAN (Orphan)",
+      "label": "ORPHAN (Orphan)"
+    },
+    {
+      "value": "ORPHANC (Orphan)",
+      "label": "ORPHANC (Orphan)"
     },
     {
       "value": "SC",
       "label": "SC"
     },
     {
-      "value": "SC (EWS-Minority)",
-      "label": "SC (EWS-Minority)"
-    },
-    {
-      "value": "SC (EWS-Minority, Female)",
-      "label": "SC (EWS-Minority, Female)"
+      "value": "SC (EarMark)",
+      "label": "SC (EarMark)"
     },
     {
       "value": "SC (Female)",
@@ -197,16 +217,20 @@
       "label": "SC (Home Univ)"
     },
     {
+      "value": "SC (PwD)",
+      "label": "SC (PwD)"
+    },
+    {
+      "value": "SC (PwD, EarMark)",
+      "label": "SC (PwD, EarMark)"
+    },
+    {
       "value": "SEBC",
       "label": "SEBC"
     },
     {
-      "value": "SEBC (EWS-Minority)",
-      "label": "SEBC (EWS-Minority)"
-    },
-    {
-      "value": "SEBC (EWS-Minority, Female)",
-      "label": "SEBC (EWS-Minority, Female)"
+      "value": "SEBC (EarMark)",
+      "label": "SEBC (EarMark)"
     },
     {
       "value": "SEBC (Female)",
@@ -221,6 +245,14 @@
       "label": "SEBC (Home Univ, Female)"
     },
     {
+      "value": "SEBC (PwD)",
+      "label": "SEBC (PwD)"
+    },
+    {
+      "value": "SEBC (PwD, EarMark)",
+      "label": "SEBC (PwD, EarMark)"
+    },
+    {
       "value": "ST",
       "label": "ST"
     },
@@ -233,16 +265,16 @@
       "label": "ST (Home Univ)"
     },
     {
+      "value": "ST (PwD)",
+      "label": "ST (PwD)"
+    },
+    {
       "value": "VJA",
       "label": "VJA"
     },
     {
-      "value": "VJA (EWS-Minority)",
-      "label": "VJA (EWS-Minority)"
-    },
-    {
-      "value": "VJA (EWS-Minority, Female)",
-      "label": "VJA (EWS-Minority, Female)"
+      "value": "VJA (EarMark)",
+      "label": "VJA (EarMark)"
     },
     {
       "value": "VJA (Female)",
@@ -251,6 +283,10 @@
     {
       "value": "VJA (Home Univ)",
       "label": "VJA (Home Univ)"
+    },
+    {
+      "value": "VJA (PwD)",
+      "label": "VJA (PwD)"
     }
   ],
   "Kerala": [
@@ -711,10 +747,6 @@
       "label": "EWS/X/OP"
     },
     {
-      "value": "NRI",
-      "label": "NRI"
-    },
-    {
       "value": "OBC/FF/OP",
       "label": "OBC/FF/OP"
     },
@@ -733,6 +765,10 @@
     {
       "value": "OBC/X/OP",
       "label": "OBC/X/OP"
+    },
+    {
+      "value": "Open",
+      "label": "Open"
     },
     {
       "value": "SC/FF/OP",
@@ -791,22 +827,360 @@
       "label": "UR/X/OP"
     }
   ],
-  "Telangana": [
+  "Andhra Pradesh": [
+    {
+      "value": "ANGLO",
+      "label": "ANGLO"
+    },
     {
       "value": "BCA",
       "label": "BCA"
     },
     {
-      "value": "BCA (Female)",
-      "label": "BCA (Female)"
+      "value": "BCA (BSG)",
+      "label": "BCA (BSG)"
+    },
+    {
+      "value": "BCA (CAP)",
+      "label": "BCA (CAP)"
+    },
+    {
+      "value": "BCA (F)",
+      "label": "BCA (F)"
+    },
+    {
+      "value": "BCA (NCC)",
+      "label": "BCA (NCC)"
+    },
+    {
+      "value": "BCA (PH)",
+      "label": "BCA (PH)"
+    },
+    {
+      "value": "BCA (PMC)",
+      "label": "BCA (PMC)"
+    },
+    {
+      "value": "BCA (SG)",
+      "label": "BCA (SG)"
     },
     {
       "value": "BCB",
       "label": "BCB"
     },
     {
+      "value": "BCB (BSG)",
+      "label": "BCB (BSG)"
+    },
+    {
+      "value": "BCB (CAP)",
+      "label": "BCB (CAP)"
+    },
+    {
+      "value": "BCB (F)",
+      "label": "BCB (F)"
+    },
+    {
+      "value": "BCB (NCC)",
+      "label": "BCB (NCC)"
+    },
+    {
+      "value": "BCB (PH)",
+      "label": "BCB (PH)"
+    },
+    {
+      "value": "BCB (PMC)",
+      "label": "BCB (PMC)"
+    },
+    {
+      "value": "BCB (SG)",
+      "label": "BCB (SG)"
+    },
+    {
+      "value": "BCC",
+      "label": "BCC"
+    },
+    {
+      "value": "BCC (F)",
+      "label": "BCC (F)"
+    },
+    {
+      "value": "BCC (PH)",
+      "label": "BCC (PH)"
+    },
+    {
+      "value": "BCD",
+      "label": "BCD"
+    },
+    {
+      "value": "BCD (BSG)",
+      "label": "BCD (BSG)"
+    },
+    {
+      "value": "BCD (CAP)",
+      "label": "BCD (CAP)"
+    },
+    {
+      "value": "BCD (F)",
+      "label": "BCD (F)"
+    },
+    {
+      "value": "BCD (NCC)",
+      "label": "BCD (NCC)"
+    },
+    {
+      "value": "BCD (PH)",
+      "label": "BCD (PH)"
+    },
+    {
+      "value": "BCD (SG)",
+      "label": "BCD (SG)"
+    },
+    {
+      "value": "BCE",
+      "label": "BCE"
+    },
+    {
+      "value": "BCE (CAP)",
+      "label": "BCE (CAP)"
+    },
+    {
+      "value": "BCE (F)",
+      "label": "BCE (F)"
+    },
+    {
+      "value": "BCE (NCC)",
+      "label": "BCE (NCC)"
+    },
+    {
+      "value": "BCE (PH)",
+      "label": "BCE (PH)"
+    },
+    {
+      "value": "EWS",
+      "label": "EWS"
+    },
+    {
+      "value": "EWS (F)",
+      "label": "EWS (F)"
+    },
+    {
+      "value": "MINORITY",
+      "label": "MINORITY"
+    },
+    {
+      "value": "OC",
+      "label": "OC"
+    },
+    {
+      "value": "OC (BSG)",
+      "label": "OC (BSG)"
+    },
+    {
+      "value": "OC (CAP)",
+      "label": "OC (CAP)"
+    },
+    {
+      "value": "OC (F)",
+      "label": "OC (F)"
+    },
+    {
+      "value": "OC (NCC)",
+      "label": "OC (NCC)"
+    },
+    {
+      "value": "OC (PH)",
+      "label": "OC (PH)"
+    },
+    {
+      "value": "OC (PMC)",
+      "label": "OC (PMC)"
+    },
+    {
+      "value": "OC (SG)",
+      "label": "OC (SG)"
+    },
+    {
+      "value": "SC1",
+      "label": "SC1"
+    },
+    {
+      "value": "SC1 (CON)",
+      "label": "SC1 (CON)"
+    },
+    {
+      "value": "SC1 (F)",
+      "label": "SC1 (F)"
+    },
+    {
+      "value": "SC1 (PH)",
+      "label": "SC1 (PH)"
+    },
+    {
+      "value": "SC2",
+      "label": "SC2"
+    },
+    {
+      "value": "SC2 (BSG)",
+      "label": "SC2 (BSG)"
+    },
+    {
+      "value": "SC2 (CAP)",
+      "label": "SC2 (CAP)"
+    },
+    {
+      "value": "SC2 (CON)",
+      "label": "SC2 (CON)"
+    },
+    {
+      "value": "SC2 (F)",
+      "label": "SC2 (F)"
+    },
+    {
+      "value": "SC2 (NCC)",
+      "label": "SC2 (NCC)"
+    },
+    {
+      "value": "SC2 (PH)",
+      "label": "SC2 (PH)"
+    },
+    {
+      "value": "SC2 (SG)",
+      "label": "SC2 (SG)"
+    },
+    {
+      "value": "SC3",
+      "label": "SC3"
+    },
+    {
+      "value": "SC3 (BSG)",
+      "label": "SC3 (BSG)"
+    },
+    {
+      "value": "SC3 (CAP)",
+      "label": "SC3 (CAP)"
+    },
+    {
+      "value": "SC3 (F)",
+      "label": "SC3 (F)"
+    },
+    {
+      "value": "SC3 (NCC)",
+      "label": "SC3 (NCC)"
+    },
+    {
+      "value": "SC3 (PH)",
+      "label": "SC3 (PH)"
+    },
+    {
+      "value": "SC3 (SG)",
+      "label": "SC3 (SG)"
+    },
+    {
+      "value": "ST",
+      "label": "ST"
+    },
+    {
+      "value": "ST (BSG)",
+      "label": "ST (BSG)"
+    },
+    {
+      "value": "ST (CAP)",
+      "label": "ST (CAP)"
+    },
+    {
+      "value": "ST (F)",
+      "label": "ST (F)"
+    },
+    {
+      "value": "ST (NCC)",
+      "label": "ST (NCC)"
+    },
+    {
+      "value": "ST (PH)",
+      "label": "ST (PH)"
+    },
+    {
+      "value": "ST (SG)",
+      "label": "ST (SG)"
+    }
+  ],
+  "Telangana": [
+    {
+      "value": "BCA",
+      "label": "BCA"
+    },
+    {
+      "value": "BCA (CAP)",
+      "label": "BCA (CAP)"
+    },
+    {
+      "value": "BCA (CAP) (Female)",
+      "label": "BCA (CAP) (Female)"
+    },
+    {
+      "value": "BCA (CAP-MRC)",
+      "label": "BCA (CAP-MRC)"
+    },
+    {
+      "value": "BCA (Female)",
+      "label": "BCA (Female)"
+    },
+    {
+      "value": "BCA (MRC)",
+      "label": "BCA (MRC)"
+    },
+    {
+      "value": "BCA (MRC) (Female)",
+      "label": "BCA (MRC) (Female)"
+    },
+    {
+      "value": "BCA (PHO)",
+      "label": "BCA (PHO)"
+    },
+    {
+      "value": "BCB",
+      "label": "BCB"
+    },
+    {
+      "value": "BCB (CAP)",
+      "label": "BCB (CAP)"
+    },
+    {
+      "value": "BCB (CAP) (Female)",
+      "label": "BCB (CAP) (Female)"
+    },
+    {
+      "value": "BCB (CAP-MRC)",
+      "label": "BCB (CAP-MRC)"
+    },
+    {
+      "value": "BCB (CAP-MRC) (Female)",
+      "label": "BCB (CAP-MRC) (Female)"
+    },
+    {
       "value": "BCB (Female)",
       "label": "BCB (Female)"
+    },
+    {
+      "value": "BCB (MRC)",
+      "label": "BCB (MRC)"
+    },
+    {
+      "value": "BCB (MRC) (Female)",
+      "label": "BCB (MRC) (Female)"
+    },
+    {
+      "value": "BCB (PHO)",
+      "label": "BCB (PHO)"
+    },
+    {
+      "value": "BCB (PHO) (Female)",
+      "label": "BCB (PHO) (Female)"
+    },
+    {
+      "value": "BCB (SCL)",
+      "label": "BCB (SCL)"
     },
     {
       "value": "BCC",
@@ -817,20 +1191,68 @@
       "label": "BCC (Female)"
     },
     {
+      "value": "BCC (MRC)",
+      "label": "BCC (MRC)"
+    },
+    {
+      "value": "BCC (MRC) (Female)",
+      "label": "BCC (MRC) (Female)"
+    },
+    {
       "value": "BCD",
       "label": "BCD"
+    },
+    {
+      "value": "BCD (CAP)",
+      "label": "BCD (CAP)"
+    },
+    {
+      "value": "BCD (CAP) (Female)",
+      "label": "BCD (CAP) (Female)"
+    },
+    {
+      "value": "BCD (CAP-MRC)",
+      "label": "BCD (CAP-MRC)"
+    },
+    {
+      "value": "BCD (CAP-MRC) (Female)",
+      "label": "BCD (CAP-MRC) (Female)"
     },
     {
       "value": "BCD (Female)",
       "label": "BCD (Female)"
     },
     {
+      "value": "BCD (MRC)",
+      "label": "BCD (MRC)"
+    },
+    {
+      "value": "BCD (MRC) (Female)",
+      "label": "BCD (MRC) (Female)"
+    },
+    {
+      "value": "BCD (PHO) (Female)",
+      "label": "BCD (PHO) (Female)"
+    },
+    {
       "value": "BCE",
       "label": "BCE"
     },
     {
+      "value": "BCE (CAP)",
+      "label": "BCE (CAP)"
+    },
+    {
       "value": "BCE (Female)",
       "label": "BCE (Female)"
+    },
+    {
+      "value": "BCE (MRC)",
+      "label": "BCE (MRC)"
+    },
+    {
+      "value": "BCE (MRC) (Female)",
+      "label": "BCE (MRC) (Female)"
     },
     {
       "value": "EWS",
@@ -841,20 +1263,64 @@
       "label": "EWS (Female)"
     },
     {
-      "value": "MIN",
-      "label": "MIN"
+      "value": "EWS (MRC)",
+      "label": "EWS (MRC)"
     },
     {
-      "value": "MIN (Female)",
-      "label": "MIN (Female)"
+      "value": "EWS (MRC) (Female)",
+      "label": "EWS (MRC) (Female)"
+    },
+    {
+      "value": "MIN (CAP-MSM)",
+      "label": "MIN (CAP-MSM)"
+    },
+    {
+      "value": "MIN (CAP-MSM) (Female)",
+      "label": "MIN (CAP-MSM) (Female)"
+    },
+    {
+      "value": "MIN (MSM)",
+      "label": "MIN (MSM)"
+    },
+    {
+      "value": "MIN (MSM) (Female)",
+      "label": "MIN (MSM) (Female)"
+    },
+    {
+      "value": "MIN (MSM-MRC)",
+      "label": "MIN (MSM-MRC)"
     },
     {
       "value": "OPEN",
       "label": "OPEN"
     },
     {
+      "value": "OPEN (CAP)",
+      "label": "OPEN (CAP)"
+    },
+    {
+      "value": "OPEN (CAP) (Female)",
+      "label": "OPEN (CAP) (Female)"
+    },
+    {
       "value": "OPEN (Female)",
       "label": "OPEN (Female)"
+    },
+    {
+      "value": "OPEN (PHO)",
+      "label": "OPEN (PHO)"
+    },
+    {
+      "value": "OPEN (PHO) (Female)",
+      "label": "OPEN (PHO) (Female)"
+    },
+    {
+      "value": "OPEN (SCL)",
+      "label": "OPEN (SCL)"
+    },
+    {
+      "value": "OPEN (SCL) (Female)",
+      "label": "OPEN (SCL) (Female)"
     },
     {
       "value": "SC1",
@@ -869,16 +1335,56 @@
       "label": "SC2"
     },
     {
+      "value": "SC2 (CAP)",
+      "label": "SC2 (CAP)"
+    },
+    {
+      "value": "SC2 (CAP) (Female)",
+      "label": "SC2 (CAP) (Female)"
+    },
+    {
       "value": "SC2 (Female)",
       "label": "SC2 (Female)"
+    },
+    {
+      "value": "SC2 (MRC)",
+      "label": "SC2 (MRC)"
+    },
+    {
+      "value": "SC2 (MRC) (Female)",
+      "label": "SC2 (MRC) (Female)"
+    },
+    {
+      "value": "SC2 (PHO)",
+      "label": "SC2 (PHO)"
+    },
+    {
+      "value": "SC2 (SCL)",
+      "label": "SC2 (SCL)"
     },
     {
       "value": "SC3",
       "label": "SC3"
     },
     {
+      "value": "SC3 (CAP)",
+      "label": "SC3 (CAP)"
+    },
+    {
+      "value": "SC3 (CAP) (Female)",
+      "label": "SC3 (CAP) (Female)"
+    },
+    {
       "value": "SC3 (Female)",
       "label": "SC3 (Female)"
+    },
+    {
+      "value": "SC3 (MRC)",
+      "label": "SC3 (MRC)"
+    },
+    {
+      "value": "SC3 (MRC) (Female)",
+      "label": "SC3 (MRC) (Female)"
     },
     {
       "value": "ST",
@@ -887,6 +1393,22 @@
     {
       "value": "ST (Female)",
       "label": "ST (Female)"
+    },
+    {
+      "value": "ST (MRC)",
+      "label": "ST (MRC)"
+    },
+    {
+      "value": "ST (MRC) (Female)",
+      "label": "ST (MRC) (Female)"
+    },
+    {
+      "value": "ST (PHO)",
+      "label": "ST (PHO)"
+    },
+    {
+      "value": "ST (SCL)",
+      "label": "ST (SCL)"
     }
   ],
   "Punjab": [
@@ -935,10 +1457,6 @@
       "label": "J & K"
     },
     {
-      "value": "NRI",
-      "label": "NRI"
-    },
-    {
       "value": "Open",
       "label": "Open"
     },
@@ -967,60 +1485,6 @@
       "label": "Terrorist Affected"
     }
   ],
-  "Andhra Pradesh": [
-    {
-      "value": "ANGLO",
-      "label": "ANGLO"
-    },
-    {
-      "value": "BCA",
-      "label": "BCA"
-    },
-    {
-      "value": "BCB",
-      "label": "BCB"
-    },
-    {
-      "value": "BCC",
-      "label": "BCC"
-    },
-    {
-      "value": "BCD",
-      "label": "BCD"
-    },
-    {
-      "value": "BCE",
-      "label": "BCE"
-    },
-    {
-      "value": "EWS",
-      "label": "EWS"
-    },
-    {
-      "value": "MINORITY",
-      "label": "MINORITY"
-    },
-    {
-      "value": "OC",
-      "label": "OC"
-    },
-    {
-      "value": "SC1",
-      "label": "SC1"
-    },
-    {
-      "value": "SC2",
-      "label": "SC2"
-    },
-    {
-      "value": "SC3",
-      "label": "SC3"
-    },
-    {
-      "value": "ST",
-      "label": "ST"
-    }
-  ],
   "Himachal Pradesh": [
     {
       "value": "EWS",
@@ -1033,10 +1497,6 @@
     {
       "value": "J&K Migrant",
       "label": "J&K Migrant"
-    },
-    {
-      "value": "NRI",
-      "label": "NRI"
     },
     {
       "value": "OBC",

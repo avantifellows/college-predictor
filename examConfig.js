@@ -437,32 +437,40 @@ export const neetUGConfig = {
         );
       },
       // Cross-state scoping (mirrors JoSAA AI/HS/OS):
-      //   - All India Quota rows: always shown.
-      //   - State Quota rows: only for the student's home state.
+      //   - AIQ-sourced rows: always shown. These are all MCC national
+      //     counselling, including the domicile-restricted pools (Delhi
+      //     University / IP University / AMU / ESI / ...) which we keep as their
+      //     own labeled Seat Type so the list is complete — the student reads the
+      //     Seat Type to see which apply to them.
+      //   - State-file rows (Maharashtra/Gujarat/...): home-state-only, whatever
+      //     their seat-type label (State Quota / Management / NRI / ...), so a
+      //     state's private/management pools are gated to that state, not leaked.
       (item) => {
+        if ((item["Source"] || "").startsWith("aiq")) return true;
         if (item["Seat Type"] === "All India") return true;
-        if (item["Seat Type"] === "State Quota") {
-          if (!query.homeState || query.homeState === "Other") return false;
-          return normalize(item["State"]) === normalize(query.homeState);
-        }
-        return true;
+        if (!query.homeState || query.homeState === "Other") return false;
+        return normalize(item["State"]) === normalize(query.homeState);
       },
       // Category:
-      //   - All India Quota rows use central categories -> match the student's
-      //     chosen NEET-form category exactly.
-      //   - State Quota rows use the state's own codes (which don't map cleanly
+      //   - AIQ rows (all pools, incl. Delhi University / IP / ...) use central
+      //     categories -> match the student's chosen NEET-form category exactly.
+      //   - State-file rows use the state's own codes (which don't map cleanly
       //     to central categories); we surface all of the home state's rows and
       //     let the student read the Category / Category Label column. This is
       //     the deliberate "labeled state codes" choice (per Amogh) — we do not
       //     fabricate a state->central mapping.
       (item) => {
         if (!query.category) return true;
-        if (item["Seat Type"] === "All India") {
+        if ((item["Source"] || "").startsWith("aiq")) {
           // query.category may arrive as the label ("OBC-NCL") or value ("OBC");
-          // canonicalize both sides before comparing.
+          // canonicalize both sides. Match on the BASE category (strip any seat
+          // annotation like " (Female Seat only)") so a plain "Open" query still
+          // surfaces the female-only Open nursing seats — the student then reads
+          // the annotation in the Category column.
           const wanted = neetCategoryCanonical(query.category);
           if (!wanted) return true; // unknown category -> don't over-filter
-          return neetCategoryCanonical(item["Category"]) === wanted;
+          const baseCat = String(item["Category"] || "").replace(/\s*\(.*\)\s*$/, "");
+          return neetCategoryCanonical(baseCat) === wanted;
         }
         return true; // AIQ category handled above; state rows handled next
       },

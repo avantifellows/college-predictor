@@ -1072,7 +1072,13 @@ const PredictedCollegesTable = ({
             )}
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center xl:justify-end">
               <p className="text-sm text-[#5b3a34]">
-                Showing {displayData.length.toLocaleString("en-IN")}{" "}
+                Showing{" "}
+                {(!showAllRows &&
+                displayData.length > ROWS_PER_PAGE_INITIAL
+                  ? `${ROWS_PER_PAGE_INITIAL.toLocaleString(
+                      "en-IN"
+                    )} of ${displayData.length.toLocaleString("en-IN")}`
+                  : displayData.length.toLocaleString("en-IN")) + " "}
                 {showJosaaCollegeGroupToggle
                   ? josaaCollegeGroup === "advanced"
                     ? "JEE Advanced college options."

@@ -51,14 +51,20 @@ SOURCES = {
 # present flags into one readable Category string so each pool stays a distinct,
 # pickable cutoff with no special UI — e.g. base "OPEN" + female -> "OPEN (Female)".
 def compose_category(row):
+    # The parser already bakes seat sub-pools (PwD / Orphan / EarMark) into
+    # Category. Here we additionally fold the Female / Home-University flags, plus
+    # the AIQ "Female Seat only" note, so each pool remains a distinct, pickable
+    # cutoff string. (Maharashtra's old "Is EWS Minority" flag was a mislabel of
+    # the EarMarking pool — that is now handled in the parser and dropped here.)
     base = (row.get("Category") or "").strip()
     tags = []
     if (row.get("Is Home University") or "").strip() == "Yes":
         tags.append("Home Univ")
-    if (row.get("Is EWS Minority") or "").strip() == "Yes":
-        tags.append("EWS-Minority")
     if (row.get("Is Female Seat") or "").strip() == "Yes":
         tags.append("Female")
+    note = (row.get("Seat Note") or "").strip()
+    if note:
+        tags.append(note)
     return f"{base} ({', '.join(tags)})" if tags else base
 
 # Minimal, safe category-label expansions (extended per state as we learn them).
@@ -83,6 +89,25 @@ ROUND_LABELS = {
 OUTPUT_COLUMNS = ["Institute", "Address", "State", "Seat Type",
                   "Academic Program Name", "Category", "Category Label",
                   "Closing Rank", "Round", "rank_space", "Source"]
+
+
+# Seat-type label canonicalization: parsers emit case variants of the same pool
+# ("Christian Minority" vs "CHRISTIAN MINORITY"), which would otherwise split
+# into duplicate rows. Map known case/synonym variants to one canonical label;
+# leave anything else as the parser wrote it (only trimmed).
+_SEAT_TYPE_CANON = {
+    "christian minority": "Christian Minority",
+    "nri": "NRI Quota",
+    "mgmt": "Management Quota",
+    "private management quota": "Management Quota",
+}
+
+
+def normalize_seat_type(raw):
+    s = (raw or "").strip()
+    if not s:
+        return "State Quota"
+    return _SEAT_TYPE_CANON.get(s.lower(), s)
 
 
 def load_csv(path: Path):
@@ -145,6 +170,7 @@ def build(extracted: Path):
             print(f"  [skip] {fname} not found in {extracted}")
             continue
         rows = load_csv(p)
+        kept = 0
         for r in rows:
             rank = str(r.get("Closing Rank", "")).strip()
             if not rank.isdigit():
@@ -152,11 +178,32 @@ def build(extracted: Path):
             # Fold any seat-split flag columns (female / home-univ / EWS-minority)
             # into the category string, so each pool is a distinct pickable cutoff.
             cat = compose_category(r)
-            seat_type = "All India" if is_national else "State Quota"
-            # Prefer the parser-provided clean columns (AIQ splits name/address/
-            # state at the parser layer). Fall back to splitting here only if a
-            # source CSV still ships a combined Institute blob.
-            if r.get("Address") is not None:
+            if is_national:
+                # The AIQ CSV carries its OWN Seat Type per row (the counselling
+                # "Quota"): "All India" is the national merit pool (the cutoff
+                # every student compares against — AIIMS Delhi Open=48); the rest
+                # (Delhi University / IP University / AMU / ESI / minority /
+                # deemed / foreign) are domicile/institution-restricted pools. We
+                # keep them ALL, each under its own labeled Seat Type, so the data
+                # is complete and honest — the national pool is never contaminated
+                # by them because they are separate buckets/rows.
+                seat_type = (r.get("Seat Type") or "All India").strip()
+            else:
+                # Honor the per-row Seat Type the parser emits (Government /
+                # Private / Management / NRI / Minority / HP Quota / ...). The
+                # old code flattened every state row to "State Quota", which
+                # merged distinct pools (a general govt seat and a ~1M-rank NRI
+                # seat under one bucket) and mislabeled pay/management seats as
+                # if they were cheap state seats. The UI's cross-state filter
+                # gates any non-"All India" seat type to the home state, so these
+                # labels stay home-state-scoped. Normalize casing so variants
+                # like "Christian Minority"/"CHRISTIAN MINORITY" don't split.
+                seat_type = normalize_seat_type(r.get("Seat Type"))
+            # Prefer parser-provided clean columns: a CSV that ships its own
+            # "State" column has already split name/state at the parser layer
+            # (AIQ does this now; it has no Address column). Otherwise the
+            # Institute cell may still pack name+address+state, so split here.
+            if r.get("State") is not None:
                 name = (r.get("Institute") or "").strip()
                 address = (r.get("Address") or "").strip()
                 inferred_state = (r.get("State") or "").strip()
@@ -181,7 +228,9 @@ def build(extracted: Path):
                 "rank_space": (r.get("rank_space") or "NEET AIR").strip(),
                 "Source": fname.replace("neet_", "").replace(".csv", ""),
             })
-        print(f"  {fname}: {len(rows)} rows -> {state}")
+            kept += 1
+        note = f" ({kept} kept as All India merit pool)" if is_national else ""
+        print(f"  {fname}: {len(rows)} rows -> {state}{note}")
     return out
 
 
@@ -208,7 +257,17 @@ def main():
     from collections import Counter, defaultdict
     state_cats = defaultdict(set)
     for r in out:
-        if r["Seat Type"] == "State Quota" and r["State"] and r["Category"]:
+        # The home-state category dropdown is built ONLY from the state-counselling
+        # files (Maharashtra/Gujarat/... — every seat type they carry: State Quota
+        # / Government / Management / NRI / HP Quota / ...). AIQ-sourced rows are
+        # excluded even when their pool is domicile-restricted (e.g. a Delhi
+        # University Quota row with State "Delhi (NCT)"), otherwise AIQ states
+        # (Delhi, TN, UP, ...) would leak into the dropdown as phantom home states.
+        if (
+            not r["Source"].startswith("aiq")
+            and r["State"]
+            and r["Category"]
+        ):
             state_cats[r["State"]].add(r["Category"])
     state_cat_options = {
         st: [{"value": c, "label": c} for c in sorted(cats)]
