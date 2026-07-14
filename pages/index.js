@@ -698,7 +698,8 @@ const ExamForm = () => {
                         true
                       )}
 
-                    {selectedExam === "NEETUG" && rankMode === "estimate" &&
+                    {selectedExam === "NEETUG" &&
+                      rankMode === "estimate" &&
                       renderFormCard(
                         "estimate",
                         config?.estimateMarksInput?.label ||
@@ -830,7 +831,9 @@ const ExamForm = () => {
 
                     {/* NEET in estimate mode already renders its own card
                         above, so suppress the plain rank input for that case. */}
-                    {selectedExam === "NEETUG" && rankMode === "estimate" ? null : selectedExam === "JoSAA" && rankMode === "estimate"
+                    {selectedExam === "NEETUG" && rankMode === "estimate"
+                      ? null
+                      : selectedExam === "JoSAA" && rankMode === "estimate"
                       ? renderFormCard(
                           "estimate",
                           estimateInputType === "marks"

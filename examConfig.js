@@ -334,12 +334,17 @@ const neetCentralCategoryOptions = [
 const neetCategoryCanonical = (() => {
   const map = {};
   for (const { value, label } of neetCentralCategoryOptions) {
-    const norm = (s) => String(s || "").replace(/[^a-z0-9]/gi, "").toLowerCase();
+    const norm = (s) =>
+      String(s || "")
+        .replace(/[^a-z0-9]/gi, "")
+        .toLowerCase();
     map[norm(value)] = value;
     map[norm(label)] = value;
   }
   return (input) => {
-    const norm = String(input || "").replace(/[^a-z0-9]/gi, "").toLowerCase();
+    const norm = String(input || "")
+      .replace(/[^a-z0-9]/gi, "")
+      .toLowerCase();
     return map[norm] || null;
   };
 })();

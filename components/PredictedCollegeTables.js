@@ -408,6 +408,7 @@ const PredictedCollegesTable = ({
       { key: "state", label: "State" },
       { key: "closing_rank", label: "Closing Rank" },
       { key: "category", label: "Category" },
+      { key: "round", label: "Round" },
     ],
     DEFAULT: [
       { key: "state", label: "State" },
@@ -517,6 +518,7 @@ const PredictedCollegesTable = ({
         academic_program_name: item["Academic Program Name"] || "",
         closing_rank: item["Closing Rank"] || "",
         category: item["Category"] || "",
+        round: item["Round"] || "",
         "State": item["State"],
         "Seat Type": item["Seat Type"],
         "Category": item["Category"],

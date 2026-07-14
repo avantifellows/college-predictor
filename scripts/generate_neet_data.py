@@ -72,6 +72,14 @@ CATEGORY_LABELS = {
     "OPEN": "Open (General)", "SE": "SEBC", "EW": "EWS",
 }
 
+# Student-readable round labels. Rounds differ by state and materially affect how
+# loose the cutoffs are (mop-up/last-round cutoffs are looser than early rounds),
+# so we show this per row in the UI.
+ROUND_LABELS = {
+    "R1": "Round 1", "R2": "Round 2", "R3": "Round 3",
+    "R1+R3": "Rounds 1–3", "P3": "Phase 3", "MopUp": "Mop-up round",
+}
+
 OUTPUT_COLUMNS = ["Institute", "Address", "State", "Seat Type",
                   "Academic Program Name", "Category", "Category Label",
                   "Closing Rank", "Round", "rank_space", "Source"]
@@ -167,7 +175,9 @@ def build(extracted: Path):
                 # below via _rank_num.
                 "Closing Rank": str(int(rank)),
                 "_rank_num": int(rank),
-                "Round": (r.get("Round") or "").strip(),
+                "Round": ROUND_LABELS.get(
+                    (r.get("Round") or "").strip(), (r.get("Round") or "").strip()
+                ),
                 "rank_space": (r.get("rank_space") or "NEET AIR").strip(),
                 "Source": fname.replace("neet_", "").replace(".csv", ""),
             })

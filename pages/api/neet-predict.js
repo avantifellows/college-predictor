@@ -22,7 +22,10 @@ const TOTAL_MARKS = 720;
 let MODEL = null;
 function loadModel() {
   if (MODEL) return MODEL;
-  const p = path.join(process.cwd(), "public/data/NEETUG/score_rank_model.json");
+  const p = path.join(
+    process.cwd(),
+    "public/data/NEETUG/score_rank_model.json"
+  );
   MODEL = JSON.parse(fs.readFileSync(p, "utf-8"));
   return MODEL;
 }
@@ -35,7 +38,9 @@ function polyval(coeffs, x) {
 function scoreToAir(score, model) {
   // Below the trusted range: floor at the min-score AIR.
   if (score <= model.min_trusted_score) {
-    const air = Math.round(Math.pow(10, polyval(model.coeffs, model.min_trusted_score)));
+    const air = Math.round(
+      Math.pow(10, polyval(model.coeffs, model.min_trusted_score))
+    );
     return air < 1 ? 1 : air;
   }
   // Within the trusted range: the fitted polynomial.
