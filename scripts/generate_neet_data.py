@@ -41,13 +41,16 @@ SOURCES = {
     "neet_punjab_2025_cutoffs.csv":         ("Punjab", False),
     "neet_andhra_2025_r3_cutoffs.csv":      ("Andhra Pradesh", False),
     "neet_maharashtra_2025_r3_cutoffs.csv": ("Maharashtra", False),
+    "neet_telangana_2025_cutoffs.csv":      ("Telangana", False),
+    "neet_himachal_2025_r3_cutoffs.csv":    ("Himachal Pradesh", False),
+    "neet_kerala_2025_cutoffs.csv":         ("Kerala", False),
 }
 
-# Maharashtra alone splits a seat pool along extra axes (female / home-university
-# / EWS-minority). We fold those into a single readable Category string so each
-# pool stays a distinct cutoff AND shows as a pickable dropdown option, with no
-# special UI. e.g. base "OPEN" + female -> "OPEN (Female)".
-def compose_mh_category(row):
+# Some states split a seat pool along extra axes and expose them as flag columns
+# (Maharashtra: female/home-univ/EWS-minority; Telangana: female). We fold any
+# present flags into one readable Category string so each pool stays a distinct,
+# pickable cutoff with no special UI — e.g. base "OPEN" + female -> "OPEN (Female)".
+def compose_category(row):
     base = (row.get("Category") or "").strip()
     tags = []
     if (row.get("Is Home University") or "").strip() == "Yes":
@@ -138,12 +141,9 @@ def build(extracted: Path):
             rank = str(r.get("Closing Rank", "")).strip()
             if not rank.isdigit():
                 continue
-            # Maharashtra folds its female/home-univ/EWS-minority flags into the
-            # category string so each seat pool is a distinct, pickable cutoff.
-            if state == "Maharashtra":
-                cat = compose_mh_category(r)
-            else:
-                cat = (r.get("Category") or "").strip()
+            # Fold any seat-split flag columns (female / home-univ / EWS-minority)
+            # into the category string, so each pool is a distinct pickable cutoff.
+            cat = compose_category(r)
             seat_type = "All India" if is_national else "State Quota"
             # Prefer the parser-provided clean columns (AIQ splits name/address/
             # state at the parser layer). Fall back to splitting here only if a

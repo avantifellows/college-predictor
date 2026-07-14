@@ -253,6 +253,204 @@
       "label": "VJA (Home Univ)"
     }
   ],
+  "Kerala": [
+    {
+      "value": "AC",
+      "label": "AC"
+    },
+    {
+      "value": "AM",
+      "label": "AM"
+    },
+    {
+      "value": "BH",
+      "label": "BH"
+    },
+    {
+      "value": "BX",
+      "label": "BX"
+    },
+    {
+      "value": "CC",
+      "label": "CC"
+    },
+    {
+      "value": "DA",
+      "label": "DA"
+    },
+    {
+      "value": "DK",
+      "label": "DK"
+    },
+    {
+      "value": "DM",
+      "label": "DM"
+    },
+    {
+      "value": "DV",
+      "label": "DV"
+    },
+    {
+      "value": "EW",
+      "label": "EW"
+    },
+    {
+      "value": "EZ",
+      "label": "EZ"
+    },
+    {
+      "value": "FL-BH",
+      "label": "FL-BH"
+    },
+    {
+      "value": "FL-BX",
+      "label": "FL-BX"
+    },
+    {
+      "value": "FL-EW",
+      "label": "FL-EW"
+    },
+    {
+      "value": "FL-EZ",
+      "label": "FL-EZ"
+    },
+    {
+      "value": "FL-KN",
+      "label": "FL-KN"
+    },
+    {
+      "value": "FL-LA",
+      "label": "FL-LA"
+    },
+    {
+      "value": "FL-MU",
+      "label": "FL-MU"
+    },
+    {
+      "value": "FL-SC",
+      "label": "FL-SC"
+    },
+    {
+      "value": "FL-VK",
+      "label": "FL-VK"
+    },
+    {
+      "value": "HR",
+      "label": "HR"
+    },
+    {
+      "value": "KN",
+      "label": "KN"
+    },
+    {
+      "value": "KU",
+      "label": "KU"
+    },
+    {
+      "value": "LA",
+      "label": "LA"
+    },
+    {
+      "value": "MM",
+      "label": "MM"
+    },
+    {
+      "value": "MU",
+      "label": "MU"
+    },
+    {
+      "value": "NC",
+      "label": "NC"
+    },
+    {
+      "value": "NM",
+      "label": "NM"
+    },
+    {
+      "value": "NQ",
+      "label": "NQ"
+    },
+    {
+      "value": "NR",
+      "label": "NR"
+    },
+    {
+      "value": "NR *",
+      "label": "NR *"
+    },
+    {
+      "value": "PD",
+      "label": "PD"
+    },
+    {
+      "value": "PI",
+      "label": "PI"
+    },
+    {
+      "value": "PT",
+      "label": "PT"
+    },
+    {
+      "value": "SC",
+      "label": "SC"
+    },
+    {
+      "value": "SD",
+      "label": "SD"
+    },
+    {
+      "value": "SM",
+      "label": "SM"
+    },
+    {
+      "value": "SM-BH",
+      "label": "SM-BH"
+    },
+    {
+      "value": "SM-BX",
+      "label": "SM-BX"
+    },
+    {
+      "value": "SM-EW",
+      "label": "SM-EW"
+    },
+    {
+      "value": "SM-EZ",
+      "label": "SM-EZ"
+    },
+    {
+      "value": "SM-KN",
+      "label": "SM-KN"
+    },
+    {
+      "value": "SM-LA",
+      "label": "SM-LA"
+    },
+    {
+      "value": "SM-MU",
+      "label": "SM-MU"
+    },
+    {
+      "value": "SM-SC",
+      "label": "SM-SC"
+    },
+    {
+      "value": "SM-VK",
+      "label": "SM-VK"
+    },
+    {
+      "value": "ST",
+      "label": "ST"
+    },
+    {
+      "value": "VK",
+      "label": "VK"
+    },
+    {
+      "value": "XS",
+      "label": "XS"
+    }
+  ],
   "Karnataka": [
     {
       "value": "1G",
@@ -593,6 +791,104 @@
       "label": "UR/X/OP"
     }
   ],
+  "Telangana": [
+    {
+      "value": "BCA",
+      "label": "BCA"
+    },
+    {
+      "value": "BCA (Female)",
+      "label": "BCA (Female)"
+    },
+    {
+      "value": "BCB",
+      "label": "BCB"
+    },
+    {
+      "value": "BCB (Female)",
+      "label": "BCB (Female)"
+    },
+    {
+      "value": "BCC",
+      "label": "BCC"
+    },
+    {
+      "value": "BCC (Female)",
+      "label": "BCC (Female)"
+    },
+    {
+      "value": "BCD",
+      "label": "BCD"
+    },
+    {
+      "value": "BCD (Female)",
+      "label": "BCD (Female)"
+    },
+    {
+      "value": "BCE",
+      "label": "BCE"
+    },
+    {
+      "value": "BCE (Female)",
+      "label": "BCE (Female)"
+    },
+    {
+      "value": "EWS",
+      "label": "EWS"
+    },
+    {
+      "value": "EWS (Female)",
+      "label": "EWS (Female)"
+    },
+    {
+      "value": "MIN",
+      "label": "MIN"
+    },
+    {
+      "value": "MIN (Female)",
+      "label": "MIN (Female)"
+    },
+    {
+      "value": "OPEN",
+      "label": "OPEN"
+    },
+    {
+      "value": "OPEN (Female)",
+      "label": "OPEN (Female)"
+    },
+    {
+      "value": "SC1",
+      "label": "SC1"
+    },
+    {
+      "value": "SC1 (Female)",
+      "label": "SC1 (Female)"
+    },
+    {
+      "value": "SC2",
+      "label": "SC2"
+    },
+    {
+      "value": "SC2 (Female)",
+      "label": "SC2 (Female)"
+    },
+    {
+      "value": "SC3",
+      "label": "SC3"
+    },
+    {
+      "value": "SC3 (Female)",
+      "label": "SC3 (Female)"
+    },
+    {
+      "value": "ST",
+      "label": "ST"
+    },
+    {
+      "value": "ST (Female)",
+      "label": "ST (Female)"
+    }
+  ],
   "Punjab": [
     {
       "value": "2B",
@@ -723,6 +1019,40 @@
     {
       "value": "ST",
       "label": "ST"
+    }
+  ],
+  "Himachal Pradesh": [
+    {
+      "value": "EWS",
+      "label": "EWS"
+    },
+    {
+      "value": "General",
+      "label": "General"
+    },
+    {
+      "value": "J&K Migrant",
+      "label": "J&K Migrant"
+    },
+    {
+      "value": "NRI",
+      "label": "NRI"
+    },
+    {
+      "value": "OBC",
+      "label": "OBC"
+    },
+    {
+      "value": "SC",
+      "label": "SC"
+    },
+    {
+      "value": "ST",
+      "label": "ST"
+    },
+    {
+      "value": "Single Girl Child",
+      "label": "Single Girl Child"
     }
   ]
 }
