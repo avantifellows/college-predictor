@@ -635,12 +635,20 @@ const PredictedCollegesTable = ({
   // seats) we split them into two TABS. neetSeatCounts drives the tab labels;
   // displayData is the active tab's rows (all rank-sorted).
   const isNeet = exam === "NEETUG";
+  // A row belongs on the HOME-STATE tab when it comes from a state counselling
+  // file (any seat type it carries: State Quota / Government / Management / NRI /
+  // HP Quota / Institute Quota / ...). AIQ-sourced rows — including the domicile-
+  // restricted MCC pools (Delhi University / IP University / ...) — belong on the
+  // All-India tab. Keying on Source (not the literal "State Quota" label) keeps a
+  // state's Government/Management/NRI seats on the home tab instead of leaking
+  // them onto the All-India tab where they'd read as national-quota seats.
+  const isHomeStateRow = (r) => !String(r["Source"] || "").startsWith("aiq");
   const neetSeatCounts = useMemo(() => {
     if (!isNeet) return { home: 0, india: 0 };
     let home = 0,
       india = 0;
     for (const r of sortedData) {
-      if (r["Seat Type"] === "State Quota") home += 1;
+      if (isHomeStateRow(r)) home += 1;
       else india += 1;
     }
     return { home, india };
@@ -649,9 +657,7 @@ const PredictedCollegesTable = ({
   const displayData = useMemo(() => {
     if (!isNeet) return sortedData;
     const wantState = neetSeatTab === "home";
-    return sortedData.filter(
-      (r) => (r["Seat Type"] === "State Quota") === wantState
-    );
+    return sortedData.filter((r) => isHomeStateRow(r) === wantState);
   }, [isNeet, sortedData, neetSeatTab]);
 
   // If the student has no home-state seats (e.g. "Other" state, or the current
