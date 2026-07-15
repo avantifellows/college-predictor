@@ -5,40 +5,20 @@
       "label": "DEF1"
     },
     {
-      "value": "DEF1 (Female)",
-      "label": "DEF1 (Female)"
-    },
-    {
       "value": "DEF2",
       "label": "DEF2"
-    },
-    {
-      "value": "DEF2 (Female)",
-      "label": "DEF2 (Female)"
     },
     {
       "value": "DEF3",
       "label": "DEF3"
     },
     {
-      "value": "DEF3 (Female)",
-      "label": "DEF3 (Female)"
-    },
-    {
       "value": "EWS",
       "label": "EWS"
     },
     {
-      "value": "EWS (Female)",
-      "label": "EWS (Female)"
-    },
-    {
       "value": "EWS (Home Univ)",
       "label": "EWS (Home Univ)"
-    },
-    {
-      "value": "EWS (Home Univ, Female)",
-      "label": "EWS (Home Univ, Female)"
     },
     {
       "value": "EWS (PwD)",
@@ -49,16 +29,8 @@
       "label": "MINO"
     },
     {
-      "value": "MINO (Female)",
-      "label": "MINO (Female)"
-    },
-    {
       "value": "MKB",
       "label": "MKB"
-    },
-    {
-      "value": "MKB (Female)",
-      "label": "MKB (Female)"
     },
     {
       "value": "NTB",
@@ -69,16 +41,8 @@
       "label": "NTB (EarMark)"
     },
     {
-      "value": "NTB (Female)",
-      "label": "NTB (Female)"
-    },
-    {
       "value": "NTB (Home Univ)",
       "label": "NTB (Home Univ)"
-    },
-    {
-      "value": "NTB (Home Univ, Female)",
-      "label": "NTB (Home Univ, Female)"
     },
     {
       "value": "NTB (PwD)",
@@ -93,16 +57,8 @@
       "label": "NTC (EarMark)"
     },
     {
-      "value": "NTC (Female)",
-      "label": "NTC (Female)"
-    },
-    {
       "value": "NTC (Home Univ)",
       "label": "NTC (Home Univ)"
-    },
-    {
-      "value": "NTC (Home Univ, Female)",
-      "label": "NTC (Home Univ, Female)"
     },
     {
       "value": "NTC (PwD)",
@@ -121,16 +77,8 @@
       "label": "NTD (EarMark)"
     },
     {
-      "value": "NTD (Female)",
-      "label": "NTD (Female)"
-    },
-    {
       "value": "NTD (Home Univ)",
       "label": "NTD (Home Univ)"
-    },
-    {
-      "value": "NTD (Home Univ, Female)",
-      "label": "NTD (Home Univ, Female)"
     },
     {
       "value": "NTD (PwD)",
@@ -145,16 +93,8 @@
       "label": "OBC (EarMark)"
     },
     {
-      "value": "OBC (Female)",
-      "label": "OBC (Female)"
-    },
-    {
       "value": "OBC (Home Univ)",
       "label": "OBC (Home Univ)"
-    },
-    {
-      "value": "OBC (Home Univ, Female)",
-      "label": "OBC (Home Univ, Female)"
     },
     {
       "value": "OBC (PwD)",
@@ -171,14 +111,6 @@
     {
       "value": "OPEN (EarMark)",
       "label": "OPEN (EarMark)"
-    },
-    {
-      "value": "OPEN (EarMark) (Female)",
-      "label": "OPEN (EarMark) (Female)"
-    },
-    {
-      "value": "OPEN (Female)",
-      "label": "OPEN (Female)"
     },
     {
       "value": "OPEN (Home Univ)",
@@ -209,10 +141,6 @@
       "label": "SC (EarMark)"
     },
     {
-      "value": "SC (Female)",
-      "label": "SC (Female)"
-    },
-    {
       "value": "SC (Home Univ)",
       "label": "SC (Home Univ)"
     },
@@ -233,16 +161,8 @@
       "label": "SEBC (EarMark)"
     },
     {
-      "value": "SEBC (Female)",
-      "label": "SEBC (Female)"
-    },
-    {
       "value": "SEBC (Home Univ)",
       "label": "SEBC (Home Univ)"
-    },
-    {
-      "value": "SEBC (Home Univ, Female)",
-      "label": "SEBC (Home Univ, Female)"
     },
     {
       "value": "SEBC (PwD)",
@@ -255,10 +175,6 @@
     {
       "value": "ST",
       "label": "ST"
-    },
-    {
-      "value": "ST (Female)",
-      "label": "ST (Female)"
     },
     {
       "value": "ST (Home Univ)",
@@ -275,10 +191,6 @@
     {
       "value": "VJA (EarMark)",
       "label": "VJA (EarMark)"
-    },
-    {
-      "value": "VJA (Female)",
-      "label": "VJA (Female)"
     },
     {
       "value": "VJA (Home Univ)",
@@ -845,10 +757,6 @@
       "label": "BCA (CAP)"
     },
     {
-      "value": "BCA (F)",
-      "label": "BCA (F)"
-    },
-    {
       "value": "BCA (NCC)",
       "label": "BCA (NCC)"
     },
@@ -877,10 +785,6 @@
       "label": "BCB (CAP)"
     },
     {
-      "value": "BCB (F)",
-      "label": "BCB (F)"
-    },
-    {
       "value": "BCB (NCC)",
       "label": "BCB (NCC)"
     },
@@ -901,10 +805,6 @@
       "label": "BCC"
     },
     {
-      "value": "BCC (F)",
-      "label": "BCC (F)"
-    },
-    {
       "value": "BCC (PH)",
       "label": "BCC (PH)"
     },
@@ -919,10 +819,6 @@
     {
       "value": "BCD (CAP)",
       "label": "BCD (CAP)"
-    },
-    {
-      "value": "BCD (F)",
-      "label": "BCD (F)"
     },
     {
       "value": "BCD (NCC)",
@@ -945,10 +841,6 @@
       "label": "BCE (CAP)"
     },
     {
-      "value": "BCE (F)",
-      "label": "BCE (F)"
-    },
-    {
       "value": "BCE (NCC)",
       "label": "BCE (NCC)"
     },
@@ -959,10 +851,6 @@
     {
       "value": "EWS",
       "label": "EWS"
-    },
-    {
-      "value": "EWS (F)",
-      "label": "EWS (F)"
     },
     {
       "value": "MINORITY",
@@ -979,10 +867,6 @@
     {
       "value": "OC (CAP)",
       "label": "OC (CAP)"
-    },
-    {
-      "value": "OC (F)",
-      "label": "OC (F)"
     },
     {
       "value": "OC (NCC)",
@@ -1009,10 +893,6 @@
       "label": "SC1 (CON)"
     },
     {
-      "value": "SC1 (F)",
-      "label": "SC1 (F)"
-    },
-    {
       "value": "SC1 (PH)",
       "label": "SC1 (PH)"
     },
@@ -1031,10 +911,6 @@
     {
       "value": "SC2 (CON)",
       "label": "SC2 (CON)"
-    },
-    {
-      "value": "SC2 (F)",
-      "label": "SC2 (F)"
     },
     {
       "value": "SC2 (NCC)",
@@ -1061,10 +937,6 @@
       "label": "SC3 (CAP)"
     },
     {
-      "value": "SC3 (F)",
-      "label": "SC3 (F)"
-    },
-    {
       "value": "SC3 (NCC)",
       "label": "SC3 (NCC)"
     },
@@ -1089,10 +961,6 @@
       "label": "ST (CAP)"
     },
     {
-      "value": "ST (F)",
-      "label": "ST (F)"
-    },
-    {
       "value": "ST (NCC)",
       "label": "ST (NCC)"
     },
@@ -1115,24 +983,12 @@
       "label": "BCA (CAP)"
     },
     {
-      "value": "BCA (CAP) (Female)",
-      "label": "BCA (CAP) (Female)"
-    },
-    {
       "value": "BCA (CAP-MRC)",
       "label": "BCA (CAP-MRC)"
     },
     {
-      "value": "BCA (Female)",
-      "label": "BCA (Female)"
-    },
-    {
       "value": "BCA (MRC)",
       "label": "BCA (MRC)"
-    },
-    {
-      "value": "BCA (MRC) (Female)",
-      "label": "BCA (MRC) (Female)"
     },
     {
       "value": "BCA (PHO)",
@@ -1147,36 +1003,16 @@
       "label": "BCB (CAP)"
     },
     {
-      "value": "BCB (CAP) (Female)",
-      "label": "BCB (CAP) (Female)"
-    },
-    {
       "value": "BCB (CAP-MRC)",
       "label": "BCB (CAP-MRC)"
-    },
-    {
-      "value": "BCB (CAP-MRC) (Female)",
-      "label": "BCB (CAP-MRC) (Female)"
-    },
-    {
-      "value": "BCB (Female)",
-      "label": "BCB (Female)"
     },
     {
       "value": "BCB (MRC)",
       "label": "BCB (MRC)"
     },
     {
-      "value": "BCB (MRC) (Female)",
-      "label": "BCB (MRC) (Female)"
-    },
-    {
       "value": "BCB (PHO)",
       "label": "BCB (PHO)"
-    },
-    {
-      "value": "BCB (PHO) (Female)",
-      "label": "BCB (PHO) (Female)"
     },
     {
       "value": "BCB (SCL)",
@@ -1187,16 +1023,8 @@
       "label": "BCC"
     },
     {
-      "value": "BCC (Female)",
-      "label": "BCC (Female)"
-    },
-    {
       "value": "BCC (MRC)",
       "label": "BCC (MRC)"
-    },
-    {
-      "value": "BCC (MRC) (Female)",
-      "label": "BCC (MRC) (Female)"
     },
     {
       "value": "BCD",
@@ -1207,32 +1035,16 @@
       "label": "BCD (CAP)"
     },
     {
-      "value": "BCD (CAP) (Female)",
-      "label": "BCD (CAP) (Female)"
-    },
-    {
       "value": "BCD (CAP-MRC)",
       "label": "BCD (CAP-MRC)"
-    },
-    {
-      "value": "BCD (CAP-MRC) (Female)",
-      "label": "BCD (CAP-MRC) (Female)"
-    },
-    {
-      "value": "BCD (Female)",
-      "label": "BCD (Female)"
     },
     {
       "value": "BCD (MRC)",
       "label": "BCD (MRC)"
     },
     {
-      "value": "BCD (MRC) (Female)",
-      "label": "BCD (MRC) (Female)"
-    },
-    {
-      "value": "BCD (PHO) (Female)",
-      "label": "BCD (PHO) (Female)"
+      "value": "BCD (PHO)",
+      "label": "BCD (PHO)"
     },
     {
       "value": "BCE",
@@ -1243,48 +1055,24 @@
       "label": "BCE (CAP)"
     },
     {
-      "value": "BCE (Female)",
-      "label": "BCE (Female)"
-    },
-    {
       "value": "BCE (MRC)",
       "label": "BCE (MRC)"
-    },
-    {
-      "value": "BCE (MRC) (Female)",
-      "label": "BCE (MRC) (Female)"
     },
     {
       "value": "EWS",
       "label": "EWS"
     },
     {
-      "value": "EWS (Female)",
-      "label": "EWS (Female)"
-    },
-    {
       "value": "EWS (MRC)",
       "label": "EWS (MRC)"
-    },
-    {
-      "value": "EWS (MRC) (Female)",
-      "label": "EWS (MRC) (Female)"
     },
     {
       "value": "MIN (CAP-MSM)",
       "label": "MIN (CAP-MSM)"
     },
     {
-      "value": "MIN (CAP-MSM) (Female)",
-      "label": "MIN (CAP-MSM) (Female)"
-    },
-    {
       "value": "MIN (MSM)",
       "label": "MIN (MSM)"
-    },
-    {
-      "value": "MIN (MSM) (Female)",
-      "label": "MIN (MSM) (Female)"
     },
     {
       "value": "MIN (MSM-MRC)",
@@ -1299,36 +1087,16 @@
       "label": "OPEN (CAP)"
     },
     {
-      "value": "OPEN (CAP) (Female)",
-      "label": "OPEN (CAP) (Female)"
-    },
-    {
-      "value": "OPEN (Female)",
-      "label": "OPEN (Female)"
-    },
-    {
       "value": "OPEN (PHO)",
       "label": "OPEN (PHO)"
-    },
-    {
-      "value": "OPEN (PHO) (Female)",
-      "label": "OPEN (PHO) (Female)"
     },
     {
       "value": "OPEN (SCL)",
       "label": "OPEN (SCL)"
     },
     {
-      "value": "OPEN (SCL) (Female)",
-      "label": "OPEN (SCL) (Female)"
-    },
-    {
       "value": "SC1",
       "label": "SC1"
-    },
-    {
-      "value": "SC1 (Female)",
-      "label": "SC1 (Female)"
     },
     {
       "value": "SC2",
@@ -1339,20 +1107,8 @@
       "label": "SC2 (CAP)"
     },
     {
-      "value": "SC2 (CAP) (Female)",
-      "label": "SC2 (CAP) (Female)"
-    },
-    {
-      "value": "SC2 (Female)",
-      "label": "SC2 (Female)"
-    },
-    {
       "value": "SC2 (MRC)",
       "label": "SC2 (MRC)"
-    },
-    {
-      "value": "SC2 (MRC) (Female)",
-      "label": "SC2 (MRC) (Female)"
     },
     {
       "value": "SC2 (PHO)",
@@ -1371,36 +1127,16 @@
       "label": "SC3 (CAP)"
     },
     {
-      "value": "SC3 (CAP) (Female)",
-      "label": "SC3 (CAP) (Female)"
-    },
-    {
-      "value": "SC3 (Female)",
-      "label": "SC3 (Female)"
-    },
-    {
       "value": "SC3 (MRC)",
       "label": "SC3 (MRC)"
-    },
-    {
-      "value": "SC3 (MRC) (Female)",
-      "label": "SC3 (MRC) (Female)"
     },
     {
       "value": "ST",
       "label": "ST"
     },
     {
-      "value": "ST (Female)",
-      "label": "ST (Female)"
-    },
-    {
       "value": "ST (MRC)",
       "label": "ST (MRC)"
-    },
-    {
-      "value": "ST (MRC) (Female)",
-      "label": "ST (MRC) (Female)"
     },
     {
       "value": "ST (PHO)",

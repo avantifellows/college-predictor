@@ -521,6 +521,7 @@ const PredictedCollegesTable = ({
         round: item["Round"] || "",
         "State": item["State"],
         "Seat Type": item["Seat Type"],
+        "Gender": item["Gender"] || "Gender-Neutral",
         "Category": item["Category"],
         "Closing Rank": item["Closing Rank"],
       };

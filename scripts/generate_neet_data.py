@@ -50,21 +50,35 @@ SOURCES = {
 # (Maharashtra: female/home-univ/EWS-minority; Telangana: female). We fold any
 # present flags into one readable Category string so each pool stays a distinct,
 # pickable cutoff with no special UI — e.g. base "OPEN" + female -> "OPEN (Female)".
+def female_seat(row):
+    """True if this row is a female-designated seat. The signal differs by source
+    (none touch the PDFs again — it is already in the CSVs):
+      - Maharashtra / Telangana: an explicit 'Is Female Seat' = Yes column.
+      - Andhra: a '(F)' suffix baked into the Category value (e.g. 'OC (F)').
+      - AIQ: a 'Seat Note' = 'Female Seat only' (women-only institutions such as
+        LHMC / RAK / the nursing colleges — the WHOLE college is female).
+    Gender is a HORIZONTAL axis (MH 30% / AP·TG 33.3% reservation within every
+    social category) or a women-only institution — orthogonal to the social
+    category, so we surface it as its own field, not buried in the category."""
+    if (row.get("Is Female Seat") or "").strip() == "Yes":
+        return True
+    if (row.get("Seat Note") or "").strip().lower().startswith("female"):
+        return True
+    if re.search(r"\(\s*F\s*\)\s*$", (row.get("Category") or "")):
+        return True
+    return False
+
+
 def compose_category(row):
-    # The parser already bakes seat sub-pools (PwD / Orphan / EarMark) into
-    # Category. Here we additionally fold the Female / Home-University flags, plus
-    # the AIQ "Female Seat only" note, so each pool remains a distinct, pickable
-    # cutoff string. (Maharashtra's old "Is EWS Minority" flag was a mislabel of
-    # the EarMarking pool — that is now handled in the parser and dropped here.)
-    base = (row.get("Category") or "").strip()
+    # The parser bakes the seat sub-pools (PwD / Orphan / EarMark) into Category.
+    # We fold in the Home-University flag, but NOT the female flag — gender is now
+    # its own field (see female_seat / the "Gender" column), so it is stripped
+    # from the social category rather than concatenated. Andhra ships the female
+    # marker as a trailing '(F)' in the raw category, so strip that here too.
+    base = re.sub(r"\s*\(\s*F\s*\)\s*$", "", (row.get("Category") or "").strip())
     tags = []
     if (row.get("Is Home University") or "").strip() == "Yes":
         tags.append("Home Univ")
-    if (row.get("Is Female Seat") or "").strip() == "Yes":
-        tags.append("Female")
-    note = (row.get("Seat Note") or "").strip()
-    if note:
-        tags.append(note)
     return f"{base} ({', '.join(tags)})" if tags else base
 
 # Minimal, safe category-label expansions (extended per state as we learn them).
@@ -88,7 +102,7 @@ ROUND_LABELS = {
 
 OUTPUT_COLUMNS = ["Institute", "Address", "State", "Seat Type",
                   "Academic Program Name", "Category", "Category Label",
-                  "Closing Rank", "Round", "rank_space", "Source"]
+                  "Gender", "Closing Rank", "Round", "rank_space", "Source"]
 
 
 # Seat-type label canonicalization: parsers emit case variants of the same pool
@@ -217,6 +231,9 @@ def build(extracted: Path):
                 "Academic Program Name": (r.get("Academic Program Name") or "").strip(),
                 "Category": cat,
                 "Category Label": CATEGORY_LABELS.get(cat, cat),
+                # Gender is horizontal (female reservation within each category) or
+                # a women-only institution — its own field, filtered separately.
+                "Gender": "Female-only" if female_seat(r) else "Gender-Neutral",
                 # Stored as a STRING to match every other exam's data (the
                 # results component's PropTypes expect string); sorted numerically
                 # below via _rank_num.

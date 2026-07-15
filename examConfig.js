@@ -405,6 +405,27 @@ export const neetUGConfig = {
       options: neetCentralCategoryOptions,
     },
     {
+      // Gender is a horizontal axis in NEET counselling: Maharashtra (30%) and
+      // Andhra/Telangana (33.3%) reserve seats for women WITHIN each category,
+      // and some AIQ institutions (LHMC, RAK, nursing colleges) are women-only.
+      // A female candidate competes for female-reserved seats AND the general
+      // (gender-neutral) seats; a male candidate can take neither the reserved
+      // seats nor a women-only college. So: "Female" shows everything, "Male /
+      // Gender-Neutral" hides the female-only rows. Optional (defaults to showing
+      // all) and only meaningful where female data exists (MH/TG/AP/AIQ).
+      name: "gender",
+      label: "Gender (for female-reserved seats)",
+      optional: true,
+      options: [
+        { value: "", label: "Show all seats" },
+        { value: "Female", label: "Female (include female-only seats)" },
+        {
+          value: "Gender-Neutral",
+          label: "Male / Gender-Neutral (hide female-only seats)",
+        },
+      ],
+    },
+    {
       // Options are populated at runtime from public/data/NEETUG/
       // neet_state_categories.json for the chosen home state (each state uses
       // its own codes). Only shown once a home state with data is selected.
@@ -464,15 +485,26 @@ export const neetUGConfig = {
         if ((item["Source"] || "").startsWith("aiq")) {
           // query.category may arrive as the label ("OBC-NCL") or value ("OBC");
           // canonicalize both sides. Match on the BASE category (strip any seat
-          // annotation like " (Female Seat only)") so a plain "Open" query still
-          // surfaces the female-only Open nursing seats — the student then reads
-          // the annotation in the Category column.
+          // sub-pool annotation like " (PwD)") so the base reservation matches;
+          // gender is handled by its own filter below, not here.
           const wanted = neetCategoryCanonical(query.category);
           if (!wanted) return true; // unknown category -> don't over-filter
           const baseCat = String(item["Category"] || "").replace(/\s*\(.*\)\s*$/, "");
           return neetCategoryCanonical(baseCat) === wanted;
         }
         return true; // AIQ category handled above; state rows handled next
+      },
+      // Gender (horizontal female reservation). Female-only rows are the seats
+      // reserved for women (MH/AP/TG) or women-only institutions (AIQ LHMC/RAK/
+      // nursing). A female candidate is eligible for those AND the gender-neutral
+      // seats, so "Female" shows everything. "Gender-Neutral" (male / not opting
+      // for the female pool) hides the female-only rows a male candidate cannot
+      // take. No selection -> show all. Optional filter.
+      (item) => {
+        if (!query.gender) return true;
+        if (query.gender === "Female") return true; // eligible for all pools
+        // Gender-Neutral: exclude female-only seats.
+        return (item["Gender"] || "Gender-Neutral") !== "Female-only";
       },
       // Home-state category: only constrains STATE-quota rows, using that state's
       // own code (from the state-category dropdown). AIQ rows are unaffected.
