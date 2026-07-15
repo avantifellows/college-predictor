@@ -401,7 +401,7 @@ export const neetUGConfig = {
     },
     {
       name: "category",
-      label: "Select Category (as in your NEET form)",
+      label: "Select Category (as on your NEET form)",
       options: neetCentralCategoryOptions,
     },
     {
@@ -414,15 +414,12 @@ export const neetUGConfig = {
       // Gender-Neutral" hides the female-only rows. Optional (defaults to showing
       // all) and only meaningful where female data exists (MH/TG/AP/AIQ).
       name: "gender",
-      label: "Gender (for female-reserved seats)",
+      label: "Select Gender (optional)",
       optional: true,
       options: [
         { value: "", label: "Show all seats" },
-        { value: "Female", label: "Female (include female-only seats)" },
-        {
-          value: "Gender-Neutral",
-          label: "Male / Gender-Neutral (hide female-only seats)",
-        },
+        { value: "Female", label: "Female (includes reserved seats)" },
+        { value: "Gender-Neutral", label: "Male / Gender-neutral" },
       ],
     },
     {
