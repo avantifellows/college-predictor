@@ -498,17 +498,23 @@ export const neetUGConfig = {
       // for the female pool) hides the female-only rows a male candidate cannot
       // take. No selection -> show all. Optional filter.
       (item) => {
-        if (!query.gender) return true;
-        if (query.gender === "Female") return true; // eligible for all pools
-        // Gender-Neutral: exclude female-only seats.
+        // The form submits the option LABEL, not its value (see
+        // handleQueryObjectChange), so match on the label. Only the
+        // male / gender-neutral choice narrows the list (a male candidate can't
+        // take female-reserved or women-only seats). "Female" and "Show all
+        // seats" (and no selection) show everything.
+        const g = String(query.gender || "").toLowerCase();
+        const wantsNeutralOnly = g.startsWith("male") || g === "gender-neutral";
+        if (!wantsNeutralOnly) return true;
         return (item["Gender"] || "Gender-Neutral") !== "Female-only";
       },
-      // Home-state category: only constrains STATE-quota rows, using that state's
-      // own code (from the state-category dropdown). AIQ rows are unaffected.
-      // If no state category chosen, show all of the home state's rows.
+      // Home-state category: constrains the home-state (state-file) rows to the
+      // picked code. Keys on Source (not the literal "State Quota" label) so it
+      // also covers a state's Government / Management / NRI / Institute-Quota
+      // rows. AIQ rows are unaffected. No selection -> all home-state rows.
       (item) => {
         if (!query.stateCategory) return true;
-        if (item["Seat Type"] !== "State Quota") return true;
+        if (String(item["Source"] || "").startsWith("aiq")) return true;
         return normalize(item["Category"]) === normalize(query.stateCategory);
       },
       // Closing-rank filter: show colleges whose closing rank is within reach
