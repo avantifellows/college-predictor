@@ -306,6 +306,14 @@ const CollegePredictor = () => {
     } else {
       newQueryObject[key] = selectedOption.label;
     }
+    // The home-state category codes are state-specific (SEBC exists in
+    // Maharashtra, not Kerala). When the home state changes, a previously-picked
+    // stateCategory becomes invalid — the dropdown can't display it, yet it stays
+    // in the query and silently filters the new state to zero. Drop it so the new
+    // state starts from "show all". (NEET only; other exams have no such field.)
+    if (key === "homeState") {
+      delete newQueryObject.stateCategory;
+    }
     if (
       queryObject.exam === "JoSAA" &&
       rankMode === "estimate" &&
