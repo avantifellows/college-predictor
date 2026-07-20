@@ -411,21 +411,19 @@ export const neetUGConfig = {
       options: neetCentralCategoryOptions,
     },
     {
-      // Gender is a horizontal axis in NEET counselling: Maharashtra (30%) and
-      // Andhra/Telangana (33.3%) reserve seats for women WITHIN each category,
-      // and some AIQ institutions (LHMC, RAK, nursing colleges) are women-only.
-      // A female candidate competes for female-reserved seats AND the general
-      // (gender-neutral) seats; a male candidate can take neither the reserved
-      // seats nor a women-only college. So: "Female" shows everything, "Male /
-      // Gender-Neutral" hides the female-only rows. Optional (defaults to showing
-      // all) and only meaningful where female data exists (MH/TG/AP/AIQ).
+      // Gender is a SEAT-TYPE filter, mirroring how every other exam (JoSAA,
+      // JEE, MHT CET) filters gender: pick a seat pool, see only that pool.
+      // Female-only = seats reserved for women (MH 30% / AP·TG 33.3% within each
+      // category, plus women-only AIQ institutions like LHMC/RAK/nursing);
+      // Gender-Neutral = seats open to all. "Show all" shows both. Optional, and
+      // only meaningful where female data exists (MH/TG/AP/AIQ).
       name: "gender",
       label: "Select Gender (optional)",
       optional: true,
       options: [
         { value: "", label: "Show all seats" },
-        { value: "Female", label: "Female (includes reserved seats)" },
-        { value: "Gender-Neutral", label: "Male / Gender-neutral" },
+        { value: "Female", label: "Female-only seats" },
+        { value: "Gender-Neutral", label: "Gender-neutral seats" },
       ],
     },
     {
@@ -497,22 +495,24 @@ export const neetUGConfig = {
         }
         return true; // AIQ category handled above; state rows handled next
       },
-      // Gender (horizontal female reservation). Female-only rows are the seats
+      // Gender is a SEAT-TYPE filter (not an eligibility model): it narrows the
+      // list to the seat pool the user picked. Female-only rows are seats
       // reserved for women (MH/AP/TG) or women-only institutions (AIQ LHMC/RAK/
-      // nursing). A female candidate is eligible for those AND the gender-neutral
-      // seats, so "Female" shows everything. "Gender-Neutral" (male / not opting
-      // for the female pool) hides the female-only rows a male candidate cannot
-      // take. No selection -> show all. Optional filter.
+      // nursing); the rest are gender-neutral (open to all).
+      //   - "Female"            -> ONLY Female-only seats
+      //   - "Male/Gender-neutral" -> ONLY gender-neutral seats
+      //   - "Show all" / no selection -> everything
+      // The form submits the option LABEL (see handleQueryObjectChange), so we
+      // match on the label text.
       (item) => {
-        // The form submits the option LABEL, not its value (see
-        // handleQueryObjectChange), so match on the label. Only the
-        // male / gender-neutral choice narrows the list (a male candidate can't
-        // take female-reserved or women-only seats). "Female" and "Show all
-        // seats" (and no selection) show everything.
+        // Match on the submitted LABEL (the form sends option.label). "female…"
+        // -> only female seats; anything mentioning "neutral"/"male" -> only
+        // neutral seats; "show all"/empty -> everything.
         const g = String(query.gender || "").toLowerCase();
-        const wantsNeutralOnly = g.startsWith("male") || g === "gender-neutral";
-        if (!wantsNeutralOnly) return true;
-        return (item["Gender"] || "Gender-Neutral") !== "Female-only";
+        const isFemaleSeat = (item["Gender"] || "Gender-Neutral") === "Female-only";
+        if (g.includes("female")) return isFemaleSeat;
+        if (g.includes("neutral") || g.includes("male")) return !isFemaleSeat;
+        return true; // "show all seats" or no selection
       },
       // Home-state category: constrains the home-state (state-file) rows to the
       // picked code. Keys on Source (not the literal "State Quota" label) so it
