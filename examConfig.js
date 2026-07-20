@@ -524,12 +524,15 @@ export const neetUGConfig = {
         return normalize(item["Category"]) === normalize(query.stateCategory);
       },
       // Closing-rank filter: show colleges whose closing rank is within reach
-      // (0.9 * user AIR headroom, same convention as before).
+      // (0.9 * user AIR headroom). Rank is the primary input — with no rank the
+      // predictor has no basis to predict, so return NOTHING (not everything).
+      // This matches JoSAA (which also yields no rows without a rank); the old
+      // `return true` here wrongly showed every college when the rank was blank.
       (item) => {
-        if (!query.rank) return true;
+        if (!query.rank) return false;
         const closingRank = parseInt(item["Closing Rank"], 10);
         const userRank = parseInt(query.rank, 10);
-        if (isNaN(closingRank) || isNaN(userRank)) return true;
+        if (isNaN(closingRank) || isNaN(userRank)) return false;
         return closingRank >= 0.9 * userRank;
       },
     ];

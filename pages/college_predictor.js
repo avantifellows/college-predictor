@@ -297,10 +297,15 @@ const CollegePredictor = () => {
   );
 
   const handleQueryObjectChange = (key) => (selectedOption) => {
-    let newQueryObject = {
-      ...queryObject,
-      [key]: selectedOption.label,
-    };
+    // react-select fires onChange(null) when a clearable dropdown is cleared
+    // (the "×"). Treat that as "revert to no selection": drop the key so the
+    // filter for it stops applying (e.g. home-state category back to show-all).
+    let newQueryObject = { ...queryObject };
+    if (selectedOption == null) {
+      delete newQueryObject[key];
+    } else {
+      newQueryObject[key] = selectedOption.label;
+    }
     if (
       queryObject.exam === "JoSAA" &&
       rankMode === "estimate" &&
@@ -647,6 +652,9 @@ const CollegePredictor = () => {
             )}
             selectedValue={queryObject[field.name]}
             onChange={handleQueryObjectChange(field.name)}
+            // Optional fields (home-state category, gender) get a clear "×" so
+            // the user can revert to "show all"; required fields do not.
+            isClearable={!!field.optional}
           />,
           showHomeStateNote
             ? "We show home-state closing ranks wherever that quota applies."

@@ -55,12 +55,14 @@ const Dropdown = ({
   isDisabled,
   selectedValue,
   className,
+  isClearable = false,
 }) => {
   return (
     <Select
       options={options}
       onChange={onChange}
       isDisabled={isDisabled}
+      isClearable={isClearable}
       styles={customStyles}
       instanceId={useId()}
       className={className}
