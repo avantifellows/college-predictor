@@ -358,17 +358,23 @@ export const neetUGConfig = {
     "Enter your NEET All India Rank",
     "Enter your NEET All India Rank"
   ),
-  // NEET is scored out of 720; marks -> AIR via /api/neet-predict (score_rank_model).
-  estimateMarksInput: {
-    label: "Enter your NEET marks (out of 720)",
-    placeholder: "e.g., 545",
-    min: "0",
-    max: "720",
-  },
-  estimateApi: "/api/neet-predict",
-  // NEET-UG has a single All India Rank (no separate category rank), so the
-  // estimated AIR is used directly — no category-rank conversion step.
-  estimateReturnsCategoryRank: false,
+  // Marks->rank estimation DISABLED 2026-07-20 (Amogh). The score->AIR model
+  // (/api/neet-predict, score_rank_model.json) was fitted on 2025 data, but the
+  // 2026 paper was easier and the score-rank distribution shifted a lot (e.g. a
+  // 564 score was ~7.4k AIR in 2025 but ~26k in 2026), so the estimate is no
+  // longer trustworthy. NEET now takes a directly-entered All India Rank only.
+  // The model, API route, fit script and calibration CSV are kept in the repo
+  // for when we handle year-to-year difficulty variance — re-enable by
+  // uncommenting these three keys and restoring the index.js NEET rank-mode
+  // toggle (search "estimator disabled 2026-07-20").
+  // estimateMarksInput: {
+  //   label: "Enter your NEET marks (out of 720)",
+  //   placeholder: "e.g., 545",
+  //   min: "0",
+  //   max: "720",
+  // },
+  // estimateApi: "/api/neet-predict",
+  // estimateReturnsCategoryRank: false,
   fields: [
     {
       name: "program",

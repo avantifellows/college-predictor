@@ -125,9 +125,13 @@ const ExamForm = () => {
       baseFormData.rankMode = "estimate";
       setRankMode("estimate");
     } else if (selectedOption.value === "NEETUG") {
-      // NEET is marks-first: default to the estimate flow.
-      baseFormData.rankMode = "estimate";
-      setRankMode("estimate");
+      // Rank-only for now: the marks->rank estimator was fitted on 2025 data and
+      // the 2026 score-rank spread differs materially (same score maps to a very
+      // different AIR), so marks estimation is disabled per Amogh (2026-07-20)
+      // until we handle year-to-year difficulty variance. Students enter their
+      // known AIR directly.
+      baseFormData.rankMode = "known";
+      setRankMode("known");
       // Load each state's own category codes for the optional dropdown.
       if (!neetStateCategories) {
         fetch("/data/NEETUG/neet_state_categories.json")
@@ -663,42 +667,14 @@ const ExamForm = () => {
               ) : (
                 selectedExam && (
                   <>
-                    {selectedExam === "NEETUG" &&
-                      renderFormCard(
-                        "rankMode",
-                        "Do you know your NEET All India Rank?",
-                        <div className="flex justify-center w-full">
-                          <div className="inline-flex w-full overflow-hidden rounded-xl border border-[#d8c7c1]">
-                            <button
-                              type="button"
-                              onClick={() => handleRankModeChange("estimate")}
-                              className={`flex-1 px-4 py-2 text-sm ${
-                                rankMode === "estimate"
-                                  ? "bg-[#B52326] text-white"
-                                  : "bg-white text-gray-700"
-                              }`}
-                            >
-                              No, estimate from my marks
-                            </button>
-                            <button
-                              type="button"
-                              onClick={() => handleRankModeChange("known")}
-                              className={`flex-1 px-4 py-2 text-sm ${
-                                rankMode === "known"
-                                  ? "bg-[#B52326] text-white"
-                                  : "bg-white text-gray-700"
-                              }`}
-                            >
-                              Yes, I know my rank
-                            </button>
-                          </div>
-                        </div>,
-                        null,
-                        null,
-                        true
-                      )}
-
-                    {selectedExam === "NEETUG" &&
+                    {/* NEET marks->rank estimator disabled 2026-07-20 (Amogh):
+                        the 2025-fitted score-rank model is wrong for the 2026
+                        spread. NEET is rank-only until we handle year-to-year
+                        difficulty variance — so no estimate/known toggle, and
+                        the marks card below never renders (rankMode is forced to
+                        "known" for NEET in handleExamChange). Re-enable by
+                        restoring this toggle + the estimate keys in examConfig. */}
+                    {false && selectedExam === "NEETUG" &&
                       rankMode === "estimate" &&
                       renderFormCard(
                         "estimate",
