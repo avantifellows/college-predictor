@@ -349,6 +349,85 @@ const neetCategoryCanonical = (() => {
   };
 })();
 
+// ---------------------------------------------------------------------------
+// SEAT TYPE classifier (added 2026-07-29 from Karnataka medical-student feedback
+// via Amogh). The reports were: "They can see DU quota / puducherry quota / etc
+// in the All India list even if it's not applicable to them", and "show college
+// type and seat type in state quota list". Root cause (Amogh): seat type was
+// being conflated with category because there was NO separate seat-type filter —
+// every AIQ-sourced row was shown to every user regardless of eligibility.
+//
+// Our data has 25 distinct AIQ `Seat Type` values and 13 state ones, spelled
+// inconsistently across states (GOVT / Government / Govt. Quota all mean the
+// same). This collapses them into the handful of buckets a student can act on.
+//
+// RESTRICTED = you must belong to a specific domicile/institution/cohort. These
+// are the ones that were misleading Karnataka students: DU Quota and IP Quota are
+// Delhi-domicile-only, "Internal - Puducherry UT Domicile" is Puducherry-only,
+// AMU/Jamia/minority quotas are institution-internal, ESI needs an ESI card, CW
+// is armed-forces children/widows, Foreign Country Quota is foreign nationals.
+const NEET_SEAT_BUCKETS = [
+  // [bucket, test on the normalized Seat Type string]
+  ["nri", (s) => s.includes("nonresidentindian") || s.includes("nri")],
+  ["deemed", (s) => s.includes("deemed") || s.includes("paidseats")],
+  ["management", (s) => s.includes("management") || s.includes("institutequota")],
+  ["private", (s) => s.includes("private")],
+  [
+    "restricted",
+    (s) =>
+      s.includes("delhiuniversity") ||
+      s.includes("ipuniversity") ||
+      s.includes("dsquota") ||
+      s.includes("puducherryutdomicile") ||
+      s.includes("amu") ||
+      s.includes("jamia") ||
+      s.includes("minority") ||
+      s.includes("muslim") ||
+      s.includes("jain") ||
+      s.includes("employeesstateinsurance") ||
+      s.includes("esi") ||
+      s.includes("foreigncountry") ||
+      s.includes("armedforces") ||
+      s.includes("cwquota") ||
+      s.includes("bscnursingdelhincr"),
+  ],
+  ["govt", (s) => s.includes("govt") || s.includes("government")],
+  ["allindia", (s) => s.includes("allindia")],
+  ["statequota", (s) => s.includes("statequota") || s.includes("openquota") || s.includes("hpquota")],
+];
+
+const neetSeatBucket = (seatType) => {
+  const s = String(seatType || "")
+    .replace(/[^a-z0-9]/gi, "")
+    .toLowerCase();
+  for (const [bucket, test] of NEET_SEAT_BUCKETS) {
+    if (test(s)) return bucket;
+  }
+  return "other";
+};
+
+// Buckets a normal applicant can actually compete for with no extra credential.
+const NEET_OPEN_BUCKETS = new Set([
+  "allindia",
+  "statequota",
+  "govt",
+  "private",
+  "management",
+  "deemed",
+  "other",
+]);
+
+const neetSeatTypeOptions = [
+  {
+    value: "",
+    label: "Seats I can apply to (recommended — hides NRI/DU/AMU/ESI-type quotas)",
+  },
+  { value: "govt-only", label: "Government seats only" },
+  { value: "private-management", label: "Private / Management seats" },
+  { value: "deemed", label: "Deemed / paid seats (no category reservation)" },
+  { value: "all", label: "Show every seat type (incl. restricted quotas)" },
+];
+
 export const neetUGConfig = {
   name: "NEETUG",
   code: "NEETUG",
@@ -394,12 +473,15 @@ export const neetUGConfig = {
       options: [
         { value: "Andhra Pradesh", label: "Andhra Pradesh" },
         { value: "Gujarat", label: "Gujarat" },
+        { value: "Haryana", label: "Haryana" },
         { value: "Himachal Pradesh", label: "Himachal Pradesh" },
         { value: "Karnataka", label: "Karnataka" },
         { value: "Kerala", label: "Kerala" },
         { value: "Madhya Pradesh", label: "Madhya Pradesh" },
         { value: "Maharashtra", label: "Maharashtra" },
+        { value: "Odisha", label: "Odisha" },
         { value: "Punjab", label: "Punjab" },
+        { value: "Rajasthan", label: "Rajasthan" },
         { value: "Telangana", label: "Telangana" },
         { value: "West Bengal", label: "West Bengal" },
         { value: "Other", label: "Other / Not listed (All India only)" },
@@ -425,6 +507,15 @@ export const neetUGConfig = {
         { value: "Female", label: "Female-only seats" },
         { value: "Gender-Neutral", label: "Gender-neutral seats" },
       ],
+    },
+    {
+      // SEAT TYPE — added from the Karnataka feedback. Default (empty value)
+      // hides the restricted quotas a normal applicant cannot use, which is the
+      // behaviour students expected all along.
+      name: "seatType",
+      label: "Select Seat Type",
+      optional: true,
+      options: neetSeatTypeOptions,
     },
     {
       // Options are populated at runtime from public/data/NEETUG/
@@ -473,16 +564,43 @@ export const neetUGConfig = {
         if (!query.homeState || query.homeState === "Other") return false;
         return normalize(item["State"]) === normalize(query.homeState);
       },
+      // SEAT TYPE filter (Karnataka feedback, 2026-07-29). The form submits the
+      // option LABEL, so match on label text like the gender filter does.
+      (item) => {
+        const raw = String(query.seatType || "").toLowerCase();
+        const bucket = neetSeatBucket(item["Seat Type"]);
+        // ★ `Seat Type = "State Quota"` spans BOTH govt and private colleges — a private college
+        //   sells state-quota-priced seats too (Rajasthan: 217 govt vs 134 private under the very
+        //   same "State Quota" label; Haryana 42/55; Odisha 58/16). So "Government seats only" MUST
+        //   consult College Type, not just the seat pool. Bucketing alone returned MG MC Jaipur
+        //   (govt) mislabelled and Adesh/HITECH (private) as "government".
+        const collegeType = String(item["College Type"] || "").toLowerCase();
+        const isGovtCollege = collegeType
+          ? collegeType.startsWith("govt") || collegeType.startsWith("government")
+          : bucket === "govt" || bucket === "allindia" || bucket === "statequota";
+        if (raw.includes("every seat type")) return true;
+        if (raw.includes("government seats only")) return isGovtCollege;
+        if (raw.includes("private / management"))
+          return !isGovtCollege && (bucket === "private" || bucket === "management" ||
+            bucket === "statequota" || bucket === "govt");
+        if (raw.includes("deemed")) return bucket === "deemed";
+        // Default / "Seats I can apply to": drop the restricted + NRI pools.
+        return NEET_OPEN_BUCKETS.has(bucket);
+      },
       // Category:
       //   - AIQ rows (all pools, incl. Delhi University / IP / ...) use central
       //     categories -> match the student's chosen NEET-form category exactly.
+      //   - **Deemed/paid seats are EXEMPT** (Karnataka feedback): deemed
+      //     universities admit on rank + fee with NO category reservation, so
+      //     filtering them by the student's category both hides real options from
+      //     reserved-category students and implies a reservation that does not
+      //     exist.
       //   - State-file rows use the state's own codes (which don't map cleanly
       //     to central categories); we surface all of the home state's rows and
-      //     let the student read the Category / Category Label column. This is
-      //     the deliberate "labeled state codes" choice (per Amogh) — we do not
-      //     fabricate a state->central mapping.
+      //     let the student read the Category / Category Label column.
       (item) => {
         if (!query.category) return true;
+        if (neetSeatBucket(item["Seat Type"]) === "deemed") return true;
         if ((item["Source"] || "").startsWith("aiq")) {
           // query.category may arrive as the label ("OBC-NCL") or value ("OBC");
           // canonicalize both sides. Match on the BASE category (strip any seat

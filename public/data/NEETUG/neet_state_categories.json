@@ -1,1254 +1,1464 @@
 {
-  "Maharashtra": [
-    {
-      "value": "DEF1",
-      "label": "DEF1"
-    },
-    {
-      "value": "DEF2",
-      "label": "DEF2"
-    },
-    {
-      "value": "DEF3",
-      "label": "DEF3"
-    },
-    {
-      "value": "EWS",
-      "label": "EWS"
-    },
-    {
-      "value": "EWS (Home Univ)",
-      "label": "EWS (Home Univ)"
-    },
-    {
-      "value": "EWS (PwD)",
-      "label": "EWS (PwD)"
-    },
-    {
-      "value": "MINO",
-      "label": "MINO"
-    },
-    {
-      "value": "MKB",
-      "label": "MKB"
-    },
-    {
-      "value": "NTB",
-      "label": "NTB"
-    },
-    {
-      "value": "NTB (EarMark)",
-      "label": "NTB (EarMark)"
-    },
-    {
-      "value": "NTB (Home Univ)",
-      "label": "NTB (Home Univ)"
-    },
-    {
-      "value": "NTB (PwD)",
-      "label": "NTB (PwD)"
-    },
-    {
-      "value": "NTC",
-      "label": "NTC"
-    },
-    {
-      "value": "NTC (EarMark)",
-      "label": "NTC (EarMark)"
-    },
-    {
-      "value": "NTC (Home Univ)",
-      "label": "NTC (Home Univ)"
-    },
-    {
-      "value": "NTC (PwD)",
-      "label": "NTC (PwD)"
-    },
-    {
-      "value": "NTC (PwD, EarMark)",
-      "label": "NTC (PwD, EarMark)"
-    },
-    {
-      "value": "NTD",
-      "label": "NTD"
-    },
-    {
-      "value": "NTD (EarMark)",
-      "label": "NTD (EarMark)"
-    },
-    {
-      "value": "NTD (Home Univ)",
-      "label": "NTD (Home Univ)"
-    },
-    {
-      "value": "NTD (PwD)",
-      "label": "NTD (PwD)"
-    },
-    {
-      "value": "OBC",
-      "label": "OBC"
-    },
-    {
-      "value": "OBC (EarMark)",
-      "label": "OBC (EarMark)"
-    },
-    {
-      "value": "OBC (Home Univ)",
-      "label": "OBC (Home Univ)"
-    },
-    {
-      "value": "OBC (PwD)",
-      "label": "OBC (PwD)"
-    },
-    {
-      "value": "OBC (PwD, EarMark)",
-      "label": "OBC (PwD, EarMark)"
-    },
-    {
-      "value": "OPEN",
-      "label": "OPEN"
-    },
-    {
-      "value": "OPEN (EarMark)",
-      "label": "OPEN (EarMark)"
-    },
-    {
-      "value": "OPEN (Home Univ)",
-      "label": "OPEN (Home Univ)"
-    },
-    {
-      "value": "OPEN (PwD)",
-      "label": "OPEN (PwD)"
-    },
-    {
-      "value": "OPEN (PwD, EarMark)",
-      "label": "OPEN (PwD, EarMark)"
-    },
-    {
-      "value": "ORPHAN (Orphan)",
-      "label": "ORPHAN (Orphan)"
-    },
-    {
-      "value": "ORPHANC (Orphan)",
-      "label": "ORPHANC (Orphan)"
-    },
-    {
-      "value": "SC",
-      "label": "SC"
-    },
-    {
-      "value": "SC (EarMark)",
-      "label": "SC (EarMark)"
-    },
-    {
-      "value": "SC (Home Univ)",
-      "label": "SC (Home Univ)"
-    },
-    {
-      "value": "SC (PwD)",
-      "label": "SC (PwD)"
-    },
-    {
-      "value": "SC (PwD, EarMark)",
-      "label": "SC (PwD, EarMark)"
-    },
-    {
-      "value": "SEBC",
-      "label": "SEBC"
-    },
-    {
-      "value": "SEBC (EarMark)",
-      "label": "SEBC (EarMark)"
-    },
-    {
-      "value": "SEBC (Home Univ)",
-      "label": "SEBC (Home Univ)"
-    },
-    {
-      "value": "SEBC (PwD)",
-      "label": "SEBC (PwD)"
-    },
-    {
-      "value": "SEBC (PwD, EarMark)",
-      "label": "SEBC (PwD, EarMark)"
-    },
-    {
-      "value": "ST",
-      "label": "ST"
-    },
-    {
-      "value": "ST (Home Univ)",
-      "label": "ST (Home Univ)"
-    },
-    {
-      "value": "ST (PwD)",
-      "label": "ST (PwD)"
-    },
-    {
-      "value": "VJA",
-      "label": "VJA"
-    },
-    {
-      "value": "VJA (EarMark)",
-      "label": "VJA (EarMark)"
-    },
-    {
-      "value": "VJA (Home Univ)",
-      "label": "VJA (Home Univ)"
-    },
-    {
-      "value": "VJA (PwD)",
-      "label": "VJA (PwD)"
-    }
-  ],
-  "Kerala": [
-    {
-      "value": "AC",
-      "label": "AC"
-    },
-    {
-      "value": "AM",
-      "label": "AM"
-    },
-    {
-      "value": "BH",
-      "label": "BH"
-    },
-    {
-      "value": "BX",
-      "label": "BX"
-    },
-    {
-      "value": "CC",
-      "label": "CC"
-    },
-    {
-      "value": "DA",
-      "label": "DA"
-    },
-    {
-      "value": "DK",
-      "label": "DK"
-    },
-    {
-      "value": "DM",
-      "label": "DM"
-    },
-    {
-      "value": "DV",
-      "label": "DV"
-    },
-    {
-      "value": "EW",
-      "label": "EW"
-    },
-    {
-      "value": "EZ",
-      "label": "EZ"
-    },
-    {
-      "value": "FL-BH",
-      "label": "FL-BH"
-    },
-    {
-      "value": "FL-BX",
-      "label": "FL-BX"
-    },
-    {
-      "value": "FL-EW",
-      "label": "FL-EW"
-    },
-    {
-      "value": "FL-EZ",
-      "label": "FL-EZ"
-    },
-    {
-      "value": "FL-KN",
-      "label": "FL-KN"
-    },
-    {
-      "value": "FL-LA",
-      "label": "FL-LA"
-    },
-    {
-      "value": "FL-MU",
-      "label": "FL-MU"
-    },
-    {
-      "value": "FL-SC",
-      "label": "FL-SC"
-    },
-    {
-      "value": "FL-VK",
-      "label": "FL-VK"
-    },
-    {
-      "value": "HR",
-      "label": "HR"
-    },
-    {
-      "value": "KN",
-      "label": "KN"
-    },
-    {
-      "value": "KU",
-      "label": "KU"
-    },
-    {
-      "value": "LA",
-      "label": "LA"
-    },
-    {
-      "value": "MM",
-      "label": "MM"
-    },
-    {
-      "value": "MU",
-      "label": "MU"
-    },
-    {
-      "value": "NC",
-      "label": "NC"
-    },
-    {
-      "value": "NM",
-      "label": "NM"
-    },
-    {
-      "value": "NQ",
-      "label": "NQ"
-    },
-    {
-      "value": "NR",
-      "label": "NR"
-    },
-    {
-      "value": "NR *",
-      "label": "NR *"
-    },
-    {
-      "value": "PD",
-      "label": "PD"
-    },
-    {
-      "value": "PI",
-      "label": "PI"
-    },
-    {
-      "value": "PT",
-      "label": "PT"
-    },
-    {
-      "value": "SC",
-      "label": "SC"
-    },
-    {
-      "value": "SD",
-      "label": "SD"
-    },
-    {
-      "value": "SM",
-      "label": "SM"
-    },
-    {
-      "value": "SM-BH",
-      "label": "SM-BH"
-    },
-    {
-      "value": "SM-BX",
-      "label": "SM-BX"
-    },
-    {
-      "value": "SM-EW",
-      "label": "SM-EW"
-    },
-    {
-      "value": "SM-EZ",
-      "label": "SM-EZ"
-    },
-    {
-      "value": "SM-KN",
-      "label": "SM-KN"
-    },
-    {
-      "value": "SM-LA",
-      "label": "SM-LA"
-    },
-    {
-      "value": "SM-MU",
-      "label": "SM-MU"
-    },
-    {
-      "value": "SM-SC",
-      "label": "SM-SC"
-    },
-    {
-      "value": "SM-VK",
-      "label": "SM-VK"
-    },
-    {
-      "value": "ST",
-      "label": "ST"
-    },
-    {
-      "value": "VK",
-      "label": "VK"
-    },
-    {
-      "value": "XS",
-      "label": "XS"
-    }
-  ],
-  "Karnataka": [
-    {
-      "value": "1G",
-      "label": "1G"
-    },
-    {
-      "value": "1H",
-      "label": "1H"
-    },
-    {
-      "value": "1R",
-      "label": "1R"
-    },
-    {
-      "value": "2AG",
-      "label": "2AG"
-    },
-    {
-      "value": "2AH",
-      "label": "2AH"
-    },
-    {
-      "value": "2AK",
-      "label": "2AK"
-    },
-    {
-      "value": "2AR",
-      "label": "2AR"
-    },
-    {
-      "value": "2ARH",
-      "label": "2ARH"
-    },
-    {
-      "value": "2BG",
-      "label": "2BG"
-    },
-    {
-      "value": "2BH",
-      "label": "2BH"
-    },
-    {
-      "value": "3AG",
-      "label": "3AG"
-    },
-    {
-      "value": "3AH",
-      "label": "3AH"
-    },
-    {
-      "value": "3BG",
-      "label": "3BG"
-    },
-    {
-      "value": "3BH",
-      "label": "3BH"
-    },
-    {
-      "value": "3BR",
-      "label": "3BR"
-    },
-    {
-      "value": "3BRH",
-      "label": "3BRH"
-    },
-    {
-      "value": "GM",
-      "label": "GM"
-    },
-    {
-      "value": "GMH",
-      "label": "GMH"
-    },
-    {
-      "value": "GMK",
-      "label": "GMK"
-    },
-    {
-      "value": "GMKH",
-      "label": "GMKH"
-    },
-    {
-      "value": "GMP",
-      "label": "GMP"
-    },
-    {
-      "value": "GMPH",
-      "label": "GMPH"
-    },
-    {
-      "value": "GMR",
-      "label": "GMR"
-    },
-    {
-      "value": "GMRH",
-      "label": "GMRH"
-    },
-    {
-      "value": "MA",
-      "label": "MA"
-    },
-    {
-      "value": "MC",
-      "label": "MC"
-    },
-    {
-      "value": "ME",
-      "label": "ME"
-    },
-    {
-      "value": "MM",
-      "label": "MM"
-    },
-    {
-      "value": "MMH",
-      "label": "MMH"
-    },
-    {
-      "value": "MU",
-      "label": "MU"
-    },
-    {
-      "value": "NRI",
-      "label": "NRI"
-    },
-    {
-      "value": "OPN",
-      "label": "OPN"
-    },
-    {
-      "value": "OTH",
-      "label": "OTH"
-    },
-    {
-      "value": "SCG",
-      "label": "SCG"
-    },
-    {
-      "value": "SCH",
-      "label": "SCH"
-    },
-    {
-      "value": "SCK",
-      "label": "SCK"
-    },
-    {
-      "value": "SCR",
-      "label": "SCR"
-    },
-    {
-      "value": "SCRH",
-      "label": "SCRH"
-    },
-    {
-      "value": "STG",
-      "label": "STG"
-    },
-    {
-      "value": "STH",
-      "label": "STH"
-    },
-    {
-      "value": "STR",
-      "label": "STR"
-    },
-    {
-      "value": "STRH",
-      "label": "STRH"
-    }
-  ],
-  "Gujarat": [
-    {
-      "value": "EW",
-      "label": "EW"
-    },
-    {
-      "value": "OPEN",
-      "label": "OPEN"
-    },
-    {
-      "value": "SC",
-      "label": "SC"
-    },
-    {
-      "value": "SE",
-      "label": "SE"
-    },
-    {
-      "value": "ST",
-      "label": "ST"
-    }
-  ],
-  "West Bengal": [
-    {
-      "value": "EWS",
-      "label": "EWS"
-    },
-    {
-      "value": "OBC (Non-Creamy Layer)",
-      "label": "OBC (Non-Creamy Layer)"
-    },
-    {
-      "value": "OBC-A (Non- Creamy Layer)",
-      "label": "OBC-A (Non- Creamy Layer)"
-    },
-    {
-      "value": "OBC-A (Non- Creamy Layer) PwD",
-      "label": "OBC-A (Non- Creamy Layer) PwD"
-    },
-    {
-      "value": "OBC-B (Non- Creamy Layer)",
-      "label": "OBC-B (Non- Creamy Layer)"
-    },
-    {
-      "value": "OBC-B (Non- Creamy Layer) PwD",
-      "label": "OBC-B (Non- Creamy Layer) PwD"
-    },
-    {
-      "value": "SC",
-      "label": "SC"
-    },
-    {
-      "value": "SC PwD",
-      "label": "SC PwD"
-    },
-    {
-      "value": "ST",
-      "label": "ST"
-    },
-    {
-      "value": "UR",
-      "label": "UR"
-    },
-    {
-      "value": "UR PwD",
-      "label": "UR PwD"
-    }
-  ],
-  "Madhya Pradesh": [
-    {
-      "value": "EWS/FF/OP",
-      "label": "EWS/FF/OP"
-    },
-    {
-      "value": "EWS/GS/OP",
-      "label": "EWS/GS/OP"
-    },
-    {
-      "value": "EWS/PH/OP",
-      "label": "EWS/PH/OP"
-    },
-    {
-      "value": "EWS/SN/OP",
-      "label": "EWS/SN/OP"
-    },
-    {
-      "value": "EWS/X/OP",
-      "label": "EWS/X/OP"
-    },
-    {
-      "value": "OBC/FF/OP",
-      "label": "OBC/FF/OP"
-    },
-    {
-      "value": "OBC/GS/OP",
-      "label": "OBC/GS/OP"
-    },
-    {
-      "value": "OBC/PH/OP",
-      "label": "OBC/PH/OP"
-    },
-    {
-      "value": "OBC/SN/OP",
-      "label": "OBC/SN/OP"
-    },
-    {
-      "value": "OBC/X/OP",
-      "label": "OBC/X/OP"
-    },
-    {
-      "value": "Open",
-      "label": "Open"
-    },
-    {
-      "value": "SC/FF/OP",
-      "label": "SC/FF/OP"
-    },
-    {
-      "value": "SC/GS/OP",
-      "label": "SC/GS/OP"
-    },
-    {
-      "value": "SC/PH/OP",
-      "label": "SC/PH/OP"
-    },
-    {
-      "value": "SC/SN/OP",
-      "label": "SC/SN/OP"
-    },
-    {
-      "value": "SC/X/OP",
-      "label": "SC/X/OP"
-    },
-    {
-      "value": "ST/GS/OP",
-      "label": "ST/GS/OP"
-    },
-    {
-      "value": "ST/PH/OP",
-      "label": "ST/PH/OP"
-    },
-    {
-      "value": "ST/SN/OP",
-      "label": "ST/SN/OP"
-    },
-    {
-      "value": "ST/X/OP",
-      "label": "ST/X/OP"
-    },
-    {
-      "value": "UR/FF/OP",
-      "label": "UR/FF/OP"
-    },
-    {
-      "value": "UR/GS/OP",
-      "label": "UR/GS/OP"
-    },
-    {
-      "value": "UR/PH/OP",
-      "label": "UR/PH/OP"
-    },
-    {
-      "value": "UR/SN/OP",
-      "label": "UR/SN/OP"
-    },
-    {
-      "value": "UR/X/OP",
-      "label": "UR/X/OP"
-    }
-  ],
-  "Andhra Pradesh": [
-    {
-      "value": "ANGLO",
-      "label": "ANGLO"
-    },
-    {
-      "value": "BCA",
-      "label": "BCA"
-    },
-    {
-      "value": "BCA (BSG)",
-      "label": "BCA (BSG)"
-    },
-    {
-      "value": "BCA (CAP)",
-      "label": "BCA (CAP)"
-    },
-    {
-      "value": "BCA (NCC)",
-      "label": "BCA (NCC)"
-    },
-    {
-      "value": "BCA (PH)",
-      "label": "BCA (PH)"
-    },
-    {
-      "value": "BCA (PMC)",
-      "label": "BCA (PMC)"
-    },
-    {
-      "value": "BCA (SG)",
-      "label": "BCA (SG)"
-    },
-    {
-      "value": "BCB",
-      "label": "BCB"
-    },
-    {
-      "value": "BCB (BSG)",
-      "label": "BCB (BSG)"
-    },
-    {
-      "value": "BCB (CAP)",
-      "label": "BCB (CAP)"
-    },
-    {
-      "value": "BCB (NCC)",
-      "label": "BCB (NCC)"
-    },
-    {
-      "value": "BCB (PH)",
-      "label": "BCB (PH)"
-    },
-    {
-      "value": "BCB (PMC)",
-      "label": "BCB (PMC)"
-    },
-    {
-      "value": "BCB (SG)",
-      "label": "BCB (SG)"
-    },
-    {
-      "value": "BCC",
-      "label": "BCC"
-    },
-    {
-      "value": "BCC (PH)",
-      "label": "BCC (PH)"
-    },
-    {
-      "value": "BCD",
-      "label": "BCD"
-    },
-    {
-      "value": "BCD (BSG)",
-      "label": "BCD (BSG)"
-    },
-    {
-      "value": "BCD (CAP)",
-      "label": "BCD (CAP)"
-    },
-    {
-      "value": "BCD (NCC)",
-      "label": "BCD (NCC)"
-    },
-    {
-      "value": "BCD (PH)",
-      "label": "BCD (PH)"
-    },
-    {
-      "value": "BCD (SG)",
-      "label": "BCD (SG)"
-    },
-    {
-      "value": "BCE",
-      "label": "BCE"
-    },
-    {
-      "value": "BCE (CAP)",
-      "label": "BCE (CAP)"
-    },
-    {
-      "value": "BCE (NCC)",
-      "label": "BCE (NCC)"
-    },
-    {
-      "value": "BCE (PH)",
-      "label": "BCE (PH)"
-    },
-    {
-      "value": "EWS",
-      "label": "EWS"
-    },
-    {
-      "value": "MINORITY",
-      "label": "MINORITY"
-    },
-    {
-      "value": "OC",
-      "label": "OC"
-    },
-    {
-      "value": "OC (BSG)",
-      "label": "OC (BSG)"
-    },
-    {
-      "value": "OC (CAP)",
-      "label": "OC (CAP)"
-    },
-    {
-      "value": "OC (NCC)",
-      "label": "OC (NCC)"
-    },
-    {
-      "value": "OC (PH)",
-      "label": "OC (PH)"
-    },
-    {
-      "value": "OC (PMC)",
-      "label": "OC (PMC)"
-    },
-    {
-      "value": "OC (SG)",
-      "label": "OC (SG)"
-    },
-    {
-      "value": "SC1",
-      "label": "SC1"
-    },
-    {
-      "value": "SC1 (CON)",
-      "label": "SC1 (CON)"
-    },
-    {
-      "value": "SC1 (PH)",
-      "label": "SC1 (PH)"
-    },
-    {
-      "value": "SC2",
-      "label": "SC2"
-    },
-    {
-      "value": "SC2 (BSG)",
-      "label": "SC2 (BSG)"
-    },
-    {
-      "value": "SC2 (CAP)",
-      "label": "SC2 (CAP)"
-    },
-    {
-      "value": "SC2 (CON)",
-      "label": "SC2 (CON)"
-    },
-    {
-      "value": "SC2 (NCC)",
-      "label": "SC2 (NCC)"
-    },
-    {
-      "value": "SC2 (PH)",
-      "label": "SC2 (PH)"
-    },
-    {
-      "value": "SC2 (SG)",
-      "label": "SC2 (SG)"
-    },
-    {
-      "value": "SC3",
-      "label": "SC3"
-    },
-    {
-      "value": "SC3 (BSG)",
-      "label": "SC3 (BSG)"
-    },
-    {
-      "value": "SC3 (CAP)",
-      "label": "SC3 (CAP)"
-    },
-    {
-      "value": "SC3 (NCC)",
-      "label": "SC3 (NCC)"
-    },
-    {
-      "value": "SC3 (PH)",
-      "label": "SC3 (PH)"
-    },
-    {
-      "value": "SC3 (SG)",
-      "label": "SC3 (SG)"
-    },
-    {
-      "value": "ST",
-      "label": "ST"
-    },
-    {
-      "value": "ST (BSG)",
-      "label": "ST (BSG)"
-    },
-    {
-      "value": "ST (CAP)",
-      "label": "ST (CAP)"
-    },
-    {
-      "value": "ST (NCC)",
-      "label": "ST (NCC)"
-    },
-    {
-      "value": "ST (PH)",
-      "label": "ST (PH)"
-    },
-    {
-      "value": "ST (SG)",
-      "label": "ST (SG)"
-    }
-  ],
-  "Telangana": [
-    {
-      "value": "BCA",
-      "label": "BCA"
-    },
-    {
-      "value": "BCA (CAP)",
-      "label": "BCA (CAP)"
-    },
-    {
-      "value": "BCA (CAP-MRC)",
-      "label": "BCA (CAP-MRC)"
-    },
-    {
-      "value": "BCA (MRC)",
-      "label": "BCA (MRC)"
-    },
-    {
-      "value": "BCA (PHO)",
-      "label": "BCA (PHO)"
-    },
-    {
-      "value": "BCB",
-      "label": "BCB"
-    },
-    {
-      "value": "BCB (CAP)",
-      "label": "BCB (CAP)"
-    },
-    {
-      "value": "BCB (CAP-MRC)",
-      "label": "BCB (CAP-MRC)"
-    },
-    {
-      "value": "BCB (MRC)",
-      "label": "BCB (MRC)"
-    },
-    {
-      "value": "BCB (PHO)",
-      "label": "BCB (PHO)"
-    },
-    {
-      "value": "BCB (SCL)",
-      "label": "BCB (SCL)"
-    },
-    {
-      "value": "BCC",
-      "label": "BCC"
-    },
-    {
-      "value": "BCC (MRC)",
-      "label": "BCC (MRC)"
-    },
-    {
-      "value": "BCD",
-      "label": "BCD"
-    },
-    {
-      "value": "BCD (CAP)",
-      "label": "BCD (CAP)"
-    },
-    {
-      "value": "BCD (CAP-MRC)",
-      "label": "BCD (CAP-MRC)"
-    },
-    {
-      "value": "BCD (MRC)",
-      "label": "BCD (MRC)"
-    },
-    {
-      "value": "BCD (PHO)",
-      "label": "BCD (PHO)"
-    },
-    {
-      "value": "BCE",
-      "label": "BCE"
-    },
-    {
-      "value": "BCE (CAP)",
-      "label": "BCE (CAP)"
-    },
-    {
-      "value": "BCE (MRC)",
-      "label": "BCE (MRC)"
-    },
-    {
-      "value": "EWS",
-      "label": "EWS"
-    },
-    {
-      "value": "EWS (MRC)",
-      "label": "EWS (MRC)"
-    },
-    {
-      "value": "MIN (CAP-MSM)",
-      "label": "MIN (CAP-MSM)"
-    },
-    {
-      "value": "MIN (MSM)",
-      "label": "MIN (MSM)"
-    },
-    {
-      "value": "MIN (MSM-MRC)",
-      "label": "MIN (MSM-MRC)"
-    },
-    {
-      "value": "OPEN",
-      "label": "OPEN"
-    },
-    {
-      "value": "OPEN (CAP)",
-      "label": "OPEN (CAP)"
-    },
-    {
-      "value": "OPEN (PHO)",
-      "label": "OPEN (PHO)"
-    },
-    {
-      "value": "OPEN (SCL)",
-      "label": "OPEN (SCL)"
-    },
-    {
-      "value": "SC1",
-      "label": "SC1"
-    },
-    {
-      "value": "SC2",
-      "label": "SC2"
-    },
-    {
-      "value": "SC2 (CAP)",
-      "label": "SC2 (CAP)"
-    },
-    {
-      "value": "SC2 (MRC)",
-      "label": "SC2 (MRC)"
-    },
-    {
-      "value": "SC2 (PHO)",
-      "label": "SC2 (PHO)"
-    },
-    {
-      "value": "SC2 (SCL)",
-      "label": "SC2 (SCL)"
-    },
-    {
-      "value": "SC3",
-      "label": "SC3"
-    },
-    {
-      "value": "SC3 (CAP)",
-      "label": "SC3 (CAP)"
-    },
-    {
-      "value": "SC3 (MRC)",
-      "label": "SC3 (MRC)"
-    },
-    {
-      "value": "ST",
-      "label": "ST"
-    },
-    {
-      "value": "ST (MRC)",
-      "label": "ST (MRC)"
-    },
-    {
-      "value": "ST (PHO)",
-      "label": "ST (PHO)"
-    },
-    {
-      "value": "ST (SCL)",
-      "label": "ST (SCL)"
-    }
-  ],
-  "Punjab": [
-    {
-      "value": "2B",
-      "label": "2B"
-    },
-    {
-      "value": "2C",
-      "label": "2C"
-    },
-    {
-      "value": "2D",
-      "label": "2D"
-    },
-    {
-      "value": "2E",
-      "label": "2E"
-    },
-    {
-      "value": "2G",
-      "label": "2G"
-    },
-    {
-      "value": "Backward Area",
-      "label": "Backward Area"
-    },
-    {
-      "value": "Backward Classes",
-      "label": "Backward Classes"
-    },
-    {
-      "value": "Border Area",
-      "label": "Border Area"
-    },
-    {
-      "value": "Defence",
-      "label": "Defence"
-    },
-    {
-      "value": "EWS",
-      "label": "EWS"
-    },
-    {
-      "value": "J & K",
-      "label": "J & K"
-    },
-    {
-      "value": "Open",
-      "label": "Open"
-    },
-    {
-      "value": "PP",
-      "label": "PP"
-    },
-    {
-      "value": "PWD",
-      "label": "PWD"
-    },
-    {
-      "value": "Riots Affected",
-      "label": "Riots Affected"
-    },
-    {
-      "value": "Scheduled Caste",
-      "label": "Scheduled Caste"
-    },
-    {
-      "value": "Sports Person",
-      "label": "Sports Person"
-    },
-    {
-      "value": "Terrorist Affected",
-      "label": "Terrorist Affected"
-    }
-  ],
-  "Himachal Pradesh": [
-    {
-      "value": "EWS",
-      "label": "EWS"
-    },
-    {
-      "value": "General",
-      "label": "General"
-    },
-    {
-      "value": "J&K Migrant",
-      "label": "J&K Migrant"
-    },
-    {
-      "value": "OBC",
-      "label": "OBC"
-    },
-    {
-      "value": "SC",
-      "label": "SC"
-    },
-    {
-      "value": "ST",
-      "label": "ST"
-    },
-    {
-      "value": "Single Girl Child",
-      "label": "Single Girl Child"
-    }
-  ]
+ "Andhra Pradesh": [
+  {
+   "value": "ANGLO",
+   "label": "ANGLO"
+  },
+  {
+   "value": "BCA",
+   "label": "BCA"
+  },
+  {
+   "value": "BCA (BSG)",
+   "label": "BCA (BSG)"
+  },
+  {
+   "value": "BCA (CAP)",
+   "label": "BCA (CAP)"
+  },
+  {
+   "value": "BCA (NCC)",
+   "label": "BCA (NCC)"
+  },
+  {
+   "value": "BCA (PH)",
+   "label": "BCA (PH)"
+  },
+  {
+   "value": "BCA (PMC)",
+   "label": "BCA (PMC)"
+  },
+  {
+   "value": "BCA (SG)",
+   "label": "BCA (SG)"
+  },
+  {
+   "value": "BCB",
+   "label": "BCB"
+  },
+  {
+   "value": "BCB (BSG)",
+   "label": "BCB (BSG)"
+  },
+  {
+   "value": "BCB (CAP)",
+   "label": "BCB (CAP)"
+  },
+  {
+   "value": "BCB (NCC)",
+   "label": "BCB (NCC)"
+  },
+  {
+   "value": "BCB (PH)",
+   "label": "BCB (PH)"
+  },
+  {
+   "value": "BCB (PMC)",
+   "label": "BCB (PMC)"
+  },
+  {
+   "value": "BCB (SG)",
+   "label": "BCB (SG)"
+  },
+  {
+   "value": "BCC",
+   "label": "BCC"
+  },
+  {
+   "value": "BCC (PH)",
+   "label": "BCC (PH)"
+  },
+  {
+   "value": "BCD",
+   "label": "BCD"
+  },
+  {
+   "value": "BCD (BSG)",
+   "label": "BCD (BSG)"
+  },
+  {
+   "value": "BCD (CAP)",
+   "label": "BCD (CAP)"
+  },
+  {
+   "value": "BCD (NCC)",
+   "label": "BCD (NCC)"
+  },
+  {
+   "value": "BCD (PH)",
+   "label": "BCD (PH)"
+  },
+  {
+   "value": "BCD (SG)",
+   "label": "BCD (SG)"
+  },
+  {
+   "value": "BCE",
+   "label": "BCE"
+  },
+  {
+   "value": "BCE (CAP)",
+   "label": "BCE (CAP)"
+  },
+  {
+   "value": "BCE (NCC)",
+   "label": "BCE (NCC)"
+  },
+  {
+   "value": "BCE (PH)",
+   "label": "BCE (PH)"
+  },
+  {
+   "value": "EWS",
+   "label": "EWS"
+  },
+  {
+   "value": "MINORITY",
+   "label": "MINORITY"
+  },
+  {
+   "value": "OC",
+   "label": "OC"
+  },
+  {
+   "value": "OC (BSG)",
+   "label": "OC (BSG)"
+  },
+  {
+   "value": "OC (CAP)",
+   "label": "OC (CAP)"
+  },
+  {
+   "value": "OC (NCC)",
+   "label": "OC (NCC)"
+  },
+  {
+   "value": "OC (PH)",
+   "label": "OC (PH)"
+  },
+  {
+   "value": "OC (PMC)",
+   "label": "OC (PMC)"
+  },
+  {
+   "value": "OC (SG)",
+   "label": "OC (SG)"
+  },
+  {
+   "value": "SC1",
+   "label": "SC1"
+  },
+  {
+   "value": "SC1 (CON)",
+   "label": "SC1 (CON)"
+  },
+  {
+   "value": "SC1 (PH)",
+   "label": "SC1 (PH)"
+  },
+  {
+   "value": "SC2",
+   "label": "SC2"
+  },
+  {
+   "value": "SC2 (BSG)",
+   "label": "SC2 (BSG)"
+  },
+  {
+   "value": "SC2 (CAP)",
+   "label": "SC2 (CAP)"
+  },
+  {
+   "value": "SC2 (CON)",
+   "label": "SC2 (CON)"
+  },
+  {
+   "value": "SC2 (NCC)",
+   "label": "SC2 (NCC)"
+  },
+  {
+   "value": "SC2 (PH)",
+   "label": "SC2 (PH)"
+  },
+  {
+   "value": "SC2 (SG)",
+   "label": "SC2 (SG)"
+  },
+  {
+   "value": "SC3",
+   "label": "SC3"
+  },
+  {
+   "value": "SC3 (BSG)",
+   "label": "SC3 (BSG)"
+  },
+  {
+   "value": "SC3 (CAP)",
+   "label": "SC3 (CAP)"
+  },
+  {
+   "value": "SC3 (NCC)",
+   "label": "SC3 (NCC)"
+  },
+  {
+   "value": "SC3 (PH)",
+   "label": "SC3 (PH)"
+  },
+  {
+   "value": "SC3 (SG)",
+   "label": "SC3 (SG)"
+  },
+  {
+   "value": "ST",
+   "label": "ST"
+  },
+  {
+   "value": "ST (BSG)",
+   "label": "ST (BSG)"
+  },
+  {
+   "value": "ST (CAP)",
+   "label": "ST (CAP)"
+  },
+  {
+   "value": "ST (NCC)",
+   "label": "ST (NCC)"
+  },
+  {
+   "value": "ST (PH)",
+   "label": "ST (PH)"
+  },
+  {
+   "value": "ST (SG)",
+   "label": "ST (SG)"
+  }
+ ],
+ "Gujarat": [
+  {
+   "value": "EW",
+   "label": "EW \u2014 EWS"
+  },
+  {
+   "value": "OPEN",
+   "label": "OPEN \u2014 Open (General)"
+  },
+  {
+   "value": "SC",
+   "label": "SC"
+  },
+  {
+   "value": "SE",
+   "label": "SE \u2014 SEBC"
+  },
+  {
+   "value": "ST",
+   "label": "ST"
+  }
+ ],
+ "Haryana": [
+  {
+   "value": "BCA",
+   "label": "BCA \u2014 Backward Class-A"
+  },
+  {
+   "value": "BCB",
+   "label": "BCB \u2014 Backward Class-B"
+  },
+  {
+   "value": "EWS",
+   "label": "EWS"
+  },
+  {
+   "value": "OPEN_CAT",
+   "label": "OPEN_CAT \u2014 General / Unreserved"
+  },
+  {
+   "value": "SC",
+   "label": "SC \u2014 Scheduled Caste"
+  },
+  {
+   "value": "SC_DEPRIVED",
+   "label": "SC_DEPRIVED \u2014 Deprived SC (sub-quota)"
+  }
+ ],
+ "Himachal Pradesh": [
+  {
+   "value": "EWS",
+   "label": "EWS"
+  },
+  {
+   "value": "General",
+   "label": "General"
+  },
+  {
+   "value": "J&K Migrant",
+   "label": "J&K Migrant"
+  },
+  {
+   "value": "OBC",
+   "label": "OBC \u2014 OBC-NCL"
+  },
+  {
+   "value": "SC",
+   "label": "SC"
+  },
+  {
+   "value": "ST",
+   "label": "ST"
+  },
+  {
+   "value": "Single Girl Child",
+   "label": "Single Girl Child"
+  }
+ ],
+ "Karnataka": [
+  {
+   "value": "1G",
+   "label": "1G \u2014 Category-1 (OBC \u2014 most backward) \u2014 Govt seat pool"
+  },
+  {
+   "value": "1H",
+   "label": "1H \u2014 Category-1 (OBC \u2014 most backward) \u2014 Hyderabad-Karnataka (Art. 371-J)"
+  },
+  {
+   "value": "1K",
+   "label": "1K \u2014 Category-1 (OBC \u2014 most backward) \u2014 Kannada medium"
+  },
+  {
+   "value": "1KH",
+   "label": "1KH \u2014 Category-1 (OBC \u2014 most backward) \u2014 KH"
+  },
+  {
+   "value": "1R",
+   "label": "1R \u2014 Category-1 (OBC \u2014 most backward) \u2014 Rural"
+  },
+  {
+   "value": "1RH",
+   "label": "1RH \u2014 Category-1 (OBC \u2014 most backward) \u2014 Rural + HK"
+  },
+  {
+   "value": "2AG",
+   "label": "2AG \u2014 Category-2A (OBC) \u2014 Govt seat pool"
+  },
+  {
+   "value": "2AH",
+   "label": "2AH \u2014 Category-2A (OBC) \u2014 Hyderabad-Karnataka (Art. 371-J)"
+  },
+  {
+   "value": "2AK",
+   "label": "2AK \u2014 Category-2A (OBC) \u2014 Kannada medium"
+  },
+  {
+   "value": "2AKH",
+   "label": "2AKH \u2014 Category-2A (OBC) \u2014 KH"
+  },
+  {
+   "value": "2AR",
+   "label": "2AR \u2014 Category-2A (OBC) \u2014 Rural"
+  },
+  {
+   "value": "2ARH",
+   "label": "2ARH \u2014 Category-2A (OBC) \u2014 Rural + HK"
+  },
+  {
+   "value": "2BG",
+   "label": "2BG \u2014 Category-2B (OBC \u2014 Muslim) \u2014 Govt seat pool"
+  },
+  {
+   "value": "2BH",
+   "label": "2BH \u2014 Category-2B (OBC \u2014 Muslim) \u2014 Hyderabad-Karnataka (Art. 371-J)"
+  },
+  {
+   "value": "2BK",
+   "label": "2BK \u2014 Category-2B (OBC \u2014 Muslim) \u2014 Kannada medium"
+  },
+  {
+   "value": "2BKH",
+   "label": "2BKH \u2014 Category-2B (OBC \u2014 Muslim) \u2014 KH"
+  },
+  {
+   "value": "2BR",
+   "label": "2BR \u2014 Category-2B (OBC \u2014 Muslim) \u2014 Rural"
+  },
+  {
+   "value": "2BRH",
+   "label": "2BRH \u2014 Category-2B (OBC \u2014 Muslim) \u2014 Rural + HK"
+  },
+  {
+   "value": "3AG",
+   "label": "3AG \u2014 Category-3A (OBC) \u2014 Govt seat pool"
+  },
+  {
+   "value": "3AH",
+   "label": "3AH \u2014 Category-3A (OBC) \u2014 Hyderabad-Karnataka (Art. 371-J)"
+  },
+  {
+   "value": "3AK",
+   "label": "3AK \u2014 Category-3A (OBC) \u2014 Kannada medium"
+  },
+  {
+   "value": "3AKH",
+   "label": "3AKH \u2014 Category-3A (OBC) \u2014 KH"
+  },
+  {
+   "value": "3AR",
+   "label": "3AR \u2014 Category-3A (OBC) \u2014 Rural"
+  },
+  {
+   "value": "3ARH",
+   "label": "3ARH \u2014 Category-3A (OBC) \u2014 Rural + HK"
+  },
+  {
+   "value": "3BG",
+   "label": "3BG \u2014 Category-3B (OBC) \u2014 Govt seat pool"
+  },
+  {
+   "value": "3BH",
+   "label": "3BH \u2014 Category-3B (OBC) \u2014 Hyderabad-Karnataka (Art. 371-J)"
+  },
+  {
+   "value": "3BK",
+   "label": "3BK \u2014 Category-3B (OBC) \u2014 Kannada medium"
+  },
+  {
+   "value": "3BKH",
+   "label": "3BKH \u2014 Category-3B (OBC) \u2014 KH"
+  },
+  {
+   "value": "3BR",
+   "label": "3BR \u2014 Category-3B (OBC) \u2014 Rural"
+  },
+  {
+   "value": "3BRH",
+   "label": "3BRH \u2014 Category-3B (OBC) \u2014 Rural + HK"
+  },
+  {
+   "value": "CAP",
+   "label": "CAP"
+  },
+  {
+   "value": "D",
+   "label": "D"
+  },
+  {
+   "value": "GM",
+   "label": "GM \u2014 General (= OPN on private-seat lists)"
+  },
+  {
+   "value": "GMH",
+   "label": "GMH \u2014 General (= OPN on private-seat lists) \u2014 Hyderabad-Karnataka (Art. 371-J)"
+  },
+  {
+   "value": "GMK",
+   "label": "GMK \u2014 General (= OPN on private-seat lists) \u2014 Kannada medium"
+  },
+  {
+   "value": "GMKH",
+   "label": "GMKH \u2014 General (= OPN on private-seat lists) \u2014 KH"
+  },
+  {
+   "value": "GMP",
+   "label": "GMP \u2014 General (= OPN on private-seat lists) \u2014 P"
+  },
+  {
+   "value": "GMPH",
+   "label": "GMPH \u2014 General (= OPN on private-seat lists) \u2014 PH"
+  },
+  {
+   "value": "GMR",
+   "label": "GMR \u2014 General (= OPN on private-seat lists) \u2014 Rural"
+  },
+  {
+   "value": "GMRH",
+   "label": "GMRH \u2014 General (= OPN on private-seat lists) \u2014 Rural + HK"
+  },
+  {
+   "value": "JK",
+   "label": "JK"
+  },
+  {
+   "value": "MA",
+   "label": "MA"
+  },
+  {
+   "value": "MC",
+   "label": "MC"
+  },
+  {
+   "value": "ME",
+   "label": "ME"
+  },
+  {
+   "value": "MEH",
+   "label": "MEH"
+  },
+  {
+   "value": "MK",
+   "label": "MK"
+  },
+  {
+   "value": "MM",
+   "label": "MM"
+  },
+  {
+   "value": "MMH",
+   "label": "MMH"
+  },
+  {
+   "value": "MU",
+   "label": "MU"
+  },
+  {
+   "value": "NCC",
+   "label": "NCC"
+  },
+  {
+   "value": "NRI",
+   "label": "NRI"
+  },
+  {
+   "value": "OPN",
+   "label": "OPN"
+  },
+  {
+   "value": "OTH",
+   "label": "OTH"
+  },
+  {
+   "value": "PHM",
+   "label": "PHM"
+  },
+  {
+   "value": "RC1",
+   "label": "RC1"
+  },
+  {
+   "value": "RC2",
+   "label": "RC2"
+  },
+  {
+   "value": "RC3",
+   "label": "RC3"
+  },
+  {
+   "value": "RC4",
+   "label": "RC4"
+  },
+  {
+   "value": "RC5",
+   "label": "RC5"
+  },
+  {
+   "value": "RC6",
+   "label": "RC6"
+  },
+  {
+   "value": "RC7",
+   "label": "RC7"
+  },
+  {
+   "value": "S-G",
+   "label": "S-G"
+  },
+  {
+   "value": "SCG",
+   "label": "SCG \u2014 Scheduled Caste \u2014 Govt seat pool"
+  },
+  {
+   "value": "SCH",
+   "label": "SCH \u2014 Scheduled Caste \u2014 Hyderabad-Karnataka (Art. 371-J)"
+  },
+  {
+   "value": "SCK",
+   "label": "SCK \u2014 Scheduled Caste \u2014 Kannada medium"
+  },
+  {
+   "value": "SCKH",
+   "label": "SCKH \u2014 Scheduled Caste \u2014 KH"
+  },
+  {
+   "value": "SCR",
+   "label": "SCR \u2014 Scheduled Caste \u2014 Rural"
+  },
+  {
+   "value": "SCRH",
+   "label": "SCRH \u2014 Scheduled Caste \u2014 Rural + HK"
+  },
+  {
+   "value": "SPO",
+   "label": "SPO"
+  },
+  {
+   "value": "STG",
+   "label": "STG \u2014 Scheduled Tribe \u2014 Govt seat pool"
+  },
+  {
+   "value": "STH",
+   "label": "STH \u2014 Scheduled Tribe \u2014 Hyderabad-Karnataka (Art. 371-J)"
+  },
+  {
+   "value": "STK",
+   "label": "STK \u2014 Scheduled Tribe \u2014 Kannada medium"
+  },
+  {
+   "value": "STKH",
+   "label": "STKH \u2014 Scheduled Tribe \u2014 KH"
+  },
+  {
+   "value": "STR",
+   "label": "STR \u2014 Scheduled Tribe \u2014 Rural"
+  },
+  {
+   "value": "STRH",
+   "label": "STRH \u2014 Scheduled Tribe \u2014 Rural + HK"
+  },
+  {
+   "value": "XD",
+   "label": "XD"
+  }
+ ],
+ "Kerala": [
+  {
+   "value": "AC",
+   "label": "AC"
+  },
+  {
+   "value": "AM",
+   "label": "AM"
+  },
+  {
+   "value": "BH",
+   "label": "BH"
+  },
+  {
+   "value": "BX",
+   "label": "BX"
+  },
+  {
+   "value": "CC",
+   "label": "CC"
+  },
+  {
+   "value": "DA",
+   "label": "DA"
+  },
+  {
+   "value": "DK",
+   "label": "DK"
+  },
+  {
+   "value": "DM",
+   "label": "DM"
+  },
+  {
+   "value": "DV",
+   "label": "DV"
+  },
+  {
+   "value": "EW",
+   "label": "EW \u2014 EWS"
+  },
+  {
+   "value": "EZ",
+   "label": "EZ"
+  },
+  {
+   "value": "FL-BH",
+   "label": "FL-BH"
+  },
+  {
+   "value": "FL-BX",
+   "label": "FL-BX"
+  },
+  {
+   "value": "FL-EW",
+   "label": "FL-EW"
+  },
+  {
+   "value": "FL-EZ",
+   "label": "FL-EZ"
+  },
+  {
+   "value": "FL-KN",
+   "label": "FL-KN"
+  },
+  {
+   "value": "FL-LA",
+   "label": "FL-LA"
+  },
+  {
+   "value": "FL-MU",
+   "label": "FL-MU"
+  },
+  {
+   "value": "FL-SC",
+   "label": "FL-SC"
+  },
+  {
+   "value": "FL-VK",
+   "label": "FL-VK"
+  },
+  {
+   "value": "HR",
+   "label": "HR"
+  },
+  {
+   "value": "KN",
+   "label": "KN"
+  },
+  {
+   "value": "KU",
+   "label": "KU"
+  },
+  {
+   "value": "LA",
+   "label": "LA"
+  },
+  {
+   "value": "MM",
+   "label": "MM"
+  },
+  {
+   "value": "MU",
+   "label": "MU"
+  },
+  {
+   "value": "NC",
+   "label": "NC"
+  },
+  {
+   "value": "NM",
+   "label": "NM"
+  },
+  {
+   "value": "NQ",
+   "label": "NQ"
+  },
+  {
+   "value": "NR",
+   "label": "NR"
+  },
+  {
+   "value": "NR *",
+   "label": "NR *"
+  },
+  {
+   "value": "PD",
+   "label": "PD"
+  },
+  {
+   "value": "PI",
+   "label": "PI"
+  },
+  {
+   "value": "PT",
+   "label": "PT"
+  },
+  {
+   "value": "SC",
+   "label": "SC"
+  },
+  {
+   "value": "SD",
+   "label": "SD"
+  },
+  {
+   "value": "SM",
+   "label": "SM"
+  },
+  {
+   "value": "SM-BH",
+   "label": "SM-BH"
+  },
+  {
+   "value": "SM-BX",
+   "label": "SM-BX"
+  },
+  {
+   "value": "SM-EW",
+   "label": "SM-EW"
+  },
+  {
+   "value": "SM-EZ",
+   "label": "SM-EZ"
+  },
+  {
+   "value": "SM-KN",
+   "label": "SM-KN"
+  },
+  {
+   "value": "SM-LA",
+   "label": "SM-LA"
+  },
+  {
+   "value": "SM-MU",
+   "label": "SM-MU"
+  },
+  {
+   "value": "SM-SC",
+   "label": "SM-SC"
+  },
+  {
+   "value": "SM-VK",
+   "label": "SM-VK"
+  },
+  {
+   "value": "ST",
+   "label": "ST"
+  },
+  {
+   "value": "VK",
+   "label": "VK"
+  },
+  {
+   "value": "XS",
+   "label": "XS"
+  }
+ ],
+ "Madhya Pradesh": [
+  {
+   "value": "EWS/FF/OP",
+   "label": "EWS/FF/OP"
+  },
+  {
+   "value": "EWS/GS/OP",
+   "label": "EWS/GS/OP"
+  },
+  {
+   "value": "EWS/PH/OP",
+   "label": "EWS/PH/OP"
+  },
+  {
+   "value": "EWS/SN/OP",
+   "label": "EWS/SN/OP"
+  },
+  {
+   "value": "EWS/X/OP",
+   "label": "EWS/X/OP"
+  },
+  {
+   "value": "OBC/FF/OP",
+   "label": "OBC/FF/OP"
+  },
+  {
+   "value": "OBC/GS/OP",
+   "label": "OBC/GS/OP"
+  },
+  {
+   "value": "OBC/PH/OP",
+   "label": "OBC/PH/OP"
+  },
+  {
+   "value": "OBC/SN/OP",
+   "label": "OBC/SN/OP"
+  },
+  {
+   "value": "OBC/X/OP",
+   "label": "OBC/X/OP"
+  },
+  {
+   "value": "Open",
+   "label": "Open \u2014 Open (General)"
+  },
+  {
+   "value": "SC/FF/OP",
+   "label": "SC/FF/OP"
+  },
+  {
+   "value": "SC/GS/OP",
+   "label": "SC/GS/OP"
+  },
+  {
+   "value": "SC/PH/OP",
+   "label": "SC/PH/OP"
+  },
+  {
+   "value": "SC/SN/OP",
+   "label": "SC/SN/OP"
+  },
+  {
+   "value": "SC/X/OP",
+   "label": "SC/X/OP"
+  },
+  {
+   "value": "ST/GS/OP",
+   "label": "ST/GS/OP"
+  },
+  {
+   "value": "ST/PH/OP",
+   "label": "ST/PH/OP"
+  },
+  {
+   "value": "ST/SN/OP",
+   "label": "ST/SN/OP"
+  },
+  {
+   "value": "ST/X/OP",
+   "label": "ST/X/OP"
+  },
+  {
+   "value": "UR/FF/OP",
+   "label": "UR/FF/OP"
+  },
+  {
+   "value": "UR/GS/OP",
+   "label": "UR/GS/OP"
+  },
+  {
+   "value": "UR/PH/OP",
+   "label": "UR/PH/OP"
+  },
+  {
+   "value": "UR/SN/OP",
+   "label": "UR/SN/OP"
+  },
+  {
+   "value": "UR/X/OP",
+   "label": "UR/X/OP"
+  }
+ ],
+ "Maharashtra": [
+  {
+   "value": "DEF1",
+   "label": "DEF1"
+  },
+  {
+   "value": "DEF2",
+   "label": "DEF2"
+  },
+  {
+   "value": "DEF3",
+   "label": "DEF3"
+  },
+  {
+   "value": "EWS",
+   "label": "EWS"
+  },
+  {
+   "value": "EWS (Home Univ)",
+   "label": "EWS (Home Univ)"
+  },
+  {
+   "value": "EWS (PwD)",
+   "label": "EWS (PwD)"
+  },
+  {
+   "value": "MINO",
+   "label": "MINO"
+  },
+  {
+   "value": "MKB",
+   "label": "MKB"
+  },
+  {
+   "value": "NTB",
+   "label": "NTB"
+  },
+  {
+   "value": "NTB (EarMark)",
+   "label": "NTB (EarMark)"
+  },
+  {
+   "value": "NTB (Home Univ)",
+   "label": "NTB (Home Univ)"
+  },
+  {
+   "value": "NTB (PwD)",
+   "label": "NTB (PwD)"
+  },
+  {
+   "value": "NTC",
+   "label": "NTC"
+  },
+  {
+   "value": "NTC (EarMark)",
+   "label": "NTC (EarMark)"
+  },
+  {
+   "value": "NTC (Home Univ)",
+   "label": "NTC (Home Univ)"
+  },
+  {
+   "value": "NTC (PwD)",
+   "label": "NTC (PwD)"
+  },
+  {
+   "value": "NTC (PwD, EarMark)",
+   "label": "NTC (PwD, EarMark)"
+  },
+  {
+   "value": "NTD",
+   "label": "NTD"
+  },
+  {
+   "value": "NTD (EarMark)",
+   "label": "NTD (EarMark)"
+  },
+  {
+   "value": "NTD (Home Univ)",
+   "label": "NTD (Home Univ)"
+  },
+  {
+   "value": "NTD (PwD)",
+   "label": "NTD (PwD)"
+  },
+  {
+   "value": "OBC",
+   "label": "OBC \u2014 OBC-NCL"
+  },
+  {
+   "value": "OBC (EarMark)",
+   "label": "OBC (EarMark)"
+  },
+  {
+   "value": "OBC (Home Univ)",
+   "label": "OBC (Home Univ)"
+  },
+  {
+   "value": "OBC (PwD)",
+   "label": "OBC (PwD)"
+  },
+  {
+   "value": "OBC (PwD, EarMark)",
+   "label": "OBC (PwD, EarMark)"
+  },
+  {
+   "value": "OPEN",
+   "label": "OPEN \u2014 Open (General)"
+  },
+  {
+   "value": "OPEN (EarMark)",
+   "label": "OPEN (EarMark)"
+  },
+  {
+   "value": "OPEN (Home Univ)",
+   "label": "OPEN (Home Univ)"
+  },
+  {
+   "value": "OPEN (PwD)",
+   "label": "OPEN (PwD)"
+  },
+  {
+   "value": "OPEN (PwD, EarMark)",
+   "label": "OPEN (PwD, EarMark)"
+  },
+  {
+   "value": "ORPHAN (Orphan)",
+   "label": "ORPHAN (Orphan)"
+  },
+  {
+   "value": "ORPHANC (Orphan)",
+   "label": "ORPHANC (Orphan)"
+  },
+  {
+   "value": "SC",
+   "label": "SC"
+  },
+  {
+   "value": "SC (EarMark)",
+   "label": "SC (EarMark)"
+  },
+  {
+   "value": "SC (Home Univ)",
+   "label": "SC (Home Univ)"
+  },
+  {
+   "value": "SC (PwD)",
+   "label": "SC (PwD)"
+  },
+  {
+   "value": "SC (PwD, EarMark)",
+   "label": "SC (PwD, EarMark)"
+  },
+  {
+   "value": "SEBC",
+   "label": "SEBC"
+  },
+  {
+   "value": "SEBC (EarMark)",
+   "label": "SEBC (EarMark)"
+  },
+  {
+   "value": "SEBC (Home Univ)",
+   "label": "SEBC (Home Univ)"
+  },
+  {
+   "value": "SEBC (PwD)",
+   "label": "SEBC (PwD)"
+  },
+  {
+   "value": "SEBC (PwD, EarMark)",
+   "label": "SEBC (PwD, EarMark)"
+  },
+  {
+   "value": "ST",
+   "label": "ST"
+  },
+  {
+   "value": "ST (Home Univ)",
+   "label": "ST (Home Univ)"
+  },
+  {
+   "value": "ST (PwD)",
+   "label": "ST (PwD)"
+  },
+  {
+   "value": "VJA",
+   "label": "VJA"
+  },
+  {
+   "value": "VJA (EarMark)",
+   "label": "VJA (EarMark)"
+  },
+  {
+   "value": "VJA (Home Univ)",
+   "label": "VJA (Home Univ)"
+  },
+  {
+   "value": "VJA (PwD)",
+   "label": "VJA (PwD)"
+  }
+ ],
+ "Odisha": [
+  {
+   "value": "EW",
+   "label": "EW \u2014 EWS"
+  },
+  {
+   "value": "GN",
+   "label": "GN \u2014 General / Unreserved"
+  },
+  {
+   "value": "SC",
+   "label": "SC \u2014 Scheduled Caste"
+  },
+  {
+   "value": "ST",
+   "label": "ST \u2014 Scheduled Tribe"
+  }
+ ],
+ "Punjab": [
+  {
+   "value": "2B",
+   "label": "2B"
+  },
+  {
+   "value": "2C",
+   "label": "2C"
+  },
+  {
+   "value": "2D",
+   "label": "2D"
+  },
+  {
+   "value": "2E",
+   "label": "2E"
+  },
+  {
+   "value": "2G",
+   "label": "2G"
+  },
+  {
+   "value": "Backward Area",
+   "label": "Backward Area"
+  },
+  {
+   "value": "Backward Classes",
+   "label": "Backward Classes"
+  },
+  {
+   "value": "Border Area",
+   "label": "Border Area"
+  },
+  {
+   "value": "Defence",
+   "label": "Defence"
+  },
+  {
+   "value": "EWS",
+   "label": "EWS"
+  },
+  {
+   "value": "J & K",
+   "label": "J & K"
+  },
+  {
+   "value": "Open",
+   "label": "Open \u2014 Open (General)"
+  },
+  {
+   "value": "PP",
+   "label": "PP"
+  },
+  {
+   "value": "PWD",
+   "label": "PWD"
+  },
+  {
+   "value": "Riots Affected",
+   "label": "Riots Affected"
+  },
+  {
+   "value": "Scheduled Caste",
+   "label": "Scheduled Caste"
+  },
+  {
+   "value": "Sports Person",
+   "label": "Sports Person"
+  },
+  {
+   "value": "Terrorist Affected",
+   "label": "Terrorist Affected"
+  }
+ ],
+ "Rajasthan": [
+  {
+   "value": "EWS",
+   "label": "EWS"
+  },
+  {
+   "value": "GEN",
+   "label": "GEN \u2014 General / Unreserved"
+  },
+  {
+   "value": "MBC",
+   "label": "MBC \u2014 MBC (Most Backward Class)"
+  },
+  {
+   "value": "OBC",
+   "label": "OBC \u2014 OBC (Rajasthan state list)"
+  },
+  {
+   "value": "SA",
+   "label": "SA"
+  },
+  {
+   "value": "SC",
+   "label": "SC \u2014 Scheduled Caste"
+  },
+  {
+   "value": "ST",
+   "label": "ST \u2014 Scheduled Tribe"
+  }
+ ],
+ "Telangana": [
+  {
+   "value": "BCA",
+   "label": "BCA"
+  },
+  {
+   "value": "BCA (CAP)",
+   "label": "BCA (CAP)"
+  },
+  {
+   "value": "BCA (CAP-MRC)",
+   "label": "BCA (CAP-MRC)"
+  },
+  {
+   "value": "BCA (MRC)",
+   "label": "BCA (MRC)"
+  },
+  {
+   "value": "BCA (PHO)",
+   "label": "BCA (PHO)"
+  },
+  {
+   "value": "BCB",
+   "label": "BCB"
+  },
+  {
+   "value": "BCB (CAP)",
+   "label": "BCB (CAP)"
+  },
+  {
+   "value": "BCB (CAP-MRC)",
+   "label": "BCB (CAP-MRC)"
+  },
+  {
+   "value": "BCB (MRC)",
+   "label": "BCB (MRC)"
+  },
+  {
+   "value": "BCB (PHO)",
+   "label": "BCB (PHO)"
+  },
+  {
+   "value": "BCB (SCL)",
+   "label": "BCB (SCL)"
+  },
+  {
+   "value": "BCC",
+   "label": "BCC"
+  },
+  {
+   "value": "BCC (MRC)",
+   "label": "BCC (MRC)"
+  },
+  {
+   "value": "BCD",
+   "label": "BCD"
+  },
+  {
+   "value": "BCD (CAP)",
+   "label": "BCD (CAP)"
+  },
+  {
+   "value": "BCD (CAP-MRC)",
+   "label": "BCD (CAP-MRC)"
+  },
+  {
+   "value": "BCD (MRC)",
+   "label": "BCD (MRC)"
+  },
+  {
+   "value": "BCD (PHO)",
+   "label": "BCD (PHO)"
+  },
+  {
+   "value": "BCE",
+   "label": "BCE"
+  },
+  {
+   "value": "BCE (CAP)",
+   "label": "BCE (CAP)"
+  },
+  {
+   "value": "BCE (MRC)",
+   "label": "BCE (MRC)"
+  },
+  {
+   "value": "EWS",
+   "label": "EWS"
+  },
+  {
+   "value": "EWS (MRC)",
+   "label": "EWS (MRC)"
+  },
+  {
+   "value": "MIN (CAP-MSM)",
+   "label": "MIN (CAP-MSM)"
+  },
+  {
+   "value": "MIN (MSM)",
+   "label": "MIN (MSM)"
+  },
+  {
+   "value": "MIN (MSM-MRC)",
+   "label": "MIN (MSM-MRC)"
+  },
+  {
+   "value": "OPEN",
+   "label": "OPEN \u2014 Open (General)"
+  },
+  {
+   "value": "OPEN (CAP)",
+   "label": "OPEN (CAP)"
+  },
+  {
+   "value": "OPEN (PHO)",
+   "label": "OPEN (PHO)"
+  },
+  {
+   "value": "OPEN (SCL)",
+   "label": "OPEN (SCL)"
+  },
+  {
+   "value": "SC1",
+   "label": "SC1"
+  },
+  {
+   "value": "SC2",
+   "label": "SC2"
+  },
+  {
+   "value": "SC2 (CAP)",
+   "label": "SC2 (CAP)"
+  },
+  {
+   "value": "SC2 (MRC)",
+   "label": "SC2 (MRC)"
+  },
+  {
+   "value": "SC2 (PHO)",
+   "label": "SC2 (PHO)"
+  },
+  {
+   "value": "SC2 (SCL)",
+   "label": "SC2 (SCL)"
+  },
+  {
+   "value": "SC3",
+   "label": "SC3"
+  },
+  {
+   "value": "SC3 (CAP)",
+   "label": "SC3 (CAP)"
+  },
+  {
+   "value": "SC3 (MRC)",
+   "label": "SC3 (MRC)"
+  },
+  {
+   "value": "ST",
+   "label": "ST"
+  },
+  {
+   "value": "ST (MRC)",
+   "label": "ST (MRC)"
+  },
+  {
+   "value": "ST (PHO)",
+   "label": "ST (PHO)"
+  },
+  {
+   "value": "ST (SCL)",
+   "label": "ST (SCL)"
+  }
+ ],
+ "West Bengal": [
+  {
+   "value": "EWS",
+   "label": "EWS"
+  },
+  {
+   "value": "OBC (Non-Creamy Layer)",
+   "label": "OBC (Non-Creamy Layer)"
+  },
+  {
+   "value": "OBC-A (Non- Creamy Layer)",
+   "label": "OBC-A (Non- Creamy Layer)"
+  },
+  {
+   "value": "OBC-A (Non- Creamy Layer) PwD",
+   "label": "OBC-A (Non- Creamy Layer) PwD"
+  },
+  {
+   "value": "OBC-B (Non- Creamy Layer)",
+   "label": "OBC-B (Non- Creamy Layer)"
+  },
+  {
+   "value": "OBC-B (Non- Creamy Layer) PwD",
+   "label": "OBC-B (Non- Creamy Layer) PwD"
+  },
+  {
+   "value": "SC",
+   "label": "SC"
+  },
+  {
+   "value": "SC PwD",
+   "label": "SC PwD \u2014 SC (PwD)"
+  },
+  {
+   "value": "ST",
+   "label": "ST"
+  },
+  {
+   "value": "UR",
+   "label": "UR"
+  },
+  {
+   "value": "UR PwD",
+   "label": "UR PwD"
+  }
+ ]
 }

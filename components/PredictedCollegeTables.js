@@ -135,6 +135,11 @@ const expandedFields = {
   // NEETUG - National Eligibility cum Entrance Test for Undergraduate
   NEETUG: [
     { key: "State", label: "State" },
+    // College Type (Govt/Private) is DISTINCT from Seat Type (Government/Private/
+    // Management seat pool) — a government seat can sit inside a private college.
+    // Both shown on request from Karnataka medical students (2026-07-29):
+    // "Show college type and seat type in state quota list".
+    { key: "College Type", label: "College Type" },
     { key: "Seat Type", label: "Seat Type" },
     { key: "Gender", label: "Gender" },
     { key: "Category", label: "Category" },
@@ -404,6 +409,10 @@ const PredictedCollegesTable = ({
     NEETUG: [
       { key: "institute", label: "Institute" },
       { key: "academic_program_name", label: "Program" },
+      // College Type (is the COLLEGE govt or private) vs Seat Type (which seat POOL
+      // this cutoff is for). They differ — govt-quota seats exist inside private
+      // colleges — and Karnataka students asked to see both.
+      { key: "college_type", label: "College Type" },
       { key: "seat_type", label: "Seat Type" },
       { key: "state", label: "State" },
       { key: "closing_rank", label: "Closing Rank" },
@@ -515,12 +524,31 @@ const PredictedCollegesTable = ({
         institute: item["Institute"] || "",
         state: item["State"] || "",
         seat_type: item["Seat Type"] || "",
+        college_type:
+          item["College Type"] ||
+          (/private|management|nri|deemed|paid/i.test(item["Seat Type"] || "")
+            ? "Private"
+            : /^(all india|state quota|govt|government)/i.test(item["Seat Type"] || "")
+            ? "Govt"
+            : "—"),
         academic_program_name: item["Academic Program Name"] || "",
         closing_rank: item["Closing Rank"] || "",
         category: item["Category"] || "",
         round: item["Round"] || "",
         "State": item["State"],
         "Seat Type": item["Seat Type"],
+        // Only Karnataka carries an explicit fee-derived College Type so far. For
+        // every other source, infer it from the seat pool rather than render an
+        // empty cell: AIQ/state-quota/govt pools sit in govt colleges, and the
+        // Private/Management/NRI pools are private-college seats. "—" where we
+        // genuinely cannot say.
+        "College Type":
+          item["College Type"] ||
+          (/private|management|nri|deemed|paid/i.test(item["Seat Type"] || "")
+            ? "Private"
+            : /^(all india|state quota|govt|government)/i.test(item["Seat Type"] || "")
+            ? "Govt"
+            : "—"),
         "Gender": item["Gender"] || "Gender-Neutral",
         "Category": item["Category"],
         "Closing Rank": item["Closing Rank"],
