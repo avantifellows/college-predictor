@@ -639,7 +639,22 @@ export const neetUGConfig = {
       (item) => {
         if (!query.stateCategory) return true;
         if (String(item["Source"] || "").startsWith("aiq")) return true;
-        return normalize(item["Category"]) === normalize(query.stateCategory);
+        // ★ The form submits the option LABEL, and since 2026-07-29 those labels are
+        //   human-readable ("3BG — Category-3B (OBC) — Govt seat pool") rather than the bare
+        //   code. Comparing the whole label against item.Category never matched, so picking ANY
+        //   home-state category silently returned zero home-state rows. Take the code, which is
+        //   the part before the first em-dash separator, and fall back to the whole string.
+        const wanted = String(query.stateCategory).split("—")[0].trim();
+        // Compare EXACTLY first. `normalize()` strips non-alphanumerics, which collides distinct
+        // Kerala codes: "NR" and "NR *" both normalize to "nr", so picking either returned both
+        // (33 + 5 rows). Exact match keeps them apart; the normalized compare stays as a fallback
+        // for whitespace/case drift between the dropdown and the data.
+        if (String(item["Category"] || "").trim() === wanted) return true;
+        const a = String(item["Category"] || "");
+        const b = wanted;
+        // Only fall back to fuzzy matching when neither side carries a distinguishing marker.
+        if (/[*()]/.test(a) !== /[*()]/.test(b)) return false;
+        return normalize(a) === normalize(b);
       },
       // Closing-rank filter: show colleges whose closing rank is within reach
       // (0.9 * user AIR headroom). Rank is the primary input — with no rank the
