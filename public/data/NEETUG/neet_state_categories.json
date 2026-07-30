@@ -233,6 +233,54 @@
    "label": "ST (SG)"
   }
  ],
+ "Bihar": [
+  {
+   "value": "BC",
+   "label": "BC \u2014 Backward Class"
+  },
+  {
+   "value": "EBC",
+   "label": "EBC \u2014 Extremely Backward Class (Bihar)"
+  },
+  {
+   "value": "EWS",
+   "label": "EWS"
+  },
+  {
+   "value": "SC",
+   "label": "SC \u2014 Scheduled Caste"
+  },
+  {
+   "value": "ST",
+   "label": "ST \u2014 Scheduled Tribe"
+  },
+  {
+   "value": "UR",
+   "label": "UR \u2014 General / Unreserved"
+  }
+ ],
+ "Chhattisgarh": [
+  {
+   "value": "EWS",
+   "label": "EWS"
+  },
+  {
+   "value": "OBC",
+   "label": "OBC"
+  },
+  {
+   "value": "SC",
+   "label": "SC \u2014 Scheduled Caste"
+  },
+  {
+   "value": "ST",
+   "label": "ST \u2014 Scheduled Tribe"
+  },
+  {
+   "value": "UR",
+   "label": "UR \u2014 General / Unreserved"
+  }
+ ],
  "Gujarat": [
   {
    "value": "EW",
@@ -1241,6 +1289,36 @@
    "label": "ST \u2014 Scheduled Tribe"
   }
  ],
+ "Tamil Nadu": [
+  {
+   "value": "BC",
+   "label": "BC \u2014 Backward Class"
+  },
+  {
+   "value": "BCM",
+   "label": "BCM \u2014 Backward Class - Muslim"
+  },
+  {
+   "value": "MBC&DNC",
+   "label": "MBC&DNC \u2014 Most Backward Class & Denotified Communities"
+  },
+  {
+   "value": "OC",
+   "label": "OC \u2014 Open Competition (General)"
+  },
+  {
+   "value": "SC",
+   "label": "SC \u2014 Scheduled Caste"
+  },
+  {
+   "value": "SCA",
+   "label": "SCA \u2014 SC - Arunthathiyar (sub-quota)"
+  },
+  {
+   "value": "ST",
+   "label": "ST \u2014 Scheduled Tribe"
+  }
+ ],
  "Telangana": [
   {
    "value": "BCA",
@@ -1413,6 +1491,50 @@
   {
    "value": "ST (SCL)",
    "label": "ST (SCL)"
+  }
+ ],
+ "Uttar Pradesh": [
+  {
+   "value": "EWS",
+   "label": "EWS"
+  },
+  {
+   "value": "OBC",
+   "label": "OBC"
+  },
+  {
+   "value": "SC",
+   "label": "SC \u2014 Scheduled Caste"
+  },
+  {
+   "value": "ST",
+   "label": "ST \u2014 Scheduled Tribe"
+  },
+  {
+   "value": "UR",
+   "label": "UR \u2014 General / Unreserved"
+  }
+ ],
+ "Uttarakhand": [
+  {
+   "value": "EWS",
+   "label": "EWS"
+  },
+  {
+   "value": "OBC",
+   "label": "OBC"
+  },
+  {
+   "value": "SC",
+   "label": "SC \u2014 Scheduled Caste"
+  },
+  {
+   "value": "ST",
+   "label": "ST \u2014 Scheduled Tribe"
+  },
+  {
+   "value": "UR",
+   "label": "UR \u2014 General / Unreserved"
   }
  ],
  "West Bengal": [

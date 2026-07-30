@@ -472,6 +472,8 @@ export const neetUGConfig = {
       // the states we currently have state-quota data for.
       options: [
         { value: "Andhra Pradesh", label: "Andhra Pradesh" },
+        { value: "Bihar", label: "Bihar" },
+        { value: "Chhattisgarh", label: "Chhattisgarh" },
         { value: "Gujarat", label: "Gujarat" },
         { value: "Haryana", label: "Haryana" },
         { value: "Himachal Pradesh", label: "Himachal Pradesh" },
@@ -482,7 +484,10 @@ export const neetUGConfig = {
         { value: "Odisha", label: "Odisha" },
         { value: "Punjab", label: "Punjab" },
         { value: "Rajasthan", label: "Rajasthan" },
+        { value: "Tamil Nadu", label: "Tamil Nadu" },
         { value: "Telangana", label: "Telangana" },
+        { value: "Uttar Pradesh", label: "Uttar Pradesh" },
+        { value: "Uttarakhand", label: "Uttarakhand" },
         { value: "West Bengal", label: "West Bengal" },
         { value: "Other", label: "Other / Not listed (All India only)" },
       ],
