@@ -1,6 +1,8 @@
-"""Convert scholarship_data.csv into the JSON the Scholarship Finder reads.
+"""Convert the scholarship sheet into the JSON the Scholarship Finder reads.
 
-Source : scholarship_data.csv (repo root)
+Source : scholarship_data_og.csv (repo root) -- the "og" tab of the Scholarship
+         Data sheet, which is the backend source of truth for the finder.
+         "Pre-filled Form Link" is intentionally dropped.
 Target : public/data/scholarships/scholarship_data.json
 
 The UI (components/ScholarshipReferenceBrowser.js + ScholarshipTable.js) has a few
@@ -21,7 +23,7 @@ import os
 import re
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CSV_PATH = os.path.join(BASE_DIR, "scholarship_data.csv")
+CSV_PATH = os.path.join(BASE_DIR, "scholarship_data_og.csv")
 JSON_PATH = os.path.join(
     BASE_DIR, "public", "data", "scholarships", "scholarship_data.json"
 )
@@ -199,7 +201,6 @@ def convert(row):
             "Benefits": clean_multiline(row.get("Benefits")),
             "Doc Required": clean_multiline(row.get("Doc Required")),
             "Application Link": normalize_link(row.get("Application Link")),
-            "Remarks": clean(row.get("Remarks")),
             "Grade": build_grades(row),
         }
     )
