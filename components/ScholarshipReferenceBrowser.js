@@ -122,7 +122,14 @@ const matchesMultiValueField = (rawValue, selectedValue, universalValues) => {
 
 const matchesFamilyIncome = (scholarship, selectedIncome) => {
   if (!selectedIncome) return true;
-  const scholarshipLimit = Number(scholarship["Family Income (in INR)"]);
+  const rawLimit = scholarship["Family Income (in INR)"];
+  // No stated income cap ("Any" in the sheet) means every applicant qualifies.
+  // Guard on the raw value: Number(null) is 0, which would otherwise read as a
+  // zero-income limit and wrongly exclude these scholarships from every bucket.
+  if (rawLimit === null || rawLimit === undefined || rawLimit === "") {
+    return true;
+  }
+  const scholarshipLimit = Number(rawLimit);
   if (!Number.isFinite(scholarshipLimit)) return true;
   if (selectedIncome === "above") return scholarshipLimit >= 10;
   return Number(selectedIncome) <= scholarshipLimit;

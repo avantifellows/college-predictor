@@ -84,7 +84,9 @@ const compactFieldKeys = new Set([
   "Stream",
   "State",
   "Scholarship Amount",
-  "Special Criteria",
+  "Scholarship Frequency",
+  "No. of awards",
+  "Remarks",
 ]);
 
 const renderFieldContent = (value) => {
@@ -174,7 +176,9 @@ const ScholarshipTable = ({
     { key: "Benefits", label: "Benefits" },
     { key: "Doc Required", label: "Documents Required" },
     { key: "Scholarship Amount", label: "Scholarship Amount" },
-    { key: "Special Criteria", label: "Special Criteria" },
+    { key: "Scholarship Frequency", label: "Frequency" },
+    { key: "No. of awards", label: "No. of Awards" },
+    { key: "Remarks", label: "Remarks" },
   ];
 
   const getStatusPillClass = (status) =>
