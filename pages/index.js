@@ -524,7 +524,8 @@ const ExamForm = () => {
           onChange={handleInputChange(field.name)}
           selectedValue={formData[field.name]}
           className="w-full"
-        />
+        />,
+        field.helperText || null
       )
     );
   };
