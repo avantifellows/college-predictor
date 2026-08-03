@@ -458,8 +458,31 @@ export const mhtCetConfig = {
   name: "MHT CET",
   apiEndpoint: "mhtcet",
   searchKeys: defaultSearchKeys,
-  primaryInput: integerInput("Enter MHT CET Rank", "Enter MHT CET rank"),
+  primaryInput: integerInput(
+    "Enter Your Merit Rank",
+    "Enter your MHT CET rank (or B.Arch/B.Design merit no.)"
+  ),
   fields: [
+    {
+      // Maharashtra runs a separate CAP per stream and the merit lists are NOT
+      // the same number space: engineering and pharmacy rank on MHT-CET,
+      // B.Arch on NATA/2 + Class XII % (max 200), B.Design on MAH-B.Design
+      // CET. Results must be scoped to one stream or the ranks are meaningless
+      // side by side. See the legend for which exam governs which stream.
+      //
+      // NOTE handleInputChange in pages/index.js submits `selectedOption.label`,
+      // not `.value`, so the label IS the query value — keep them identical.
+      // A decorative label (e.g. "Engineering (MHT-CET)") silently matches
+      // nothing.
+      name: "stream",
+      label: "Select Stream",
+      options: [
+        { value: "Engineering", label: "Engineering" },
+        { value: "Pharmacy", label: "Pharmacy" },
+        { value: "Architecture", label: "Architecture" },
+        { value: "B.Design", label: "B.Design" },
+      ],
+    },
     {
       name: "category",
       label: "Select Category",
@@ -509,6 +532,15 @@ export const mhtCetConfig = {
   legend: [
     { key: "AI", value: "All India" },
     { key: "MH", value: "Maharashtra" },
+    {
+      key: "Engineering / Pharmacy",
+      value: "ranked on your MHT-CET merit rank",
+    },
+    {
+      key: "Architecture",
+      value: "ranked on B.Arch CAP merit (NATA ÷ 2 + Class XII %, out of 200)",
+    },
+    { key: "B.Design", value: "ranked on your MAH-B.Design CET merit rank" },
   ],
   getDataPath: () => {
     return path.join(
@@ -520,13 +552,22 @@ export const mhtCetConfig = {
     );
   },
   getFilters: (query) => [
+    (item) => !query.stream || item.Stream === query.stream,
     (item) => {
       if (query.category === "TFWS") {
         return item.Category_Key === "TFWS";
       }
       return item.Category === query.category;
     },
-    (item) => item.Gender === query.gender,
+    // Maharashtra's 30% female reservation is HORIZONTAL: L-coded seats are
+    // reserved for women *in addition to* the gender-neutral G-coded pool, so
+    // a female candidate competes for both. Matching Gender exactly hid the
+    // larger pool — at Open/rank 5000 it showed 2,191 options instead of the
+    // 4,414 she is actually eligible for.
+    (item) =>
+      query.gender === "Female-Only"
+        ? item.Gender === "Female-Only" || item.Gender === "Gender-Neutral"
+        : item.Gender === query.gender,
     (item) => item.State === query.homeState,
     (item) => item.PWD === query.isPWD,
     (item) => item.Defense === query.isDefenseWard,
