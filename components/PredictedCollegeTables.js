@@ -133,17 +133,23 @@ const expandedFields = {
     { key: "Closing Rank", label: "Closing Rank" },
   ],
   // NEETUG - National Eligibility cum Entrance Test for Undergraduate
+  // The "Show More" panel. Program / State / Address / Round live HERE rather than in the main
+  // table: the user already picked program and state in the form, so as columns they just
+  // repeated the user's own input and crowded out the columns that actually vary.
   NEETUG: [
+    { key: "Academic Program Name", label: "Program" },
     { key: "State", label: "State" },
-    // College Type (Govt/Private) is DISTINCT from Seat Type (Government/Private/
-    // Management seat pool) — a government seat can sit inside a private college.
-    // Both shown on request from Karnataka medical students (2026-07-29):
-    // "Show college type and seat type in state quota list".
+    { key: "Address", label: "Address" },
+    // College Type (Govt/Private) is DISTINCT from Seat Type (which seat POOL this cutoff is
+    // for) — a government seat can sit inside a private college (441 such Karnataka rows across
+    // 77 colleges). Both shown on request from Karnataka medical students (2026-07-29).
     { key: "College Type", label: "College Type" },
     { key: "Seat Type", label: "Seat Type" },
-    { key: "Gender", label: "Gender" },
+    { key: "Gender", label: "Seat Gender" },
     { key: "Category", label: "Category" },
+    { key: "Category Label", label: "Category (expanded)" },
     { key: "Closing Rank", label: "Closing Rank" },
+    { key: "Round", label: "Round" },
   ],
 };
 
@@ -406,17 +412,23 @@ const PredictedCollegesTable = ({
       { key: "closing_rank", label: "Closing Rank" },
       { key: "category", label: "Category" },
     ],
+    // Columns are chosen for what VARIES between rows. `Program` and `State` were dropped:
+    // the user has just picked both in the form, so every row repeated their own input and
+    // pushed the informative columns off the side. Both remain in the expanded "Show More"
+    // panel (ExpandedRowComponent renders every field), so nothing is lost.
+    // `Gender` was added because it is the reason a college can appear twice: UP/CG/MH/TG/AP
+    // publish a SEPARATE closing rank per seat gender (e.g. KGMU OBC: female 4,345 vs
+    // gender-neutral 5,207). Without this column those read as meaningless duplicates.
     NEETUG: [
       { key: "institute", label: "Institute" },
-      { key: "academic_program_name", label: "Program" },
-      // College Type (is the COLLEGE govt or private) vs Seat Type (which seat POOL
-      // this cutoff is for). They differ — govt-quota seats exist inside private
-      // colleges — and Karnataka students asked to see both.
+      // College Type (is the COLLEGE govt or private) vs Seat Type (which seat POOL this
+      // cutoff is for). They genuinely differ — 441 Karnataka rows across 77 colleges are
+      // GOVT-quota seats inside PRIVATE colleges — which is what the students asked to see.
       { key: "college_type", label: "College Type" },
       { key: "seat_type", label: "Seat Type" },
-      { key: "state", label: "State" },
-      { key: "closing_rank", label: "Closing Rank" },
       { key: "category", label: "Category" },
+      { key: "gender", label: "Seat Gender" },
+      { key: "closing_rank", label: "Closing Rank" },
       { key: "round", label: "Round" },
     ],
     DEFAULT: [
@@ -427,7 +439,7 @@ const PredictedCollegesTable = ({
     ],
   };
 
-  const predicted_colleges_table_column =
+  const predicted_colleges_table_column_all =
     examColumnMapping[exam] || examColumnMapping.DEFAULT;
 
   const transformData = (item) => {
@@ -524,13 +536,20 @@ const PredictedCollegesTable = ({
         institute: item["Institute"] || "",
         state: item["State"] || "",
         seat_type: item["Seat Type"] || "",
-        college_type:
-          item["College Type"] ||
-          (/private|management|nri|deemed|paid/i.test(item["Seat Type"] || "")
-            ? "Private"
-            : /^(all india|state quota|govt|government)/i.test(item["Seat Type"] || "")
-            ? "Govt"
-            : "—"),
+        gender: item["Gender"] || "Gender-Neutral",
+        // College Type is explicit only where the source carries a per-row govt flag (Karnataka,
+        // Rajasthan, Haryana, Odisha). Ten other sources have no such field.
+        // ★ WE DO NOT GUESS IT. Two inference attempts were measured against the 3,720 rows where
+        //   the answer IS known:
+        //     - from Seat Type: useless, because "State Quota" seats exist at BOTH govt and private
+        //       colleges (Rajasthan: 217 govt / 134 private under that same label).
+        //     - from the college NAME: 64% accurate with 153 FALSE POSITIVES — it labels private
+        //       colleges "Govt" (e.g. "GMC, Alwar" is private in Rajasthan's data). Showing a
+        //       private college as government is precisely the error the Karnataka students
+        //       reported, so a wrong label is worse than none.
+        //   Hence "—" where we genuinely do not know. Adding the flag upstream per state is the
+        //   real fix; see docs/NEET_DATA_BUGS_BACKPROP.md.
+        college_type: item["College Type"] || "—",
         academic_program_name: item["Academic Program Name"] || "",
         closing_rank: item["Closing Rank"] || "",
         category: item["Category"] || "",
@@ -542,13 +561,7 @@ const PredictedCollegesTable = ({
         // empty cell: AIQ/state-quota/govt pools sit in govt colleges, and the
         // Private/Management/NRI pools are private-college seats. "—" where we
         // genuinely cannot say.
-        "College Type":
-          item["College Type"] ||
-          (/private|management|nri|deemed|paid/i.test(item["Seat Type"] || "")
-            ? "Private"
-            : /^(all india|state quota|govt|government)/i.test(item["Seat Type"] || "")
-            ? "Govt"
-            : "—"),
+        "College Type": item["College Type"] || "—",
         "Gender": item["Gender"] || "Gender-Neutral",
         "Category": item["Category"],
         "Closing Rank": item["Closing Rank"],
@@ -688,6 +701,35 @@ const PredictedCollegesTable = ({
     const wantState = neetSeatTab === "home";
     return sortedData.filter((r) => isHomeStateRow(r) === wantState);
   }, [isNeet, sortedData, neetSeatTab]);
+
+  // ADAPTIVE COLUMNS (NEET). A column whose value is IDENTICAL on every visible row carries no
+  // information — it is just the user's own filter echoed back, and it steals width from the
+  // columns that do vary. e.g. filtering Karnataka / MBBS / 2AG made Category read "2AG" and
+  // Seat Gender read "Gender-Neutral" on all 32 rows, while "Round" wrapped onto two lines.
+  // Institute and Closing Rank are always kept (they are the answer), and everything dropped here
+  // is still in the "Show More" panel.
+  // Institute and Closing Rank are the answer. college_type and seat_type stay even when constant:
+  // the Karnataka students explicitly asked to see them, and "every one of these is a Government
+  // seat" is itself worth knowing — the point of the request was that students could not tell.
+  const ALWAYS_KEEP = new Set([
+    "institute",
+    "closing_rank",
+    "college_type",
+    "seat_type",
+  ]);
+  const predicted_colleges_table_column = useMemo(() => {
+    const cols = predicted_colleges_table_column_all;
+    if (!isNeet || displayData.length < 2) return cols;
+    return cols.filter((col) => {
+      if (ALWAYS_KEEP.has(col.key)) return true;
+      const seen = new Set();
+      for (const row of displayData) {
+        seen.add(String(transformData(row)[col.key] ?? ""));
+        if (seen.size > 1) return true; // it varies -> worth a column
+      }
+      return false; // constant across every row -> drop it
+    });
+  }, [predicted_colleges_table_column_all, isNeet, displayData]);
 
   // If the student has no home-state seats (e.g. "Other" state, or the current
   // filters leave none), fall back to the All-India tab so they never see a

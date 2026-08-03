@@ -224,3 +224,85 @@ Two follow-on defects in `add_states_to_predictor.py`, both fixed:
 
 **Note on dev vs prod:** `next dev` takes 10-20s per query against the 13,280-row file and often shows
 "Loading predictions…" indefinitely. Verify UI changes against `next build && next start`.
+
+---
+
+# ROUND 3 — Chamundeshwari (seat-vs-college), UI columns, guard (2026-08-03)
+
+## P1 — Karnataka seat type was derived from the COLLEGE, not the SEAT
+**Report (via Amogh, from a student):** *"chamundeshwari medical college for karnataka — it says seat
+type private, college also private, but one student told me she got through seat type govt."*
+
+She was right. **SRI CHAMUNDESHWARI MEDICAL COLLEGE is a private college that hosts government-quota
+seats**, and we labelled all 23 of its rows "Private", hiding the door she actually used.
+
+Root cause: `"Seat Type": "Government" if govt else "Private"` — govt-ness read off the *college*.
+It is a property of the **seat**. Three wrong versions before the fix:
+1. `endswith(("G","GH","GK"))` — "GM" (General) ends in "M", so every General row was mislabelled.
+2. seat type = college type — the Chamundeshwari bug.
+3. a fee-derived regex over category codes — closer, but still reverse-engineering.
+
+**The actual fix, and the lesson: the source already states it.** `KA_all_allotments_R1_R2_R3_2025.csv`
+has a `course_name` column — `MBBS-GOVT.` / `MBBS-PRIV.` / `MBBS-NRI` / `MBBS-OTHERS`. Verified against
+the fee column across all 24,418 rows, every label matches its money with no overlap:
+
+| course_name | n | median fee |
+|---|---|---|
+| MBBS-GOVT. | 11,221 | ₹64,350 |
+| BDS-GOVT. | 1,877 | ₹95,308 |
+| BDS-PRIV. | 2,480 | ₹361,950 |
+| MBBS-PRIV. | 6,273 | ₹1,200,117 |
+| MBBS-NRI | 189 | ₹3,511,950 |
+| MBBS-OTHERS | 1,674 | ₹3,611,950 |
+
+Chamundeshwari: 74 `MBBS-GOVT.` rows at ₹1,53,571 (the govt quota inside a private college) + 177
+`MBBS-PRIV.` at ₹12,00,117. Surya also spotted that the `MA` code sits under MBBS-PRIV., confirming it
+is a **management** seat, not a merit category. **Read the stated field; don't infer it.**
+
+Result: 1,222 rows across 77 colleges are govt-quota seats at private colleges — previously all hidden.
+Seat pool is now part of the merge key, so a college's govt and private rows no longer collapse.
+
+### Did this affect the CUTOFFS we sent the team? **NO — verified, zero change.**
+Recomputed the Karnataka matrix floors with a college-level vs a seat-level filter:
+GM 58,778 = 58,778 · 2AG 73,334 = 73,334 · SCG 214,196 = 214,196 · STG 176,078 = 176,078.
+The matrix restricts to *government colleges*, and at Karnataka's true-govt colleges there are **zero**
+non-govt seat pools (checked: no category has both). The seat/college split only bites at *private*
+colleges, which the matrix excludes by design — so the bug could not reach it. Rajasthan, Haryana and
+Odisha already filter per-row (Rajasthan on `seat_type == 'Govt. Seat'`; 26 of its 31 govt colleges
+also carry non-govt rows), so they were never exposed either. **This was predictor-only.**
+
+## NEW GUARD — a "Government" seat may not carry private-tier fees
+Added to `rebuild_karnataka_all_rounds.py`. Ceiling ₹6,20,000 (JGMM Hubli is the one legitimate
+outlier — flat ₹6,09,084 on every seat). Regression-tested by reintroducing the old bug: the guard
+fires with 17 violations. Currently: **GUARD OK.**
+
+## P2 — Duplicate-looking rows
+Two unrelated causes, both fixed:
+- **Karnataka**: the merge keyed on the raw college string, which jams in the address and is spelled
+  inconsistently (`"...,NH- 66,,Mangalore"` vs `"...,NH-66,,Mangalore"`). 224 colleges split in two.
+  Now keyed on the normalised name.
+- **UP / CG / MH / TG / AP**: these publish a **separate closing rank per seat gender** (KGMU OBC:
+  female 4,345 vs gender-neutral 5,207). That is real data, not duplication — the table simply had no
+  Gender column to explain it. **Kept both rows; added the column.** (I briefly collapsed them to the
+  max and Surya rightly pushed back: it destroys good data to fix a display problem.)
+
+## P3 — Table columns
+Karnataka/OBC/2AG at rank 80,000 rendered `Category` = "2AG" and `Seat Gender` = "Gender-Neutral" on
+all 32 rows, with `Round` wrapping onto two lines — the user's own filter echoed back, crowding out
+what varies.
+- **Dropped `Program` and `State`** from the table (the user just picked them). Both, plus Address and
+  Round, are in the "Show More" panel.
+- **Adaptive columns:** any column whose value is identical on every visible row is hidden.
+  `institute`, `closing_rank`, `college_type` and `seat_type` are always kept — the last two because
+  the students explicitly asked for them, and "all of these are Government seats" is itself useful.
+
+## OPEN — College Type is unknown for 8 older states
+Only Karnataka / Rajasthan / Haryana / Odisha carry a per-row govt flag. Maharashtra, Kerala,
+Telangana, Andhra, West Bengal, Gujarat, Punjab, MP, Himachal show **"—"**.
+**We deliberately do not guess.** Both inferences were measured against the 3,720 rows where the
+answer is known:
+- from Seat Type — useless: "State Quota" spans govt and private colleges alike.
+- from the college NAME — **64% accurate with 153 false positives**, e.g. "GMC, Alwar" is private in
+  Rajasthan's data. Labelling a private college "Govt" is exactly the error reported, so a wrong
+  label is worse than none.
+**Real fix:** add a per-row govt flag to those states upstream. Until then "—" is the honest answer.
