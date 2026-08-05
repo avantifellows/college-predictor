@@ -27,6 +27,7 @@ const defaultFilters = {
   category: "",
   state: "",
   city: "",
+  nirf: "",
 };
 
 const gradeOptions = [
@@ -53,7 +54,19 @@ const familyIncomeOptions = [
 const statusOptions = [
   { value: "", label: "All statuses" },
   { value: "Open", label: "Open now" },
-  { value: "Closed", label: "Closed / past deadline" },
+  { value: "Expected", label: "Expected to reopen" },
+  { value: "Closed", label: "Closed" },
+];
+
+// Filters by the college the student attends. A scholarship capped at "Top 50"
+// is available to a top-50 student; one capped at "Top 300" is available to
+// anyone inside 300, so a better-ranked student matches the looser caps too.
+const nirfOptions = [
+  { value: "", label: "Any college" },
+  { value: "50", label: "NIRF top 50" },
+  { value: "100", label: "NIRF top 100" },
+  { value: "300", label: "NIRF top 300" },
+  { value: "unranked", label: "Not NIRF ranked" },
 ];
 
 const parseDeadline = (value) => {
@@ -68,14 +81,38 @@ const parseDeadline = (value) => {
   return new Date(year, month - 1, day);
 };
 
-const isReferenceClosed = (scholarship) => {
+/** The sync's status, normalised to what the filter and counters use.
+ *  "Expected" rows carry a projected deadline, so status must be trusted as
+ *  given rather than re-derived from that date. */
+const getStatusBucket = (scholarship) => {
   const rawStatus = String(scholarship.Status || "").toLowerCase();
-  if (rawStatus === "closed") return true;
+  if (rawStatus === "expected") return "Expected";
+  if (rawStatus === "yet to open") return "Expected";
+  if (rawStatus === "closed") return "Closed";
+
   const deadline = parseDeadline(scholarship["Last Date"]);
-  if (!deadline) return false;
+  if (!deadline) return rawStatus === "open" ? "Open" : "Closed";
   const now = new Date();
   deadline.setHours(23, 59, 59, 999);
-  return deadline < now;
+  return deadline < now ? "Closed" : "Open";
+};
+
+const matchesNirf = (scholarship, selected) => {
+  if (!selected) return true;
+
+  const requiresUnranked = Boolean(scholarship["NIRF Requires Unranked"]);
+  if (selected === "unranked") return requiresUnranked;
+  // A student at a ranked college cannot claim a scholarship that requires an
+  // unranked one, so these are mutually exclusive rather than merely unmatched.
+  if (requiresUnranked) return false;
+
+  const cap = scholarship["NIRF Rank Cap"];
+  // No stated NIRF requirement means the scholarship is open to any college.
+  if (cap === null || cap === undefined || cap === "") return true;
+  const capValue = Number(cap);
+  if (!Number.isFinite(capValue)) return true;
+  // A top-50 student also qualifies for top-100 and top-300 scholarships.
+  return Number(selected) <= capValue;
 };
 
 const splitValues = (value) =>
@@ -143,11 +180,16 @@ const ScholarshipReferenceBrowser = () => {
   const [filters, setFilters] = useState(defaultFilters);
 
   useEffect(() => {
+    // Served by /api/scholarship-data, which prefers the S3 object the daily
+    // sync writes and falls back to the committed JSON if S3 is unreachable.
     const loadScholarships = async () => {
       try {
-        const response = await fetch(
-          "/data/scholarships/scholarship_data.json"
-        );
+        const response = await fetch("/api/scholarship-data");
+        if (!response.ok) {
+          throw new Error(
+            `scholarship data request failed: ${response.status}`
+          );
+        }
         const data = await response.json();
         const sortedData = [...data].sort((a, b) =>
           String(a["Scholarship Name"] || "").localeCompare(
@@ -188,6 +230,7 @@ const ScholarshipReferenceBrowser = () => {
       ),
       state: buildOptionsFromData(scholarships, "State", "All states"),
       city: buildOptionsFromData(scholarships, "City", "All cities"),
+      nirf: nirfOptions,
     }),
     [scholarships]
   );
@@ -203,10 +246,10 @@ const ScholarshipReferenceBrowser = () => {
   const filteredScholarships = useMemo(
     () =>
       searchedScholarships.filter((scholarship) => {
-        if (filters.status === "Open" && isReferenceClosed(scholarship)) {
+        if (filters.status && getStatusBucket(scholarship) !== filters.status) {
           return false;
         }
-        if (filters.status === "Closed" && !isReferenceClosed(scholarship)) {
+        if (!matchesNirf(scholarship, filters.nirf)) {
           return false;
         }
         if (
@@ -256,7 +299,15 @@ const ScholarshipReferenceBrowser = () => {
   );
 
   const openCount = useMemo(
-    () => scholarships.filter((item) => !isReferenceClosed(item)).length,
+    () =>
+      scholarships.filter((item) => getStatusBucket(item) === "Open").length,
+    [scholarships]
+  );
+
+  const expectedCount = useMemo(
+    () =>
+      scholarships.filter((item) => getStatusBucket(item) === "Expected")
+        .length,
     [scholarships]
   );
 
@@ -333,6 +384,9 @@ const ScholarshipReferenceBrowser = () => {
                 <span className="rounded-full border border-[#c3e6cb] bg-[#f0fff4] px-3 py-1 text-green-800">
                   {openCount.toLocaleString("en-IN")} open now
                 </span>
+                <span className="rounded-full border border-[#d8d3ad] bg-[#fff9e8] px-3 py-1 text-[#7a5b00]">
+                  {expectedCount.toLocaleString("en-IN")} expected to reopen
+                </span>
                 <span className="rounded-full border border-[#e3d1cb] bg-white px-3 py-1">
                   {filteredScholarships.length.toLocaleString("en-IN")} matches
                 </span>
@@ -367,6 +421,7 @@ const ScholarshipReferenceBrowser = () => {
             {renderFilter("category", "Category")}
             {renderFilter("state", "State")}
             {renderFilter("city", "City")}
+            {renderFilter("nirf", "College NIRF Rank")}
           </div>
 
           {(activeFilterChips.length > 0 || searchTerm) && (
