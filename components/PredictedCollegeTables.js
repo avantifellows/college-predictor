@@ -966,20 +966,24 @@ const PredictedCollegesTable = ({
               </div>
             )}
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center xl:justify-end">
-              <p className="text-sm text-[#5b3a34]">
-                Showing {sortedData.length.toLocaleString("en-IN")}{" "}
-                {showJosaaCollegeGroupToggle
-                  ? josaaCollegeGroup === "advanced"
-                    ? "JEE Advanced college options."
-                    : "JEE Main college options."
-                  : "matching options."}
-              </p>
-              {sortedData[0]?.["Year"] && (
-                <p className="-mt-2 text-xs text-[#6d5550]">
-                  Based on {sortedData[0]["Year"]} cutoffs
-                  {sortedData[0]["Round"] ? " (all rounds)" : ""}
+              {/* Wrapped so the year line stacks UNDER the count instead of
+                  becoming a third flex sibling beside it on sm+ screens. */}
+              <div>
+                <p className="text-sm text-[#5b3a34]">
+                  Showing {sortedData.length.toLocaleString("en-IN")}{" "}
+                  {showJosaaCollegeGroupToggle
+                    ? josaaCollegeGroup === "advanced"
+                      ? "JEE Advanced college options."
+                      : "JEE Main college options."
+                    : "matching options."}
                 </p>
-              )}
+                {sortedData[0]?.["Year"] && (
+                  <p className="mt-1 text-xs text-[#6d5550]">
+                    Based on {sortedData[0]["Year"]} cutoffs
+                    {sortedData[0]["Round"] ? " (all rounds)" : ""}
+                  </p>
+                )}
+              </div>
               {sortedData.length > 0 && (
                 <button
                   className="w-full rounded-lg bg-[#B52326] px-4 py-2 text-white hover:bg-[#9E1F22] sm:w-auto"
