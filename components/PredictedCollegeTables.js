@@ -153,6 +153,35 @@ const expandedFields = {
   ],
 };
 
+
+// College Type for rows whose source carries no per-row govt flag.
+// We fill it ONLY where the SEAT TYPE settles it by definition — never by guessing from the college
+// name. (Measured: fuzzy name-matching against the NMC/DCI roster is 87.5% accurate but every error
+// is the dangerous direction — private shown as "Govt", e.g. "Jaipur Dental College" matched to
+// "Govt. Dental College Jaipur". That is the exact error the Karnataka students reported.)
+//
+//   Deemed/Paid  -> Private. Deemed universities ARE private institutions, by definition; this is
+//                   also the fee-based pool (Rs 20L+). Surya: "i think it should be private?" — yes.
+//   NRI          -> Private. NRI quotas exist at private/deemed colleges.
+//   ESI          -> Govt. Employees' State Insurance Corporation colleges are central-govt run.
+//   DU / IP / Puducherry-domicile / AMU / Jamia -> Govt. All are central or state public
+//                   universities (AMU and Jamia Millia Islamia are central universities).
+//   "All India"  -> unknowable from the seat type: it spans 2,798 rows across both govt and private
+//                   colleges. Left as "—" rather than guessed.
+const neetCollegeTypeFromSeatType = (seatType) => {
+  const s = String(seatType || "").toLowerCase();
+  if (!s) return "—";
+  if (/deemed|paid seats|non-resident indian|nri/.test(s)) return "Private";
+  if (
+    /employees state insurance|\besi\b|delhi university|ip university|puducherry ut domicile|aligarh muslim|amu|jamia/.test(
+      s
+    )
+  ) {
+    return "Govt";
+  }
+  return "—";
+};
+
 const SALARY_HELP_TEXT =
   "Product of median salary and placement percentage of the graduating batch as reported by the college to NIRF. Data is reported as a college level aggregate";
 
@@ -421,6 +450,10 @@ const PredictedCollegesTable = ({
     // gender-neutral 5,207). Without this column those read as meaningless duplicates.
     NEETUG: [
       { key: "institute", label: "Institute" },
+      // State is included so the ALL INDIA QUOTA tab shows where each college is — AIQ spans the
+      // whole country, so it is the most useful column there. On a home-state view every row is
+      // the same state, so the adaptive filter below hides it automatically.
+      { key: "state", label: "State" },
       // College Type (is the COLLEGE govt or private) vs Seat Type (which seat POOL this
       // cutoff is for). They genuinely differ — 441 Karnataka rows across 77 colleges are
       // GOVT-quota seats inside PRIVATE colleges — which is what the students asked to see.
@@ -549,7 +582,7 @@ const PredictedCollegesTable = ({
         //       reported, so a wrong label is worse than none.
         //   Hence "—" where we genuinely do not know. Adding the flag upstream per state is the
         //   real fix; see docs/NEET_DATA_BUGS_BACKPROP.md.
-        college_type: item["College Type"] || "—",
+        college_type: item["College Type"] || neetCollegeTypeFromSeatType(item["Seat Type"]),
         academic_program_name: item["Academic Program Name"] || "",
         closing_rank: item["Closing Rank"] || "",
         category: item["Category"] || "",
@@ -561,7 +594,8 @@ const PredictedCollegesTable = ({
         // empty cell: AIQ/state-quota/govt pools sit in govt colleges, and the
         // Private/Management/NRI pools are private-college seats. "—" where we
         // genuinely cannot say.
-        "College Type": item["College Type"] || "—",
+        "College Type":
+          item["College Type"] || neetCollegeTypeFromSeatType(item["Seat Type"]),
         "Gender": item["Gender"] || "Gender-Neutral",
         "Category": item["Category"],
         "Closing Rank": item["Closing Rank"],
@@ -730,6 +764,22 @@ const PredictedCollegesTable = ({
       return false; // constant across every row -> drop it
     });
   }, [predicted_colleges_table_column_all, isNeet, displayData]);
+
+  // Which counselling round(s) the visible cutoffs come from. Surya asked for this to be stated
+  // "more broadly somewhere... for the particular state this is what we are using" rather than
+  // repeated on every row — round is a property of the STATE's data, not of a single college.
+  // It matters because round depth is not comparable across states: a Round-1 state looks harsher
+  // than a mop-up state even when reality is identical.
+  const neetRoundNote = useMemo(() => {
+    if (!isNeet || !displayData.length) return null;
+    const rounds = new Set();
+    for (const row of displayData) {
+      const r = String(row["Round"] || "").trim();
+      if (r) rounds.add(r);
+    }
+    if (!rounds.size) return null;
+    return [...rounds].sort().join(" · ");
+  }, [isNeet, displayData]);
 
   // If the student has no home-state seats (e.g. "Other" state, or the current
   // filters leave none), fall back to the All-India tab so they never see a
@@ -1165,6 +1215,11 @@ const PredictedCollegesTable = ({
                     ? "home-state seats."
                     : "All India Quota seats."
                   : "matching options."}
+                {isNeet && neetRoundNote && (
+                  <span className="block text-xs text-[#7a5b55]">
+                    Cutoffs from: {neetRoundNote}
+                  </span>
+                )}
               </p>
               {displayData.length > 0 && (
                 <button

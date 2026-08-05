@@ -306,3 +306,32 @@ answer is known:
   Rajasthan's data. Labelling a private college "Govt" is exactly the error reported, so a wrong
   label is worse than none.
 **Real fix:** add a per-row govt flag to those states upstream. Until then "—" is the honest answer.
+
+## ROUND 4 — three UI gaps Surya spotted on the deployed branch (2026-08-05)
+
+1. **State column missing on the All India tab.** AIQ spans the whole country, so state is the most
+   useful column there — but it had been dropped as "redundant" (true only on a home-state view).
+   Restored to the column list; the adaptive filter hides it automatically when every row is the same
+   state, so it shows on AIQ and stays hidden on home-state. No new logic needed.
+
+2. **Round was only visible inside "Show More".** Now stated once under the result count —
+   *"Cutoffs from: R1+R2+R3 (max)"* for Karnataka, *"Cutoffs from: Round 1"* on AIQ — computed from
+   the visible rows. Round is a property of the STATE's data, not of a single college, and it matters
+   because round depth is not comparable across states (a Round-1 state looks harsher than a mop-up
+   state even when reality is identical). Repeating it per row wasted a column; stating it once does not.
+
+3. **`Deemed/Paid Seats Quota` showed College Type "—"** — Surya: *"i think it should be private?"*
+   Correct: deemed universities ARE private institutions by definition, and it is the fee-based pool
+   (Rs 20L+). The AIQ file carries no College Type at all (0 of 3,110 rows), so we now fill it from the
+   SEAT TYPE **only where that settles it definitionally**:
+     Private -> Deemed/Paid, NRI
+     Govt    -> ESI (central-govt corporation colleges), Delhi University, IP University,
+                Puducherry UT domicile, AMU, Jamia (AMU and Jamia are central universities)
+     "—"     -> plain "All India" (2,798 rows spanning both govt and private colleges)
+   **Still no name-based guessing.** Fuzzy-matching AIQ institutes against the NMC/DCI roster
+   (`mbbs_all_colleges` / `bds_all_colleges`, which do carry an official `mgmt` column) was measured
+   on 300 rows where the answer is known: 87.5% accurate where matched, but **24 wrong and every
+   error in the dangerous direction** — private shown as Govt (e.g. "Jaipur Dental College, Jaipur"
+   matched to "Govt. Dental College & Hospital, Jaipur"). Only 23% matched on exact name.
+   **The real fix remains a per-row govt flag upstream**, ideally by joining the NMC/DCI roster on a
+   stable college ID rather than on names.
