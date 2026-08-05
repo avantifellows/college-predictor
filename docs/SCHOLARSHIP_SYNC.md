@@ -92,9 +92,24 @@ Vocabulary: `Top 50`, `Top 100`, `Top 300`, `Not ranked`.
 > *preference* (Disha); those are deliberately left blank in the column rather
 > than treated as requirements.
 
-Filter semantics: a top-50 student also qualifies for top-100 and top-300
-scholarships (`selected <= cap`), and scholarships with no stated requirement
-match every college.
+**Shown as a badge, deliberately not a filter.** Only 9 of ~204 scholarships
+state a NIRF requirement, so it is a property of those scholarships rather than
+a dimension of the student — nobody thinks of themselves as "NIRF top 50", they
+think "I got into NIT Warangal". A dropdown was tried and removed: as an
+eligibility filter it matched 203 of 204 rows (every unrestricted scholarship
+qualifies a top-50 student), and as a requirement filter it returned 2. Both
+read as broken.
+
+So the row shows a plain-language note instead — *"Only for colleges ranked top
+50 in NIRF"*, or *"Only for colleges outside the NIRF rankings"* for the
+inverted case — and no note at all on the other 195 rows.
+
+A real "which college are you in?" lookup would be the genuinely useful version,
+but the repo's only NIRF data (`JoSAA 2025 - cutoffs - nirf.csv`) covers just 51
+JoSAA engineering institutes topping out at rank 99 — nothing in 100–300, no
+medical/law/commerce. It would mislabel most applicants as unranked, which
+matters because "unranked" is an inverted requirement. Needs a real NIRF
+dataset per discipline before attempting.
 
 ### Family income → number in lakhs
 

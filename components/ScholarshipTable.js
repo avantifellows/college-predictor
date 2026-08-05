@@ -34,8 +34,11 @@ const getDisplayStatus = (item) => {
   // "Expected" and "Yet To Open" are authoritative from the sync -- the
   // deadline on an Expected row is a projection, so re-deriving status from it
   // would flip these back to Open and present a guess as a real deadline.
-  if (lowered === "expected") return "Expected";
-  if (lowered === "yet to open") return "Yet to open";
+  //
+  // Both show as "Yet To Open": to a student they mean the same thing, and it
+  // is the sheet's own wording. The data keeps them distinct (Expected has a
+  // rolled-forward estimate, Yet To Open has no date), which the date cell shows.
+  if (lowered === "expected" || lowered === "yet to open") return "Yet To Open";
   if (lowered === "closed") return "Closed";
 
   const deadline = parseDeadline(item["Last Date"]);
@@ -59,7 +62,9 @@ const getDeadlineLabel = (item) => {
 
   const deadline = parseDeadline(raw);
   if (!deadline) return raw;
-  return `Expected ~${MONTH_NAMES[deadline.getMonth()]} ${deadline.getFullYear()}`;
+  // No "Expected" prefix -- the status pill already says it, and the "Tentative"
+  // sublabel carries the caveat. The month is the only new information here.
+  return `~${MONTH_NAMES[deadline.getMonth()]} ${deadline.getFullYear()}`;
 };
 
 const APPLICATION_LINK_KEYS = [
@@ -123,11 +128,27 @@ const formatRichText = (value) => {
 const compactFieldKeys = new Set([
   "Stream",
   "State",
-  "NIRF criteria",
   "Scholarship Amount",
   "Scholarship Frequency",
   "No. of awards",
 ]);
+
+/** Plain-language NIRF requirement, or null when the scholarship has none.
+ *
+ *  Only 9 of ~204 scholarships state one, so this renders as a badge on those
+ *  rows rather than as a filter: no student thinks of themselves as "NIRF top
+ *  50", and an empty card on the other 195 rows reads as missing data.
+ *
+ *  "Not ranked" is inverted -- it means the college must be ABSENT from the
+ *  NIRF list -- so it gets its own wording rather than a rank threshold. */
+const getNirfNote = (item) => {
+  const label = item["NIRF criteria"];
+  if (!label) return null;
+  if (item["NIRF Requires Unranked"]) {
+    return "Only for colleges outside the NIRF rankings";
+  }
+  return `Only for colleges ranked ${String(label).toLowerCase()} in NIRF`;
+};
 
 const renderFieldContent = (value) => {
   const items = formatRichText(value);
@@ -212,7 +233,6 @@ const ScholarshipTable = ({
   const expandedFields = [
     { key: "Stream", label: "Stream" },
     { key: "State", label: "State" },
-    { key: "NIRF criteria", label: "College NIRF Rank" },
     { key: "Eligibility", label: "Eligibility" },
     { key: "Benefits", label: "Benefits" },
     { key: "Doc Required", label: "Documents Required" },
@@ -254,6 +274,11 @@ const ScholarshipTable = ({
               >
                 <TableCell className="font-medium">
                   {item["Scholarship Name"]}
+                  {getNirfNote(item) && (
+                    <span className="mt-1 block text-xs font-normal text-[#8a6d3b]">
+                      {getNirfNote(item)}
+                    </span>
+                  )}
                 </TableCell>
                 <TableCell>
                   {(() => {
