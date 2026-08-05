@@ -96,11 +96,34 @@ def predictor_category(category_raw: str, sub_pool: str) -> str | None:
         # single NT bucket.
         "NT1": "NT", "NT2": "NT", "NT3": "NT", "NTD": "NT",
         "NTA": "NT", "NTB": "NT", "NTC": "NT",
-        "SEBC": "OBC",   # Socially & Educationally Backward Class — OBC bucket
-        "SBC": "OBC",
+        # SEBC (Socially & Educationally Backward Class) is a SEPARATE
+        # reservation from OBC under Maharashtra law, not a synonym. Folding it
+        # into OBC made the same college+program appear up to 4x all labelled
+        # "OBC", and SEBC closes ~1,000 ranks looser (median across 528 shared
+        # college x program cells, looser in ~64%) — so a student was shown a
+        # seat they may not be eligible for under a label saying they are.
+        "SEBC": "SEBC",
+        "SBC": "SBC",
         "EWS": "EWS",
         "MI": "Religious Minority", "MIN": "Religious Minority",
     }.get(body)
+
+
+def candidate_region(quota: str) -> str:
+    """Which candidate region can take a seat in this quota pool.
+
+    Returns "Any" for State Level (open to every Maharashtra candidate
+    regardless of home university), else "Home University" or
+    "Other than Home University" from the CANDIDATE half of the label.
+    """
+    q = str(quota).strip()
+    if q.startswith("State Level"):
+        return "Any"
+    if q.endswith("Home") and "Other" not in q.split("→")[-1]:
+        return "Home University"
+    if q.endswith("Other"):
+        return "Other than Home University"
+    return "Any"
 
 
 def build(src: Path) -> list[dict]:
@@ -134,11 +157,22 @@ def build(src: Path) -> list[dict]:
                 "Gender": "Female-Only" if r.gender == "Girls" else "Gender-Neutral",
                 "Defense": "Yes" if flag.startswith("DEF") else "No",
                 "PWD": "Yes" if flag.startswith("PWD") else "No",
-                # The predictor's "home state" question maps onto the domicile
-                # pool: a State Level or Home-University seat is reachable by a
-                # Maharashtra candidate; an "Other than Home University" seat is
-                # what an out-of-region candidate competes for.
-                "State": "Maharashtra" if str(r.quota).startswith(("State Level", "Home")) else "Other",
+                # Which candidate can take this seat. The CET Cell's section
+                # headings read SEAT-type -> CANDIDATE-type:
+                #
+                #   "Home University Seats Allotted to Home University Candidates"
+                #   "Home University Seats Allotted to Other Than Home University Candidates"
+                #   "Other Than Home University Seats Allotted to Home University Candidates"
+                #   "Other Than Home University Seats Allotted to Other Than Home ... Candidates"
+                #
+                # so eligibility is decided by the SECOND half of the label, not
+                # the first. "Home -> Other" is a home-university SEAT given to
+                # an out-of-region candidate. Keying off the first half (as this
+                # did) showed Maharashtra students 2,173 rows they cannot take,
+                # hid 2,568 they can, and dropped all 18,081 State Level rows
+                # from out-of-region students -- 11,145 seats shown instead of
+                # 28,831. State Level is open to everyone.
+                "State": candidate_region(r.quota),
                 "Quota": str(r.quota),
                 # Which university the "Home"/"Other" in Quota is keyed to.
                 # Empty where the CET Cell doesn't publish it (all of B.Design,
@@ -151,6 +185,12 @@ def build(src: Path) -> list[dict]:
                 "Closing Rank": str(int(r.closing_rank)),
                 "Stream": label,
                 "Year": 2025,
+                # Which CAP round actually set this closing rank. The cutoff is
+                # MAX(rank) across all rounds, so a cell last touched in R1
+                # filled early and one touched in R4 stayed open to the end.
+                # Amogh's feedback: nothing on screen said WHICH cycle or round
+                # this was, and the previous file had no year column at all.
+                "Round": str(getattr(r, "last_round_with_max", "") or ""),
             })
         kept = len([x for x in records if x["Stream"] == label])
         print(f"  {label:14s} {kept:>6,} rows  (from {n_before:,}; "

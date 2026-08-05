@@ -124,13 +124,16 @@ const expandedFields = {
   ],
   // MHT CET - Maharashtra Common Entrance Test
   "MHT CET": [
-    { key: "Category", label: "Category" },
+    { key: "Category_Key", label: "Seat Type (CET code)" },
+    { key: "Category", label: "Category Group" },
     { key: "Gender", label: "Gender" },
     { key: "Defense", label: "Defense Quota" },
     { key: "PWD", label: "PWD Status" },
-    { key: "State", label: "State" },
-    { key: "Category_Key", label: "Category Key" },
+    { key: "Quota", label: "Quota Pool" },
+    { key: "Home University", label: "Home University" },
     { key: "Closing Rank", label: "Closing Rank" },
+    { key: "Year", label: "Cutoff Year" },
+    { key: "Round", label: "Round That Set Cutoff" },
   ],
   // NEETUG - National Eligibility cum Entrance Test for Undergraduate
   NEETUG: [
@@ -397,7 +400,11 @@ const PredictedCollegesTable = ({
       { key: "institute", label: "Institute" },
       { key: "academic_program_name", label: "Program" },
       { key: "closing_rank", label: "Closing Rank" },
-      { key: "category", label: "Category" },
+      // Seat code, not the collapsed bucket. One college+program legitimately
+      // appears several times (GOBCS / LOBCS / GSEBCS ... all roll up to "OBC"),
+      // so showing only the bucket made real rows look like duplicates.
+      { key: "Category_Key", label: "Seat Type" },
+      { key: "Round", label: "Round" },
     ],
     NEETUG: [
       { key: "institute", label: "Institute" },

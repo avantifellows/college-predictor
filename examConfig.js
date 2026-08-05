@@ -495,6 +495,12 @@ export const mhtCetConfig = {
         { value: "EWS", label: "EWS" },
         { value: "VJ", label: "VJ" },
         { value: "NT", label: "NT" },
+        // SEBC is a separate reservation from OBC under Maharashtra law, not a
+        // synonym — it closes ~1,000 ranks looser. It used to be folded into
+        // OBC, which made the same college+program appear up to 4x all labelled
+        // "OBC" with different ranks.
+        { value: "SEBC", label: "SEBC" },
+        { value: "SBC", label: "SBC" },
         { value: "Orphan", label: "Orphan" },
         { value: "TFWS", label: "TFWS" },
       ],
@@ -508,9 +514,20 @@ export const mhtCetConfig = {
       ],
     },
     {
+      // Maharashtra's CAP splits seats by whether the candidate's HOME
+      // UNIVERSITY matches the college's, not by state. The CET Cell's section
+      // headings read seat-type -> candidate-type, so eligibility comes from the
+      // second half ("Home University Seats Allotted to OTHER Than Home
+      // University Candidates" is an out-of-region seat).
       name: "homeState",
-      label: "Select Your Home State",
-      options: ["Maharashtra", "Other"],
+      label: "Is this your home university's region?",
+      options: [
+        { value: "Home University", label: "Yes — same home university" },
+        {
+          value: "Other than Home University",
+          label: "No — different home university",
+        },
+      ],
     },
     {
       name: "isPWD",
@@ -530,8 +547,8 @@ export const mhtCetConfig = {
     },
   ],
   legend: [
-    { key: "AI", value: "All India" },
-    { key: "MH", value: "Maharashtra" },
+    // "AI" / "MH" removed — leftovers from the pre-2025 file; nothing in the
+    // current data uses them (Amogh's feedback).
     {
       key: "Home / Other",
       value:
@@ -573,7 +590,9 @@ export const mhtCetConfig = {
       query.gender === "Female-Only"
         ? item.Gender === "Female-Only" || item.Gender === "Gender-Neutral"
         : item.Gender === query.gender,
-    (item) => item.State === query.homeState,
+    // "Any" == State Level seats, which every Maharashtra candidate competes
+    // for regardless of home university, so they must show for both answers.
+    (item) => item.State === "Any" || item.State === query.homeState,
     (item) => item.PWD === query.isPWD,
     (item) => item.Defense === query.isDefenseWard,
     (item) => {
