@@ -519,16 +519,53 @@ export const mhtCetConfig = {
       // headings read seat-type -> candidate-type, so eligibility comes from the
       // second half ("Home University Seats Allotted to OTHER Than Home
       // University Candidates" is an out-of-region seat).
+      // A yes/no question cannot answer this: whether a "Home University" seat
+      // is yours depends on WHICH university the college belongs to, and that
+      // varies row by row. So ask for the student's own region once, then
+      // compare it against each row's Home University (see getFilters).
+      //
+      // These are the 11 university regions that actually run a home quota.
+      // Autonomous / Deemed / SNDT institutes are ~99.7% State Level — they
+      // have no home-region quota, so their seats show for every choice.
       name: "homeState",
-      label: "Applying in your own university region?",
+      label: "Your Home University Region",
       options: [
+        { value: "Mumbai University", label: "Mumbai" },
+        { value: "Savitribai Phule Pune University", label: "Pune" },
+        { value: "Shivaji University", label: "Kolhapur (Shivaji)" },
         {
-          value: "Home University",
-          label: "Yes — college in my home region",
+          value: "Sant Gadge Baba Amravati University",
+          label: "Amravati",
         },
         {
-          value: "Other than Home University",
-          label: "No — college elsewhere in Maharashtra",
+          value: "Rashtrasant Tukadoji Maharaj Nagpur University",
+          label: "Nagpur",
+        },
+        {
+          value: "Dr. Babasaheb Ambedkar Marathwada University",
+          label: "Aurangabad (Marathwada)",
+        },
+        {
+          value: "Swami Ramanand Teerth Marathwada University, Nanded",
+          label: "Nanded",
+        },
+        {
+          value:
+            "Kavayitri Bahinabai Chaudhari North Maharashtra University, Jalgaon",
+          label: "Jalgaon (North Maharashtra)",
+        },
+        {
+          value: "Punyashlok Ahilyadevi Holkar Solapur University",
+          label: "Solapur",
+        },
+        { value: "Gondwana University", label: "Gadchiroli (Gondwana)" },
+        {
+          value: "Dr. Babasaheb Ambedkar Technological University,Lonere",
+          label: "Lonere (DBATU)",
+        },
+        {
+          value: "Outside Maharashtra",
+          label: "I'm not from Maharashtra",
         },
       ],
     },
@@ -549,27 +586,16 @@ export const mhtCetConfig = {
       ],
     },
   ],
+  // Kept deliberately short — the previous version repeated what the dropdowns
+  // already say. The one thing a student cannot infer from the form is that
+  // B.Arch and B.Design are scored on a different scale from MHT-CET, so a
+  // B.Arch "163" is a merit score out of 200, not a rank.
   legend: [
-    // "AI" / "MH" removed — leftovers from the pre-2025 file; nothing in the
-    // current data uses them (Amogh's feedback).
-    {
-      // Deliberately no percentage here. Published sources disagree (70% vs
-      // 30%), and our own data shows the split varies by college type —
-      // autonomous institutes are ~99% State Level and barely use HU/OHU at
-      // all. Describe the mechanism, not a number we cannot stand behind.
-      key: "Home region",
-      value:
-        "some seats are kept for students from the college's own university region; the rest are open to all of Maharashtra",
-    },
-    {
-      key: "Engineering / Pharmacy",
-      value: "ranked on your MHT-CET merit rank",
-    },
     {
       key: "Architecture",
-      value: "ranked on B.Arch CAP merit (NATA ÷ 2 + Class XII %, out of 200)",
+      value: "merit = NATA ÷ 2 + Class XII %, out of 200 (not an MHT-CET rank)",
     },
-    { key: "B.Design", value: "ranked on your MAH-B.Design CET merit rank" },
+    { key: "B.Design", value: "ranked on MAH-B.Design CET, not MHT-CET" },
   ],
   getDataPath: () => {
     return path.join(
@@ -597,9 +623,30 @@ export const mhtCetConfig = {
       query.gender === "Female-Only"
         ? item.Gender === "Female-Only" || item.Gender === "Gender-Neutral"
         : item.Gender === query.gender,
-    // "Any" == State Level seats, which every Maharashtra candidate competes
-    // for regardless of home university, so they must show for both answers.
-    (item) => item.State === "Any" || item.State === query.homeState,
+    // Home-region eligibility. `item.State` says who a seat is open to
+    // ("Any" = State Level, "Home University", "Other than Home University")
+    // and `item["Home University"]` says which university the college belongs
+    // to. A seat is reachable when:
+    //
+    //   State Level                  -> anyone from Maharashtra
+    //   Home University seat         -> only if the college's university is YOURS
+    //   Other-than-Home seat         -> only if it is NOT yours
+    //
+    // Colleges with no home university published (Autonomous / Deemed / SNDT,
+    // ~99.7% State Level) have no home quota, so they stay visible either way.
+    (item) => {
+      if (!query.homeState) return true;
+      const seatFor = item.State;
+      if (seatFor === "Any") return true;
+      const collegeUni = item["Home University"];
+      if (!collegeUni || collegeUni === "Autonomous Institute") return true;
+      // Not from Maharashtra: only the out-of-region pools are open.
+      if (query.homeState === "Outside Maharashtra") {
+        return seatFor === "Other than Home University";
+      }
+      const isMyRegion = collegeUni === query.homeState;
+      return seatFor === "Home University" ? isMyRegion : !isMyRegion;
+    },
     (item) => item.PWD === query.isPWD,
     (item) => item.Defense === query.isDefenseWard,
     (item) => {

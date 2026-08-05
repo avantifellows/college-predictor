@@ -916,23 +916,11 @@ const PredictedCollegesTable = ({
       );
     }
 
-    // Every exam should say which year's cutoffs these are — the JoSAA branch
-    // above already does ("Based on JoSAA 2025"). Read it off the data rather
-    // than hardcoding, so a stale refresh shows itself instead of lying.
-    const dataYear = examFilteredData?.[0]?.["Year"];
-    const dataRound = examFilteredData?.[0]?.["Round"];
-
+    // The data year now sits under the result count, next to the number it
+    // qualifies — see the "Showing N matching options" block below.
     return (
       <div className="mb-3 flex flex-wrap items-center gap-2 text-xs sm:text-sm text-[#5b3a34]">
-        {dataYear && (
-          <span className="inline-flex items-center rounded-full border border-[#e3d1cb] bg-[#fffdfa] px-3 py-1 font-medium">
-            Based on {exam} {dataYear} data
-            {dataRound ? " (all CAP rounds)" : ""}
-          </span>
-        )}
-        <span className="font-semibold text-[#5b1f20]">
-          What the labels mean:
-        </span>
+        <span className="font-semibold text-[#5b1f20]">Note:</span>
         {examConfig.legend.map((item, index) => (
           <span
             key={index}
@@ -986,6 +974,12 @@ const PredictedCollegesTable = ({
                     : "JEE Main college options."
                   : "matching options."}
               </p>
+              {sortedData[0]?.["Year"] && (
+                <p className="-mt-2 text-xs text-[#6d5550]">
+                  Based on {sortedData[0]["Year"]} cutoffs
+                  {sortedData[0]["Round"] ? " (all rounds)" : ""}
+                </p>
+              )}
               {sortedData.length > 0 && (
                 <button
                   className="w-full rounded-lg bg-[#B52326] px-4 py-2 text-white hover:bg-[#9E1F22] sm:w-auto"

@@ -109,12 +109,44 @@ def predictor_category(category_raw: str, sub_pool: str) -> str | None:
     }.get(body)
 
 
-def candidate_region(quota: str) -> str:
-    """Which candidate region can take a seat in this quota pool.
+# pdftotext truncates the Home University clause at the PDF's column width, so
+# one real university appears under several prefixes ("Kavayitri Bahinabai
+# Chaudhari North Maharashtra" / "... Un" / "... Univ" / "... University,
+# Jalgaon"). The long form is always correct and always the most common, so
+# collapse each truncation onto the longest name it is a prefix of.
+def canonical_universities(values) -> dict:
+    full = sorted((v for v in values if v), key=len, reverse=True)
+    mapping = {}
+    for v in full:
+        match = next((f for f in full if f != v and f.startswith(v)), None)
+        mapping[v] = match or v
+    return mapping
 
-    Returns "Any" for State Level (open to every Maharashtra candidate
-    regardless of home university), else "Home University" or
-    "Other than Home University" from the CANDIDATE half of the label.
+
+def collapse_universities(records: list) -> int:
+    """Rewrite truncated Home University values in place; returns rows changed."""
+    mapping = canonical_universities({r["Home University"] for r in records})
+    changed = 0
+    for r in records:
+        canon = mapping.get(r["Home University"], r["Home University"])
+        if canon != r["Home University"]:
+            r["Home University"] = canon
+            changed += 1
+    return changed
+
+
+def candidate_region(quota: str) -> str:
+    """Which candidate this seat is open to, from the CANDIDATE half of the label.
+
+    "Any"                        State Level — any Maharashtra candidate
+    "Home University"            only candidates OF THE COLLEGE'S OWN university
+    "Other than Home University" only candidates from a DIFFERENT university
+
+    Note the first two are not answerable by a yes/no question: whether a
+    "Home University" seat is yours depends on which university the college
+    belongs to, which varies row by row. The UI therefore asks the student to
+    pick their own university and compares it against each row's
+    Home University.
     """
     q = str(quota).strip()
     if q.startswith("State Level"):
@@ -207,6 +239,9 @@ def main() -> None:
 
     print("Building MHT-CET predictor data (2025-26)")
     records = build(args.src)
+    fixed = collapse_universities(records)
+    if fixed:
+        print(f"  collapsed {fixed:,} truncated Home University values")
 
     print(f"\nTOTAL {len(records):,} rows")
     for key in ("Stream", "Category", "Gender", "State", "PWD", "Defense"):
