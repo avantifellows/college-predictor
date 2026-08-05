@@ -778,7 +778,16 @@ const PredictedCollegesTable = ({
       if (r) rounds.add(r);
     }
     if (!rounds.size) return null;
-    return [...rounds].sort().join(" · ");
+    // Year: derived from the Source string (every source is named "<state>_<year>_..."), never
+    // hardcoded, so the label stays correct when 2026 counselling data lands. A round with no year
+    // is ambiguous — "Round 1" of which cycle?
+    const years = new Set();
+    for (const row of displayData) {
+      const m = String(row["Source"] || "").match(/(20\d\d)/);
+      if (m) years.add(m[1]);
+    }
+    const yearLabel = years.size ? [...years].sort().join("/") + " " : "";
+    return yearLabel + [...rounds].sort().join(" · ");
   }, [isNeet, displayData]);
 
   // If the student has no home-state seats (e.g. "Other" state, or the current

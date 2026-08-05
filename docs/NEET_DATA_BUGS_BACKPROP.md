@@ -335,3 +335,51 @@ answer is known:
    matched to "Govt. Dental College & Hospital, Jaipur"). Only 23% matched on exact name.
    **The real fix remains a per-row govt flag upstream**, ideally by joining the NMC/DCI roster on a
    stable college ID rather than on names.
+
+## ROUND 5 — year on the round label, and College Type for AIQ (2026-08-05)
+
+**1. Round shown without a year.** *"you are not showing... like 2025 data or whatever"* — right,
+"Round 1" is ambiguous without the cycle. The label now reads **"Cutoffs from: 2025 Round 1"**, with
+the year **derived from the `Source` string** (every source is named `<state>_<year>_...`; verified all
+14 sources carry one, all 2025) rather than hardcoded, so it stays correct when 2026 data lands.
+
+**2. AIIMS showed College Type "—".** The AIQ file carries no College Type at all (0 of 3,110 rows),
+so `scripts/fill_college_type.py` now stamps it from two CONSERVATIVE signals:
+  a. **exact** name match against the NMC/DCI rosters' official `mgmt` column
+     (`{mbbs,bds}_all_colleges_2025-26.csv`; names in both the govt and private sets are discarded)
+  b. **unambiguous** govt keywords — AIIMS, JIPMER, PGIMER, "Government"/"Govt", and the named Delhi
+     public colleges (Maulana Azad, Lady Hardinge, VMMC, UCMS, NDMC)
+Result: blanks **9,980 -> 5,789**; AIIMS / JIPMER / Maulana Azad / Madras MC now read Govt, K.S Hegde
+and Kalinga read Private. Idempotent — only fills blanks, never overwrites a source value.
+
+### Why NOT broader rules — measured, not assumed
+Surya asked how far simple rules can get. Validated against the **2,354 Karnataka rows whose College
+Type comes from a fee-based per-COLLEGE classifier** (the only clean per-college ground truth we have):
+
+| rule set | coverage | accuracy | private-shown-as-Govt |
+|---|---|---|---|
+| narrow (shipped) | 10.5% | **93.9%** | **0** |
+| broadened (+ESIC, GMC, RIMS, "institute of medical sciences", state-college names) | 38.3% | 70.5% | **251** |
+
+Broadening triples coverage and **wrecks** accuracy: dozens of *private* Karnataka colleges are named
+"X Institute of Medical Sciences" (A.J., Adichunchanagiri, Akash, BGS Global...). Against the full
+3,720 known rows the narrow rule is 97.8% accurate with **all 16 errors in the SAFE direction** (govt
+understated as Private/"—", never private inflated to Govt). Shipping narrow.
+
+### Files checked and rejected as join sources
+- `r1_allotments.csv` (26,607 rows) and `admitted_upto_r3.csv` (28,438) — AIQ-level, but **no mgmt
+  column**, and their `institute_full` embeds the address: only **15%** match our names even on the
+  pre-comma prefix, and 0% exactly. Name-joining across these files is the real blocker, not a lack
+  of files.
+- Fuzzy/token matching against the roster: 87.5% accurate but **24/300 wrong, all private-as-Govt**
+  ("Jaipur Dental College" -> "Govt. Dental College, Jaipur"). Rejected.
+
+### ★ Finding: "College Type" means two different things in our data
+`GMC, Alwar` has 7 rows `College Type=Govt` and 8 `Private` — because the Rajasthan importer sets it
+**per ROW from the seat pool**, so "Private" there means *private seat at a govt college*. Karnataka's
+comes from a **per-COLLEGE** fee classifier. Same column, two semantics; it inflated the apparent
+error rate of the keyword rules. **Fix (open):** split into `College Type` (the institution) and keep
+seat-pool information solely in `Seat Type`.
+
+**Real fix for coverage** remains a per-row govt flag upstream, joined on a stable college ID (e.g.
+the NMC seat-matrix PDF Surya linked) rather than on names. 5,789 rows still read "—".
