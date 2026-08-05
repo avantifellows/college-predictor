@@ -916,9 +916,23 @@ const PredictedCollegesTable = ({
       );
     }
 
+    // Every exam should say which year's cutoffs these are — the JoSAA branch
+    // above already does ("Based on JoSAA 2025"). Read it off the data rather
+    // than hardcoding, so a stale refresh shows itself instead of lying.
+    const dataYear = examFilteredData?.[0]?.["Year"];
+    const dataRound = examFilteredData?.[0]?.["Round"];
+
     return (
       <div className="mb-3 flex flex-wrap items-center gap-2 text-xs sm:text-sm text-[#5b3a34]">
-        <span className="font-semibold text-[#5b1f20]">Quota labels:</span>
+        {dataYear && (
+          <span className="inline-flex items-center rounded-full border border-[#e3d1cb] bg-[#fffdfa] px-3 py-1 font-medium">
+            Based on {exam} {dataYear} data
+            {dataRound ? " (all CAP rounds)" : ""}
+          </span>
+        )}
+        <span className="font-semibold text-[#5b1f20]">
+          What the labels mean:
+        </span>
         {examConfig.legend.map((item, index) => (
           <span
             key={index}

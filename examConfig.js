@@ -520,12 +520,15 @@ export const mhtCetConfig = {
       // second half ("Home University Seats Allotted to OTHER Than Home
       // University Candidates" is an out-of-region seat).
       name: "homeState",
-      label: "Is this your home university's region?",
+      label: "Applying in your own university region?",
       options: [
-        { value: "Home University", label: "Yes — same home university" },
+        {
+          value: "Home University",
+          label: "Yes — college in my home region",
+        },
         {
           value: "Other than Home University",
-          label: "No — different home university",
+          label: "No — college elsewhere in Maharashtra",
         },
       ],
     },
@@ -550,9 +553,13 @@ export const mhtCetConfig = {
     // "AI" / "MH" removed — leftovers from the pre-2025 file; nothing in the
     // current data uses them (Amogh's feedback).
     {
-      key: "Home / Other",
+      // Deliberately no percentage here. Published sources disagree (70% vs
+      // 30%), and our own data shows the split varies by college type —
+      // autonomous institutes are ~99% State Level and barely use HU/OHU at
+      // all. Describe the mechanism, not a number we cannot stand behind.
+      key: "Home region",
       value:
-        "your home university vs the college's — see each row's Home University",
+        "some seats are kept for students from the college's own university region; the rest are open to all of Maharashtra",
     },
     {
       key: "Engineering / Pharmacy",
