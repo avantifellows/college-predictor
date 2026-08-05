@@ -140,6 +140,13 @@ def build(src: Path) -> list[dict]:
                 # what an out-of-region candidate competes for.
                 "State": "Maharashtra" if str(r.quota).startswith(("State Level", "Home")) else "Other",
                 "Quota": str(r.quota),
+                # Which university the "Home"/"Other" in Quota is keyed to.
+                # Empty where the CET Cell doesn't publish it (all of B.Design,
+                # ~49% of pharmacy print a bare "Status: Un-Aided").
+                "Home University": (
+                    "" if pd.isna(getattr(r, "home_university", None))
+                    else str(r.home_university).strip()
+                ),
                 "Category_Key": str(r.category_raw),
                 "Closing Rank": str(int(r.closing_rank)),
                 "Stream": label,

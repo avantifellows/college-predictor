@@ -533,6 +533,11 @@ export const mhtCetConfig = {
     { key: "AI", value: "All India" },
     { key: "MH", value: "Maharashtra" },
     {
+      key: "Home / Other",
+      value:
+        "your home university vs the college's — see each row's Home University",
+    },
+    {
       key: "Engineering / Pharmacy",
       value: "ranked on your MHT-CET merit rank",
     },
