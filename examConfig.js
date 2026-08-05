@@ -682,8 +682,31 @@ export const mhtCetConfig = {
   name: "MHT CET",
   apiEndpoint: "mhtcet",
   searchKeys: defaultSearchKeys,
-  primaryInput: integerInput("Enter MHT CET Rank", "Enter MHT CET rank"),
+  primaryInput: integerInput(
+    "Enter Your Merit Rank",
+    "Enter your MHT CET rank (or B.Arch/B.Design merit no.)"
+  ),
   fields: [
+    {
+      // Maharashtra runs a separate CAP per stream and the merit lists are NOT
+      // the same number space: engineering and pharmacy rank on MHT-CET,
+      // B.Arch on NATA/2 + Class XII % (max 200), B.Design on MAH-B.Design
+      // CET. Results must be scoped to one stream or the ranks are meaningless
+      // side by side. See the legend for which exam governs which stream.
+      //
+      // NOTE handleInputChange in pages/index.js submits `selectedOption.label`,
+      // not `.value`, so the label IS the query value — keep them identical.
+      // A decorative label (e.g. "Engineering (MHT-CET)") silently matches
+      // nothing.
+      name: "stream",
+      label: "Select Stream",
+      options: [
+        { value: "Engineering", label: "Engineering" },
+        { value: "Pharmacy", label: "Pharmacy" },
+        { value: "Architecture", label: "Architecture" },
+        { value: "B.Design", label: "B.Design" },
+      ],
+    },
     {
       name: "category",
       label: "Select Category",
@@ -696,6 +719,12 @@ export const mhtCetConfig = {
         { value: "EWS", label: "EWS" },
         { value: "VJ", label: "VJ" },
         { value: "NT", label: "NT" },
+        // SEBC is a separate reservation from OBC under Maharashtra law, not a
+        // synonym — it closes ~1,000 ranks looser. It used to be folded into
+        // OBC, which made the same college+program appear up to 4x all labelled
+        // "OBC" with different ranks.
+        { value: "SEBC", label: "SEBC" },
+        { value: "SBC", label: "SBC" },
         { value: "Orphan", label: "Orphan" },
         { value: "TFWS", label: "TFWS" },
       ],
@@ -709,9 +738,60 @@ export const mhtCetConfig = {
       ],
     },
     {
+      // Maharashtra's CAP splits seats by whether the candidate's HOME
+      // UNIVERSITY matches the college's, not by state. The CET Cell's section
+      // headings read seat-type -> candidate-type, so eligibility comes from the
+      // second half ("Home University Seats Allotted to OTHER Than Home
+      // University Candidates" is an out-of-region seat).
+      // A yes/no question cannot answer this: whether a "Home University" seat
+      // is yours depends on WHICH university the college belongs to, and that
+      // varies row by row. So ask for the student's own region once, then
+      // compare it against each row's Home University (see getFilters).
+      //
+      // These are the 11 university regions that actually run a home quota.
+      // Autonomous / Deemed / SNDT institutes are ~99.7% State Level — they
+      // have no home-region quota, so their seats show for every choice.
       name: "homeState",
-      label: "Select Your Home State",
-      options: ["Maharashtra", "Other"],
+      label: "Your Home University Region",
+      options: [
+        { value: "Mumbai University", label: "Mumbai" },
+        { value: "Savitribai Phule Pune University", label: "Pune" },
+        { value: "Shivaji University", label: "Kolhapur (Shivaji)" },
+        {
+          value: "Sant Gadge Baba Amravati University",
+          label: "Amravati",
+        },
+        {
+          value: "Rashtrasant Tukadoji Maharaj Nagpur University",
+          label: "Nagpur",
+        },
+        {
+          value: "Dr. Babasaheb Ambedkar Marathwada University",
+          label: "Aurangabad (Marathwada)",
+        },
+        {
+          value: "Swami Ramanand Teerth Marathwada University, Nanded",
+          label: "Nanded",
+        },
+        {
+          value:
+            "Kavayitri Bahinabai Chaudhari North Maharashtra University, Jalgaon",
+          label: "Jalgaon (North Maharashtra)",
+        },
+        {
+          value: "Punyashlok Ahilyadevi Holkar Solapur University",
+          label: "Solapur",
+        },
+        { value: "Gondwana University", label: "Gadchiroli (Gondwana)" },
+        {
+          value: "Dr. Babasaheb Ambedkar Technological University,Lonere",
+          label: "Lonere (DBATU)",
+        },
+        {
+          value: "Outside Maharashtra",
+          label: "I'm not from Maharashtra",
+        },
+      ],
     },
     {
       name: "isPWD",
@@ -730,9 +810,16 @@ export const mhtCetConfig = {
       ],
     },
   ],
+  // Kept deliberately short — the previous version repeated what the dropdowns
+  // already say. The one thing a student cannot infer from the form is that
+  // B.Arch and B.Design are scored on a different scale from MHT-CET, so a
+  // B.Arch "163" is a merit score out of 200, not a rank.
   legend: [
-    { key: "AI", value: "All India" },
-    { key: "MH", value: "Maharashtra" },
+    {
+      key: "Architecture",
+      value: "merit = NATA ÷ 2 + Class XII %, out of 200 (not an MHT-CET rank)",
+    },
+    { key: "B.Design", value: "ranked on MAH-B.Design CET, not MHT-CET" },
   ],
   getDataPath: () => {
     return path.join(
@@ -744,14 +831,46 @@ export const mhtCetConfig = {
     );
   },
   getFilters: (query) => [
+    (item) => !query.stream || item.Stream === query.stream,
     (item) => {
       if (query.category === "TFWS") {
         return item.Category_Key === "TFWS";
       }
       return item.Category === query.category;
     },
-    (item) => item.Gender === query.gender,
-    (item) => item.State === query.homeState,
+    // Maharashtra's 30% female reservation is HORIZONTAL: L-coded seats are
+    // reserved for women *in addition to* the gender-neutral G-coded pool, so
+    // a female candidate competes for both. Matching Gender exactly hid the
+    // larger pool — at Open/rank 5000 it showed 2,191 options instead of the
+    // 4,414 she is actually eligible for.
+    (item) =>
+      query.gender === "Female-Only"
+        ? item.Gender === "Female-Only" || item.Gender === "Gender-Neutral"
+        : item.Gender === query.gender,
+    // Home-region eligibility. `item.State` says who a seat is open to
+    // ("Any" = State Level, "Home University", "Other than Home University")
+    // and `item["Home University"]` says which university the college belongs
+    // to. A seat is reachable when:
+    //
+    //   State Level                  -> anyone from Maharashtra
+    //   Home University seat         -> only if the college's university is YOURS
+    //   Other-than-Home seat         -> only if it is NOT yours
+    //
+    // Colleges with no home university published (Autonomous / Deemed / SNDT,
+    // ~99.7% State Level) have no home quota, so they stay visible either way.
+    (item) => {
+      if (!query.homeState) return true;
+      const seatFor = item.State;
+      if (seatFor === "Any") return true;
+      const collegeUni = item["Home University"];
+      if (!collegeUni || collegeUni === "Autonomous Institute") return true;
+      // Not from Maharashtra: only the out-of-region pools are open.
+      if (query.homeState === "Outside Maharashtra") {
+        return seatFor === "Other than Home University";
+      }
+      const isMyRegion = collegeUni === query.homeState;
+      return seatFor === "Home University" ? isMyRegion : !isMyRegion;
+    },
     (item) => item.PWD === query.isPWD,
     (item) => item.Defense === query.isDefenseWard,
     (item) => {

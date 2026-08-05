@@ -124,13 +124,16 @@ const expandedFields = {
   ],
   // MHT CET - Maharashtra Common Entrance Test
   "MHT CET": [
-    { key: "Category", label: "Category" },
+    { key: "Category_Key", label: "Seat Type (CET code)" },
+    { key: "Category", label: "Category Group" },
     { key: "Gender", label: "Gender" },
     { key: "Defense", label: "Defense Quota" },
     { key: "PWD", label: "PWD Status" },
-    { key: "State", label: "State" },
-    { key: "Category_Key", label: "Category Key" },
+    { key: "Quota", label: "Quota Pool" },
+    { key: "Home University", label: "Home University" },
     { key: "Closing Rank", label: "Closing Rank" },
+    { key: "Year", label: "Cutoff Year" },
+    { key: "Round", label: "Round That Set Cutoff" },
   ],
   // NEETUG - National Eligibility cum Entrance Test for Undergraduate
   // The "Show More" panel. Program / State / Address / Round live HERE rather than in the main
@@ -439,7 +442,11 @@ const PredictedCollegesTable = ({
       { key: "institute", label: "Institute" },
       { key: "academic_program_name", label: "Program" },
       { key: "closing_rank", label: "Closing Rank" },
-      { key: "category", label: "Category" },
+      // Seat code, not the collapsed bucket. One college+program legitimately
+      // appears several times (GOBCS / LOBCS / GSEBCS ... all roll up to "OBC"),
+      // so showing only the bucket made real rows look like duplicates.
+      { key: "Category_Key", label: "Seat Type" },
+      { key: "Round", label: "Round" },
     ],
     // Columns are chosen for what VARIES between rows. `Program` and `State` were dropped:
     // the user has just picked both in the form, so every row repeated their own input and
@@ -1158,9 +1165,11 @@ const PredictedCollegesTable = ({
       );
     }
 
+    // The data year now sits under the result count, next to the number it
+    // qualifies — see the "Showing N matching options" block below.
     return (
       <div className="mb-3 flex flex-wrap items-center gap-2 text-xs sm:text-sm text-[#5b3a34]">
-        <span className="font-semibold text-[#5b1f20]">Quota labels:</span>
+        <span className="font-semibold text-[#5b1f20]">Note:</span>
         {examConfig.legend.map((item, index) => (
           <span
             key={index}
@@ -1207,29 +1216,43 @@ const PredictedCollegesTable = ({
               </div>
             )}
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center xl:justify-end">
-              <p className="text-sm text-[#5b3a34]">
-                Showing{" "}
-                {(!showAllRows &&
-                displayData.length > ROWS_PER_PAGE_INITIAL
-                  ? `${ROWS_PER_PAGE_INITIAL.toLocaleString(
-                      "en-IN"
-                    )} of ${displayData.length.toLocaleString("en-IN")}`
-                  : displayData.length.toLocaleString("en-IN")) + " "}
-                {showJosaaCollegeGroupToggle
-                  ? josaaCollegeGroup === "advanced"
-                    ? "JEE Advanced college options."
-                    : "JEE Main college options."
-                  : isNeet
-                  ? neetSeatTab === "home"
-                    ? "home-state seats."
-                    : "All India Quota seats."
-                  : "matching options."}
-                {isNeet && neetRoundNote && (
-                  <span className="block text-xs text-[#7a5b55]">
+              {/* Wrapped so the year line stacks UNDER the count instead of
+                  becoming a third flex sibling beside it on sm+ screens.
+                  (main's layout fix, kept.) */}
+              <div>
+                <p className="text-sm text-[#5b3a34]">
+                  Showing{" "}
+                  {(!showAllRows && displayData.length > ROWS_PER_PAGE_INITIAL
+                    ? `${ROWS_PER_PAGE_INITIAL.toLocaleString(
+                        "en-IN"
+                      )} of ${displayData.length.toLocaleString("en-IN")}`
+                    : displayData.length.toLocaleString("en-IN")) + " "}
+                  {showJosaaCollegeGroupToggle
+                    ? josaaCollegeGroup === "advanced"
+                      ? "JEE Advanced college options."
+                      : "JEE Main college options."
+                    : isNeet
+                    ? neetSeatTab === "home"
+                      ? "home-state seats."
+                      : "All India Quota seats."
+                    : "matching options."}
+                </p>
+                {/* Year + round caption. NEET states the round too, because round depth is not
+                    comparable across states; other exams show the year alone. Both read the data
+                    rather than hardcoding a year, so they self-correct for the next cycle. */}
+                {isNeet && neetRoundNote ? (
+                  <p className="mt-1 text-xs text-[#6d5550]">
                     Cutoffs from: {neetRoundNote}
-                  </span>
+                  </p>
+                ) : (
+                  displayData[0]?.["Year"] && (
+                    <p className="mt-1 text-xs text-[#6d5550]">
+                      Based on {displayData[0]["Year"]} cutoffs
+                      {displayData[0]["Round"] ? " (all rounds)" : ""}
+                    </p>
+                  )
                 )}
-              </p>
+              </div>
               {displayData.length > 0 && (
                 <button
                   className="w-full rounded-lg bg-[#B52326] px-4 py-2 text-white hover:bg-[#9E1F22] sm:w-auto"
