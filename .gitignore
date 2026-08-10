@@ -138,3 +138,19 @@ dist
 
 scripts/validate_report.csv
 scripts/__pycache__/
+
+# ── Raw source data: lives in GCS, never git ──────────────────────────────
+# *.csv is already ignored above, but these dirs also hold PDFs / PNGs / xlsx,
+# which are not — ~420 MB across 253 files, well past GitHub's 100 MB per-file
+# hard limit. Same rule the futures-v2 and external_data_sources repos use:
+# scraper INPUT and OUTPUT are data, only the scripts are code.
+amogh-csv/
+neet_pdfs/
+neet_2026_matrix_sources/
+scripts/neet_matrix_out/
+scripts/*_out/
+.worktrees/
+
+# Excel exports — small, but these are student-level sheets, not code.
+*.xls
+*.xlsx
