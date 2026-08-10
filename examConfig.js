@@ -199,13 +199,20 @@ export const jacExamConfig = {
     {
       name: "category",
       label: "Select Category",
+      // label MUST equal value here: pages/index.js submits
+      // selectedOption.label, and getFilters below compares it RAW against
+      // item.Category with no normalization. These matched the data only by
+      // coincidence — the lowercase values were dead code, so editing a label
+      // would have silently returned zero rows. (Unlike JoSAA/JEE, where the
+      // lowercase value is real: getDataPath(category) turns it into a
+      // filename.)
       options: [
-        { value: "ews", label: "EWS" },
-        { value: "kashmiri_minority", label: "Kashmiri Minority" },
-        { value: "obc", label: "OBC" },
-        { value: "general", label: "General" },
-        { value: "st", label: "ST" },
-        { value: "sc", label: "SC" },
+        { value: "EWS", label: "EWS" },
+        { value: "Kashmiri Minority", label: "Kashmiri Minority" },
+        { value: "OBC", label: "OBC" },
+        { value: "General", label: "General" },
+        { value: "ST", label: "ST" },
+        { value: "SC", label: "SC" },
       ],
     },
     {
@@ -240,7 +247,10 @@ export const jacExamConfig = {
     return path.join(process.cwd(), "public", "data", "JEE", "jac_data.json");
   },
   getFilters: (query) => [
-    (item) => item.State === query.homeState,
+    // "Any" means the seat is open regardless of Delhi domicile — all 9
+    // Kashmiri Minority rows are State="Any", so an exact match against the
+    // Delhi / Outside Delhi dropdown made that entire category unreachable.
+    (item) => item.State === "Any" || item.State === query.homeState,
     (item) => item.Category === query.category,
     (item) => item.Defense === query.isDefenseWard,
     (item) => item.PWD === query.isPWD,
