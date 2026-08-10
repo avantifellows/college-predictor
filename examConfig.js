@@ -370,7 +370,10 @@ const NEET_SEAT_BUCKETS = [
   // [bucket, test on the normalized Seat Type string]
   ["nri", (s) => s.includes("nonresidentindian") || s.includes("nri")],
   ["deemed", (s) => s.includes("deemed") || s.includes("paidseats")],
-  ["management", (s) => s.includes("management") || s.includes("institutequota")],
+  [
+    "management",
+    (s) => s.includes("management") || s.includes("institutequota"),
+  ],
   ["private", (s) => s.includes("private")],
   [
     "restricted",
@@ -393,7 +396,13 @@ const NEET_SEAT_BUCKETS = [
   ],
   ["govt", (s) => s.includes("govt") || s.includes("government")],
   ["allindia", (s) => s.includes("allindia")],
-  ["statequota", (s) => s.includes("statequota") || s.includes("openquota") || s.includes("hpquota")],
+  [
+    "statequota",
+    (s) =>
+      s.includes("statequota") ||
+      s.includes("openquota") ||
+      s.includes("hpquota"),
+  ],
 ];
 
 const neetSeatBucket = (seatType) => {
@@ -420,7 +429,8 @@ const NEET_OPEN_BUCKETS = new Set([
 const neetSeatTypeOptions = [
   {
     value: "",
-    label: "Seats I can apply to (recommended — hides NRI/DU/AMU/ESI-type quotas)",
+    label:
+      "Seats I can apply to (recommended — hides NRI/DU/AMU/ESI-type quotas)",
   },
   { value: "govt-only", label: "Government seats only" },
   { value: "private-management", label: "Private / Management seats" },
@@ -581,13 +591,21 @@ export const neetUGConfig = {
         //   (govt) mislabelled and Adesh/HITECH (private) as "government".
         const collegeType = String(item["College Type"] || "").toLowerCase();
         const isGovtCollege = collegeType
-          ? collegeType.startsWith("govt") || collegeType.startsWith("government")
-          : bucket === "govt" || bucket === "allindia" || bucket === "statequota";
+          ? collegeType.startsWith("govt") ||
+            collegeType.startsWith("government")
+          : bucket === "govt" ||
+            bucket === "allindia" ||
+            bucket === "statequota";
         if (raw.includes("every seat type")) return true;
         if (raw.includes("government seats only")) return isGovtCollege;
         if (raw.includes("private / management"))
-          return !isGovtCollege && (bucket === "private" || bucket === "management" ||
-            bucket === "statequota" || bucket === "govt");
+          return (
+            !isGovtCollege &&
+            (bucket === "private" ||
+              bucket === "management" ||
+              bucket === "statequota" ||
+              bucket === "govt")
+          );
         if (raw.includes("deemed")) return bucket === "deemed";
         // Default / "Seats I can apply to": drop the restricted + NRI pools.
         return NEET_OPEN_BUCKETS.has(bucket);
@@ -613,7 +631,10 @@ export const neetUGConfig = {
           // gender is handled by its own filter below, not here.
           const wanted = neetCategoryCanonical(query.category);
           if (!wanted) return true; // unknown category -> don't over-filter
-          const baseCat = String(item["Category"] || "").replace(/\s*\(.*\)\s*$/, "");
+          const baseCat = String(item["Category"] || "").replace(
+            /\s*\(.*\)\s*$/,
+            ""
+          );
           return neetCategoryCanonical(baseCat) === wanted;
         }
         return true; // AIQ category handled above; state rows handled next
@@ -632,7 +653,8 @@ export const neetUGConfig = {
         // -> only female seats; anything mentioning "neutral"/"male" -> only
         // neutral seats; "show all"/empty -> everything.
         const g = String(query.gender || "").toLowerCase();
-        const isFemaleSeat = (item["Gender"] || "Gender-Neutral") === "Female-only";
+        const isFemaleSeat =
+          (item["Gender"] || "Gender-Neutral") === "Female-only";
         if (g.includes("female")) return isFemaleSeat;
         if (g.includes("neutral") || g.includes("male")) return !isFemaleSeat;
         return true; // "show all seats" or no selection
@@ -753,43 +775,52 @@ export const mhtCetConfig = {
       // have no home-region quota, so their seats show for every choice.
       name: "homeState",
       label: "Your Home University Region",
+      // label MUST equal value: pages/index.js submits selectedOption.label,
+      // not .value. A friendly label ("Nagpur") against a data value
+      // ("Rashtrasant Tukadoji Maharaj Nagpur University") silently matched
+      // nothing, so EVERY Home-University seat was filtered out and students
+      // saw only the out-of-region pool. Same trap as the Stream field.
       options: [
-        { value: "Mumbai University", label: "Mumbai" },
-        { value: "Savitribai Phule Pune University", label: "Pune" },
-        { value: "Shivaji University", label: "Kolhapur (Shivaji)" },
+        { value: "Mumbai University", label: "Mumbai University" },
+        {
+          value: "Savitribai Phule Pune University",
+          label: "Savitribai Phule Pune University",
+        },
+        { value: "Shivaji University", label: "Shivaji University" },
         {
           value: "Sant Gadge Baba Amravati University",
-          label: "Amravati",
+          label: "Sant Gadge Baba Amravati University",
         },
         {
           value: "Rashtrasant Tukadoji Maharaj Nagpur University",
-          label: "Nagpur",
+          label: "Rashtrasant Tukadoji Maharaj Nagpur University",
         },
         {
           value: "Dr. Babasaheb Ambedkar Marathwada University",
-          label: "Aurangabad (Marathwada)",
+          label: "Dr. Babasaheb Ambedkar Marathwada University",
         },
         {
           value: "Swami Ramanand Teerth Marathwada University, Nanded",
-          label: "Nanded",
+          label: "Swami Ramanand Teerth Marathwada University, Nanded",
         },
         {
           value:
             "Kavayitri Bahinabai Chaudhari North Maharashtra University, Jalgaon",
-          label: "Jalgaon (North Maharashtra)",
+          label:
+            "Kavayitri Bahinabai Chaudhari North Maharashtra University, Jalgaon",
         },
         {
           value: "Punyashlok Ahilyadevi Holkar Solapur University",
-          label: "Solapur",
+          label: "Punyashlok Ahilyadevi Holkar Solapur University",
         },
-        { value: "Gondwana University", label: "Gadchiroli (Gondwana)" },
+        { value: "Gondwana University", label: "Gondwana University" },
         {
           value: "Dr. Babasaheb Ambedkar Technological University,Lonere",
-          label: "Lonere (DBATU)",
+          label: "Dr. Babasaheb Ambedkar Technological University,Lonere",
         },
         {
           value: "Outside Maharashtra",
-          label: "I'm not from Maharashtra",
+          label: "Outside Maharashtra",
         },
       ],
     },
