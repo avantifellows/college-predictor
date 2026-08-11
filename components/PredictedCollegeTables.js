@@ -156,7 +156,6 @@ const expandedFields = {
   ],
 };
 
-
 // College Type for rows whose source carries no per-row govt flag.
 // We fill it ONLY where the SEAT TYPE settles it by definition — never by guessing from the college
 // name. (Measured: fuzzy name-matching against the NMC/DCI roster is 87.5% accurate but every error
@@ -353,6 +352,12 @@ const PredictedCollegesTable = ({
   };
 
   const formatPercentage = (value) => {
+    // Guard the raw value first: Number(null) is 0 and Number.isFinite(0) is
+    // true, so a genuinely-absent cutoff rendered as "0.00%" — which a student
+    // reads as "cutoff is zero, I'm guaranteed in". Hit this on GUJCET's 8
+    // pharmacy ESM rows, where the source PDF's percentile column is a
+    // column-boundary artifact and is deliberately NULL upstream.
+    if (value === null || value === undefined || value === "") return "N/A";
     const numericValue = Number(value);
     if (!Number.isFinite(numericValue)) return "N/A";
     return `${numericValue.toFixed(2)}%`;
@@ -432,6 +437,9 @@ const PredictedCollegesTable = ({
         label: "Cutoff Percentage",
         format: formatPercentage,
       },
+      // ACPC's headline number, and the only cutoff available for the rows
+      // whose percentile is NULL (pharmacy ESM).
+      { key: "closing_rank", label: "Closing Rank" },
     ],
     KCET: [
       { key: "institute", label: "Institute" },
@@ -488,7 +496,12 @@ const PredictedCollegesTable = ({
         ...item,
         institute: item["College Name"],
         academic_program_name: item["Course"],
-        closing_rank: item["closing_marks"],
+        // Deliberately NOT overwriting closing_rank with closing_marks. The API
+        // returns both — ACPC's merit rank and its percentile-equivalent score —
+        // and they move in opposite directions (lower rank = harder, higher
+        // percentile = harder). Aliasing the percentile onto closing_rank blanked
+        // the real rank on the 8 pharmacy ESM rows, whose percentile is NULL
+        // upstream, and made the default rank sort run on the wrong metric.
         state: item["District"],
       };
     }
@@ -589,7 +602,9 @@ const PredictedCollegesTable = ({
         //       reported, so a wrong label is worse than none.
         //   Hence "—" where we genuinely do not know. Adding the flag upstream per state is the
         //   real fix; see docs/NEET_DATA_BUGS_BACKPROP.md.
-        college_type: item["College Type"] || neetCollegeTypeFromSeatType(item["Seat Type"]),
+        college_type:
+          item["College Type"] ||
+          neetCollegeTypeFromSeatType(item["Seat Type"]),
         academic_program_name: item["Academic Program Name"] || "",
         closing_rank: item["Closing Rank"] || "",
         category: item["Category"] || "",
@@ -602,7 +617,8 @@ const PredictedCollegesTable = ({
         // Private/Management/NRI pools are private-college seats. "—" where we
         // genuinely cannot say.
         "College Type":
-          item["College Type"] || neetCollegeTypeFromSeatType(item["Seat Type"]),
+          item["College Type"] ||
+          neetCollegeTypeFromSeatType(item["Seat Type"]),
         "Gender": item["Gender"] || "Gender-Neutral",
         "Category": item["Category"],
         "Closing Rank": item["Closing Rank"],
@@ -665,6 +681,9 @@ const PredictedCollegesTable = ({
       item?.closing_rank ??
       item?.["Cutoff Marks"] ??
       item?.closing_marks;
+    // "" would become 0 via Number(), sorting a row with no cutoff to the very
+    // top of an ascending rank sort — i.e. presenting it as the hardest seat.
+    if (raw === null || raw === undefined || raw === "") return null;
     const numericValue = Number(raw);
     return Number.isFinite(numericValue) ? numericValue : null;
   };
@@ -1232,10 +1251,10 @@ const PredictedCollegesTable = ({
                       ? "JEE Advanced college options."
                       : "JEE Main college options."
                     : isNeet
-                    ? neetSeatTab === "home"
-                      ? "home-state seats."
-                      : "All India Quota seats."
-                    : "matching options."}
+                      ? neetSeatTab === "home"
+                        ? "home-state seats."
+                        : "All India Quota seats."
+                      : "matching options."}
                 </p>
                 {/* Year + round caption. NEET states the round too, because round depth is not
                     comparable across states; other exams show the year alone. Both read the data
