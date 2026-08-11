@@ -1369,6 +1369,24 @@ export const gujcetConfig = {
   code: "GUJCET",
   searchKeys: ["College Name", "District", "Course"],
   primaryInput: decimalInput("Enter Percentage Score", "e.g., 78.45"),
+  // GUJCET's three programs are not measured in the same unit. Engineering and
+  // Pharmacy cutoffs are a 0-100 composite percentile (GUJCET + JEE + Class 12),
+  // but the Medical rows are raw NEET marks — the data runs from 28 to 690 out
+  // of 720. A single 0-100 field asked medical students for the wrong quantity
+  // AND capped them at 100, so ~2/3 of the 753 medical rows were unreachable no
+  // matter what they typed. Switch the label, placeholder and max with the
+  // program so the field always states the unit it actually wants.
+  refinePrimaryInput: (base, formData) => {
+    if (formData?.program !== "Medical") return base;
+    return {
+      ...base,
+      label: "Enter NEET Score (out of 720)",
+      placeholder: "e.g., 545",
+      max: "720",
+      helperText:
+        "Gujarat's medical seats are allotted on the NEET score, not a GUJCET percentage.",
+    };
+  },
   fields: [
     {
       name: "category",
@@ -1439,7 +1457,15 @@ export const gujcetConfig = {
       },
     ];
   },
-  getSort: () => [["closing_marks", "DESC"]], // Sort by closing_marks in descending order
+  // Percentile DESC (higher composite score = harder seat) with merit rank ASC
+  // as the tiebreaker. The fallback is what orders the 8 pharmacy ESM rows,
+  // whose closing_marks is null upstream but whose published closing_rank is
+  // real. Medical is the reverse case — raw NEET marks, no rank at all — so it
+  // relies on the first key. Neither stream ends up unordered.
+  getSort: () => [
+    ["closing_marks", "DESC"],
+    ["closing_rank", "ASC"],
+  ],
 };
 
 export const examConfigs = {

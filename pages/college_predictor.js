@@ -42,13 +42,21 @@ const defaultPrimaryInputConfig = {
   allowDecimal: false,
 };
 
-const getPrimaryInputConfig = (exam) =>
-  examConfigs[exam]?.primaryInput || defaultPrimaryInputConfig;
+// Mirrors pages/index.js: an exam may refine its primary input from the current
+// selection via `refinePrimaryInput`. GUJCET needs it because Medical cutoffs are
+// raw NEET marks (0-720) while Engineering/Pharmacy are a 0-100 percentile, and
+// this page's "Edit Filters" panel re-renders the same input.
+const getPrimaryInputConfig = (exam, formData = null) => {
+  const base = examConfigs[exam]?.primaryInput || defaultPrimaryInputConfig;
+  const refine = examConfigs[exam]?.refinePrimaryInput;
+  if (!refine || !formData) return base;
+  return refine(base, formData) || base;
+};
 
-const validatePrimaryInputValue = (exam, value) => {
+const validatePrimaryInputValue = (exam, value, formData = null) => {
   if (value === "") return "";
 
-  const inputConfig = getPrimaryInputConfig(exam);
+  const inputConfig = getPrimaryInputConfig(exam, formData);
   const numericValue = Number(value);
   const rangeMessage =
     inputConfig.max !== undefined
@@ -73,9 +81,9 @@ const validatePrimaryInputValue = (exam, value) => {
   return "";
 };
 
-const normalizePrimaryInputValue = (exam, value) => {
+const normalizePrimaryInputValue = (exam, value, formData = null) => {
   if (value === "") return "";
-  const inputConfig = getPrimaryInputConfig(exam);
+  const inputConfig = getPrimaryInputConfig(exam, formData);
   if (inputConfig.allowDecimal) {
     return value;
   }
@@ -325,6 +333,19 @@ const CollegePredictor = () => {
       setEstimatedPercentile(null);
       setEstimateError("");
     }
+    // A dropdown can change the primary input's valid range — GUJCET accepts
+    // 0-720 for Medical but 0-100 for Engineering/Pharmacy. Re-validate so
+    // switching program with a now-out-of-range score surfaces the error instead
+    // of silently re-querying with a value the API will reject.
+    if (newQueryObject.rank) {
+      setPrimaryInputError(
+        validatePrimaryInputValue(
+          newQueryObject.exam,
+          newQueryObject.rank,
+          newQueryObject
+        )
+      );
+    }
     setQueryObject(newQueryObject);
     debouncedRouterPush(newQueryObject);
   };
@@ -343,8 +364,16 @@ const CollegePredictor = () => {
   };
 
   const handleRankChange = (e) => {
-    const value = normalizePrimaryInputValue(queryObject.exam, e.target.value);
-    const validationError = validatePrimaryInputValue(queryObject.exam, value);
+    const value = normalizePrimaryInputValue(
+      queryObject.exam,
+      e.target.value,
+      queryObject
+    );
+    const validationError = validatePrimaryInputValue(
+      queryObject.exam,
+      value,
+      queryObject
+    );
     let newQueryObject = {
       ...queryObject,
       rank: value,
@@ -674,13 +703,13 @@ const CollegePredictor = () => {
       queryObject.exam !== "JoSAA" && queryObject.exam !== "TNEA"
         ? renderSelectionCard(
             "rank",
-            getPrimaryInputConfig(queryObject.exam).label,
+            getPrimaryInputConfig(queryObject.exam, queryObject).label,
             <>
               <input
                 type="number"
-                step={getPrimaryInputConfig(queryObject.exam).step}
-                min={getPrimaryInputConfig(queryObject.exam).min}
-                max={getPrimaryInputConfig(queryObject.exam).max}
+                step={getPrimaryInputConfig(queryObject.exam, queryObject).step}
+                min={getPrimaryInputConfig(queryObject.exam, queryObject).min}
+                max={getPrimaryInputConfig(queryObject.exam, queryObject).max}
                 value={
                   queryObject.rank?.toString().length
                     ? normalizePrimaryInputValue(
@@ -693,7 +722,7 @@ const CollegePredictor = () => {
                 onKeyDown={(e) => {
                   if (
                     ["e", "E", "+", "-", " "].includes(e.key) ||
-                    (!getPrimaryInputConfig(queryObject.exam).allowDecimal &&
+                    (!getPrimaryInputConfig(queryObject.exam, queryObject).allowDecimal &&
                       e.key === ".")
                   ) {
                     e.preventDefault();
@@ -705,14 +734,14 @@ const CollegePredictor = () => {
                     : "border-[#d8c7c1] focus:border-[#b52326]"
                 }`}
                 placeholder={
-                  getPrimaryInputConfig(queryObject.exam).placeholder
+                  getPrimaryInputConfig(queryObject.exam, queryObject).placeholder
                 }
               />
               {primaryInputError && (
                 <p className="mt-2 text-sm text-red-500">{primaryInputError}</p>
               )}
             </>,
-            getPrimaryInputConfig(queryObject.exam).helperText
+            getPrimaryInputConfig(queryObject.exam, queryObject).helperText
           )
         : null;
 
@@ -1064,7 +1093,7 @@ const CollegePredictor = () => {
     } else if (queryObject.rank) {
       summaryItems.push({
         key: "rank",
-        label: getPrimaryInputConfig(queryObject.exam).label.replace(
+        label: getPrimaryInputConfig(queryObject.exam, queryObject).label.replace(
           "Enter ",
           ""
         ),

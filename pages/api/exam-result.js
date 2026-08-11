@@ -82,7 +82,15 @@ export default async function handler(req, res) {
     }
   }
 
-  const primaryInputConfig = config.primaryInput;
+  // Apply the same `refinePrimaryInput` hook the form uses, so the accepted range
+  // is defined once. GUJCET's Medical rows are raw NEET marks (up to 690 of 720)
+  // while Engineering/Pharmacy are a 0-100 percentile; without this the server
+  // would keep enforcing 0-100 and reject the very values the form now invites.
+  const primaryInputConfig =
+    config.primaryInput && config.refinePrimaryInput
+      ? config.refinePrimaryInput(config.primaryInput, req.query) ||
+        config.primaryInput
+      : config.primaryInput;
   const queryValue =
     exam === "JoSAA" ? req.query.mainRank || req.query.rank : req.query.rank;
 
@@ -254,21 +262,35 @@ export default async function handler(req, res) {
     if (config.getSort) {
       const sortConfig = config.getSort();
       if (sortConfig && sortConfig.length > 0) {
-        const [sortKey, sortOrder] = sortConfig[0];
+        // Multi-key, null-safe. Previously this read only sortConfig[0] and
+        // compared raw values: parseFloat(null) is NaN, so the numeric-coercion
+        // guard was skipped and `null - 5` (-5) made a null row sort as though
+        // it were GREATER than every real value under DESC. GUJCET's 8 pharmacy
+        // ESM rows have a null closing_marks by design, so they were dragged to
+        // the top of the list and the rows around them lost their order
+        // entirely. Nulls now always sort LAST regardless of direction — "no
+        // cutoff recorded" is never the most competitive seat — and later keys
+        // in sortConfig break ties, so a stream sorted on a column that is
+        // uniformly null still gets a meaningful order from its fallback.
+        const toNumber = (value) => {
+          if (value === null || value === undefined || value === "") return null;
+          const n = parseFloat(value);
+          return Number.isFinite(n) ? n : null;
+        };
+
         filteredData.sort((a, b) => {
-          let valA = a[sortKey];
-          let valB = b[sortKey];
+          for (const [sortKey, sortOrder] of sortConfig) {
+            const valA = toNumber(a[sortKey]);
+            const valB = toNumber(b[sortKey]);
 
-          // Convert to numbers if possible for proper numeric comparison
-          if (!isNaN(parseFloat(valA)) && !isNaN(parseFloat(valB))) {
-            valA = parseFloat(valA);
-            valB = parseFloat(valB);
-          }
+            if (valA === null && valB === null) continue; // undecided -> next key
+            if (valA === null) return 1;
+            if (valB === null) return -1;
+            if (valA === valB) continue;
 
-          if (sortOrder === "DESC") {
-            return valB - valA;
+            return sortOrder === "DESC" ? valB - valA : valA - valB;
           }
-          return valA - valB;
+          return 0;
         });
       }
     } else if (exam === "TGEAPCET") {

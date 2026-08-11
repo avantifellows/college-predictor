@@ -21,13 +21,23 @@ const defaultPrimaryInputConfig = {
   allowDecimal: false,
 };
 
-const getPrimaryInputConfig = (exam) =>
-  examConfigs[exam]?.primaryInput || defaultPrimaryInputConfig;
+// An exam may refine its primary input based on what has been picked so far, via
+// an optional `refinePrimaryInput(config, formData)` hook. GUJCET needs it: its
+// Engineering/Pharmacy cutoffs are a 0-100 composite percentile, but Medical
+// cutoffs are raw NEET marks out of 720. One fixed 0-100 field made the input
+// lie about what it wanted and silently capped medical students at 100, so they
+// could never reach the ~2/3 of medical rows above that.
+const getPrimaryInputConfig = (exam, formData = null) => {
+  const base = examConfigs[exam]?.primaryInput || defaultPrimaryInputConfig;
+  const refine = examConfigs[exam]?.refinePrimaryInput;
+  if (!refine || !formData) return base;
+  return refine(base, formData) || base;
+};
 
-const validatePrimaryInputValue = (exam, value) => {
+const validatePrimaryInputValue = (exam, value, formData = null) => {
   if (value === "") return "";
 
-  const inputConfig = getPrimaryInputConfig(exam);
+  const inputConfig = getPrimaryInputConfig(exam, formData);
   const numericValue = Number(value);
   const rangeMessage =
     inputConfig.max !== undefined
@@ -52,9 +62,9 @@ const validatePrimaryInputValue = (exam, value) => {
   return "";
 };
 
-const normalizePrimaryInputValue = (exam, value) => {
+const normalizePrimaryInputValue = (exam, value, formData = null) => {
   if (value === "") return "";
-  const inputConfig = getPrimaryInputConfig(exam);
+  const inputConfig = getPrimaryInputConfig(exam, formData);
   if (inputConfig.allowDecimal) {
     return value;
   }
@@ -176,6 +186,23 @@ const ExamForm = () => {
       setEstimatedRank(null);
       setEstimatedPercentile(null);
       setEstimateError("");
+    }
+
+    // A dropdown can change what the primary input is allowed to be — GUJCET's
+    // valid range is 0-100 for Engineering/Pharmacy but 0-720 for Medical. Without
+    // this, typing 545 under Medical and then switching to Engineering left an
+    // out-of-range value sitting behind a cleared error message, and Submit
+    // enabled. Re-validate against the newly selected options.
+    const currentPrimaryValue =
+      selectedExam === "JoSAA" ? newFormData.mainRank : newFormData.rank;
+    if (currentPrimaryValue) {
+      setPrimaryInputError(
+        validatePrimaryInputValue(
+          selectedExam,
+          currentPrimaryValue,
+          newFormData
+        )
+      );
     }
 
     setFormData(newFormData);
@@ -372,14 +399,20 @@ const ExamForm = () => {
     }
   };
 
+  // Resolved once per render: for GUJCET this changes with the selected program
+  // (0-100 composite percentile vs 0-720 raw NEET marks for Medical).
+  const primaryInputConfig = getPrimaryInputConfig(selectedExam, formData);
+
   const handleRankChange = (e) => {
     const enteredRank = normalizePrimaryInputValue(
       selectedExam,
-      e.target.value
+      e.target.value,
+      formData
     );
     const validationError = validatePrimaryInputValue(
       selectedExam,
-      enteredRank
+      enteredRank,
+      formData
     );
     const newFormData = {
       ...formData,
@@ -970,12 +1003,12 @@ const ExamForm = () => {
                         )
                       : renderFormCard(
                           "primaryInput",
-                          getPrimaryInputConfig(selectedExam).label,
+                          primaryInputConfig.label,
                           <input
                             type="number"
-                            step={getPrimaryInputConfig(selectedExam).step}
-                            min={getPrimaryInputConfig(selectedExam).min}
-                            max={getPrimaryInputConfig(selectedExam).max}
+                            step={primaryInputConfig.step}
+                            min={primaryInputConfig.min}
+                            max={primaryInputConfig.max}
                             value={
                               selectedExam === "JoSAA"
                                 ? formData.mainRank || ""
@@ -985,7 +1018,7 @@ const ExamForm = () => {
                             onKeyDown={(e) => {
                               if (
                                 ["e", "E", "+", "-", " "].includes(e.key) ||
-                                (!getPrimaryInputConfig(selectedExam)
+                                (!primaryInputConfig
                                   .allowDecimal &&
                                   e.key === ".")
                               ) {
@@ -998,10 +1031,10 @@ const ExamForm = () => {
                                 : "border-[#d8c7c1] focus:border-[#b52326]"
                             }`}
                             placeholder={
-                              getPrimaryInputConfig(selectedExam).placeholder
+                              primaryInputConfig.placeholder
                             }
                           />,
-                          getPrimaryInputConfig(selectedExam).helperText,
+                          primaryInputConfig.helperText,
                           primaryInputError
                         )}
 

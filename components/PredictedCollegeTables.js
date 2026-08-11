@@ -363,6 +363,22 @@ const PredictedCollegesTable = ({
     return `${numericValue.toFixed(2)}%`;
   };
 
+  // GUJCET's Medical cutoffs are raw NEET scores out of 720, not percentages —
+  // rendering 675 as "675.00%" is nonsense. Engineering/Pharmacy really are a
+  // 0-100 composite percentile, so the unit has to follow the program. Derived
+  // from the rows rather than taken as a prop: every row in a GUJCET result set
+  // shares one Program (the API filters on it), so the first row is enough.
+  const gujcetProgram =
+    exam === "GUJCET" ? data?.[0]?.Program ?? null : null;
+  const isGujcetMedical = gujcetProgram === "Medical";
+
+  const formatNeetScore = (value) => {
+    if (value === null || value === undefined || value === "") return "N/A";
+    const numericValue = Number(value);
+    if (!Number.isFinite(numericValue)) return "N/A";
+    return `${numericValue.toFixed(0)} / 720`;
+  };
+
   useEffect(() => {
     if (!supportsSalarySort) return;
     setSortConfig({ key: rankColumnKey, order: "asc" });
@@ -434,12 +450,16 @@ const PredictedCollegesTable = ({
       { key: "Course", label: "Course" },
       {
         key: "closing_marks",
-        label: "Cutoff Percentage",
-        format: formatPercentage,
+        label: isGujcetMedical ? "Cutoff NEET Score" : "Cutoff Percentage",
+        format: isGujcetMedical ? formatNeetScore : formatPercentage,
       },
       // ACPC's headline number, and the only cutoff available for the rows
-      // whose percentile is NULL (pharmacy ESM).
-      { key: "closing_rank", label: "Closing Rank" },
+      // whose percentile is NULL (pharmacy ESM). The medical source carries no
+      // rank at all, so the column is dropped there rather than showing 444
+      // rows of "N/A".
+      ...(isGujcetMedical
+        ? []
+        : [{ key: "closing_rank", label: "Closing Rank" }]),
     ],
     KCET: [
       { key: "institute", label: "Institute" },
