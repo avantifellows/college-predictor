@@ -1373,10 +1373,25 @@ export const gujcetConfig = {
     {
       name: "category",
       label: "Select Category",
+      // Engineering + Pharmacy now carry all seven ACPC categories. Medical is
+      // still the older two-category source, so a student picking SEBC/SC/EWS
+      // with Program=Medical correctly gets nothing rather than a wrong answer.
+      // SEBC is Gujarat's OBC label — a real category, not a synonym for OBC.
+      // TFWS (tuition-fee waiver) and ESM (ex-servicemen) are horizontal pools.
+      //
+      // Labels are bare codes on purpose: pages/index.js submits
+      // selectedOption.label and this config's filter does
+      // query.category.toLowerCase(), so a decorated label ("SEBC (Gujarat
+      // OBC)") lowercases to "sebc (gujarat obc)" and matches NOTHING. The
+      // legend below spells the codes out instead.
       options: [
         { value: "general", label: "General" },
-
+        { value: "sebc", label: "SEBC" },
+        { value: "ews", label: "EWS" },
+        { value: "sc", label: "SC" },
         { value: "st", label: "ST" },
+        { value: "tfws", label: "TFWS" },
+        { value: "esm", label: "ESM" },
       ],
     },
     {
@@ -1387,6 +1402,22 @@ export const gujcetConfig = {
         { value: "Medical", label: "Medical" },
         { value: "Pharmacy", label: "Pharmacy" },
       ],
+    },
+  ],
+  legend: [
+    {
+      key: "SEBC",
+      value: "Socially & Educationally Backward Class — Gujarat's OBC category",
+    },
+    {
+      key: "TFWS",
+      value: "Tuition Fee Waiver Scheme (income-based, not a social category)",
+    },
+    { key: "ESM", value: "Ex-Servicemen" },
+    {
+      key: "Engineering merit",
+      value:
+        "GUJCET \u2153 + JEE Main \u2153 + Class 12 \u2153 composite — not a raw GUJCET score",
     },
   ],
   getDataPath: () => {
