@@ -798,7 +798,26 @@ const PredictedCollegesTable = ({
     "seat_type",
   ]);
   const predicted_colleges_table_column = useMemo(() => {
-    const cols = predicted_colleges_table_column_all;
+    let cols = predicted_colleges_table_column_all;
+    if (!displayData.length) return cols;
+
+    // EMPTY COLUMNS (all exams). A column with no value on ANY row is pure
+    // N/A — it cannot inform a choice and it steals width from the columns
+    // that can. GUJCET is the live case: ACPC's closure PDFs carry no district
+    // field, so District is null on all 2,487 engineering + pharmacy rows
+    // (it is populated only for Medical, from a different source). Feedback
+    // from Sakshi was exactly this: a District column that is "mostly N/A".
+    // Kept deliberately narrower than the NEET rule below — this drops only
+    // columns that are ENTIRELY absent, never ones that merely happen to be
+    // constant on the current view.
+    cols = cols.filter((col) => {
+      if (ALWAYS_KEEP.has(col.key)) return true;
+      return displayData.some((row) => {
+        const value = transformData(row)[col.key];
+        return value !== null && value !== undefined && value !== "";
+      });
+    });
+
     if (!isNeet || displayData.length < 2) return cols;
     return cols.filter((col) => {
       if (ALWAYS_KEEP.has(col.key)) return true;
