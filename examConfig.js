@@ -1314,22 +1314,11 @@ export const tseApertConfig = {
       options: ["Male", "Female"],
     },
   ],
+  // Short by design — these render as inline chips above the table.
   legend: [
-    {
-      key: "SC-I / II / III",
-      value:
-        "Telangana's three SC sub-groups (2024 SC Rationalization GO) — each has its own seat pool and cutoff",
-    },
-    {
-      key: "Seat pools",
-      value:
-        "Male and female seats close at different ranks; pick the one that applies to you",
-    },
-    {
-      key: "Local area",
-      value:
-        "The 2025 source publishes one state-wide rank per seat, not OU/KU/TGUR sub-pools — your own local-area cutoff may be slightly easier",
-    },
+    { key: "SC-I / II / III", value: "Separate seat pools, separate cutoffs" },
+    { key: "Male / Female", value: "Separate seat pools, separate cutoffs" },
+    { key: "Local area", value: "State-wide rank; OU/KU may be slightly easier" },
   ],
   getDataPath: () => {
     return path.join(
@@ -1428,27 +1417,26 @@ export const gujcetConfig = {
       ],
     },
   ],
-  legend: [
-    {
-      key: "SEBC",
-      value: "Socially & Educationally Backward Class — Gujarat's OBC category",
-    },
-    {
-      key: "TFWS",
-      value: "Tuition Fee Waiver Scheme (income-based, not a social category)",
-    },
-    { key: "ESM", value: "Ex-Servicemen" },
-    {
-      key: "ACPC merit rank",
-      value:
-        "Your Home-State rank on ACPC's merit list — printed on your merit card. Merit = 50% Class 12 THEORY percentile in PCM + 50% GUJCET percentile (not percentages, and JEE Main is not part of it)",
-    },
-    {
-      key: "JEE Main seats",
-      value:
-        "A separate 5% All-India quota with its own merit list, ranked purely on JEE Main AIR — not shown here",
-    },
-  ],
+  // A function so the notes follow the program: the ACPC merit-rank note is
+  // meaningless on Medical, which is ranked on NEET. Kept deliberately short —
+  // these render as inline chips above the table, and long sentences turn the
+  // whole strip into a wall of text.
+  legend: (row) => {
+    const shared = [
+      { key: "SEBC", value: "Gujarat's OBC category" },
+      { key: "TFWS", value: "Tuition Fee Waiver (income-based)" },
+      { key: "ESM", value: "Ex-Servicemen" },
+    ];
+    if (row?.Program === "Medical") {
+      return [...shared, { key: "Medical", value: "Ranked on NEET score" }];
+    }
+    return [
+      ...shared,
+      { key: "Merit rank", value: "From your ACPC merit card" },
+      { key: "Merit score", value: "50% Class 12 PCM theory + 50% GUJCET, both percentile" },
+    ];
+  },
+
   getDataPath: () => {
     return path.join(process.cwd(), "public/data/GUJCET/GUJCET.json");
   },

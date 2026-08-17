@@ -375,6 +375,18 @@ const PredictedCollegesTable = ({
     exam === "GUJCET" ? data?.[0]?.Program ?? null : null;
   const isGujcetMedical = gujcetProgram === "Medical";
 
+  // ACPC's composite merit score is a 0-100 normalised figure, not a percentage
+  // of anything, so it gets no "%" suffix — that suffix invited students to read
+  // it as their Class 12 percentage, which is the confusion the corrected legend
+  // exists to clear up. Kept separate from formatPercentage, which other exams
+  // legitimately use for real percentages.
+  const formatMeritScore = (value) => {
+    if (value === null || value === undefined || value === "") return "N/A";
+    const numericValue = Number(value);
+    if (!Number.isFinite(numericValue)) return "N/A";
+    return numericValue.toFixed(2);
+  };
+
   const formatNeetScore = (value) => {
     if (value === null || value === undefined || value === "") return "N/A";
     const numericValue = Number(value);
@@ -462,7 +474,7 @@ const PredictedCollegesTable = ({
       {
         key: "closing_marks",
         label: isGujcetMedical ? "Cutoff NEET Score" : "Cutoff Merit Score",
-        format: isGujcetMedical ? formatNeetScore : formatPercentage,
+        format: isGujcetMedical ? formatNeetScore : formatMeritScore,
       },
     ],
     KCET: [
@@ -1202,6 +1214,16 @@ const PredictedCollegesTable = ({
     const examConfig = examConfigs[exam];
     if (!examConfig || !examConfig.legend) return null;
 
+    // A legend may be a function of the visible rows, so an exam can drop notes
+    // that do not apply to what the student actually picked. GUJCET needs it:
+    // its ACPC merit-rank note is meaningless on the Medical tab, which is
+    // ranked on NEET.
+    const legendItems =
+      typeof examConfig.legend === "function"
+        ? examConfig.legend(data?.[0] ?? null) || []
+        : examConfig.legend;
+    if (!legendItems.length) return null;
+
     if (isJosaaExam) {
       return (
         <div className="mb-4 flex flex-wrap items-center gap-2 text-xs sm:text-sm text-[#5b3a34]">
@@ -1224,7 +1246,7 @@ const PredictedCollegesTable = ({
     return (
       <div className="mb-3 flex flex-wrap items-center gap-2 text-xs sm:text-sm text-[#5b3a34]">
         <span className="font-semibold text-[#5b1f20]">Note:</span>
-        {examConfig.legend.map((item, index) => (
+        {legendItems.map((item, index) => (
           <span
             key={index}
             className="inline-flex items-center gap-2 rounded-full border border-[#e3d1cb] bg-[#fffdfa] px-3 py-1"
