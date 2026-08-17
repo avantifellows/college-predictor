@@ -6,18 +6,21 @@ import examConfigs from "../examConfig";
 // Define fields for the expanded view
 const expandedFields = {
   // TGEAPCET - Telangana Engineering, Agriculture and Pharmacy Common Entrance Test
+  // year_of_establish and tuition_fee were dropped with the move to the 2025
+  // source — the Convener's Last Rank Statement carries neither column, so
+  // both rendered as "N/A" on every row. category_key is shown instead because
+  // it is the real seat code (OC_BOYS / SC_II_GIRLS), which is what a student
+  // sees on the allotment order.
   TGEAPCET: [
     { key: "inst_code", label: "Institute Code" },
     { key: "place", label: "Location" },
-    { key: "year_of_establish", label: "Year Established" },
+    { key: "dist_code", label: "District" },
+    { key: "co_ed", label: "Co-Ed / Girls" },
     { key: "branch_name", label: "Branch Name" },
-    {
-      key: "tuition_fee",
-      label: "Tuition Fee (per year)",
-      format: (value) =>
-        value ? `₹${Number(value).toLocaleString("en-IN")}` : "N/A",
-    },
+    { key: "category_key", label: "Seat Code" },
+    { key: "college_type", label: "Institute Type" },
     { key: "affiliated_to", label: "Affiliated University" },
+    { key: "Year", label: "Data Year" },
   ],
   // JoSAA / JEE Main / JEE Advanced
   JoSAA: [
@@ -661,20 +664,12 @@ const PredictedCollegesTable = ({
       };
     }
     if (exam === "TGEAPCET") {
-      // Return all original item data plus formatted fields
-      return {
-        ...item,
-        institute_name: item.institute_name || "N/A",
-        branch_name: item.branch_name || "N/A",
-        closing_rank: item.closing_rank || "N/A",
-        // Keep all other fields for the expanded view
-        place: item.place || "N/A",
-        year_of_establish: item.year_of_establish
-          ? Math.floor(Number(item.year_of_establish)).toString()
-          : "N/A",
-        tuition_fee: item.tuition_fee || "N/A",
-        affiliated_to: item.affiliated_to || "N/A",
-      };
+      // Pass the row through untouched. It used to coerce every field with
+      // `|| "N/A"`, which defeats the adaptive-column rule below: a literal
+      // "N/A" string is non-empty, so a column that is genuinely absent on
+      // every row could never be detected and dropped. The renderer already
+      // shows "N/A" for a missing value.
+      return { ...item };
     }
     return {
       institute: item["Institute"],

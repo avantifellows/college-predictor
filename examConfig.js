@@ -1285,6 +1285,12 @@ export const tseApertConfig = {
     {
       name: "category",
       label: "Select Category",
+      // SC is deliberately NOT one option. Telangana's 2024 SC Rationalization
+      // GO splits it into SC-I / SC-II / SC-III and the 2025 source publishes
+      // all three separately, with cutoffs that differ by tens of thousands of
+      // ranks (Earth Sciences Univ CSE boys: SC-I 45,412 vs SC-II 120,845).
+      // Collapsing them to one "SC" would hide exactly what an SC student
+      // needs to know.
       options: [
         { value: "oc", label: "OC" },
         { value: "bc_a", label: "BC-A" },
@@ -1292,7 +1298,9 @@ export const tseApertConfig = {
         { value: "bc_c", label: "BC-C" },
         { value: "bc_d", label: "BC-D" },
         { value: "bc_e", label: "BC-E" },
-        { value: "sc", label: "SC" },
+        { value: "sc_i", label: "SC-I" },
+        { value: "sc_ii", label: "SC-II" },
+        { value: "sc_iii", label: "SC-III" },
         { value: "st", label: "ST" },
         { value: "ews", label: "EWS" },
       ],
@@ -1300,18 +1308,28 @@ export const tseApertConfig = {
     {
       name: "gender",
       label: "Select Gender",
+      // Not a preference — Telangana publishes a SEPARATE closing rank per
+      // gender for every category, because the 33% women's reservation is a
+      // distinct seat pool rather than something applied afterwards.
       options: ["Male", "Female"],
-    },
-    {
-      name: "region",
-      label: "Select Region",
-      options: ["OU", "Other"],
     },
   ],
   legend: [
-    { key: "AI", value: "All India" },
-    { key: "OU", value: "OU Region" },
-    { key: "OTHER", value: "Other Region" },
+    {
+      key: "SC-I / II / III",
+      value:
+        "Telangana's three SC sub-groups (2024 SC Rationalization GO) — each has its own seat pool and cutoff",
+    },
+    {
+      key: "Seat pools",
+      value:
+        "Male and female seats close at different ranks; pick the one that applies to you",
+    },
+    {
+      key: "Local area",
+      value:
+        "The 2025 source publishes one state-wide rank per seat, not OU/KU/TGUR sub-pools — your own local-area cutoff may be slightly easier",
+    },
   ],
   getDataPath: () => {
     return path.join(
@@ -1324,44 +1342,33 @@ export const tseApertConfig = {
   },
   getFilters: (query) => {
     const userRank = parseInt(query.rank, 10);
-    const queryCategory = query.category?.toUpperCase().replace(/-/g, "_");
+    // pages/index.js submits selectedOption.label, so match on the label text
+    // ("BC-A", "SC-I") normalised to the stored value ("bc_a", "sc_i").
+    const queryCategory = query.category?.toLowerCase().replace(/-/g, "_");
     const queryGender = query.gender?.toLowerCase();
-    const queryRegion = query.region;
 
-    const baseFilters = [
+    return [
       (item) => {
-        // Case 1: If EWS category is selected, also include OC category
-        if (queryCategory === "EWS") {
-          return item.category === "EWS" || item.category === "OC";
-        }
-        // Normal category matching
+        if (!queryCategory) return true;
+        // No EWS->OC fallback any more. The 2024 file had no usable EWS rows so
+        // the old config OR-ed in OC to avoid an empty page; the 2025 source
+        // publishes a real EWS pool (1,859 rows), and OR-ing OC in now just
+        // shows a student seats they are not competing for.
         return item.category === queryCategory;
       },
       (item) => {
-        // Gender filter
+        if (!queryGender) return true;
         return item.gender?.toLowerCase() === queryGender;
       },
       (item) => {
-        // Only include items where closing_rank is greater than or equal to user's rank
+        // Lower rank = harder, so a seat is reachable when its closing rank is
+        // at or beyond the student's rank.
         const itemRank = parseInt(item.closing_rank, 10);
         return !isNaN(itemRank) && itemRank >= userRank;
       },
     ];
-
-    // Add region filter if specified
-    if (queryRegion) {
-      baseFilters.push((item) => {
-        // Case 2: If OU region is selected, also include items with same category/gender from Other region
-        if (queryRegion === "OU") {
-          return item.region === "OU" || item.region === "other";
-        }
-        // For Other region, only include items from Other region
-        return item.region !== "OU";
-      });
-    }
-
-    return baseFilters;
   },
+  getSort: () => [["closing_rank", "ASC"]],
 };
 
 export const gujcetConfig = {
