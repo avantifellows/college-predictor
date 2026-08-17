@@ -173,10 +173,26 @@ export default async function handler(req, res) {
 
     const rankFilter = (item) => {
       if (exam === "GUJCET") {
-        // For GUJCET, filter based on closing_marks
-        const cutoffMarks = parseFloat(item.closing_marks) || 0;
-        const userMarks = parseFloat(rank) || 0;
-        return userMarks >= cutoffMarks * 0.9; // Show if user marks are >= 90% of cutoff
+        // Two different quantities, so two different comparisons.
+        //
+        // Engineering/Pharmacy: the student enters their ACPC merit RANK, and a
+        // seat is reachable when its closing rank is at or beyond that rank
+        // (lower rank = harder). This replaced a comparison against
+        // closing_marks that assumed the student had already computed ACPC's
+        // 50:50 composite themselves.
+        //
+        // Medical: no rank exists in that source at all, only raw NEET scores,
+        // so it stays a score comparison.
+        if (req.query.program === "Medical") {
+          const cutoffMarks = parseFloat(item.closing_marks);
+          const userMarks = parseFloat(rank);
+          if (!Number.isFinite(cutoffMarks) || !Number.isFinite(userMarks)) return false;
+          return userMarks >= cutoffMarks;
+        }
+        const closingRank = parseFloat(item.closing_rank);
+        const userRank = parseFloat(rank);
+        if (!Number.isFinite(closingRank) || !Number.isFinite(userRank)) return false;
+        return closingRank >= userRank;
       } else if (exam === "NEET") {
         // For NEET, filter based on closing rank with 0.9 coefficient
         const closingRank = parseFloat(item["Closing Rank"]) || 0;

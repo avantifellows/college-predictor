@@ -1375,23 +1375,22 @@ export const gujcetConfig = {
   name: "GUJCET",
   code: "GUJCET",
   searchKeys: ["College Name", "District", "Course"],
-  primaryInput: decimalInput("Enter Percentage Score", "e.g., 78.45"),
-  // GUJCET's three programs are not measured in the same unit. Engineering and
-  // Pharmacy cutoffs are a 0-100 composite percentile (GUJCET + JEE + Class 12),
-  // but the Medical rows are raw NEET marks — the data runs from 28 to 690 out
-  // of 720. A single 0-100 field asked medical students for the wrong quantity
-  // AND capped them at 100, so ~2/3 of the 753 medical rows were unreachable no
-  // matter what they typed. Switch the label, placeholder and max with the
-  // program so the field always states the unit it actually wants.
+  // Default is the ACPC merit RANK, which is what Engineering and Pharmacy
+  // students actually hold: ACPC publishes a merit number on the merit card and
+  // runs its own estimated-rank tool, so a rank is a real thing a student can
+  // look up. The old "Enter Percentage Score" field asked instead for the
+  // composite merit SCORE and compared it straight against closing_marks —
+  // which silently assumed the student had already computed ACPC's 50:50
+  // themselves, while the label invited them to type a Class 12 percentage.
+  primaryInput: integerInput("Enter ACPC Merit Rank", "e.g., 6450"),
+  // Medical is the exception: those rows carry raw NEET scores (28..690 of 720)
+  // and NO rank at all, so it keeps a score input.
   refinePrimaryInput: (base, formData) => {
     if (formData?.program !== "Medical") return base;
     return {
-      ...base,
-      label: "Enter NEET Score (out of 720)",
-      placeholder: "e.g., 545",
-      max: "720",
+      ...decimalInput("Enter NEET Score (out of 720)", "e.g., 545", "720"),
       helperText:
-        "Gujarat's medical seats are allotted on the NEET score, not a GUJCET percentage.",
+        "Gujarat's medical seats are allotted on the NEET score, not a GUJCET percentage or an ACPC rank.",
     };
   },
   fields: [
@@ -1440,9 +1439,14 @@ export const gujcetConfig = {
     },
     { key: "ESM", value: "Ex-Servicemen" },
     {
-      key: "Engineering merit",
+      key: "ACPC merit rank",
       value:
-        "GUJCET \u2153 + JEE Main \u2153 + Class 12 \u2153 composite — not a raw GUJCET score",
+        "Your Home-State rank on ACPC's merit list — printed on your merit card. Merit = 50% Class 12 THEORY percentile in PCM + 50% GUJCET percentile (not percentages, and JEE Main is not part of it)",
+    },
+    {
+      key: "JEE Main seats",
+      value:
+        "A separate 5% All-India quota with its own merit list, ranked purely on JEE Main AIR — not shown here",
     },
   ],
   getDataPath: () => {
@@ -1464,14 +1468,15 @@ export const gujcetConfig = {
       },
     ];
   },
-  // Percentile DESC (higher composite score = harder seat) with merit rank ASC
-  // as the tiebreaker. The fallback is what orders the 8 pharmacy ESM rows,
-  // whose closing_marks is null upstream but whose published closing_rank is
-  // real. Medical is the reverse case — raw NEET marks, no rank at all — so it
-  // relies on the first key. Neither stream ends up unordered.
+  // Merit rank ASC (hardest seat first) with the composite percentile DESC as
+  // the tiebreaker. Ordering the results the same way the student's own input
+  // is measured keeps "how close am I?" readable down the page. Medical is the
+  // reverse case — raw NEET marks, no rank at all — so it falls through to the
+  // second key. Nulls sort last in either direction (see exam-result.js), which
+  // is what keeps the 8 pharmacy ESM rows (null percentile, real rank) ordered.
   getSort: () => [
-    ["closing_marks", "DESC"],
     ["closing_rank", "ASC"],
+    ["closing_marks", "DESC"],
   ],
 };
 

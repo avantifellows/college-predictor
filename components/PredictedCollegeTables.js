@@ -451,18 +451,19 @@ const PredictedCollegesTable = ({
       { key: "College Name", label: "College Name" },
       { key: "District", label: "District" },
       { key: "Course", label: "Course" },
-      {
-        key: "closing_marks",
-        label: isGujcetMedical ? "Cutoff NEET Score" : "Cutoff Percentage",
-        format: isGujcetMedical ? formatNeetScore : formatPercentage,
-      },
-      // ACPC's headline number, and the only cutoff available for the rows
-      // whose percentile is NULL (pharmacy ESM). The medical source carries no
-      // rank at all, so the column is dropped there rather than showing 444
-      // rows of "N/A".
+      // Closing rank leads for Engineering/Pharmacy because that is now the
+      // unit the student typed in, so the comparison is direct. It is also the
+      // only cutoff for the 8 pharmacy ESM rows, whose percentile is NULL
+      // upstream. Medical has no rank at all in its source, so the column is
+      // dropped there rather than showing 444 rows of "N/A".
       ...(isGujcetMedical
         ? []
         : [{ key: "closing_rank", label: "Closing Rank" }]),
+      {
+        key: "closing_marks",
+        label: isGujcetMedical ? "Cutoff NEET Score" : "Cutoff Merit Score",
+        format: isGujcetMedical ? formatNeetScore : formatPercentage,
+      },
     ],
     KCET: [
       { key: "institute", label: "Institute" },
