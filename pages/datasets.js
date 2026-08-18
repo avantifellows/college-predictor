@@ -75,7 +75,7 @@ export default function Datasets() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(MANIFEST_URL, { cache: "no-store" })
+    fetch(`${MANIFEST_URL}?t=${Date.now()}`, { cache: "no-store" })
       .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
       .then(setManifest)
       .catch(() => setError("Could not load the dataset list right now."));
@@ -95,11 +95,13 @@ export default function Datasets() {
         <div className="rounded-2xl border border-[#eaded8] bg-white p-6 shadow-sm">
           <h1 className="text-2xl font-bold text-[#332724]">Open Datasets</h1>
           <p className="mt-2 text-[#685851]">
-            The public admissions data behind this site — official counselling
-            documents and the tables we extracted from them — free to download
-            and reuse (CC BY 4.0, attribution appreciated). Cutoffs shift every
-            year: verify with the official counselling authority before acting
-            on any number.
+            The public admissions data behind this site: official counselling
+            documents, and the tables we extracted from them. Free to download
+            and reuse (CC BY 4.0, attribution appreciated).
+          </p>
+          <p className="mt-2 text-[#685851]">
+            Note: cutoffs shift every year. Verify with the official
+            counselling authority before acting on any number.
           </p>
           <p className="mt-2 text-sm text-[#685851]">
             <span className="rounded border border-[#eaded8] bg-[#fdf8f4] px-1.5 py-0.5">
@@ -108,7 +110,7 @@ export default function Datasets() {
             <span className="rounded border border-[#1F9E8F]/25 bg-[#1F9E8F]/5 px-1.5 py-0.5 text-[#166f64]">
               extracted table
             </span>{" "}
-            — personal-identifier columns (names, roll numbers) are removed from
+            personal-identifier columns (names, roll numbers) are removed from
             extracted tables before publishing.
           </p>
         </div>
