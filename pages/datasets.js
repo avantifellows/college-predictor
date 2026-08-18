@@ -43,14 +43,14 @@ const FileChip = ({ f }) => {
   );
 };
 
-const GroupRow = ({ group, files }) => {
+const GroupRow = ({ group, files, noteMissingSource }) => {
   const raw = files.filter((f) => f.kind === "raw");
   const extracted = files.filter((f) => f.kind === "extracted");
   return (
     <div className="grid gap-2 border-b border-[#f0e6de] px-4 py-3 last:border-b-0 sm:grid-cols-[11rem_1fr] sm:gap-4">
       <p className="pt-1 font-semibold text-[#332724]">{group}</p>
       <div className="flex min-w-0 flex-col gap-1.5">
-        {raw.length === 0 && (
+        {raw.length === 0 && noteMissingSource && (
           <p className="text-xs italic text-[#9b8a82]">
             Original document not archived.
           </p>
@@ -126,7 +126,12 @@ const DatasetCard = ({ ds, defaultOpen }) => {
             )}
           </p>
           {order.map((g) => (
-            <GroupRow key={g} group={g} files={groups[g]} />
+            <GroupRow
+              key={g}
+              group={g}
+              files={groups[g]}
+              noteMissingSource={ds.note_missing_source}
+            />
           ))}
         </>
       )}
@@ -160,9 +165,10 @@ export default function Datasets() {
         <div className="rounded-2xl border border-[#eaded8] bg-white p-6 shadow-sm">
           <h1 className="text-2xl font-bold text-[#332724]">Open Datasets</h1>
           <p className="mt-2 text-[#685851]">
-            The public admissions data behind this site: official counselling
-            documents, and the tables we extracted from them. Free to download
-            and reuse (CC BY 4.0, attribution appreciated).
+            The public data behind our work: admissions cutoffs, institution
+            directories, rankings and education statistics. Official documents,
+            and the tables we extracted from them. Free to download and reuse
+            (CC BY 4.0, attribution appreciated).
           </p>
           <p className="mt-2 text-[#685851]">
             Note: Cutoffs shift every year. Verify with the official
@@ -197,11 +203,26 @@ export default function Datasets() {
           <p className="mt-6 text-center text-[#685851]">Loading…</p>
         )}
 
-        {(Array.isArray(manifest?.datasets) ? manifest.datasets : []).map(
-          (ds) => (
-            <DatasetCard key={ds.id} ds={ds} defaultOpen={false} />
-          )
-        )}
+        {[
+          ["admissions", "Admissions and counselling"],
+          ["education-statistics", "Institutions and education statistics"],
+        ].map(([cat, heading]) => {
+          const list = (Array.isArray(manifest?.datasets)
+            ? manifest.datasets
+            : []
+          ).filter((d) => (d.category || "admissions") === cat);
+          if (!list.length) return null;
+          return (
+            <div key={cat} className="mt-8">
+              <h2 className="mb-1 text-lg font-bold uppercase tracking-wide text-[#332724]">
+                {heading}
+              </h2>
+              {list.map((ds) => (
+                <DatasetCard key={ds.id} ds={ds} defaultOpen={false} />
+              ))}
+            </div>
+          );
+        })}
 
         {manifest && (
           <p className="mt-6 text-center text-xs text-[#685851]">
