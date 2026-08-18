@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Head from "next/head";
-import { Download } from "lucide-react";
+import { ChevronDown, Download } from "lucide-react";
 import getConstants from "../constants";
 
 // Rendered entirely from the PUBLIC manifest: what you see is exactly what is
@@ -52,8 +52,7 @@ const GroupRow = ({ group, files }) => {
       <div className="flex min-w-0 flex-col gap-1.5">
         {raw.length === 0 && (
           <p className="text-xs italic text-[#9b8a82]">
-            This table comes from the state’s official counselling
-            publication, but we did not save a copy of the original document.
+            Original document not archived.
           </p>
         )}
         {raw.length > 0 && (
@@ -71,6 +70,51 @@ const GroupRow = ({ group, files }) => {
           </div>
         )}
       </div>
+    </div>
+  );
+};
+
+const DatasetCard = ({ ds, defaultOpen }) => {
+  const [open, setOpen] = useState(defaultOpen);
+  const groups = {};
+  for (const f of ds.files) {
+    const g = f.title.split(" — ")[0];
+    (groups[g] = groups[g] || []).push(f);
+  }
+  const order = Object.keys(groups).sort((a, b) => {
+    const na = NATIONAL.findIndex((n) => a.startsWith(n));
+    const nb = NATIONAL.findIndex((n) => b.startsWith(n));
+    if (na >= 0 !== nb >= 0) return na >= 0 ? -1 : 1;
+    if (na >= 0 && nb >= 0) return na - nb;
+    return a.localeCompare(b);
+  });
+  return (
+    <div className="mt-4 overflow-hidden rounded-xl border border-[#eaded8] bg-white shadow-sm">
+      <button
+        onClick={() => setOpen(!open)}
+        className="flex w-full items-center justify-between gap-3 px-4 py-3.5 text-left transition hover:bg-[#fdf8f4]"
+      >
+        <span className="flex flex-wrap items-baseline gap-x-3 gap-y-0.5">
+          <span className="text-lg font-bold text-[#332724]">{ds.title}</span>
+          <span className="font-mono text-sm text-[#685851]">
+            {ds.files.length} {ds.files.length === 1 ? "file" : "files"}
+          </span>
+        </span>
+        <ChevronDown
+          size={20}
+          className={`shrink-0 text-[#685851] transition-transform ${open ? "rotate-180" : ""}`}
+        />
+      </button>
+      {open && (
+        <>
+          <p className="border-b border-t border-[#f0e6de] px-4 py-2.5 text-sm italic text-[#685851]">
+            {ds.blurb}
+          </p>
+          {order.map((g) => (
+            <GroupRow key={g} group={g} files={groups[g]} />
+          ))}
+        </>
+      )}
     </div>
   );
 };
@@ -138,36 +182,11 @@ export default function Datasets() {
           <p className="mt-6 text-center text-[#685851]">Loading…</p>
         )}
 
-        {(Array.isArray(manifest?.datasets) ? manifest.datasets : []).map((ds) => {
-          const groups = {};
-          for (const f of ds.files) {
-            const g = f.title.split(" — ")[0];
-            (groups[g] = groups[g] || []).push(f);
-          }
-          const order = Object.keys(groups).sort((a, b) => {
-            const na = NATIONAL.findIndex((n) => a.startsWith(n));
-            const nb = NATIONAL.findIndex((n) => b.startsWith(n));
-            if (na >= 0 !== nb >= 0) return na >= 0 ? -1 : 1;
-            if (na >= 0 && nb >= 0) return na - nb;
-            return a.localeCompare(b);
-          });
-          return (
-            <div key={ds.id} className="mt-8">
-              <div className="mb-1 flex flex-wrap items-baseline justify-between gap-2">
-                <h2 className="text-xl font-bold text-[#332724]">{ds.title}</h2>
-                <span className="font-mono text-sm text-[#685851]">
-                  {ds.files.length} files
-                </span>
-              </div>
-              <p className="mb-3 text-sm text-[#685851]">{ds.blurb}</p>
-              <div className="overflow-hidden rounded-xl border border-[#eaded8] bg-white shadow-sm">
-                {order.map((g) => (
-                  <GroupRow key={g} group={g} files={groups[g]} />
-                ))}
-              </div>
-            </div>
-          );
-        })}
+        {(Array.isArray(manifest?.datasets) ? manifest.datasets : []).map(
+          (ds, i) => (
+            <DatasetCard key={ds.id} ds={ds} defaultOpen={i === 0} />
+          )
+        )}
 
         {manifest && (
           <p className="mt-6 text-center text-xs text-[#685851]">
