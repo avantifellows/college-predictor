@@ -52,8 +52,8 @@ const GroupRow = ({ group, files }) => {
       <div className="flex min-w-0 flex-col gap-1.5">
         {raw.length === 0 && (
           <p className="text-xs italic text-[#9b8a82]">
-            Source document not in our archive; the table below was extracted
-            upstream in the state counselling pipeline.
+            This table comes from the state’s official counselling
+            publication, but we did not save a copy of the original document.
           </p>
         )}
         {raw.length > 0 && (
