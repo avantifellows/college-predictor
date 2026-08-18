@@ -109,6 +109,21 @@ const DatasetCard = ({ ds, defaultOpen }) => {
         <>
           <p className="border-b border-t border-[#f0e6de] px-4 py-2.5 text-sm italic text-[#685851]">
             {ds.blurb}
+            {ds.source && (
+              <>
+                {" "}
+                Official source:{" "}
+                <a
+                  href={ds.source.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:text-[#B52326]"
+                >
+                  {ds.source.label}
+                </a>
+                .
+              </>
+            )}
           </p>
           {order.map((g) => (
             <GroupRow key={g} group={g} files={groups[g]} />
