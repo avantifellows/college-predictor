@@ -492,20 +492,26 @@ export const neetUGConfig = {
       // the states we currently have state-quota data for.
       options: [
         { value: "Andhra Pradesh", label: "Andhra Pradesh" },
+        { value: "Assam", label: "Assam" },
         { value: "Bihar", label: "Bihar" },
+        { value: "Chandigarh", label: "Chandigarh" },
         { value: "Chhattisgarh", label: "Chhattisgarh" },
         { value: "Gujarat", label: "Gujarat" },
         { value: "Haryana", label: "Haryana" },
         { value: "Himachal Pradesh", label: "Himachal Pradesh" },
+        { value: "Jammu & Kashmir", label: "Jammu & Kashmir" },
         { value: "Karnataka", label: "Karnataka" },
         { value: "Kerala", label: "Kerala" },
         { value: "Madhya Pradesh", label: "Madhya Pradesh" },
         { value: "Maharashtra", label: "Maharashtra" },
+        { value: "Manipur", label: "Manipur" },
+        { value: "Mizoram", label: "Mizoram" },
         { value: "Odisha", label: "Odisha" },
         { value: "Punjab", label: "Punjab" },
         { value: "Rajasthan", label: "Rajasthan" },
         { value: "Tamil Nadu", label: "Tamil Nadu" },
         { value: "Telangana", label: "Telangana" },
+        { value: "Tripura", label: "Tripura" },
         { value: "Uttar Pradesh", label: "Uttar Pradesh" },
         { value: "Uttarakhand", label: "Uttarakhand" },
         { value: "West Bengal", label: "West Bengal" },
@@ -1013,6 +1019,18 @@ export const kcetConfig = {
 export const tneaConfig = {
   name: "TNEA",
   searchKeys: ["Institute", "Course", "District"],
+  // TNEA admits on a 200-point cutoff mark, NOT a rank — the global default
+  // label ("Enter Rank") was simply wrong here, and the field is filled by the
+  // marks calculator rather than typed directly.
+  primaryInput: {
+    label: "TNEA Cutoff Score",
+    placeholder: "e.g., 178.5",
+    inputType: "number",
+    step: "0.5",
+    min: "0",
+    max: "200",
+    allowDecimal: true,
+  },
   fields: [
     {
       name: "category",
@@ -1033,11 +1051,17 @@ export const tneaConfig = {
     {
       name: "courseType",
       label: "Select Course Type",
+      // Generated from the data (57 canonical courses). The hand-written list
+      // had 16, hiding 53 real courses — VLSI (129 rows), Electronics &
+      // Instrumentation (91), Food Technology (97), AI & ML (78), Cyber
+      // Security and 48 more were unreachable. "(Ss)" suffixes are stripped:
+      // self-supporting is already its own column, so the suffix only split
+      // the same course into two dropdown entries.
       options: [
         "Any",
         "Computer Science",
-        "Artificial Intelligence And Data Science",
         "Electronics and Communications (ECE)",
+        "Artificial Intelligence And Data Science",
         "Information Technology",
         "Mechanical",
         "Electrical and Electronics (EEE)",
@@ -1045,12 +1069,53 @@ export const tneaConfig = {
         "Biomedical",
         "Bio Technology",
         "Agricultural Engineering",
+        "Aerospace",
         "Mechatronics Engineering",
         "Chemical Engineering",
-        "Aerospace",
-        "Automobile",
+        "Electronics Engineering (Vlsi Design And Technology)",
         "Robotics",
+        "Food Technology",
+        "Electronics And Instrumentation Engineering",
+        "Automobile",
+        "Artificial Intelligence And Machine Learning",
+        "Computer And Communication Engineering",
+        "Pharmaceutical Technology",
+        "Fashion Technology",
+        "Textile Technology",
         "Electrical Engineering",
+        "Instrumentation And Control Engineering",
+        "Medical Electronics Engineering",
+        "Petro Chemical Technology",
+        "Production Engineering",
+        "Industrial Bio Technology",
+        "Metallurgical Engineering",
+        "Cyber Security",
+        "Electronics And Computer Engineering",
+        "Geo Informatics",
+        "Petroleum Engineering",
+        "Manufacturing Engineering",
+        "Safety And Fire Engineering",
+        "Interior Design",
+        "B.Plan",
+        "Ceramic Technology",
+        "Handloom And Textile Technology",
+        "Industrial Engineering",
+        "Leather Technology",
+        "Mechatronics",
+        "Apparel Technology",
+        "Bio Technology And Bio Chemical Engineering",
+        "Material Science And Engineering",
+        "Mining Engineering",
+        "Petroleum Engineering And Technology",
+        "Plastic Technology",
+        "Printing & Packing Technology",
+        "Rubber And Plastic Technology",
+        "Chemical And Electro Chemical Engineering",
+        "Environmental Engineering",
+        "Bachelor Of Design",
+        "Marine Engineering",
+        "Environmental Science & Technology",
+        "Industrial Engineering And Management",
       ],
     },
     {
@@ -1109,11 +1174,22 @@ export const tneaConfig = {
   },
   getFilters: (query) => [
     (item) => item.Category === query.category,
-    (item) => query.courseType === "Any" || item.Course === query.courseType,
+    (item) => {
+      if (!query.courseType || query.courseType === "Any") return true;
+      // The dropdown offers canonical names; the data still carries the
+      // "(Ss)" self-supporting suffix on 132 rows. Strip it so picking
+      // "Chemical Engineering" also returns "Chemical Engineering (Ss)" —
+      // the Self Supporting column already records that distinction.
+      const canonical = String(item.Course || "").replace(/\s*\(Ss\)$/i, "");
+      return canonical === query.courseType;
+    },
     (item) => item.District === query.district || "Any" === query.district,
     (item) =>
       item["College Type"] === query.collegeType || "Any" === query.collegeType,
   ],
+  // Cutoff marks DESC — the closest-to-reach seats first, same direction the
+  // student's own score is measured in.
+  getSort: () => [["Cutoff Marks", "DESC"]],
 };
 
 export const josaaConfig = {

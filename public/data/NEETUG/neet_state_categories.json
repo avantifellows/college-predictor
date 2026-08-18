@@ -331,32 +331,20 @@
  ],
  "Himachal Pradesh": [
   {
-   "value": "EWS",
-   "label": "EWS"
-  },
-  {
    "value": "General",
    "label": "General"
   },
   {
-   "value": "J&K Migrant",
-   "label": "J&K Migrant"
-  },
-  {
    "value": "OBC",
-   "label": "OBC \u2014 OBC-NCL"
+   "label": "OBC"
   },
   {
    "value": "SC",
-   "label": "SC"
+   "label": "SC \u2014 Scheduled Caste"
   },
   {
    "value": "ST",
-   "label": "ST"
-  },
-  {
-   "value": "Single Girl Child",
-   "label": "Single Girl Child"
+   "label": "ST \u2014 Scheduled Tribe"
   }
  ],
  "Karnataka": [
@@ -1581,6 +1569,122 @@
   {
    "value": "UR PwD",
    "label": "UR PwD"
+  }
+ ],
+ "Assam": [
+  {
+   "value": "EWS",
+   "label": "EWS"
+  },
+  {
+   "value": "OBC/MOBC(NCL)",
+   "label": "OBC/MOBC(NCL) \u2014 OBC / MOBC (Non-Creamy Layer)"
+  },
+  {
+   "value": "SC",
+   "label": "SC \u2014 Scheduled Caste"
+  },
+  {
+   "value": "ST(H)",
+   "label": "ST(H) \u2014 Scheduled Tribe (Hills)"
+  },
+  {
+   "value": "ST(P)",
+   "label": "ST(P) \u2014 Scheduled Tribe (Plains)"
+  },
+  {
+   "value": "UR",
+   "label": "UR \u2014 Unreserved / General"
+  }
+ ],
+ "Jammu & Kashmir": [
+  {
+   "value": "EWS",
+   "label": "EWS"
+  },
+  {
+   "value": "OBC",
+   "label": "OBC"
+  },
+  {
+   "value": "OM",
+   "label": "OM \u2014 Open Merit (J&K General)"
+  },
+  {
+   "value": "SC",
+   "label": "SC \u2014 Scheduled Caste"
+  },
+  {
+   "value": "ST",
+   "label": "ST \u2014 Scheduled Tribe"
+  }
+ ],
+ "Manipur": [
+  {
+   "value": "Gen",
+   "label": "Gen \u2014 General"
+  },
+  {
+   "value": "OBC",
+   "label": "OBC"
+  },
+  {
+   "value": "SC",
+   "label": "SC \u2014 Scheduled Caste"
+  },
+  {
+   "value": "ST",
+   "label": "ST \u2014 Scheduled Tribe"
+  }
+ ],
+ "Tripura": [
+  {
+   "value": "Gen",
+   "label": "Gen \u2014 General"
+  },
+  {
+   "value": "Gen-EWS",
+   "label": "Gen-EWS \u2014 EWS"
+  },
+  {
+   "value": "OBC",
+   "label": "OBC"
+  },
+  {
+   "value": "SC",
+   "label": "SC \u2014 Scheduled Caste"
+  },
+  {
+   "value": "ST",
+   "label": "ST \u2014 Scheduled Tribe"
+  }
+ ],
+ "Mizoram": [
+  {
+   "value": "ST",
+   "label": "ST \u2014 Scheduled Tribe"
+  }
+ ],
+ "Chandigarh": [
+  {
+   "value": "Gen-EWS",
+   "label": "Gen-EWS \u2014 EWS"
+  },
+  {
+   "value": "General",
+   "label": "General"
+  },
+  {
+   "value": "OBC- NCL (Central List)",
+   "label": "OBC- NCL (Central List)"
+  },
+  {
+   "value": "SC",
+   "label": "SC \u2014 Scheduled Caste"
+  },
+  {
+   "value": "ST",
+   "label": "ST \u2014 Scheduled Tribe"
   }
  ]
 }
