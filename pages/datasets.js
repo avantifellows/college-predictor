@@ -30,7 +30,7 @@ const FileChip = ({ f }) => {
       }
       className={`group inline-flex max-w-full items-center gap-1.5 rounded-lg border px-2.5 py-1.5 text-sm transition hover:shadow-sm ${
         f.kind === "raw"
-          ? "border-[#eaded8] bg-[#fdf8f4] text-[#5c4a42] hover:border-[#B52326]/40"
+          ? "border-[#D77C11]/40 bg-[#FFB763]/15 text-[#8a5209] hover:border-[#D77C11]/70"
           : "border-[#1F9E8F]/25 bg-[#1F9E8F]/5 text-[#166f64] hover:border-[#1F9E8F]/60"
       }`}
     >
@@ -159,8 +159,8 @@ export default function Datasets() {
           <span className="text-sm font-semibold uppercase tracking-wide text-[#332724]">
             Legend
           </span>
-          <span className="inline-flex items-center gap-2 text-sm text-[#5c4a42]">
-            <span className="h-3.5 w-6 rounded border border-[#eaded8] bg-[#fdf8f4]" />
+          <span className="inline-flex items-center gap-2 text-sm text-[#8a5209]">
+            <span className="h-3.5 w-6 rounded border border-[#D77C11]/40 bg-[#FFB763]/25" />
             Official document
           </span>
           <span className="inline-flex items-center gap-2 text-sm text-[#166f64]">
@@ -183,8 +183,8 @@ export default function Datasets() {
         )}
 
         {(Array.isArray(manifest?.datasets) ? manifest.datasets : []).map(
-          (ds, i) => (
-            <DatasetCard key={ds.id} ds={ds} defaultOpen={i === 0} />
+          (ds) => (
+            <DatasetCard key={ds.id} ds={ds} defaultOpen={false} />
           )
         )}
 
