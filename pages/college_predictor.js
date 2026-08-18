@@ -114,10 +114,50 @@ const isJosaaEstimationSupportedCategory = (category) =>
 const josaaPwdEstimateError =
   "Rank estimation is currently unavailable for PwD categories. Please switch to 'No,I know my rank' and enter your rank directly.";
 
+// Which single filter emptied the result set?
+//
+// Re-runs the query with one optional filter relaxed at a time and returns the
+// first relaxation that finds seats. Only fields the student can loosen are
+// tried — never category or the score itself, which are facts about them
+// rather than preferences.
+const RELAXABLE = [
+  { key: "collegeType", label: "college type", any: "Any" },
+  { key: "district", label: "district", any: "Any" },
+  { key: "courseType", label: "course", any: "Any" },
+  { key: "program", label: "program", any: null },
+];
+
+const findEmptyHint = async (query, signal) => {
+  const clean = getCleanQueryObject(query);
+  for (const { key, label, any } of RELAXABLE) {
+    const current = clean[key];
+    if (!current || current === any) continue;
+    const relaxed = { ...clean };
+    if (any === null) delete relaxed[key];
+    else relaxed[key] = any;
+    try {
+      const res = await fetch(
+        `/api/exam-result?${new URLSearchParams(relaxed).toString()}`,
+        { signal }
+      );
+      if (!res.ok) continue;
+      const rows = await res.json();
+      if (Array.isArray(rows) && rows.length > 0) {
+        return { key, label, current, count: rows.length };
+      }
+    } catch (e) {
+      if (e.name === "AbortError") return null;
+    }
+  }
+  return null;
+};
+
 const CollegePredictor = () => {
   const router = useRouter();
   const [filteredData, setFilteredData] = useState([]);
   const [fullData, setFullData] = useState([]);
+  // When a query returns nothing, which single filter caused it (if any).
+  const [emptyHint, setEmptyHint] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [queryObject, setQueryObject] = useState({});
@@ -257,6 +297,16 @@ const CollegePredictor = () => {
         setFullData(data);
         setFilteredData(data);
         setError(null);
+        setEmptyHint(null);
+        // Zero results is usually ONE over-restrictive filter, not a genuinely
+        // impossible profile — e.g. TNEA "State Government" is 10% of the data,
+        // so OC + CS + Chennai + State Government matches 2 seats that close at
+        // 199.5/200 while 62 colleges are reachable if private is included.
+        // Re-run the query with each optional filter relaxed in turn and tell
+        // the student which one to change, instead of a dead end.
+        if (Array.isArray(data) && data.length === 0) {
+          findEmptyHint(query, controller.signal).then(setEmptyHint);
+        }
       }
     } catch (error) {
       if (error.name === "AbortError") {
@@ -303,6 +353,18 @@ const CollegePredictor = () => {
     }, 500),
     [router, rankMode] // router as dependency
   );
+
+  // Apply the fix the empty-state suggests, so the student does not have to
+  // reopen Edit Filters and hunt for the field.
+  const relaxFilter = (key) => {
+    const next = { ...queryObject };
+    const spec = RELAXABLE.find((r) => r.key === key);
+    if (spec && spec.any !== null) next[key] = spec.any;
+    else delete next[key];
+    setEmptyHint(null);
+    setQueryObject(next);
+    debouncedRouterPush(next);
+  };
 
   const handleQueryObjectChange = (key) => (selectedOption) => {
     // react-select fires onChange(null) when a clearable dropdown is cleared
@@ -1208,11 +1270,33 @@ const CollegePredictor = () => {
               />
             </>
           ) : (
-            <div className="text-center py-10">
-              <p className="text-xl text-gray-600">
-                No predictions available for your current selection. Try
-                adjusting the filters.
+            <div className="mx-auto max-w-xl py-10 text-center">
+              <p className="text-lg font-semibold text-[#4a3935]">
+                No colleges match this combination.
               </p>
+              {emptyHint ? (
+                <>
+                  <p className="mt-2 text-sm leading-6 text-[#6d5550]">
+                    Your <strong>{emptyHint.label}</strong> filter (
+                    {emptyHint.current}) is the reason.{" "}
+                    <strong>{emptyHint.count.toLocaleString()}</strong>{" "}
+                    {emptyHint.count === 1 ? "option opens" : "options open"} up
+                    without it.
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => relaxFilter(emptyHint.key)}
+                    className="mt-4 inline-flex rounded-full bg-[#8f2e31] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#7a2628]"
+                  >
+                    Clear {emptyHint.label} filter
+                  </button>
+                </>
+              ) : (
+                <p className="mt-2 text-sm leading-6 text-[#6d5550]">
+                  Try widening a filter — college type and district are usually
+                  the most restrictive.
+                </p>
+              )}
             </div>
           )}
         </div>

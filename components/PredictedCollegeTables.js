@@ -278,16 +278,25 @@ const PredictedCollegesTable = ({
     }));
   };
 
-  const getRowKey = (transformedItem) => {
+  // The row index is appended because these fields do not uniquely identify a
+  // row in every exam — TNEA can list the same college+course+category+cutoff
+  // twice (different branch codes), which produced duplicate React keys and the
+  // "two children with the same key" warning, with rows liable to be omitted or
+  // duplicated on re-render. The identifying fields stay in the key so it is
+  // still stable for a given position rather than being a bare index.
+  const getRowKey = (transformedItem, index) => {
     const parts = [
       transformedItem.institute,
       transformedItem.institute_name,
+      transformedItem["Institute ID"],
       transformedItem.academic_program_name,
       transformedItem.branch_name,
+      transformedItem.Branch,
       transformedItem.category || transformedItem.Category,
       transformedItem.closing_rank,
+      index,
     ];
-    return parts.filter(Boolean).join("-");
+    return parts.filter((p) => p !== undefined && p !== null && p !== "").join("-");
   };
 
   const showSalaryTooltip = (event) => {
@@ -1175,7 +1184,7 @@ const PredictedCollegesTable = ({
 
     return rowsToRender.map((item, index) => {
       const transformedItem = transformData(item);
-      const rowKey = getRowKey(transformedItem);
+      const rowKey = getRowKey(transformedItem, index);
 
       return (
         <React.Fragment key={rowKey}>
