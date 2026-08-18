@@ -120,10 +120,15 @@ const expandedFields = {
   ],
   // TNEA - Tamil Nadu Engineering Admissions
   TNEA: [
-    { key: "Institute ID", label: "Institute ID" },
+    { key: "Institute ID", label: "TNEA College Code" },
+    { key: "Branch", label: "Branch (as published)" },
     { key: "District", label: "District" },
     { key: "College Type", label: "College Type" },
-    { key: "Cutoff Marks", label: "Cutoff Marks" },
+    { key: "Cutoff Marks", label: "Cutoff Marks (/200)" },
+    { key: "State Rank", label: "State Merit Rank" },
+    // (SS) = Self-Supporting section: a costlier self-financed stream INSIDE a
+    // govt/aided college — same seat-vs-college distinction as NEET.
+    { key: "Self Supporting", label: "Self-Supporting (SS)" },
   ],
   // MHT CET - Maharashtra Common Entrance Test
   "MHT CET": [

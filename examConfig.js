@@ -1025,8 +1025,9 @@ export const tneaConfig = {
         { value: "SC", label: "SC" },
         { value: "SCA", label: "SCA" },
         { value: "ST", label: "ST" },
-        { value: "PwD", label: "PwD" },
-        { value: "OBC", label: "OBC" },
+        // PwD and OBC removed 2026-08-18: TNEA publishes exactly these 7
+        // communities (no separate PwD column, and "OBC" is not a TN category —
+        // BC/BCM/MBC are). Both options returned wrong or no rows.
       ],
     },
     {
@@ -1035,12 +1036,17 @@ export const tneaConfig = {
       options: [
         "Any",
         "Computer Science",
+        "Artificial Intelligence And Data Science",
         "Electronics and Communications (ECE)",
+        "Information Technology",
         "Mechanical",
         "Electrical and Electronics (EEE)",
         "Civil",
-        "Information Technology",
         "Biomedical",
+        "Bio Technology",
+        "Agricultural Engineering",
+        "Mechatronics Engineering",
+        "Chemical Engineering",
         "Aerospace",
         "Automobile",
         "Robotics",
@@ -1054,7 +1060,6 @@ export const tneaConfig = {
         "State Government",
         "Private Aided (Government Aided)",
         "Private Un-Aided",
-        "University",
         "Any",
       ],
     },
@@ -1084,6 +1089,7 @@ export const tneaConfig = {
         "Salem",
         "Sivaganga",
         "Thanjavur",
+        "The Nilgiris",
         "Theni",
         "Thiruvallur",
         "Thiruvarur",
