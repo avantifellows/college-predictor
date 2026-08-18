@@ -53,6 +53,16 @@ const Navbar = ({ item1, item2 }) => {
             >
               {item2}
             </Link>
+            <Link
+              href="/datasets"
+              className={`rounded-full px-3 py-1.5 text-sm font-semibold transition ${
+                pathname === "/datasets"
+                  ? "bg-white/20"
+                  : "hover:bg-white/10 cursor-pointer"
+              }`}
+            >
+              Datasets
+            </Link>
           </div>
           <Link
             href="https://cv-generator.avantifellows.org/"
