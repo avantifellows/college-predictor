@@ -50,6 +50,12 @@ const GroupRow = ({ group, files }) => {
     <div className="grid gap-2 border-b border-[#f0e6de] px-4 py-3 last:border-b-0 sm:grid-cols-[11rem_1fr] sm:gap-4">
       <p className="pt-1 font-semibold text-[#332724]">{group}</p>
       <div className="flex min-w-0 flex-col gap-1.5">
+        {raw.length === 0 && (
+          <p className="text-xs italic text-[#9b8a82]">
+            Source document not in our archive; the table below was extracted
+            upstream in the state counselling pipeline.
+          </p>
+        )}
         {raw.length > 0 && (
           <div className="flex flex-wrap gap-1.5">
             {raw.map((f) => (
@@ -100,19 +106,27 @@ export default function Datasets() {
             and reuse (CC BY 4.0, attribution appreciated).
           </p>
           <p className="mt-2 text-[#685851]">
-            Note: cutoffs shift every year. Verify with the official
+            Note: Cutoffs shift every year. Verify with the official
             counselling authority before acting on any number.
           </p>
-          <p className="mt-2 text-sm text-[#685851]">
-            <span className="rounded border border-[#eaded8] bg-[#fdf8f4] px-1.5 py-0.5">
-              official document
-            </span>{" "}
-            <span className="rounded border border-[#1F9E8F]/25 bg-[#1F9E8F]/5 px-1.5 py-0.5 text-[#166f64]">
-              extracted table
-            </span>{" "}
-            personal-identifier columns (names, roll numbers) are removed from
+        </div>
+
+        <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 rounded-xl border border-[#eaded8] bg-white px-4 py-3 shadow-sm">
+          <span className="text-sm font-semibold uppercase tracking-wide text-[#332724]">
+            Legend
+          </span>
+          <span className="inline-flex items-center gap-2 text-sm text-[#5c4a42]">
+            <span className="h-3.5 w-6 rounded border border-[#eaded8] bg-[#fdf8f4]" />
+            Official document
+          </span>
+          <span className="inline-flex items-center gap-2 text-sm text-[#166f64]">
+            <span className="h-3.5 w-6 rounded border border-[#1F9E8F]/40 bg-[#1F9E8F]/10" />
+            Extracted table
+          </span>
+          <span className="text-sm text-[#685851]">
+            Personal-identifier columns (names, roll numbers) are removed from
             extracted tables before publishing.
-          </p>
+          </span>
         </div>
 
         {error && (
