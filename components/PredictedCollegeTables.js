@@ -112,6 +112,11 @@ const expandedFields = {
   ],
   // KCET - Karnataka Common Entrance Test
   KCET: [
+    // Data Year is per-ROW because the streams have different vintages: Engineering
+    // is 2025 R3; Medical/Dental, Pharma, Agriculture, Architecture and BNYS are
+    // still CET-2021. Mixed vintages must be visible, never inferred (the GUJCET
+    // two-streams-two-years lesson).
+    { key: "Year", label: "Data Year" },
     { key: "Course Type", label: "Course Type" },
     { key: "State", label: "State" },
     { key: "Language", label: "Language" },

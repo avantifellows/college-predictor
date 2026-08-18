@@ -85,6 +85,7 @@ def build_engineering_rows(src: Path):
             rows.append({
                 "Institute": f"{r['college_code']}  {r['college_name']}".strip(),
                 "Course Type": "Engineering",
+                "Year": "2025",
                 "Academic Program Name": r["course_name"].strip(),
                 "Category": cat,
                 "State": "Karnataka" if hk else "All India",
@@ -96,6 +97,8 @@ def build_engineering_rows(src: Path):
     return rows
 
 
+# Every row carries a per-row "Year": engineering rows are 2025, the untouched
+# non-engineering streams remain 2021. Stamped again in main() so re-runs keep it.
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--src", type=Path, required=True,
@@ -105,6 +108,8 @@ def main():
 
     data = json.loads(args.app_json.read_text())
     non_eng = [r for r in data if r.get("Course Type") != "Engineering"]
+    for r in non_eng:                      # the untouched streams are CET-2021 vintage
+        r.setdefault("Year", "2021")
     old_eng = len(data) - len(non_eng)
 
     new_eng = build_engineering_rows(args.src)
