@@ -1,7 +1,13 @@
 import React, { useEffect, useMemo, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { ChevronDown, ChevronUp, ExternalLink, Search } from "lucide-react";
+
+// The app's shared react-select wrapper — searchable, so a 30-state list can be
+// narrowed by typing. A native <select> only jumps on the first letter, which is
+// unusable at this length.
+const Dropdown = dynamic(() => import("../components/dropdown"), { ssr: false });
 
 // The College tab: pure information display, one row per college.
 //
@@ -445,21 +451,22 @@ const Colleges = () => {
                 className="w-full rounded-xl border border-[#d8c7c1] bg-white py-2.5 pl-9 pr-3 text-sm outline-none transition focus:border-[#b52326] focus:ring-2 focus:ring-[#f4d5d6]"
               />
             </div>
-            <select
-              value={state}
-              onChange={(e) => setState(e.target.value)}
-              className="rounded-xl border border-[#d8c7c1] bg-white px-3 py-2.5 text-sm outline-none focus:border-[#b52326]"
-            >
-              {states.map((s) => (
-                <option key={s} value={s}>
-                  {s === "All" ? "All states" : `State: ${s}`}
-                </option>
-              ))}
-            </select>
+            <div>
+              <Dropdown
+                className="text-sm"
+                options={states.map((v) => ({
+                  value: v,
+                  label: v === "All" ? "All states" : v,
+                }))}
+                selectedValue={state}
+                onChange={(o) => setState(o ? o.value : "All")}
+                hideValueWhileSearching
+              />
+            </div>
             <select
               value={sortKey}
               onChange={(e) => setSortKey(e.target.value)}
-              className="rounded-xl border border-[#d8c7c1] bg-white px-3 py-2.5 text-sm outline-none focus:border-[#b52326]"
+              className="min-h-[48px] rounded-xl border border-[#d8c7c1] bg-[#fffdfa] px-3 text-sm outline-none focus:border-[#b52326]"
             >
               {Object.entries(SORTS).map(([k, v]) => (
                 <option key={k} value={k}>
