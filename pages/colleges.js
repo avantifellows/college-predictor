@@ -16,6 +16,9 @@ import { ChevronDown, ChevronUp, ExternalLink, Search } from "lucide-react";
 
 const DATA_URL = "/data/colleges/colleges.json";
 const PAGE_SIZE = 25;
+// NIRF publishes yearly; a rank from an older cycle means the college has not
+// appeared in the ranked band since, which is worth showing rather than hiding.
+const LATEST_NIRF = 2025;
 
 const fmtSalary = (v) => {
   if (v === null || v === undefined) return null;
@@ -77,7 +80,17 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
         </td>
         <td className="px-3 py-3 align-top tabular-nums">
           {nirf ? (
-            <span className="font-semibold text-[#332724]">#{nirf.engineering_rank}</span>
+            <>
+              <span className="font-semibold text-[#332724]">#{nirf.engineering_rank}</span>
+              {nirf.ranking_year < LATEST_NIRF ? (
+                <span
+                  className="ml-1 text-[11px] font-normal text-[#6d5550]"
+                  title={`Last ranked in NIRF ${nirf.ranking_year}; not in the ranked band since`}
+                >
+                  ({nirf.ranking_year})
+                </span>
+              ) : null}
+            </>
           ) : (
             <Dash />
           )}
@@ -107,9 +120,9 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
       {expanded ? (
         <tr className="border-b border-[#eaded8] bg-[#fdf8f5]">
           <td colSpan={6} className="px-3 py-5 sm:px-5">
-            <div className="grid gap-6 md:grid-cols-5">
+            <div className="grid gap-6 md:grid-cols-10">
               {/* ── programs: the only field with 100% coverage, so it leads ── */}
-              <div className="md:col-span-3">
+              <div className="md:col-span-7">
                 <h4 className="mb-2 text-[13px] font-semibold uppercase tracking-wide text-[#8f2e31]">
                   Programs offered ({c.programs.count})
                 </h4>
@@ -149,13 +162,19 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
                 )}
               </div>
 
-              <div className="space-y-5 md:col-span-2">
+              <div className="space-y-5 md:col-span-3">
                 {nirf?.rank_history?.length > 1 ? (
                   <div>
                     <h4 className="mb-1.5 text-[13px] font-semibold uppercase tracking-wide text-[#8f2e31]">
                       NIRF rank over time
                     </h4>
-                    <RankSparkline history={nirf.rank_history} />
+                    <div className="flex flex-wrap gap-x-3 gap-y-1 text-sm tabular-nums text-[#332724]">
+                      {nirf.rank_history.map((h) => (
+                        <span key={h.year}>
+                          <span className="text-[#6d5550]">{h.year}</span> #{h.rank}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 ) : null}
 
@@ -259,40 +278,6 @@ const expand = (q) => {
   let out = q;
   for (const [re, full] of ABBREV) out = out.replace(re, full);
   return out;
-};
-
-/** Small NIRF rank trend. Rank 1 is BEST, so the y-axis is inverted — a line
- *  going UP means the college improved.
- *
- *  The year labels sit in a box the SAME WIDTH as the svg, not the parent
- *  column: with justify-between across the full column the right-hand label
- *  drifted to the far edge, disconnected from where the line actually ended.
- */
-const RankSparkline = ({ history }) => {
-  const pts = [...history].sort((a, b) => a.year - b.year);
-  if (pts.length < 2) return null;
-  const W = 150, H = 36, PAD = 4;
-  const ranks = pts.map((p) => p.rank);
-  const lo = Math.min(...ranks), hi = Math.max(...ranks);
-  const span = hi - lo || 1;
-  const x = (i) => PAD + (i * (W - 2 * PAD)) / (pts.length - 1);
-  const y = (r) => PAD + ((r - lo) / span) * (H - 2 * PAD);
-  const d = pts.map((p, i) => `${i ? "L" : "M"}${x(i).toFixed(1)},${y(p.rank).toFixed(1)}`).join(" ");
-  return (
-    <div style={{ width: W }}>
-      <svg width={W} height={H} role="img"
-           aria-label={`NIRF rank ${pts.map((p) => `${p.year}: ${p.rank}`).join(", ")}`}>
-        <path d={d} fill="none" stroke="#8f2e31" strokeWidth="1.6" />
-        {pts.map((p, i) => (
-          <circle key={p.year} cx={x(i)} cy={y(p.rank)} r="2.4" fill="#8f2e31" />
-        ))}
-      </svg>
-      <div className="flex justify-between text-[11px] tabular-nums text-[#6d5550]">
-        <span>{pts[0].year} · #{pts[0].rank}</span>
-        <span>{pts[pts.length - 1].year} · #{pts[pts.length - 1].rank}</span>
-      </div>
-    </div>
-  );
 };
 
 const SORTS = {

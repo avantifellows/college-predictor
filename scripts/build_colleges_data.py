@@ -26,9 +26,12 @@ reason is structural — e.g. IITs/NITs/IIITs are statutorily exempt from NAAC, 
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 from pathlib import Path
+
+import pandas as pd
 
 OUT = Path(__file__).resolve().parent.parent / "public" / "data" / "colleges" / "colleges.json"
 
@@ -220,28 +223,36 @@ def main():
         josaa_name = r.josaa_name
         nids = list(r.nirf_institute_ids) if r.nirf_institute_ids is not None else []
 
-        # NIRF: first id that actually has rankings
+        # NIRF: POOL every id, do not take the first that happens to have data.
+        # A college carries several NIRF ids across format changes — IIT Madras
+        # has IR-E-U-0456 (2019-2025), IR-2-E-OE-U-0456 (2018), IR17-ENGG-1-1-77
+        # (2017) and more. nids arrives alphabetically, so "first id with any
+        # rows" picked the 2018-only id and reported IIT Madras as "rank 1 as of
+        # 2018" with a single history point — which also hid its trend entirely.
         nirf_block = None
-        for nid in nids:
-            g = nirf_by_id.get(nid)
-            if g is not None and len(g):
-                top = g.iloc[0]
-                nirf_block = {
-                    "engineering_rank": int(top.nirf_rank),
-                    "engineering_score": (round(float(top.overall_score), 2)
-                                          if top.overall_score == top.overall_score else None),
-                    "ranking_year": int(top.ranking_year),
-                    "rank_history": [
-                        {"year": int(x.ranking_year), "rank": int(x.nirf_rank)}
-                        for x in g.head(5).itertuples()
-                    ],
-                }
-                break
+        frames = [nirf_by_id[n] for n in nids if n in nirf_by_id]
+        if frames:
+            g = (pd.concat(frames)
+                   .drop_duplicates(subset=["ranking_year"], keep="first")
+                   .sort_values("ranking_year", ascending=False))
+            top = g.iloc[0]
+            nirf_block = {
+                "engineering_rank": int(top.nirf_rank),
+                "engineering_score": (round(float(top.overall_score), 2)
+                                      if top.overall_score == top.overall_score else None),
+                "ranking_year": int(top.ranking_year),
+                "rank_history": [
+                    {"year": int(x.ranking_year), "rank": int(x.nirf_rank)}
+                    for x in g.head(6).itertuples()
+                ],
+            }
 
         placement = None
-        for nid in nids:
-            g = place_by_id.get(nid)
-            if g is not None and len(g):
+        pframes = [place_by_id[n] for n in nids if n in place_by_id]
+        if pframes:
+            g = (pd.concat(pframes)
+                   .sort_values(["ranking_year", "academic_year"], ascending=False))
+            if True:
                 p = g.iloc[0]
                 def num(v, cast=float):
                     return None if v != v else cast(v)
@@ -261,7 +272,6 @@ def main():
                     # student over-read it.
                     "is_branch_specific": False,
                 }
-                break
 
         nb = naac_by_aishe.get(r.aishe_code)
         if nb is not None and nb.current_grade == nb.current_grade:
@@ -331,7 +341,15 @@ def main():
         # the crosswalk matches these 32, college_id becomes the AISHE code and
         # aishe_code stops being null. Anything persisting this must key on
         # aishe_code and treat slug ids as provisional.
-        slug = re.sub(r"[^a-z0-9]+", "-", str(josaa_name).lower()).strip("-")[:60]
+        # Truncating at 60 chars collided: the three NIELIT centres
+        # (Aurangabad / Gorakhpur / Patna) share their first 60 characters, so
+        # all three produced ONE id — React key collisions, and expanding one row
+        # expanded all three. Keep the truncated slug for readability but append a
+        # short hash of the FULL name so it is unique.
+        full_slug = re.sub(r"[^a-z0-9]+", "-", str(josaa_name).lower()).strip("-")
+        slug = full_slug[:60].rstrip("-")
+        if len(full_slug) > 60:
+            slug += "-" + hashlib.sha1(full_slug.encode()).hexdigest()[:6]
         rows.append({
             "college_id": r.aishe_code if has_aishe else f"josaa:{slug}",
             "aishe_code": r.aishe_code if has_aishe else None,
