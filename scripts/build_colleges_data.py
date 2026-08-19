@@ -267,10 +267,35 @@ def main():
                 p = g.iloc[0]
                 def num(v, cast=float):
                     return None if v != v else cast(v)
+                # NIRF's percentage_placed counts JOBS ONLY, so a graduate who
+                # went to an MS or a PhD reads as "not placed". That understates
+                # research-heavy institutes badly — IIT Tirupati shows 55.6% when
+                # 90.7% of its graduates had an outcome, IIT Bombay 73.8% vs
+                # 99.9% — a 10-point median understatement across our 59 colleges
+                # and up to 35 points at the tail. Amogh flagged the IIT numbers
+                # as implausible, and he was right.
+                #
+                # We keep NIRF's own figure untouched under its own name, and add
+                # the combined outcome rate beside it. The denominator is
+                # recovered from NIRF's own arithmetic (placed / pct * 100) rather
+                # than using graduating_on_time, so the two percentages are always
+                # on the same base.
+                pct = (float(p.percentage_placed)
+                       if p.percentage_placed == p.percentage_placed else None)
+                placed_n = num(p.students_placed, int)
+                higher_n = num(p.higher_studies_selected, int)
+                outcome = None
+                if pct and placed_n and higher_n is not None and pct > 0:
+                    cohort = placed_n / pct * 100
+                    if cohort > 0:
+                        outcome = round(min(100.0, (placed_n + higher_n) / cohort * 100), 1)
+
                 placement = {
                     "median_salary": num(p.median_salary, int),
-                    "percentage_placed": (round(float(p.percentage_placed), 1)
-                                          if p.percentage_placed == p.percentage_placed else None),
+                    "percentage_placed": (round(pct, 1) if pct is not None else None),
+                    # placed OR higher studies — what "did this degree lead
+                    # somewhere" actually means for an engineering cohort.
+                    "percentage_with_outcome": outcome,
                     "students_placed": num(p.students_placed, int),
                     "higher_studies_selected": num(p.higher_studies_selected, int),
                     "first_year_intake": num(p.first_year_intake, int),

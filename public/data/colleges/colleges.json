@@ -172,6 +172,7 @@
   "placement": {
    "median_salary": 1750000,
    "percentage_placed": 76.9,
+   "percentage_with_outcome": 98.3,
    "students_placed": 549,
    "higher_studies_selected": 153,
    "first_year_intake": null,
@@ -397,6 +398,7 @@
   "placement": {
    "median_salary": 1908000,
    "percentage_placed": 75.2,
+   "percentage_with_outcome": 80.3,
    "students_placed": 711,
    "higher_studies_selected": 49,
    "first_year_intake": null,
@@ -586,6 +588,7 @@
   "placement": {
    "median_salary": 1961000,
    "percentage_placed": 73.8,
+   "percentage_with_outcome": 100.0,
    "students_placed": 731,
    "higher_studies_selected": 259,
    "first_year_intake": null,
@@ -762,6 +765,7 @@
   "placement": {
    "median_salary": 1940000,
    "percentage_placed": 66.5,
+   "percentage_with_outcome": 91.5,
    "students_placed": 754,
    "higher_studies_selected": 283,
    "first_year_intake": null,
@@ -993,6 +997,7 @@
   "placement": {
    "median_salary": 1976000,
    "percentage_placed": 76.1,
+   "percentage_with_outcome": 88.4,
    "students_placed": 517,
    "higher_studies_selected": 83,
    "first_year_intake": null,
@@ -1201,6 +1206,7 @@
   "placement": {
    "median_salary": 1700000,
    "percentage_placed": 69.8,
+   "percentage_with_outcome": 100.0,
    "students_placed": 769,
    "higher_studies_selected": 333,
    "first_year_intake": null,
@@ -1382,6 +1388,7 @@
   "placement": {
    "median_salary": 2100000,
    "percentage_placed": 76.7,
+   "percentage_with_outcome": 86.0,
    "students_placed": 306,
    "higher_studies_selected": 37,
    "first_year_intake": null,
@@ -1545,6 +1552,7 @@
   "placement": {
    "median_salary": 1948000,
    "percentage_placed": 76.9,
+   "percentage_with_outcome": 97.8,
    "students_placed": 658,
    "higher_studies_selected": 179,
    "first_year_intake": null,
@@ -1698,6 +1706,7 @@
   "placement": {
    "median_salary": 1435000,
    "percentage_placed": 76.9,
+   "percentage_with_outcome": 92.2,
    "students_placed": 791,
    "higher_studies_selected": 158,
    "first_year_intake": null,
@@ -1892,6 +1901,7 @@
   "placement": {
    "median_salary": 2000000,
    "percentage_placed": 92.8,
+   "percentage_with_outcome": 99.8,
    "students_placed": 996,
    "higher_studies_selected": 75,
    "first_year_intake": null,
@@ -2037,6 +2047,7 @@
   "placement": {
    "median_salary": 1948000,
    "percentage_placed": 70.7,
+   "percentage_with_outcome": 78.8,
    "students_placed": 234,
    "higher_studies_selected": 27,
    "first_year_intake": null,
@@ -2276,6 +2287,7 @@
   "placement": {
    "median_salary": 1525000,
    "percentage_placed": 81.2,
+   "percentage_with_outcome": 93.9,
    "students_placed": 821,
    "higher_studies_selected": 128,
    "first_year_intake": null,
@@ -2478,6 +2490,7 @@
   "placement": {
    "median_salary": 1200000,
    "percentage_placed": 80.8,
+   "percentage_with_outcome": 84.5,
    "students_placed": 714,
    "higher_studies_selected": 33,
    "first_year_intake": null,
@@ -2636,6 +2649,7 @@
   "placement": {
    "median_salary": 1400000,
    "percentage_placed": 76.7,
+   "percentage_with_outcome": 88.2,
    "students_placed": 756,
    "higher_studies_selected": 114,
    "first_year_intake": null,
@@ -2924,6 +2938,7 @@
   "placement": {
    "median_salary": 2250000,
    "percentage_placed": 95.5,
+   "percentage_with_outcome": 100.0,
    "students_placed": 320,
    "higher_studies_selected": 15,
    "first_year_intake": null,
@@ -3089,6 +3104,7 @@
   "placement": {
    "median_salary": 1250000,
    "percentage_placed": 88.6,
+   "percentage_with_outcome": 97.0,
    "students_placed": 799,
    "higher_studies_selected": 76,
    "first_year_intake": null,
@@ -3228,6 +3244,7 @@
   "placement": {
    "median_salary": 1400000,
    "percentage_placed": 74.8,
+   "percentage_with_outcome": 98.6,
    "students_placed": 160,
    "higher_studies_selected": 51,
    "first_year_intake": null,
@@ -3392,6 +3409,7 @@
   "placement": {
    "median_salary": 1850000,
    "percentage_placed": 70.0,
+   "percentage_with_outcome": 96.1,
    "students_placed": 196,
    "higher_studies_selected": 73,
    "first_year_intake": null,
@@ -3550,6 +3568,7 @@
   "placement": {
    "median_salary": 1200000,
    "percentage_placed": 77.0,
+   "percentage_with_outcome": 99.5,
    "students_placed": 322,
    "higher_studies_selected": 94,
    "first_year_intake": null,
@@ -3740,6 +3759,7 @@
   "placement": {
    "median_salary": 1420000,
    "percentage_placed": 71.5,
+   "percentage_with_outcome": 81.7,
    "students_placed": 650,
    "higher_studies_selected": 93,
    "first_year_intake": null,
@@ -3897,6 +3917,7 @@
   "placement": {
    "median_salary": 1697000,
    "percentage_placed": 68.5,
+   "percentage_with_outcome": 88.2,
    "students_placed": 220,
    "higher_studies_selected": 63,
    "first_year_intake": null,
@@ -4036,6 +4057,7 @@
   "placement": {
    "median_salary": 1400000,
    "percentage_placed": 79.1,
+   "percentage_with_outcome": 91.9,
    "students_placed": 254,
    "higher_studies_selected": 41,
    "first_year_intake": null,
@@ -4183,6 +4205,7 @@
   "placement": {
    "median_salary": 1100000,
    "percentage_placed": 82.3,
+   "percentage_with_outcome": 84.7,
    "students_placed": 603,
    "higher_studies_selected": 18,
    "first_year_intake": null,
@@ -4330,6 +4353,7 @@
   "placement": {
    "median_salary": 900000,
    "percentage_placed": 76.1,
+   "percentage_with_outcome": 90.1,
    "students_placed": 575,
    "higher_studies_selected": 106,
    "first_year_intake": null,
@@ -4496,6 +4520,7 @@
   "placement": {
    "median_salary": 1124000,
    "percentage_placed": 69.9,
+   "percentage_with_outcome": 100.0,
    "students_placed": 566,
    "higher_studies_selected": 244,
    "first_year_intake": null,
@@ -4624,6 +4649,7 @@
   "placement": {
    "median_salary": 1100000,
    "percentage_placed": 63.2,
+   "percentage_with_outcome": 67.9,
    "students_placed": 520,
    "higher_studies_selected": 39,
    "first_year_intake": null,
@@ -4802,6 +4828,7 @@
   "placement": {
    "median_salary": 952576,
    "percentage_placed": 73.8,
+   "percentage_with_outcome": 83.4,
    "students_placed": 512,
    "higher_studies_selected": 67,
    "first_year_intake": null,
@@ -5004,6 +5031,7 @@
   "placement": {
    "median_salary": 700000,
    "percentage_placed": 80.1,
+   "percentage_with_outcome": 87.0,
    "students_placed": 591,
    "higher_studies_selected": 51,
    "first_year_intake": null,
@@ -5157,6 +5185,7 @@
   "placement": {
    "median_salary": 850000,
    "percentage_placed": 85.9,
+   "percentage_with_outcome": 98.5,
    "students_placed": 530,
    "higher_studies_selected": 78,
    "first_year_intake": null,
@@ -5333,6 +5362,7 @@
   "placement": {
    "median_salary": 794000,
    "percentage_placed": 66.5,
+   "percentage_with_outcome": 74.9,
    "students_placed": 720,
    "higher_studies_selected": 91,
    "first_year_intake": null,
@@ -5457,6 +5487,7 @@
   "placement": {
    "median_salary": 1169500,
    "percentage_placed": 63.5,
+   "percentage_with_outcome": 74.2,
    "students_placed": 113,
    "higher_studies_selected": 19,
    "first_year_intake": null,
@@ -5574,6 +5605,7 @@
   "placement": {
    "median_salary": 1100000,
    "percentage_placed": 55.6,
+   "percentage_with_outcome": 90.7,
    "students_placed": 114,
    "higher_studies_selected": 72,
    "first_year_intake": null,
@@ -5726,6 +5758,7 @@
   "placement": {
    "median_salary": 1200000,
    "percentage_placed": 92.2,
+   "percentage_with_outcome": 95.6,
    "students_placed": 968,
    "higher_studies_selected": 36,
    "first_year_intake": null,
@@ -5837,6 +5870,7 @@
   "placement": {
    "median_salary": 1200000,
    "percentage_placed": 67.3,
+   "percentage_with_outcome": 77.6,
    "students_placed": 105,
    "higher_studies_selected": 16,
    "first_year_intake": null,
@@ -5972,6 +6006,7 @@
   "placement": {
    "median_salary": 1590000,
    "percentage_placed": 83.2,
+   "percentage_with_outcome": 95.0,
    "students_placed": 134,
    "higher_studies_selected": 19,
    "first_year_intake": null,
@@ -6156,6 +6191,7 @@
   "placement": {
    "median_salary": 968000,
    "percentage_placed": 73.8,
+   "percentage_with_outcome": 78.1,
    "students_placed": 596,
    "higher_studies_selected": 35,
    "first_year_intake": null,
@@ -6274,6 +6310,7 @@
   "placement": {
    "median_salary": 1200000,
    "percentage_placed": 71.6,
+   "percentage_with_outcome": 80.2,
    "students_placed": 116,
    "higher_studies_selected": 14,
    "first_year_intake": null,
@@ -6415,6 +6452,7 @@
   "placement": {
    "median_salary": 1100000,
    "percentage_placed": 57.9,
+   "percentage_with_outcome": 92.1,
    "students_placed": 413,
    "higher_studies_selected": 244,
    "first_year_intake": null,
@@ -6620,6 +6658,7 @@
   "placement": {
    "median_salary": 1162000,
    "percentage_placed": 61.7,
+   "percentage_with_outcome": 87.0,
    "students_placed": 95,
    "higher_studies_selected": 39,
    "first_year_intake": null,
@@ -6787,6 +6826,7 @@
   "placement": {
    "median_salary": 1100000,
    "percentage_placed": 89.6,
+   "percentage_with_outcome": 96.5,
    "students_placed": 863,
    "higher_studies_selected": 66,
    "first_year_intake": null,
@@ -6965,6 +7005,7 @@
   "placement": {
    "median_salary": 850000,
    "percentage_placed": 95.0,
+   "percentage_with_outcome": 98.4,
    "students_placed": 723,
    "higher_studies_selected": 26,
    "first_year_intake": null,
@@ -7105,6 +7146,7 @@
   "placement": {
    "median_salary": 1080000,
    "percentage_placed": 94.7,
+   "percentage_with_outcome": 100.0,
    "students_placed": 701,
    "higher_studies_selected": 39,
    "first_year_intake": null,
@@ -7227,6 +7269,7 @@
   "placement": {
    "median_salary": 1050000,
    "percentage_placed": 80.0,
+   "percentage_with_outcome": 97.9,
    "students_placed": 112,
    "higher_studies_selected": 25,
    "first_year_intake": null,
@@ -7441,6 +7484,7 @@
   "placement": {
    "median_salary": 900000,
    "percentage_placed": 53.6,
+   "percentage_with_outcome": 77.8,
    "students_placed": 590,
    "higher_studies_selected": 266,
    "first_year_intake": null,
@@ -7606,6 +7650,7 @@
   "placement": {
    "median_salary": 850000,
    "percentage_placed": 72.4,
+   "percentage_with_outcome": 77.3,
    "students_placed": 724,
    "higher_studies_selected": 49,
    "first_year_intake": null,
@@ -7715,6 +7760,7 @@
   "placement": {
    "median_salary": 3000000,
    "percentage_placed": 96.9,
+   "percentage_with_outcome": 99.2,
    "students_placed": 372,
    "higher_studies_selected": 9,
    "first_year_intake": null,
@@ -7870,6 +7916,7 @@
   "placement": {
    "median_salary": 900000,
    "percentage_placed": 77.8,
+   "percentage_with_outcome": 81.9,
    "students_placed": 495,
    "higher_studies_selected": 26,
    "first_year_intake": null,
@@ -7993,6 +8040,7 @@
   "placement": {
    "median_salary": 800000,
    "percentage_placed": 80.0,
+   "percentage_with_outcome": 86.9,
    "students_placed": 104,
    "higher_studies_selected": 9,
    "first_year_intake": null,
@@ -8115,6 +8163,7 @@
   "placement": {
    "median_salary": 750000,
    "percentage_placed": 94.0,
+   "percentage_with_outcome": 98.8,
    "students_placed": 157,
    "higher_studies_selected": 8,
    "first_year_intake": null,
@@ -8238,6 +8287,7 @@
   "placement": {
    "median_salary": 2200000,
    "percentage_placed": 74.0,
+   "percentage_with_outcome": 98.6,
    "students_placed": 54,
    "higher_studies_selected": 18,
    "first_year_intake": null,
@@ -8404,6 +8454,7 @@
   "placement": {
    "median_salary": 1005000,
    "percentage_placed": 83.5,
+   "percentage_with_outcome": 97.4,
    "students_placed": 632,
    "higher_studies_selected": 105,
    "first_year_intake": null,
@@ -8519,6 +8570,7 @@
   "placement": {
    "median_salary": 1100000,
    "percentage_placed": 84.1,
+   "percentage_with_outcome": 96.3,
    "students_placed": 228,
    "higher_studies_selected": 33,
    "first_year_intake": null,
@@ -8636,6 +8688,7 @@
   "placement": {
    "median_salary": 700000,
    "percentage_placed": 68.7,
+   "percentage_with_outcome": 78.7,
    "students_placed": 158,
    "higher_studies_selected": 23,
    "first_year_intake": null,
@@ -8724,6 +8777,7 @@
   "placement": {
    "median_salary": 900000,
    "percentage_placed": 65.3,
+   "percentage_with_outcome": 74.7,
    "students_placed": 49,
    "higher_studies_selected": 7,
    "first_year_intake": null,
@@ -8826,6 +8880,7 @@
   "placement": {
    "median_salary": 600000,
    "percentage_placed": 42.9,
+   "percentage_with_outcome": 52.1,
    "students_placed": 111,
    "higher_studies_selected": 24,
    "first_year_intake": null,
@@ -8939,6 +8994,7 @@
   "placement": {
    "median_salary": 650000,
    "percentage_placed": 50.0,
+   "percentage_with_outcome": 66.9,
    "students_placed": 62,
    "higher_studies_selected": 21,
    "first_year_intake": null,
@@ -9042,6 +9098,7 @@
   "placement": {
    "median_salary": 711000,
    "percentage_placed": 59.9,
+   "percentage_with_outcome": 65.7,
    "students_placed": 103,
    "higher_studies_selected": 10,
    "first_year_intake": null,
@@ -9186,6 +9243,7 @@
   "placement": {
    "median_salary": 889000,
    "percentage_placed": 77.3,
+   "percentage_with_outcome": 87.2,
    "students_placed": 109,
    "higher_studies_selected": 14,
    "first_year_intake": null,
@@ -9276,6 +9334,7 @@
   "placement": {
    "median_salary": 336000,
    "percentage_placed": 20.2,
+   "percentage_with_outcome": 35.4,
    "students_placed": 36,
    "higher_studies_selected": 27,
    "first_year_intake": null,
