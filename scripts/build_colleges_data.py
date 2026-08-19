@@ -294,11 +294,18 @@ def main():
                 if degree:
                     degrees.add(degree)
                 branches[(branch, years, degree)] = True
-                if x.quota == "AI" and x.seat_type == "OPEN" and x.gender == "Gender-Neutral":
+                # NITs/GFTIs have NO 'AI' quota at all — they split into HS
+                # (home-state) and OS (other-state). Filtering on AI alone left
+                # every branch blank for 34 of 128 colleges, NIT Raipur among
+                # them. Take the LOOSEST (highest) OPEN/Gender-Neutral rank
+                # across whatever quotas the institute actually uses: it is the
+                # one number comparable across IITs and NITs, and it is the
+                # easier door, so it never overstates how hard a branch is.
+                if x.seat_type == "OPEN" and x.gender == "Gender-Neutral":
                     rank, prep = parse_rank(x.closing_rank)
                     if rank is not None and not prep and not x.closing_is_preparatory:
                         k = (branch, years, degree)
-                        if k not in best or rank < best[k]:
+                        if k not in best or rank > best[k]:
                             best[k] = rank
             lst = [{"branch": b, "years": y, "degree": d,
                     "indicative_closing_rank": best.get((b, y, d))}
@@ -312,9 +319,7 @@ def main():
                 "quotas_offered": sorted(set(g["quota"])),
                 "list": lst,
                 "source": f"JoSAA {yr} Round {rd}",
-                "rank_note": ("Indicative All-India OPEN Gender-Neutral closing rank, "
-                              "for ordering branches by competitiveness. Full cutoffs "
-                              "are in the College Predictor."),
+                "rank_note": "Indicative open-category closing rank.",
             }
 
         exams = sorted({"JEE Advanced" if "Indian Institute of Technology" in str(josaa_name)

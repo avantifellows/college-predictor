@@ -92,12 +92,11 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
         <td className="px-3 py-3 align-top tabular-nums">
           {pl?.percentage_placed != null ? `${pl.percentage_placed}%` : <Dash />}
         </td>
-        <td className="px-3 py-3 align-top text-center tabular-nums">{c.programs.count || <Dash />}</td>
         <td className="px-3 py-3 align-top">
           <button
             type="button"
             onClick={onToggle}
-            className="inline-flex items-center gap-1 rounded-full bg-[#8f2e31] px-3 py-1.5 text-xs font-semibold text-white transition hover:bg-[#7a2628]"
+            className="inline-flex items-center gap-1 rounded-full border border-[#e3d1cb] bg-white px-3 py-1.5 text-xs font-semibold text-[#8f2e31] transition hover:bg-[#f8efec]"
           >
             {expanded ? "Less" : "More"}
             {expanded ? <ChevronUp size={13} /> : <ChevronDown size={13} />}
@@ -107,18 +106,18 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
 
       {expanded ? (
         <tr className="border-b border-[#eaded8] bg-[#fdf8f5]">
-          <td colSpan={7} className="px-3 py-4">
-            <div className="grid gap-5 md:grid-cols-3">
+          <td colSpan={6} className="px-3 py-5 sm:px-5">
+            <div className="grid gap-6 md:grid-cols-5">
               {/* ── programs: the only field with 100% coverage, so it leads ── */}
-              <div className="md:col-span-2">
+              <div className="md:col-span-3">
                 <h4 className="mb-2 text-xs font-semibold uppercase tracking-wide text-[#8f2e31]">
                   Programs offered ({c.programs.count})
                 </h4>
                 {c.programs.count ? (
                   <>
-                    <div className="max-h-64 overflow-y-auto rounded-lg border border-[#eaded8] bg-white">
+                    <div className="rounded-lg border border-[#eaded8] bg-white">
                       <table className="w-full text-xs">
-                        <thead className="sticky top-0 bg-[#f8efec] text-[#5b1f20]">
+                        <thead className="bg-[#f8efec] text-[#5b1f20]">
                           <tr>
                             <th className="px-2 py-1.5 text-left font-semibold">Branch</th>
                             <th className="px-2 py-1.5 text-left font-semibold">Degree</th>
@@ -144,7 +143,11 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
                       </table>
                     </div>
                     <p className="mt-1.5 text-[11px] leading-4 text-[#6d5550]">
-                      {c.programs.rank_note}
+                      {c.programs.rank_note} For full cutoffs, use the{" "}
+                      <Link href="/" className="font-semibold text-[#8f2e31] hover:underline">
+                        College Predictor
+                      </Link>
+                      .
                     </p>
                   </>
                 ) : (
@@ -152,22 +155,13 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
                 )}
               </div>
 
-              <div className="space-y-4">
+              <div className="space-y-5 md:col-span-2">
                 {nirf?.rank_history?.length > 1 ? (
                   <div>
                     <h4 className="mb-1.5 text-xs font-semibold uppercase tracking-wide text-[#8f2e31]">
                       NIRF rank over time
                     </h4>
-                    <div className="flex flex-wrap gap-1.5">
-                      {nirf.rank_history.map((h) => (
-                        <span
-                          key={h.year}
-                          className="rounded-md border border-[#e3d1cb] bg-white px-2 py-1 text-[11px] tabular-nums text-[#332724]"
-                        >
-                          {h.year}: <strong>#{h.rank}</strong>
-                        </span>
-                      ))}
-                    </div>
+                    <RankSparkline history={nirf.rank_history} />
                   </div>
                 ) : null}
 
@@ -176,7 +170,7 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
                     <h4 className="mb-1.5 text-xs font-semibold uppercase tracking-wide text-[#8f2e31]">
                       Placement detail
                     </h4>
-                    <dl className="space-y-0.5 text-xs text-[#5b3a34]">
+                    <dl className="space-y-1 text-xs text-[#5b3a34]">
                       {pl.students_placed != null ? (
                         <div className="flex justify-between gap-3">
                           <dt>Students placed</dt>
@@ -197,8 +191,7 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
                       ) : null}
                     </dl>
                     <p className="mt-1.5 text-[11px] leading-4 text-[#6d5550]">
-                      {pl.source} · AY {pl.academic_year}. One figure per college,
-                      not per branch.
+                      NIRF {pl.ranking_year}, UG 4-year · AY {pl.academic_year}
                     </p>
                   </div>
                 ) : null}
@@ -207,7 +200,7 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
                   <h4 className="mb-1.5 text-xs font-semibold uppercase tracking-wide text-[#8f2e31]">
                     About
                   </h4>
-                  <dl className="space-y-0.5 text-xs text-[#5b3a34]">
+                  <dl className="space-y-1 text-xs text-[#5b3a34]">
                     {c.year_established ? (
                       <div className="flex justify-between gap-3">
                         <dt>Established</dt>
@@ -248,12 +241,7 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
                   ) : null}
                 </div>
 
-                <Link
-                  href={`/?exam=JoSAA`}
-                  className="inline-flex w-full items-center justify-center rounded-full border border-[#8f2e31] px-4 py-2 text-xs font-semibold text-[#8f2e31] transition hover:bg-[#f8efec]"
-                >
-                  Check your chances in the Predictor
-                </Link>
+
               </div>
             </div>
           </td>
@@ -261,6 +249,54 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
       ) : null}
     </>
   );
+};
+
+
+/** Tiny NIRF rank trend. Rank 1 is BEST, so the y-axis is inverted — a line
+ *  going UP means the college improved. Rendered inline rather than charted:
+ *  five points do not justify a chart library. */
+const RankSparkline = ({ history }) => {
+  const pts = [...history].sort((a, b) => a.year - b.year);
+  if (pts.length < 2) return null;
+  const W = 132, H = 34, PAD = 3;
+  const ranks = pts.map((p) => p.rank);
+  const lo = Math.min(...ranks), hi = Math.max(...ranks);
+  const span = hi - lo || 1;
+  const x = (i) => PAD + (i * (W - 2 * PAD)) / (pts.length - 1);
+  const y = (r) => PAD + ((r - lo) / span) * (H - 2 * PAD);
+  const d = pts.map((p, i) => `${i ? "L" : "M"}${x(i).toFixed(1)},${y(p.rank).toFixed(1)}`).join(" ");
+  return (
+    <div>
+      <svg width={W} height={H} role="img"
+           aria-label={`NIRF rank ${pts.map((p) => `${p.year}: ${p.rank}`).join(", ")}`}>
+        <path d={d} fill="none" stroke="#8f2e31" strokeWidth="1.6" />
+        {pts.map((p, i) => (
+          <circle key={p.year} cx={x(i)} cy={y(p.rank)} r="2.2" fill="#8f2e31" />
+        ))}
+      </svg>
+      <div className="flex justify-between text-[10px] tabular-nums text-[#6d5550]">
+        <span>{pts[0].year} · #{pts[0].rank}</span>
+        <span>{pts[pts.length - 1].year} · #{pts[pts.length - 1].rank}</span>
+      </div>
+    </div>
+  );
+};
+
+// Students type "NIT Raipur", "IIT B", "IIIT Hyderabad" — never the full
+// "National Institute of Technology Raipur". Expand the common abbreviations so
+// the search matches how people actually refer to these colleges.
+const ABBREV = [
+  [/\bnit\b/g, "national institute of technology"],
+  [/\biiit\b/g, "indian institute of information technology"],
+  [/\biit\b/g, "indian institute of technology"],
+  [/\bnift\b/g, "national institute of fashion technology"],
+  [/\bispat\b/g, "ispat"],
+];
+
+const expand = (q) => {
+  let out = q;
+  for (const [re, full] of ABBREV) out = out.replace(re, full);
+  return out;
 };
 
 const SORTS = {
@@ -297,19 +333,26 @@ const Colleges = () => {
   );
 
   const filtered = useMemo(() => {
-    const needle = q.trim().toLowerCase();
+    const raw = q.trim().toLowerCase();
+    // Match on either the literal text or its abbreviation-expanded form, so
+    // "NIT Raipur" and "National Institute of Technology Raipur" both work.
+    const needles = raw ? Array.from(new Set([raw, expand(raw)])) : [];
+    const needle = raw;
     const out = all.filter((c) => {
       if (state !== "All" && c.state !== state) return false;
       if (exam !== "All" && !c.entrance_exams.includes(exam)) return false;
       if (!needle) return true;
-      // Search the branch list too: "how do I find who teaches Aerospace" is a
-      // real question, and the branch names are the richest text we hold.
-      return (
-        c.display_name.toLowerCase().includes(needle) ||
-        (c.state || "").toLowerCase().includes(needle) ||
-        (c.district || "").toLowerCase().includes(needle) ||
-        c.programs.list.some((p) => p.branch.toLowerCase().includes(needle))
-      );
+      // Search the branch list too: "who teaches Aerospace" is a real question,
+      // and the branch names are the richest text we hold.
+      const hay = [
+        c.display_name,
+        c.state || "",
+        c.district || "",
+        ...c.programs.list.map((p) => p.branch),
+      ]
+        .join(" ")
+        .toLowerCase();
+      return needles.some((n) => hay.includes(n));
     });
     return out.sort(SORTS[sortKey].fn);
   }, [all, q, state, exam, sortKey]);
@@ -333,16 +376,6 @@ const Colleges = () => {
           <h1 className="text-center text-2xl font-bold text-[#332724] sm:text-3xl">
             Colleges
           </h1>
-          <p className="mx-auto mt-2 max-w-2xl text-center text-sm leading-6 text-[#6d5550]">
-            Every engineering college in JoSAA counselling — where it is, how it
-            ranks, what graduates earn, and the branches it offers. For closing
-            ranks, use the{" "}
-            <Link href="/" className="font-semibold text-[#8f2e31] hover:underline">
-              College Predictor
-            </Link>
-            .
-          </p>
-
           {/* ── controls ─────────────────────────────────────────────── */}
           <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             <div className="relative sm:col-span-2">
@@ -364,7 +397,7 @@ const Colleges = () => {
             >
               {states.map((s) => (
                 <option key={s} value={s}>
-                  {s === "All" ? "All states" : s}
+                  {s === "All" ? "All states" : `State: ${s}`}
                 </option>
               ))}
             </select>
@@ -421,7 +454,6 @@ const Colleges = () => {
                       <th className={th}>NIRF</th>
                       <th className={th}>Median salary</th>
                       <th className={th}>Placed</th>
-                      <th className={`${th} text-center`}>Branches</th>
                       <th className={th} />
                     </tr>
                   </thead>
@@ -462,18 +494,12 @@ const Colleges = () => {
                 </p>
               ) : null}
 
-              {/* Sources, stated per field rather than one global "as of" —
-                  the vintages genuinely differ and collapsing them would be a
-                  lie about at least two of them. */}
               <p className="mt-6 border-t border-[#eaded8] pt-3 text-[11px] leading-5 text-[#6d5550]">
-                Identity and location from AISHE · rankings and placement from
-                NIRF (Engineering, UG 4-year — one figure per college, not per
-                branch) · accreditation from NAAC, which does not cover
-                Institutes of National Importance · branches and indicative
-                ranks from JoSAA. A dash means we do not have that figure, not
-                that it is zero. <span className="font-semibold">*</span> marks a
-                location read from the institute name.
+                Sources: AISHE 2024-25 (identity) · NIRF 2025 (rank, placement) ·
+                NAAC (accreditation) · JoSAA 2025 (branches). A dash means we do
+                not have that figure.
               </p>
+
             </>
           )}
         </div>

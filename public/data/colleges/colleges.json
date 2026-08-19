@@ -130,7 +130,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 1,
@@ -293,7 +293,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 2,
@@ -492,7 +492,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 3,
@@ -697,7 +697,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 4,
@@ -847,7 +847,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 5,
@@ -1029,7 +1029,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 6,
@@ -1166,7 +1166,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 7,
@@ -1321,7 +1321,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 9,
@@ -1390,65 +1390,65 @@
      "branch": "Architecture",
      "years": 5,
      "degree": "Bachelor of Architecture",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Chemical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Civil Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 470
     },
     {
      "branch": "Computer Science and Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Electrical and Electronics Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 4569
     },
     {
      "branch": "Electronics and Communication Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 7076
+    },
+    {
+     "branch": "Electrical and Electronics Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 9411
     },
     {
      "branch": "Instrumentation and Control Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 13501
     },
     {
      "branch": "Mechanical Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 14978
     },
     {
-     "branch": "Metallurgical and Materials Engineering",
+     "branch": "Chemical Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 20393
     },
     {
      "branch": "Production Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 24160
+    },
+    {
+     "branch": "Metallurgical and Materials Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 27118
+    },
+    {
+     "branch": "Civil Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 31593
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 11,
@@ -1624,7 +1624,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 13,
@@ -1743,7 +1743,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 14,
@@ -1814,149 +1814,149 @@
      "branch": "Architecture",
      "years": 5,
      "degree": "Bachelor of Architecture",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Artificial Intelligence",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Bio Medical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Bio Technology",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Ceramic Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Ceramic Engineering and M.Tech Industrial Ceramic",
-     "years": 5,
-     "degree": "Bachelor and Master of Technology (Dual Degree)",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Chemical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Chemical Engineering",
-     "years": 5,
-     "degree": "Bachelor and Master of Technology (Dual Degree)",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Chemistry",
-     "years": 5,
-     "degree": "Integrated Master of Science",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Civil Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 1621
     },
     {
      "branch": "Computer Science and Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 7853
     },
     {
-     "branch": "Electrical Engineering",
+     "branch": "Artificial Intelligence",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 9099
     },
     {
      "branch": "Electronics and Communication Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 11195
     },
     {
      "branch": "Electronics and Instrumentation Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 13784
     },
     {
-     "branch": "Food Process Engineering",
+     "branch": "Electrical Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Industrial Design",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Life Science",
-     "years": 5,
-     "degree": "Integrated Master of Science",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Mathematics",
-     "years": 5,
-     "degree": "Integrated Master of Science",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 16250
     },
     {
      "branch": "Mechanical Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 21488
     },
     {
-     "branch": "Metallurgical and Materials Engineering",
-     "years": 5,
-     "degree": "Bachelor and Master of Technology (Dual Degree)",
-     "indicative_closing_rank": null
+     "branch": "Chemical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 23539
+    },
+    {
+     "branch": "Civil Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 28368
+    },
+    {
+     "branch": "Industrial Design",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 31363
     },
     {
      "branch": "Metallurgical and Materials Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 31600
+    },
+    {
+     "branch": "Chemical Engineering",
+     "years": 5,
+     "degree": "Bachelor and Master of Technology (Dual Degree)",
+     "indicative_closing_rank": 33511
     },
     {
      "branch": "Mining Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 35731
+    },
+    {
+     "branch": "Metallurgical and Materials Engineering",
+     "years": 5,
+     "degree": "Bachelor and Master of Technology (Dual Degree)",
+     "indicative_closing_rank": 39890
     },
     {
      "branch": "Mining Engineering",
      "years": 5,
      "degree": "Bachelor and Master of Technology (Dual Degree)",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 41212
+    },
+    {
+     "branch": "Bio Technology",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 42292
+    },
+    {
+     "branch": "Ceramic Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 43332
+    },
+    {
+     "branch": "Bio Medical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 45885
+    },
+    {
+     "branch": "Food Process Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 48809
+    },
+    {
+     "branch": "Ceramic Engineering and M.Tech Industrial Ceramic",
+     "years": 5,
+     "degree": "Bachelor and Master of Technology (Dual Degree)",
+     "indicative_closing_rank": 50899
+    },
+    {
+     "branch": "Mathematics",
+     "years": 5,
+     "degree": "Integrated Master of Science",
+     "indicative_closing_rank": 52270
     },
     {
      "branch": "Physics",
      "years": 5,
      "degree": "Integrated Master of Science",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 53337
+    },
+    {
+     "branch": "Chemistry",
+     "years": 5,
+     "degree": "Integrated Master of Science",
+     "indicative_closing_rank": 60683
+    },
+    {
+     "branch": "Life Science",
+     "years": 5,
+     "degree": "Integrated Master of Science",
+     "indicative_closing_rank": 81559
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 15,
@@ -2021,74 +2021,74 @@
    ],
    "list": [
     {
-     "branch": "Artificial Intelligence",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Chemical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Civil Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Computational and Data Science",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
      "branch": "Computer Science and Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 2800
     },
     {
-     "branch": "Electrical and Electronics Engineering",
+     "branch": "Artificial Intelligence",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Electronics and Communication Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 3579
     },
     {
      "branch": "Information Technology",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 4086
+    },
+    {
+     "branch": "Computational and Data Science",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 4805
+    },
+    {
+     "branch": "Electronics and Communication Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 5573
+    },
+    {
+     "branch": "Electrical and Electronics Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 7493
     },
     {
      "branch": "Mechanical Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 12126
+    },
+    {
+     "branch": "Chemical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 18581
     },
     {
      "branch": "Metallurgical and Materials Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 24264
+    },
+    {
+     "branch": "Civil Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 28252
     },
     {
      "branch": "Mining Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 39455
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 17,
@@ -2217,7 +2217,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 18,
@@ -2385,7 +2385,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 19,
@@ -2451,68 +2451,68 @@
    ],
    "list": [
     {
-     "branch": "Aerospace Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
      "branch": "Architecture",
      "years": 5,
      "degree": "Bachelor of Architecture",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Civil Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 985
     },
     {
      "branch": "Computer Science and Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Electrical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 16765
     },
     {
      "branch": "Electronics and Telecommunication Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 23027
     },
     {
      "branch": "Information Technology",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 23059
+    },
+    {
+     "branch": "Electrical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 30994
+    },
+    {
+     "branch": "Aerospace Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 37258
     },
     {
      "branch": "Mechanical Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 39236
     },
     {
      "branch": "Metallurgy and Materials Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 53570
+    },
+    {
+     "branch": "Civil Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 53728
     },
     {
      "branch": "Mining Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 58114
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 21,
@@ -2643,7 +2643,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 23,
@@ -2905,7 +2905,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 25,
@@ -2972,104 +2972,104 @@
    ],
    "list": [
     {
-     "branch": "Bio Technology",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Chemical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Chemical Engineering",
-     "years": 5,
-     "degree": "Bachelor and Master of Technology (Dual Degree)",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Chemistry",
-     "years": 5,
-     "degree": "Integrated Master of Science",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Civil Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
      "branch": "Computer Science and Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 3530
     },
     {
      "branch": "Computer Science and Engineering ( Artificial Intelligence & Data Science)",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Electrical and Electronics Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Electronics and Communication Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Electronics and Communication Engineering (VLSI Design and Technology)",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Mathematics",
-     "years": 5,
-     "degree": "Integrated Master of Science",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 4316
     },
     {
      "branch": "Mathematics and Computing",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 5438
+    },
+    {
+     "branch": "Electronics and Communication Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 6446
+    },
+    {
+     "branch": "Electronics and Communication Engineering (VLSI Design and Technology)",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 6831
+    },
+    {
+     "branch": "Electrical and Electronics Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 11204
     },
     {
      "branch": "Mechanical Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 17643
+    },
+    {
+     "branch": "Chemical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 24880
+    },
+    {
+     "branch": "Chemical Engineering",
+     "years": 5,
+     "degree": "Bachelor and Master of Technology (Dual Degree)",
+     "indicative_closing_rank": 31919
+    },
+    {
+     "branch": "Civil Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 32174
     },
     {
      "branch": "Metallurgical and Materials Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Metallurgical and Materials Engineering",
-     "years": 5,
-     "degree": "Bachelor and Master of Technology (Dual Degree)",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 36742
     },
     {
      "branch": "Physics",
      "years": 5,
      "degree": "Integrated Master of Science",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 37387
+    },
+    {
+     "branch": "Mathematics",
+     "years": 5,
+     "degree": "Integrated Master of Science",
+     "indicative_closing_rank": 37824
+    },
+    {
+     "branch": "Bio Technology",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 41671
+    },
+    {
+     "branch": "Chemistry",
+     "years": 5,
+     "degree": "Integrated Master of Science",
+     "indicative_closing_rank": 42007
+    },
+    {
+     "branch": "Metallurgical and Materials Engineering",
+     "years": 5,
+     "degree": "Bachelor and Master of Technology (Dual Degree)",
+     "indicative_closing_rank": 45837
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 26,
@@ -3207,7 +3207,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 27,
@@ -3277,89 +3277,89 @@
      "branch": "Architecture",
      "years": 5,
      "degree": "Bachelor of Architecture",
-     "indicative_closing_rank": 1016
+     "indicative_closing_rank": 3690
     },
     {
      "branch": "Computer Science and Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 18711
+     "indicative_closing_rank": 32592
     },
     {
      "branch": "Artificial Intelligence and Machine Learning",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 20008
+     "indicative_closing_rank": 37238
     },
     {
      "branch": "Electronics and Communication Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 28464
-    },
-    {
-     "branch": "Mathematics and Computing",
-     "years": 5,
-     "degree": "Integrated Master of Science",
-     "indicative_closing_rank": 34512
+     "indicative_closing_rank": 48312
     },
     {
      "branch": "Electrical and Electronics Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 34595
-    },
-    {
-     "branch": "Quantitative Economics & Data Science",
-     "years": 5,
-     "degree": "Integrated Master of Science",
-     "indicative_closing_rank": 43651
+     "indicative_closing_rank": 54382
     },
     {
      "branch": "Mechanical Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 46739
+     "indicative_closing_rank": 69698
+    },
+    {
+     "branch": "Mathematics and Computing",
+     "years": 5,
+     "degree": "Integrated Master of Science",
+     "indicative_closing_rank": 73499
     },
     {
      "branch": "Chemical Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 54554
-    },
-    {
-     "branch": "Physics",
-     "years": 5,
-     "degree": "Integrated Master of Science",
-     "indicative_closing_rank": 57275
+     "indicative_closing_rank": 91841
     },
     {
      "branch": "Civil Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 57616
+     "indicative_closing_rank": 92424
+    },
+    {
+     "branch": "Quantitative Economics & Data Science",
+     "years": 5,
+     "degree": "Integrated Master of Science",
+     "indicative_closing_rank": 98345
     },
     {
      "branch": "Bio Technology",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 59086
+     "indicative_closing_rank": 113717
+    },
+    {
+     "branch": "Physics",
+     "years": 5,
+     "degree": "Integrated Master of Science",
+     "indicative_closing_rank": 121027
     },
     {
      "branch": "Production and Industrial Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 59936
+     "indicative_closing_rank": 121470
     },
     {
      "branch": "Food Engineering and Technology",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 61127
+     "indicative_closing_rank": 122354
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 28,
@@ -3472,7 +3472,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 29,
@@ -3542,125 +3542,125 @@
      "branch": "Architecture",
      "years": 5,
      "degree": "Bachelor of Architecture",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Artificial Intelligence and Data Science",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Artificial Intelligence and Machine Learning",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Civil Engineering",
-     "years": 5,
-     "degree": "Bachelor and Master of Technology (Dual Degree)",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Civil Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 2110
     },
     {
      "branch": "Computer Science and Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 8484
     },
     {
      "branch": "Computer Science and Engineering",
      "years": 5,
      "degree": "Bachelor and Master of Technology (Dual Degree)",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Electrical Engineering",
-     "years": 5,
-     "degree": "Bachelor and Master of Technology (Dual Degree)",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Electrical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Electronics and Communication Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Electronics and Communication Engineering",
-     "years": 5,
-     "degree": "Bachelor and Master of Technology (Dual Degree)",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Industrial Internet of Things",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 11456
     },
     {
      "branch": "Information Technology",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 12252
+    },
+    {
+     "branch": "Artificial Intelligence and Machine Learning",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 12346
+    },
+    {
+     "branch": "Artificial Intelligence and Data Science",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 12578
     },
     {
      "branch": "Mathematics and Computing",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 15269
     },
     {
-     "branch": "Mechanical Engineering",
+     "branch": "Electronics and Communication Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 15889
+    },
+    {
+     "branch": "Electronics and Communication Engineering",
      "years": 5,
      "degree": "Bachelor and Master of Technology (Dual Degree)",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Mechanical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Microelectronics & VLSI Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Production and Industrial Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 16112
     },
     {
      "branch": "ROBOTICS & AUTOMATION",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 20596
+    },
+    {
+     "branch": "Microelectronics & VLSI Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 22646
+    },
+    {
+     "branch": "Electrical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 24102
+    },
+    {
+     "branch": "Industrial Internet of Things",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 24176
+    },
+    {
+     "branch": "Electrical Engineering",
+     "years": 5,
+     "degree": "Bachelor and Master of Technology (Dual Degree)",
+     "indicative_closing_rank": 27197
+    },
+    {
+     "branch": "Mechanical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 30173
+    },
+    {
+     "branch": "Mechanical Engineering",
+     "years": 5,
+     "degree": "Bachelor and Master of Technology (Dual Degree)",
+     "indicative_closing_rank": 32679
+    },
+    {
+     "branch": "Civil Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 43064
+    },
+    {
+     "branch": "Production and Industrial Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 44633
     },
     {
      "branch": "SUSTAINABLE ENERGY TECHNOLOGIES",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 48578
+    },
+    {
+     "branch": "Civil Engineering",
+     "years": 5,
+     "degree": "Bachelor and Master of Technology (Dual Degree)",
+     "indicative_closing_rank": 49120
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 43,
@@ -3729,59 +3729,59 @@
      "branch": "Architecture",
      "years": 5,
      "degree": "Bachelor of Architecture",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Chemical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Civil Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 715
     },
     {
      "branch": "Computer Science and Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Electrical and Electronics Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 7203
     },
     {
      "branch": "Electronics and Communication Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 11176
+    },
+    {
+     "branch": "Electrical and Electronics Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 15641
     },
     {
      "branch": "Mechanical Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 21761
+    },
+    {
+     "branch": "Chemical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 31613
+    },
+    {
+     "branch": "Civil Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 40998
     },
     {
      "branch": "Metallurgical and Materials Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 44638
     },
     {
      "branch": "Mining Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 49473
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 44,
@@ -3864,80 +3864,80 @@
    ],
    "list": [
     {
-     "branch": "B.Tech in Mathematics and Computing",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Bio Technology",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Biotechnology",
-     "years": 5,
-     "degree": "Bachelor and Master of Technology (Dual Degree)",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Chemical Engineering",
-     "years": 5,
-     "degree": "Bachelor and Master of Technology (Dual Degree)",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Chemical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Chemistry",
-     "years": 5,
-     "degree": "Integrated Master of Science",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Civil Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
      "branch": "Computer Science and Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 11587
     },
     {
-     "branch": "Electrical Engineering",
+     "branch": "B.Tech in Mathematics and Computing",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 14160
     },
     {
      "branch": "Electronics and Communication Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 16672
+    },
+    {
+     "branch": "Electrical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 21358
     },
     {
      "branch": "Mechanical Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 33709
+    },
+    {
+     "branch": "Chemical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 37802
+    },
+    {
+     "branch": "Chemical Engineering",
+     "years": 5,
+     "degree": "Bachelor and Master of Technology (Dual Degree)",
+     "indicative_closing_rank": 39414
     },
     {
      "branch": "Metallurgical and Materials Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 45449
+    },
+    {
+     "branch": "Civil Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 45938
+    },
+    {
+     "branch": "Bio Technology",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 52812
+    },
+    {
+     "branch": "Biotechnology",
+     "years": 5,
+     "degree": "Bachelor and Master of Technology (Dual Degree)",
+     "indicative_closing_rank": 52931
+    },
+    {
+     "branch": "Chemistry",
+     "years": 5,
+     "degree": "Integrated Master of Science",
+     "indicative_closing_rank": 58659
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 47,
@@ -4002,68 +4002,68 @@
    ],
    "list": [
     {
-     "branch": "Bio Technology",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Chemical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Civil Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
      "branch": "Computer Science and Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Electrical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 6562
     },
     {
      "branch": "Electronics and Communication Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 9577
+    },
+    {
+     "branch": "Electrical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 11665
     },
     {
      "branch": "Engineering and Computational Mechanics",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Materials Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 12759
     },
     {
      "branch": "Mechanical Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 21070
+    },
+    {
+     "branch": "Chemical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 22469
+    },
+    {
+     "branch": "Civil Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 31589
     },
     {
      "branch": "Production and Industrial Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 35132
+    },
+    {
+     "branch": "Materials Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 38442
+    },
+    {
+     "branch": "Bio Technology",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 39400
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 48,
@@ -4132,77 +4132,77 @@
      "branch": "Architecture",
      "years": 5,
      "degree": "Bachelor of Architecture",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Bio Technology",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Chemical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Civil Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 289
     },
     {
      "branch": "Computer Science and Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Electrical and Electronics Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 8428
     },
     {
      "branch": "Electronics and Communication Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 12693
     },
     {
-     "branch": "Energy Engineering",
+     "branch": "Electrical and Electronics Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Engineering Physics",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Materials Science and Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 16349
     },
     {
      "branch": "Mechanical Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 21336
+    },
+    {
+     "branch": "Engineering Physics",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 21952
+    },
+    {
+     "branch": "Chemical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 26665
+    },
+    {
+     "branch": "Energy Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 29616
     },
     {
      "branch": "Production Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 36474
+    },
+    {
+     "branch": "Materials Science and Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 38319
+    },
+    {
+     "branch": "Bio Technology",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 41439
+    },
+    {
+     "branch": "Civil Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 41708
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 50,
@@ -4271,59 +4271,59 @@
      "branch": "Architecture",
      "years": 5,
      "degree": "Bachelor of Architecture",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Artificial Intelligence and Data Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Chemical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Civil Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 1983
     },
     {
      "branch": "Computer Science and Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 6013
     },
     {
-     "branch": "Electrical Engineering",
+     "branch": "Artificial Intelligence and Data Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 6491
     },
     {
      "branch": "Electronics and Communication Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 10539
+    },
+    {
+     "branch": "Electrical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 14665
     },
     {
      "branch": "Mechanical Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 20213
+    },
+    {
+     "branch": "Chemical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 26449
+    },
+    {
+     "branch": "Civil Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 35746
     },
     {
      "branch": "Metallurgical and Materials Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 38003
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 52,
@@ -4393,113 +4393,113 @@
      "branch": "Architecture",
      "years": 5,
      "degree": "Bachelor of Architecture",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Artificial Intelligence and Data Science",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Chemical Technology",
-     "years": 5,
-     "degree": "Bachelor and Master of Technology (Dual Degree)",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Civil Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Civil Engineering with Specialization in Construction Technology and Management",
-     "years": 5,
-     "degree": "Bachelor and Master of Technology (Dual Degree)",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 4364
     },
     {
      "branch": "Computer Science and Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 17808
     },
     {
-     "branch": "Computer Science and Engineering with Specialization in Cyber Security",
-     "years": 5,
-     "degree": "Bachelor and Master of Technology (Dual Degree)",
-     "indicative_closing_rank": null
+     "branch": "Artificial Intelligence and Data Science",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 21207
     },
     {
      "branch": "Computer Science and Engineering with Specialization in Data Science",
      "years": 5,
      "degree": "Bachelor and Master of Technology (Dual Degree)",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 22789
     },
     {
-     "branch": "Electrical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Electrical Engineering with Specialization In Power System Engineering",
+     "branch": "Computer Science and Engineering with Specialization in Cyber Security",
      "years": 5,
      "degree": "Bachelor and Master of Technology (Dual Degree)",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Electronics Engineering (VLSI Design and Technology)",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 23681
     },
     {
      "branch": "Electronics and Communication Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Electronics and Communication Engineering with Specialization in Microelectronics and VLSI System Design",
-     "years": 5,
-     "degree": "Bachelor and Master of Technology (Dual Degree)",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Material Science and Engineering",
-     "years": 5,
-     "degree": "Bachelor and Master of Technology (Dual Degree)",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 25184
     },
     {
      "branch": "Mathematics and Computing Technology",
      "years": 5,
      "degree": "Bachelor and Master of Technology (Dual Degree)",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 25200
     },
     {
-     "branch": "Mechanical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Mechanical Engineering with Specialization in Manufacturing and Industrial Engineering",
+     "branch": "Electronics and Communication Engineering with Specialization in Microelectronics and VLSI System Design",
      "years": 5,
      "degree": "Bachelor and Master of Technology (Dual Degree)",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 29291
+    },
+    {
+     "branch": "Electronics Engineering (VLSI Design and Technology)",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 30551
+    },
+    {
+     "branch": "Electrical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 31816
     },
     {
      "branch": "Mechatronics and Automation Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 33461
+    },
+    {
+     "branch": "Electrical Engineering with Specialization In Power System Engineering",
+     "years": 5,
+     "degree": "Bachelor and Master of Technology (Dual Degree)",
+     "indicative_closing_rank": 35951
+    },
+    {
+     "branch": "Mechanical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 38896
+    },
+    {
+     "branch": "Mechanical Engineering with Specialization in Manufacturing and Industrial Engineering",
+     "years": 5,
+     "degree": "Bachelor and Master of Technology (Dual Degree)",
+     "indicative_closing_rank": 46166
+    },
+    {
+     "branch": "Civil Engineering with Specialization in Construction Technology and Management",
+     "years": 5,
+     "degree": "Bachelor and Master of Technology (Dual Degree)",
+     "indicative_closing_rank": 48231
+    },
+    {
+     "branch": "Civil Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 48513
+    },
+    {
+     "branch": "Chemical Technology",
+     "years": 5,
+     "degree": "Bachelor and Master of Technology (Dual Degree)",
+     "indicative_closing_rank": 54920
+    },
+    {
+     "branch": "Material Science and Engineering",
+     "years": 5,
+     "degree": "Bachelor and Master of Technology (Dual Degree)",
+     "indicative_closing_rank": 55890
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 53,
@@ -4647,7 +4647,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 54,
@@ -4712,92 +4712,92 @@
    ],
    "list": [
     {
-     "branch": "Bio Technology",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Chemical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Civil Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
      "branch": "Computer Science and Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 16325
     },
     {
      "branch": "Data Science and Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Electrical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Electronics and Communication Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Electronics and VLSI Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Industrial and Production Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 20283
     },
     {
      "branch": "Information Technology",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Instrumentation and Control Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 23198
     },
     {
      "branch": "Mathematics and Computing",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 23297
+    },
+    {
+     "branch": "Electronics and Communication Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 26658
+    },
+    {
+     "branch": "Electronics and VLSI Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 27873
+    },
+    {
+     "branch": "Electrical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 29947
+    },
+    {
+     "branch": "Instrumentation and Control Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 45047
     },
     {
      "branch": "Mechanical Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 46722
+    },
+    {
+     "branch": "Chemical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 57036
+    },
+    {
+     "branch": "Civil Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 58952
+    },
+    {
+     "branch": "Industrial and Production Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 68146
+    },
+    {
+     "branch": "Bio Technology",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 79511
     },
     {
      "branch": "Textile Technology",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 89077
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 55,
@@ -4881,80 +4881,80 @@
    ],
    "list": [
     {
+     "branch": "Planning",
+     "years": 4,
+     "degree": "Bachelor of Planning",
+     "indicative_closing_rank": 2659
+    },
+    {
      "branch": "Architecture",
      "years": 5,
      "degree": "Bachelor of Architecture",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "B. Tech. and M. Tech. in Engineering and Computational Mechanics (Dual Degree)",
-     "years": 5,
-     "degree": "Bachelor and Master of Technology (Dual Degree)",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Chemical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Civil Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 3688
     },
     {
      "branch": "Computer Science and Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Electrical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Electronics and Communication Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Energy and Electrical Vehicle Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Materials Science and Metallurgical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 11415
     },
     {
      "branch": "Mathematics and Data Science",
      "years": 5,
      "degree": "Bachelor and Master of Technology (Dual Degree)",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 16703
+    },
+    {
+     "branch": "Electronics and Communication Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 18120
+    },
+    {
+     "branch": "Electrical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 24120
+    },
+    {
+     "branch": "B. Tech. and M. Tech. in Engineering and Computational Mechanics (Dual Degree)",
+     "years": 5,
+     "degree": "Bachelor and Master of Technology (Dual Degree)",
+     "indicative_closing_rank": 30890
+    },
+    {
+     "branch": "Energy and Electrical Vehicle Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 32924
     },
     {
      "branch": "Mechanical Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 34275
     },
     {
-     "branch": "Planning",
+     "branch": "Chemical Engineering",
      "years": 4,
-     "degree": "Bachelor of Planning",
-     "indicative_closing_rank": null
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 40308
+    },
+    {
+     "branch": "Civil Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 46288
+    },
+    {
+     "branch": "Materials Science and Metallurgical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 51350
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 55,
@@ -5067,7 +5067,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 56,
@@ -5176,7 +5176,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 57,
@@ -5253,44 +5253,44 @@
    ],
    "list": [
     {
-     "branch": "Civil Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
      "branch": "Computer Science and Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Electrical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 23366
     },
     {
      "branch": "Electronics and Communication Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 40328
     },
     {
      "branch": "Electronics and Instrumentation Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 50066
+    },
+    {
+     "branch": "Electrical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 58422
     },
     {
      "branch": "Mechanical Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 68356
+    },
+    {
+     "branch": "Civil Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 80869
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 57,
@@ -5357,98 +5357,98 @@
    ],
    "list": [
     {
-     "branch": "Artificial Intelligence",
-     "years": 5,
-     "degree": "Integrated B. Tech. and M. Tech.",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Artificial Intelligence",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Chemical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Chemistry",
-     "years": 5,
-     "degree": "Integrated Master of Science",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Civil Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
      "branch": "Computer Science and Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Electrical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Electronics and Communication Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Electronics and VLSI Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Engineering Physics",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Industrial Chemistry",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Mathematics",
-     "years": 5,
-     "degree": "Integrated Master of Science",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 8130
     },
     {
      "branch": "Mathematics and Computing",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 10331
+    },
+    {
+     "branch": "Artificial Intelligence",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 12415
+    },
+    {
+     "branch": "Electronics and Communication Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 15005
+    },
+    {
+     "branch": "Artificial Intelligence",
+     "years": 5,
+     "degree": "Integrated B. Tech. and M. Tech.",
+     "indicative_closing_rank": 16395
+    },
+    {
+     "branch": "Electronics and VLSI Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 17199
+    },
+    {
+     "branch": "Electrical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 23449
     },
     {
      "branch": "Mechanical Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 34584
+    },
+    {
+     "branch": "Chemical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 42569
+    },
+    {
+     "branch": "Engineering Physics",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 45221
+    },
+    {
+     "branch": "Civil Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 50289
+    },
+    {
+     "branch": "Industrial Chemistry",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 55833
     },
     {
      "branch": "Physics",
      "years": 5,
      "degree": "Integrated Master of Science",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 65486
+    },
+    {
+     "branch": "Mathematics",
+     "years": 5,
+     "degree": "Integrated Master of Science",
+     "indicative_closing_rank": 71752
+    },
+    {
+     "branch": "Chemistry",
+     "years": 5,
+     "degree": "Integrated Master of Science",
+     "indicative_closing_rank": 81657
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 61,
@@ -5543,7 +5543,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 64,
@@ -5625,77 +5625,77 @@
      "branch": "Architecture",
      "years": 5,
      "degree": "Bachelor of Architecture",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Chemical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Civil Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Computer Science and Engineering",
-     "years": 5,
-     "degree": "Bachelor and Master of Technology (Dual Degree)",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 7861
     },
     {
      "branch": "Computer Science and Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 22394
     },
     {
-     "branch": "Electrical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Electronics and Communication Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Electronics and Communication Engineering",
+     "branch": "Computer Science and Engineering",
      "years": 5,
      "degree": "Bachelor and Master of Technology (Dual Degree)",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Engineering Physics",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Materials Science and Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 26321
     },
     {
      "branch": "Mathematics and Computing",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 33284
+    },
+    {
+     "branch": "Electronics and Communication Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 45099
+    },
+    {
+     "branch": "Electronics and Communication Engineering",
+     "years": 5,
+     "degree": "Bachelor and Master of Technology (Dual Degree)",
+     "indicative_closing_rank": 47782
+    },
+    {
+     "branch": "Electrical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 58330
     },
     {
      "branch": "Mechanical Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 73871
+    },
+    {
+     "branch": "Chemical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 91171
+    },
+    {
+     "branch": "Civil Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 112244
+    },
+    {
+     "branch": "Engineering Physics",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 114049
+    },
+    {
+     "branch": "Materials Science and Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 117169
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 64,
@@ -5760,56 +5760,56 @@
    ],
    "list": [
     {
-     "branch": "Aerospace Engineering",
+     "branch": "Computer Science and Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 10165
     },
     {
      "branch": "Artificial Intelligence and Data Science",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Civil Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Computer Science and Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Electrical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 11212
     },
     {
      "branch": "Electronics and Communication Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Mechanical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 15523
     },
     {
      "branch": "VLSI Design and Technology",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 16548
+    },
+    {
+     "branch": "Aerospace Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 21452
+    },
+    {
+     "branch": "Electrical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 21491
+    },
+    {
+     "branch": "Mechanical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 28430
+    },
+    {
+     "branch": "Civil Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 36027
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 65,
@@ -5928,7 +5928,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 72,
@@ -6002,56 +6002,56 @@
    ],
    "list": [
     {
-     "branch": "Chemical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Civil Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
      "branch": "Computer Science and Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Electrical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Electronics and Communication Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 220991
     },
     {
      "branch": "Information Technology",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 238562
+    },
+    {
+     "branch": "Electronics and Communication Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 306845
+    },
+    {
+     "branch": "Civil Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 315730
     },
     {
      "branch": "Mechanical Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 334003
+    },
+    {
+     "branch": "Electrical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 340899
+    },
+    {
+     "branch": "Chemical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 372690
     },
     {
      "branch": "Metallurgical and Materials Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 467655
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 73,
@@ -6145,7 +6145,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 74,
@@ -6263,7 +6263,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 77,
@@ -6336,77 +6336,77 @@
      "branch": "Architecture",
      "years": 5,
      "degree": "Bachelor of Architecture",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Bio Medical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Bio Technology",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Chemical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Civil Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 3672
     },
     {
      "branch": "Computer Science and Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Electrical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Electronics and Communication Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 21913
     },
     {
      "branch": "Information Technology",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 30900
+    },
+    {
+     "branch": "Electronics and Communication Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 40209
+    },
+    {
+     "branch": "Electrical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 51834
     },
     {
      "branch": "Mechanical Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 59807
+    },
+    {
+     "branch": "Chemical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 66029
+    },
+    {
+     "branch": "Civil Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 73812
     },
     {
      "branch": "Metallurgical and Materials Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 85636
     },
     {
      "branch": "Mining Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 101941
+    },
+    {
+     "branch": "Bio Technology",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 108275
+    },
+    {
+     "branch": "Bio Medical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 116282
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 81,
@@ -6471,56 +6471,56 @@
    ],
    "list": [
     {
-     "branch": "Civil Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
      "branch": "Computer Science and Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Electrical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 11978
     },
     {
      "branch": "Electronics and Communication Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 17746
+    },
+    {
+     "branch": "Electrical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 22552
     },
     {
      "branch": "Engineering and Computational Mechanics",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 26546
     },
     {
      "branch": "Mechanical Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 33156
     },
     {
      "branch": "Metallurgical and Materials Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 48995
+    },
+    {
+     "branch": "Civil Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 49446
     },
     {
      "branch": "Production and Industrial Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 56066
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 82,
@@ -6602,80 +6602,80 @@
    ],
    "list": [
     {
-     "branch": "Aerospace Engineering",
+     "branch": "Computer Science and Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Civil Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 19702
     },
     {
      "branch": "Computer Science Engineering (Artificial Intelligence)",
      "years": 4,
      "degree": "B. Tech / B. Tech (Hons.)",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 21260
     },
     {
      "branch": "Computer Science Engineering (Data Science)",
      "years": 4,
      "degree": "B. Tech / B. Tech (Hons.)",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Computer Science and Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Electrical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Electronics Engineering (VLSI Design and Technology)",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Electronics and Communication Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 25310
     },
     {
      "branch": "Mathematics and Computing",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 33277
+    },
+    {
+     "branch": "Electronics and Communication Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 36774
+    },
+    {
+     "branch": "Electronics Engineering (VLSI Design and Technology)",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 40631
+    },
+    {
+     "branch": "Electrical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 49806
+    },
+    {
+     "branch": "Aerospace Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 55662
     },
     {
      "branch": "Mechanical Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Metallurgical and Materials Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 67850
     },
     {
      "branch": "Production and Industrial Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 93234
+    },
+    {
+     "branch": "Civil Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 106307
+    },
+    {
+     "branch": "Metallurgical and Materials Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 117242
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 87,
@@ -6770,7 +6770,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 90,
@@ -6836,38 +6836,38 @@
    ],
    "list": [
     {
-     "branch": "Civil Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
      "branch": "Computer Science and Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Electrical and Electronics Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 27338
     },
     {
      "branch": "Electronics and Communication Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 45337
     },
     {
      "branch": "Mechanical Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 64851
+    },
+    {
+     "branch": "Electrical and Electronics Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 90522
+    },
+    {
+     "branch": "Civil Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 114549
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 90,
@@ -6972,7 +6972,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 91,
@@ -7039,92 +7039,92 @@
    ],
    "list": [
     {
-     "branch": "Biotechnology and Biochemical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Chemical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Chemistry",
-     "years": 5,
-     "degree": "Bachelor of Science and Master of Science (Dual Degree)",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Civil Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Computational Mathematics",
-     "years": 5,
-     "degree": "Bachelor and Master of Technology (Dual Degree)",
-     "indicative_closing_rank": null
-    },
-    {
      "branch": "Computer Science and Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Electrical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 75417
     },
     {
      "branch": "Electronics and Communication Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 105936
+    },
+    {
+     "branch": "Electrical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 127385
     },
     {
      "branch": "Electronics and Instrumentation Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 147524
     },
     {
-     "branch": "Engineering Physics",
+     "branch": "Computational Mathematics",
      "years": 5,
      "degree": "Bachelor and Master of Technology (Dual Degree)",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Mathematics & Computing",
-     "years": 5,
-     "degree": "Bachelor of Science and Master of Science (Dual Degree)",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 167791
     },
     {
      "branch": "Mechanical Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 204344
     },
     {
-     "branch": "Physics",
+     "branch": "Mathematics & Computing",
      "years": 5,
      "degree": "Bachelor of Science and Master of Science (Dual Degree)",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 234846
+    },
+    {
+     "branch": "Civil Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 237394
+    },
+    {
+     "branch": "Chemical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 256835
     },
     {
      "branch": "Production Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 308003
+    },
+    {
+     "branch": "Engineering Physics",
+     "years": 5,
+     "degree": "Bachelor and Master of Technology (Dual Degree)",
+     "indicative_closing_rank": 311214
+    },
+    {
+     "branch": "Biotechnology and Biochemical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 320421
+    },
+    {
+     "branch": "Physics",
+     "years": 5,
+     "degree": "Bachelor of Science and Master of Science (Dual Degree)",
+     "indicative_closing_rank": 343077
+    },
+    {
+     "branch": "Chemistry",
+     "years": 5,
+     "degree": "Bachelor of Science and Master of Science (Dual Degree)",
+     "indicative_closing_rank": 346939
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 92,
@@ -7189,38 +7189,38 @@
    ],
    "list": [
     {
-     "branch": "Civil Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
      "branch": "Computer Science and Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 215198
+    },
+    {
+     "branch": "Civil Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 278552
     },
     {
      "branch": "Electrical Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 346687
     },
     {
      "branch": "Electronics and Communication Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 352131
     },
     {
      "branch": "Mechanical Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 529893
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 95,
@@ -7333,7 +7333,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 96,
@@ -7414,38 +7414,38 @@
    ],
    "list": [
     {
-     "branch": "Civil Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
      "branch": "Computer Science and Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Electrical and Electronics Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Electronics and Communication Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 59949
     },
     {
      "branch": "Mechanical Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 136427
+    },
+    {
+     "branch": "Electrical and Electronics Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 146012
+    },
+    {
+     "branch": "Electronics and Communication Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 146176
+    },
+    {
+     "branch": "Civil Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 318381
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 98,
@@ -7510,38 +7510,38 @@
    ],
    "list": [
     {
-     "branch": "Civil Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
      "branch": "Computer Science and Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Electrical and Electronics Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 64692
     },
     {
      "branch": "Electronics and Communication Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 86567
+    },
+    {
+     "branch": "Electrical and Electronics Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 116492
     },
     {
      "branch": "Mechanical Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 167788
+    },
+    {
+     "branch": "Civil Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 205593
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 99,
@@ -7634,7 +7634,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 112,
@@ -7707,38 +7707,38 @@
    ],
    "list": [
     {
-     "branch": "Civil Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
      "branch": "Computer Science and Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Electrical and Electronics Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 30851
     },
     {
      "branch": "Electronics and Communication Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 43978
+    },
+    {
+     "branch": "Electrical and Electronics Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 48247
     },
     {
      "branch": "Mechanical Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 52147
+    },
+    {
+     "branch": "Civil Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 61063
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 131,
@@ -7807,44 +7807,44 @@
    ],
    "list": [
     {
-     "branch": "Biosciences and Bioengineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Civil Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
      "branch": "Computer Science and Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Electrical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 78084
     },
     {
      "branch": "Electronics and Communication Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 115892
+    },
+    {
+     "branch": "Electrical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 170231
+    },
+    {
+     "branch": "Civil Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 174477
+    },
+    {
+     "branch": "Biosciences and Bioengineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 182602
     },
     {
      "branch": "Mechanical Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 201715
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 171,
@@ -7917,44 +7917,44 @@
    ],
    "list": [
     {
-     "branch": "Artificial Intelligence and Machine Learning",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Civil Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
      "branch": "Computer Science and Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 185001
     },
     {
-     "branch": "Electrical and Electronics Engineering",
+     "branch": "Artificial Intelligence and Machine Learning",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 288771
     },
     {
      "branch": "Electronics and Communication Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 415454
+    },
+    {
+     "branch": "Electrical and Electronics Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 514742
     },
     {
      "branch": "Mechanical Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 626461
+    },
+    {
+     "branch": "Civil Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 629625
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 173,
@@ -8087,7 +8087,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 184,
@@ -8184,7 +8184,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": {
    "engineering_rank": 190,
@@ -8252,23 +8252,23 @@
      "branch": "Computer Science and Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 58926
+     "indicative_closing_rank": 98436
     },
     {
      "branch": "Electronics and Communication Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 67237
+     "indicative_closing_rank": 128531
     },
     {
      "branch": "Agricultural Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 88476
+     "indicative_closing_rank": 246536
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -8316,29 +8316,29 @@
      "branch": "Computer Science and Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 57517
+     "indicative_closing_rank": 113577
     },
     {
      "branch": "Electronics and Communication Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 66125
+     "indicative_closing_rank": 133575
     },
     {
      "branch": "Electrical and Electronics Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 68479
+     "indicative_closing_rank": 144484
     },
     {
      "branch": "Mechanical Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 73343
+     "indicative_closing_rank": 146293
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -8387,47 +8387,47 @@
      "branch": "Computer Science and Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 49330
+     "indicative_closing_rank": 70211
     },
     {
      "branch": "Artificial Intelligence and Machine Learning",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 54588
-    },
-    {
-     "branch": "Mathematics and Computing",
-     "years": 5,
-     "degree": "Integrated Master of Science",
-     "indicative_closing_rank": 57842
+     "indicative_closing_rank": 82815
     },
     {
      "branch": "Electronics and Communication Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 58571
+     "indicative_closing_rank": 87928
     },
     {
      "branch": "Electrical and Electronics Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 64669
+     "indicative_closing_rank": 98370
+    },
+    {
+     "branch": "Mathematics and Computing",
+     "years": 5,
+     "degree": "Integrated Master of Science",
+     "indicative_closing_rank": 99593
     },
     {
      "branch": "Mechanical Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 74710
+     "indicative_closing_rank": 114860
     },
     {
      "branch": "Civil Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 78797
+     "indicative_closing_rank": 120505
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -8496,7 +8496,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -8565,7 +8565,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -8640,7 +8640,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -8703,7 +8703,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -8778,7 +8778,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -8842,7 +8842,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -8923,7 +8923,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -8968,38 +8968,38 @@
    ],
    "list": [
     {
-     "branch": "Civil and Environmental Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
      "branch": "Computer Science Engineering (Artificial lntelligence and Machine Learning)",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 147447
     },
     {
      "branch": "Electrical Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Food Technology",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 288733
     },
     {
      "branch": "Mechanical Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 294449
+    },
+    {
+     "branch": "Civil and Environmental Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 450734
+    },
+    {
+     "branch": "Food Technology",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 522500
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -9068,7 +9068,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -9149,7 +9149,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -9200,7 +9200,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -9251,7 +9251,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -9302,7 +9302,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -9383,7 +9383,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -9440,7 +9440,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -9516,7 +9516,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -9579,7 +9579,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -9642,7 +9642,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -9711,7 +9711,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -9810,7 +9810,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -9898,7 +9898,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -9967,7 +9967,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -10036,7 +10036,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -10105,7 +10105,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -10168,7 +10168,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -10237,7 +10237,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -10300,7 +10300,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -10369,7 +10369,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -10438,7 +10438,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -10507,7 +10507,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -10558,7 +10558,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -10621,7 +10621,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -10690,7 +10690,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -10753,7 +10753,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -10801,11 +10801,11 @@
      "branch": "Chemical Engineering",
      "years": 5,
      "degree": "Integrated Masters in Technology",
-     "indicative_closing_rank": 63993
+     "indicative_closing_rank": 94719
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -10886,7 +10886,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -10961,7 +10961,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -11024,7 +11024,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -11072,11 +11072,11 @@
      "branch": "Architecture",
      "years": 5,
      "degree": "Bachelor of Architecture",
-     "indicative_closing_rank": 1600
+     "indicative_closing_rank": 33353
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -11133,7 +11133,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -11190,7 +11190,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -11272,7 +11272,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -11341,7 +11341,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -11392,7 +11392,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -11449,7 +11449,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -11506,7 +11506,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -11557,7 +11557,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -11608,7 +11608,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -11659,7 +11659,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -11710,7 +11710,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -11755,44 +11755,44 @@
    ],
    "list": [
     {
-     "branch": "Civil Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
      "branch": "Computer Science and Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Electrical and Electronics Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 39594
     },
     {
      "branch": "Electronics and Communication Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 44158
+    },
+    {
+     "branch": "Electrical and Electronics Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 50145
     },
     {
      "branch": "Electronics and Instrumentation Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 53110
     },
     {
      "branch": "Mechanical Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 56813
+    },
+    {
+     "branch": "Civil Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 60689
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -11837,56 +11837,56 @@
    ],
    "list": [
     {
-     "branch": "Bio Technology",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Chemical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Civil Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
      "branch": "Computer Science and Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Electrical and Electronics Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 18183
     },
     {
      "branch": "Electronics and Communication Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 26754
+    },
+    {
+     "branch": "Electrical and Electronics Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 39438
     },
     {
      "branch": "Mechanical Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 44846
+    },
+    {
+     "branch": "Civil Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 53333
+    },
+    {
+     "branch": "Chemical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 55070
+    },
+    {
+     "branch": "Bio Technology",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 61356
     },
     {
      "branch": "Metallurgical and Materials Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 61466
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -11934,47 +11934,47 @@
      "branch": "Chemical Science and Technology",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 57895
     },
     {
      "branch": "Civil Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 548694
     },
     {
      "branch": "Computer Science and Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 563566
     },
     {
      "branch": "Electrical Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Electronics and Communication Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 718900
     },
     {
      "branch": "Mathematics and Computing",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 764291
+    },
+    {
+     "branch": "Electronics and Communication Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 1105820
     },
     {
      "branch": "Mechanical Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
+     "indicative_closing_rank": 1314967
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -12055,7 +12055,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -12124,7 +12124,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -12175,12 +12175,6 @@
      "indicative_closing_rank": 47439
     },
     {
-     "branch": "Computer Science and Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 56480
-    },
-    {
      "branch": "Electronics and Instrumentation Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
@@ -12193,38 +12187,44 @@
      "indicative_closing_rank": 58937
     },
     {
-     "branch": "Electronics and Communication Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 61192
-    },
-    {
-     "branch": "Mechatronics Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 64579
-    },
-    {
      "branch": "Chemical Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
      "indicative_closing_rank": 65703
     },
     {
-     "branch": "Mechanical Engineering",
+     "branch": "Computer Science and Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 78585
+     "indicative_closing_rank": 209016
+    },
+    {
+     "branch": "Electronics and Communication Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 244172
+    },
+    {
+     "branch": "Mechatronics Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 248412
     },
     {
      "branch": "Civil Engineering",
      "years": 4,
      "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 89050
+     "indicative_closing_rank": 386246
+    },
+    {
+     "branch": "Mechanical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 423455
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -12281,7 +12281,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -12418,7 +12418,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -12543,7 +12543,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -12601,7 +12601,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -12659,7 +12659,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -12717,7 +12717,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -12822,7 +12822,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -12921,7 +12921,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
@@ -13021,7 +13021,7 @@
     }
    ],
    "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative All-India OPEN Gender-Neutral closing rank, for ordering branches by competitiveness. Full cutoffs are in the College Predictor."
+   "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
   "placement": null,
