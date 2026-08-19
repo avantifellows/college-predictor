@@ -110,13 +110,13 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
             <div className="grid gap-6 md:grid-cols-5">
               {/* ── programs: the only field with 100% coverage, so it leads ── */}
               <div className="md:col-span-3">
-                <h4 className="mb-2 text-xs font-semibold uppercase tracking-wide text-[#8f2e31]">
+                <h4 className="mb-2 text-[13px] font-semibold uppercase tracking-wide text-[#8f2e31]">
                   Programs offered ({c.programs.count})
                 </h4>
                 {c.programs.count ? (
                   <>
                     <div className="rounded-lg border border-[#eaded8] bg-white">
-                      <table className="w-full text-xs">
+                      <table className="w-full text-sm">
                         <thead className="bg-[#f8efec] text-[#5b1f20]">
                           <tr>
                             <th className="px-2 py-1.5 text-left font-semibold">Branch</th>
@@ -142,23 +142,17 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
                         </tbody>
                       </table>
                     </div>
-                    <p className="mt-1.5 text-[11px] leading-4 text-[#6d5550]">
-                      {c.programs.rank_note} For full cutoffs, use the{" "}
-                      <Link href="/" className="font-semibold text-[#8f2e31] hover:underline">
-                        College Predictor
-                      </Link>
-                      .
-                    </p>
+
                   </>
                 ) : (
-                  <p className="text-xs text-[#6d5550]">Not available.</p>
+                  <p className="text-sm text-[#6d5550]">Not available.</p>
                 )}
               </div>
 
               <div className="space-y-5 md:col-span-2">
                 {nirf?.rank_history?.length > 1 ? (
                   <div>
-                    <h4 className="mb-1.5 text-xs font-semibold uppercase tracking-wide text-[#8f2e31]">
+                    <h4 className="mb-1.5 text-[13px] font-semibold uppercase tracking-wide text-[#8f2e31]">
                       NIRF rank over time
                     </h4>
                     <RankSparkline history={nirf.rank_history} />
@@ -167,10 +161,10 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
 
                 {pl ? (
                   <div>
-                    <h4 className="mb-1.5 text-xs font-semibold uppercase tracking-wide text-[#8f2e31]">
+                    <h4 className="mb-1.5 text-[13px] font-semibold uppercase tracking-wide text-[#8f2e31]">
                       Placement detail
                     </h4>
-                    <dl className="space-y-1 text-xs text-[#5b3a34]">
+                    <dl className="space-y-1 text-sm text-[#5b3a34]">
                       {pl.students_placed != null ? (
                         <div className="flex justify-between gap-3">
                           <dt>Students placed</dt>
@@ -190,17 +184,17 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
                         </div>
                       ) : null}
                     </dl>
-                    <p className="mt-1.5 text-[11px] leading-4 text-[#6d5550]">
+                    <p className="mt-1.5 text-xs leading-5 text-[#6d5550]">
                       NIRF {pl.ranking_year}, UG 4-year · AY {pl.academic_year}
                     </p>
                   </div>
                 ) : null}
 
                 <div>
-                  <h4 className="mb-1.5 text-xs font-semibold uppercase tracking-wide text-[#8f2e31]">
+                  <h4 className="mb-1.5 text-[13px] font-semibold uppercase tracking-wide text-[#8f2e31]">
                     About
                   </h4>
-                  <dl className="space-y-1 text-xs text-[#5b3a34]">
+                  <dl className="space-y-1 text-sm text-[#5b3a34]">
                     {c.year_established ? (
                       <div className="flex justify-between gap-3">
                         <dt>Established</dt>
@@ -234,7 +228,7 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
                       href={c.website.startsWith("http") ? c.website : `https://${c.website}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-[#8f2e31] hover:underline"
+                      className="mt-2 inline-flex items-center gap-1 text-sm font-semibold text-[#8f2e31] hover:underline"
                     >
                       Official website <ExternalLink size={12} />
                     </a>
@@ -252,13 +246,32 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
 };
 
 
-/** Tiny NIRF rank trend. Rank 1 is BEST, so the y-axis is inverted — a line
- *  going UP means the college improved. Rendered inline rather than charted:
- *  five points do not justify a chart library. */
+// Students type "NIT Raipur", "IIT B" — never "National Institute of Technology
+// Raipur". Expand the common abbreviations before matching so the search works
+// the way people actually refer to these colleges.
+const ABBREV = [
+  [/\bnit\b/g, "national institute of technology"],
+  [/\biiit\b/g, "indian institute of information technology"],
+  [/\biit\b/g, "indian institute of technology"],
+];
+
+const expand = (q) => {
+  let out = q;
+  for (const [re, full] of ABBREV) out = out.replace(re, full);
+  return out;
+};
+
+/** Small NIRF rank trend. Rank 1 is BEST, so the y-axis is inverted — a line
+ *  going UP means the college improved.
+ *
+ *  The year labels sit in a box the SAME WIDTH as the svg, not the parent
+ *  column: with justify-between across the full column the right-hand label
+ *  drifted to the far edge, disconnected from where the line actually ended.
+ */
 const RankSparkline = ({ history }) => {
   const pts = [...history].sort((a, b) => a.year - b.year);
   if (pts.length < 2) return null;
-  const W = 132, H = 34, PAD = 3;
+  const W = 150, H = 36, PAD = 4;
   const ranks = pts.map((p) => p.rank);
   const lo = Math.min(...ranks), hi = Math.max(...ranks);
   const span = hi - lo || 1;
@@ -266,37 +279,20 @@ const RankSparkline = ({ history }) => {
   const y = (r) => PAD + ((r - lo) / span) * (H - 2 * PAD);
   const d = pts.map((p, i) => `${i ? "L" : "M"}${x(i).toFixed(1)},${y(p.rank).toFixed(1)}`).join(" ");
   return (
-    <div>
+    <div style={{ width: W }}>
       <svg width={W} height={H} role="img"
            aria-label={`NIRF rank ${pts.map((p) => `${p.year}: ${p.rank}`).join(", ")}`}>
         <path d={d} fill="none" stroke="#8f2e31" strokeWidth="1.6" />
         {pts.map((p, i) => (
-          <circle key={p.year} cx={x(i)} cy={y(p.rank)} r="2.2" fill="#8f2e31" />
+          <circle key={p.year} cx={x(i)} cy={y(p.rank)} r="2.4" fill="#8f2e31" />
         ))}
       </svg>
-      <div className="flex justify-between text-[10px] tabular-nums text-[#6d5550]">
+      <div className="flex justify-between text-[11px] tabular-nums text-[#6d5550]">
         <span>{pts[0].year} · #{pts[0].rank}</span>
         <span>{pts[pts.length - 1].year} · #{pts[pts.length - 1].rank}</span>
       </div>
     </div>
   );
-};
-
-// Students type "NIT Raipur", "IIT B", "IIIT Hyderabad" — never the full
-// "National Institute of Technology Raipur". Expand the common abbreviations so
-// the search matches how people actually refer to these colleges.
-const ABBREV = [
-  [/\bnit\b/g, "national institute of technology"],
-  [/\biiit\b/g, "indian institute of information technology"],
-  [/\biit\b/g, "indian institute of technology"],
-  [/\bnift\b/g, "national institute of fashion technology"],
-  [/\bispat\b/g, "ispat"],
-];
-
-const expand = (q) => {
-  let out = q;
-  for (const [re, full] of ABBREV) out = out.replace(re, full);
-  return out;
 };
 
 const SORTS = {
@@ -376,6 +372,14 @@ const Colleges = () => {
           <h1 className="text-center text-2xl font-bold text-[#332724] sm:text-3xl">
             Colleges
           </h1>
+          <p className="mx-auto mt-2 max-w-xl text-center text-sm leading-6 text-[#6d5550]">
+            Closing ranks here are indicative and open-category. For full
+            cutoffs, use the{" "}
+            <Link href="/" className="font-semibold text-[#8f2e31] hover:underline">
+              College Predictor
+            </Link>
+            .
+          </p>
           {/* ── controls ─────────────────────────────────────────────── */}
           <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             <div className="relative sm:col-span-2">
