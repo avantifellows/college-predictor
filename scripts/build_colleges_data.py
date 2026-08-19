@@ -241,8 +241,19 @@ def main():
                 "engineering_score": (round(float(top.overall_score), 2)
                                       if top.overall_score == top.overall_score else None),
                 "ranking_year": int(top.ranking_year),
+                # Score as well as rank. Rank is ORDINAL — it moves when other
+                # institutes move — so a falling rank can hide a rising college:
+                # IIT Ropar's score went 55.95 -> 59.66 since 2020 while its rank
+                # fell #25 -> #32. It improved; the field improved faster. The
+                # score is a property of the institute itself, is present on
+                # 100% of Engineering rows, and IS comparable across years (the
+                # rank-1 score sits at 88-90 every year; the moving mean is only
+                # because NIRF publishes 100 institutes some years and 200 in
+                # others, which lengthens the tail).
                 "rank_history": [
-                    {"year": int(x.ranking_year), "rank": int(x.nirf_rank)}
+                    {"year": int(x.ranking_year), "rank": int(x.nirf_rank),
+                     "score": (round(float(x.overall_score), 2)
+                               if x.overall_score == x.overall_score else None)}
                     for x in g.head(6).itertuples()
                 ],
             }

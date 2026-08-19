@@ -82,6 +82,24 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
           {nirf ? (
             <>
               <span className="font-semibold text-[#332724]">#{nirf.engineering_rank}</span>
+              {(() => {
+                // Direction against LAST year, so a student sees movement in the
+                // table without expanding. A LOWER rank number is better, so a
+                // negative delta is an improvement — shown as "▲" to match the
+                // intuition, not the arithmetic.
+                const h = [...nirf.rank_history].sort((a, b) => b.year - a.year);
+                if (h.length < 2) return null;
+                const d = h[1].rank - h[0].rank;
+                if (d === 0) return null;
+                return (
+                  <span
+                    className="ml-1 text-[11px] font-medium text-[#6d5550]"
+                    title={`${h[0].year}: #${h[0].rank} vs ${h[1].year}: #${h[1].rank}`}
+                  >
+                    {d > 0 ? `▲${d}` : `▼${Math.abs(d)}`}
+                  </span>
+                );
+              })()}
               {nirf.ranking_year < LATEST_NIRF ? (
                 <span
                   className="ml-1 text-[11px] font-normal text-[#6d5550]"
@@ -166,15 +184,12 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
                 {nirf?.rank_history?.length > 1 ? (
                   <div>
                     <h4 className="mb-1.5 text-[13px] font-semibold uppercase tracking-wide text-[#8f2e31]">
-                      NIRF rank over time
+                      NIRF rank and score
                     </h4>
-                    <div className="flex flex-wrap gap-x-3 gap-y-1 text-sm tabular-nums text-[#332724]">
-                      {nirf.rank_history.map((h) => (
-                        <span key={h.year}>
-                          <span className="text-[#6d5550]">{h.year}</span> #{h.rank}
-                        </span>
-                      ))}
-                    </div>
+                    <NirfTrend history={nirf.rank_history} />
+                    <p className="mt-1.5 text-xs leading-5 text-[#6d5550]">
+                      Bars show NIRF score out of 100.
+                    </p>
                   </div>
                 ) : null}
 
@@ -278,6 +293,51 @@ const expand = (q) => {
   let out = q;
   for (const [re, full] of ABBREV) out = out.replace(re, full);
   return out;
+};
+
+/** NIRF trend: a bar per year on the SCORE, with the rank labelled beside it.
+ *
+ *  Score, not rank, drives the bars. Rank is ordinal — it moves when OTHER
+ *  institutes move — so charting it can invert the story: IIT Ropar's score rose
+ *  55.95 -> 59.66 since 2020 while its rank fell #25 -> #32. It improved; the
+ *  field improved faster. Score is a property of the college itself, is present
+ *  on every Engineering row, and is comparable year to year (the rank-1 score is
+ *  88-90 in every cycle).
+ *
+ *  Bars rather than a line, because bars need no inverted axis to read: longer
+ *  is plainly better. Scaled 0-100 (NIRF's own range) so bar length means the
+ *  same thing on every college, not just within one card.
+ */
+const NirfTrend = ({ history }) => {
+  const pts = [...history].sort((a, b) => b.year - a.year);
+  if (!pts.length) return null;
+  return (
+    <table className="w-full text-sm tabular-nums">
+      <tbody>
+        {pts.map((h) => (
+          <tr key={h.year}>
+            <td className="py-0.5 pr-2 text-[#6d5550]">{h.year}</td>
+            <td className="py-0.5 pr-2 font-semibold text-[#332724]">#{h.rank}</td>
+            <td className="w-full py-0.5">
+              {h.score != null ? (
+                <div className="flex items-center gap-1.5">
+                  <div className="h-2 flex-1 overflow-hidden rounded-full bg-[#f0e6e1]">
+                    <div
+                      className="h-full rounded-full bg-[#8f2e31]"
+                      style={{ width: `${Math.max(2, Math.min(100, h.score))}%` }}
+                    />
+                  </div>
+                  <span className="w-9 text-right text-xs text-[#6d5550]">
+                    {h.score.toFixed(1)}
+                  </span>
+                </div>
+              ) : null}
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
 };
 
 const SORTS = {
