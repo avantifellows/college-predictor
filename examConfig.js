@@ -1565,6 +1565,12 @@ export const wbjeeConfig = {
     {
       name: "category",
       label: "Select Category",
+      // Reserved categories exist ONLY under the Home State quota in the
+      // ORCR — every All India bucket is Open. Without this note a student
+      // picking OBC + All India gets an empty result that reads like a
+      // rank problem when it is counselling policy.
+      helperText:
+        "Reserved categories (EWS, OBC, SC, ST) apply to Home State (West Bengal domicile) seats only. For All India quota seats, everyone competes as Open.",
       // 2026's own vocabulary, verbatim (label == value). WBJEE merged the
       // former OBC-A / OBC-B sub-pools into one "OBC" from 2026, so the old
       // sub-pool names must NOT appear here — they'd match zero rows.
