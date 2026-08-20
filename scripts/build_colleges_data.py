@@ -113,23 +113,43 @@ def build_josaa(client):
 
     # ── NIRF: latest rank + a short history, Engineering category ────────────
     nirf = client.query("""
-    SELECT institute_id, ranking_year, nirf_rank, overall_score
+    SELECT institute_id, institute_name, ranking_year, nirf_rank, overall_score
     FROM `avantifellows.external_data_sources.nirf_fact_rankings`
     WHERE ranking_category = 'Engineering' AND nirf_rank IS NOT NULL
     """).to_dataframe()
 
+    # Rank-band rows (101-150 etc.): NIRF publishes NO institute_id for these,
+    # so they can't ride the crosswalk — they are matched to a college by the
+    # NIRF-printed name of its exactly-ranked years (same site, same
+    # formatting). This is what turns "PEC #87 (2022)" into "PEC, band 101-150
+    # in 2025": a college that slid out of the top 100 still has a current,
+    # honest NIRF position instead of a stale rank.
+    bands = client.query("""
+    SELECT institute_name, ranking_year, rank_band
+    FROM `avantifellows.external_data_sources.nirf_fact_rankings`
+    WHERE ranking_category = 'Engineering' AND rank_band IS NOT NULL
+    """).to_dataframe()
+
     # ── placement: UG 4-year is what a JoSAA applicant is entering ───────────
-    # Fall back through older NIRF years per institute rather than showing a
-    # blank: coverage goes 47 -> 59 of our institutes, and the year travels with
-    # the number so a 2022 figure is never passed off as current.
+    # Fall back through older NIRF editions per institute rather than showing
+    # a blank; the year travels with the number so an old figure is never
+    # passed off as current.
+    # First-party since Aug 2026: nirf_fact_dcs_placements is parsed straight
+    # from the institutes' own NIRF filings (external_data_sources nirf/), has
+    # ~2x the institutes of the old Dataful-derived aggregate (rank-band
+    # colleges file DCS PDFs too), no known holes, and carries
+    # graduated_on_time so both percentages share a real denominator.
     place = client.query("""
-    SELECT institute_id, ranking_year, academic_year, median_salary,
-           percentage_placed, students_placed, higher_studies_selected,
+    SELECT institute_id, edition_year AS ranking_year,
+           graduating_academic_year AS academic_year, median_salary,
+           graduated_on_time, students_placed, higher_studies_selected,
            first_year_intake
-    FROM `avantifellows.external_data_sources.nirf_fact_aggregate`
-    WHERE ranking_category = 'Engineering'
-      AND type LIKE 'UG [4 Years%'
+    FROM `avantifellows.external_data_sources.nirf_fact_dcs_placements`
+    WHERE discipline = 'Engineering'
+      AND program_level = 'UG-4Y'
+      AND NOT superseded
       AND median_salary IS NOT NULL AND median_salary > 0
+      AND graduated_on_time IS NOT NULL AND graduated_on_time > 0
     """).to_dataframe()
 
     naac = client.query("""
@@ -158,7 +178,7 @@ def build_josaa(client):
     WHERE year = (SELECT y FROM latest) AND round = (SELECT r FROM lr)
     """).to_dataframe()
 
-    return identity, nirf, place, naac, prog
+    return identity, nirf, bands, place, naac, prog
 
 
 def main():
@@ -168,7 +188,7 @@ def main():
 
     from google.cloud import bigquery
     client = bigquery.Client(project="avantifellows", location="asia-south1")
-    identity, nirf, place, naac, prog = build_josaa(client)
+    identity, nirf, bands, place, naac, prog = build_josaa(client)
     print(f"  identity {len(identity)}  nirf {len(nirf)}  placement {len(place)}  "
           f"naac {len(naac)}  program rows {len(prog)}")
 
@@ -183,6 +203,14 @@ def main():
         place_by_id[iid] = g.sort_values(["ranking_year", "academic_year"], ascending=False)
 
     naac_by_aishe = {r.aishe_id: r for r in naac.itertuples()}
+
+    # band rows keyed by normalised NIRF-printed name
+    def _nname(x):
+        return re.sub(r"[^a-z0-9]", "", str(x).lower())
+    bands_by_name = {}
+    for r in bands.itertuples():
+        bands_by_name.setdefault(_nname(r.institute_name), []).append(
+            (int(r.ranking_year), r.rank_band))
 
     # programs grouped by the JoSAA institute name (the crosswalk's join key)
     prog_by_inst = {}
@@ -257,6 +285,16 @@ def main():
                     for x in g.head(6).itertuples()
                 ],
             }
+            # If the college fell out of the exact-rank list into a band in a
+            # LATER year, surface that as the current position — the exact
+            # rank stays as history.
+            band_hits = []
+            for nm in set(g.institute_name.dropna()):
+                band_hits += bands_by_name.get(_nname(nm), [])
+            band_hits = [b for b in band_hits if b[0] > int(top.ranking_year)]
+            if band_hits:
+                by, bb = max(band_hits)
+                nirf_block["latest_band"] = {"year": by, "band": bb}
 
         placement = None
         pframes = [place_by_id[n] for n in nids if n in place_by_id]
@@ -267,32 +305,25 @@ def main():
                 p = g.iloc[0]
                 def num(v, cast=float):
                     return None if v != v else cast(v)
-                # NIRF's percentage_placed counts JOBS ONLY, so a graduate who
-                # went to an MS or a PhD reads as "not placed". That understates
-                # research-heavy institutes badly — IIT Tirupati shows 55.6% when
-                # 90.7% of its graduates had an outcome, IIT Bombay 73.8% vs
-                # 99.9% — a 10-point median understatement across our 59 colleges
-                # and up to 35 points at the tail. Amogh flagged the IIT numbers
-                # as implausible, and he was right.
-                #
-                # We keep NIRF's own figure untouched under its own name, and add
-                # the combined outcome rate beside it. The denominator is
-                # recovered from NIRF's own arithmetic (placed / pct * 100) rather
-                # than using graduating_on_time, so the two percentages are always
-                # on the same base.
-                pct = (float(p.percentage_placed)
-                       if p.percentage_placed == p.percentage_placed else None)
+                # "Placed" counts JOBS ONLY, so a graduate who went to an MS or
+                # a PhD reads as "not placed". That understates research-heavy
+                # institutes badly — IIT Bombay 73.8% placed vs 99.9% with an
+                # outcome. Amogh flagged the IIT numbers as implausible, and he
+                # was right. Both percentages ship, on the same denominator:
+                # graduated_on_time as the institute filed it with NIRF.
                 placed_n = num(p.students_placed, int)
                 higher_n = num(p.higher_studies_selected, int)
-                outcome = None
-                if pct and placed_n and higher_n is not None and pct > 0:
-                    cohort = placed_n / pct * 100
-                    if cohort > 0:
-                        outcome = round(min(100.0, (placed_n + higher_n) / cohort * 100), 1)
+                grad_n = num(p.graduated_on_time, int)
+                pct = outcome = None
+                if grad_n:
+                    if placed_n is not None:
+                        pct = round(placed_n / grad_n * 100, 1)
+                    if placed_n is not None and higher_n is not None:
+                        outcome = round(min(100.0, (placed_n + higher_n) / grad_n * 100), 1)
 
                 placement = {
                     "median_salary": num(p.median_salary, int),
-                    "percentage_placed": (round(pct, 1) if pct is not None else None),
+                    "percentage_placed": pct,
                     # placed OR higher studies — what "did this degree lead
                     # somewhere" actually means for an engineering cohort.
                     "percentage_with_outcome": outcome,

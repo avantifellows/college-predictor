@@ -175,7 +175,7 @@
    "percentage_with_outcome": 98.3,
    "students_placed": 549,
    "higher_studies_selected": 153,
-   "first_year_intake": null,
+   "first_year_intake": 877,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -401,7 +401,7 @@
    "percentage_with_outcome": 80.3,
    "students_placed": 711,
    "higher_studies_selected": 49,
-   "first_year_intake": null,
+   "first_year_intake": 1071,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -591,7 +591,7 @@
    "percentage_with_outcome": 100.0,
    "students_placed": 731,
    "higher_studies_selected": 259,
-   "first_year_intake": null,
+   "first_year_intake": 1030,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -768,7 +768,7 @@
    "percentage_with_outcome": 91.5,
    "students_placed": 754,
    "higher_studies_selected": 283,
-   "first_year_intake": null,
+   "first_year_intake": 927,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -1000,7 +1000,7 @@
    "percentage_with_outcome": 88.4,
    "students_placed": 517,
    "higher_studies_selected": 83,
-   "first_year_intake": null,
+   "first_year_intake": 942,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -1209,7 +1209,7 @@
    "percentage_with_outcome": 100.0,
    "students_placed": 769,
    "higher_studies_selected": 333,
-   "first_year_intake": null,
+   "first_year_intake": 1143,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -1391,7 +1391,7 @@
    "percentage_with_outcome": 86.0,
    "students_placed": 306,
    "higher_studies_selected": 37,
-   "first_year_intake": null,
+   "first_year_intake": 425,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -1555,7 +1555,7 @@
    "percentage_with_outcome": 97.8,
    "students_placed": 658,
    "higher_studies_selected": 179,
-   "first_year_intake": null,
+   "first_year_intake": 978,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -1709,7 +1709,7 @@
    "percentage_with_outcome": 92.2,
    "students_placed": 791,
    "higher_studies_selected": 158,
-   "first_year_intake": null,
+   "first_year_intake": 964,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -1904,7 +1904,7 @@
    "percentage_with_outcome": 99.8,
    "students_placed": 996,
    "higher_studies_selected": 75,
-   "first_year_intake": null,
+   "first_year_intake": 1163,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -2047,10 +2047,10 @@
   "placement": {
    "median_salary": 1948000,
    "percentage_placed": 70.7,
-   "percentage_with_outcome": 78.8,
+   "percentage_with_outcome": 78.9,
    "students_placed": 234,
    "higher_studies_selected": 27,
-   "first_year_intake": null,
+   "first_year_intake": 360,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -2290,7 +2290,7 @@
    "percentage_with_outcome": 93.9,
    "students_placed": 821,
    "higher_studies_selected": 128,
-   "first_year_intake": null,
+   "first_year_intake": 888,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -2493,7 +2493,7 @@
    "percentage_with_outcome": 84.5,
    "students_placed": 714,
    "higher_studies_selected": 33,
-   "first_year_intake": null,
+   "first_year_intake": 1028,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -2652,7 +2652,7 @@
    "percentage_with_outcome": 88.2,
    "students_placed": 756,
    "higher_studies_selected": 114,
-   "first_year_intake": null,
+   "first_year_intake": 740,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -2941,7 +2941,7 @@
    "percentage_with_outcome": 100.0,
    "students_placed": 320,
    "higher_studies_selected": 15,
-   "first_year_intake": null,
+   "first_year_intake": 427,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -3107,7 +3107,7 @@
    "percentage_with_outcome": 97.0,
    "students_placed": 799,
    "higher_studies_selected": 76,
-   "first_year_intake": null,
+   "first_year_intake": 920,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -3247,7 +3247,7 @@
    "percentage_with_outcome": 98.6,
    "students_placed": 160,
    "higher_studies_selected": 51,
-   "first_year_intake": null,
+   "first_year_intake": 225,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -3412,7 +3412,7 @@
    "percentage_with_outcome": 96.1,
    "students_placed": 196,
    "higher_studies_selected": 73,
-   "first_year_intake": null,
+   "first_year_intake": 301,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -3571,7 +3571,7 @@
    "percentage_with_outcome": 99.5,
    "students_placed": 322,
    "higher_studies_selected": 94,
-   "first_year_intake": null,
+   "first_year_intake": 490,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -3762,7 +3762,7 @@
    "percentage_with_outcome": 81.7,
    "students_placed": 650,
    "higher_studies_selected": 93,
-   "first_year_intake": null,
+   "first_year_intake": 945,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -3920,7 +3920,7 @@
    "percentage_with_outcome": 88.2,
    "students_placed": 220,
    "higher_studies_selected": 63,
-   "first_year_intake": null,
+   "first_year_intake": 370,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -4060,7 +4060,7 @@
    "percentage_with_outcome": 91.9,
    "students_placed": 254,
    "higher_studies_selected": 41,
-   "first_year_intake": null,
+   "first_year_intake": 355,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -4208,7 +4208,7 @@
    "percentage_with_outcome": 84.7,
    "students_placed": 603,
    "higher_studies_selected": 18,
-   "first_year_intake": null,
+   "first_year_intake": 832,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -4356,7 +4356,7 @@
    "percentage_with_outcome": 90.1,
    "students_placed": 575,
    "higher_studies_selected": 106,
-   "first_year_intake": null,
+   "first_year_intake": 855,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -4523,7 +4523,7 @@
    "percentage_with_outcome": 100.0,
    "students_placed": 566,
    "higher_studies_selected": 244,
-   "first_year_intake": null,
+   "first_year_intake": 876,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -4652,7 +4652,7 @@
    "percentage_with_outcome": 67.9,
    "students_placed": 520,
    "higher_studies_selected": 39,
-   "first_year_intake": null,
+   "first_year_intake": 825,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -4831,7 +4831,7 @@
    "percentage_with_outcome": 83.4,
    "students_placed": 512,
    "higher_studies_selected": 67,
-   "first_year_intake": null,
+   "first_year_intake": 780,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -5034,7 +5034,7 @@
    "percentage_with_outcome": 87.0,
    "students_placed": 591,
    "higher_studies_selected": 51,
-   "first_year_intake": null,
+   "first_year_intake": 766,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -5188,7 +5188,7 @@
    "percentage_with_outcome": 98.5,
    "students_placed": 530,
    "higher_studies_selected": 78,
-   "first_year_intake": null,
+   "first_year_intake": 740,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -5362,10 +5362,10 @@
   "placement": {
    "median_salary": 794000,
    "percentage_placed": 66.5,
-   "percentage_with_outcome": 74.9,
+   "percentage_with_outcome": 75.0,
    "students_placed": 720,
    "higher_studies_selected": 91,
-   "first_year_intake": null,
+   "first_year_intake": 1117,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -5490,7 +5490,7 @@
    "percentage_with_outcome": 74.2,
    "students_placed": 113,
    "higher_studies_selected": 19,
-   "first_year_intake": null,
+   "first_year_intake": 237,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -5608,7 +5608,7 @@
    "percentage_with_outcome": 90.7,
    "students_placed": 114,
    "higher_studies_selected": 72,
-   "first_year_intake": null,
+   "first_year_intake": 237,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -5761,7 +5761,7 @@
    "percentage_with_outcome": 95.6,
    "students_placed": 968,
    "higher_studies_selected": 36,
-   "first_year_intake": null,
+   "first_year_intake": 1074,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -5873,7 +5873,7 @@
    "percentage_with_outcome": 77.6,
    "students_placed": 105,
    "higher_studies_selected": 16,
-   "first_year_intake": null,
+   "first_year_intake": 188,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -5995,11 +5995,6 @@
      "year": 2022,
      "rank": 194,
      "score": 33.96
-    },
-    {
-     "year": 2016,
-     "rank": 92,
-     "score": 50.22
     }
    ]
   },
@@ -6009,7 +6004,7 @@
    "percentage_with_outcome": 95.0,
    "students_placed": 134,
    "higher_studies_selected": 19,
-   "first_year_intake": null,
+   "first_year_intake": 182,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -6194,7 +6189,7 @@
    "percentage_with_outcome": 78.1,
    "students_placed": 596,
    "higher_studies_selected": 35,
-   "first_year_intake": null,
+   "first_year_intake": 991,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -6313,7 +6308,7 @@
    "percentage_with_outcome": 80.2,
    "students_placed": 116,
    "higher_studies_selected": 14,
-   "first_year_intake": null,
+   "first_year_intake": 170,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -6441,11 +6436,6 @@
      "year": 2021,
      "rank": 69,
      "score": 42.63
-    },
-    {
-     "year": 2016,
-     "rank": 68,
-     "score": 55.3
     }
    ]
   },
@@ -6455,7 +6445,7 @@
    "percentage_with_outcome": 92.1,
    "students_placed": 413,
    "higher_studies_selected": 244,
-   "first_year_intake": null,
+   "first_year_intake": 778,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -6661,7 +6651,7 @@
    "percentage_with_outcome": 87.0,
    "students_placed": 95,
    "higher_studies_selected": 39,
-   "first_year_intake": null,
+   "first_year_intake": 170,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -6829,7 +6819,7 @@
    "percentage_with_outcome": 96.5,
    "students_placed": 863,
    "higher_studies_selected": 66,
-   "first_year_intake": null,
+   "first_year_intake": 1021,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -7000,17 +6990,21 @@
      "rank": 70,
      "score": 39.53
     }
-   ]
+   ],
+   "latest_band": {
+    "year": 2025,
+    "band": "101-150"
+   }
   },
   "placement": {
-   "median_salary": 850000,
-   "percentage_placed": 95.0,
-   "percentage_with_outcome": 98.4,
-   "students_placed": 723,
-   "higher_studies_selected": 26,
-   "first_year_intake": null,
-   "academic_year": "2022-23",
-   "ranking_year": 2024,
+   "median_salary": 700000,
+   "percentage_placed": 75.3,
+   "percentage_with_outcome": 80.7,
+   "students_placed": 635,
+   "higher_studies_selected": 45,
+   "first_year_intake": 959,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
@@ -7024,7 +7018,7 @@
    "identity": "AISHE 2024-25",
    "programs": "JoSAA 2025 Round 6",
    "ranking": "NIRF 2024",
-   "placement": "NIRF 2024 (AY 2022-23)",
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -7135,11 +7129,6 @@
      "year": 2019,
      "rank": 130,
      "score": 33.8
-    },
-    {
-     "year": 2016,
-     "rank": 79,
-     "score": 53.35
     }
    ]
   },
@@ -7149,7 +7138,7 @@
    "percentage_with_outcome": 100.0,
    "students_placed": 701,
    "higher_studies_selected": 39,
-   "first_year_intake": null,
+   "first_year_intake": 751,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -7272,7 +7261,7 @@
    "percentage_with_outcome": 97.9,
    "students_placed": 112,
    "higher_studies_selected": 25,
-   "first_year_intake": null,
+   "first_year_intake": 153,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -7487,7 +7476,7 @@
    "percentage_with_outcome": 77.8,
    "students_placed": 590,
    "higher_studies_selected": 266,
-   "first_year_intake": null,
+   "first_year_intake": 1158,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -7653,7 +7642,7 @@
    "percentage_with_outcome": 77.3,
    "students_placed": 724,
    "higher_studies_selected": 49,
-   "first_year_intake": null,
+   "first_year_intake": 1118,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -7755,17 +7744,21 @@
      "rank": 82,
      "score": 37.74
     }
-   ]
+   ],
+   "latest_band": {
+    "year": 2025,
+    "band": "101-150"
+   }
   },
   "placement": {
-   "median_salary": 3000000,
-   "percentage_placed": 96.9,
-   "percentage_with_outcome": 99.2,
-   "students_placed": 372,
-   "higher_studies_selected": 9,
-   "first_year_intake": null,
-   "academic_year": "2022-23",
-   "ranking_year": 2024,
+   "median_salary": 1850000,
+   "percentage_placed": 81.3,
+   "percentage_with_outcome": 91.4,
+   "students_placed": 348,
+   "higher_studies_selected": 43,
+   "first_year_intake": 439,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
@@ -7779,7 +7772,7 @@
    "identity": "AISHE 2024-25",
    "programs": "JoSAA 2025 Round 6",
    "ranking": "NIRF 2024",
-   "placement": "NIRF 2024 (AY 2022-23)",
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -7911,17 +7904,21 @@
      "rank": 78,
      "score": 38.42
     }
-   ]
+   ],
+   "latest_band": {
+    "year": 2025,
+    "band": "101-150"
+   }
   },
   "placement": {
-   "median_salary": 900000,
-   "percentage_placed": 77.8,
-   "percentage_with_outcome": 81.9,
-   "students_placed": 495,
-   "higher_studies_selected": 26,
-   "first_year_intake": null,
-   "academic_year": "2020-21",
-   "ranking_year": 2022,
+   "median_salary": 1300000,
+   "percentage_placed": 59.1,
+   "percentage_with_outcome": 80.2,
+   "students_placed": 386,
+   "higher_studies_selected": 138,
+   "first_year_intake": 771,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
@@ -7935,7 +7932,7 @@
    "identity": "AISHE 2024-25",
    "programs": "JoSAA 2025 Round 6",
    "ranking": "NIRF 2022",
-   "placement": "NIRF 2022 (AY 2020-21)",
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": "NAAC"
   }
  },
@@ -8029,23 +8026,22 @@
      "year": 2019,
      "rank": 87,
      "score": 37.06
-    },
-    {
-     "year": 2016,
-     "rank": 77,
-     "score": 53.65
     }
-   ]
+   ],
+   "latest_band": {
+    "year": 2025,
+    "band": "101-150"
+   }
   },
   "placement": {
-   "median_salary": 800000,
-   "percentage_placed": 80.0,
-   "percentage_with_outcome": 86.9,
-   "students_placed": 104,
-   "higher_studies_selected": 9,
-   "first_year_intake": null,
-   "academic_year": "2021-22",
-   "ranking_year": 2023,
+   "median_salary": 725000,
+   "percentage_placed": 63.3,
+   "percentage_with_outcome": 72.3,
+   "students_placed": 105,
+   "higher_studies_selected": 15,
+   "first_year_intake": 188,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
@@ -8059,7 +8055,7 @@
    "identity": "AISHE 2024-25",
    "programs": "JoSAA 2025 Round 6",
    "ranking": "NIRF 2023",
-   "placement": "NIRF 2023 (AY 2021-22)",
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -8158,17 +8154,21 @@
      "rank": 87,
      "score": 37.27
     }
-   ]
+   ],
+   "latest_band": {
+    "year": 2025,
+    "band": "151-200"
+   }
   },
   "placement": {
    "median_salary": 750000,
-   "percentage_placed": 94.0,
-   "percentage_with_outcome": 98.8,
-   "students_placed": 157,
-   "higher_studies_selected": 8,
-   "first_year_intake": null,
-   "academic_year": "2021-22",
-   "ranking_year": 2023,
+   "percentage_placed": 65.6,
+   "percentage_with_outcome": 77.9,
+   "students_placed": 101,
+   "higher_studies_selected": 19,
+   "first_year_intake": 180,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
@@ -8182,7 +8182,7 @@
    "identity": "AISHE 2024-25",
    "programs": "JoSAA 2025 Round 6",
    "ranking": "NIRF 2023",
-   "placement": "NIRF 2023 (AY 2021-22)",
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -8290,7 +8290,7 @@
    "percentage_with_outcome": 98.6,
    "students_placed": 54,
    "higher_studies_selected": 18,
-   "first_year_intake": null,
+   "first_year_intake": 74,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -8457,7 +8457,7 @@
    "percentage_with_outcome": 97.4,
    "students_placed": 632,
    "higher_studies_selected": 105,
-   "first_year_intake": null,
+   "first_year_intake": 830,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -8565,17 +8565,21 @@
      "rank": 91,
      "score": 36.42
     }
-   ]
+   ],
+   "latest_band": {
+    "year": 2025,
+    "band": "101-150"
+   }
   },
   "placement": {
-   "median_salary": 1100000,
-   "percentage_placed": 84.1,
-   "percentage_with_outcome": 96.3,
-   "students_placed": 228,
-   "higher_studies_selected": 33,
-   "first_year_intake": null,
-   "academic_year": "2021-22",
-   "ranking_year": 2023,
+   "median_salary": 1767000,
+   "percentage_placed": 67.0,
+   "percentage_with_outcome": 100.0,
+   "students_placed": 331,
+   "higher_studies_selected": 163,
+   "first_year_intake": 502,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
@@ -8589,7 +8593,7 @@
    "identity": "AISHE 2024-25",
    "programs": "JoSAA 2025 Round 6",
    "ranking": "NIRF 2023",
-   "placement": "NIRF 2023 (AY 2021-22)",
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -8691,7 +8695,7 @@
    "percentage_with_outcome": 78.7,
    "students_placed": 158,
    "higher_studies_selected": 23,
-   "first_year_intake": null,
+   "first_year_intake": 240,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -8772,17 +8776,21 @@
      "rank": 66,
      "score": 41.92
     }
-   ]
+   ],
+   "latest_band": {
+    "year": 2025,
+    "band": "201-300"
+   }
   },
   "placement": {
-   "median_salary": 900000,
-   "percentage_placed": 65.3,
-   "percentage_with_outcome": 74.7,
-   "students_placed": 49,
-   "higher_studies_selected": 7,
-   "first_year_intake": null,
-   "academic_year": "2020-21",
-   "ranking_year": 2022,
+   "median_salary": 1400000,
+   "percentage_placed": 89.2,
+   "percentage_with_outcome": 97.3,
+   "students_placed": 165,
+   "higher_studies_selected": 15,
+   "first_year_intake": 233,
+   "academic_year": "2022-23",
+   "ranking_year": 2024,
    "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
@@ -8796,7 +8804,7 @@
    "identity": "AISHE 2024-25",
    "programs": "JoSAA 2025 Round 6",
    "ranking": "NIRF 2022",
-   "placement": "NIRF 2022 (AY 2020-21)",
+   "placement": "NIRF 2024 (AY 2022-23)",
    "accreditation": null
   }
  },
@@ -8875,17 +8883,21 @@
      "rank": 186,
      "score": 33.07
     }
-   ]
+   ],
+   "latest_band": {
+    "year": 2025,
+    "band": "151-200"
+   }
   },
   "placement": {
-   "median_salary": 600000,
-   "percentage_placed": 42.9,
-   "percentage_with_outcome": 52.1,
-   "students_placed": 111,
-   "higher_studies_selected": 24,
-   "first_year_intake": null,
-   "academic_year": "2020-21",
-   "ranking_year": 2022,
+   "median_salary": 954000,
+   "percentage_placed": 53.2,
+   "percentage_with_outcome": 68.4,
+   "students_placed": 42,
+   "higher_studies_selected": 12,
+   "first_year_intake": 100,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
@@ -8899,7 +8911,7 @@
    "identity": "AISHE 2024-25",
    "programs": "JoSAA 2025 Round 6",
    "ranking": "NIRF 2022",
-   "placement": "NIRF 2022 (AY 2020-21)",
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -8989,17 +9001,21 @@
      "rank": 200,
      "score": 31.09
     }
-   ]
+   ],
+   "latest_band": {
+    "year": 2025,
+    "band": "101-150"
+   }
   },
   "placement": {
-   "median_salary": 650000,
-   "percentage_placed": 50.0,
-   "percentage_with_outcome": 66.9,
-   "students_placed": 62,
-   "higher_studies_selected": 21,
-   "first_year_intake": null,
-   "academic_year": "2020-21",
-   "ranking_year": 2022,
+   "median_salary": 810000,
+   "percentage_placed": 80.3,
+   "percentage_with_outcome": 87.9,
+   "students_placed": 126,
+   "higher_studies_selected": 12,
+   "first_year_intake": 190,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
@@ -9013,7 +9029,7 @@
    "identity": "AISHE 2024-25",
    "programs": "JoSAA 2025 Round 6",
    "ranking": "NIRF 2022",
-   "placement": "NIRF 2022 (AY 2020-21)",
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -9093,17 +9109,21 @@
      "rank": 173,
      "score": 35.33
     }
-   ]
+   ],
+   "latest_band": {
+    "year": 2025,
+    "band": "151-200"
+   }
   },
   "placement": {
-   "median_salary": 711000,
-   "percentage_placed": 59.9,
-   "percentage_with_outcome": 65.7,
-   "students_placed": 103,
-   "higher_studies_selected": 10,
-   "first_year_intake": null,
-   "academic_year": "2020-21",
-   "ranking_year": 2022,
+   "median_salary": 793000,
+   "percentage_placed": 80.2,
+   "percentage_with_outcome": 93.7,
+   "students_placed": 101,
+   "higher_studies_selected": 17,
+   "first_year_intake": 160,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
@@ -9117,7 +9137,7 @@
    "identity": "AISHE 2024-25",
    "programs": "JoSAA 2025 Round 6",
    "ranking": "NIRF 2022",
-   "placement": "NIRF 2022 (AY 2020-21)",
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -9238,17 +9258,21 @@
      "rank": 197,
      "score": 30.37
     }
-   ]
+   ],
+   "latest_band": {
+    "year": 2025,
+    "band": "151-200"
+   }
   },
   "placement": {
-   "median_salary": 889000,
-   "percentage_placed": 77.3,
-   "percentage_with_outcome": 87.2,
-   "students_placed": 109,
-   "higher_studies_selected": 14,
-   "first_year_intake": null,
-   "academic_year": "2020-21",
-   "ranking_year": 2022,
+   "median_salary": 750000,
+   "percentage_placed": 44.9,
+   "percentage_with_outcome": 63.4,
+   "students_placed": 141,
+   "higher_studies_selected": 58,
+   "first_year_intake": 375,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
@@ -9262,7 +9286,7 @@
    "identity": "AISHE 2024-25",
    "programs": "JoSAA 2025 Round 6",
    "ranking": "NIRF 2022",
-   "placement": "NIRF 2022 (AY 2020-21)",
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -9329,7 +9353,11 @@
      "rank": 190,
      "score": 34.41
     }
-   ]
+   ],
+   "latest_band": {
+    "year": 2024,
+    "band": "201-300"
+   }
   },
   "placement": {
    "median_salary": 336000,
@@ -9337,7 +9365,7 @@
    "percentage_with_outcome": 35.4,
    "students_placed": 36,
    "higher_studies_selected": 27,
-   "first_year_intake": null,
+   "first_year_intake": 180,
    "academic_year": "2020-21",
    "ranking_year": 2022,
    "source": "NIRF Engineering, UG 4-year",

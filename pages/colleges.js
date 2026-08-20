@@ -85,7 +85,18 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
           )}
         </td>
         <td className="px-3 py-3 align-top tabular-nums">
-          {nirf ? (
+          {nirf?.latest_band ? (
+            // Slid out of the exact-rank list into a band: the band IS the
+            // current NIRF position, the old exact rank is history. Showing
+            // "#87 (2022)" here would be staler than what NIRF publishes.
+            <span
+              className="font-semibold text-[#332724]"
+              title={`In NIRF's ${nirf.latest_band.band} band in ${nirf.latest_band.year}; last exact rank #${nirf.engineering_rank} in ${nirf.ranking_year}`}
+            >
+              {nirf.latest_band.band}
+              <span className="ml-1 text-[11px] font-normal text-[#6d5550]">band</span>
+            </span>
+          ) : nirf ? (
             <>
               <span className="font-semibold text-[#332724]">#{nirf.engineering_rank}</span>
               {(() => {
@@ -201,6 +212,9 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
                     <NirfTrend history={nirf.rank_history} />
                     <p className="mt-1.5 text-xs leading-5 text-[#6d5550]">
                       Bars show NIRF score out of 100.
+                      {nirf.latest_band
+                        ? ` Ranked in the ${nirf.latest_band.band} band in ${nirf.latest_band.year} (NIRF publishes no score for bands).`
+                        : null}
                     </p>
                   </div>
                 ) : null}
