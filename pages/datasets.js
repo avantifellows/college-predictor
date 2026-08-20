@@ -14,7 +14,9 @@ const MANIFEST_URL =
 const NATIONAL = ["All India Quota", "All states", "NMC roster", "DCI roster"];
 
 const fmtBytes = (b) =>
-  b >= 1e6 ? `${(b / 1e6).toFixed(1)} MB` : `${Math.max(1, Math.round(b / 1e3))} KB`;
+  b >= 1e6
+    ? `${(b / 1e6).toFixed(1)} MB`
+    : `${Math.max(1, Math.round(b / 1e3))} KB`;
 
 const FileChip = ({ f }) => {
   const label = f.title.split(" — ").slice(1).join(" — ") || f.title;
@@ -25,7 +27,11 @@ const FileChip = ({ f }) => {
       rel="noopener noreferrer"
       title={
         f.columns_removed
-          ? `${f.path.split("/").pop()} — personal-identifier columns removed: ${f.columns_removed.join(", ")}`
+          ? `${f.path
+              .split("/")
+              .pop()} — personal-identifier columns removed: ${f.columns_removed.join(
+              ", "
+            )}`
           : f.path.split("/").pop()
       }
       className={`group inline-flex max-w-full items-center gap-1.5 rounded-lg border px-2.5 py-1.5 text-sm transition hover:shadow-sm ${
@@ -38,7 +44,10 @@ const FileChip = ({ f }) => {
       <span className="shrink-0 font-mono text-xs opacity-60">
         {f.format} · {fmtBytes(f.bytes)}
       </span>
-      <Download size={13} className="shrink-0 opacity-50 group-hover:opacity-100" />
+      <Download
+        size={13}
+        className="shrink-0 opacity-50 group-hover:opacity-100"
+      />
     </a>
   );
 };
@@ -102,7 +111,9 @@ const DatasetCard = ({ ds, defaultOpen }) => {
         </span>
         <ChevronDown
           size={20}
-          className={`shrink-0 text-[#685851] transition-transform ${open ? "rotate-180" : ""}`}
+          className={`shrink-0 text-[#685851] transition-transform ${
+            open ? "rotate-180" : ""
+          }`}
         />
       </button>
       {open && (
@@ -171,8 +182,8 @@ export default function Datasets() {
             (CC BY 4.0, attribution appreciated).
           </p>
           <p className="mt-2 text-[#685851]">
-            Note: Cutoffs shift every year. Verify with the official
-            counselling authority before acting on any number.
+            Note: Cutoffs shift every year. Verify with the official counselling
+            authority before acting on any number.
           </p>
         </div>
 
@@ -207,9 +218,8 @@ export default function Datasets() {
           ["admissions", "Admissions and counselling"],
           ["education-statistics", "Institutions and education statistics"],
         ].map(([cat, heading]) => {
-          const list = (Array.isArray(manifest?.datasets)
-            ? manifest.datasets
-            : []
+          const list = (
+            Array.isArray(manifest?.datasets) ? manifest.datasets : []
           ).filter((d) => (d.category || "admissions") === cat);
           if (!list.length) return null;
           return (

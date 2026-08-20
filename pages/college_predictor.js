@@ -784,7 +784,8 @@ const CollegePredictor = () => {
                 onKeyDown={(e) => {
                   if (
                     ["e", "E", "+", "-", " "].includes(e.key) ||
-                    (!getPrimaryInputConfig(queryObject.exam, queryObject).allowDecimal &&
+                    (!getPrimaryInputConfig(queryObject.exam, queryObject)
+                      .allowDecimal &&
                       e.key === ".")
                   ) {
                     e.preventDefault();
@@ -796,7 +797,8 @@ const CollegePredictor = () => {
                     : "border-[#d8c7c1] focus:border-[#b52326]"
                 }`}
                 placeholder={
-                  getPrimaryInputConfig(queryObject.exam, queryObject).placeholder
+                  getPrimaryInputConfig(queryObject.exam, queryObject)
+                    .placeholder
                 }
               />
               {primaryInputError && (
@@ -1155,10 +1157,10 @@ const CollegePredictor = () => {
     } else if (queryObject.rank) {
       summaryItems.push({
         key: "rank",
-        label: getPrimaryInputConfig(queryObject.exam, queryObject).label.replace(
-          "Enter ",
-          ""
-        ),
+        label: getPrimaryInputConfig(
+          queryObject.exam,
+          queryObject
+        ).label.replace("Enter ", ""),
         value: queryObject.rank,
       });
     }

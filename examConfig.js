@@ -1400,7 +1400,10 @@ export const tseApertConfig = {
   legend: [
     { key: "SC-I / II / III", value: "Separate seat pools, separate cutoffs" },
     { key: "Male / Female", value: "Separate seat pools, separate cutoffs" },
-    { key: "Local area", value: "State-wide rank; OU/KU may be slightly easier" },
+    {
+      key: "Local area",
+      value: "State-wide rank; OU/KU may be slightly easier",
+    },
   ],
   getDataPath: () => {
     return path.join(
@@ -1515,7 +1518,10 @@ export const gujcetConfig = {
     return [
       ...shared,
       { key: "Merit rank", value: "From your ACPC merit card" },
-      { key: "Merit score", value: "50% Class 12 PCM theory + 50% GUJCET, both percentile" },
+      {
+        key: "Merit score",
+        value: "50% Class 12 PCM theory + 50% GUJCET, both percentile",
+      },
     ];
   },
 
@@ -1639,8 +1645,7 @@ export const wbjeeConfig = {
     (item) => item.Quota === query.quota,
     (item) => item["Seat Type"] === query.seatType,
     (item) =>
-      query.collegeType === "Any" ||
-      item["College Type"] === query.collegeType,
+      query.collegeType === "Any" || item["College Type"] === query.collegeType,
     (item) => {
       if (!query.rank) return true;
       const closingRank = parseInt(item["Closing Rank"], 10);
