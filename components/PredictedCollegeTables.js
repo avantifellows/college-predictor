@@ -123,6 +123,15 @@ const expandedFields = {
     { key: "Rural/Urban", label: "Region" },
     { key: "Closing Rank", label: "Closing Rank" },
   ],
+  // WBJEE - West Bengal Joint Entrance Examination (2026 live cycle)
+  WBJEE: [
+    { key: "Year", label: "Data Year" },
+    { key: "Round", label: "Closed In" },
+    { key: "Seat Type", label: "Seat Type" },
+    { key: "Quota", label: "Quota" },
+    { key: "College Type", label: "College Type" },
+    { key: "Opening Rank", label: "Opening Rank (GMR)" },
+  ],
   // TNEA - Tamil Nadu Engineering Admissions
   TNEA: [
     { key: "Institute ID", label: "TNEA College Code" },
@@ -501,6 +510,14 @@ const PredictedCollegesTable = ({
       { key: "academic_program_name", label: "Program" },
       { key: "closing_rank", label: "Closing Rank" },
     ],
+    WBJEE: [
+      { key: "institute", label: "Institute" },
+      { key: "academic_program_name", label: "Program" },
+      // GMR spelt out in the header: WBJEE publishes several rank lists and
+      // the JEE(Main)-seat rows would otherwise read as JEE Main ranks.
+      { key: "closing_rank", label: "Closing Rank (GMR)" },
+      { key: "college_type", label: "College Type" },
+    ],
     "MHT CET": [
       { key: "institute", label: "Institute" },
       { key: "academic_program_name", label: "Program" },
@@ -572,6 +589,22 @@ const PredictedCollegesTable = ({
         "Language": item["Language"],
         "Rural/Urban": item["Rural/Urban"],
         "Category_Key": item["Category_Key"],
+        "Closing Rank": item["Closing Rank"],
+      };
+    }
+    if (exam === "WBJEE") {
+      return {
+        ...item,
+        institute: item["Institute"],
+        academic_program_name: item["Academic Program Name"],
+        closing_rank: item["Closing Rank"],
+        college_type: item["College Type"],
+        "Year": item["Year"],
+        "Round": item["Round"],
+        "Seat Type": item["Seat Type"],
+        "Quota": item["Quota"],
+        "College Type": item["College Type"],
+        "Opening Rank": item["Opening Rank"],
         "Closing Rank": item["Closing Rank"],
       };
     }
