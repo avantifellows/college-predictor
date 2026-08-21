@@ -123,6 +123,13 @@ const expandedFields = {
     { key: "Rural/Urban", label: "Region" },
     { key: "Closing Rank", label: "Closing Rank" },
   ],
+  // KEAM - Kerala (2026 live cycle)
+  KEAM: [
+    { key: "Year", label: "Data Year" },
+    { key: "Phase", label: "Closed In" },
+    { key: "College Code", label: "CEE College Code" },
+    { key: "Category", label: "Category" },
+  ],
   // WBJEE - West Bengal Joint Entrance Examination (2026 live cycle)
   WBJEE: [
     { key: "Year", label: "Data Year" },
@@ -511,6 +518,14 @@ const PredictedCollegesTable = ({
       { key: "academic_program_name", label: "Program" },
       { key: "closing_rank", label: "Closing Rank" },
     ],
+    KEAM: [
+      { key: "institute", label: "Institute" },
+      { key: "academic_program_name", label: "Program" },
+      // "KEAM Rank" spelt out: Kerala students also hold NEET/JEE ranks and
+      // an unlabelled rank column invites the wrong comparison.
+      { key: "closing_rank", label: "Closing Rank (KEAM Rank)" },
+      { key: "college_type", label: "College Type" },
+    ],
     WBJEE: [
       { key: "institute", label: "Institute" },
       { key: "academic_program_name", label: "Program" },
@@ -590,6 +605,21 @@ const PredictedCollegesTable = ({
         "Language": item["Language"],
         "Rural/Urban": item["Rural/Urban"],
         "Category_Key": item["Category_Key"],
+        "Closing Rank": item["Closing Rank"],
+      };
+    }
+    if (exam === "KEAM") {
+      return {
+        ...item,
+        institute: item["Institute"],
+        academic_program_name: item["Academic Program Name"],
+        closing_rank: item["Closing Rank"],
+        college_type: item["College Type"],
+        "Year": item["Year"],
+        "Phase": item["Phase"],
+        "College Code": item["College Code"],
+        "Category": item["Category"],
+        "College Type": item["College Type"],
         "Closing Rank": item["Closing Rank"],
       };
     }

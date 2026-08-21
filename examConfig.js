@@ -1658,6 +1658,66 @@ export const wbjeeConfig = {
   getSort: () => [["Closing Rank", "ASC"]],
 };
 
+export const keamConfig = {
+  name: "KEAM",
+  searchKeys: ["Institute", "Academic Program Name"],
+  // KEAM allots on the KEAM engineering rank - a single state rank list.
+  primaryInput: integerInput("Enter KEAM Rank", "Enter KEAM rank"),
+  fields: [
+    {
+      name: "category",
+      label: "Select Category",
+      // CEE's own codes, verbatim (label == value, pinned - the form
+      // submits the label as the query value; WBJEE lesson). The 13
+      // published columns + FW; the long tail of college-specific
+      // special-seat codes (MM, Y-series...) is deliberately not offered -
+      // each would return a near-empty result.
+      helperText:
+        "SM = State Merit (open to all). EZ Ezhava, MU Muslim, LA Latin Catholic, DV Dheevara, VK Viswakarma, BH Billava/Other Backward Hindu, BX Backward Christian, KN Kusavan, KU Kudumbi are Kerala SEBC communities (state community certificate needed; central OBC certificates are not valid). EW = EWS, FW = Fee Waiver.",
+      options: [
+        { value: "SM", label: "SM" },
+        { value: "EZ", label: "EZ" },
+        { value: "MU", label: "MU" },
+        { value: "LA", label: "LA" },
+        { value: "DV", label: "DV" },
+        { value: "VK", label: "VK" },
+        { value: "BH", label: "BH" },
+        { value: "BX", label: "BX" },
+        { value: "KN", label: "KN" },
+        { value: "KU", label: "KU" },
+        { value: "SC", label: "SC" },
+        { value: "ST", label: "ST" },
+        { value: "EW", label: "EW" },
+        { value: "FW", label: "FW" },
+      ],
+    },
+    {
+      name: "collegeType",
+      label: "Select College Type",
+      // CEE's Type column has exactly two values; G collapses Government
+      // and Government-Aided, so the label says both.
+      options: ["Any", "Government/Aided", "Private (Self-financing)"],
+    },
+  ],
+  getDataPath: () => {
+    return path.join(process.cwd(), "public", "data", "KEAM", "keam_data.json");
+  },
+  getFilters: (query) => [
+    (item) => item.Category === query.category,
+    (item) =>
+      query.collegeType === "Any" || item["College Type"] === query.collegeType,
+    (item) => {
+      if (!query.rank) return true;
+      const closingRank = parseInt(item["Closing Rank"], 10);
+      const userRank = parseInt(query.rank, 10);
+      if (isNaN(closingRank) || isNaN(userRank)) return false;
+      if (closingRank <= 0) return false;
+      return closingRank >= userRank;
+    },
+  ],
+  getSort: () => [["Closing Rank", "ASC"]],
+};
+
 export const examConfigs = {
   "JoSAA": josaaConfig,
   "JEE Main-JOSAA": jeeMainJosaaConfig,
@@ -1670,6 +1730,7 @@ export const examConfigs = {
   "KCET": kcetConfig,
   "TNEA": tneaConfig,
   "WBJEE": wbjeeConfig,
+  "KEAM": keamConfig,
   "TGEAPCET": tseApertConfig,
 };
 
