@@ -1667,28 +1667,29 @@ export const keamConfig = {
     {
       name: "category",
       label: "Select Category",
-      // CEE's own codes, verbatim (label == value, pinned - the form
-      // submits the label as the query value; WBJEE lesson). The 13
+      // Labels decode the code in the option itself, NEETUG home-state
+      // style: "CODE — description", with getFilters comparing only the
+      // code before the separator (the form submits the label). The 13
       // published columns + FW; the long tail of college-specific
       // special-seat codes (MM, Y-series...) is deliberately not offered -
       // each would return a near-empty result.
       helperText:
-        "SM = State Merit (open to all). EZ Ezhava, MU Muslim, LA Latin Catholic, DV Dheevara, VK Viswakarma, BH Billava/Other Backward Hindu, BX Backward Christian, KN Kusavan, KU Kudumbi are Kerala SEBC communities (state community certificate needed; central OBC certificates are not valid). EW = EWS, FW = Fee Waiver.",
+        "SEBC community seats need Kerala's state community certificate; central OBC certificates are not valid in Kerala.",
       options: [
-        { value: "SM", label: "SM" },
-        { value: "EZ", label: "EZ" },
-        { value: "MU", label: "MU" },
-        { value: "LA", label: "LA" },
-        { value: "DV", label: "DV" },
-        { value: "VK", label: "VK" },
-        { value: "BH", label: "BH" },
-        { value: "BX", label: "BX" },
-        { value: "KN", label: "KN" },
-        { value: "KU", label: "KU" },
-        { value: "SC", label: "SC" },
-        { value: "ST", label: "ST" },
-        { value: "EW", label: "EW" },
-        { value: "FW", label: "FW" },
+        "SM — State Merit (open to all)",
+        "EZ — Ezhava",
+        "MU — Muslim",
+        "LA — Latin Catholic and Anglo-Indian",
+        "DV — Dheevara",
+        "VK — Viswakarma",
+        "BH — Billava and Other Backward Hindu",
+        "BX — Backward Christian",
+        "KN — Kusavan",
+        "KU — Kudumbi",
+        "SC — Scheduled Caste",
+        "ST — Scheduled Tribe",
+        "EW — EWS",
+        "FW — Fee Waiver (family income up to Rs 2.5 lakh)",
       ],
     },
     {
@@ -1703,7 +1704,13 @@ export const keamConfig = {
     return path.join(process.cwd(), "public", "data", "KEAM", "keam_data.json");
   },
   getFilters: (query) => [
-    (item) => item.Category === query.category,
+    // The dropdown label is "CODE — description" and the form submits the
+    // label; the data carries the bare code (the NEETUG home-state lesson).
+    (item) =>
+      item.Category ===
+      String(query.category || "")
+        .split("—")[0]
+        .trim(),
     (item) =>
       query.collegeType === "Any" || item["College Type"] === query.collegeType,
     (item) => {
