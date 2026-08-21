@@ -222,7 +222,7 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
                 {pl ? (
                   <div>
                     <h4 className="mb-1.5 text-[13px] font-semibold uppercase tracking-wide text-[#8f2e31]">
-                      Placement detail
+                      Placement details
                     </h4>
                     <dl className="space-y-1 text-sm text-[#5b3a34]">
                       {pl.students_placed != null ? (
@@ -255,6 +255,17 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
                     About
                   </h4>
                   <dl className="space-y-1 text-sm text-[#5b3a34]">
+                    {c.ug_gender ? (
+                      <div className="flex justify-between gap-3">
+                        <dt>Women among UG students</dt>
+                        <dd
+                          className="tabular-nums"
+                          title={`${c.ug_gender.female.toLocaleString()} women / ${(c.ug_gender.male + c.ug_gender.female).toLocaleString()} UG students, as filed with NIRF ${c.ug_gender.edition_year}`}
+                        >
+                          {c.ug_gender.female_pct}%
+                        </dd>
+                      </div>
+                    ) : null}
                     {c.year_established ? (
                       <div className="flex justify-between gap-3">
                         <dt>Established</dt>

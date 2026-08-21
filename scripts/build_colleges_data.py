@@ -152,6 +152,20 @@ def build_josaa(client):
       AND graduated_on_time IS NOT NULL AND graduated_on_time > 0
     """).to_dataframe()
 
+    # ── gender mix: women as a share of enrolled UG students ─────────────────
+    # From the institutes' own NIRF filings (dcs_strength), UG levels only —
+    # that's the cohort a JoSAA applicant would join. Latest edition per
+    # institute; the year ships with the number.
+    gender = client.query("""
+    SELECT institute_id, edition_year,
+           SUM(male) AS male, SUM(female) AS female
+    FROM `avantifellows.external_data_sources.nirf_fact_dcs_strength`
+    WHERE discipline = 'Engineering'
+      AND program_level LIKE 'UG%'
+      AND total IS NOT NULL AND total > 0
+    GROUP BY institute_id, edition_year
+    """).to_dataframe()
+
     naac = client.query("""
     SELECT aishe_id, current_grade, current_cgpa, current_cycle_number, date_of_declaration
     FROM `avantifellows.external_data_sources.naac_dim_colleges`
@@ -178,7 +192,7 @@ def build_josaa(client):
     WHERE year = (SELECT y FROM latest) AND round = (SELECT r FROM lr)
     """).to_dataframe()
 
-    return identity, nirf, bands, place, naac, prog
+    return identity, nirf, bands, place, gender, naac, prog
 
 
 def main():
@@ -188,7 +202,7 @@ def main():
 
     from google.cloud import bigquery
     client = bigquery.Client(project="avantifellows", location="asia-south1")
-    identity, nirf, bands, place, naac, prog = build_josaa(client)
+    identity, nirf, bands, place, gender, naac, prog = build_josaa(client)
     print(f"  identity {len(identity)}  nirf {len(nirf)}  placement {len(place)}  "
           f"naac {len(naac)}  program rows {len(prog)}")
 
@@ -203,6 +217,10 @@ def main():
         place_by_id[iid] = g.sort_values(["ranking_year", "academic_year"], ascending=False)
 
     naac_by_aishe = {r.aishe_id: r for r in naac.itertuples()}
+
+    gender_by_id = {}
+    for iid, g in gender.groupby("institute_id"):
+        gender_by_id[iid] = g.sort_values("edition_year", ascending=False).iloc[0]
 
     # band rows keyed by normalised NIRF-printed name
     def _nname(x):
@@ -340,6 +358,19 @@ def main():
                     "is_branch_specific": False,
                 }
 
+        ug_gender = None
+        grows = [gender_by_id[n] for n in nids if n in gender_by_id]
+        if grows:
+            gr = max(grows, key=lambda x: x.edition_year)
+            m, f = int(gr.male), int(gr.female)
+            if m + f > 0:
+                ug_gender = {
+                    "female_pct": round(f / (m + f) * 100, 1),
+                    "female": f,
+                    "male": m,
+                    "edition_year": int(gr.edition_year),
+                }
+
         nb = naac_by_aishe.get(r.aishe_code)
         if nb is not None and nb.current_grade == nb.current_grade:
             naac_block = {
@@ -437,6 +468,7 @@ def main():
             "counselling": "JoSAA",
             "programs": programs,
             "nirf": nirf_block,
+            "ug_gender": ug_gender,
             "placement": placement,
             "naac": naac_block,
             "data_sources": {

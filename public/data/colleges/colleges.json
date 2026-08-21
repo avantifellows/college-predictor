@@ -169,6 +169,12 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 20.7,
+   "female": 990,
+   "male": 3785,
+   "edition_year": 2025
+  },
   "placement": {
    "median_salary": 1750000,
    "percentage_placed": 76.9,
@@ -395,6 +401,12 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 20.7,
+   "female": 1012,
+   "male": 3868,
+   "edition_year": 2025
+  },
   "placement": {
    "median_salary": 1908000,
    "percentage_placed": 75.2,
@@ -585,6 +597,12 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 19.2,
+   "female": 1202,
+   "male": 5071,
+   "edition_year": 2025
+  },
   "placement": {
    "median_salary": 1961000,
    "percentage_placed": 73.8,
@@ -761,6 +779,12 @@
      "score": 82.18
     }
    ]
+  },
+  "ug_gender": {
+   "female_pct": 20.3,
+   "female": 956,
+   "male": 3760,
+   "edition_year": 2025
   },
   "placement": {
    "median_salary": 1940000,
@@ -994,6 +1018,12 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 17.5,
+   "female": 1195,
+   "male": 5648,
+   "edition_year": 2025
+  },
   "placement": {
    "median_salary": 1976000,
    "percentage_placed": 76.1,
@@ -1203,6 +1233,12 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 20.1,
+   "female": 899,
+   "male": 3563,
+   "edition_year": 2025
+  },
   "placement": {
    "median_salary": 1700000,
    "percentage_placed": 69.8,
@@ -1385,6 +1421,12 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 20.3,
+   "female": 397,
+   "male": 1561,
+   "edition_year": 2025
+  },
   "placement": {
    "median_salary": 2100000,
    "percentage_placed": 76.7,
@@ -1549,6 +1591,12 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 21.2,
+   "female": 830,
+   "male": 3084,
+   "edition_year": 2025
+  },
   "placement": {
    "median_salary": 1948000,
    "percentage_placed": 76.9,
@@ -1702,6 +1750,12 @@
      "score": 64.1
     }
    ]
+  },
+  "ug_gender": {
+   "female_pct": 22.2,
+   "female": 950,
+   "male": 3337,
+   "edition_year": 2025
   },
   "placement": {
    "median_salary": 1435000,
@@ -1898,6 +1952,12 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 19.5,
+   "female": 1245,
+   "male": 5130,
+   "edition_year": 2025
+  },
   "placement": {
    "median_salary": 2000000,
    "percentage_placed": 92.8,
@@ -2043,6 +2103,12 @@
      "score": 62.88
     }
    ]
+  },
+  "ug_gender": {
+   "female_pct": 20.6,
+   "female": 314,
+   "male": 1210,
+   "edition_year": 2025
   },
   "placement": {
    "median_salary": 1948000,
@@ -2284,6 +2350,12 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 19.9,
+   "female": 823,
+   "male": 3303,
+   "edition_year": 2025
+  },
   "placement": {
    "median_salary": 1525000,
    "percentage_placed": 81.2,
@@ -2487,6 +2559,12 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 19.7,
+   "female": 855,
+   "male": 3475,
+   "edition_year": 2025
+  },
   "placement": {
    "median_salary": 1200000,
    "percentage_placed": 80.8,
@@ -2645,6 +2723,12 @@
      "score": 61.3
     }
    ]
+  },
+  "ug_gender": {
+   "female_pct": 21.3,
+   "female": 848,
+   "male": 3139,
+   "edition_year": 2025
   },
   "placement": {
    "median_salary": 1400000,
@@ -2935,6 +3019,12 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 18.2,
+   "female": 364,
+   "male": 1633,
+   "edition_year": 2025
+  },
   "placement": {
    "median_salary": 2250000,
    "percentage_placed": 95.5,
@@ -3101,6 +3191,12 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 23.5,
+   "female": 912,
+   "male": 2961,
+   "edition_year": 2025
+  },
   "placement": {
    "median_salary": 1250000,
    "percentage_placed": 88.6,
@@ -3240,6 +3336,12 @@
      "score": 56.15
     }
    ]
+  },
+  "ug_gender": {
+   "female_pct": 19.9,
+   "female": 225,
+   "male": 907,
+   "edition_year": 2025
   },
   "placement": {
    "median_salary": 1400000,
@@ -3406,6 +3508,12 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 20.1,
+   "female": 284,
+   "male": 1129,
+   "edition_year": 2025
+  },
   "placement": {
    "median_salary": 1850000,
    "percentage_placed": 70.0,
@@ -3564,6 +3672,12 @@
      "score": 46.13
     }
    ]
+  },
+  "ug_gender": {
+   "female_pct": 18.9,
+   "female": 365,
+   "male": 1565,
+   "edition_year": 2025
   },
   "placement": {
    "median_salary": 1200000,
@@ -3756,6 +3870,12 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 22.0,
+   "female": 894,
+   "male": 3162,
+   "edition_year": 2025
+  },
   "placement": {
    "median_salary": 1420000,
    "percentage_placed": 71.5,
@@ -3914,6 +4034,12 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 20.0,
+   "female": 303,
+   "male": 1211,
+   "edition_year": 2025
+  },
   "placement": {
    "median_salary": 1697000,
    "percentage_placed": 68.5,
@@ -4053,6 +4179,12 @@
      "score": 56.8
     }
    ]
+  },
+  "ug_gender": {
+   "female_pct": 20.3,
+   "female": 384,
+   "male": 1505,
+   "edition_year": 2025
   },
   "placement": {
    "median_salary": 1400000,
@@ -4202,6 +4334,12 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 21.0,
+   "female": 701,
+   "male": 2634,
+   "edition_year": 2025
+  },
   "placement": {
    "median_salary": 1100000,
    "percentage_placed": 82.3,
@@ -4349,6 +4487,12 @@
      "score": 54.76
     }
    ]
+  },
+  "ug_gender": {
+   "female_pct": 21.4,
+   "female": 693,
+   "male": 2541,
+   "edition_year": 2025
   },
   "placement": {
    "median_salary": 900000,
@@ -4517,6 +4661,12 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 22.4,
+   "female": 785,
+   "male": 2715,
+   "edition_year": 2025
+  },
   "placement": {
    "median_salary": 1124000,
    "percentage_placed": 69.9,
@@ -4645,6 +4795,12 @@
      "score": 48.66
     }
    ]
+  },
+  "ug_gender": {
+   "female_pct": 19.1,
+   "female": 674,
+   "male": 2848,
+   "edition_year": 2025
   },
   "placement": {
    "median_salary": 1100000,
@@ -4824,6 +4980,12 @@
      "score": 51.42
     }
    ]
+  },
+  "ug_gender": {
+   "female_pct": 12.5,
+   "female": 436,
+   "male": 3064,
+   "edition_year": 2025
   },
   "placement": {
    "median_salary": 952576,
@@ -5028,6 +5190,12 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 19.7,
+   "female": 570,
+   "male": 2320,
+   "edition_year": 2025
+  },
   "placement": {
    "median_salary": 700000,
    "percentage_placed": 80.1,
@@ -5181,6 +5349,12 @@
      "score": 57.14
     }
    ]
+  },
+  "ug_gender": {
+   "female_pct": 20.7,
+   "female": 572,
+   "male": 2192,
+   "edition_year": 2025
   },
   "placement": {
    "median_salary": 850000,
@@ -5359,6 +5533,12 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 22.5,
+   "female": 999,
+   "male": 3444,
+   "edition_year": 2025
+  },
   "placement": {
    "median_salary": 794000,
    "percentage_placed": 66.5,
@@ -5484,6 +5664,12 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 20.1,
+   "female": 171,
+   "male": 678,
+   "edition_year": 2025
+  },
   "placement": {
    "median_salary": 1169500,
    "percentage_placed": 63.5,
@@ -5601,6 +5787,12 @@
      "score": 48.16
     }
    ]
+  },
+  "ug_gender": {
+   "female_pct": 20.4,
+   "female": 185,
+   "male": 721,
+   "edition_year": 2025
   },
   "placement": {
    "median_salary": 1100000,
@@ -5755,6 +5947,12 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 19.7,
+   "female": 900,
+   "male": 3678,
+   "edition_year": 2025
+  },
   "placement": {
    "median_salary": 1200000,
    "percentage_placed": 92.2,
@@ -5866,6 +6064,12 @@
      "score": 44.92
     }
    ]
+  },
+  "ug_gender": {
+   "female_pct": 22.5,
+   "female": 150,
+   "male": 516,
+   "edition_year": 2025
   },
   "placement": {
    "median_salary": 1200000,
@@ -5997,6 +6201,12 @@
      "score": 33.96
     }
    ]
+  },
+  "ug_gender": {
+   "female_pct": 25.3,
+   "female": 272,
+   "male": 802,
+   "edition_year": 2025
   },
   "placement": {
    "median_salary": 1590000,
@@ -6183,6 +6393,12 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 20.9,
+   "female": 755,
+   "male": 2863,
+   "edition_year": 2025
+  },
   "placement": {
    "median_salary": 968000,
    "percentage_placed": 73.8,
@@ -6301,6 +6517,12 @@
      "score": 45.86
     }
    ]
+  },
+  "ug_gender": {
+   "female_pct": 20.5,
+   "female": 153,
+   "male": 594,
+   "edition_year": 2025
   },
   "placement": {
    "median_salary": 1200000,
@@ -6439,6 +6661,12 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 25.0,
+   "female": 861,
+   "male": 2583,
+   "edition_year": 2025
+  },
   "placement": {
    "median_salary": 1100000,
    "percentage_placed": 57.9,
@@ -6529,6 +6757,7 @@
     }
    ]
   },
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": "A+",
@@ -6644,6 +6873,12 @@
      "score": 42.36
     }
    ]
+  },
+  "ug_gender": {
+   "female_pct": 19.4,
+   "female": 160,
+   "male": 663,
+   "edition_year": 2025
   },
   "placement": {
    "median_salary": 1162000,
@@ -6812,6 +7047,12 @@
      "score": 42.17
     }
    ]
+  },
+  "ug_gender": {
+   "female_pct": 20.9,
+   "female": 848,
+   "male": 3210,
+   "edition_year": 2025
   },
   "placement": {
    "median_salary": 1100000,
@@ -6996,6 +7237,12 @@
     "band": "101-150"
    }
   },
+  "ug_gender": {
+   "female_pct": 25.9,
+   "female": 1001,
+   "male": 2862,
+   "edition_year": 2025
+  },
   "placement": {
    "median_salary": 700000,
    "percentage_placed": 75.3,
@@ -7132,6 +7379,12 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 27.8,
+   "female": 829,
+   "male": 2150,
+   "edition_year": 2025
+  },
   "placement": {
    "median_salary": 1080000,
    "percentage_placed": 94.7,
@@ -7254,6 +7507,12 @@
      "score": 43.69
     }
    ]
+  },
+  "ug_gender": {
+   "female_pct": 24.2,
+   "female": 155,
+   "male": 485,
+   "edition_year": 2025
   },
   "placement": {
    "median_salary": 1050000,
@@ -7470,6 +7729,12 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 20.5,
+   "female": 940,
+   "male": 3642,
+   "edition_year": 2025
+  },
   "placement": {
    "median_salary": 900000,
    "percentage_placed": 53.6,
@@ -7636,6 +7901,12 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 21.4,
+   "female": 890,
+   "male": 3266,
+   "edition_year": 2025
+  },
   "placement": {
    "median_salary": 850000,
    "percentage_placed": 72.4,
@@ -7749,6 +8020,12 @@
     "year": 2025,
     "band": "101-150"
    }
+  },
+  "ug_gender": {
+   "female_pct": 19.6,
+   "female": 366,
+   "male": 1503,
+   "edition_year": 2025
   },
   "placement": {
    "median_salary": 1850000,
@@ -7910,6 +8187,12 @@
     "band": "101-150"
    }
   },
+  "ug_gender": {
+   "female_pct": 14.7,
+   "female": 438,
+   "male": 2542,
+   "edition_year": 2025
+  },
   "placement": {
    "median_salary": 1300000,
    "percentage_placed": 59.1,
@@ -8032,6 +8315,12 @@
     "year": 2025,
     "band": "101-150"
    }
+  },
+  "ug_gender": {
+   "female_pct": 22.5,
+   "female": 161,
+   "male": 555,
+   "edition_year": 2025
   },
   "placement": {
    "median_salary": 725000,
@@ -8160,6 +8449,12 @@
     "band": "151-200"
    }
   },
+  "ug_gender": {
+   "female_pct": 20.4,
+   "female": 158,
+   "male": 616,
+   "edition_year": 2025
+  },
   "placement": {
    "median_salary": 750000,
    "percentage_placed": 65.6,
@@ -8283,6 +8578,12 @@
      "score": 37.82
     }
    ]
+  },
+  "ug_gender": {
+   "female_pct": 18.0,
+   "female": 71,
+   "male": 324,
+   "edition_year": 2025
   },
   "placement": {
    "median_salary": 2200000,
@@ -8451,6 +8752,12 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 23.0,
+   "female": 757,
+   "male": 2536,
+   "edition_year": 2025
+  },
   "placement": {
    "median_salary": 1005000,
    "percentage_placed": 83.5,
@@ -8571,6 +8878,12 @@
     "band": "101-150"
    }
   },
+  "ug_gender": {
+   "female_pct": 16.7,
+   "female": 336,
+   "male": 1682,
+   "edition_year": 2025
+  },
   "placement": {
    "median_salary": 1767000,
    "percentage_placed": 67.0,
@@ -8689,6 +9002,12 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 26.2,
+   "female": 257,
+   "male": 723,
+   "edition_year": 2025
+  },
   "placement": {
    "median_salary": 700000,
    "percentage_placed": 68.7,
@@ -8781,6 +9100,12 @@
     "year": 2025,
     "band": "201-300"
    }
+  },
+  "ug_gender": {
+   "female_pct": 14.9,
+   "female": 133,
+   "male": 758,
+   "edition_year": 2024
   },
   "placement": {
    "median_salary": 1400000,
@@ -8888,6 +9213,12 @@
     "year": 2025,
     "band": "151-200"
    }
+  },
+  "ug_gender": {
+   "female_pct": 21.2,
+   "female": 121,
+   "male": 450,
+   "edition_year": 2025
   },
   "placement": {
    "median_salary": 954000,
@@ -9007,6 +9338,12 @@
     "band": "101-150"
    }
   },
+  "ug_gender": {
+   "female_pct": 20.6,
+   "female": 162,
+   "male": 624,
+   "edition_year": 2025
+  },
   "placement": {
    "median_salary": 810000,
    "percentage_placed": 80.3,
@@ -9114,6 +9451,12 @@
     "year": 2025,
     "band": "151-200"
    }
+  },
+  "ug_gender": {
+   "female_pct": 21.7,
+   "female": 126,
+   "male": 455,
+   "edition_year": 2025
   },
   "placement": {
    "median_salary": 793000,
@@ -9264,6 +9607,12 @@
     "band": "151-200"
    }
   },
+  "ug_gender": {
+   "female_pct": 14.7,
+   "female": 259,
+   "male": 1497,
+   "edition_year": 2025
+  },
   "placement": {
    "median_salary": 750000,
    "percentage_placed": 44.9,
@@ -9359,6 +9708,12 @@
     "band": "201-300"
    }
   },
+  "ug_gender": {
+   "female_pct": 8.1,
+   "female": 52,
+   "male": 590,
+   "edition_year": 2022
+  },
   "placement": {
    "median_salary": 336000,
    "percentage_placed": 20.2,
@@ -9434,6 +9789,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": "B",
@@ -9504,6 +9860,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -9593,6 +9950,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -9662,6 +10020,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -9731,6 +10090,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": "A",
@@ -9806,6 +10166,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -9869,6 +10230,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": "A++",
@@ -9944,6 +10306,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -10008,6 +10371,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -10089,6 +10453,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -10165,6 +10530,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -10234,6 +10600,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": "B",
@@ -10315,6 +10682,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -10366,6 +10734,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -10417,6 +10786,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -10468,6 +10838,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -10549,6 +10920,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -10606,6 +10978,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -10682,6 +11055,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -10745,6 +11119,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -10808,6 +11183,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -10877,6 +11253,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -10976,6 +11353,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -11064,6 +11442,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -11133,6 +11512,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -11202,6 +11582,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -11271,6 +11652,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -11334,6 +11716,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -11403,6 +11786,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -11466,6 +11850,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -11535,6 +11920,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -11604,6 +11990,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -11673,6 +12060,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -11724,6 +12112,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -11787,6 +12176,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -11856,6 +12246,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -11919,6 +12310,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -11971,6 +12363,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -12052,6 +12445,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -12127,6 +12521,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -12190,6 +12585,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -12242,6 +12638,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -12299,6 +12696,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -12356,6 +12754,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": "A++",
@@ -12438,6 +12837,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": "A+",
@@ -12507,6 +12907,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -12558,6 +12959,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -12615,6 +13017,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -12672,6 +13075,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -12723,6 +13127,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -12774,6 +13179,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -12825,6 +13231,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -12876,6 +13283,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -12958,6 +13366,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -13052,6 +13461,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -13140,6 +13550,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -13221,6 +13632,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -13290,6 +13702,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -13390,6 +13803,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -13447,6 +13861,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -13584,6 +13999,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -13709,6 +14125,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -13767,6 +14184,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -13825,6 +14243,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -13883,6 +14302,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -13988,6 +14408,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -14087,6 +14508,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -14187,6 +14609,7 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
   "placement": null,
   "naac": {
    "grade": null,
