@@ -1359,7 +1359,9 @@ export const josaaConfig = {
 };
 
 export const tseApertConfig = {
-  name: "TGEAPCET",
+  // Display name only - the registry key stays "TGEAPCET" so existing URLs
+  // and table mappings are untouched. Spaced to match "AP EAPCET".
+  name: "TG EAPCET",
   code: "TGEAPCET",
   searchKeys: ["institute_name", "branch_name", "place"],
   primaryInput: integerInput("Enter TG EAPCET Rank", "Enter TG EAPCET rank"),
@@ -1725,6 +1727,112 @@ export const keamConfig = {
   getSort: () => [["Closing Rank", "ASC"]],
 };
 
+export const apEapcetConfig = {
+  name: "AP EAPCET",
+  searchKeys: ["Institute", "Academic Program Name", "District"],
+  // AP EAPCET allots on the AP EAPCET rank - not comparable to TG-EAPCET
+  // even though the exam family shares a name from before bifurcation.
+  primaryInput: integerInput("Enter AP EAPCET Rank", "Enter AP EAPCET rank"),
+  fields: [
+    {
+      name: "category",
+      label: "Select Category",
+      // "CODE - description" labels; getFilters compares the code before
+      // the separator (the KEAM pattern - the form submits the label).
+      // SC is sub-classified I/II/III from 2025 and BC-A..E are AP's own
+      // sub-lists, so there is no single SC or OBC option to offer.
+      helperText:
+        "AP sub-classifies SC into SC-I, SC-II and SC-III (from 2025) and BC into BC-A to BC-E. Pick the sub-group on your caste certificate.",
+      options: [
+        "OC — Open Competition",
+        "OC_EWS — EWS (within OC)",
+        "BCA — Backward Class A",
+        "BCB — Backward Class B",
+        "BCC — Backward Class C",
+        "BCD — Backward Class D",
+        "BCE — Backward Class E",
+        "SCI — Scheduled Caste I",
+        "SCII — Scheduled Caste II",
+        "SCIII — Scheduled Caste III",
+        "ST — Scheduled Tribe",
+      ],
+    },
+    {
+      name: "gender",
+      label: "Select Seat Pool",
+      // The source's own footnote: "Girls are also eligible for Boys
+      // seats" - the Boys column is the open-to-all pool, Girls is the
+      // 33% women's reservation.
+      options: [
+        "Boys — open to all candidates",
+        "Girls — women's reservation seats",
+      ],
+    },
+    {
+      name: "region",
+      label: "Select Region",
+      // The college's university region: AU (Andhra University area,
+      // north/coastal) or SVU (Sri Venkateswara University area,
+      // Rayalaseema/south). Private universities publish separate closing
+      // ranks per region pool.
+      options: [
+        { value: "Any", label: "Any" },
+        { value: "AU", label: "AU (Andhra University region)" },
+        { value: "SVU", label: "SVU (Sri Venkateswara University region)" },
+      ],
+    },
+    {
+      name: "collegeType",
+      label: "Select College Type",
+      options: [
+        "Any",
+        "Government University",
+        "University (Self-finance)",
+        "Private",
+        "Private University",
+      ],
+    },
+  ],
+  getDataPath: () => {
+    return path.join(
+      process.cwd(),
+      "public",
+      "data",
+      "APEAPCET",
+      "apeapcet_data.json"
+    );
+  },
+  getFilters: (query) => [
+    (item) =>
+      item.Category ===
+      String(query.category || "")
+        .split("—")[0]
+        .trim(),
+    (item) =>
+      item.Gender ===
+      String(query.gender || "")
+        .split("—")[0]
+        .trim(),
+    (item) =>
+      query.region === "Any" ||
+      item.Region ===
+        String(query.region || "")
+          .split("(")[0]
+          .trim(),
+    (item) =>
+      query.collegeType === "Any" || item["College Type"] === query.collegeType,
+    (item) => {
+      if (!query.rank) return true;
+      const closingRank = parseInt(item["Closing Rank"], 10);
+      const userRank = parseInt(query.rank, 10);
+      if (isNaN(closingRank) || isNaN(userRank)) return false;
+      if (closingRank <= 0) return false;
+      return closingRank >= userRank;
+    },
+  ],
+  getSort: () => [["Closing Rank", "ASC"]],
+};
+
 export const examConfigs = {
   "JoSAA": josaaConfig,
   "JEE Main-JOSAA": jeeMainJosaaConfig,
@@ -1738,6 +1846,7 @@ export const examConfigs = {
   "TNEA": tneaConfig,
   "WBJEE": wbjeeConfig,
   "KEAM": keamConfig,
+  "AP EAPCET": apEapcetConfig,
   "TGEAPCET": tseApertConfig,
 };
 
