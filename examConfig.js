@@ -1658,6 +1658,73 @@ export const wbjeeConfig = {
   getSort: () => [["Closing Rank", "ASC"]],
 };
 
+export const keamConfig = {
+  name: "KEAM",
+  searchKeys: ["Institute", "Academic Program Name"],
+  // KEAM allots on the KEAM engineering rank - a single state rank list.
+  primaryInput: integerInput("Enter KEAM Rank", "Enter KEAM rank"),
+  fields: [
+    {
+      name: "category",
+      label: "Select Category",
+      // Labels decode the code in the option itself, NEETUG home-state
+      // style: "CODE — description", with getFilters comparing only the
+      // code before the separator (the form submits the label). The 13
+      // published columns + FW; the long tail of college-specific
+      // special-seat codes (MM, Y-series...) is deliberately not offered -
+      // each would return a near-empty result.
+      helperText:
+        "SEBC community seats need Kerala's state community certificate; central OBC certificates are not valid in Kerala.",
+      options: [
+        "SM — State Merit (open to all)",
+        "EZ — Ezhava",
+        "MU — Muslim",
+        "LA — Latin Catholic and Anglo-Indian",
+        "DV — Dheevara",
+        "VK — Viswakarma",
+        "BH — Billava and Other Backward Hindu",
+        "BX — Backward Christian",
+        "KN — Kusavan",
+        "KU — Kudumbi",
+        "SC — Scheduled Caste",
+        "ST — Scheduled Tribe",
+        "EW — EWS",
+        "FW — Fee Waiver (family income up to Rs 2.5 lakh)",
+      ],
+    },
+    {
+      name: "collegeType",
+      label: "Select College Type",
+      // CEE's Type column has exactly two values; G collapses Government
+      // and Government-Aided, so the label says both.
+      options: ["Any", "Government/Aided", "Private (Self-financing)"],
+    },
+  ],
+  getDataPath: () => {
+    return path.join(process.cwd(), "public", "data", "KEAM", "keam_data.json");
+  },
+  getFilters: (query) => [
+    // The dropdown label is "CODE — description" and the form submits the
+    // label; the data carries the bare code (the NEETUG home-state lesson).
+    (item) =>
+      item.Category ===
+      String(query.category || "")
+        .split("—")[0]
+        .trim(),
+    (item) =>
+      query.collegeType === "Any" || item["College Type"] === query.collegeType,
+    (item) => {
+      if (!query.rank) return true;
+      const closingRank = parseInt(item["Closing Rank"], 10);
+      const userRank = parseInt(query.rank, 10);
+      if (isNaN(closingRank) || isNaN(userRank)) return false;
+      if (closingRank <= 0) return false;
+      return closingRank >= userRank;
+    },
+  ],
+  getSort: () => [["Closing Rank", "ASC"]],
+};
+
 export const examConfigs = {
   "JoSAA": josaaConfig,
   "JEE Main-JOSAA": jeeMainJosaaConfig,
@@ -1670,6 +1737,7 @@ export const examConfigs = {
   "KCET": kcetConfig,
   "TNEA": tneaConfig,
   "WBJEE": wbjeeConfig,
+  "KEAM": keamConfig,
   "TGEAPCET": tseApertConfig,
 };
 
