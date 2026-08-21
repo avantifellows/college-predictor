@@ -1359,7 +1359,9 @@ export const josaaConfig = {
 };
 
 export const tseApertConfig = {
-  name: "TGEAPCET",
+  // Display name only - the registry key stays "TGEAPCET" so existing URLs
+  // and table mappings are untouched. Spaced to match "AP EAPCET".
+  name: "TG EAPCET",
   code: "TGEAPCET",
   searchKeys: ["institute_name", "branch_name", "place"],
   primaryInput: integerInput("Enter TG EAPCET Rank", "Enter TG EAPCET rank"),

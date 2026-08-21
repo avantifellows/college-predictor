@@ -533,7 +533,9 @@ const PredictedCollegesTable = ({
       // PDF ships no code-to-name legend, and students know these codes
       // from the web-options screen. A wrong expansion beats no expansion.
       { key: "academic_program_name", label: "Branch Code" },
-      { key: "closing_rank", label: "Closing Rank (AP EAPCET)" },
+      // Plain "Closing Rank": the page is already the AP EAPCET page, so
+      // repeating the exam name in the header is noise (user feedback).
+      { key: "closing_rank", label: "Closing Rank" },
       { key: "college_type", label: "College Type" },
     ],
     KEAM: [
