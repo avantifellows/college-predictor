@@ -1833,6 +1833,79 @@ export const apEapcetConfig = {
   getSort: () => [["Closing Rank", "ASC"]],
 };
 
+export const ojeeConfig = {
+  name: "OJEE (Odisha B.Tech)",
+  searchKeys: ["Institute", "Academic Program Name"],
+  // Odisha admits first-year B.Tech on the JEE (Main) rank through OJEE
+  // counselling - the input here is a JEE Main rank, NOT an OJEE exam rank.
+  primaryInput: integerInput("Enter JEE (Main) Rank", "Enter JEE Main rank"),
+  fields: [
+    {
+      name: "category",
+      label: "Select Category",
+      // Odisha's published set is small: General / SC / ST / EW.
+      // No OBC/SEBC column exists in the source. TFW is its own seat pool
+      // with its own (tighter) curve - offered separately, WBJEE-style.
+      options: [
+        "General",
+        "SC — Scheduled Caste",
+        "ST — Scheduled Tribe",
+        "EW — EWS",
+        "TFW — Tuition Fee Waiver seats",
+      ],
+    },
+    {
+      name: "seatType",
+      label: "Select Seat Pool",
+      options: [
+        "Gender Neutral — open to all candidates",
+        "Female Only — women's reservation seats",
+      ],
+    },
+    {
+      name: "quota",
+      label: "Select Quota",
+      // HS is the main table (Odisha domicile). AI / OS / OL are the
+      // non-domicile pools as the source prints them.
+      options: [
+        "HS — Home State (Odisha domicile)",
+        "AI — All India",
+        "OS — Outside State",
+        "OL",
+      ],
+    },
+  ],
+  getDataPath: () => {
+    return path.join(process.cwd(), "public", "data", "OJEE", "ojee_data.json");
+  },
+  getFilters: (query) => [
+    (item) =>
+      item.Category ===
+      String(query.category || "")
+        .split("—")[0]
+        .trim(),
+    (item) =>
+      item["Seat Type"] ===
+      String(query.seatType || "")
+        .split("—")[0]
+        .trim(),
+    (item) =>
+      item.Quota ===
+      String(query.quota || "")
+        .split("—")[0]
+        .trim(),
+    (item) => {
+      if (!query.rank) return true;
+      const closingRank = parseInt(item["Closing Rank"], 10);
+      const userRank = parseInt(query.rank, 10);
+      if (isNaN(closingRank) || isNaN(userRank)) return false;
+      if (closingRank <= 0) return false;
+      return closingRank >= userRank;
+    },
+  ],
+  getSort: () => [["Closing Rank", "ASC"]],
+};
+
 export const examConfigs = {
   "JoSAA": josaaConfig,
   "JEE Main-JOSAA": jeeMainJosaaConfig,
@@ -1847,6 +1920,7 @@ export const examConfigs = {
   "WBJEE": wbjeeConfig,
   "KEAM": keamConfig,
   "AP EAPCET": apEapcetConfig,
+  "OJEE": ojeeConfig,
   "TGEAPCET": tseApertConfig,
 };
 

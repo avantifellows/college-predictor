@@ -123,6 +123,14 @@ const expandedFields = {
     { key: "Rural/Urban", label: "Region" },
     { key: "Closing Rank", label: "Closing Rank" },
   ],
+  // OJEE - Odisha B.Tech (2025; ranks are JEE Main ranks)
+  OJEE: [
+    { key: "Year", label: "Data Year" },
+    { key: "Quota", label: "Quota" },
+    { key: "Seat Type", label: "Seat Pool" },
+    { key: "Category", label: "Category" },
+    { key: "Opening Rank", label: "Opening Rank (JEE Main)" },
+  ],
   // AP EAPCET - Andhra Pradesh (2025 consolidated)
   "AP EAPCET": [
     { key: "Year", label: "Data Year" },
@@ -527,6 +535,14 @@ const PredictedCollegesTable = ({
       { key: "academic_program_name", label: "Program" },
       { key: "closing_rank", label: "Closing Rank" },
     ],
+    OJEE: [
+      { key: "institute", label: "Institute" },
+      { key: "academic_program_name", label: "Program" },
+      // "(JEE Main)" is load-bearing here, not noise: the OJEE page takes a
+      // JEE Main rank, and an unlabelled rank column would read as an OJEE
+      // exam rank (which exists, for other courses).
+      { key: "closing_rank", label: "Closing Rank (JEE Main)" },
+    ],
     "AP EAPCET": [
       { key: "institute", label: "Institute" },
       // Branch codes are shown verbatim (CSE, AID, CSD...) - the official
@@ -625,6 +641,20 @@ const PredictedCollegesTable = ({
         "Language": item["Language"],
         "Rural/Urban": item["Rural/Urban"],
         "Category_Key": item["Category_Key"],
+        "Closing Rank": item["Closing Rank"],
+      };
+    }
+    if (exam === "OJEE") {
+      return {
+        ...item,
+        institute: item["Institute"],
+        academic_program_name: item["Academic Program Name"],
+        closing_rank: item["Closing Rank"],
+        "Year": item["Year"],
+        "Quota": item["Quota"],
+        "Seat Type": item["Seat Type"],
+        "Category": item["Category"],
+        "Opening Rank": item["Opening Rank"],
         "Closing Rank": item["Closing Rank"],
       };
     }
