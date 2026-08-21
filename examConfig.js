@@ -1400,7 +1400,10 @@ export const tseApertConfig = {
   legend: [
     { key: "SC-I / II / III", value: "Separate seat pools, separate cutoffs" },
     { key: "Male / Female", value: "Separate seat pools, separate cutoffs" },
-    { key: "Local area", value: "State-wide rank; OU/KU may be slightly easier" },
+    {
+      key: "Local area",
+      value: "State-wide rank; OU/KU may be slightly easier",
+    },
   ],
   getDataPath: () => {
     return path.join(
@@ -1515,7 +1518,10 @@ export const gujcetConfig = {
     return [
       ...shared,
       { key: "Merit rank", value: "From your ACPC merit card" },
-      { key: "Merit score", value: "50% Class 12 PCM theory + 50% GUJCET, both percentile" },
+      {
+        key: "Merit score",
+        value: "50% Class 12 PCM theory + 50% GUJCET, both percentile",
+      },
     ];
   },
 
@@ -1550,6 +1556,108 @@ export const gujcetConfig = {
   ],
 };
 
+export const wbjeeConfig = {
+  name: "WBJEE",
+  searchKeys: ["Institute", "Academic Program Name"],
+  // WBJEE counsels on the General Merit Rank (GMR) — a single state-wide
+  // rank list. Not comparable to JEE Main ranks even for the "JEE(Main)
+  // Seats" rows: those seats are ALLOTTED via JEE Main scores but WBJEEB
+  // still publishes their OR/CR as GMR positions.
+  primaryInput: integerInput(
+    "Enter WBJEE General Merit Rank (GMR)",
+    "Enter WBJEE GMR"
+  ),
+  fields: [
+    {
+      name: "category",
+      label: "Select Category",
+      // Reserved categories exist ONLY under the Home State quota in the
+      // ORCR — every All India bucket is Open. Without this note a student
+      // picking OBC + All India gets an empty result that reads like a
+      // rank problem when it is counselling policy.
+      helperText:
+        "Reserved categories (EWS, OBC, SC, ST) apply to Home State (West Bengal domicile) seats only. For All India quota seats, everyone competes as Open.",
+      // 2026's own vocabulary, verbatim (label == value). WBJEE merged the
+      // former OBC-A / OBC-B sub-pools into one "OBC" from 2026, so the old
+      // sub-pool names must NOT appear here — they'd match zero rows.
+      // Tuition Fee Waiver is a separate seat pool with its own (much
+      // tighter) closing ranks, so it is offered as its own option rather
+      // than mixed into the open list.
+      options: [
+        { value: "Open", label: "Open" },
+        { value: "EWS", label: "EWS" },
+        { value: "OBC", label: "OBC" },
+        { value: "SC", label: "SC" },
+        { value: "ST", label: "ST" },
+        { value: "Open (PwD)", label: "Open (PwD)" },
+        { value: "OBC (PwD)", label: "OBC (PwD)" },
+        { value: "SC (PwD)", label: "SC (PwD)" },
+        { value: "ST (PwD)", label: "ST (PwD)" },
+        { value: "Tuition Fee Waiver", label: "Tuition Fee Waiver" },
+      ],
+    },
+    {
+      name: "quota",
+      label: "Select Quota",
+      // Home State = West Bengal domicile seats; All India is open to
+      // everyone. Separate competitions with separate closing ranks.
+      // label == value, pinned: the form submits the LABEL as the query
+      // value (found in the browser audit — a "(West Bengal domicile)"
+      // suffix reached the filter verbatim and matched zero rows).
+      options: [
+        { value: "Home State", label: "Home State" },
+        { value: "All India", label: "All India" },
+      ],
+    },
+    {
+      name: "seatType",
+      label: "Select Seat Type",
+      // WBJEEB fills some seats from the WBJEE merit list and some from
+      // JEE(Main) applicants — two separate pools in the same colleges.
+      options: [
+        { value: "WBJEE Seats", label: "WBJEE Seats" },
+        { value: "JEE(Main) Seats", label: "JEE(Main) Seats" },
+      ],
+    },
+    {
+      name: "collegeType",
+      label: "Select College Type",
+      options: [
+        "Any",
+        "Government",
+        "Government Aided",
+        "State University",
+        "Private",
+      ],
+    },
+  ],
+  getDataPath: () => {
+    return path.join(
+      process.cwd(),
+      "public",
+      "data",
+      "WBJEE",
+      "wbjee_data.json"
+    );
+  },
+  getFilters: (query) => [
+    (item) => item.Category === query.category,
+    (item) => item.Quota === query.quota,
+    (item) => item["Seat Type"] === query.seatType,
+    (item) =>
+      query.collegeType === "Any" || item["College Type"] === query.collegeType,
+    (item) => {
+      if (!query.rank) return true;
+      const closingRank = parseInt(item["Closing Rank"], 10);
+      const userRank = parseInt(query.rank, 10);
+      if (isNaN(closingRank) || isNaN(userRank)) return false;
+      if (closingRank <= 0) return false;
+      return closingRank >= userRank;
+    },
+  ],
+  getSort: () => [["Closing Rank", "ASC"]],
+};
+
 export const examConfigs = {
   "JoSAA": josaaConfig,
   "JEE Main-JOSAA": jeeMainJosaaConfig,
@@ -1561,6 +1669,7 @@ export const examConfigs = {
   "MHT CET": mhtCetConfig,
   "KCET": kcetConfig,
   "TNEA": tneaConfig,
+  "WBJEE": wbjeeConfig,
   "TGEAPCET": tseApertConfig,
 };
 

@@ -123,6 +123,15 @@ const expandedFields = {
     { key: "Rural/Urban", label: "Region" },
     { key: "Closing Rank", label: "Closing Rank" },
   ],
+  // WBJEE - West Bengal Joint Entrance Examination (2026 live cycle)
+  WBJEE: [
+    { key: "Year", label: "Data Year" },
+    { key: "Round", label: "Closed In" },
+    { key: "Seat Type", label: "Seat Type" },
+    { key: "Quota", label: "Quota" },
+    { key: "College Type", label: "College Type" },
+    { key: "Opening Rank", label: "Opening Rank (GMR)" },
+  ],
   // TNEA - Tamil Nadu Engineering Admissions
   TNEA: [
     { key: "Institute ID", label: "TNEA College Code" },
@@ -301,7 +310,9 @@ const PredictedCollegesTable = ({
       transformedItem.closing_rank,
       index,
     ];
-    return parts.filter((p) => p !== undefined && p !== null && p !== "").join("-");
+    return parts
+      .filter((p) => p !== undefined && p !== null && p !== "")
+      .join("-");
   };
 
   const showSalaryTooltip = (event) => {
@@ -390,8 +401,7 @@ const PredictedCollegesTable = ({
   // 0-100 composite percentile, so the unit has to follow the program. Derived
   // from the rows rather than taken as a prop: every row in a GUJCET result set
   // shares one Program (the API filters on it), so the first row is enough.
-  const gujcetProgram =
-    exam === "GUJCET" ? data?.[0]?.Program ?? null : null;
+  const gujcetProgram = exam === "GUJCET" ? data?.[0]?.Program ?? null : null;
   const isGujcetMedical = gujcetProgram === "Medical";
 
   // ACPC's composite merit score is a 0-100 normalised figure, not a percentage
@@ -501,6 +511,14 @@ const PredictedCollegesTable = ({
       { key: "academic_program_name", label: "Program" },
       { key: "closing_rank", label: "Closing Rank" },
     ],
+    WBJEE: [
+      { key: "institute", label: "Institute" },
+      { key: "academic_program_name", label: "Program" },
+      // GMR spelt out in the header: WBJEE publishes several rank lists and
+      // the JEE(Main)-seat rows would otherwise read as JEE Main ranks.
+      { key: "closing_rank", label: "Closing Rank (GMR)" },
+      { key: "college_type", label: "College Type" },
+    ],
     "MHT CET": [
       { key: "institute", label: "Institute" },
       { key: "academic_program_name", label: "Program" },
@@ -572,6 +590,22 @@ const PredictedCollegesTable = ({
         "Language": item["Language"],
         "Rural/Urban": item["Rural/Urban"],
         "Category_Key": item["Category_Key"],
+        "Closing Rank": item["Closing Rank"],
+      };
+    }
+    if (exam === "WBJEE") {
+      return {
+        ...item,
+        institute: item["Institute"],
+        academic_program_name: item["Academic Program Name"],
+        closing_rank: item["Closing Rank"],
+        college_type: item["College Type"],
+        "Year": item["Year"],
+        "Round": item["Round"],
+        "Seat Type": item["Seat Type"],
+        "Quota": item["Quota"],
+        "College Type": item["College Type"],
+        "Opening Rank": item["Opening Rank"],
         "Closing Rank": item["Closing Rank"],
       };
     }
@@ -1327,10 +1361,10 @@ const PredictedCollegesTable = ({
                       ? "JEE Advanced college options."
                       : "JEE Main college options."
                     : isNeet
-                      ? neetSeatTab === "home"
-                        ? "home-state seats."
-                        : "All India Quota seats."
-                      : "matching options."}
+                    ? neetSeatTab === "home"
+                      ? "home-state seats."
+                      : "All India Quota seats."
+                    : "matching options."}
                 </p>
                 {/* Year + round caption. NEET states the round too, because round depth is not
                     comparable across states; other exams show the year alone. Both read the data

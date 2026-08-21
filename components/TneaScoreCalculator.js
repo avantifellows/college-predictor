@@ -101,9 +101,7 @@ const TneaScoreCalculator = ({
         </span>
         <span className="text-lg font-semibold tabular-nums text-[#8f2e31]">
           {compositeScore === "" ? "—" : compositeScore}
-          <span className="ml-1 text-xs font-normal text-[#6d5550]">
-            / 200
-          </span>
+          <span className="ml-1 text-xs font-normal text-[#6d5550]">/ 200</span>
         </span>
       </div>
 
