@@ -28,6 +28,15 @@ const PAGE_SIZE = 25;
 // appeared in the ranked band since, which is worth showing rather than hiding.
 const LATEST_NIRF = 2025;
 
+// Fees span ₹8,760 to ₹4.6L a year — below a lakh, "₹0.2 L" reads worse
+// than the plain rupee figure.
+const fmtFee = (v) => {
+  if (v === null || v === undefined) return null;
+  return v >= 100000
+    ? `₹${(v / 100000).toFixed(1)} L`
+    : `₹${v.toLocaleString("en-IN")}`;
+};
+
 const fmtSalary = (v) => {
   if (v === null || v === undefined) return null;
   // Indian students read lakhs, not 1,400,000.
@@ -237,6 +246,46 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
                       {nirf.latest_band
                         ? ` Ranked in the ${nirf.latest_band.band} band in ${nirf.latest_band.year} (NIRF publishes no score for bands).`
                         : null}
+                    </p>
+                  </div>
+                ) : null}
+
+                {c.fees ? (
+                  <div>
+                    <h4 className="mb-1.5 text-[13px] font-semibold uppercase tracking-wide text-[#8f2e31]">
+                      Fees ({c.fees.cycle})
+                    </h4>
+                    <dl className="space-y-1 text-sm text-[#5b3a34]">
+                      <div className="flex justify-between gap-3">
+                        <dt>Tuition + institute fees</dt>
+                        <dd className="tabular-nums">{fmtFee(c.fees.annual_fee)}/yr</dd>
+                      </div>
+                      {c.fees.annual_fee_waived != null ? (
+                        <div className="flex justify-between gap-3">
+                          <dt>With SC/ST/PwD tuition waiver</dt>
+                          <dd className="tabular-nums">{fmtFee(c.fees.annual_fee_waived)}/yr</dd>
+                        </div>
+                      ) : null}
+                      {c.fees.annual_hostel_mess != null ? (
+                        <div className="flex justify-between gap-3">
+                          <dt>Hostel + mess</dt>
+                          <dd className="tabular-nums">{fmtFee(c.fees.annual_hostel_mess)}/yr</dd>
+                        </div>
+                      ) : null}
+                    </dl>
+                    <p className="mt-1.5 text-xs leading-5 text-[#6d5550]">
+                      First-year figure incl. one-time charges; later years are
+                      usually lower.{" "}
+                      {c.fees.source_url ? (
+                        <a
+                          href={c.fees.source_url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="underline hover:text-[#8f2e31]"
+                        >
+                          source
+                        </a>
+                      ) : null}
                     </p>
                   </div>
                 ) : null}

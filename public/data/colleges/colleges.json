@@ -175,6 +175,14 @@
    "male": 3785,
    "edition_year": 2025
   },
+  "fees": {
+   "annual_fee": 230804,
+   "annual_fee_waived": 30804,
+   "annual_hostel_mess": 31500,
+   "cycle": "2025-26",
+   "source_url": "https://fees.iitm.ac.in/assets/circular/institute_fee_circular_jul_nov_2025.pdf",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 1750000,
    "percentage_placed": 76.9,
@@ -407,6 +415,14 @@
    "male": 3868,
    "edition_year": 2025
   },
+  "fees": {
+   "annual_fee": 244800,
+   "annual_fee_waived": 44800,
+   "annual_hostel_mess": 17200,
+   "cycle": "2025-26",
+   "source_url": "https://home.iitd.ac.in/uploads/ug/25-26/Fee%20Structure_2025-26_UG%20Entry%20Students.pdf",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 1908000,
    "percentage_placed": 75.2,
@@ -603,6 +619,14 @@
    "male": 5071,
    "edition_year": 2025
   },
+  "fees": {
+   "annual_fee": 215500,
+   "annual_fee_waived": 15500,
+   "annual_hostel_mess": 72800,
+   "cycle": "2025-26",
+   "source_url": "https://acad.iitb.ac.in/admissions/fees-structure",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 1961000,
    "percentage_placed": 73.8,
@@ -785,6 +809,14 @@
    "female": 956,
    "male": 3760,
    "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 243720,
+   "annual_fee_waived": 43720,
+   "annual_hostel_mess": 28000,
+   "cycle": "2025-26",
+   "source_url": "https://www.iitk.ac.in/dosa/data/Fee-Structure-for-New-Students-2025-26-Odd-Semester-03-05-25.pdf",
+   "is_entry_year": true
   },
   "placement": {
    "median_salary": 1940000,
@@ -1024,6 +1056,14 @@
    "male": 5648,
    "edition_year": 2025
   },
+  "fees": {
+   "annual_fee": 412100,
+   "annual_fee_waived": 12100,
+   "annual_hostel_mess": 75420,
+   "cycle": "2025-26",
+   "source_url": "https://www.iitkgp.ac.in/assets/pdf/law/Fee_Structure_MPPLG.pdf",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 1976000,
    "percentage_placed": 76.1,
@@ -1239,6 +1279,14 @@
    "male": 3563,
    "edition_year": 2025
   },
+  "fees": {
+   "annual_fee": 222600,
+   "annual_fee_waived": 22600,
+   "annual_hostel_mess": 67500,
+   "cycle": "2025-26",
+   "source_url": "https://iitr.ac.in/Academics/static/Institute_Fee/2025-26/UG_Ist.pdf",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 1700000,
    "percentage_placed": 69.8,
@@ -1427,6 +1475,14 @@
    "male": 1561,
    "edition_year": 2025
   },
+  "fees": {
+   "annual_fee": 229000,
+   "annual_fee_waived": 29000,
+   "annual_hostel_mess": 61380,
+   "cycle": "2025-26",
+   "source_url": "https://iith.ac.in/academics/assets/files/fee/2026/jan-jun-2026/Fee-Structure-for-January-June-2026-Semester-Already-Enrolled-Students.pdf",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 2100000,
    "percentage_placed": 76.7,
@@ -1597,6 +1653,14 @@
    "male": 3084,
    "edition_year": 2025
   },
+  "fees": {
+   "annual_fee": 227000,
+   "annual_fee_waived": 27000,
+   "annual_hostel_mess": 53800,
+   "cycle": "2025-26",
+   "source_url": "https://iitg.ac.in/acad/admission/imp_info/fee.php",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 1948000,
    "percentage_placed": 76.9,
@@ -1756,6 +1820,14 @@
    "female": 950,
    "male": 3337,
    "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 180500,
+   "annual_fee_waived": 25150,
+   "annual_hostel_mess": 99600,
+   "cycle": "2025-26",
+   "source_url": "https://www.nitt.edu/home/admissions/btech/B.Tech._Fee%20Structure_2025.pdf",
+   "is_entry_year": true
   },
   "placement": {
    "median_salary": 1435000,
@@ -1958,6 +2030,14 @@
    "male": 5130,
    "edition_year": 2025
   },
+  "fees": {
+   "annual_fee": 207600,
+   "annual_fee_waived": 7600,
+   "annual_hostel_mess": 5100,
+   "cycle": "2025-26",
+   "source_url": "https://www.iitbhu.ac.in/contents/institute/dean/doaa/doc/fee_ug_19-20.pdf",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 2000000,
    "percentage_placed": 92.8,
@@ -2109,6 +2189,14 @@
    "female": 314,
    "male": 1210,
    "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 212600,
+   "annual_fee_waived": 12600,
+   "annual_hostel_mess": 32000,
+   "cycle": "2025-26",
+   "source_url": "https://academic.iiti.ac.in/Admission/2025/New/2025%20B.Tech.%20and%20B.Des.%20Batch_Four%20Year%20Fee%20Structure_Tentative.pdf",
+   "is_entry_year": true
   },
   "placement": {
    "median_salary": 1948000,
@@ -2356,6 +2444,14 @@
    "male": 3303,
    "edition_year": 2025
   },
+  "fees": {
+   "annual_fee": 143000,
+   "annual_fee_waived": 18000,
+   "annual_hostel_mess": 80000,
+   "cycle": "2025-26",
+   "source_url": "https://www.nitrkl.ac.in/docs/Announcement/04062024180057941.pdf",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 1525000,
    "percentage_placed": 81.2,
@@ -2565,6 +2661,14 @@
    "male": 3475,
    "edition_year": 2025
   },
+  "fees": {
+   "annual_fee": 282800,
+   "annual_fee_waived": 82800,
+   "annual_hostel_mess": 36000,
+   "cycle": "2025-26",
+   "source_url": "https://www.iitism.ac.in/fees-structure",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 1200000,
    "percentage_placed": 80.8,
@@ -2729,6 +2833,14 @@
    "female": 848,
    "male": 3139,
    "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 198140,
+   "annual_fee_waived": 73140,
+   "annual_hostel_mess": 17640,
+   "cycle": "2025-26",
+   "source_url": "https://www.nitk.ac.in/document/attachments/8447/FEE_STRUCTURE_2025-26_.pdf",
+   "is_entry_year": true
   },
   "placement": {
    "median_salary": 1400000,
@@ -3025,6 +3137,14 @@
    "male": 1633,
    "edition_year": 2025
   },
+  "fees": {
+   "annual_fee": 262500,
+   "annual_fee_waived": 62500,
+   "annual_hostel_mess": 13000,
+   "cycle": "2025-26",
+   "source_url": "https://academics.iitp.ac.in/index.php?option=com_content&view=article&id=68&Itemid=244",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 2250000,
    "percentage_placed": 95.5,
@@ -3197,6 +3317,14 @@
    "male": 2961,
    "edition_year": 2025
   },
+  "fees": {
+   "annual_fee": 148910,
+   "annual_fee_waived": -101090,
+   "annual_hostel_mess": 42000,
+   "cycle": "2025-26",
+   "source_url": "https://josaa.admissions.nic.in/seatinfo/root/InstProfile.aspx?instcd=206",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 1250000,
    "percentage_placed": 88.6,
@@ -3342,6 +3470,14 @@
    "female": 225,
    "male": 907,
    "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 216676,
+   "annual_fee_waived": 16676,
+   "annual_hostel_mess": 76500,
+   "cycle": "2025-26",
+   "source_url": "https://josaa.admissions.nic.in/applicant/seatmatrix/InstProfile.aspx?enc=gNI/L73ZsCSQkVP6SdcUGGLfg4jY1ArzieOsSJZgnuU=",
+   "is_entry_year": true
   },
   "placement": {
    "median_salary": 1400000,
@@ -3514,6 +3650,14 @@
    "male": 1129,
    "edition_year": 2025
   },
+  "fees": {
+   "annual_fee": 202000,
+   "annual_fee_waived": 2000,
+   "annual_hostel_mess": 49920,
+   "cycle": "2025-26",
+   "source_url": "https://academics.iitmandi.ac.in/academic/public/pdf/fees/Fee_Structure_ODD_semester_2025_26_New_Entrants.pdf",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 1850000,
    "percentage_placed": 70.0,
@@ -3678,6 +3822,14 @@
    "female": 365,
    "male": 1565,
    "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 269600,
+   "annual_fee_waived": 69600,
+   "annual_hostel_mess": 14500,
+   "cycle": "2025-26",
+   "source_url": "https://iitj.ac.in/PageImages/Gallery/07-2025/Fee-structure-for-AY-202526except-executive-programmes-638871419004336219.pdf",
+   "is_entry_year": true
   },
   "placement": {
    "median_salary": 1200000,
@@ -3876,6 +4028,14 @@
    "male": 3162,
    "edition_year": 2025
   },
+  "fees": {
+   "annual_fee": 125000,
+   "annual_fee_waived": 0,
+   "annual_hostel_mess": 55600,
+   "cycle": "2025-26",
+   "source_url": "https://nitw.ac.in/api/static/files/fee-structure-ug-pg-2024-2025-even-sem_2024-11-8-15-8-41.pdf",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 1420000,
    "percentage_placed": 71.5,
@@ -4040,6 +4200,14 @@
    "male": 1211,
    "edition_year": 2025
   },
+  "fees": {
+   "annual_fee": 266050,
+   "annual_fee_waived": 66050,
+   "annual_hostel_mess": 51640,
+   "cycle": "2025-26",
+   "source_url": "https://www.iitrpr.ac.in/downloads/sites/default/files/Four%20Year%20Fee%20Structure_B.Tech%202025%20Batch.pdf",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 1697000,
    "percentage_placed": 68.5,
@@ -4185,6 +4353,14 @@
    "female": 384,
    "male": 1505,
    "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 219000,
+   "annual_fee_waived": 19000,
+   "annual_hostel_mess": 55000,
+   "cycle": "2025-26",
+   "source_url": "https://www.iitbbs.ac.in/wp-content/uploads/2024/05/Registration-Fee-from-the-Academic-Year-2024-25-and-onwards.pdf",
+   "is_entry_year": true
   },
   "placement": {
    "median_salary": 1400000,
@@ -4340,6 +4516,14 @@
    "male": 2634,
    "edition_year": 2025
   },
+  "fees": {
+   "annual_fee": 161900,
+   "annual_fee_waived": 37000,
+   "annual_hostel_mess": 64000,
+   "cycle": "2025-26",
+   "source_url": "https://mnit.ac.in/academics/fee_structure",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 1100000,
    "percentage_placed": 82.3,
@@ -4493,6 +4677,14 @@
    "female": 693,
    "male": 2541,
    "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 135450,
+   "annual_fee_waived": 10670,
+   "annual_hostel_mess": 65700,
+   "cycle": "2025-26",
+   "source_url": "https://vnit.ac.in/section/academics/fees/",
+   "is_entry_year": true
   },
   "placement": {
    "median_salary": 900000,
@@ -4667,6 +4859,14 @@
    "male": 2715,
    "edition_year": 2025
   },
+  "fees": {
+   "annual_fee": 189000,
+   "annual_fee_waived": 64200,
+   "annual_hostel_mess": 33000,
+   "cycle": "2025-26",
+   "source_url": "https://nitdgp.ac.in/uploads/208ecfdb0e3eceb92b805c1b090bcc05.pdf",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 1124000,
    "percentage_placed": 69.9,
@@ -4801,6 +5001,14 @@
    "female": 674,
    "male": 2848,
    "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 147000,
+   "annual_fee_waived": 22000,
+   "annual_hostel_mess": 48000,
+   "cycle": "2025-26",
+   "source_url": "https://www.nits.ac.in/storage/Feestructure/Feestructure_693921cc0c1ea1765351884.pdf",
+   "is_entry_year": true
   },
   "placement": {
    "median_salary": 1100000,
@@ -4986,6 +5194,14 @@
    "female": 436,
    "male": 3064,
    "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 343000,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 40000,
+   "cycle": "2025-26",
+   "source_url": "https://bitmesra.ac.in/Show_Brochure_Details/70/71",
+   "is_entry_year": true
   },
   "placement": {
    "median_salary": 952576,
@@ -5196,6 +5412,14 @@
    "male": 2320,
    "edition_year": 2025
   },
+  "fees": {
+   "annual_fee": 141100,
+   "annual_fee_waived": 16100,
+   "annual_hostel_mess": 60000,
+   "cycle": "2025-26",
+   "source_url": "https://drive.google.com/file/d/1MhS_UIYkOF2G3h0ms_kk8ZRjidr0IvGZ/view",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 700000,
    "percentage_placed": 80.1,
@@ -5355,6 +5579,14 @@
    "female": 572,
    "male": 2192,
    "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 45000,
+   "annual_fee_waived": 15000,
+   "annual_hostel_mess": 59000,
+   "cycle": "2025-26",
+   "source_url": "https://www.iiests.ac.in/ckfinder/userfiles/files/Institute%20fees_CCMN.pdf",
+   "is_entry_year": true
   },
   "placement": {
    "median_salary": 850000,
@@ -5539,6 +5771,14 @@
    "male": 3444,
    "edition_year": 2025
   },
+  "fees": {
+   "annual_fee": 159000,
+   "annual_fee_waived": 34000,
+   "annual_hostel_mess": 51000,
+   "cycle": "2025-26",
+   "source_url": "https://v1.nitj.ac.in/nitj_files/student_corner/Fee_structure_of_B_21112636448.pdf",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 794000,
    "percentage_placed": 66.5,
@@ -5670,6 +5910,14 @@
    "male": 678,
    "edition_year": 2025
   },
+  "fees": {
+   "annual_fee": 203280,
+   "annual_fee_waived": 1640,
+   "annual_hostel_mess": 60740,
+   "cycle": "2025-26",
+   "source_url": "https://www.iitjammu.ac.in/academics/fee/2025-26/B%20Tech%202025_Short%202025-26.pdf",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 1169500,
    "percentage_placed": 63.5,
@@ -5793,6 +6041,14 @@
    "female": 185,
    "male": 721,
    "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 218100,
+   "annual_fee_waived": 18100,
+   "annual_hostel_mess": 40540,
+   "cycle": "2025-26",
+   "source_url": "https://files.iittp.ac.in/pdfs/feestructure/2026/Jan_June/B_Tech_Jan-June_2026-2025_batch.pdf",
+   "is_entry_year": true
   },
   "placement": {
    "median_salary": 1100000,
@@ -5953,6 +6209,14 @@
    "male": 3678,
    "edition_year": 2025
   },
+  "fees": {
+   "annual_fee": 163000,
+   "annual_fee_waived": 38000,
+   "annual_hostel_mess": 24000,
+   "cycle": "2025-26",
+   "source_url": "https://josaa.admissions.nic.in/applicant/seatmatrix/InstProfile.aspx?enc=rJ7jj1MaSzS7LV27N32+hWYPJUIFwqzmA228df7VbXs=",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 1200000,
    "percentage_placed": 92.2,
@@ -6070,6 +6334,14 @@
    "female": 150,
    "male": 516,
    "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 201600,
+   "annual_fee_waived": 1600,
+   "annual_hostel_mess": 82000,
+   "cycle": "2025-26",
+   "source_url": "https://iitpkd.ac.in/sites/default/files/2023-06/FeeDetailsBTech2023.pdf",
+   "is_entry_year": true
   },
   "placement": {
    "median_salary": 1200000,
@@ -6207,6 +6479,14 @@
    "female": 272,
    "male": 802,
    "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 181000,
+   "annual_fee_waived": 56000,
+   "annual_hostel_mess": 80000,
+   "cycle": "2025-26",
+   "source_url": "https://nitdelhi.ac.in/wp-content/uploads/2026/02/Fee-structure-B-Tech.pdf",
+   "is_entry_year": true
   },
   "placement": {
    "median_salary": 1590000,
@@ -6399,6 +6679,14 @@
    "male": 2863,
    "edition_year": 2025
   },
+  "fees": {
+   "annual_fee": 155000,
+   "annual_fee_waived": 30000,
+   "annual_hostel_mess": 44380,
+   "cycle": "2025-26",
+   "source_url": "https://www.svnit.ac.in/Data/fee%20structure/B.Tech.%20admitted%20in%20AY%202025-26.pdf",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 968000,
    "percentage_placed": 73.8,
@@ -6523,6 +6811,14 @@
    "female": 153,
    "male": 594,
    "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 259200,
+   "annual_fee_waived": 34200,
+   "annual_hostel_mess": 99990,
+   "cycle": "2025-26",
+   "source_url": "https://www.iitbhilai.ac.in/index.php?pid=Fee_BTech24",
+   "is_entry_year": true
   },
   "placement": {
    "median_salary": 1200000,
@@ -6667,6 +6963,14 @@
    "male": 2583,
    "edition_year": 2025
   },
+  "fees": {
+   "annual_fee": 146000,
+   "annual_fee_waived": 21000,
+   "annual_hostel_mess": 58000,
+   "cycle": "2025-26",
+   "source_url": "https://josaa.admissions.nic.in/applicant/seatmatrix/InstProfile.aspx?enc=rJ7jj1MaSzS7LV27N32+hZbUmhh7fY9beNBmsh/U1Y8=",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 1100000,
    "percentage_placed": 57.9,
@@ -6758,6 +7062,14 @@
    ]
   },
   "ug_gender": null,
+  "fees": {
+   "annual_fee": 43640,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 250,
+   "cycle": "2025-26",
+   "source_url": "https://socialsciences.uohyd.ac.in/education/wp-content/uploads/sites/6/2022/03/Fees.pdf",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": "A+",
@@ -6879,6 +7191,14 @@
    "female": 160,
    "male": 663,
    "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 377000,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 100000,
+   "cycle": "2025-26",
+   "source_url": "https://assets.iiitdwd.ac.in/docs/Fee_Structure_2025-26.pdf",
+   "is_entry_year": true
   },
   "placement": {
    "median_salary": 1162000,
@@ -7070,6 +7390,14 @@
    "male": 1588,
    "edition_year": 2025
   },
+  "fees": {
+   "annual_fee": 66000,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 29000,
+   "cycle": "2025-26",
+   "source_url": "https://set.sliet.ac.in/files/2026/03/FEE-STRUCTURE-FOR-ACADEMIC-YEAR-2026-27.pdf",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 400000,
    "percentage_placed": 54.0,
@@ -7243,6 +7571,14 @@
    "female": 848,
    "male": 3210,
    "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 173000,
+   "annual_fee_waived": 48000,
+   "annual_hostel_mess": 46000,
+   "cycle": "2025-26",
+   "source_url": "https://www.manit.ac.in/sites/default/files/addmissionsection/MANIT%20Fee%20details%2025-26_Modified%2009%2010%20%202025%20latest.pdf",
+   "is_entry_year": true
   },
   "placement": {
    "median_salary": 1100000,
@@ -7433,6 +7769,14 @@
    "male": 2862,
    "edition_year": 2025
   },
+  "fees": {
+   "annual_fee": 142850,
+   "annual_fee_waived": 17850,
+   "annual_hostel_mess": 52400,
+   "cycle": "2025-26",
+   "source_url": "https://josaa.admissions.nic.in/seatinfo/root/InstProfile.aspx?instcd=205",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 700000,
    "percentage_placed": 75.3,
@@ -7575,6 +7919,7 @@
    "male": 2150,
    "edition_year": 2025
   },
+  "fees": null,
   "placement": {
    "median_salary": 1080000,
    "percentage_placed": 94.7,
@@ -7703,6 +8048,14 @@
    "female": 155,
    "male": 485,
    "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 127500,
+   "annual_fee_waived": 2500,
+   "annual_hostel_mess": 78000,
+   "cycle": "2025-26",
+   "source_url": "https://www.nitm.ac.in/nitmeghalaya/ckfinder/userfiles/files/Fee%20Structure%20for%20NEW%20ADMISSIONS%20(Autumn%202025)%20dt%2009-07-25(2).pdf",
+   "is_entry_year": true
   },
   "placement": {
    "median_salary": 1050000,
@@ -7925,6 +8278,14 @@
    "male": 3642,
    "edition_year": 2025
   },
+  "fees": {
+   "annual_fee": 149000,
+   "annual_fee_waived": 24000,
+   "annual_hostel_mess": 18800,
+   "cycle": "2025-26",
+   "source_url": "https://nitkkr.ac.in/fee-structure/",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 900000,
    "percentage_placed": 53.6,
@@ -8097,6 +8458,14 @@
    "male": 3266,
    "edition_year": 2025
   },
+  "fees": {
+   "annual_fee": 137860,
+   "annual_fee_waived": 12860,
+   "annual_hostel_mess": 54800,
+   "cycle": "2025-26",
+   "source_url": "https://www.nitrr.ac.in/downloads/fees/Fees_2025/Fee%20Structure%202025-26.pdf",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 850000,
    "percentage_placed": 72.4,
@@ -8216,6 +8585,14 @@
    "female": 366,
    "male": 1503,
    "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 205160,
+   "annual_fee_waived": 15500,
+   "annual_hostel_mess": 72800,
+   "cycle": "2025-26",
+   "source_url": "https://acad.iitb.ac.in/admissions/fees-structure",
+   "is_entry_year": true
   },
   "placement": {
    "median_salary": 1850000,
@@ -8388,6 +8765,14 @@
    "male": 2542,
    "edition_year": 2025
   },
+  "fees": {
+   "annual_fee": 188000,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 75500,
+   "cycle": "2025-26",
+   "source_url": "https://pec.ac.in/sites/default/files/2023-06/Admission_Brochure_UG-2023_0.pdf",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 1300000,
    "percentage_placed": 59.1,
@@ -8516,6 +8901,14 @@
    "female": 161,
    "male": 555,
    "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 148000,
+   "annual_fee_waived": 23000,
+   "annual_hostel_mess": 73500,
+   "cycle": "2025-26",
+   "source_url": "https://www.nitgoa.ac.in/static/fee_structure_23-24_25july2023.pdf",
+   "is_entry_year": true
   },
   "placement": {
    "median_salary": 725000,
@@ -8650,6 +9043,14 @@
    "male": 616,
    "edition_year": 2025
   },
+  "fees": {
+   "annual_fee": 141800,
+   "annual_fee_waived": 16800,
+   "annual_hostel_mess": 76000,
+   "cycle": "2025-26",
+   "source_url": "https://nitmanipur.ac.in/RevisedFeeStructure_b.Tech_2025onwards_13062025.pdf",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 750000,
    "percentage_placed": 65.6,
@@ -8779,6 +9180,14 @@
    "female": 71,
    "male": 324,
    "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 214500,
+   "annual_fee_waived": 70500,
+   "annual_hostel_mess": 66000,
+   "cycle": "2025-26",
+   "source_url": "https://www.iiitm.ac.in/images/2023/June_2023/Fee_Structure_July_2023.pdf",
+   "is_entry_year": true
   },
   "placement": {
    "median_salary": 2200000,
@@ -8953,6 +9362,14 @@
    "male": 2536,
    "edition_year": 2025
   },
+  "fees": {
+   "annual_fee": 166200,
+   "annual_fee_waived": 41200,
+   "annual_hostel_mess": 80000,
+   "cycle": "2025-26",
+   "source_url": "https://nith.ac.in/uploads/files/nov24/feestructure.pdf",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 1005000,
    "percentage_placed": 83.5,
@@ -9079,6 +9496,14 @@
    "male": 1682,
    "edition_year": 2025
   },
+  "fees": {
+   "annual_fee": 158500,
+   "annual_fee_waived": 15000,
+   "annual_hostel_mess": 52000,
+   "cycle": "2025-26",
+   "source_url": "https://www.iiitdmj.ac.in/academics/download/fee-structure-2025-26/Fee%20Structure%20UG2025.pdf",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 1767000,
    "percentage_placed": 67.0,
@@ -9202,6 +9627,14 @@
    "female": 257,
    "male": 723,
    "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 145500,
+   "annual_fee_waived": 20500,
+   "annual_hostel_mess": 77000,
+   "cycle": "2025-26",
+   "source_url": "https://nitpy.ac.in/assets/docs/academics/fees%20structure/2025/Undergraduate_B.Tech._2025-26.pdf",
+   "is_entry_year": true
   },
   "placement": {
    "median_salary": 700000,
@@ -9355,6 +9788,14 @@
    "male": 1045,
    "edition_year": 2025
   },
+  "fees": {
+   "annual_fee": 158740,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 20000,
+   "cycle": "2025-26",
+   "source_url": "https://smvdu.ac.in/wp-content/uploads/2025/02/New-Doc-02-10-2025-10.34-1.pdf",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 500000,
    "percentage_placed": 32.5,
@@ -9453,6 +9894,14 @@
    "female": 133,
    "male": 758,
    "edition_year": 2024
+  },
+  "fees": {
+   "annual_fee": 275000,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 59500,
+   "cycle": "2025-26",
+   "source_url": "https://www.iiitg.ac.in/fees.html",
+   "is_entry_year": true
   },
   "placement": {
    "median_salary": 1400000,
@@ -9616,6 +10065,14 @@
    "male": 1113,
    "edition_year": 2025
   },
+  "fees": {
+   "annual_fee": 54486,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 19800,
+   "cycle": "2025-26",
+   "source_url": "https://www.tezu.ernet.in/soe/pdf/josaa_csab/FEE%20Sturucture_2025.pdf",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 540000,
    "percentage_placed": 29.3,
@@ -9713,6 +10170,14 @@
    "female": 154,
    "male": 446,
    "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 164900,
+   "annual_fee_waived": 61600,
+   "annual_hostel_mess": 48200,
+   "cycle": "2025-26",
+   "source_url": "https://niftem.ac.in/newsite/wp-content/uploads/2023/05/Fee-Structure-for-B.Tech-2023-24.pdf",
+   "is_entry_year": true
   },
   "placement": {
    "median_salary": 710000,
@@ -9826,6 +10291,14 @@
    "female": 121,
    "male": 450,
    "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 139600,
+   "annual_fee_waived": 14600,
+   "annual_hostel_mess": 68666,
+   "cycle": "2025-26",
+   "source_url": "https://nituk.ac.in/uploads/topics/17471183241662.pdf",
+   "is_entry_year": true
   },
   "placement": {
    "median_salary": 954000,
@@ -9951,6 +10424,14 @@
    "male": 624,
    "edition_year": 2025
   },
+  "fees": {
+   "annual_fee": 139000,
+   "annual_fee_waived": 14000,
+   "annual_hostel_mess": 43000,
+   "cycle": "2025-26",
+   "source_url": "https://www.nitap.ac.in/storage/pdf/78719b5fbeb8f6d792336abebaf42fbb-03-07-42,%202024.pdf",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 810000,
    "percentage_placed": 80.3,
@@ -10064,6 +10545,14 @@
    "female": 126,
    "male": 455,
    "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 141890,
+   "annual_fee_waived": 16890,
+   "annual_hostel_mess": 16500,
+   "cycle": "2025-26",
+   "source_url": "https://nitsikkim.ac.in/documents/Fee%20Structure/2024_jan/B%20Tech%20Fee%20Structure%20for%202024-25%20Academic%20Session.pdf",
+   "is_entry_year": true
   },
   "placement": {
    "median_salary": 793000,
@@ -10196,6 +10685,7 @@
    "male": 2208,
    "edition_year": 2021
   },
+  "fees": null,
   "placement": {
    "median_salary": 520000,
    "percentage_placed": 59.9,
@@ -10318,6 +10808,14 @@
    "female": 394,
    "male": 983,
    "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 43980,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 33220,
+   "cycle": "2025-26",
+   "source_url": "https://nerist.ac.in/wp-content/uploads/2025/01/Fee-Structures-for-UG-Courses_2024_25-to-2025_26.pdf",
+   "is_entry_year": true
   },
   "placement": {
    "median_salary": 600000,
@@ -10474,6 +10972,14 @@
    "male": 1497,
    "edition_year": 2025
   },
+  "fees": {
+   "annual_fee": 155600,
+   "annual_fee_waived": 9600,
+   "annual_hostel_mess": 66800,
+   "cycle": "2025-26",
+   "source_url": "https://old.iiitdm.ac.in/img/academics/Fee%20structure%20UG,%20DD%20&%20PG.pdf",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 750000,
    "percentage_placed": 44.9,
@@ -10574,6 +11080,14 @@
    "female": 52,
    "male": 590,
    "edition_year": 2022
+  },
+  "fees": {
+   "annual_fee": 198000,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 110000,
+   "cycle": "2025-26",
+   "source_url": "https://iitram.ac.in/feestructure#btech",
+   "is_entry_year": true
   },
   "placement": {
    "median_salary": 336000,
@@ -10682,6 +11196,14 @@
    "male": 941,
    "edition_year": 2021
   },
+  "fees": {
+   "annual_fee": 251000,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 62000,
+   "cycle": "2025-26",
+   "source_url": "https://josaa.admissions.nic.in/applicant/seatmatrix/InstProfile.aspx?enc=nsU5HEkjvt/OC38zhsZ0yrzaMuEjcqwZ0b4CaN8y0Gw=",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 400000,
    "percentage_placed": 72.4,
@@ -10758,6 +11280,14 @@
   },
   "nirf": null,
   "ug_gender": null,
+  "fees": {
+   "annual_fee": 110290,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 25000,
+   "cycle": "2025-26",
+   "source_url": "https://josaa.admissions.nic.in/seatinfo/root/InstProfile.aspx?instcd=401",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": "B",
@@ -10829,6 +11359,7 @@
   },
   "nirf": null,
   "ug_gender": null,
+  "fees": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -10919,6 +11450,7 @@
   },
   "nirf": null,
   "ug_gender": null,
+  "fees": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -10989,6 +11521,14 @@
   },
   "nirf": null,
   "ug_gender": null,
+  "fees": {
+   "annual_fee": 103900,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 29400,
+   "cycle": "2025-26",
+   "source_url": "http://cuj.cuj.ac.in/downloads/Fee/Intergrated%20ug%20&%20PG.pdf",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": "A",
@@ -11059,6 +11599,14 @@
   },
   "nirf": null,
   "ug_gender": null,
+  "fees": {
+   "annual_fee": 120300,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": null,
+   "cycle": "2025-26",
+   "source_url": "https://www.cuh.ac.in/pdf/Fee%20Structure.pdf",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": "A",
@@ -11135,6 +11683,14 @@
   },
   "nirf": null,
   "ug_gender": null,
+  "fees": {
+   "annual_fee": 140430,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 36000,
+   "cycle": "2025-26",
+   "source_url": "https://cujammu.ac.in/static/homepage/admissions/2025/upfeestr2526.pdf",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -11199,6 +11755,14 @@
   },
   "nirf": null,
   "ug_gender": null,
+  "fees": {
+   "annual_fee": 154050,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 35000,
+   "cycle": "2025-26",
+   "source_url": "https://curaj.ac.in/sites/default/files/B.Tech%202025-26.pdf",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": "A++",
@@ -11275,6 +11839,14 @@
   },
   "nirf": null,
   "ug_gender": null,
+  "fees": {
+   "annual_fee": 122200,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 32800,
+   "cycle": "2025-26",
+   "source_url": "https://www.cit.ac.in/uploads/notices/files/1562236559.pdf",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -11340,6 +11912,14 @@
   },
   "nirf": null,
   "ug_gender": null,
+  "fees": {
+   "annual_fee": 101400,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": null,
+   "cycle": "2025-26",
+   "source_url": "https://csvtu.ac.in/ew/university-teaching-department-2/",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -11422,6 +12002,14 @@
   },
   "nirf": null,
   "ug_gender": null,
+  "fees": {
+   "annual_fee": 163050,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 83600,
+   "cycle": "2025-26",
+   "source_url": "https://gsv.ac.in/admission/",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -11499,6 +12087,7 @@
   },
   "nirf": null,
   "ug_gender": null,
+  "fees": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -11569,6 +12158,14 @@
   },
   "nirf": null,
   "ug_gender": null,
+  "fees": {
+   "annual_fee": 124350,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 25000,
+   "cycle": "2025-26",
+   "source_url": "https://www.gkv.ac.in/wp-content/uploads/2025/05/FET-brochure.pdf",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": "B",
@@ -11651,6 +12248,14 @@
   },
   "nirf": null,
   "ug_gender": null,
+  "fees": {
+   "annual_fee": 288800,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 114000,
+   "cycle": "2025-26",
+   "source_url": "https://iiitmanipur.ac.in/pages/academic/admission2025/FeeStructureIIITM2025.pdf",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -11703,6 +12308,14 @@
   },
   "nirf": null,
   "ug_gender": null,
+  "fees": {
+   "annual_fee": 86000,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 51000,
+   "cycle": "2025-26",
+   "source_url": "https://josaa.admissions.nic.in/applicant/seatmatrix/InstProfile.aspx?enc=nsU5HEkjvt/OC38zhsZ0ypquWYy9ZEDmEDKdaFMRugw=",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -11755,6 +12368,7 @@
   },
   "nirf": null,
   "ug_gender": null,
+  "fees": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -11807,6 +12421,14 @@
   },
   "nirf": null,
   "ug_gender": null,
+  "fees": {
+   "annual_fee": 17000,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 43000,
+   "cycle": "2025-26",
+   "source_url": "https://josaa.admissions.nic.in/applicant/seatmatrix/InstProfile.aspx?enc=nsU5HEkjvt/OC38zhsZ0yljChnp7+Ays2xP9g8deHgg=",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -11889,6 +12511,14 @@
   },
   "nirf": null,
   "ug_gender": null,
+  "fees": {
+   "annual_fee": 456600,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 113000,
+   "cycle": "2025-26",
+   "source_url": "https://iiitn.ac.in/media/7128975f4eff4b1eb85c8ff31af69084.pdf",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -11947,6 +12577,14 @@
   },
   "nirf": null,
   "ug_gender": null,
+  "fees": {
+   "annual_fee": 118000,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 64300,
+   "cycle": "2025-26",
+   "source_url": "https://www.isquareit.edu.in/fee-structure/",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -12024,6 +12662,14 @@
   },
   "nirf": null,
   "ug_gender": null,
+  "fees": {
+   "annual_fee": 300000,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 84000,
+   "cycle": "2025-26",
+   "source_url": "https://iiitranchi.ac.in/docs/updates/BF290425.pdf",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -12088,6 +12734,14 @@
   },
   "nirf": null,
   "ug_gender": null,
+  "fees": {
+   "annual_fee": 380000,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 88000,
+   "cycle": "2025-26",
+   "source_url": "https://iiits.ac.in/academics/b-tech-programme/fee-structure/",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -12152,6 +12806,14 @@
   },
   "nirf": null,
   "ug_gender": null,
+  "fees": {
+   "annual_fee": 270850,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 76000,
+   "cycle": "2025-26",
+   "source_url": "https://cdn.iiitkota.ac.in/fees/2025-07-24_Fee_Structure_2025-26.pdf",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -12222,6 +12884,14 @@
   },
   "nirf": null,
   "ug_gender": null,
+  "fees": {
+   "annual_fee": 317242,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 82000,
+   "cycle": "2025-26",
+   "source_url": "https://drive.google.com/file/d/16CXj18jaeiVCb2X-LevqjNaQ6Mo67xYX/view",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -12322,6 +12992,14 @@
   },
   "nirf": null,
   "ug_gender": null,
+  "fees": {
+   "annual_fee": 164200,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 114000,
+   "cycle": "2025-26",
+   "source_url": "https://iiitbhopal.ac.in/Document/Admission/B.Tech%20FEE%20STRUCTURE%202022-23.pdf",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -12411,6 +13089,14 @@
   },
   "nirf": null,
   "ug_gender": null,
+  "fees": {
+   "annual_fee": 190600,
+   "annual_fee_waived": 14600,
+   "annual_hostel_mess": 63000,
+   "cycle": "2025-26",
+   "source_url": "https://files.iiitk.ac.in/uploads/academics/feestructure/B.Tech_FeeStructure_AY2025_26.pdf",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -12481,6 +13167,14 @@
   },
   "nirf": null,
   "ug_gender": null,
+  "fees": {
+   "annual_fee": 247400,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 42000,
+   "cycle": "2025-26",
+   "source_url": "https://iiitl.ac.in/wp-content/uploads/2023/06/B.Tech-Fees-2023-2027.pdf",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -12551,6 +13245,14 @@
   },
   "nirf": null,
   "ug_gender": null,
+  "fees": {
+   "annual_fee": 197500,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": null,
+   "cycle": "2025-26",
+   "source_url": "https://iiitsurat.ac.in/admission/fee-structure",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -12621,6 +13323,14 @@
   },
   "nirf": null,
   "ug_gender": null,
+  "fees": {
+   "annual_fee": 261600,
+   "annual_fee_waived": 31200,
+   "annual_hostel_mess": 91200,
+   "cycle": "2025-26",
+   "source_url": "http://store.iiitt.ac.in/downloads/admission/1.%20B.Tech%20Fee%20structure%202025.pdf",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -12685,6 +13395,14 @@
   },
   "nirf": null,
   "ug_gender": null,
+  "fees": {
+   "annual_fee": 377000,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 96000,
+   "cycle": "2025-26",
+   "source_url": "https://assets.iiitdwd.ac.in/docs/Fee_Structure_2025-26.pdf",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -12755,6 +13473,14 @@
   },
   "nirf": null,
   "ug_gender": null,
+  "fees": {
+   "annual_fee": 186500,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 108400,
+   "cycle": "2025-26",
+   "source_url": "https://iiitkalyani.ac.in/api/serve/2025/08/27/B.TECH_FEE_STRUCTURE__FY_23-24_.pdf",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -12819,6 +13545,14 @@
   },
   "nirf": null,
   "ug_gender": null,
+  "fees": {
+   "annual_fee": 204998,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 6300,
+   "cycle": "2025-26",
+   "source_url": "https://josaa.admissions.nic.in/applicant/seatmatrix/InstProfile.aspx?enc=wEaVaSp8sOoFoPUWllvAsKeesTTGeOK8Kd8Vy2phcpg=",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -12889,6 +13623,14 @@
   },
   "nirf": null,
   "ug_gender": null,
+  "fees": {
+   "annual_fee": 323720,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 142700,
+   "cycle": "2025-26",
+   "source_url": "https://www.iiitkottayam.ac.in/#!/admission",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -12959,6 +13701,14 @@
   },
   "nirf": null,
   "ug_gender": null,
+  "fees": {
+   "annual_fee": 270000,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 95600,
+   "cycle": "2025-26",
+   "source_url": "https://cdn.iiitu.ac.in/uploads/news/fees_structure_iiituna.pdf",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -13029,6 +13779,14 @@
   },
   "nirf": null,
   "ug_gender": null,
+  "fees": {
+   "annual_fee": 273000,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 154600,
+   "cycle": "2025-26",
+   "source_url": "https://iiitvadodara.ac.in/btechdasa.php",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -13081,6 +13839,14 @@
   },
   "nirf": null,
   "ug_gender": null,
+  "fees": {
+   "annual_fee": 213250,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 67000,
+   "cycle": "2025-26",
+   "source_url": "https://www.iiitagartala.ac.in/documents/Revised_FeeStructure_Aug2023.pdf",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -13145,6 +13911,7 @@
   },
   "nirf": null,
   "ug_gender": null,
+  "fees": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -13219,6 +13986,14 @@
    "female": 114,
    "male": 452,
    "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 207500,
+   "annual_fee_waived": 7500,
+   "annual_hostel_mess": 52000,
+   "cycle": "2025-26",
+   "source_url": "https://josaa.admissions.nic.in/seatinfo/root/InstProfile.aspx?instcd=120",
+   "is_entry_year": true
   },
   "placement": {
    "median_salary": 1300000,
@@ -13295,6 +14070,14 @@
   },
   "nirf": null,
   "ug_gender": null,
+  "fees": {
+   "annual_fee": 308000,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 120000,
+   "cycle": "2025-26",
+   "source_url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vR5hGIQGUDFslhie7jJrN_29BLYshSVGfBWmP5NlLIjZNM9R2AMz6TtFrqq1G0__AyLEqO_wbbmYUM4/pubhtml",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -13348,6 +14131,7 @@
   },
   "nirf": null,
   "ug_gender": null,
+  "fees": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -13430,6 +14214,14 @@
   },
   "nirf": null,
   "ug_gender": null,
+  "fees": {
+   "annual_fee": 129810,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 4800,
+   "cycle": "2025-26",
+   "source_url": "https://josaa.admissions.nic.in/applicant/seatmatrix/InstProfile.aspx?enc=nsU5HEkjvt/OC38zhsZ0yvRdMVCXh9O3PX9s5BF1WaA=",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": "A+",
@@ -13494,6 +14286,14 @@
   },
   "nirf": null,
   "ug_gender": null,
+  "fees": {
+   "annual_fee": 96000,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 49700,
+   "cycle": "2025-26",
+   "source_url": "https://www.iiitnr.ac.in/content/fees",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -13552,6 +14352,7 @@
    "male": 862,
    "edition_year": 2025
   },
+  "fees": null,
   "placement": {
    "median_salary": 720000,
    "percentage_placed": 91.5,
@@ -13626,6 +14427,14 @@
    "male": 296,
    "edition_year": 2025
   },
+  "fees": {
+   "annual_fee": 31159,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 15000,
+   "cycle": "2025-26",
+   "source_url": "https://jkinstitute.ac.in/Fee_Structure//BTech_Fees_structure_2425.pdf",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 720000,
    "percentage_placed": 80.4,
@@ -13695,6 +14504,14 @@
   },
   "nirf": null,
   "ug_gender": null,
+  "fees": {
+   "annual_fee": 138042,
+   "annual_fee_waived": 13042,
+   "annual_hostel_mess": 2240,
+   "cycle": "2025-26",
+   "source_url": "https://josaa.admissions.nic.in/applicant/seatmatrix/InstProfile.aspx?enc=nsU5HEkjvt/OC38zhsZ0yhgtHq9rZpUdGoXybaIURd4=",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": "A++",
@@ -13778,6 +14595,14 @@
   },
   "nirf": null,
   "ug_gender": null,
+  "fees": {
+   "annual_fee": 46100,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": null,
+   "cycle": "2025-26",
+   "source_url": "https://drive.google.com/file/d/1-EDh0CkB-DacOxiGSQVidSG9TtZcDxgz/view",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": "A+",
@@ -13848,6 +14673,14 @@
   },
   "nirf": null,
   "ug_gender": null,
+  "fees": {
+   "annual_fee": 70000,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 140600,
+   "cycle": "2025-26",
+   "source_url": "https://josaa.admissions.nic.in/applicant/seatmatrix/InstProfile.aspx?enc=nsU5HEkjvt/OC38zhsZ0ysXYPQqFzJ0DArms/fw16Vw=",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -13900,6 +14733,7 @@
   },
   "nirf": null,
   "ug_gender": null,
+  "fees": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -13958,6 +14792,7 @@
   },
   "nirf": null,
   "ug_gender": null,
+  "fees": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -14016,6 +14851,7 @@
   },
   "nirf": null,
   "ug_gender": null,
+  "fees": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -14068,6 +14904,7 @@
   },
   "nirf": null,
   "ug_gender": null,
+  "fees": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -14120,6 +14957,7 @@
   },
   "nirf": null,
   "ug_gender": null,
+  "fees": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -14172,6 +15010,14 @@
   },
   "nirf": null,
   "ug_gender": null,
+  "fees": {
+   "annual_fee": 150000,
+   "annual_fee_waived": 57660,
+   "annual_hostel_mess": 80000,
+   "cycle": "2025-26",
+   "source_url": "https://josaa.admissions.nic.in/applicant/seatmatrix/InstProfile.aspx?enc=nsU5HEkjvt/OC38zhsZ0yoUnAMr46NAVHzVARjwcwns=",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -14259,6 +15105,14 @@
    "female": 163,
    "male": 575,
    "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 145500,
+   "annual_fee_waived": 20500,
+   "annual_hostel_mess": 64000,
+   "cycle": "2025-26",
+   "source_url": "https://www.nitnagaland.ac.in/templates/g5_helium/PDF/AcademicSec/Fee_Structure_25-26.pdf",
+   "is_entry_year": true
   },
   "placement": {
    "median_salary": 1550000,
@@ -14366,6 +15220,14 @@
   },
   "nirf": null,
   "ug_gender": null,
+  "fees": {
+   "annual_fee": 130800,
+   "annual_fee_waived": 5800,
+   "annual_hostel_mess": 58000,
+   "cycle": "2025-26",
+   "source_url": "https://nitandhra.ac.in/main/Admissions/2025/UG/Fee%20Estimation%20Certificate-I%20Year%20B.Tech%20Students%20of%20A.Y.2025-26.pdf",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -14460,6 +15322,14 @@
    "male": 435,
    "edition_year": 2025
   },
+  "fees": {
+   "annual_fee": 155392,
+   "annual_fee_waived": 30392,
+   "annual_hostel_mess": 83000,
+   "cycle": "2025-26",
+   "source_url": "https://nitmz.ac.in/wp-content/uploads/2025/02/Order_of_Fees_revised_July_2024.pdf",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 715000,
    "percentage_placed": 90.5,
@@ -14541,6 +15411,14 @@
   },
   "nirf": null,
   "ug_gender": null,
+  "fees": {
+   "annual_fee": 8760,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 8800,
+   "cycle": "2025-26",
+   "source_url": "https://josaa.admissions.nic.in/applicant/seatmatrix/InstProfile.aspx?enc=nsU5HEkjvt/OC38zhsZ0yo6tkY7jPhiUDcUr3o43RiQ=",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -14642,6 +15520,14 @@
   },
   "nirf": null,
   "ug_gender": null,
+  "fees": {
+   "annual_fee": 151051,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 60000,
+   "cycle": "2025-26",
+   "source_url": "https://cms.ptuniv.edu.in/file_contents/admissions/feeStructure2526.pdf",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -14700,6 +15586,7 @@
   },
   "nirf": null,
   "ug_gender": null,
+  "fees": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -14759,6 +15646,7 @@
   },
   "nirf": null,
   "ug_gender": null,
+  "fees": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -14818,6 +15706,7 @@
   },
   "nirf": null,
   "ug_gender": null,
+  "fees": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -14877,6 +15766,7 @@
   },
   "nirf": null,
   "ug_gender": null,
+  "fees": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -14987,6 +15877,14 @@
    "female": 325,
    "male": 1388,
    "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 32100,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": null,
+   "cycle": "2025-26",
+   "source_url": "https://josaa.admissions.nic.in/applicant/seatmatrix/InstProfile.aspx?enc=nsU5HEkjvt/OC38zhsZ0ytGD/1D+/L0n4WyLfOwyFk4=",
+   "is_entry_year": true
   },
   "placement": {
    "median_salary": 450000,

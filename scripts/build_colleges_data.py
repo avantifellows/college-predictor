@@ -166,6 +166,23 @@ def build_josaa(client):
     GROUP BY institute_id, edition_year
     """).to_dataframe()
 
+    # ── fees: hand-collected from each college's own fee page ────────────────
+    # Entry-year figures (first semester/year incl. one-time charges),
+    # annualised in the clean layer. One number per college: the median
+    # across its courses — fee spread within a college is small next to the
+    # spread between colleges, and a range would crowd the expander.
+    fees = client.query("""
+    SELECT
+      college_id AS aishe_code,
+      CAST(APPROX_QUANTILES(IF(demo_id = 'OPEN', annual_total_fee, NULL), 2)[OFFSET(1)] AS INT64) AS annual_fee_open,
+      CAST(APPROX_QUANTILES(IF(tuition_fee = 0 AND (category IN ('SC','ST') OR is_pwd), annual_total_fee, NULL), 2)[OFFSET(1)] AS INT64) AS annual_fee_waived,
+      CAST(APPROX_QUANTILES(annual_hostel_mess_fee, 2)[OFFSET(1)] AS INT64) AS annual_hostel_mess,
+      APPROX_TOP_COUNT(source_url, 1)[OFFSET(0)].value AS source_url
+    FROM `avantifellows.external_data_sources.collegefees_fact_fees`
+    WHERE counselling = 'JOSAA'
+    GROUP BY college_id
+    """).to_dataframe()
+
     naac = client.query("""
     SELECT aishe_id, current_grade, current_cgpa, current_cycle_number, date_of_declaration
     FROM `avantifellows.external_data_sources.naac_dim_colleges`
@@ -192,7 +209,7 @@ def build_josaa(client):
     WHERE year = (SELECT y FROM latest) AND round = (SELECT r FROM lr)
     """).to_dataframe()
 
-    return identity, nirf, bands, place, gender, naac, prog
+    return identity, nirf, bands, place, gender, fees, naac, prog
 
 
 def main():
@@ -202,7 +219,7 @@ def main():
 
     from google.cloud import bigquery
     client = bigquery.Client(project="avantifellows", location="asia-south1")
-    identity, nirf, bands, place, gender, naac, prog = build_josaa(client)
+    identity, nirf, bands, place, gender, fees, naac, prog = build_josaa(client)
     print(f"  identity {len(identity)}  nirf {len(nirf)}  placement {len(place)}  "
           f"naac {len(naac)}  program rows {len(prog)}")
 
@@ -217,6 +234,8 @@ def main():
         place_by_id[iid] = g.sort_values(["ranking_year", "academic_year"], ascending=False)
 
     naac_by_aishe = {r.aishe_id: r for r in naac.itertuples()}
+
+    fees_by_aishe = {r.aishe_code: r for r in fees.itertuples()}
 
     gender_by_id = {}
     for iid, g in gender.groupby("institute_id"):
@@ -371,6 +390,22 @@ def main():
                     "edition_year": int(gr.edition_year),
                 }
 
+        fee_block = None
+        fr = fees_by_aishe.get(r.aishe_code)
+        if fr is not None and not pd.isna(fr.annual_fee_open):
+            def _i(v):
+                return None if pd.isna(v) else int(v)
+            fee_block = {
+                "annual_fee": _i(fr.annual_fee_open),
+                "annual_fee_waived": _i(fr.annual_fee_waived),
+                "annual_hostel_mess": _i(fr.annual_hostel_mess),
+                "cycle": "2025-26",
+                "source_url": fr.source_url,
+                # first-year figure including one-time charges; later years
+                # are usually lower. The UI says so.
+                "is_entry_year": True,
+            }
+
         nb = naac_by_aishe.get(r.aishe_code)
         if nb is not None and nb.current_grade == nb.current_grade:
             naac_block = {
@@ -469,6 +504,7 @@ def main():
             "programs": programs,
             "nirf": nirf_block,
             "ug_gender": ug_gender,
+            "fees": fee_block,
             "placement": placement,
             "naac": naac_block,
             "data_sources": {
