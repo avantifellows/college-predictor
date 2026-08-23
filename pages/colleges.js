@@ -163,18 +163,15 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
           )}
         </td>
         <td className="px-3 py-3 align-top tabular-nums">
-          {pl?.percentage_placed != null ? (
-            // Jobs only — NIRF's own definition. A grad who went to an MS/PhD
-            // is NOT in this number; the tooltip and the expander carry the
-            // combined rate so elite institutes don't read artificially low.
+          {pl?.percentage_with_outcome != null ? (
+            // The combined rate — placed in a job OR admitted to higher
+            // studies. NIRF's jobs-only figure makes research-heavy IITs
+            // read artificially low (73.8% vs 99.9% at IIT Bombay); the
+            // jobs-only split stays in the tooltip and the expander.
             <span
-              title={
-                pl.percentage_with_outcome != null
-                  ? `${pl.percentage_placed}% placed in jobs; ${pl.percentage_with_outcome}% including higher studies`
-                  : undefined
-              }
+              title={`${pl.percentage_with_outcome}% placed or in higher studies; ${pl.percentage_placed}% in jobs alone`}
             >
-              {pl.percentage_placed}%
+              {pl.percentage_with_outcome}%
             </span>
           ) : (
             <Dash />
@@ -318,6 +315,14 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
                           <dt>Went to higher studies</dt>
                           <dd className="tabular-nums">
                             {pl.higher_studies_selected}
+                          </dd>
+                        </div>
+                      ) : null}
+                      {pl.percentage_placed != null ? (
+                        <div className="flex justify-between gap-3">
+                          <dt>Placed in a job</dt>
+                          <dd className="tabular-nums">
+                            {pl.percentage_placed}%
                           </dd>
                         </div>
                       ) : null}
@@ -500,9 +505,10 @@ const SORTS = {
   },
   placed: {
     label: "% placed",
+    // matches the column: the combined placed-or-higher-studies rate
     fn: (a, b) =>
-      (b.placement?.percentage_placed ?? -1) -
-      (a.placement?.percentage_placed ?? -1),
+      (b.placement?.percentage_with_outcome ?? -1) -
+      (a.placement?.percentage_with_outcome ?? -1),
   },
   name: {
     label: "Name (A–Z)",
@@ -679,7 +685,15 @@ const Colleges = () => {
                       <th className={th}>Location</th>
                       <th className={th}>NIRF</th>
                       <th className={th}>Median salary</th>
-                      <th className={th}>Placed</th>
+                      <th className={th}>
+                        Placed{" "}
+                        <span
+                          className="cursor-help text-[11px] font-normal text-[#8a746d]"
+                          title="Graduates placed in a job or admitted to higher studies, as a share of those completing on time (NIRF, latest filing)."
+                        >
+                          ⓘ
+                        </span>
+                      </th>
                       <th className={th} />
                     </tr>
                   </thead>
