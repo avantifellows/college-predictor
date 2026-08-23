@@ -1359,7 +1359,9 @@ export const josaaConfig = {
 };
 
 export const tseApertConfig = {
-  name: "TGEAPCET",
+  // Display name only - the registry key stays "TGEAPCET" so existing URLs
+  // and table mappings are untouched. Spaced to match "AP EAPCET".
+  name: "TG EAPCET",
   code: "TGEAPCET",
   searchKeys: ["institute_name", "branch_name", "place"],
   primaryInput: integerInput("Enter TG EAPCET Rank", "Enter TG EAPCET rank"),
@@ -1400,7 +1402,10 @@ export const tseApertConfig = {
   legend: [
     { key: "SC-I / II / III", value: "Separate seat pools, separate cutoffs" },
     { key: "Male / Female", value: "Separate seat pools, separate cutoffs" },
-    { key: "Local area", value: "State-wide rank; OU/KU may be slightly easier" },
+    {
+      key: "Local area",
+      value: "State-wide rank; OU/KU may be slightly easier",
+    },
   ],
   getDataPath: () => {
     return path.join(
@@ -1515,7 +1520,10 @@ export const gujcetConfig = {
     return [
       ...shared,
       { key: "Merit rank", value: "From your ACPC merit card" },
-      { key: "Merit score", value: "50% Class 12 PCM theory + 50% GUJCET, both percentile" },
+      {
+        key: "Merit score",
+        value: "50% Class 12 PCM theory + 50% GUJCET, both percentile",
+      },
     ];
   },
 
@@ -1550,6 +1558,354 @@ export const gujcetConfig = {
   ],
 };
 
+export const wbjeeConfig = {
+  name: "WBJEE",
+  searchKeys: ["Institute", "Academic Program Name"],
+  // WBJEE counsels on the General Merit Rank (GMR) — a single state-wide
+  // rank list. Not comparable to JEE Main ranks even for the "JEE(Main)
+  // Seats" rows: those seats are ALLOTTED via JEE Main scores but WBJEEB
+  // still publishes their OR/CR as GMR positions.
+  primaryInput: integerInput(
+    "Enter WBJEE General Merit Rank (GMR)",
+    "Enter WBJEE GMR"
+  ),
+  fields: [
+    {
+      name: "category",
+      label: "Select Category",
+      // Reserved categories exist ONLY under the Home State quota in the
+      // ORCR — every All India bucket is Open. Without this note a student
+      // picking OBC + All India gets an empty result that reads like a
+      // rank problem when it is counselling policy.
+      helperText:
+        "Reserved categories (EWS, OBC, SC, ST) apply to Home State (West Bengal domicile) seats only. For All India quota seats, everyone competes as Open.",
+      // 2026's own vocabulary, verbatim (label == value). WBJEE merged the
+      // former OBC-A / OBC-B sub-pools into one "OBC" from 2026, so the old
+      // sub-pool names must NOT appear here — they'd match zero rows.
+      // Tuition Fee Waiver is a separate seat pool with its own (much
+      // tighter) closing ranks, so it is offered as its own option rather
+      // than mixed into the open list.
+      options: [
+        { value: "Open", label: "Open" },
+        { value: "EWS", label: "EWS" },
+        { value: "OBC", label: "OBC" },
+        { value: "SC", label: "SC" },
+        { value: "ST", label: "ST" },
+        { value: "Open (PwD)", label: "Open (PwD)" },
+        { value: "OBC (PwD)", label: "OBC (PwD)" },
+        { value: "SC (PwD)", label: "SC (PwD)" },
+        { value: "ST (PwD)", label: "ST (PwD)" },
+        { value: "Tuition Fee Waiver", label: "Tuition Fee Waiver" },
+      ],
+    },
+    {
+      name: "quota",
+      label: "Select Quota",
+      // Home State = West Bengal domicile seats; All India is open to
+      // everyone. Separate competitions with separate closing ranks.
+      // label == value, pinned: the form submits the LABEL as the query
+      // value (found in the browser audit — a "(West Bengal domicile)"
+      // suffix reached the filter verbatim and matched zero rows).
+      options: [
+        { value: "Home State", label: "Home State" },
+        { value: "All India", label: "All India" },
+      ],
+    },
+    {
+      name: "seatType",
+      label: "Select Seat Type",
+      // WBJEEB fills some seats from the WBJEE merit list and some from
+      // JEE(Main) applicants — two separate pools in the same colleges.
+      options: [
+        { value: "WBJEE Seats", label: "WBJEE Seats" },
+        { value: "JEE(Main) Seats", label: "JEE(Main) Seats" },
+      ],
+    },
+    {
+      name: "collegeType",
+      label: "Select College Type",
+      options: [
+        "Any",
+        "Government",
+        "Government Aided",
+        "State University",
+        "Private",
+      ],
+    },
+  ],
+  getDataPath: () => {
+    return path.join(
+      process.cwd(),
+      "public",
+      "data",
+      "WBJEE",
+      "wbjee_data.json"
+    );
+  },
+  getFilters: (query) => [
+    (item) => item.Category === query.category,
+    (item) => item.Quota === query.quota,
+    (item) => item["Seat Type"] === query.seatType,
+    (item) =>
+      query.collegeType === "Any" || item["College Type"] === query.collegeType,
+    (item) => {
+      if (!query.rank) return true;
+      const closingRank = parseInt(item["Closing Rank"], 10);
+      const userRank = parseInt(query.rank, 10);
+      if (isNaN(closingRank) || isNaN(userRank)) return false;
+      if (closingRank <= 0) return false;
+      return closingRank >= userRank;
+    },
+  ],
+  getSort: () => [["Closing Rank", "ASC"]],
+};
+
+export const keamConfig = {
+  name: "KEAM",
+  searchKeys: ["Institute", "Academic Program Name"],
+  // KEAM allots on the KEAM engineering rank - a single state rank list.
+  primaryInput: integerInput("Enter KEAM Rank", "Enter KEAM rank"),
+  fields: [
+    {
+      name: "category",
+      label: "Select Category",
+      // Labels decode the code in the option itself, NEETUG home-state
+      // style: "CODE — description", with getFilters comparing only the
+      // code before the separator (the form submits the label). The 13
+      // published columns + FW; the long tail of college-specific
+      // special-seat codes (MM, Y-series...) is deliberately not offered -
+      // each would return a near-empty result.
+      helperText:
+        "SEBC community seats need Kerala's state community certificate; central OBC certificates are not valid in Kerala.",
+      options: [
+        "SM — State Merit (open to all)",
+        "EZ — Ezhava",
+        "MU — Muslim",
+        "LA — Latin Catholic and Anglo-Indian",
+        "DV — Dheevara",
+        "VK — Viswakarma",
+        "BH — Billava and Other Backward Hindu",
+        "BX — Backward Christian",
+        "KN — Kusavan",
+        "KU — Kudumbi",
+        "SC — Scheduled Caste",
+        "ST — Scheduled Tribe",
+        "EW — EWS",
+        "FW — Fee Waiver (family income up to Rs 2.5 lakh)",
+      ],
+    },
+    {
+      name: "collegeType",
+      label: "Select College Type",
+      // CEE's Type column has exactly two values; G collapses Government
+      // and Government-Aided, so the label says both.
+      options: ["Any", "Government/Aided", "Private (Self-financing)"],
+    },
+  ],
+  getDataPath: () => {
+    return path.join(process.cwd(), "public", "data", "KEAM", "keam_data.json");
+  },
+  getFilters: (query) => [
+    // The dropdown label is "CODE — description" and the form submits the
+    // label; the data carries the bare code (the NEETUG home-state lesson).
+    (item) =>
+      item.Category ===
+      String(query.category || "")
+        .split("—")[0]
+        .trim(),
+    (item) =>
+      query.collegeType === "Any" || item["College Type"] === query.collegeType,
+    (item) => {
+      if (!query.rank) return true;
+      const closingRank = parseInt(item["Closing Rank"], 10);
+      const userRank = parseInt(query.rank, 10);
+      if (isNaN(closingRank) || isNaN(userRank)) return false;
+      if (closingRank <= 0) return false;
+      return closingRank >= userRank;
+    },
+  ],
+  getSort: () => [["Closing Rank", "ASC"]],
+};
+
+export const apEapcetConfig = {
+  name: "AP EAPCET",
+  searchKeys: ["Institute", "Academic Program Name", "District"],
+  // AP EAPCET allots on the AP EAPCET rank - not comparable to TG-EAPCET
+  // even though the exam family shares a name from before bifurcation.
+  primaryInput: integerInput("Enter AP EAPCET Rank", "Enter AP EAPCET rank"),
+  fields: [
+    {
+      name: "category",
+      label: "Select Category",
+      // "CODE - description" labels; getFilters compares the code before
+      // the separator (the KEAM pattern - the form submits the label).
+      // SC is sub-classified I/II/III from 2025 and BC-A..E are AP's own
+      // sub-lists, so there is no single SC or OBC option to offer.
+      helperText:
+        "AP sub-classifies SC into SC-I, SC-II and SC-III (from 2025) and BC into BC-A to BC-E. Pick the sub-group on your caste certificate.",
+      options: [
+        "OC — Open Competition",
+        "OC_EWS — EWS (within OC)",
+        "BCA — Backward Class A",
+        "BCB — Backward Class B",
+        "BCC — Backward Class C",
+        "BCD — Backward Class D",
+        "BCE — Backward Class E",
+        "SCI — Scheduled Caste I",
+        "SCII — Scheduled Caste II",
+        "SCIII — Scheduled Caste III",
+        "ST — Scheduled Tribe",
+      ],
+    },
+    {
+      name: "gender",
+      label: "Select Seat Pool",
+      // The source's own footnote: "Girls are also eligible for Boys
+      // seats" - the Boys column is the open-to-all pool, Girls is the
+      // 33% women's reservation.
+      options: [
+        "Boys — open to all candidates",
+        "Girls — women's reservation seats",
+      ],
+    },
+    {
+      name: "region",
+      label: "Select Region",
+      // The college's university region: AU (Andhra University area,
+      // north/coastal) or SVU (Sri Venkateswara University area,
+      // Rayalaseema/south). Private universities publish separate closing
+      // ranks per region pool.
+      options: [
+        { value: "Any", label: "Any" },
+        { value: "AU", label: "AU (Andhra University region)" },
+        { value: "SVU", label: "SVU (Sri Venkateswara University region)" },
+      ],
+    },
+    {
+      name: "collegeType",
+      label: "Select College Type",
+      options: [
+        "Any",
+        "Government University",
+        "University (Self-finance)",
+        "Private",
+        "Private University",
+      ],
+    },
+  ],
+  getDataPath: () => {
+    return path.join(
+      process.cwd(),
+      "public",
+      "data",
+      "APEAPCET",
+      "apeapcet_data.json"
+    );
+  },
+  getFilters: (query) => [
+    (item) =>
+      item.Category ===
+      String(query.category || "")
+        .split("—")[0]
+        .trim(),
+    (item) =>
+      item.Gender ===
+      String(query.gender || "")
+        .split("—")[0]
+        .trim(),
+    (item) =>
+      query.region === "Any" ||
+      item.Region ===
+        String(query.region || "")
+          .split("(")[0]
+          .trim(),
+    (item) =>
+      query.collegeType === "Any" || item["College Type"] === query.collegeType,
+    (item) => {
+      if (!query.rank) return true;
+      const closingRank = parseInt(item["Closing Rank"], 10);
+      const userRank = parseInt(query.rank, 10);
+      if (isNaN(closingRank) || isNaN(userRank)) return false;
+      if (closingRank <= 0) return false;
+      return closingRank >= userRank;
+    },
+  ],
+  getSort: () => [["Closing Rank", "ASC"]],
+};
+
+export const ojeeConfig = {
+  name: "OJEE (Odisha B.Tech)",
+  searchKeys: ["Institute", "Academic Program Name"],
+  // Odisha admits first-year B.Tech on the JEE (Main) rank through OJEE
+  // counselling - the input here is a JEE Main rank, NOT an OJEE exam rank.
+  primaryInput: integerInput("Enter JEE (Main) Rank", "Enter JEE Main rank"),
+  fields: [
+    {
+      name: "category",
+      label: "Select Category",
+      // Odisha's published set is small: General / SC / ST / EW.
+      // No OBC/SEBC column exists in the source. TFW is its own seat pool
+      // with its own (tighter) curve - offered separately, WBJEE-style.
+      options: [
+        "General",
+        "SC — Scheduled Caste",
+        "ST — Scheduled Tribe",
+        "EW — EWS",
+        "TFW — Tuition Fee Waiver seats",
+      ],
+    },
+    {
+      name: "seatType",
+      label: "Select Seat Pool",
+      options: [
+        "Gender Neutral — open to all candidates",
+        "Female Only — women's reservation seats",
+      ],
+    },
+    {
+      name: "quota",
+      label: "Select Quota",
+      // HS is the main table (Odisha domicile). AI / OS / OL are the
+      // non-domicile pools as the source prints them.
+      options: [
+        "HS — Home State (Odisha domicile)",
+        "AI — All India",
+        "OS — Outside State",
+        "OL",
+      ],
+    },
+  ],
+  getDataPath: () => {
+    return path.join(process.cwd(), "public", "data", "OJEE", "ojee_data.json");
+  },
+  getFilters: (query) => [
+    (item) =>
+      item.Category ===
+      String(query.category || "")
+        .split("—")[0]
+        .trim(),
+    (item) =>
+      item["Seat Type"] ===
+      String(query.seatType || "")
+        .split("—")[0]
+        .trim(),
+    (item) =>
+      item.Quota ===
+      String(query.quota || "")
+        .split("—")[0]
+        .trim(),
+    (item) => {
+      if (!query.rank) return true;
+      const closingRank = parseInt(item["Closing Rank"], 10);
+      const userRank = parseInt(query.rank, 10);
+      if (isNaN(closingRank) || isNaN(userRank)) return false;
+      if (closingRank <= 0) return false;
+      return closingRank >= userRank;
+    },
+  ],
+  getSort: () => [["Closing Rank", "ASC"]],
+};
+
 export const examConfigs = {
   "JoSAA": josaaConfig,
   "JEE Main-JOSAA": jeeMainJosaaConfig,
@@ -1561,6 +1917,10 @@ export const examConfigs = {
   "MHT CET": mhtCetConfig,
   "KCET": kcetConfig,
   "TNEA": tneaConfig,
+  "WBJEE": wbjeeConfig,
+  "KEAM": keamConfig,
+  "AP EAPCET": apEapcetConfig,
+  "OJEE": ojeeConfig,
   "TGEAPCET": tseApertConfig,
 };
 
