@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import { ChevronDown, ChevronUp, ExternalLink, Search } from "lucide-react";
+import { ChevronDown, ChevronUp, ExternalLink, Info, Search } from "lucide-react";
 
 // The app's shared react-select wrapper — searchable, so a 30-state list can be
 // narrowed by typing. A native <select> only jumps on the first letter, which is
@@ -523,6 +523,15 @@ const Colleges = () => {
   const [state, setState] = useState("All");
   const [exam, setExam] = useState("All");
   const [sortKey, setSortKey] = useState("nirf");
+  // Same pattern as the predictor's salary ⓘ: a positioned card, not the
+  // browser's native title box (which renders late, unstyled, and turns the
+  // cursor into a question mark).
+  const [placedTip, setPlacedTip] = useState(null);
+  const showPlacedTip = (event) => {
+    const rect = event.currentTarget.getBoundingClientRect();
+    setPlacedTip({ top: rect.bottom + 10, left: rect.right - 280 });
+  };
+  const hidePlacedTip = () => setPlacedTip(null);
   const [expanded, setExpanded] = useState({});
   const [shown, setShown] = useState(PAGE_SIZE);
 
@@ -686,12 +695,19 @@ const Colleges = () => {
                       <th className={th}>NIRF</th>
                       <th className={th}>Median salary</th>
                       <th className={th}>
-                        Placed{" "}
-                        <span
-                          className="cursor-help text-[11px] font-normal text-[#8a746d]"
-                          title="Graduates placed in a job or admitted to higher studies, as a share of those completing on time (NIRF, latest filing)."
-                        >
-                          ⓘ
+                        <span className="inline-flex items-center gap-1.5">
+                          Placed
+                          <button
+                            type="button"
+                            onMouseEnter={showPlacedTip}
+                            onMouseLeave={hidePlacedTip}
+                            onFocus={showPlacedTip}
+                            onBlur={hidePlacedTip}
+                            className="inline-flex h-4 w-4 items-center justify-center rounded-full border border-[#d6b8ae] text-[#8f2e31] hover:bg-[#f8efec]"
+                            aria-label="What the Placed percentage means"
+                          >
+                            <Info size={10} />
+                          </button>
                         </span>
                       </th>
                       <th className={th} />
@@ -744,6 +760,19 @@ const Colleges = () => {
           )}
         </div>
       </div>
+      {placedTip && (
+        <div
+          className="pointer-events-none fixed z-50 w-72 rounded-xl border border-[#decac3] bg-white p-3 text-left text-xs font-normal leading-5 text-[#5b3a34] shadow-lg"
+          style={{
+            top: `${Math.max(placedTip.top, 12)}px`,
+            left: `${Math.max(placedTip.left, 12)}px`,
+          }}
+        >
+          Graduates placed in a job or admitted to higher studies, as a share
+          of those completing on time — from each college&apos;s latest NIRF
+          filing. Expand a row for the jobs-only split.
+        </div>
+      )}
     </>
   );
 };
