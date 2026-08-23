@@ -178,7 +178,7 @@ def build_josaa(client):
       CAST(APPROX_QUANTILES(IF(tuition_fee = 0 AND (category IN ('SC','ST') OR is_pwd), annual_total_fee, NULL), 2)[OFFSET(1)] AS INT64) AS annual_fee_waived,
       CAST(APPROX_QUANTILES(annual_hostel_mess_fee, 2)[OFFSET(1)] AS INT64) AS annual_hostel_mess,
       APPROX_TOP_COUNT(source_url, 1)[OFFSET(0)].value AS source_url
-    FROM `avantifellows.external_data_sources.collegefees_fact_fees`
+    FROM `avantifellows.external_data_sources.collegefees_fact_costs`
     WHERE counselling = 'JOSAA'
     GROUP BY college_id
     """).to_dataframe()
