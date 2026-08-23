@@ -703,10 +703,12 @@ const Colleges = () => {
                             onMouseLeave={hidePlacedTip}
                             onFocus={showPlacedTip}
                             onBlur={hidePlacedTip}
-                            className="inline-flex h-4 w-4 items-center justify-center rounded-full border border-[#d6b8ae] text-[#8f2e31] hover:bg-[#f8efec]"
+                            className="inline-flex items-center text-[#a4837b] hover:text-[#8f2e31]"
                             aria-label="What the Placed percentage means"
                           >
-                            <Info size={10} />
+                            {/* the Info glyph is already a circled i — no
+                                border ring around it, or it doubles up */}
+                            <Info size={14} />
                           </button>
                         </span>
                       </th>
@@ -768,9 +770,8 @@ const Colleges = () => {
             left: `${Math.max(placedTip.left, 12)}px`,
           }}
         >
-          Graduates placed in a job or admitted to higher studies, as a share
-          of those completing on time — from each college&apos;s latest NIRF
-          filing. Expand a row for the jobs-only split.
+          Share of graduates who got a job or joined higher studies. Expand a
+          row for the split.
         </div>
       )}
     </>
