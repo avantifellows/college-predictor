@@ -7,7 +7,9 @@ import { ChevronDown, ChevronUp, ExternalLink, Search } from "lucide-react";
 // The app's shared react-select wrapper — searchable, so a 30-state list can be
 // narrowed by typing. A native <select> only jumps on the first letter, which is
 // unusable at this length.
-const Dropdown = dynamic(() => import("../components/dropdown"), { ssr: false });
+const Dropdown = dynamic(() => import("../components/dropdown"), {
+  ssr: false,
+});
 
 // The College tab: pure information display, one row per college.
 //
@@ -94,17 +96,23 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
               title={`In NIRF's ${nirf.latest_band.band} band in ${nirf.latest_band.year}; last exact rank #${nirf.engineering_rank} in ${nirf.ranking_year}`}
             >
               {nirf.latest_band.band}
-              <span className="ml-1 text-[11px] font-normal text-[#6d5550]">band</span>
+              <span className="ml-1 text-[11px] font-normal text-[#6d5550]">
+                band
+              </span>
             </span>
           ) : nirf ? (
             <>
-              <span className="font-semibold text-[#332724]">#{nirf.engineering_rank}</span>
+              <span className="font-semibold text-[#332724]">
+                #{nirf.engineering_rank}
+              </span>
               {(() => {
                 // Direction against LAST year, so a student sees movement in the
                 // table without expanding. A LOWER rank number is better, so a
                 // negative delta is an improvement — shown as "▲" to match the
                 // intuition, not the arithmetic.
-                const h = [...nirf.rank_history].sort((a, b) => b.year - a.year);
+                const h = [...nirf.rank_history].sort(
+                  (a, b) => b.year - a.year
+                );
                 if (h.length < 2) return null;
                 const d = h[1].rank - h[0].rank;
                 // Suppress moves of one or two places. Year-to-year rank churn
@@ -138,13 +146,19 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
         </td>
         <td className="px-3 py-3 align-top tabular-nums">
           {pl?.median_salary ? (
-            <span className="font-semibold text-[#332724]">{fmtSalary(pl.median_salary)}</span>
+            <span className="font-semibold text-[#332724]">
+              {fmtSalary(pl.median_salary)}
+            </span>
           ) : (
             <Dash />
           )}
         </td>
         <td className="px-3 py-3 align-top tabular-nums">
-          {pl?.percentage_placed != null ? `${pl.percentage_placed}%` : <Dash />}
+          {pl?.percentage_placed != null ? (
+            `${pl.percentage_placed}%`
+          ) : (
+            <Dash />
+          )}
         </td>
         <td className="px-3 py-3 align-top">
           <button
@@ -173,8 +187,12 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
                       <table className="w-full text-sm">
                         <thead className="bg-[#f8efec] text-[#5b1f20]">
                           <tr>
-                            <th className="px-2 py-1.5 text-left font-semibold">Branch</th>
-                            <th className="px-2 py-1.5 text-left font-semibold">Degree</th>
+                            <th className="px-2 py-1.5 text-left font-semibold">
+                              Branch
+                            </th>
+                            <th className="px-2 py-1.5 text-left font-semibold">
+                              Degree
+                            </th>
                             <th className="px-2 py-1.5 text-right font-semibold">
                               Closing rank
                             </th>
@@ -182,8 +200,13 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
                         </thead>
                         <tbody>
                           {c.programs.list.map((p, i) => (
-                            <tr key={`${p.branch}-${p.degree}-${i}`} className="border-t border-[#f0e6e1]">
-                              <td className="px-2 py-1.5 text-[#332724]">{p.branch}</td>
+                            <tr
+                              key={`${p.branch}-${p.degree}-${i}`}
+                              className="border-t border-[#f0e6e1]"
+                            >
+                              <td className="px-2 py-1.5 text-[#332724]">
+                                {p.branch}
+                              </td>
                               <td className="px-2 py-1.5 text-[#6d5550]">
                                 {p.degree}
                                 {p.years ? ` · ${p.years} yr` : ""}
@@ -196,7 +219,6 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
                         </tbody>
                       </table>
                     </div>
-
                   </>
                 ) : (
                   <p className="text-sm text-[#6d5550]">Not available.</p>
@@ -234,13 +256,17 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
                       {pl.higher_studies_selected != null ? (
                         <div className="flex justify-between gap-3">
                           <dt>Went to higher studies</dt>
-                          <dd className="tabular-nums">{pl.higher_studies_selected}</dd>
+                          <dd className="tabular-nums">
+                            {pl.higher_studies_selected}
+                          </dd>
                         </div>
                       ) : null}
                       {pl.first_year_intake != null ? (
                         <div className="flex justify-between gap-3">
                           <dt>First-year intake</dt>
-                          <dd className="tabular-nums">{pl.first_year_intake}</dd>
+                          <dd className="tabular-nums">
+                            {pl.first_year_intake}
+                          </dd>
                         </div>
                       ) : null}
                     </dl>
@@ -260,7 +286,11 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
                         <dt>Women among UG students</dt>
                         <dd
                           className="tabular-nums"
-                          title={`${c.ug_gender.female.toLocaleString()} women / ${(c.ug_gender.male + c.ug_gender.female).toLocaleString()} UG students, as filed with NIRF ${c.ug_gender.edition_year}`}
+                          title={`${c.ug_gender.female.toLocaleString()} women / ${(
+                            c.ug_gender.male + c.ug_gender.female
+                          ).toLocaleString()} UG students, as filed with NIRF ${
+                            c.ug_gender.edition_year
+                          }`}
                         >
                           {c.ug_gender.female_pct}%
                         </dd>
@@ -287,7 +317,9 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
                             {c.naac.cgpa ? ` · ${c.naac.cgpa}` : ""}
                           </>
                         ) : c.naac.not_applicable_reason ? (
-                          <span title={c.naac.not_applicable_reason}>Not applicable</span>
+                          <span title={c.naac.not_applicable_reason}>
+                            Not applicable
+                          </span>
                         ) : (
                           <Dash />
                         )}
@@ -296,7 +328,11 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
                   </dl>
                   {c.website ? (
                     <a
-                      href={c.website.startsWith("http") ? c.website : `https://${c.website}`}
+                      href={
+                        c.website.startsWith("http")
+                          ? c.website
+                          : `https://${c.website}`
+                      }
                       target="_blank"
                       rel="noopener noreferrer"
                       className="mt-2 inline-flex items-center gap-1 text-sm font-semibold text-[#8f2e31] hover:underline"
@@ -305,8 +341,6 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
                     </a>
                   ) : null}
                 </div>
-
-
               </div>
             </div>
           </td>
@@ -315,7 +349,6 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
     </>
   );
 };
-
 
 // Students type "NIT Raipur", "IIT B" — never "National Institute of Technology
 // Raipur". Expand the common abbreviations before matching so the search works
@@ -354,14 +387,18 @@ const NirfTrend = ({ history }) => {
         {pts.map((h) => (
           <tr key={h.year}>
             <td className="py-0.5 pr-2 text-[#6d5550]">{h.year}</td>
-            <td className="py-0.5 pr-2 font-semibold text-[#332724]">#{h.rank}</td>
+            <td className="py-0.5 pr-2 font-semibold text-[#332724]">
+              #{h.rank}
+            </td>
             <td className="w-full py-0.5">
               {h.score != null ? (
                 <div className="flex items-center gap-1.5">
                   <div className="h-2 flex-1 overflow-hidden rounded-full bg-[#f0e6e1]">
                     <div
                       className="h-full rounded-full bg-[#8f2e31]"
-                      style={{ width: `${Math.max(2, Math.min(100, h.score))}%` }}
+                      style={{
+                        width: `${Math.max(2, Math.min(100, h.score))}%`,
+                      }}
                     />
                   </div>
                   <span className="w-9 text-right text-xs text-[#6d5550]">
@@ -378,10 +415,26 @@ const NirfTrend = ({ history }) => {
 };
 
 const SORTS = {
-  nirf: { label: "NIRF rank", fn: (a, b) => (a.nirf?.engineering_rank ?? 9e9) - (b.nirf?.engineering_rank ?? 9e9) },
-  salary: { label: "Median salary", fn: (a, b) => (b.placement?.median_salary ?? -1) - (a.placement?.median_salary ?? -1) },
-  placed: { label: "% placed", fn: (a, b) => (b.placement?.percentage_placed ?? -1) - (a.placement?.percentage_placed ?? -1) },
-  name: { label: "Name (A–Z)", fn: (a, b) => a.display_name.localeCompare(b.display_name) },
+  nirf: {
+    label: "NIRF rank",
+    fn: (a, b) =>
+      (a.nirf?.engineering_rank ?? 9e9) - (b.nirf?.engineering_rank ?? 9e9),
+  },
+  salary: {
+    label: "Median salary",
+    fn: (a, b) =>
+      (b.placement?.median_salary ?? -1) - (a.placement?.median_salary ?? -1),
+  },
+  placed: {
+    label: "% placed",
+    fn: (a, b) =>
+      (b.placement?.percentage_placed ?? -1) -
+      (a.placement?.percentage_placed ?? -1),
+  },
+  name: {
+    label: "Name (A–Z)",
+    fn: (a, b) => a.display_name.localeCompare(b.display_name),
+  },
 };
 
 const Colleges = () => {
@@ -402,11 +455,17 @@ const Colleges = () => {
   }, []);
 
   const states = useMemo(
-    () => ["All", ...Array.from(new Set(all.map((c) => c.state).filter(Boolean))).sort()],
+    () => [
+      "All",
+      ...Array.from(new Set(all.map((c) => c.state).filter(Boolean))).sort(),
+    ],
     [all]
   );
   const exams = useMemo(
-    () => ["All", ...Array.from(new Set(all.flatMap((c) => c.entrance_exams))).sort()],
+    () => [
+      "All",
+      ...Array.from(new Set(all.flatMap((c) => c.entrance_exams))).sort(),
+    ],
     [all]
   );
 
@@ -457,7 +516,10 @@ const Colleges = () => {
           <p className="mx-auto mt-2 max-w-xl text-center text-sm leading-6 text-[#6d5550]">
             Closing ranks here are indicative and open-category. For full
             cutoffs, use the{" "}
-            <Link href="/" className="font-semibold text-[#8f2e31] hover:underline">
+            <Link
+              href="/"
+              className="font-semibold text-[#8f2e31] hover:underline"
+            >
               College Predictor
             </Link>
             .
@@ -503,7 +565,9 @@ const Colleges = () => {
 
           {exams.length > 2 ? (
             <div className="mt-3 flex flex-wrap items-center gap-1.5">
-              <span className="text-xs font-semibold text-[#5b1f20]">Entrance test:</span>
+              <span className="text-xs font-semibold text-[#5b1f20]">
+                Entrance test:
+              </span>
               {exams.map((e) => (
                 <button
                   key={e}
@@ -524,7 +588,9 @@ const Colleges = () => {
           {error ? (
             <p className="py-10 text-center text-sm text-red-600">{error}</p>
           ) : !all.length ? (
-            <p className="py-10 text-center text-sm text-[#6d5550]">Loading colleges…</p>
+            <p className="py-10 text-center text-sm text-[#6d5550]">
+              Loading colleges…
+            </p>
           ) : (
             <>
               <p className="mt-4 text-sm text-[#5b3a34]">
@@ -577,16 +643,16 @@ const Colleges = () => {
 
               {filtered.length === 0 ? (
                 <p className="py-10 text-center text-sm text-[#6d5550]">
-                  No colleges match. Try clearing the state or entrance-test filter.
+                  No colleges match. Try clearing the state or entrance-test
+                  filter.
                 </p>
               ) : null}
 
               <p className="mt-6 border-t border-[#eaded8] pt-3 text-[11px] leading-5 text-[#6d5550]">
-                Sources: AISHE 2024-25 (identity) · NIRF 2025 (rank, placement) ·
-                NAAC (accreditation) · JoSAA 2025 (branches). A dash means we do
-                not have that figure.
+                Sources: AISHE 2024-25 (identity) · NIRF 2025 (rank, placement)
+                · NAAC (accreditation) · JoSAA 2025 (branches). A dash means we
+                do not have that figure.
               </p>
-
             </>
           )}
         </div>
