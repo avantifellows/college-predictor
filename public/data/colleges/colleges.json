@@ -13546,8 +13546,24 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
-  "ug_gender": null,
-  "placement": null,
+  "ug_gender": {
+   "female_pct": 30.5,
+   "female": 379,
+   "male": 862,
+   "edition_year": 2025
+  },
+  "placement": {
+   "median_salary": 720000,
+   "percentage_placed": 91.5,
+   "percentage_with_outcome": 99.7,
+   "students_placed": 269,
+   "higher_studies_selected": 24,
+   "first_year_intake": 360,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF Engineering, UG 4-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": "B+",
    "cgpa": 2.7,
@@ -13558,7 +13574,7 @@
    "identity": "AISHE 2024-25",
    "programs": "JoSAA 2025 Round 6",
    "ranking": null,
-   "placement": null,
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": "NAAC"
   }
  },
@@ -13604,8 +13620,24 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
-  "ug_gender": null,
-  "placement": null,
+  "ug_gender": {
+   "female_pct": 12.4,
+   "female": 42,
+   "male": 296,
+   "edition_year": 2025
+  },
+  "placement": {
+   "median_salary": 720000,
+   "percentage_placed": 80.4,
+   "percentage_with_outcome": 100.0,
+   "students_placed": 78,
+   "higher_studies_selected": 19,
+   "first_year_intake": 112,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF Engineering, UG 4-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": "A",
    "cgpa": 3.17,
@@ -13616,7 +13648,7 @@
    "identity": "AISHE 2024-25",
    "programs": "JoSAA 2025 Round 6",
    "ranking": null,
-   "placement": null,
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": "NAAC"
   }
  },
@@ -14950,8 +14982,24 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
-  "ug_gender": null,
-  "placement": null,
+  "ug_gender": {
+   "female_pct": 19.0,
+   "female": 325,
+   "male": 1388,
+   "edition_year": 2025
+  },
+  "placement": {
+   "median_salary": 450000,
+   "percentage_placed": 64.3,
+   "percentage_with_outcome": 81.5,
+   "students_placed": 275,
+   "higher_studies_selected": 74,
+   "first_year_intake": 500,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF Engineering, UG 4-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": "A++",
    "cgpa": 3.62,
@@ -14962,7 +15010,7 @@
    "identity": "AISHE 2024-25",
    "programs": "JoSAA 2025 Round 6",
    "ranking": null,
-   "placement": null,
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": "NAAC"
   }
  }
