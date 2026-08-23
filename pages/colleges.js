@@ -164,7 +164,18 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
         </td>
         <td className="px-3 py-3 align-top tabular-nums">
           {pl?.percentage_placed != null ? (
-            `${pl.percentage_placed}%`
+            // Jobs only — NIRF's own definition. A grad who went to an MS/PhD
+            // is NOT in this number; the tooltip and the expander carry the
+            // combined rate so elite institutes don't read artificially low.
+            <span
+              title={
+                pl.percentage_with_outcome != null
+                  ? `${pl.percentage_placed}% placed in jobs; ${pl.percentage_with_outcome}% including higher studies`
+                  : undefined
+              }
+            >
+              {pl.percentage_placed}%
+            </span>
           ) : (
             <Dash />
           )}
@@ -307,6 +318,14 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
                           <dt>Went to higher studies</dt>
                           <dd className="tabular-nums">
                             {pl.higher_studies_selected}
+                          </dd>
+                        </div>
+                      ) : null}
+                      {pl.percentage_with_outcome != null ? (
+                        <div className="flex justify-between gap-3">
+                          <dt>Placed or in higher studies</dt>
+                          <dd className="tabular-nums">
+                            {pl.percentage_with_outcome}%
                           </dd>
                         </div>
                       ) : null}
@@ -473,6 +492,11 @@ const SORTS = {
     label: "Median salary",
     fn: (a, b) =>
       (b.placement?.median_salary ?? -1) - (a.placement?.median_salary ?? -1),
+  },
+  fees: {
+    label: "Fees: low to high",
+    fn: (a, b) =>
+      (a.fees?.annual_fee ?? 9e9) - (b.fees?.annual_fee ?? 9e9),
   },
   placed: {
     label: "% placed",
