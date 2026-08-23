@@ -6907,6 +6907,196 @@
   }
  },
  {
+  "college_id": "U-0384",
+  "aishe_code": "U-0384",
+  "name": "Sant Longowal Institute of Engg. & Tech., Longowal",
+  "display_name": "Sant Longowal Institute of Engineering and Technology",
+  "state": "Punjab",
+  "state_is_inferred": false,
+  "district": "Sangrur",
+  "kind": "Deemed University-Government",
+  "management": null,
+  "year_established": 1989,
+  "website": "www.sliet.ac.in",
+  "entrance_exams": [
+   "JEE Main"
+  ],
+  "counselling": "JoSAA",
+  "programs": {
+   "count": 15,
+   "degrees": [
+    "Bachelor and Master of Technology (Dual Degree)",
+    "Bachelor of Technology",
+    "Integrated Master of Science"
+   ],
+   "quotas_offered": [
+    "AI"
+   ],
+   "list": [
+    {
+     "branch": "Computer Science and Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 64256
+    },
+    {
+     "branch": "Artificial Intelligence and Data Science",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 66031
+    },
+    {
+     "branch": "Physics",
+     "years": 5,
+     "degree": "Integrated Master of Science",
+     "indicative_closing_rank": 70277
+    },
+    {
+     "branch": "Electronics and Communication Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 70288
+    },
+    {
+     "branch": "Computer Science and Engineering",
+     "years": 5,
+     "degree": "Bachelor and Master of Technology (Dual Degree)",
+     "indicative_closing_rank": 71482
+    },
+    {
+     "branch": "Mathematics",
+     "years": 5,
+     "degree": "Integrated Master of Science",
+     "indicative_closing_rank": 81072
+    },
+    {
+     "branch": "Electrical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 81868
+    },
+    {
+     "branch": "Electrical Engineering",
+     "years": 5,
+     "degree": "Bachelor and Master of Technology (Dual Degree)",
+     "indicative_closing_rank": 90963
+    },
+    {
+     "branch": "Chemistry",
+     "years": 5,
+     "degree": "Integrated Master of Science",
+     "indicative_closing_rank": 91170
+    },
+    {
+     "branch": "Mechanical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 99763
+    },
+    {
+     "branch": "Mechanical Engineering",
+     "years": 5,
+     "degree": "Bachelor and Master of Technology (Dual Degree)",
+     "indicative_closing_rank": 102094
+    },
+    {
+     "branch": "Chemical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 102905
+    },
+    {
+     "branch": "Civil Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 102957
+    },
+    {
+     "branch": "Instrumentation and Control Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 103559
+    },
+    {
+     "branch": "Food Technology",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 121270
+    }
+   ],
+   "source": "JoSAA 2025 Round 6",
+   "rank_note": "Indicative open-category closing rank."
+  },
+  "nirf": {
+   "engineering_rank": 79,
+   "engineering_score": 48.42,
+   "ranking_year": 2025,
+   "rank_history": [
+    {
+     "year": 2025,
+     "rank": 79,
+     "score": 48.42
+    },
+    {
+     "year": 2024,
+     "rank": 76,
+     "score": 48.22
+    },
+    {
+     "year": 2022,
+     "rank": 178,
+     "score": 35.2
+    },
+    {
+     "year": 2021,
+     "rank": 161,
+     "score": 34.52
+    },
+    {
+     "year": 2020,
+     "rank": 137,
+     "score": 34.27
+    },
+    {
+     "year": 2019,
+     "rank": 133,
+     "score": 33.63
+    }
+   ]
+  },
+  "ug_gender": {
+   "female_pct": 17.8,
+   "female": 344,
+   "male": 1588,
+   "edition_year": 2025
+  },
+  "placement": {
+   "median_salary": 400000,
+   "percentage_placed": 54.0,
+   "percentage_with_outcome": 62.1,
+   "students_placed": 320,
+   "higher_studies_selected": 48,
+   "first_year_intake": 237,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF Engineering, UG 4-year",
+   "is_branch_specific": false
+  },
+  "naac": {
+   "grade": "A",
+   "cgpa": 3.02,
+   "cycle": 3,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "AISHE 2024-25",
+   "programs": "JoSAA 2025 Round 6",
+   "ranking": "NIRF 2025",
+   "placement": "NIRF 2025 (AY 2023-24)",
+   "accreditation": "NAAC"
+  }
+ },
+ {
   "college_id": "U-0284",
   "aishe_code": "U-0284",
   "name": "Maulana Azad National Institute of Technology, Bhopal",
@@ -8180,6 +8370,11 @@
      "year": 2019,
      "rank": 78,
      "score": 38.42
+    },
+    {
+     "year": 2018,
+     "rank": 73,
+     "score": 39.24
     }
    ],
    "latest_band": {
@@ -9035,6 +9230,158 @@
   }
  },
  {
+  "college_id": "U-0201",
+  "aishe_code": "U-0201",
+  "name": "Shri Mata Vaishno Devi University, Jammu",
+  "display_name": "Shri Mata Vaishno Devi University, Katra, Jammu & Kashmir",
+  "state": "Jammu and Kashmir",
+  "state_is_inferred": false,
+  "district": "Reasi",
+  "kind": "State Public University",
+  "management": null,
+  "year_established": 1999,
+  "website": "www.smvdu.ac.in",
+  "entrance_exams": [
+   "JEE Main"
+  ],
+  "counselling": "JoSAA",
+  "programs": {
+   "count": 9,
+   "degrees": [
+    "Bachelor of Architecture",
+    "Bachelor of Technology"
+   ],
+   "quotas_offered": [
+    "AI"
+   ],
+   "list": [
+    {
+     "branch": "Architecture",
+     "years": 5,
+     "degree": "Bachelor of Architecture",
+     "indicative_closing_rank": 1287
+    },
+    {
+     "branch": "Computer Science and Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 69474
+    },
+    {
+     "branch": "B.Tech in Mathematics and Computing",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 72314
+    },
+    {
+     "branch": "Robotics and AI",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 74007
+    },
+    {
+     "branch": "Bio Technology",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 83268
+    },
+    {
+     "branch": "Electronics and Communication Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 87906
+    },
+    {
+     "branch": "Electrical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 94375
+    },
+    {
+     "branch": "Mechanical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 94474
+    },
+    {
+     "branch": "Civil Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 102500
+    }
+   ],
+   "source": "JoSAA 2025 Round 6",
+   "rank_note": "Indicative open-category closing rank."
+  },
+  "nirf": {
+   "engineering_rank": 101,
+   "engineering_score": 40.08,
+   "ranking_year": 2022,
+   "rank_history": [
+    {
+     "year": 2022,
+     "rank": 101,
+     "score": 40.08
+    },
+    {
+     "year": 2021,
+     "rank": 79,
+     "score": 41.22
+    },
+    {
+     "year": 2020,
+     "rank": 78,
+     "score": 39.68
+    },
+    {
+     "year": 2019,
+     "rank": 85,
+     "score": 37.32
+    },
+    {
+     "year": 2018,
+     "rank": 94,
+     "score": 36.28
+    }
+   ],
+   "latest_band": {
+    "year": 2025,
+    "band": "151-200"
+   }
+  },
+  "ug_gender": {
+   "female_pct": 15.6,
+   "female": 193,
+   "male": 1045,
+   "edition_year": 2025
+  },
+  "placement": {
+   "median_salary": 500000,
+   "percentage_placed": 32.5,
+   "percentage_with_outcome": 36.8,
+   "students_placed": 105,
+   "higher_studies_selected": 14,
+   "first_year_intake": 380,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF Engineering, UG 4-year",
+   "is_branch_specific": false
+  },
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "AISHE 2024-25",
+   "programs": "JoSAA 2025 Round 6",
+   "ranking": "NIRF 2022",
+   "placement": "NIRF 2025 (AY 2023-24)",
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "U-0795",
   "aishe_code": "U-0795",
   "name": "Indian Institute of Information Technology, Guwahati",
@@ -9130,6 +9477,266 @@
    "programs": "JoSAA 2025 Round 6",
    "ranking": "NIRF 2022",
    "placement": "NIRF 2024 (AY 2022-23)",
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "U-0056",
+  "aishe_code": "U-0056",
+  "name": "Tezpur University, Tezpur",
+  "display_name": "School of Engineering, Tezpur University, Napaam, Tezpur",
+  "state": "Assam",
+  "state_is_inferred": false,
+  "district": "Sonitpur",
+  "kind": "Central University",
+  "management": null,
+  "year_established": 1994,
+  "website": "www.tezu.ernet.in",
+  "entrance_exams": [
+   "JEE Main"
+  ],
+  "counselling": "JoSAA",
+  "programs": {
+   "count": 13,
+   "degrees": [
+    "Bachelor of Design",
+    "Bachelor of Technology",
+    "Bachelor of Technology and MBA (Dual Degree)"
+   ],
+   "quotas_offered": [
+    "AI"
+   ],
+   "list": [
+    {
+     "branch": "B.Tech. (Computer Science and Engineering) - MBA",
+     "years": 5,
+     "degree": "Bachelor of Technology and MBA (Dual Degree)",
+     "indicative_closing_rank": 58363
+    },
+    {
+     "branch": "Computer Science and Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 64476
+    },
+    {
+     "branch": "B.Tech. (Food Engineering and Technology) - MBA",
+     "years": 5,
+     "degree": "Bachelor of Technology and MBA (Dual Degree)",
+     "indicative_closing_rank": 72557
+    },
+    {
+     "branch": "B.Tech. (Electronics and Communication Engineering) - MBA",
+     "years": 5,
+     "degree": "Bachelor of Technology and MBA (Dual Degree)",
+     "indicative_closing_rank": 72944
+    },
+    {
+     "branch": "Electronics and Communication Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 75585
+    },
+    {
+     "branch": "B.Tech. (Mechanical Engineering) - MBA",
+     "years": 5,
+     "degree": "Bachelor of Technology and MBA (Dual Degree)",
+     "indicative_closing_rank": 78838
+    },
+    {
+     "branch": "B.Tech. (Elctrical Engineering) - MBA",
+     "years": 5,
+     "degree": "Bachelor of Technology and MBA (Dual Degree)",
+     "indicative_closing_rank": 83701
+    },
+    {
+     "branch": "Electrical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 86122
+    },
+    {
+     "branch": "B.Tech. (Civil Engineering) - MBA",
+     "years": 5,
+     "degree": "Bachelor of Technology and MBA (Dual Degree)",
+     "indicative_closing_rank": 87713
+    },
+    {
+     "branch": "Mechanical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 91057
+    },
+    {
+     "branch": "Bachelor of Design",
+     "years": 4,
+     "degree": "Bachelor of Design",
+     "indicative_closing_rank": 92713
+    },
+    {
+     "branch": "Civil Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 104195
+    },
+    {
+     "branch": "Food Engineering and Technology",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 121531
+    }
+   ],
+   "source": "JoSAA 2025 Round 6",
+   "rank_note": "Indicative open-category closing rank."
+  },
+  "nirf": {
+   "engineering_rank": 123,
+   "engineering_score": 38.12,
+   "ranking_year": 2022,
+   "rank_history": [
+    {
+     "year": 2022,
+     "rank": 123,
+     "score": 38.12
+    },
+    {
+     "year": 2021,
+     "rank": 104,
+     "score": 38.39
+    }
+   ],
+   "latest_band": {
+    "year": 2025,
+    "band": "151-200"
+   }
+  },
+  "ug_gender": {
+   "female_pct": 14.0,
+   "female": 181,
+   "male": 1113,
+   "edition_year": 2025
+  },
+  "placement": {
+   "median_salary": 540000,
+   "percentage_placed": 29.3,
+   "percentage_with_outcome": 42.1,
+   "students_placed": 82,
+   "higher_studies_selected": 36,
+   "first_year_intake": 366,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF Engineering, UG 4-year",
+   "is_branch_specific": false
+  },
+  "naac": {
+   "grade": "A+",
+   "cgpa": 3.41,
+   "cycle": 4,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "AISHE 2024-25",
+   "programs": "JoSAA 2025 Round 6",
+   "ranking": "NIRF 2022",
+   "placement": "NIRF 2025 (AY 2023-24)",
+   "accreditation": "NAAC"
+  }
+ },
+ {
+  "college_id": "U-0989",
+  "aishe_code": "U-0989",
+  "name": "NATIONAL INSTITUTE OF FOOD TECHNOLOGY ENTREPRENEURSHIP AND MANAGEMENT",
+  "display_name": "National Institute of Food Technology Entrepreneurship and Management, Kundli",
+  "state": "Haryana",
+  "state_is_inferred": false,
+  "district": "Sonipat",
+  "kind": "Institute of National Importance",
+  "management": null,
+  "year_established": 2012,
+  "website": "www.niftem.ac.in",
+  "entrance_exams": [
+   "JEE Main"
+  ],
+  "counselling": "JoSAA",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "Bachelor of Technology"
+   ],
+   "quotas_offered": [
+    "AI"
+   ],
+   "list": [
+    {
+     "branch": "Food Technology and Management",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 120222
+    }
+   ],
+   "source": "JoSAA 2025 Round 6",
+   "rank_note": "Indicative open-category closing rank."
+  },
+  "nirf": {
+   "engineering_rank": 127,
+   "engineering_score": 37.96,
+   "ranking_year": 2022,
+   "rank_history": [
+    {
+     "year": 2022,
+     "rank": 127,
+     "score": 37.96
+    },
+    {
+     "year": 2021,
+     "rank": 148,
+     "score": 35.35
+    },
+    {
+     "year": 2020,
+     "rank": 121,
+     "score": 35.65
+    },
+    {
+     "year": 2019,
+     "rank": 117,
+     "score": 34.48
+    }
+   ],
+   "latest_band": {
+    "year": 2025,
+    "band": "101-150"
+   }
+  },
+  "ug_gender": {
+   "female_pct": 25.7,
+   "female": 154,
+   "male": 446,
+   "edition_year": 2025
+  },
+  "placement": {
+   "median_salary": 710000,
+   "percentage_placed": 54.8,
+   "percentage_with_outcome": 97.8,
+   "students_placed": 74,
+   "higher_studies_selected": 58,
+   "first_year_intake": 180,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF Engineering, UG 4-year",
+   "is_branch_specific": false
+  },
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "AISHE 2024-25",
+   "programs": "JoSAA 2025 Round 6",
+   "ranking": "NIRF 2022",
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -9485,6 +10092,260 @@
   }
  },
  {
+  "college_id": "C-36143",
+  "aishe_code": "C-36143",
+  "name": "Shri G. S. Institute of Technology & Science, 23,Park Road, Indore - 452003",
+  "display_name": "Shri G. S. Institute of Technology and Science Indore",
+  "state": "Madhya Pradesh",
+  "state_is_inferred": false,
+  "district": "Indore",
+  "kind": "Affiliated College",
+  "management": "Private Aided (Government Aided)",
+  "year_established": 1952,
+  "website": "www.sgsits.ac.in",
+  "entrance_exams": [
+   "JEE Main"
+  ],
+  "counselling": "JoSAA",
+  "programs": {
+   "count": 9,
+   "degrees": [
+    "Bachelor of Technology"
+   ],
+   "quotas_offered": [
+    "AI"
+   ],
+   "list": [
+    {
+     "branch": "Computer Science and Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 27947
+    },
+    {
+     "branch": "Information Technology",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 32619
+    },
+    {
+     "branch": "Electronics and Telecommunication Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 41294
+    },
+    {
+     "branch": "Electrical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 50882
+    },
+    {
+     "branch": "Electronics and Instrumentation Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 51031
+    },
+    {
+     "branch": "Mechanical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 55093
+    },
+    {
+     "branch": "Civil Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 55931
+    },
+    {
+     "branch": "Biomedical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 69348
+    },
+    {
+     "branch": "Industrial and Production Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 71193
+    }
+   ],
+   "source": "JoSAA 2025 Round 6",
+   "rank_note": "Indicative open-category closing rank."
+  },
+  "nirf": {
+   "engineering_rank": 181,
+   "engineering_score": 33.49,
+   "ranking_year": 2021,
+   "rank_history": [
+    {
+     "year": 2021,
+     "rank": 181,
+     "score": 33.49
+    }
+   ],
+   "latest_band": {
+    "year": 2024,
+    "band": "201-300"
+   }
+  },
+  "ug_gender": {
+   "female_pct": 28.5,
+   "female": 879,
+   "male": 2208,
+   "edition_year": 2021
+  },
+  "placement": {
+   "median_salary": 520000,
+   "percentage_placed": 59.9,
+   "percentage_with_outcome": 89.5,
+   "students_placed": 418,
+   "higher_studies_selected": 207,
+   "first_year_intake": 690,
+   "academic_year": "2019-20",
+   "ranking_year": 2021,
+   "source": "NIRF Engineering, UG 4-year",
+   "is_branch_specific": false
+  },
+  "naac": {
+   "grade": "A",
+   "cgpa": 3.1,
+   "cycle": 1,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "AISHE 2024-25",
+   "programs": "JoSAA 2025 Round 6",
+   "ranking": "NIRF 2021",
+   "placement": "NIRF 2021 (AY 2019-20)",
+   "accreditation": "NAAC"
+  }
+ },
+ {
+  "college_id": "U-0046",
+  "aishe_code": "U-0046",
+  "name": "North Eastern Regional Institute of Science & Technology, Papum Pare, Itanagar",
+  "display_name": "North Eastern Regional Institute of Science and Technology, Nirjuli-791109 (Itanagar),Arunachal Pradesh",
+  "state": "Arunachal Pradesh",
+  "state_is_inferred": false,
+  "district": "Papum Pare",
+  "kind": "Deemed University-Government",
+  "management": null,
+  "year_established": 1983,
+  "website": "www.nerist.ac.in",
+  "entrance_exams": [
+   "JEE Main"
+  ],
+  "counselling": "JoSAA",
+  "programs": {
+   "count": 6,
+   "degrees": [
+    "Bachelor of Technology"
+   ],
+   "quotas_offered": [
+    "AI"
+   ],
+   "list": [
+    {
+     "branch": "Computer Science and Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 62096
+    },
+    {
+     "branch": "Agricultural Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 101780
+    },
+    {
+     "branch": "Civil Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": null
+    },
+    {
+     "branch": "Electrical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": null
+    },
+    {
+     "branch": "Electronics and Communication Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": null
+    },
+    {
+     "branch": "Mechanical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": null
+    }
+   ],
+   "source": "JoSAA 2025 Round 6",
+   "rank_note": "Indicative open-category closing rank."
+  },
+  "nirf": {
+   "engineering_rank": 182,
+   "engineering_score": 33.38,
+   "ranking_year": 2021,
+   "rank_history": [
+    {
+     "year": 2021,
+     "rank": 182,
+     "score": 33.38
+    },
+    {
+     "year": 2020,
+     "rank": 145,
+     "score": 33.67
+    },
+    {
+     "year": 2019,
+     "rank": 173,
+     "score": 31.4
+    }
+   ],
+   "latest_band": {
+    "year": 2025,
+    "band": "151-200"
+   }
+  },
+  "ug_gender": {
+   "female_pct": 28.6,
+   "female": 394,
+   "male": 983,
+   "edition_year": 2025
+  },
+  "placement": {
+   "median_salary": 600000,
+   "percentage_placed": 54.6,
+   "percentage_with_outcome": 97.7,
+   "students_placed": 165,
+   "higher_studies_selected": 130,
+   "first_year_intake": 387,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF Engineering, UG 4-year",
+   "is_branch_specific": false
+  },
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "AISHE 2024-25",
+   "programs": "JoSAA 2025 Round 6",
+   "ranking": "NIRF 2021",
+   "placement": "NIRF 2025 (AY 2023-24)",
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "U-0455",
   "aishe_code": "U-0455",
   "name": "Indian Institute of Information Technology, Design & Manufacturing, Kancheepuram",
@@ -9741,6 +10602,113 @@
   }
  },
  {
+  "college_id": "U-1032",
+  "aishe_code": "U-1032",
+  "name": "INTERNATIONAL INSTITUTE OF INFORMATION TECHNOLOGY BHUBANESHWAR",
+  "display_name": "International Institute of Information Technology, Bhubaneswar",
+  "state": "Odisha",
+  "state_is_inferred": false,
+  "district": "Khordha",
+  "kind": "State Public University",
+  "management": null,
+  "year_established": 2007,
+  "website": "www.iiit-bh.ac.in",
+  "entrance_exams": [
+   "JEE Main"
+  ],
+  "counselling": "JoSAA",
+  "programs": {
+   "count": 5,
+   "degrees": [
+    "Bachelor of Technology"
+   ],
+   "quotas_offered": [
+    "AI"
+   ],
+   "list": [
+    {
+     "branch": "Computer Science and Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 33833
+    },
+    {
+     "branch": "Information Technology",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 39873
+    },
+    {
+     "branch": "Computer Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 40118
+    },
+    {
+     "branch": "Electronics and Telecommunication Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 45436
+    },
+    {
+     "branch": "Electrical and Electronics Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 46244
+    }
+   ],
+   "source": "JoSAA 2025 Round 6",
+   "rank_note": "Indicative open-category closing rank."
+  },
+  "nirf": {
+   "engineering_rank": 190,
+   "engineering_score": 32.73,
+   "ranking_year": 2021,
+   "rank_history": [
+    {
+     "year": 2021,
+     "rank": 190,
+     "score": 32.73
+    }
+   ],
+   "latest_band": {
+    "year": 2024,
+    "band": "201-300"
+   }
+  },
+  "ug_gender": {
+   "female_pct": 23.9,
+   "female": 295,
+   "male": 941,
+   "edition_year": 2021
+  },
+  "placement": {
+   "median_salary": 400000,
+   "percentage_placed": 72.4,
+   "percentage_with_outcome": 76.0,
+   "students_placed": 205,
+   "higher_studies_selected": 10,
+   "first_year_intake": 300,
+   "academic_year": "2019-20",
+   "ranking_year": 2021,
+   "source": "NIRF Engineering, UG 4-year",
+   "is_branch_specific": false
+  },
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "AISHE 2024-25",
+   "programs": "JoSAA 2025 Round 6",
+   "ranking": "NIRF 2021",
+   "placement": "NIRF 2021 (AY 2019-20)",
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "U-0050",
   "aishe_code": "U-0050",
   "name": "Assam University, Silchar",
@@ -9967,17 +10935,17 @@
   }
  },
  {
-  "college_id": "josaa:cu-jharkhand",
-  "aishe_code": null,
-  "name": "CU Jharkhand",
+  "college_id": "U-0204",
+  "aishe_code": "U-0204",
+  "name": "Central University of Jharkhand, Ranchi",
   "display_name": "CU Jharkhand",
   "state": "Jharkhand",
-  "state_is_inferred": true,
-  "district": null,
-  "kind": null,
+  "state_is_inferred": false,
+  "district": "Ranchi",
+  "kind": "Central University",
   "management": null,
-  "year_established": null,
-  "website": null,
+  "year_established": 2009,
+  "website": "www.cuj.ac.in",
   "entrance_exams": [
    "JEE Main"
   ],
@@ -10023,9 +10991,9 @@
   "ug_gender": null,
   "placement": null,
   "naac": {
-   "grade": null,
-   "cgpa": null,
-   "cycle": null,
+   "grade": "A",
+   "cgpa": 3.19,
+   "cycle": 2,
    "not_applicable_reason": null
   },
   "data_sources": {
@@ -10033,7 +11001,7 @@
    "programs": "JoSAA 2025 Round 6",
    "ranking": null,
    "placement": null,
-   "accreditation": null
+   "accreditation": "NAAC"
   }
  },
  {
@@ -10388,17 +11356,17 @@
   }
  },
  {
-  "college_id": "josaa:gati-shakti-vishwavidyalaya-vadodara",
-  "aishe_code": null,
-  "name": "Gati Shakti Vishwavidyalaya, Vadodara",
+  "college_id": "U-0968",
+  "aishe_code": "U-0968",
+  "name": "Gati Shakti Vishwavidyalaya",
   "display_name": "Gati Shakti Vishwavidyalaya, Vadodara",
-  "state": null,
-  "state_is_inferred": true,
-  "district": null,
-  "kind": null,
+  "state": "Gujarat",
+  "state_is_inferred": false,
+  "district": "Vadodara",
+  "kind": "Central University",
   "management": null,
-  "year_established": null,
-  "website": null,
+  "year_established": 2018,
+  "website": "https://gsv.ac.in/",
   "entrance_exams": [
    "JEE Main"
   ],
@@ -10470,17 +11438,17 @@
   }
  },
  {
-  "college_id": "josaa:ghani-khan-choudhary-institute-of-engineering-and-technology-92ea28",
-  "aishe_code": null,
-  "name": "Ghani Khan Choudhary Institute of Engineering and Technology, Malda, West Bengal",
+  "college_id": "S-14559",
+  "aishe_code": "S-14559",
+  "name": "GHANI KHAN CHOUDHURY INSTITUTE OF ENGINEERING & TECHNOLOGY, KOTWALI, MALDA",
   "display_name": "Ghani Khan Choudhary Institute of Engineering and Technology, Malda, West Bengal",
   "state": "West Bengal",
-  "state_is_inferred": true,
-  "district": null,
-  "kind": null,
-  "management": null,
-  "year_established": null,
-  "website": null,
+  "state_is_inferred": false,
+  "district": "Malda",
+  "kind": "Institutes under Ministries",
+  "management": "Central Government",
+  "year_established": 2010,
+  "website": "www.gkciet.ac.in",
   "entrance_exams": [
    "JEE Main"
   ],
@@ -10617,17 +11585,17 @@
   }
  },
  {
-  "college_id": "josaa:indian-institute-of-information-technology-senapati-manipur",
-  "aishe_code": null,
-  "name": "INDIAN INSTITUTE OF INFORMATION TECHNOLOGY SENAPATI MANIPUR",
+  "college_id": "U-0770",
+  "aishe_code": "U-0770",
+  "name": "Indian Institute of Information Technology, Senapati",
   "display_name": "INDIAN INSTITUTE OF INFORMATION TECHNOLOGY SENAPATI MANIPUR",
   "state": "Manipur",
-  "state_is_inferred": true,
-  "district": null,
-  "kind": null,
+  "state_is_inferred": false,
+  "district": "Senapati",
+  "kind": "Institute of National Importance",
   "management": null,
-  "year_established": null,
-  "website": null,
+  "year_established": 2014,
+  "website": "www.iiitmanipur.ac.in",
   "entrance_exams": [
    "JEE Main"
   ],
@@ -11072,17 +12040,17 @@
   }
  },
  {
-  "college_id": "josaa:indian-institute-of-information-technology-iiit-sri-city-chi-666d5f",
-  "aishe_code": null,
-  "name": "Indian Institute of Information Technology (IIIT), Sri City, Chittoor",
+  "college_id": "U-0760",
+  "aishe_code": "U-0760",
+  "name": "Indian Institute of Information Technology, Sri City",
   "display_name": "Indian Institute of Information Technology (IIIT), Sri City, Chittoor",
-  "state": null,
-  "state_is_inferred": true,
-  "district": null,
-  "kind": null,
+  "state": "Andhra Pradesh",
+  "state_is_inferred": false,
+  "district": "Chittoor",
+  "kind": "Institute of National Importance",
   "management": null,
-  "year_established": null,
-  "website": null,
+  "year_established": 2013,
+  "website": "www.iiits.ac.in",
   "entrance_exams": [
    "JEE Main"
   ],
@@ -11136,17 +12104,17 @@
   }
  },
  {
-  "college_id": "josaa:indian-institute-of-information-technology-iiit-kota-rajasth-ea25dc",
-  "aishe_code": null,
-  "name": "Indian Institute of Information Technology (IIIT)Kota, Rajasthan",
+  "college_id": "U-0799",
+  "aishe_code": "U-0799",
+  "name": "Indian Institute of Information Technology, Kota",
   "display_name": "Indian Institute of Information Technology (IIIT)Kota, Rajasthan",
   "state": "Rajasthan",
-  "state_is_inferred": true,
-  "district": null,
-  "kind": null,
+  "state_is_inferred": false,
+  "district": "Kota",
+  "kind": "Institute of National Importance",
   "management": null,
-  "year_established": null,
-  "website": null,
+  "year_established": 2013,
+  "website": "www.iiitkota.ac.in",
   "entrance_exams": [
    "JEE Main"
   ],
@@ -11270,17 +12238,17 @@
   }
  },
  {
-  "college_id": "josaa:indian-institute-of-information-technology-bhopal",
-  "aishe_code": null,
-  "name": "Indian Institute of Information Technology Bhopal",
+  "college_id": "U-1193",
+  "aishe_code": "U-1193",
+  "name": "Indian Institute of Information Technology",
   "display_name": "Indian Institute of Information Technology Bhopal",
-  "state": null,
-  "state_is_inferred": true,
-  "district": null,
-  "kind": null,
+  "state": "Madhya Pradesh",
+  "state_is_inferred": false,
+  "district": "Bhopal",
+  "kind": "Institute of National Importance",
   "management": null,
-  "year_established": null,
-  "website": null,
+  "year_established": 2017,
+  "website": "www.iiitbhopal.ac.in",
   "entrance_exams": [
    "JEE Main"
   ],
@@ -11370,17 +12338,17 @@
   }
  },
  {
-  "college_id": "josaa:indian-institute-of-information-technology-design-manufactur-f56084",
-  "aishe_code": null,
-  "name": "Indian Institute of Information Technology Design & Manufacturing Kurnool, Andhra Pradesh",
+  "college_id": "U-0863",
+  "aishe_code": "U-0863",
+  "name": "Indian Institute of Information Technology Design And Manufacturing, Kurnool",
   "display_name": "Indian Institute of Information Technology Design & Manufacturing Kurnool, Andhra Pradesh",
   "state": "Andhra Pradesh",
-  "state_is_inferred": true,
-  "district": null,
-  "kind": null,
+  "state_is_inferred": false,
+  "district": "Kurnool",
+  "kind": "Institute of National Importance",
   "management": null,
-  "year_established": null,
-  "website": null,
+  "year_established": 2015,
+  "website": "www.iiitk.ac.in",
   "entrance_exams": [
    "JEE Main"
   ],
@@ -11599,17 +12567,17 @@
   }
  },
  {
-  "college_id": "josaa:indian-institute-of-information-technology-tiruchirappalli",
-  "aishe_code": null,
-  "name": "Indian Institute of Information Technology Tiruchirappalli",
+  "college_id": "U-0754",
+  "aishe_code": "U-0754",
+  "name": "Indian Institute of Information Technology, Srirangam",
   "display_name": "Indian Institute of Information Technology Tiruchirappalli",
-  "state": null,
-  "state_is_inferred": true,
-  "district": null,
-  "kind": null,
+  "state": "Tamil Nadu",
+  "state_is_inferred": false,
+  "district": "Tiruchirappalli",
+  "kind": "Institute of National Importance",
   "management": null,
-  "year_established": null,
-  "website": null,
+  "year_established": 2013,
+  "website": "www.iiitt.ac.in",
   "entrance_exams": [
    "JEE Main"
   ],
@@ -11733,17 +12701,17 @@
   }
  },
  {
-  "college_id": "josaa:indian-institute-of-information-technology-iiit-kalyani-west-aa879a",
-  "aishe_code": null,
-  "name": "Indian Institute of Information Technology(IIIT) Kalyani, West Bengal",
+  "college_id": "U-0796",
+  "aishe_code": "U-0796",
+  "name": "Indian Institute of Information Technology, Kalyani",
   "display_name": "Indian Institute of Information Technology(IIIT) Kalyani, West Bengal",
   "state": "West Bengal",
-  "state_is_inferred": true,
-  "district": null,
-  "kind": null,
+  "state_is_inferred": false,
+  "district": "Nadia",
+  "kind": "Institute of National Importance",
   "management": null,
-  "year_established": null,
-  "website": null,
+  "year_established": 2014,
+  "website": "http://www.iiitkalyani.ac.in",
   "entrance_exams": [
    "JEE Main"
   ],
@@ -11803,17 +12771,17 @@
   }
  },
  {
-  "college_id": "josaa:indian-institute-of-information-technology-iiit-kilohrad-son-121f72",
-  "aishe_code": null,
-  "name": "Indian Institute of Information Technology(IIIT) Kilohrad, Sonepat, Haryana",
+  "college_id": "U-0800",
+  "aishe_code": "U-0800",
+  "name": "Indian Institute of Information Technology, Sonipat",
   "display_name": "Indian Institute of Information Technology(IIIT) Kilohrad, Sonepat, Haryana",
   "state": "Haryana",
-  "state_is_inferred": true,
-  "district": null,
-  "kind": null,
+  "state_is_inferred": false,
+  "district": "Sonipat",
+  "kind": "Institute of National Importance",
   "management": null,
-  "year_established": null,
-  "website": null,
+  "year_established": 2014,
+  "website": "iiitsonepat.ac.in",
   "entrance_exams": [
    "JEE Main"
   ],
@@ -11937,17 +12905,17 @@
   }
  },
  {
-  "college_id": "josaa:indian-institute-of-information-technology-iiit-una-himachal-7b7d40",
-  "aishe_code": null,
-  "name": "Indian Institute of Information Technology(IIIT) Una, Himachal Pradesh",
+  "college_id": "U-0797",
+  "aishe_code": "U-0797",
+  "name": "Indian Institute of Information Technology, UNA",
   "display_name": "Indian Institute of Information Technology(IIIT) Una, Himachal Pradesh",
   "state": "Himachal Pradesh",
-  "state_is_inferred": true,
-  "district": null,
-  "kind": null,
+  "state_is_inferred": false,
+  "district": "Una",
+  "kind": "Institute of National Importance",
   "management": null,
-  "year_established": null,
-  "website": null,
+  "year_established": 2014,
+  "website": "www.iiitu.ac.in",
   "entrance_exams": [
    "JEE Main"
   ],
@@ -12007,17 +12975,17 @@
   }
  },
  {
-  "college_id": "josaa:indian-institute-of-information-technology-iiit-vadodara-guj-ae8311",
-  "aishe_code": null,
-  "name": "Indian Institute of Information Technology(IIIT), Vadodara, Gujrat",
+  "college_id": "U-0798",
+  "aishe_code": "U-0798",
+  "name": "Indian Institute of Information Technology, Vadodara",
   "display_name": "Indian Institute of Information Technology(IIIT), Vadodara, Gujrat",
   "state": "Gujarat",
-  "state_is_inferred": true,
-  "district": null,
-  "kind": null,
+  "state_is_inferred": false,
+  "district": "Vadodara",
+  "kind": "Institute of National Importance",
   "management": null,
-  "year_established": null,
-  "website": null,
+  "year_established": 2013,
+  "website": "www.iiitvadodara.ac.in",
   "entrance_exams": [
    "JEE Main"
   ],
@@ -12246,8 +13214,24 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
-  "ug_gender": null,
-  "placement": null,
+  "ug_gender": {
+   "female_pct": 20.1,
+   "female": 114,
+   "male": 452,
+   "edition_year": 2025
+  },
+  "placement": {
+   "median_salary": 1300000,
+   "percentage_placed": 75.0,
+   "percentage_with_outcome": 77.2,
+   "students_placed": 102,
+   "higher_studies_selected": 3,
+   "first_year_intake": 157,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF Engineering, UG 4-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -12258,22 +13242,22 @@
    "identity": "AISHE 2024-25",
    "programs": "JoSAA 2025 Round 6",
    "ranking": null,
-   "placement": null,
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
  {
-  "college_id": "josaa:indian-institute-of-information-technology-raichur-karnataka",
-  "aishe_code": null,
-  "name": "Indian institute of information technology, Raichur, Karnataka",
+  "college_id": "U-1089",
+  "aishe_code": "U-1089",
+  "name": "Indian Institute of Information Technology Raichur",
   "display_name": "Indian institute of information technology, Raichur, Karnataka",
   "state": "Karnataka",
-  "state_is_inferred": true,
-  "district": null,
-  "kind": null,
+  "state_is_inferred": false,
+  "district": "Raichur",
+  "kind": "Institute of National Importance",
   "management": null,
-  "year_established": null,
-  "website": null,
+  "year_established": 2019,
+  "website": "www.iiitr.ac.in",
   "entrance_exams": [
    "JEE Main"
   ],
@@ -12380,17 +13364,17 @@
   }
  },
  {
-  "college_id": "josaa:institute-of-engineering-and-technology-dr-h-s-gour-universi-b0fc60",
-  "aishe_code": null,
-  "name": "Institute of Engineering and Technology, Dr. H. S. Gour University. Sagar (A Central University)",
+  "college_id": "U-0271",
+  "aishe_code": "U-0271",
+  "name": "Dr. Harisingh Gaur  Vishwavidyalaya, Sagar",
   "display_name": "Institute of Engineering and Technology, Dr. H. S. Gour University. Sagar (A Central University)",
-  "state": null,
-  "state_is_inferred": true,
-  "district": null,
-  "kind": null,
+  "state": "Madhya Pradesh",
+  "state_is_inferred": false,
+  "district": "Sagar",
+  "kind": "Central University",
   "management": null,
-  "year_established": null,
-  "website": null,
+  "year_established": 1946,
+  "website": "www.dhsgsu.edu.in",
   "entrance_exams": [
    "JEE Main"
   ],
@@ -12448,9 +13432,9 @@
   "ug_gender": null,
   "placement": null,
   "naac": {
-   "grade": null,
-   "cgpa": null,
-   "cycle": null,
+   "grade": "A+",
+   "cgpa": 3.38,
+   "cycle": 4,
    "not_applicable_reason": null
   },
   "data_sources": {
@@ -12458,97 +13442,21 @@
    "programs": "JoSAA 2025 Round 6",
    "ranking": null,
    "placement": null,
-   "accreditation": null
+   "accreditation": "NAAC"
   }
  },
  {
-  "college_id": "U-1032",
-  "aishe_code": "U-1032",
-  "name": "INTERNATIONAL INSTITUTE OF INFORMATION TECHNOLOGY BHUBANESHWAR",
-  "display_name": "International Institute of Information Technology, Bhubaneswar",
-  "state": "Odisha",
+  "college_id": "U-0970",
+  "aishe_code": "U-0970",
+  "name": "DR. SHYAMA PRASAD MUKHERJEE INTERNATIONAL INSTITUTE OF INFORMATION TECHNOLOGY - NAYA RAIPUR",
+  "display_name": "International Institute of Information Technology, Naya Raipur",
+  "state": "Chhattisgarh",
   "state_is_inferred": false,
-  "district": "Khordha",
+  "district": "Raipur",
   "kind": "State Public University",
   "management": null,
-  "year_established": 2007,
-  "website": "www.iiit-bh.ac.in",
-  "entrance_exams": [
-   "JEE Main"
-  ],
-  "counselling": "JoSAA",
-  "programs": {
-   "count": 5,
-   "degrees": [
-    "Bachelor of Technology"
-   ],
-   "quotas_offered": [
-    "AI"
-   ],
-   "list": [
-    {
-     "branch": "Computer Science and Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 33833
-    },
-    {
-     "branch": "Information Technology",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 39873
-    },
-    {
-     "branch": "Computer Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 40118
-    },
-    {
-     "branch": "Electronics and Telecommunication Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 45436
-    },
-    {
-     "branch": "Electrical and Electronics Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 46244
-    }
-   ],
-   "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative open-category closing rank."
-  },
-  "nirf": null,
-  "ug_gender": null,
-  "placement": null,
-  "naac": {
-   "grade": null,
-   "cgpa": null,
-   "cycle": null,
-   "not_applicable_reason": null
-  },
-  "data_sources": {
-   "identity": "AISHE 2024-25",
-   "programs": "JoSAA 2025 Round 6",
-   "ranking": null,
-   "placement": null,
-   "accreditation": null
-  }
- },
- {
-  "college_id": "josaa:international-institute-of-information-technology-naya-raipu-3e9814",
-  "aishe_code": null,
-  "name": "International Institute of Information Technology, Naya Raipur",
-  "display_name": "International Institute of Information Technology, Naya Raipur",
-  "state": null,
-  "state_is_inferred": true,
-  "district": null,
-  "kind": null,
-  "management": null,
-  "year_established": null,
-  "website": null,
+  "year_established": 2014,
+  "website": "www.iiitnr.ac.in",
   "entrance_exams": [
    "JEE Main"
   ],
@@ -12602,17 +13510,17 @@
   }
  },
  {
-  "college_id": "josaa:islamic-university-of-science-and-technology-kashmir",
-  "aishe_code": null,
-  "name": "Islamic University of Science and Technology Kashmir",
+  "college_id": "U-0194",
+  "aishe_code": "U-0194",
+  "name": "Islamic University of Science & Technology, Pulwama",
   "display_name": "Islamic University of Science and Technology Kashmir",
-  "state": null,
-  "state_is_inferred": true,
-  "district": null,
-  "kind": null,
+  "state": "Jammu and Kashmir",
+  "state_is_inferred": false,
+  "district": "Pulwama",
+  "kind": "State Public University",
   "management": null,
-  "year_established": null,
-  "website": null,
+  "year_established": 2005,
+  "website": "www.iust.ac.in",
   "entrance_exams": [
    "JEE Main"
   ],
@@ -12641,9 +13549,9 @@
   "ug_gender": null,
   "placement": null,
   "naac": {
-   "grade": null,
-   "cgpa": null,
-   "cycle": null,
+   "grade": "B+",
+   "cgpa": 2.7,
+   "cycle": 2,
    "not_applicable_reason": null
   },
   "data_sources": {
@@ -12651,21 +13559,21 @@
    "programs": "JoSAA 2025 Round 6",
    "ranking": null,
    "placement": null,
-   "accreditation": null
+   "accreditation": "NAAC"
   }
  },
  {
-  "college_id": "josaa:j-k-institute-of-applied-physics-technology-department-of-el-5fb9de",
-  "aishe_code": null,
-  "name": "J.K. Institute of Applied Physics & Technology, Department of Electronics & Communication, University of Allahabad- Allahabad",
+  "college_id": "U-0548",
+  "aishe_code": "U-0548",
+  "name": "University of Allahabad, Allahabad",
   "display_name": "J.K. Institute of Applied Physics & Technology, Department of Electronics & Communication, University of Allahabad- Allahabad",
-  "state": null,
-  "state_is_inferred": true,
-  "district": null,
-  "kind": null,
+  "state": "Uttar Pradesh",
+  "state_is_inferred": false,
+  "district": "Prayagraj",
+  "kind": "Central University",
   "management": null,
-  "year_established": null,
-  "website": null,
+  "year_established": 1887,
+  "website": "http://www.allduniv.ac.in",
   "entrance_exams": [
    "JEE Main"
   ],
@@ -12699,9 +13607,9 @@
   "ug_gender": null,
   "placement": null,
   "naac": {
-   "grade": null,
-   "cgpa": null,
-   "cycle": null,
+   "grade": "A",
+   "cgpa": 3.17,
+   "cycle": 3,
    "not_applicable_reason": null
   },
   "data_sources": {
@@ -12709,7 +13617,7 @@
    "programs": "JoSAA 2025 Round 6",
    "ranking": null,
    "placement": null,
-   "accreditation": null
+   "accreditation": "NAAC"
   }
  },
  {
@@ -12976,17 +13884,17 @@
   }
  },
  {
-  "college_id": "josaa:national-institute-of-electronics-and-information-technology-fb7fb2",
-  "aishe_code": null,
-  "name": "National Institute of Electronics and Information Technology, Aurangabad (Maharashtra)",
+  "college_id": "C-34391",
+  "aishe_code": "C-34391",
+  "name": "NIELIT Aurangabad",
   "display_name": "National Institute of Electronics and Information Technology, Aurangabad (Maharashtra)",
   "state": "Maharashtra",
-  "state_is_inferred": true,
-  "district": null,
-  "kind": null,
-  "management": null,
-  "year_established": null,
-  "website": null,
+  "state_is_inferred": false,
+  "district": "Chhatrapati Sambhajinagar",
+  "kind": "Affiliated College",
+  "management": "Central Government",
+  "year_established": 1986,
+  "website": "www.nielit.gov.in/aurangabad",
   "entrance_exams": [
    "JEE Main"
   ],
@@ -13196,58 +14104,6 @@
   }
  },
  {
-  "college_id": "josaa:national-institute-of-food-technology-entrepreneurship-and-m-f18048",
-  "aishe_code": null,
-  "name": "National Institute of Food Technology Entrepreneurship and Management, Kundli",
-  "display_name": "National Institute of Food Technology Entrepreneurship and Management, Kundli",
-  "state": null,
-  "state_is_inferred": true,
-  "district": null,
-  "kind": null,
-  "management": null,
-  "year_established": null,
-  "website": null,
-  "entrance_exams": [
-   "JEE Main"
-  ],
-  "counselling": "JoSAA",
-  "programs": {
-   "count": 1,
-   "degrees": [
-    "Bachelor of Technology"
-   ],
-   "quotas_offered": [
-    "AI"
-   ],
-   "list": [
-    {
-     "branch": "Food Technology and Management",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 120222
-    }
-   ],
-   "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative open-category closing rank."
-  },
-  "nirf": null,
-  "ug_gender": null,
-  "placement": null,
-  "naac": {
-   "grade": null,
-   "cgpa": null,
-   "cycle": null,
-   "not_applicable_reason": null
-  },
-  "data_sources": {
-   "identity": "AISHE 2024-25",
-   "programs": "JoSAA 2025 Round 6",
-   "ranking": null,
-   "placement": null,
-   "accreditation": null
-  }
- },
- {
   "college_id": "U-1317",
   "aishe_code": "U-1317",
   "name": "NATIONAL INSTITUTE OF FOOD TECHNOLOGY, ENTREPRENEURSHIP AND MANAGEMENT -THANJAVUR",
@@ -13366,8 +14222,24 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
-  "ug_gender": null,
-  "placement": null,
+  "ug_gender": {
+   "female_pct": 22.1,
+   "female": 163,
+   "male": 575,
+   "edition_year": 2025
+  },
+  "placement": {
+   "median_salary": 1550000,
+   "percentage_placed": 81.4,
+   "percentage_with_outcome": 96.9,
+   "students_placed": 158,
+   "higher_studies_selected": 30,
+   "first_year_intake": 180,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF Engineering, UG 4-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -13378,7 +14250,7 @@
    "identity": "AISHE 2024-25",
    "programs": "JoSAA 2025 Round 6",
    "ranking": null,
-   "placement": null,
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -13550,8 +14422,24 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
-  "ug_gender": null,
-  "placement": null,
+  "ug_gender": {
+   "female_pct": 23.0,
+   "female": 130,
+   "male": 435,
+   "edition_year": 2025
+  },
+  "placement": {
+   "median_salary": 715000,
+   "percentage_placed": 90.5,
+   "percentage_with_outcome": 94.8,
+   "students_placed": 105,
+   "higher_studies_selected": 5,
+   "first_year_intake": 150,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF Engineering, UG 4-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -13562,89 +14450,7 @@
    "identity": "AISHE 2024-25",
    "programs": "JoSAA 2025 Round 6",
    "ranking": null,
-   "placement": null,
-   "accreditation": null
-  }
- },
- {
-  "college_id": "josaa:north-eastern-regional-institute-of-science-and-technology-n-10edb2",
-  "aishe_code": null,
-  "name": "North Eastern Regional Institute of Science and Technology, Nirjuli-791109 (Itanagar),Arunachal Pradesh",
-  "display_name": "North Eastern Regional Institute of Science and Technology, Nirjuli-791109 (Itanagar),Arunachal Pradesh",
-  "state": "Arunachal Pradesh",
-  "state_is_inferred": true,
-  "district": null,
-  "kind": null,
-  "management": null,
-  "year_established": null,
-  "website": null,
-  "entrance_exams": [
-   "JEE Main"
-  ],
-  "counselling": "JoSAA",
-  "programs": {
-   "count": 6,
-   "degrees": [
-    "Bachelor of Technology"
-   ],
-   "quotas_offered": [
-    "AI"
-   ],
-   "list": [
-    {
-     "branch": "Computer Science and Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 62096
-    },
-    {
-     "branch": "Agricultural Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 101780
-    },
-    {
-     "branch": "Civil Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Electrical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Electronics and Communication Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Mechanical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    }
-   ],
-   "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative open-category closing rank."
-  },
-  "nirf": null,
-  "ug_gender": null,
-  "placement": null,
-  "naac": {
-   "grade": null,
-   "cgpa": null,
-   "cycle": null,
-   "not_applicable_reason": null
-  },
-  "data_sources": {
-   "identity": "AISHE 2024-25",
-   "programs": "JoSAA 2025 Round 6",
-   "ranking": null,
-   "placement": null,
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -13820,17 +14626,17 @@
   }
  },
  {
-  "college_id": "josaa:rajiv-gandhi-national-aviation-university-fursatganj-amethi-4046c7",
-  "aishe_code": null,
-  "name": "Rajiv Gandhi National Aviation University, Fursatganj, Amethi (UP)",
+  "college_id": "U-1117",
+  "aishe_code": "U-1117",
+  "name": "Rajiv Gandhi National Aviation University",
   "display_name": "Rajiv Gandhi National Aviation University, Fursatganj, Amethi (UP)",
-  "state": null,
-  "state_is_inferred": true,
-  "district": null,
-  "kind": null,
+  "state": "Uttar Pradesh",
+  "state_is_inferred": false,
+  "district": "Amethi",
+  "kind": "Central University",
   "management": null,
-  "year_established": null,
-  "website": null,
+  "year_established": 2013,
+  "website": "www.rgnau.ac.in",
   "entrance_exams": [
    "JEE Main"
   ],
@@ -13855,270 +14661,6 @@
      "years": 4,
      "degree": "Bachelor of Technology",
      "indicative_closing_rank": 76802
-    }
-   ],
-   "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative open-category closing rank."
-  },
-  "nirf": null,
-  "ug_gender": null,
-  "placement": null,
-  "naac": {
-   "grade": null,
-   "cgpa": null,
-   "cycle": null,
-   "not_applicable_reason": null
-  },
-  "data_sources": {
-   "identity": "AISHE 2024-25",
-   "programs": "JoSAA 2025 Round 6",
-   "ranking": null,
-   "placement": null,
-   "accreditation": null
-  }
- },
- {
-  "college_id": "josaa:sant-longowal-institute-of-engineering-and-technology",
-  "aishe_code": null,
-  "name": "Sant Longowal Institute of Engineering and Technology",
-  "display_name": "Sant Longowal Institute of Engineering and Technology",
-  "state": null,
-  "state_is_inferred": true,
-  "district": null,
-  "kind": null,
-  "management": null,
-  "year_established": null,
-  "website": null,
-  "entrance_exams": [
-   "JEE Main"
-  ],
-  "counselling": "JoSAA",
-  "programs": {
-   "count": 15,
-   "degrees": [
-    "Bachelor and Master of Technology (Dual Degree)",
-    "Bachelor of Technology",
-    "Integrated Master of Science"
-   ],
-   "quotas_offered": [
-    "AI"
-   ],
-   "list": [
-    {
-     "branch": "Computer Science and Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 64256
-    },
-    {
-     "branch": "Artificial Intelligence and Data Science",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 66031
-    },
-    {
-     "branch": "Physics",
-     "years": 5,
-     "degree": "Integrated Master of Science",
-     "indicative_closing_rank": 70277
-    },
-    {
-     "branch": "Electronics and Communication Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 70288
-    },
-    {
-     "branch": "Computer Science and Engineering",
-     "years": 5,
-     "degree": "Bachelor and Master of Technology (Dual Degree)",
-     "indicative_closing_rank": 71482
-    },
-    {
-     "branch": "Mathematics",
-     "years": 5,
-     "degree": "Integrated Master of Science",
-     "indicative_closing_rank": 81072
-    },
-    {
-     "branch": "Electrical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 81868
-    },
-    {
-     "branch": "Electrical Engineering",
-     "years": 5,
-     "degree": "Bachelor and Master of Technology (Dual Degree)",
-     "indicative_closing_rank": 90963
-    },
-    {
-     "branch": "Chemistry",
-     "years": 5,
-     "degree": "Integrated Master of Science",
-     "indicative_closing_rank": 91170
-    },
-    {
-     "branch": "Mechanical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 99763
-    },
-    {
-     "branch": "Mechanical Engineering",
-     "years": 5,
-     "degree": "Bachelor and Master of Technology (Dual Degree)",
-     "indicative_closing_rank": 102094
-    },
-    {
-     "branch": "Chemical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 102905
-    },
-    {
-     "branch": "Civil Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 102957
-    },
-    {
-     "branch": "Instrumentation and Control Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 103559
-    },
-    {
-     "branch": "Food Technology",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 121270
-    }
-   ],
-   "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative open-category closing rank."
-  },
-  "nirf": null,
-  "ug_gender": null,
-  "placement": null,
-  "naac": {
-   "grade": null,
-   "cgpa": null,
-   "cycle": null,
-   "not_applicable_reason": null
-  },
-  "data_sources": {
-   "identity": "AISHE 2024-25",
-   "programs": "JoSAA 2025 Round 6",
-   "ranking": null,
-   "placement": null,
-   "accreditation": null
-  }
- },
- {
-  "college_id": "josaa:school-of-engineering-tezpur-university-napaam-tezpur",
-  "aishe_code": null,
-  "name": "School of Engineering, Tezpur University, Napaam, Tezpur",
-  "display_name": "School of Engineering, Tezpur University, Napaam, Tezpur",
-  "state": null,
-  "state_is_inferred": true,
-  "district": null,
-  "kind": null,
-  "management": null,
-  "year_established": null,
-  "website": null,
-  "entrance_exams": [
-   "JEE Main"
-  ],
-  "counselling": "JoSAA",
-  "programs": {
-   "count": 13,
-   "degrees": [
-    "Bachelor of Design",
-    "Bachelor of Technology",
-    "Bachelor of Technology and MBA (Dual Degree)"
-   ],
-   "quotas_offered": [
-    "AI"
-   ],
-   "list": [
-    {
-     "branch": "B.Tech. (Computer Science and Engineering) - MBA",
-     "years": 5,
-     "degree": "Bachelor of Technology and MBA (Dual Degree)",
-     "indicative_closing_rank": 58363
-    },
-    {
-     "branch": "Computer Science and Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 64476
-    },
-    {
-     "branch": "B.Tech. (Food Engineering and Technology) - MBA",
-     "years": 5,
-     "degree": "Bachelor of Technology and MBA (Dual Degree)",
-     "indicative_closing_rank": 72557
-    },
-    {
-     "branch": "B.Tech. (Electronics and Communication Engineering) - MBA",
-     "years": 5,
-     "degree": "Bachelor of Technology and MBA (Dual Degree)",
-     "indicative_closing_rank": 72944
-    },
-    {
-     "branch": "Electronics and Communication Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 75585
-    },
-    {
-     "branch": "B.Tech. (Mechanical Engineering) - MBA",
-     "years": 5,
-     "degree": "Bachelor of Technology and MBA (Dual Degree)",
-     "indicative_closing_rank": 78838
-    },
-    {
-     "branch": "B.Tech. (Elctrical Engineering) - MBA",
-     "years": 5,
-     "degree": "Bachelor of Technology and MBA (Dual Degree)",
-     "indicative_closing_rank": 83701
-    },
-    {
-     "branch": "Electrical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 86122
-    },
-    {
-     "branch": "B.Tech. (Civil Engineering) - MBA",
-     "years": 5,
-     "degree": "Bachelor of Technology and MBA (Dual Degree)",
-     "indicative_closing_rank": 87713
-    },
-    {
-     "branch": "Mechanical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 91057
-    },
-    {
-     "branch": "Bachelor of Design",
-     "years": 4,
-     "degree": "Bachelor of Design",
-     "indicative_closing_rank": 92713
-    },
-    {
-     "branch": "Civil Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 104195
-    },
-    {
-     "branch": "Food Engineering and Technology",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 121531
     }
    ],
    "source": "JoSAA 2025 Round 6",
@@ -14319,17 +14861,17 @@
   }
  },
  {
-  "college_id": "josaa:school-of-studies-of-engineering-and-technology-guru-ghasida-197f67",
-  "aishe_code": null,
-  "name": "School of Studies of Engineering and Technology, Guru Ghasidas Vishwavidyalaya, Bilaspur",
+  "college_id": "U-0085",
+  "aishe_code": "U-0085",
+  "name": "Guru Ghasidas Vishwavidyalaya, Bilaspur",
   "display_name": "School of Studies of Engineering and Technology, Guru Ghasidas Vishwavidyalaya, Bilaspur",
-  "state": null,
-  "state_is_inferred": true,
-  "district": null,
-  "kind": null,
+  "state": "Chhattisgarh",
+  "state_is_inferred": false,
+  "district": "Bilaspur",
+  "kind": "Central University",
   "management": null,
-  "year_established": null,
-  "website": null,
+  "year_established": 1983,
+  "website": "www.new.ggu.ac.in",
   "entrance_exams": [
    "JEE Main"
   ],
@@ -14411,9 +14953,9 @@
   "ug_gender": null,
   "placement": null,
   "naac": {
-   "grade": null,
-   "cgpa": null,
-   "cycle": null,
+   "grade": "A++",
+   "cgpa": 3.62,
+   "cycle": 2,
    "not_applicable_reason": null
   },
   "data_sources": {
@@ -14421,208 +14963,7 @@
    "programs": "JoSAA 2025 Round 6",
    "ranking": null,
    "placement": null,
-   "accreditation": null
-  }
- },
- {
-  "college_id": "josaa:shri-g-s-institute-of-technology-and-science-indore",
-  "aishe_code": null,
-  "name": "Shri G. S. Institute of Technology and Science Indore",
-  "display_name": "Shri G. S. Institute of Technology and Science Indore",
-  "state": null,
-  "state_is_inferred": true,
-  "district": null,
-  "kind": null,
-  "management": null,
-  "year_established": null,
-  "website": null,
-  "entrance_exams": [
-   "JEE Main"
-  ],
-  "counselling": "JoSAA",
-  "programs": {
-   "count": 9,
-   "degrees": [
-    "Bachelor of Technology"
-   ],
-   "quotas_offered": [
-    "AI"
-   ],
-   "list": [
-    {
-     "branch": "Computer Science and Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 27947
-    },
-    {
-     "branch": "Information Technology",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 32619
-    },
-    {
-     "branch": "Electronics and Telecommunication Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 41294
-    },
-    {
-     "branch": "Electrical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 50882
-    },
-    {
-     "branch": "Electronics and Instrumentation Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 51031
-    },
-    {
-     "branch": "Mechanical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 55093
-    },
-    {
-     "branch": "Civil Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 55931
-    },
-    {
-     "branch": "Biomedical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 69348
-    },
-    {
-     "branch": "Industrial and Production Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 71193
-    }
-   ],
-   "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative open-category closing rank."
-  },
-  "nirf": null,
-  "ug_gender": null,
-  "placement": null,
-  "naac": {
-   "grade": null,
-   "cgpa": null,
-   "cycle": null,
-   "not_applicable_reason": null
-  },
-  "data_sources": {
-   "identity": "AISHE 2024-25",
-   "programs": "JoSAA 2025 Round 6",
-   "ranking": null,
-   "placement": null,
-   "accreditation": null
-  }
- },
- {
-  "college_id": "josaa:shri-mata-vaishno-devi-university-katra-jammu-kashmir",
-  "aishe_code": null,
-  "name": "Shri Mata Vaishno Devi University, Katra, Jammu & Kashmir",
-  "display_name": "Shri Mata Vaishno Devi University, Katra, Jammu & Kashmir",
-  "state": "Jammu and Kashmir",
-  "state_is_inferred": true,
-  "district": null,
-  "kind": null,
-  "management": null,
-  "year_established": null,
-  "website": null,
-  "entrance_exams": [
-   "JEE Main"
-  ],
-  "counselling": "JoSAA",
-  "programs": {
-   "count": 9,
-   "degrees": [
-    "Bachelor of Architecture",
-    "Bachelor of Technology"
-   ],
-   "quotas_offered": [
-    "AI"
-   ],
-   "list": [
-    {
-     "branch": "Architecture",
-     "years": 5,
-     "degree": "Bachelor of Architecture",
-     "indicative_closing_rank": 1287
-    },
-    {
-     "branch": "Computer Science and Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 69474
-    },
-    {
-     "branch": "B.Tech in Mathematics and Computing",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 72314
-    },
-    {
-     "branch": "Robotics and AI",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 74007
-    },
-    {
-     "branch": "Bio Technology",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 83268
-    },
-    {
-     "branch": "Electronics and Communication Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 87906
-    },
-    {
-     "branch": "Electrical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 94375
-    },
-    {
-     "branch": "Mechanical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 94474
-    },
-    {
-     "branch": "Civil Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 102500
-    }
-   ],
-   "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative open-category closing rank."
-  },
-  "nirf": null,
-  "ug_gender": null,
-  "placement": null,
-  "naac": {
-   "grade": null,
-   "cgpa": null,
-   "cycle": null,
-   "not_applicable_reason": null
-  },
-  "data_sources": {
-   "identity": "AISHE 2024-25",
-   "programs": "JoSAA 2025 Round 6",
-   "ranking": null,
-   "placement": null,
-   "accreditation": null
+   "accreditation": "NAAC"
   }
  }
 ]
