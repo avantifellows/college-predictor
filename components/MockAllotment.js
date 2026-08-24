@@ -9,6 +9,7 @@ import {
   getRoundOneResult,
   advanceRound,
   findMissedBetterOptions,
+  annualFeeForCategory,
   TOTAL_ROUNDS,
 } from "../utils/josaaSimulator";
 
@@ -444,6 +445,7 @@ const MockAllotment = () => {
           isFinalRound={isFinalRound}
           missedOptions={missedOptions}
           collegesByName={collegesByName}
+          profile={state.profile}
           onFreeze={freeze}
           onAdvance={(mode) =>
             runWithDelay(
@@ -1117,7 +1119,21 @@ const MISSED_OPTIONS_TABS = [
     label: "By Median CTC",
     note: "College-wide median, not specific to this branch.",
   },
+  {
+    key: "fees",
+    label: "By Fees",
+    note: "Annual tuition fee for your category — SC/ST/EWS/PwD shown at the waived rate.",
+  },
 ];
+
+// Sort direction and display strings for each non-closing-rank tab — lower
+// is "better" for fees (less rank-like, just cost), higher for salary, lower
+// for NIRF (rank 1 is best).
+const MISSED_OPTIONS_METRICS = {
+  nirf: { metricKey: "nirfRank", direction: "asc", missingLabel: "an NIRF rank" },
+  salary: { metricKey: "medianSalary", direction: "desc", missingLabel: "a CTC figure" },
+  fees: { metricKey: "annualFee", direction: "asc", missingLabel: "a fees figure" },
+};
 
 const MISSED_OPTIONS_DISPLAY_LIMIT = 8;
 
@@ -1131,7 +1147,8 @@ const missedOptionRow = (opt) => (
     <p className="mt-1 text-[11px] text-[#9a8a84]">
       Closing rank: {formatRank(opt.closingRank)} · NIRF:{" "}
       {opt.nirfRank ?? "not ranked"} · Median CTC:{" "}
-      {formatSalary(opt.medianSalary)}
+      {formatSalary(opt.medianSalary)} · Fees: {formatSalary(opt.annualFee)}
+      {opt.annualFee != null && opt.feeWaived && " (waived)"}
       {opt.listPosition != null && (
         <>
           {" "}
@@ -1184,11 +1201,9 @@ const MissedOptionsPanel = ({ missedOptions, round }) => {
       {tab !== "closingRank" && (
         <RankedList
           items={missedOptions}
-          metricKey={tab === "nirf" ? "nirfRank" : "medianSalary"}
-          direction={tab === "nirf" ? "asc" : "desc"}
-          emptyMessage={`None of the missed options have ${
-            tab === "nirf" ? "an NIRF rank" : "a CTC figure"
-          } on record.`}
+          metricKey={MISSED_OPTIONS_METRICS[tab].metricKey}
+          direction={MISSED_OPTIONS_METRICS[tab].direction}
+          emptyMessage={`None of the missed options have ${MISSED_OPTIONS_METRICS[tab].missingLabel} on record.`}
         />
       )}
     </div>
@@ -1261,6 +1276,7 @@ const SimulateStep = ({
   isFinalRound,
   missedOptions,
   collegesByName,
+  profile,
   onFreeze,
   onAdvance,
   onRestart,
@@ -1286,6 +1302,7 @@ const SimulateStep = ({
   const college = finalChoice
     ? collegesByName?.get(finalChoice.choice.institute)
     : null;
+  const fee = college ? annualFeeForCategory(college, profile.category) : null;
   const canSlide = Boolean(finalChoice);
 
   return (
@@ -1371,7 +1388,7 @@ const SimulateStep = ({
             {finalChoice.choice.institute}
           </p>
           <p className="text-sm text-[#5b4a45]">{finalChoice.choice.program}</p>
-          <div className="mt-3 grid gap-2 text-xs text-[#5b4a45] sm:grid-cols-3">
+          <div className="mt-3 grid gap-2 text-xs text-[#5b4a45] sm:grid-cols-2">
             <span className="rounded-full bg-[#f8efec] px-3 py-1">
               NIRF Engg rank: {college?.nirf?.engineering_rank ?? "not ranked"}
             </span>
@@ -1386,6 +1403,10 @@ const SimulateStep = ({
             <span className="rounded-full bg-[#f8efec] px-3 py-1">
               Median CTC (college-level):{" "}
               {formatSalary(college?.placement?.median_salary)}
+            </span>
+            <span className="rounded-full bg-[#f8efec] px-3 py-1">
+              Annual fee (your category): {formatSalary(fee?.amount)}
+              {fee?.waived && " (waived)"}
             </span>
           </div>
         </div>

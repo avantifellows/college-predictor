@@ -33,6 +33,37 @@ export const CATEGORY_TO_SEAT_TYPE = {
   ews_pwd: "EWS (PwD)",
 };
 
+// Categories that get the full tuition-fee waiver (colleges.json's
+// fees.annual_fee_waived) at IITs/NITs: SC, ST, EWS, and any PwD variant.
+// OBC-NCL and General/Open (non-PwD) don't get an automatic waiver, so they
+// pay fees.annual_fee, the standard rate.
+const WAIVED_FEE_CATEGORIES = new Set([
+  "sc",
+  "sc_pwd",
+  "st",
+  "st_pwd",
+  "ews",
+  "ews_pwd",
+  "open_pwd",
+  "obc_ncl_pwd",
+]);
+
+/** Which annual tuition figure applies to this student's category at this
+ * college — the waived rate for SC/ST/EWS/PwD, the standard rate otherwise.
+ * Falls back to the standard rate (and reports `waived: false`) when the
+ * college has no annual_fee_waived on record, even for a qualifying
+ * category — `waived` reflects which figure was actually used, not just
+ * category eligibility, so the UI never mislabels the standard fee as
+ * waived. Returns null if the college has no fees data on record at all. */
+export function annualFeeForCategory(college, category) {
+  const fees = college?.fees;
+  if (!fees) return null;
+  const qualifiesForWaiver = WAIVED_FEE_CATEGORIES.has(category);
+  const waived = qualifiesForWaiver && fees.annual_fee_waived != null;
+  const amount = waived ? fees.annual_fee_waived : fees.annual_fee;
+  return amount == null ? null : { amount, waived };
+}
+
 const seatKey = (institute, program, quota, seatType, gender) =>
   [institute, program, quota, seatType, gender].join("");
 
@@ -428,8 +459,8 @@ export function advanceRound(
  * Each result also carries `exam` (JEE Main / JEE Advanced) — the caller
  * must not rank-sort IIT and non-IIT results against each other on raw
  * closing rank; the two exams' candidate pools aren't the same scale (see
- * examSpaceFor). NIRF rank and salary don't have that problem, so those tabs
- * can sort the full mixed list directly.
+ * examSpaceFor). NIRF rank, salary, and fees don't have that problem, so
+ * those tabs can sort the full mixed list directly.
  */
 export function findMissedBetterOptions(
   catalog,
@@ -469,12 +500,15 @@ export function findMissedBetterOptions(
     if (!seat || seat.closing < rank) continue;
 
     const college = collegesByName.get(item.institute);
+    const fee = annualFeeForCategory(college, profile.category);
     results.push({
       institute: item.institute,
       program: item.program,
       closingRank: seat.closing,
       nirfRank: college?.nirf?.engineering_rank ?? null,
       medianSalary: college?.placement?.median_salary ?? null,
+      annualFee: fee?.amount ?? null,
+      feeWaived: fee?.waived ?? false,
       exam: examSpaceFor(item.institute, collegesByName),
       listPosition: listPositionByPair.get(key) ?? null,
     });
