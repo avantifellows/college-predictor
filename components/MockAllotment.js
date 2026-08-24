@@ -9,7 +9,6 @@ import {
   getRoundOneResult,
   advanceRound,
   findMissedBetterOptions,
-  findIndicativeRank,
   TOTAL_ROUNDS,
 } from "../utils/josaaSimulator";
 
@@ -252,8 +251,6 @@ const MockAllotment = () => {
 
   const lockChoices = () =>
     setState((s) => ({ ...s, locked: true, trail: [], frozen: false, step: "simulate" }));
-  const unlock = () =>
-    setState((s) => ({ ...s, locked: false, trail: [], frozen: false, step: "choices" }));
 
   const freeze = () => setState((s) => ({ ...s, frozen: true }));
 
@@ -273,6 +270,19 @@ const MockAllotment = () => {
       );
       return { ...s, trail: [...s.trail, next] };
     });
+  };
+
+  // Real JoSAA rounds don't resolve instantly — this fakes that processing
+  // feel (and gives round-to-round changes a beat to register) by holding a
+  // label on screen for a bit before actually applying the state change.
+  // No real async work happens here; it's purely cosmetic pacing.
+  const [transitionLabel, setTransitionLabel] = useState(null);
+  const runWithDelay = (label, delayMs, action) => {
+    setTransitionLabel(label);
+    window.setTimeout(() => {
+      action();
+      setTransitionLabel(null);
+    }, delayMs);
   };
 
   const restart = () => {
@@ -298,13 +308,14 @@ const MockAllotment = () => {
         JoSAA Mock Allotment
       </h1>
       <p className="mt-1 text-sm text-[#7a655f]">
-        Practice choice-filling, locking, and the freeze/float rounds using real
-        JoSAA 2025 cutoff data — a training tool, not the real counselling.
+        Practice choice-filling and the freeze/float rounds with real JoSAA 2025 cutoff data.
       </p>
 
       <StepBar current={state.step} locked={state.locked} onSelect={setStep} />
 
-      {state.step === "info" && (
+      {transitionLabel && <LoadingCard label={transitionLabel} />}
+
+      {!transitionLabel && state.step === "info" && (
         <InfoStep
           profile={state.profile}
           setProfile={setProfile}
@@ -313,7 +324,7 @@ const MockAllotment = () => {
         />
       )}
 
-      {state.step === "choices" && (
+      {!transitionLabel && state.step === "choices" && (
         <ChoicesStep
           loading={dataLoading}
           error={dataError}
@@ -336,18 +347,22 @@ const MockAllotment = () => {
           onMoveToPosition={moveChoiceToPosition}
           onBack={() => setStep("info")}
           onNext={() => setStep("review")}
+          locked={state.locked}
         />
       )}
 
-      {state.step === "review" && (
+      {!transitionLabel && state.step === "review" && (
         <ReviewStep
           profile={state.profile}
           choices={state.choices}
           locked={state.locked}
           onBack={() => setStep("choices")}
-          onLock={lockChoices}
-          onUnlock={unlock}
-          onProceed={() => setStep("simulate")}
+          onLock={() =>
+            runWithDelay("Locking your choices and running Round 1 allotment…", 1400, lockChoices)
+          }
+          onProceed={() =>
+            runWithDelay("Returning to your simulation…", 700, () => setStep("simulate"))
+          }
           onReorder={reorderChoices}
           onMoveUp={moveChoiceUp}
           onMoveDown={moveChoiceDown}
@@ -356,7 +371,7 @@ const MockAllotment = () => {
         />
       )}
 
-      {state.step === "simulate" && (
+      {!transitionLabel && state.step === "simulate" && (
         <SimulateStep
           locked={state.locked}
           choices={state.choices}
@@ -367,8 +382,13 @@ const MockAllotment = () => {
           missedOptions={missedOptions}
           collegesByName={collegesByName}
           onFreeze={freeze}
-          onAdvance={advance}
-          onUnlock={unlock}
+          onAdvance={(mode) =>
+            runWithDelay(
+              `Processing Round ${current ? current.round + 1 : ""} allotment…`,
+              1100,
+              () => advance(mode)
+            )
+          }
           onRestart={restart}
         />
       )}
@@ -396,6 +416,18 @@ const StepBar = ({ current, locked, onSelect }) => (
         </button>
       );
     })}
+  </div>
+);
+
+// Shown in place of the current step while a locking/round action fakes a
+// beat of "processing" — see runWithDelay in MockAllotment.
+const LoadingCard = ({ label }) => (
+  <div className={`${cardClass} mt-6 flex flex-col items-center justify-center gap-3 py-14 text-center`}>
+    <div
+      className="h-9 w-9 animate-spin rounded-full border-4 border-[#f0e6e1] border-t-[#b52326]"
+      aria-hidden="true"
+    />
+    <p className="text-sm font-semibold text-[#5b4a45]">{label}</p>
   </div>
 );
 
@@ -493,12 +525,6 @@ const InfoStep = ({ profile, setProfile, onNext, valid }) => (
       )}
     </div>
 
-    <p className="mt-3 text-xs text-[#7a655f]">
-      Program type isn&apos;t asked here — you&apos;ll filter by Engineering /
-      Architecture / Planning while browsing choices, same as real JoSAA lets
-      you mix them in one list.
-    </p>
-
     <div className="mt-5 flex justify-end">
       <button type="button" className={primaryBtn} disabled={!valid} onClick={onNext}>
         Continue to Choice Filling →
@@ -507,7 +533,7 @@ const InfoStep = ({ profile, setProfile, onNext, valid }) => (
   </div>
 );
 
-const CatalogRow = ({ item, added, onAdd }) => (
+const CatalogRow = ({ item, added, onAdd, locked }) => (
   <div className="flex items-center justify-between gap-3 border-b border-[#f0e6e1] px-3 py-2 last:border-b-0">
     <div className="min-w-0">
       <p className="text-sm font-semibold text-[#3a2c28]">{item.institute}</p>
@@ -515,19 +541,18 @@ const CatalogRow = ({ item, added, onAdd }) => (
       {/* Deliberately no cutoff/rank shown here — this is a practice mock, not
           the predictor. Seeing which seats are "easy" before you build your
           list defeats the point: real JoSAA doesn't tell you either. */}
-      <p className="mt-0.5 text-[11px] text-[#9a8a84]">Quota: {item.quota}</p>
     </div>
     <button
       type="button"
-      disabled={added}
+      disabled={added || locked}
       onClick={() => onAdd(item)}
       className={`shrink-0 rounded-full px-3 py-1 text-xs font-semibold transition ${
-        added
+        added || locked
           ? "cursor-not-allowed bg-[#f0e6e1] text-[#9a8a84]"
           : "bg-[#b52326] text-white hover:bg-[#98191c]"
       }`}
     >
-      {added ? "Added ✓" : "+ Add"}
+      {locked ? "Locked" : added ? "Added ✓" : "+ Add"}
     </button>
   </div>
 );
@@ -713,8 +738,14 @@ const ChoicesStep = ({
   onMoveToPosition,
   onBack,
   onNext,
+  locked,
 }) => (
   <div className="mt-6 grid gap-6 md:grid-cols-2">
+    {locked && (
+      <p className="md:col-span-2 rounded-xl border border-[#d8c7c1] bg-[#f8efec] px-4 py-2 text-xs font-semibold text-[#5b4a45]">
+        Choices are locked & submitted — browsing only, no changes.
+      </p>
+    )}
     <div className={cardClass}>
       <h2 className="text-sm font-bold text-[#3a2c28]">
         Browse choices {totalCatalogSize ? `(${totalCatalogSize} eligible for you)` : ""}
@@ -767,6 +798,7 @@ const ChoicesStep = ({
               item={item}
               added={chosenKeys.has(`${item.institute}|${item.program}`)}
               onAdd={onAdd}
+              locked={locked}
             />
           ))}
       </div>
@@ -777,10 +809,19 @@ const ChoicesStep = ({
         Your preference order ({choices.length})
       </h2>
       {choices.length === 0 ? (
-        <p className="mt-3 text-sm text-[#7a655f]">
-          Add choices from the left — drag, use ↑/↓, or type a position number to reorder them as
-          you go.
-        </p>
+        <p className="mt-3 text-sm text-[#7a655f]">Add choices from the left.</p>
+      ) : locked ? (
+        <ol className="mt-2 space-y-1">
+          {choices.map((item, index) => (
+            <li
+              key={`${item.institute}|${item.program}`}
+              className="rounded-lg border border-[#f0e6e1] px-3 py-2 text-sm"
+            >
+              <span className="mr-2 font-bold text-[#b52326]">{index + 1}.</span>
+              {item.institute} — <span className="text-[#7a655f]">{item.program}</span>
+            </li>
+          ))}
+        </ol>
       ) : (
         <ReorderableChoiceList
           choices={choices}
@@ -802,7 +843,7 @@ const ChoicesStep = ({
           disabled={choices.length === 0}
           onClick={onNext}
         >
-          Continue to Review →
+          {locked ? "Go to Review →" : "Save and Continue →"}
         </button>
       </div>
     </div>
@@ -815,14 +856,24 @@ const ReviewStep = ({
   locked,
   onBack,
   onLock,
-  onUnlock,
   onProceed,
   onReorder,
   onMoveUp,
   onMoveDown,
   onMoveToPosition,
   onRemove,
-}) => (
+}) => {
+  // Purely cosmetic confirmation — reordering/removing already saves to state
+  // (and localStorage) immediately, so this button has nothing extra to do
+  // except reassure the student their order stuck, the way JoSAA's own
+  // "Save" click does.
+  const [justSaved, setJustSaved] = useState(false);
+  const flashSaved = () => {
+    setJustSaved(true);
+    window.setTimeout(() => setJustSaved(false), 1500);
+  };
+
+  return (
   <div className={`${cardClass} mt-6`}>
     <h2 className="text-sm font-bold text-[#3a2c28]">Your profile</h2>
     <div className="mt-2 flex flex-wrap gap-2 text-xs text-[#5b4a45]">
@@ -848,10 +899,6 @@ const ReviewStep = ({
 
     {!locked ? (
       <>
-        <p className="mt-1 text-xs text-[#7a655f]">
-          Drag the grip, use the ↑/↓ buttons, or type a position number to reorder — #1 is your
-          top preference, same as JoSAA&apos;s own choice list.
-        </p>
         <ReorderableChoiceList
           choices={choices}
           onReorder={onReorder}
@@ -881,20 +928,28 @@ const ReviewStep = ({
           <button type="button" className={secondaryBtn} onClick={onBack}>
             ← Back to add more choices
           </button>
-          <button
-            type="button"
-            className={primaryBtn}
-            disabled={choices.length === 0}
-            onClick={onLock}
-          >
-            🔒 Lock My Choices
-          </button>
+          <div className="flex flex-wrap gap-2">
+            <button
+              type="button"
+              className={secondaryBtn}
+              disabled={choices.length === 0}
+              onClick={flashSaved}
+            >
+              {justSaved ? "✓ Saved" : "Save changes"}
+            </button>
+            <button
+              type="button"
+              className={primaryBtn}
+              disabled={choices.length === 0}
+              onClick={onLock}
+            >
+               Lock & Submit Choices
+            </button>
+          </div>
         </>
       ) : (
         <>
-          <button type="button" className={secondaryBtn} onClick={onUnlock}>
-            Unlock & edit choices
-          </button>
+          <p className="text-xs text-[#7a655f]">Locked & submitted.</p>
           <button type="button" className={primaryBtn} onClick={onProceed}>
             Proceed to Simulation →
           </button>
@@ -902,7 +957,8 @@ const ReviewStep = ({
       )}
     </div>
   </div>
-);
+  );
+};
 
 const RoundCard = ({ current, choicesCount }) => {
   if (!current) return null;
@@ -915,7 +971,7 @@ const RoundCard = ({ current, choicesCount }) => {
       </div>
     );
   }
-  const { choice, index, opening, closing, quota, gender } = current.provisional;
+  const { choice, index, opening, closing } = current.provisional;
   return (
     <div className={cardClass}>
       <p className="text-xs font-semibold uppercase tracking-wide text-[#b52326]">
@@ -924,8 +980,8 @@ const RoundCard = ({ current, choicesCount }) => {
       <p className="mt-1 text-lg font-bold text-[#3a2c28]">{choice.institute}</p>
       <p className="text-sm text-[#5b4a45]">{choice.program}</p>
       <p className="mt-2 text-xs text-[#7a655f]">
-        Your preference #{index + 1} of {choicesCount} · Quota {quota} · Pool {gender} · Opening{" "}
-        {formatRank(opening)} / Closing {formatRank(closing)}
+        Your preference #{index + 1} of {choicesCount} · Opening {formatRank(opening)} / Closing{" "}
+        {formatRank(closing)}
       </p>
     </div>
   );
@@ -935,17 +991,17 @@ const MISSED_OPTIONS_TABS = [
   {
     key: "closingRank",
     label: "By Closing Rank",
-    note: "Most reliable — the actual seat-level cutoff, with full coverage. JEE Main and JEE Advanced can't be ranked against each other on this number though (different candidate pools), so they're grouped separately below.",
+    note: "",
   },
   {
     key: "nirf",
     label: "By NIRF Ranking",
-    note: "College-level rank (not branch-level), and only about half of institutes are NIRF-ranked at all. Comparable across JEE Main and JEE Advanced institutes alike.",
+    note: "College-level, not branch-level — only ~half of institutes are ranked.",
   },
   {
     key: "salary",
-    label: "By Median Salary",
-    note: "This median is across ALL branches of the college, not this specific branch — the least reliable of the three. Closing rank is the most accurate comparison.",
+    label: "By Median CTC",
+    note: "College-wide median, not specific to this branch.",
   },
 ];
 
@@ -959,8 +1015,8 @@ const missedOptionRow = (opt) => (
     <p className="font-semibold text-[#3a2c28]">{opt.institute}</p>
     <p className="text-xs text-[#7a655f]">{opt.program}</p>
     <p className="mt-1 text-[11px] text-[#9a8a84]">
-      Closing rank: {formatRank(opt.closingRank)} · NIRF: {opt.nirfRank ?? "not ranked"} · Salary:{" "}
-      {formatSalary(opt.medianSalary)}
+      Closing rank: {formatRank(opt.closingRank)} · NIRF: {opt.nirfRank ?? "not ranked"} · Median
+      CTC: {formatSalary(opt.medianSalary)}
       {opt.listPosition != null && (
         <>
           {" "}
@@ -981,10 +1037,7 @@ const MissedOptionsPanel = ({ missedOptions, round }) => {
   return (
     <div className={cardClass}>
       <h2 className="text-sm font-bold text-[#3a2c28]">You may have gotten a better option</h2>
-      <p className="mt-1 text-xs text-[#7a655f]">
-        These were also reachable in Round {round} — some weren&apos;t in your list at all,
-        others you&apos;d ranked lower than what you got (flagged below).
-      </p>
+      <p className="mt-1 text-xs text-[#7a655f]">Also reachable in Round {round}:</p>
 
       <div className="mt-3 flex flex-wrap gap-1">
         {MISSED_OPTIONS_TABS.map((t) => (
@@ -1002,7 +1055,7 @@ const MissedOptionsPanel = ({ missedOptions, round }) => {
           </button>
         ))}
       </div>
-      <p className="mt-2 text-[11px] text-[#9a8a84]">{activeTab.note}</p>
+      {activeTab.note && <p className="mt-2 text-[11px] text-[#9a8a84]">{activeTab.note}</p>}
 
       {tab === "closingRank" && (
         <ClosingRankGroups missedOptions={missedOptions} />
@@ -1013,7 +1066,7 @@ const MissedOptionsPanel = ({ missedOptions, round }) => {
           metricKey={tab === "nirf" ? "nirfRank" : "medianSalary"}
           direction={tab === "nirf" ? "asc" : "desc"}
           emptyMessage={`None of the missed options have ${
-            tab === "nirf" ? "an NIRF rank" : "a salary figure"
+            tab === "nirf" ? "an NIRF rank" : "a CTC figure"
           } on record.`}
         />
       )}
@@ -1081,7 +1134,6 @@ const SimulateStep = ({
   collegesByName,
   onFreeze,
   onAdvance,
-  onUnlock,
   onRestart,
 }) => {
   if (!locked) {
@@ -1101,9 +1153,6 @@ const SimulateStep = ({
 
   const finalChoice = current.provisional;
   const college = finalChoice ? collegesByName?.get(finalChoice.choice.institute) : null;
-  const indicativeRank = finalChoice
-    ? findIndicativeRank(college, finalChoice.choice.program)
-    : null;
   const canSlide = Boolean(finalChoice);
 
   return (
@@ -1114,10 +1163,10 @@ const SimulateStep = ({
         {!finalRevealed && (
           <>
             <button type="button" className={primaryBtn} onClick={onFreeze}>
-              ❄️ Freeze this seat
+              Freeze this seat
             </button>
             <button type="button" className={secondaryBtn} onClick={() => onAdvance("float")}>
-              🔄 Float to Round {current.round + 1}
+              Float to Round {current.round + 1}
             </button>
             <button
               type="button"
@@ -1130,7 +1179,7 @@ const SimulateStep = ({
               className={secondaryBtn}
               onClick={() => onAdvance("slide")}
             >
-              ↕️ Slide to Round {current.round + 1}
+               Slide to Round {current.round + 1}
             </button>
           </>
         )}
@@ -1145,10 +1194,8 @@ const SimulateStep = ({
 
       {!finalRevealed && (
         <p className="text-[11px] text-[#9a8a84]">
-          <strong>Float</strong> checks your whole list for anything better — could be a
-          different institute. <strong>Slide</strong> only checks other branches at{" "}
-          {canSlide ? finalChoice.choice.institute : "your current institute"} — you keep the
-          college, only the branch can improve.
+          <strong>Float</strong>: checks your whole list. <strong>Slide</strong>: same institute,
+          other branches only.
         </p>
       )}
 
@@ -1177,11 +1224,15 @@ const SimulateStep = ({
             <span className="rounded-full bg-[#f8efec] px-3 py-1">
               NIRF Engg rank: {college?.nirf?.engineering_rank ?? "not ranked"}
             </span>
+            {/* Same opening/closing already shown in the round card above —
+                sourced from the same seat lookup (your actual quota/category/
+                round), not colleges.json's generic OPEN-category figure, so
+                it never disagrees with what you just saw. */}
             <span className="rounded-full bg-[#f8efec] px-3 py-1">
-              Branch indicative closing rank: {formatRank(indicativeRank)}
+              Branch closing rank (your quota): {formatRank(finalChoice.closing)}
             </span>
             <span className="rounded-full bg-[#f8efec] px-3 py-1">
-              Median salary (college-level): {formatSalary(college?.placement?.median_salary)}
+              Median CTC (college-level): {formatSalary(college?.placement?.median_salary)}
             </span>
           </div>
         </div>
@@ -1201,16 +1252,10 @@ const SimulateStep = ({
       )}
 
       <p className="text-[11px] text-[#9a8a84]">
-        Based on JoSAA 2025 cutoffs across all 6 rounds. This mock does not simulate other
-        candidates&apos; choices or real-time seat withdrawal — it checks, each round, whether
-        your listed seats&apos; actual closing rank that round would have covered your rank.
-        NIRF rank and salary are per-college, not per-branch.
+        Based on JoSAA 2025 cutoffs. NIRF rank and CTC are per-college, not per-branch.
       </p>
 
       <div className="flex flex-wrap gap-2">
-        <button type="button" className={secondaryBtn} onClick={onUnlock}>
-          Unlock & edit choices
-        </button>
         <button type="button" className={secondaryBtn} onClick={onRestart}>
           ↺ Restart mock allotment
         </button>
