@@ -32,7 +32,9 @@ const STEP_LABELS = {
 
 const categoryField = josaaConfig.fields.find((f) => f.name === "category");
 const genderField = josaaConfig.fields.find((f) => f.name === "gender");
-const qualifiedField = josaaConfig.fields.find((f) => f.name === "qualifiedJeeAdv");
+const qualifiedField = josaaConfig.fields.find(
+  (f) => f.name === "qualifiedJeeAdv"
+);
 
 const optionValue = (opt) => (typeof opt === "string" ? opt : opt.value);
 const optionLabel = (opt) => (typeof opt === "string" ? opt : opt.label);
@@ -60,7 +62,11 @@ function loadPersistedState() {
     const raw = window.localStorage.getItem(STORAGE_KEY);
     if (!raw) return defaultState;
     const parsed = JSON.parse(raw);
-    return { ...defaultState, ...parsed, profile: { ...defaultProfile, ...parsed.profile } };
+    return {
+      ...defaultState,
+      ...parsed,
+      profile: { ...defaultProfile, ...parsed.profile },
+    };
   } catch {
     return defaultState;
   }
@@ -76,7 +82,8 @@ const matchesProgramType = (programName, type) => {
   return true; // "all"
 };
 
-const formatRank = (rank) => (rank == null ? "—" : Number(rank).toLocaleString("en-IN"));
+const formatRank = (rank) =>
+  rank == null ? "—" : Number(rank).toLocaleString("en-IN");
 const formatSalary = (value) =>
   value == null ? "—" : `₹${Number(value).toLocaleString("en-IN")}`;
 
@@ -131,7 +138,12 @@ const MockAllotment = () => {
   const seatIndex = useMemo(() => (rows ? buildSeatIndex(rows) : null), [rows]);
 
   const catalog = useMemo(() => {
-    if (!rows || !collegesByName || !state.profile.category || !state.profile.gender) {
+    if (
+      !rows ||
+      !collegesByName ||
+      !state.profile.category ||
+      !state.profile.gender
+    ) {
       return [];
     }
     return buildCatalog(rows, state.profile, collegesByName);
@@ -149,7 +161,8 @@ const MockAllotment = () => {
       if (!matchesProgramType(item.program, programType)) return false;
       if (!q) return true;
       return (
-        item.institute.toLowerCase().includes(q) || item.program.toLowerCase().includes(q)
+        item.institute.toLowerCase().includes(q) ||
+        item.program.toLowerCase().includes(q)
       );
     });
   }, [catalog, search, instituteFilter, programType]);
@@ -168,11 +181,30 @@ const MockAllotment = () => {
     if (!hydrated || state.step !== "simulate" || !state.locked) return;
     if (state.trail.length > 0) return;
     if (!seatIndex || !collegesByName || state.choices.length === 0) return;
-    const first = getRoundOneResult(state.choices, state.profile, seatIndex, collegesByName);
-    setState((s) => (s.trail.length > 0 ? s : { ...s, trail: [{ round: 1, provisional: first, mode: null }] }));
-  }, [hydrated, state.step, state.locked, state.trail.length, state.choices, state.profile, seatIndex, collegesByName]);
+    const first = getRoundOneResult(
+      state.choices,
+      state.profile,
+      seatIndex,
+      collegesByName
+    );
+    setState((s) =>
+      s.trail.length > 0
+        ? s
+        : { ...s, trail: [{ round: 1, provisional: first, mode: null }] }
+    );
+  }, [
+    hydrated,
+    state.step,
+    state.locked,
+    state.trail.length,
+    state.choices,
+    state.profile,
+    seatIndex,
+    collegesByName,
+  ]);
 
-  const current = state.trail.length > 0 ? state.trail[state.trail.length - 1] : null;
+  const current =
+    state.trail.length > 0 ? state.trail[state.trail.length - 1] : null;
   const isFinalRound = current ? current.round >= TOTAL_ROUNDS : false;
   const finalRevealed = state.frozen || isFinalRound;
 
@@ -195,7 +227,15 @@ const MockAllotment = () => {
       state.profile,
       collegesByName
     );
-  }, [finalRevealed, current, catalog, state.choices, state.profile, seatIndex, collegesByName]);
+  }, [
+    finalRevealed,
+    current,
+    catalog,
+    state.choices,
+    state.profile,
+    seatIndex,
+    collegesByName,
+  ]);
 
   const setStep = (step) => setState((s) => ({ ...s, step }));
   const setProfile = (patch) =>
@@ -204,12 +244,16 @@ const MockAllotment = () => {
   const addChoice = (item) => {
     setState((s) => {
       const key = `${item.institute}|${item.program}`;
-      if (s.choices.some((c) => `${c.institute}|${c.program}` === key)) return s;
+      if (s.choices.some((c) => `${c.institute}|${c.program}` === key))
+        return s;
       return { ...s, choices: [...s.choices, item] };
     });
   };
   const removeChoice = (index) => {
-    setState((s) => ({ ...s, choices: s.choices.filter((_, i) => i !== index) }));
+    setState((s) => ({
+      ...s,
+      choices: s.choices.filter((_, i) => i !== index),
+    }));
   };
   // Used by the Review step's drag-and-drop. `gapIndex` is a position BETWEEN
   // items in the ORIGINAL (pre-drag) array — 0..choices.length, where
@@ -238,9 +282,13 @@ const MockAllotment = () => {
   // the student typed (1 = top of the list).
   const moveChoiceToPosition = (fromIndex, position1Based) => {
     setState((s) => {
-      const desiredIndex = Math.max(0, Math.min(position1Based - 1, s.choices.length - 1));
+      const desiredIndex = Math.max(
+        0,
+        Math.min(position1Based - 1, s.choices.length - 1)
+      );
       if (desiredIndex === fromIndex) return s;
-      const gapIndex = desiredIndex >= fromIndex ? desiredIndex + 1 : desiredIndex;
+      const gapIndex =
+        desiredIndex >= fromIndex ? desiredIndex + 1 : desiredIndex;
       const next = [...s.choices];
       const [moved] = next.splice(fromIndex, 1);
       const insertAt = gapIndex > fromIndex ? gapIndex - 1 : gapIndex;
@@ -250,7 +298,13 @@ const MockAllotment = () => {
   };
 
   const lockChoices = () =>
-    setState((s) => ({ ...s, locked: true, trail: [], frozen: false, step: "simulate" }));
+    setState((s) => ({
+      ...s,
+      locked: true,
+      trail: [],
+      frozen: false,
+      step: "simulate",
+    }));
 
   const freeze = () => setState((s) => ({ ...s, frozen: true }));
 
@@ -298,7 +352,8 @@ const MockAllotment = () => {
     state.profile.gender &&
     state.profile.homeState &&
     Number(state.profile.mainRank) > 0 &&
-    (state.profile.qualifiedJeeAdv !== "Yes" || Number(state.profile.advRank) > 0);
+    (state.profile.qualifiedJeeAdv !== "Yes" ||
+      Number(state.profile.advRank) > 0);
 
   if (!hydrated) return null;
 
@@ -308,7 +363,8 @@ const MockAllotment = () => {
         JoSAA Mock Allotment
       </h1>
       <p className="mt-1 text-sm text-[#7a655f]">
-        Practice choice-filling and the freeze/float rounds with real JoSAA 2025 cutoff data.
+        Practice choice-filling and the freeze/float rounds with real JoSAA 2025
+        cutoff data.
       </p>
 
       <StepBar current={state.step} locked={state.locked} onSelect={setStep} />
@@ -358,10 +414,16 @@ const MockAllotment = () => {
           locked={state.locked}
           onBack={() => setStep("choices")}
           onLock={() =>
-            runWithDelay("Locking your choices and running Round 1 allotment…", 1400, lockChoices)
+            runWithDelay(
+              "Locking your choices and running Round 1 allotment…",
+              1400,
+              lockChoices
+            )
           }
           onProceed={() =>
-            runWithDelay("Returning to your simulation…", 700, () => setStep("simulate"))
+            runWithDelay("Returning to your simulation…", 700, () =>
+              setStep("simulate")
+            )
           }
           onReorder={reorderChoices}
           onMoveUp={moveChoiceUp}
@@ -422,7 +484,9 @@ const StepBar = ({ current, locked, onSelect }) => (
 // Shown in place of the current step while a locking/round action fakes a
 // beat of "processing" — see runWithDelay in MockAllotment.
 const LoadingCard = ({ label }) => (
-  <div className={`${cardClass} mt-6 flex flex-col items-center justify-center gap-3 py-14 text-center`}>
+  <div
+    className={`${cardClass} mt-6 flex flex-col items-center justify-center gap-3 py-14 text-center`}
+  >
     <div
       className="h-9 w-9 animate-spin rounded-full border-4 border-[#f0e6e1] border-t-[#b52326]"
       aria-hidden="true"
@@ -433,7 +497,9 @@ const LoadingCard = ({ label }) => (
 
 const Field = ({ label, children }) => (
   <label className="block">
-    <span className="mb-1 block text-sm font-semibold text-[#5b4a45]">{label}</span>
+    <span className="mb-1 block text-sm font-semibold text-[#5b4a45]">
+      {label}
+    </span>
     {children}
   </label>
 );
@@ -526,7 +592,12 @@ const InfoStep = ({ profile, setProfile, onNext, valid }) => (
     </div>
 
     <div className="mt-5 flex justify-end">
-      <button type="button" className={primaryBtn} disabled={!valid} onClick={onNext}>
+      <button
+        type="button"
+        className={primaryBtn}
+        disabled={!valid}
+        onClick={onNext}
+      >
         Continue to Choice Filling →
       </button>
     </div>
@@ -560,7 +631,14 @@ const CatalogRow = ({ item, added, onAdd, locked }) => (
 // Reorder controls shared by the Choice Filling and Review & Manage steps —
 // drag handle, ↑/↓ buttons, and a type-a-number-to-jump box, all driving the
 // same set of handlers. Used any time a choice list needs to be editable.
-const ReorderableChoiceList = ({ choices, onReorder, onMoveUp, onMoveDown, onMoveToPosition, onRemove }) => {
+const ReorderableChoiceList = ({
+  choices,
+  onReorder,
+  onMoveUp,
+  onMoveDown,
+  onMoveToPosition,
+  onRemove,
+}) => {
   // Pointer Events (not the native HTML5 drag API) so the same handlers drive
   // mouse, touch, and pen — the native drag API doesn't fire on touch at all,
   // which would leave mobile students with no way to reorder.
@@ -604,7 +682,12 @@ const ReorderableChoiceList = ({ choices, onReorder, onMoveUp, onMoveDown, onMov
     // A gap equal to fromIndex or fromIndex+1 both mean "drop back where it
     // started" (nothing before/after it actually moves), so only reorder
     // outside that no-op range.
-    if (dragIndex !== null && overGap !== null && overGap !== dragIndex && overGap !== dragIndex + 1) {
+    if (
+      dragIndex !== null &&
+      overGap !== null &&
+      overGap !== dragIndex &&
+      overGap !== dragIndex + 1
+    ) {
       onReorder(dragIndex, overGap);
     }
     setDragIndex(null);
@@ -626,7 +709,8 @@ const ReorderableChoiceList = ({ choices, onReorder, onMoveUp, onMoveDown, onMov
 
   // Approximate which row to highlight as the drop target — just the
   // nearest row to the gap, not a true "insert here" line between rows.
-  const highlightIndex = overGap === null ? null : Math.min(overGap, choices.length - 1);
+  const highlightIndex =
+    overGap === null ? null : Math.min(overGap, choices.length - 1);
 
   return (
     <>
@@ -640,7 +724,9 @@ const ReorderableChoiceList = ({ choices, onReorder, onMoveUp, onMoveDown, onMov
                 itemRefs.current[index] = el;
               }}
               className={`flex items-center gap-2 rounded-lg border px-3 py-2 text-sm transition ${
-                highlightIndex === index ? "border-[#b52326] bg-[#fdf3f1]" : "border-[#f0e6e1]"
+                highlightIndex === index
+                  ? "border-[#b52326] bg-[#fdf3f1]"
+                  : "border-[#f0e6e1]"
               } ${dragIndex === index ? "opacity-50" : ""}`}
             >
               <span
@@ -659,7 +745,9 @@ const ReorderableChoiceList = ({ choices, onReorder, onMoveUp, onMoveDown, onMov
                 min={1}
                 max={choices.length}
                 value={positionDrafts[key] ?? index + 1}
-                onChange={(e) => setPositionDrafts((d) => ({ ...d, [key]: e.target.value }))}
+                onChange={(e) =>
+                  setPositionDrafts((d) => ({ ...d, [key]: e.target.value }))
+                }
                 onBlur={() => commitPosition(index, key)}
                 onKeyDown={(e) => {
                   if (e.key === "Enter") e.currentTarget.blur();
@@ -668,7 +756,9 @@ const ReorderableChoiceList = ({ choices, onReorder, onMoveUp, onMoveDown, onMov
                 aria-label="Move to position"
               />
               <div className="min-w-0 flex-1">
-                <p className="text-sm font-semibold text-[#3a2c28]">{item.institute}</p>
+                <p className="text-sm font-semibold text-[#3a2c28]">
+                  {item.institute}
+                </p>
                 <p className="text-xs text-[#7a655f]">{item.program}</p>
               </div>
               <div className="flex shrink-0 gap-1">
@@ -706,7 +796,12 @@ const ReorderableChoiceList = ({ choices, onReorder, onMoveUp, onMoveDown, onMov
 
       {dragIndex !== null && pointerPos && (
         <div
-          style={{ position: "fixed", left: pointerPos.x + 16, top: pointerPos.y + 16, zIndex: 9999 }}
+          style={{
+            position: "fixed",
+            left: pointerPos.x + 16,
+            top: pointerPos.y + 16,
+            zIndex: 9999,
+          }}
           className="pointer-events-none max-w-[240px] rounded-lg border-2 border-[#b52326] bg-white px-3 py-2 text-xs font-semibold text-[#3a2c28] shadow-lg"
         >
           #{dragIndex + 1}. {choices[dragIndex]?.institute}
@@ -748,7 +843,8 @@ const ChoicesStep = ({
     )}
     <div className={cardClass}>
       <h2 className="text-sm font-bold text-[#3a2c28]">
-        Browse choices {totalCatalogSize ? `(${totalCatalogSize} eligible for you)` : ""}
+        Browse choices{" "}
+        {totalCatalogSize ? `(${totalCatalogSize} eligible for you)` : ""}
       </h2>
 
       <div className="mt-3 grid gap-2 sm:grid-cols-2">
@@ -783,7 +879,9 @@ const ChoicesStep = ({
       </div>
 
       <div className="mt-3 max-h-96 overflow-y-auto rounded-lg border border-[#f0e6e1]">
-        {loading && <p className="p-4 text-sm text-[#7a655f]">Loading JoSAA data…</p>}
+        {loading && (
+          <p className="p-4 text-sm text-[#7a655f]">Loading JoSAA data…</p>
+        )}
         {error && <p className="p-4 text-sm text-[#b52326]">{error}</p>}
         {!loading && !error && catalog.length === 0 && (
           <p className="p-4 text-sm text-[#7a655f]">
@@ -809,7 +907,9 @@ const ChoicesStep = ({
         Your preference order ({choices.length})
       </h2>
       {choices.length === 0 ? (
-        <p className="mt-3 text-sm text-[#7a655f]">Add choices from the left.</p>
+        <p className="mt-3 text-sm text-[#7a655f]">
+          Add choices from the left.
+        </p>
       ) : locked ? (
         <ol className="mt-2 space-y-1">
           {choices.map((item, index) => (
@@ -817,8 +917,11 @@ const ChoicesStep = ({
               key={`${item.institute}|${item.program}`}
               className="rounded-lg border border-[#f0e6e1] px-3 py-2 text-sm"
             >
-              <span className="mr-2 font-bold text-[#b52326]">{index + 1}.</span>
-              {item.institute} — <span className="text-[#7a655f]">{item.program}</span>
+              <span className="mr-2 font-bold text-[#b52326]">
+                {index + 1}.
+              </span>
+              {item.institute} —{" "}
+              <span className="text-[#7a655f]">{item.program}</span>
             </li>
           ))}
         </ol>
@@ -874,89 +977,97 @@ const ReviewStep = ({
   };
 
   return (
-  <div className={`${cardClass} mt-6`}>
-    <h2 className="text-sm font-bold text-[#3a2c28]">Your profile</h2>
-    <div className="mt-2 flex flex-wrap gap-2 text-xs text-[#5b4a45]">
-      {[
-        optionLabel(categoryField.options.find((o) => optionValue(o) === profile.category)) ||
-          profile.category,
-        profile.gender,
-        profile.homeState,
-        `JEE Main rank: ${profile.mainRank}`,
-        profile.qualifiedJeeAdv === "Yes" ? `JEE Advanced rank: ${profile.advRank}` : null,
-      ]
-        .filter(Boolean)
-        .map((chip) => (
-          <span key={chip} className="rounded-full bg-[#f8efec] px-3 py-1">
-            {chip}
-          </span>
-        ))}
-    </div>
+    <div className={`${cardClass} mt-6`}>
+      <h2 className="text-sm font-bold text-[#3a2c28]">Your profile</h2>
+      <div className="mt-2 flex flex-wrap gap-2 text-xs text-[#5b4a45]">
+        {[
+          optionLabel(
+            categoryField.options.find(
+              (o) => optionValue(o) === profile.category
+            )
+          ) || profile.category,
+          profile.gender,
+          profile.homeState,
+          `JEE Main rank: ${profile.mainRank}`,
+          profile.qualifiedJeeAdv === "Yes"
+            ? `JEE Advanced rank: ${profile.advRank}`
+            : null,
+        ]
+          .filter(Boolean)
+          .map((chip) => (
+            <span key={chip} className="rounded-full bg-[#f8efec] px-3 py-1">
+              {chip}
+            </span>
+          ))}
+      </div>
 
-    <h2 className="mt-5 text-sm font-bold text-[#3a2c28]">
-      {locked ? "Locked" : "Review &"} preference order ({choices.length})
-    </h2>
+      <h2 className="mt-5 text-sm font-bold text-[#3a2c28]">
+        {locked ? "Locked" : "Review &"} preference order ({choices.length})
+      </h2>
 
-    {!locked ? (
-      <>
-        <ReorderableChoiceList
-          choices={choices}
-          onReorder={onReorder}
-          onMoveUp={onMoveUp}
-          onMoveDown={onMoveDown}
-          onMoveToPosition={onMoveToPosition}
-          onRemove={onRemove}
-        />
-      </>
-    ) : (
-      <ol className="mt-2 space-y-1">
-        {choices.map((item, index) => (
-          <li
-            key={`${item.institute}|${item.program}`}
-            className="rounded-lg border border-[#f0e6e1] px-3 py-2 text-sm"
-          >
-            <span className="mr-2 font-bold text-[#b52326]">{index + 1}.</span>
-            {item.institute} — <span className="text-[#7a655f]">{item.program}</span>
-          </li>
-        ))}
-      </ol>
-    )}
-
-    <div className="mt-5 flex flex-wrap justify-between gap-2">
       {!locked ? (
         <>
-          <button type="button" className={secondaryBtn} onClick={onBack}>
-            ← Back to add more choices
-          </button>
-          <div className="flex flex-wrap gap-2">
-            <button
-              type="button"
-              className={secondaryBtn}
-              disabled={choices.length === 0}
-              onClick={flashSaved}
-            >
-              {justSaved ? "✓ Saved" : "Save changes"}
-            </button>
-            <button
-              type="button"
-              className={primaryBtn}
-              disabled={choices.length === 0}
-              onClick={onLock}
-            >
-               Lock & Submit Choices
-            </button>
-          </div>
+          <ReorderableChoiceList
+            choices={choices}
+            onReorder={onReorder}
+            onMoveUp={onMoveUp}
+            onMoveDown={onMoveDown}
+            onMoveToPosition={onMoveToPosition}
+            onRemove={onRemove}
+          />
         </>
       ) : (
-        <>
-          <p className="text-xs text-[#7a655f]">Locked & submitted.</p>
-          <button type="button" className={primaryBtn} onClick={onProceed}>
-            Proceed to Simulation →
-          </button>
-        </>
+        <ol className="mt-2 space-y-1">
+          {choices.map((item, index) => (
+            <li
+              key={`${item.institute}|${item.program}`}
+              className="rounded-lg border border-[#f0e6e1] px-3 py-2 text-sm"
+            >
+              <span className="mr-2 font-bold text-[#b52326]">
+                {index + 1}.
+              </span>
+              {item.institute} —{" "}
+              <span className="text-[#7a655f]">{item.program}</span>
+            </li>
+          ))}
+        </ol>
       )}
+
+      <div className="mt-5 flex flex-wrap justify-between gap-2">
+        {!locked ? (
+          <>
+            <button type="button" className={secondaryBtn} onClick={onBack}>
+              ← Back to add more choices
+            </button>
+            <div className="flex flex-wrap gap-2">
+              <button
+                type="button"
+                className={secondaryBtn}
+                disabled={choices.length === 0}
+                onClick={flashSaved}
+              >
+                {justSaved ? "✓ Saved" : "Save changes"}
+              </button>
+              <button
+                type="button"
+                className={primaryBtn}
+                disabled={choices.length === 0}
+                onClick={onLock}
+              >
+                Lock & Submit Choices
+              </button>
+            </div>
+          </>
+        ) : (
+          <>
+            <p className="text-xs text-[#7a655f]">Locked & submitted.</p>
+            <button type="button" className={primaryBtn} onClick={onProceed}>
+              Proceed to Simulation →
+            </button>
+          </>
+        )}
+      </div>
     </div>
-  </div>
   );
 };
 
@@ -977,11 +1088,13 @@ const RoundCard = ({ current, choicesCount }) => {
       <p className="text-xs font-semibold uppercase tracking-wide text-[#b52326]">
         Round {current.round} of {TOTAL_ROUNDS} — provisional seat
       </p>
-      <p className="mt-1 text-lg font-bold text-[#3a2c28]">{choice.institute}</p>
+      <p className="mt-1 text-lg font-bold text-[#3a2c28]">
+        {choice.institute}
+      </p>
       <p className="text-sm text-[#5b4a45]">{choice.program}</p>
       <p className="mt-2 text-xs text-[#7a655f]">
-        Your preference #{index + 1} of {choicesCount} · Opening {formatRank(opening)} / Closing{" "}
-        {formatRank(closing)}
+        Your preference #{index + 1} of {choicesCount} · Opening{" "}
+        {formatRank(opening)} / Closing {formatRank(closing)}
       </p>
     </div>
   );
@@ -1015,8 +1128,9 @@ const missedOptionRow = (opt) => (
     <p className="font-semibold text-[#3a2c28]">{opt.institute}</p>
     <p className="text-xs text-[#7a655f]">{opt.program}</p>
     <p className="mt-1 text-[11px] text-[#9a8a84]">
-      Closing rank: {formatRank(opt.closingRank)} · NIRF: {opt.nirfRank ?? "not ranked"} · Median
-      CTC: {formatSalary(opt.medianSalary)}
+      Closing rank: {formatRank(opt.closingRank)} · NIRF:{" "}
+      {opt.nirfRank ?? "not ranked"} · Median CTC:{" "}
+      {formatSalary(opt.medianSalary)}
       {opt.listPosition != null && (
         <>
           {" "}
@@ -1036,8 +1150,12 @@ const MissedOptionsPanel = ({ missedOptions, round }) => {
 
   return (
     <div className={cardClass}>
-      <h2 className="text-sm font-bold text-[#3a2c28]">You may have gotten a better option</h2>
-      <p className="mt-1 text-xs text-[#7a655f]">Also reachable in Round {round}:</p>
+      <h2 className="text-sm font-bold text-[#3a2c28]">
+        You may have gotten a better option
+      </h2>
+      <p className="mt-1 text-xs text-[#7a655f]">
+        Also reachable in Round {round}:
+      </p>
 
       <div className="mt-3 flex flex-wrap gap-1">
         {MISSED_OPTIONS_TABS.map((t) => (
@@ -1055,7 +1173,9 @@ const MissedOptionsPanel = ({ missedOptions, round }) => {
           </button>
         ))}
       </div>
-      {activeTab.note && <p className="mt-2 text-[11px] text-[#9a8a84]">{activeTab.note}</p>}
+      {activeTab.note && (
+        <p className="mt-2 text-[11px] text-[#9a8a84]">{activeTab.note}</p>
+      )}
 
       {tab === "closingRank" && (
         <ClosingRankGroups missedOptions={missedOptions} />
@@ -1088,14 +1208,18 @@ const ClosingRankGroups = ({ missedOptions }) => {
     .slice(0, MISSED_OPTIONS_DISPLAY_LIMIT);
 
   if (advanced.length === 0 && main.length === 0) {
-    return <p className="mt-3 text-sm text-[#7a655f]">No missed options found.</p>;
+    return (
+      <p className="mt-3 text-sm text-[#7a655f]">No missed options found.</p>
+    );
   }
 
   return (
     <div className="mt-3 space-y-4">
       {advanced.length > 0 && (
         <div>
-          <p className="text-xs font-semibold text-[#5b4a45]">JEE Advanced institutes (IITs)</p>
+          <p className="text-xs font-semibold text-[#5b4a45]">
+            JEE Advanced institutes (IITs)
+          </p>
           <ul className="mt-2 space-y-2">{advanced.map(missedOptionRow)}</ul>
         </div>
       )}
@@ -1114,7 +1238,11 @@ const ClosingRankGroups = ({ missedOptions }) => {
 const RankedList = ({ items, metricKey, direction, emptyMessage }) => {
   const sorted = items
     .filter((o) => o[metricKey] != null)
-    .sort((a, b) => (direction === "asc" ? a[metricKey] - b[metricKey] : b[metricKey] - a[metricKey]))
+    .sort((a, b) =>
+      direction === "asc"
+        ? a[metricKey] - b[metricKey]
+        : b[metricKey] - a[metricKey]
+    )
     .slice(0, MISSED_OPTIONS_DISPLAY_LIMIT);
 
   if (sorted.length === 0) {
@@ -1139,7 +1267,9 @@ const SimulateStep = ({
   if (!locked) {
     return (
       <div className={`${cardClass} mt-6`}>
-        <p className="text-sm text-[#7a655f]">Lock your choices first to run the simulation.</p>
+        <p className="text-sm text-[#7a655f]">
+          Lock your choices first to run the simulation.
+        </p>
       </div>
     );
   }
@@ -1152,7 +1282,9 @@ const SimulateStep = ({
   }
 
   const finalChoice = current.provisional;
-  const college = finalChoice ? collegesByName?.get(finalChoice.choice.institute) : null;
+  const college = finalChoice
+    ? collegesByName?.get(finalChoice.choice.institute)
+    : null;
   const canSlide = Boolean(finalChoice);
 
   return (
@@ -1162,10 +1294,24 @@ const SimulateStep = ({
       <div className="flex flex-wrap gap-2">
         {!finalRevealed && (
           <>
-            <button type="button" className={primaryBtn} onClick={onFreeze}>
+            <button
+              type="button"
+              disabled={!finalChoice}
+              title={
+                finalChoice
+                  ? "Accept this seat and end the mock here"
+                  : "You don't hold a seat yet, so there's nothing to freeze"
+              }
+              className={primaryBtn}
+              onClick={onFreeze}
+            >
               Freeze this seat
             </button>
-            <button type="button" className={secondaryBtn} onClick={() => onAdvance("float")}>
+            <button
+              type="button"
+              className={secondaryBtn}
+              onClick={() => onAdvance("float")}
+            >
               Float to Round {current.round + 1}
             </button>
             <button
@@ -1179,7 +1325,7 @@ const SimulateStep = ({
               className={secondaryBtn}
               onClick={() => onAdvance("slide")}
             >
-               Slide to Round {current.round + 1}
+              Slide to Round {current.round + 1}
             </button>
           </>
         )}
@@ -1194,8 +1340,8 @@ const SimulateStep = ({
 
       {!finalRevealed && (
         <p className="text-[11px] text-[#9a8a84]">
-          <strong>Float</strong>: checks your whole list. <strong>Slide</strong>: same institute,
-          other branches only.
+          <strong>Float</strong>: checks your whole list. <strong>Slide</strong>
+          : same institute, other branches only.
         </p>
       )}
 
@@ -1208,14 +1354,18 @@ const SimulateStep = ({
           >
             R{r.round}
             {r.mode ? ` (${r.mode})` : ""}:{" "}
-            {r.provisional ? r.provisional.choice.institute.split(",")[0] : "no seat"}
+            {r.provisional
+              ? r.provisional.choice.institute.split(",")[0]
+              : "no seat"}
           </span>
         ))}
       </div>
 
       {finalRevealed && finalChoice && (
         <div className={cardClass}>
-          <h2 className="text-sm font-bold text-[#3a2c28]">Your simulated allotment</h2>
+          <h2 className="text-sm font-bold text-[#3a2c28]">
+            Your simulated allotment
+          </h2>
           <p className="mt-2 text-base font-bold text-[#3a2c28]">
             {finalChoice.choice.institute}
           </p>
@@ -1229,30 +1379,37 @@ const SimulateStep = ({
                 round), not colleges.json's generic OPEN-category figure, so
                 it never disagrees with what you just saw. */}
             <span className="rounded-full bg-[#f8efec] px-3 py-1">
-              Branch closing rank (your quota): {formatRank(finalChoice.closing)}
+              Branch closing rank (your quota):{" "}
+              {formatRank(finalChoice.closing)}
             </span>
             <span className="rounded-full bg-[#f8efec] px-3 py-1">
-              Median CTC (college-level): {formatSalary(college?.placement?.median_salary)}
+              Median CTC (college-level):{" "}
+              {formatSalary(college?.placement?.median_salary)}
             </span>
           </div>
         </div>
       )}
 
       {finalRevealed && finalChoice && missedOptions.length > 0 && (
-        <MissedOptionsPanel missedOptions={missedOptions} round={current.round} />
+        <MissedOptionsPanel
+          missedOptions={missedOptions}
+          round={current.round}
+        />
       )}
 
       {finalRevealed && !finalChoice && (
         <div className={cardClass}>
           <p className="text-sm text-[#7a655f]">
-            Based on this rank and this list, no seat was reachable across any round. Go back
-            and add more (or less competitive) choices, or double check your rank.
+            Based on this rank and this list, no seat was reachable across any
+            round. Go back and add more (or less competitive) choices, or double
+            check your rank.
           </p>
         </div>
       )}
 
       <p className="text-[11px] text-[#9a8a84]">
-        Based on JoSAA 2025 cutoffs. NIRF rank and CTC are per-college, not per-branch.
+        Based on JoSAA 2025 cutoffs. NIRF rank and CTC are per-college, not
+        per-branch.
       </p>
 
       <div className="flex flex-wrap gap-2">

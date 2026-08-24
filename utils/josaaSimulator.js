@@ -47,7 +47,9 @@ const FEMALE_ONLY = "Female-only (including Supernumerary)";
  * first so a female candidate's seat is reported via general merit whenever
  * she qualifies there, falling back to the supernumerary pool only if not. */
 const genderPoolsFor = (profileGender) =>
-  profileGender === FEMALE_ONLY ? [GENDER_NEUTRAL, FEMALE_ONLY] : [profileGender];
+  profileGender === FEMALE_ONLY
+    ? [GENDER_NEUTRAL, FEMALE_ONLY]
+    : [profileGender];
 
 let allRoundsPromise = null;
 let collegesPromise = null;
@@ -126,36 +128,75 @@ export function buildSeatIndex(rows) {
   return index;
 }
 
-/** Which quota (AI/HS/OS/JK/GO/LA) applies to this student at this institute,
- * or null if none of the quotas the institute actually offers match them. */
-export function resolveQuota(institute, collegesByName, homeState) {
+/** EVERY quota (AI/HS/OS/JK/GO/LA) that applies to this student at this
+ * institute — not just the first. Seven institutes (BIT Mesra/Patna/Deoghar,
+ * Assam University, ICT-IOC Bhubaneswar, IUST Kashmir, Puducherry Tech) offer
+ * BOTH AI and HS pools, and real JoSAA considers a candidate under all pools
+ * they're eligible for; picking just the first match (always AI, since AI
+ * matches everyone) silently hid those institutes' home-state pools. */
+export function resolveQuotas(institute, collegesByName, homeState) {
   const college = collegesByName.get(institute);
   const offered = college?.programs?.quotas_offered || ["AI", "HS", "OS"];
-  for (const quota of offered) {
-    if (matchesJosaaQuota({ Quota: quota, State: college?.state }, homeState)) {
-      return quota;
-    }
-  }
-  return null;
+  return offered.filter((quota) =>
+    matchesJosaaQuota({ Quota: quota, State: college?.state }, homeState)
+  );
 }
 
-/** Look up whichever gender pool actually has a seat for this
- * institute+program at this round, respecting genderPoolsFor()'s priority
- * (neutral before female-only). Returns null if neither pool has a row here,
- * or if no quota this institute offers matches the student's home state. */
-function findSeatForChoice(institute, program, round, seatIndex, profile, collegesByName) {
-  const quota = resolveQuota(institute, collegesByName, profile.homeState);
-  if (!quota) return null;
+/** The seat this student is evaluated against for one institute+program at
+ * one round, across EVERY applicable (quota x gender) pool — JoSAA considers
+ * a candidate in all pools they're eligible for, so eligibility is "any pool
+ * admits", not "the first pool with a row admits".
+ *
+ * Selection, when `rank` is known: among pools that ADMIT (closing >= rank),
+ * prefer Gender-Neutral over Female-only (a female candidate's seat is
+ * reported via general merit whenever she qualifies there), then the loosest
+ * closing. When no pool admits (or rank is unknown), the loosest pool is
+ * returned so callers' own closing-vs-rank check fails uniformly.
+ * Returns null only when no pool has a row this round at all. */
+function findSeatForChoice(
+  institute,
+  program,
+  round,
+  seatIndex,
+  profile,
+  collegesByName,
+  rank = null
+) {
+  const quotas = resolveQuotas(institute, collegesByName, profile.homeState);
+  if (quotas.length === 0) return null;
   const seatType = CATEGORY_TO_SEAT_TYPE[profile.category];
 
-  for (const gender of genderPoolsFor(profile.gender)) {
-    const seat = seatIndex.get(seatKey(institute, program, quota, seatType, gender));
-    const roundData = seat && seat[round];
-    if (roundData) {
-      return { quota, gender, opening: roundData.opening, closing: roundData.closing };
+  const pools = genderPoolsFor(profile.gender);
+  const candidates = [];
+  for (const gender of pools) {
+    for (const quota of quotas) {
+      const seat = seatIndex.get(
+        seatKey(institute, program, quota, seatType, gender)
+      );
+      const roundData = seat && seat[round];
+      if (roundData) {
+        candidates.push({
+          quota,
+          gender,
+          opening: roundData.opening,
+          closing: roundData.closing,
+        });
+      }
     }
   }
-  return null;
+  if (candidates.length === 0) return null;
+
+  const pick = (list) =>
+    list.reduce((best, c) => {
+      if (!best) return c;
+      const genderCmp = pools.indexOf(c.gender) - pools.indexOf(best.gender);
+      if (genderCmp !== 0) return genderCmp < 0 ? c : best;
+      return c.closing > best.closing ? c : best;
+    }, null);
+
+  const admitting =
+    rank != null ? candidates.filter((c) => c.closing >= rank) : [];
+  return pick(admitting.length > 0 ? admitting : candidates);
 }
 
 /** Which rank space an institute is compared in — JEE Advanced for IITs, JEE
@@ -174,7 +215,8 @@ export function examSpaceFor(institute, collegesByName) {
  * Returns null if the student doesn't have the rank this institute needs
  * (e.g. didn't qualify JEE Advanced). */
 export function studentRankForInstitute(profile, institute, collegesByName) {
-  const needsAdvanced = examSpaceFor(institute, collegesByName) === "JEE Advanced";
+  const needsAdvanced =
+    examSpaceFor(institute, collegesByName) === "JEE Advanced";
   const raw = needsAdvanced ? profile.advRank : profile.mainRank;
   if (raw === undefined || raw === null || raw === "") return null;
   const rank = Number(raw);
@@ -192,25 +234,38 @@ export function buildCatalog(rows, profile, collegesByName) {
   const pools = genderPoolsFor(profile.gender);
   const byPair = new Map();
 
+  const quotasByInstitute = new Map();
+  const quotasFor = (institute) => {
+    let q = quotasByInstitute.get(institute);
+    if (!q) {
+      q = resolveQuotas(institute, collegesByName, profile.homeState);
+      quotasByInstitute.set(institute, q);
+    }
+    return q;
+  };
+
   for (const row of rows) {
     if (row.round !== 1) continue;
     if (row.seatType !== seatType) continue;
     if (!pools.includes(row.gender)) continue;
-
-    const quota = resolveQuota(row.institute, collegesByName, profile.homeState);
-    if (!quota || quota !== row.quota) continue;
+    if (!quotasFor(row.institute).includes(row.quota)) continue;
 
     const key = pairKey(row.institute, row.program);
     const existing = byPair.get(key);
-    // A female candidate can have both a Gender-Neutral AND a Female-only row
-    // for the same institute+program — show the neutral one (the pool she'd
-    // actually be evaluated under first), falling back to Female-only only
-    // when that's the only pool with a Round 1 row here.
-    if (!existing || pools.indexOf(row.gender) < pools.indexOf(existing.gender)) {
+    // One entry per institute+program. Preference among the rows that reach
+    // here (multiple quotas and, for a female candidate, both gender pools):
+    // Gender-Neutral over Female-only (the pool she'd be evaluated under
+    // first), then the loosest closing across quotas.
+    const better =
+      !existing ||
+      pools.indexOf(row.gender) < pools.indexOf(existing.gender) ||
+      (row.gender === existing.gender &&
+        row.closingRank > existing.closingRankR1);
+    if (better) {
       byPair.set(key, {
         institute: row.institute,
         program: row.program,
-        quota,
+        quota: row.quota,
         gender: row.gender,
         openingRankR1: row.openingRank,
         closingRankR1: row.closingRank,
@@ -223,7 +278,9 @@ export function buildCatalog(rows, profile, collegesByName) {
   // and judge for themselves, the way JoSAA's own choice list does. Sorting
   // hardest-to-easiest would hand them the difficulty ranking for free.
   catalog.sort(
-    (a, b) => a.institute.localeCompare(b.institute) || a.program.localeCompare(b.program)
+    (a, b) =>
+      a.institute.localeCompare(b.institute) ||
+      a.program.localeCompare(b.program)
   );
   return catalog;
 }
@@ -235,7 +292,11 @@ export function buildCatalog(rows, profile, collegesByName) {
 function parseProgramName(programName) {
   const match = /^(.*)\s\((\d+)\s*Years?,\s*(.*)\)$/.exec(programName || "");
   if (!match) return null;
-  return { branch: match[1].trim(), years: Number(match[2]), degree: match[3].trim() };
+  return {
+    branch: match[1].trim(),
+    years: Number(match[2]),
+    degree: match[3].trim(),
+  };
 }
 
 /** Look up the branch-level indicative closing rank for a program from
@@ -271,11 +332,23 @@ function bestEligibleAtRound(
     const choice = choices[index];
     if (!filterFn(choice)) continue;
 
-    const seat = findSeatForChoice(choice.institute, choice.program, round, seatIndex, profile, collegesByName);
-    if (!seat) continue; // no quota this institute offers matches them, or no row this round in either gender pool
-
-    const rank = studentRankForInstitute(profile, choice.institute, collegesByName);
+    const rank = studentRankForInstitute(
+      profile,
+      choice.institute,
+      collegesByName
+    );
     if (rank == null) continue; // student lacks the rank this institute needs
+
+    const seat = findSeatForChoice(
+      choice.institute,
+      choice.program,
+      round,
+      seatIndex,
+      profile,
+      collegesByName,
+      rank
+    );
+    if (!seat) continue; // no quota this institute offers matches them, or no row this round in any pool
 
     if (seat.closing >= rank) {
       return {
@@ -327,7 +400,14 @@ export function advanceRound(
       ? (choice) => choice.institute === previousProvisional.choice.institute
       : () => true;
 
-  const best = bestEligibleAtRound(choices, round, seatIndex, profile, collegesByName, filterFn);
+  const best = bestEligibleAtRound(
+    choices,
+    round,
+    seatIndex,
+    profile,
+    collegesByName,
+    filterFn
+  );
   const provisional =
     best && (!previousProvisional || best.index < previousProvisional.index)
       ? best
@@ -370,11 +450,23 @@ export function findMissedBetterOptions(
     const key = pairKey(item.institute, item.program);
     if (key === excludeKey) continue;
 
-    const seat = findSeatForChoice(item.institute, item.program, round, seatIndex, profile, collegesByName);
-    if (!seat) continue;
+    const rank = studentRankForInstitute(
+      profile,
+      item.institute,
+      collegesByName
+    );
+    if (rank == null) continue;
 
-    const rank = studentRankForInstitute(profile, item.institute, collegesByName);
-    if (rank == null || seat.closing < rank) continue;
+    const seat = findSeatForChoice(
+      item.institute,
+      item.program,
+      round,
+      seatIndex,
+      profile,
+      collegesByName,
+      rank
+    );
+    if (!seat || seat.closing < rank) continue;
 
     const college = collegesByName.get(item.institute);
     results.push({
