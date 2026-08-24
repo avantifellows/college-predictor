@@ -169,13 +169,27 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 20.7,
+   "female": 990,
+   "male": 3785,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 230804,
+   "annual_fee_waived": 30804,
+   "annual_hostel_mess": 31500,
+   "cycle": "2025-26",
+   "source_url": "https://fees.iitm.ac.in/assets/circular/institute_fee_circular_jul_nov_2025.pdf",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 1750000,
    "percentage_placed": 76.9,
    "percentage_with_outcome": 98.3,
    "students_placed": 549,
    "higher_studies_selected": 153,
-   "first_year_intake": null,
+   "first_year_intake": 877,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -395,13 +409,27 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 20.7,
+   "female": 1012,
+   "male": 3868,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 244800,
+   "annual_fee_waived": 44800,
+   "annual_hostel_mess": 17200,
+   "cycle": "2025-26",
+   "source_url": "https://home.iitd.ac.in/uploads/ug/25-26/Fee%20Structure_2025-26_UG%20Entry%20Students.pdf",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 1908000,
    "percentage_placed": 75.2,
    "percentage_with_outcome": 80.3,
    "students_placed": 711,
    "higher_studies_selected": 49,
-   "first_year_intake": null,
+   "first_year_intake": 1071,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -585,13 +613,27 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 19.2,
+   "female": 1202,
+   "male": 5071,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 215500,
+   "annual_fee_waived": 15500,
+   "annual_hostel_mess": 72800,
+   "cycle": "2025-26",
+   "source_url": "https://acad.iitb.ac.in/admissions/fees-structure",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 1961000,
    "percentage_placed": 73.8,
    "percentage_with_outcome": 100.0,
    "students_placed": 731,
    "higher_studies_selected": 259,
-   "first_year_intake": null,
+   "first_year_intake": 1030,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -762,13 +804,27 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 20.3,
+   "female": 956,
+   "male": 3760,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 243720,
+   "annual_fee_waived": 43720,
+   "annual_hostel_mess": 28000,
+   "cycle": "2025-26",
+   "source_url": "https://www.iitk.ac.in/dosa/data/Fee-Structure-for-New-Students-2025-26-Odd-Semester-03-05-25.pdf",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 1940000,
    "percentage_placed": 66.5,
    "percentage_with_outcome": 91.5,
    "students_placed": 754,
    "higher_studies_selected": 283,
-   "first_year_intake": null,
+   "first_year_intake": 927,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -994,13 +1050,27 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 17.5,
+   "female": 1195,
+   "male": 5648,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 412100,
+   "annual_fee_waived": 12100,
+   "annual_hostel_mess": 75420,
+   "cycle": "2025-26",
+   "source_url": "https://www.iitkgp.ac.in/assets/pdf/law/Fee_Structure_MPPLG.pdf",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 1976000,
    "percentage_placed": 76.1,
    "percentage_with_outcome": 88.4,
    "students_placed": 517,
    "higher_studies_selected": 83,
-   "first_year_intake": null,
+   "first_year_intake": 942,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -1203,13 +1273,27 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 20.1,
+   "female": 899,
+   "male": 3563,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 222600,
+   "annual_fee_waived": 22600,
+   "annual_hostel_mess": 67500,
+   "cycle": "2025-26",
+   "source_url": "https://iitr.ac.in/Academics/static/Institute_Fee/2025-26/UG_Ist.pdf",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 1700000,
    "percentage_placed": 69.8,
    "percentage_with_outcome": 100.0,
    "students_placed": 769,
    "higher_studies_selected": 333,
-   "first_year_intake": null,
+   "first_year_intake": 1143,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -1385,13 +1469,27 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 20.3,
+   "female": 397,
+   "male": 1561,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 229000,
+   "annual_fee_waived": 29000,
+   "annual_hostel_mess": 61380,
+   "cycle": "2025-26",
+   "source_url": "https://iith.ac.in/academics/assets/files/fee/2026/jan-jun-2026/Fee-Structure-for-January-June-2026-Semester-Already-Enrolled-Students.pdf",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 2100000,
    "percentage_placed": 76.7,
    "percentage_with_outcome": 86.0,
    "students_placed": 306,
    "higher_studies_selected": 37,
-   "first_year_intake": null,
+   "first_year_intake": 425,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -1549,13 +1647,27 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 21.2,
+   "female": 830,
+   "male": 3084,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 227000,
+   "annual_fee_waived": 27000,
+   "annual_hostel_mess": 53800,
+   "cycle": "2025-26",
+   "source_url": "https://iitg.ac.in/acad/admission/imp_info/fee.php",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 1948000,
    "percentage_placed": 76.9,
    "percentage_with_outcome": 97.8,
    "students_placed": 658,
    "higher_studies_selected": 179,
-   "first_year_intake": null,
+   "first_year_intake": 978,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -1703,13 +1815,27 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 22.2,
+   "female": 950,
+   "male": 3337,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 180500,
+   "annual_fee_waived": 25150,
+   "annual_hostel_mess": 99600,
+   "cycle": "2025-26",
+   "source_url": "https://www.nitt.edu/home/admissions/btech/B.Tech._Fee%20Structure_2025.pdf",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 1435000,
    "percentage_placed": 76.9,
    "percentage_with_outcome": 92.2,
    "students_placed": 791,
    "higher_studies_selected": 158,
-   "first_year_intake": null,
+   "first_year_intake": 964,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -1898,13 +2024,27 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 19.5,
+   "female": 1245,
+   "male": 5130,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 207600,
+   "annual_fee_waived": 7600,
+   "annual_hostel_mess": 5100,
+   "cycle": "2025-26",
+   "source_url": "https://www.iitbhu.ac.in/contents/institute/dean/doaa/doc/fee_ug_19-20.pdf",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 2000000,
    "percentage_placed": 92.8,
    "percentage_with_outcome": 99.8,
    "students_placed": 996,
    "higher_studies_selected": 75,
-   "first_year_intake": null,
+   "first_year_intake": 1163,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -2044,13 +2184,27 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 20.6,
+   "female": 314,
+   "male": 1210,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 212600,
+   "annual_fee_waived": 12600,
+   "annual_hostel_mess": 32000,
+   "cycle": "2025-26",
+   "source_url": "https://academic.iiti.ac.in/Admission/2025/New/2025%20B.Tech.%20and%20B.Des.%20Batch_Four%20Year%20Fee%20Structure_Tentative.pdf",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 1948000,
    "percentage_placed": 70.7,
-   "percentage_with_outcome": 78.8,
+   "percentage_with_outcome": 78.9,
    "students_placed": 234,
    "higher_studies_selected": 27,
-   "first_year_intake": null,
+   "first_year_intake": 360,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -2284,13 +2438,27 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 19.9,
+   "female": 823,
+   "male": 3303,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 143000,
+   "annual_fee_waived": 18000,
+   "annual_hostel_mess": 80000,
+   "cycle": "2025-26",
+   "source_url": "https://www.nitrkl.ac.in/docs/Announcement/04062024180057941.pdf",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 1525000,
    "percentage_placed": 81.2,
    "percentage_with_outcome": 93.9,
    "students_placed": 821,
    "higher_studies_selected": 128,
-   "first_year_intake": null,
+   "first_year_intake": 888,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -2487,13 +2655,27 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 19.7,
+   "female": 855,
+   "male": 3475,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 282800,
+   "annual_fee_waived": 82800,
+   "annual_hostel_mess": 36000,
+   "cycle": "2025-26",
+   "source_url": "https://www.iitism.ac.in/fees-structure",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 1200000,
    "percentage_placed": 80.8,
    "percentage_with_outcome": 84.5,
    "students_placed": 714,
    "higher_studies_selected": 33,
-   "first_year_intake": null,
+   "first_year_intake": 1028,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -2646,13 +2828,27 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 21.3,
+   "female": 848,
+   "male": 3139,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 198140,
+   "annual_fee_waived": 73140,
+   "annual_hostel_mess": 17640,
+   "cycle": "2025-26",
+   "source_url": "https://www.nitk.ac.in/document/attachments/8447/FEE_STRUCTURE_2025-26_.pdf",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 1400000,
    "percentage_placed": 76.7,
    "percentage_with_outcome": 88.2,
    "students_placed": 756,
    "higher_studies_selected": 114,
-   "first_year_intake": null,
+   "first_year_intake": 740,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -2935,13 +3131,27 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 18.2,
+   "female": 364,
+   "male": 1633,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 262500,
+   "annual_fee_waived": 62500,
+   "annual_hostel_mess": 13000,
+   "cycle": "2025-26",
+   "source_url": "https://academics.iitp.ac.in/index.php?option=com_content&view=article&id=68&Itemid=244",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 2250000,
    "percentage_placed": 95.5,
    "percentage_with_outcome": 100.0,
    "students_placed": 320,
    "higher_studies_selected": 15,
-   "first_year_intake": null,
+   "first_year_intake": 427,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -3101,13 +3311,27 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 23.5,
+   "female": 912,
+   "male": 2961,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 148910,
+   "annual_fee_waived": -101090,
+   "annual_hostel_mess": 42000,
+   "cycle": "2025-26",
+   "source_url": "https://josaa.admissions.nic.in/seatinfo/root/InstProfile.aspx?instcd=206",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 1250000,
    "percentage_placed": 88.6,
    "percentage_with_outcome": 97.0,
    "students_placed": 799,
    "higher_studies_selected": 76,
-   "first_year_intake": null,
+   "first_year_intake": 920,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -3241,13 +3465,27 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 19.9,
+   "female": 225,
+   "male": 907,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 216676,
+   "annual_fee_waived": 16676,
+   "annual_hostel_mess": 76500,
+   "cycle": "2025-26",
+   "source_url": "https://josaa.admissions.nic.in/applicant/seatmatrix/InstProfile.aspx?enc=gNI/L73ZsCSQkVP6SdcUGGLfg4jY1ArzieOsSJZgnuU=",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 1400000,
    "percentage_placed": 74.8,
    "percentage_with_outcome": 98.6,
    "students_placed": 160,
    "higher_studies_selected": 51,
-   "first_year_intake": null,
+   "first_year_intake": 225,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -3406,13 +3644,27 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 20.1,
+   "female": 284,
+   "male": 1129,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 202000,
+   "annual_fee_waived": 2000,
+   "annual_hostel_mess": 49920,
+   "cycle": "2025-26",
+   "source_url": "https://academics.iitmandi.ac.in/academic/public/pdf/fees/Fee_Structure_ODD_semester_2025_26_New_Entrants.pdf",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 1850000,
    "percentage_placed": 70.0,
    "percentage_with_outcome": 96.1,
    "students_placed": 196,
    "higher_studies_selected": 73,
-   "first_year_intake": null,
+   "first_year_intake": 301,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -3565,13 +3817,27 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 18.9,
+   "female": 365,
+   "male": 1565,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 269600,
+   "annual_fee_waived": 69600,
+   "annual_hostel_mess": 14500,
+   "cycle": "2025-26",
+   "source_url": "https://iitj.ac.in/PageImages/Gallery/07-2025/Fee-structure-for-AY-202526except-executive-programmes-638871419004336219.pdf",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 1200000,
    "percentage_placed": 77.0,
    "percentage_with_outcome": 99.5,
    "students_placed": 322,
    "higher_studies_selected": 94,
-   "first_year_intake": null,
+   "first_year_intake": 490,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -3756,13 +4022,27 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 22.0,
+   "female": 894,
+   "male": 3162,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 125000,
+   "annual_fee_waived": 0,
+   "annual_hostel_mess": 55600,
+   "cycle": "2025-26",
+   "source_url": "https://nitw.ac.in/api/static/files/fee-structure-ug-pg-2024-2025-even-sem_2024-11-8-15-8-41.pdf",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 1420000,
    "percentage_placed": 71.5,
    "percentage_with_outcome": 81.7,
    "students_placed": 650,
    "higher_studies_selected": 93,
-   "first_year_intake": null,
+   "first_year_intake": 945,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -3914,13 +4194,27 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 20.0,
+   "female": 303,
+   "male": 1211,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 266050,
+   "annual_fee_waived": 66050,
+   "annual_hostel_mess": 51640,
+   "cycle": "2025-26",
+   "source_url": "https://www.iitrpr.ac.in/downloads/sites/default/files/Four%20Year%20Fee%20Structure_B.Tech%202025%20Batch.pdf",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 1697000,
    "percentage_placed": 68.5,
    "percentage_with_outcome": 88.2,
    "students_placed": 220,
    "higher_studies_selected": 63,
-   "first_year_intake": null,
+   "first_year_intake": 370,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -4054,13 +4348,27 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 20.3,
+   "female": 384,
+   "male": 1505,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 219000,
+   "annual_fee_waived": 19000,
+   "annual_hostel_mess": 55000,
+   "cycle": "2025-26",
+   "source_url": "https://www.iitbbs.ac.in/wp-content/uploads/2024/05/Registration-Fee-from-the-Academic-Year-2024-25-and-onwards.pdf",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 1400000,
    "percentage_placed": 79.1,
    "percentage_with_outcome": 91.9,
    "students_placed": 254,
    "higher_studies_selected": 41,
-   "first_year_intake": null,
+   "first_year_intake": 355,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -4202,13 +4510,27 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 21.0,
+   "female": 701,
+   "male": 2634,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 161900,
+   "annual_fee_waived": 37000,
+   "annual_hostel_mess": 64000,
+   "cycle": "2025-26",
+   "source_url": "https://mnit.ac.in/academics/fee_structure",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 1100000,
    "percentage_placed": 82.3,
    "percentage_with_outcome": 84.7,
    "students_placed": 603,
    "higher_studies_selected": 18,
-   "first_year_intake": null,
+   "first_year_intake": 832,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -4350,13 +4672,27 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 21.4,
+   "female": 693,
+   "male": 2541,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 135450,
+   "annual_fee_waived": 10670,
+   "annual_hostel_mess": 65700,
+   "cycle": "2025-26",
+   "source_url": "https://vnit.ac.in/section/academics/fees/",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 900000,
    "percentage_placed": 76.1,
    "percentage_with_outcome": 90.1,
    "students_placed": 575,
    "higher_studies_selected": 106,
-   "first_year_intake": null,
+   "first_year_intake": 855,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -4517,13 +4853,27 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 22.4,
+   "female": 785,
+   "male": 2715,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 189000,
+   "annual_fee_waived": 64200,
+   "annual_hostel_mess": 33000,
+   "cycle": "2025-26",
+   "source_url": "https://nitdgp.ac.in/uploads/208ecfdb0e3eceb92b805c1b090bcc05.pdf",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 1124000,
    "percentage_placed": 69.9,
    "percentage_with_outcome": 100.0,
    "students_placed": 566,
    "higher_studies_selected": 244,
-   "first_year_intake": null,
+   "first_year_intake": 876,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -4646,13 +4996,27 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 19.1,
+   "female": 674,
+   "male": 2848,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 147000,
+   "annual_fee_waived": 22000,
+   "annual_hostel_mess": 48000,
+   "cycle": "2025-26",
+   "source_url": "https://www.nits.ac.in/storage/Feestructure/Feestructure_693921cc0c1ea1765351884.pdf",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 1100000,
    "percentage_placed": 63.2,
    "percentage_with_outcome": 67.9,
    "students_placed": 520,
    "higher_studies_selected": 39,
-   "first_year_intake": null,
+   "first_year_intake": 825,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -4825,13 +5189,27 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 12.5,
+   "female": 436,
+   "male": 3064,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 343000,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 40000,
+   "cycle": "2025-26",
+   "source_url": "https://bitmesra.ac.in/Show_Brochure_Details/70/71",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 952576,
    "percentage_placed": 73.8,
    "percentage_with_outcome": 83.4,
    "students_placed": 512,
    "higher_studies_selected": 67,
-   "first_year_intake": null,
+   "first_year_intake": 780,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -5028,13 +5406,27 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 19.7,
+   "female": 570,
+   "male": 2320,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 141100,
+   "annual_fee_waived": 16100,
+   "annual_hostel_mess": 60000,
+   "cycle": "2025-26",
+   "source_url": "https://drive.google.com/file/d/1MhS_UIYkOF2G3h0ms_kk8ZRjidr0IvGZ/view",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 700000,
    "percentage_placed": 80.1,
    "percentage_with_outcome": 87.0,
    "students_placed": 591,
    "higher_studies_selected": 51,
-   "first_year_intake": null,
+   "first_year_intake": 766,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -5182,13 +5574,27 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 20.7,
+   "female": 572,
+   "male": 2192,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 45000,
+   "annual_fee_waived": 15000,
+   "annual_hostel_mess": 59000,
+   "cycle": "2025-26",
+   "source_url": "https://www.iiests.ac.in/ckfinder/userfiles/files/Institute%20fees_CCMN.pdf",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 850000,
    "percentage_placed": 85.9,
    "percentage_with_outcome": 98.5,
    "students_placed": 530,
    "higher_studies_selected": 78,
-   "first_year_intake": null,
+   "first_year_intake": 740,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -5359,13 +5765,27 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 22.5,
+   "female": 999,
+   "male": 3444,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 159000,
+   "annual_fee_waived": 34000,
+   "annual_hostel_mess": 51000,
+   "cycle": "2025-26",
+   "source_url": "https://v1.nitj.ac.in/nitj_files/student_corner/Fee_structure_of_B_21112636448.pdf",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 794000,
    "percentage_placed": 66.5,
-   "percentage_with_outcome": 74.9,
+   "percentage_with_outcome": 75.0,
    "students_placed": 720,
    "higher_studies_selected": 91,
-   "first_year_intake": null,
+   "first_year_intake": 1117,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -5484,13 +5904,27 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 20.1,
+   "female": 171,
+   "male": 678,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 203280,
+   "annual_fee_waived": 1640,
+   "annual_hostel_mess": 60740,
+   "cycle": "2025-26",
+   "source_url": "https://www.iitjammu.ac.in/academics/fee/2025-26/B%20Tech%202025_Short%202025-26.pdf",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 1169500,
    "percentage_placed": 63.5,
    "percentage_with_outcome": 74.2,
    "students_placed": 113,
    "higher_studies_selected": 19,
-   "first_year_intake": null,
+   "first_year_intake": 237,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -5602,13 +6036,27 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 20.4,
+   "female": 185,
+   "male": 721,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 218100,
+   "annual_fee_waived": 18100,
+   "annual_hostel_mess": 40540,
+   "cycle": "2025-26",
+   "source_url": "https://files.iittp.ac.in/pdfs/feestructure/2026/Jan_June/B_Tech_Jan-June_2026-2025_batch.pdf",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 1100000,
    "percentage_placed": 55.6,
    "percentage_with_outcome": 90.7,
    "students_placed": 114,
    "higher_studies_selected": 72,
-   "first_year_intake": null,
+   "first_year_intake": 237,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -5755,13 +6203,27 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 19.7,
+   "female": 900,
+   "male": 3678,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 163000,
+   "annual_fee_waived": 38000,
+   "annual_hostel_mess": 24000,
+   "cycle": "2025-26",
+   "source_url": "https://josaa.admissions.nic.in/applicant/seatmatrix/InstProfile.aspx?enc=rJ7jj1MaSzS7LV27N32+hWYPJUIFwqzmA228df7VbXs=",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 1200000,
    "percentage_placed": 92.2,
    "percentage_with_outcome": 95.6,
    "students_placed": 968,
    "higher_studies_selected": 36,
-   "first_year_intake": null,
+   "first_year_intake": 1074,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -5867,13 +6329,27 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 22.5,
+   "female": 150,
+   "male": 516,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 201600,
+   "annual_fee_waived": 1600,
+   "annual_hostel_mess": 82000,
+   "cycle": "2025-26",
+   "source_url": "https://iitpkd.ac.in/sites/default/files/2023-06/FeeDetailsBTech2023.pdf",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 1200000,
    "percentage_placed": 67.3,
    "percentage_with_outcome": 77.6,
    "students_placed": 105,
    "higher_studies_selected": 16,
-   "first_year_intake": null,
+   "first_year_intake": 188,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -5995,13 +6471,22 @@
      "year": 2022,
      "rank": 194,
      "score": 33.96
-    },
-    {
-     "year": 2016,
-     "rank": 92,
-     "score": 50.22
     }
    ]
+  },
+  "ug_gender": {
+   "female_pct": 25.3,
+   "female": 272,
+   "male": 802,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 181000,
+   "annual_fee_waived": 56000,
+   "annual_hostel_mess": 80000,
+   "cycle": "2025-26",
+   "source_url": "https://nitdelhi.ac.in/wp-content/uploads/2026/02/Fee-structure-B-Tech.pdf",
+   "is_entry_year": true
   },
   "placement": {
    "median_salary": 1590000,
@@ -6009,7 +6494,7 @@
    "percentage_with_outcome": 95.0,
    "students_placed": 134,
    "higher_studies_selected": 19,
-   "first_year_intake": null,
+   "first_year_intake": 182,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -6188,13 +6673,27 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 20.9,
+   "female": 755,
+   "male": 2863,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 155000,
+   "annual_fee_waived": 30000,
+   "annual_hostel_mess": 44380,
+   "cycle": "2025-26",
+   "source_url": "https://www.svnit.ac.in/Data/fee%20structure/B.Tech.%20admitted%20in%20AY%202025-26.pdf",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 968000,
    "percentage_placed": 73.8,
    "percentage_with_outcome": 78.1,
    "students_placed": 596,
    "higher_studies_selected": 35,
-   "first_year_intake": null,
+   "first_year_intake": 991,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -6307,13 +6806,27 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 20.5,
+   "female": 153,
+   "male": 594,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 259200,
+   "annual_fee_waived": 34200,
+   "annual_hostel_mess": 99990,
+   "cycle": "2025-26",
+   "source_url": "https://www.iitbhilai.ac.in/index.php?pid=Fee_BTech24",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 1200000,
    "percentage_placed": 71.6,
    "percentage_with_outcome": 80.2,
    "students_placed": 116,
    "higher_studies_selected": 14,
-   "first_year_intake": null,
+   "first_year_intake": 170,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -6441,13 +6954,22 @@
      "year": 2021,
      "rank": 69,
      "score": 42.63
-    },
-    {
-     "year": 2016,
-     "rank": 68,
-     "score": 55.3
     }
    ]
+  },
+  "ug_gender": {
+   "female_pct": 25.0,
+   "female": 861,
+   "male": 2583,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 146000,
+   "annual_fee_waived": 21000,
+   "annual_hostel_mess": 58000,
+   "cycle": "2025-26",
+   "source_url": "https://josaa.admissions.nic.in/applicant/seatmatrix/InstProfile.aspx?enc=rJ7jj1MaSzS7LV27N32+hZbUmhh7fY9beNBmsh/U1Y8=",
+   "is_entry_year": true
   },
   "placement": {
    "median_salary": 1100000,
@@ -6455,7 +6977,7 @@
    "percentage_with_outcome": 92.1,
    "students_placed": 413,
    "higher_studies_selected": 244,
-   "first_year_intake": null,
+   "first_year_intake": 778,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -6538,6 +7060,15 @@
      "score": 47.51
     }
    ]
+  },
+  "ug_gender": null,
+  "fees": {
+   "annual_fee": 43640,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 250,
+   "cycle": "2025-26",
+   "source_url": "https://socialsciences.uohyd.ac.in/education/wp-content/uploads/sites/6/2022/03/Fees.pdf",
+   "is_entry_year": true
   },
   "placement": null,
   "naac": {
@@ -6655,13 +7186,27 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 19.4,
+   "female": 160,
+   "male": 663,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 377000,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 100000,
+   "cycle": "2025-26",
+   "source_url": "https://assets.iiitdwd.ac.in/docs/Fee_Structure_2025-26.pdf",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 1162000,
    "percentage_placed": 61.7,
    "percentage_with_outcome": 87.0,
    "students_placed": 95,
    "higher_studies_selected": 39,
-   "first_year_intake": null,
+   "first_year_intake": 170,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -6679,6 +7224,204 @@
    "ranking": "NIRF 2025",
    "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
+  }
+ },
+ {
+  "college_id": "U-0384",
+  "aishe_code": "U-0384",
+  "name": "Sant Longowal Institute of Engg. & Tech., Longowal",
+  "display_name": "Sant Longowal Institute of Engineering and Technology",
+  "state": "Punjab",
+  "state_is_inferred": false,
+  "district": "Sangrur",
+  "kind": "Deemed University-Government",
+  "management": null,
+  "year_established": 1989,
+  "website": "www.sliet.ac.in",
+  "entrance_exams": [
+   "JEE Main"
+  ],
+  "counselling": "JoSAA",
+  "programs": {
+   "count": 15,
+   "degrees": [
+    "Bachelor and Master of Technology (Dual Degree)",
+    "Bachelor of Technology",
+    "Integrated Master of Science"
+   ],
+   "quotas_offered": [
+    "AI"
+   ],
+   "list": [
+    {
+     "branch": "Computer Science and Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 64256
+    },
+    {
+     "branch": "Artificial Intelligence and Data Science",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 66031
+    },
+    {
+     "branch": "Physics",
+     "years": 5,
+     "degree": "Integrated Master of Science",
+     "indicative_closing_rank": 70277
+    },
+    {
+     "branch": "Electronics and Communication Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 70288
+    },
+    {
+     "branch": "Computer Science and Engineering",
+     "years": 5,
+     "degree": "Bachelor and Master of Technology (Dual Degree)",
+     "indicative_closing_rank": 71482
+    },
+    {
+     "branch": "Mathematics",
+     "years": 5,
+     "degree": "Integrated Master of Science",
+     "indicative_closing_rank": 81072
+    },
+    {
+     "branch": "Electrical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 81868
+    },
+    {
+     "branch": "Electrical Engineering",
+     "years": 5,
+     "degree": "Bachelor and Master of Technology (Dual Degree)",
+     "indicative_closing_rank": 90963
+    },
+    {
+     "branch": "Chemistry",
+     "years": 5,
+     "degree": "Integrated Master of Science",
+     "indicative_closing_rank": 91170
+    },
+    {
+     "branch": "Mechanical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 99763
+    },
+    {
+     "branch": "Mechanical Engineering",
+     "years": 5,
+     "degree": "Bachelor and Master of Technology (Dual Degree)",
+     "indicative_closing_rank": 102094
+    },
+    {
+     "branch": "Chemical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 102905
+    },
+    {
+     "branch": "Civil Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 102957
+    },
+    {
+     "branch": "Instrumentation and Control Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 103559
+    },
+    {
+     "branch": "Food Technology",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 121270
+    }
+   ],
+   "source": "JoSAA 2025 Round 6",
+   "rank_note": "Indicative open-category closing rank."
+  },
+  "nirf": {
+   "engineering_rank": 79,
+   "engineering_score": 48.42,
+   "ranking_year": 2025,
+   "rank_history": [
+    {
+     "year": 2025,
+     "rank": 79,
+     "score": 48.42
+    },
+    {
+     "year": 2024,
+     "rank": 76,
+     "score": 48.22
+    },
+    {
+     "year": 2022,
+     "rank": 178,
+     "score": 35.2
+    },
+    {
+     "year": 2021,
+     "rank": 161,
+     "score": 34.52
+    },
+    {
+     "year": 2020,
+     "rank": 137,
+     "score": 34.27
+    },
+    {
+     "year": 2019,
+     "rank": 133,
+     "score": 33.63
+    }
+   ]
+  },
+  "ug_gender": {
+   "female_pct": 17.8,
+   "female": 344,
+   "male": 1588,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 66000,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 29000,
+   "cycle": "2025-26",
+   "source_url": "https://set.sliet.ac.in/files/2026/03/FEE-STRUCTURE-FOR-ACADEMIC-YEAR-2026-27.pdf",
+   "is_entry_year": true
+  },
+  "placement": {
+   "median_salary": 400000,
+   "percentage_placed": 54.0,
+   "percentage_with_outcome": 62.1,
+   "students_placed": 320,
+   "higher_studies_selected": 48,
+   "first_year_intake": 237,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF Engineering, UG 4-year",
+   "is_branch_specific": false
+  },
+  "naac": {
+   "grade": "A",
+   "cgpa": 3.02,
+   "cycle": 3,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "AISHE 2024-25",
+   "programs": "JoSAA 2025 Round 6",
+   "ranking": "NIRF 2025",
+   "placement": "NIRF 2025 (AY 2023-24)",
+   "accreditation": "NAAC"
   }
  },
  {
@@ -6823,13 +7566,27 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 20.9,
+   "female": 848,
+   "male": 3210,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 173000,
+   "annual_fee_waived": 48000,
+   "annual_hostel_mess": 46000,
+   "cycle": "2025-26",
+   "source_url": "https://www.manit.ac.in/sites/default/files/addmissionsection/MANIT%20Fee%20details%2025-26_Modified%2009%2010%20%202025%20latest.pdf",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 1100000,
    "percentage_placed": 89.6,
    "percentage_with_outcome": 96.5,
    "students_placed": 863,
    "higher_studies_selected": 66,
-   "first_year_intake": null,
+   "first_year_intake": 1021,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -7000,17 +7757,35 @@
      "rank": 70,
      "score": 39.53
     }
-   ]
+   ],
+   "latest_band": {
+    "year": 2025,
+    "band": "101-150"
+   }
+  },
+  "ug_gender": {
+   "female_pct": 25.9,
+   "female": 1001,
+   "male": 2862,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 142850,
+   "annual_fee_waived": 17850,
+   "annual_hostel_mess": 52400,
+   "cycle": "2025-26",
+   "source_url": "https://josaa.admissions.nic.in/seatinfo/root/InstProfile.aspx?instcd=205",
+   "is_entry_year": true
   },
   "placement": {
-   "median_salary": 850000,
-   "percentage_placed": 95.0,
-   "percentage_with_outcome": 98.4,
-   "students_placed": 723,
-   "higher_studies_selected": 26,
-   "first_year_intake": null,
-   "academic_year": "2022-23",
-   "ranking_year": 2024,
+   "median_salary": 700000,
+   "percentage_placed": 75.3,
+   "percentage_with_outcome": 80.7,
+   "students_placed": 635,
+   "higher_studies_selected": 45,
+   "first_year_intake": 959,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
@@ -7024,7 +7799,7 @@
    "identity": "AISHE 2024-25",
    "programs": "JoSAA 2025 Round 6",
    "ranking": "NIRF 2024",
-   "placement": "NIRF 2024 (AY 2022-23)",
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -7135,21 +7910,23 @@
      "year": 2019,
      "rank": 130,
      "score": 33.8
-    },
-    {
-     "year": 2016,
-     "rank": 79,
-     "score": 53.35
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 27.8,
+   "female": 829,
+   "male": 2150,
+   "edition_year": 2025
+  },
+  "fees": null,
   "placement": {
    "median_salary": 1080000,
    "percentage_placed": 94.7,
    "percentage_with_outcome": 100.0,
    "students_placed": 701,
    "higher_studies_selected": 39,
-   "first_year_intake": null,
+   "first_year_intake": 751,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -7266,13 +8043,27 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 24.2,
+   "female": 155,
+   "male": 485,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 127500,
+   "annual_fee_waived": 2500,
+   "annual_hostel_mess": 78000,
+   "cycle": "2025-26",
+   "source_url": "https://www.nitm.ac.in/nitmeghalaya/ckfinder/userfiles/files/Fee%20Structure%20for%20NEW%20ADMISSIONS%20(Autumn%202025)%20dt%2009-07-25(2).pdf",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 1050000,
    "percentage_placed": 80.0,
    "percentage_with_outcome": 97.9,
    "students_placed": 112,
    "higher_studies_selected": 25,
-   "first_year_intake": null,
+   "first_year_intake": 153,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -7481,13 +8272,27 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 20.5,
+   "female": 940,
+   "male": 3642,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 149000,
+   "annual_fee_waived": 24000,
+   "annual_hostel_mess": 18800,
+   "cycle": "2025-26",
+   "source_url": "https://nitkkr.ac.in/fee-structure/",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 900000,
    "percentage_placed": 53.6,
    "percentage_with_outcome": 77.8,
    "students_placed": 590,
    "higher_studies_selected": 266,
-   "first_year_intake": null,
+   "first_year_intake": 1158,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -7647,13 +8452,27 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 21.4,
+   "female": 890,
+   "male": 3266,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 137860,
+   "annual_fee_waived": 12860,
+   "annual_hostel_mess": 54800,
+   "cycle": "2025-26",
+   "source_url": "https://www.nitrr.ac.in/downloads/fees/Fees_2025/Fee%20Structure%202025-26.pdf",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 850000,
    "percentage_placed": 72.4,
    "percentage_with_outcome": 77.3,
    "students_placed": 724,
    "higher_studies_selected": 49,
-   "first_year_intake": null,
+   "first_year_intake": 1118,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -7755,17 +8574,35 @@
      "rank": 82,
      "score": 37.74
     }
-   ]
+   ],
+   "latest_band": {
+    "year": 2025,
+    "band": "101-150"
+   }
+  },
+  "ug_gender": {
+   "female_pct": 19.6,
+   "female": 366,
+   "male": 1503,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 205160,
+   "annual_fee_waived": 15500,
+   "annual_hostel_mess": 72800,
+   "cycle": "2025-26",
+   "source_url": "https://acad.iitb.ac.in/admissions/fees-structure",
+   "is_entry_year": true
   },
   "placement": {
-   "median_salary": 3000000,
-   "percentage_placed": 96.9,
-   "percentage_with_outcome": 99.2,
-   "students_placed": 372,
-   "higher_studies_selected": 9,
-   "first_year_intake": null,
-   "academic_year": "2022-23",
-   "ranking_year": 2024,
+   "median_salary": 1850000,
+   "percentage_placed": 81.3,
+   "percentage_with_outcome": 91.4,
+   "students_placed": 348,
+   "higher_studies_selected": 43,
+   "first_year_intake": 439,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
@@ -7779,7 +8616,7 @@
    "identity": "AISHE 2024-25",
    "programs": "JoSAA 2025 Round 6",
    "ranking": "NIRF 2024",
-   "placement": "NIRF 2024 (AY 2022-23)",
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -7910,18 +8747,41 @@
      "year": 2019,
      "rank": 78,
      "score": 38.42
+    },
+    {
+     "year": 2018,
+     "rank": 73,
+     "score": 39.24
     }
-   ]
+   ],
+   "latest_band": {
+    "year": 2025,
+    "band": "101-150"
+   }
+  },
+  "ug_gender": {
+   "female_pct": 14.7,
+   "female": 438,
+   "male": 2542,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 188000,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 75500,
+   "cycle": "2025-26",
+   "source_url": "https://pec.ac.in/sites/default/files/2023-06/Admission_Brochure_UG-2023_0.pdf",
+   "is_entry_year": true
   },
   "placement": {
-   "median_salary": 900000,
-   "percentage_placed": 77.8,
-   "percentage_with_outcome": 81.9,
-   "students_placed": 495,
-   "higher_studies_selected": 26,
-   "first_year_intake": null,
-   "academic_year": "2020-21",
-   "ranking_year": 2022,
+   "median_salary": 1300000,
+   "percentage_placed": 59.1,
+   "percentage_with_outcome": 80.2,
+   "students_placed": 386,
+   "higher_studies_selected": 138,
+   "first_year_intake": 771,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
@@ -7935,7 +8795,7 @@
    "identity": "AISHE 2024-25",
    "programs": "JoSAA 2025 Round 6",
    "ranking": "NIRF 2022",
-   "placement": "NIRF 2022 (AY 2020-21)",
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": "NAAC"
   }
  },
@@ -8029,23 +8889,36 @@
      "year": 2019,
      "rank": 87,
      "score": 37.06
-    },
-    {
-     "year": 2016,
-     "rank": 77,
-     "score": 53.65
     }
-   ]
+   ],
+   "latest_band": {
+    "year": 2025,
+    "band": "101-150"
+   }
+  },
+  "ug_gender": {
+   "female_pct": 22.5,
+   "female": 161,
+   "male": 555,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 148000,
+   "annual_fee_waived": 23000,
+   "annual_hostel_mess": 73500,
+   "cycle": "2025-26",
+   "source_url": "https://www.nitgoa.ac.in/static/fee_structure_23-24_25july2023.pdf",
+   "is_entry_year": true
   },
   "placement": {
-   "median_salary": 800000,
-   "percentage_placed": 80.0,
-   "percentage_with_outcome": 86.9,
-   "students_placed": 104,
-   "higher_studies_selected": 9,
-   "first_year_intake": null,
-   "academic_year": "2021-22",
-   "ranking_year": 2023,
+   "median_salary": 725000,
+   "percentage_placed": 63.3,
+   "percentage_with_outcome": 72.3,
+   "students_placed": 105,
+   "higher_studies_selected": 15,
+   "first_year_intake": 188,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
@@ -8059,7 +8932,7 @@
    "identity": "AISHE 2024-25",
    "programs": "JoSAA 2025 Round 6",
    "ranking": "NIRF 2023",
-   "placement": "NIRF 2023 (AY 2021-22)",
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -8158,17 +9031,35 @@
      "rank": 87,
      "score": 37.27
     }
-   ]
+   ],
+   "latest_band": {
+    "year": 2025,
+    "band": "151-200"
+   }
+  },
+  "ug_gender": {
+   "female_pct": 20.4,
+   "female": 158,
+   "male": 616,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 141800,
+   "annual_fee_waived": 16800,
+   "annual_hostel_mess": 76000,
+   "cycle": "2025-26",
+   "source_url": "https://nitmanipur.ac.in/RevisedFeeStructure_b.Tech_2025onwards_13062025.pdf",
+   "is_entry_year": true
   },
   "placement": {
    "median_salary": 750000,
-   "percentage_placed": 94.0,
-   "percentage_with_outcome": 98.8,
-   "students_placed": 157,
-   "higher_studies_selected": 8,
-   "first_year_intake": null,
-   "academic_year": "2021-22",
-   "ranking_year": 2023,
+   "percentage_placed": 65.6,
+   "percentage_with_outcome": 77.9,
+   "students_placed": 101,
+   "higher_studies_selected": 19,
+   "first_year_intake": 180,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
@@ -8182,7 +9073,7 @@
    "identity": "AISHE 2024-25",
    "programs": "JoSAA 2025 Round 6",
    "ranking": "NIRF 2023",
-   "placement": "NIRF 2023 (AY 2021-22)",
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -8284,13 +9175,27 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 18.0,
+   "female": 71,
+   "male": 324,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 214500,
+   "annual_fee_waived": 70500,
+   "annual_hostel_mess": 66000,
+   "cycle": "2025-26",
+   "source_url": "https://www.iiitm.ac.in/images/2023/June_2023/Fee_Structure_July_2023.pdf",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 2200000,
    "percentage_placed": 74.0,
    "percentage_with_outcome": 98.6,
    "students_placed": 54,
    "higher_studies_selected": 18,
-   "first_year_intake": null,
+   "first_year_intake": 74,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -8451,13 +9356,27 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 23.0,
+   "female": 757,
+   "male": 2536,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 166200,
+   "annual_fee_waived": 41200,
+   "annual_hostel_mess": 80000,
+   "cycle": "2025-26",
+   "source_url": "https://nith.ac.in/uploads/files/nov24/feestructure.pdf",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 1005000,
    "percentage_placed": 83.5,
    "percentage_with_outcome": 97.4,
    "students_placed": 632,
    "higher_studies_selected": 105,
-   "first_year_intake": null,
+   "first_year_intake": 830,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -8565,17 +9484,35 @@
      "rank": 91,
      "score": 36.42
     }
-   ]
+   ],
+   "latest_band": {
+    "year": 2025,
+    "band": "101-150"
+   }
+  },
+  "ug_gender": {
+   "female_pct": 16.7,
+   "female": 336,
+   "male": 1682,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 158500,
+   "annual_fee_waived": 15000,
+   "annual_hostel_mess": 52000,
+   "cycle": "2025-26",
+   "source_url": "https://www.iiitdmj.ac.in/academics/download/fee-structure-2025-26/Fee%20Structure%20UG2025.pdf",
+   "is_entry_year": true
   },
   "placement": {
-   "median_salary": 1100000,
-   "percentage_placed": 84.1,
-   "percentage_with_outcome": 96.3,
-   "students_placed": 228,
-   "higher_studies_selected": 33,
-   "first_year_intake": null,
-   "academic_year": "2021-22",
-   "ranking_year": 2023,
+   "median_salary": 1767000,
+   "percentage_placed": 67.0,
+   "percentage_with_outcome": 100.0,
+   "students_placed": 331,
+   "higher_studies_selected": 163,
+   "first_year_intake": 502,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
@@ -8589,7 +9526,7 @@
    "identity": "AISHE 2024-25",
    "programs": "JoSAA 2025 Round 6",
    "ranking": "NIRF 2023",
-   "placement": "NIRF 2023 (AY 2021-22)",
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -8685,13 +9622,27 @@
     }
    ]
   },
+  "ug_gender": {
+   "female_pct": 26.2,
+   "female": 257,
+   "male": 723,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 145500,
+   "annual_fee_waived": 20500,
+   "annual_hostel_mess": 77000,
+   "cycle": "2025-26",
+   "source_url": "https://nitpy.ac.in/assets/docs/academics/fees%20structure/2025/Undergraduate_B.Tech._2025-26.pdf",
+   "is_entry_year": true
+  },
   "placement": {
    "median_salary": 700000,
    "percentage_placed": 68.7,
    "percentage_with_outcome": 78.7,
    "students_placed": 158,
    "higher_studies_selected": 23,
-   "first_year_intake": null,
+   "first_year_intake": 240,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
@@ -8707,6 +9658,166 @@
    "identity": "AISHE 2024-25",
    "programs": "JoSAA 2025 Round 6",
    "ranking": "NIRF 2025",
+   "placement": "NIRF 2025 (AY 2023-24)",
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "U-0201",
+  "aishe_code": "U-0201",
+  "name": "Shri Mata Vaishno Devi University, Jammu",
+  "display_name": "Shri Mata Vaishno Devi University, Katra, Jammu & Kashmir",
+  "state": "Jammu and Kashmir",
+  "state_is_inferred": false,
+  "district": "Reasi",
+  "kind": "State Public University",
+  "management": null,
+  "year_established": 1999,
+  "website": "www.smvdu.ac.in",
+  "entrance_exams": [
+   "JEE Main"
+  ],
+  "counselling": "JoSAA",
+  "programs": {
+   "count": 9,
+   "degrees": [
+    "Bachelor of Architecture",
+    "Bachelor of Technology"
+   ],
+   "quotas_offered": [
+    "AI"
+   ],
+   "list": [
+    {
+     "branch": "Architecture",
+     "years": 5,
+     "degree": "Bachelor of Architecture",
+     "indicative_closing_rank": 1287
+    },
+    {
+     "branch": "Computer Science and Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 69474
+    },
+    {
+     "branch": "B.Tech in Mathematics and Computing",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 72314
+    },
+    {
+     "branch": "Robotics and AI",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 74007
+    },
+    {
+     "branch": "Bio Technology",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 83268
+    },
+    {
+     "branch": "Electronics and Communication Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 87906
+    },
+    {
+     "branch": "Electrical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 94375
+    },
+    {
+     "branch": "Mechanical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 94474
+    },
+    {
+     "branch": "Civil Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 102500
+    }
+   ],
+   "source": "JoSAA 2025 Round 6",
+   "rank_note": "Indicative open-category closing rank."
+  },
+  "nirf": {
+   "engineering_rank": 101,
+   "engineering_score": 40.08,
+   "ranking_year": 2022,
+   "rank_history": [
+    {
+     "year": 2022,
+     "rank": 101,
+     "score": 40.08
+    },
+    {
+     "year": 2021,
+     "rank": 79,
+     "score": 41.22
+    },
+    {
+     "year": 2020,
+     "rank": 78,
+     "score": 39.68
+    },
+    {
+     "year": 2019,
+     "rank": 85,
+     "score": 37.32
+    },
+    {
+     "year": 2018,
+     "rank": 94,
+     "score": 36.28
+    }
+   ],
+   "latest_band": {
+    "year": 2025,
+    "band": "151-200"
+   }
+  },
+  "ug_gender": {
+   "female_pct": 15.6,
+   "female": 193,
+   "male": 1045,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 158740,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 20000,
+   "cycle": "2025-26",
+   "source_url": "https://smvdu.ac.in/wp-content/uploads/2025/02/New-Doc-02-10-2025-10.34-1.pdf",
+   "is_entry_year": true
+  },
+  "placement": {
+   "median_salary": 500000,
+   "percentage_placed": 32.5,
+   "percentage_with_outcome": 36.8,
+   "students_placed": 105,
+   "higher_studies_selected": 14,
+   "first_year_intake": 380,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF Engineering, UG 4-year",
+   "is_branch_specific": false
+  },
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "AISHE 2024-25",
+   "programs": "JoSAA 2025 Round 6",
+   "ranking": "NIRF 2022",
    "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
@@ -8772,17 +9883,35 @@
      "rank": 66,
      "score": 41.92
     }
-   ]
+   ],
+   "latest_band": {
+    "year": 2025,
+    "band": "201-300"
+   }
+  },
+  "ug_gender": {
+   "female_pct": 14.9,
+   "female": 133,
+   "male": 758,
+   "edition_year": 2024
+  },
+  "fees": {
+   "annual_fee": 275000,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 59500,
+   "cycle": "2025-26",
+   "source_url": "https://www.iiitg.ac.in/fees.html",
+   "is_entry_year": true
   },
   "placement": {
-   "median_salary": 900000,
-   "percentage_placed": 65.3,
-   "percentage_with_outcome": 74.7,
-   "students_placed": 49,
-   "higher_studies_selected": 7,
-   "first_year_intake": null,
-   "academic_year": "2020-21",
-   "ranking_year": 2022,
+   "median_salary": 1400000,
+   "percentage_placed": 89.2,
+   "percentage_with_outcome": 97.3,
+   "students_placed": 165,
+   "higher_studies_selected": 15,
+   "first_year_intake": 233,
+   "academic_year": "2022-23",
+   "ranking_year": 2024,
    "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
@@ -8796,7 +9925,283 @@
    "identity": "AISHE 2024-25",
    "programs": "JoSAA 2025 Round 6",
    "ranking": "NIRF 2022",
-   "placement": "NIRF 2022 (AY 2020-21)",
+   "placement": "NIRF 2024 (AY 2022-23)",
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "U-0056",
+  "aishe_code": "U-0056",
+  "name": "Tezpur University, Tezpur",
+  "display_name": "School of Engineering, Tezpur University, Napaam, Tezpur",
+  "state": "Assam",
+  "state_is_inferred": false,
+  "district": "Sonitpur",
+  "kind": "Central University",
+  "management": null,
+  "year_established": 1994,
+  "website": "www.tezu.ernet.in",
+  "entrance_exams": [
+   "JEE Main"
+  ],
+  "counselling": "JoSAA",
+  "programs": {
+   "count": 13,
+   "degrees": [
+    "Bachelor of Design",
+    "Bachelor of Technology",
+    "Bachelor of Technology and MBA (Dual Degree)"
+   ],
+   "quotas_offered": [
+    "AI"
+   ],
+   "list": [
+    {
+     "branch": "B.Tech. (Computer Science and Engineering) - MBA",
+     "years": 5,
+     "degree": "Bachelor of Technology and MBA (Dual Degree)",
+     "indicative_closing_rank": 58363
+    },
+    {
+     "branch": "Computer Science and Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 64476
+    },
+    {
+     "branch": "B.Tech. (Food Engineering and Technology) - MBA",
+     "years": 5,
+     "degree": "Bachelor of Technology and MBA (Dual Degree)",
+     "indicative_closing_rank": 72557
+    },
+    {
+     "branch": "B.Tech. (Electronics and Communication Engineering) - MBA",
+     "years": 5,
+     "degree": "Bachelor of Technology and MBA (Dual Degree)",
+     "indicative_closing_rank": 72944
+    },
+    {
+     "branch": "Electronics and Communication Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 75585
+    },
+    {
+     "branch": "B.Tech. (Mechanical Engineering) - MBA",
+     "years": 5,
+     "degree": "Bachelor of Technology and MBA (Dual Degree)",
+     "indicative_closing_rank": 78838
+    },
+    {
+     "branch": "B.Tech. (Elctrical Engineering) - MBA",
+     "years": 5,
+     "degree": "Bachelor of Technology and MBA (Dual Degree)",
+     "indicative_closing_rank": 83701
+    },
+    {
+     "branch": "Electrical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 86122
+    },
+    {
+     "branch": "B.Tech. (Civil Engineering) - MBA",
+     "years": 5,
+     "degree": "Bachelor of Technology and MBA (Dual Degree)",
+     "indicative_closing_rank": 87713
+    },
+    {
+     "branch": "Mechanical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 91057
+    },
+    {
+     "branch": "Bachelor of Design",
+     "years": 4,
+     "degree": "Bachelor of Design",
+     "indicative_closing_rank": 92713
+    },
+    {
+     "branch": "Civil Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 104195
+    },
+    {
+     "branch": "Food Engineering and Technology",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 121531
+    }
+   ],
+   "source": "JoSAA 2025 Round 6",
+   "rank_note": "Indicative open-category closing rank."
+  },
+  "nirf": {
+   "engineering_rank": 123,
+   "engineering_score": 38.12,
+   "ranking_year": 2022,
+   "rank_history": [
+    {
+     "year": 2022,
+     "rank": 123,
+     "score": 38.12
+    },
+    {
+     "year": 2021,
+     "rank": 104,
+     "score": 38.39
+    }
+   ],
+   "latest_band": {
+    "year": 2025,
+    "band": "151-200"
+   }
+  },
+  "ug_gender": {
+   "female_pct": 14.0,
+   "female": 181,
+   "male": 1113,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 54486,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 19800,
+   "cycle": "2025-26",
+   "source_url": "https://www.tezu.ernet.in/soe/pdf/josaa_csab/FEE%20Sturucture_2025.pdf",
+   "is_entry_year": true
+  },
+  "placement": {
+   "median_salary": 540000,
+   "percentage_placed": 29.3,
+   "percentage_with_outcome": 42.1,
+   "students_placed": 82,
+   "higher_studies_selected": 36,
+   "first_year_intake": 366,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF Engineering, UG 4-year",
+   "is_branch_specific": false
+  },
+  "naac": {
+   "grade": "A+",
+   "cgpa": 3.41,
+   "cycle": 4,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "AISHE 2024-25",
+   "programs": "JoSAA 2025 Round 6",
+   "ranking": "NIRF 2022",
+   "placement": "NIRF 2025 (AY 2023-24)",
+   "accreditation": "NAAC"
+  }
+ },
+ {
+  "college_id": "U-0989",
+  "aishe_code": "U-0989",
+  "name": "NATIONAL INSTITUTE OF FOOD TECHNOLOGY ENTREPRENEURSHIP AND MANAGEMENT",
+  "display_name": "National Institute of Food Technology Entrepreneurship and Management, Kundli",
+  "state": "Haryana",
+  "state_is_inferred": false,
+  "district": "Sonipat",
+  "kind": "Institute of National Importance",
+  "management": null,
+  "year_established": 2012,
+  "website": "www.niftem.ac.in",
+  "entrance_exams": [
+   "JEE Main"
+  ],
+  "counselling": "JoSAA",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "Bachelor of Technology"
+   ],
+   "quotas_offered": [
+    "AI"
+   ],
+   "list": [
+    {
+     "branch": "Food Technology and Management",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 120222
+    }
+   ],
+   "source": "JoSAA 2025 Round 6",
+   "rank_note": "Indicative open-category closing rank."
+  },
+  "nirf": {
+   "engineering_rank": 127,
+   "engineering_score": 37.96,
+   "ranking_year": 2022,
+   "rank_history": [
+    {
+     "year": 2022,
+     "rank": 127,
+     "score": 37.96
+    },
+    {
+     "year": 2021,
+     "rank": 148,
+     "score": 35.35
+    },
+    {
+     "year": 2020,
+     "rank": 121,
+     "score": 35.65
+    },
+    {
+     "year": 2019,
+     "rank": 117,
+     "score": 34.48
+    }
+   ],
+   "latest_band": {
+    "year": 2025,
+    "band": "101-150"
+   }
+  },
+  "ug_gender": {
+   "female_pct": 25.7,
+   "female": 154,
+   "male": 446,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 164900,
+   "annual_fee_waived": 61600,
+   "annual_hostel_mess": 48200,
+   "cycle": "2025-26",
+   "source_url": "https://niftem.ac.in/newsite/wp-content/uploads/2023/05/Fee-Structure-for-B.Tech-2023-24.pdf",
+   "is_entry_year": true
+  },
+  "placement": {
+   "median_salary": 710000,
+   "percentage_placed": 54.8,
+   "percentage_with_outcome": 97.8,
+   "students_placed": 74,
+   "higher_studies_selected": 58,
+   "first_year_intake": 180,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF Engineering, UG 4-year",
+   "is_branch_specific": false
+  },
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "AISHE 2024-25",
+   "programs": "JoSAA 2025 Round 6",
+   "ranking": "NIRF 2022",
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -8875,17 +10280,35 @@
      "rank": 186,
      "score": 33.07
     }
-   ]
+   ],
+   "latest_band": {
+    "year": 2025,
+    "band": "151-200"
+   }
+  },
+  "ug_gender": {
+   "female_pct": 21.2,
+   "female": 121,
+   "male": 450,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 139600,
+   "annual_fee_waived": 14600,
+   "annual_hostel_mess": 68666,
+   "cycle": "2025-26",
+   "source_url": "https://nituk.ac.in/uploads/topics/17471183241662.pdf",
+   "is_entry_year": true
   },
   "placement": {
-   "median_salary": 600000,
-   "percentage_placed": 42.9,
-   "percentage_with_outcome": 52.1,
-   "students_placed": 111,
-   "higher_studies_selected": 24,
-   "first_year_intake": null,
-   "academic_year": "2020-21",
-   "ranking_year": 2022,
+   "median_salary": 954000,
+   "percentage_placed": 53.2,
+   "percentage_with_outcome": 68.4,
+   "students_placed": 42,
+   "higher_studies_selected": 12,
+   "first_year_intake": 100,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
@@ -8899,7 +10322,7 @@
    "identity": "AISHE 2024-25",
    "programs": "JoSAA 2025 Round 6",
    "ranking": "NIRF 2022",
-   "placement": "NIRF 2022 (AY 2020-21)",
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -8989,17 +10412,35 @@
      "rank": 200,
      "score": 31.09
     }
-   ]
+   ],
+   "latest_band": {
+    "year": 2025,
+    "band": "101-150"
+   }
+  },
+  "ug_gender": {
+   "female_pct": 20.6,
+   "female": 162,
+   "male": 624,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 139000,
+   "annual_fee_waived": 14000,
+   "annual_hostel_mess": 43000,
+   "cycle": "2025-26",
+   "source_url": "https://www.nitap.ac.in/storage/pdf/78719b5fbeb8f6d792336abebaf42fbb-03-07-42,%202024.pdf",
+   "is_entry_year": true
   },
   "placement": {
-   "median_salary": 650000,
-   "percentage_placed": 50.0,
-   "percentage_with_outcome": 66.9,
-   "students_placed": 62,
-   "higher_studies_selected": 21,
-   "first_year_intake": null,
-   "academic_year": "2020-21",
-   "ranking_year": 2022,
+   "median_salary": 810000,
+   "percentage_placed": 80.3,
+   "percentage_with_outcome": 87.9,
+   "students_placed": 126,
+   "higher_studies_selected": 12,
+   "first_year_intake": 190,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
@@ -9013,7 +10454,7 @@
    "identity": "AISHE 2024-25",
    "programs": "JoSAA 2025 Round 6",
    "ranking": "NIRF 2022",
-   "placement": "NIRF 2022 (AY 2020-21)",
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -9093,17 +10534,35 @@
      "rank": 173,
      "score": 35.33
     }
-   ]
+   ],
+   "latest_band": {
+    "year": 2025,
+    "band": "151-200"
+   }
+  },
+  "ug_gender": {
+   "female_pct": 21.7,
+   "female": 126,
+   "male": 455,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 141890,
+   "annual_fee_waived": 16890,
+   "annual_hostel_mess": 16500,
+   "cycle": "2025-26",
+   "source_url": "https://nitsikkim.ac.in/documents/Fee%20Structure/2024_jan/B%20Tech%20Fee%20Structure%20for%202024-25%20Academic%20Session.pdf",
+   "is_entry_year": true
   },
   "placement": {
-   "median_salary": 711000,
-   "percentage_placed": 59.9,
-   "percentage_with_outcome": 65.7,
-   "students_placed": 103,
-   "higher_studies_selected": 10,
-   "first_year_intake": null,
-   "academic_year": "2020-21",
-   "ranking_year": 2022,
+   "median_salary": 793000,
+   "percentage_placed": 80.2,
+   "percentage_with_outcome": 93.7,
+   "students_placed": 101,
+   "higher_studies_selected": 17,
+   "first_year_intake": 160,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
@@ -9117,7 +10576,270 @@
    "identity": "AISHE 2024-25",
    "programs": "JoSAA 2025 Round 6",
    "ranking": "NIRF 2022",
-   "placement": "NIRF 2022 (AY 2020-21)",
+   "placement": "NIRF 2025 (AY 2023-24)",
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "C-36143",
+  "aishe_code": "C-36143",
+  "name": "Shri G. S. Institute of Technology & Science, 23,Park Road, Indore - 452003",
+  "display_name": "Shri G. S. Institute of Technology and Science Indore",
+  "state": "Madhya Pradesh",
+  "state_is_inferred": false,
+  "district": "Indore",
+  "kind": "Affiliated College",
+  "management": "Private Aided (Government Aided)",
+  "year_established": 1952,
+  "website": "www.sgsits.ac.in",
+  "entrance_exams": [
+   "JEE Main"
+  ],
+  "counselling": "JoSAA",
+  "programs": {
+   "count": 9,
+   "degrees": [
+    "Bachelor of Technology"
+   ],
+   "quotas_offered": [
+    "AI"
+   ],
+   "list": [
+    {
+     "branch": "Computer Science and Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 27947
+    },
+    {
+     "branch": "Information Technology",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 32619
+    },
+    {
+     "branch": "Electronics and Telecommunication Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 41294
+    },
+    {
+     "branch": "Electrical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 50882
+    },
+    {
+     "branch": "Electronics and Instrumentation Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 51031
+    },
+    {
+     "branch": "Mechanical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 55093
+    },
+    {
+     "branch": "Civil Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 55931
+    },
+    {
+     "branch": "Biomedical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 69348
+    },
+    {
+     "branch": "Industrial and Production Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 71193
+    }
+   ],
+   "source": "JoSAA 2025 Round 6",
+   "rank_note": "Indicative open-category closing rank."
+  },
+  "nirf": {
+   "engineering_rank": 181,
+   "engineering_score": 33.49,
+   "ranking_year": 2021,
+   "rank_history": [
+    {
+     "year": 2021,
+     "rank": 181,
+     "score": 33.49
+    }
+   ],
+   "latest_band": {
+    "year": 2024,
+    "band": "201-300"
+   }
+  },
+  "ug_gender": {
+   "female_pct": 28.5,
+   "female": 879,
+   "male": 2208,
+   "edition_year": 2021
+  },
+  "fees": null,
+  "placement": {
+   "median_salary": 520000,
+   "percentage_placed": 59.9,
+   "percentage_with_outcome": 89.5,
+   "students_placed": 418,
+   "higher_studies_selected": 207,
+   "first_year_intake": 690,
+   "academic_year": "2019-20",
+   "ranking_year": 2021,
+   "source": "NIRF Engineering, UG 4-year",
+   "is_branch_specific": false
+  },
+  "naac": {
+   "grade": "A",
+   "cgpa": 3.1,
+   "cycle": 1,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "AISHE 2024-25",
+   "programs": "JoSAA 2025 Round 6",
+   "ranking": "NIRF 2021",
+   "placement": "NIRF 2021 (AY 2019-20)",
+   "accreditation": "NAAC"
+  }
+ },
+ {
+  "college_id": "U-0046",
+  "aishe_code": "U-0046",
+  "name": "North Eastern Regional Institute of Science & Technology, Papum Pare, Itanagar",
+  "display_name": "North Eastern Regional Institute of Science and Technology, Nirjuli-791109 (Itanagar),Arunachal Pradesh",
+  "state": "Arunachal Pradesh",
+  "state_is_inferred": false,
+  "district": "Papum Pare",
+  "kind": "Deemed University-Government",
+  "management": null,
+  "year_established": 1983,
+  "website": "www.nerist.ac.in",
+  "entrance_exams": [
+   "JEE Main"
+  ],
+  "counselling": "JoSAA",
+  "programs": {
+   "count": 6,
+   "degrees": [
+    "Bachelor of Technology"
+   ],
+   "quotas_offered": [
+    "AI"
+   ],
+   "list": [
+    {
+     "branch": "Computer Science and Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 62096
+    },
+    {
+     "branch": "Agricultural Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 101780
+    },
+    {
+     "branch": "Civil Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": null
+    },
+    {
+     "branch": "Electrical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": null
+    },
+    {
+     "branch": "Electronics and Communication Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": null
+    },
+    {
+     "branch": "Mechanical Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": null
+    }
+   ],
+   "source": "JoSAA 2025 Round 6",
+   "rank_note": "Indicative open-category closing rank."
+  },
+  "nirf": {
+   "engineering_rank": 182,
+   "engineering_score": 33.38,
+   "ranking_year": 2021,
+   "rank_history": [
+    {
+     "year": 2021,
+     "rank": 182,
+     "score": 33.38
+    },
+    {
+     "year": 2020,
+     "rank": 145,
+     "score": 33.67
+    },
+    {
+     "year": 2019,
+     "rank": 173,
+     "score": 31.4
+    }
+   ],
+   "latest_band": {
+    "year": 2025,
+    "band": "151-200"
+   }
+  },
+  "ug_gender": {
+   "female_pct": 28.6,
+   "female": 394,
+   "male": 983,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 43980,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 33220,
+   "cycle": "2025-26",
+   "source_url": "https://nerist.ac.in/wp-content/uploads/2025/01/Fee-Structures-for-UG-Courses_2024_25-to-2025_26.pdf",
+   "is_entry_year": true
+  },
+  "placement": {
+   "median_salary": 600000,
+   "percentage_placed": 54.6,
+   "percentage_with_outcome": 97.7,
+   "students_placed": 165,
+   "higher_studies_selected": 130,
+   "first_year_intake": 387,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF Engineering, UG 4-year",
+   "is_branch_specific": false
+  },
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "AISHE 2024-25",
+   "programs": "JoSAA 2025 Round 6",
+   "ranking": "NIRF 2021",
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -9238,17 +10960,35 @@
      "rank": 197,
      "score": 30.37
     }
-   ]
+   ],
+   "latest_band": {
+    "year": 2025,
+    "band": "151-200"
+   }
+  },
+  "ug_gender": {
+   "female_pct": 14.7,
+   "female": 259,
+   "male": 1497,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 155600,
+   "annual_fee_waived": 9600,
+   "annual_hostel_mess": 66800,
+   "cycle": "2025-26",
+   "source_url": "https://old.iiitdm.ac.in/img/academics/Fee%20structure%20UG,%20DD%20&%20PG.pdf",
+   "is_entry_year": true
   },
   "placement": {
-   "median_salary": 889000,
-   "percentage_placed": 77.3,
-   "percentage_with_outcome": 87.2,
-   "students_placed": 109,
-   "higher_studies_selected": 14,
-   "first_year_intake": null,
-   "academic_year": "2020-21",
-   "ranking_year": 2022,
+   "median_salary": 750000,
+   "percentage_placed": 44.9,
+   "percentage_with_outcome": 63.4,
+   "students_placed": 141,
+   "higher_studies_selected": 58,
+   "first_year_intake": 375,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
    "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
@@ -9262,7 +11002,7 @@
    "identity": "AISHE 2024-25",
    "programs": "JoSAA 2025 Round 6",
    "ranking": "NIRF 2022",
-   "placement": "NIRF 2022 (AY 2020-21)",
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -9329,7 +11069,25 @@
      "rank": 190,
      "score": 34.41
     }
-   ]
+   ],
+   "latest_band": {
+    "year": 2024,
+    "band": "201-300"
+   }
+  },
+  "ug_gender": {
+   "female_pct": 8.1,
+   "female": 52,
+   "male": 590,
+   "edition_year": 2022
+  },
+  "fees": {
+   "annual_fee": 198000,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 110000,
+   "cycle": "2025-26",
+   "source_url": "https://iitram.ac.in/feestructure#btech",
+   "is_entry_year": true
   },
   "placement": {
    "median_salary": 336000,
@@ -9337,7 +11095,7 @@
    "percentage_with_outcome": 35.4,
    "students_placed": 36,
    "higher_studies_selected": 27,
-   "first_year_intake": null,
+   "first_year_intake": 180,
    "academic_year": "2020-21",
    "ranking_year": 2022,
    "source": "NIRF Engineering, UG 4-year",
@@ -9354,6 +11112,121 @@
    "programs": "JoSAA 2025 Round 6",
    "ranking": "NIRF 2022",
    "placement": "NIRF 2022 (AY 2020-21)",
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "U-1032",
+  "aishe_code": "U-1032",
+  "name": "INTERNATIONAL INSTITUTE OF INFORMATION TECHNOLOGY BHUBANESHWAR",
+  "display_name": "International Institute of Information Technology, Bhubaneswar",
+  "state": "Odisha",
+  "state_is_inferred": false,
+  "district": "Khordha",
+  "kind": "State Public University",
+  "management": null,
+  "year_established": 2007,
+  "website": "www.iiit-bh.ac.in",
+  "entrance_exams": [
+   "JEE Main"
+  ],
+  "counselling": "JoSAA",
+  "programs": {
+   "count": 5,
+   "degrees": [
+    "Bachelor of Technology"
+   ],
+   "quotas_offered": [
+    "AI"
+   ],
+   "list": [
+    {
+     "branch": "Computer Science and Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 33833
+    },
+    {
+     "branch": "Information Technology",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 39873
+    },
+    {
+     "branch": "Computer Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 40118
+    },
+    {
+     "branch": "Electronics and Telecommunication Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 45436
+    },
+    {
+     "branch": "Electrical and Electronics Engineering",
+     "years": 4,
+     "degree": "Bachelor of Technology",
+     "indicative_closing_rank": 46244
+    }
+   ],
+   "source": "JoSAA 2025 Round 6",
+   "rank_note": "Indicative open-category closing rank."
+  },
+  "nirf": {
+   "engineering_rank": 190,
+   "engineering_score": 32.73,
+   "ranking_year": 2021,
+   "rank_history": [
+    {
+     "year": 2021,
+     "rank": 190,
+     "score": 32.73
+    }
+   ],
+   "latest_band": {
+    "year": 2024,
+    "band": "201-300"
+   }
+  },
+  "ug_gender": {
+   "female_pct": 23.9,
+   "female": 295,
+   "male": 941,
+   "edition_year": 2021
+  },
+  "fees": {
+   "annual_fee": 251000,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 62000,
+   "cycle": "2025-26",
+   "source_url": "https://josaa.admissions.nic.in/applicant/seatmatrix/InstProfile.aspx?enc=nsU5HEkjvt/OC38zhsZ0yrzaMuEjcqwZ0b4CaN8y0Gw=",
+   "is_entry_year": true
+  },
+  "placement": {
+   "median_salary": 400000,
+   "percentage_placed": 72.4,
+   "percentage_with_outcome": 76.0,
+   "students_placed": 205,
+   "higher_studies_selected": 10,
+   "first_year_intake": 300,
+   "academic_year": "2019-20",
+   "ranking_year": 2021,
+   "source": "NIRF Engineering, UG 4-year",
+   "is_branch_specific": false
+  },
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "AISHE 2024-25",
+   "programs": "JoSAA 2025 Round 6",
+   "ranking": "NIRF 2021",
+   "placement": "NIRF 2021 (AY 2019-20)",
    "accreditation": null
   }
  },
@@ -9406,6 +11279,15 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
+  "fees": {
+   "annual_fee": 110290,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 25000,
+   "cycle": "2025-26",
+   "source_url": "https://josaa.admissions.nic.in/seatinfo/root/InstProfile.aspx?instcd=401",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": "B",
@@ -9476,6 +11358,8 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
+  "fees": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -9565,6 +11449,8 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
+  "fees": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -9581,17 +11467,17 @@
   }
  },
  {
-  "college_id": "josaa:cu-jharkhand",
-  "aishe_code": null,
-  "name": "CU Jharkhand",
+  "college_id": "U-0204",
+  "aishe_code": "U-0204",
+  "name": "Central University of Jharkhand, Ranchi",
   "display_name": "CU Jharkhand",
   "state": "Jharkhand",
-  "state_is_inferred": true,
-  "district": null,
-  "kind": null,
+  "state_is_inferred": false,
+  "district": "Ranchi",
+  "kind": "Central University",
   "management": null,
-  "year_established": null,
-  "website": null,
+  "year_established": 2009,
+  "website": "www.cuj.ac.in",
   "entrance_exams": [
    "JEE Main"
   ],
@@ -9634,11 +11520,20 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
+  "fees": {
+   "annual_fee": 103900,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 29400,
+   "cycle": "2025-26",
+   "source_url": "http://cuj.cuj.ac.in/downloads/Fee/Intergrated%20ug%20&%20PG.pdf",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
-   "grade": null,
-   "cgpa": null,
-   "cycle": null,
+   "grade": "A",
+   "cgpa": 3.19,
+   "cycle": 2,
    "not_applicable_reason": null
   },
   "data_sources": {
@@ -9646,7 +11541,7 @@
    "programs": "JoSAA 2025 Round 6",
    "ranking": null,
    "placement": null,
-   "accreditation": null
+   "accreditation": "NAAC"
   }
  },
  {
@@ -9703,6 +11598,15 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
+  "fees": {
+   "annual_fee": 120300,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": null,
+   "cycle": "2025-26",
+   "source_url": "https://www.cuh.ac.in/pdf/Fee%20Structure.pdf",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": "A",
@@ -9778,6 +11682,15 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
+  "fees": {
+   "annual_fee": 140430,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 36000,
+   "cycle": "2025-26",
+   "source_url": "https://cujammu.ac.in/static/homepage/admissions/2025/upfeestr2526.pdf",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -9841,6 +11754,15 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
+  "fees": {
+   "annual_fee": 154050,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 35000,
+   "cycle": "2025-26",
+   "source_url": "https://curaj.ac.in/sites/default/files/B.Tech%202025-26.pdf",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": "A++",
@@ -9916,6 +11838,15 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
+  "fees": {
+   "annual_fee": 122200,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 32800,
+   "cycle": "2025-26",
+   "source_url": "https://www.cit.ac.in/uploads/notices/files/1562236559.pdf",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -9980,6 +11911,15 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
+  "fees": {
+   "annual_fee": 101400,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": null,
+   "cycle": "2025-26",
+   "source_url": "https://csvtu.ac.in/ew/university-teaching-department-2/",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -9996,17 +11936,17 @@
   }
  },
  {
-  "college_id": "josaa:gati-shakti-vishwavidyalaya-vadodara",
-  "aishe_code": null,
-  "name": "Gati Shakti Vishwavidyalaya, Vadodara",
+  "college_id": "U-0968",
+  "aishe_code": "U-0968",
+  "name": "Gati Shakti Vishwavidyalaya",
   "display_name": "Gati Shakti Vishwavidyalaya, Vadodara",
-  "state": null,
-  "state_is_inferred": true,
-  "district": null,
-  "kind": null,
+  "state": "Gujarat",
+  "state_is_inferred": false,
+  "district": "Vadodara",
+  "kind": "Central University",
   "management": null,
-  "year_established": null,
-  "website": null,
+  "year_established": 2018,
+  "website": "https://gsv.ac.in/",
   "entrance_exams": [
    "JEE Main"
   ],
@@ -10061,6 +12001,15 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
+  "fees": {
+   "annual_fee": 163050,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 83600,
+   "cycle": "2025-26",
+   "source_url": "https://gsv.ac.in/admission/",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -10077,17 +12026,17 @@
   }
  },
  {
-  "college_id": "josaa:ghani-khan-choudhary-institute-of-engineering-and-technology-92ea28",
-  "aishe_code": null,
-  "name": "Ghani Khan Choudhary Institute of Engineering and Technology, Malda, West Bengal",
+  "college_id": "S-14559",
+  "aishe_code": "S-14559",
+  "name": "GHANI KHAN CHOUDHURY INSTITUTE OF ENGINEERING & TECHNOLOGY, KOTWALI, MALDA",
   "display_name": "Ghani Khan Choudhary Institute of Engineering and Technology, Malda, West Bengal",
   "state": "West Bengal",
-  "state_is_inferred": true,
-  "district": null,
-  "kind": null,
-  "management": null,
-  "year_established": null,
-  "website": null,
+  "state_is_inferred": false,
+  "district": "Malda",
+  "kind": "Institutes under Ministries",
+  "management": "Central Government",
+  "year_established": 2010,
+  "website": "www.gkciet.ac.in",
   "entrance_exams": [
    "JEE Main"
   ],
@@ -10137,6 +12086,8 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
+  "fees": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -10206,6 +12157,15 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
+  "fees": {
+   "annual_fee": 124350,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 25000,
+   "cycle": "2025-26",
+   "source_url": "https://www.gkv.ac.in/wp-content/uploads/2025/05/FET-brochure.pdf",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": "B",
@@ -10222,17 +12182,17 @@
   }
  },
  {
-  "college_id": "josaa:indian-institute-of-information-technology-senapati-manipur",
-  "aishe_code": null,
-  "name": "INDIAN INSTITUTE OF INFORMATION TECHNOLOGY SENAPATI MANIPUR",
+  "college_id": "U-0770",
+  "aishe_code": "U-0770",
+  "name": "Indian Institute of Information Technology, Senapati",
   "display_name": "INDIAN INSTITUTE OF INFORMATION TECHNOLOGY SENAPATI MANIPUR",
   "state": "Manipur",
-  "state_is_inferred": true,
-  "district": null,
-  "kind": null,
+  "state_is_inferred": false,
+  "district": "Senapati",
+  "kind": "Institute of National Importance",
   "management": null,
-  "year_established": null,
-  "website": null,
+  "year_established": 2014,
+  "website": "www.iiitmanipur.ac.in",
   "entrance_exams": [
    "JEE Main"
   ],
@@ -10287,6 +12247,15 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
+  "fees": {
+   "annual_fee": 288800,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 114000,
+   "cycle": "2025-26",
+   "source_url": "https://iiitmanipur.ac.in/pages/academic/admission2025/FeeStructureIIITM2025.pdf",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -10338,6 +12307,15 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
+  "fees": {
+   "annual_fee": 86000,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 51000,
+   "cycle": "2025-26",
+   "source_url": "https://josaa.admissions.nic.in/applicant/seatmatrix/InstProfile.aspx?enc=nsU5HEkjvt/OC38zhsZ0ypquWYy9ZEDmEDKdaFMRugw=",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -10389,6 +12367,8 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
+  "fees": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -10440,6 +12420,15 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
+  "fees": {
+   "annual_fee": 17000,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 43000,
+   "cycle": "2025-26",
+   "source_url": "https://josaa.admissions.nic.in/applicant/seatmatrix/InstProfile.aspx?enc=nsU5HEkjvt/OC38zhsZ0yljChnp7+Ays2xP9g8deHgg=",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -10521,6 +12510,15 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
+  "fees": {
+   "annual_fee": 456600,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 113000,
+   "cycle": "2025-26",
+   "source_url": "https://iiitn.ac.in/media/7128975f4eff4b1eb85c8ff31af69084.pdf",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -10578,6 +12576,15 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
+  "fees": {
+   "annual_fee": 118000,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 64300,
+   "cycle": "2025-26",
+   "source_url": "https://www.isquareit.edu.in/fee-structure/",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -10654,6 +12661,15 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
+  "fees": {
+   "annual_fee": 300000,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 84000,
+   "cycle": "2025-26",
+   "source_url": "https://iiitranchi.ac.in/docs/updates/BF290425.pdf",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -10670,17 +12686,17 @@
   }
  },
  {
-  "college_id": "josaa:indian-institute-of-information-technology-iiit-sri-city-chi-666d5f",
-  "aishe_code": null,
-  "name": "Indian Institute of Information Technology (IIIT), Sri City, Chittoor",
+  "college_id": "U-0760",
+  "aishe_code": "U-0760",
+  "name": "Indian Institute of Information Technology, Sri City",
   "display_name": "Indian Institute of Information Technology (IIIT), Sri City, Chittoor",
-  "state": null,
-  "state_is_inferred": true,
-  "district": null,
-  "kind": null,
+  "state": "Andhra Pradesh",
+  "state_is_inferred": false,
+  "district": "Chittoor",
+  "kind": "Institute of National Importance",
   "management": null,
-  "year_established": null,
-  "website": null,
+  "year_established": 2013,
+  "website": "www.iiits.ac.in",
   "entrance_exams": [
    "JEE Main"
   ],
@@ -10717,6 +12733,15 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
+  "fees": {
+   "annual_fee": 380000,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 88000,
+   "cycle": "2025-26",
+   "source_url": "https://iiits.ac.in/academics/b-tech-programme/fee-structure/",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -10733,17 +12758,17 @@
   }
  },
  {
-  "college_id": "josaa:indian-institute-of-information-technology-iiit-kota-rajasth-ea25dc",
-  "aishe_code": null,
-  "name": "Indian Institute of Information Technology (IIIT)Kota, Rajasthan",
+  "college_id": "U-0799",
+  "aishe_code": "U-0799",
+  "name": "Indian Institute of Information Technology, Kota",
   "display_name": "Indian Institute of Information Technology (IIIT)Kota, Rajasthan",
   "state": "Rajasthan",
-  "state_is_inferred": true,
-  "district": null,
-  "kind": null,
+  "state_is_inferred": false,
+  "district": "Kota",
+  "kind": "Institute of National Importance",
   "management": null,
-  "year_established": null,
-  "website": null,
+  "year_established": 2013,
+  "website": "www.iiitkota.ac.in",
   "entrance_exams": [
    "JEE Main"
   ],
@@ -10780,6 +12805,15 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
+  "fees": {
+   "annual_fee": 270850,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 76000,
+   "cycle": "2025-26",
+   "source_url": "https://cdn.iiitkota.ac.in/fees/2025-07-24_Fee_Structure_2025-26.pdf",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -10849,6 +12883,15 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
+  "fees": {
+   "annual_fee": 317242,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 82000,
+   "cycle": "2025-26",
+   "source_url": "https://drive.google.com/file/d/16CXj18jaeiVCb2X-LevqjNaQ6Mo67xYX/view",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -10865,17 +12908,17 @@
   }
  },
  {
-  "college_id": "josaa:indian-institute-of-information-technology-bhopal",
-  "aishe_code": null,
-  "name": "Indian Institute of Information Technology Bhopal",
+  "college_id": "U-1193",
+  "aishe_code": "U-1193",
+  "name": "Indian Institute of Information Technology",
   "display_name": "Indian Institute of Information Technology Bhopal",
-  "state": null,
-  "state_is_inferred": true,
-  "district": null,
-  "kind": null,
+  "state": "Madhya Pradesh",
+  "state_is_inferred": false,
+  "district": "Bhopal",
+  "kind": "Institute of National Importance",
   "management": null,
-  "year_established": null,
-  "website": null,
+  "year_established": 2017,
+  "website": "www.iiitbhopal.ac.in",
   "entrance_exams": [
    "JEE Main"
   ],
@@ -10948,6 +12991,15 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
+  "fees": {
+   "annual_fee": 164200,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 114000,
+   "cycle": "2025-26",
+   "source_url": "https://iiitbhopal.ac.in/Document/Admission/B.Tech%20FEE%20STRUCTURE%202022-23.pdf",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -10964,17 +13016,17 @@
   }
  },
  {
-  "college_id": "josaa:indian-institute-of-information-technology-design-manufactur-f56084",
-  "aishe_code": null,
-  "name": "Indian Institute of Information Technology Design & Manufacturing Kurnool, Andhra Pradesh",
+  "college_id": "U-0863",
+  "aishe_code": "U-0863",
+  "name": "Indian Institute of Information Technology Design And Manufacturing, Kurnool",
   "display_name": "Indian Institute of Information Technology Design & Manufacturing Kurnool, Andhra Pradesh",
   "state": "Andhra Pradesh",
-  "state_is_inferred": true,
-  "district": null,
-  "kind": null,
+  "state_is_inferred": false,
+  "district": "Kurnool",
+  "kind": "Institute of National Importance",
   "management": null,
-  "year_established": null,
-  "website": null,
+  "year_established": 2015,
+  "website": "www.iiitk.ac.in",
   "entrance_exams": [
    "JEE Main"
   ],
@@ -11036,6 +13088,15 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
+  "fees": {
+   "annual_fee": 190600,
+   "annual_fee_waived": 14600,
+   "annual_hostel_mess": 63000,
+   "cycle": "2025-26",
+   "source_url": "https://files.iiitk.ac.in/uploads/academics/feestructure/B.Tech_FeeStructure_AY2025_26.pdf",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -11105,6 +13166,15 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
+  "fees": {
+   "annual_fee": 247400,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 42000,
+   "cycle": "2025-26",
+   "source_url": "https://iiitl.ac.in/wp-content/uploads/2023/06/B.Tech-Fees-2023-2027.pdf",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -11174,6 +13244,15 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
+  "fees": {
+   "annual_fee": 197500,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": null,
+   "cycle": "2025-26",
+   "source_url": "https://iiitsurat.ac.in/admission/fee-structure",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -11190,17 +13269,17 @@
   }
  },
  {
-  "college_id": "josaa:indian-institute-of-information-technology-tiruchirappalli",
-  "aishe_code": null,
-  "name": "Indian Institute of Information Technology Tiruchirappalli",
+  "college_id": "U-0754",
+  "aishe_code": "U-0754",
+  "name": "Indian Institute of Information Technology, Srirangam",
   "display_name": "Indian Institute of Information Technology Tiruchirappalli",
-  "state": null,
-  "state_is_inferred": true,
-  "district": null,
-  "kind": null,
+  "state": "Tamil Nadu",
+  "state_is_inferred": false,
+  "district": "Tiruchirappalli",
+  "kind": "Institute of National Importance",
   "management": null,
-  "year_established": null,
-  "website": null,
+  "year_established": 2013,
+  "website": "www.iiitt.ac.in",
   "entrance_exams": [
    "JEE Main"
   ],
@@ -11243,6 +13322,15 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
+  "fees": {
+   "annual_fee": 261600,
+   "annual_fee_waived": 31200,
+   "annual_hostel_mess": 91200,
+   "cycle": "2025-26",
+   "source_url": "http://store.iiitt.ac.in/downloads/admission/1.%20B.Tech%20Fee%20structure%202025.pdf",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -11306,6 +13394,15 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
+  "fees": {
+   "annual_fee": 377000,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 96000,
+   "cycle": "2025-26",
+   "source_url": "https://assets.iiitdwd.ac.in/docs/Fee_Structure_2025-26.pdf",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -11322,17 +13419,17 @@
   }
  },
  {
-  "college_id": "josaa:indian-institute-of-information-technology-iiit-kalyani-west-aa879a",
-  "aishe_code": null,
-  "name": "Indian Institute of Information Technology(IIIT) Kalyani, West Bengal",
+  "college_id": "U-0796",
+  "aishe_code": "U-0796",
+  "name": "Indian Institute of Information Technology, Kalyani",
   "display_name": "Indian Institute of Information Technology(IIIT) Kalyani, West Bengal",
   "state": "West Bengal",
-  "state_is_inferred": true,
-  "district": null,
-  "kind": null,
+  "state_is_inferred": false,
+  "district": "Nadia",
+  "kind": "Institute of National Importance",
   "management": null,
-  "year_established": null,
-  "website": null,
+  "year_established": 2014,
+  "website": "http://www.iiitkalyani.ac.in",
   "entrance_exams": [
    "JEE Main"
   ],
@@ -11375,6 +13472,15 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
+  "fees": {
+   "annual_fee": 186500,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 108400,
+   "cycle": "2025-26",
+   "source_url": "https://iiitkalyani.ac.in/api/serve/2025/08/27/B.TECH_FEE_STRUCTURE__FY_23-24_.pdf",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -11391,17 +13497,17 @@
   }
  },
  {
-  "college_id": "josaa:indian-institute-of-information-technology-iiit-kilohrad-son-121f72",
-  "aishe_code": null,
-  "name": "Indian Institute of Information Technology(IIIT) Kilohrad, Sonepat, Haryana",
+  "college_id": "U-0800",
+  "aishe_code": "U-0800",
+  "name": "Indian Institute of Information Technology, Sonipat",
   "display_name": "Indian Institute of Information Technology(IIIT) Kilohrad, Sonepat, Haryana",
   "state": "Haryana",
-  "state_is_inferred": true,
-  "district": null,
-  "kind": null,
+  "state_is_inferred": false,
+  "district": "Sonipat",
+  "kind": "Institute of National Importance",
   "management": null,
-  "year_established": null,
-  "website": null,
+  "year_established": 2014,
+  "website": "iiitsonepat.ac.in",
   "entrance_exams": [
    "JEE Main"
   ],
@@ -11438,6 +13544,15 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
+  "fees": {
+   "annual_fee": 204998,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 6300,
+   "cycle": "2025-26",
+   "source_url": "https://josaa.admissions.nic.in/applicant/seatmatrix/InstProfile.aspx?enc=wEaVaSp8sOoFoPUWllvAsKeesTTGeOK8Kd8Vy2phcpg=",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -11507,6 +13622,15 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
+  "fees": {
+   "annual_fee": 323720,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 142700,
+   "cycle": "2025-26",
+   "source_url": "https://www.iiitkottayam.ac.in/#!/admission",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -11523,17 +13647,17 @@
   }
  },
  {
-  "college_id": "josaa:indian-institute-of-information-technology-iiit-una-himachal-7b7d40",
-  "aishe_code": null,
-  "name": "Indian Institute of Information Technology(IIIT) Una, Himachal Pradesh",
+  "college_id": "U-0797",
+  "aishe_code": "U-0797",
+  "name": "Indian Institute of Information Technology, UNA",
   "display_name": "Indian Institute of Information Technology(IIIT) Una, Himachal Pradesh",
   "state": "Himachal Pradesh",
-  "state_is_inferred": true,
-  "district": null,
-  "kind": null,
+  "state_is_inferred": false,
+  "district": "Una",
+  "kind": "Institute of National Importance",
   "management": null,
-  "year_established": null,
-  "website": null,
+  "year_established": 2014,
+  "website": "www.iiitu.ac.in",
   "entrance_exams": [
    "JEE Main"
   ],
@@ -11576,6 +13700,15 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
+  "fees": {
+   "annual_fee": 270000,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 95600,
+   "cycle": "2025-26",
+   "source_url": "https://cdn.iiitu.ac.in/uploads/news/fees_structure_iiituna.pdf",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -11592,17 +13725,17 @@
   }
  },
  {
-  "college_id": "josaa:indian-institute-of-information-technology-iiit-vadodara-guj-ae8311",
-  "aishe_code": null,
-  "name": "Indian Institute of Information Technology(IIIT), Vadodara, Gujrat",
+  "college_id": "U-0798",
+  "aishe_code": "U-0798",
+  "name": "Indian Institute of Information Technology, Vadodara",
   "display_name": "Indian Institute of Information Technology(IIIT), Vadodara, Gujrat",
   "state": "Gujarat",
-  "state_is_inferred": true,
-  "district": null,
-  "kind": null,
+  "state_is_inferred": false,
+  "district": "Vadodara",
+  "kind": "Institute of National Importance",
   "management": null,
-  "year_established": null,
-  "website": null,
+  "year_established": 2013,
+  "website": "www.iiitvadodara.ac.in",
   "entrance_exams": [
    "JEE Main"
   ],
@@ -11645,6 +13778,15 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
+  "fees": {
+   "annual_fee": 273000,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 154600,
+   "cycle": "2025-26",
+   "source_url": "https://iiitvadodara.ac.in/btechdasa.php",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -11696,6 +13838,15 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
+  "fees": {
+   "annual_fee": 213250,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 67000,
+   "cycle": "2025-26",
+   "source_url": "https://www.iiitagartala.ac.in/documents/Revised_FeeStructure_Aug2023.pdf",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -11759,6 +13910,8 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
+  "fees": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -11828,7 +13981,32 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
-  "placement": null,
+  "ug_gender": {
+   "female_pct": 20.1,
+   "female": 114,
+   "male": 452,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 207500,
+   "annual_fee_waived": 7500,
+   "annual_hostel_mess": 52000,
+   "cycle": "2025-26",
+   "source_url": "https://josaa.admissions.nic.in/seatinfo/root/InstProfile.aspx?instcd=120",
+   "is_entry_year": true
+  },
+  "placement": {
+   "median_salary": 1300000,
+   "percentage_placed": 75.0,
+   "percentage_with_outcome": 77.2,
+   "students_placed": 102,
+   "higher_studies_selected": 3,
+   "first_year_intake": 157,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF Engineering, UG 4-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -11839,22 +14017,22 @@
    "identity": "AISHE 2024-25",
    "programs": "JoSAA 2025 Round 6",
    "ranking": null,
-   "placement": null,
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
  {
-  "college_id": "josaa:indian-institute-of-information-technology-raichur-karnataka",
-  "aishe_code": null,
-  "name": "Indian institute of information technology, Raichur, Karnataka",
+  "college_id": "U-1089",
+  "aishe_code": "U-1089",
+  "name": "Indian Institute of Information Technology Raichur",
   "display_name": "Indian institute of information technology, Raichur, Karnataka",
   "state": "Karnataka",
-  "state_is_inferred": true,
-  "district": null,
-  "kind": null,
+  "state_is_inferred": false,
+  "district": "Raichur",
+  "kind": "Institute of National Importance",
   "management": null,
-  "year_established": null,
-  "website": null,
+  "year_established": 2019,
+  "website": "www.iiitr.ac.in",
   "entrance_exams": [
    "JEE Main"
   ],
@@ -11891,6 +14069,15 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
+  "fees": {
+   "annual_fee": 308000,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 120000,
+   "cycle": "2025-26",
+   "source_url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vR5hGIQGUDFslhie7jJrN_29BLYshSVGfBWmP5NlLIjZNM9R2AMz6TtFrqq1G0__AyLEqO_wbbmYUM4/pubhtml",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -11943,6 +14130,8 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
+  "fees": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -11959,17 +14148,17 @@
   }
  },
  {
-  "college_id": "josaa:institute-of-engineering-and-technology-dr-h-s-gour-universi-b0fc60",
-  "aishe_code": null,
-  "name": "Institute of Engineering and Technology, Dr. H. S. Gour University. Sagar (A Central University)",
+  "college_id": "U-0271",
+  "aishe_code": "U-0271",
+  "name": "Dr. Harisingh Gaur  Vishwavidyalaya, Sagar",
   "display_name": "Institute of Engineering and Technology, Dr. H. S. Gour University. Sagar (A Central University)",
-  "state": null,
-  "state_is_inferred": true,
-  "district": null,
-  "kind": null,
+  "state": "Madhya Pradesh",
+  "state_is_inferred": false,
+  "district": "Sagar",
+  "kind": "Central University",
   "management": null,
-  "year_established": null,
-  "website": null,
+  "year_established": 1946,
+  "website": "www.dhsgsu.edu.in",
   "entrance_exams": [
    "JEE Main"
   ],
@@ -12024,11 +14213,20 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
+  "fees": {
+   "annual_fee": 129810,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 4800,
+   "cycle": "2025-26",
+   "source_url": "https://josaa.admissions.nic.in/applicant/seatmatrix/InstProfile.aspx?enc=nsU5HEkjvt/OC38zhsZ0yvRdMVCXh9O3PX9s5BF1WaA=",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
-   "grade": null,
-   "cgpa": null,
-   "cycle": null,
+   "grade": "A+",
+   "cgpa": 3.38,
+   "cycle": 4,
    "not_applicable_reason": null
   },
   "data_sources": {
@@ -12036,96 +14234,21 @@
    "programs": "JoSAA 2025 Round 6",
    "ranking": null,
    "placement": null,
-   "accreditation": null
+   "accreditation": "NAAC"
   }
  },
  {
-  "college_id": "U-1032",
-  "aishe_code": "U-1032",
-  "name": "INTERNATIONAL INSTITUTE OF INFORMATION TECHNOLOGY BHUBANESHWAR",
-  "display_name": "International Institute of Information Technology, Bhubaneswar",
-  "state": "Odisha",
+  "college_id": "U-0970",
+  "aishe_code": "U-0970",
+  "name": "DR. SHYAMA PRASAD MUKHERJEE INTERNATIONAL INSTITUTE OF INFORMATION TECHNOLOGY - NAYA RAIPUR",
+  "display_name": "International Institute of Information Technology, Naya Raipur",
+  "state": "Chhattisgarh",
   "state_is_inferred": false,
-  "district": "Khordha",
+  "district": "Raipur",
   "kind": "State Public University",
   "management": null,
-  "year_established": 2007,
-  "website": "www.iiit-bh.ac.in",
-  "entrance_exams": [
-   "JEE Main"
-  ],
-  "counselling": "JoSAA",
-  "programs": {
-   "count": 5,
-   "degrees": [
-    "Bachelor of Technology"
-   ],
-   "quotas_offered": [
-    "AI"
-   ],
-   "list": [
-    {
-     "branch": "Computer Science and Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 33833
-    },
-    {
-     "branch": "Information Technology",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 39873
-    },
-    {
-     "branch": "Computer Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 40118
-    },
-    {
-     "branch": "Electronics and Telecommunication Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 45436
-    },
-    {
-     "branch": "Electrical and Electronics Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 46244
-    }
-   ],
-   "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative open-category closing rank."
-  },
-  "nirf": null,
-  "placement": null,
-  "naac": {
-   "grade": null,
-   "cgpa": null,
-   "cycle": null,
-   "not_applicable_reason": null
-  },
-  "data_sources": {
-   "identity": "AISHE 2024-25",
-   "programs": "JoSAA 2025 Round 6",
-   "ranking": null,
-   "placement": null,
-   "accreditation": null
-  }
- },
- {
-  "college_id": "josaa:international-institute-of-information-technology-naya-raipu-3e9814",
-  "aishe_code": null,
-  "name": "International Institute of Information Technology, Naya Raipur",
-  "display_name": "International Institute of Information Technology, Naya Raipur",
-  "state": null,
-  "state_is_inferred": true,
-  "district": null,
-  "kind": null,
-  "management": null,
-  "year_established": null,
-  "website": null,
+  "year_established": 2014,
+  "website": "www.iiitnr.ac.in",
   "entrance_exams": [
    "JEE Main"
   ],
@@ -12162,6 +14285,15 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
+  "fees": {
+   "annual_fee": 96000,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 49700,
+   "cycle": "2025-26",
+   "source_url": "https://www.iiitnr.ac.in/content/fees",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -12178,17 +14310,17 @@
   }
  },
  {
-  "college_id": "josaa:islamic-university-of-science-and-technology-kashmir",
-  "aishe_code": null,
-  "name": "Islamic University of Science and Technology Kashmir",
+  "college_id": "U-0194",
+  "aishe_code": "U-0194",
+  "name": "Islamic University of Science & Technology, Pulwama",
   "display_name": "Islamic University of Science and Technology Kashmir",
-  "state": null,
-  "state_is_inferred": true,
-  "district": null,
-  "kind": null,
+  "state": "Jammu and Kashmir",
+  "state_is_inferred": false,
+  "district": "Pulwama",
+  "kind": "State Public University",
   "management": null,
-  "year_established": null,
-  "website": null,
+  "year_established": 2005,
+  "website": "www.iust.ac.in",
   "entrance_exams": [
    "JEE Main"
   ],
@@ -12214,33 +14346,51 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
-  "placement": null,
+  "ug_gender": {
+   "female_pct": 30.5,
+   "female": 379,
+   "male": 862,
+   "edition_year": 2025
+  },
+  "fees": null,
+  "placement": {
+   "median_salary": 720000,
+   "percentage_placed": 91.5,
+   "percentage_with_outcome": 99.7,
+   "students_placed": 269,
+   "higher_studies_selected": 24,
+   "first_year_intake": 360,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF Engineering, UG 4-year",
+   "is_branch_specific": false
+  },
   "naac": {
-   "grade": null,
-   "cgpa": null,
-   "cycle": null,
+   "grade": "B+",
+   "cgpa": 2.7,
+   "cycle": 2,
    "not_applicable_reason": null
   },
   "data_sources": {
    "identity": "AISHE 2024-25",
    "programs": "JoSAA 2025 Round 6",
    "ranking": null,
-   "placement": null,
-   "accreditation": null
+   "placement": "NIRF 2025 (AY 2023-24)",
+   "accreditation": "NAAC"
   }
  },
  {
-  "college_id": "josaa:j-k-institute-of-applied-physics-technology-department-of-el-5fb9de",
-  "aishe_code": null,
-  "name": "J.K. Institute of Applied Physics & Technology, Department of Electronics & Communication, University of Allahabad- Allahabad",
+  "college_id": "U-0548",
+  "aishe_code": "U-0548",
+  "name": "University of Allahabad, Allahabad",
   "display_name": "J.K. Institute of Applied Physics & Technology, Department of Electronics & Communication, University of Allahabad- Allahabad",
-  "state": null,
-  "state_is_inferred": true,
-  "district": null,
-  "kind": null,
+  "state": "Uttar Pradesh",
+  "state_is_inferred": false,
+  "district": "Prayagraj",
+  "kind": "Central University",
   "management": null,
-  "year_established": null,
-  "website": null,
+  "year_established": 1887,
+  "website": "http://www.allduniv.ac.in",
   "entrance_exams": [
    "JEE Main"
   ],
@@ -12271,19 +14421,44 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
-  "placement": null,
+  "ug_gender": {
+   "female_pct": 12.4,
+   "female": 42,
+   "male": 296,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 31159,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 15000,
+   "cycle": "2025-26",
+   "source_url": "https://jkinstitute.ac.in/Fee_Structure//BTech_Fees_structure_2425.pdf",
+   "is_entry_year": true
+  },
+  "placement": {
+   "median_salary": 720000,
+   "percentage_placed": 80.4,
+   "percentage_with_outcome": 100.0,
+   "students_placed": 78,
+   "higher_studies_selected": 19,
+   "first_year_intake": 112,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF Engineering, UG 4-year",
+   "is_branch_specific": false
+  },
   "naac": {
-   "grade": null,
-   "cgpa": null,
-   "cycle": null,
+   "grade": "A",
+   "cgpa": 3.17,
+   "cycle": 3,
    "not_applicable_reason": null
   },
   "data_sources": {
    "identity": "AISHE 2024-25",
    "programs": "JoSAA 2025 Round 6",
    "ranking": null,
-   "placement": null,
-   "accreditation": null
+   "placement": "NIRF 2025 (AY 2023-24)",
+   "accreditation": "NAAC"
   }
  },
  {
@@ -12328,6 +14503,15 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
+  "fees": {
+   "annual_fee": 138042,
+   "annual_fee_waived": 13042,
+   "annual_hostel_mess": 2240,
+   "cycle": "2025-26",
+   "source_url": "https://josaa.admissions.nic.in/applicant/seatmatrix/InstProfile.aspx?enc=nsU5HEkjvt/OC38zhsZ0yhgtHq9rZpUdGoXybaIURd4=",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": "A++",
@@ -12410,6 +14594,15 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
+  "fees": {
+   "annual_fee": 46100,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": null,
+   "cycle": "2025-26",
+   "source_url": "https://drive.google.com/file/d/1-EDh0CkB-DacOxiGSQVidSG9TtZcDxgz/view",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": "A+",
@@ -12479,6 +14672,15 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
+  "fees": {
+   "annual_fee": 70000,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 140600,
+   "cycle": "2025-26",
+   "source_url": "https://josaa.admissions.nic.in/applicant/seatmatrix/InstProfile.aspx?enc=nsU5HEkjvt/OC38zhsZ0ysXYPQqFzJ0DArms/fw16Vw=",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -12530,6 +14732,8 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
+  "fees": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -12546,17 +14750,17 @@
   }
  },
  {
-  "college_id": "josaa:national-institute-of-electronics-and-information-technology-fb7fb2",
-  "aishe_code": null,
-  "name": "National Institute of Electronics and Information Technology, Aurangabad (Maharashtra)",
+  "college_id": "C-34391",
+  "aishe_code": "C-34391",
+  "name": "NIELIT Aurangabad",
   "display_name": "National Institute of Electronics and Information Technology, Aurangabad (Maharashtra)",
   "state": "Maharashtra",
-  "state_is_inferred": true,
-  "district": null,
-  "kind": null,
-  "management": null,
-  "year_established": null,
-  "website": null,
+  "state_is_inferred": false,
+  "district": "Chhatrapati Sambhajinagar",
+  "kind": "Affiliated College",
+  "management": "Central Government",
+  "year_established": 1986,
+  "website": "www.nielit.gov.in/aurangabad",
   "entrance_exams": [
    "JEE Main"
   ],
@@ -12587,6 +14791,8 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
+  "fees": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -12644,6 +14850,8 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
+  "fees": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -12695,6 +14903,8 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
+  "fees": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -12746,57 +14956,8 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
-  "placement": null,
-  "naac": {
-   "grade": null,
-   "cgpa": null,
-   "cycle": null,
-   "not_applicable_reason": null
-  },
-  "data_sources": {
-   "identity": "AISHE 2024-25",
-   "programs": "JoSAA 2025 Round 6",
-   "ranking": null,
-   "placement": null,
-   "accreditation": null
-  }
- },
- {
-  "college_id": "josaa:national-institute-of-food-technology-entrepreneurship-and-m-f18048",
-  "aishe_code": null,
-  "name": "National Institute of Food Technology Entrepreneurship and Management, Kundli",
-  "display_name": "National Institute of Food Technology Entrepreneurship and Management, Kundli",
-  "state": null,
-  "state_is_inferred": true,
-  "district": null,
-  "kind": null,
-  "management": null,
-  "year_established": null,
-  "website": null,
-  "entrance_exams": [
-   "JEE Main"
-  ],
-  "counselling": "JoSAA",
-  "programs": {
-   "count": 1,
-   "degrees": [
-    "Bachelor of Technology"
-   ],
-   "quotas_offered": [
-    "AI"
-   ],
-   "list": [
-    {
-     "branch": "Food Technology and Management",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 120222
-    }
-   ],
-   "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative open-category closing rank."
-  },
-  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -12848,6 +15009,15 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
+  "fees": {
+   "annual_fee": 150000,
+   "annual_fee_waived": 57660,
+   "annual_hostel_mess": 80000,
+   "cycle": "2025-26",
+   "source_url": "https://josaa.admissions.nic.in/applicant/seatmatrix/InstProfile.aspx?enc=nsU5HEkjvt/OC38zhsZ0yoUnAMr46NAVHzVARjwcwns=",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -12930,7 +15100,32 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
-  "placement": null,
+  "ug_gender": {
+   "female_pct": 22.1,
+   "female": 163,
+   "male": 575,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 145500,
+   "annual_fee_waived": 20500,
+   "annual_hostel_mess": 64000,
+   "cycle": "2025-26",
+   "source_url": "https://www.nitnagaland.ac.in/templates/g5_helium/PDF/AcademicSec/Fee_Structure_25-26.pdf",
+   "is_entry_year": true
+  },
+  "placement": {
+   "median_salary": 1550000,
+   "percentage_placed": 81.4,
+   "percentage_with_outcome": 96.9,
+   "students_placed": 158,
+   "higher_studies_selected": 30,
+   "first_year_intake": 180,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF Engineering, UG 4-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -12941,7 +15136,7 @@
    "identity": "AISHE 2024-25",
    "programs": "JoSAA 2025 Round 6",
    "ranking": null,
-   "placement": null,
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -13024,6 +15219,15 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
+  "fees": {
+   "annual_fee": 130800,
+   "annual_fee_waived": 5800,
+   "annual_hostel_mess": 58000,
+   "cycle": "2025-26",
+   "source_url": "https://nitandhra.ac.in/main/Admissions/2025/UG/Fee%20Estimation%20Certificate-I%20Year%20B.Tech%20Students%20of%20A.Y.2025-26.pdf",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -13112,7 +15316,32 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
-  "placement": null,
+  "ug_gender": {
+   "female_pct": 23.0,
+   "female": 130,
+   "male": 435,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 155392,
+   "annual_fee_waived": 30392,
+   "annual_hostel_mess": 83000,
+   "cycle": "2025-26",
+   "source_url": "https://nitmz.ac.in/wp-content/uploads/2025/02/Order_of_Fees_revised_July_2024.pdf",
+   "is_entry_year": true
+  },
+  "placement": {
+   "median_salary": 715000,
+   "percentage_placed": 90.5,
+   "percentage_with_outcome": 94.8,
+   "students_placed": 105,
+   "higher_studies_selected": 5,
+   "first_year_intake": 150,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF Engineering, UG 4-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -13123,88 +15352,7 @@
    "identity": "AISHE 2024-25",
    "programs": "JoSAA 2025 Round 6",
    "ranking": null,
-   "placement": null,
-   "accreditation": null
-  }
- },
- {
-  "college_id": "josaa:north-eastern-regional-institute-of-science-and-technology-n-10edb2",
-  "aishe_code": null,
-  "name": "North Eastern Regional Institute of Science and Technology, Nirjuli-791109 (Itanagar),Arunachal Pradesh",
-  "display_name": "North Eastern Regional Institute of Science and Technology, Nirjuli-791109 (Itanagar),Arunachal Pradesh",
-  "state": "Arunachal Pradesh",
-  "state_is_inferred": true,
-  "district": null,
-  "kind": null,
-  "management": null,
-  "year_established": null,
-  "website": null,
-  "entrance_exams": [
-   "JEE Main"
-  ],
-  "counselling": "JoSAA",
-  "programs": {
-   "count": 6,
-   "degrees": [
-    "Bachelor of Technology"
-   ],
-   "quotas_offered": [
-    "AI"
-   ],
-   "list": [
-    {
-     "branch": "Computer Science and Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 62096
-    },
-    {
-     "branch": "Agricultural Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 101780
-    },
-    {
-     "branch": "Civil Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Electrical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Electronics and Communication Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    },
-    {
-     "branch": "Mechanical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": null
-    }
-   ],
-   "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative open-category closing rank."
-  },
-  "nirf": null,
-  "placement": null,
-  "naac": {
-   "grade": null,
-   "cgpa": null,
-   "cycle": null,
-   "not_applicable_reason": null
-  },
-  "data_sources": {
-   "identity": "AISHE 2024-25",
-   "programs": "JoSAA 2025 Round 6",
-   "ranking": null,
-   "placement": null,
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -13262,6 +15410,15 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
+  "fees": {
+   "annual_fee": 8760,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 8800,
+   "cycle": "2025-26",
+   "source_url": "https://josaa.admissions.nic.in/applicant/seatmatrix/InstProfile.aspx?enc=nsU5HEkjvt/OC38zhsZ0yo6tkY7jPhiUDcUr3o43RiQ=",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -13362,6 +15519,15 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
+  "fees": {
+   "annual_fee": 151051,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": 60000,
+   "cycle": "2025-26",
+   "source_url": "https://cms.ptuniv.edu.in/file_contents/admissions/feeStructure2526.pdf",
+   "is_entry_year": true
+  },
   "placement": null,
   "naac": {
    "grade": null,
@@ -13378,17 +15544,17 @@
   }
  },
  {
-  "college_id": "josaa:rajiv-gandhi-national-aviation-university-fursatganj-amethi-4046c7",
-  "aishe_code": null,
-  "name": "Rajiv Gandhi National Aviation University, Fursatganj, Amethi (UP)",
+  "college_id": "U-1117",
+  "aishe_code": "U-1117",
+  "name": "Rajiv Gandhi National Aviation University",
   "display_name": "Rajiv Gandhi National Aviation University, Fursatganj, Amethi (UP)",
-  "state": null,
-  "state_is_inferred": true,
-  "district": null,
-  "kind": null,
+  "state": "Uttar Pradesh",
+  "state_is_inferred": false,
+  "district": "Amethi",
+  "kind": "Central University",
   "management": null,
-  "year_established": null,
-  "website": null,
+  "year_established": 2013,
+  "website": "www.rgnau.ac.in",
   "entrance_exams": [
    "JEE Main"
   ],
@@ -13419,268 +15585,8 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
-  "placement": null,
-  "naac": {
-   "grade": null,
-   "cgpa": null,
-   "cycle": null,
-   "not_applicable_reason": null
-  },
-  "data_sources": {
-   "identity": "AISHE 2024-25",
-   "programs": "JoSAA 2025 Round 6",
-   "ranking": null,
-   "placement": null,
-   "accreditation": null
-  }
- },
- {
-  "college_id": "josaa:sant-longowal-institute-of-engineering-and-technology",
-  "aishe_code": null,
-  "name": "Sant Longowal Institute of Engineering and Technology",
-  "display_name": "Sant Longowal Institute of Engineering and Technology",
-  "state": null,
-  "state_is_inferred": true,
-  "district": null,
-  "kind": null,
-  "management": null,
-  "year_established": null,
-  "website": null,
-  "entrance_exams": [
-   "JEE Main"
-  ],
-  "counselling": "JoSAA",
-  "programs": {
-   "count": 15,
-   "degrees": [
-    "Bachelor and Master of Technology (Dual Degree)",
-    "Bachelor of Technology",
-    "Integrated Master of Science"
-   ],
-   "quotas_offered": [
-    "AI"
-   ],
-   "list": [
-    {
-     "branch": "Computer Science and Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 64256
-    },
-    {
-     "branch": "Artificial Intelligence and Data Science",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 66031
-    },
-    {
-     "branch": "Physics",
-     "years": 5,
-     "degree": "Integrated Master of Science",
-     "indicative_closing_rank": 70277
-    },
-    {
-     "branch": "Electronics and Communication Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 70288
-    },
-    {
-     "branch": "Computer Science and Engineering",
-     "years": 5,
-     "degree": "Bachelor and Master of Technology (Dual Degree)",
-     "indicative_closing_rank": 71482
-    },
-    {
-     "branch": "Mathematics",
-     "years": 5,
-     "degree": "Integrated Master of Science",
-     "indicative_closing_rank": 81072
-    },
-    {
-     "branch": "Electrical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 81868
-    },
-    {
-     "branch": "Electrical Engineering",
-     "years": 5,
-     "degree": "Bachelor and Master of Technology (Dual Degree)",
-     "indicative_closing_rank": 90963
-    },
-    {
-     "branch": "Chemistry",
-     "years": 5,
-     "degree": "Integrated Master of Science",
-     "indicative_closing_rank": 91170
-    },
-    {
-     "branch": "Mechanical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 99763
-    },
-    {
-     "branch": "Mechanical Engineering",
-     "years": 5,
-     "degree": "Bachelor and Master of Technology (Dual Degree)",
-     "indicative_closing_rank": 102094
-    },
-    {
-     "branch": "Chemical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 102905
-    },
-    {
-     "branch": "Civil Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 102957
-    },
-    {
-     "branch": "Instrumentation and Control Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 103559
-    },
-    {
-     "branch": "Food Technology",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 121270
-    }
-   ],
-   "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative open-category closing rank."
-  },
-  "nirf": null,
-  "placement": null,
-  "naac": {
-   "grade": null,
-   "cgpa": null,
-   "cycle": null,
-   "not_applicable_reason": null
-  },
-  "data_sources": {
-   "identity": "AISHE 2024-25",
-   "programs": "JoSAA 2025 Round 6",
-   "ranking": null,
-   "placement": null,
-   "accreditation": null
-  }
- },
- {
-  "college_id": "josaa:school-of-engineering-tezpur-university-napaam-tezpur",
-  "aishe_code": null,
-  "name": "School of Engineering, Tezpur University, Napaam, Tezpur",
-  "display_name": "School of Engineering, Tezpur University, Napaam, Tezpur",
-  "state": null,
-  "state_is_inferred": true,
-  "district": null,
-  "kind": null,
-  "management": null,
-  "year_established": null,
-  "website": null,
-  "entrance_exams": [
-   "JEE Main"
-  ],
-  "counselling": "JoSAA",
-  "programs": {
-   "count": 13,
-   "degrees": [
-    "Bachelor of Design",
-    "Bachelor of Technology",
-    "Bachelor of Technology and MBA (Dual Degree)"
-   ],
-   "quotas_offered": [
-    "AI"
-   ],
-   "list": [
-    {
-     "branch": "B.Tech. (Computer Science and Engineering) - MBA",
-     "years": 5,
-     "degree": "Bachelor of Technology and MBA (Dual Degree)",
-     "indicative_closing_rank": 58363
-    },
-    {
-     "branch": "Computer Science and Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 64476
-    },
-    {
-     "branch": "B.Tech. (Food Engineering and Technology) - MBA",
-     "years": 5,
-     "degree": "Bachelor of Technology and MBA (Dual Degree)",
-     "indicative_closing_rank": 72557
-    },
-    {
-     "branch": "B.Tech. (Electronics and Communication Engineering) - MBA",
-     "years": 5,
-     "degree": "Bachelor of Technology and MBA (Dual Degree)",
-     "indicative_closing_rank": 72944
-    },
-    {
-     "branch": "Electronics and Communication Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 75585
-    },
-    {
-     "branch": "B.Tech. (Mechanical Engineering) - MBA",
-     "years": 5,
-     "degree": "Bachelor of Technology and MBA (Dual Degree)",
-     "indicative_closing_rank": 78838
-    },
-    {
-     "branch": "B.Tech. (Elctrical Engineering) - MBA",
-     "years": 5,
-     "degree": "Bachelor of Technology and MBA (Dual Degree)",
-     "indicative_closing_rank": 83701
-    },
-    {
-     "branch": "Electrical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 86122
-    },
-    {
-     "branch": "B.Tech. (Civil Engineering) - MBA",
-     "years": 5,
-     "degree": "Bachelor of Technology and MBA (Dual Degree)",
-     "indicative_closing_rank": 87713
-    },
-    {
-     "branch": "Mechanical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 91057
-    },
-    {
-     "branch": "Bachelor of Design",
-     "years": 4,
-     "degree": "Bachelor of Design",
-     "indicative_closing_rank": 92713
-    },
-    {
-     "branch": "Civil Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 104195
-    },
-    {
-     "branch": "Food Engineering and Technology",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 121531
-    }
-   ],
-   "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative open-category closing rank."
-  },
-  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -13739,6 +15645,8 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
+  "fees": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -13797,6 +15705,8 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
+  "fees": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -13855,6 +15765,8 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
+  "ug_gender": null,
+  "fees": null,
   "placement": null,
   "naac": {
    "grade": null,
@@ -13871,17 +15783,17 @@
   }
  },
  {
-  "college_id": "josaa:school-of-studies-of-engineering-and-technology-guru-ghasida-197f67",
-  "aishe_code": null,
-  "name": "School of Studies of Engineering and Technology, Guru Ghasidas Vishwavidyalaya, Bilaspur",
+  "college_id": "U-0085",
+  "aishe_code": "U-0085",
+  "name": "Guru Ghasidas Vishwavidyalaya, Bilaspur",
   "display_name": "School of Studies of Engineering and Technology, Guru Ghasidas Vishwavidyalaya, Bilaspur",
-  "state": null,
-  "state_is_inferred": true,
-  "district": null,
-  "kind": null,
+  "state": "Chhattisgarh",
+  "state_is_inferred": false,
+  "district": "Bilaspur",
+  "kind": "Central University",
   "management": null,
-  "year_established": null,
-  "website": null,
+  "year_established": 1983,
+  "website": "www.new.ggu.ac.in",
   "entrance_exams": [
    "JEE Main"
   ],
@@ -13960,218 +15872,44 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
-  "placement": null,
+  "ug_gender": {
+   "female_pct": 19.0,
+   "female": 325,
+   "male": 1388,
+   "edition_year": 2025
+  },
+  "fees": {
+   "annual_fee": 32100,
+   "annual_fee_waived": null,
+   "annual_hostel_mess": null,
+   "cycle": "2025-26",
+   "source_url": "https://josaa.admissions.nic.in/applicant/seatmatrix/InstProfile.aspx?enc=nsU5HEkjvt/OC38zhsZ0ytGD/1D+/L0n4WyLfOwyFk4=",
+   "is_entry_year": true
+  },
+  "placement": {
+   "median_salary": 450000,
+   "percentage_placed": 64.3,
+   "percentage_with_outcome": 81.5,
+   "students_placed": 275,
+   "higher_studies_selected": 74,
+   "first_year_intake": 500,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF Engineering, UG 4-year",
+   "is_branch_specific": false
+  },
   "naac": {
-   "grade": null,
-   "cgpa": null,
-   "cycle": null,
+   "grade": "A++",
+   "cgpa": 3.62,
+   "cycle": 2,
    "not_applicable_reason": null
   },
   "data_sources": {
    "identity": "AISHE 2024-25",
    "programs": "JoSAA 2025 Round 6",
    "ranking": null,
-   "placement": null,
-   "accreditation": null
-  }
- },
- {
-  "college_id": "josaa:shri-g-s-institute-of-technology-and-science-indore",
-  "aishe_code": null,
-  "name": "Shri G. S. Institute of Technology and Science Indore",
-  "display_name": "Shri G. S. Institute of Technology and Science Indore",
-  "state": null,
-  "state_is_inferred": true,
-  "district": null,
-  "kind": null,
-  "management": null,
-  "year_established": null,
-  "website": null,
-  "entrance_exams": [
-   "JEE Main"
-  ],
-  "counselling": "JoSAA",
-  "programs": {
-   "count": 9,
-   "degrees": [
-    "Bachelor of Technology"
-   ],
-   "quotas_offered": [
-    "AI"
-   ],
-   "list": [
-    {
-     "branch": "Computer Science and Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 27947
-    },
-    {
-     "branch": "Information Technology",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 32619
-    },
-    {
-     "branch": "Electronics and Telecommunication Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 41294
-    },
-    {
-     "branch": "Electrical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 50882
-    },
-    {
-     "branch": "Electronics and Instrumentation Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 51031
-    },
-    {
-     "branch": "Mechanical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 55093
-    },
-    {
-     "branch": "Civil Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 55931
-    },
-    {
-     "branch": "Biomedical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 69348
-    },
-    {
-     "branch": "Industrial and Production Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 71193
-    }
-   ],
-   "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative open-category closing rank."
-  },
-  "nirf": null,
-  "placement": null,
-  "naac": {
-   "grade": null,
-   "cgpa": null,
-   "cycle": null,
-   "not_applicable_reason": null
-  },
-  "data_sources": {
-   "identity": "AISHE 2024-25",
-   "programs": "JoSAA 2025 Round 6",
-   "ranking": null,
-   "placement": null,
-   "accreditation": null
-  }
- },
- {
-  "college_id": "josaa:shri-mata-vaishno-devi-university-katra-jammu-kashmir",
-  "aishe_code": null,
-  "name": "Shri Mata Vaishno Devi University, Katra, Jammu & Kashmir",
-  "display_name": "Shri Mata Vaishno Devi University, Katra, Jammu & Kashmir",
-  "state": "Jammu and Kashmir",
-  "state_is_inferred": true,
-  "district": null,
-  "kind": null,
-  "management": null,
-  "year_established": null,
-  "website": null,
-  "entrance_exams": [
-   "JEE Main"
-  ],
-  "counselling": "JoSAA",
-  "programs": {
-   "count": 9,
-   "degrees": [
-    "Bachelor of Architecture",
-    "Bachelor of Technology"
-   ],
-   "quotas_offered": [
-    "AI"
-   ],
-   "list": [
-    {
-     "branch": "Architecture",
-     "years": 5,
-     "degree": "Bachelor of Architecture",
-     "indicative_closing_rank": 1287
-    },
-    {
-     "branch": "Computer Science and Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 69474
-    },
-    {
-     "branch": "B.Tech in Mathematics and Computing",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 72314
-    },
-    {
-     "branch": "Robotics and AI",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 74007
-    },
-    {
-     "branch": "Bio Technology",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 83268
-    },
-    {
-     "branch": "Electronics and Communication Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 87906
-    },
-    {
-     "branch": "Electrical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 94375
-    },
-    {
-     "branch": "Mechanical Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 94474
-    },
-    {
-     "branch": "Civil Engineering",
-     "years": 4,
-     "degree": "Bachelor of Technology",
-     "indicative_closing_rank": 102500
-    }
-   ],
-   "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative open-category closing rank."
-  },
-  "nirf": null,
-  "placement": null,
-  "naac": {
-   "grade": null,
-   "cgpa": null,
-   "cycle": null,
-   "not_applicable_reason": null
-  },
-  "data_sources": {
-   "identity": "AISHE 2024-25",
-   "programs": "JoSAA 2025 Round 6",
-   "ranking": null,
-   "placement": null,
-   "accreditation": null
+   "placement": "NIRF 2025 (AY 2023-24)",
+   "accreditation": "NAAC"
   }
  }
 ]
