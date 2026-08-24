@@ -155,15 +155,16 @@ const MockAllotment = () => {
   );
 
   const filteredCatalog = useMemo(() => {
-    const q = search.trim().toLowerCase();
+    // Tokenized AND-match across institute + program together, so "mesra
+    // computer science" finds BIT Mesra's CSE row — a whole-phrase substring
+    // match against each field separately can never span the two fields.
+    const tokens = search.trim().toLowerCase().split(/\s+/).filter(Boolean);
     return catalog.filter((item) => {
       if (instituteFilter && item.institute !== instituteFilter) return false;
       if (!matchesProgramType(item.program, programType)) return false;
-      if (!q) return true;
-      return (
-        item.institute.toLowerCase().includes(q) ||
-        item.program.toLowerCase().includes(q)
-      );
+      if (tokens.length === 0) return true;
+      const haystack = `${item.institute} ${item.program}`.toLowerCase();
+      return tokens.every((t) => haystack.includes(t));
     });
   }, [catalog, search, instituteFilter, programType]);
 
