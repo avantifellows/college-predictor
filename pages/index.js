@@ -707,7 +707,8 @@ const ExamForm = () => {
                         the marks card below never renders (rankMode is forced to
                         "known" for NEET in handleExamChange). Re-enable by
                         restoring this toggle + the estimate keys in examConfig. */}
-                    {false && selectedExam === "NEETUG" &&
+                    {false &&
+                      selectedExam === "NEETUG" &&
                       rankMode === "estimate" &&
                       renderFormCard(
                         "estimate",
@@ -1018,8 +1019,7 @@ const ExamForm = () => {
                             onKeyDown={(e) => {
                               if (
                                 ["e", "E", "+", "-", " "].includes(e.key) ||
-                                (!primaryInputConfig
-                                  .allowDecimal &&
+                                (!primaryInputConfig.allowDecimal &&
                                   e.key === ".")
                               ) {
                                 e.preventDefault();
@@ -1030,9 +1030,7 @@ const ExamForm = () => {
                                 ? "border-red-500 focus:border-red-500"
                                 : "border-[#d8c7c1] focus:border-[#b52326]"
                             }`}
-                            placeholder={
-                              primaryInputConfig.placeholder
-                            }
+                            placeholder={primaryInputConfig.placeholder}
                           />,
                           primaryInputConfig.helperText,
                           primaryInputError

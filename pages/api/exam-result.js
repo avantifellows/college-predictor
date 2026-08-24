@@ -186,12 +186,14 @@ export default async function handler(req, res) {
         if (req.query.program === "Medical") {
           const cutoffMarks = parseFloat(item.closing_marks);
           const userMarks = parseFloat(rank);
-          if (!Number.isFinite(cutoffMarks) || !Number.isFinite(userMarks)) return false;
+          if (!Number.isFinite(cutoffMarks) || !Number.isFinite(userMarks))
+            return false;
           return userMarks >= cutoffMarks;
         }
         const closingRank = parseFloat(item.closing_rank);
         const userRank = parseFloat(rank);
-        if (!Number.isFinite(closingRank) || !Number.isFinite(userRank)) return false;
+        if (!Number.isFinite(closingRank) || !Number.isFinite(userRank))
+          return false;
         return closingRank >= userRank;
       } else if (exam === "NEET") {
         // For NEET, filter based on closing rank with 0.9 coefficient
@@ -289,7 +291,8 @@ export default async function handler(req, res) {
         // in sortConfig break ties, so a stream sorted on a column that is
         // uniformly null still gets a meaningful order from its fallback.
         const toNumber = (value) => {
-          if (value === null || value === undefined || value === "") return null;
+          if (value === null || value === undefined || value === "")
+            return null;
           const n = parseFloat(value);
           return Number.isFinite(n) ? n : null;
         };

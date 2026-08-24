@@ -78,7 +78,10 @@ const josaaSpecialQuotaByHomeState = {
   Ladakh: "LA",
 };
 
-const matchesJosaaQuota = (item, homeState) => {
+// Exported so the mock-allotment simulator (utils/josaaSimulator.js) can reuse
+// the exact same AI/HS/OS/JK/GO/LA matching the live predictor uses, instead of
+// a second copy of this logic that could quietly drift out of sync.
+export const matchesJosaaQuota = (item, homeState) => {
   if (item.Quota === "AI") {
     return true;
   }
@@ -1400,7 +1403,10 @@ export const tseApertConfig = {
   legend: [
     { key: "SC-I / II / III", value: "Separate seat pools, separate cutoffs" },
     { key: "Male / Female", value: "Separate seat pools, separate cutoffs" },
-    { key: "Local area", value: "State-wide rank; OU/KU may be slightly easier" },
+    {
+      key: "Local area",
+      value: "State-wide rank; OU/KU may be slightly easier",
+    },
   ],
   getDataPath: () => {
     return path.join(
@@ -1515,7 +1521,10 @@ export const gujcetConfig = {
     return [
       ...shared,
       { key: "Merit rank", value: "From your ACPC merit card" },
-      { key: "Merit score", value: "50% Class 12 PCM theory + 50% GUJCET, both percentile" },
+      {
+        key: "Merit score",
+        value: "50% Class 12 PCM theory + 50% GUJCET, both percentile",
+      },
     ];
   },
 
