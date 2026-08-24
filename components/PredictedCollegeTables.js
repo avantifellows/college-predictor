@@ -123,6 +123,39 @@ const expandedFields = {
     { key: "Rural/Urban", label: "Region" },
     { key: "Closing Rank", label: "Closing Rank" },
   ],
+  // OJEE - Odisha B.Tech (2025; ranks are JEE Main ranks)
+  OJEE: [
+    { key: "Year", label: "Data Year" },
+    { key: "Quota", label: "Quota" },
+    { key: "Seat Type", label: "Seat Pool" },
+    { key: "Category", label: "Category" },
+    { key: "Opening Rank", label: "Opening Rank (JEE Main)" },
+  ],
+  // AP EAPCET - Andhra Pradesh (2025 consolidated)
+  "AP EAPCET": [
+    { key: "Year", label: "Data Year" },
+    { key: "College Code", label: "APSCHE College Code" },
+    { key: "District", label: "District" },
+    { key: "Region", label: "Region" },
+    { key: "Category", label: "Category" },
+    { key: "Gender", label: "Seat Pool" },
+  ],
+  // KEAM - Kerala (2026 live cycle)
+  KEAM: [
+    { key: "Year", label: "Data Year" },
+    { key: "Phase", label: "Closed In" },
+    { key: "College Code", label: "CEE College Code" },
+    { key: "Category", label: "Category" },
+  ],
+  // WBJEE - West Bengal Joint Entrance Examination (2026 live cycle)
+  WBJEE: [
+    { key: "Year", label: "Data Year" },
+    { key: "Round", label: "Closed In" },
+    { key: "Seat Type", label: "Seat Type" },
+    { key: "Quota", label: "Quota" },
+    { key: "College Type", label: "College Type" },
+    { key: "Opening Rank", label: "Opening Rank (GMR)" },
+  ],
   // TNEA - Tamil Nadu Engineering Admissions
   TNEA: [
     { key: "Institute ID", label: "TNEA College Code" },
@@ -502,6 +535,41 @@ const PredictedCollegesTable = ({
       { key: "academic_program_name", label: "Program" },
       { key: "closing_rank", label: "Closing Rank" },
     ],
+    OJEE: [
+      { key: "institute", label: "Institute" },
+      { key: "academic_program_name", label: "Program" },
+      // "(JEE Main)" is load-bearing here, not noise: the OJEE page takes a
+      // JEE Main rank, and an unlabelled rank column would read as an OJEE
+      // exam rank (which exists, for other courses).
+      { key: "closing_rank", label: "Closing Rank (JEE Main)" },
+    ],
+    "AP EAPCET": [
+      { key: "institute", label: "Institute" },
+      // Branch codes are shown verbatim (CSE, AID, CSD...) - the official
+      // PDF ships no code-to-name legend, and students know these codes
+      // from the web-options screen. A wrong expansion beats no expansion.
+      { key: "academic_program_name", label: "Branch Code" },
+      // Plain "Closing Rank": the page is already the AP EAPCET page, so
+      // repeating the exam name in the header is noise (user feedback).
+      { key: "closing_rank", label: "Closing Rank" },
+      { key: "college_type", label: "College Type" },
+    ],
+    KEAM: [
+      { key: "institute", label: "Institute" },
+      { key: "academic_program_name", label: "Program" },
+      // "KEAM Rank" spelt out: Kerala students also hold NEET/JEE ranks and
+      // an unlabelled rank column invites the wrong comparison.
+      { key: "closing_rank", label: "Closing Rank (KEAM Rank)" },
+      { key: "college_type", label: "College Type" },
+    ],
+    WBJEE: [
+      { key: "institute", label: "Institute" },
+      { key: "academic_program_name", label: "Program" },
+      // GMR spelt out in the header: WBJEE publishes several rank lists and
+      // the JEE(Main)-seat rows would otherwise read as JEE Main ranks.
+      { key: "closing_rank", label: "Closing Rank (GMR)" },
+      { key: "college_type", label: "College Type" },
+    ],
     "MHT CET": [
       { key: "institute", label: "Institute" },
       { key: "academic_program_name", label: "Program" },
@@ -573,6 +641,68 @@ const PredictedCollegesTable = ({
         "Language": item["Language"],
         "Rural/Urban": item["Rural/Urban"],
         "Category_Key": item["Category_Key"],
+        "Closing Rank": item["Closing Rank"],
+      };
+    }
+    if (exam === "OJEE") {
+      return {
+        ...item,
+        institute: item["Institute"],
+        academic_program_name: item["Academic Program Name"],
+        closing_rank: item["Closing Rank"],
+        "Year": item["Year"],
+        "Quota": item["Quota"],
+        "Seat Type": item["Seat Type"],
+        "Category": item["Category"],
+        "Opening Rank": item["Opening Rank"],
+        "Closing Rank": item["Closing Rank"],
+      };
+    }
+    if (exam === "AP EAPCET") {
+      return {
+        ...item,
+        institute: item["Institute"],
+        academic_program_name: item["Academic Program Name"],
+        closing_rank: item["Closing Rank"],
+        college_type: item["College Type"],
+        "Year": item["Year"],
+        "College Code": item["College Code"],
+        "District": item["District"],
+        "Region": item["Region"],
+        "Category": item["Category"],
+        "Gender": item["Gender"],
+        "College Type": item["College Type"],
+        "Closing Rank": item["Closing Rank"],
+      };
+    }
+    if (exam === "KEAM") {
+      return {
+        ...item,
+        institute: item["Institute"],
+        academic_program_name: item["Academic Program Name"],
+        closing_rank: item["Closing Rank"],
+        college_type: item["College Type"],
+        "Year": item["Year"],
+        "Phase": item["Phase"],
+        "College Code": item["College Code"],
+        "Category": item["Category"],
+        "College Type": item["College Type"],
+        "Closing Rank": item["Closing Rank"],
+      };
+    }
+    if (exam === "WBJEE") {
+      return {
+        ...item,
+        institute: item["Institute"],
+        academic_program_name: item["Academic Program Name"],
+        closing_rank: item["Closing Rank"],
+        college_type: item["College Type"],
+        "Year": item["Year"],
+        "Round": item["Round"],
+        "Seat Type": item["Seat Type"],
+        "Quota": item["Quota"],
+        "College Type": item["College Type"],
+        "Opening Rank": item["Opening Rank"],
         "Closing Rank": item["Closing Rank"],
       };
     }
