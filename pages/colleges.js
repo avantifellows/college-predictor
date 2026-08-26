@@ -2,7 +2,13 @@ import React, { useEffect, useMemo, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import { ChevronDown, ChevronUp, ExternalLink, Info, Search } from "lucide-react";
+import {
+  ChevronDown,
+  ChevronUp,
+  ExternalLink,
+  Info,
+  Search,
+} from "lucide-react";
 
 // The app's shared react-select wrapper — searchable, so a 30-state list can be
 // narrowed by typing. A native <select> only jumps on the first letter, which is
@@ -69,12 +75,13 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
           </button>
           <div className="mt-0.5 flex flex-wrap items-center gap-1.5 text-[11px] text-[#6d5550]">
             {c.entrance_exams.map((e) => (
-              <span
+              <Link
                 key={e}
-                className="rounded-full border border-[#e3d1cb] bg-white px-1.5 py-0.5"
+                href={`/exams?q=${encodeURIComponent(e)}`}
+                className="rounded-full border border-[#e3d1cb] bg-white px-1.5 py-0.5 transition hover:border-[#8f2e31] hover:text-[#8f2e31]"
               >
                 {e}
-              </span>
+              </Link>
             ))}
             {c.kind ? <span>{c.kind}</span> : null}
           </div>
@@ -266,18 +273,24 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
                     <dl className="space-y-1 text-sm text-[#5b3a34]">
                       <div className="flex justify-between gap-3">
                         <dt>Tuition + institute fees</dt>
-                        <dd className="tabular-nums">{fmtFee(c.fees.annual_fee)}/yr</dd>
+                        <dd className="tabular-nums">
+                          {fmtFee(c.fees.annual_fee)}/yr
+                        </dd>
                       </div>
                       {c.fees.annual_fee_waived != null ? (
                         <div className="flex justify-between gap-3">
                           <dt>With SC/ST/PwD tuition waiver</dt>
-                          <dd className="tabular-nums">{fmtFee(c.fees.annual_fee_waived)}/yr</dd>
+                          <dd className="tabular-nums">
+                            {fmtFee(c.fees.annual_fee_waived)}/yr
+                          </dd>
                         </div>
                       ) : null}
                       {c.fees.annual_hostel_mess != null ? (
                         <div className="flex justify-between gap-3">
                           <dt>Hostel + mess</dt>
-                          <dd className="tabular-nums">{fmtFee(c.fees.annual_hostel_mess)}/yr</dd>
+                          <dd className="tabular-nums">
+                            {fmtFee(c.fees.annual_hostel_mess)}/yr
+                          </dd>
                         </div>
                       ) : null}
                     </dl>
@@ -500,8 +513,7 @@ const SORTS = {
   },
   fees: {
     label: "Fees: low to high",
-    fn: (a, b) =>
-      (a.fees?.annual_fee ?? 9e9) - (b.fees?.annual_fee ?? 9e9),
+    fn: (a, b) => (a.fees?.annual_fee ?? 9e9) - (b.fees?.annual_fee ?? 9e9),
   },
   placed: {
     label: "% placed",
