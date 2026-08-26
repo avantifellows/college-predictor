@@ -21,10 +21,17 @@ WHERE air_cutoff IS NOT NULL AND special_quota IS NULL
 
 out = []
 for r in rows:
+    # "General (General)" reads silly — collapse labels whose description
+    # and code are identical
+    import re as _re
+    label = r.category_label
+    m = _re.match(r"^(.*) \((.*)\)$", label)
+    if m and m.group(1).strip() == m.group(2).strip():
+        label = m.group(1).strip()
     out.append({
         "Institute": r.college,
         "Academic Program Name": r.program,
-        "Category": r.category_label,
+        "Category": label,
         "Category Code": r.category_code,
         "Canonical": r.category_canonical or "",
         "Domicile State": r.domicile_state or "",

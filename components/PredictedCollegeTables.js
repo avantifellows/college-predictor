@@ -143,7 +143,7 @@ const expandedFields = {
   // CLAT - NLU law admissions (2026, final allotment list)
   CLAT: [
     { key: "Year", label: "Data Year" },
-    { key: "List", label: "Vintage" },
+    { key: "List", label: "Allotment List" },
     { key: "Category Code", label: "Category Code" },
     { key: "Domicile State", label: "State Quota" },
     { key: "Seats", label: "Seats" },
@@ -572,7 +572,7 @@ const PredictedCollegesTable = ({
       { key: "college_type", label: "College Type" },
     ],
     CLAT: [
-      { key: "institute", label: "NLU" },
+      { key: "institute", label: "Institute" },
       { key: "academic_program_name", label: "Program" },
       // AIR spelt out: the table also shows a category-rank cutoff in the
       // expanded view, and an unlabelled rank invites the wrong comparison.

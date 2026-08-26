@@ -1924,16 +1924,11 @@ export const clatConfig = {
       options: ["General", "EWS", "OBC", "SC", "ST"],
     },
     {
+      // the shared all-India state list (same as JoSAA): states without NLU
+      // domicile rows simply add nothing beyond the all-India rows
       name: "homeState",
       label: "Select Your Home State",
-      options: [
-        "None / Other",
-        "Andhra Pradesh", "Assam", "Bihar", "Chhattisgarh",
-        "Dadra and Nagar Haveli", "Goa", "Gujarat", "Haryana",
-        "Himachal Pradesh", "Jharkhand", "Karnataka", "Kerala",
-        "Madhya Pradesh", "Maharashtra", "Odisha", "Punjab", "Rajasthan",
-        "Tamil Nadu", "Telangana", "Tripura", "Uttar Pradesh", "West Bengal",
-      ],
+      options: statesList,
     },
     {
       name: "gender",
@@ -1954,9 +1949,7 @@ export const clatConfig = {
       const canon = { General: "GEN", EWS: "EWS", OBC: "OBC", SC: "SC", ST: "ST" }[
         query.category
       ];
-      const home = query.homeState && query.homeState !== "None / Other"
-        ? query.homeState
-        : null;
+      const home = query.homeState || null;
       const domOk = item["Domicile State"] === "" ||
         (home && item["Domicile State"] === home);
       const isOverlay = item["Women Row"] || item["PwD Row"];

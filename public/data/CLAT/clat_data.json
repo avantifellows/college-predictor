@@ -2,7 +2,7 @@
  {
   "Institute": "Chanakya National Law University (CNLU), Patna",
   "Academic Program Name": "B.A. LL.B. (Hons.)",
-  "Category": "General (General)",
+  "Category": "General",
   "Category Code": "General",
   "Canonical": "GEN",
   "Domicile State": "",
@@ -122,7 +122,7 @@
  {
   "Institute": "Chanakya National Law University (CNLU), Patna",
   "Academic Program Name": "B.B.A. LL.B. (Hons.)",
-  "Category": "General (General)",
+  "Category": "General",
   "Category Code": "General",
   "Canonical": "GEN",
   "Domicile State": "",
@@ -242,7 +242,7 @@
  {
   "Institute": "Damodaram Sanjivayya National Law University (DSNLU), Visakhapatnam",
   "Academic Program Name": "B.A. LL.B. (Hons.)",
-  "Category": "General (General)",
+  "Category": "General",
   "Category Code": "General",
   "Canonical": "GEN",
   "Domicile State": "",
@@ -482,7 +482,7 @@
  {
   "Institute": "Dharmashastra National Law University (MPDNLU), Jabalpur",
   "Academic Program Name": "B.A. LL.B. (Hons.)",
-  "Category": "General (General)",
+  "Category": "General",
   "Category Code": "General",
   "Canonical": "GEN",
   "Domicile State": "",
@@ -662,7 +662,7 @@
  {
   "Institute": "Dr. Rajendra Prasad National Law University (RPNLUP), Prayagraj",
   "Academic Program Name": "B.A. LL.B. (Hons.)",
-  "Category": "General (General)",
+  "Category": "General",
   "Category Code": "General",
   "Canonical": "GEN",
   "Domicile State": "",
@@ -752,7 +752,7 @@
  {
   "Institute": "Dr. Ram Manohar Lohiya National Law University (RMLNLU), Lucknow",
   "Academic Program Name": "B.A. LL.B. (Hons.)",
-  "Category": "General (General)",
+  "Category": "General",
   "Category Code": "General",
   "Canonical": "GEN",
   "Domicile State": "",
@@ -842,7 +842,7 @@
  {
   "Institute": "Gujarat National Law University (GNLU), Gandhinagar",
   "Academic Program Name": "B.A. LL.B. (Hons.)",
-  "Category": "General (General)",
+  "Category": "General",
   "Category Code": "General",
   "Canonical": "GEN",
   "Domicile State": "",
@@ -947,7 +947,7 @@
  {
   "Institute": "Gujarat National Law University (GNLU), Silvassa",
   "Academic Program Name": "B.A. LL.B. (Hons.)",
-  "Category": "General (General)",
+  "Category": "General",
   "Category Code": "General",
   "Canonical": "GEN",
   "Domicile State": "",
@@ -1025,7 +1025,7 @@
   "Category": "General Category of Dadra and Nagar Haveli and Daman and",
   "Category Code": "General Category of Dadra and Nagar Haveli and Daman and",
   "Canonical": "GEN",
-  "Domicile State": "Dadra and Nagar Haveli",
+  "Domicile State": "Dadra and Nagar Haveli and Daman and Diu",
   "Women Row": false,
   "PwD Row": false,
   "Seats": 8,
@@ -1052,7 +1052,7 @@
  {
   "Institute": "Hidayatullah National Law University (HNLU), Raipur",
   "Academic Program Name": "B.A. LL.B. (Hons.)",
-  "Category": "General (General)",
+  "Category": "General",
   "Category Code": "General",
   "Canonical": "GEN",
   "Domicile State": "",
@@ -1202,7 +1202,7 @@
  {
   "Institute": "Himachal Pradesh National Law University (HPNLU), Shimla",
   "Academic Program Name": "B.A. LL.B. (Hons.)",
-  "Category": "General (General)",
+  "Category": "General",
   "Category Code": "General",
   "Canonical": "GEN",
   "Domicile State": "",
@@ -1337,7 +1337,7 @@
  {
   "Institute": "Himachal Pradesh National Law University (HPNLU), Shimla",
   "Academic Program Name": "B.B.A. LL.B. (Hons.)",
-  "Category": "General (General)",
+  "Category": "General",
   "Category Code": "General",
   "Canonical": "GEN",
   "Domicile State": "",
@@ -1472,7 +1472,7 @@
  {
   "Institute": "India International University of Legal Education and Research Goa",
   "Academic Program Name": "B.A. LL.B. (Hons.)",
-  "Category": "General (General)",
+  "Category": "General",
   "Category Code": "General",
   "Canonical": "GEN",
   "Domicile State": "",
@@ -1577,7 +1577,7 @@
  {
   "Institute": "India International University of Legal Education and Research Goa",
   "Academic Program Name": "B.B.A. LL.B. (Hons.)",
-  "Category": "General (General)",
+  "Category": "General",
   "Category Code": "General",
   "Canonical": "GEN",
   "Domicile State": "",
@@ -1682,7 +1682,7 @@
  {
   "Institute": "Maharashtra National Law University (MNLU), Chhatrapati Sambhajinagar",
   "Academic Program Name": "B.A. LL.B. (Hons.)",
-  "Category": "General (General)",
+  "Category": "General",
   "Category Code": "General",
   "Canonical": "GEN",
   "Domicile State": "",
@@ -1862,7 +1862,7 @@
  {
   "Institute": "Maharashtra National Law University (MNLU), Chhatrapati Sambhajinagar",
   "Academic Program Name": "B.B.A. LL.B. (Hons.)",
-  "Category": "General (General)",
+  "Category": "General",
   "Category Code": "General",
   "Canonical": "GEN",
   "Domicile State": "",
@@ -2042,7 +2042,7 @@
  {
   "Institute": "Maharashtra National Law University (MNLU), Mumbai",
   "Academic Program Name": "B.A. LL.B. (Hons.)",
-  "Category": "General (General)",
+  "Category": "General",
   "Category Code": "General",
   "Canonical": "GEN",
   "Domicile State": "",
@@ -2222,7 +2222,7 @@
  {
   "Institute": "Maharashtra National Law University (MNLU), Nagpur",
   "Academic Program Name": "B.A. LL.B. (Hons.)",
-  "Category": "General (General)",
+  "Category": "General",
   "Category Code": "General",
   "Canonical": "GEN",
   "Domicile State": "",
@@ -2402,7 +2402,7 @@
  {
   "Institute": "Maharashtra National Law University (MNLU), Nagpur",
   "Academic Program Name": "B.B.A. LL.B. (Hons.)",
-  "Category": "General (General)",
+  "Category": "General",
   "Category Code": "General",
   "Canonical": "GEN",
   "Domicile State": "",
@@ -2582,7 +2582,7 @@
  {
   "Institute": "NALSAR University of Law (NALSAR), Hyderabad",
   "Academic Program Name": "B.A. LL.B. (Hons.)",
-  "Category": "General (General)",
+  "Category": "General",
   "Category Code": "General",
   "Canonical": "GEN",
   "Domicile State": "",
@@ -2822,7 +2822,7 @@
  {
   "Institute": "National Law School of India University (NLSIU), Bengaluru",
   "Academic Program Name": "B.A. LL.B. (Hons.)",
-  "Category": "General (General)",
+  "Category": "General",
   "Category Code": "General",
   "Canonical": "GEN",
   "Domicile State": "",
@@ -2987,7 +2987,7 @@
  {
   "Institute": "National Law University (DBRANLU), Sonepat",
   "Academic Program Name": "B.A. LL.B. (Hons.)",
-  "Category": "General (General)",
+  "Category": "General",
   "Category Code": "General",
   "Canonical": "GEN",
   "Domicile State": "",
@@ -3197,7 +3197,7 @@
  {
   "Institute": "National Law University (NLU), Jodhpur",
   "Academic Program Name": "B.A. LL.B. (Hons.)",
-  "Category": "General (General)",
+  "Category": "General",
   "Category Code": "General",
   "Canonical": "GEN",
   "Domicile State": "",
@@ -3362,7 +3362,7 @@
  {
   "Institute": "National Law University (NLU), Jodhpur",
   "Academic Program Name": "B.B.A. LL.B. (Hons.)",
-  "Category": "General (General)",
+  "Category": "General",
   "Category Code": "General",
   "Canonical": "GEN",
   "Domicile State": "",
@@ -3512,7 +3512,7 @@
  {
   "Institute": "National Law University Odisha (NLUO)",
   "Academic Program Name": "B.A. LL.B. (Hons.)",
-  "Category": "General (General)",
+  "Category": "General",
   "Category Code": "General",
   "Canonical": "GEN",
   "Domicile State": "",
@@ -3617,7 +3617,7 @@
  {
   "Institute": "National Law University Odisha (NLUO)",
   "Academic Program Name": "B.B.A. LL.B. (Hons.)",
-  "Category": "General (General)",
+  "Category": "General",
   "Category Code": "General",
   "Canonical": "GEN",
   "Domicile State": "",
@@ -3722,7 +3722,7 @@
  {
   "Institute": "National Law University Tripura (NLUT), Agartala",
   "Academic Program Name": "B.A. LL.B. (Hons.)",
-  "Category": "General (General)",
+  "Category": "General",
   "Category Code": "General",
   "Canonical": "GEN",
   "Domicile State": "",
@@ -3797,7 +3797,7 @@
  {
   "Institute": "National Law University and Judicial Academy (NLUJA), Assam",
   "Academic Program Name": "B.A. LL.B. (Hons.)",
-  "Category": "General (General)",
+  "Category": "General",
   "Category Code": "General",
   "Canonical": "GEN",
   "Domicile State": "",
@@ -3962,7 +3962,7 @@
  {
   "Institute": "National University of Study and Research in Law (NUSRL), Ranchi",
   "Academic Program Name": "B.A. LL.B. (Hons.)",
-  "Category": "General (General)",
+  "Category": "General",
   "Category Code": "General",
   "Canonical": "GEN",
   "Domicile State": "",
@@ -4157,7 +4157,7 @@
  {
   "Institute": "National University of Study and Research in Law (NUSRL), Ranchi",
   "Academic Program Name": "B.B.A. LL.B. (Hons.)",
-  "Category": "General (General)",
+  "Category": "General",
   "Category Code": "General",
   "Canonical": "GEN",
   "Domicile State": "",
@@ -4352,7 +4352,7 @@
  {
   "Institute": "Rajiv Gandhi National University of Law (RGNUL), Punjab",
   "Academic Program Name": "B.A. LL.B. (Hons.)",
-  "Category": "General (General)",
+  "Category": "General",
   "Category Code": "General",
   "Canonical": "GEN",
   "Domicile State": "",
@@ -4427,7 +4427,7 @@
  {
   "Institute": "Tamil Nadu National Law University (TNNLU), Tiruchirappalli",
   "Academic Program Name": "B.A. LL.B. (Hons.)",
-  "Category": "General (General)",
+  "Category": "General",
   "Category Code": "General",
   "Canonical": "GEN",
   "Domicile State": "",
@@ -4577,7 +4577,7 @@
  {
   "Institute": "Tamil Nadu National Law University (TNNLU), Tiruchirappalli",
   "Academic Program Name": "B.Com. LL.B. (Hons.)",
-  "Category": "General (General)",
+  "Category": "General",
   "Category Code": "General",
   "Canonical": "GEN",
   "Domicile State": "",
@@ -4742,7 +4742,7 @@
  {
   "Institute": "The National Law Institute University (NLIU), Bhopal",
   "Academic Program Name": "B.A. LL.B. (Hons.)",
-  "Category": "General (General)",
+  "Category": "General",
   "Category Code": "General",
   "Canonical": "GEN",
   "Domicile State": "",
@@ -4892,7 +4892,7 @@
  {
   "Institute": "The National Law Institute University (NLIU), Bhopal",
   "Academic Program Name": "B.Sc. LL.B. (Hons.) Cyber Security",
-  "Category": "General (General)",
+  "Category": "General",
   "Category Code": "General",
   "Canonical": "GEN",
   "Domicile State": "",
@@ -5042,7 +5042,7 @@
  {
   "Institute": "The National University of Advanced Legal Studies (NUALS), Kochi",
   "Academic Program Name": "B.A. LL.B. (Hons.)",
-  "Category": "General (General)",
+  "Category": "General",
   "Category Code": "General",
   "Canonical": "GEN",
   "Domicile State": "",
@@ -5147,7 +5147,7 @@
  {
   "Institute": "The West Bengal National University of Juridical Sciences (WBNUJS), Kolkata",
   "Academic Program Name": "B.A. LL.B. (Hons.)",
-  "Category": "General (General)",
+  "Category": "General",
   "Category Code": "General",
   "Canonical": "GEN",
   "Domicile State": "",
@@ -5297,7 +5297,7 @@
  {
   "Institute": "The West Bengal National University of Juridical Sciences (WBNUJS), Kolkata",
   "Academic Program Name": "B.Sc. LL.B. (Hons.) Criminology and Forensic Science",
-  "Category": "General (General)",
+  "Category": "General",
   "Category Code": "General",
   "Canonical": "GEN",
   "Domicile State": "",
