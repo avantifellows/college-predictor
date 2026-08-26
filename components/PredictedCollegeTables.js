@@ -143,11 +143,10 @@ const expandedFields = {
   // CLAT - NLU law admissions (2026, final allotment list)
   CLAT: [
     { key: "Year", label: "Data Year" },
-    { key: "List", label: "Allotment List" },
-    { key: "Category Code", label: "Category Code" },
+    { key: "List", label: "Closed In" },
     { key: "Domicile State", label: "State Quota" },
     { key: "Seats", label: "Seats" },
-    { key: "Category Rank Cutoff", label: "Category-Rank Cutoff" },
+    { key: "Category Rank Cutoff", label: "Closing Category Rank" },
   ],
   // KEAM - Kerala (2026 live cycle)
   KEAM: [

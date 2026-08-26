@@ -1907,14 +1907,14 @@ export const ojeeConfig = {
 };
 
 export const clatConfig = {
-  name: "CLAT (NLU law admissions)",
+  name: "CLAT",
   searchKeys: ["Institute", "Academic Program Name"],
   // CLAT counsels on its All India Rank; the consortium publishes one
   // Cut-Off Rank Table per NLU with that NLU's own state reservation
   // roster. The form asks four simple questions and getFilters resolves
   // them against the decomposed rows — never a 168-code category picker.
   primaryInput: integerInput(
-    "Enter CLAT 2026 All India Rank",
+    "Enter CLAT All India Rank (AIR)",
     "Enter CLAT AIR"
   ),
   fields: [
@@ -1937,8 +1937,8 @@ export const clatConfig = {
     },
     {
       name: "pwd",
-      label: "Person with Disability (PwD)?",
-      options: ["No", "Yes"],
+      label: "Are you a PWD Student?",
+      options: ["Yes", "No"],
     },
   ],
   getDataPath: () => {

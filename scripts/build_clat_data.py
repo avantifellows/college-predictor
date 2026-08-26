@@ -42,7 +42,7 @@ for r in rows:
         "Category Rank Cutoff": (str(int(r.category_rank_cutoff))
                                  if r.category_rank_cutoff is not None else ""),
         "Year": "2026",
-        "List": "5th (final) allotment",
+        "List": "5th (final) list",
     })
 out.sort(key=lambda x: (x["Institute"], x["Academic Program Name"],
                         int(x["Closing Rank"])))
