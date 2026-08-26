@@ -13,6 +13,27 @@ const MANIFEST_URL =
 // national-scope groups float above the state alphabet
 const NATIONAL = ["All India Quota", "All states", "NMC roster", "DCI roster"];
 
+// what students actually type, mapped to datasets whose manifest text doesn't
+// contain those words (JoSAA's blurb never says "JEE")
+const SEARCH_ALIASES = {
+  josaa: "jee main mains advanced iit nit iiit gfti btech engineering",
+  neet: "medical mbbs bds dental aiq mcc",
+  kcet: "karnataka kea engineering",
+  mhtcet: "maharashtra cet engineering pharmacy architecture",
+  tgeapcet: "telangana eapcet eamcet engineering",
+  gujcet: "gujarat acpc engineering pharmacy",
+  tnea: "tamil nadu anna university engineering",
+  wbjee: "west bengal engineering",
+  keam: "kerala cee engineering architecture pharmacy",
+  apeapcet: "andhra pradesh eamcet eapcet engineering",
+  ojee: "odisha jee main mains btech engineering",
+  clat: "law nlu llb",
+  collegefees: "fees hostel mess tuition cost josaa kcet",
+  nirf: "ranking rankings placement",
+  nmc: "mbbs medical seats",
+  moe: "board results class 10 12 cbse",
+};
+
 const fmtBytes = (b) =>
   b >= 1e6
     ? `${(b / 1e6).toFixed(1)} MB`
@@ -249,39 +270,54 @@ export default function Datasets() {
           </div>
         )}
 
-        {[
-          ["admissions", "Admissions and counselling"],
-          ["education-statistics", "Institutions and education statistics"],
-        ].map(([cat, heading]) => {
-          const raw = q.trim().toLowerCase();
-          const list = (
+        {(() => {
+          // every typed word must appear somewhere in the dataset's text
+          // (title, blurb, file titles, or its search aliases)
+          const words = q.trim().toLowerCase().split(/\s+/).filter(Boolean);
+          const matches = (d) => {
+            if (!words.length) return true;
+            const hay = [
+              d.title,
+              d.blurb,
+              d.id,
+              SEARCH_ALIASES[d.id] || "",
+              ...d.files.map((f) => f.title),
+            ]
+              .join(" ")
+              .toLowerCase();
+            return words.every((w) => hay.includes(w));
+          };
+          const all = (
             Array.isArray(manifest?.datasets) ? manifest.datasets : []
-          )
-            .filter((d) => (d.category || "admissions") === cat)
-            .filter(
-              (d) =>
-                !raw ||
-                [d.title, d.blurb, d.id, ...d.files.map((f) => f.title)]
-                  .join(" ")
-                  .toLowerCase()
-                  .includes(raw)
+          ).filter(matches);
+          return [
+            ["admissions", "Admissions and counselling"],
+            ["education-statistics", "Institutions and education statistics"],
+          ].map(([cat, heading]) => {
+            const list = all.filter(
+              (d) => (d.category || "admissions") === cat
             );
-          if (!list.length) return null;
-          return (
-            <div key={cat} className="mt-8">
-              <h2 className="mb-1 text-lg font-bold uppercase tracking-wide text-[#332724]">
-                {heading}
-              </h2>
-              {list.map((ds) => (
-                <DatasetCard
-                  key={ds.id}
-                  ds={ds}
-                  defaultOpen={Boolean(q.trim()) || ds.id === hashId}
-                />
-              ))}
-            </div>
-          );
-        })}
+            if (!list.length) return null;
+            return (
+              <div key={cat} className="mt-8">
+                <h2 className="mb-1 text-lg font-bold uppercase tracking-wide text-[#332724]">
+                  {heading}
+                </h2>
+                {list.map((ds) => (
+                  <DatasetCard
+                    key={ds.id}
+                    ds={ds}
+                    // a search that narrows to one dataset opens it; a broad
+                    // search keeps the list scannable
+                    defaultOpen={
+                      (words.length > 0 && all.length === 1) || ds.id === hashId
+                    }
+                  />
+                ))}
+              </div>
+            );
+          });
+        })()}
 
         {manifest && (
           <p className="mt-6 text-center text-xs text-[#685851]">
