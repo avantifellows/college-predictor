@@ -1921,15 +1921,11 @@ export const clatConfig = {
     {
       name: "category",
       label: "Select Category",
-      helperText:
-        "State-quota rows for backward-class groups (BC-A, EBC, NT…) follow your HOME STATE's roster — eligibility needs that state's certificate, not the central OBC-NCL one.",
       options: ["General", "EWS", "OBC", "SC", "ST"],
     },
     {
       name: "homeState",
       label: "Select Your Home State",
-      helperText:
-        "Every NLU reserves seats for its own state's candidates — often at much easier ranks. Pick your domicile state to see those rows too.",
       options: [
         "None / Other",
         "Andhra Pradesh", "Assam", "Bihar", "Chhattisgarh",
@@ -1942,9 +1938,7 @@ export const clatConfig = {
     {
       name: "gender",
       label: "Select Gender",
-      helperText:
-        "Several NLUs reserve women's seats (horizontal quota) — those rows appear additionally for Female.",
-      options: ["Male / Other", "Female"],
+      options: ["Male", "Female"],
     },
     {
       name: "pwd",
