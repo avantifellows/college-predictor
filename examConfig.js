@@ -1906,6 +1906,89 @@ export const ojeeConfig = {
   getSort: () => [["Closing Rank", "ASC"]],
 };
 
+export const clatConfig = {
+  name: "CLAT (NLU law admissions)",
+  searchKeys: ["Institute", "Academic Program Name"],
+  // CLAT counsels on its All India Rank; the consortium publishes one
+  // Cut-Off Rank Table per NLU with that NLU's own state reservation
+  // roster. The form asks four simple questions and getFilters resolves
+  // them against the decomposed rows — never a 168-code category picker.
+  primaryInput: integerInput(
+    "Enter CLAT 2026 All India Rank",
+    "Enter CLAT AIR"
+  ),
+  fields: [
+    {
+      name: "category",
+      label: "Select Category",
+      helperText:
+        "State-quota rows for backward-class groups (BC-A, EBC, NT…) follow your HOME STATE's roster — eligibility needs that state's certificate, not the central OBC-NCL one.",
+      options: ["General", "EWS", "OBC", "SC", "ST"],
+    },
+    {
+      name: "homeState",
+      label: "Select Your Home State",
+      helperText:
+        "Every NLU reserves seats for its own state's candidates — often at much easier ranks. Pick your domicile state to see those rows too.",
+      options: [
+        "None / Other",
+        "Andhra Pradesh", "Assam", "Bihar", "Chhattisgarh",
+        "Dadra and Nagar Haveli", "Goa", "Gujarat", "Haryana",
+        "Himachal Pradesh", "Jharkhand", "Karnataka", "Kerala",
+        "Madhya Pradesh", "Maharashtra", "Odisha", "Punjab", "Rajasthan",
+        "Tamil Nadu", "Telangana", "Tripura", "Uttar Pradesh", "West Bengal",
+      ],
+    },
+    {
+      name: "gender",
+      label: "Select Gender",
+      helperText:
+        "Several NLUs reserve women's seats (horizontal quota) — those rows appear additionally for Female.",
+      options: ["Male / Other", "Female"],
+    },
+    {
+      name: "pwd",
+      label: "Person with Disability (PwD)?",
+      options: ["No", "Yes"],
+    },
+  ],
+  getDataPath: () => {
+    return path.join(process.cwd(), "public", "data", "CLAT", "clat_data.json");
+  },
+  getFilters: (query) => [
+    (item) => {
+      const canon = { General: "GEN", EWS: "EWS", OBC: "OBC", SC: "SC", ST: "ST" }[
+        query.category
+      ];
+      const home = query.homeState && query.homeState !== "None / Other"
+        ? query.homeState
+        : null;
+      const domOk = item["Domicile State"] === "" ||
+        (home && item["Domicile State"] === home);
+      const isOverlay = item["Women Row"] || item["PwD Row"];
+      // vertical rows for the chosen category (all-India, plus home-state
+      // rows; state backward-class rosters count as OBC only via domicile)
+      if (!isOverlay && domOk) {
+        if (item["Canonical"] === canon) return true;
+        if (canon === "OBC" && item["Canonical"] === "OBC-like" &&
+            home && item["Domicile State"] === home) return true;
+      }
+      // horizontal overlays are EXTRA rows, not substitutes
+      if (query.gender === "Female" && item["Women Row"] && domOk) return true;
+      if (query.pwd === "Yes" && item["PwD Row"] && domOk) return true;
+      return false;
+    },
+    (item) => {
+      if (!query.rank) return true;
+      const closingRank = parseInt(item["Closing Rank"], 10);
+      const userRank = parseInt(query.rank, 10);
+      if (isNaN(closingRank) || isNaN(userRank)) return false;
+      return closingRank >= userRank;
+    },
+  ],
+  getSort: () => [["Closing Rank", "ASC"]],
+};
+
 export const examConfigs = {
   "JoSAA": josaaConfig,
   "JEE Main-JOSAA": jeeMainJosaaConfig,
@@ -1921,6 +2004,7 @@ export const examConfigs = {
   "KEAM": keamConfig,
   "AP EAPCET": apEapcetConfig,
   "OJEE": ojeeConfig,
+  "CLAT": clatConfig,
   "TGEAPCET": tseApertConfig,
 };
 

@@ -140,6 +140,15 @@ const expandedFields = {
     { key: "Category", label: "Category" },
     { key: "Gender", label: "Seat Pool" },
   ],
+  // CLAT - NLU law admissions (2026, final allotment list)
+  CLAT: [
+    { key: "Year", label: "Data Year" },
+    { key: "List", label: "Vintage" },
+    { key: "Category Code", label: "Category Code" },
+    { key: "Domicile State", label: "State Quota" },
+    { key: "Seats", label: "Seats" },
+    { key: "Category Rank Cutoff", label: "Category-Rank Cutoff" },
+  ],
   // KEAM - Kerala (2026 live cycle)
   KEAM: [
     { key: "Year", label: "Data Year" },
@@ -562,6 +571,14 @@ const PredictedCollegesTable = ({
       { key: "closing_rank", label: "Closing Rank (KEAM Rank)" },
       { key: "college_type", label: "College Type" },
     ],
+    CLAT: [
+      { key: "institute", label: "NLU" },
+      { key: "academic_program_name", label: "Program" },
+      // AIR spelt out: the table also shows a category-rank cutoff in the
+      // expanded view, and an unlabelled rank invites the wrong comparison.
+      { key: "closing_rank", label: "Closing Rank (CLAT AIR)" },
+      { key: "Category", label: "Category" },
+    ],
     WBJEE: [
       { key: "institute", label: "Institute" },
       { key: "academic_program_name", label: "Program" },
@@ -673,6 +690,21 @@ const PredictedCollegesTable = ({
         "Gender": item["Gender"],
         "College Type": item["College Type"],
         "Closing Rank": item["Closing Rank"],
+      };
+    }
+    if (exam === "CLAT") {
+      return {
+        ...item,
+        institute: item["Institute"],
+        academic_program_name: item["Academic Program Name"],
+        closing_rank: item["Closing Rank"],
+        Category: item["Category"],
+        "Category Code": item["Category Code"],
+        "Domicile State": item["Domicile State"] || "All India",
+        Seats: item["Seats"],
+        "Category Rank Cutoff": item["Category Rank Cutoff"],
+        Year: item["Year"],
+        List: item["List"],
       };
     }
     if (exam === "KEAM") {
