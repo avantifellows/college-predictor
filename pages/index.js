@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Script from "next/script";
 import getConstants from "../constants";
 import examConfigs from "../examConfig";
@@ -118,6 +118,19 @@ const ExamForm = () => {
   // home-state category dropdown). Loaded once when NEET is selected.
   const [neetStateCategories, setNeetStateCategories] = useState(null);
   const router = useRouter();
+
+  // Deep links from the Exams tab (/?exam=KCET) preselect the exam — through
+  // the same handler a click uses, so per-exam form initialisation happens.
+  useEffect(() => {
+    const fromQuery = router.isReady && router.query.exam;
+    if (fromQuery && examConfigs[fromQuery] && !selectedExam) {
+      handleExamChange({
+        value: String(fromQuery),
+        code: examConfigs[fromQuery].code,
+      });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [router.isReady]);
 
   const handleExamChange = (selectedOption) => {
     setSelectedExam(selectedOption.value);

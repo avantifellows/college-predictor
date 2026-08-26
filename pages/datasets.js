@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Head from "next/head";
-import { ChevronDown, Download } from "lucide-react";
+import { ChevronDown, Download, Search } from "lucide-react";
 import getConstants from "../constants";
 
 // Rendered entirely from the PUBLIC manifest: what you see is exactly what is
@@ -85,6 +85,8 @@ const GroupRow = ({ group, files, noteMissingSource }) => {
 
 const DatasetCard = ({ ds, defaultOpen }) => {
   const [open, setOpen] = useState(defaultOpen);
+  // search-match and #hash arrival open cards after mount
+  useEffect(() => setOpen(defaultOpen), [defaultOpen]);
   const groups = {};
   for (const f of ds.files) {
     const g = f.title.split(" — ")[0];
@@ -98,7 +100,10 @@ const DatasetCard = ({ ds, defaultOpen }) => {
     return a.localeCompare(b);
   });
   return (
-    <div className="mt-4 overflow-hidden rounded-xl border border-[#eaded8] bg-white shadow-sm">
+    <div
+      id={ds.id}
+      className="mt-4 scroll-mt-4 overflow-hidden rounded-xl border border-[#eaded8] bg-white shadow-sm"
+    >
       <button
         onClick={() => setOpen(!open)}
         className="flex w-full items-center justify-between gap-3 px-4 py-3.5 text-left transition hover:bg-[#fdf8f4]"
@@ -154,6 +159,20 @@ export default function Datasets() {
   const { TITLE_SHORT = "College Predictor" } = getConstants() || {};
   const [manifest, setManifest] = useState(null);
   const [error, setError] = useState(null);
+  const [q, setQ] = useState("");
+
+  // /datasets#clat — open and scroll to that dataset's card
+  const [hashId, setHashId] = useState(null);
+  useEffect(() => {
+    const h = window.location.hash.replace("#", "");
+    if (h) setHashId(h);
+  }, []);
+  useEffect(() => {
+    if (manifest && hashId) {
+      const el = document.getElementById(hashId);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [manifest, hashId]);
 
   useEffect(() => {
     fetch(`${MANIFEST_URL}?t=${Date.now()}`, { cache: "no-store" })
@@ -214,13 +233,39 @@ export default function Datasets() {
           <p className="mt-6 text-center text-[#685851]">Loading…</p>
         )}
 
+        {manifest && (
+          <div className="relative mt-6">
+            <Search
+              size={16}
+              className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[#b9a8a2]"
+            />
+            <input
+              type="text"
+              value={q}
+              onChange={(ev) => setQ(ev.target.value)}
+              placeholder="Search datasets and files"
+              className="w-full rounded-xl border border-[#e3d1cb] py-2.5 pl-9 pr-3 text-sm text-[#332724] outline-none transition focus:border-[#B52326]"
+            />
+          </div>
+        )}
+
         {[
           ["admissions", "Admissions and counselling"],
           ["education-statistics", "Institutions and education statistics"],
         ].map(([cat, heading]) => {
+          const raw = q.trim().toLowerCase();
           const list = (
             Array.isArray(manifest?.datasets) ? manifest.datasets : []
-          ).filter((d) => (d.category || "admissions") === cat);
+          )
+            .filter((d) => (d.category || "admissions") === cat)
+            .filter(
+              (d) =>
+                !raw ||
+                [d.title, d.blurb, d.id, ...d.files.map((f) => f.title)]
+                  .join(" ")
+                  .toLowerCase()
+                  .includes(raw)
+            );
           if (!list.length) return null;
           return (
             <div key={cat} className="mt-8">
@@ -228,7 +273,11 @@ export default function Datasets() {
                 {heading}
               </h2>
               {list.map((ds) => (
-                <DatasetCard key={ds.id} ds={ds} defaultOpen={false} />
+                <DatasetCard
+                  key={ds.id}
+                  ds={ds}
+                  defaultOpen={Boolean(q.trim()) || ds.id === hashId}
+                />
               ))}
             </div>
           );

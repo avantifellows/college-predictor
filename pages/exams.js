@@ -1,0 +1,415 @@
+import React, { useEffect, useMemo, useState } from "react";
+import Head from "next/head";
+import Link from "next/link";
+import dynamic from "next/dynamic";
+import { useRouter } from "next/router";
+import { ChevronDown, ChevronUp, ExternalLink, Search } from "lucide-react";
+
+// The shared searchable dropdown — same component as every other page.
+const Dropdown = dynamic(() => import("../components/dropdown"), {
+  ssr: false,
+});
+
+// The Exams tab: one row per entrance exam, the answer to "which exams even
+// exist for what I want to study". Pure information display — the predictor
+// stays the tool for "which college do I get", and rows that have a predictor
+// link out to it. Replaced exams (BHU-UET → CUET) are not rows: their names
+// are search aliases on the successor, so a student who types the old name
+// still lands somewhere useful.
+
+const DATA_URL = "/data/exams/exams.json";
+const PAGE_SIZE = 30;
+
+const Dash = () => <span className="text-[#b9a8a2]">—</span>;
+
+const fmtFee = (e) => {
+  if (e.fee_number) return `₹${e.fee_number.toLocaleString("en-IN")}`;
+  return e.fee_display || null;
+};
+
+/** One exam row plus its expandable detail. */
+const ExamRow = ({ e, index, expanded, onToggle }) => {
+  return (
+    <>
+      <tr
+        className={`border-b border-[#eaded8] text-xs sm:text-sm ${
+          index % 2 === 0 ? "bg-[#fffdfa]" : "bg-white"
+        }`}
+      >
+        <td className="px-3 py-3 align-top">
+          <button
+            type="button"
+            onClick={onToggle}
+            className="text-left font-semibold text-[#332724] hover:text-[#8f2e31]"
+          >
+            {e.name}
+          </button>
+          <div className="mt-0.5 text-[11px] text-[#6d5550]">{e.scope}</div>
+        </td>
+        <td className="hidden px-3 py-3 align-top sm:table-cell">
+          <div className="flex flex-wrap gap-1">
+            {e.streams.map((s) => (
+              <span
+                key={s}
+                className="rounded-full border border-[#e3d1cb] bg-white px-1.5 py-0.5 text-[11px] text-[#6d5550]"
+              >
+                {s}
+              </span>
+            ))}
+          </div>
+        </td>
+        <td className="px-3 py-3 align-top tabular-nums">
+          {fmtFee(e) || <Dash />}
+        </td>
+        <td className="px-3 py-3 align-top">{e.test_month || <Dash />}</td>
+        <td className="px-3 py-3 align-top">
+          <button
+            type="button"
+            onClick={onToggle}
+            className="inline-flex items-center gap-1 rounded-full border border-[#e3d1cb] bg-white px-3 py-1.5 text-xs font-semibold text-[#8f2e31] transition hover:bg-[#f8efec]"
+          >
+            {expanded ? "Less" : "More"}
+            {expanded ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
+          </button>
+        </td>
+      </tr>
+      {expanded ? (
+        <tr className="border-b border-[#eaded8] bg-[#fdf7f2]">
+          <td colSpan={5} className="px-4 py-4 sm:px-6">
+            <div className="grid gap-6 md:grid-cols-5">
+              <div className="space-y-5 md:col-span-2">
+                <div>
+                  <h4 className="mb-1.5 text-[13px] font-semibold uppercase tracking-wide text-[#8f2e31]">
+                    Typical timeline
+                  </h4>
+                  <dl className="space-y-1 text-sm text-[#5b3a34]">
+                    {e.forms_out ? (
+                      <div className="flex justify-between gap-3">
+                        <dt>Forms out</dt>
+                        <dd className="text-right">{e.forms_out}</dd>
+                      </div>
+                    ) : null}
+                    {e.last_date ? (
+                      <div className="flex justify-between gap-3">
+                        <dt>Last date to apply</dt>
+                        <dd className="text-right">{e.last_date}</dd>
+                      </div>
+                    ) : null}
+                    {e.test_date ? (
+                      <div className="flex justify-between gap-3">
+                        <dt>Test</dt>
+                        <dd className="text-right">{e.test_date}</dd>
+                      </div>
+                    ) : null}
+                  </dl>
+                </div>
+                <div>
+                  <h4 className="mb-1.5 text-[13px] font-semibold uppercase tracking-wide text-[#8f2e31]">
+                    Test format
+                  </h4>
+                  <dl className="space-y-1 text-sm text-[#5b3a34]">
+                    {e.mode ? (
+                      <div className="flex justify-between gap-3">
+                        <dt>Mode</dt>
+                        <dd className="text-right">{e.mode}</dd>
+                      </div>
+                    ) : null}
+                    {e.duration ? (
+                      <div className="flex justify-between gap-3">
+                        <dt>Duration</dt>
+                        <dd className="text-right">{e.duration}</dd>
+                      </div>
+                    ) : null}
+                    {e.marking ? (
+                      <div className="flex justify-between gap-3">
+                        <dt>Marking</dt>
+                        <dd className="tabular-nums text-right">{e.marking}</dd>
+                      </div>
+                    ) : null}
+                    {e.degrees?.length ? (
+                      <div className="flex justify-between gap-3">
+                        <dt>Degrees</dt>
+                        <dd className="text-right">{e.degrees.join(", ")}</dd>
+                      </div>
+                    ) : null}
+                  </dl>
+                </div>
+              </div>
+              <div className="space-y-5 md:col-span-3">
+                {e.eligibility ? (
+                  <div>
+                    <h4 className="mb-1.5 text-[13px] font-semibold uppercase tracking-wide text-[#8f2e31]">
+                      Eligibility
+                    </h4>
+                    <p className="text-sm leading-6 text-[#5b3a34]">
+                      {e.eligibility}
+                    </p>
+                  </div>
+                ) : null}
+                {e.pattern ? (
+                  <div>
+                    <h4 className="mb-1.5 text-[13px] font-semibold uppercase tracking-wide text-[#8f2e31]">
+                      Paper pattern
+                    </h4>
+                    <p className="text-sm leading-6 text-[#5b3a34]">
+                      {e.pattern}
+                    </p>
+                  </div>
+                ) : null}
+                {e.remarks ? (
+                  <p className="text-sm leading-6 text-[#5b3a34]">
+                    {e.remarks}
+                  </p>
+                ) : null}
+                {e.replaces?.length ? (
+                  <p className="text-xs leading-5 text-[#6d5550]">
+                    Replaces:{" "}
+                    {e.replaces.map((r) => r.split(" (")[0]).join(", ")}
+                  </p>
+                ) : null}
+                <div className="flex flex-wrap items-center gap-3 text-sm">
+                  {e.predictor_exam ? (
+                    <Link
+                      href={`/?exam=${encodeURIComponent(e.predictor_exam)}`}
+                      className="inline-flex items-center gap-1 rounded-full bg-[#B52326] px-3 py-1.5 text-xs font-semibold text-white transition hover:bg-[#8f2e31]"
+                    >
+                      Check your colleges
+                    </Link>
+                  ) : null}
+                  {e.url ? (
+                    <a
+                      href={e.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-xs text-[#6d5550] underline hover:text-[#8f2e31]"
+                    >
+                      official site <ExternalLink size={12} />
+                    </a>
+                  ) : null}
+                  {e.open_data_id ? (
+                    <Link
+                      href={`/datasets#${e.open_data_id}`}
+                      className="text-xs text-[#6d5550] underline hover:text-[#8f2e31]"
+                    >
+                      open data
+                    </Link>
+                  ) : null}
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      ) : null}
+    </>
+  );
+};
+
+/** Sortable column header — click toggles asc/desc, third click clears. */
+const SortTh = ({ label, col, sort, setSort, className = "" }) => {
+  const active = sort.col === col;
+  return (
+    <th
+      className={`cursor-pointer select-none px-3 py-2.5 text-left text-xs font-semibold uppercase tracking-wide text-[#5b1f20] ${className}`}
+      onClick={() =>
+        setSort(
+          active && sort.dir === "desc"
+            ? { col: null, dir: "asc" }
+            : { col, dir: active ? "desc" : "asc" }
+        )
+      }
+    >
+      <span className="inline-flex items-center gap-1">
+        {label}
+        {active ? (
+          sort.dir === "asc" ? (
+            <ChevronUp size={12} />
+          ) : (
+            <ChevronDown size={12} />
+          )
+        ) : null}
+      </span>
+    </th>
+  );
+};
+
+export default function Exams() {
+  const router = useRouter();
+  const [all, setAll] = useState([]);
+  const [error, setError] = useState(null);
+  const [q, setQ] = useState("");
+  const [stream, setStream] = useState("All");
+  const [sort, setSort] = useState({ col: null, dir: "asc" });
+  const [expandedId, setExpandedId] = useState(null);
+  const [shown, setShown] = useState(PAGE_SIZE);
+
+  useEffect(() => {
+    fetch(DATA_URL)
+      .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
+      .then(setAll)
+      .catch(() => setError("Could not load the exam list right now."));
+  }, []);
+
+  // arriving from a college's exam chip: /exams?q=JEE Advanced
+  useEffect(() => {
+    if (router.isReady && router.query.q) setQ(String(router.query.q));
+  }, [router.isReady, router.query.q]);
+
+  const streams = useMemo(
+    () => ["All", ...Array.from(new Set(all.flatMap((e) => e.streams))).sort()],
+    [all]
+  );
+
+  const filtered = useMemo(() => {
+    const raw = q.trim().toLowerCase();
+    let out = all.filter((e) => {
+      if (stream !== "All" && !e.streams.includes(stream)) return false;
+      if (!raw) return true;
+      const hay = [
+        e.name,
+        e.acronym,
+        e.scope,
+        ...(e.aliases || []),
+        ...e.streams,
+        ...(e.degrees || []),
+      ]
+        .join(" ")
+        .toLowerCase();
+      return raw.split(/\s+/).every((w) => hay.includes(w));
+    });
+    if (sort.col) {
+      const key =
+        sort.col === "fee"
+          ? (e) => e.fee_number ?? Infinity
+          : (e) => e.test_month_n ?? Infinity;
+      out = [...out].sort((a, b) =>
+        sort.dir === "asc" ? key(a) - key(b) : key(b) - key(a)
+      );
+    }
+    return out;
+  }, [all, q, stream, sort]);
+
+  useEffect(() => setShown(PAGE_SIZE), [q, stream, sort]);
+
+  const th =
+    "px-3 py-2.5 text-left text-xs font-semibold uppercase tracking-wide text-[#5b1f20]";
+
+  return (
+    <>
+      <Head>
+        <title>Entrance Exams - Avanti Fellows</title>
+        <meta
+          name="description"
+          content="Every undergraduate entrance exam in India: streams, eligibility, application fee, and typical timeline."
+        />
+      </Head>
+      <div className="min-h-screen bg-[#faf5ef] px-3 py-6 sm:px-6">
+        <div className="mx-auto max-w-6xl rounded-2xl border border-[#eee1d7] bg-white p-4 shadow-sm sm:p-8">
+          <h1 className="text-center text-3xl font-bold text-[#332724]">
+            Entrance Exams
+          </h1>
+          <p className="mt-2 text-center text-sm text-[#6d5550]">
+            Dates are the typical cycle, not this year&apos;s — always confirm
+            on the official site.
+          </p>
+
+          <div className="mt-6 grid grid-cols-1 gap-3 md:grid-cols-[1fr_16rem]">
+            <div className="relative">
+              <Search
+                size={16}
+                className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[#b9a8a2]"
+              />
+              <input
+                type="text"
+                value={q}
+                onChange={(ev) => setQ(ev.target.value)}
+                placeholder="Search an exam, stream, or state"
+                className="w-full rounded-xl border border-[#e3d1cb] py-2.5 pl-9 pr-3 text-sm text-[#332724] outline-none transition focus:border-[#B52326]"
+              />
+            </div>
+            <div>
+              <Dropdown
+                options={streams.map((s) => ({
+                  value: s,
+                  label: s === "All" ? "All streams" : s,
+                }))}
+                selectedValue={stream}
+                onChange={(o) => setStream(o.value)}
+                className="w-full"
+                hideValueWhileSearching
+              />
+            </div>
+          </div>
+
+          {error ? (
+            <p className="py-10 text-center text-sm text-[#8f2e31]">{error}</p>
+          ) : all.length === 0 ? (
+            <p className="py-10 text-center text-sm text-[#6d5550]">
+              Loading exams…
+            </p>
+          ) : (
+            <>
+              <p className="mt-4 text-sm text-[#6d5550]">
+                Showing {Math.min(shown, filtered.length)} of {filtered.length}{" "}
+                exams
+              </p>
+              <div className="mt-2 overflow-x-auto">
+                <table className="w-full min-w-[640px] border-collapse">
+                  <thead>
+                    <tr className="border-b-2 border-[#e3d1cb] bg-[#f8efec]">
+                      <th className={th}>Exam</th>
+                      <th className={`${th} hidden sm:table-cell`}>Streams</th>
+                      <SortTh
+                        label="Application fee"
+                        col="fee"
+                        sort={sort}
+                        setSort={setSort}
+                      />
+                      <SortTh
+                        label="Test month"
+                        col="month"
+                        sort={sort}
+                        setSort={setSort}
+                      />
+                      <th className={th} />
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {filtered.slice(0, shown).map((e, i) => (
+                      <ExamRow
+                        key={e.exam_id}
+                        e={e}
+                        index={i}
+                        expanded={expandedId === e.exam_id}
+                        onToggle={() =>
+                          setExpandedId(
+                            expandedId === e.exam_id ? null : e.exam_id
+                          )
+                        }
+                      />
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              {filtered.length > shown ? (
+                <div className="mt-4 text-center">
+                  <button
+                    type="button"
+                    onClick={() => setShown(shown + PAGE_SIZE)}
+                    className="rounded-full border border-[#e3d1cb] bg-white px-4 py-2 text-sm font-semibold text-[#8f2e31] transition hover:bg-[#f8efec]"
+                  >
+                    Show more
+                  </button>
+                </div>
+              ) : null}
+              {filtered.length === 0 ? (
+                <p className="py-10 text-center text-sm text-[#6d5550]">
+                  No exams match. Try clearing the stream filter.
+                </p>
+              ) : null}
+            </>
+          )}
+        </div>
+      </div>
+    </>
+  );
+}
