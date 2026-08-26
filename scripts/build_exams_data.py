@@ -26,6 +26,16 @@ OUT = "public/data/exams/exams.json"
 MONTHS = ["January", "February", "March", "April", "May", "June", "July",
           "August", "September", "October", "November", "December"]
 
+# scope buckets for the Where filter: a state name, All India, or a specific
+# university/institute (everything else)
+STATES = {
+    "Andhra Pradesh", "Assam", "Bihar", "Chhattisgarh", "Delhi", "Goa",
+    "Gujarat", "Haryana", "Himachal Pradesh", "Jharkhand", "Karnataka",
+    "Kerala", "Madhya Pradesh", "Maharashtra", "Odisha", "Punjab",
+    "Rajasthan", "Tamil Nadu", "Telangana", "Tripura", "Uttar Pradesh",
+    "Uttarakhand", "West Bengal", "Chandigarh", "Jammu and Kashmir",
+}
+
 
 def month_of(text):
     for i, m in enumerate(MONTHS):
@@ -61,9 +71,9 @@ def main():
         sid = slug(acro)
         if sid in seen:  # acronym collisions (CUET central vs Christ) get
             sid = slug(name) + "-" + re.sub(r"[^a-z0-9]+", "-",
-                                            str(f.scope).lower())[:20].strip("-")
+                                            str(f["scope"]).lower())[:20].strip("-")
         seen[sid] = True
-        month, month_n = month_of(f.test_date)
+        month, month_n = month_of(f["test_date"])
         aliases = set(str(a) for a in g.aliases.dropna() if str(a).strip())
         def _k(x):
             return re.sub(r"[^a-z0-9]", "", x.lower())
@@ -82,32 +92,36 @@ def main():
             "acronym": acro,
             "streams": streams,
             "degrees": sorted({str(x) for x in g.degrees.dropna()}),
-            "scope": f.scope,
-            "url": f.url if pd.notna(f.url) else None,
-            "eligibility": (str(f.eligibility).strip()
-                            if pd.notna(f.eligibility) else None),
-            "fee_display": (str(f.application_fee).strip()
-                            if pd.notna(f.application_fee) else None),
-            "fee_number": fee_number(f.application_fee),
+            "scope": f["scope"],
+            "scope_type": ("All India" if str(f["scope"]).strip() == "All India"
+                           else str(f["scope"]).strip()
+                           if str(f["scope"]).strip() in STATES
+                           else "University"),
+            "url": f["url"] if pd.notna(f["url"]) else None,
+            "eligibility": (str(f["eligibility"]).strip()
+                            if pd.notna(f["eligibility"]) else None),
+            "fee_display": (str(f["application_fee"]).strip()
+                            if pd.notna(f["application_fee"]) else None),
+            "fee_number": fee_number(f["application_fee"]),
             "test_month": month,
             "test_month_n": month_n,
-            "forms_out": str(f.forms_out) if pd.notna(f.forms_out) else None,
-            "last_date": str(f.last_date) if pd.notna(f.last_date) else None,
-            "test_date": str(f.test_date) if pd.notna(f.test_date) else None,
-            "mode": str(f.mode) if pd.notna(f.mode) else None,
-            "duration": str(f.duration) if pd.notna(f.duration) else None,
-            "marking": str(f.marking) if pd.notna(f.marking) else None,
-            "pattern": (str(f.paper_pattern).strip()
-                        if pd.notna(f.paper_pattern) else None),
-            "remarks": str(f.remarks) if pd.notna(f.remarks) else None,
+            "forms_out": str(f["forms_out"]) if pd.notna(f["forms_out"]) else None,
+            "last_date": str(f["last_date"]) if pd.notna(f["last_date"]) else None,
+            "test_date": str(f["test_date"]) if pd.notna(f["test_date"]) else None,
+            "mode": str(f["mode"]) if pd.notna(f["mode"]) else None,
+            "duration": str(f["duration"]) if pd.notna(f["duration"]) else None,
+            "marking": str(f["marking"]) if pd.notna(f["marking"]) else None,
+            "pattern": (str(f["paper_pattern"]).strip()
+                        if pd.notna(f["paper_pattern"]) else None),
+            "remarks": str(f["remarks"]) if pd.notna(f["remarks"]) else None,
             "replaces": sorted(replaced_here) or None,
             "aliases": sorted(aliases) or None,
-            "predictor_exam": (str(f.avanti_predictor).strip()
-                               if pd.notna(f.avanti_predictor)
-                               and str(f.avanti_predictor).strip() else None),
-            "open_data_id": (str(f.avanti_open_data).strip()
-                             if pd.notna(f.avanti_open_data)
-                             and str(f.avanti_open_data).strip() else None),
+            "predictor_exam": (str(f["avanti_predictor"]).strip()
+                               if pd.notna(f["avanti_predictor"])
+                               and str(f["avanti_predictor"]).strip() else None),
+            "open_data_id": (str(f["avanti_open_data"]).strip()
+                             if pd.notna(f["avanti_open_data"])
+                             and str(f["avanti_open_data"]).strip() else None),
         })
 
     os.makedirs("public/data/exams", exist_ok=True)

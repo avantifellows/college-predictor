@@ -58,6 +58,13 @@ const ExamRow = ({ e, index, expanded, onToggle }) => {
             ))}
           </div>
         </td>
+        <td className="hidden max-w-[16rem] px-3 py-3 align-top lg:table-cell">
+          {e.eligibility ? (
+            <span className="line-clamp-2 text-[#5b3a34]">{e.eligibility}</span>
+          ) : (
+            <Dash />
+          )}
+        </td>
         <td className="px-3 py-3 align-top tabular-nums">
           {fmtFee(e) || <Dash />}
         </td>
@@ -75,7 +82,7 @@ const ExamRow = ({ e, index, expanded, onToggle }) => {
       </tr>
       {expanded ? (
         <tr className="border-b border-[#eaded8] bg-[#fdf7f2]">
-          <td colSpan={5} className="px-4 py-4 sm:px-6">
+          <td colSpan={6} className="px-4 py-4 sm:px-6">
             <div className="grid gap-6 md:grid-cols-5">
               <div className="space-y-5 md:col-span-2">
                 <div>
@@ -238,6 +245,7 @@ export default function Exams() {
   const [error, setError] = useState(null);
   const [q, setQ] = useState("");
   const [stream, setStream] = useState("All");
+  const [where, setWhere] = useState("All");
   const [sort, setSort] = useState({ col: null, dir: "asc" });
   const [expandedId, setExpandedId] = useState(null);
   const [shown, setShown] = useState(PAGE_SIZE);
@@ -258,11 +266,18 @@ export default function Exams() {
     () => ["All", ...Array.from(new Set(all.flatMap((e) => e.streams))).sort()],
     [all]
   );
+  const wheres = useMemo(() => {
+    const set = new Set(all.map((e) => e.scope_type));
+    set.delete("All India");
+    set.delete("University");
+    return ["All", "All India", ...Array.from(set).sort(), "University"];
+  }, [all]);
 
   const filtered = useMemo(() => {
     const raw = q.trim().toLowerCase();
     let out = all.filter((e) => {
       if (stream !== "All" && !e.streams.includes(stream)) return false;
+      if (where !== "All" && e.scope_type !== where) return false;
       if (!raw) return true;
       const hay = [
         e.name,
@@ -286,9 +301,9 @@ export default function Exams() {
       );
     }
     return out;
-  }, [all, q, stream, sort]);
+  }, [all, q, stream, where, sort]);
 
-  useEffect(() => setShown(PAGE_SIZE), [q, stream, sort]);
+  useEffect(() => setShown(PAGE_SIZE), [q, stream, where, sort]);
 
   const th =
     "px-3 py-2.5 text-left text-xs font-semibold uppercase tracking-wide text-[#5b1f20]";
@@ -312,7 +327,7 @@ export default function Exams() {
             on the official site.
           </p>
 
-          <div className="mt-6 grid grid-cols-1 gap-3 md:grid-cols-[1fr_16rem]">
+          <div className="mt-6 grid grid-cols-1 gap-3 md:grid-cols-[1fr_13rem_13rem]">
             <div className="relative">
               <Search
                 size={16}
@@ -338,6 +353,23 @@ export default function Exams() {
                 hideValueWhileSearching
               />
             </div>
+            <div>
+              <Dropdown
+                options={wheres.map((w) => ({
+                  value: w,
+                  label:
+                    w === "All"
+                      ? "Anywhere"
+                      : w === "University"
+                      ? "University-run"
+                      : w,
+                }))}
+                selectedValue={where}
+                onChange={(o) => setWhere(o.value)}
+                className="w-full"
+                hideValueWhileSearching
+              />
+            </div>
           </div>
 
           {error ? (
@@ -358,6 +390,9 @@ export default function Exams() {
                     <tr className="border-b-2 border-[#e3d1cb] bg-[#f8efec]">
                       <th className={th}>Exam</th>
                       <th className={`${th} hidden sm:table-cell`}>Streams</th>
+                      <th className={`${th} hidden lg:table-cell`}>
+                        Eligibility
+                      </th>
                       <SortTh
                         label="Application fee"
                         col="fee"
@@ -402,9 +437,21 @@ export default function Exams() {
                 </div>
               ) : null}
               {filtered.length === 0 ? (
-                <p className="py-10 text-center text-sm text-[#6d5550]">
-                  No exams match. Try clearing the stream filter.
-                </p>
+                <div className="py-10 text-center">
+                  <p className="text-sm text-[#6d5550]">No exams match.</p>
+                  {stream !== "All" || where !== "All" ? (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setStream("All");
+                        setWhere("All");
+                      }}
+                      className="mt-3 rounded-full border border-[#e3d1cb] bg-white px-4 py-2 text-sm font-semibold text-[#8f2e31] transition hover:bg-[#f8efec]"
+                    >
+                      Clear filters
+                    </button>
+                  ) : null}
+                </div>
               ) : null}
             </>
           )}
