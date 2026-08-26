@@ -27,6 +27,15 @@ const fmtFee = (e) => {
   return e.fee_display || null;
 };
 
+/** Label/value line used in the expander — left-aligned so long fuzzy
+ *  dates ("3rd week of December/ 1st week of February") read as prose. */
+const DetailRow = ({ label, children }) => (
+  <div className="grid grid-cols-[6.5rem_1fr] gap-2">
+    <dt className="text-[#6d5550]">{label}</dt>
+    <dd>{children}</dd>
+  </div>
+);
+
 /** One exam row plus its expandable detail. */
 const ExamRow = ({ e, index, expanded, onToggle }) => {
   return (
@@ -91,22 +100,13 @@ const ExamRow = ({ e, index, expanded, onToggle }) => {
                   </h4>
                   <dl className="space-y-1 text-sm text-[#5b3a34]">
                     {e.forms_out ? (
-                      <div className="flex justify-between gap-3">
-                        <dt>Forms out</dt>
-                        <dd className="text-right">{e.forms_out}</dd>
-                      </div>
+                      <DetailRow label="Forms out">{e.forms_out}</DetailRow>
                     ) : null}
                     {e.last_date ? (
-                      <div className="flex justify-between gap-3">
-                        <dt>Last date to apply</dt>
-                        <dd className="text-right">{e.last_date}</dd>
-                      </div>
+                      <DetailRow label="Last date">{e.last_date}</DetailRow>
                     ) : null}
                     {e.test_date ? (
-                      <div className="flex justify-between gap-3">
-                        <dt>Test</dt>
-                        <dd className="text-right">{e.test_date}</dd>
-                      </div>
+                      <DetailRow label="Test">{e.test_date}</DetailRow>
                     ) : null}
                   </dl>
                 </div>
@@ -116,28 +116,20 @@ const ExamRow = ({ e, index, expanded, onToggle }) => {
                   </h4>
                   <dl className="space-y-1 text-sm text-[#5b3a34]">
                     {e.mode ? (
-                      <div className="flex justify-between gap-3">
-                        <dt>Mode</dt>
-                        <dd className="text-right">{e.mode}</dd>
-                      </div>
+                      <DetailRow label="Mode">{e.mode}</DetailRow>
                     ) : null}
                     {e.duration ? (
-                      <div className="flex justify-between gap-3">
-                        <dt>Duration</dt>
-                        <dd className="text-right">{e.duration}</dd>
-                      </div>
+                      <DetailRow label="Duration">{e.duration}</DetailRow>
                     ) : null}
                     {e.marking ? (
-                      <div className="flex justify-between gap-3">
-                        <dt>Marking</dt>
-                        <dd className="tabular-nums text-right">{e.marking}</dd>
-                      </div>
+                      <DetailRow label="Marking">
+                        <span className="tabular-nums">{e.marking}</span>
+                      </DetailRow>
                     ) : null}
                     {e.degrees?.length ? (
-                      <div className="flex justify-between gap-3">
-                        <dt>Degrees</dt>
-                        <dd className="text-right">{e.degrees.join(", ")}</dd>
-                      </div>
+                      <DetailRow label="Degrees">
+                        {e.degrees.join(", ")}
+                      </DetailRow>
                     ) : null}
                   </dl>
                 </div>
@@ -153,14 +145,39 @@ const ExamRow = ({ e, index, expanded, onToggle }) => {
                     </p>
                   </div>
                 ) : null}
-                {e.pattern ? (
+                {e.pattern_rows?.length || e.pattern ? (
                   <div>
                     <h4 className="mb-1.5 text-[13px] font-semibold uppercase tracking-wide text-[#8f2e31]">
                       Paper pattern
                     </h4>
-                    <p className="text-sm leading-6 text-[#5b3a34]">
-                      {e.pattern}
-                    </p>
+                    {e.pattern_rows?.length ? (
+                      <dl className="max-w-md space-y-1 text-sm text-[#5b3a34]">
+                        {e.pattern_rows.map(([label, count], i) => (
+                          <div
+                            key={i}
+                            className={`flex justify-between gap-3 ${
+                              label === "Total"
+                                ? "border-t border-[#e3d1cb] pt-1 font-semibold"
+                                : ""
+                            }`}
+                          >
+                            <dt>{label}</dt>
+                            <dd className="whitespace-nowrap tabular-nums">
+                              {count}
+                            </dd>
+                          </div>
+                        ))}
+                      </dl>
+                    ) : (
+                      <p className="text-sm leading-6 text-[#5b3a34]">
+                        {e.pattern}
+                      </p>
+                    )}
+                    {e.pattern_note ? (
+                      <p className="mt-1.5 text-xs leading-5 text-[#6d5550]">
+                        {e.pattern_note}
+                      </p>
+                    ) : null}
                   </div>
                 ) : null}
                 {e.remarks ? (
@@ -385,12 +402,19 @@ export default function Exams() {
                 exams
               </p>
               <div className="mt-2 overflow-x-auto">
-                <table className="w-full min-w-[640px] border-collapse">
+                {/* table-fixed: expanding a row must not reflow the columns */}
+                <table className="w-full min-w-[640px] table-fixed border-collapse">
                   <thead>
                     <tr className="border-b-2 border-[#e3d1cb] bg-[#f8efec]">
-                      <th className={th}>Exam</th>
-                      <th className={`${th} hidden sm:table-cell`}>Streams</th>
-                      <th className={`${th} hidden lg:table-cell`}>
+                      <th className={`${th} w-[45%] sm:w-[34%] lg:w-[26%]`}>
+                        Exam
+                      </th>
+                      <th
+                        className={`${th} hidden sm:table-cell sm:w-[22%] lg:w-[15%]`}
+                      >
+                        Streams
+                      </th>
+                      <th className={`${th} hidden lg:table-cell lg:w-[24%]`}>
                         Eligibility
                       </th>
                       <SortTh
@@ -398,14 +422,16 @@ export default function Exams() {
                         col="fee"
                         sort={sort}
                         setSort={setSort}
+                        className="w-[20%] sm:w-[16%] lg:w-[13%]"
                       />
                       <SortTh
                         label="Test month"
                         col="month"
                         sort={sort}
                         setSort={setSort}
+                        className="w-[19%] sm:w-[15%] lg:w-[12%]"
                       />
-                      <th className={th} />
+                      <th className={`${th} w-[16%] sm:w-[13%] lg:w-[10%]`} />
                     </tr>
                   </thead>
                   <tbody>

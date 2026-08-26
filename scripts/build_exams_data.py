@@ -13,6 +13,7 @@ staging form of the future `exam` dimension table. Everything from
 `exam_id` to `open_data_id` is dimension-shaped; only the *_display
 fields are presentation extras.
 """
+import hashlib
 import json
 import os
 import re
@@ -22,6 +23,10 @@ import pandas as pd
 
 SRC = "/Users/surya/jan2023/exams_cleaned.csv"
 OUT = "public/data/exams/exams.json"
+# Hand-formatted paper patterns: the sheet stores sections and question counts
+# as two parallel run-on strings; scripts/pattern_formats.json aligns them into
+# rows, keyed by md5(pattern + "||" + questions_marks)[:10].
+PATTERNS = "scripts/pattern_formats.json"
 
 MONTHS = ["January", "February", "March", "April", "May", "June", "July",
           "August", "September", "October", "November", "December"]
@@ -53,7 +58,15 @@ def slug(text):
     return re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
 
 
+def pattern_key(pattern, marks):
+    raw = str(pattern) + "||" + str(marks)
+    return hashlib.md5(raw.encode()).hexdigest()[:10]
+
+
 def main():
+    fmt = {}
+    if os.path.exists(PATTERNS):
+        fmt = json.load(open(PATTERNS))
     d = pd.read_csv(SRC)
     active = d[d.status == "active"]
     dead = d[d.status != "active"]
@@ -86,6 +99,7 @@ def main():
         aliases |= replaced_here
         streams = sorted({s.strip() for c in g.course.dropna()
                           for s in str(c).split(";")})
+        pat = fmt.get(pattern_key(f["paper_pattern"], f["questions_marks"]), {})
         cards.append({
             "exam_id": sid,
             "name": name,
@@ -113,6 +127,8 @@ def main():
             "marking": str(f["marking"]) if pd.notna(f["marking"]) else None,
             "pattern": (str(f["paper_pattern"]).strip()
                         if pd.notna(f["paper_pattern"]) else None),
+            "pattern_rows": pat.get("rows"),
+            "pattern_note": pat.get("note") or None,
             "remarks": str(f["remarks"]) if pd.notna(f["remarks"]) else None,
             "replaces": sorted(replaced_here) or None,
             "aliases": sorted(aliases) or None,
@@ -123,6 +139,11 @@ def main():
                              if pd.notna(f["avanti_open_data"])
                              and str(f["avanti_open_data"]).strip() else None),
         })
+
+    # exam_id is the React key and the expand toggle — a duplicate breaks both
+    ids = [c["exam_id"] for c in cards]
+    dupes = {i for i in ids if ids.count(i) > 1}
+    assert not dupes, f"duplicate exam_ids: {dupes}"
 
     os.makedirs("public/data/exams", exist_ok=True)
     with open(OUT, "w") as fh:
