@@ -433,7 +433,7 @@ const PredictedCollegesTable = ({
   // 0-100 composite percentile, so the unit has to follow the program. Derived
   // from the rows rather than taken as a prop: every row in a GUJCET result set
   // shares one Program (the API filters on it), so the first row is enough.
-  const gujcetProgram = exam === "GUJCET" ? data?.[0]?.Program ?? null : null;
+  const gujcetProgram = exam === "GUJCET" ? (data?.[0]?.Program ?? null) : null;
   const isGujcetMedical = gujcetProgram === "Medical";
 
   // ACPC's composite merit score is a 0-100 normalised figure, not a percentage
@@ -1489,10 +1489,10 @@ const PredictedCollegesTable = ({
                       ? "JEE Advanced college options."
                       : "JEE Main college options."
                     : isNeet
-                    ? neetSeatTab === "home"
-                      ? "home-state seats."
-                      : "All India Quota seats."
-                    : "matching options."}
+                      ? neetSeatTab === "home"
+                        ? "home-state seats."
+                        : "All India Quota seats."
+                      : "matching options."}
                 </p>
                 {/* Year + round caption. NEET states the round too, because round depth is not
                     comparable across states; other exams show the year alone. Both read the data

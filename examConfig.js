@@ -1946,19 +1946,29 @@ export const clatConfig = {
   },
   getFilters: (query) => [
     (item) => {
-      const canon = { General: "GEN", EWS: "EWS", OBC: "OBC", SC: "SC", ST: "ST" }[
-        query.category
-      ];
+      const canon = {
+        General: "GEN",
+        EWS: "EWS",
+        OBC: "OBC",
+        SC: "SC",
+        ST: "ST",
+      }[query.category];
       const home = query.homeState || null;
-      const domOk = item["Domicile State"] === "" ||
+      const domOk =
+        item["Domicile State"] === "" ||
         (home && item["Domicile State"] === home);
       const isOverlay = item["Women Row"] || item["PwD Row"];
       // vertical rows for the chosen category (all-India, plus home-state
       // rows; state backward-class rosters count as OBC only via domicile)
       if (!isOverlay && domOk) {
         if (item["Canonical"] === canon) return true;
-        if (canon === "OBC" && item["Canonical"] === "OBC-like" &&
-            home && item["Domicile State"] === home) return true;
+        if (
+          canon === "OBC" &&
+          item["Canonical"] === "OBC-like" &&
+          home &&
+          item["Domicile State"] === home
+        )
+          return true;
       }
       // horizontal overlays are EXTRA rows, not substitutes
       if (query.gender === "Female" && item["Women Row"] && domOk) return true;
