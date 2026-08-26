@@ -342,8 +342,8 @@ export default function Exams() {
             Entrance Exams
           </h1>
           <p className="mt-2 text-center text-sm text-[#6d5550]">
-            Dates are the typical cycle, not this year&apos;s — always confirm
-            on the official site.
+            Dates are the typical cycle, not this year&apos;s. Always confirm on
+            the official sites.
           </p>
 
           <div className="mt-6 grid grid-cols-1 gap-3 md:grid-cols-[1fr_13rem_13rem]">
