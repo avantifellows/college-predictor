@@ -78,7 +78,15 @@ def main():
 
     cards, seen = [], {}
     for name, g in active.groupby("exam_name", sort=True):
-        f = g.iloc[0]
+        # fold the group's rows: first NON-NULL value per column, not the
+        # first row — JEE Main's fee sits on its 2nd row, NaN on its 1st
+        f = {c: (g[c].dropna().iloc[0] if g[c].notna().any() else float("nan"))
+             for c in g.columns}
+        # pattern and its question counts must stay from the SAME row
+        with_pat = g[g["paper_pattern"].notna()]
+        if len(with_pat):
+            f["paper_pattern"] = with_pat.iloc[0]["paper_pattern"]
+            f["questions_marks"] = with_pat.iloc[0]["questions_marks"]
         # split on the LAST paren: "CUET (UG) (Common University…)" → "CUET (UG)"
         acro = name.rsplit(" (", 1)[0]
         sid = slug(acro)

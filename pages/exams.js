@@ -92,7 +92,9 @@ const ExamRow = ({ e, index, expanded, onToggle }) => {
       {expanded ? (
         <tr className="border-b border-[#eaded8] bg-[#fdf7f2]">
           <td colSpan={6} className="px-4 py-4 sm:px-6">
-            <div className="grid gap-6 md:grid-cols-5">
+            {/* the table is min-640px wide; cap the detail text at the
+                viewport so phone users read it without side-scrolling */}
+            <div className="grid max-w-[calc(100vw-4rem)] gap-6 md:max-w-none md:grid-cols-5">
               <div className="space-y-5 md:col-span-2">
                 <div>
                   <h4 className="mb-1.5 text-[13px] font-semibold uppercase tracking-wide text-[#8f2e31]">
