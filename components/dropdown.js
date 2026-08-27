@@ -56,7 +56,13 @@ const Dropdown = ({
   selectedValue,
   className,
   isClearable = false,
+  // react-select keeps the chosen value painted behind the text you type, so a
+  // long list reads as "All states" with a cursor blinking over it. Opt in to
+  // hiding the value while the menu is open, so typing looks like typing.
+  // Off by default: the nine existing call sites rely on the value staying put.
+  hideValueWhileSearching = false,
 }) => {
+  const [isOpen, setIsOpen] = React.useState(false);
   return (
     <Select
       options={options}
@@ -66,6 +72,12 @@ const Dropdown = ({
       styles={customStyles}
       instanceId={useId()}
       className={className}
+      onMenuOpen={() => setIsOpen(true)}
+      onMenuClose={() => setIsOpen(false)}
+      controlShouldRenderValue={!(hideValueWhileSearching && isOpen)}
+      placeholder={
+        hideValueWhileSearching && isOpen ? "Type to search…" : undefined
+      }
       value={
         options.find(
           (option) =>

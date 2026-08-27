@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Head from "next/head";
-import { ChevronDown, Download } from "lucide-react";
+import { ChevronDown, Download, Search } from "lucide-react";
 import getConstants from "../constants";
 
 // Rendered entirely from the PUBLIC manifest: what you see is exactly what is
@@ -12,6 +12,27 @@ const MANIFEST_URL =
 
 // national-scope groups float above the state alphabet
 const NATIONAL = ["All India Quota", "All states", "NMC roster", "DCI roster"];
+
+// what students actually type, mapped to datasets whose manifest text doesn't
+// contain those words (JoSAA's blurb never says "JEE")
+const SEARCH_ALIASES = {
+  josaa: "jee main mains advanced iit nit iiit gfti btech engineering",
+  neet: "medical mbbs bds dental aiq mcc",
+  kcet: "karnataka kea engineering",
+  mhtcet: "maharashtra cet engineering pharmacy architecture",
+  tgeapcet: "telangana eapcet eamcet engineering",
+  gujcet: "gujarat acpc engineering pharmacy",
+  tnea: "tamil nadu anna university engineering",
+  wbjee: "west bengal engineering",
+  keam: "kerala cee engineering architecture pharmacy",
+  apeapcet: "andhra pradesh eamcet eapcet engineering",
+  ojee: "odisha jee main mains btech engineering",
+  clat: "law nlu llb",
+  collegefees: "fees hostel mess tuition cost josaa kcet",
+  nirf: "ranking rankings placement",
+  nmc: "mbbs medical seats",
+  moe: "board results class 10 12 cbse",
+};
 
 const fmtBytes = (b) =>
   b >= 1e6
@@ -85,6 +106,8 @@ const GroupRow = ({ group, files, noteMissingSource }) => {
 
 const DatasetCard = ({ ds, defaultOpen }) => {
   const [open, setOpen] = useState(defaultOpen);
+  // search-match and #hash arrival open cards after mount
+  useEffect(() => setOpen(defaultOpen), [defaultOpen]);
   const groups = {};
   for (const f of ds.files) {
     const g = f.title.split(" — ")[0];
@@ -98,7 +121,10 @@ const DatasetCard = ({ ds, defaultOpen }) => {
     return a.localeCompare(b);
   });
   return (
-    <div className="mt-4 overflow-hidden rounded-xl border border-[#eaded8] bg-white shadow-sm">
+    <div
+      id={ds.id}
+      className="mt-4 scroll-mt-4 overflow-hidden rounded-xl border border-[#eaded8] bg-white shadow-sm"
+    >
       <button
         onClick={() => setOpen(!open)}
         className="flex w-full items-center justify-between gap-3 px-4 py-3.5 text-left transition hover:bg-[#fdf8f4]"
@@ -154,6 +180,20 @@ export default function Datasets() {
   const { TITLE_SHORT = "College Predictor" } = getConstants() || {};
   const [manifest, setManifest] = useState(null);
   const [error, setError] = useState(null);
+  const [q, setQ] = useState("");
+
+  // /datasets#clat — open and scroll to that dataset's card
+  const [hashId, setHashId] = useState(null);
+  useEffect(() => {
+    const h = window.location.hash.replace("#", "");
+    if (h) setHashId(h);
+  }, []);
+  useEffect(() => {
+    if (manifest && hashId) {
+      const el = document.getElementById(hashId);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [manifest, hashId]);
 
   useEffect(() => {
     fetch(`${MANIFEST_URL}?t=${Date.now()}`, { cache: "no-store" })
@@ -214,25 +254,71 @@ export default function Datasets() {
           <p className="mt-6 text-center text-[#685851]">Loading…</p>
         )}
 
-        {[
-          ["admissions", "Admissions and counselling"],
-          ["education-statistics", "Institutions and education statistics"],
-        ].map(([cat, heading]) => {
-          const list = (
+        {manifest && (
+          <div className="relative mt-6">
+            <Search
+              size={16}
+              className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[#b9a8a2]"
+            />
+            {/* same control sizing as the site's dropdowns (48px) */}
+            <input
+              type="text"
+              value={q}
+              onChange={(ev) => setQ(ev.target.value)}
+              placeholder="Search datasets and files"
+              className="h-12 w-full rounded-xl border border-[#d8c7c1] bg-[#fffdfa] pl-9 pr-3 text-[#2f2320] shadow-sm outline-none transition placeholder:text-[#7a6159] focus:border-[#b52326] focus:ring-[3px] focus:ring-[#b52326]/[0.12]"
+            />
+          </div>
+        )}
+
+        {(() => {
+          // every typed word must appear somewhere in the dataset's text
+          // (title, blurb, file titles, or its search aliases)
+          const words = q.trim().toLowerCase().split(/\s+/).filter(Boolean);
+          const matches = (d) => {
+            if (!words.length) return true;
+            const hay = [
+              d.title,
+              d.blurb,
+              d.id,
+              SEARCH_ALIASES[d.id] || "",
+              ...d.files.map((f) => f.title),
+            ]
+              .join(" ")
+              .toLowerCase();
+            return words.every((w) => hay.includes(w));
+          };
+          const all = (
             Array.isArray(manifest?.datasets) ? manifest.datasets : []
-          ).filter((d) => (d.category || "admissions") === cat);
-          if (!list.length) return null;
-          return (
-            <div key={cat} className="mt-8">
-              <h2 className="mb-1 text-lg font-bold uppercase tracking-wide text-[#332724]">
-                {heading}
-              </h2>
-              {list.map((ds) => (
-                <DatasetCard key={ds.id} ds={ds} defaultOpen={false} />
-              ))}
-            </div>
-          );
-        })}
+          ).filter(matches);
+          return [
+            ["admissions", "Admissions and counselling"],
+            ["education-statistics", "Institutions and education statistics"],
+          ].map(([cat, heading]) => {
+            const list = all.filter(
+              (d) => (d.category || "admissions") === cat
+            );
+            if (!list.length) return null;
+            return (
+              <div key={cat} className="mt-8">
+                <h2 className="mb-1 text-lg font-bold uppercase tracking-wide text-[#332724]">
+                  {heading}
+                </h2>
+                {list.map((ds) => (
+                  <DatasetCard
+                    key={ds.id}
+                    ds={ds}
+                    // a search that narrows to one dataset opens it; a broad
+                    // search keeps the list scannable
+                    defaultOpen={
+                      (words.length > 0 && all.length === 1) || ds.id === hashId
+                    }
+                  />
+                ))}
+              </div>
+            );
+          });
+        })()}
 
         {manifest && (
           <p className="mt-6 text-center text-xs text-[#685851]">
