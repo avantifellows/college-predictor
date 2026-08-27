@@ -53,9 +53,12 @@ const ExamRow = ({ e, index, expanded, onToggle }) => {
           >
             {e.name}
           </button>
-          <div className="mt-0.5 text-[11px] text-[#6d5550]">{e.scope}</div>
+          {/* on phones the scope moves to its own column (Amogh) */}
+          <div className="mt-0.5 hidden text-[11px] text-[#6d5550] sm:block">
+            {e.scope}
+          </div>
         </td>
-        <td className="hidden px-3 py-3 align-top sm:table-cell">
+        <td className="px-3 py-3 align-top">
           <div className="flex flex-wrap gap-1">
             {e.streams.map((s) => (
               <span
@@ -74,7 +77,10 @@ const ExamRow = ({ e, index, expanded, onToggle }) => {
             <Dash />
           )}
         </td>
-        <td className="px-3 py-3 align-top tabular-nums">
+        <td className="px-3 py-3 align-top text-[#5b3a34] sm:hidden">
+          {e.scope_type}
+        </td>
+        <td className="hidden px-3 py-3 align-top tabular-nums sm:table-cell">
           {fmtFee(e) || <Dash />}
         </td>
         <td className="px-3 py-3 align-top">{e.test_month || <Dash />}</td>
@@ -91,7 +97,7 @@ const ExamRow = ({ e, index, expanded, onToggle }) => {
       </tr>
       {expanded ? (
         <tr className="border-b border-[#eaded8] bg-[#fdf7f2]">
-          <td colSpan={6} className="px-4 py-4 sm:px-6">
+          <td colSpan={7} className="px-4 py-4 sm:px-6">
             {/* the table is min-640px wide; cap the detail text at the
                 viewport so phone users read it without side-scrolling */}
             <div className="grid max-w-[calc(100vw-4rem)] gap-6 md:max-w-none md:grid-cols-5">
@@ -405,35 +411,34 @@ export default function Exams() {
               </p>
               <div className="mt-2 overflow-x-auto">
                 {/* table-fixed: expanding a row must not reflow the columns */}
-                <table className="w-full min-w-[640px] table-fixed border-collapse">
+                <table className="w-full min-w-[560px] table-fixed border-collapse sm:min-w-[640px]">
                   <thead>
                     <tr className="border-b-2 border-[#e3d1cb] bg-[#f8efec]">
-                      <th className={`${th} w-[45%] sm:w-[34%] lg:w-[26%]`}>
+                      <th className={`${th} w-[30%] sm:w-[34%] lg:w-[26%]`}>
                         Exam
                       </th>
-                      <th
-                        className={`${th} hidden sm:table-cell sm:w-[22%] lg:w-[15%]`}
-                      >
+                      <th className={`${th} w-[24%] sm:w-[22%] lg:w-[15%]`}>
                         Streams
                       </th>
                       <th className={`${th} hidden lg:table-cell lg:w-[24%]`}>
                         Eligibility
                       </th>
+                      <th className={`${th} w-[16%] sm:hidden`}>Where</th>
                       <SortTh
                         label="Application fee"
                         col="fee"
                         sort={sort}
                         setSort={setSort}
-                        className="w-[20%] sm:w-[16%] lg:w-[13%]"
+                        className="hidden sm:table-cell sm:w-[16%] lg:w-[13%]"
                       />
                       <SortTh
                         label="Test month"
                         col="month"
                         sort={sort}
                         setSort={setSort}
-                        className="w-[19%] sm:w-[15%] lg:w-[12%]"
+                        className="w-[16%] sm:w-[15%] lg:w-[12%]"
                       />
-                      <th className={`${th} w-[16%] sm:w-[13%] lg:w-[10%]`} />
+                      <th className={`${th} w-[14%] sm:w-[13%] lg:w-[10%]`} />
                     </tr>
                   </thead>
                   <tbody>
