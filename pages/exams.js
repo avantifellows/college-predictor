@@ -55,7 +55,9 @@ const ExamRow = ({ e, index, expanded, onToggle }) => {
           </button>
           {/* on phones the scope moves to its own column (Amogh) */}
           <div className="mt-0.5 hidden text-[11px] text-[#6d5550] sm:block">
-            {e.scope}
+            {e.scope_state && e.scope_type === "University"
+              ? `${e.scope} · ${e.scope_state}`
+              : e.scope}
           </div>
         </td>
         <td className="px-3 py-3 align-top">
@@ -78,7 +80,9 @@ const ExamRow = ({ e, index, expanded, onToggle }) => {
           )}
         </td>
         <td className="px-3 py-3 align-top text-[#5b3a34] sm:hidden">
-          {e.scope_type}
+          {e.scope_type === "University"
+            ? e.scope_state || "University"
+            : e.scope_type}
         </td>
         <td className="hidden px-3 py-3 align-top tabular-nums sm:table-cell">
           {fmtFee(e) || <Dash />}
@@ -293,6 +297,7 @@ export default function Exams() {
   );
   const wheres = useMemo(() => {
     const set = new Set(all.map((e) => e.scope_type));
+    for (const e of all) if (e.scope_state) set.add(e.scope_state);
     set.delete("All India");
     set.delete("University");
     return ["All", "All India", ...Array.from(set).sort(), "University"];
@@ -302,12 +307,16 @@ export default function Exams() {
     const raw = q.trim().toLowerCase();
     let out = all.filter((e) => {
       if (stream !== "All" && !e.streams.includes(stream)) return false;
-      if (where !== "All" && e.scope_type !== where) return false;
+      // a state in the Where filter also matches university exams based
+      // there (AGRICET is ANGRAU's, but it lives in Andhra Pradesh)
+      if (where !== "All" && e.scope_type !== where && e.scope_state !== where)
+        return false;
       if (!raw) return true;
       const hay = [
         e.name,
         e.acronym,
         e.scope,
+        e.scope_state || "",
         ...(e.aliases || []),
         ...e.streams,
         ...(e.degrees || []),
