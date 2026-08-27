@@ -34,12 +34,16 @@ MONTHS = ["January", "February", "March", "April", "May", "June", "July",
 # scope buckets for the Where filter: a state name, All India, or a specific
 # university/institute (everything else)
 STATES = {
-    "Andhra Pradesh", "Assam", "Bihar", "Chhattisgarh", "Delhi", "Goa",
-    "Gujarat", "Haryana", "Himachal Pradesh", "Jharkhand", "Karnataka",
-    "Kerala", "Madhya Pradesh", "Maharashtra", "Odisha", "Punjab",
-    "Rajasthan", "Tamil Nadu", "Telangana", "Tripura", "Uttar Pradesh",
-    "Uttarakhand", "West Bengal", "Chandigarh", "Jammu and Kashmir",
+    "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chandigarh",
+    "Chhattisgarh", "Delhi", "Goa", "Gujarat", "Haryana",
+    "Himachal Pradesh", "Jammu and Kashmir", "Jharkhand", "Karnataka",
+    "Kerala", "Ladakh", "Madhya Pradesh", "Maharashtra", "Manipur",
+    "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Puducherry", "Punjab",
+    "Rajasthan", "Sikkim", "Tamil Nadu", "Telangana", "Tripura",
+    "Uttar Pradesh", "Uttarakhand", "West Bengal",
 }
+# home state of each university-run exam (null = multi-campus/national)
+UNIVERSITY_STATES = "scripts/university_states.json"
 
 
 def month_of(text):
@@ -67,6 +71,8 @@ def main():
     fmt = {}
     if os.path.exists(PATTERNS):
         fmt = json.load(open(PATTERNS))
+    uni_states = {k: v for k, v in json.load(open(UNIVERSITY_STATES)).items()
+                  if not k.startswith("_")}
     d = pd.read_csv(SRC)
     active = d[d.status == "active"]
     dead = d[d.status != "active"]
@@ -119,6 +125,11 @@ def main():
                            else str(f["scope"]).strip()
                            if str(f["scope"]).strip() in STATES
                            else "University"),
+            # the university's home state, so AGRICET (ANGRAU) still reads
+            # and filters as Andhra Pradesh; None for national/multi-campus
+            "scope_state": (str(f["scope"]).strip()
+                            if str(f["scope"]).strip() in STATES
+                            else uni_states.get(sid)),
             "url": f["url"] if pd.notna(f["url"]) else None,
             "eligibility": (str(f["eligibility"]).strip()
                             if pd.notna(f["eligibility"]) else None),
@@ -152,6 +163,12 @@ def main():
     ids = [c["exam_id"] for c in cards]
     dupes = {i for i in ids if ids.count(i) > 1}
     assert not dupes, f"duplicate exam_ids: {dupes}"
+
+    unmapped = [c["exam_id"] for c in cards
+                if c["scope_type"] == "University" and c["exam_id"] not in
+                json.load(open(UNIVERSITY_STATES))]
+    if unmapped:
+        print(f"WARNING: university exams missing from {UNIVERSITY_STATES}: {unmapped}")
 
     os.makedirs("public/data/exams", exist_ok=True)
     with open(OUT, "w") as fh:
