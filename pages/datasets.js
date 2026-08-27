@@ -260,12 +260,13 @@ export default function Datasets() {
               size={16}
               className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[#b9a8a2]"
             />
+            {/* same control sizing as the site's dropdowns (48px) */}
             <input
               type="text"
               value={q}
               onChange={(ev) => setQ(ev.target.value)}
               placeholder="Search datasets and files"
-              className="w-full rounded-xl border border-[#e3d1cb] py-2.5 pl-9 pr-3 text-sm text-[#332724] outline-none transition focus:border-[#B52326]"
+              className="h-12 w-full rounded-xl border border-[#d8c7c1] bg-[#fffdfa] pl-9 pr-3 text-[#2f2320] shadow-sm outline-none transition placeholder:text-[#7a6159] focus:border-[#b52326] focus:ring-[3px] focus:ring-[#b52326]/[0.12]"
             />
           </div>
         )}
