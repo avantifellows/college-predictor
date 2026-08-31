@@ -70,7 +70,7 @@ const seatKey = (institute, program, quota, seatType, gender) =>
 const pairKey = (institute, program) => `${institute}${program}`;
 
 const GENDER_NEUTRAL = "Gender-Neutral";
-const FEMALE_ONLY = "Female-only (including Supernumerary)";
+export const FEMALE_ONLY = "Female-only (including Supernumerary)";
 
 /** Female-only is an ADDITIONAL reserved pool on top of the neutral one, not
  * a restriction to it — a female candidate is eligible for both. A
@@ -184,7 +184,7 @@ export function resolveQuotas(institute, collegesByName, homeState) {
  * closing. When no pool admits (or rank is unknown), the loosest pool is
  * returned so callers' own closing-vs-rank check fails uniformly.
  * Returns null only when no pool has a row this round at all. */
-function findSeatForChoice(
+export function findSeatForChoice(
   institute,
   program,
   round,
@@ -320,7 +320,7 @@ export function buildCatalog(rows, profile, collegesByName) {
  * into {branch, years, degree} so it can be matched against a college's
  * programs.list entries (which carry the same fields separately). Returns
  * null if the program string doesn't follow the expected shape. */
-function parseProgramName(programName) {
+export function parseProgramName(programName) {
   const match = /^(.*)\s\((\d+)\s*Years?,\s*(.*)\)$/.exec(programName || "");
   if (!match) return null;
   return {
@@ -461,6 +461,23 @@ export function advanceRound(
  * closing rank; the two exams' candidate pools aren't the same scale (see
  * examSpaceFor). NIRF rank, salary, and fees don't have that problem, so
  * those tabs can sort the full mixed list directly.
+ *
+ * NIRF/CTC/fees are also all compared against what the student actually
+ * got (`nirfBetter`, `ctcBetter`, `feeSavings`) — without that, "you may
+ * have gotten a better option" would happily list an institute with a
+ * *worse* NIRF rank or a *higher* fee than the student's own result just
+ * because it was reachable. `feeSavings` is signed (positive = cheaper than
+ * what they got) rather than a boolean, so the UI can show the actual
+ * rupee amount, not just a yes/no.
+ *
+ * `rawFeeStandard`/`rawFeeWaived` (and the `winningFeeStandard`/
+ * `winningFeeWaived` pair, repeated on every result) are the two fee
+ * figures straight off colleges.json, with no category-based waiver
+ * assumption applied — the Fees tab lets a student directly answer "am I
+ * fee-waiver eligible?" instead of trusting the SC/ST/EWS/PwD-only
+ * assumption `annualFee`/`feeWaived` bake in, and needs both raw numbers
+ * (for the option AND for what the student's own result would cost) to
+ * recompute `feeSavings` consistently under that self-reported answer.
  */
 export function findMissedBetterOptions(
   catalog,
@@ -475,6 +492,22 @@ export function findMissedBetterOptions(
   const listPositionByPair = new Map(
     choices.map((c, i) => [pairKey(c.institute, c.program), i + 1])
   );
+
+  // If the student's OWN college has no NIRF rank or salary on record (true
+  // for ~half of institutes), treat that baseline as the worst possible
+  // value rather than leaving it null — otherwise nirfBetter/ctcBetter below
+  // would always resolve to null (a real value can't be "better than
+  // unknown"), and the NIRF/CTC tabs would show nothing at all for any
+  // student whose allotment happens to be at a non-ranked institute. NIRF
+  // rank 1 is best, so worst-case is the largest int; salary's worst-case is
+  // the smallest.
+  const winningCollege = collegesByName.get(winningChoice.institute);
+  const winningNirf =
+    winningCollege?.nirf?.engineering_rank ?? Number.MAX_SAFE_INTEGER;
+  const winningSalary =
+    winningCollege?.placement?.median_salary ?? Number.MIN_SAFE_INTEGER;
+  const winningFee = annualFeeForCategory(winningCollege, profile.category);
+
   const results = [];
 
   for (const item of catalog) {
@@ -501,16 +534,29 @@ export function findMissedBetterOptions(
 
     const college = collegesByName.get(item.institute);
     const fee = annualFeeForCategory(college, profile.category);
+    const nirfRank = college?.nirf?.engineering_rank ?? null;
+    const medianSalary = college?.placement?.median_salary ?? null;
+
     results.push({
       institute: item.institute,
       program: item.program,
       closingRank: seat.closing,
-      nirfRank: college?.nirf?.engineering_rank ?? null,
-      medianSalary: college?.placement?.median_salary ?? null,
+      nirfRank,
+      medianSalary,
       annualFee: fee?.amount ?? null,
       feeWaived: fee?.waived ?? false,
+      rawFeeStandard: college?.fees?.annual_fee ?? null,
+      rawFeeWaived: college?.fees?.annual_fee_waived ?? null,
+      winningFeeStandard: winningCollege?.fees?.annual_fee ?? null,
+      winningFeeWaived: winningCollege?.fees?.annual_fee_waived ?? null,
       exam: examSpaceFor(item.institute, collegesByName),
       listPosition: listPositionByPair.get(key) ?? null,
+      nirfBetter: nirfRank != null ? nirfRank < winningNirf : null,
+      ctcBetter: medianSalary != null ? medianSalary > winningSalary : null,
+      feeSavings:
+        fee?.amount != null && winningFee?.amount != null
+          ? winningFee.amount - fee.amount
+          : null,
     });
   }
 
