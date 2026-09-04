@@ -1293,14 +1293,15 @@ const MISSED_OPTIONS_TABS = [
   },
 ];
 
-// Sort direction, display strings, and the "actually better than what you
-// got" filter for each non-closing-rank tab — lower is "better" for fees
-// (less rank-like, just cost), higher for salary, lower for NIRF (rank 1 is
-// best). All three are college-level fields (colleges.json's nirf/
-// placement/fees), so every branch at an institute shares one identical
-// value — grouped by institute in the UI (see InstituteRankedList) rather
-// than listed one row per branch, or a college with 5 reachable branches
-// would fill 5 of the top 8 slots.
+// The "actually better than what you got" filter for each non-closing-rank
+// tab — lower is "better" for fees (less rank-like, just cost), higher for
+// salary, lower for NIRF (rank 1 is best). All three are college-level
+// fields (colleges.json's nirf/placement/fees), so every branch at an
+// institute shares one identical value — grouped by institute in the UI
+// (see InstituteRankedList) rather than listed one row per branch, or a
+// college with 5 reachable branches would fill 5 of the top 8 slots.
+// Institutes that pass are then ranked by closing rank (tightest first),
+// same as the closing-rank tab — the metric here only decides who qualifies.
 //
 // `isBetter` filters to results that actually beat the student's own
 // allotment on this metric (using the nirfBetter/ctcBetter/feeSavings flags
@@ -1313,19 +1314,16 @@ const MISSED_OPTIONS_TABS = [
 const MISSED_OPTIONS_METRICS = {
   nirf: {
     metricKey: "nirfRank",
-    direction: "asc",
     missingLabel: "a better NIRF rank than your allotment",
     isBetter: (item) => item.nirfBetter === true,
   },
   salary: {
     metricKey: "medianSalary",
-    direction: "desc",
     missingLabel: "a better median CTC than your allotment",
     isBetter: (item) => item.ctcBetter === true,
   },
   fees: {
     metricKey: "annualFee",
-    direction: "asc",
     missingLabel: "lower fees than your allotment",
     isBetter: (item) => item.feeSavings > 0,
     // The one figure MatchStats' generic fee chip can't show on its own —
@@ -1397,7 +1395,6 @@ const MissedOptionsPanel = ({ missedOptions }) => {
   const feesMetric = useMemo(
     () => ({
       metricKey: "annualFee",
-      direction: "asc",
       isBetter: (item) => (hasBudget ? item.annualFee <= budget : item.feeSavings > 0),
       formatLabel: (value, item) =>
         `Fees: ${formatSalary(value)}${item.feeWaived ? " (waived)" : ""}` +

@@ -44,7 +44,7 @@ export const InstituteRankedList = ({
   emptyMessage,
   displayLimit = RANKED_LIST_DISPLAY_LIMIT,
 }) => {
-  const { metricKey, direction, isBetter = () => true, extraNote } = metric;
+  const { metricKey, isBetter = () => true, extraNote } = metric;
   const byInstitute = new Map();
   for (const item of items) {
     if (item[metricKey] == null || !isBetter(item)) continue;
@@ -52,12 +52,13 @@ export const InstituteRankedList = ({
     byInstitute.get(item.institute).push(item);
   }
 
+  // Groups are ranked by closing rank (tightest first), not by the tab's own
+  // metric — the metric (NIRF/CTC/fees) only decides which institutes
+  // qualify (via isBetter above); once qualified, the best-fit one for the
+  // student's own rank leads, same ordering as the closing-rank tab.
   const groups = Array.from(byInstitute.values())
-    .sort((a, b) =>
-      direction === "asc"
-        ? a[0][metricKey] - b[0][metricKey]
-        : b[0][metricKey] - a[0][metricKey]
-    )
+    .map((branches) => [...branches].sort((a, b) => a.closingRank - b.closingRank))
+    .sort((a, b) => a[0].closingRank - b[0].closingRank)
     .slice(0, displayLimit);
 
   if (groups.length === 0) {
