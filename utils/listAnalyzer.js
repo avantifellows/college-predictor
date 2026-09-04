@@ -132,14 +132,14 @@ export function analyzeList({ choices, catalog, seatIndex, collegesByName, profi
       tag: tagForRank(closingRank, rank),
     });
   }
-  const bySalaryDesc = (list) =>
-    [...list].sort((a, b) => (b.medianSalary ?? 0) - (a.medianSalary ?? 0));
+  const byClosingRankAsc = (list) =>
+    [...list].sort((a, b) => a.closingRank - b.closingRank);
 
   const recommendations = [];
 
   if (evaluated.length > 0) {
     if (nSafety === 0) {
-      let cands = bySalaryDesc(candidates.filter((c) => c.tag === "safety")).slice(0, 2);
+      let cands = byClosingRankAsc(candidates.filter((c) => c.tag === "safety")).slice(0, 2);
       if (cands.length === 0) {
         // Tutorial's fallback when NOTHING qualifies as safe: the loosest
         // (highest closing rank) options available, regardless of tag.
@@ -156,7 +156,7 @@ export function analyzeList({ choices, catalog, seatIndex, collegesByName, profi
         type: "info",
         title: "Room to aim higher",
         text: "Every program on your list is comfortably below your expected rank. A higher choice at the top costs you nothing — consider adding one:",
-        candidates: bySalaryDesc(candidates.filter((c) => c.tag !== "safety")).slice(0, 2),
+        candidates: byClosingRankAsc(candidates.filter((c) => c.tag !== "safety")).slice(0, 2),
       });
     } else {
       recommendations.push({
@@ -172,7 +172,7 @@ export function analyzeList({ choices, catalog, seatIndex, collegesByName, profi
   // already been suggested above, isn't a reach, sorted by salary.
   const shown = new Set();
   recommendations.forEach((r) => r.candidates.forEach((c) => shown.add(pairKey(c.institute, c.program))));
-  const fits = bySalaryDesc(
+  const fits = byClosingRankAsc(
     candidates.filter((c) => !shown.has(pairKey(c.institute, c.program)) && c.tag !== "reach")
   );
   if (fits.length > 0) {
