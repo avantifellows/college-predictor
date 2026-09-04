@@ -1,12 +1,8 @@
 import Head from "next/head";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { loadPersistedState } from "../../components/MockAllotment";
-import {
-  cardClass,
-  secondaryBtn,
-  formatRank,
-} from "../../components/mockAllotmentTheme";
+import { loadPersistedState, ProfileChips } from "../../components/MockAllotment";
+import { cardClass, formatRank } from "../../components/mockAllotmentTheme";
 import { TOTAL_ROUNDS } from "../../utils/josaaSimulator";
 
 // Standalone page for the "Rounds History" link in the Simulation view —
@@ -21,7 +17,7 @@ const RoundsHistoryPage = () => {
 
   if (!state) return null;
 
-  const { trail } = state;
+  const { trail, profile } = state;
 
   return (
     <>
@@ -30,16 +26,22 @@ const RoundsHistoryPage = () => {
       </Head>
       <div className="mx-auto w-full max-w-7xl px-4 py-4 md:px-8">
         <div className="mx-auto max-w-2xl">
-          <Link
-            href="/mock-allotment"
-            className={`${secondaryBtn} inline-flex items-center gap-1`}
-          >
-            ← Back to Simulation
-          </Link>
-
-          <h1 className="mt-4 text-2xl font-bold text-[#3a2c28] md:text-3xl">
-            Rounds History
-          </h1>
+          <div className="flex items-center gap-3">
+            <Link
+              href="/mock-allotment"
+              aria-label="Back to Simulation"
+              title="Back to Simulation"
+              className="shrink-0 rounded-full border border-[#d8c7c1] px-3 py-1.5 text-lg font-bold leading-none text-[#5b4a45] hover:bg-[#f8efec]"
+            >
+              ←
+            </Link>
+            <h1 className="text-2xl font-bold text-[#3a2c28] md:text-3xl">
+              Rounds History
+            </h1>
+          </div>
+          <div className="mt-2">
+            <ProfileChips profile={profile} />
+          </div>
 
           {trail.length === 0 ? (
             <p className="mt-4 text-sm text-[#7a655f]">

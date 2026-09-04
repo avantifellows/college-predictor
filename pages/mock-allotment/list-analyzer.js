@@ -1,14 +1,13 @@
 import Head from "next/head";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { loadPersistedState } from "../../components/MockAllotment";
+import { loadPersistedState, ProfileChips } from "../../components/MockAllotment";
 import {
   loadAllRoundsData,
   loadCollegesData,
   buildSeatIndex,
   buildCatalog,
 } from "../../utils/josaaSimulator";
-import { secondaryBtn } from "../../components/mockAllotmentTheme";
 import ListAnalyzer from "../../components/ListAnalyzer";
 
 // Standalone page for "Analyse & Improve Your List" — same treatment as My
@@ -53,12 +52,22 @@ const ListAnalyzerPage = () => {
         <title>Analyse & Improve Your List — JoSAA Mock Allotment</title>
       </Head>
       <div className="mx-auto w-full max-w-7xl px-4 py-4 md:px-8">
-        <Link
-          href="/mock-allotment"
-          className={`${secondaryBtn} inline-flex items-center gap-1`}
-        >
-          ← Back to Simulation
-        </Link>
+        <div className="flex items-center gap-3">
+          <Link
+            href="/mock-allotment"
+            aria-label="Back to Simulation"
+            title="Back to Simulation"
+            className="shrink-0 rounded-full border border-[#d8c7c1] px-3 py-1.5 text-lg font-bold leading-none text-[#5b4a45] hover:bg-[#f8efec]"
+          >
+            ←
+          </Link>
+          <h1 className="text-2xl font-bold text-[#3a2c28] md:text-3xl">
+            Analyse &amp; Improve Your List
+          </h1>
+        </div>
+        <div className="mt-2">
+          <ProfileChips profile={profile} />
+        </div>
 
         <div className="mt-4">
           {choices.length === 0 ? (

@@ -73,10 +73,8 @@ const RecommendationCard = ({ rec }) => (
             key={`${c.institute}|${c.program}`}
             className="rounded-lg border border-[#f0e6e1] bg-white px-3 py-2 text-sm"
           >
-            <div className="flex flex-wrap items-baseline justify-between gap-x-3">
-              <p className="font-semibold text-[#3a2c28]">{c.institute}</p>
-              <p className="text-[#5b4a45]">{c.program}</p>
-            </div>
+            <p className="font-semibold text-[#3a2c28]">{c.institute}</p>
+            <p className="text-[#5b4a45]">{c.program}</p>
             <p className="mt-0.5 text-xs text-[#7a655f]">
               Closing rank: {formatRank(c.closingRank)} · NIRF:{" "}
               {c.nirfRank ?? "not ranked"} · Median CTC: {formatSalary(c.medianSalary)}
@@ -96,10 +94,7 @@ const ListAnalyzer = ({ choices, catalog, seatIndex, collegesByName, profile }) 
 
   return (
     <div>
-      <h1 className="text-2xl font-bold text-[#3a2c28] md:text-3xl">
-        Analyse & Improve Your List
-      </h1>
-      <p className="mt-1 text-sm text-[#5b4a45]">
+      <p className="text-sm text-[#5b4a45]">
         {choices.length} choice{choices.length === 1 ? "" : "s"} on your list
       </p>
 
@@ -132,15 +127,16 @@ const ListAnalyzer = ({ choices, catalog, seatIndex, collegesByName, profile }) 
               {analysis.evaluated.map((c, i) => (
                 <li
                   key={`${c.institute}|${c.program}`}
-                  className="flex flex-wrap items-center justify-between gap-2 rounded-lg border border-[#f0e6e1] px-3 py-2 text-sm"
+                  className="rounded-lg border border-[#f0e6e1] bg-white px-3 py-2 text-sm"
                 >
-                  <p>
-                    <span className="mr-2 font-bold text-[#b52326]">{i + 1}.</span>
-                    <span className="font-semibold text-[#3a2c28]">{c.institute}</span>
-                    {" — "}
-                    <span className="text-[#5b4a45]">{c.program}</span>
-                  </p>
-                  <TagBadge tag={c.tag} />
+                  <div className="flex items-start justify-between gap-2">
+                    <p className="font-semibold text-[#3a2c28]">
+                      <span className="mr-2 font-bold text-[#b52326]">{i + 1}.</span>
+                      {c.institute}
+                    </p>
+                    <TagBadge tag={c.tag} />
+                  </div>
+                  <p className="text-[#5b4a45]">{c.program}</p>
                 </li>
               ))}
             </ol>

@@ -11,8 +11,14 @@
  * questions that drive three more of its recommendations ("Outside your
  * state", "Below your income expectation", "Paying for it") — this app's
  * Student Info step doesn't ask any of those, so those three are left out
- * rather than approximated. Gender IS collected here (and drives JoSAA's
- * real female-only pool), so that recommendation is kept.
+ * rather than approximated. The tutorial's "female-only seats work in your
+ * favour" recommendation is left out too, for a different reason: unlike
+ * the tutorial's static demo data (one flat closing rank per program, no
+ * gender-pool modeling), this app's own closingRank already resolves the
+ * better of the Gender-Neutral/Female-only pools before a tag is ever
+ * computed (see findSeatForChoice in josaaSimulator.js) — so the "some
+ * REACH picks may be closer than they look" caveat doesn't apply here;
+ * a REACH tag already means neither pool admitted.
  *
  * "Reachable" is checked at the LAST round (loosest), same reasoning as
  * bestMatchFinder.js — this evaluates the list overall, not a specific
@@ -23,7 +29,6 @@ import {
   studentRankForInstitute,
   findSeatForChoice,
   TOTAL_ROUNDS,
-  FEMALE_ONLY,
 } from "./josaaSimulator";
 
 // Same ratios and thresholds as the tutorial's tagOf(): closing rank
@@ -158,15 +163,6 @@ export function analyzeList({ choices, catalog, seatIndex, collegesByName, profi
         type: "good",
         title: "Balanced list",
         text: `Your list combines ${nReach ? nReach + " reach, " : ""}${nMatch} match and ${nSafety} safety — aspiration on top, solid ground below.`,
-        candidates: [],
-      });
-    }
-
-    if (profile.gender === FEMALE_ONLY) {
-      recommendations.push({
-        type: "good",
-        title: "Female-only seats work in your favour",
-        text: "JoSAA reserves female-only seats with their own — usually more accessible — closing ranks. You automatically compete in both the open and female-only pools, so some programs tagged REACH here may be closer than they look.",
         candidates: [],
       });
     }

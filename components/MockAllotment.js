@@ -21,7 +21,7 @@ import {
   primaryBtn,
   secondaryBtn,
 } from "./mockAllotmentTheme";
-import { InstituteRankedList } from "./InstituteRankedList";
+import { InstituteRankedList, MatchStats } from "./InstituteRankedList";
 import { BEST_MATCH_STORAGE_KEY } from "./BestMatchFinder";
 
 // Practice JoSAA choice-filling + locking + a round-by-round freeze/float mock,
@@ -55,6 +55,36 @@ const qualifiedField = josaaConfig.fields.find(
 
 const optionValue = (opt) => (typeof opt === "string" ? opt : opt.value);
 const optionLabel = (opt) => (typeof opt === "string" ? opt : opt.label);
+
+// A reminder of who this run is — category, gender, home state, rank —
+// shown the same way everywhere in Mock Allotment: the Simulation results,
+// and (since none of My Choices / Rounds History / Find Your Best Match /
+// Analyse Your List have the Student Info tab available either) each of
+// their standalone pages too. Exported so those pages can import it
+// straight from here instead of re-deriving the category label lookup.
+export const ProfileChips = ({ profile }) => {
+  const chips = [
+    optionLabel(
+      categoryField.options.find((o) => optionValue(o) === profile.category)
+    ) || profile.category,
+    profile.gender,
+    profile.homeState,
+    `JEE Main rank: ${profile.mainRank}`,
+    profile.qualifiedJeeAdv === "Yes"
+      ? `JEE Advanced rank: ${profile.advRank}`
+      : null,
+  ].filter(Boolean);
+
+  return (
+    <div className="flex flex-wrap gap-2 text-xs text-[#5b4a45]">
+      {chips.map((chip) => (
+        <span key={chip} className="rounded-full bg-[#f8efec] px-3 py-1">
+          {chip}
+        </span>
+      ))}
+    </div>
+  );
+};
 
 const defaultProfile = {
   category: "",
@@ -368,41 +398,55 @@ const MockAllotment = () => {
 
   return (
     <div className="mx-auto w-full max-w-7xl px-4 py-4 md:px-8">
-      <h1 className="text-2xl font-bold text-[#3a2c28] md:text-3xl">
-        JoSAA Mock Allotment
-      </h1>
+      <div className="flex flex-wrap items-start justify-between gap-3">
+        <h1 className="text-2xl font-bold text-[#3a2c28] md:text-3xl">
+          JoSAA Mock Allotment
+        </h1>
 
-      {/* These four are all real pages (pages/mock-allotment/), not popups
-          or inline toggles — each needs its own URL and a back link rather
-          than fighting for space in a floating card. Left-aligned under the
-          title, as a compact list of links rather than a row of buttons. */}
-      <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm font-semibold">
-        {/* Independent of the round simulation — just needs a valid
-            profile + catalog, so it's offered whether or not choices are
-            locked yet. */}
-        {profileValid && catalog.length > 0 && (
-          <Link href="/mock-allotment/best-match" className="text-[#b52326] hover:underline">
-            Best Match
-          </Link>
-        )}
-        {/* Critiques the choices already on the list, so it needs at
-            least one to say anything useful. */}
-        {profileValid && state.choices.length > 0 && (
-          <Link href="/mock-allotment/list-analyzer" className="text-[#5b4a45] hover:underline">
-            Analyse List
-          </Link>
-        )}
-        {/* Only meaningful once there's a locked run to look back on. */}
-        {state.locked && (
-          <>
-            <Link href="/mock-allotment/choices" className="text-[#5b4a45] hover:underline">
-              My Choices
+        {/* These four are all real pages (pages/mock-allotment/), not popups
+            or inline toggles — each needs its own URL and a back link. Real
+            buttons (same classes the rest of the app uses), not plain text
+            links, so they read as actionable rather than incidental. */}
+        <div className="flex flex-wrap gap-2">
+          {/* Independent of the round simulation — just needs a valid
+              profile + catalog, so it's offered whether or not choices are
+              locked yet. */}
+          {profileValid && catalog.length > 0 && (
+            <Link
+              href="/mock-allotment/best-match"
+              className={`${primaryBtn} inline-flex items-center`}
+            >
+              Best Match
             </Link>
-            <Link href="/mock-allotment/rounds-history" className="text-[#5b4a45] hover:underline">
-              Rounds History
+          )}
+          {/* Critiques the choices already on the list, so it needs at
+              least one to say anything useful. */}
+          {profileValid && state.choices.length > 0 && (
+            <Link
+              href="/mock-allotment/list-analyzer"
+              className={`${secondaryBtn} inline-flex items-center`}
+            >
+              Analyse List
             </Link>
-          </>
-        )}
+          )}
+          {/* Only meaningful once there's a locked run to look back on. */}
+          {state.locked && (
+            <>
+              <Link
+                href="/mock-allotment/choices"
+                className={`${secondaryBtn} inline-flex items-center`}
+              >
+                My Choices
+              </Link>
+              <Link
+                href="/mock-allotment/rounds-history"
+                className={`${secondaryBtn} inline-flex items-center`}
+              >
+                Rounds History
+              </Link>
+            </>
+          )}
+        </div>
       </div>
 
       {state.step !== "simulate" && (
@@ -1212,19 +1256,15 @@ const RoundCard = ({
         {formatRank(opening)} / Closing {formatRank(closing)}
       </p>
       {finalRevealed && (
-        <div className="mt-3 grid gap-2 text-xs text-[#5b4a45] sm:grid-cols-2">
-          <span className="rounded-full bg-[#f8efec] px-3 py-1">
-            NIRF Engg rank: {college?.nirf?.engineering_rank ?? "not ranked"}
-          </span>
-          <span className="rounded-full bg-[#f8efec] px-3 py-1">
-            Median CTC (college-level):{" "}
-            {formatSalary(college?.placement?.median_salary)}
-          </span>
-          <span className="rounded-full bg-[#f8efec] px-3 py-1">
-            Annual fee (your category): {formatSalary(fee?.amount)}
-            {fee?.waived && " (waived)"}
-          </span>
-        </div>
+        <MatchStats
+          item={{
+            closingRank: closing,
+            nirfRank: college?.nirf?.engineering_rank ?? null,
+            medianSalary: college?.placement?.median_salary ?? null,
+            annualFee: fee?.amount ?? null,
+            feeWaived: fee?.waived ?? false,
+          }}
+        />
       )}
     </div>
   );
@@ -1239,17 +1279,17 @@ const MISSED_OPTIONS_TABS = [
   {
     key: "nirf",
     label: "By NIRF Ranking",
-    note: "Only institutes ranked better than what you got, grouped one card per institute (every branch there shares the same NIRF rank). Only ~half of institutes are NIRF-ranked at all.",
+    note: "",
   },
   {
     key: "salary",
     label: "By Median CTC",
-    note: "Only institutes with a higher median CTC than what you got, grouped one card per institute — the figure is college-wide, not specific to any branch.",
+    note: "Caution: median CTC is for the entire college, not branch-wise.",
   },
   {
     key: "fees",
     label: "By Fees",
-    note: "Only institutes actually cheaper than what you got for your category (SC/ST/EWS/PwD at the waived rate), grouped one card per institute, with the rupee amount you'd have saved.",
+    note: "",
   },
 ];
 
@@ -1276,22 +1316,21 @@ const MISSED_OPTIONS_METRICS = {
     direction: "asc",
     missingLabel: "a better NIRF rank than your allotment",
     isBetter: (item) => item.nirfBetter === true,
-    formatLabel: (value) => `NIRF: ${value}`,
   },
   salary: {
     metricKey: "medianSalary",
     direction: "desc",
     missingLabel: "a better median CTC than your allotment",
     isBetter: (item) => item.ctcBetter === true,
-    formatLabel: (value) => `Median CTC: ${formatSalary(value)}`,
   },
   fees: {
     metricKey: "annualFee",
     direction: "asc",
     missingLabel: "lower fees than your allotment",
     isBetter: (item) => item.feeSavings > 0,
-    formatLabel: (value, item) =>
-      `Fees: ${formatSalary(value)}${item.feeWaived ? " (waived)" : ""} · Save ${formatSalary(item.feeSavings)} vs. your allotment`,
+    // The one figure MatchStats' generic fee chip can't show on its own —
+    // how much cheaper this is than what the student actually got.
+    extraNote: (item) => `Save ${formatSalary(item.feeSavings)} vs. your allotment`,
   },
 };
 
@@ -1300,25 +1339,16 @@ const MISSED_OPTIONS_DISPLAY_LIMIT = 8;
 const missedOptionRow = (opt) => (
   <li
     key={`${opt.institute}|${opt.program}`}
-    className="rounded-lg border border-[#f0e6e1] px-3 py-2 text-base"
+    className="rounded-lg border border-[#f0e6e1] px-3 py-2.5 text-base"
   >
-    <p className="font-semibold text-[#3a2c28]">{opt.institute}</p>
-    <p className="text-sm text-[#7a655f]">{opt.program}</p>
-    <p className="mt-1 text-xs text-[#9a8a84]">
-      Closing rank: {formatRank(opt.closingRank)} · NIRF:{" "}
-      {opt.nirfRank ?? "not ranked"} · Median CTC:{" "}
-      {formatSalary(opt.medianSalary)} · Fees: {formatSalary(opt.annualFee)}
-      {opt.annualFee != null && opt.feeWaived && " (waived)"}
-      {opt.listPosition != null && (
-        <>
-          {" "}
-          ·{" "}
-          <span className="font-semibold text-[#b52326]">
-            Was your choice #{opt.listPosition}
-          </span>
-        </>
-      )}
-    </p>
+    <p className="font-bold text-[#3a2c28]">{opt.institute}</p>
+    <p className="text-sm font-medium text-[#5b4a45]">{opt.program}</p>
+    {opt.listPosition != null && (
+      <p className="mt-0.5 text-xs font-bold text-[#b52326]">
+        Was your choice #{opt.listPosition}
+      </p>
+    )}
+    <MatchStats item={opt} />
   </li>
 );
 
@@ -1351,7 +1381,7 @@ const effectiveFeeItem = (item, waiverAnswer) => {
   return { annualFee, feeWaived, feeSavings };
 };
 
-const MissedOptionsPanel = ({ missedOptions, round }) => {
+const MissedOptionsPanel = ({ missedOptions }) => {
   const [tab, setTab] = useState("closingRank");
   // Fees-tab-only refinement — asked directly instead of guessing from
   // category alone (see effectiveFeeItem). Budget is optional: leave it
@@ -1397,9 +1427,6 @@ const MissedOptionsPanel = ({ missedOptions, round }) => {
       <h2 className="text-base font-bold text-[#3a2c28]">
         You may have gotten a better option
       </h2>
-      <p className="mt-1 text-sm text-[#7a655f]">
-        Also reachable in Round {round}:
-      </p>
 
       <div className="mt-3 flex flex-wrap gap-1">
         {MISSED_OPTIONS_TABS.map((t) => (
@@ -1545,31 +1572,9 @@ const SimulateStep = ({
   const fee = college ? annualFeeForCategory(college, profile.category) : null;
   const canSlide = Boolean(finalChoice);
 
-  // A reminder of who this run is — the step tabs (including Student Info)
-  // are hidden once you're in Simulation, so these chips are the only place
-  // that context is still visible. Same chip style as Review & Manage's
-  // "Your profile" row, not a plain dot-separated line.
-  const profileChips = [
-    optionLabel(
-      categoryField.options.find((o) => optionValue(o) === profile.category)
-    ) || profile.category,
-    profile.gender,
-    profile.homeState,
-    `JEE Main rank: ${profile.mainRank}`,
-    profile.qualifiedJeeAdv === "Yes"
-      ? `JEE Advanced rank: ${profile.advRank}`
-      : null,
-  ].filter(Boolean);
-
   return (
     <div className="mt-6 space-y-6">
-      <div className="flex flex-wrap gap-2 text-xs text-[#5b4a45]">
-        {profileChips.map((chip) => (
-          <span key={chip} className="rounded-full bg-[#f8efec] px-3 py-1">
-            {chip}
-          </span>
-        ))}
-      </div>
+      <ProfileChips profile={profile} />
       <RoundCard
         current={current}
         choicesCount={choices.length}
@@ -1626,10 +1631,7 @@ const SimulateStep = ({
 
 
       {finalRevealed && finalChoice && missedOptions.length > 0 && (
-        <MissedOptionsPanel
-          missedOptions={missedOptions}
-          round={current.round}
-        />
+        <MissedOptionsPanel missedOptions={missedOptions} />
       )}
 
       {finalRevealed && !finalChoice && (

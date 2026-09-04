@@ -5,14 +5,8 @@ import {
   findBestMatches,
   scoreMatches,
 } from "../utils/bestMatchFinder";
-import {
-  formatRank,
-  formatSalary,
-  cardClass,
-  inputClass,
-  primaryBtn,
-  secondaryBtn,
-} from "./mockAllotmentTheme";
+import { cardClass, inputClass, primaryBtn, secondaryBtn } from "./mockAllotmentTheme";
+import { MatchStats } from "./InstituteRankedList";
 
 // A standalone discovery search, separate from the round-by-round mock —
 // three questions (branches, location, fees), then a scored results screen.
@@ -251,9 +245,6 @@ const BestMatchFinder = ({ catalog, seatIndex, collegesByName, profile }) => {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold text-[#3a2c28] md:text-3xl">
-        Find Your Best Match
-      </h1>
       {!showingResults && (
         <p className="mt-1 text-sm text-[#5b4a45]">
           Step {step + 1} of {QUESTION_STEPS.length}
@@ -407,11 +398,7 @@ const SCORE_EXPLAINER =
 
 const ResultsScreen = ({ matches, resultsTab, setResultsTab }) => (
   <div>
-    <div className="flex items-center gap-2 text-base font-bold text-[#3a2c28]">
-      Your matches
-      {matches.length > 0 && <InfoTooltip text={SCORE_EXPLAINER} />}
-    </div>
-    <div className="mt-3 flex flex-wrap gap-1">
+    <div className="flex flex-wrap items-center gap-1">
       {RESULTS_TABS.map((t) => (
         <button
           key={t.key}
@@ -426,6 +413,7 @@ const ResultsScreen = ({ matches, resultsTab, setResultsTab }) => (
           {t.label}
         </button>
       ))}
+      {matches.length > 0 && <InfoTooltip text={SCORE_EXPLAINER} />}
     </div>
 
     {matches.length === 0 && (
@@ -445,37 +433,11 @@ const ResultsScreen = ({ matches, resultsTab, setResultsTab }) => (
   </div>
 );
 
-// Colored, at-a-glance stat chips — one fixed color per metric, reused
-// everywhere a match is shown (Best Overall and Best Per Branch both use
-// this), so the same number always looks the same way instead of two
-// different visual treatments for the same four figures.
-const STAT_COLORS = {
-  closing: "bg-[#fdf3f1] text-[#b52326]",
-  nirf: "bg-[#e8f0fb] text-[#1d4ed8]",
-  ctc: "bg-[#eaf6ec] text-[#1a7f37]",
-  fees: "bg-[#fff6e5] text-[#8a6d1f]",
-};
-const MatchStats = ({ match }) => (
-  <div className="mt-2 flex flex-wrap gap-1.5">
-    <span className={`rounded-md px-2 py-1 text-xs font-bold ${STAT_COLORS.closing}`}>
-      Closing {formatRank(match.closingRank)}
-    </span>
-    <span className={`rounded-md px-2 py-1 text-xs font-bold ${STAT_COLORS.nirf}`}>
-      NIRF {match.nirfRank ?? "—"}
-    </span>
-    <span className={`rounded-md px-2 py-1 text-xs font-bold ${STAT_COLORS.ctc}`}>
-      CTC {formatSalary(match.medianSalary)}
-    </span>
-    <span className={`rounded-md px-2 py-1 text-xs font-bold ${STAT_COLORS.fees}`}>
-      Fees {formatSalary(match.annualFee)}
-      {match.feeWaived ? " (waived)" : ""}
-    </span>
-  </div>
-);
-
 // One match, everywhere it appears: institute name (with its rank badge)
 // first, program right under it — not sharing a line with the institute,
-// where it used to get squeezed to one side — then the stat chips below.
+// where it used to get squeezed to one side — then the same colored stat
+// chips (MatchStats) the Mock Allotment's own missed-options panel uses,
+// so the two features never look like they belong to different apps.
 const MatchCard = ({ match, rank }) => (
   <div>
     <p className="font-bold text-[#3a2c28]">
@@ -483,7 +445,7 @@ const MatchCard = ({ match, rank }) => (
       {match.institute}
     </p>
     <p className="text-sm font-medium text-[#5b4a45]">{match.program}</p>
-    <MatchStats match={match} />
+    <MatchStats item={match} />
   </div>
 );
 

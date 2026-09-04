@@ -70,7 +70,7 @@ const seatKey = (institute, program, quota, seatType, gender) =>
 const pairKey = (institute, program) => `${institute}${program}`;
 
 const GENDER_NEUTRAL = "Gender-Neutral";
-export const FEMALE_ONLY = "Female-only (including Supernumerary)";
+const FEMALE_ONLY = "Female-only (including Supernumerary)";
 
 /** Female-only is an ADDITIONAL reserved pool on top of the neutral one, not
  * a restriction to it — a female candidate is eligible for both. A
