@@ -9,6 +9,7 @@ import {
   Facebook,
   FileText,
   Instagram,
+  Scale,
   Target,
 } from "lucide-react";
 import { usePathname } from "next/navigation";
@@ -26,6 +27,7 @@ const DASHBOARDS = [
 
 const TOOLS = [
   { href: "/predictor", icon: Target, label: "College Predictor" },
+  { href: "/compare", icon: Scale, label: "College & Course Comparison" },
   {
     href: "https://cv-generator.avantifellows.org/",
     icon: FileText,
@@ -117,10 +119,7 @@ const Navbar = () => {
           </SocialIcon>
         </div>
       </div>
-      <div
-        ref={barRef}
-        className="w-full bg-[#B52326] py-3 text-white"
-      >
+      <div ref={barRef} className="w-full bg-[#B52326] py-3 text-white">
         <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-2 px-5 md:px-8">
           <div className="flex flex-wrap items-center gap-2">
             <NavGroup

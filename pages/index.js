@@ -12,6 +12,7 @@ import {
   ClipboardList,
   FileText,
   LayoutDashboard,
+  Scale,
   Target,
   Wrench,
 } from "lucide-react";
@@ -31,6 +32,7 @@ const ACTIONS = [
   { value: "/predictor", label: "predict my colleges from my exam rank" },
   { value: "/careers", label: "explore careers and what they pay" },
   { value: "/colleges", label: "browse colleges, fees and rankings" },
+  { value: "/compare", label: "compare colleges and branches" },
   { value: "/exams", label: "understand the entrance exams" },
   { value: "/scholarships", label: "find scholarships I can apply for" },
   {
@@ -72,6 +74,12 @@ const TOOLS = [
     icon: Target,
     title: "College Predictor",
     desc: "Enter your rank, see the colleges you could get.",
+  },
+  {
+    href: "/compare",
+    icon: Scale,
+    title: "College & Course Comparison",
+    desc: "Two or three options side by side, on real numbers.",
   },
   {
     href: "https://cv-generator.avantifellows.org/",
