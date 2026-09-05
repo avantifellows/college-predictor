@@ -83,7 +83,24 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
                 {e}
               </Link>
             ))}
-            {c.kind ? <span>{c.kind}</span> : null}
+            {/* what kind of place this is, at a glance (Akshay): ownership
+                plus the macro education types it admits into */}
+            {c.ownership ? (
+              <span
+                className={`rounded-full px-1.5 py-0.5 font-semibold ${
+                  c.ownership === "Private"
+                    ? "bg-[#FFB763]/20 text-[#8a5209]"
+                    : "bg-[#1F9E8F]/10 text-[#166f64]"
+                }`}
+              >
+                {c.ownership}
+              </span>
+            ) : null}
+            {(c.disciplines || []).map((d) => (
+              <span key={d} className="text-[#6d5550]">
+                {d}
+              </span>
+            ))}
           </div>
         </td>
         <td className="px-3 py-3 align-top text-[#5b3a34]">

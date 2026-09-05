@@ -9,6 +9,12 @@
   "district": "Chennai",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering",
+   "Architecture",
+   "Science"
+  ],
   "year_established": 1959,
   "website": "www.iitm.ac.in",
   "entrance_exams": [
@@ -219,6 +225,11 @@
   "district": "South",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering",
+   "Science"
+  ],
   "year_established": 1961,
   "website": "www.iitd.ac.in",
   "entrance_exams": [
@@ -459,6 +470,11 @@
   "district": "Mumbai",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering",
+   "Science"
+  ],
   "year_established": 1958,
   "website": "www.iitb.ac.in",
   "entrance_exams": [
@@ -663,6 +679,11 @@
   "district": "Kanpur Nagar",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering",
+   "Science"
+  ],
   "year_established": 1959,
   "website": "www.iitk.ac.in",
   "entrance_exams": [
@@ -854,6 +875,12 @@
   "district": "Paschim Medinipur",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering",
+   "Architecture",
+   "Science"
+  ],
   "year_established": 1951,
   "website": "www.iitkgp.ac.in",
   "entrance_exams": [
@@ -1100,6 +1127,12 @@
   "district": "Haridwar",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering",
+   "Architecture",
+   "Science"
+  ],
   "year_established": 1847,
   "website": "www.iitr.ac.in",
   "entrance_exams": [
@@ -1323,6 +1356,10 @@
   "district": "Medak",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2008,
   "website": "http://iith.ac.in",
   "entrance_exams": [
@@ -1519,6 +1556,10 @@
   "district": "Kamrup",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 1994,
   "website": "www.iitg.ac.in",
   "entrance_exams": [
@@ -1697,6 +1738,11 @@
   "district": "Tiruchirappalli",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering",
+   "Architecture"
+  ],
   "year_established": 1964,
   "website": "http://www.nitt.edu",
   "entrance_exams": [
@@ -1865,6 +1911,11 @@
   "district": "Varanasi",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering",
+   "Architecture"
+  ],
   "year_established": 2012,
   "website": "www.iitbhu.ac.in",
   "entrance_exams": [
@@ -2074,6 +2125,10 @@
   "district": "Indore",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2009,
   "website": "www.iiti.ac.in",
   "entrance_exams": [
@@ -2234,6 +2289,11 @@
   "district": "Sundargarh",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering",
+   "Architecture"
+  ],
   "year_established": 1961,
   "website": "www.nitrkl.ac.in",
   "entrance_exams": [
@@ -2488,6 +2548,11 @@
   "district": "Dhanbad",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering",
+   "Science"
+  ],
   "year_established": 1926,
   "website": "www.iitism.ac.in",
   "entrance_exams": [
@@ -2705,6 +2770,10 @@
   "district": "Dakshina Kannada",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 1960,
   "website": "http://www.nitk.ac.in",
   "entrance_exams": [
@@ -2878,6 +2947,11 @@
   "district": "Patna",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering",
+   "Science"
+  ],
   "year_established": 2008,
   "website": "http://www.iitp.ac.in",
   "entrance_exams": [
@@ -3181,6 +3255,11 @@
   "district": "Kozhikode",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering",
+   "Architecture"
+  ],
   "year_established": 1961,
   "website": "http://www.nitc.ac.in/",
   "entrance_exams": [
@@ -3361,6 +3440,10 @@
   "district": "Ahmedabad",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2008,
   "website": "www.iitgn.ac.in",
   "entrance_exams": [
@@ -3515,6 +3598,11 @@
   "district": "Mandi",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering",
+   "Science"
+  ],
   "year_established": 2009,
   "website": "www.iitmandi.ac.in",
   "entrance_exams": [
@@ -3694,6 +3782,11 @@
   "district": "Jodhpur",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering",
+   "Science"
+  ],
   "year_established": 2008,
   "website": "https://iitj.ac.in/",
   "entrance_exams": [
@@ -3867,6 +3960,10 @@
   "district": "Warangal",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 1959,
   "website": "nitw.ac.in",
   "entrance_exams": [
@@ -4072,6 +4169,10 @@
   "district": "Rupnagar",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2008,
   "website": "www.iitrpr.ac.in",
   "entrance_exams": [
@@ -4244,6 +4345,10 @@
   "district": "Khordha",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2008,
   "website": "www.iitbbs.ac.in",
   "entrance_exams": [
@@ -4398,6 +4503,11 @@
   "district": "Jaipur",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering",
+   "Architecture"
+  ],
   "year_established": 1963,
   "website": "www.mnit.ac.in",
   "entrance_exams": [
@@ -4560,6 +4670,11 @@
   "district": "Nagpur",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering",
+   "Architecture"
+  ],
   "year_established": 1960,
   "website": "www.vnit.ac.in",
   "entrance_exams": [
@@ -4722,6 +4837,10 @@
   "district": "Purba Bardhaman",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 1960,
   "website": "www.nitdgp.ac.in",
   "entrance_exams": [
@@ -4903,6 +5022,10 @@
   "district": "Cachar",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 1967,
   "website": "www.nits.ac.in",
   "entrance_exams": [
@@ -5046,6 +5169,11 @@
   "district": "Ranchi",
   "kind": "Deemed University-Private",
   "management": null,
+  "ownership": "Private",
+  "disciplines": [
+   "Engineering",
+   "Architecture"
+  ],
   "year_established": 1955,
   "website": "www.bitmesra.ac.in",
   "entrance_exams": [
@@ -5239,6 +5367,11 @@
   "district": "Patna",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering",
+   "Architecture"
+  ],
   "year_established": 2004,
   "website": "www.nitp.ac.in",
   "entrance_exams": [
@@ -5456,6 +5589,11 @@
   "district": "Howrah",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering",
+   "Architecture"
+  ],
   "year_established": 1856,
   "website": "www.iiests.ac.in",
   "entrance_exams": [
@@ -5624,6 +5762,10 @@
   "district": "Jalandhar",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 1987,
   "website": "www.nitj.ac.in",
   "entrance_exams": [
@@ -5815,6 +5957,10 @@
   "district": "Jammu",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2016,
   "website": "https://iitjammu.ac.in/",
   "entrance_exams": [
@@ -5954,6 +6100,10 @@
   "district": "Chittoor",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2015,
   "website": "http://iittp.ac.in",
   "entrance_exams": [
@@ -6086,6 +6236,10 @@
   "district": "Prayagraj",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 1961,
   "website": "www.mnnit.ac.in",
   "entrance_exams": [
@@ -6253,6 +6407,10 @@
   "district": "Palakkad",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2015,
   "website": "https://iitpkd.ac.in",
   "entrance_exams": [
@@ -6379,6 +6537,10 @@
   "district": "North West",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2010,
   "website": "www.nitdelhi.ac.in",
   "entrance_exams": [
@@ -6524,6 +6686,10 @@
   "district": "Surat",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 1961,
   "website": "http://www.svnit.ac.in",
   "entrance_exams": [
@@ -6723,6 +6889,10 @@
   "district": "Durg",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2016,
   "website": "www.iitbhilai.ac.in",
   "entrance_exams": [
@@ -6856,6 +7026,10 @@
   "district": "Srinagar",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 1960,
   "website": "www.nitsri.ac.in",
   "entrance_exams": [
@@ -7007,6 +7181,10 @@
   "district": "Ranga Reddy",
   "kind": "Central University",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 1974,
   "website": "www.uohyd.ac.in",
   "entrance_exams": [
@@ -7095,6 +7273,11 @@
   "district": "Dharwad",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering",
+   "Science"
+  ],
   "year_established": 2016,
   "website": "www.iitdh.ac.in",
   "entrance_exams": [
@@ -7236,6 +7419,10 @@
   "district": "Sangrur",
   "kind": "Deemed University-Government",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 1989,
   "website": "www.sliet.ac.in",
   "entrance_exams": [
@@ -7434,6 +7621,12 @@
   "district": "Bhopal",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering",
+   "Architecture",
+   "Planning"
+  ],
   "year_established": 1960,
   "website": "www.manit.ac.in",
   "entrance_exams": [
@@ -7616,6 +7809,11 @@
   "district": "West Tripura",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering",
+   "Science"
+  ],
   "year_established": 1965,
   "website": "www.nita.ac.in",
   "entrance_exams": [
@@ -7813,6 +8011,10 @@
   "district": "Saraikela Kharsawan",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 1960,
   "website": "www.nitjsr.ac.in",
   "entrance_exams": [
@@ -7956,6 +8158,10 @@
   "district": "East Khasi Hills",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2010,
   "website": "www.nitm.ac.in",
   "entrance_exams": [
@@ -8093,6 +8299,11 @@
   "district": "Kurukshetra",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering",
+   "Architecture"
+  ],
   "year_established": 1963,
   "website": "www.nitkkr.ac.in",
   "entrance_exams": [
@@ -8322,6 +8533,11 @@
   "district": "Raipur",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering",
+   "Architecture"
+  ],
   "year_established": 1956,
   "website": "nitrr.ac.in",
   "entrance_exams": [
@@ -8502,6 +8718,10 @@
   "district": "Prayagraj",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 1999,
   "website": "www.iiita.ac.in",
   "entrance_exams": [
@@ -8630,6 +8850,10 @@
   "district": "Chandigarh",
   "kind": "Deemed University-Government",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 1921,
   "website": "https://www.pec.ac.in",
   "entrance_exams": [
@@ -8809,6 +9033,10 @@
   "district": "South Goa",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2010,
   "website": "https://www.nitgoa.ac.in/",
   "entrance_exams": [
@@ -8946,6 +9174,10 @@
   "district": "Imphal West",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2010,
   "website": "www.nitmanipur.ac.in",
   "entrance_exams": [
@@ -9087,6 +9319,10 @@
   "district": "Gwalior",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 1997,
   "website": "www.iiitm.ac.in",
   "entrance_exams": [
@@ -9225,6 +9461,11 @@
   "district": "Hamirpur",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering",
+   "Architecture"
+  ],
   "year_established": 1986,
   "website": "www.nith.ac.in",
   "entrance_exams": [
@@ -9406,6 +9647,10 @@
   "district": "Jabalpur",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2005,
   "website": "www.iiitdmj.ac.in",
   "entrance_exams": [
@@ -9540,6 +9785,10 @@
   "district": "Karaikal",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2010,
   "website": "www.nitpy.ac.in",
   "entrance_exams": [
@@ -9672,6 +9921,11 @@
   "district": "Reasi",
   "kind": "State Public University",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering",
+   "Architecture"
+  ],
   "year_established": 1999,
   "website": "www.smvdu.ac.in",
   "entrance_exams": [
@@ -9832,6 +10086,10 @@
   "district": "Kamrup Metro",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2013,
   "website": "www.iiitg.ac.in",
   "entrance_exams": [
@@ -9939,6 +10197,10 @@
   "district": "Sonitpur",
   "kind": "Central University",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 1994,
   "website": "www.tezu.ernet.in",
   "entrance_exams": [
@@ -10109,6 +10371,10 @@
   "district": "Sonipat",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2012,
   "website": "www.niftem.ac.in",
   "entrance_exams": [
@@ -10215,6 +10481,10 @@
   "district": "Pauri Garhwal",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2009,
   "website": "www.nituk.ac.in",
   "entrance_exams": [
@@ -10336,6 +10606,10 @@
   "district": "Papum Pare",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2010,
   "website": "www.nitap.ac.in",
   "entrance_exams": [
@@ -10468,6 +10742,10 @@
   "district": "Namchi",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2010,
   "website": "http://www.nitsikkim.ac.in",
   "entrance_exams": [
@@ -10590,6 +10868,10 @@
   "district": "Indore",
   "kind": "Affiliated College",
   "management": "Private Aided (Government Aided)",
+  "ownership": "Government-aided",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 1952,
   "website": "www.sgsits.ac.in",
   "entrance_exams": [
@@ -10722,6 +11004,10 @@
   "district": "Papum Pare",
   "kind": "Deemed University-Government",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 1983,
   "website": "www.nerist.ac.in",
   "entrance_exams": [
@@ -10853,6 +11139,10 @@
   "district": "Chengalpattu",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2007,
   "website": "www.iiitdm.ac.in",
   "entrance_exams": [
@@ -11016,6 +11306,10 @@
   "district": "Ahmedabad",
   "kind": "State Public University",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2013,
   "website": "www.iitram.ac.in",
   "entrance_exams": [
@@ -11125,6 +11419,10 @@
   "district": "Khordha",
   "kind": "State Public University",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2007,
   "website": "www.iiit-bh.ac.in",
   "entrance_exams": [
@@ -11240,6 +11538,10 @@
   "district": "Cachar",
   "kind": "Central University",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 1994,
   "website": "http://www.aus.ac.in",
   "entrance_exams": [
@@ -11313,6 +11615,10 @@
   "district": null,
   "kind": null,
   "management": null,
+  "ownership": "Private",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": null,
   "website": null,
   "entrance_exams": [
@@ -11385,6 +11691,10 @@
   "district": null,
   "kind": null,
   "management": null,
+  "ownership": "Private",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": null,
   "website": null,
   "entrance_exams": [
@@ -11476,6 +11786,10 @@
   "district": "Ranchi",
   "kind": "Central University",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2009,
   "website": "www.cuj.ac.in",
   "entrance_exams": [
@@ -11554,6 +11868,10 @@
   "district": "Mahendragarh",
   "kind": "Central University",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2009,
   "website": "www.cuh.ac.in",
   "entrance_exams": [
@@ -11632,6 +11950,10 @@
   "district": "Samba",
   "kind": "Central University",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2011,
   "website": "http://www.cujammu.ac.in",
   "entrance_exams": [
@@ -11716,6 +12038,10 @@
   "district": "Ajmer",
   "kind": "Central University",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2009,
   "website": "www.curaj.ac.in",
   "entrance_exams": [
@@ -11788,6 +12114,10 @@
   "district": "Kokrajhar",
   "kind": "Deemed University-Government",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2006,
   "website": "www.cit.ac.in",
   "entrance_exams": [
@@ -11872,6 +12202,10 @@
   "district": "Durg",
   "kind": "State Public University",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2005,
   "website": "csvtu.ac.in",
   "entrance_exams": [
@@ -11945,6 +12279,10 @@
   "district": "Vadodara",
   "kind": "Central University",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2018,
   "website": "https://gsv.ac.in/",
   "entrance_exams": [
@@ -12035,6 +12373,10 @@
   "district": "Malda",
   "kind": "Institutes under Ministries",
   "management": "Central Government",
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2010,
   "website": "www.gkciet.ac.in",
   "entrance_exams": [
@@ -12113,6 +12455,10 @@
   "district": "Haridwar",
   "kind": "Deemed University-Government Aided",
   "management": null,
+  "ownership": "Government-aided",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 1902,
   "website": "www.gkv.ac.in",
   "entrance_exams": [
@@ -12191,6 +12537,10 @@
   "district": "Senapati",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2014,
   "website": "www.iiitmanipur.ac.in",
   "entrance_exams": [
@@ -12281,6 +12631,10 @@
   "district": "Bhadohi",
   "kind": "Affiliated College",
   "management": "Central Government",
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2001,
   "website": "www.iict.ac.in",
   "entrance_exams": [
@@ -12341,6 +12695,10 @@
   "district": "Varanasi",
   "kind": "Technical/Polytechnic",
   "management": "Central Government",
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 1956,
   "website": "www.iihtvaranasi.edu.in",
   "entrance_exams": [
@@ -12394,6 +12752,10 @@
   "district": "Salem",
   "kind": "Affiliated College",
   "management": "Central Government",
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 1960,
   "website": "www.iihtsalem.edu.in",
   "entrance_exams": [
@@ -12454,6 +12816,10 @@
   "district": "Nagpur",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2016,
   "website": "www.iiitn.ac.in",
   "entrance_exams": [
@@ -12544,6 +12910,10 @@
   "district": "Pune",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2016,
   "website": "www.iiitp.ac.in",
   "entrance_exams": [
@@ -12610,6 +12980,10 @@
   "district": "Ranchi",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2016,
   "website": "https://iiitranchi.ac.in/",
   "entrance_exams": [
@@ -12695,6 +13069,10 @@
   "district": "Chittoor",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2013,
   "website": "www.iiits.ac.in",
   "entrance_exams": [
@@ -12767,6 +13145,10 @@
   "district": "Kota",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2013,
   "website": "www.iiitkota.ac.in",
   "entrance_exams": [
@@ -12839,6 +13221,10 @@
   "district": "Bhagalpur",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2017,
   "website": "www.iiitbh.ac.in",
   "entrance_exams": [
@@ -12917,6 +13303,10 @@
   "district": "Bhopal",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2017,
   "website": "www.iiitbhopal.ac.in",
   "entrance_exams": [
@@ -13025,6 +13415,10 @@
   "district": "Kurnool",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2015,
   "website": "www.iiitk.ac.in",
   "entrance_exams": [
@@ -13122,6 +13516,10 @@
   "district": "Lucknow",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2014,
   "website": "www.iiitl.ac.in",
   "entrance_exams": [
@@ -13200,6 +13598,10 @@
   "district": "Surat",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2017,
   "website": "www.iiitsurat.ac.in",
   "entrance_exams": [
@@ -13278,6 +13680,10 @@
   "district": "Tiruchirappalli",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2013,
   "website": "www.iiitt.ac.in",
   "entrance_exams": [
@@ -13356,6 +13762,10 @@
   "district": "Dharwad",
   "kind": "Constituent / University College",
   "management": "Central Government",
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": null,
   "website": "-",
   "entrance_exams": [
@@ -13428,6 +13838,10 @@
   "district": "Nadia",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2014,
   "website": "http://www.iiitkalyani.ac.in",
   "entrance_exams": [
@@ -13506,6 +13920,10 @@
   "district": "Sonipat",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2014,
   "website": "iiitsonepat.ac.in",
   "entrance_exams": [
@@ -13578,6 +13996,10 @@
   "district": "Kottayam",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2015,
   "website": "www.iiitkottayam.ac.in",
   "entrance_exams": [
@@ -13656,6 +14078,10 @@
   "district": "Una",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2014,
   "website": "www.iiitu.ac.in",
   "entrance_exams": [
@@ -13734,6 +14160,10 @@
   "district": "Vadodara",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2013,
   "website": "www.iiitvadodara.ac.in",
   "entrance_exams": [
@@ -13812,6 +14242,10 @@
   "district": "West Tripura",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2018,
   "website": "www.iiitagartala.ac.in",
   "entrance_exams": [
@@ -13872,6 +14306,10 @@
   "district": "Diu",
   "kind": "PG Center / Off-Campus Center",
   "management": "Central Government",
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2020,
   "website": "https://diu.iiitvadodara.ac.in",
   "entrance_exams": [
@@ -13937,6 +14375,10 @@
   "district": "South Goa",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2016,
   "website": "www.iitgoa.ac.in",
   "entrance_exams": [
@@ -14031,6 +14473,10 @@
   "district": "Raichur",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2019,
   "website": "www.iiitr.ac.in",
   "entrance_exams": [
@@ -14103,6 +14549,10 @@
   "district": null,
   "kind": null,
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": null,
   "website": null,
   "entrance_exams": [
@@ -14157,6 +14607,10 @@
   "district": "Sagar",
   "kind": "Central University",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 1946,
   "website": "www.dhsgsu.edu.in",
   "entrance_exams": [
@@ -14247,6 +14701,10 @@
   "district": "Raipur",
   "kind": "State Public University",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2014,
   "website": "www.iiitnr.ac.in",
   "entrance_exams": [
@@ -14319,6 +14777,10 @@
   "district": "Pulwama",
   "kind": "State Public University",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Architecture"
+  ],
   "year_established": 2005,
   "website": "www.iust.ac.in",
   "entrance_exams": [
@@ -14389,6 +14851,10 @@
   "district": "Prayagraj",
   "kind": "Central University",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 1887,
   "website": "http://www.allduniv.ac.in",
   "entrance_exams": [
@@ -14471,6 +14937,10 @@
   "district": "South",
   "kind": "Central University",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 1969,
   "website": "www.jnu.ac.in",
   "entrance_exams": [
@@ -14537,6 +15007,11 @@
   "district": "Aizawl",
   "kind": "Central University",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering",
+   "Architecture"
+  ],
   "year_established": 2001,
   "website": "www.mzu.edu.in",
   "entrance_exams": [
@@ -14628,6 +15103,10 @@
   "district": "Ranchi",
   "kind": "Deemed University-Government",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": null,
   "website": "www.niamt.ac.in",
   "entrance_exams": [
@@ -14706,6 +15185,10 @@
   "district": "Kekri",
   "kind": "Affiliated College",
   "management": "Central Government",
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": null,
   "website": "https://www.nielit.gov.in/",
   "entrance_exams": [
@@ -14759,6 +15242,10 @@
   "district": "Chhatrapati Sambhajinagar",
   "kind": "Affiliated College",
   "management": "Central Government",
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 1986,
   "website": "www.nielit.gov.in/aurangabad",
   "entrance_exams": [
@@ -14818,6 +15305,10 @@
   "district": null,
   "kind": null,
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": null,
   "website": null,
   "entrance_exams": [
@@ -14877,6 +15368,10 @@
   "district": null,
   "kind": null,
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": null,
   "website": null,
   "entrance_exams": [
@@ -14930,6 +15425,10 @@
   "district": "Rupnagar",
   "kind": "Deemed University-Government",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": null,
   "website": "nielit.gov.in",
   "entrance_exams": [
@@ -14983,6 +15482,10 @@
   "district": "Thanjavur",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": null,
   "website": "https://niftem-t.ac.in/",
   "entrance_exams": [
@@ -15043,6 +15546,10 @@
   "district": "Dimapur",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2009,
   "website": "www.nitnagaland.ac.in",
   "entrance_exams": [
@@ -15150,6 +15657,10 @@
   "district": "West Godavari",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2015,
   "website": "www.nitandhra.ac.in",
   "entrance_exams": [
@@ -15253,6 +15764,10 @@
   "district": "Aizawl",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2010,
   "website": "www.nitmz.ac.in",
   "entrance_exams": [
@@ -15366,6 +15881,10 @@
   "district": "East Khasi Hills",
   "kind": "Central University",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 1973,
   "website": "www.nehu.ac.in",
   "entrance_exams": [
@@ -15444,6 +15963,10 @@
   "district": "Puducherry",
   "kind": "State Public University",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": null,
   "website": "www.ptuniv.edu.in",
   "entrance_exams": [
@@ -15553,6 +16076,10 @@
   "district": "Amethi",
   "kind": "Central University",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 2013,
   "website": "www.rgnau.ac.in",
   "entrance_exams": [
@@ -15612,6 +16139,11 @@
   "district": "Bhopal",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Architecture",
+   "Planning"
+  ],
   "year_established": 2008,
   "website": "www.spabhopal.ac.in",
   "entrance_exams": [
@@ -15672,6 +16204,11 @@
   "district": "Central",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Architecture",
+   "Planning"
+  ],
   "year_established": 1955,
   "website": "www.spa.ac.in",
   "entrance_exams": [
@@ -15732,6 +16269,11 @@
   "district": "Krishna",
   "kind": "Institute of National Importance",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Architecture",
+   "Planning"
+  ],
   "year_established": 2008,
   "website": "spav.ac.in",
   "entrance_exams": [
@@ -15792,6 +16334,10 @@
   "district": "Bilaspur",
   "kind": "Central University",
   "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
   "year_established": 1983,
   "website": "www.new.ggu.ac.in",
   "entrance_exams": [

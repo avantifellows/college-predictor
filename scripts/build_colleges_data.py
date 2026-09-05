@@ -64,6 +64,57 @@ def parse_rank(v):
     return int(digits), prep
 
 
+# Public / Private / Government-aided from AISHE's kind + management fields.
+# The few colleges AISHE leaves blank are pinned by name (all verified):
+# BIT Mesra and its off-campuses are a private deemed university; ICT Mumbai
+# is a state-funded deemed university.
+PUBLIC_KINDS = {
+    "Institute of National Importance", "Central University",
+    "State Public University", "Deemed University-Government",
+    "Institutes under Ministries",
+}
+PRIVATE_NAME_PINS = ("Birla Institute of Technology",)
+# NIELIT is an autonomous body under MeitY — public, but AISHE leaves it blank
+PUBLIC_NAME_PINS = ("Institute of Chemical Technology",
+                    "National Institute of Electronics")
+
+
+def ownership_of(kind, management, name):
+    k, m = str(kind or ""), str(management or "")
+    if "Aided" in k or "Aided" in m:
+        return "Government-aided"
+    if k in PUBLIC_KINDS or "Government" in m:
+        return "Public"
+    if "Private" in k or "Private" in m:
+        return "Private"
+    if any(p in name for p in PRIVATE_NAME_PINS):
+        return "Private"
+    if any(p in name for p in PUBLIC_NAME_PINS):
+        return "Public"
+    return None
+
+
+def disciplines_of(programs):
+    """Macro education types from what the college actually admits into.
+    JoSAA's universe is engineering-first; Architecture/Planning/Science
+    surface for the SPAs and the BSc-degree institutes (Akshay: show the
+    macro type, 3-4 max)."""
+    found, has_eng = [], False
+    for p in programs.get("list", []):
+        b = str(p.get("branch", "")).lower()
+        deg = str(p.get("degree", "")).lower()
+        if "architect" in b:
+            found.append("Architecture")
+        elif "planning" in b:
+            found.append("Planning")
+        elif "bachelor of science" in deg:
+            found.append("Science")
+        else:
+            has_eng = True
+    out = (["Engineering"] if has_eng else []) + sorted(set(found))
+    return out[:4]
+
+
 def build_josaa(client):
     from google.cloud import bigquery  # noqa: F401
 
@@ -495,6 +546,8 @@ def main():
             "district": r.district if isinstance(r.district, str) else None,
             "kind": r.kind if isinstance(r.kind, str) else None,
             "management": r.management if isinstance(r.management, str) else None,
+            "ownership": ownership_of(r.kind, r.management, josaa_name),
+            "disciplines": disciplines_of(programs),
             "year_established": (int(r.year_of_establishment)
                                  if r.year_of_establishment == r.year_of_establishment
                                  and r.year_of_establishment is not None else None),
