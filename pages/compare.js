@@ -31,7 +31,7 @@ const ROWS = [
   {
     key: "closing",
     label: "Closing rank",
-    sub: "JoSAA, open category — lower means harder to get",
+    sub: "JoSAA, open category",
     get: (o) => o.program?.indicative_closing_rank ?? null,
     fmt: (v) => v.toLocaleString("en-IN"),
     betterLow: true,
@@ -207,8 +207,8 @@ export default function Compare() {
             College &amp; Course Comparison
           </h1>
           <p className="mt-2 text-center text-sm text-[#6d5550]">
-            Pick two or three college-and-branch combinations. Only real
-            numbers, with their sources — the call stays yours.
+            Pick your college and branch options, and compare them on real
+            numbers.
           </p>
 
           {error ? (
@@ -303,7 +303,7 @@ export default function Compare() {
                                   key={i}
                                   className={`px-3 py-3 align-top tabular-nums ${
                                     i === win
-                                      ? "bg-[#e8f5ee] font-bold text-[#1f8a5b]"
+                                      ? "bg-[#fbeeec] font-bold text-[#8f2e31]"
                                       : "text-[#2f2320]"
                                   }`}
                                 >
@@ -328,7 +328,7 @@ export default function Compare() {
                               )}`}
                               className="text-xs text-[#8f2e31] underline hover:text-[#B52326]"
                             >
-                              full college details
+                              Full college details
                             </Link>
                           </td>
                         ))}
@@ -336,12 +336,8 @@ export default function Compare() {
                     </tbody>
                   </table>
                   <p className="mt-3 text-xs leading-5 text-[#9b8a82]">
-                    The green cell marks the better number in that row, nothing
-                    more. Package, placement and higher-studies figures are for
-                    the whole college (NIRF), not this branch alone. Fees are
-                    the entry-year institute fee from each college&apos;s own
-                    circular. We don&apos;t score campus culture or alumni
-                    networks — no data, no opinion.
+                    Highlighted cells have the better number. Based on NIRF
+                    data and each college&apos;s own fee circular.
                   </p>
                 </div>
               ) : (
