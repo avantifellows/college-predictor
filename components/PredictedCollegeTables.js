@@ -1597,9 +1597,16 @@ const PredictedCollegesTable = ({
               </span>
               {compareSel.length >= 2 ? (
                 <Link
-                  href={`/compare?o=${encodeURIComponent(
-                    compareSel.map((x) => `${x.cid}~${x.program}`).join("|")
-                  )}`}
+                  href={`/compare?o=${compareSel
+                    .map(
+                      (x) =>
+                        `${x.cid}~${String(x.program)
+                          .replace(/\s*\(\d+\s*Years?,[^)]*\)$/, "")
+                          .toLowerCase()
+                          .replace(/[^a-z0-9]+/g, "-")
+                          .replace(/^-+|-+$/g, "")}`
+                    )
+                    .join(",")}`}
                   className="inline-flex items-center whitespace-nowrap rounded-full bg-[#B52326] px-4 py-1.5 text-xs font-semibold text-white transition hover:bg-[#9E1F22]"
                 >
                   Compare

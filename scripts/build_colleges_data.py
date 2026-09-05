@@ -295,6 +295,7 @@ def build_josaa(client):
     )
     SELECT institute, academic_program_name, quota, seat_type, gender,
            closing_rank, closing_is_preparatory,
+           opening_rank, opening_is_preparatory,
            (SELECT y FROM latest) AS year, (SELECT r FROM lr) AS round
     FROM `avantifellows.external_data_sources.josaa_fact_cutoffs`
     WHERE year = (SELECT y FROM latest) AND round = (SELECT r FROM lr)
@@ -540,10 +541,14 @@ def main():
                     rank, prep = parse_rank(x.closing_rank)
                     if rank is not None and not prep and not x.closing_is_preparatory:
                         k = (branch, years, degree)
-                        if k not in best or rank > best[k]:
-                            best[k] = rank
+                        if k not in best or rank > best[k][0]:
+                            # opening rank travels with its own closing row so
+                            # the pair is one real quota, never a mix
+                            orank, oprep = parse_rank(x.opening_rank)
+                            best[k] = (rank, orank if not oprep else None)
             lst = [{"branch": b, "years": y, "degree": d,
-                    "indicative_closing_rank": best.get((b, y, d)),
+                    "indicative_closing_rank": (best.get((b, y, d)) or (None,))[0],
+                    "indicative_opening_rank": (best.get((b, y, d)) or (None, None))[1],
                     "career_id": careers_by_branch.get(b)}
                    for (b, y, d) in branches]
             lst.sort(key=lambda z: (z["indicative_closing_rank"] is None,

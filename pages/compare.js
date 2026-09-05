@@ -31,10 +31,18 @@ const pct = (n) => (n == null ? null : `${n}%`);
 const ROWS = [
   {
     key: "closing",
-    label: "Closing rank",
-    sub: "JoSAA, open category",
+    label: "Rank band",
+    sub: "JoSAA opening to closing, open category",
     get: (o) => o.program?.indicative_closing_rank ?? null,
     fmt: (v) => v.toLocaleString("en-IN"),
+    display: (o) => {
+      const open = o.program?.indicative_opening_rank;
+      const close = o.program?.indicative_closing_rank;
+      if (close == null) return null;
+      return open != null
+        ? `${open.toLocaleString("en-IN")} – ${close.toLocaleString("en-IN")}`
+        : close.toLocaleString("en-IN");
+    },
     betterLow: true,
   },
   {
@@ -153,6 +161,12 @@ const OptionPicker = ({ idx, colleges, option, setOption, remove }) => {
 
 // "Aerospace Engineering (4 Years, Bachelor of Technology)" -> its index in
 // the college's programme list (predictor rows carry the full JoSAA string)
+const slugify = (t) =>
+  String(t)
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+
 const matchBranchIdx = (college, programName) => {
   const m = String(programName).match(/^(.*?)\s*\((\d+)\s*Years?,\s*(.*)\)$/);
   const base = m ? m[1].trim() : String(programName).trim();
@@ -163,6 +177,8 @@ const matchBranchIdx = (college, programName) => {
     (p) => p.branch === base && p.years === years && p.degree === degree
   );
   if (idx < 0) idx = list.findIndex((p) => p.branch === base);
+  // share links carry a slug, not the full degree string
+  if (idx < 0) idx = list.findIndex((p) => slugify(p.branch) === base);
   return idx >= 0 ? String(idx) : null;
 };
 
@@ -186,7 +202,7 @@ export default function Compare() {
   useEffect(() => {
     if (!router.isReady || !router.query.o || all.length === 0) return;
     const parsed = String(router.query.o)
-      .split("|")
+      .split(/[|,]/)
       .slice(0, MAX_OPTIONS)
       .map((part) => {
         const [cid, ...rest] = part.split("~");
@@ -321,7 +337,7 @@ export default function Compare() {
                         </thead>
                         <tbody>
                           {ROWS.map((row) => {
-                            const win = bestIdx(row);
+                            const win = bestSet(row);
                             return (
                               <tr
                                 key={row.key}
@@ -343,7 +359,7 @@ export default function Compare() {
                                     <td
                                       key={i}
                                       className={`px-3 py-3 align-top tabular-nums ${
-                                        i === win
+                                        win.has(i)
                                           ? "bg-[#fbeeec] font-bold text-[#8f2e31]"
                                           : "text-[#2f2320]"
                                       }`}
@@ -352,6 +368,8 @@ export default function Compare() {
                                         <span className="text-[#b9a8a2]">
                                           —
                                         </span>
+                                      ) : row.display ? (
+                                        row.display(o)
                                       ) : (
                                         row.fmt(v)
                                       )}
