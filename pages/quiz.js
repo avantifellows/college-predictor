@@ -489,8 +489,9 @@ export default function Quiz() {
                     <p className="mb-4 text-sm leading-6 text-[#5f514c]">
                       Pick one to continue.
                     </p>
-                    <div className="flex flex-wrap items-center gap-2">
+                    <div className="flex flex-wrap items-center justify-between gap-3">
                       <BackButton onClick={() => goTo(0)} />
+                      <div className="flex flex-wrap justify-end gap-2">
                       {realDegrees.map((d) => (
                         <button
                           key={d}
@@ -505,6 +506,7 @@ export default function Quiz() {
                           {d} <ArrowRight size={14} className="inline" />
                         </button>
                       ))}
+                      </div>
                     </div>
                   </div>
                 )}
@@ -631,6 +633,18 @@ export default function Quiz() {
                     />
                   ))}
                 </div>
+                {examGuess ? (
+                  <p className="mt-5 rounded-xl border border-[#eaded8] bg-[#fdf8f6] p-4 text-base leading-7 text-[#2f2320]">
+                    <span className="font-bold">
+                      {examGuess === correctExam
+                        ? `Right, it's ${correctExam}.`
+                        : `It's ${correctExam}.`}
+                    </span>{" "}
+                    {correctExam === "JEE Advanced"
+                      ? "IITs admit through JEE Advanced, which you qualify for via JEE Main."
+                      : "NITs, IIITs and GFTIs admit on the JEE Main rank."}
+                  </p>
+                ) : null}
                 <div className="mt-5 flex items-center justify-between">
                   <BackButton onClick={() => goTo(2)} />
                   {examGuess ? (
@@ -639,16 +653,6 @@ export default function Quiz() {
                     </BigButton>
                   ) : null}
                 </div>
-                {examGuess ? (
-                  <p className="mt-4 text-sm leading-6 text-[#5f514c]">
-                    {examGuess === correctExam
-                      ? `Right, it's ${correctExam}.`
-                      : `It's ${correctExam}.`}{" "}
-                    {correctExam === "JEE Advanced"
-                      ? "IITs admit through JEE Advanced, which you qualify for via JEE Main."
-                      : "NITs, IIITs and GFTIs admit on the JEE Main rank."}
-                  </p>
-                ) : null}
               </>
             ) : stage === 4 ? (
               <>
@@ -742,9 +746,18 @@ export default function Quiz() {
                         }`}
                       />
                       <span>
-                        {guessNum <= actual.rank
-                          ? "Your guessed rank is inside this cutoff."
-                          : "Your guessed rank is outside this cutoff. Seats close earlier than most students expect."}
+                        {(() => {
+                          const off = Math.round(
+                            ((actual.rank - guessNum) / actual.rank) * 100
+                          );
+                          if (Math.abs(off) <= 10)
+                            return "Your guess was within 10% of the answer.";
+                          return guessNum <= actual.rank
+                            ? `Your guessed rank is inside this cutoff. In fact the seat closes ${off}% later than your guess.`
+                            : `Your guessed rank is outside this cutoff. The seat closes ${Math.abs(
+                                off
+                              )}% earlier than your guess. Worth planning backup options.`;
+                        })()}
                       </span>
                     </div>
                     <div className="mt-4 rounded-xl border border-[#eaded8] bg-white p-4 text-sm text-[#5f514c]">
@@ -812,6 +825,7 @@ export default function Quiz() {
                     ))}
                 </ol>
                 <div className="mt-6 flex flex-wrap items-center gap-3 text-sm">
+                  <BackButton onClick={() => goTo(5)} />
                   <Link
                     href={`/careers#${careerId}`}
                     className="rounded-full bg-[#f5ece8] px-3.5 py-1.5 text-xs font-bold text-[#8f2e31] transition hover:bg-[#f3dfd9]"
