@@ -4154,7 +4154,9 @@
   "pattern_note": null,
   "remarks": null,
   "replaces": null,
-  "aliases": null,
+  "aliases": [
+   "KCET"
+  ],
   "predictor_exam": "KCET",
   "open_data_id": "kcet"
  },

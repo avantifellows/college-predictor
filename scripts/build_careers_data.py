@@ -46,19 +46,22 @@ CAREER_BRANCH = {
 # Everything links into the Exams tab pre-searched, EXCEPT TNEA — Tamil
 # Nadu admits on 12th marks with no entrance exam, so it has no exams-tab
 # card; its chip goes straight to the predictor with TNEA preselected.
+# queries must be SPECIFIC enough to hit only the intended cards — bare
+# "JEE" also matches WBJEE, OJEE, SRMJEE and the hotel-management JEE
 EXAM_LINKS = {
-    "JoSAA": ("JEE Main / Advanced", "/exams?q=JEE"),
-    "KCET": ("KCET", "/exams?q=KCET"),
-    "MHT-CET": ("MHT-CET", "/exams?q=MHT CET"),
-    "TG-EAPCET": ("TG EAPCET", "/exams?q=TG EAPCET"),
-    "AP-EAPCET": ("AP EAPCET", "/exams?q=AP EAPCET"),
-    "GUJCET": ("GUJCET", "/exams?q=GUJCET"),
-    "TNEA": ("TNEA counselling", "/?exam=TNEA"),
-    "WBJEE": ("WBJEE", "/exams?q=WBJEE"),
-    "KEAM": ("KEAM", "/exams?q=KEAM"),
-    "OJEE": ("OJEE", "/exams?q=OJEE"),
-    "CLAT": ("CLAT", "/exams?q=CLAT"),
-    "NEET": ("NEET-UG", "/exams?q=NEET"),
+    "JoSAA": [("JEE Main", "/exams?q=JEE Main"),
+              ("JEE Advanced", "/exams?q=JEE Advanced")],
+    "KCET": [("KCET", "/exams?q=KCET")],
+    "MHT-CET": [("MHT-CET", "/exams?q=MHT CET")],
+    "TG-EAPCET": [("TG EAPCET", "/exams?q=TG-EAPCET")],
+    "AP-EAPCET": [("AP EAPCET", "/exams?q=AP-EAPCET")],
+    "GUJCET": [("GUJCET", "/exams?q=GUJCET")],
+    "TNEA": [("TNEA counselling", "/?exam=TNEA")],
+    "WBJEE": [("WBJEE", "/exams?q=WBJEE")],
+    "KEAM": [("KEAM", "/exams?q=KEAM")],
+    "OJEE": [("OJEE", "/exams?q=OJEE")],
+    "CLAT": [("CLAT", "/exams?q=CLAT")],
+    "NEET": [("NEET-UG", "/exams?q=NEET")],
 }
 
 
@@ -90,7 +93,10 @@ def exam_mentions(text, exam_cards):
         for card in exam_cards:
             hay = [card["acronym"]] + (card.get("aliases") or [])
             if any(norm(h).startswith(k) or k == norm(h) for h in hay):
-                out.append({"label": card["acronym"], "href": f"/exams?q={tok}"})
+                # search by the matched card's ACRONYM, not the raw token —
+                # "JEE" as a query also matches WBJEE/OJEE/SRMJEE
+                out.append({"label": card["acronym"],
+                            "href": f"/exams?q={card['acronym']}"})
                 break
     return out
 
@@ -216,8 +222,7 @@ def main():
         exams = []
         if branch_id is not None and branch_id in exams_by_branch.index:
             for ex in exams_by_branch[branch_id]:
-                if ex in EXAM_LINKS:
-                    label, href = EXAM_LINKS[ex]
+                for label, href in EXAM_LINKS.get(ex, []):
                     exams.append({"label": label, "href": href})
         # exams the sheet names that our cutoff tables don't carry
         for m in exam_mentions(r["Entry Exams"], exam_cards):

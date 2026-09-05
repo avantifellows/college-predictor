@@ -9,7 +9,7 @@
   "exams": [
    {
     "label": "BBA-CET (125)",
-    "href": "/exams?q=BBA"
+    "href": "/exams?q=BBA-CET (125)"
    }
   ],
   "top_colleges": [
@@ -69,15 +69,19 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "href": "/exams?q=AP EAPCET"
+    "href": "/exams?q=AP-EAPCET"
    },
    {
     "label": "GUJCET",
     "href": "/exams?q=GUJCET"
    },
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE Advanced"
    },
    {
     "label": "KCET",
@@ -97,15 +101,11 @@
    },
    {
     "label": "TG EAPCET",
-    "href": "/exams?q=TG EAPCET"
+    "href": "/exams?q=TG-EAPCET"
    },
    {
     "label": "TNEA counselling",
     "href": "/?exam=TNEA"
-   },
-   {
-    "label": "JEE Advanced",
-    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -236,15 +236,19 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "href": "/exams?q=AP EAPCET"
+    "href": "/exams?q=AP-EAPCET"
    },
    {
     "label": "GUJCET",
     "href": "/exams?q=GUJCET"
    },
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE Advanced"
    },
    {
     "label": "KCET",
@@ -264,7 +268,7 @@
    },
    {
     "label": "TG EAPCET",
-    "href": "/exams?q=TG EAPCET"
+    "href": "/exams?q=TG-EAPCET"
    },
    {
     "label": "TNEA counselling",
@@ -276,11 +280,7 @@
    },
    {
     "label": "CUET (UG)",
-    "href": "/exams?q=ICAR"
-   },
-   {
-    "label": "JEE Advanced",
-    "href": "/exams?q=JEE"
+    "href": "/exams?q=CUET (UG)"
    }
   ],
   "top_colleges": [
@@ -410,7 +410,7 @@
   "exams": [
    {
     "label": "CUET (UG)",
-    "href": "/exams?q=ICAR"
+    "href": "/exams?q=CUET (UG)"
    }
   ],
   "top_colleges": [
@@ -468,11 +468,15 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "href": "/exams?q=AP EAPCET"
+    "href": "/exams?q=AP-EAPCET"
    },
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE Advanced"
    },
    {
     "label": "KEAM",
@@ -493,10 +497,6 @@
    {
     "label": "NATA",
     "href": "/exams?q=NATA"
-   },
-   {
-    "label": "JEE Advanced",
-    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -666,15 +666,19 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "href": "/exams?q=AP EAPCET"
+    "href": "/exams?q=AP-EAPCET"
    },
    {
     "label": "GUJCET",
     "href": "/exams?q=GUJCET"
    },
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE Advanced"
    },
    {
     "label": "KCET",
@@ -694,7 +698,7 @@
    },
    {
     "label": "TG EAPCET",
-    "href": "/exams?q=TG EAPCET"
+    "href": "/exams?q=TG-EAPCET"
    },
    {
     "label": "TNEA counselling",
@@ -703,10 +707,6 @@
    {
     "label": "WBJEE",
     "href": "/exams?q=WBJEE"
-   },
-   {
-    "label": "JEE Advanced",
-    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -890,7 +890,7 @@
   "exams": [
    {
     "label": "NEET-UG",
-    "href": "/exams?q=NEET"
+    "href": "/exams?q=NEET-UG"
    }
   ],
   "top_colleges": [
@@ -934,7 +934,7 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "href": "/exams?q=AP EAPCET"
+    "href": "/exams?q=AP-EAPCET"
    },
    {
     "label": "GUJCET",
@@ -958,7 +958,7 @@
    },
    {
     "label": "TG EAPCET",
-    "href": "/exams?q=TG EAPCET"
+    "href": "/exams?q=TG-EAPCET"
    },
    {
     "label": "TNEA counselling",
@@ -970,7 +970,7 @@
    },
    {
     "label": "JEE Advanced",
-    "href": "/exams?q=JEE"
+    "href": "/exams?q=JEE Advanced"
    }
   ],
   "top_colleges": [
@@ -1100,7 +1100,7 @@
   "exams": [
    {
     "label": "NEET-UG",
-    "href": "/exams?q=NEET"
+    "href": "/exams?q=NEET-UG"
    }
   ],
   "top_colleges": [
@@ -1156,12 +1156,12 @@
   "entry_exams_text": "JEE (Joint Entrance Examination, the national exam to get into engineering colleges) Main, or state-level engineering entrance exams; GATE (Graduate Aptitude Test in Engineering) for higher studies or public sector jobs.",
   "exams": [
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
    },
    {
     "label": "JEE Advanced",
-    "href": "/exams?q=JEE"
+    "href": "/exams?q=JEE Advanced"
    }
   ],
   "top_colleges": [
@@ -1272,12 +1272,12 @@
   "entry_exams_text": "JEE (Joint Entrance Examination, the national exam to get into engineering colleges) Main, or state-level engineering entrance exams, for BTech programs in Biological Engineering or related biotech branches; GATE (Graduate Aptitude Test in Engineering) for higher studies.",
   "exams": [
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
    },
    {
     "label": "JEE Advanced",
-    "href": "/exams?q=JEE"
+    "href": "/exams?q=JEE Advanced"
    }
   ],
   "top_colleges": [
@@ -1352,12 +1352,12 @@
   "entry_exams_text": "JEE (Joint Entrance Examination, the national exam to get into engineering colleges) Main and Advanced (for IITs offering this specific BTech branch), or state-level engineering entrance exams.",
   "exams": [
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
    },
    {
     "label": "JEE Advanced",
-    "href": "/exams?q=JEE"
+    "href": "/exams?q=JEE Advanced"
    }
   ],
   "top_colleges": [
@@ -1478,8 +1478,12 @@
     "href": "/exams?q=GUJCET"
    },
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE Advanced"
    },
    {
     "label": "KCET",
@@ -1499,7 +1503,7 @@
    },
    {
     "label": "TG EAPCET",
-    "href": "/exams?q=TG EAPCET"
+    "href": "/exams?q=TG-EAPCET"
    },
    {
     "label": "TNEA counselling",
@@ -1508,10 +1512,6 @@
    {
     "label": "WBJEE",
     "href": "/exams?q=WBJEE"
-   },
-   {
-    "label": "JEE Advanced",
-    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -1641,15 +1641,19 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "href": "/exams?q=AP EAPCET"
+    "href": "/exams?q=AP-EAPCET"
    },
    {
     "label": "GUJCET",
     "href": "/exams?q=GUJCET"
    },
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE Advanced"
    },
    {
     "label": "KCET",
@@ -1669,7 +1673,7 @@
    },
    {
     "label": "TG EAPCET",
-    "href": "/exams?q=TG EAPCET"
+    "href": "/exams?q=TG-EAPCET"
    },
    {
     "label": "TNEA counselling",
@@ -1922,8 +1926,12 @@
   "entry_exams_text": "JEE (Joint Entrance Examination, the national exam to get into engineering colleges) Main, or state-level engineering entrance exams; GATE (Graduate Aptitude Test in Engineering) for higher studies or government jobs.",
   "exams": [
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE Advanced"
    },
    {
     "label": "KCET",
@@ -1936,10 +1944,6 @@
    {
     "label": "WBJEE",
     "href": "/exams?q=WBJEE"
-   },
-   {
-    "label": "JEE Advanced",
-    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -2073,15 +2077,19 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "href": "/exams?q=AP EAPCET"
+    "href": "/exams?q=AP-EAPCET"
    },
    {
     "label": "GUJCET",
     "href": "/exams?q=GUJCET"
    },
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE Advanced"
    },
    {
     "label": "KCET",
@@ -2101,7 +2109,7 @@
    },
    {
     "label": "TG EAPCET",
-    "href": "/exams?q=TG EAPCET"
+    "href": "/exams?q=TG-EAPCET"
    },
    {
     "label": "TNEA counselling",
@@ -2110,10 +2118,6 @@
    {
     "label": "WBJEE",
     "href": "/exams?q=WBJEE"
-   },
-   {
-    "label": "JEE Advanced",
-    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -2242,12 +2246,12 @@
   "entry_exams_text": "JEE (Joint Entrance Exam, for admission into engineering and technology programs) for undergraduate courses; GATE (Graduate Aptitude Test in Engineering, needed for master's programs or government technical jobs) for higher studies.",
   "exams": [
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
    },
    {
     "label": "JEE Advanced",
-    "href": "/exams?q=JEE"
+    "href": "/exams?q=JEE Advanced"
    }
   ],
   "top_colleges": [
@@ -2309,8 +2313,12 @@
   "entry_exams_text": "JEE (Joint Entrance Exam, for admission into engineering and some science programs) or CUET (Common University Entrance Test, used by many central universities for undergraduate admission) for a BSc in Chemistry; GATE (Graduate Aptitude Test in Engineering, needed for master's or research programs) or CSIR-NET (a national exam for research and teaching jobs in science) for higher studies later.",
   "exams": [
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE Advanced"
    },
    {
     "label": "OJEE",
@@ -2319,10 +2327,6 @@
    {
     "label": "CUET",
     "href": "/exams?q=CUET"
-   },
-   {
-    "label": "JEE Advanced",
-    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -2394,15 +2398,19 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "href": "/exams?q=AP EAPCET"
+    "href": "/exams?q=AP-EAPCET"
    },
    {
     "label": "GUJCET",
     "href": "/exams?q=GUJCET"
    },
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE Advanced"
    },
    {
     "label": "KCET",
@@ -2422,7 +2430,7 @@
    },
    {
     "label": "TG EAPCET",
-    "href": "/exams?q=TG EAPCET"
+    "href": "/exams?q=TG-EAPCET"
    },
    {
     "label": "TNEA counselling",
@@ -2431,10 +2439,6 @@
    {
     "label": "WBJEE",
     "href": "/exams?q=WBJEE"
-   },
-   {
-    "label": "JEE Advanced",
-    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -2626,7 +2630,7 @@
   "exams": [
    {
     "label": "BCA-CET 114",
-    "href": "/exams?q=BCA"
+    "href": "/exams?q=BCA-CET 114"
    }
   ],
   "top_colleges": [
@@ -2686,15 +2690,19 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "href": "/exams?q=AP EAPCET"
+    "href": "/exams?q=AP-EAPCET"
    },
    {
     "label": "GUJCET",
     "href": "/exams?q=GUJCET"
    },
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE Advanced"
    },
    {
     "label": "KCET",
@@ -2714,7 +2722,7 @@
    },
    {
     "label": "TG EAPCET",
-    "href": "/exams?q=TG EAPCET"
+    "href": "/exams?q=TG-EAPCET"
    },
    {
     "label": "TNEA counselling",
@@ -2723,10 +2731,6 @@
    {
     "label": "WBJEE",
     "href": "/exams?q=WBJEE"
-   },
-   {
-    "label": "JEE Advanced",
-    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -2858,15 +2862,19 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "href": "/exams?q=AP EAPCET"
+    "href": "/exams?q=AP-EAPCET"
    },
    {
     "label": "GUJCET",
     "href": "/exams?q=GUJCET"
    },
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE Advanced"
    },
    {
     "label": "KCET",
@@ -2886,7 +2894,7 @@
    },
    {
     "label": "TG EAPCET",
-    "href": "/exams?q=TG EAPCET"
+    "href": "/exams?q=TG-EAPCET"
    },
    {
     "label": "TNEA counselling",
@@ -2897,12 +2905,12 @@
     "href": "/exams?q=WBJEE"
    },
    {
-    "label": "BITSAT",
-    "href": "/exams?q=BITSAT"
+    "label": "KEA-CET",
+    "href": "/exams?q=KEA-CET"
    },
    {
-    "label": "JEE Advanced",
-    "href": "/exams?q=JEE"
+    "label": "BITSAT",
+    "href": "/exams?q=BITSAT"
    }
   ],
   "top_colleges": [
@@ -3034,7 +3042,7 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "href": "/exams?q=AP EAPCET"
+    "href": "/exams?q=AP-EAPCET"
    },
    {
     "label": "CLAT",
@@ -3045,8 +3053,12 @@
     "href": "/exams?q=GUJCET"
    },
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE Advanced"
    },
    {
     "label": "KCET",
@@ -3066,7 +3078,7 @@
    },
    {
     "label": "TG EAPCET",
-    "href": "/exams?q=TG EAPCET"
+    "href": "/exams?q=TG-EAPCET"
    },
    {
     "label": "TNEA counselling",
@@ -3075,10 +3087,6 @@
    {
     "label": "WBJEE",
     "href": "/exams?q=WBJEE"
-   },
-   {
-    "label": "JEE Advanced",
-    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -3199,15 +3207,19 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "href": "/exams?q=AP EAPCET"
+    "href": "/exams?q=AP-EAPCET"
    },
    {
     "label": "GUJCET",
     "href": "/exams?q=GUJCET"
    },
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE Advanced"
    },
    {
     "label": "KEAM",
@@ -3215,7 +3227,7 @@
    },
    {
     "label": "TG EAPCET",
-    "href": "/exams?q=TG EAPCET"
+    "href": "/exams?q=TG-EAPCET"
    },
    {
     "label": "WBJEE",
@@ -3223,7 +3235,7 @@
    },
    {
     "label": "CUET (UG)",
-    "href": "/exams?q=ICAR"
+    "href": "/exams?q=CUET (UG)"
    }
   ],
   "top_colleges": [
@@ -3281,15 +3293,19 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "href": "/exams?q=AP EAPCET"
+    "href": "/exams?q=AP-EAPCET"
    },
    {
     "label": "GUJCET",
     "href": "/exams?q=GUJCET"
    },
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE Advanced"
    },
    {
     "label": "KCET",
@@ -3309,7 +3325,7 @@
    },
    {
     "label": "TG EAPCET",
-    "href": "/exams?q=TG EAPCET"
+    "href": "/exams?q=TG-EAPCET"
    },
    {
     "label": "TNEA counselling",
@@ -3322,10 +3338,6 @@
    {
     "label": "BITSAT",
     "href": "/exams?q=BITSAT"
-   },
-   {
-    "label": "JEE Advanced",
-    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -3531,11 +3543,15 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "href": "/exams?q=AP EAPCET"
+    "href": "/exams?q=AP-EAPCET"
    },
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE Advanced"
    },
    {
     "label": "KCET",
@@ -3554,12 +3570,12 @@
     "href": "/?exam=TNEA"
    },
    {
-    "label": "DAT-Mains",
-    "href": "/exams?q=DAT"
-   },
-   {
     "label": "UCEED",
     "href": "/exams?q=UCEED"
+   },
+   {
+    "label": "DAT-Mains",
+    "href": "/exams?q=DAT-Mains"
    }
   ],
   "top_colleges": [
@@ -3690,12 +3706,12 @@
   "entry_exams_text": "JEE Main and JEE Advanced (national engineering entrance exams for top government colleges) for a degree in Geology, Mining, or Petroleum Engineering, or state-level engineering entrance exams.",
   "exams": [
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
    },
    {
     "label": "JEE Advanced",
-    "href": "/exams?q=JEE"
+    "href": "/exams?q=JEE Advanced"
    }
   ],
   "top_colleges": [
@@ -3760,16 +3776,20 @@
   "entry_exams_text": "No single fixed entrance exam for a basic Economics degree at most colleges \u2014 admission is usually based on Class 12 marks, though some top colleges use CUET (Common University Entrance Test, a common exam for central university admissions) or their own entrance test like DU's or ISI's admission test.",
   "exams": [
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE Advanced"
+   },
+   {
+    "label": "ISI-AT",
+    "href": "/exams?q=ISI-AT"
    },
    {
     "label": "CUET",
     "href": "/exams?q=CUET"
-   },
-   {
-    "label": "ISI-AT",
-    "href": "/exams?q=ISI"
    }
   ],
   "top_colleges": [
@@ -3833,15 +3853,19 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "href": "/exams?q=AP EAPCET"
+    "href": "/exams?q=AP-EAPCET"
    },
    {
     "label": "GUJCET",
     "href": "/exams?q=GUJCET"
    },
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE Advanced"
    },
    {
     "label": "KCET",
@@ -3861,7 +3885,7 @@
    },
    {
     "label": "TG EAPCET",
-    "href": "/exams?q=TG EAPCET"
+    "href": "/exams?q=TG-EAPCET"
    },
    {
     "label": "TNEA counselling",
@@ -3872,8 +3896,8 @@
     "href": "/exams?q=WBJEE"
    },
    {
-    "label": "JEE Advanced",
-    "href": "/exams?q=JEE"
+    "label": "KEA-CET",
+    "href": "/exams?q=KEA-CET"
    }
   ],
   "top_colleges": [
@@ -4004,15 +4028,19 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "href": "/exams?q=AP EAPCET"
+    "href": "/exams?q=AP-EAPCET"
    },
    {
     "label": "GUJCET",
     "href": "/exams?q=GUJCET"
    },
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE Advanced"
    },
    {
     "label": "KCET",
@@ -4032,7 +4060,7 @@
    },
    {
     "label": "TG EAPCET",
-    "href": "/exams?q=TG EAPCET"
+    "href": "/exams?q=TG-EAPCET"
    },
    {
     "label": "TNEA counselling",
@@ -4043,8 +4071,8 @@
     "href": "/exams?q=WBJEE"
    },
    {
-    "label": "JEE Advanced",
-    "href": "/exams?q=JEE"
+    "label": "KEA-CET",
+    "href": "/exams?q=KEA-CET"
    }
   ],
   "top_colleges": [
@@ -4176,15 +4204,19 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "href": "/exams?q=AP EAPCET"
+    "href": "/exams?q=AP-EAPCET"
    },
    {
     "label": "GUJCET",
     "href": "/exams?q=GUJCET"
    },
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE Advanced"
    },
    {
     "label": "KCET",
@@ -4204,7 +4236,7 @@
    },
    {
     "label": "TG EAPCET",
-    "href": "/exams?q=TG EAPCET"
+    "href": "/exams?q=TG-EAPCET"
    },
    {
     "label": "TNEA counselling",
@@ -4215,8 +4247,8 @@
     "href": "/exams?q=WBJEE"
    },
    {
-    "label": "JEE Advanced",
-    "href": "/exams?q=JEE"
+    "label": "KEA-CET",
+    "href": "/exams?q=KEA-CET"
    }
   ],
   "top_colleges": [
@@ -4348,15 +4380,19 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "href": "/exams?q=AP EAPCET"
+    "href": "/exams?q=AP-EAPCET"
    },
    {
     "label": "GUJCET",
     "href": "/exams?q=GUJCET"
    },
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE Advanced"
    },
    {
     "label": "KCET",
@@ -4376,7 +4412,7 @@
    },
    {
     "label": "TG EAPCET",
-    "href": "/exams?q=TG EAPCET"
+    "href": "/exams?q=TG-EAPCET"
    },
    {
     "label": "TNEA counselling",
@@ -4387,8 +4423,8 @@
     "href": "/exams?q=WBJEE"
    },
    {
-    "label": "JEE Advanced",
-    "href": "/exams?q=JEE"
+    "label": "KEA-CET",
+    "href": "/exams?q=KEA-CET"
    }
   ],
   "top_colleges": [
@@ -4518,8 +4554,12 @@
   "entry_exams_text": "JEE Main and JEE Advanced (national engineering entrance exams for top government colleges) for a degree in Energy Engineering or a related branch, or state-level engineering entrance exams; some institutes also offer this through GATE (a national exam for master's admission) after a bachelor's degree.",
   "exams": [
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE Advanced"
    },
    {
     "label": "KCET",
@@ -4528,10 +4568,6 @@
    {
     "label": "WBJEE",
     "href": "/exams?q=WBJEE"
-   },
-   {
-    "label": "JEE Advanced",
-    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -4619,16 +4655,16 @@
   "entry_exams_text": "JEE Main and JEE Advanced (national engineering entrance exams for top government colleges, this specific programme is offered at IIT Kanpur and a few others), or state-level engineering entrance exams for design-focused programmes elsewhere.",
   "exams": [
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE Advanced"
    },
    {
     "label": "KCET",
     "href": "/exams?q=KCET"
-   },
-   {
-    "label": "JEE Advanced",
-    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -4698,12 +4734,12 @@
   "entry_exams_text": "JEE (Joint Entrance Exam, the main exam to get into engineering colleges including IITs) \u2014 specifically for the Engineering Physics programs offered at a few IITs; GATE (a national exam for master's or government engineering jobs) later on for higher studies.",
   "exams": [
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
    },
    {
     "label": "JEE Advanced",
-    "href": "/exams?q=JEE"
+    "href": "/exams?q=JEE Advanced"
    }
   ],
   "top_colleges": [
@@ -4783,12 +4819,12 @@
   "entry_exams_text": "JEE (Joint Entrance Exam, the main exam to get into engineering colleges including IITs) \u2014 Engineering Science is offered as a flexible branch at a few institutes like IIT Kanpur and IISER-style programs.",
   "exams": [
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
    },
    {
     "label": "JEE Advanced",
-    "href": "/exams?q=JEE"
+    "href": "/exams?q=JEE Advanced"
    }
   ],
   "top_colleges": [
@@ -4895,15 +4931,19 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "href": "/exams?q=AP EAPCET"
+    "href": "/exams?q=AP-EAPCET"
    },
    {
     "label": "GUJCET",
     "href": "/exams?q=GUJCET"
    },
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE Advanced"
    },
    {
     "label": "KCET",
@@ -4916,10 +4956,6 @@
    {
     "label": "TNEA counselling",
     "href": "/?exam=TNEA"
-   },
-   {
-    "label": "JEE Advanced",
-    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -5015,7 +5051,7 @@
   "exams": [
    {
     "label": "BBA-CET (125)",
-    "href": "/exams?q=BBA"
+    "href": "/exams?q=BBA-CET (125)"
    }
   ],
   "top_colleges": [
@@ -5070,12 +5106,16 @@
   "entry_exams_text": "ICAR AIEEA (All India Entrance Examination for Admission, run by the Indian Council of Agricultural Research, for fisheries and agriculture degree courses), or state-level agricultural university entrance tests.",
   "exams": [
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE Advanced"
    },
    {
     "label": "CUET (UG)",
-    "href": "/exams?q=ICAR"
+    "href": "/exams?q=CUET (UG)"
    }
   ],
   "top_colleges": [
@@ -5117,15 +5157,19 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "href": "/exams?q=AP EAPCET"
+    "href": "/exams?q=AP-EAPCET"
    },
    {
     "label": "GUJCET",
     "href": "/exams?q=GUJCET"
    },
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE Advanced"
    },
    {
     "label": "KEAM",
@@ -5141,7 +5185,7 @@
    },
    {
     "label": "TG EAPCET",
-    "href": "/exams?q=TG EAPCET"
+    "href": "/exams?q=TG-EAPCET"
    },
    {
     "label": "TNEA counselling",
@@ -5153,11 +5197,7 @@
    },
    {
     "label": "CUET (UG)",
-    "href": "/exams?q=ICAR"
-   },
-   {
-    "label": "JEE Advanced",
-    "href": "/exams?q=JEE"
+    "href": "/exams?q=CUET (UG)"
    }
   ],
   "top_colleges": [
@@ -5361,16 +5401,20 @@
   "entry_exams_text": "JEE (Joint Entrance Exam) or state-level engineering entrance exams (like MHT-CET in Maharashtra or KCET in Karnataka) depending on the state and college offering the general engineering program.",
   "exams": [
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE Advanced"
    },
    {
     "label": "MHT-CET",
     "href": "/exams?q=MHT-CET"
    },
    {
-    "label": "JEE Advanced",
-    "href": "/exams?q=JEE"
+    "label": "KEA-CET",
+    "href": "/exams?q=KEA-CET"
    }
   ],
   "top_colleges": [
@@ -5419,8 +5463,12 @@
   "entry_exams_text": "GATE (Graduate Aptitude Test in Engineering, a national exam for getting into master's programs or government jobs in geology), or a B.Sc in Geology through Class 12 marks-based admission.",
   "exams": [
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE Advanced"
    }
   ],
   "top_colleges": [
@@ -5549,7 +5597,7 @@
   "exams": [
    {
     "label": "NEET-UG",
-    "href": "/exams?q=NEET"
+    "href": "/exams?q=NEET-UG"
    }
   ],
   "top_colleges": [
@@ -5590,7 +5638,7 @@
   "exams": [
    {
     "label": "CUET (UG)",
-    "href": "/exams?q=ICAR"
+    "href": "/exams?q=CUET (UG)"
    }
   ],
   "top_colleges": [
@@ -5631,7 +5679,7 @@
   "exams": [
    {
     "label": "JEE Advanced",
-    "href": "/exams?q=JEE"
+    "href": "/exams?q=JEE Advanced"
    }
   ],
   "top_colleges": [
@@ -5673,15 +5721,19 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "href": "/exams?q=AP EAPCET"
+    "href": "/exams?q=AP-EAPCET"
    },
    {
     "label": "GUJCET",
     "href": "/exams?q=GUJCET"
    },
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE Advanced"
    },
    {
     "label": "KCET",
@@ -5706,10 +5758,6 @@
    {
     "label": "WBJEE",
     "href": "/exams?q=WBJEE"
-   },
-   {
-    "label": "JEE Advanced",
-    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -5841,12 +5889,12 @@
   "entry_exams_text": "JEE (Joint Entrance Examination, the national exam for engineering admissions, including chemical engineering) or GATE (Graduate Aptitude Test in Engineering, for master's and government job entry) for higher studies.",
   "exams": [
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
    },
    {
     "label": "JEE Advanced",
-    "href": "/exams?q=JEE"
+    "href": "/exams?q=JEE Advanced"
    }
   ],
   "top_colleges": [
@@ -5907,15 +5955,19 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "href": "/exams?q=AP EAPCET"
+    "href": "/exams?q=AP-EAPCET"
    },
    {
     "label": "GUJCET",
     "href": "/exams?q=GUJCET"
    },
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE Advanced"
    },
    {
     "label": "KEAM",
@@ -5932,10 +5984,6 @@
    {
     "label": "WBJEE",
     "href": "/exams?q=WBJEE"
-   },
-   {
-    "label": "JEE Advanced",
-    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -6241,8 +6289,12 @@
   "entry_exams_text": "No single fixed entrance exam for the undergraduate degree - admission is usually based on Class 12 Science marks, though some top institutes use CUET (Common University Entrance Test, a national exam for admission to many Indian universities); for research careers, students later take exams like CSIR-NET (a national exam to become a science researcher or lecturer).",
   "exams": [
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE Advanced"
    },
    {
     "label": "CUET",
@@ -6315,8 +6367,12 @@
     "href": "/exams?q=GUJCET"
    },
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE Advanced"
    },
    {
     "label": "KCET",
@@ -6333,10 +6389,6 @@
    {
     "label": "WBJEE",
     "href": "/exams?q=WBJEE"
-   },
-   {
-    "label": "JEE Advanced",
-    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -6426,8 +6478,12 @@
     "href": "/exams?q=GUJCET"
    },
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE Advanced"
    },
    {
     "label": "KCET",
@@ -6532,20 +6588,24 @@
   "entry_exams_text": "No single fixed entrance exam for the undergraduate degree - admission is usually through CUET (Common University Entrance Test, a national exam for admission to many Indian universities) or Class 12 marks; for top research institutes, students take exams like the ISI Admission Test or CMI Entrance Test (each institute's own exam for math talent).",
   "exams": [
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
    },
    {
-    "label": "CMI-EE",
-    "href": "/exams?q=CMI"
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE Advanced"
+   },
+   {
+    "label": "ISI-AT",
+    "href": "/exams?q=ISI-AT"
    },
    {
     "label": "CUET",
     "href": "/exams?q=CUET"
    },
    {
-    "label": "ISI-AT",
-    "href": "/exams?q=ISI"
+    "label": "CMI-EE",
+    "href": "/exams?q=CMI-EE"
    }
   ],
   "top_colleges": [
@@ -6612,8 +6672,12 @@
     "href": "/exams?q=GUJCET"
    },
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE Advanced"
    },
    {
     "label": "KCET",
@@ -6626,10 +6690,6 @@
    {
     "label": "CUET",
     "href": "/exams?q=CUET"
-   },
-   {
-    "label": "JEE Advanced",
-    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -6716,15 +6776,19 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "href": "/exams?q=AP EAPCET"
+    "href": "/exams?q=AP-EAPCET"
    },
    {
     "label": "GUJCET",
     "href": "/exams?q=GUJCET"
    },
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE Advanced"
    },
    {
     "label": "KCET",
@@ -6744,7 +6808,7 @@
    },
    {
     "label": "TG EAPCET",
-    "href": "/exams?q=TG EAPCET"
+    "href": "/exams?q=TG-EAPCET"
    },
    {
     "label": "TNEA counselling",
@@ -6753,10 +6817,6 @@
    {
     "label": "WBJEE",
     "href": "/exams?q=WBJEE"
-   },
-   {
-    "label": "JEE Advanced",
-    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -6889,15 +6949,19 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "href": "/exams?q=AP EAPCET"
+    "href": "/exams?q=AP-EAPCET"
    },
    {
     "label": "GUJCET",
     "href": "/exams?q=GUJCET"
    },
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE Advanced"
    },
    {
     "label": "KCET",
@@ -6917,7 +6981,7 @@
    },
    {
     "label": "TG EAPCET",
-    "href": "/exams?q=TG EAPCET"
+    "href": "/exams?q=TG-EAPCET"
    },
    {
     "label": "TNEA counselling",
@@ -6928,8 +6992,8 @@
     "href": "/exams?q=WBJEE"
    },
    {
-    "label": "JEE Advanced",
-    "href": "/exams?q=JEE"
+    "label": "KEA-CET",
+    "href": "/exams?q=KEA-CET"
    }
   ],
   "top_colleges": [
@@ -7191,15 +7255,19 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "href": "/exams?q=AP EAPCET"
+    "href": "/exams?q=AP-EAPCET"
    },
    {
     "label": "GUJCET",
     "href": "/exams?q=GUJCET"
    },
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE Advanced"
    },
    {
     "label": "KEAM",
@@ -7215,7 +7283,7 @@
    },
    {
     "label": "TG EAPCET",
-    "href": "/exams?q=TG EAPCET"
+    "href": "/exams?q=TG-EAPCET"
    },
    {
     "label": "TNEA counselling",
@@ -7224,10 +7292,6 @@
    {
     "label": "WBJEE",
     "href": "/exams?q=WBJEE"
-   },
-   {
-    "label": "JEE Advanced",
-    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -7358,15 +7422,19 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "href": "/exams?q=AP EAPCET"
+    "href": "/exams?q=AP-EAPCET"
    },
    {
     "label": "GUJCET",
     "href": "/exams?q=GUJCET"
    },
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE Advanced"
    },
    {
     "label": "KCET",
@@ -7382,7 +7450,7 @@
    },
    {
     "label": "TG EAPCET",
-    "href": "/exams?q=TG EAPCET"
+    "href": "/exams?q=TG-EAPCET"
    },
    {
     "label": "TNEA counselling",
@@ -7391,10 +7459,6 @@
    {
     "label": "WBJEE",
     "href": "/exams?q=WBJEE"
-   },
-   {
-    "label": "JEE Advanced",
-    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -7621,7 +7685,7 @@
   "exams": [
    {
     "label": "NEET-UG",
-    "href": "/exams?q=NEET"
+    "href": "/exams?q=NEET-UG"
    }
   ],
   "top_colleges": [
@@ -7790,8 +7854,12 @@
     "href": "/exams?q=GUJCET"
    },
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE Advanced"
    },
    {
     "label": "KCET",
@@ -7808,10 +7876,6 @@
    {
     "label": "WBJEE",
     "href": "/exams?q=WBJEE"
-   },
-   {
-    "label": "JEE Advanced",
-    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -7902,7 +7966,7 @@
    },
    {
     "label": "JEE Advanced",
-    "href": "/exams?q=JEE"
+    "href": "/exams?q=JEE Advanced"
    }
   ],
   "top_colleges": [
@@ -7970,7 +8034,7 @@
    },
    {
     "label": "JEE Advanced",
-    "href": "/exams?q=JEE"
+    "href": "/exams?q=JEE Advanced"
    }
   ],
   "top_colleges": [
@@ -8096,23 +8160,23 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "href": "/exams?q=AP EAPCET"
+    "href": "/exams?q=AP-EAPCET"
    },
    {
     "label": "GUJCET",
     "href": "/exams?q=GUJCET"
    },
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE Advanced"
    },
    {
     "label": "TNEA counselling",
     "href": "/?exam=TNEA"
-   },
-   {
-    "label": "JEE Advanced",
-    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -8194,15 +8258,19 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "href": "/exams?q=AP EAPCET"
+    "href": "/exams?q=AP-EAPCET"
    },
    {
     "label": "GUJCET",
     "href": "/exams?q=GUJCET"
    },
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE Advanced"
    },
    {
     "label": "MHT-CET",
@@ -8210,11 +8278,7 @@
    },
    {
     "label": "TG EAPCET",
-    "href": "/exams?q=TG EAPCET"
-   },
-   {
-    "label": "JEE Advanced",
-    "href": "/exams?q=JEE"
+    "href": "/exams?q=TG-EAPCET"
    }
   ],
   "top_colleges": [
@@ -8292,15 +8356,19 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "href": "/exams?q=AP EAPCET"
+    "href": "/exams?q=AP-EAPCET"
    },
    {
     "label": "GUJCET",
     "href": "/exams?q=GUJCET"
    },
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE Advanced"
    },
    {
     "label": "MHT-CET",
@@ -8407,16 +8475,16 @@
   "entry_exams_text": "JEE (Joint Entrance Exam) or an institute's own entrance test gets you into a B.Sc./Integrated M.Sc. Physics program, and later IIT-JAM (Joint Admission Test for Masters, needed for master's programs) or CSIR-NET (a national exam for research fellowships and lecturer jobs) matters for research careers.",
   "exams": [
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE Advanced"
    },
    {
     "label": "OJEE",
     "href": "/exams?q=OJEE"
-   },
-   {
-    "label": "JEE Advanced",
-    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -8554,11 +8622,15 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "href": "/exams?q=AP EAPCET"
+    "href": "/exams?q=AP-EAPCET"
    },
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE Advanced"
    },
    {
     "label": "KCET",
@@ -8570,7 +8642,7 @@
    },
    {
     "label": "TG EAPCET",
-    "href": "/exams?q=TG EAPCET"
+    "href": "/exams?q=TG-EAPCET"
    },
    {
     "label": "TNEA counselling",
@@ -8744,7 +8816,7 @@
    },
    {
     "label": "JEE Advanced",
-    "href": "/exams?q=JEE"
+    "href": "/exams?q=JEE Advanced"
    }
   ],
   "top_colleges": [
@@ -8814,16 +8886,16 @@
   "entry_exams_text": "JEE Main or state engineering entrance exams for a BTech or diploma in Printing Technology; some specialised institutes hold their own entrance tests.",
   "exams": [
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE Advanced"
    },
    {
     "label": "WBJEE",
     "href": "/exams?q=WBJEE"
-   },
-   {
-    "label": "JEE Advanced",
-    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -8974,15 +9046,19 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "href": "/exams?q=AP EAPCET"
+    "href": "/exams?q=AP-EAPCET"
    },
    {
     "label": "GUJCET",
     "href": "/exams?q=GUJCET"
    },
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE Advanced"
    },
    {
     "label": "KCET",
@@ -9003,10 +9079,6 @@
    {
     "label": "WBJEE",
     "href": "/exams?q=WBJEE"
-   },
-   {
-    "label": "JEE Advanced",
-    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -9225,7 +9297,7 @@
   "exams": [
    {
     "label": "CUET (UG)",
-    "href": "/exams?q=ICAR"
+    "href": "/exams?q=CUET (UG)"
    }
   ],
   "top_colleges": [
@@ -9322,12 +9394,12 @@
   "entry_exams_text": "JEE Main and JEE Advanced (national engineering entrance exams) for a BTech in Aerospace or Space Engineering, with further entry into ISRO often through IIST admissions or ISRO's own recruitment exam called ICRB.",
   "exams": [
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
    },
    {
     "label": "JEE Advanced",
-    "href": "/exams?q=JEE"
+    "href": "/exams?q=JEE Advanced"
    }
   ],
   "top_colleges": [
@@ -9392,15 +9464,19 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "href": "/exams?q=AP EAPCET"
+    "href": "/exams?q=AP-EAPCET"
    },
    {
     "label": "GUJCET",
     "href": "/exams?q=GUJCET"
    },
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE Advanced"
    },
    {
     "label": "KCET",
@@ -9420,7 +9496,7 @@
    },
    {
     "label": "TG EAPCET",
-    "href": "/exams?q=TG EAPCET"
+    "href": "/exams?q=TG-EAPCET"
    },
    {
     "label": "TNEA counselling",
@@ -9431,8 +9507,8 @@
     "href": "/exams?q=WBJEE"
    },
    {
-    "label": "JEE Advanced",
-    "href": "/exams?q=JEE"
+    "label": "KEA-CET",
+    "href": "/exams?q=KEA-CET"
    }
   ],
   "top_colleges": [
@@ -9563,7 +9639,7 @@
   "exams": [
    {
     "label": "JEE Advanced",
-    "href": "/exams?q=JEE"
+    "href": "/exams?q=JEE Advanced"
    }
   ],
   "top_colleges": [
@@ -9665,8 +9741,12 @@
     "href": "/exams?q=GUJCET"
    },
    {
-    "label": "JEE Main / Advanced",
-    "href": "/exams?q=JEE"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE Advanced"
    },
    {
     "label": "KCET",
@@ -9682,7 +9762,7 @@
    },
    {
     "label": "TG EAPCET",
-    "href": "/exams?q=TG EAPCET"
+    "href": "/exams?q=TG-EAPCET"
    },
    {
     "label": "TNEA counselling",
@@ -9691,10 +9771,6 @@
    {
     "label": "WBJEE",
     "href": "/exams?q=WBJEE"
-   },
-   {
-    "label": "JEE Advanced",
-    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -9825,7 +9901,7 @@
   "exams": [
    {
     "label": "NEET-UG",
-    "href": "/exams?q=NEET"
+    "href": "/exams?q=NEET-UG"
    }
   ],
   "top_colleges": [
