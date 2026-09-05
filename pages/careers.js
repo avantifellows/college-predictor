@@ -149,9 +149,7 @@ const CareerDetail = ({ c }) => (
             </div>,
           ],
           (c.college_options?.length || c.top_colleges?.length) && [
-            c.college_options?.length
-              ? "Cutoffs"
-              : "Colleges known for it",
+            c.college_options?.length ? "Cutoffs" : "Colleges known for it",
             <div key="c">
               <CollegeOptions c={c} />
             </div>,
