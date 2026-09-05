@@ -54,8 +54,8 @@ const NavGroup = ({ label, items, pathname, open, onToggle }) => {
         />
       </button>
       {open ? (
-        <div className="absolute left-1/2 top-[calc(100%+10px)] z-50 min-w-[220px] -translate-x-1/2 rounded-xl border border-[#eaded8] bg-white p-2 shadow-lg">
-          <span className="absolute -top-[7px] left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 border-l border-t border-[#eaded8] bg-white" />
+        <div className="absolute left-0 top-[calc(100%+10px)] z-50 min-w-[220px] rounded-xl border border-[#eaded8] bg-white p-2 shadow-lg sm:left-1/2 sm:-translate-x-1/2">
+          <span className="absolute -top-[7px] left-8 h-3 w-3 -translate-x-1/2 rotate-45 border-l border-t border-[#eaded8] bg-white sm:left-1/2" />
           {items.map(({ href, icon: Icon, label: l, external }) => (
             <Link
               key={l}
