@@ -1,7 +1,10 @@
 import Head from "next/head";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { loadPersistedState, ProfileChips } from "../../components/MockAllotment";
+import {
+  loadPersistedState,
+  ProfileChips,
+} from "../../components/MockAllotment";
 import { cardClass, formatRank } from "../../components/mockAllotmentTheme";
 import { TOTAL_ROUNDS } from "../../utils/josaaSimulator";
 
