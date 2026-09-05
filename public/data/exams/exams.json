@@ -1984,6 +1984,42 @@
   "open_data_id": null
  },
  {
+  "exam_id": "clat",
+  "name": "CLAT (Common Law Admission Test)",
+  "acronym": "CLAT",
+  "streams": [
+   "Law"
+  ],
+  "degrees": [
+   "BA, LLB"
+  ],
+  "scope": "All India",
+  "scope_type": "All India",
+  "scope_state": null,
+  "url": "https://consortiumofnlus.ac.in/",
+  "eligibility": "10+2 any Stream",
+  "fee_display": "Rs. 4000/-",
+  "fee_number": 4000,
+  "test_month": "December",
+  "test_month_n": 12,
+  "forms_out": "2nd week of August",
+  "last_date": "3rd week of November",
+  "test_date": "3rd week of December",
+  "mode": "Offline",
+  "duration": null,
+  "marking": "+1/-0.25",
+  "pattern": "English CA including GK Legal Reasoning Logical Reasoning Quantitative Techniques Total",
+  "pattern_rows": null,
+  "pattern_note": null,
+  "remarks": null,
+  "replaces": null,
+  "aliases": [
+   "UG-CLAT"
+  ],
+  "predictor_exam": "CLAT",
+  "open_data_id": "clat"
+ },
+ {
   "exam_id": "cmi-ee",
   "name": "CMI-EE (CMI Entrance Exam)",
   "acronym": "CMI-EE",
@@ -4118,7 +4154,9 @@
   "pattern_note": null,
   "remarks": null,
   "replaces": null,
-  "aliases": null,
+  "aliases": [
+   "KCET"
+  ],
   "predictor_exam": "KCET",
   "open_data_id": "kcet"
  },
@@ -7911,46 +7949,6 @@
   "aliases": null,
   "predictor_exam": null,
   "open_data_id": null
- },
- {
-  "exam_id": "ug-clat",
-  "name": "UG-CLAT (Common Law Admission Test)",
-  "acronym": "UG-CLAT",
-  "streams": [
-   "Law"
-  ],
-  "degrees": [
-   "BA, LLB"
-  ],
-  "scope": "All India",
-  "scope_type": "All India",
-  "scope_state": null,
-  "url": "https://consortiumofnlus.ac.in/",
-  "eligibility": "10+2 any Stream",
-  "fee_display": "Rs. 4000/-",
-  "fee_number": 4000,
-  "test_month": "December",
-  "test_month_n": 12,
-  "forms_out": "2nd week of August",
-  "last_date": "3rd week of November",
-  "test_date": "3rd week of December",
-  "mode": "Offline",
-  "duration": null,
-  "marking": "+1/-0.25",
-  "pattern": "English CA including GK Legal Reasoning Logical Reasoning Quantitative Techniques Total",
-  "pattern_rows": null,
-  "pattern_note": null,
-  "remarks": null,
-  "replaces": [
-   "BHU-UET (Undergraduate Entrance Test)",
-   "DU-LLB EE (DU LLB Entrance Exam)"
-  ],
-  "aliases": [
-   "BHU-UET (Undergraduate Entrance Test)",
-   "DU-LLB EE (DU LLB Entrance Exam)"
-  ],
-  "predictor_exam": "CLAT",
-  "open_data_id": "clat"
  },
  {
   "exam_id": "ug-jet",
