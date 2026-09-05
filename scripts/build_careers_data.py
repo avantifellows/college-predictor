@@ -40,21 +40,23 @@ CAREER_BRANCH = {
     # deliberately unmapped: Armed Forces, CA, HCL TechBee, Japanese, Law
 }
 
-# how each mapping source shows up as a chip on the exams tab: label + the
-# search that finds it there (JoSAA is counselling, its exams are JEE)
+# how each mapping source shows up as a chip: label + where it leads.
+# Everything links into the Exams tab pre-searched, EXCEPT TNEA — Tamil
+# Nadu admits on 12th marks with no entrance exam, so it has no exams-tab
+# card; its chip goes straight to the predictor with TNEA preselected.
 EXAM_LINKS = {
-    "JoSAA": ("JEE Main / Advanced", "JEE"),
-    "KCET": ("KCET", "KCET"),
-    "MHT-CET": ("MHT-CET", "MHT CET"),
-    "TG-EAPCET": ("TG EAPCET", "TG EAPCET"),
-    "AP-EAPCET": ("AP EAPCET", "AP EAPCET"),
-    "GUJCET": ("GUJCET", "GUJCET"),
-    "TNEA": ("TNEA (12th marks)", "TNEA"),
-    "WBJEE": ("WBJEE", "WBJEE"),
-    "KEAM": ("KEAM", "KEAM"),
-    "OJEE": ("OJEE", "OJEE"),
-    "CLAT": ("CLAT", "CLAT"),
-    "NEET": ("NEET-UG", "NEET"),
+    "JoSAA": ("JEE Main / Advanced", "/exams?q=JEE"),
+    "KCET": ("KCET", "/exams?q=KCET"),
+    "MHT-CET": ("MHT-CET", "/exams?q=MHT CET"),
+    "TG-EAPCET": ("TG EAPCET", "/exams?q=TG EAPCET"),
+    "AP-EAPCET": ("AP EAPCET", "/exams?q=AP EAPCET"),
+    "GUJCET": ("GUJCET", "/exams?q=GUJCET"),
+    "TNEA": ("TNEA counselling", "/?exam=TNEA"),
+    "WBJEE": ("WBJEE", "/exams?q=WBJEE"),
+    "KEAM": ("KEAM", "/exams?q=KEAM"),
+    "OJEE": ("OJEE", "/exams?q=OJEE"),
+    "CLAT": ("CLAT", "/exams?q=CLAT"),
+    "NEET": ("NEET-UG", "/exams?q=NEET"),
 }
 
 
@@ -101,8 +103,8 @@ def main():
         if branch_id is not None and branch_id in exams_by_branch.index:
             for ex in exams_by_branch[branch_id]:
                 if ex in EXAM_LINKS:
-                    label, q = EXAM_LINKS[ex]
-                    exams.append({"label": label, "q": q})
+                    label, href = EXAM_LINKS[ex]
+                    exams.append({"label": label, "href": href})
         # exact-name careers own the reverse link (branch chip -> career)
         if branch_id and norm(name) in pmap:
             branch_to_career[branch_id] = cid

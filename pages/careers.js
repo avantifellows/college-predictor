@@ -131,7 +131,7 @@ const CareerDetail = ({ c }) => (
             {c.exams.map((e) => (
               <Link
                 key={e.label}
-                href={`/exams?q=${encodeURIComponent(e.q)}`}
+                href={e.href}
                 className="rounded-full bg-[#f5ece8] px-3 py-1.5 text-xs font-bold text-[#8f2e31] transition hover:bg-[#f3dfd9]"
               >
                 {e.label}
@@ -149,11 +149,13 @@ const CareerDetail = ({ c }) => (
       {c.top_colleges?.length ? (
         <ProfileRow number="08" title="Colleges known for it">
           <p>{c.top_colleges.join(", ")}</p>
+          {/* honest label: /colleges is an information tab, there is no
+              comparison tool (yet) */}
           <Link
             href="/colleges"
             className="mt-2 inline-block text-sm text-[#8f2e31] underline hover:text-[#B52326]"
           >
-            compare these colleges
+            browse all colleges
           </Link>
         </ProfileRow>
       ) : null}
@@ -195,12 +197,24 @@ export default function Careers() {
     );
   }, [all, q]);
 
+  // browser back/forward between careers (and back INTO this page from an
+  // exam chip) re-selects from the hash
+  useEffect(() => {
+    const onHash = () => {
+      const h = window.location.hash.replace("#", "");
+      if (h) setSelected(h);
+    };
+    window.addEventListener("hashchange", onHash);
+    return () => window.removeEventListener("hashchange", onHash);
+  }, []);
+
   const current = all.find((c) => c.career_id === selected);
 
   const pick = (id) => {
     setSelected(id);
-    // keep the URL shareable without a jarring scroll
-    window.history.replaceState(null, "", `#${id}`);
+    // keep the URL shareable — PRESERVE history.state: Next.js stores its
+    // route data there, and nulling it breaks the browser back button
+    window.history.replaceState(window.history.state, "", `#${id}`);
   };
 
   return (

@@ -63,39 +63,39 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "q": "AP EAPCET"
+    "href": "/exams?q=AP EAPCET"
    },
    {
     "label": "GUJCET",
-    "q": "GUJCET"
+    "href": "/exams?q=GUJCET"
    },
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    },
    {
     "label": "KCET",
-    "q": "KCET"
+    "href": "/exams?q=KCET"
    },
    {
     "label": "KEAM",
-    "q": "KEAM"
+    "href": "/exams?q=KEAM"
    },
    {
     "label": "MHT-CET",
-    "q": "MHT CET"
+    "href": "/exams?q=MHT CET"
    },
    {
     "label": "OJEE",
-    "q": "OJEE"
+    "href": "/exams?q=OJEE"
    },
    {
     "label": "TG EAPCET",
-    "q": "TG EAPCET"
+    "href": "/exams?q=TG EAPCET"
    },
    {
-    "label": "TNEA (12th marks)",
-    "q": "TNEA"
+    "label": "TNEA counselling",
+    "href": "/?exam=TNEA"
    }
   ],
   "top_colleges": [
@@ -152,43 +152,43 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "q": "AP EAPCET"
+    "href": "/exams?q=AP EAPCET"
    },
    {
     "label": "GUJCET",
-    "q": "GUJCET"
+    "href": "/exams?q=GUJCET"
    },
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    },
    {
     "label": "KCET",
-    "q": "KCET"
+    "href": "/exams?q=KCET"
    },
    {
     "label": "KEAM",
-    "q": "KEAM"
+    "href": "/exams?q=KEAM"
    },
    {
     "label": "MHT-CET",
-    "q": "MHT CET"
+    "href": "/exams?q=MHT CET"
    },
    {
     "label": "OJEE",
-    "q": "OJEE"
+    "href": "/exams?q=OJEE"
    },
    {
     "label": "TG EAPCET",
-    "q": "TG EAPCET"
+    "href": "/exams?q=TG EAPCET"
    },
    {
-    "label": "TNEA (12th marks)",
-    "q": "TNEA"
+    "label": "TNEA counselling",
+    "href": "/?exam=TNEA"
    },
    {
     "label": "WBJEE",
-    "q": "WBJEE"
+    "href": "/exams?q=WBJEE"
    }
   ],
   "top_colleges": [
@@ -296,27 +296,27 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "q": "AP EAPCET"
+    "href": "/exams?q=AP EAPCET"
    },
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    },
    {
     "label": "KEAM",
-    "q": "KEAM"
+    "href": "/exams?q=KEAM"
    },
    {
     "label": "MHT-CET",
-    "q": "MHT CET"
+    "href": "/exams?q=MHT CET"
    },
    {
     "label": "OJEE",
-    "q": "OJEE"
+    "href": "/exams?q=OJEE"
    },
    {
     "label": "WBJEE",
-    "q": "WBJEE"
+    "href": "/exams?q=WBJEE"
    }
   ],
   "top_colleges": [
@@ -424,43 +424,43 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "q": "AP EAPCET"
+    "href": "/exams?q=AP EAPCET"
    },
    {
     "label": "GUJCET",
-    "q": "GUJCET"
+    "href": "/exams?q=GUJCET"
    },
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    },
    {
     "label": "KCET",
-    "q": "KCET"
+    "href": "/exams?q=KCET"
    },
    {
     "label": "KEAM",
-    "q": "KEAM"
+    "href": "/exams?q=KEAM"
    },
    {
     "label": "MHT-CET",
-    "q": "MHT CET"
+    "href": "/exams?q=MHT CET"
    },
    {
     "label": "OJEE",
-    "q": "OJEE"
+    "href": "/exams?q=OJEE"
    },
    {
     "label": "TG EAPCET",
-    "q": "TG EAPCET"
+    "href": "/exams?q=TG EAPCET"
    },
    {
-    "label": "TNEA (12th marks)",
-    "q": "TNEA"
+    "label": "TNEA counselling",
+    "href": "/?exam=TNEA"
    },
    {
     "label": "WBJEE",
-    "q": "WBJEE"
+    "href": "/exams?q=WBJEE"
    }
   ],
   "top_colleges": [
@@ -607,39 +607,39 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "q": "AP EAPCET"
+    "href": "/exams?q=AP EAPCET"
    },
    {
     "label": "GUJCET",
-    "q": "GUJCET"
+    "href": "/exams?q=GUJCET"
    },
    {
     "label": "KCET",
-    "q": "KCET"
+    "href": "/exams?q=KCET"
    },
    {
     "label": "KEAM",
-    "q": "KEAM"
+    "href": "/exams?q=KEAM"
    },
    {
     "label": "MHT-CET",
-    "q": "MHT CET"
+    "href": "/exams?q=MHT CET"
    },
    {
     "label": "OJEE",
-    "q": "OJEE"
+    "href": "/exams?q=OJEE"
    },
    {
     "label": "TG EAPCET",
-    "q": "TG EAPCET"
+    "href": "/exams?q=TG EAPCET"
    },
    {
-    "label": "TNEA (12th marks)",
-    "q": "TNEA"
+    "label": "TNEA counselling",
+    "href": "/?exam=TNEA"
    },
    {
     "label": "WBJEE",
-    "q": "WBJEE"
+    "href": "/exams?q=WBJEE"
    }
   ],
   "top_colleges": [
@@ -746,7 +746,7 @@
   "exams": [
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -856,7 +856,7 @@
   "exams": [
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -912,7 +912,7 @@
   "exams": [
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -1021,39 +1021,39 @@
   "exams": [
    {
     "label": "GUJCET",
-    "q": "GUJCET"
+    "href": "/exams?q=GUJCET"
    },
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    },
    {
     "label": "KCET",
-    "q": "KCET"
+    "href": "/exams?q=KCET"
    },
    {
     "label": "KEAM",
-    "q": "KEAM"
+    "href": "/exams?q=KEAM"
    },
    {
     "label": "MHT-CET",
-    "q": "MHT CET"
+    "href": "/exams?q=MHT CET"
    },
    {
     "label": "OJEE",
-    "q": "OJEE"
+    "href": "/exams?q=OJEE"
    },
    {
     "label": "TG EAPCET",
-    "q": "TG EAPCET"
+    "href": "/exams?q=TG EAPCET"
    },
    {
-    "label": "TNEA (12th marks)",
-    "q": "TNEA"
+    "label": "TNEA counselling",
+    "href": "/?exam=TNEA"
    },
    {
     "label": "WBJEE",
-    "q": "WBJEE"
+    "href": "/exams?q=WBJEE"
    }
   ],
   "top_colleges": [
@@ -1109,43 +1109,43 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "q": "AP EAPCET"
+    "href": "/exams?q=AP EAPCET"
    },
    {
     "label": "GUJCET",
-    "q": "GUJCET"
+    "href": "/exams?q=GUJCET"
    },
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    },
    {
     "label": "KCET",
-    "q": "KCET"
+    "href": "/exams?q=KCET"
    },
    {
     "label": "KEAM",
-    "q": "KEAM"
+    "href": "/exams?q=KEAM"
    },
    {
     "label": "MHT-CET",
-    "q": "MHT CET"
+    "href": "/exams?q=MHT CET"
    },
    {
     "label": "OJEE",
-    "q": "OJEE"
+    "href": "/exams?q=OJEE"
    },
    {
     "label": "TG EAPCET",
-    "q": "TG EAPCET"
+    "href": "/exams?q=TG EAPCET"
    },
    {
-    "label": "TNEA (12th marks)",
-    "q": "TNEA"
+    "label": "TNEA counselling",
+    "href": "/?exam=TNEA"
    },
    {
     "label": "WBJEE",
-    "q": "WBJEE"
+    "href": "/exams?q=WBJEE"
    }
   ],
   "top_colleges": [
@@ -1311,19 +1311,19 @@
   "exams": [
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    },
    {
     "label": "KCET",
-    "q": "KCET"
+    "href": "/exams?q=KCET"
    },
    {
-    "label": "TNEA (12th marks)",
-    "q": "TNEA"
+    "label": "TNEA counselling",
+    "href": "/?exam=TNEA"
    },
    {
     "label": "WBJEE",
-    "q": "WBJEE"
+    "href": "/exams?q=WBJEE"
    }
   ],
   "top_colleges": [
@@ -1424,43 +1424,43 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "q": "AP EAPCET"
+    "href": "/exams?q=AP EAPCET"
    },
    {
     "label": "GUJCET",
-    "q": "GUJCET"
+    "href": "/exams?q=GUJCET"
    },
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    },
    {
     "label": "KCET",
-    "q": "KCET"
+    "href": "/exams?q=KCET"
    },
    {
     "label": "KEAM",
-    "q": "KEAM"
+    "href": "/exams?q=KEAM"
    },
    {
     "label": "MHT-CET",
-    "q": "MHT CET"
+    "href": "/exams?q=MHT CET"
    },
    {
     "label": "OJEE",
-    "q": "OJEE"
+    "href": "/exams?q=OJEE"
    },
    {
     "label": "TG EAPCET",
-    "q": "TG EAPCET"
+    "href": "/exams?q=TG EAPCET"
    },
    {
-    "label": "TNEA (12th marks)",
-    "q": "TNEA"
+    "label": "TNEA counselling",
+    "href": "/?exam=TNEA"
    },
    {
     "label": "WBJEE",
-    "q": "WBJEE"
+    "href": "/exams?q=WBJEE"
    }
   ],
   "top_colleges": [
@@ -1516,7 +1516,7 @@
   "exams": [
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -1559,11 +1559,11 @@
   "exams": [
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    },
    {
     "label": "OJEE",
-    "q": "OJEE"
+    "href": "/exams?q=OJEE"
    }
   ],
   "top_colleges": [
@@ -1609,43 +1609,43 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "q": "AP EAPCET"
+    "href": "/exams?q=AP EAPCET"
    },
    {
     "label": "GUJCET",
-    "q": "GUJCET"
+    "href": "/exams?q=GUJCET"
    },
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    },
    {
     "label": "KCET",
-    "q": "KCET"
+    "href": "/exams?q=KCET"
    },
    {
     "label": "KEAM",
-    "q": "KEAM"
+    "href": "/exams?q=KEAM"
    },
    {
     "label": "MHT-CET",
-    "q": "MHT CET"
+    "href": "/exams?q=MHT CET"
    },
    {
     "label": "OJEE",
-    "q": "OJEE"
+    "href": "/exams?q=OJEE"
    },
    {
     "label": "TG EAPCET",
-    "q": "TG EAPCET"
+    "href": "/exams?q=TG EAPCET"
    },
    {
-    "label": "TNEA (12th marks)",
-    "q": "TNEA"
+    "label": "TNEA counselling",
+    "href": "/?exam=TNEA"
    },
    {
     "label": "WBJEE",
-    "q": "WBJEE"
+    "href": "/exams?q=WBJEE"
    }
   ],
   "top_colleges": [
@@ -1811,43 +1811,43 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "q": "AP EAPCET"
+    "href": "/exams?q=AP EAPCET"
    },
    {
     "label": "GUJCET",
-    "q": "GUJCET"
+    "href": "/exams?q=GUJCET"
    },
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    },
    {
     "label": "KCET",
-    "q": "KCET"
+    "href": "/exams?q=KCET"
    },
    {
     "label": "KEAM",
-    "q": "KEAM"
+    "href": "/exams?q=KEAM"
    },
    {
     "label": "MHT-CET",
-    "q": "MHT CET"
+    "href": "/exams?q=MHT CET"
    },
    {
     "label": "OJEE",
-    "q": "OJEE"
+    "href": "/exams?q=OJEE"
    },
    {
     "label": "TG EAPCET",
-    "q": "TG EAPCET"
+    "href": "/exams?q=TG EAPCET"
    },
    {
-    "label": "TNEA (12th marks)",
-    "q": "TNEA"
+    "label": "TNEA counselling",
+    "href": "/?exam=TNEA"
    },
    {
     "label": "WBJEE",
-    "q": "WBJEE"
+    "href": "/exams?q=WBJEE"
    }
   ],
   "top_colleges": [
@@ -1905,43 +1905,43 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "q": "AP EAPCET"
+    "href": "/exams?q=AP EAPCET"
    },
    {
     "label": "GUJCET",
-    "q": "GUJCET"
+    "href": "/exams?q=GUJCET"
    },
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    },
    {
     "label": "KCET",
-    "q": "KCET"
+    "href": "/exams?q=KCET"
    },
    {
     "label": "KEAM",
-    "q": "KEAM"
+    "href": "/exams?q=KEAM"
    },
    {
     "label": "MHT-CET",
-    "q": "MHT CET"
+    "href": "/exams?q=MHT CET"
    },
    {
     "label": "OJEE",
-    "q": "OJEE"
+    "href": "/exams?q=OJEE"
    },
    {
     "label": "TG EAPCET",
-    "q": "TG EAPCET"
+    "href": "/exams?q=TG EAPCET"
    },
    {
-    "label": "TNEA (12th marks)",
-    "q": "TNEA"
+    "label": "TNEA counselling",
+    "href": "/?exam=TNEA"
    },
    {
     "label": "WBJEE",
-    "q": "WBJEE"
+    "href": "/exams?q=WBJEE"
    }
   ],
   "top_colleges": [
@@ -1999,47 +1999,47 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "q": "AP EAPCET"
+    "href": "/exams?q=AP EAPCET"
    },
    {
     "label": "CLAT",
-    "q": "CLAT"
+    "href": "/exams?q=CLAT"
    },
    {
     "label": "GUJCET",
-    "q": "GUJCET"
+    "href": "/exams?q=GUJCET"
    },
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    },
    {
     "label": "KCET",
-    "q": "KCET"
+    "href": "/exams?q=KCET"
    },
    {
     "label": "KEAM",
-    "q": "KEAM"
+    "href": "/exams?q=KEAM"
    },
    {
     "label": "MHT-CET",
-    "q": "MHT CET"
+    "href": "/exams?q=MHT CET"
    },
    {
     "label": "OJEE",
-    "q": "OJEE"
+    "href": "/exams?q=OJEE"
    },
    {
     "label": "TG EAPCET",
-    "q": "TG EAPCET"
+    "href": "/exams?q=TG EAPCET"
    },
    {
-    "label": "TNEA (12th marks)",
-    "q": "TNEA"
+    "label": "TNEA counselling",
+    "href": "/?exam=TNEA"
    },
    {
     "label": "WBJEE",
-    "q": "WBJEE"
+    "href": "/exams?q=WBJEE"
    }
   ],
   "top_colleges": [
@@ -2086,27 +2086,27 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "q": "AP EAPCET"
+    "href": "/exams?q=AP EAPCET"
    },
    {
     "label": "GUJCET",
-    "q": "GUJCET"
+    "href": "/exams?q=GUJCET"
    },
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    },
    {
     "label": "KEAM",
-    "q": "KEAM"
+    "href": "/exams?q=KEAM"
    },
    {
     "label": "TG EAPCET",
-    "q": "TG EAPCET"
+    "href": "/exams?q=TG EAPCET"
    },
    {
     "label": "WBJEE",
-    "q": "WBJEE"
+    "href": "/exams?q=WBJEE"
    }
   ],
   "top_colleges": [
@@ -2150,43 +2150,43 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "q": "AP EAPCET"
+    "href": "/exams?q=AP EAPCET"
    },
    {
     "label": "GUJCET",
-    "q": "GUJCET"
+    "href": "/exams?q=GUJCET"
    },
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    },
    {
     "label": "KCET",
-    "q": "KCET"
+    "href": "/exams?q=KCET"
    },
    {
     "label": "KEAM",
-    "q": "KEAM"
+    "href": "/exams?q=KEAM"
    },
    {
     "label": "MHT-CET",
-    "q": "MHT CET"
+    "href": "/exams?q=MHT CET"
    },
    {
     "label": "OJEE",
-    "q": "OJEE"
+    "href": "/exams?q=OJEE"
    },
    {
     "label": "TG EAPCET",
-    "q": "TG EAPCET"
+    "href": "/exams?q=TG EAPCET"
    },
    {
-    "label": "TNEA (12th marks)",
-    "q": "TNEA"
+    "label": "TNEA counselling",
+    "href": "/?exam=TNEA"
    },
    {
     "label": "WBJEE",
-    "q": "WBJEE"
+    "href": "/exams?q=WBJEE"
    }
   ],
   "top_colleges": [
@@ -2243,7 +2243,7 @@
   "exams": [
    {
     "label": "NEET-UG",
-    "q": "NEET"
+    "href": "/exams?q=NEET"
    }
   ],
   "top_colleges": [
@@ -2298,27 +2298,27 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "q": "AP EAPCET"
+    "href": "/exams?q=AP EAPCET"
    },
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    },
    {
     "label": "KCET",
-    "q": "KCET"
+    "href": "/exams?q=KCET"
    },
    {
     "label": "MHT-CET",
-    "q": "MHT CET"
+    "href": "/exams?q=MHT CET"
    },
    {
     "label": "OJEE",
-    "q": "OJEE"
+    "href": "/exams?q=OJEE"
    },
    {
-    "label": "TNEA (12th marks)",
-    "q": "TNEA"
+    "label": "TNEA counselling",
+    "href": "/?exam=TNEA"
    }
   ],
   "top_colleges": [
@@ -2376,7 +2376,7 @@
   "exams": [
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -2434,7 +2434,7 @@
   "exams": [
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -2478,43 +2478,43 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "q": "AP EAPCET"
+    "href": "/exams?q=AP EAPCET"
    },
    {
     "label": "GUJCET",
-    "q": "GUJCET"
+    "href": "/exams?q=GUJCET"
    },
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    },
    {
     "label": "KCET",
-    "q": "KCET"
+    "href": "/exams?q=KCET"
    },
    {
     "label": "KEAM",
-    "q": "KEAM"
+    "href": "/exams?q=KEAM"
    },
    {
     "label": "MHT-CET",
-    "q": "MHT CET"
+    "href": "/exams?q=MHT CET"
    },
    {
     "label": "OJEE",
-    "q": "OJEE"
+    "href": "/exams?q=OJEE"
    },
    {
     "label": "TG EAPCET",
-    "q": "TG EAPCET"
+    "href": "/exams?q=TG EAPCET"
    },
    {
-    "label": "TNEA (12th marks)",
-    "q": "TNEA"
+    "label": "TNEA counselling",
+    "href": "/?exam=TNEA"
    },
    {
     "label": "WBJEE",
-    "q": "WBJEE"
+    "href": "/exams?q=WBJEE"
    }
   ],
   "top_colleges": [
@@ -2571,43 +2571,43 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "q": "AP EAPCET"
+    "href": "/exams?q=AP EAPCET"
    },
    {
     "label": "GUJCET",
-    "q": "GUJCET"
+    "href": "/exams?q=GUJCET"
    },
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    },
    {
     "label": "KCET",
-    "q": "KCET"
+    "href": "/exams?q=KCET"
    },
    {
     "label": "KEAM",
-    "q": "KEAM"
+    "href": "/exams?q=KEAM"
    },
    {
     "label": "MHT-CET",
-    "q": "MHT CET"
+    "href": "/exams?q=MHT CET"
    },
    {
     "label": "OJEE",
-    "q": "OJEE"
+    "href": "/exams?q=OJEE"
    },
    {
     "label": "TG EAPCET",
-    "q": "TG EAPCET"
+    "href": "/exams?q=TG EAPCET"
    },
    {
-    "label": "TNEA (12th marks)",
-    "q": "TNEA"
+    "label": "TNEA counselling",
+    "href": "/?exam=TNEA"
    },
    {
     "label": "WBJEE",
-    "q": "WBJEE"
+    "href": "/exams?q=WBJEE"
    }
   ],
   "top_colleges": [
@@ -2665,43 +2665,43 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "q": "AP EAPCET"
+    "href": "/exams?q=AP EAPCET"
    },
    {
     "label": "GUJCET",
-    "q": "GUJCET"
+    "href": "/exams?q=GUJCET"
    },
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    },
    {
     "label": "KCET",
-    "q": "KCET"
+    "href": "/exams?q=KCET"
    },
    {
     "label": "KEAM",
-    "q": "KEAM"
+    "href": "/exams?q=KEAM"
    },
    {
     "label": "MHT-CET",
-    "q": "MHT CET"
+    "href": "/exams?q=MHT CET"
    },
    {
     "label": "OJEE",
-    "q": "OJEE"
+    "href": "/exams?q=OJEE"
    },
    {
     "label": "TG EAPCET",
-    "q": "TG EAPCET"
+    "href": "/exams?q=TG EAPCET"
    },
    {
-    "label": "TNEA (12th marks)",
-    "q": "TNEA"
+    "label": "TNEA counselling",
+    "href": "/?exam=TNEA"
    },
    {
     "label": "WBJEE",
-    "q": "WBJEE"
+    "href": "/exams?q=WBJEE"
    }
   ],
   "top_colleges": [
@@ -2759,43 +2759,43 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "q": "AP EAPCET"
+    "href": "/exams?q=AP EAPCET"
    },
    {
     "label": "GUJCET",
-    "q": "GUJCET"
+    "href": "/exams?q=GUJCET"
    },
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    },
    {
     "label": "KCET",
-    "q": "KCET"
+    "href": "/exams?q=KCET"
    },
    {
     "label": "KEAM",
-    "q": "KEAM"
+    "href": "/exams?q=KEAM"
    },
    {
     "label": "MHT-CET",
-    "q": "MHT CET"
+    "href": "/exams?q=MHT CET"
    },
    {
     "label": "OJEE",
-    "q": "OJEE"
+    "href": "/exams?q=OJEE"
    },
    {
     "label": "TG EAPCET",
-    "q": "TG EAPCET"
+    "href": "/exams?q=TG EAPCET"
    },
    {
-    "label": "TNEA (12th marks)",
-    "q": "TNEA"
+    "label": "TNEA counselling",
+    "href": "/?exam=TNEA"
    },
    {
     "label": "WBJEE",
-    "q": "WBJEE"
+    "href": "/exams?q=WBJEE"
    }
   ],
   "top_colleges": [
@@ -2852,15 +2852,15 @@
   "exams": [
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    },
    {
     "label": "KCET",
-    "q": "KCET"
+    "href": "/exams?q=KCET"
    },
    {
     "label": "WBJEE",
-    "q": "WBJEE"
+    "href": "/exams?q=WBJEE"
    }
   ],
   "top_colleges": [
@@ -2917,11 +2917,11 @@
   "exams": [
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    },
    {
     "label": "KCET",
-    "q": "KCET"
+    "href": "/exams?q=KCET"
    }
   ],
   "top_colleges": [
@@ -2978,7 +2978,7 @@
   "exams": [
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -3039,7 +3039,7 @@
   "exams": [
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -3126,27 +3126,27 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "q": "AP EAPCET"
+    "href": "/exams?q=AP EAPCET"
    },
    {
     "label": "GUJCET",
-    "q": "GUJCET"
+    "href": "/exams?q=GUJCET"
    },
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    },
    {
     "label": "KCET",
-    "q": "KCET"
+    "href": "/exams?q=KCET"
    },
    {
     "label": "OJEE",
-    "q": "OJEE"
+    "href": "/exams?q=OJEE"
    },
    {
-    "label": "TNEA (12th marks)",
-    "q": "TNEA"
+    "label": "TNEA counselling",
+    "href": "/?exam=TNEA"
    }
   ],
   "top_colleges": [
@@ -3254,7 +3254,7 @@
   "exams": [
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -3295,39 +3295,39 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "q": "AP EAPCET"
+    "href": "/exams?q=AP EAPCET"
    },
    {
     "label": "GUJCET",
-    "q": "GUJCET"
+    "href": "/exams?q=GUJCET"
    },
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    },
    {
     "label": "KEAM",
-    "q": "KEAM"
+    "href": "/exams?q=KEAM"
    },
    {
     "label": "MHT-CET",
-    "q": "MHT CET"
+    "href": "/exams?q=MHT CET"
    },
    {
     "label": "OJEE",
-    "q": "OJEE"
+    "href": "/exams?q=OJEE"
    },
    {
     "label": "TG EAPCET",
-    "q": "TG EAPCET"
+    "href": "/exams?q=TG EAPCET"
    },
    {
-    "label": "TNEA (12th marks)",
-    "q": "TNEA"
+    "label": "TNEA counselling",
+    "href": "/?exam=TNEA"
    },
    {
     "label": "WBJEE",
-    "q": "WBJEE"
+    "href": "/exams?q=WBJEE"
    }
   ],
   "top_colleges": [
@@ -3456,7 +3456,7 @@
   "exams": [
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -3498,7 +3498,7 @@
   "exams": [
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -3711,39 +3711,39 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "q": "AP EAPCET"
+    "href": "/exams?q=AP EAPCET"
    },
    {
     "label": "GUJCET",
-    "q": "GUJCET"
+    "href": "/exams?q=GUJCET"
    },
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    },
    {
     "label": "KCET",
-    "q": "KCET"
+    "href": "/exams?q=KCET"
    },
    {
     "label": "KEAM",
-    "q": "KEAM"
+    "href": "/exams?q=KEAM"
    },
    {
     "label": "MHT-CET",
-    "q": "MHT CET"
+    "href": "/exams?q=MHT CET"
    },
    {
     "label": "OJEE",
-    "q": "OJEE"
+    "href": "/exams?q=OJEE"
    },
    {
-    "label": "TNEA (12th marks)",
-    "q": "TNEA"
+    "label": "TNEA counselling",
+    "href": "/?exam=TNEA"
    },
    {
     "label": "WBJEE",
-    "q": "WBJEE"
+    "href": "/exams?q=WBJEE"
    }
   ],
   "top_colleges": [
@@ -3802,7 +3802,7 @@
   "exams": [
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -3843,31 +3843,31 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "q": "AP EAPCET"
+    "href": "/exams?q=AP EAPCET"
    },
    {
     "label": "GUJCET",
-    "q": "GUJCET"
+    "href": "/exams?q=GUJCET"
    },
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    },
    {
     "label": "KEAM",
-    "q": "KEAM"
+    "href": "/exams?q=KEAM"
    },
    {
     "label": "MHT-CET",
-    "q": "MHT CET"
+    "href": "/exams?q=MHT CET"
    },
    {
-    "label": "TNEA (12th marks)",
-    "q": "TNEA"
+    "label": "TNEA counselling",
+    "href": "/?exam=TNEA"
    },
    {
     "label": "WBJEE",
-    "q": "WBJEE"
+    "href": "/exams?q=WBJEE"
    }
   ],
   "top_colleges": [
@@ -4085,7 +4085,7 @@
   "exams": [
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -4143,27 +4143,27 @@
   "exams": [
    {
     "label": "GUJCET",
-    "q": "GUJCET"
+    "href": "/exams?q=GUJCET"
    },
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    },
    {
     "label": "KCET",
-    "q": "KCET"
+    "href": "/exams?q=KCET"
    },
    {
     "label": "KEAM",
-    "q": "KEAM"
+    "href": "/exams?q=KEAM"
    },
    {
-    "label": "TNEA (12th marks)",
-    "q": "TNEA"
+    "label": "TNEA counselling",
+    "href": "/?exam=TNEA"
    },
    {
     "label": "WBJEE",
-    "q": "WBJEE"
+    "href": "/exams?q=WBJEE"
    }
   ],
   "top_colleges": [
@@ -4218,27 +4218,27 @@
   "exams": [
    {
     "label": "GUJCET",
-    "q": "GUJCET"
+    "href": "/exams?q=GUJCET"
    },
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    },
    {
     "label": "KCET",
-    "q": "KCET"
+    "href": "/exams?q=KCET"
    },
    {
     "label": "KEAM",
-    "q": "KEAM"
+    "href": "/exams?q=KEAM"
    },
    {
-    "label": "TNEA (12th marks)",
-    "q": "TNEA"
+    "label": "TNEA counselling",
+    "href": "/?exam=TNEA"
    },
    {
     "label": "WBJEE",
-    "q": "WBJEE"
+    "href": "/exams?q=WBJEE"
    }
   ],
   "top_colleges": [
@@ -4292,7 +4292,7 @@
   "exams": [
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -4336,19 +4336,19 @@
   "exams": [
    {
     "label": "GUJCET",
-    "q": "GUJCET"
+    "href": "/exams?q=GUJCET"
    },
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    },
    {
     "label": "KCET",
-    "q": "KCET"
+    "href": "/exams?q=KCET"
    },
    {
     "label": "OJEE",
-    "q": "OJEE"
+    "href": "/exams?q=OJEE"
    }
   ],
   "top_colleges": [
@@ -4403,43 +4403,43 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "q": "AP EAPCET"
+    "href": "/exams?q=AP EAPCET"
    },
    {
     "label": "GUJCET",
-    "q": "GUJCET"
+    "href": "/exams?q=GUJCET"
    },
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    },
    {
     "label": "KCET",
-    "q": "KCET"
+    "href": "/exams?q=KCET"
    },
    {
     "label": "KEAM",
-    "q": "KEAM"
+    "href": "/exams?q=KEAM"
    },
    {
     "label": "MHT-CET",
-    "q": "MHT CET"
+    "href": "/exams?q=MHT CET"
    },
    {
     "label": "OJEE",
-    "q": "OJEE"
+    "href": "/exams?q=OJEE"
    },
    {
     "label": "TG EAPCET",
-    "q": "TG EAPCET"
+    "href": "/exams?q=TG EAPCET"
    },
    {
-    "label": "TNEA (12th marks)",
-    "q": "TNEA"
+    "label": "TNEA counselling",
+    "href": "/?exam=TNEA"
    },
    {
     "label": "WBJEE",
-    "q": "WBJEE"
+    "href": "/exams?q=WBJEE"
    }
   ],
   "top_colleges": [
@@ -4498,43 +4498,43 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "q": "AP EAPCET"
+    "href": "/exams?q=AP EAPCET"
    },
    {
     "label": "GUJCET",
-    "q": "GUJCET"
+    "href": "/exams?q=GUJCET"
    },
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    },
    {
     "label": "KCET",
-    "q": "KCET"
+    "href": "/exams?q=KCET"
    },
    {
     "label": "KEAM",
-    "q": "KEAM"
+    "href": "/exams?q=KEAM"
    },
    {
     "label": "MHT-CET",
-    "q": "MHT CET"
+    "href": "/exams?q=MHT CET"
    },
    {
     "label": "OJEE",
-    "q": "OJEE"
+    "href": "/exams?q=OJEE"
    },
    {
     "label": "TG EAPCET",
-    "q": "TG EAPCET"
+    "href": "/exams?q=TG EAPCET"
    },
    {
-    "label": "TNEA (12th marks)",
-    "q": "TNEA"
+    "label": "TNEA counselling",
+    "href": "/?exam=TNEA"
    },
    {
     "label": "WBJEE",
-    "q": "WBJEE"
+    "href": "/exams?q=WBJEE"
    }
   ],
   "top_colleges": [
@@ -4642,7 +4642,7 @@
   "exams": [
    {
     "label": "NEET-UG",
-    "q": "NEET"
+    "href": "/exams?q=NEET"
    }
   ],
   "top_colleges": [
@@ -4701,39 +4701,39 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "q": "AP EAPCET"
+    "href": "/exams?q=AP EAPCET"
    },
    {
     "label": "GUJCET",
-    "q": "GUJCET"
+    "href": "/exams?q=GUJCET"
    },
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    },
    {
     "label": "KEAM",
-    "q": "KEAM"
+    "href": "/exams?q=KEAM"
    },
    {
     "label": "MHT-CET",
-    "q": "MHT CET"
+    "href": "/exams?q=MHT CET"
    },
    {
     "label": "OJEE",
-    "q": "OJEE"
+    "href": "/exams?q=OJEE"
    },
    {
     "label": "TG EAPCET",
-    "q": "TG EAPCET"
+    "href": "/exams?q=TG EAPCET"
    },
    {
-    "label": "TNEA (12th marks)",
-    "q": "TNEA"
+    "label": "TNEA counselling",
+    "href": "/?exam=TNEA"
    },
    {
     "label": "WBJEE",
-    "q": "WBJEE"
+    "href": "/exams?q=WBJEE"
    }
   ],
   "top_colleges": [
@@ -4790,39 +4790,39 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "q": "AP EAPCET"
+    "href": "/exams?q=AP EAPCET"
    },
    {
     "label": "GUJCET",
-    "q": "GUJCET"
+    "href": "/exams?q=GUJCET"
    },
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    },
    {
     "label": "KCET",
-    "q": "KCET"
+    "href": "/exams?q=KCET"
    },
    {
     "label": "MHT-CET",
-    "q": "MHT CET"
+    "href": "/exams?q=MHT CET"
    },
    {
     "label": "OJEE",
-    "q": "OJEE"
+    "href": "/exams?q=OJEE"
    },
    {
     "label": "TG EAPCET",
-    "q": "TG EAPCET"
+    "href": "/exams?q=TG EAPCET"
    },
    {
-    "label": "TNEA (12th marks)",
-    "q": "TNEA"
+    "label": "TNEA counselling",
+    "href": "/?exam=TNEA"
    },
    {
     "label": "WBJEE",
-    "q": "WBJEE"
+    "href": "/exams?q=WBJEE"
    }
   ],
   "top_colleges": [
@@ -5060,7 +5060,7 @@
   "exams": [
    {
     "label": "NEET-UG",
-    "q": "NEET"
+    "href": "/exams?q=NEET"
    }
   ],
   "top_colleges": [
@@ -5119,27 +5119,27 @@
   "exams": [
    {
     "label": "GUJCET",
-    "q": "GUJCET"
+    "href": "/exams?q=GUJCET"
    },
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    },
    {
     "label": "KCET",
-    "q": "KCET"
+    "href": "/exams?q=KCET"
    },
    {
     "label": "KEAM",
-    "q": "KEAM"
+    "href": "/exams?q=KEAM"
    },
    {
-    "label": "TNEA (12th marks)",
-    "q": "TNEA"
+    "label": "TNEA counselling",
+    "href": "/?exam=TNEA"
    },
    {
     "label": "WBJEE",
-    "q": "WBJEE"
+    "href": "/exams?q=WBJEE"
    }
   ],
   "top_colleges": [
@@ -5194,7 +5194,7 @@
   "exams": [
    {
     "label": "MHT-CET",
-    "q": "MHT CET"
+    "href": "/exams?q=MHT CET"
    }
   ],
   "top_colleges": [
@@ -5238,7 +5238,7 @@
   "exams": [
    {
     "label": "MHT-CET",
-    "q": "MHT CET"
+    "href": "/exams?q=MHT CET"
    }
   ],
   "top_colleges": [
@@ -5349,19 +5349,19 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "q": "AP EAPCET"
+    "href": "/exams?q=AP EAPCET"
    },
    {
     "label": "GUJCET",
-    "q": "GUJCET"
+    "href": "/exams?q=GUJCET"
    },
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    },
    {
-    "label": "TNEA (12th marks)",
-    "q": "TNEA"
+    "label": "TNEA counselling",
+    "href": "/?exam=TNEA"
    }
   ],
   "top_colleges": [
@@ -5417,23 +5417,23 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "q": "AP EAPCET"
+    "href": "/exams?q=AP EAPCET"
    },
    {
     "label": "GUJCET",
-    "q": "GUJCET"
+    "href": "/exams?q=GUJCET"
    },
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    },
    {
     "label": "MHT-CET",
-    "q": "MHT CET"
+    "href": "/exams?q=MHT CET"
    },
    {
     "label": "TG EAPCET",
-    "q": "TG EAPCET"
+    "href": "/exams?q=TG EAPCET"
    }
   ],
   "top_colleges": [
@@ -5491,27 +5491,27 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "q": "AP EAPCET"
+    "href": "/exams?q=AP EAPCET"
    },
    {
     "label": "GUJCET",
-    "q": "GUJCET"
+    "href": "/exams?q=GUJCET"
    },
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    },
    {
     "label": "MHT-CET",
-    "q": "MHT CET"
+    "href": "/exams?q=MHT CET"
    },
    {
-    "label": "TNEA (12th marks)",
-    "q": "TNEA"
+    "label": "TNEA counselling",
+    "href": "/?exam=TNEA"
    },
    {
     "label": "WBJEE",
-    "q": "WBJEE"
+    "href": "/exams?q=WBJEE"
    }
   ],
   "top_colleges": [
@@ -5569,11 +5569,11 @@
   "exams": [
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    },
    {
     "label": "OJEE",
-    "q": "OJEE"
+    "href": "/exams?q=OJEE"
    }
   ],
   "top_colleges": [
@@ -5684,31 +5684,31 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "q": "AP EAPCET"
+    "href": "/exams?q=AP EAPCET"
    },
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    },
    {
     "label": "KCET",
-    "q": "KCET"
+    "href": "/exams?q=KCET"
    },
    {
     "label": "OJEE",
-    "q": "OJEE"
+    "href": "/exams?q=OJEE"
    },
    {
     "label": "TG EAPCET",
-    "q": "TG EAPCET"
+    "href": "/exams?q=TG EAPCET"
    },
    {
-    "label": "TNEA (12th marks)",
-    "q": "TNEA"
+    "label": "TNEA counselling",
+    "href": "/?exam=TNEA"
    },
    {
     "label": "WBJEE",
-    "q": "WBJEE"
+    "href": "/exams?q=WBJEE"
    }
   ],
   "top_colleges": [
@@ -5818,15 +5818,15 @@
   "exams": [
    {
     "label": "GUJCET",
-    "q": "GUJCET"
+    "href": "/exams?q=GUJCET"
    },
    {
     "label": "MHT-CET",
-    "q": "MHT CET"
+    "href": "/exams?q=MHT CET"
    },
    {
-    "label": "TNEA (12th marks)",
-    "q": "TNEA"
+    "label": "TNEA counselling",
+    "href": "/?exam=TNEA"
    }
   ],
   "top_colleges": [
@@ -5871,11 +5871,11 @@
   "exams": [
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    },
    {
     "label": "WBJEE",
-    "q": "WBJEE"
+    "href": "/exams?q=WBJEE"
    }
   ],
   "top_colleges": [
@@ -6011,35 +6011,35 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "q": "AP EAPCET"
+    "href": "/exams?q=AP EAPCET"
    },
    {
     "label": "GUJCET",
-    "q": "GUJCET"
+    "href": "/exams?q=GUJCET"
    },
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    },
    {
     "label": "KCET",
-    "q": "KCET"
+    "href": "/exams?q=KCET"
    },
    {
     "label": "KEAM",
-    "q": "KEAM"
+    "href": "/exams?q=KEAM"
    },
    {
     "label": "MHT-CET",
-    "q": "MHT CET"
+    "href": "/exams?q=MHT CET"
    },
    {
-    "label": "TNEA (12th marks)",
-    "q": "TNEA"
+    "label": "TNEA counselling",
+    "href": "/?exam=TNEA"
    },
    {
     "label": "WBJEE",
-    "q": "WBJEE"
+    "href": "/exams?q=WBJEE"
    }
   ],
   "top_colleges": [
@@ -6096,19 +6096,19 @@
   "exams": [
    {
     "label": "KEAM",
-    "q": "KEAM"
+    "href": "/exams?q=KEAM"
    },
    {
     "label": "MHT-CET",
-    "q": "MHT CET"
+    "href": "/exams?q=MHT CET"
    },
    {
     "label": "OJEE",
-    "q": "OJEE"
+    "href": "/exams?q=OJEE"
    },
    {
-    "label": "TNEA (12th marks)",
-    "q": "TNEA"
+    "label": "TNEA counselling",
+    "href": "/?exam=TNEA"
    }
   ],
   "top_colleges": [
@@ -6255,7 +6255,7 @@
   "exams": [
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -6312,43 +6312,43 @@
   "exams": [
    {
     "label": "AP EAPCET",
-    "q": "AP EAPCET"
+    "href": "/exams?q=AP EAPCET"
    },
    {
     "label": "GUJCET",
-    "q": "GUJCET"
+    "href": "/exams?q=GUJCET"
    },
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    },
    {
     "label": "KCET",
-    "q": "KCET"
+    "href": "/exams?q=KCET"
    },
    {
     "label": "KEAM",
-    "q": "KEAM"
+    "href": "/exams?q=KEAM"
    },
    {
     "label": "MHT-CET",
-    "q": "MHT CET"
+    "href": "/exams?q=MHT CET"
    },
    {
     "label": "OJEE",
-    "q": "OJEE"
+    "href": "/exams?q=OJEE"
    },
    {
     "label": "TG EAPCET",
-    "q": "TG EAPCET"
+    "href": "/exams?q=TG EAPCET"
    },
    {
-    "label": "TNEA (12th marks)",
-    "q": "TNEA"
+    "label": "TNEA counselling",
+    "href": "/?exam=TNEA"
    },
    {
     "label": "WBJEE",
-    "q": "WBJEE"
+    "href": "/exams?q=WBJEE"
    }
   ],
   "top_colleges": [
@@ -6497,35 +6497,35 @@
   "exams": [
    {
     "label": "GUJCET",
-    "q": "GUJCET"
+    "href": "/exams?q=GUJCET"
    },
    {
     "label": "JEE Main / Advanced",
-    "q": "JEE"
+    "href": "/exams?q=JEE"
    },
    {
     "label": "KCET",
-    "q": "KCET"
+    "href": "/exams?q=KCET"
    },
    {
     "label": "MHT-CET",
-    "q": "MHT CET"
+    "href": "/exams?q=MHT CET"
    },
    {
     "label": "OJEE",
-    "q": "OJEE"
+    "href": "/exams?q=OJEE"
    },
    {
     "label": "TG EAPCET",
-    "q": "TG EAPCET"
+    "href": "/exams?q=TG EAPCET"
    },
    {
-    "label": "TNEA (12th marks)",
-    "q": "TNEA"
+    "label": "TNEA counselling",
+    "href": "/?exam=TNEA"
    },
    {
     "label": "WBJEE",
-    "q": "WBJEE"
+    "href": "/exams?q=WBJEE"
    }
   ],
   "top_colleges": [
