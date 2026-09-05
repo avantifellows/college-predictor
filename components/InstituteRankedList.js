@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 import { formatRank, formatSalary } from "./mockAllotmentTheme";
 
 // Shared by the Mock Allotment's "You may have gotten a better option" panel
@@ -32,7 +33,7 @@ export const MatchStats = ({ item }) => (
       CTC {item.medianSalary == null ? "Not known" : formatSalary(item.medianSalary)}
     </span>
     <span className={`rounded-md px-2 py-1 text-xs font-bold ${STAT_COLORS.fees}`}>
-      Fees {item.annualFee == null ? "Not known" : formatSalary(item.annualFee)}
+      Annual Fee {item.annualFee == null ? "Not known" : formatSalary(item.annualFee)}
       {item.feeWaived ? " (waived)" : ""}
     </span>
   </div>
@@ -99,9 +100,9 @@ const InstituteCard = ({ branches, extraNote }) => {
                 ? "Show only the best branch"
                 : `${rest.length} more reachable branch${rest.length > 1 ? "es" : ""} at this institute`
             }
-            className="shrink-0 rounded-full bg-[#f8efec] px-2 py-0.5 text-xs font-bold text-[#b52326] transition hover:bg-[#f0e0da]"
+            className="shrink-0 flex items-center rounded-full bg-[#f8efec] p-1 text-[#b52326] transition hover:bg-[#f0e0da]"
           >
-            {expanded ? "−" : `+${rest.length}`}
+            {expanded ? <ChevronUp size={14} strokeWidth={3} /> : <ChevronDown size={14} strokeWidth={3} />}
           </button>
         )}
       </div>
