@@ -232,7 +232,7 @@ const CollegeOptions = ({ c }) => (
           The toughest closing cutoff we hold per college — each number is on
           its own exam&apos;s scale, so never compare across exams. Check your
           own chances on the{" "}
-          <Link href="/" className="underline hover:text-[#8f2e31]">
+          <Link href="/predictor" className="underline hover:text-[#8f2e31]">
             College Predictor
           </Link>
           .

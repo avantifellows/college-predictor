@@ -240,6 +240,9 @@ def main():
         print(f"WARNING: university exams missing from {UNIVERSITY_STATES}: {unmapped}")
 
     os.makedirs("public/data/exams", exist_ok=True)
+    import datetime
+    json.dump({"date": datetime.date.today().strftime("%-d %B %Y")},
+              open("public/data/last_updated.json", "w"))
     with open(OUT, "w") as fh:
         json.dump(cards, fh, indent=1)
     print(f"{len(cards)} exam cards → {OUT}")

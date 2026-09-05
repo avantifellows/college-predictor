@@ -123,7 +123,7 @@
    },
    {
     "label": "TNEA counselling",
-    "href": "/?exam=TNEA"
+    "href": "/predictor?exam=TNEA"
    }
   ],
   "top_colleges": [
@@ -278,7 +278,7 @@
    },
    {
     "label": "TNEA counselling",
-    "href": "/?exam=TNEA"
+    "href": "/predictor?exam=TNEA"
    },
    {
     "label": "WBJEE",
@@ -729,7 +729,7 @@
    },
    {
     "label": "TNEA counselling",
-    "href": "/?exam=TNEA"
+    "href": "/predictor?exam=TNEA"
    },
    {
     "label": "WBJEE",
@@ -1015,7 +1015,7 @@
    },
    {
     "label": "TNEA counselling",
-    "href": "/?exam=TNEA"
+    "href": "/predictor?exam=TNEA"
    },
    {
     "label": "WBJEE",
@@ -1650,7 +1650,7 @@
    },
    {
     "label": "TNEA counselling",
-    "href": "/?exam=TNEA"
+    "href": "/predictor?exam=TNEA"
    },
    {
     "label": "WBJEE",
@@ -1808,7 +1808,7 @@
    },
    {
     "label": "TNEA counselling",
-    "href": "/?exam=TNEA"
+    "href": "/predictor?exam=TNEA"
    },
    {
     "label": "WBJEE",
@@ -2091,7 +2091,7 @@
    },
    {
     "label": "TNEA counselling",
-    "href": "/?exam=TNEA"
+    "href": "/predictor?exam=TNEA"
    },
    {
     "label": "WBJEE",
@@ -2309,7 +2309,7 @@
    },
    {
     "label": "TNEA counselling",
-    "href": "/?exam=TNEA"
+    "href": "/predictor?exam=TNEA"
    },
    {
     "label": "WBJEE",
@@ -2644,7 +2644,7 @@
    },
    {
     "label": "TNEA counselling",
-    "href": "/?exam=TNEA"
+    "href": "/predictor?exam=TNEA"
    },
    {
     "label": "WBJEE",
@@ -2957,7 +2957,7 @@
    },
    {
     "label": "TNEA counselling",
-    "href": "/?exam=TNEA"
+    "href": "/predictor?exam=TNEA"
    },
    {
     "label": "WBJEE",
@@ -3117,19 +3117,19 @@
    },
    {
     "label": "TNEA counselling",
-    "href": "/?exam=TNEA"
+    "href": "/predictor?exam=TNEA"
    },
    {
     "label": "WBJEE",
     "href": "/exams?q=WBJEE"
    },
    {
-    "label": "KEA-CET",
-    "href": "/exams?q=KEA-CET"
-   },
-   {
     "label": "BITSAT",
     "href": "/exams?q=BITSAT"
+   },
+   {
+    "label": "KEA-CET",
+    "href": "/exams?q=KEA-CET"
    }
   ],
   "top_colleges": [
@@ -3289,7 +3289,7 @@
    },
    {
     "label": "TNEA counselling",
-    "href": "/?exam=TNEA"
+    "href": "/predictor?exam=TNEA"
    },
    {
     "label": "WBJEE",
@@ -3541,7 +3541,7 @@
    },
    {
     "label": "TNEA counselling",
-    "href": "/?exam=TNEA"
+    "href": "/predictor?exam=TNEA"
    },
    {
     "label": "WBJEE",
@@ -3778,7 +3778,7 @@
    },
    {
     "label": "TNEA counselling",
-    "href": "/?exam=TNEA"
+    "href": "/predictor?exam=TNEA"
    },
    {
     "label": "UCEED",
@@ -4002,12 +4002,12 @@
     "href": "/exams?q=JEE Advanced"
    },
    {
-    "label": "CUET",
-    "href": "/exams?q=CUET"
-   },
-   {
     "label": "ISI-AT",
     "href": "/exams?q=ISI-AT"
+   },
+   {
+    "label": "CUET",
+    "href": "/exams?q=CUET"
    }
   ],
   "top_colleges": [
@@ -4118,7 +4118,7 @@
    },
    {
     "label": "TNEA counselling",
-    "href": "/?exam=TNEA"
+    "href": "/predictor?exam=TNEA"
    },
    {
     "label": "WBJEE",
@@ -4281,7 +4281,7 @@
    },
    {
     "label": "TNEA counselling",
-    "href": "/?exam=TNEA"
+    "href": "/predictor?exam=TNEA"
    },
    {
     "label": "WBJEE",
@@ -4445,7 +4445,7 @@
    },
    {
     "label": "TNEA counselling",
-    "href": "/?exam=TNEA"
+    "href": "/predictor?exam=TNEA"
    },
    {
     "label": "WBJEE",
@@ -4609,7 +4609,7 @@
    },
    {
     "label": "TNEA counselling",
-    "href": "/?exam=TNEA"
+    "href": "/predictor?exam=TNEA"
    },
    {
     "label": "WBJEE",
@@ -5218,7 +5218,7 @@
    },
    {
     "label": "TNEA counselling",
-    "href": "/?exam=TNEA"
+    "href": "/predictor?exam=TNEA"
    }
   ],
   "top_colleges": [
@@ -5503,7 +5503,7 @@
    },
    {
     "label": "TNEA counselling",
-    "href": "/?exam=TNEA"
+    "href": "/predictor?exam=TNEA"
    },
    {
     "label": "WBJEE",
@@ -5735,12 +5735,12 @@
     "href": "/exams?q=JEE Advanced"
    },
    {
-    "label": "MHT-CET",
-    "href": "/exams?q=MHT-CET"
-   },
-   {
     "label": "KEA-CET",
     "href": "/exams?q=KEA-CET"
+   },
+   {
+    "label": "MHT-CET",
+    "href": "/exams?q=MHT-CET"
    }
   ],
   "top_colleges": [
@@ -6160,7 +6160,7 @@
    },
    {
     "label": "TNEA counselling",
-    "href": "/?exam=TNEA"
+    "href": "/predictor?exam=TNEA"
    },
    {
     "label": "WBJEE",
@@ -6382,7 +6382,7 @@
    },
    {
     "label": "TNEA counselling",
-    "href": "/?exam=TNEA"
+    "href": "/predictor?exam=TNEA"
    },
    {
     "label": "WBJEE",
@@ -6856,7 +6856,7 @@
    },
    {
     "label": "TNEA counselling",
-    "href": "/?exam=TNEA"
+    "href": "/predictor?exam=TNEA"
    },
    {
     "label": "WBJEE",
@@ -6984,7 +6984,7 @@
    },
    {
     "label": "TNEA counselling",
-    "href": "/?exam=TNEA"
+    "href": "/predictor?exam=TNEA"
    },
    {
     "label": "WBJEE",
@@ -7102,16 +7102,16 @@
     "href": "/exams?q=JEE Advanced"
    },
    {
-    "label": "CUET",
-    "href": "/exams?q=CUET"
+    "label": "ISI-AT",
+    "href": "/exams?q=ISI-AT"
    },
    {
     "label": "CMI-EE",
     "href": "/exams?q=CMI-EE"
    },
    {
-    "label": "ISI-AT",
-    "href": "/exams?q=ISI-AT"
+    "label": "CUET",
+    "href": "/exams?q=CUET"
    }
   ],
   "top_colleges": [
@@ -7345,7 +7345,7 @@
    },
    {
     "label": "TNEA counselling",
-    "href": "/?exam=TNEA"
+    "href": "/predictor?exam=TNEA"
    },
    {
     "label": "WBJEE",
@@ -7506,7 +7506,7 @@
    },
    {
     "label": "TNEA counselling",
-    "href": "/?exam=TNEA"
+    "href": "/predictor?exam=TNEA"
    },
    {
     "label": "WBJEE",
@@ -7822,7 +7822,7 @@
    },
    {
     "label": "TNEA counselling",
-    "href": "/?exam=TNEA"
+    "href": "/predictor?exam=TNEA"
    },
    {
     "label": "WBJEE",
@@ -7977,7 +7977,7 @@
    },
    {
     "label": "TNEA counselling",
-    "href": "/?exam=TNEA"
+    "href": "/predictor?exam=TNEA"
    },
    {
     "label": "WBJEE",
@@ -8467,7 +8467,7 @@
    },
    {
     "label": "TNEA counselling",
-    "href": "/?exam=TNEA"
+    "href": "/predictor?exam=TNEA"
    },
    {
     "label": "WBJEE",
@@ -8850,7 +8850,7 @@
    },
    {
     "label": "TNEA counselling",
-    "href": "/?exam=TNEA"
+    "href": "/predictor?exam=TNEA"
    }
   ],
   "top_colleges": [
@@ -9086,7 +9086,7 @@
    },
    {
     "label": "TNEA counselling",
-    "href": "/?exam=TNEA"
+    "href": "/predictor?exam=TNEA"
    },
    {
     "label": "WBJEE",
@@ -9399,7 +9399,7 @@
    },
    {
     "label": "TNEA counselling",
-    "href": "/?exam=TNEA"
+    "href": "/predictor?exam=TNEA"
    },
    {
     "label": "WBJEE",
@@ -9597,7 +9597,7 @@
    },
    {
     "label": "TNEA counselling",
-    "href": "/?exam=TNEA"
+    "href": "/predictor?exam=TNEA"
    },
    {
     "label": "JEE Advanced",
@@ -9926,7 +9926,7 @@
    },
    {
     "label": "TNEA counselling",
-    "href": "/?exam=TNEA"
+    "href": "/predictor?exam=TNEA"
    },
    {
     "label": "WBJEE",
@@ -10061,7 +10061,7 @@
    },
    {
     "label": "TNEA counselling",
-    "href": "/?exam=TNEA"
+    "href": "/predictor?exam=TNEA"
    }
   ],
   "top_colleges": [
@@ -10420,7 +10420,7 @@
    },
    {
     "label": "TNEA counselling",
-    "href": "/?exam=TNEA"
+    "href": "/predictor?exam=TNEA"
    },
    {
     "label": "WBJEE",
@@ -10704,7 +10704,7 @@
    },
    {
     "label": "TNEA counselling",
-    "href": "/?exam=TNEA"
+    "href": "/predictor?exam=TNEA"
    },
    {
     "label": "WBJEE",
