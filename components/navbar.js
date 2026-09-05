@@ -44,6 +44,16 @@ const Navbar = ({ item1, item2 }) => {
               {item1}
             </Link>
             <Link
+              href="/colleges"
+              className={`rounded-full px-3 py-1.5 text-sm font-semibold transition ${
+                pathname === "/colleges"
+                  ? "bg-white/20"
+                  : "hover:bg-white/10 cursor-pointer"
+              }`}
+            >
+              Colleges
+            </Link>
+            <Link
               href="/scholarships"
               className={`rounded-full px-3 py-1.5 text-sm font-semibold transition ${
                 pathname === "/scholarships"
