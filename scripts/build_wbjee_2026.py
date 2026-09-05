@@ -16,7 +16,7 @@ from pathlib import Path
 import pandas as pd
 
 REPO = Path(__file__).resolve().parent.parent
-PARQUET = Path("/Users/surya/jan2023/external_data_sources/wbjee/clean/wbjee_fact_cutoffs.parquet")
+PARQUET = REPO.parent / Path("external_data_sources/wbjee/clean/wbjee_fact_cutoffs.parquet")
 OUT = REPO / "public/data/WBJEE/wbjee_data.json"
 
 CT_LABEL = {"Govt": "Government", "Govt-Aided": "Government Aided",

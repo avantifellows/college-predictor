@@ -64,6 +64,46 @@ def parse_rank(v):
     return int(digits), prep
 
 
+# branch text -> career page: JoSAA branch strings resolve to a parent
+# branch (exam_branch_mapping) and each parent to its career slug
+# (branch_to_career.json, built by build_careers_data.py) — so a branch in
+# a college's programme table can link to "what does this lead to".
+EXAM_BRANCH_MAP = "data-sources/exam_branch_mapping.csv"
+BRANCH_TO_CAREER = "public/data/careers/branch_to_career.json"
+
+
+def career_lookup():
+    import csv
+    b2c = json.load(open(BRANCH_TO_CAREER))
+    base_to_career = {}
+    conflicts = set()
+    with open(EXAM_BRANCH_MAP) as fh:
+        for r in csv.DictReader(fh):
+            if r["exam"] != "JoSAA":
+                continue
+            # strip ONLY the trailing "(4 Years, Bachelor of Technology)" —
+            # a first-paren split collapses "CSE (Cyber Security)" into
+            # plain CSE and links the wrong career
+            base = re.sub(r"\s*\(\d+\s*Years?,[^)]*\)$", "",
+                          r["branch_raw"]).strip()
+            cid = b2c.get(r["branch_id"])
+            if cid:
+                if base in base_to_career and base_to_career[base] != cid:
+                    conflicts.add(base)
+                base_to_career.setdefault(base, cid)
+    # a branch whose NAME is itself a career wins its own page
+    # ("Engineering Physics" -> engineering-physics, not physics)
+    career_ids = set(b2c.values())
+    for base in list(base_to_career):
+        exact = re.sub(r"[^a-z0-9]+", "-", base.lower()).strip("-")
+        if exact in career_ids:
+            base_to_career[base] = exact
+            conflicts.discard(base)
+    for b in sorted(conflicts):
+        print(f"  WARNING: branch base maps to two careers, kept first: {b}")
+    return base_to_career
+
+
 # Public / Private / Government-aided from AISHE's kind + management fields.
 # The few colleges AISHE leaves blank are pinned by name (all verified):
 # BIT Mesra and its off-campuses are a private deemed university; ICT Mumbai
@@ -264,6 +304,7 @@ def build_josaa(client):
 
 
 def main():
+    careers_by_branch = career_lookup()
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
@@ -502,7 +543,8 @@ def main():
                         if k not in best or rank > best[k]:
                             best[k] = rank
             lst = [{"branch": b, "years": y, "degree": d,
-                    "indicative_closing_rank": best.get((b, y, d))}
+                    "indicative_closing_rank": best.get((b, y, d)),
+                    "career_id": careers_by_branch.get(b)}
                    for (b, y, d) in branches]
             lst.sort(key=lambda z: (z["indicative_closing_rank"] is None,
                                     z["indicative_closing_rank"] or 0, z["branch"]))

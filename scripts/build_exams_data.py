@@ -21,7 +21,7 @@ from collections import defaultdict
 
 import pandas as pd
 
-SRC = "/Users/surya/jan2023/exams_cleaned.csv"
+SRC = "data-sources/exams_cleaned.csv"
 OUT = "public/data/exams/exams.json"
 # Hand-formatted paper patterns: the sheet stores sections and question counts
 # as two parallel run-on strings; scripts/pattern_formats.json aligns them into

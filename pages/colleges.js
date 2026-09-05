@@ -246,7 +246,18 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
                               className="border-t border-[#f0e6e1]"
                             >
                               <td className="px-2 py-1.5 text-[#332724]">
-                                {p.branch}
+                                {/* a branch is a door to a career — link it
+                                    when we know which one */}
+                                {p.career_id ? (
+                                  <Link
+                                    href={`/careers#${p.career_id}`}
+                                    className="underline decoration-[#e3d1cb] underline-offset-2 transition hover:text-[#8f2e31] hover:decoration-[#8f2e31]"
+                                  >
+                                    {p.branch}
+                                  </Link>
+                                ) : (
+                                  p.branch
+                                )}
                               </td>
                               <td className="px-2 py-1.5 text-[#6d5550]">
                                 {p.degree}

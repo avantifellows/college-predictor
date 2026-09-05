@@ -3101,12 +3101,12 @@
     "href": "/?exam=TNEA"
    },
    {
-    "label": "DAT-Mains",
-    "href": "/exams?q=DAT-Mains"
-   },
-   {
     "label": "UCEED",
     "href": "/exams?q=UCEED"
+   },
+   {
+    "label": "DAT-Mains",
+    "href": "/exams?q=DAT-Mains"
    }
   ],
   "top_colleges": [
@@ -3279,12 +3279,12 @@
     "href": "/exams?q=JEE Advanced"
    },
    {
-    "label": "ISI-AT",
-    "href": "/exams?q=ISI-AT"
-   },
-   {
     "label": "CUET",
     "href": "/exams?q=CUET"
+   },
+   {
+    "label": "ISI-AT",
+    "href": "/exams?q=ISI-AT"
    }
   ],
   "top_colleges": [
@@ -4706,12 +4706,12 @@
     "href": "/exams?q=JEE Advanced"
    },
    {
-    "label": "MHT-CET",
-    "href": "/exams?q=MHT-CET"
-   },
-   {
     "label": "KEA-CET",
     "href": "/exams?q=KEA-CET"
+   },
+   {
+    "label": "MHT-CET",
+    "href": "/exams?q=MHT-CET"
    }
   ],
   "top_colleges": [
@@ -5815,12 +5815,12 @@
     "href": "/exams?q=JEE Advanced"
    },
    {
-    "label": "ISI-AT",
-    "href": "/exams?q=ISI-AT"
-   },
-   {
     "label": "CUET",
     "href": "/exams?q=CUET"
+   },
+   {
+    "label": "ISI-AT",
+    "href": "/exams?q=ISI-AT"
    },
    {
     "label": "CMI-EE",
