@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { GripVertical } from "lucide-react";
+import Link from "next/link";
+import { GripVertical, Check } from "lucide-react";
 import { josaaConfig, statesList } from "../examConfig";
 import {
   loadAllRoundsData,
@@ -9,8 +10,19 @@ import {
   getRoundOneResult,
   advanceRound,
   findMissedBetterOptions,
+  annualFeeForCategory,
   TOTAL_ROUNDS,
 } from "../utils/josaaSimulator";
+import {
+  formatRank,
+  formatSalary,
+  cardClass,
+  inputClass,
+  primaryBtn,
+  secondaryBtn,
+} from "./mockAllotmentTheme";
+import { InstituteRankedList, MatchStats } from "./InstituteRankedList";
+import { BEST_MATCH_STORAGE_KEY } from "./BestMatchFinder";
 
 // Practice JoSAA choice-filling + locking + a round-by-round freeze/float mock,
 // built entirely on data already in this repo (see docs/SIMULATION_DATA.md).
@@ -20,14 +32,19 @@ import {
 // v2: replaced the precomputed 6-round trace (roundPointer into it) with an
 // interactive trail, so freeze/float/slide can each change what's checked
 // next round instead of all 6 rounds being decided upfront.
-const STORAGE_KEY = "josaaMockAllotmentState_v2";
+// Exported so the standalone "My Choices" / "Rounds History" pages (see
+// pages/mock-allotment/) can read the same persisted run without duplicating
+// the key or the merge-with-defaults logic below.
+export const STORAGE_KEY = "josaaMockAllotmentState_v2";
 
-const STEPS = ["info", "choices", "review", "simulate"];
+// Only these three get a tab in the bar — Simulation isn't something you
+// navigate to directly, it's what you land on after submitting from Review
+// & Manage. state.step still uses "simulate" internally (see lockChoices).
+const NAV_STEPS = ["info", "choices", "review"];
 const STEP_LABELS = {
   info: "1. Student Info",
   choices: "2. Choice Filling",
   review: "3. Review & Manage",
-  simulate: "4. Simulation",
 };
 
 const categoryField = josaaConfig.fields.find((f) => f.name === "category");
@@ -38,6 +55,36 @@ const qualifiedField = josaaConfig.fields.find(
 
 const optionValue = (opt) => (typeof opt === "string" ? opt : opt.value);
 const optionLabel = (opt) => (typeof opt === "string" ? opt : opt.label);
+
+// A reminder of who this run is — category, gender, home state, rank —
+// shown the same way everywhere in Mock Allotment: the Simulation results,
+// and (since none of My Choices / Rounds History / Find Your Best Match /
+// Analyse Your List have the Student Info tab available either) each of
+// their standalone pages too. Exported so those pages can import it
+// straight from here instead of re-deriving the category label lookup.
+export const ProfileChips = ({ profile }) => {
+  const chips = [
+    optionLabel(
+      categoryField.options.find((o) => optionValue(o) === profile.category)
+    ) || profile.category,
+    profile.gender,
+    profile.homeState,
+    `JEE Main rank: ${profile.mainRank}`,
+    profile.qualifiedJeeAdv === "Yes"
+      ? `JEE Advanced rank: ${profile.advRank}`
+      : null,
+  ].filter(Boolean);
+
+  return (
+    <div className="flex flex-wrap gap-2 text-xs text-[#5b4a45]">
+      {chips.map((chip) => (
+        <span key={chip} className="rounded-full bg-[#f8efec] px-3 py-1">
+          {chip}
+        </span>
+      ))}
+    </div>
+  );
+};
 
 const defaultProfile = {
   category: "",
@@ -57,7 +104,7 @@ const defaultState = {
   frozen: false,
 };
 
-function loadPersistedState() {
+export function loadPersistedState() {
   try {
     const raw = window.localStorage.getItem(STORAGE_KEY);
     if (!raw) return defaultState;
@@ -82,18 +129,6 @@ const matchesProgramType = (programName, type) => {
   return true; // "all"
 };
 
-const formatRank = (rank) =>
-  rank == null ? "—" : Number(rank).toLocaleString("en-IN");
-const formatSalary = (value) =>
-  value == null ? "—" : `₹${Number(value).toLocaleString("en-IN")}`;
-
-const cardClass = "rounded-xl border border-[#eaded8] bg-white p-4 shadow-sm";
-const inputClass =
-  "w-full rounded-xl border border-[#d8c7c1] bg-[#fffdfa] px-3 py-2 outline-none transition focus:border-[#b52326] focus:ring-2 focus:ring-[#f4d5d6]";
-const primaryBtn =
-  "rounded-full bg-[#b52326] px-5 py-2 text-sm font-semibold text-white transition hover:bg-[#98191c] disabled:cursor-not-allowed disabled:opacity-40";
-const secondaryBtn =
-  "rounded-full border border-[#d8c7c1] px-5 py-2 text-sm font-semibold text-[#5b4a45] transition hover:bg-[#f8efec] disabled:cursor-not-allowed disabled:opacity-40";
 
 const MockAllotment = () => {
   const [state, setState] = useState(defaultState);
@@ -342,6 +377,9 @@ const MockAllotment = () => {
 
   const restart = () => {
     window.localStorage.removeItem(STORAGE_KEY);
+    // Best Match answers are tied to this profile/rank — a fresh session
+    // shouldn't silently carry over stale filters from a previous one.
+    window.localStorage.removeItem(BEST_MATCH_STORAGE_KEY);
     setState(defaultState);
     setSearch("");
     setInstituteFilter("");
@@ -360,15 +398,66 @@ const MockAllotment = () => {
 
   return (
     <div className="mx-auto w-full max-w-7xl px-4 py-4 md:px-8">
-      <h1 className="text-2xl font-bold text-[#3a2c28] md:text-3xl">
-        JoSAA Mock Allotment
-      </h1>
-      <p className="mt-1 text-sm text-[#7a655f]">
-        Practice choice-filling and the freeze/float rounds with real JoSAA 2025
-        cutoff data.
-      </p>
+      <div className="flex flex-wrap items-start justify-between gap-3">
+        <h1 className="text-2xl font-bold text-[#3a2c28] md:text-3xl">
+          JoSAA Mock Allotment
+        </h1>
 
-      <StepBar current={state.step} locked={state.locked} onSelect={setStep} />
+        {/* These four are all real pages (pages/mock-allotment/), not popups
+            or inline toggles — each needs its own URL and a back link. Real
+            buttons (same classes the rest of the app uses), not plain text
+            links, so they read as actionable rather than incidental. */}
+        <div className="flex flex-wrap gap-2">
+          {/* Independent of the round simulation — just needs a valid
+              profile + catalog, so it's offered whether or not choices are
+              locked yet. */}
+          {profileValid && catalog.length > 0 && (
+            <Link
+              href="/mock-allotment/best-match"
+              className={`${primaryBtn} inline-flex items-center`}
+            >
+              Best Match
+            </Link>
+          )}
+          {/* Critiques the choices already on the list, so it needs at
+              least one to say anything useful. */}
+          {profileValid && state.choices.length > 0 && (
+            <Link
+              href="/mock-allotment/list-analyzer"
+              className={`${secondaryBtn} inline-flex items-center`}
+            >
+              Analyse List
+            </Link>
+          )}
+          {/* Only meaningful once there's a locked run to look back on. */}
+          {state.locked && (
+            <>
+              <Link
+                href="/mock-allotment/choices"
+                className={`${secondaryBtn} inline-flex items-center`}
+              >
+                My Choices
+              </Link>
+              <Link
+                href="/mock-allotment/rounds-history"
+                className={`${secondaryBtn} inline-flex items-center`}
+              >
+                Rounds History
+              </Link>
+            </>
+          )}
+        </div>
+      </div>
+
+      {state.step !== "simulate" && (
+        <StepBar
+          current={state.step}
+          profileValid={profileValid}
+          choicesCount={state.choices.length}
+          locked={state.locked}
+          onSelect={setStep}
+        />
+      )}
 
       {transitionLabel && <LoadingCard label={transitionLabel} />}
 
@@ -438,12 +527,12 @@ const MockAllotment = () => {
         <SimulateStep
           locked={state.locked}
           choices={state.choices}
-          trail={state.trail}
           current={current}
           finalRevealed={finalRevealed}
           isFinalRound={isFinalRound}
           missedOptions={missedOptions}
           collegesByName={collegesByName}
+          profile={state.profile}
           onFreeze={freeze}
           onAdvance={(mode) =>
             runWithDelay(
@@ -459,28 +548,71 @@ const MockAllotment = () => {
   );
 };
 
-const StepBar = ({ current, locked, onSelect }) => (
-  <div className="mt-6 flex flex-wrap gap-2">
-    {STEPS.map((step) => {
-      const isDisabled = step === "simulate" && !locked;
-      return (
-        <button
-          key={step}
-          type="button"
-          disabled={isDisabled}
-          onClick={() => onSelect(step)}
-          className={`rounded-full px-3 py-1.5 text-xs font-semibold transition ${
-            current === step
-              ? "bg-[#b52326] text-white"
-              : "border border-[#d8c7c1] text-[#5b4a45] hover:bg-[#f8efec]"
-          } disabled:cursor-not-allowed disabled:opacity-40`}
-        >
-          {STEP_LABELS[step]}
-        </button>
-      );
-    })}
-  </div>
-);
+// Numbered stepper: step 1 (Student Info) always unlocked; steps 2 and 3
+// both require it filled in, but neither gates the other — you can jump
+// straight to Review & Manage with zero choices, no check between them.
+// A step's circle turns into a checkmark once it's "done" (info: valid
+// profile; choices: at least one pick; review: locked & submitted) —
+// purely a progress cue, not a gate; you can still click back into a done
+// step to change it (Review & Manage aside, which is read-only once locked).
+const isStepDone = (step, { profileValid, choicesCount, locked }) => {
+  if (step === "info") return profileValid;
+  if (step === "choices") return choicesCount > 0;
+  return locked; // review
+};
+
+const StepBar = ({ current, profileValid, choicesCount, locked, onSelect }) => {
+  const progress = { profileValid, choicesCount, locked };
+
+  return (
+    <div className="mt-6 flex items-start">
+      {NAV_STEPS.map((step, idx) => {
+        const disabled = step !== "info" && !profileValid;
+        const active = current === step;
+        const done = isStepDone(step, progress);
+        return (
+          <React.Fragment key={step}>
+            <button
+              type="button"
+              disabled={disabled}
+              onClick={() => onSelect(step)}
+              className="flex w-24 shrink-0 flex-col items-center gap-1.5 disabled:cursor-not-allowed sm:w-32"
+            >
+              <span
+                className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full border-2 text-[11px] font-bold transition ${
+                  active
+                    ? "border-[#b52326] bg-[#b52326] text-white"
+                    : done
+                      ? "border-[#b52326] bg-white text-[#b52326]"
+                      : disabled
+                        ? "border-[#e4d8d2] bg-[#f8efec] text-[#c9b8b2]"
+                        : "border-[#d8c7c1] bg-white text-[#5b4a45]"
+                }`}
+              >
+                {done && !active ? <Check size={12} aria-hidden="true" /> : idx + 1}
+              </span>
+              <span
+                className={`text-center text-sm font-semibold leading-tight ${
+                  active ? "text-[#b52326]" : disabled ? "text-[#c9b8b2]" : "text-[#5b4a45]"
+                }`}
+              >
+                {STEP_LABELS[step]}
+              </span>
+            </button>
+            {idx < NAV_STEPS.length - 1 && (
+              <span
+                className={`mt-3 h-0.5 flex-1 rounded transition-colors ${
+                  done ? "bg-[#b52326]" : "bg-[#e4d8d2]"
+                }`}
+                aria-hidden="true"
+              />
+            )}
+          </React.Fragment>
+        );
+      })}
+    </div>
+  );
+};
 
 // Shown in place of the current step while a locking/round action fakes a
 // beat of "processing" — see runWithDelay in MockAllotment.
@@ -1007,7 +1139,11 @@ const ReviewStep = ({
       </h2>
 
       {!locked ? (
-        <>
+        choices.length === 0 ? (
+          <p className="mt-3 text-sm text-[#7a655f]">
+            No choices added yet — go back to Choice Filling to add some.
+          </p>
+        ) : (
           <ReorderableChoiceList
             choices={choices}
             onReorder={onReorder}
@@ -1016,7 +1152,7 @@ const ReviewStep = ({
             onMoveToPosition={onMoveToPosition}
             onRemove={onRemove}
           />
-        </>
+        )
       ) : (
         <ol className="mt-2 space-y-1">
           {choices.map((item, index) => (
@@ -1072,7 +1208,24 @@ const ReviewStep = ({
   );
 };
 
-const RoundCard = ({ current, choicesCount }) => {
+// The round/status line lives here and only here — SimulateStep used to
+// also print its own "This was the final round — this is your result." /
+// "Frozen — this is your result." underneath, repeating what this header
+// already said once the result was revealed. One label, one place.
+//
+// Once finalRevealed, this is ALSO the only card that shows the institute +
+// program — SimulateStep used to render a second "Your simulated allotment"
+// card right below repeating the same institute/program (plus a "Branch
+// closing rank" chip duplicating the Closing figure already on this card).
+// college/fee are only needed for that final chip row.
+const RoundCard = ({
+  current,
+  choicesCount,
+  finalRevealed,
+  isFinalRound,
+  college,
+  fee,
+}) => {
   if (!current) return null;
   if (!current.provisional) {
     return (
@@ -1084,10 +1237,15 @@ const RoundCard = ({ current, choicesCount }) => {
     );
   }
   const { choice, index, opening, closing } = current.provisional;
+  const statusLabel = !finalRevealed
+    ? "provisional seat"
+    : isFinalRound
+      ? "final result — last round"
+      : "final result — frozen";
   return (
     <div className={cardClass}>
       <p className="text-xs font-semibold uppercase tracking-wide text-[#b52326]">
-        Round {current.round} of {TOTAL_ROUNDS} — provisional seat
+        Round {current.round} of {TOTAL_ROUNDS} — {statusLabel}
       </p>
       <p className="mt-1 text-lg font-bold text-[#3a2c28]">
         {choice.institute}
@@ -1097,6 +1255,17 @@ const RoundCard = ({ current, choicesCount }) => {
         Your preference #{index + 1} of {choicesCount} · Opening{" "}
         {formatRank(opening)} / Closing {formatRank(closing)}
       </p>
+      {finalRevealed && (
+        <MatchStats
+          item={{
+            closingRank: closing,
+            nirfRank: college?.nirf?.engineering_rank ?? null,
+            medianSalary: college?.placement?.median_salary ?? null,
+            annualFee: fee?.amount ?? null,
+            feeWaived: fee?.waived ?? false,
+          }}
+        />
+      )}
     </div>
   );
 };
@@ -1110,53 +1279,151 @@ const MISSED_OPTIONS_TABS = [
   {
     key: "nirf",
     label: "By NIRF Ranking",
-    note: "College-level, not branch-level — only ~half of institutes are ranked.",
+    note: "",
   },
   {
     key: "salary",
     label: "By Median CTC",
-    note: "College-wide median, not specific to this branch.",
+    note: "Caution: median CTC is for the entire college, not branch-wise.",
+  },
+  {
+    key: "fees",
+    label: "By Fees",
+    note: "",
   },
 ];
+
+// The "actually better than what you got" filter for each non-closing-rank
+// tab — lower is "better" for fees (less rank-like, just cost), higher for
+// salary, lower for NIRF (rank 1 is best). All three are college-level
+// fields (colleges.json's nirf/placement/fees), so every branch at an
+// institute shares one identical value — grouped by institute in the UI
+// (see InstituteRankedList) rather than listed one row per branch, or a
+// college with 5 reachable branches would fill 5 of the top 8 slots.
+// Institutes that pass are then ranked by closing rank (tightest first),
+// same as the closing-rank tab — the metric here only decides who qualifies.
+//
+// `isBetter` filters to results that actually beat the student's own
+// allotment on this metric (using the nirfBetter/ctcBetter/feeSavings flags
+// findMissedBetterOptions attaches) — without it, this panel would happily
+// list an institute with a WORSE NIRF rank or a HIGHER fee than what the
+// student got, just because it was reachable. It's also what stops "By
+// Fees" from being the same handful of cheap-but-loose-cutoff colleges for
+// every student regardless of what they actually got — the bar moves with
+// each student's own result.
+const MISSED_OPTIONS_METRICS = {
+  nirf: {
+    metricKey: "nirfRank",
+    missingLabel: "a better NIRF rank than your allotment",
+    isBetter: (item) => item.nirfBetter === true,
+  },
+  salary: {
+    metricKey: "medianSalary",
+    missingLabel: "a better median CTC than your allotment",
+    isBetter: (item) => item.ctcBetter === true,
+  },
+  fees: {
+    metricKey: "annualFee",
+    missingLabel: "lower fees than your allotment",
+    isBetter: (item) => item.feeSavings > 0,
+    // The one figure MatchStats' generic fee chip can't show on its own —
+    // how much cheaper this is than what the student actually got.
+    extraNote: (item) => `Save ${formatSalary(item.feeSavings)} vs. your allotment`,
+  },
+};
 
 const MISSED_OPTIONS_DISPLAY_LIMIT = 8;
 
 const missedOptionRow = (opt) => (
   <li
     key={`${opt.institute}|${opt.program}`}
-    className="rounded-lg border border-[#f0e6e1] px-3 py-2 text-sm"
+    className="rounded-lg border border-[#f0e6e1] px-3 py-2.5 text-base"
   >
-    <p className="font-semibold text-[#3a2c28]">{opt.institute}</p>
-    <p className="text-xs text-[#7a655f]">{opt.program}</p>
-    <p className="mt-1 text-[11px] text-[#9a8a84]">
-      Closing rank: {formatRank(opt.closingRank)} · NIRF:{" "}
-      {opt.nirfRank ?? "not ranked"} · Median CTC:{" "}
-      {formatSalary(opt.medianSalary)}
-      {opt.listPosition != null && (
-        <>
-          {" "}
-          ·{" "}
-          <span className="font-semibold text-[#b52326]">
-            Was your choice #{opt.listPosition}
-          </span>
-        </>
-      )}
-    </p>
+    <p className="font-bold text-[#3a2c28]">{opt.institute}</p>
+    <p className="text-sm font-medium text-[#5b4a45]">{opt.program}</p>
+    {opt.listPosition != null && (
+      <p className="mt-0.5 text-xs font-bold text-[#b52326]">
+        Was your choice #{opt.listPosition}
+      </p>
+    )}
+    <MatchStats item={opt} />
   </li>
 );
 
-const MissedOptionsPanel = ({ missedOptions, round }) => {
+// Recomputes a result's fee fields under a DIRECT waiver answer instead of
+// the category-based assumption `annualFeeForCategory` bakes in (which only
+// ever grants the waived rate to SC/ST/EWS/PwD) — a General/OBC-NCL student
+// whose family income actually qualifies them can say so directly, and a
+// student who knows they DON'T qualify can rule the waived rate out even if
+// their category would normally get it. "unsure" keeps the category-based
+// numbers findMissedBetterOptions already computed.
+const effectiveFeeItem = (item, waiverAnswer) => {
+  if (waiverAnswer === "unsure") {
+    return {
+      annualFee: item.annualFee,
+      feeWaived: item.feeWaived,
+      feeSavings: item.feeSavings,
+    };
+  }
+  const annualFee =
+    waiverAnswer === "yes"
+      ? item.rawFeeWaived ?? item.rawFeeStandard
+      : item.rawFeeStandard;
+  const feeWaived = waiverAnswer === "yes" && item.rawFeeWaived != null;
+  const winningFee =
+    waiverAnswer === "yes"
+      ? item.winningFeeWaived ?? item.winningFeeStandard
+      : item.winningFeeStandard;
+  const feeSavings =
+    annualFee != null && winningFee != null ? winningFee - annualFee : null;
+  return { annualFee, feeWaived, feeSavings };
+};
+
+const MissedOptionsPanel = ({ missedOptions }) => {
   const [tab, setTab] = useState("closingRank");
+  // Fees-tab-only refinement — asked directly instead of guessing from
+  // category alone (see effectiveFeeItem). Budget is optional: leave it
+  // blank and the tab falls back to "cheaper than your own allotment";
+  // fill it in and that becomes the bar instead.
+  const [feeBudget, setFeeBudget] = useState("");
+  const [feeWaiverAnswer, setFeeWaiverAnswer] = useState("unsure");
   const activeTab = MISSED_OPTIONS_TABS.find((t) => t.key === tab);
+
+  const budget = Number(feeBudget);
+  const hasBudget = feeBudget !== "" && Number.isFinite(budget) && budget > 0;
+
+  const feesMetric = useMemo(
+    () => ({
+      metricKey: "annualFee",
+      isBetter: (item) => (hasBudget ? item.annualFee <= budget : item.feeSavings > 0),
+      formatLabel: (value, item) =>
+        `Fees: ${formatSalary(value)}${item.feeWaived ? " (waived)" : ""}` +
+        (hasBudget ? "" : ` · Save ${formatSalary(item.feeSavings)} vs. your allotment`),
+    }),
+    [hasBudget, budget]
+  );
+
+  const feeItems = useMemo(
+    () =>
+      tab === "fees"
+        ? missedOptions.map((item) => ({
+            ...item,
+            ...effectiveFeeItem(item, feeWaiverAnswer),
+          }))
+        : missedOptions,
+    [tab, missedOptions, feeWaiverAnswer]
+  );
+
+  const metric = tab === "fees" ? feesMetric : MISSED_OPTIONS_METRICS[tab];
+  const missingLabel = hasBudget
+    ? `fees of ₹${feeBudget} or less`
+    : MISSED_OPTIONS_METRICS[tab]?.missingLabel;
 
   return (
     <div className={cardClass}>
-      <h2 className="text-sm font-bold text-[#3a2c28]">
+      <h2 className="text-base font-bold text-[#3a2c28]">
         You may have gotten a better option
       </h2>
-      <p className="mt-1 text-xs text-[#7a655f]">
-        Also reachable in Round {round}:
-      </p>
 
       <div className="mt-3 flex flex-wrap gap-1">
         {MISSED_OPTIONS_TABS.map((t) => (
@@ -1164,7 +1431,7 @@ const MissedOptionsPanel = ({ missedOptions, round }) => {
             key={t.key}
             type="button"
             onClick={() => setTab(t.key)}
-            className={`rounded-full px-3 py-1 text-xs font-semibold transition ${
+            className={`rounded-full px-3 py-1 text-sm font-semibold transition ${
               tab === t.key
                 ? "bg-[#b52326] text-white"
                 : "border border-[#d8c7c1] text-[#5b4a45] hover:bg-[#f8efec]"
@@ -1175,20 +1442,49 @@ const MissedOptionsPanel = ({ missedOptions, round }) => {
         ))}
       </div>
       {activeTab.note && (
-        <p className="mt-2 text-[11px] text-[#9a8a84]">{activeTab.note}</p>
+        <p className="mt-2 text-xs text-[#9a8a84]">{activeTab.note}</p>
+      )}
+
+      {tab === "fees" && (
+        <div className="mt-3 grid gap-2 sm:grid-cols-2">
+          <label className="block">
+            <span className="mb-1 block text-xs font-semibold text-[#5b4a45]">
+              Max annual fees you can pay (₹)
+            </span>
+            <input
+              type="number"
+              min="0"
+              className={inputClass}
+              placeholder="Leave blank to compare vs. your allotment"
+              value={feeBudget}
+              onChange={(e) => setFeeBudget(e.target.value)}
+            />
+          </label>
+          <label className="block">
+            <span className="mb-1 block text-xs font-semibold text-[#5b4a45]">
+              Eligible for a fee waiver?
+            </span>
+            <select
+              className={inputClass}
+              value={feeWaiverAnswer}
+              onChange={(e) => setFeeWaiverAnswer(e.target.value)}
+            >
+              <option value="unsure">Not sure — go by my category</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </label>
+        </div>
       )}
 
       {tab === "closingRank" && (
         <ClosingRankGroups missedOptions={missedOptions} />
       )}
       {tab !== "closingRank" && (
-        <RankedList
-          items={missedOptions}
-          metricKey={tab === "nirf" ? "nirfRank" : "medianSalary"}
-          direction={tab === "nirf" ? "asc" : "desc"}
-          emptyMessage={`None of the missed options have ${
-            tab === "nirf" ? "an NIRF rank" : "a CTC figure"
-          } on record.`}
+        <InstituteRankedList
+          items={feeItems}
+          metric={metric}
+          emptyMessage={`None of the reachable options have ${missingLabel}.`}
         />
       )}
     </div>
@@ -1210,7 +1506,7 @@ const ClosingRankGroups = ({ missedOptions }) => {
 
   if (advanced.length === 0 && main.length === 0) {
     return (
-      <p className="mt-3 text-sm text-[#7a655f]">No missed options found.</p>
+      <p className="mt-3 text-base text-[#7a655f]">No missed options found.</p>
     );
   }
 
@@ -1218,7 +1514,7 @@ const ClosingRankGroups = ({ missedOptions }) => {
     <div className="mt-3 space-y-4">
       {advanced.length > 0 && (
         <div>
-          <p className="text-xs font-semibold text-[#5b4a45]">
+          <p className="text-sm font-semibold text-[#5b4a45]">
             JEE Advanced institutes (IITs)
           </p>
           <ul className="mt-2 space-y-2">{advanced.map(missedOptionRow)}</ul>
@@ -1226,7 +1522,7 @@ const ClosingRankGroups = ({ missedOptions }) => {
       )}
       {main.length > 0 && (
         <div>
-          <p className="text-xs font-semibold text-[#5b4a45]">
+          <p className="text-sm font-semibold text-[#5b4a45]">
             JEE Main institutes (NITs / IIITs / GFTIs)
           </p>
           <ul className="mt-2 space-y-2">{main.map(missedOptionRow)}</ul>
@@ -1236,31 +1532,15 @@ const ClosingRankGroups = ({ missedOptions }) => {
   );
 };
 
-const RankedList = ({ items, metricKey, direction, emptyMessage }) => {
-  const sorted = items
-    .filter((o) => o[metricKey] != null)
-    .sort((a, b) =>
-      direction === "asc"
-        ? a[metricKey] - b[metricKey]
-        : b[metricKey] - a[metricKey]
-    )
-    .slice(0, MISSED_OPTIONS_DISPLAY_LIMIT);
-
-  if (sorted.length === 0) {
-    return <p className="mt-3 text-sm text-[#7a655f]">{emptyMessage}</p>;
-  }
-  return <ul className="mt-3 space-y-2">{sorted.map(missedOptionRow)}</ul>;
-};
-
 const SimulateStep = ({
   locked,
   choices,
-  trail,
   current,
   finalRevealed,
   isFinalRound,
   missedOptions,
   collegesByName,
+  profile,
   onFreeze,
   onAdvance,
   onRestart,
@@ -1286,58 +1566,58 @@ const SimulateStep = ({
   const college = finalChoice
     ? collegesByName?.get(finalChoice.choice.institute)
     : null;
+  const fee = college ? annualFeeForCategory(college, profile.category) : null;
   const canSlide = Boolean(finalChoice);
 
   return (
     <div className="mt-6 space-y-6">
-      <RoundCard current={current} choicesCount={choices.length} />
+      <ProfileChips profile={profile} />
+      <RoundCard
+        current={current}
+        choicesCount={choices.length}
+        finalRevealed={finalRevealed}
+        isFinalRound={isFinalRound}
+        college={college}
+        fee={fee}
+      />
 
-      <div className="flex flex-wrap gap-2">
-        {!finalRevealed && (
-          <>
-            <button
-              type="button"
-              disabled={!finalChoice}
-              title={
-                finalChoice
-                  ? "Accept this seat and end the mock here"
-                  : "You don't hold a seat yet, so there's nothing to freeze"
-              }
-              className={primaryBtn}
-              onClick={onFreeze}
-            >
-              Freeze this seat
-            </button>
-            <button
-              type="button"
-              className={secondaryBtn}
-              onClick={() => onAdvance("float")}
-            >
-              Float to Round {current.round + 1}
-            </button>
-            <button
-              type="button"
-              disabled={!canSlide}
-              title={
-                canSlide
-                  ? `Only look for a better branch at ${finalChoice.choice.institute}`
-                  : "You don't hold a seat yet, so there's nothing to slide within"
-              }
-              className={secondaryBtn}
-              onClick={() => onAdvance("slide")}
-            >
-              Slide to Round {current.round + 1}
-            </button>
-          </>
-        )}
-        {finalRevealed && (
-          <p className="text-sm font-semibold text-[#3a2c28]">
-            {isFinalRound
-              ? "This was the final round — this is your result."
-              : "Frozen — this is your result."}
-          </p>
-        )}
-      </div>
+      {!finalRevealed && (
+        <div className="flex flex-wrap gap-2">
+          <button
+            type="button"
+            disabled={!finalChoice}
+            title={
+              finalChoice
+                ? "Accept this seat and end the mock here"
+                : "You don't hold a seat yet, so there's nothing to freeze"
+            }
+            className={primaryBtn}
+            onClick={onFreeze}
+          >
+            Freeze this seat
+          </button>
+          <button
+            type="button"
+            className={secondaryBtn}
+            onClick={() => onAdvance("float")}
+          >
+            Float to Round {current.round + 1}
+          </button>
+          <button
+            type="button"
+            disabled={!canSlide}
+            title={
+              canSlide
+                ? `Only look for a better branch at ${finalChoice.choice.institute}`
+                : "You don't hold a seat yet, so there's nothing to slide within"
+            }
+            className={secondaryBtn}
+            onClick={() => onAdvance("slide")}
+          >
+            Slide to Round {current.round + 1}
+          </button>
+        </div>
+      )}
 
       {!finalRevealed && (
         <p className="text-[11px] text-[#9a8a84]">
@@ -1346,56 +1626,9 @@ const SimulateStep = ({
         </p>
       )}
 
-      {/* Round-by-round trail so far */}
-      <div className="flex flex-wrap gap-1">
-        {trail.map((r) => (
-          <span
-            key={r.round}
-            className="rounded-full border border-[#d8c7c1] px-2 py-1 text-[11px] text-[#5b4a45]"
-          >
-            R{r.round}
-            {r.mode ? ` (${r.mode})` : ""}:{" "}
-            {r.provisional
-              ? r.provisional.choice.institute.split(",")[0]
-              : "no seat"}
-          </span>
-        ))}
-      </div>
-
-      {finalRevealed && finalChoice && (
-        <div className={cardClass}>
-          <h2 className="text-sm font-bold text-[#3a2c28]">
-            Your simulated allotment
-          </h2>
-          <p className="mt-2 text-base font-bold text-[#3a2c28]">
-            {finalChoice.choice.institute}
-          </p>
-          <p className="text-sm text-[#5b4a45]">{finalChoice.choice.program}</p>
-          <div className="mt-3 grid gap-2 text-xs text-[#5b4a45] sm:grid-cols-3">
-            <span className="rounded-full bg-[#f8efec] px-3 py-1">
-              NIRF Engg rank: {college?.nirf?.engineering_rank ?? "not ranked"}
-            </span>
-            {/* Same opening/closing already shown in the round card above —
-                sourced from the same seat lookup (your actual quota/category/
-                round), not colleges.json's generic OPEN-category figure, so
-                it never disagrees with what you just saw. */}
-            <span className="rounded-full bg-[#f8efec] px-3 py-1">
-              Branch closing rank (your quota):{" "}
-              {formatRank(finalChoice.closing)}
-            </span>
-            <span className="rounded-full bg-[#f8efec] px-3 py-1">
-              Median CTC (college-level):{" "}
-              {formatSalary(college?.placement?.median_salary)}
-            </span>
-          </div>
-        </div>
-      )}
 
       {finalRevealed && finalChoice && missedOptions.length > 0 && (
-        <MissedOptionsPanel
-          missedOptions={missedOptions}
-          round={current.round}
-        />
+        <MissedOptionsPanel missedOptions={missedOptions} />
       )}
 
       {finalRevealed && !finalChoice && (
