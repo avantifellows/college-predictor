@@ -153,7 +153,7 @@ def _load_options_file(path):
     return _option_cache[path]
 
 
-def college_options(branch_id, em, per_exam=3, total=12):
+def college_options(branch_id, em, per_exam=2, total=6):
     """A few real (college, branch, exam, closing number) rows per exam
     route for this career's branch. JoSAA splits into JEE Advanced (IITs)
     vs JEE Main; each row keeps its own rank basis — never compare the
@@ -228,6 +228,16 @@ def main():
         for m in exam_mentions(r["Entry Exams"], exam_cards):
             if not any(e["label"] == m["label"] for e in exams):
                 exams.append(m)
+        # still nothing? offer the ALL-INDIA exams whose streams include
+        # this field (Arts -> CUET (UG)) — national routes only, so a
+        # humanities career doesn't drown in university-specific tests
+        if not exams:
+            for card in exam_cards:
+                if card["scope_type"] == "All India" and name in card["streams"]:
+                    exams.append({"label": card["acronym"],
+                                  "href": f"/exams?q={card['acronym']}"})
+                if len(exams) >= 3:
+                    break
         # exact-name careers own the reverse link (branch chip -> career)
         if branch_id and norm(name) in pmap:
             branch_to_career[branch_id] = cid

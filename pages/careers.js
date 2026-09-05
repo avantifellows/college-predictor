@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import dynamic from "next/dynamic";
+import { useRouter } from "next/router";
 import { Search } from "lucide-react";
 
 const Dropdown = dynamic(() => import("../components/dropdown"), {
@@ -149,7 +150,7 @@ const CareerDetail = ({ c }) => (
           ],
           (c.college_options?.length || c.top_colleges?.length) && [
             c.college_options?.length
-              ? "Colleges and real cutoffs"
+              ? "Cutoffs"
               : "Colleges known for it",
             <div key="c">
               <CollegeOptions c={c} />
@@ -246,6 +247,7 @@ const CollegeOptions = ({ c }) => (
 );
 
 export default function Careers() {
+  const router = useRouter();
   const [all, setAll] = useState([]);
   const [error, setError] = useState(null);
   const [q, setQ] = useState("");
@@ -288,9 +290,13 @@ export default function Careers() {
 
   const pick = (id) => {
     setSelected(id);
-    // keep the URL shareable — PRESERVE history.state: Next.js stores its
-    // route data there, and nulling it breaks the browser back button
-    window.history.replaceState(window.history.state, "", `#${id}`);
+    // shallow router.replace keeps the hash inside Next's OWN history
+    // record — raw replaceState left Next's copy at '/careers', so coming
+    // BACK from an exam chip restored the page without the selection
+    router.replace(`/careers#${id}`, undefined, {
+      shallow: true,
+      scroll: false,
+    });
   };
 
   return (
