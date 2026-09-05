@@ -17,9 +17,9 @@ import re
 
 import pandas as pd
 
-SRC = "/Users/surya/jan2023/Career_Streams_Engineering_Populated - Sheet1.csv"
-TAXONOMY = "/Users/surya/jan2023/branch - Branch.csv"
-EXAM_MAP = "/Users/surya/jan2023/exam_branch_mapping.csv"
+SRC = "data-sources/career_streams.csv"
+TAXONOMY = "data-sources/branch_taxonomy.csv"
+EXAM_MAP = "data-sources/exam_branch_mapping.csv"
 EXAMS_TAB = "public/data/exams/exams.json"
 OUT_DIR = "public/data/careers"
 

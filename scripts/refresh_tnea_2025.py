@@ -32,7 +32,7 @@ from pathlib import Path
 import pandas as pd
 
 REPO = Path(__file__).resolve().parent.parent
-PARQUET = Path("/Users/surya/jan2023/external_data_sources/tnea/clean/tnea_fact_cutoffs.parquet")
+PARQUET = REPO.parent / Path("external_data_sources/tnea/clean/tnea_fact_cutoffs.parquet")
 OUT = REPO / "public/data/TNEA/tnea_data.json"
 
 CATEGORY = {"OC": "General/OC", "BC": "BC", "BCM": "BCM", "MBC": "MBC",

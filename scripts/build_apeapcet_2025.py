@@ -18,7 +18,7 @@ from pathlib import Path
 import pandas as pd
 
 REPO = Path(__file__).resolve().parent.parent
-PARQUET = Path("/Users/surya/jan2023/external_data_sources/apeapcet/clean/apeapcet_fact_cutoffs.parquet")
+PARQUET = REPO.parent / Path("external_data_sources/apeapcet/clean/apeapcet_fact_cutoffs.parquet")
 OUT = REPO / "public/data/APEAPCET/apeapcet_data.json"
 
 CT_LABEL = {"Univ-Govt": "Government University",

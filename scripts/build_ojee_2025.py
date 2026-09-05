@@ -18,7 +18,7 @@ from pathlib import Path
 import pandas as pd
 
 REPO = Path(__file__).resolve().parent.parent
-PARQUET = Path("/Users/surya/jan2023/external_data_sources/ojee/clean/ojee_fact_cutoffs.parquet")
+PARQUET = REPO.parent / Path("external_data_sources/ojee/clean/ojee_fact_cutoffs.parquet")
 OUT = REPO / "public/data/OJEE/ojee_data.json"
 
 df = pd.read_parquet(PARQUET)
