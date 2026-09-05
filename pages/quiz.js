@@ -427,7 +427,7 @@ export default function Quiz() {
             ) : colleges.length === 0 || busy ? (
               <div className="flex items-center justify-center gap-3 py-12 text-sm text-[#7a635d]">
                 <span className="h-5 w-5 animate-spin rounded-full border-2 border-[#eaded8] border-t-[#B52326]" />
-                {colleges.length === 0 ? "Loading…" : "One moment…"}
+                {colleges.length === 0 ? "Loading…" : ""}
               </div>
             ) : stage === 0 ? (
               <>
