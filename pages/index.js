@@ -79,7 +79,7 @@ const TOOLS = [
     href: "/compare",
     icon: Scale,
     title: "College & Course Comparison",
-    desc: "Two or three options side by side, on real numbers.",
+    desc: "Your options side by side, on real numbers.",
   },
   {
     href: "https://cv-generator.avantifellows.org/",
