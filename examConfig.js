@@ -973,20 +973,24 @@ export const kcetConfig = {
         { value: "Karnataka", label: "Karnataka" },
       ],
     },
+    // Kannada-medium and Rural are HORIZONTAL quotas KEA publishes as
+    // separate rows (no row is both) — they EXPAND what a student is
+    // eligible for, they never narrow it. Asked as yes/no eligibility, so
+    // "Kannada + Rural" can't AND itself into zero results (Akshay's bug).
     {
-      name: "language",
-      label: "Choose your Class 1 - Class 10 Language",
+      name: "kannadaMedium",
+      label: "Did you study Class 1 - Class 10 in Kannada Medium?",
       options: [
-        { value: "Any", label: "Any" },
-        { value: "Kannada", label: "Kannada" },
+        { value: "No", label: "No" },
+        { value: "Yes", label: "Yes" },
       ],
     },
     {
-      name: "region",
-      label: "Choose Your Region",
+      name: "rural",
+      label: "Are you from a Rural Area?",
       options: [
-        { value: "Rural", label: "Rural" },
-        { value: "All", label: "All" },
+        { value: "No", label: "No" },
+        { value: "Yes", label: "Yes" },
       ],
     },
   ],
@@ -1002,8 +1006,10 @@ export const kcetConfig = {
     (item) => item.Category === query.category,
     (item) => item["Course Type"] === query.courseType,
     (item) => item.State === query.homeState || item.State === "All India",
-    (item) => query.language === "Any" || item.Language === query.language,
-    (item) => query.region === "All" || item["Rural/Urban"] === query.region,
+    // eligibility-expanding: everyone sees the base rows; saying Yes ADDS
+    // the Kannada / Rural quota rows rather than replacing the base ones
+    (item) => item.Language === "Any" || query.kannadaMedium === "Yes",
+    (item) => item["Rural/Urban"] === "All" || query.rural === "Yes",
     (item) => {
       if (!query.rank) return true;
       const closingRank = parseInt(item["Closing Rank"], 10);
