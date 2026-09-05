@@ -15,15 +15,12 @@ const Footer = () => {
   return (
     <footer className="border-t border-[#eaded8] bg-white">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-1.5 px-4 py-6 text-center text-xs text-[#7a635d] sm:flex-row sm:justify-between sm:text-left">
+        <p>© {new Date().getFullYear()} Avanti Fellows</p>
         <p>
-          © {new Date().getFullYear()} Avanti Fellows · free for every student
-        </p>
-        <p>
-          Built from{" "}
-          <Link href="/datasets" className="underline hover:text-[#B52326]">
-            open, official data
+          <Link href="/datasets" className="transition hover:text-[#B52326]">
+            Built with open data
           </Link>
-          {updated ? ` · last updated ${updated}` : ""}
+          {updated ? ` · Updated ${updated}` : ""}
         </p>
       </div>
     </footer>

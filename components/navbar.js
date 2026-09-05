@@ -91,7 +91,7 @@ const Navbar = () => {
 
   return (
     <div className="border-b border-[#eaded8] bg-white shadow-sm">
-      <div className="flex flex-row items-center justify-between px-4 py-1.5 md:px-8">
+      <div className="mx-auto flex w-full max-w-6xl flex-row items-center justify-between px-5 py-2.5 md:px-8">
         <div className="flex items-center gap-3">
           <Link href="/" className="relative block h-8 w-28 md:h-10 md:w-36">
             <img
@@ -119,9 +119,9 @@ const Navbar = () => {
       </div>
       <div
         ref={barRef}
-        className="w-full bg-[#B52326] px-4 py-3 text-white md:px-8"
+        className="w-full bg-[#B52326] py-3 text-white"
       >
-        <div className="mx-auto flex max-w-6xl items-center justify-between gap-2">
+        <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-2 px-5 md:px-8">
           <div className="flex flex-wrap items-center gap-2">
             <NavGroup
               label="Dashboards"
