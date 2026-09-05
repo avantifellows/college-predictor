@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import dynamic from "next/dynamic";
+import { useRouter } from "next/router";
 import { Plus, X } from "lucide-react";
 
 const Dropdown = dynamic(() => import("../components/dropdown"), {
@@ -150,7 +151,23 @@ const OptionPicker = ({ idx, colleges, option, setOption, remove }) => {
   );
 };
 
+// "Aerospace Engineering (4 Years, Bachelor of Technology)" -> its index in
+// the college's programme list (predictor rows carry the full JoSAA string)
+const matchBranchIdx = (college, programName) => {
+  const m = String(programName).match(/^(.*?)\s*\((\d+)\s*Years?,\s*(.*)\)$/);
+  const base = m ? m[1].trim() : String(programName).trim();
+  const years = m ? Number(m[2]) : null;
+  const degree = m ? m[3].trim() : null;
+  const list = college.programs.list;
+  let idx = list.findIndex(
+    (p) => p.branch === base && p.years === years && p.degree === degree
+  );
+  if (idx < 0) idx = list.findIndex((p) => p.branch === base);
+  return idx >= 0 ? String(idx) : null;
+};
+
 export default function Compare() {
+  const router = useRouter();
   const [all, setAll] = useState([]);
   const [error, setError] = useState(null);
   const [options, setOptions] = useState([
@@ -164,6 +181,25 @@ export default function Compare() {
       .then(setAll)
       .catch(() => setError("Could not load colleges right now."));
   }, []);
+
+  // arriving from predictor results: /compare?o=U-0306~<program>|U-0301~<program>
+  useEffect(() => {
+    if (!router.isReady || !router.query.o || all.length === 0) return;
+    const parsed = String(router.query.o)
+      .split("|")
+      .slice(0, MAX_OPTIONS)
+      .map((part) => {
+        const [cid, ...rest] = part.split("~");
+        const college = all.find((c) => c.college_id === cid);
+        if (!college) return null;
+        return {
+          collegeId: cid,
+          branchIdx: matchBranchIdx(college, rest.join("~")),
+        };
+      })
+      .filter((o) => o && o.branchIdx != null);
+    if (parsed.length >= 2) setOptions(parsed);
+  }, [router.isReady, router.query.o, all]);
 
   const picked = useMemo(
     () =>
@@ -182,14 +218,17 @@ export default function Compare() {
 
   const ready = picked.length >= 2;
 
-  const bestIdx = (row) => {
+  // every cell holding the best value highlights — two options that tie
+  // and jointly beat a third both deserve the mark. Only a row where all
+  // values are equal (or fewer than two exist) says nothing.
+  const bestSet = (row) => {
     const vals = picked.map((o) => row.get(o));
     const nums = vals.filter((v) => v != null);
-    if (nums.length < 2) return -1;
+    if (nums.length < 2 || nums.every((v) => v === nums[0])) return new Set();
     const best = row.betterLow ? Math.min(...nums) : Math.max(...nums);
-    // a tie is nobody's win
-    if (nums.filter((v) => v === best).length > 1) return -1;
-    return vals.indexOf(best);
+    return new Set(
+      vals.map((v, i) => (v === best ? i : -1)).filter((i) => i >= 0)
+    );
   };
 
   return (
@@ -254,94 +293,96 @@ export default function Compare() {
 
               {ready ? (
                 <>
-                <div className="mt-8 overflow-hidden rounded-xl border border-[#eaded8]">
-                  <div className="overflow-x-auto">
-                    <table className="w-full min-w-[560px] border-collapse text-sm">
-                    <thead>
-                      <tr className="border-b-2 border-[#e3d1cb] bg-[#f8efec] text-left">
-                        <th className="w-[26%] px-3 py-2.5" />
-                        {picked.map((o, i) => (
-                          <th key={i} className="px-3 py-2.5 align-top">
-                            <div className="font-bold text-[#2f2320]">
-                              {o.college.display_name}
-                            </div>
-                            <div className="mt-0.5 text-xs font-semibold text-[#8f2e31]">
-                              {o.program.branch}
-                            </div>
-                            <div className="mt-0.5 text-[11px] font-normal text-[#7a635d]">
-                              {[o.college.district, o.college.state]
-                                .filter(Boolean)
-                                .join(", ")}
-                              {o.college.ownership
-                                ? ` · ${o.college.ownership}`
-                                : ""}
-                            </div>
-                          </th>
-                        ))}
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {ROWS.map((row) => {
-                        const win = bestIdx(row);
-                        return (
-                          <tr
-                            key={row.key}
-                            className="border-b border-[#eaded8]"
-                          >
-                            <td className="px-3 py-3 align-top">
-                              <div className="font-semibold text-[#2f2320]">
-                                {row.label}
-                              </div>
-                              <div className="text-[11px] leading-4 text-[#a89a94]">
-                                {typeof row.sub === "function"
-                                  ? row.sub(picked[0])
-                                  : row.sub}
-                              </div>
-                            </td>
-                            {picked.map((o, i) => {
-                              const v = row.get(o);
-                              return (
-                                <td
-                                  key={i}
-                                  className={`px-3 py-3 align-top tabular-nums ${
-                                    i === win
-                                      ? "bg-[#fbeeec] font-bold text-[#8f2e31]"
-                                      : "text-[#2f2320]"
-                                  }`}
-                                >
-                                  {v == null ? (
-                                    <span className="text-[#b9a8a2]">—</span>
-                                  ) : (
-                                    row.fmt(v)
-                                  )}
-                                </td>
-                              );
-                            })}
+                  <div className="mt-8 overflow-hidden rounded-xl border border-[#eaded8]">
+                    <div className="overflow-x-auto">
+                      <table className="w-full min-w-[560px] border-collapse text-sm">
+                        <thead>
+                          <tr className="border-b-2 border-[#e3d1cb] bg-[#f8efec] text-left">
+                            <th className="w-[26%] px-3 py-2.5" />
+                            {picked.map((o, i) => (
+                              <th key={i} className="px-3 py-2.5 align-top">
+                                <div className="font-bold text-[#2f2320]">
+                                  {o.college.display_name}
+                                </div>
+                                <div className="mt-0.5 text-xs font-semibold text-[#8f2e31]">
+                                  {o.program.branch}
+                                </div>
+                                <div className="mt-0.5 text-[11px] font-normal text-[#7a635d]">
+                                  {[o.college.district, o.college.state]
+                                    .filter(Boolean)
+                                    .join(", ")}
+                                  {o.college.ownership
+                                    ? ` · ${o.college.ownership}`
+                                    : ""}
+                                </div>
+                              </th>
+                            ))}
                           </tr>
-                        );
-                      })}
-                      <tr>
-                        <td className="px-3 py-3" />
-                        {picked.map((o, i) => (
-                          <td key={i} className="px-3 py-3">
-                            <Link
-                              href={`/colleges?q=${encodeURIComponent(
-                                o.college.display_name
-                              )}`}
-                              className="text-xs text-[#8f2e31] underline hover:text-[#B52326]"
-                            >
-                              Full college details
-                            </Link>
-                          </td>
-                        ))}
-                      </tr>
-                    </tbody>
-                    </table>
+                        </thead>
+                        <tbody>
+                          {ROWS.map((row) => {
+                            const win = bestIdx(row);
+                            return (
+                              <tr
+                                key={row.key}
+                                className="border-b border-[#eaded8]"
+                              >
+                                <td className="px-3 py-3 align-top">
+                                  <div className="font-semibold text-[#2f2320]">
+                                    {row.label}
+                                  </div>
+                                  <div className="text-[11px] leading-4 text-[#a89a94]">
+                                    {typeof row.sub === "function"
+                                      ? row.sub(picked[0])
+                                      : row.sub}
+                                  </div>
+                                </td>
+                                {picked.map((o, i) => {
+                                  const v = row.get(o);
+                                  return (
+                                    <td
+                                      key={i}
+                                      className={`px-3 py-3 align-top tabular-nums ${
+                                        i === win
+                                          ? "bg-[#fbeeec] font-bold text-[#8f2e31]"
+                                          : "text-[#2f2320]"
+                                      }`}
+                                    >
+                                      {v == null ? (
+                                        <span className="text-[#b9a8a2]">
+                                          —
+                                        </span>
+                                      ) : (
+                                        row.fmt(v)
+                                      )}
+                                    </td>
+                                  );
+                                })}
+                              </tr>
+                            );
+                          })}
+                          <tr>
+                            <td className="px-3 py-3" />
+                            {picked.map((o, i) => (
+                              <td key={i} className="px-3 py-3">
+                                <Link
+                                  href={`/colleges?q=${encodeURIComponent(
+                                    o.college.display_name
+                                  )}`}
+                                  className="text-xs text-[#8f2e31] underline hover:text-[#B52326]"
+                                >
+                                  Full college details
+                                </Link>
+                              </td>
+                            ))}
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                   </div>
-                </div>
-                <p className="mt-3 text-xs leading-5 text-[#9b8a82]">
-                    Highlighted cells have the better number. Based on NIRF
-                    data and each college&apos;s own fee circular.
+                  <p className="mt-3 text-xs leading-5 text-[#9b8a82]">
+                    Highlighted cells have the better number. Based on NIRF data
+                    and each college&apos;s own fee circular.
                   </p>
                 </>
               ) : (

@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
+import Link from "next/link";
 import { ArrowDown, ArrowUp, ArrowUpDown, Info } from "lucide-react";
 import PropTypes from "prop-types";
 import examConfigs from "../examConfig";
@@ -314,6 +315,24 @@ const PredictedCollegesTable = ({
   });
   const [salaryTooltip, setSalaryTooltip] = useState(null);
   const [josaaCollegeGroup, setJosaaCollegeGroup] = useState("main");
+  // JoSAA rows carry the Colleges tab's college_id, so results can hand off
+  // straight into /compare — the standalone's star-and-compare flow, without
+  // accounts (selection lives for this results view only)
+  const [compareSel, setCompareSel] = useState([]);
+  const compareKeyOf = (t) => `${t["College ID"]}~${t.academic_program_name}`;
+  const toggleCompare = (t) => {
+    const key = compareKeyOf(t);
+    setCompareSel((prev) =>
+      prev.some((x) => x.key === key)
+        ? prev.filter((x) => x.key !== key)
+        : prev.length >= 3
+        ? prev
+        : [
+            ...prev,
+            { key, cid: t["College ID"], program: t.academic_program_name },
+          ]
+    );
+  };
   // NEET: which seat pool the results tab is showing — home-state vs All India.
   const [neetSeatTab, setNeetSeatTab] = useState("home");
 
@@ -1290,6 +1309,11 @@ const PredictedCollegesTable = ({
 
   const renderTableHeader = () => (
     <tr className={commonHeaderClass}>
+      {isJosaaExam && (
+        <th className="whitespace-nowrap border-b border-[#decac3] px-3 py-3">
+          Compare
+        </th>
+      )}
       {predicted_colleges_table_column.map((column) => (
         <th
           key={column.key}
@@ -1360,9 +1384,51 @@ const PredictedCollegesTable = ({
               index % 2 === 0 ? "bg-[#fffdfa]" : "bg-white"
             }`}
           >
+            {isJosaaExam && (
+              <td className="px-3 py-3 text-center align-top">
+                {transformedItem["College ID"] ? (
+                  <input
+                    type="checkbox"
+                    aria-label={`Compare ${transformedItem.institute}`}
+                    checked={compareSel.some(
+                      (x) => x.key === compareKeyOf(transformedItem)
+                    )}
+                    disabled={
+                      compareSel.length >= 3 &&
+                      !compareSel.some(
+                        (x) => x.key === compareKeyOf(transformedItem)
+                      )
+                    }
+                    title={
+                      compareSel.length >= 3 &&
+                      !compareSel.some(
+                        (x) => x.key === compareKeyOf(transformedItem)
+                      )
+                        ? "3 picked already — untick one first"
+                        : "Pick to compare"
+                    }
+                    onChange={() => toggleCompare(transformedItem)}
+                    className="h-4 w-4 accent-[#B52326] disabled:cursor-not-allowed disabled:opacity-30"
+                  />
+                ) : null}
+              </td>
+            )}
             {predicted_colleges_table_column.map((column) => (
               <td key={column.key} className="px-4 py-3 align-top">
-                {getDisplayValue(column, transformedItem)}
+                {column.key === "institute" &&
+                isJosaaExam &&
+                transformedItem["College ID"] ? (
+                  <Link
+                    href={`/colleges?q=${encodeURIComponent(
+                      transformedItem.institute
+                    )}`}
+                    className="underline decoration-[#e3d1cb] underline-offset-2 transition hover:text-[#8f2e31] hover:decoration-[#8f2e31]"
+                  >
+                    {transformedItem.institute}
+                  </Link>
+                ) : (
+                  getDisplayValue(column, transformedItem)
+                )}
               </td>
             ))}
             {supportsExpandedView && (
@@ -1524,6 +1590,34 @@ const PredictedCollegesTable = ({
       )}
       {displayData.length > 0 ? (
         <div className="overflow-x-auto rounded-xl border border-[#eaded8] bg-white shadow-sm">
+          {isJosaaExam && compareSel.length > 0 ? (
+            <div className="fixed bottom-4 left-1/2 z-40 flex w-max max-w-[95vw] -translate-x-1/2 items-center gap-3 rounded-full border border-[#eaded8] bg-white px-5 py-2.5 text-sm shadow-lg">
+              <span className="whitespace-nowrap font-semibold text-[#5b3a34]">
+                {compareSel.length} of 3 picked
+              </span>
+              {compareSel.length >= 2 ? (
+                <Link
+                  href={`/compare?o=${encodeURIComponent(
+                    compareSel.map((x) => `${x.cid}~${x.program}`).join("|")
+                  )}`}
+                  className="inline-flex items-center whitespace-nowrap rounded-full bg-[#B52326] px-4 py-1.5 text-xs font-semibold text-white transition hover:bg-[#9E1F22]"
+                >
+                  Compare
+                </Link>
+              ) : (
+                <span className="whitespace-nowrap text-xs text-[#7a635d]">
+                  pick one more
+                </span>
+              )}
+              <button
+                type="button"
+                onClick={() => setCompareSel([])}
+                className="text-xs text-[#7a635d] underline hover:text-[#B52326]"
+              >
+                clear
+              </button>
+            </div>
+          ) : null}
           <table className={commonTableClass}>
             <thead>{renderTableHeader()}</thead>
             <tbody>{renderTableBody()}</tbody>
