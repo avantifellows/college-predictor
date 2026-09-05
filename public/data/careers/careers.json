@@ -6,7 +6,12 @@
   "day_in_life": "An administrator plans schedules, manages people and paperwork, solves everyday problems in an office or government department, and makes sure rules and processes run smoothly. Some days are meetings and decisions, other days are handling complaints or coordinating between teams.",
   "impact": "A district collector (a top government administrator) manages disaster relief during floods in Kerala or Assam, while a corporate administration manager at a company like Tata Group keeps offices, staff, and daily operations running so the business doesn't grind to a halt.",
   "entry_exams_text": "UPSC Civil Services Exam (a national exam for government administrative jobs like IAS officer), CAT (a national exam to get into business schools like IIMs for a management degree), or no fixed exam at all if you join corporate admin roles straight after a BBA (Bachelor of Business Administration) degree.",
-  "exams": null,
+  "exams": [
+   {
+    "label": "BBA-CET (125)",
+    "href": "/exams?q=BBA"
+   }
+  ],
   "top_colleges": [
    "Lal Bahadur Shastri National Academy of Administration (for IAS training)",
    "Indian Institutes of Management (IIMs)",
@@ -31,6 +36,7 @@
   "stability": "High",
   "automation_risk": "Low",
   "where_work": "Metro cities mainly for corporate roles, but government postings can be anywhere including small towns",
+  "college_options": [],
   "notable_people": [
    "Kiran Bedi (first woman IPS officer)",
    "Armstrong Pame (IAS officer known for road-building)",
@@ -96,6 +102,10 @@
    {
     "label": "TNEA counselling",
     "href": "/?exam=TNEA"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -122,6 +132,80 @@
   "stability": "Medium",
   "automation_risk": "Low",
   "where_work": "Metro cities mainly",
+  "college_options": [
+   {
+    "college": "Indian Institute of Technology Bombay",
+    "branch": "Aerospace Engineering",
+    "exam": "JEE Advanced",
+    "closing": "2,305"
+   },
+   {
+    "college": "Indian Institute of Technology Madras",
+    "branch": "Aerospace Engineering",
+    "exam": "JEE Advanced",
+    "closing": "2,749"
+   },
+   {
+    "college": "Indian Institute of Technology Kanpur",
+    "branch": "Aerospace Engineering",
+    "exam": "JEE Advanced",
+    "closing": "3,661"
+   },
+   {
+    "college": "R. V. College of Engineering, Bangalore(AUTONOMOUS) R.V. VIDYANIKETAN POST, MYSORE ROAD,BANGALORE",
+    "branch": "AERO SPACE ENGINEERING",
+    "exam": "KCET",
+    "closing": "2,069"
+   },
+   {
+    "college": "M S Ramaiah Institute of Technology, Bangalore(AUTONOMOUS) VIDYA SOUDHA,MSR NAGAR,MSRIT POST,BANGALORE - 560054.",
+    "branch": "AERO SPACE ENGINEERING",
+    "exam": "KCET",
+    "closing": "6,536"
+   },
+   {
+    "college": "M . S . Ramaiah University of Applied Sciences UNIVERSITY HOUSE, GNANAGANGOTHRI CAMPUS, NEW BEL ROAD, MSR ROAD, BANGALORE - 560054",
+    "branch": "B TECH IN AERO SPACE ENGINEERING",
+    "exam": "KCET",
+    "closing": "11,215"
+   },
+   {
+    "college": "Jawahar Education Society's Annasaheb Chudaman Patil College of Engineering,Kharghar, Navi Mumbai",
+    "branch": "Aeronautical Engineering",
+    "exam": "MHT-CET",
+    "closing": "70,382"
+   },
+   {
+    "college": "Annasaheb Dange College of Engineering and Technology, Ashta, Sangli",
+    "branch": "Aeronautical Engineering",
+    "exam": "MHT-CET",
+    "closing": "77,682"
+   },
+   {
+    "college": "Lokmanya Tilak Jankalyan Shikshan Sanstha, Priyadarshani College of Engineering, Nagpur",
+    "branch": "Aeronautical Engineering",
+    "exam": "MHT-CET",
+    "closing": "78,746"
+   },
+   {
+    "college": "Odisha University of Technology and Research (formerly College of Engineering and Technology), Bhubaneswar",
+    "branch": "AEROSPACE ENGINEERING - TFW",
+    "exam": "OJEE",
+    "closing": "171,705 (JEE Main rank)"
+   },
+   {
+    "college": "CENTURION UNIVERSITY OF TECHNOLOGY AND MANAGEMENT,(CUTM) ODISHA, BHUBANESWAR CAMPUS",
+    "branch": "AEROSPACE ENGINEERING",
+    "exam": "OJEE",
+    "closing": "825,922 (JEE Main rank)"
+   },
+   {
+    "college": "Bhubaneswar Engineering College, Pitapally, Bhubaneswar",
+    "branch": "Aeronautical Engineering",
+    "exam": "OJEE",
+    "closing": "970,229 (JEE Main rank)"
+   }
+  ],
   "notable_people": [
    "A.P.J. Abdul Kalam: former President",
    "rocket scientist; K. Sivan: former ISRO chairman; Ritu Karidhal: senior ISRO scientist on Mars mission"
@@ -189,6 +273,14 @@
    {
     "label": "WBJEE",
     "href": "/exams?q=WBJEE"
+   },
+   {
+    "label": "CUET (UG)",
+    "href": "/exams?q=ICAR"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -215,6 +307,80 @@
   "stability": "High",
   "automation_risk": "Low",
   "where_work": "Tier-2 cities fine",
+  "college_options": [
+   {
+    "college": "Indian Institute of Technology Kharagpur",
+    "branch": "Agricultural and Food Engineering",
+    "exam": "JEE Advanced",
+    "closing": "10,498"
+   },
+   {
+    "college": "Indian Institute of Technology Ropar",
+    "branch": "Digital Agriculture",
+    "exam": "JEE Advanced",
+    "closing": "13,685"
+   },
+   {
+    "college": "Assam University, Silchar",
+    "branch": "Agricultural Engineering",
+    "exam": "JEE Main",
+    "closing": "80,704"
+   },
+   {
+    "college": "REVA University RUKMINI KNOWLEDGE PARK, KATTIGENAHALLI, YELAHANKA,BANGALORE - 560064,",
+    "branch": "B TECH IN AGRICULTURAL ENGINEERING",
+    "exam": "KCET",
+    "closing": "72,864"
+   },
+   {
+    "college": "S E A College of Engineering & Technology, Virgonagar, Bangalore EKTA NAGAR, BASAVANAPURA, VIRGO NAGAR POST, BANGALORE - 560 049.",
+    "branch": "AGRICULTURE ENGINEERING",
+    "exam": "KCET",
+    "closing": "235,238"
+   },
+   {
+    "college": "Tontadarya College of Engineering, Gadag MUNDARAGI ROAD ,GADAG - 582101",
+    "branch": "AGRICULTURE ENGINEERING",
+    "exam": "KCET",
+    "closing": "243,863"
+   },
+   {
+    "college": "Bidhan Chandra Krishi Viswa Vidyalaya, Mohanpur, Nadia",
+    "branch": "Agricultural Engineering",
+    "exam": "WBJEE",
+    "closing": "5,268"
+   },
+   {
+    "college": "FACULTY OF TECHNOLOGY, UTTAR BANGA KRISHI VISWAVIDYALAYA",
+    "branch": "Agricultural Engineering",
+    "exam": "WBJEE",
+    "closing": "11,599"
+   },
+   {
+    "college": "Haldia Institute of Technology, Haldia, Purba Medinipur",
+    "branch": "Agricultural Engineering",
+    "exam": "WBJEE",
+    "closing": "18,406"
+   },
+   {
+    "college": "G. S. Mandal's Maharashtra Institute of Technology, Aurangabad",
+    "branch": "Agricultural Engineering",
+    "exam": "MHT-CET",
+    "closing": "78,186"
+   },
+   {
+    "college": "Bhubaneswar Engineering College, Pitapally, Bhubaneswar",
+    "branch": "Agriculture Engineering - TFW",
+    "exam": "OJEE",
+    "closing": "148,097 (JEE Main rank)"
+   },
+   {
+    "college": "GIFT Autonomous, Bhubaneswar",
+    "branch": "Agriculture Engineering",
+    "exam": "OJEE",
+    "closing": "1,108,949 (JEE Main rank)"
+   }
+  ],
   "notable_people": [
    "M.S. Swaminathan: father of India's Green Revolution; Verghese Kurien: dairy and agri-industry pioneer"
   ],
@@ -241,7 +407,12 @@
   "day_in_life": "An agriculture professional studies soil, crops, and weather, advises farmers on better farming methods, or works on developing new seeds and farming technology. Some days involve visiting farms, other days are spent in a lab or office analyzing data.",
   "impact": "Agricultural scientists at ICAR (Indian Council of Agricultural Research) helped develop high-yield wheat and rice varieties that reduced India's dependence on imported food during the Green Revolution, and companies like ITC Limited work with millions of farmers today to improve crop quality and income.",
   "entry_exams_text": "ICAR AIEEA (a national exam to get into agriculture degree programs at government agricultural universities), or state-level agriculture entrance exams; some private colleges admit based on Class 12 marks.",
-  "exams": null,
+  "exams": [
+   {
+    "label": "CUET (UG)",
+    "href": "/exams?q=ICAR"
+   }
+  ],
   "top_colleges": [
    "Indian Agricultural Research Institute (IARI) New Delhi",
    "Punjab Agricultural University",
@@ -265,6 +436,7 @@
   "stability": "High",
   "automation_risk": "Medium",
   "where_work": "Tier-2 cities fine, and many roles require working in rural areas near farms",
+  "college_options": [],
   "notable_people": [
    "M.S. Swaminathan (father of India's Green Revolution)",
    "Verghese Kurien (led India's dairy revolution)",
@@ -317,6 +489,14 @@
    {
     "label": "WBJEE",
     "href": "/exams?q=WBJEE"
+   },
+   {
+    "label": "NATA",
+    "href": "/exams?q=NATA"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -342,6 +522,62 @@
   "stability": "Medium",
   "automation_risk": "Low",
   "where_work": "Metro cities mainly, though Tier-2 cities are growing in demand as real estate expands",
+  "college_options": [
+   {
+    "college": "School of Planning & Architecture, New Delhi",
+    "branch": "Architecture",
+    "exam": "JEE Main",
+    "closing": "191"
+   },
+   {
+    "college": "National Institute of Technology, Tiruchirappalli",
+    "branch": "Architecture",
+    "exam": "JEE Main",
+    "closing": "227"
+   },
+   {
+    "college": "National Institute of Technology Calicut",
+    "branch": "Architecture",
+    "exam": "JEE Main",
+    "closing": "241"
+   },
+   {
+    "college": "Jadavpur University",
+    "branch": "Architectural Engineering",
+    "exam": "WBJEE",
+    "closing": "2,233"
+   },
+   {
+    "college": "Sanaka Education Trusts Group of Institutions, Durgapur, Burdwan",
+    "branch": "Architecture",
+    "exam": "WBJEE",
+    "closing": "10,038"
+   },
+   {
+    "college": "Om Dayal Group of Institutions, Uluberia, Howrah",
+    "branch": "Architecture",
+    "exam": "WBJEE",
+    "closing": "12,950"
+   },
+   {
+    "college": "Kamla Raheja Vidhyanidhi Institute for Architecture and Environmental Studies, Mumbai",
+    "branch": "Architecture",
+    "exam": "MHT-CET",
+    "closing": "30"
+   },
+   {
+    "college": "Sir J. J. College of Architecture, Mumbai",
+    "branch": "Architecture",
+    "exam": "MHT-CET",
+    "closing": "31"
+   },
+   {
+    "college": "Satish Misal Educational Foundation's BRICK school of Architecture, Pune",
+    "branch": "Architecture",
+    "exam": "MHT-CET",
+    "closing": "44"
+   }
+  ],
   "notable_people": [
    "Charles Correa (designed many landmark Indian buildings)",
    "Hafeez Contractor (well-known commercial architect)",
@@ -370,7 +606,12 @@
   "day_in_life": "An officer in the Indian Army, Navy, or Air Force leads a team of soldiers, sailors, or airmen, plans and carries out training or missions, and takes responsibility for their unit's safety and readiness. A typical day could involve physical training, operating equipment, or making quick decisions during an exercise or real operation.",
   "impact": "Armed forces officers protect India's borders and respond during disasters, like when the Army carried out flood rescue operations in Kerala or the Air Force airlifted supplies during the COVID-19 pandemic, directly protecting citizens' lives.",
   "entry_exams_text": "NDA (National Defence Academy exam, for students right after Class 12 to join the Army, Navy, or Air Force as officers) or CDS (Combined Defence Services exam, for graduates who want to become officers) both conducted by UPSC (Union Public Service Commission, the body that runs major government exams).",
-  "exams": null,
+  "exams": [
+   {
+    "label": "NDA",
+    "href": "/exams?q=NDA"
+   }
+  ],
   "top_colleges": [
    "National Defence Academy (NDA) Khadakwasla",
    "Indian Military Academy (IMA) Dehradun",
@@ -393,6 +634,7 @@
   "stability": "High",
   "automation_risk": "Low",
   "where_work": "Requires postings across India, including remote and border areas, not a fixed-location job",
+  "college_options": [],
   "notable_people": [
    "Field Marshal Sam Manekshaw (led Indian Army during the 1971 war)",
    "Marshal Arjan Singh (only Indian Air Force officer to hold five-star rank)",
@@ -461,6 +703,10 @@
    {
     "label": "WBJEE",
     "href": "/exams?q=WBJEE"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -487,6 +733,80 @@
   "stability": "High",
   "automation_risk": "Medium",
   "where_work": "Works from anywhere",
+  "college_options": [
+   {
+    "college": "Indian Institute of Technology Madras",
+    "branch": "Artificial Intelligence and Data Analytics",
+    "exam": "JEE Advanced",
+    "closing": "292"
+   },
+   {
+    "college": "Indian Institute of Technology Roorkee",
+    "branch": "Data Science and Artificial Intelligence",
+    "exam": "JEE Advanced",
+    "closing": "770"
+   },
+   {
+    "college": "Indian Institute of Technology Hyderabad",
+    "branch": "Artificial Intelligence",
+    "exam": "JEE Advanced",
+    "closing": "831"
+   },
+   {
+    "college": "R. V. College of Engineering, Bangalore(AUTONOMOUS) R.V. VIDYANIKETAN POST, MYSORE ROAD,BANGALORE",
+    "branch": "COMPUTER SCIENCE AND ENGINEERING(ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING)",
+    "exam": "KCET",
+    "closing": "742"
+   },
+   {
+    "college": "PES University 100 Feet Ring Road, Banashankari, 3rd Stage, Hosakerehalli, Near DSERT, , Bangalore KARNATAKA, pin code -560085",
+    "branch": "B TECH IN COMPUTER SCIENCE & ENGINEERING(ARTIFICAL INTELLIGENCE & MACHINE LEARNING)",
+    "exam": "KCET",
+    "closing": "2,694"
+   },
+   {
+    "college": "M S Ramaiah Institute of Technology, Bangalore(AUTONOMOUS) VIDYA SOUDHA,MSR NAGAR,MSRIT POST,BANGALORE - 560054.",
+    "branch": "COMPUTER SCIENCE AND ENGINEERING(ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING)",
+    "exam": "KCET",
+    "closing": "2,791"
+   },
+   {
+    "college": "Heritage Institute of Technology, Kolkata",
+    "branch": "Computer Science & Engineering",
+    "exam": "WBJEE",
+    "closing": "3,417"
+   },
+   {
+    "college": "Techno Main Salt Lake, Sector-V, Salt Lake",
+    "branch": "Computer Science & Engineering",
+    "exam": "WBJEE",
+    "closing": "4,474"
+   },
+   {
+    "college": "Ghani Khan Choudhury Institute of Engineering & Technology, Malda",
+    "branch": "Computer Science & Engineering",
+    "exam": "WBJEE",
+    "closing": "6,227"
+   },
+   {
+    "college": "COEP Technological University",
+    "branch": "Artificial Intelligence and Machine Learning",
+    "exam": "MHT-CET",
+    "closing": "469"
+   },
+   {
+    "college": "Pune Institute of Computer Technology",
+    "branch": "Artificial Intelligence",
+    "exam": "MHT-CET",
+    "closing": "1,139"
+   },
+   {
+    "college": "Shri Vile Parle Kelvani Mandal's Dwarkadas J. Sanghvi College of Engineering, Vile Parle,Mumbai",
+    "branch": "Artificial Intelligence",
+    "exam": "MHT-CET",
+    "closing": "2,801"
+   }
+  ],
   "notable_people": [
    "Andrew Ng: globally known AI educator; Rajat Monga: co-creator of TensorFlow; Anima Anandkumar: AI researcher at Caltech and Nvidia"
   ],
@@ -538,6 +858,7 @@
   "stability": "Medium",
   "automation_risk": "Medium",
   "where_work": "Metro cities mainly for galleries and agencies, but works from anywhere is increasingly possible for freelance artists and writers",
+  "college_options": [],
   "notable_people": [
    "M.F. Husain (celebrated modern Indian painter)",
    "Amrita Sher-Gil (pioneering Indian painter)",
@@ -566,7 +887,12 @@
   "day_in_life": "An audiologist tests people's hearing using special machines, helps fit hearing aids, and works with patients (including babies and elderly people) who have hearing or balance problems. Most of the day is spent in a clinic or hospital doing tests and talking with patients about their results.",
   "impact": "Audiologists working at hospitals like AIIMS help identify hearing loss in newborns early so they can get treatment before it affects their speech and learning, and companies like Cochlear India provide hearing implants that let deaf children hear sound for the first time.",
   "entry_exams_text": "NEET (National Eligibility cum Entrance Test, mainly for medical courses, though audiology entry is often through this or direct college admission) or state-level entrance exams for Bachelor of Audiology and Speech-Language Pathology (BASLP) programs; some colleges admit based on Class 12 marks.",
-  "exams": null,
+  "exams": [
+   {
+    "label": "NEET-UG",
+    "href": "/exams?q=NEET"
+   }
+  ],
   "top_colleges": [
    "All India Institute of Speech and Hearing Mysore",
    "AIIMS New Delhi",
@@ -590,6 +916,7 @@
   "stability": "High",
   "automation_risk": "Low",
   "where_work": "Metro cities mainly, though Tier-2 cities are fine for clinic-based practice",
+  "college_options": [],
   "notable_people": [
    "Dr. S.K. Kacker (pioneer in Indian ENT and hearing sciences)",
    "Dr. Vijayalakshmi Basavaraj (founder of speech and hearing research in India)"
@@ -640,6 +967,10 @@
    {
     "label": "WBJEE",
     "href": "/exams?q=WBJEE"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -666,6 +997,80 @@
   "stability": "Medium",
   "automation_risk": "Medium",
   "where_work": "Metro cities mainly",
+  "college_options": [
+   {
+    "college": "Dayananda Sagar College of Engineering, Bangalore(AUTONOMOUS) SHAVIGE MALLESHWARA HILLS, KUMARASWAMY LAYOUT, BANGALORE-560078",
+    "branch": "AUTOMOBILE ENGINEERING",
+    "exam": "KCET",
+    "closing": "81,406"
+   },
+   {
+    "college": "M . S . Ramaiah University of Applied Sciences UNIVERSITY HOUSE, GNANAGANGOTHRI CAMPUS, NEW BEL ROAD, MSR ROAD, BANGALORE - 560054",
+    "branch": "AUTOMOTIVE ENGINEERING",
+    "exam": "KCET",
+    "closing": "94,698"
+   },
+   {
+    "college": "Srinivas Institute of Technology, Mangalore SRINIVAS CAMPUS",
+    "branch": "AUTOMOBILE ENGINEERING",
+    "exam": "KCET",
+    "closing": "216,242"
+   },
+   {
+    "college": "Dr.Sudhir Chandra Sur Institute of Technology and Sports Complex, Dum Dum",
+    "branch": "Automobile Engineering",
+    "exam": "WBJEE",
+    "closing": "59,821"
+   },
+   {
+    "college": "Mckv Institute of Engineering, Liluah, Howrah",
+    "branch": "Automobile Engineering",
+    "exam": "WBJEE",
+    "closing": "86,617"
+   },
+   {
+    "college": "Government College of Engineering & Research, Avasari Khurd",
+    "branch": "Automobile Engineering",
+    "exam": "MHT-CET",
+    "closing": "56,215"
+   },
+   {
+    "college": "Mahatma Education Society's Pillai College of Engineering, New Panvel",
+    "branch": "Automobile Engineering",
+    "exam": "MHT-CET",
+    "closing": "62,070"
+   },
+   {
+    "college": "Dhole Patil Education Society, Dhole Patil College of Engineering, Wagholi, Tal. Haveli",
+    "branch": "Automobile Engineering",
+    "exam": "MHT-CET",
+    "closing": "107,679"
+   },
+   {
+    "college": "Parala Maharaja Engineering College, Berhampur",
+    "branch": "Automobile Engineering - TFW",
+    "exam": "OJEE",
+    "closing": "993,027 (JEE Main rank)"
+   },
+   {
+    "college": "Nigam Institute of Engineering and Technology, Baranga",
+    "branch": "Automobile Engineering",
+    "exam": "OJEE",
+    "closing": "1,500,810 (JEE Main rank)"
+   },
+   {
+    "college": "University Departments of Anna University Chennai - MIT Campus Chrompet Tambaram Taluk Chengalpattu District 600 044",
+    "branch": "AUTOMOBILE ENGINEERING",
+    "exam": "TNEA",
+    "closing": "193.5/200 marks"
+   },
+   {
+    "college": "PSG College of Technology (Autonomous) Peelamedu Coimbatore District 641004",
+    "branch": "AUTOMOBILE ENGINEERING",
+    "exam": "TNEA",
+    "closing": "188.5/200 marks"
+   }
+  ],
   "notable_people": [
    "Ratan Tata: led Tata Motors and the Tata Nano project; Pawan Goenka: former Mahindra Group executive and auto engineer"
   ],
@@ -692,7 +1097,12 @@
   "day_in_life": "An Ayurvedic doctor examines patients, diagnoses illness using traditional methods alongside modern checks, and prescribes herbal medicines, diet changes, and therapies like massage or yoga. A typical day is much like a regular doctor's, but treatments rely on natural remedies rather than only modern pharmaceutical drugs.",
   "impact": "Ayurvedic doctors at hospitals run by trusts and government AYUSH (Ayurveda, Yoga, Unani, Siddha, Homeopathy) departments treat chronic conditions like arthritis and digestive disorders, and companies like Patanjali Ayurved and Himalaya Wellness turn traditional remedies into products used by millions of Indian households.",
   "entry_exams_text": "NEET (National Eligibility cum Entrance Test, the same exam used for medical college admissions in India, also required for BAMS - Bachelor of Ayurvedic Medicine and Surgery).",
-  "exams": null,
+  "exams": [
+   {
+    "label": "NEET-UG",
+    "href": "/exams?q=NEET"
+   }
+  ],
   "top_colleges": [
    "Institute of Post Graduate Teaching and Research in Ayurveda Jamnagar",
    "Banaras Hindu University Ayurveda Faculty",
@@ -715,6 +1125,7 @@
   "stability": "High",
   "automation_risk": "Low",
   "where_work": "Tier-2 cities fine, and many Ayurvedic practitioners work well in smaller towns and wellness retreat locations",
+  "college_options": [],
   "notable_people": [
    "Acharya Balkrishna (co-founder of Patanjali Ayurved)",
    "Dr. Vasant Lad (globally known Ayurveda educator)",
@@ -747,6 +1158,10 @@
    {
     "label": "JEE Main / Advanced",
     "href": "/exams?q=JEE"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -773,6 +1188,7 @@
   "stability": "High",
   "automation_risk": "Low",
   "where_work": "Metro cities mainly",
+  "college_options": [],
   "notable_people": [
    "Kiran Mazumdar-Shaw: founder of Biocon; Cyrus Poonawalla: founder of Serum Institute of India"
   ],
@@ -823,6 +1239,7 @@
   "stability": "Medium",
   "automation_risk": "Low",
   "where_work": "Metro cities mainly, since most pharma and research labs are based in major cities",
+  "college_options": [],
   "notable_people": [
    "G.N. Ramachandran (renowned Indian biochemist",
    "known for protein structure research)",
@@ -857,6 +1274,10 @@
    {
     "label": "JEE Main / Advanced",
     "href": "/exams?q=JEE"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -883,6 +1304,26 @@
   "stability": "Medium",
   "automation_risk": "Low",
   "where_work": "Metro cities mainly",
+  "college_options": [
+   {
+    "college": "Indian Institute of Technology Madras",
+    "branch": "Biological Engineering",
+    "exam": "JEE Advanced",
+    "closing": "5,217"
+   },
+   {
+    "college": "Indian Institute of Technology Kanpur",
+    "branch": "Biological Sciences and Bioengineering",
+    "exam": "JEE Advanced",
+    "closing": "6,614"
+   },
+   {
+    "college": "Indian Institute of Technology Roorkee",
+    "branch": "Biosciences and Bioengineering",
+    "exam": "JEE Advanced",
+    "closing": "7,291"
+   }
+  ],
   "notable_people": [
    "Kiran Mazumdar-Shaw: founder of Biocon; George Church: globally known biological engineering researcher"
   ],
@@ -913,6 +1354,10 @@
    {
     "label": "JEE Main / Advanced",
     "href": "/exams?q=JEE"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -939,6 +1384,14 @@
   "stability": "Medium",
   "automation_risk": "Low",
   "where_work": "Metro cities mainly",
+  "college_options": [
+   {
+    "college": "Indian Institute of Technology Madras",
+    "branch": "Biological Science",
+    "exam": "JEE Advanced",
+    "closing": "10,009"
+   }
+  ],
   "notable_people": [
    "Shubha Tole: neuroscientist at TIFR; Gagandeep Kang: leading Indian biologist and vaccine researcher"
   ],
@@ -989,6 +1442,7 @@
   "stability": "Medium",
   "automation_risk": "Low",
   "where_work": "Tier-2 cities fine, and fieldwork-based biology roles often require working in rural or forested areas",
+  "college_options": [],
   "notable_people": [
    "Salim Ali (India's most famous ornithologist",
    "studied birds)",
@@ -1054,6 +1508,10 @@
    {
     "label": "WBJEE",
     "href": "/exams?q=WBJEE"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -1080,6 +1538,80 @@
   "stability": "High",
   "automation_risk": "Low",
   "where_work": "Metro cities mainly",
+  "college_options": [
+   {
+    "college": "Indian Institute of Technology Madras",
+    "branch": "Instrumentation and Biomedical Engineering",
+    "exam": "JEE Advanced",
+    "closing": "4,362"
+   },
+   {
+    "college": "Indian Institute of Technology Hyderabad",
+    "branch": "Biomedical Engineering",
+    "exam": "JEE Advanced",
+    "closing": "7,641"
+   },
+   {
+    "college": "Indian Institute of Technology (BHU) Varanasi",
+    "branch": "Bioengineering",
+    "exam": "JEE Advanced",
+    "closing": "10,948"
+   },
+   {
+    "college": "K L E Technological Univeristy, Belgaum Campus (Formerly KLE Dr M.S.Sheshagiri College of Engineering and Technology) UDYAMBAGH,BELGAUM",
+    "branch": "BIO-MEDICAL ENGINEERING",
+    "exam": "KCET",
+    "closing": "149,969"
+   },
+   {
+    "college": "Sri Siddhartha Institute of Technology MARALUR ,TUMKUR",
+    "branch": "BIO-MEDICAL ENGINEERING",
+    "exam": "KCET",
+    "closing": "219,840"
+   },
+   {
+    "college": "ACS College of Engineering, Mysore Road, Bangalore 207,KAMBIPURA, MYSORE ROAD, KENGERI HOBLI,BANGALORE - 560074.",
+    "branch": "BIO-MEDICAL ENGINEERING",
+    "exam": "KCET",
+    "closing": "246,107"
+   },
+   {
+    "college": "Netaji Subhas Engineering College, Garia, Kolkata",
+    "branch": "Biomedical Engineering",
+    "exam": "WBJEE",
+    "closing": "17,996"
+   },
+   {
+    "college": "Jis College of Engineering, Kalyani, Nadia",
+    "branch": "Biomedical Engineering",
+    "exam": "WBJEE",
+    "closing": "21,662"
+   },
+   {
+    "college": "Vidyalankar Institute of Technology,Wadala, Mumbai",
+    "branch": "Bio Medical Engineering",
+    "exam": "MHT-CET",
+    "closing": "28,926"
+   },
+   {
+    "college": "M.G.M.'s College of Engineering and Technology, Kamothe, Navi Mumbai",
+    "branch": "Bio Medical Engineering",
+    "exam": "MHT-CET",
+    "closing": "40,192"
+   },
+   {
+    "college": "KSGBS's Bharat- Ratna Indira Gandhi College of Engineering, Kegaon, Solapur",
+    "branch": "Bio Medical Engineering",
+    "exam": "MHT-CET",
+    "closing": "90,780"
+   },
+   {
+    "college": "Veer Surendra Sai University of Technology, Burla",
+    "branch": "Biomedical Engineering - TFW",
+    "exam": "OJEE",
+    "closing": "270,761 (JEE Main rank)"
+   }
+  ],
   "notable_people": [
    "Vinod Kumar Singh: prosthetics innovator; Ashok Jhunjhunwala: IIT Madras researcher in affordable healthcare tech"
   ],
@@ -1146,6 +1678,10 @@
    {
     "label": "WBJEE",
     "href": "/exams?q=WBJEE"
+   },
+   {
+    "label": "BITSAT",
+    "href": "/exams?q=BITSAT"
    }
   ],
   "top_colleges": [
@@ -1172,6 +1708,80 @@
   "stability": "High",
   "automation_risk": "Low",
   "where_work": "Metro cities mainly, with biotech hubs concentrated in cities like Hyderabad, Bangalore, and Pune",
+  "college_options": [
+   {
+    "college": "Indian Institute of Technology Delhi",
+    "branch": "Biotechnology and Biochemical Engineering",
+    "exam": "JEE Advanced",
+    "closing": "4,992"
+   },
+   {
+    "college": "Indian Institute of Technology Kharagpur",
+    "branch": "Biotechnology and Biochemical Engineering",
+    "exam": "JEE Advanced",
+    "closing": "8,148"
+   },
+   {
+    "college": "Indian Institute of Technology Hyderabad",
+    "branch": "Biotechnology and Bioinformatics",
+    "exam": "JEE Advanced",
+    "closing": "8,358"
+   },
+   {
+    "college": "R. V. College of Engineering, Bangalore(AUTONOMOUS) R.V. VIDYANIKETAN POST, MYSORE ROAD,BANGALORE",
+    "branch": "BIO-TECHNOLOGY",
+    "exam": "KCET",
+    "closing": "6,814"
+   },
+   {
+    "college": "M S Ramaiah Institute of Technology, Bangalore(AUTONOMOUS) VIDYA SOUDHA,MSR NAGAR,MSRIT POST,BANGALORE - 560054.",
+    "branch": "BIO-TECHNOLOGY",
+    "exam": "KCET",
+    "closing": "12,464"
+   },
+   {
+    "college": "PES University 100 Feet Ring Road, Banashankari, 3rd Stage, Hosakerehalli, Near DSERT, , Bangalore KARNATAKA, pin code -560085",
+    "branch": "B TECH IN BIO-TECHNOLOGY",
+    "exam": "KCET",
+    "closing": "13,360"
+   },
+   {
+    "college": "Heritage Institute of Technology, Kolkata",
+    "branch": "Biotechnology",
+    "exam": "WBJEE",
+    "closing": "7,903"
+   },
+   {
+    "college": "Techno India University, Salt Lake",
+    "branch": "Biotechnology",
+    "exam": "WBJEE",
+    "closing": "11,170"
+   },
+   {
+    "college": "Haldia Institute of Technology, Haldia, Purba Medinipur",
+    "branch": "Biotechnology",
+    "exam": "WBJEE",
+    "closing": "12,778"
+   },
+   {
+    "college": "Kolhapur Institute of Technology's College of Engineering(Autonomous), Kolhapur",
+    "branch": "Bio Technology",
+    "exam": "MHT-CET",
+    "closing": "5,916"
+   },
+   {
+    "college": "Sinhgad College of Engineering, Vadgaon (BK), Pune",
+    "branch": "Bio Technology",
+    "exam": "MHT-CET",
+    "closing": "10,692"
+   },
+   {
+    "college": "Lokmanya Tilak Jankalyan Shikshan Sanstha, Priyadarshani College of Engineering, Nagpur",
+    "branch": "Bio Technology",
+    "exam": "MHT-CET",
+    "closing": "11,597"
+   }
+  ],
   "notable_people": [
    "Kiran Mazumdar-Shaw (founder of Biocon",
    "a major Indian biotech company)",
@@ -1225,6 +1835,7 @@
   "stability": "Medium",
   "automation_risk": "Low",
   "where_work": "Tier-2 cities fine, and fieldwork-heavy botany roles often mean working near forests or rural research stations",
+  "college_options": [],
   "notable_people": [
    "Janaki Ammal (pioneering Indian botanist known for sugarcane research)",
    "E.K. Janaki Ammal (cytogeneticist and plant scientist)",
@@ -1277,6 +1888,7 @@
   "stability": "Medium",
   "automation_risk": "Low",
   "where_work": "Metro cities mainly",
+  "college_options": [],
   "notable_people": [
    "Indra Nooyi (former CEO",
    "PepsiCo)",
@@ -1324,6 +1936,10 @@
    {
     "label": "WBJEE",
     "href": "/exams?q=WBJEE"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -1350,6 +1966,38 @@
   "stability": "Medium",
   "automation_risk": "Medium",
   "where_work": "Tier-2 cities fine",
+  "college_options": [
+   {
+    "college": "Indian Institute of Technology (BHU) Varanasi",
+    "branch": "Ceramic Engineering",
+    "exam": "JEE Advanced",
+    "closing": "12,212"
+   },
+   {
+    "college": "National Institute of Technology, Rourkela",
+    "branch": "Ceramic Engineering",
+    "exam": "JEE Main",
+    "closing": "31,545"
+   },
+   {
+    "college": "P D A College of Engineering, Gulbarga(AUTONOMOUS) AIWAN-E-SHAHI AREA,STATION ROAD,GULBARGA-585102",
+    "branch": "CERAMICS & CEMENT ENGINEERING",
+    "exam": "KCET",
+    "closing": "199,318"
+   },
+   {
+    "college": "Govt. College of Engineering & Ceramic Technology, Kolkata",
+    "branch": "CERAMIC ENGINEERING AND TECHNOLOGY",
+    "exam": "WBJEE",
+    "closing": "6,689"
+   },
+   {
+    "college": "University Departments of Anna University Chennai - ACT Campus Sardar Patel Road Guindy Chennai 600 025",
+    "branch": "CERAMIC TECHNOLOGY",
+    "exam": "TNEA",
+    "closing": "179/200 marks"
+   }
+  ],
   "notable_people": [
    "Notable practitioners are mostly industry leaders rather than public figures; senior technical directors at firms like Kajaria Ceramics and Saint-Gobain India are recognized within the field"
   ],
@@ -1403,6 +2051,7 @@
   "stability": "High",
   "automation_risk": "Medium",
   "where_work": "Metro cities mainly for top firms, but independent practice works in smaller towns too",
+  "college_options": [],
   "notable_people": [
    "N. R. Narayana Murthy (Infosys co-founder",
    "is a CA)",
@@ -1461,6 +2110,10 @@
    {
     "label": "WBJEE",
     "href": "/exams?q=WBJEE"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -1487,6 +2140,80 @@
   "stability": "High",
   "automation_risk": "Medium",
   "where_work": "Metro cities mainly",
+  "college_options": [
+   {
+    "college": "Indian Institute of Technology Bombay",
+    "branch": "Chemical Engineering",
+    "exam": "JEE Advanced",
+    "closing": "2,423"
+   },
+   {
+    "college": "Indian Institute of Technology Delhi",
+    "branch": "Chemical Engineering",
+    "exam": "JEE Advanced",
+    "closing": "2,462"
+   },
+   {
+    "college": "Indian Institute of Technology Madras",
+    "branch": "Chemical Engineering",
+    "exam": "JEE Advanced",
+    "closing": "3,804"
+   },
+   {
+    "college": "R. V. College of Engineering, Bangalore(AUTONOMOUS) R.V. VIDYANIKETAN POST, MYSORE ROAD,BANGALORE",
+    "branch": "CHEMICAL ENGINEERING",
+    "exam": "KCET",
+    "closing": "11,049"
+   },
+   {
+    "college": "B M S College of Engineering, Basavanagudi, Bangalore (AUTONOMOUS) POST BOX NO 1908, BULL TEMPLE ROAD,BANGALORE",
+    "branch": "CHEMICAL ENGINEERING",
+    "exam": "KCET",
+    "closing": "19,679"
+   },
+   {
+    "college": "M S Ramaiah Institute of Technology, Bangalore(AUTONOMOUS) VIDYA SOUDHA,MSR NAGAR,MSRIT POST,BANGALORE - 560054.",
+    "branch": "CHEMICAL ENGINEERING",
+    "exam": "KCET",
+    "closing": "21,060"
+   },
+   {
+    "college": "Jadavpur University",
+    "branch": "Chemical Engineering",
+    "exam": "WBJEE",
+    "closing": "696"
+   },
+   {
+    "college": "University Of Calcutta",
+    "branch": "Chemical Engineering",
+    "exam": "WBJEE",
+    "closing": "1,736"
+   },
+   {
+    "college": "Heritage Institute of Technology, Kolkata",
+    "branch": "Chemical Engineering",
+    "exam": "WBJEE",
+    "closing": "9,833"
+   },
+   {
+    "college": "Institute of Chemical Technology, Matunga, Mumbai",
+    "branch": "Chemical Engineering",
+    "exam": "MHT-CET",
+    "closing": "1,905"
+   },
+   {
+    "college": "Thadomal Shahani Engineering College, Bandra, Mumbai",
+    "branch": "Chemical Engineering",
+    "exam": "MHT-CET",
+    "closing": "9,679"
+   },
+   {
+    "college": "Laxminarayan Innovation Technological University, Nagpur",
+    "branch": "Chemical Engineering",
+    "exam": "MHT-CET",
+    "closing": "10,245"
+   }
+  ],
   "notable_people": [
    "Mukesh Ambani: chairman of Reliance Industries; Ramesh Mashelkar: former director of CSIR and chemical engineer"
   ],
@@ -1517,6 +2244,10 @@
    {
     "label": "JEE Main / Advanced",
     "href": "/exams?q=JEE"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -1542,6 +2273,26 @@
   "stability": "Medium",
   "automation_risk": "Medium",
   "where_work": "Tier-2 cities fine, since many chemical plants are located outside big metros",
+  "college_options": [
+   {
+    "college": "Indian Institute of Technology Guwahati",
+    "branch": "Chemical Science and Technology",
+    "exam": "JEE Advanced",
+    "closing": "7,332"
+   },
+   {
+    "college": "Indian Institute of Technology Roorkee",
+    "branch": "Chemical Sciences",
+    "exam": "JEE Advanced",
+    "closing": "10,612"
+   },
+   {
+    "college": "Indian Institute of Technology Patna",
+    "branch": "B.Tech",
+    "exam": "JEE Advanced",
+    "closing": "13,362"
+   }
+  ],
   "notable_people": [
    "M. M. Sharma (pioneering Indian chemical technologist and Padma Vibhushan awardee)",
    "G. D. Yadav (former ICT Mumbai director and chemical technology researcher)"
@@ -1564,6 +2315,14 @@
    {
     "label": "OJEE",
     "href": "/exams?q=OJEE"
+   },
+   {
+    "label": "CUET",
+    "href": "/exams?q=CUET"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -1591,6 +2350,32 @@
   "stability": "Medium",
   "automation_risk": "Low",
   "where_work": "Tier-2 cities fine for teaching, metro cities mainly for research labs and pharma companies",
+  "college_options": [
+   {
+    "college": "Indian Institute of Technology Bombay",
+    "branch": "Chemistry",
+    "exam": "JEE Advanced",
+    "closing": "7,081"
+   },
+   {
+    "college": "Indian Institute of Technology Delhi",
+    "branch": "Chemistry",
+    "exam": "JEE Advanced",
+    "closing": "8,107"
+   },
+   {
+    "college": "Indian Institute of Technology Kanpur",
+    "branch": "Chemistry",
+    "exam": "JEE Advanced",
+    "closing": "10,108"
+   },
+   {
+    "college": "Odisha University of Technology and Research (formerly College of Engineering and Technology), Bhubaneswar",
+    "branch": "Integrated MSc in Chemistry",
+    "exam": "OJEE",
+    "closing": "700,453 (JEE Main rank)"
+   }
+  ],
   "notable_people": [
    "C. N. R. Rao (renowned Indian chemist and Bharat Ratna awardee)",
    "Har Gobind Khorana (Nobel Prize-winning Indian-origin chemist)",
@@ -1646,6 +2431,10 @@
    {
     "label": "WBJEE",
     "href": "/exams?q=WBJEE"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -1672,6 +2461,80 @@
   "stability": "High",
   "automation_risk": "Low",
   "where_work": "Tier-2 cities fine",
+  "college_options": [
+   {
+    "college": "Indian Institute of Technology Bombay",
+    "branch": "Civil Engineering",
+    "exam": "JEE Advanced",
+    "closing": "4,095"
+   },
+   {
+    "college": "Indian Institute of Technology Delhi",
+    "branch": "Civil Engineering",
+    "exam": "JEE Advanced",
+    "closing": "4,228"
+   },
+   {
+    "college": "Indian Institute of Technology Madras",
+    "branch": "Civil Engineering",
+    "exam": "JEE Advanced",
+    "closing": "5,639"
+   },
+   {
+    "college": "R. V. College of Engineering, Bangalore(AUTONOMOUS) R.V. VIDYANIKETAN POST, MYSORE ROAD,BANGALORE",
+    "branch": "CIVIL ENGINEERING",
+    "exam": "KCET",
+    "closing": "10,832"
+   },
+   {
+    "college": "M S Ramaiah Institute of Technology, Bangalore(AUTONOMOUS) VIDYA SOUDHA,MSR NAGAR,MSRIT POST,BANGALORE - 560054.",
+    "branch": "CIVIL ENGINEERING",
+    "exam": "KCET",
+    "closing": "30,510"
+   },
+   {
+    "college": "B M S College of Engineering, Basavanagudi, Bangalore (AUTONOMOUS) POST BOX NO 1908, BULL TEMPLE ROAD,BANGALORE",
+    "branch": "CIVIL ENGINEERING",
+    "exam": "KCET",
+    "closing": "32,722"
+   },
+   {
+    "college": "Jadavpur University",
+    "branch": "Civil Engineering",
+    "exam": "WBJEE",
+    "closing": "741"
+   },
+   {
+    "college": "Jalpaiguri Goverment Engineering College,Jalpaiguri",
+    "branch": "Civil Engineering",
+    "exam": "WBJEE",
+    "closing": "4,061"
+   },
+   {
+    "college": "Aliah University, New Town",
+    "branch": "Civil Engineering",
+    "exam": "WBJEE",
+    "closing": "9,495"
+   },
+   {
+    "college": "COEP Technological University",
+    "branch": "Civil Engineering",
+    "exam": "MHT-CET",
+    "closing": "4,694"
+   },
+   {
+    "college": "Veermata Jijabai Technological Institute(VJTI), Matunga, Mumbai",
+    "branch": "Civil Engineering",
+    "exam": "MHT-CET",
+    "closing": "5,245"
+   },
+   {
+    "college": "Walchand College of Engineering, Sangli",
+    "branch": "Civil Engineering",
+    "exam": "MHT-CET",
+    "closing": "5,686"
+   }
+  ],
   "notable_people": [
    "E. Sreedharan: known as the 'Metro Man of India' for building Delhi Metro; M. Visvesvaraya: pioneering Indian civil engineer and statesman"
   ],
@@ -1698,7 +2561,12 @@
   "day_in_life": "A commerce graduate's day depends on the path they choose \u2014 it could mean managing a company's budget, analyzing stock market trends, handling banking transactions, or running their own small business accounts. It's a broad degree, so the daily work varies a lot by which job you pick after graduating.",
   "impact": "Commerce graduates keep businesses across India running smoothly, from helping a startup manage its cash flow to helping banks like HDFC process loans, making sure money moves correctly through the economy.",
   "entry_exams_text": "No single fixed entrance exam for a basic B.Com (Bachelor of Commerce) degree at most colleges \u2014 admission is usually based on Class 12 marks, though some top colleges use CUET (Common University Entrance Test, a common exam for admission to central universities).",
-  "exams": null,
+  "exams": [
+   {
+    "label": "CUET",
+    "href": "/exams?q=CUET"
+   }
+  ],
   "top_colleges": [
    "Shri Ram College of Commerce (SRCC) Delhi",
    "St. Xavier's College Mumbai",
@@ -1722,6 +2590,7 @@
   "stability": "High",
   "automation_risk": "Medium",
   "where_work": "Works from anywhere for many finance-related roles, metro cities mainly for top corporate jobs",
+  "college_options": [],
   "notable_people": [
    "Uday Kotak (banker",
    "founder of Kotak Mahindra Bank)",
@@ -1754,7 +2623,12 @@
   "day_in_life": "A BCA/MCA (Bachelor/Master of Computer Applications) graduate writes software code, builds websites or apps, tests programs for bugs, and works with teams to solve business problems using computers. Most days are spent coding at a computer, in meetings discussing what to build, or fixing issues in existing software.",
   "impact": "BCA and MCA graduates build and maintain everyday apps and websites like those used by Flipkart, Paytm, and Zomato, meaning the app you use to order food or pay a friend was very likely built and maintained by people with this exact degree.",
   "entry_exams_text": "No single fixed entrance exam for BCA \u2014 most colleges admit based on Class 12 marks; for MCA (after BCA or another bachelor's degree), exams like NIMCET (NIT MCA Common Entrance Test, for admission into National Institutes of Technology) are common.",
-  "exams": null,
+  "exams": [
+   {
+    "label": "BCA-CET 114",
+    "href": "/exams?q=BCA"
+   }
+  ],
   "top_colleges": [
    "Christ University Bangalore",
    "NIT Trichy (for MCA)",
@@ -1779,6 +2653,7 @@
   "stability": "High",
   "automation_risk": "Medium",
   "where_work": "Works from anywhere, since most software jobs allow remote work",
+  "college_options": [],
   "notable_people": [
    "Sundar Pichai (though from a different degree path",
    "widely seen as an inspiration in Indian tech)",
@@ -1848,6 +2723,10 @@
    {
     "label": "WBJEE",
     "href": "/exams?q=WBJEE"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -1874,6 +2753,80 @@
   "stability": "High",
   "automation_risk": "Medium",
   "where_work": "Works from anywhere for most software roles, since remote work is common",
+  "college_options": [
+   {
+    "college": "Indian Institute of Technology Bombay",
+    "branch": "Computer Science and Engineering",
+    "exam": "JEE Advanced",
+    "closing": "66"
+   },
+   {
+    "college": "Indian Institute of Technology Delhi",
+    "branch": "Computer Science and Engineering",
+    "exam": "JEE Advanced",
+    "closing": "126"
+   },
+   {
+    "college": "Indian Institute of Technology Madras",
+    "branch": "Computer Science and Engineering",
+    "exam": "JEE Advanced",
+    "closing": "171"
+   },
+   {
+    "college": "R. V. College of Engineering, Bangalore(AUTONOMOUS) R.V. VIDYANIKETAN POST, MYSORE ROAD,BANGALORE",
+    "branch": "COMPUTER SCIENCE AND ENGINEERING",
+    "exam": "KCET",
+    "closing": "499"
+   },
+   {
+    "college": "PES University 100 Feet Ring Road, Banashankari, 3rd Stage, Hosakerehalli, Near DSERT, , Bangalore KARNATAKA, pin code -560085",
+    "branch": "B TECH IN COMPUTER SCIENCE AND ENGINEERING",
+    "exam": "KCET",
+    "closing": "1,654"
+   },
+   {
+    "college": "M S Ramaiah Institute of Technology, Bangalore(AUTONOMOUS) VIDYA SOUDHA,MSR NAGAR,MSRIT POST,BANGALORE - 560054.",
+    "branch": "COMPUTER SCIENCE AND ENGINEERING",
+    "exam": "KCET",
+    "closing": "2,076"
+   },
+   {
+    "college": "Jadavpur University",
+    "branch": "Computer Science & Engineering",
+    "exam": "WBJEE",
+    "closing": "17"
+   },
+   {
+    "college": "University Of Calcutta",
+    "branch": "Computer Science & Engineering",
+    "exam": "WBJEE",
+    "closing": "449"
+   },
+   {
+    "college": "UNIVERSITY OF KALYANI, KALYANI",
+    "branch": "Computer Science & Engineering",
+    "exam": "WBJEE",
+    "closing": "836"
+   },
+   {
+    "college": "Veermata Jijabai Technological Institute(VJTI), Matunga, Mumbai",
+    "branch": "Computer Engineering",
+    "exam": "MHT-CET",
+    "closing": "119"
+   },
+   {
+    "college": "COEP Technological University",
+    "branch": "Computer Science and Engineering",
+    "exam": "MHT-CET",
+    "closing": "451"
+   },
+   {
+    "college": "Bhartiya Vidya Bhavan's Sardar Patel Institute of Technology , Andheri, Mumbai",
+    "branch": "Computer Science and Engineering",
+    "exam": "MHT-CET",
+    "closing": "1,048"
+   }
+  ],
   "notable_people": [
    "Sundar Pichai (CEO of Google and Alphabet)",
    "Satya Nadella (CEO of Microsoft)",
@@ -1942,6 +2895,14 @@
    {
     "label": "WBJEE",
     "href": "/exams?q=WBJEE"
+   },
+   {
+    "label": "BITSAT",
+    "href": "/exams?q=BITSAT"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -1968,6 +2929,80 @@
   "stability": "High",
   "automation_risk": "Medium",
   "where_work": "Works from anywhere",
+  "college_options": [
+   {
+    "college": "Indian Institute of Technology Bombay",
+    "branch": "Computer Science and Engineering",
+    "exam": "JEE Advanced",
+    "closing": "66"
+   },
+   {
+    "college": "Indian Institute of Technology Delhi",
+    "branch": "Computer Science and Engineering",
+    "exam": "JEE Advanced",
+    "closing": "126"
+   },
+   {
+    "college": "Indian Institute of Technology Madras",
+    "branch": "Computer Science and Engineering",
+    "exam": "JEE Advanced",
+    "closing": "171"
+   },
+   {
+    "college": "R. V. College of Engineering, Bangalore(AUTONOMOUS) R.V. VIDYANIKETAN POST, MYSORE ROAD,BANGALORE",
+    "branch": "COMPUTER SCIENCE AND ENGINEERING",
+    "exam": "KCET",
+    "closing": "499"
+   },
+   {
+    "college": "PES University 100 Feet Ring Road, Banashankari, 3rd Stage, Hosakerehalli, Near DSERT, , Bangalore KARNATAKA, pin code -560085",
+    "branch": "B TECH IN COMPUTER SCIENCE AND ENGINEERING",
+    "exam": "KCET",
+    "closing": "1,654"
+   },
+   {
+    "college": "M S Ramaiah Institute of Technology, Bangalore(AUTONOMOUS) VIDYA SOUDHA,MSR NAGAR,MSRIT POST,BANGALORE - 560054.",
+    "branch": "COMPUTER SCIENCE AND ENGINEERING",
+    "exam": "KCET",
+    "closing": "2,076"
+   },
+   {
+    "college": "Jadavpur University",
+    "branch": "Computer Science & Engineering",
+    "exam": "WBJEE",
+    "closing": "17"
+   },
+   {
+    "college": "University Of Calcutta",
+    "branch": "Computer Science & Engineering",
+    "exam": "WBJEE",
+    "closing": "449"
+   },
+   {
+    "college": "UNIVERSITY OF KALYANI, KALYANI",
+    "branch": "Computer Science & Engineering",
+    "exam": "WBJEE",
+    "closing": "836"
+   },
+   {
+    "college": "Veermata Jijabai Technological Institute(VJTI), Matunga, Mumbai",
+    "branch": "Computer Engineering",
+    "exam": "MHT-CET",
+    "closing": "119"
+   },
+   {
+    "college": "COEP Technological University",
+    "branch": "Computer Science and Engineering",
+    "exam": "MHT-CET",
+    "closing": "451"
+   },
+   {
+    "college": "Bhartiya Vidya Bhavan's Sardar Patel Institute of Technology , Andheri, Mumbai",
+    "branch": "Computer Science and Engineering",
+    "exam": "MHT-CET",
+    "closing": "1,048"
+   }
+  ],
   "notable_people": [
    "Sundar Pichai (CEO of Google)",
    "Nandan Nilekani (co-founder of Infosys",
@@ -2040,6 +3075,10 @@
    {
     "label": "WBJEE",
     "href": "/exams?q=WBJEE"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -2066,6 +3105,80 @@
   "stability": "High",
   "automation_risk": "Low",
   "where_work": "Works from anywhere for many roles, though government and bank security teams are metro-city based",
+  "college_options": [
+   {
+    "college": "National Institute of Electronics and Information Technology, Ajmer (Rajasthan)",
+    "branch": "Computer Science and Engineering",
+    "exam": "JEE Main",
+    "closing": "57,217"
+   },
+   {
+    "college": "R. V. College of Engineering, Bangalore(AUTONOMOUS) R.V. VIDYANIKETAN POST, MYSORE ROAD,BANGALORE",
+    "branch": "COMPUTER SCIENCE AND ENGINEERING(CYBER SECURITY)",
+    "exam": "KCET",
+    "closing": "990"
+   },
+   {
+    "college": "M S Ramaiah Institute of Technology, Bangalore(AUTONOMOUS) VIDYA SOUDHA,MSR NAGAR,MSRIT POST,BANGALORE - 560054.",
+    "branch": "COMPUTER SCIENCE AND ENGINEERING(CYBER SECURITY)",
+    "exam": "KCET",
+    "closing": "4,208"
+   },
+   {
+    "college": "B M S College of Engineering, Basavanagudi, Bangalore (AUTONOMOUS) POST BOX NO 1908, BULL TEMPLE ROAD,BANGALORE",
+    "branch": "COMPUTER SCIENCE AND ENGINEERING(INTERNET OF THINGS & CYBER SECURITY INCLUDING BLOCK CHAIN TECH)",
+    "exam": "KCET",
+    "closing": "5,707"
+   },
+   {
+    "college": "Heritage Institute of Technology, Kolkata",
+    "branch": "Computer Science & Engineering",
+    "exam": "WBJEE",
+    "closing": "4,502"
+   },
+   {
+    "college": "Techno Main Salt Lake, Sector-V, Salt Lake",
+    "branch": "Computer Science & Engineering",
+    "exam": "WBJEE",
+    "closing": "7,431"
+   },
+   {
+    "college": "Haldia Institute of Technology, Haldia, Purba Medinipur",
+    "branch": "Computer Science & Engineering",
+    "exam": "WBJEE",
+    "closing": "10,559"
+   },
+   {
+    "college": "Shri Vile Parle Kelvani Mandal's Dwarkadas J. Sanghvi College of Engineering, Vile Parle,Mumbai",
+    "branch": "Computer Science and Engineering",
+    "exam": "MHT-CET",
+    "closing": "3,877"
+   },
+   {
+    "college": "Bansilal Ramnath Agarawal Charitable Trust's Vishwakarma Institute of Technology, Bibwewadi, Pune",
+    "branch": "Computer Science and Engineering",
+    "exam": "MHT-CET",
+    "closing": "7,071"
+   },
+   {
+    "college": "Thakur College of Engineering and Technology, Kandivali, Mumbai",
+    "branch": "Computer Science and Engineering(Cyber Security)",
+    "exam": "MHT-CET",
+    "closing": "15,362"
+   },
+   {
+    "college": "Sambalpur University Institute of Information Technology, Jyoti Vihar, Burla",
+    "branch": "Computer Science Engineering with specialization in Information and Cyber Security",
+    "exam": "OJEE",
+    "closing": "220,588 (JEE Main rank)"
+   },
+   {
+    "college": "GITA Autonomous College, Bhubaneswar",
+    "branch": "Computer Science and Engineering(Cyber Security) - TFW",
+    "exam": "OJEE",
+    "closing": "956,451 (JEE Main rank)"
+   }
+  ],
   "notable_people": [
    "Ankit Fadia (well-known Indian ethical hacker and author)",
    "Trishneet Arora (founder of TAC Security",
@@ -2107,6 +3220,10 @@
    {
     "label": "WBJEE",
     "href": "/exams?q=WBJEE"
+   },
+   {
+    "label": "CUET (UG)",
+    "href": "/exams?q=ICAR"
    }
   ],
   "top_colleges": [
@@ -2132,6 +3249,20 @@
   "stability": "Medium",
   "automation_risk": "Medium",
   "where_work": "Tier-2 cities fine",
+  "college_options": [
+   {
+    "college": "Institute of Engineering and Technology, Dr. H. S. Gour University. Sagar (A Central University)",
+    "branch": "Dairy Engineering",
+    "exam": "JEE Main",
+    "closing": "117,845"
+   },
+   {
+    "college": "West Bengal University of Animal & Fishery Sciences",
+    "branch": "Dairy Technology",
+    "exam": "WBJEE",
+    "closing": "11,413"
+   }
+  ],
   "notable_people": [
    "Verghese Kurien (father of India's White Revolution",
    "founded Amul)",
@@ -2187,6 +3318,14 @@
    {
     "label": "WBJEE",
     "href": "/exams?q=WBJEE"
+   },
+   {
+    "label": "BITSAT",
+    "href": "/exams?q=BITSAT"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -2213,6 +3352,80 @@
   "stability": "High",
   "automation_risk": "Medium",
   "where_work": "Works from anywhere",
+  "college_options": [
+   {
+    "college": "Indian Institute of Technology Madras",
+    "branch": "Artificial Intelligence and Data Analytics",
+    "exam": "JEE Advanced",
+    "closing": "292"
+   },
+   {
+    "college": "Indian Institute of Technology Roorkee",
+    "branch": "Data Science and Artificial Intelligence",
+    "exam": "JEE Advanced",
+    "closing": "770"
+   },
+   {
+    "college": "Indian Institute of Technology Hyderabad",
+    "branch": "Artificial Intelligence",
+    "exam": "JEE Advanced",
+    "closing": "831"
+   },
+   {
+    "college": "R. V. College of Engineering, Bangalore(AUTONOMOUS) R.V. VIDYANIKETAN POST, MYSORE ROAD,BANGALORE",
+    "branch": "COMPUTER SCIENCE AND ENGINEERING(ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING)",
+    "exam": "KCET",
+    "closing": "742"
+   },
+   {
+    "college": "PES University 100 Feet Ring Road, Banashankari, 3rd Stage, Hosakerehalli, Near DSERT, , Bangalore KARNATAKA, pin code -560085",
+    "branch": "B TECH IN COMPUTER SCIENCE & ENGINEERING(ARTIFICAL INTELLIGENCE & MACHINE LEARNING)",
+    "exam": "KCET",
+    "closing": "2,694"
+   },
+   {
+    "college": "M S Ramaiah Institute of Technology, Bangalore(AUTONOMOUS) VIDYA SOUDHA,MSR NAGAR,MSRIT POST,BANGALORE - 560054.",
+    "branch": "COMPUTER SCIENCE AND ENGINEERING(ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING)",
+    "exam": "KCET",
+    "closing": "2,791"
+   },
+   {
+    "college": "Heritage Institute of Technology, Kolkata",
+    "branch": "Computer Science & Engineering",
+    "exam": "WBJEE",
+    "closing": "3,417"
+   },
+   {
+    "college": "Techno Main Salt Lake, Sector-V, Salt Lake",
+    "branch": "Computer Science & Engineering",
+    "exam": "WBJEE",
+    "closing": "4,474"
+   },
+   {
+    "college": "Ghani Khan Choudhury Institute of Engineering & Technology, Malda",
+    "branch": "Computer Science & Engineering",
+    "exam": "WBJEE",
+    "closing": "6,227"
+   },
+   {
+    "college": "COEP Technological University",
+    "branch": "Artificial Intelligence and Machine Learning",
+    "exam": "MHT-CET",
+    "closing": "469"
+   },
+   {
+    "college": "Pune Institute of Computer Technology",
+    "branch": "Artificial Intelligence",
+    "exam": "MHT-CET",
+    "closing": "1,139"
+   },
+   {
+    "college": "Shri Vile Parle Kelvani Mandal's Dwarkadas J. Sanghvi College of Engineering, Vile Parle,Mumbai",
+    "branch": "Artificial Intelligence",
+    "exam": "MHT-CET",
+    "closing": "2,801"
+   }
+  ],
   "notable_people": [
    "Jeff Dean (led key data systems at Google)",
    "Ashish Thusoo (co-created Apache Hive at Facebook)"
@@ -2268,6 +3481,26 @@
   "stability": "High",
   "automation_risk": "Low",
   "where_work": "Tier-2 cities fine, since dental clinics are needed everywhere, not just metros",
+  "college_options": [
+   {
+    "college": "Maulana Azad Institute of Dental Sciences, New Delhi",
+    "branch": "BDS",
+    "exam": "NEET",
+    "closing": "13,602 (AIQ)"
+   },
+   {
+    "college": "RUHS College of Dental Science, Jaipur",
+    "branch": "BDS",
+    "exam": "NEET",
+    "closing": "13,694 (AIQ)"
+   },
+   {
+    "college": "GOVT. DENTAL COLLEGE & HOSP., AURANGABAD",
+    "branch": "BDS",
+    "exam": "NEET",
+    "closing": "17,519 (AIQ)"
+   }
+  ],
   "notable_people": [
    "Dr. B. Sivapathasundharam (renowned oral pathology expert and textbook author)",
    "Dr. Amit Mattoo (well-known Indian dental surgeon and educator)"
@@ -2319,6 +3552,14 @@
    {
     "label": "TNEA counselling",
     "href": "/?exam=TNEA"
+   },
+   {
+    "label": "DAT-Mains",
+    "href": "/exams?q=DAT"
+   },
+   {
+    "label": "UCEED",
+    "href": "/exams?q=UCEED"
    }
   ],
   "top_colleges": [
@@ -2345,6 +3586,80 @@
   "stability": "Medium",
   "automation_risk": "Medium",
   "where_work": "Works from anywhere for many digital design roles, metro cities mainly for fashion and industrial design",
+  "college_options": [
+   {
+    "college": "Indian Institute of Technology Delhi",
+    "branch": "Design",
+    "exam": "JEE Advanced",
+    "closing": "12,217"
+   },
+   {
+    "college": "Indian Institute of Information Technology, Design & Manufacturing, Kancheepuram",
+    "branch": "Design Engineering",
+    "exam": "JEE Main",
+    "closing": "46,678"
+   },
+   {
+    "college": "School of Studies of Engineering and Technology, Guru Ghasidas Vishwavidyalaya, Bilaspur",
+    "branch": "Animation and VFX",
+    "exam": "JEE Main",
+    "closing": "89,961"
+   },
+   {
+    "college": "K.L.S. Gogte Institute of Technology, Belgaum.(AUTONOMOUS) \"JNANA GANGA\", UDYAMBAG,BELGAUM",
+    "branch": "COMMUNICATION DESIGN",
+    "exam": "KCET",
+    "closing": "200,998"
+   },
+   {
+    "college": "Sir M V School of Architecture,Hunasamaranahalli, Bangalore KRISHNADEVARAYANAGAR,HUNASAMARANAHALLI,VIA YELAHANKA,BANGALORE - 562 157",
+    "branch": "DESIGN",
+    "exam": "KCET",
+    "closing": "220,401"
+   },
+   {
+    "college": "BMS College of Architecture,Basavanagudi,Bull Temple Road,,BMSCE Campus,Bangalore",
+    "branch": "BACHELOR OF DESIGN(INTERIOR DESIGN)",
+    "exam": "KCET",
+    "closing": "240,123"
+   },
+   {
+    "college": "MIT Academy of Engineering,Alandi, Pune",
+    "branch": "Design",
+    "exam": "MHT-CET",
+    "closing": "101"
+   },
+   {
+    "college": "Terna Engineering College, Nerul, Navi Mumbai",
+    "branch": "Design",
+    "exam": "MHT-CET",
+    "closing": "167"
+   },
+   {
+    "college": "G. S. Mandal's Maharashtra Institute of Technology, Aurangabad",
+    "branch": "Design",
+    "exam": "MHT-CET",
+    "closing": "188"
+   },
+   {
+    "college": "Thiagarajar College of Engineering (Autonomous) Tirupparankundram Madurai District 625015",
+    "branch": "Interior Design",
+    "exam": "TNEA",
+    "closing": "183/200 marks"
+   },
+   {
+    "college": "CARE College of Engineering (Autonomous), No.27, Thayanoor village, Kuttapatti, Tiruchirappalli-620009.",
+    "branch": "Bachelor of Design",
+    "exam": "TNEA",
+    "closing": "127.5/200 marks"
+   },
+   {
+    "college": "MOHAMED SATHAK A.J. ACADEMY OF ARCHITECTURE, IT HIGHWAY, 34, OLD MAHABALIPURAM ROAD, EGATTUR, CHENGLEPET TALUK, KANCHEEPURAM DISTRICT-603103.",
+    "branch": "Bachelor of Design",
+    "exam": "TNEA",
+    "closing": "126/200 marks"
+   }
+  ],
   "notable_people": [
    "Sabyasachi Mukherjee (famous Indian fashion designer)",
    "Ranjini Rao (well-known UX design leader in India's tech industry)",
@@ -2377,6 +3692,10 @@
    {
     "label": "JEE Main / Advanced",
     "href": "/exams?q=JEE"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -2403,6 +3722,14 @@
   "stability": "Medium",
   "automation_risk": "Low",
   "where_work": "Tier-2 cities fine",
+  "college_options": [
+   {
+    "college": "Indian Institute of Technology Kanpur",
+    "branch": "Earth Sciences",
+    "exam": "JEE Advanced",
+    "closing": "9,700"
+   }
+  ],
   "notable_people": [
    "M. S. Srinivasan (former Coal Secretary",
    "mining expert)",
@@ -2435,6 +3762,14 @@
    {
     "label": "JEE Main / Advanced",
     "href": "/exams?q=JEE"
+   },
+   {
+    "label": "CUET",
+    "href": "/exams?q=CUET"
+   },
+   {
+    "label": "ISI-AT",
+    "href": "/exams?q=ISI"
    }
   ],
   "top_colleges": [
@@ -2460,6 +3795,26 @@
   "stability": "Medium",
   "automation_risk": "Medium",
   "where_work": "Metro cities mainly, especially for policy and research-focused roles",
+  "college_options": [
+   {
+    "college": "Indian Institute of Technology Bombay",
+    "branch": "Economics",
+    "exam": "JEE Advanced",
+    "closing": "2,345"
+   },
+   {
+    "college": "Indian Institute of Technology Kanpur",
+    "branch": "Economics",
+    "exam": "JEE Advanced",
+    "closing": "3,155"
+   },
+   {
+    "college": "Indian Institute of Technology Roorkee",
+    "branch": "Economics",
+    "exam": "JEE Advanced",
+    "closing": "5,568"
+   }
+  ],
   "notable_people": [
    "Raghuram Rajan (former RBI Governor and renowned economist)",
    "Amartya Sen (Nobel Prize-winning Indian economist)",
@@ -2515,6 +3870,10 @@
    {
     "label": "WBJEE",
     "href": "/exams?q=WBJEE"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -2541,6 +3900,80 @@
   "stability": "Medium",
   "automation_risk": "Medium",
   "where_work": "Tier-2 cities fine",
+  "college_options": [
+   {
+    "college": "Indian Institute of Technology Bombay",
+    "branch": "Electrical Engineering",
+    "exam": "JEE Advanced",
+    "closing": "433"
+   },
+   {
+    "college": "Indian Institute of Technology Delhi",
+    "branch": "Electrical Engineering",
+    "exam": "JEE Advanced",
+    "closing": "605"
+   },
+   {
+    "college": "Indian Institute of Technology Madras",
+    "branch": "Electrical Engineering",
+    "exam": "JEE Advanced",
+    "closing": "808"
+   },
+   {
+    "college": "R. V. College of Engineering, Bangalore(AUTONOMOUS) R.V. VIDYANIKETAN POST, MYSORE ROAD,BANGALORE",
+    "branch": "ELECTRONICS AND COMMUNICATION ENGINEERING",
+    "exam": "KCET",
+    "closing": "1,100"
+   },
+   {
+    "college": "B M S College of Engineering, Basavanagudi, Bangalore (AUTONOMOUS) POST BOX NO 1908, BULL TEMPLE ROAD,BANGALORE",
+    "branch": "ELECTRONICS AND COMMUNICATION ENGINEERING",
+    "exam": "KCET",
+    "closing": "3,114"
+   },
+   {
+    "college": "PES University 100 Feet Ring Road, Banashankari, 3rd Stage, Hosakerehalli, Near DSERT, , Bangalore KARNATAKA, pin code -560085",
+    "branch": "B TECH IN ELECTRONICS & COMMUNICATION ENGINEERING",
+    "exam": "KCET",
+    "closing": "3,765"
+   },
+   {
+    "college": "Jadavpur University",
+    "branch": "Electronics & Tele-Communication Engineering",
+    "exam": "WBJEE",
+    "closing": "138"
+   },
+   {
+    "college": "University Of Calcutta",
+    "branch": "Electronics & Communication Engineering",
+    "exam": "WBJEE",
+    "closing": "911"
+   },
+   {
+    "college": "UNIVERSITY OF KALYANI, KALYANI",
+    "branch": "Electronics & Communication Engineering",
+    "exam": "WBJEE",
+    "closing": "1,426"
+   },
+   {
+    "college": "Veermata Jijabai Technological Institute(VJTI), Matunga, Mumbai",
+    "branch": "Electronics and Telecommunication Engg",
+    "exam": "MHT-CET",
+    "closing": "1,173"
+   },
+   {
+    "college": "COEP Technological University",
+    "branch": "Electronics and Telecommunication Engg",
+    "exam": "MHT-CET",
+    "closing": "1,332"
+   },
+   {
+    "college": "Pune Institute of Computer Technology",
+    "branch": "Electronics and Computer Engineering",
+    "exam": "MHT-CET",
+    "closing": "1,799"
+   }
+  ],
   "notable_people": [
    "Sam Pitroda (telecom and electronics pioneer in India)",
    "G. D. Yadav (electrical engineering educator)"
@@ -2608,6 +4041,10 @@
    {
     "label": "WBJEE",
     "href": "/exams?q=WBJEE"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -2634,6 +4071,80 @@
   "stability": "High",
   "automation_risk": "Low",
   "where_work": "Tier-2 cities fine",
+  "college_options": [
+   {
+    "college": "Indian Institute of Technology Bombay",
+    "branch": "Electrical Engineering",
+    "exam": "JEE Advanced",
+    "closing": "433"
+   },
+   {
+    "college": "Indian Institute of Technology Delhi",
+    "branch": "Electrical Engineering",
+    "exam": "JEE Advanced",
+    "closing": "605"
+   },
+   {
+    "college": "Indian Institute of Technology Madras",
+    "branch": "Electrical Engineering",
+    "exam": "JEE Advanced",
+    "closing": "808"
+   },
+   {
+    "college": "R. V. College of Engineering, Bangalore(AUTONOMOUS) R.V. VIDYANIKETAN POST, MYSORE ROAD,BANGALORE",
+    "branch": "ELECTRONICS AND COMMUNICATION ENGINEERING",
+    "exam": "KCET",
+    "closing": "1,100"
+   },
+   {
+    "college": "B M S College of Engineering, Basavanagudi, Bangalore (AUTONOMOUS) POST BOX NO 1908, BULL TEMPLE ROAD,BANGALORE",
+    "branch": "ELECTRONICS AND COMMUNICATION ENGINEERING",
+    "exam": "KCET",
+    "closing": "3,114"
+   },
+   {
+    "college": "PES University 100 Feet Ring Road, Banashankari, 3rd Stage, Hosakerehalli, Near DSERT, , Bangalore KARNATAKA, pin code -560085",
+    "branch": "B TECH IN ELECTRONICS & COMMUNICATION ENGINEERING",
+    "exam": "KCET",
+    "closing": "3,765"
+   },
+   {
+    "college": "Jadavpur University",
+    "branch": "Electronics & Tele-Communication Engineering",
+    "exam": "WBJEE",
+    "closing": "138"
+   },
+   {
+    "college": "University Of Calcutta",
+    "branch": "Electronics & Communication Engineering",
+    "exam": "WBJEE",
+    "closing": "911"
+   },
+   {
+    "college": "UNIVERSITY OF KALYANI, KALYANI",
+    "branch": "Electronics & Communication Engineering",
+    "exam": "WBJEE",
+    "closing": "1,426"
+   },
+   {
+    "college": "Veermata Jijabai Technological Institute(VJTI), Matunga, Mumbai",
+    "branch": "Electronics and Telecommunication Engg",
+    "exam": "MHT-CET",
+    "closing": "1,173"
+   },
+   {
+    "college": "COEP Technological University",
+    "branch": "Electronics and Telecommunication Engg",
+    "exam": "MHT-CET",
+    "closing": "1,332"
+   },
+   {
+    "college": "Pune Institute of Computer Technology",
+    "branch": "Electronics and Computer Engineering",
+    "exam": "MHT-CET",
+    "closing": "1,799"
+   }
+  ],
   "notable_people": [
    "M. Visvesvaraya (pioneering Indian engineer)",
    "Narinder Singh Kapany (father of fibre optics",
@@ -2702,6 +4213,10 @@
    {
     "label": "WBJEE",
     "href": "/exams?q=WBJEE"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -2728,6 +4243,80 @@
   "stability": "High",
   "automation_risk": "Low",
   "where_work": "Tier-2 cities fine",
+  "college_options": [
+   {
+    "college": "Indian Institute of Technology Bombay",
+    "branch": "Electrical Engineering",
+    "exam": "JEE Advanced",
+    "closing": "433"
+   },
+   {
+    "college": "Indian Institute of Technology Delhi",
+    "branch": "Electrical Engineering",
+    "exam": "JEE Advanced",
+    "closing": "605"
+   },
+   {
+    "college": "Indian Institute of Technology Madras",
+    "branch": "Electrical Engineering",
+    "exam": "JEE Advanced",
+    "closing": "808"
+   },
+   {
+    "college": "R. V. College of Engineering, Bangalore(AUTONOMOUS) R.V. VIDYANIKETAN POST, MYSORE ROAD,BANGALORE",
+    "branch": "ELECTRONICS AND COMMUNICATION ENGINEERING",
+    "exam": "KCET",
+    "closing": "1,100"
+   },
+   {
+    "college": "B M S College of Engineering, Basavanagudi, Bangalore (AUTONOMOUS) POST BOX NO 1908, BULL TEMPLE ROAD,BANGALORE",
+    "branch": "ELECTRONICS AND COMMUNICATION ENGINEERING",
+    "exam": "KCET",
+    "closing": "3,114"
+   },
+   {
+    "college": "PES University 100 Feet Ring Road, Banashankari, 3rd Stage, Hosakerehalli, Near DSERT, , Bangalore KARNATAKA, pin code -560085",
+    "branch": "B TECH IN ELECTRONICS & COMMUNICATION ENGINEERING",
+    "exam": "KCET",
+    "closing": "3,765"
+   },
+   {
+    "college": "Jadavpur University",
+    "branch": "Electronics & Tele-Communication Engineering",
+    "exam": "WBJEE",
+    "closing": "138"
+   },
+   {
+    "college": "University Of Calcutta",
+    "branch": "Electronics & Communication Engineering",
+    "exam": "WBJEE",
+    "closing": "911"
+   },
+   {
+    "college": "UNIVERSITY OF KALYANI, KALYANI",
+    "branch": "Electronics & Communication Engineering",
+    "exam": "WBJEE",
+    "closing": "1,426"
+   },
+   {
+    "college": "Veermata Jijabai Technological Institute(VJTI), Matunga, Mumbai",
+    "branch": "Electronics and Telecommunication Engg",
+    "exam": "MHT-CET",
+    "closing": "1,173"
+   },
+   {
+    "college": "COEP Technological University",
+    "branch": "Electronics and Telecommunication Engg",
+    "exam": "MHT-CET",
+    "closing": "1,332"
+   },
+   {
+    "college": "Pune Institute of Computer Technology",
+    "branch": "Electronics and Computer Engineering",
+    "exam": "MHT-CET",
+    "closing": "1,799"
+   }
+  ],
   "notable_people": [
    "M. Visvesvaraya (legendary Indian engineer",
    "dam and power systems)",
@@ -2796,6 +4385,10 @@
    {
     "label": "WBJEE",
     "href": "/exams?q=WBJEE"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -2822,6 +4415,80 @@
   "stability": "High",
   "automation_risk": "Low",
   "where_work": "Metro cities mainly",
+  "college_options": [
+   {
+    "college": "Indian Institute of Technology Bombay",
+    "branch": "Electrical Engineering",
+    "exam": "JEE Advanced",
+    "closing": "433"
+   },
+   {
+    "college": "Indian Institute of Technology Delhi",
+    "branch": "Electrical Engineering",
+    "exam": "JEE Advanced",
+    "closing": "605"
+   },
+   {
+    "college": "Indian Institute of Technology Madras",
+    "branch": "Electrical Engineering",
+    "exam": "JEE Advanced",
+    "closing": "808"
+   },
+   {
+    "college": "R. V. College of Engineering, Bangalore(AUTONOMOUS) R.V. VIDYANIKETAN POST, MYSORE ROAD,BANGALORE",
+    "branch": "ELECTRONICS AND COMMUNICATION ENGINEERING",
+    "exam": "KCET",
+    "closing": "1,100"
+   },
+   {
+    "college": "B M S College of Engineering, Basavanagudi, Bangalore (AUTONOMOUS) POST BOX NO 1908, BULL TEMPLE ROAD,BANGALORE",
+    "branch": "ELECTRONICS AND COMMUNICATION ENGINEERING",
+    "exam": "KCET",
+    "closing": "3,114"
+   },
+   {
+    "college": "PES University 100 Feet Ring Road, Banashankari, 3rd Stage, Hosakerehalli, Near DSERT, , Bangalore KARNATAKA, pin code -560085",
+    "branch": "B TECH IN ELECTRONICS & COMMUNICATION ENGINEERING",
+    "exam": "KCET",
+    "closing": "3,765"
+   },
+   {
+    "college": "Jadavpur University",
+    "branch": "Electronics & Tele-Communication Engineering",
+    "exam": "WBJEE",
+    "closing": "138"
+   },
+   {
+    "college": "University Of Calcutta",
+    "branch": "Electronics & Communication Engineering",
+    "exam": "WBJEE",
+    "closing": "911"
+   },
+   {
+    "college": "UNIVERSITY OF KALYANI, KALYANI",
+    "branch": "Electronics & Communication Engineering",
+    "exam": "WBJEE",
+    "closing": "1,426"
+   },
+   {
+    "college": "Veermata Jijabai Technological Institute(VJTI), Matunga, Mumbai",
+    "branch": "Electronics and Telecommunication Engg",
+    "exam": "MHT-CET",
+    "closing": "1,173"
+   },
+   {
+    "college": "COEP Technological University",
+    "branch": "Electronics and Telecommunication Engg",
+    "exam": "MHT-CET",
+    "closing": "1,332"
+   },
+   {
+    "college": "Pune Institute of Computer Technology",
+    "branch": "Electronics and Computer Engineering",
+    "exam": "MHT-CET",
+    "closing": "1,799"
+   }
+  ],
   "notable_people": [
    "Sam Pitroda (built India's telecom exchange systems)",
    "Arogyaswami Paulraj (invented MIMO wireless technology)"
@@ -2861,6 +4528,10 @@
    {
     "label": "WBJEE",
     "href": "/exams?q=WBJEE"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -2887,6 +4558,38 @@
   "stability": "High",
   "automation_risk": "Low",
   "where_work": "Tier-2 cities fine",
+  "college_options": [
+   {
+    "college": "Indian Institute of Technology Bombay",
+    "branch": "Energy Engineering",
+    "exam": "JEE Advanced",
+    "closing": "2,494"
+   },
+   {
+    "college": "Indian Institute of Technology Delhi",
+    "branch": "Energy Engineering",
+    "exam": "JEE Advanced",
+    "closing": "2,638"
+   },
+   {
+    "college": "Indian Institute of Technology Roorkee",
+    "branch": "Energy Engineering",
+    "exam": "JEE Advanced",
+    "closing": "4,727"
+   },
+   {
+    "college": "Sharanbasava University (Formerly Appa Institute of Engineering and Tech) SHARNBASVESHWARA INSTITUTIONS CAMPUS , KALABURAGI ( GULBARGA) -585103 , KARNATAKA",
+    "branch": "B TECH IN ENERGY ENGINEERING",
+    "exam": "KCET",
+    "closing": "247,485"
+   },
+   {
+    "college": "Jadavpur University",
+    "branch": "Power Engineering",
+    "exam": "WBJEE",
+    "closing": "616"
+   }
+  ],
   "notable_people": [
    "Anand Mahindra (led major renewable energy investments)",
    "Sumant Sinha (founder of ReNew Power)"
@@ -2922,6 +4625,10 @@
    {
     "label": "KCET",
     "href": "/exams?q=KCET"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -2948,6 +4655,20 @@
   "stability": "Medium",
   "automation_risk": "Medium",
   "where_work": "Metro cities mainly",
+  "college_options": [
+   {
+    "college": "Indian Institute of Technology Madras",
+    "branch": "Engineering Design",
+    "exam": "JEE Advanced",
+    "closing": "3,076"
+   },
+   {
+    "college": "GM University KARUR VILLAGE, KASABA HOBLI, DAVANGERE TALUK AND DISTRICT",
+    "branch": "ENGINEERING DESIGN",
+    "exam": "KCET",
+    "closing": "256,966"
+   }
+  ],
   "notable_people": [
    "Ratan Tata (championed the Tata Nano's engineering design)",
    "Ashok Sethi (Indian product design and innovation strategist)"
@@ -2979,6 +4700,10 @@
    {
     "label": "JEE Main / Advanced",
     "href": "/exams?q=JEE"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -3006,6 +4731,26 @@
   "stability": "Medium",
   "automation_risk": "Low",
   "where_work": "Metro cities mainly",
+  "college_options": [
+   {
+    "college": "Indian Institute of Technology Madras",
+    "branch": "Engineering Physics",
+    "exam": "JEE Advanced",
+    "closing": "1,441"
+   },
+   {
+    "college": "Indian Institute of Technology Bombay",
+    "branch": "Engineering Physics",
+    "exam": "JEE Advanced",
+    "closing": "1,490"
+   },
+   {
+    "college": "Indian Institute of Technology Delhi",
+    "branch": "Engineering Physics",
+    "exam": "JEE Advanced",
+    "closing": "2,490"
+   }
+  ],
   "notable_people": [
    "C.V. Raman (physicist",
    "Nobel laureate)",
@@ -3040,6 +4785,10 @@
    {
     "label": "JEE Main / Advanced",
     "href": "/exams?q=JEE"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -3065,6 +4814,20 @@
   "stability": "Medium",
   "automation_risk": "Low",
   "where_work": "Works from anywhere",
+  "college_options": [
+   {
+    "college": "Indian Institute of Technology Hyderabad",
+    "branch": "Engineering Science",
+    "exam": "JEE Advanced",
+    "closing": "3,258"
+   },
+   {
+    "college": "Maulana Azad National Institute of Technology Bhopal",
+    "branch": "B. Tech. and M. Tech. in Engineering and Computational Mechanics",
+    "exam": "JEE Main",
+    "closing": "22,419"
+   }
+  ],
   "notable_people": [
    "Elon Musk (broad engineering background",
    "entrepreneur)",
@@ -3083,7 +4846,12 @@
   "day_in_life": "Someone with a degree in English might spend their day writing articles, editing other people's writing, teaching literature to students, or creating content for a company's website or marketing. The actual work depends heavily on which job they pick, from journalism to publishing to teaching.",
   "impact": "People with English backgrounds write the news you read, the books published by companies like Penguin Random House India, and the content that brands like Zomato use to talk to customers, shaping how information and stories reach people.",
   "entry_exams_text": "No single fixed entrance exam \u2014 most colleges admit students for a BA in English based on Class 12 marks, though some top universities use CUET (Common University Entrance Test, a common exam for central university admissions).",
-  "exams": null,
+  "exams": [
+   {
+    "label": "CUET",
+    "href": "/exams?q=CUET"
+   }
+  ],
   "top_colleges": [
    "St. Stephen's College Delhi",
    "Lady Shri Ram College Delhi",
@@ -3106,6 +4874,7 @@
   "stability": "Medium",
   "automation_risk": "Medium",
   "where_work": "Works from anywhere for writing and editing roles, since much of this work can be done remotely",
+  "college_options": [],
   "notable_people": [
    "Arundhati Roy (Booker Prize-winning Indian author)",
    "Chetan Bhagat (bestselling Indian English-language novelist)",
@@ -3147,6 +4916,10 @@
    {
     "label": "TNEA counselling",
     "href": "/?exam=TNEA"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -3173,6 +4946,44 @@
   "stability": "High",
   "automation_risk": "Low",
   "where_work": "Tier-2 cities fine",
+  "college_options": [
+   {
+    "college": "Indian Institute of Technology Bombay",
+    "branch": "Environmental Science and Engineering",
+    "exam": "JEE Advanced",
+    "closing": "4,696"
+   },
+   {
+    "college": "Indian Institute of Technology (ISM) Dhanbad",
+    "branch": "Environmental Engineering",
+    "exam": "JEE Advanced",
+    "closing": "14,489"
+   },
+   {
+    "college": "Sri Jayachamarajendra College of Engineering(Constituent College of JSS Science & Technology University), Mysore JSS TECHNICAL INSTITUTIONS CAMPUS,MANASAGANGOTHRI PO,MYSORE",
+    "branch": "ENVIRONMENTAL ENGINEERING",
+    "exam": "KCET",
+    "closing": "93,107"
+   },
+   {
+    "college": "Eastern Academy of Science and Technology, Phulanakhara, Bhubanes",
+    "branch": "Environmental Engineering",
+    "exam": "OJEE",
+    "closing": "987,411 (JEE Main rank)"
+   },
+   {
+    "college": "Park College of Technology, Prema Ravi Nagar, Karumathampatty, Coimbatore-641659.",
+    "branch": "ENVIRONMENTAL ENGINEERING",
+    "exam": "TNEA",
+    "closing": "122.5/200 marks"
+   },
+   {
+    "college": "Dhanalakshmi Srinivasan College of Engineering and Technology, ECR, Poonjeri, Mamallapuram, Kanchipuram-603104.",
+    "branch": "ENVIRONMENTAL SCIENCE & TECHNOLOGY",
+    "exam": "TNEA",
+    "closing": "95/200 marks"
+   }
+  ],
   "notable_people": [
    "Sunita Narain (environmental researcher and activist)",
    "Rajendra Singh (water conservation engineer",
@@ -3201,7 +5012,12 @@
   "day_in_life": "A finance professional spends the day looking at numbers, spreadsheets, and market news to decide where money should go or how to make it grow. This could mean helping a company raise money, planning a family's investments, or managing a business's budget and cash flow.",
   "impact": "Finance people are behind big moments like Zomato or LIC listing on the stock market, and behind everyday things like helping a small business get a loan from HDFC Bank to expand. Without finance professionals, companies couldn't raise money to grow and people wouldn't get advice on saving for a house or retirement.",
   "entry_exams_text": "CA (Chartered Accountancy exam, run by ICAI, for accounting and finance experts), CFA (Chartered Financial Analyst, a global exam for investment professionals), CAT (Common Admission Test, for MBA in Finance), or simply a B.Com/BBA degree followed by on-the-job learning.",
-  "exams": null,
+  "exams": [
+   {
+    "label": "BBA-CET (125)",
+    "href": "/exams?q=BBA"
+   }
+  ],
   "top_colleges": [
    "Shri Ram College of Commerce (Delhi)",
    "Narsee Monjee Institute of Management Studies (Mumbai)",
@@ -3225,6 +5041,7 @@
   "stability": "High",
   "automation_risk": "Medium",
   "where_work": "Metro cities mainly",
+  "college_options": [],
   "notable_people": [
    "Uday Kotak: founded Kotak Mahindra Bank | Falguni Nayar: ex-banker turned Nykaa founder | Nirmala Sitharaman: India's Finance Minister"
   ],
@@ -3255,6 +5072,10 @@
    {
     "label": "JEE Main / Advanced",
     "href": "/exams?q=JEE"
+   },
+   {
+    "label": "CUET (UG)",
+    "href": "/exams?q=ICAR"
    }
   ],
   "top_colleges": [
@@ -3278,6 +5099,7 @@
   "stability": "Medium",
   "automation_risk": "Low",
   "where_work": "Tier-2 cities and coastal areas fine",
+  "college_options": [],
   "notable_people": [
    "Dr. Modadugu Vijay Gupta: World Food Prize winner for fish farming work | Dr. W. S. Lakra: former Director",
    "Central Institute of Fisheries Education"
@@ -3328,6 +5150,14 @@
    {
     "label": "WBJEE",
     "href": "/exams?q=WBJEE"
+   },
+   {
+    "label": "CUET (UG)",
+    "href": "/exams?q=ICAR"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -3354,6 +5184,80 @@
   "stability": "High",
   "automation_risk": "Medium",
   "where_work": "Tier-2 cities fine",
+  "college_options": [
+   {
+    "college": "National Institute of Technology, Rourkela",
+    "branch": "Food Process Engineering",
+    "exam": "JEE Main",
+    "closing": "38,826"
+   },
+   {
+    "college": "Birla Institute of Technology, Mesra, Ranchi",
+    "branch": "Food Engineering and Technology",
+    "exam": "JEE Main",
+    "closing": "57,116"
+   },
+   {
+    "college": "School of Engineering, Tezpur University, Napaam, Tezpur",
+    "branch": "B.Tech.",
+    "exam": "JEE Main",
+    "closing": "72,557"
+   },
+   {
+    "college": "Ghani Khan Choudhury Institute of Engineering & Technology, Malda",
+    "branch": "Food Technology",
+    "exam": "WBJEE",
+    "closing": "15,335"
+   },
+   {
+    "college": "Techno Main Salt Lake, Sector-V, Salt Lake",
+    "branch": "Food Technology",
+    "exam": "WBJEE",
+    "closing": "15,565"
+   },
+   {
+    "college": "Haldia Institute of Technology, Haldia, Purba Medinipur",
+    "branch": "Food Technology",
+    "exam": "WBJEE",
+    "closing": "20,159"
+   },
+   {
+    "college": "Institute of Chemical Technology, Matunga, Mumbai",
+    "branch": "Food Engineering and Technology",
+    "exam": "MHT-CET",
+    "closing": "1,943"
+   },
+   {
+    "college": "Laxminarayan Innovation Technological University, Nagpur",
+    "branch": "Food Technology",
+    "exam": "MHT-CET",
+    "closing": "7,011"
+   },
+   {
+    "college": "Sant Gadge Baba Amravati University,Amravati",
+    "branch": "Food Technology",
+    "exam": "MHT-CET",
+    "closing": "8,634"
+   },
+   {
+    "college": "Bhubaneswar Engineering College, Pitapally, Bhubaneswar",
+    "branch": "FOOD ENGINEERING AND TECHNOLOGY",
+    "exam": "OJEE",
+    "closing": "1,506,598 (JEE Main rank)"
+   },
+   {
+    "college": "University Departments of Anna University Chennai - ACT Campus Sardar Patel Road Guindy Chennai 600 025",
+    "branch": "FOOD TECHNOLOGY",
+    "exam": "TNEA",
+    "closing": "191/200 marks"
+   },
+   {
+    "college": "Rajalakshmi Engineering College (Autonomous), Rajalakshmi Nagar, Thandalam, Kanchipuram, Chennai-602105.",
+    "branch": "FOOD TECHNOLOGY",
+    "exam": "TNEA",
+    "closing": "177.5/200 marks"
+   }
+  ],
   "notable_people": [
    "M.S. Swaminathan (agricultural scientist",
    "food security pioneer)",
@@ -3405,6 +5309,7 @@
   "stability": "Medium",
   "automation_risk": "Low",
   "where_work": "Metro cities mainly",
+  "college_options": [],
   "notable_people": [
    "Dr. M. S. Rao: pioneer of Indian forensic odontology | Dr. Lalji Singh: known as father of DNA fingerprinting in India"
   ],
@@ -3440,6 +5345,7 @@
   "stability": "High",
   "automation_risk": "Low",
   "where_work": "Tier-2 cities fine",
+  "college_options": [],
   "notable_people": [
    "Kailash Sankhala: known as father of Project Tiger | Ullas Karanth: renowned Indian tiger conservationist"
   ],
@@ -3456,6 +5362,14 @@
   "exams": [
    {
     "label": "JEE Main / Advanced",
+    "href": "/exams?q=JEE"
+   },
+   {
+    "label": "MHT-CET",
+    "href": "/exams?q=MHT-CET"
+   },
+   {
+    "label": "JEE Advanced",
     "href": "/exams?q=JEE"
    }
   ],
@@ -3479,6 +5393,14 @@
   "stability": "Medium",
   "automation_risk": "Medium",
   "where_work": "Tier-2 cities fine",
+  "college_options": [
+   {
+    "college": "Indian Institute of Technology Mandi",
+    "branch": "B.Tech in General Engineering",
+    "exam": "JEE Advanced",
+    "closing": "10,184"
+   }
+  ],
   "notable_people": [
    "Sir M. Visvesvaraya (broad civil-mechanical engineer",
    "statesman)",
@@ -3523,6 +5445,26 @@
   "stability": "Medium",
   "automation_risk": "Low",
   "where_work": "Works in remote mining/drilling sites often",
+  "college_options": [
+   {
+    "college": "Indian Institute of Technology Roorkee",
+    "branch": "Geophysical Technology",
+    "exam": "JEE Advanced",
+    "closing": "8,630"
+   },
+   {
+    "college": "Indian Institute of Technology Kharagpur",
+    "branch": "Exploration Geophysics",
+    "exam": "JEE Advanced",
+    "closing": "12,011"
+   },
+   {
+    "college": "Indian Institute of Technology (ISM) Dhanbad",
+    "branch": "Applied Geophysics",
+    "exam": "JEE Advanced",
+    "closing": "15,201"
+   }
+  ],
   "notable_people": [
    "D. N. Wadia: pioneering Indian geologist on Himalayan geology | Harsh Gupta: renowned Indian seismologist"
   ],
@@ -3553,6 +5495,7 @@
   "stability": "Medium",
   "automation_risk": "Medium",
   "where_work": "Metro and Tier-2 cities where HCLTech centers are located",
+  "college_options": [],
   "notable_people": [
    "This is a young program without long-tenured famous alumni yet \u2014 students who join are mostly at the start of their careers."
   ],
@@ -3589,6 +5532,7 @@
   "stability": "Medium",
   "automation_risk": "Low",
   "where_work": "Works from anywhere for research and writing",
+  "college_options": [],
   "notable_people": [
    "Romila Thapar: eminent Indian historian on ancient India | Ramachandra Guha: well-known historian and author"
   ],
@@ -3602,7 +5546,12 @@
   "day_in_life": "A homeopathic doctor meets patients, listens carefully to their symptoms and lifestyle, and prescribes homeopathic medicines, which are natural remedies given in small diluted doses. Much of the day is spent in consultations at a clinic or hospital, similar to a regular doctor's visit.",
   "impact": "Homeopathy doctors treat millions of Indians every year as an alternative or addition to regular medicine, especially for chronic issues like allergies or skin problems, and many government hospitals in India have dedicated homeopathy departments. This gives patients more treatment choices and supports India's AYUSH system (a government ministry for Ayurveda, Yoga, Unani, Siddha, and Homeopathy).",
   "entry_exams_text": "NEET (National Eligibility cum Entrance Test, the common medical entrance exam in India, also used for homeopathy degree admissions).",
-  "exams": null,
+  "exams": [
+   {
+    "label": "NEET-UG",
+    "href": "/exams?q=NEET"
+   }
+  ],
   "top_colleges": [
    "National Institute of Homoeopathy (Kolkata)",
    "Nehru Homoeopathic Medical College (Delhi)",
@@ -3624,6 +5573,7 @@
   "stability": "Medium",
   "automation_risk": "Low",
   "where_work": "Tier-2 cities fine",
+  "college_options": [],
   "notable_people": [
    "Dr. Mukesh Batra: founder of Dr. Batra's Homeopathy clinics | Dr. B. K. Sarkar: renowned Indian homeopathy teacher"
   ],
@@ -3637,7 +5587,12 @@
   "day_in_life": "A horticulturist works with fruits, vegetables, flowers, and garden plants, figuring out the best ways to grow them, protect them from disease, and increase harvest quality. Work can be in fields, greenhouses, nurseries, or research labs, testing new plant varieties and farming methods.",
   "impact": "Horticulturists help farmers grow better mangoes in Maharashtra, grapes in Nashik, or flowers sold across Indian cities, directly affecting the fruits and vegetables that end up in every Indian kitchen. Better horticulture techniques also help farmers earn more money and reduce crop losses from pests and disease.",
   "entry_exams_text": "ICAR AIEEA (All India Entrance Examination for Admission, run by the Indian Council of Agricultural Research, for agriculture and horticulture degree courses), or state agricultural university entrance tests.",
-  "exams": null,
+  "exams": [
+   {
+    "label": "CUET (UG)",
+    "href": "/exams?q=ICAR"
+   }
+  ],
   "top_colleges": [
    "Indian Agricultural Research Institute (Delhi)",
    "Punjab Agricultural University",
@@ -3659,6 +5614,7 @@
   "stability": "Medium",
   "automation_risk": "Low",
   "where_work": "Tier-2 and rural areas fine",
+  "college_options": [],
   "notable_people": [
    "M. S. Swaminathan: father of India's Green Revolution | Kavita Mishra: known horticulture research scientist"
   ],
@@ -3672,7 +5628,12 @@
   "day_in_life": "A hotel management professional oversees parts of a hotel like guest check-ins, food service, housekeeping, or events, making sure guests have a smooth and pleasant stay. Days involve coordinating staff, solving guest problems on the spot, and managing bookings or budgets.",
   "impact": "Hotel managers run the operations behind major Indian hotel chains like Taj and Oberoi that host tourists, business travelers, and big weddings, directly supporting India's tourism industry which employs millions. Good hotel management also shapes how international visitors experience India, affecting tourism revenue for the whole country.",
   "entry_exams_text": "NCHMCT JEE (National Council for Hotel Management and Catering Technology Joint Entrance Exam, the main exam for hotel management degree admission in India).",
-  "exams": null,
+  "exams": [
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE"
+   }
+  ],
   "top_colleges": [
    "Institute of Hotel Management (Mumbai/Delhi/various cities)",
    "Welcomgroup Graduate School of Hotel Administration (Manipal)",
@@ -3695,6 +5656,7 @@
   "stability": "Medium",
   "automation_risk": "Low",
   "where_work": "Metro cities and tourist destinations mainly",
+  "college_options": [],
   "notable_people": [
    "Rattan Tata: guided Taj Hotels' growth as chairman of Tata Group | P. R. S. Oberoi: built the Oberoi hotel chain"
   ],
@@ -3744,6 +5706,10 @@
    {
     "label": "WBJEE",
     "href": "/exams?q=WBJEE"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -3770,6 +5736,80 @@
   "stability": "High",
   "automation_risk": "Medium",
   "where_work": "Tier-2 cities fine",
+  "college_options": [
+   {
+    "college": "Indian Institute of Technology Bombay",
+    "branch": "Industrial Engineering and Operations Research",
+    "exam": "JEE Advanced",
+    "closing": "1,133"
+   },
+   {
+    "college": "Indian Institute of Technology Delhi",
+    "branch": "Production and Industrial Engineering",
+    "exam": "JEE Advanced",
+    "closing": "3,027"
+   },
+   {
+    "college": "Indian Institute of Technology Kharagpur",
+    "branch": "Industrial and Systems Engineering",
+    "exam": "JEE Advanced",
+    "closing": "4,226"
+   },
+   {
+    "college": "R. V. College of Engineering, Bangalore(AUTONOMOUS) R.V. VIDYANIKETAN POST, MYSORE ROAD,BANGALORE",
+    "branch": "INDUSTRIAL ENGINEERING & MANAGEMENT",
+    "exam": "KCET",
+    "closing": "15,717"
+   },
+   {
+    "college": "B M S College of Engineering, Basavanagudi, Bangalore (AUTONOMOUS) POST BOX NO 1908, BULL TEMPLE ROAD,BANGALORE",
+    "branch": "INDUSTRIAL ENGINEERING & MANAGEMENT",
+    "exam": "KCET",
+    "closing": "32,144"
+   },
+   {
+    "college": "M S Ramaiah Institute of Technology, Bangalore(AUTONOMOUS) VIDYA SOUDHA,MSR NAGAR,MSRIT POST,BANGALORE - 560054.",
+    "branch": "INDUSTRIAL ENGINEERING & MANAGEMENT",
+    "exam": "KCET",
+    "closing": "37,513"
+   },
+   {
+    "college": "Jadavpur University",
+    "branch": "Production Engineering",
+    "exam": "WBJEE",
+    "closing": "717"
+   },
+   {
+    "college": "Maulana Abul Kalam Azad University of Technology, West Bengal",
+    "branch": "INDUSTRIAL ENGINEERING",
+    "exam": "WBJEE",
+    "closing": "9,500"
+   },
+   {
+    "college": "COEP Technological University",
+    "branch": "Manufacturing Science and Engineering",
+    "exam": "MHT-CET",
+    "closing": "3,224"
+   },
+   {
+    "college": "Veermata Jijabai Technological Institute(VJTI), Matunga, Mumbai",
+    "branch": "Production Engineering[Sandwich]",
+    "exam": "MHT-CET",
+    "closing": "5,890"
+   },
+   {
+    "college": "Shri Guru Gobind Singhji Institute of Engineering and Technology, Nanded",
+    "branch": "Production Engineering",
+    "exam": "MHT-CET",
+    "closing": "66,601"
+   },
+   {
+    "college": "Veer Surendra Sai University of Technology, Burla",
+    "branch": "Production Engineering - TFW",
+    "exam": "OJEE",
+    "closing": "441,849 (JEE Main rank)"
+   }
+  ],
   "notable_people": [
    "Ratan Tata (industrialist",
    "manufacturing leader)",
@@ -3803,6 +5843,10 @@
    {
     "label": "JEE Main / Advanced",
     "href": "/exams?q=JEE"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -3826,6 +5870,26 @@
   "stability": "Medium",
   "automation_risk": "Medium",
   "where_work": "Works near industrial hubs mainly",
+  "college_options": [
+   {
+    "college": "Indian Institute of Technology Hyderabad",
+    "branch": "Industrial Chemistry",
+    "exam": "JEE Advanced",
+    "closing": "9,411"
+   },
+   {
+    "college": "Indian Institute of Technology (BHU) Varanasi",
+    "branch": "Industrial Chemistry",
+    "exam": "JEE Advanced",
+    "closing": "10,699"
+   },
+   {
+    "college": "Sardar Vallabhbhai National Institute of Technology, Surat",
+    "branch": "Industrial Chemistry",
+    "exam": "JEE Main",
+    "closing": "42,544"
+   }
+  ],
   "notable_people": [
    "Har Gobind Khorana: Nobel Prize-winning Indian-origin chemist | Yusuf Hamied: chairman of Cipla",
    "chemist by training"
@@ -3868,6 +5932,10 @@
    {
     "label": "WBJEE",
     "href": "/exams?q=WBJEE"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -3894,6 +5962,68 @@
   "stability": "High",
   "automation_risk": "Medium",
   "where_work": "Tier-2 cities fine",
+  "college_options": [
+   {
+    "college": "Indian Institute of Technology Kharagpur",
+    "branch": "Instrumentation Engineering",
+    "exam": "JEE Advanced",
+    "closing": "2,561"
+   },
+   {
+    "college": "National Institute of Technology, Tiruchirappalli",
+    "branch": "Instrumentation and Control Engineering",
+    "exam": "JEE Main",
+    "closing": "9,260"
+   },
+   {
+    "college": "Dr. B R Ambedkar National Institute of Technology, Jalandhar",
+    "branch": "Instrumentation and Control Engineering",
+    "exam": "JEE Main",
+    "closing": "27,278"
+   },
+   {
+    "college": "University Of Calcutta",
+    "branch": "Instrumentation Engineering",
+    "exam": "WBJEE",
+    "closing": "1,604"
+   },
+   {
+    "college": "COEP Technological University",
+    "branch": "Instrumentation and Control Engineering",
+    "exam": "MHT-CET",
+    "closing": "2,116"
+   },
+   {
+    "college": "Bansilal Ramnath Agarawal Charitable Trust's Vishwakarma Institute of Technology, Bibwewadi, Pune",
+    "branch": "Instrumentation and Control Engineering",
+    "exam": "MHT-CET",
+    "closing": "15,753"
+   },
+   {
+    "college": "Dr. D. Y. Patil Pratishthan's D.Y.Patil College of Engineering Akurdi, Pune",
+    "branch": "Instrumentation Engineering",
+    "exam": "MHT-CET",
+    "closing": "22,049"
+   },
+   {
+    "college": "PSG College of Technology (Autonomous) Peelamedu Coimbatore District 641004",
+    "branch": "INSTRUMENTATION AND CONTROL ENGINEERING",
+    "exam": "TNEA",
+    "closing": "194/200 marks"
+   },
+   {
+    "college": "PSG Institute of Technology and Applied Research(Autonomous), Avinashi Road,Neelambur, Sulur,Coimbatore -641062.",
+    "branch": "INSTRUMENTATION AND CONTROL ENGINEERING",
+    "exam": "TNEA",
+    "closing": "191.5/200 marks"
+   },
+   {
+    "college": "Saranathan College of Engineering (Autonomous), Venkateswara Nagar, Edamalaipattipudur Post, Panjappur Village, Srirangam Taluk, Tiruchirappalli-620012.",
+    "branch": "INSTRUMENTATION AND CONTROL ENGINEERING",
+    "exam": "TNEA",
+    "closing": "167/200 marks"
+   }
+  ],
   "notable_people": [
    "Verghese Kurien (engineering-driven institution builder",
    "though dairy focused)",
@@ -3947,6 +6077,7 @@
   "stability": "Medium",
   "automation_risk": "Medium",
   "where_work": "Metro cities mainly",
+  "college_options": [],
   "notable_people": [
    "Minoru Sasaki (Japan Foundation India educator)",
    "Ian Hideo Levy (Japanese-English literary translator",
@@ -4000,6 +6131,7 @@
   "stability": "Medium",
   "automation_risk": "Medium",
   "where_work": "Metro cities mainly",
+  "college_options": [],
   "notable_people": [
    "Barkha Dutt (TV journalist and anchor)",
    "Ravish Kumar (Hindi news anchor)",
@@ -4024,11 +6156,16 @@
  {
   "career_id": "law-llb",
   "name": "Law (LLB)",
-  "branch_id": null,
+  "branch_id": "LLB",
   "day_in_life": "A lawyer spends their day reading case files, researching old judgments, drafting legal documents, and either arguing cases in court or advising clients and companies on what the law allows.",
   "impact": "Lawyers at firms handling cases for companies like Reliance or Tata, or working with everyday citizens, help resolve property disputes, business contracts, and criminal cases, and some go on to become judges who decide what is fair and legal in India.",
   "entry_exams_text": "CLAT (Common Law Admission Test, a national exam that decides admission into most top law colleges in India, testing reading comprehension, reasoning, and general knowledge).",
-  "exams": null,
+  "exams": [
+   {
+    "label": "CLAT",
+    "href": "/exams?q=CLAT"
+   }
+  ],
   "top_colleges": [
    "National Law School of India University (NLSIU) Bangalore",
    "National Law University (NLU) Delhi",
@@ -4053,6 +6190,26 @@
   "stability": "High",
   "automation_risk": "Medium",
   "where_work": "Metro cities mainly",
+  "college_options": [
+   {
+    "college": "National Law School of India University (NLSIU), Bengaluru",
+    "branch": "B.A. LL.B.",
+    "exam": "CLAT",
+    "closing": "120"
+   },
+   {
+    "college": "NALSAR University of Law (NALSAR), Hyderabad",
+    "branch": "B.A. LL.B.",
+    "exam": "CLAT",
+    "closing": "168"
+   },
+   {
+    "college": "The West Bengal National University of Juridical Sciences (WBNUJS), Kolkata",
+    "branch": "B.A. LL.B.",
+    "exam": "CLAT",
+    "closing": "343"
+   }
+  ],
   "notable_people": [
    "Harish Salve (senior advocate",
    "Supreme Court)",
@@ -4086,6 +6243,10 @@
    {
     "label": "JEE Main / Advanced",
     "href": "/exams?q=JEE"
+   },
+   {
+    "label": "CUET",
+    "href": "/exams?q=CUET"
    }
   ],
   "top_colleges": [
@@ -4112,6 +6273,14 @@
   "stability": "Medium",
   "automation_risk": "Low",
   "where_work": "Metro cities mainly",
+  "college_options": [
+   {
+    "college": "National Institute of Technology, Rourkela",
+    "branch": "Life Science",
+    "exam": "JEE Main",
+    "closing": "50,388"
+   }
+  ],
   "notable_people": [
    "Dr Gagandeep Kang (vaccine scientist and immunologist)",
    "Dr Cyrus Poonawalla (founder",
@@ -4164,6 +6333,10 @@
    {
     "label": "WBJEE",
     "href": "/exams?q=WBJEE"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -4188,6 +6361,38 @@
   "stability": "Medium",
   "automation_risk": "Low",
   "where_work": "Metro cities mainly",
+  "college_options": [
+   {
+    "college": "Indian Institute of Technology Madras",
+    "branch": "Naval Architecture and Ocean Engineering",
+    "exam": "JEE Advanced",
+    "closing": "6,993"
+   },
+   {
+    "college": "Indian Institute of Technology Kharagpur",
+    "branch": "Ocean Engineering and Naval Architecture",
+    "exam": "JEE Advanced",
+    "closing": "9,371"
+   },
+   {
+    "college": "Srinivas Institute of Technology, Mangalore SRINIVAS CAMPUS",
+    "branch": "MARINE ENGINEERING",
+    "exam": "KCET",
+    "closing": "231,286"
+   },
+   {
+    "college": "Mohamed Sathak Engineering College (Autonomous), Sathak Nagar, East Coast Road, Pudhu Mayakulam, Kilakarai, Ramanathapuram District-623806.",
+    "branch": "MARINE ENGINEERING",
+    "exam": "TNEA",
+    "closing": "180/200 marks"
+   },
+   {
+    "college": "Sri Venkateswara College of Engineering (Autonomous), Post Bag No.3, Pennalur, Sriperumbudur, Kanchipuram-602105.",
+    "branch": "MARINE ENGINEERING",
+    "exam": "TNEA",
+    "closing": "108.5/200 marks"
+   }
+  ],
   "notable_people": [
    "Vice Admiral engineers of Indian Navy's design branch",
    "professors at IIT Madras's Department of Ocean Engineering known for coastal research"
@@ -4239,6 +6444,10 @@
    {
     "label": "WBJEE",
     "href": "/exams?q=WBJEE"
+   },
+   {
+    "label": "CET",
+    "href": "/exams?q=CET"
    }
   ],
   "top_colleges": [
@@ -4263,6 +6472,38 @@
   "stability": "High",
   "automation_risk": "Low",
   "where_work": "Works from anywhere (though long stretches are spent at sea, away from any fixed city)",
+  "college_options": [
+   {
+    "college": "Indian Institute of Technology Madras",
+    "branch": "Naval Architecture and Ocean Engineering",
+    "exam": "JEE Advanced",
+    "closing": "6,993"
+   },
+   {
+    "college": "Indian Institute of Technology Kharagpur",
+    "branch": "Ocean Engineering and Naval Architecture",
+    "exam": "JEE Advanced",
+    "closing": "9,371"
+   },
+   {
+    "college": "Srinivas Institute of Technology, Mangalore SRINIVAS CAMPUS",
+    "branch": "MARINE ENGINEERING",
+    "exam": "KCET",
+    "closing": "231,286"
+   },
+   {
+    "college": "Mohamed Sathak Engineering College (Autonomous), Sathak Nagar, East Coast Road, Pudhu Mayakulam, Kilakarai, Ramanathapuram District-623806.",
+    "branch": "MARINE ENGINEERING",
+    "exam": "TNEA",
+    "closing": "180/200 marks"
+   },
+   {
+    "college": "Sri Venkateswara College of Engineering (Autonomous), Post Bag No.3, Pennalur, Sriperumbudur, Kanchipuram-602105.",
+    "branch": "MARINE ENGINEERING",
+    "exam": "TNEA",
+    "closing": "108.5/200 marks"
+   }
+  ],
   "notable_people": [
    "Captain and Chief Engineer graduates from Indian Maritime University widely employed on global shipping fleets; senior marine engineers featured in Directorate General of Shipping recognitions"
   ],
@@ -4293,6 +6534,18 @@
    {
     "label": "JEE Main / Advanced",
     "href": "/exams?q=JEE"
+   },
+   {
+    "label": "CMI-EE",
+    "href": "/exams?q=CMI"
+   },
+   {
+    "label": "CUET",
+    "href": "/exams?q=CUET"
+   },
+   {
+    "label": "ISI-AT",
+    "href": "/exams?q=ISI"
    }
   ],
   "top_colleges": [
@@ -4318,6 +6571,26 @@
   "stability": "Medium",
   "automation_risk": "Low",
   "where_work": "Works from anywhere",
+  "college_options": [
+   {
+    "college": "Indian Institute of Technology Bombay",
+    "branch": "BS in Mathematics",
+    "exam": "JEE Advanced",
+    "closing": "957"
+   },
+   {
+    "college": "National Institute of Technology, Warangal",
+    "branch": "Mathematics",
+    "exam": "JEE Main",
+    "closing": "16,667"
+   },
+   {
+    "college": "National Institute of Technology, Rourkela",
+    "branch": "Mathematics",
+    "exam": "JEE Main",
+    "closing": "24,205"
+   }
+  ],
   "notable_people": [
    "Manjul Bhargava (Fields Medal-winning mathematician)",
    "C.R. Rao (renowned statistician)",
@@ -4349,6 +6622,14 @@
    {
     "label": "OJEE",
     "href": "/exams?q=OJEE"
+   },
+   {
+    "label": "CUET",
+    "href": "/exams?q=CUET"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -4373,6 +6654,38 @@
   "stability": "High",
   "automation_risk": "Low",
   "where_work": "Metro cities mainly",
+  "college_options": [
+   {
+    "college": "Indian Institute of Technology Delhi",
+    "branch": "Mathematics and Computing",
+    "exam": "JEE Advanced",
+    "closing": "323"
+   },
+   {
+    "college": "Indian Institute of Technology Hyderabad",
+    "branch": "Mathematics and Computing",
+    "exam": "JEE Advanced",
+    "closing": "919"
+   },
+   {
+    "college": "Indian Institute of Technology Kanpur",
+    "branch": "Mathematics and Scientific Computing",
+    "exam": "JEE Advanced",
+    "closing": "1,025"
+   },
+   {
+    "college": "M . S . Ramaiah University of Applied Sciences UNIVERSITY HOUSE, GNANAGANGOTHRI CAMPUS, NEW BEL ROAD, MSR ROAD, BANGALORE - 560054",
+    "branch": "B TECH IN MATHAMATICS AND COMPUTING",
+    "exam": "KCET",
+    "closing": "17,900"
+   },
+   {
+    "college": "Odisha University of Technology and Research (formerly College of Engineering and Technology), Bhubaneswar",
+    "branch": "Integrated MSc in Mathematics and Computing",
+    "exam": "OJEE",
+    "closing": "374,769 (JEE Main rank)"
+   }
+  ],
   "notable_people": [
    "Manjul Bhargava (Fields Medal-winning mathematician)",
    "Rajeev Motwani (computer scientist who mentored Google's founders)"
@@ -4440,6 +6753,10 @@
    {
     "label": "WBJEE",
     "href": "/exams?q=WBJEE"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -4466,6 +6783,80 @@
   "stability": "High",
   "automation_risk": "Medium",
   "where_work": "Tier-2 cities fine",
+  "college_options": [
+   {
+    "college": "Indian Institute of Technology Delhi",
+    "branch": "Engineering and Computational Mechanics",
+    "exam": "JEE Advanced",
+    "closing": "1,103"
+   },
+   {
+    "college": "Indian Institute of Technology Bombay",
+    "branch": "Mechanical Engineering",
+    "exam": "JEE Advanced",
+    "closing": "1,779"
+   },
+   {
+    "college": "Indian Institute of Technology Madras",
+    "branch": "Mechanical Engineering",
+    "exam": "JEE Advanced",
+    "closing": "2,363"
+   },
+   {
+    "college": "R. V. College of Engineering, Bangalore(AUTONOMOUS) R.V. VIDYANIKETAN POST, MYSORE ROAD,BANGALORE",
+    "branch": "MECHANICAL ENGINEERING",
+    "exam": "KCET",
+    "closing": "5,812"
+   },
+   {
+    "college": "PES University 100 Feet Ring Road, Banashankari, 3rd Stage, Hosakerehalli, Near DSERT, , Bangalore KARNATAKA, pin code -560085",
+    "branch": "B TECH IN MECHANICAL ENGINEERING",
+    "exam": "KCET",
+    "closing": "15,958"
+   },
+   {
+    "college": "B M S College of Engineering, Basavanagudi, Bangalore (AUTONOMOUS) POST BOX NO 1908, BULL TEMPLE ROAD,BANGALORE",
+    "branch": "MECHANICAL ENGINEERING",
+    "exam": "KCET",
+    "closing": "17,812"
+   },
+   {
+    "college": "Jadavpur University",
+    "branch": "Mechanical Engineering",
+    "exam": "WBJEE",
+    "closing": "537"
+   },
+   {
+    "college": "Kalyani Goverment Engineering College, Kalyani, Nadia",
+    "branch": "Mechanical Engineering",
+    "exam": "WBJEE",
+    "closing": "3,008"
+   },
+   {
+    "college": "Jalpaiguri Goverment Engineering College,Jalpaiguri",
+    "branch": "Mechanical Engineering",
+    "exam": "WBJEE",
+    "closing": "3,186"
+   },
+   {
+    "college": "COEP Technological University",
+    "branch": "Mechanical Engineering",
+    "exam": "MHT-CET",
+    "closing": "2,281"
+   },
+   {
+    "college": "Veermata Jijabai Technological Institute(VJTI), Matunga, Mumbai",
+    "branch": "Mechanical Engineering",
+    "exam": "MHT-CET",
+    "closing": "2,329"
+   },
+   {
+    "college": "Walchand College of Engineering, Sangli",
+    "branch": "Mechanical Engineering",
+    "exam": "MHT-CET",
+    "closing": "3,168"
+   }
+  ],
   "notable_people": [
    "Sir M. Visvesvaraya (pioneering mechanical/civil engineer)",
    "Anand Mahindra (mechanical engineer",
@@ -4535,6 +6926,10 @@
    {
     "label": "WBJEE",
     "href": "/exams?q=WBJEE"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -4561,6 +6956,80 @@
   "stability": "High",
   "automation_risk": "Medium",
   "where_work": "Tier-2 cities fine",
+  "college_options": [
+   {
+    "college": "Indian Institute of Technology Delhi",
+    "branch": "Engineering and Computational Mechanics",
+    "exam": "JEE Advanced",
+    "closing": "1,103"
+   },
+   {
+    "college": "Indian Institute of Technology Bombay",
+    "branch": "Mechanical Engineering",
+    "exam": "JEE Advanced",
+    "closing": "1,779"
+   },
+   {
+    "college": "Indian Institute of Technology Madras",
+    "branch": "Mechanical Engineering",
+    "exam": "JEE Advanced",
+    "closing": "2,363"
+   },
+   {
+    "college": "R. V. College of Engineering, Bangalore(AUTONOMOUS) R.V. VIDYANIKETAN POST, MYSORE ROAD,BANGALORE",
+    "branch": "MECHANICAL ENGINEERING",
+    "exam": "KCET",
+    "closing": "5,812"
+   },
+   {
+    "college": "PES University 100 Feet Ring Road, Banashankari, 3rd Stage, Hosakerehalli, Near DSERT, , Bangalore KARNATAKA, pin code -560085",
+    "branch": "B TECH IN MECHANICAL ENGINEERING",
+    "exam": "KCET",
+    "closing": "15,958"
+   },
+   {
+    "college": "B M S College of Engineering, Basavanagudi, Bangalore (AUTONOMOUS) POST BOX NO 1908, BULL TEMPLE ROAD,BANGALORE",
+    "branch": "MECHANICAL ENGINEERING",
+    "exam": "KCET",
+    "closing": "17,812"
+   },
+   {
+    "college": "Jadavpur University",
+    "branch": "Mechanical Engineering",
+    "exam": "WBJEE",
+    "closing": "537"
+   },
+   {
+    "college": "Kalyani Goverment Engineering College, Kalyani, Nadia",
+    "branch": "Mechanical Engineering",
+    "exam": "WBJEE",
+    "closing": "3,008"
+   },
+   {
+    "college": "Jalpaiguri Goverment Engineering College,Jalpaiguri",
+    "branch": "Mechanical Engineering",
+    "exam": "WBJEE",
+    "closing": "3,186"
+   },
+   {
+    "college": "COEP Technological University",
+    "branch": "Mechanical Engineering",
+    "exam": "MHT-CET",
+    "closing": "2,281"
+   },
+   {
+    "college": "Veermata Jijabai Technological Institute(VJTI), Matunga, Mumbai",
+    "branch": "Mechanical Engineering",
+    "exam": "MHT-CET",
+    "closing": "2,329"
+   },
+   {
+    "college": "Walchand College of Engineering, Sangli",
+    "branch": "Mechanical Engineering",
+    "exam": "MHT-CET",
+    "closing": "3,168"
+   }
+  ],
   "notable_people": [
    "Sundar Pichai: mechanical engineering graduate turned tech CEO | Ratan Tata: led Tata Motors' car engineering vision"
   ],
@@ -4611,6 +7080,7 @@
   "stability": "High",
   "automation_risk": "Medium",
   "where_work": "Tier-2 cities fine",
+  "college_options": [],
   "notable_people": [
    "Dr Arjun Lal Bhalla (founder",
    "Dr Lal PathLabs)",
@@ -4668,6 +7138,26 @@
   "stability": "High",
   "automation_risk": "Low",
   "where_work": "Tier-2 cities fine",
+  "college_options": [
+   {
+    "college": "AIIMS, New Delhi",
+    "branch": "MBBS",
+    "exam": "NEET",
+    "closing": "48 (AIQ)"
+   },
+   {
+    "college": "Maulana Azad Medical College, New Delhi",
+    "branch": "MBBS",
+    "exam": "NEET",
+    "closing": "103 (AIQ)"
+   },
+   {
+    "college": "Vardhman Mahavir Medical College and Safdarjung Hospital New Delhi, VMMC",
+    "branch": "MBBS",
+    "exam": "NEET",
+    "closing": "132 (AIQ)"
+   }
+  ],
   "notable_people": [
    "Dr Devi Shetty (cardiac surgeon",
    "founder Narayana Health)",
@@ -4734,6 +7224,10 @@
    {
     "label": "WBJEE",
     "href": "/exams?q=WBJEE"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -4760,6 +7254,80 @@
   "stability": "High",
   "automation_risk": "Low",
   "where_work": "Tier-2 cities fine",
+  "college_options": [
+   {
+    "college": "Indian Institute of Technology Delhi",
+    "branch": "Materials Engineering",
+    "exam": "JEE Advanced",
+    "closing": "3,470"
+   },
+   {
+    "college": "Indian Institute of Technology Bombay",
+    "branch": "Metallurgical Engineering and Materials Science",
+    "exam": "JEE Advanced",
+    "closing": "4,119"
+   },
+   {
+    "college": "Indian Institute of Technology Madras",
+    "branch": "Metallurgical and Materials Engineering",
+    "exam": "JEE Advanced",
+    "closing": "5,050"
+   },
+   {
+    "college": "Jadavpur University",
+    "branch": "Metallurgical Engineering",
+    "exam": "WBJEE",
+    "closing": "944"
+   },
+   {
+    "college": "Kaji Nazrul University, Asansol",
+    "branch": "Metallurgical And Materials Engineeringwith Tfw",
+    "exam": "WBJEE",
+    "closing": "14,963"
+   },
+   {
+    "college": "COEP Technological University",
+    "branch": "Metallurgy and Material Technology",
+    "exam": "MHT-CET",
+    "closing": "5,522"
+   },
+   {
+    "college": "Veer Surendra Sai University of Technology, Burla",
+    "branch": "Metallurgical and Materials Engineering - TFW",
+    "exam": "OJEE",
+    "closing": "253,935 (JEE Main rank)"
+   },
+   {
+    "college": "Odisha University of Technology and Research (formerly College of Engineering and Technology), Bhubaneswar",
+    "branch": "Metallurgical and Materials Engineering - TFW",
+    "exam": "OJEE",
+    "closing": "338,138 (JEE Main rank)"
+   },
+   {
+    "college": "Indira Gandhi Institute of Technology, Sarang",
+    "branch": "Metallurgical and Materials Engineering - TFW",
+    "exam": "OJEE",
+    "closing": "584,062 (JEE Main rank)"
+   },
+   {
+    "college": "University Departments of Anna University Chennai - CEG Campus Sardar Patel Road Guindy Chennai 600 025",
+    "branch": "MATERIAL SCIENCE AND ENGINEERING",
+    "exam": "TNEA",
+    "closing": "192.5/200 marks"
+   },
+   {
+    "college": "PSG College of Technology (Autonomous) Peelamedu Coimbatore District 641004",
+    "branch": "METALLURGICAL ENGINEERING",
+    "exam": "TNEA",
+    "closing": "189.5/200 marks"
+   },
+   {
+    "college": "Government College of Engineering (Autonomous) Karuppur Salem District 636011",
+    "branch": "METALLURGICAL ENGINEERING",
+    "exam": "TNEA",
+    "closing": "182.5/200 marks"
+   }
+  ],
   "notable_people": [
    "T.V. Narendran: CEO of Tata Steel",
    "metallurgical engineer | C.N.R. Rao: renowned Indian materials scientist"
@@ -4823,6 +7391,10 @@
    {
     "label": "WBJEE",
     "href": "/exams?q=WBJEE"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -4849,6 +7421,80 @@
   "stability": "Medium",
   "automation_risk": "Medium",
   "where_work": "Tier-2 cities fine",
+  "college_options": [
+   {
+    "college": "Indian Institute of Technology Kharagpur",
+    "branch": "Mining Engineering",
+    "exam": "JEE Advanced",
+    "closing": "9,821"
+   },
+   {
+    "college": "Indian Institute of Technology (BHU) Varanasi",
+    "branch": "Mining Engineering",
+    "exam": "JEE Advanced",
+    "closing": "12,954"
+   },
+   {
+    "college": "Indian Institute of Technology (ISM) Dhanbad",
+    "branch": "Mining Engineering",
+    "exam": "JEE Advanced",
+    "closing": "14,212"
+   },
+   {
+    "college": "Dr.T.Thimmaiah Institute of Technology, KGF 00RGAUM POST,KOLAR GOLD FIELDS - 563 120",
+    "branch": "MINING ENGINEERING",
+    "exam": "KCET",
+    "closing": "257,525"
+   },
+   {
+    "college": "Kaji Nazrul University, Asansol",
+    "branch": "Mining Engineeringwith Tfw",
+    "exam": "WBJEE",
+    "closing": "9,517"
+   },
+   {
+    "college": "Somayya Institute of Technology, Chandrapur",
+    "branch": "Mining Engineering",
+    "exam": "MHT-CET",
+    "closing": "128,353"
+   },
+   {
+    "college": "Rajiv Gandhi College of Engineering Research & Technology Chandrapur",
+    "branch": "Mining Engineering",
+    "exam": "MHT-CET",
+    "closing": "139,215"
+   },
+   {
+    "college": "Krushi Jivan Vikas Pratishthan, Ballarpur Institute of Technology, Mouza Bamni",
+    "branch": "Mining Engineering",
+    "exam": "MHT-CET",
+    "closing": "166,273"
+   },
+   {
+    "college": "Government College of Engineering, Keonjhar",
+    "branch": "Mining Engineering - TFW",
+    "exam": "OJEE",
+    "closing": "177,827 (JEE Main rank)"
+   },
+   {
+    "college": "Bhubaneswar Institute of Industrial Technology, Retanga, Bhubaneswa",
+    "branch": "Mining Engineering - TFW",
+    "exam": "OJEE",
+    "closing": "994,700 (JEE Main rank)"
+   },
+   {
+    "college": "KALLINGA GLOBAL INSTITUTE OF TECHNOLOGY, INNOVATION & MANAGEMENT,JAJPUR",
+    "branch": "Mining Engineering",
+    "exam": "OJEE",
+    "closing": "1,313,452 (JEE Main rank)"
+   },
+   {
+    "college": "University Departments of Anna University Chennai - CEG Campus Sardar Patel Road Guindy Chennai 600 025",
+    "branch": "MINING ENGINEERING",
+    "exam": "TNEA",
+    "closing": "193.5/200 marks"
+   }
+  ],
   "notable_people": [
    "Anil Kumar Jha: former CMD of Coal India | P.K. Singh: senior mining engineering leader in public sector"
   ],
@@ -4898,6 +7544,7 @@
   "stability": "Medium",
   "automation_risk": "Medium",
   "where_work": "Metro cities mainly",
+  "college_options": [],
   "notable_people": [
    "A.R. Rahman (Oscar-winning music composer)",
    "Zakir Hussain (world-renowned tabla player)",
@@ -4926,7 +7573,12 @@
   "day_in_life": "A natural science graduate spends their day studying how the physical and living world works together - for example measuring pollution levels, testing chemical reactions, or observing plant and animal life as part of one combined science program covering physics, chemistry, and biology.",
   "impact": "Natural science graduates working with organisations like the Central Pollution Control Board or environmental research institutes help track air and water pollution and study climate change, work that shapes public health policy across Indian cities.",
   "entry_exams_text": "No single fixed entrance exam - admission is usually based on Class 12 Science marks, though some universities use CUET (Common University Entrance Test, a national exam for admission to many Indian universities).",
-  "exams": null,
+  "exams": [
+   {
+    "label": "CUET",
+    "href": "/exams?q=CUET"
+   }
+  ],
   "top_colleges": [
    "Delhi University",
    "Fergusson College Pune",
@@ -4950,6 +7602,7 @@
   "stability": "Medium",
   "automation_risk": "Low",
   "where_work": "Tier-2 cities fine",
+  "college_options": [],
   "notable_people": [
    "Dr Anil Kakodkar (nuclear scientist)",
    "Sunita Narain (environmentalist",
@@ -4965,7 +7618,12 @@
   "day_in_life": "A naturopathy doctor examines patients and treats illnesses using natural methods like diet changes, specific exercises, mud baths, water treatments, and yoga instead of chemical medicines. They spend the day consulting patients, designing personalised diet and lifestyle plans, and supervising therapies at a nature-cure clinic or wellness centre.",
   "impact": "Naturopathy doctors help people manage lifestyle diseases like diabetes, obesity, and high blood pressure through diet and lifestyle changes, which is why hospitals like Jindal Naturecure in Bangalore and government AYUSH (a ministry that covers Ayurveda, Yoga, Unani, Siddha, and Homeopathy) hospitals run full-time naturopathy departments. This field is growing as more Indians look for non-medicine ways to manage chronic health problems.",
   "entry_exams_text": "NEET (National Eligibility cum Entrance Test, the common medical entrance exam in India) is required for the BNYS degree (Bachelor of Naturopathy and Yogic Sciences, a 5.5-year medical course), since it is treated as a medical program by most state governments.",
-  "exams": null,
+  "exams": [
+   {
+    "label": "NEET-UG",
+    "href": "/exams?q=NEET"
+   }
+  ],
   "top_colleges": [
    "Government Yoga and Naturopathy Medical College Chennai",
    "SDM College of Naturopathy and Yogic Sciences Karnataka",
@@ -4989,6 +7647,7 @@
   "stability": "Medium",
   "automation_risk": "Low",
   "where_work": "Tier-2 cities fine",
+  "college_options": [],
   "notable_people": [
    "Dr. Biswaroop Roy Chowdhury: well-known naturopathy author",
    "Mahatma Gandhi: famous historical advocate of naturopathy",
@@ -5029,6 +7688,7 @@
   "stability": "Medium",
   "automation_risk": "Low",
   "where_work": "Works from anywhere",
+  "college_options": [],
   "notable_people": [
    "Captain Radhika Menon: first Indian woman to receive IMO bravery award",
    "Captain B.S. Randhawa: veteran merchant navy captain and trainer",
@@ -5088,6 +7748,14 @@
   "stability": "High",
   "automation_risk": "Low",
   "where_work": "Works from anywhere",
+  "college_options": [
+   {
+    "college": "College of Nursing BHU, VARANASI",
+    "branch": "BSc Nursing",
+    "exam": "NEET",
+    "closing": "45,932 (AIQ)"
+   }
+  ],
   "notable_people": [
    "T.N. Ammal: pioneer of nursing education in India",
    "Sister Nivedita: historic nursing and social service figure",
@@ -5140,6 +7808,10 @@
    {
     "label": "WBJEE",
     "href": "/exams?q=WBJEE"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -5164,6 +7836,38 @@
   "stability": "Medium",
   "automation_risk": "Low",
   "where_work": "Metro cities mainly",
+  "college_options": [
+   {
+    "college": "Indian Institute of Technology Madras",
+    "branch": "Naval Architecture and Ocean Engineering",
+    "exam": "JEE Advanced",
+    "closing": "6,993"
+   },
+   {
+    "college": "Indian Institute of Technology Kharagpur",
+    "branch": "Ocean Engineering and Naval Architecture",
+    "exam": "JEE Advanced",
+    "closing": "9,371"
+   },
+   {
+    "college": "Srinivas Institute of Technology, Mangalore SRINIVAS CAMPUS",
+    "branch": "MARINE ENGINEERING",
+    "exam": "KCET",
+    "closing": "231,286"
+   },
+   {
+    "college": "Mohamed Sathak Engineering College (Autonomous), Sathak Nagar, East Coast Road, Pudhu Mayakulam, Kilakarai, Ramanathapuram District-623806.",
+    "branch": "MARINE ENGINEERING",
+    "exam": "TNEA",
+    "closing": "180/200 marks"
+   },
+   {
+    "college": "Sri Venkateswara College of Engineering (Autonomous), Post Bag No.3, Pennalur, Sriperumbudur, Kanchipuram-602105.",
+    "branch": "MARINE ENGINEERING",
+    "exam": "TNEA",
+    "closing": "108.5/200 marks"
+   }
+  ],
   "notable_people": [
    "Scientists at National Institute of Ocean Technology known for deep-sea mining and underwater vehicle research",
    "professors leading IIT Madras's ocean engineering research on coastal structures"
@@ -5195,6 +7899,10 @@
    {
     "label": "MHT-CET",
     "href": "/exams?q=MHT CET"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -5220,6 +7928,26 @@
   "stability": "Medium",
   "automation_risk": "Medium",
   "where_work": "Tier-2 cities fine",
+  "college_options": [
+   {
+    "college": "Institute of Chemical Technology, Matunga, Mumbai",
+    "branch": "Oil,Oleochemicals and Surfactants Technology",
+    "exam": "MHT-CET",
+    "closing": "4,176"
+   },
+   {
+    "college": "Laxminarayan Innovation Technological University, Nagpur",
+    "branch": "Oil Technology",
+    "exam": "MHT-CET",
+    "closing": "27,925"
+   },
+   {
+    "college": "University Institute of Chemical Technology, North Maharashtra University, Jalgaon",
+    "branch": "Paints Technology",
+    "exam": "MHT-CET",
+    "closing": "41,367"
+   }
+  ],
   "notable_people": [
    "Champaklal Choksi: co-founder of Asian Paints",
    "Suresh Sharma: senior paint industry technologist",
@@ -5239,6 +7967,10 @@
    {
     "label": "MHT-CET",
     "href": "/exams?q=MHT CET"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -5266,6 +7998,20 @@
   "stability": "Medium",
   "automation_risk": "Medium",
   "where_work": "Tier-2 cities fine",
+  "college_options": [
+   {
+    "college": "Laxminarayan Innovation Technological University, Nagpur",
+    "branch": "Paper and Pulp Technology",
+    "exam": "MHT-CET",
+    "closing": "50,044"
+   },
+   {
+    "college": "Sant Gadge Baba Amravati University,Amravati",
+    "branch": "Paper and Pulp Technology",
+    "exam": "MHT-CET",
+    "closing": "115,570"
+   }
+  ],
   "notable_people": [
    "Harsh Pati Singhania: leads JK Paper",
    "one of India's largest paper companies | Yogesh Agarwal: senior technical leader in Indian paper manufacturing"
@@ -5318,6 +8064,7 @@
   "stability": "High",
   "automation_risk": "Low",
   "where_work": "Works from anywhere",
+  "college_options": [],
   "notable_people": [
    "Dr. G.V. Ramana Rao: known Indian emergency medicine expert",
    "K.K. Aggarwal: physician who promoted paramedical training",
@@ -5362,6 +8109,10 @@
    {
     "label": "TNEA counselling",
     "href": "/?exam=TNEA"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -5388,6 +8139,32 @@
   "stability": "Medium",
   "automation_risk": "Medium",
   "where_work": "Metro cities mainly",
+  "college_options": [
+   {
+    "college": "Indian Institute of Technology (ISM) Dhanbad",
+    "branch": "Petroleum Engineering",
+    "exam": "JEE Advanced",
+    "closing": "12,136"
+   },
+   {
+    "college": "JCT College of Engineering and Technology (Autonomous), Pichanur, Coimbatore South Taluk, Coimbatore-641105.",
+    "branch": "PETROLEUM ENGINEERING",
+    "exam": "TNEA",
+    "closing": "154.5/200 marks"
+   },
+   {
+    "college": "Dhaanish Ahmed College of Engineering, Dhaanish Nagar, Vanchuvancherry, Padappai(Near Tambaram), Sriperumbudur Taluk, Kancheepuram District-601301.",
+    "branch": "PETROLEUM ENGINEERING",
+    "exam": "TNEA",
+    "closing": "149.5/200 marks"
+   },
+   {
+    "college": "SSM College of Engineering, NH-47 Salem Main Road, Komarapalayam, Namakkal District-638183.",
+    "branch": "PETROLEUM ENGINEERING",
+    "exam": "TNEA",
+    "closing": "130/200 marks"
+   }
+  ],
   "notable_people": [
    "Shashi Shanker: former Chairman of ONGC | Mukesh Ambani: leads Reliance's oil and gas operations"
   ],
@@ -5434,6 +8211,10 @@
    {
     "label": "TG EAPCET",
     "href": "/exams?q=TG EAPCET"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -5460,6 +8241,26 @@
   "stability": "High",
   "automation_risk": "Medium",
   "where_work": "Tier-2 cities fine",
+  "college_options": [
+   {
+    "college": "Indian Institute of Technology (BHU) Varanasi",
+    "branch": "Pharmaceutical Engineering & Technology",
+    "exam": "JEE Advanced",
+    "closing": "13,225"
+   },
+   {
+    "college": "Institute of Chemical Technology, Matunga, Mumbai",
+    "branch": "Pharmaceuticals Chemistry and Technology",
+    "exam": "MHT-CET",
+    "closing": "1,049"
+   },
+   {
+    "college": "University Department of Chemical Technology, Aurangabad",
+    "branch": "Pharmaceutical and Fine Chemical Technology",
+    "exam": "MHT-CET",
+    "closing": "2,591"
+   }
+  ],
   "notable_people": [
    "Cyrus Poonawalla: founder of Serum Institute of India",
    "a top vaccine maker | Kiran Mazumdar-Shaw: founder of Biocon",
@@ -5538,6 +8339,44 @@
   "stability": "High",
   "automation_risk": "Medium",
   "where_work": "Tier-2 cities fine",
+  "college_options": [
+   {
+    "college": "Institute of Chemical Technology, Matunga, Mumbai",
+    "branch": "Pharmacy",
+    "exam": "MHT-CET",
+    "closing": "42"
+   },
+   {
+    "college": "Dr. D.Y. Patil College of Pharmacy , Akurdi, Pune",
+    "branch": "Pharm D",
+    "exam": "MHT-CET",
+    "closing": "176"
+   },
+   {
+    "college": "Poona College Of Pharmacy, Erandwane, Pune",
+    "branch": "Pharmacy",
+    "exam": "MHT-CET",
+    "closing": "332"
+   },
+   {
+    "college": "University Departments of Anna University Chennai - ACT Campus Sardar Patel Road Guindy Chennai 600 025",
+    "branch": "PHARMACEUTICAL TECHNOLOGY",
+    "exam": "TNEA",
+    "closing": "184.5/200 marks"
+   },
+   {
+    "college": "University College of Engineering Tiruchirappalli (Bharathidasan Institute of Technology) Tiruchirappalli District 620024",
+    "branch": "PHARMACEUTICAL TECHNOLOGY",
+    "exam": "TNEA",
+    "closing": "171.5/200 marks"
+   },
+   {
+    "college": "Sengunthar Engineering College (Autonomous), Kosavampalayam, Kumaramangalam (Post),Tiruchengode (Taluk),Namakkal District-637205.",
+    "branch": "PHARMACEUTICAL TECHNOLOGY",
+    "exam": "TNEA",
+    "closing": "141.5/200 marks"
+   }
+  ],
   "notable_people": [
    "Yusuf Hamied: former Cipla chairman known for affordable AIDS drugs",
    "Dilip Shanghvi: founder of Sun Pharma",
@@ -5574,6 +8413,10 @@
    {
     "label": "OJEE",
     "href": "/exams?q=OJEE"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -5600,6 +8443,32 @@
   "stability": "Medium",
   "automation_risk": "Low",
   "where_work": "Metro cities mainly",
+  "college_options": [
+   {
+    "college": "Indian Institute of Technology Madras",
+    "branch": "Physics",
+    "exam": "JEE Advanced",
+    "closing": "3,555"
+   },
+   {
+    "college": "Indian Institute of Technology Kanpur",
+    "branch": "Physics",
+    "exam": "JEE Advanced",
+    "closing": "5,370"
+   },
+   {
+    "college": "Indian Institute of Technology Bombay",
+    "branch": "Applied Geophysics",
+    "exam": "JEE Advanced",
+    "closing": "7,847"
+   },
+   {
+    "college": "Odisha University of Technology and Research (formerly College of Engineering and Technology), Bhubaneswar",
+    "branch": "Integrated MSc in Applied Physics",
+    "exam": "OJEE",
+    "closing": "648,410 (JEE Main rank)"
+   }
+  ],
   "notable_people": [
    "C.V. Raman: Nobel Prize-winning Indian physicist",
    "Homi Bhabha: founder of India's nuclear program",
@@ -5653,6 +8522,7 @@
   "stability": "High",
   "automation_risk": "Low",
   "where_work": "Works from anywhere",
+  "college_options": [],
   "notable_people": [
    "Dr. Rajam Iyer: known Indian physiotherapy educator",
    "John Gloster: former physiotherapist for the Indian cricket team",
@@ -5734,6 +8604,44 @@
   "stability": "High",
   "automation_risk": "Low",
   "where_work": "Metro cities mainly",
+  "college_options": [
+   {
+    "college": "School of Planning & Architecture, New Delhi",
+    "branch": "Planning",
+    "exam": "JEE Main",
+    "closing": "209"
+   },
+   {
+    "college": "Maulana Azad National Institute of Technology Bhopal",
+    "branch": "Planning",
+    "exam": "JEE Main",
+    "closing": "574"
+   },
+   {
+    "college": "School of Planning & Architecture, Bhopal",
+    "branch": "Planning",
+    "exam": "JEE Main",
+    "closing": "701"
+   },
+   {
+    "college": "School of Planning and Architchure, University of Mysore 2nd Floor, Senate Bhavan, Manasagangotri P.O., Mysore",
+    "branch": "B.PLAN",
+    "exam": "KCET",
+    "closing": "187,039"
+   },
+   {
+    "college": "BMS College of Architecture,Basavanagudi,Bull Temple Road,,BMSCE Campus,Bangalore",
+    "branch": "PLANNING",
+    "exam": "KCET",
+    "closing": "238,799"
+   },
+   {
+    "college": "School of Architecture and Planning Anna University Chennai 600025",
+    "branch": "B.Plan",
+    "exam": "TNEA",
+    "closing": "187/200 marks"
+   }
+  ],
   "notable_people": [
    "Jaipal Reddy: policymaker linked to urban development",
    "Charles Correa: renowned architect and urban planner",
@@ -5762,7 +8670,12 @@
   "day_in_life": "A political science graduate studies how governments, laws, and elections work, and uses that knowledge in jobs like government administration, journalism, policy research, or working for political parties and NGOs. A typical day could involve researching government policies, writing reports, analysing election data, or advising leaders on public issues.",
   "impact": "People with this background often become IAS (Indian Administrative Service) officers who run district administrations, or policy researchers who shape decisions like India's education policy or welfare schemes reaching millions of citizens. Political analysts on news channels and think tanks like the Observer Research Foundation also rely on this training to explain elections and government decisions to the public.",
   "entry_exams_text": "No single fixed entrance exam for the basic degree \u2014 many colleges take students based on Class 12 marks, though top colleges like Delhi University's best colleges use CUET (Common University Entrance Test, a national exam for undergraduate admission). Later, UPSC Civil Services Exam (the exam for top government administrative jobs) is a common path many political science graduates take.",
-  "exams": null,
+  "exams": [
+   {
+    "label": "CUET",
+    "href": "/exams?q=CUET"
+   }
+  ],
   "top_colleges": [
    "St. Stephen's College Delhi",
    "Lady Shri Ram College Delhi",
@@ -5787,6 +8700,7 @@
   "stability": "Medium",
   "automation_risk": "Low",
   "where_work": "Metro cities mainly",
+  "college_options": [],
   "notable_people": [
    "Yogendra Yadav: well-known political scientist and commentator",
    "Shashi Tharoor: politician and former diplomat",
@@ -5827,6 +8741,10 @@
    {
     "label": "TNEA counselling",
     "href": "/?exam=TNEA"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -5852,6 +8770,32 @@
   "stability": "Medium",
   "automation_risk": "Medium",
   "where_work": "Tier-2 cities fine",
+  "college_options": [
+   {
+    "college": "Institute of Chemical Technology, Matunga, Mumbai",
+    "branch": "Polymer Engineering and Technology",
+    "exam": "MHT-CET",
+    "closing": "3,683"
+   },
+   {
+    "college": "Laxminarayan Innovation Technological University, Nagpur",
+    "branch": "Plastic and Polymer Engineering",
+    "exam": "MHT-CET",
+    "closing": "39,158"
+   },
+   {
+    "college": "University Institute of Chemical Technology, North Maharashtra University, Jalgaon",
+    "branch": "Plastic Technology",
+    "exam": "MHT-CET",
+    "closing": "77,023"
+   },
+   {
+    "college": "Central Institute of Petrochemicals Engineering and Technology (Formerly Central Institute of Plastics Engineering and Technology) (CIPET) Guindy Chennai 600032",
+    "branch": "PLASTIC TECHNOLOGY",
+    "exam": "TNEA",
+    "closing": "177.5/200 marks"
+   }
+  ],
   "notable_people": [
    "Mukesh Ambani: leads Reliance Industries",
    "a major producer of polymers in India",
@@ -5876,6 +8820,10 @@
    {
     "label": "WBJEE",
     "href": "/exams?q=WBJEE"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -5902,6 +8850,14 @@
   "stability": "Medium",
   "automation_risk": "High",
   "where_work": "Metro cities mainly",
+  "college_options": [
+   {
+    "college": "Central University of Haryana",
+    "branch": "Printing and Packaging Technology",
+    "exam": "JEE Main",
+    "closing": "96,367"
+   }
+  ],
   "notable_people": [
    "Ashok Chandra: veteran figure in Indian print and publishing technology | R.K. Jain: known contributor to printing technology education in India"
   ],
@@ -5915,7 +8871,12 @@
   "day_in_life": "A psychologist spends the day talking to people one-on-one or in groups, listening to their problems, and helping them understand their thoughts and feelings. They might also design tests, study how people behave, or work with companies to improve how employees feel at work.",
   "impact": "Psychologists help students deal with exam stress, help people recover from anxiety or depression, and help companies like Tata Consultancy Services (TCS) or Infosys design better workplaces. Schools like those in the Delhi government system now have counsellors to support students' mental health.",
   "entry_exams_text": "No single fixed entrance exam for a bachelor's degree \u2014 most colleges admit based on Class 12 marks, though some like Delhi University use CUET (Common University Entrance Test, a single exam many central universities use for admission). For a master's degree, exams like CUET-PG or university-specific tests are common.",
-  "exams": null,
+  "exams": [
+   {
+    "label": "CUET",
+    "href": "/exams?q=CUET"
+   }
+  ],
   "top_colleges": [
    "University of Delhi",
    "Tata Institute of Social Sciences (TISS) Mumbai",
@@ -5941,6 +8902,7 @@
   "stability": "High",
   "automation_risk": "Low",
   "where_work": "Works from anywhere (many now offer online therapy)",
+  "college_options": [],
   "notable_people": [
    "Dr. Achal Bhagat (psychiatrist and mental health advocate)",
    "Kamlesh Singh (professor",
@@ -5994,6 +8956,7 @@
   "stability": "High",
   "automation_risk": "Medium",
   "where_work": "Tier-2 cities fine",
+  "college_options": [],
   "notable_people": [
    "Dr. Bhavin Jankharia (well-known radiologist and imaging expert)",
    "technologist training pioneers at AIIMS radiology departments"
@@ -6040,6 +9003,10 @@
    {
     "label": "WBJEE",
     "href": "/exams?q=WBJEE"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -6066,6 +9033,68 @@
   "stability": "High",
   "automation_risk": "Low",
   "where_work": "Metro cities mainly",
+  "college_options": [
+   {
+    "college": "National Institute of Technology, Kurukshetra",
+    "branch": "ROBOTICS & AUTOMATION",
+    "exam": "JEE Main",
+    "closing": "13,162"
+   },
+   {
+    "college": "M . S . Ramaiah University of Applied Sciences UNIVERSITY HOUSE, GNANAGANGOTHRI CAMPUS, NEW BEL ROAD, MSR ROAD, BANGALORE - 560054",
+    "branch": "B TECH IN ROBOTICS ENGINEERING",
+    "exam": "KCET",
+    "closing": "27,316"
+   },
+   {
+    "college": "J S S Academy of Technical Education, Bangalore JSSATE CAMPUS,UTTARAHALLI-KENGERI ROAD ,BANGALORE 560060",
+    "branch": "ROBOTICS AND AUTOMATION",
+    "exam": "KCET",
+    "closing": "29,619"
+   },
+   {
+    "college": "KLE Technological University(Formerly (BVBCET) BVBHOOMARADDI COLLEGE CAMPUS, VIDYANAGAR, HUBBALLI",
+    "branch": "AUTOMATION AND ROBOTICS",
+    "exam": "KCET",
+    "closing": "29,813"
+   },
+   {
+    "college": "Vivekanand Education Society's Institute of Technology, Chembur, Mumbai",
+    "branch": "Automation and Robotics",
+    "exam": "MHT-CET",
+    "closing": "11,990"
+   },
+   {
+    "college": "Dr. D. Y. Patil Pratishthan's D.Y.Patil College of Engineering Akurdi, Pune",
+    "branch": "Robotics and Automation",
+    "exam": "MHT-CET",
+    "closing": "17,072"
+   },
+   {
+    "college": "Dr. D. Y. Patil Unitech Society's Dr. D. Y. Patil Institute of Technology, Pimpri, Pune",
+    "branch": "Automation and Robotics",
+    "exam": "MHT-CET",
+    "closing": "18,001"
+   },
+   {
+    "college": "University Departments of Anna University Chennai - MIT Campus Chrompet Tambaram Taluk Chengalpattu District 600 044",
+    "branch": "ROBOTICS AND AUTOMATION",
+    "exam": "TNEA",
+    "closing": "196.5/200 marks"
+   },
+   {
+    "college": "PSG College of Technology (Autonomous) Peelamedu Coimbatore District 641004",
+    "branch": "ROBOTICS AND AUTOMATION",
+    "exam": "TNEA",
+    "closing": "195.5/200 marks"
+   },
+   {
+    "college": "Rajalakshmi Engineering College (Autonomous), Rajalakshmi Nagar, Thandalam, Kanchipuram, Chennai-602105.",
+    "branch": "ROBOTICS AND AUTOMATION",
+    "exam": "TNEA",
+    "closing": "183/200 marks"
+   }
+  ],
   "notable_people": [
    "Vijay Kumar: Indian-origin robotics professor and dean at University of Pennsylvania | Ashutosh Saxena: founder of Caspar AI",
    "robotics and AI researcher"
@@ -6135,6 +9164,38 @@
   "stability": "High",
   "automation_risk": "Low",
   "where_work": "Tier-2 cities fine",
+  "college_options": [
+   {
+    "college": "GRAMIN TECHNICAL AND MANAGEMENT CAMPUS NANDED.",
+    "branch": "Safety and Fire Engineering",
+    "exam": "MHT-CET",
+    "closing": "157,880"
+   },
+   {
+    "college": "Veer Surendra Sai University of Technology, Burla",
+    "branch": "SAFETY AND FIRE ENGINEERING - TFW",
+    "exam": "OJEE",
+    "closing": "277,096 (JEE Main rank)"
+   },
+   {
+    "college": "Sona College of Technology (Autonomous), Sona Nagar, Thiagarajar Polytechnic College Road, Suramangalam (P.O),Salem District-636005.",
+    "branch": "Safety and Fire Engineering",
+    "exam": "TNEA",
+    "closing": "141.5/200 marks"
+   },
+   {
+    "college": "K S R College of Engineering (Autonomous), K S R Kalvi Nagar, Thokkavadi, Tiruchengode, Namakkal Dist-637215.",
+    "branch": "Safety and Fire Engineering",
+    "exam": "TNEA",
+    "closing": "132.5/200 marks"
+   },
+   {
+    "college": "Excel Engineering College (Autonomous), NH-47 Salem Main Road, Sankari West Post, Tiruchengode Taluk, Pallakapalayam, Namakkal District-637303.",
+    "branch": "Safety and Fire Engineering",
+    "exam": "TNEA",
+    "closing": "123.5/200 marks"
+   }
+  ],
   "notable_people": [
    "J.S. Rao: known figure in Indian industrial safety consulting | R.K. Dixit: veteran safety engineering practitioner in petrochemical plants"
   ],
@@ -6161,7 +9222,12 @@
   "day_in_life": "A sericulture professional works with farmers to raise silkworms, manage mulberry or other host plant farms, and oversee the process of turning silkworm cocoons into raw silk thread. On a typical day, they might inspect silkworm-rearing houses, check plant health, or guide farmers on disease prevention.",
   "impact": "India is the world's second-largest silk producer, and sericulture experts help silk farmers in states like Karnataka and West Bengal earn a steady income while supplying silk for sarees and textiles sold by brands like Nalli Silks and Fabindia. Their work supports millions of rural livelihoods tied to the silk industry.",
   "entry_exams_text": "No single fixed entrance exam \u2014 students usually join a B.Sc. in Sericulture after Class 12 (Science stream) based on marks, though some agricultural universities use exams like ICAR AIEEA (a national entrance test for agriculture-related degrees).",
-  "exams": null,
+  "exams": [
+   {
+    "label": "CUET (UG)",
+    "href": "/exams?q=ICAR"
+   }
+  ],
   "top_colleges": [
    "University of Agricultural Sciences Bangalore",
    "Central Sericultural Research and Training Institute (CSRTI) Mysore",
@@ -6184,6 +9250,7 @@
   "stability": "Medium",
   "automation_risk": "Low",
   "where_work": "Tier-2 cities fine (mainly rural and semi-rural areas)",
+  "college_options": [],
   "notable_people": [
    "Scientists at the Central Silk Board",
    "researchers at CSRTI Mysore who developed improved silkworm breeds"
@@ -6223,6 +9290,7 @@
   "stability": "Medium",
   "automation_risk": "Low",
   "where_work": "Tier-2 cities fine",
+  "college_options": [],
   "notable_people": [
    "Aruna Roy (social activist",
    "Right to Information movement)",
@@ -6256,6 +9324,10 @@
    {
     "label": "JEE Main / Advanced",
     "href": "/exams?q=JEE"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -6282,6 +9354,14 @@
   "stability": "High",
   "automation_risk": "Low",
   "where_work": "Metro cities mainly",
+  "college_options": [
+   {
+    "college": "Indian Institute of Technology Indore",
+    "branch": "Space Science and Engineering",
+    "exam": "JEE Advanced",
+    "closing": "6,996"
+   }
+  ],
   "notable_people": [
    "S. Somanath: Chairman of ISRO",
    "led Chandrayaan-3 mission | K. Sivan: former ISRO Chairman during Chandrayaan-2"
@@ -6349,6 +9429,10 @@
    {
     "label": "WBJEE",
     "href": "/exams?q=WBJEE"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -6375,6 +9459,80 @@
   "stability": "High",
   "automation_risk": "Low",
   "where_work": "Metro cities mainly",
+  "college_options": [
+   {
+    "college": "Indian Institute of Technology Bombay",
+    "branch": "Civil Engineering",
+    "exam": "JEE Advanced",
+    "closing": "4,095"
+   },
+   {
+    "college": "Indian Institute of Technology Delhi",
+    "branch": "Civil Engineering",
+    "exam": "JEE Advanced",
+    "closing": "4,228"
+   },
+   {
+    "college": "Indian Institute of Technology Madras",
+    "branch": "Civil Engineering",
+    "exam": "JEE Advanced",
+    "closing": "5,639"
+   },
+   {
+    "college": "R. V. College of Engineering, Bangalore(AUTONOMOUS) R.V. VIDYANIKETAN POST, MYSORE ROAD,BANGALORE",
+    "branch": "CIVIL ENGINEERING",
+    "exam": "KCET",
+    "closing": "10,832"
+   },
+   {
+    "college": "M S Ramaiah Institute of Technology, Bangalore(AUTONOMOUS) VIDYA SOUDHA,MSR NAGAR,MSRIT POST,BANGALORE - 560054.",
+    "branch": "CIVIL ENGINEERING",
+    "exam": "KCET",
+    "closing": "30,510"
+   },
+   {
+    "college": "B M S College of Engineering, Basavanagudi, Bangalore (AUTONOMOUS) POST BOX NO 1908, BULL TEMPLE ROAD,BANGALORE",
+    "branch": "CIVIL ENGINEERING",
+    "exam": "KCET",
+    "closing": "32,722"
+   },
+   {
+    "college": "Jadavpur University",
+    "branch": "Civil Engineering",
+    "exam": "WBJEE",
+    "closing": "741"
+   },
+   {
+    "college": "Jalpaiguri Goverment Engineering College,Jalpaiguri",
+    "branch": "Civil Engineering",
+    "exam": "WBJEE",
+    "closing": "4,061"
+   },
+   {
+    "college": "Aliah University, New Town",
+    "branch": "Civil Engineering",
+    "exam": "WBJEE",
+    "closing": "9,495"
+   },
+   {
+    "college": "COEP Technological University",
+    "branch": "Civil Engineering",
+    "exam": "MHT-CET",
+    "closing": "4,694"
+   },
+   {
+    "college": "Veermata Jijabai Technological Institute(VJTI), Matunga, Mumbai",
+    "branch": "Civil Engineering",
+    "exam": "MHT-CET",
+    "closing": "5,245"
+   },
+   {
+    "college": "Walchand College of Engineering, Sangli",
+    "branch": "Civil Engineering",
+    "exam": "MHT-CET",
+    "closing": "5,686"
+   }
+  ],
   "notable_people": [
    "E. Sreedharan (built Delhi Metro)",
    "Fazlur Rahman Khan (designed Burj Khalifa's structure)"
@@ -6402,7 +9560,12 @@
   "day_in_life": "A systems engineer looks at the big picture of a complex project, like an aircraft, a satellite, or a company's entire IT network, and makes sure all the different parts (hardware, software, and people) work together smoothly. On a typical day, they might review how a new component will fit into an existing system, spot risks before they become problems, or coordinate between different engineering teams.",
   "impact": "Systems engineers at the Indian Space Research Organisation (ISRO) make sure that thousands of components in a rocket like Chandrayaan work together perfectly, and at companies like Tata Consultancy Services (TCS) they ensure banks' entire IT systems run without crashing. Their work prevents costly failures in huge, complicated projects.",
   "entry_exams_text": "JEE Main and JEE Advanced (Joint Entrance Examination, national exams to get into engineering colleges like the IITs) for a bachelor's degree, usually in a core engineering branch first; GATE (Graduate Aptitude Test in Engineering, a national exam for master's programs and government engineering jobs) for further specialization in systems engineering.",
-  "exams": null,
+  "exams": [
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE"
+   }
+  ],
   "top_colleges": [
    "Indian Institute of Technology (IIT) Bombay",
    "IIT Madras",
@@ -6425,6 +9588,7 @@
   "stability": "High",
   "automation_risk": "Medium",
   "where_work": "Metro cities mainly",
+  "college_options": [],
   "notable_people": [
    "K. Sivan (former ISRO chairman)",
    "Ritu Karidhal (ISRO systems engineer",
@@ -6464,6 +9628,7 @@
   "stability": "High",
   "automation_risk": "Low",
   "where_work": "Tier-2 cities fine",
+  "college_options": [],
   "notable_people": [
    "Sarojini Naidu (poet and educator)",
    "Anand Kumar (founder of Super 30",
@@ -6526,6 +9691,10 @@
    {
     "label": "WBJEE",
     "href": "/exams?q=WBJEE"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE"
    }
   ],
   "top_colleges": [
@@ -6552,6 +9721,80 @@
   "stability": "Medium",
   "automation_risk": "Medium",
   "where_work": "Tier-2 cities fine",
+  "college_options": [
+   {
+    "college": "Indian Institute of Technology Delhi",
+    "branch": "Textile Technology",
+    "exam": "JEE Advanced",
+    "closing": "5,608"
+   },
+   {
+    "college": "Dr. B R Ambedkar National Institute of Technology, Jalandhar",
+    "branch": "Textile Technology",
+    "exam": "JEE Main",
+    "closing": "51,222"
+   },
+   {
+    "college": "Indian Institute of Handloom Technology, Salem",
+    "branch": "Handloom and Textile Technology",
+    "exam": "JEE Main",
+    "closing": "106,837"
+   },
+   {
+    "college": "Bapuji Institute of Engineering & Technology, Davangere (AUTONOMOUS) BAPUJI INSTITUTE OF ENGINEERING & TECHNOLOGY,P.B. NO.325,SHAMANUR ROAD,DAVANGERE-577 004",
+    "branch": "TEXTILES TECHNOLOGY",
+    "exam": "KCET",
+    "closing": "225,173"
+   },
+   {
+    "college": "Govt.S K S J T Institute of Engineering, Bangalore AMBEDKAR VEEDHI, K.R. CIRCLE, BANGALORE-01",
+    "branch": "SILK TECHNOLOGY",
+    "exam": "KCET",
+    "closing": "247,848"
+   },
+   {
+    "college": "University Of Calcutta",
+    "branch": "Jute & Fibre Technology",
+    "exam": "WBJEE",
+    "closing": "3,523"
+   },
+   {
+    "college": "Govt. College of Engineering & Textile Technology, Serampore",
+    "branch": "Textile Technology",
+    "exam": "WBJEE",
+    "closing": "6,178"
+   },
+   {
+    "college": "Govt. College of Engg. & Textile Technology, Berhampore",
+    "branch": "Textile Technology",
+    "exam": "WBJEE",
+    "closing": "10,995"
+   },
+   {
+    "college": "Veermata Jijabai Technological Institute(VJTI), Matunga, Mumbai",
+    "branch": "Textile Technology",
+    "exam": "MHT-CET",
+    "closing": "9,987"
+   },
+   {
+    "college": "Institute of Chemical Technology, Matunga, Mumbai",
+    "branch": "Fibres and Textile Processing Technology",
+    "exam": "MHT-CET",
+    "closing": "10,961"
+   },
+   {
+    "college": "Dattajirao Kadam Technical Education Society's Textile & Engineering Institute, Ichalkaranji.",
+    "branch": "Fashion Technology",
+    "exam": "MHT-CET",
+    "closing": "24,507"
+   },
+   {
+    "college": "Odisha University of Technology and Research (formerly College of Engineering and Technology), Bhubaneswar",
+    "branch": "Textile Engineering - TFW",
+    "exam": "OJEE",
+    "closing": "607,472 (JEE Main rank)"
+   }
+  ],
   "notable_people": [
    "Sanjay Lalbhai: Chairman of Arvind Mills",
    "major textile company | Dilip Kumar Jain: veteran textile engineering researcher in India"
@@ -6579,7 +9822,12 @@
   "day_in_life": "A veterinarian examines sick or injured animals, gives them medicine or performs surgery, and advises pet owners or farmers on how to keep animals healthy. A typical day could involve vaccinating a farmer's cattle in the morning and treating a pet dog's broken leg in the afternoon.",
   "impact": "Veterinarians keep India's massive dairy and livestock industry healthy, which is vital since India is the world's largest milk producer, and they also treat pets for millions of urban families through clinics and chains like Wiggles.in. Their work protects both animal welfare and the farmers who depend on healthy livestock for income.",
   "entry_exams_text": "NEET (National Eligibility cum Entrance Test, the same exam used for medical college admissions) is used for admission to B.V.Sc. (Bachelor of Veterinary Science) programs in India.",
-  "exams": null,
+  "exams": [
+   {
+    "label": "NEET-UG",
+    "href": "/exams?q=NEET"
+   }
+  ],
   "top_colleges": [
    "Indian Veterinary Research Institute (IVRI) Bareilly",
    "Madras Veterinary College Chennai",
@@ -6602,6 +9850,7 @@
   "stability": "High",
   "automation_risk": "Low",
   "where_work": "Tier-2 cities fine",
+  "college_options": [],
   "notable_people": [
    "Dr. Ilayaraja Ramasamy (well-known wildlife veterinarian)",
    "Dr. R. V. Asokan (Indian Veterinary Association leader)",
@@ -6630,7 +9879,12 @@
   "day_in_life": "A zoologist studies animals and their behaviour, either out in forests and rivers observing wildlife, or in a lab analyzing animal samples and data. They might track tiger populations using camera traps, study how climate change affects birds, or write research papers on their findings.",
   "impact": "Zoologists help protect endangered species like the Bengal tiger and the Asiatic lion through projects run by the Wildlife Institute of India, and their research guides government decisions on protecting forests and national parks like Jim Corbett and Kaziranga. Their work directly shapes how India balances development with saving its wildlife.",
   "entry_exams_text": "No single fixed entrance exam for a bachelor's degree \u2014 admission is usually based on Class 12 marks in Science. For a master's or research program, exams like CUET-PG or CSIR-UGC NET (a national exam for research fellowships and lectureship eligibility) are commonly used.",
-  "exams": null,
+  "exams": [
+   {
+    "label": "NET",
+    "href": "/exams?q=NET"
+   }
+  ],
   "top_colleges": [
    "University of Delhi",
    "Wildlife Institute of India (WII) Dehradun",
@@ -6655,6 +9909,7 @@
   "stability": "Medium",
   "automation_risk": "Low",
   "where_work": "Tier-2 cities fine (fieldwork often in rural/forest areas)",
+  "college_options": [],
   "notable_people": [
    "Salim Ali (India's most famous ornithologist",
    "'Birdman of India')",

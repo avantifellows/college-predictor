@@ -20,6 +20,7 @@ import pandas as pd
 SRC = "/Users/surya/jan2023/Career_Streams_Engineering_Populated - Sheet1.csv"
 TAXONOMY = "/Users/surya/jan2023/branch - Branch.csv"
 EXAM_MAP = "/Users/surya/jan2023/exam_branch_mapping.csv"
+EXAMS_TAB = "public/data/exams/exams.json"
 OUT_DIR = "public/data/careers"
 
 # careers whose names don't normalise onto a taxonomy parent
@@ -32,12 +33,13 @@ CAREER_BRANCH = {
     "Electrical And Electronics Engineering": "ELEC",
     "Electrical Engineering": "ELEC",
     "Electronics And Communications Engineering": "ELEC",
+    "Law (LLB)": "LLB",
     "Marine Engineering": "MARINE",
     "Mechanical Engineering": "MECHENG",
     "Medicine (MBBS)": "MBBS",
     "Ocean Engineering": "MARINE",
     "Structural Engineering": "CIVILENG",
-    # deliberately unmapped: Armed Forces, CA, HCL TechBee, Japanese, Law
+    # deliberately unmapped: Armed Forces, CA, HCL TechBee, Japanese
 }
 
 # how each mapping source shows up as a chip: label + where it leads.
@@ -74,6 +76,117 @@ def split_list(text, sep=","):
     return [t.strip() for t in str(text).split(sep) if t.strip()]
 
 
+def exam_mentions(text, exam_cards):
+    """Exams NAMED in the sheet's Entry Exams prose, validated against the
+    exams tab so a chip can never dead-end. Catches the routes our cutoff
+    tables don't cover (Ayurveda -> NEET, Law -> CLAT/CUET): the sheet
+    names them even when we hold no cutoff data for that branch."""
+    out = []
+    if pd.isna(text):
+        return out
+    tokens = set(re.findall(r"\b[A-Z][A-Z-]{2,}[A-Za-z]*\b", str(text)))
+    for tok in tokens:
+        k = norm(tok)
+        for card in exam_cards:
+            hay = [card["acronym"]] + (card.get("aliases") or [])
+            if any(norm(h).startswith(k) or k == norm(h) for h in hay):
+                out.append({"label": card["acronym"], "href": f"/exams?q={tok}"})
+                break
+    return out
+
+
+# ── college options across every exam we hold cutoffs for ───────────────
+# The survey finding this serves: students underestimate cutoffs by ~25%
+# and tunnel on one exam. So each career shows a FEW real colleges per
+# exam route with the MOST COMPETITIVE closing number we hold (min rank /
+# max marks across categories ≈ the General cutoff) — a sense of where
+# this leads and how hard the door really is, not a ranking product.
+
+def _num(v):
+    try:
+        return float(str(v).replace(",", ""))
+    except (TypeError, ValueError):
+        return None
+
+# per exam: (data file, programme field, row filter, metric field,
+#            higher_is_harder, display suffix)
+OPTION_SOURCES = {
+    "JoSAA": ("public/data/JEE/OPEN.json", "Academic Program Name",
+              lambda r: r.get("Gender") == "Gender-Neutral",
+              "Closing Rank", False, ""),
+    "KCET": ("public/data/KCET/kcet_data.json", "Academic Program Name",
+             lambda r: r.get("Language") == "Any" and r.get("Rural/Urban") == "All",
+             "Closing Rank", False, ""),
+    "WBJEE": ("public/data/WBJEE/wbjee_data.json", "Academic Program Name",
+              lambda r: True, "Closing Rank", False, ""),
+    "MHT-CET": ("public/data/MHTCET/mhtcet_data.json", "Academic Program Name",
+                lambda r: str(r.get("PWD")) in ("", "None", "False", "No")
+                and str(r.get("Defense")) in ("", "None", "False", "No"),
+                "Closing Rank", False, ""),
+    "OJEE": ("public/data/OJEE/ojee_data.json", "Academic Program Name",
+             lambda r: True, "Closing Rank", False, " (JEE Main rank)"),
+    "NEET": ("public/data/NEETUG/NEETUG.json", "Academic Program Name",
+             lambda r: r.get("Seat Type") == "All India"
+             and r.get("Gender") in (None, "", "Gender-Neutral"),
+             "Closing Rank", False, " (AIQ)"),
+    "CLAT": ("public/data/CLAT/clat_data.json", "Academic Program Name",
+             lambda r: not r.get("Women Row") and not r.get("PwD Row")
+             and not r.get("Domicile State"),
+             "Closing Rank", False, ""),
+    "TNEA": ("public/data/TNEA/tnea_data.json", "Branch",
+             lambda r: True, "Cutoff Marks", True, "/200 marks"),
+}
+
+_option_cache = {}
+
+
+def _load_options_file(path):
+    if path not in _option_cache:
+        with open(path) as fh:
+            _option_cache[path] = json.load(fh)
+    return _option_cache[path]
+
+
+def college_options(branch_id, em, per_exam=3, total=12):
+    """A few real (college, branch, exam, closing number) rows per exam
+    route for this career's branch. JoSAA splits into JEE Advanced (IITs)
+    vs JEE Main; each row keeps its own rank basis — never compare the
+    numbers across exams."""
+    if branch_id is None:
+        return []
+    out = []
+    for exam, (path, prog_field, keep, metric, higher, suffix) in OPTION_SOURCES.items():
+        raws = set(em[(em.exam == exam) & (em.branch_id == branch_id)].branch_raw)
+        if not raws or not os.path.exists(path):
+            continue
+        best = {}  # college -> (value, row): one line per college per exam
+        for r in _load_options_file(path):
+            if r.get(prog_field) not in raws or not keep(r):
+                continue
+            v = _num(r.get(metric))
+            if v is None or v <= 0:
+                continue
+            # KCET prints its college code into the name ("E005  R. V. ...")
+            key = re.sub(r"^[A-Z]\d+\s+", "", str(r.get("Institute") or "")).strip()
+            if key not in best or (v > best[key][0]) == higher:
+                best[key] = (v, r)
+        rows = sorted(best.items(), key=lambda kv: kv[1][0], reverse=higher)
+        for college, (v, r) in rows[:per_exam]:
+            prog = r.get(prog_field)
+            if exam == "JoSAA":
+                ct = str(r.get("College Type") or "")
+                label = ("JEE Advanced" if ("IIT" in ct and "IIIT" not in ct)
+                         else "JEE Main")
+            else:
+                label = exam
+            display = (f"{v:g}{suffix}" if higher
+                       else f"{int(v):,}{suffix}")
+            out.append({"college": college,
+                        "branch": str(prog).split(" (")[0],
+                        "exam": label, "closing": display})
+    return out[:total]
+
+
 def specializations(text):
     out = []
     if pd.isna(text):
@@ -93,6 +206,7 @@ def main():
 
     em = pd.read_csv(EXAM_MAP)
     exams_by_branch = em.groupby("branch_id")["exam"].agg(lambda s: sorted(set(s)))
+    exam_cards = json.load(open(EXAMS_TAB))
 
     cards, branch_to_career = [], {}
     for _, r in d.iterrows():
@@ -105,6 +219,10 @@ def main():
                 if ex in EXAM_LINKS:
                     label, href = EXAM_LINKS[ex]
                     exams.append({"label": label, "href": href})
+        # exams the sheet names that our cutoff tables don't carry
+        for m in exam_mentions(r["Entry Exams"], exam_cards):
+            if not any(e["label"] == m["label"] for e in exams):
+                exams.append(m)
         # exact-name careers own the reverse link (branch chip -> career)
         if branch_id and norm(name) in pmap:
             branch_to_career[branch_id] = cid
@@ -126,6 +244,7 @@ def main():
             "stability": str(r["Stability Outlook"]).strip() if pd.notna(r["Stability Outlook"]) else None,
             "automation_risk": str(r["Automation Risk"]).strip() if pd.notna(r["Automation Risk"]) else None,
             "where_work": str(r["Where You Can Work"]).strip() if pd.notna(r["Where You Can Work"]) else None,
+            "college_options": college_options(branch_id, em),
             "notable_people": split_list(r["Notable People"]),
             "sources": str(r["Sources"]).strip() if pd.notna(r["Sources"]) else None,
             "specializations": specializations(r["Common Specializations (Optional)"]),

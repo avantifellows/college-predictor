@@ -146,9 +146,73 @@ const CareerDetail = ({ c }) => (
         ) : null}
       </ProfileRow>
 
-      {c.top_colleges?.length ? (
-        <ProfileRow number="08" title="Colleges known for it">
-          <p>{c.top_colleges.join(", ")}</p>
+      {c.college_options?.length || c.top_colleges?.length ? (
+        <ProfileRow number="08" title="Colleges and real cutoffs">
+          {c.college_options?.length ? (
+            <>
+              <div className="hidden overflow-hidden rounded-lg border border-[#eaded8] md:block">
+                <table className="w-full text-left text-sm">
+                  <thead className="bg-[#f8efec] text-xs uppercase text-[#6b5a53]">
+                    <tr>
+                      <th className="px-3 py-2">College</th>
+                      <th className="px-3 py-2">Branch</th>
+                      <th className="px-3 py-2">Exam</th>
+                      <th className="px-3 py-2">Closing cutoff</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-[#eaded8]">
+                    {c.college_options.map((o, i) => (
+                      <tr key={i}>
+                        <td className="px-3 py-2 font-semibold text-[#2f2320]">
+                          {o.college}
+                        </td>
+                        <td className="px-3 py-2 text-[#5f514c]">{o.branch}</td>
+                        <td className="px-3 py-2 text-[#5f514c]">{o.exam}</td>
+                        <td className="px-3 py-2 font-bold tabular-nums text-[#2f2320]">
+                          {o.closing}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <div className="space-y-3 md:hidden">
+                {c.college_options.map((o, i) => (
+                  <div
+                    key={i}
+                    className="rounded-lg border border-[#eaded8] bg-[#fdf8f6] p-3"
+                  >
+                    <div className="break-words text-sm font-bold text-[#2f2320]">
+                      {o.college}
+                    </div>
+                    <div className="mt-0.5 text-sm text-[#5f514c]">
+                      {o.branch}
+                    </div>
+                    <div className="mt-1 text-sm text-[#5f514c]">
+                      {o.exam} · closed at{" "}
+                      <span className="font-bold text-[#2f2320]">
+                        {o.closing}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <p className="mt-2 text-xs leading-5 text-[#9b8a82]">
+                The toughest closing cutoff we hold per college — each number
+                is on its own exam&apos;s scale, so never compare across
+                exams. Check your own chances on the{" "}
+                <Link
+                  href="/"
+                  className="underline hover:text-[#8f2e31]"
+                >
+                  College Predictor
+                </Link>
+                .
+              </p>
+            </>
+          ) : (
+            <p>{c.top_colleges.join(", ")}</p>
+          )}
           {/* honest label: /colleges is an information tab, there is no
               comparison tool (yet) */}
           <Link
