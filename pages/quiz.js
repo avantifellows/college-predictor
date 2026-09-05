@@ -170,14 +170,7 @@ export default function Quiz() {
   const [rankGuess, setRankGuess] = useState("");
   const [actual, setActual] = useState(undefined);
 
-  // a short beat between steps so a step change reads as a step change
-  const goTo = (n) => {
-    setBusy(true);
-    setTimeout(() => {
-      setStage(n);
-      setBusy(false);
-    }, 450);
-  };
+  const goTo = (n) => setStage(n);
 
   // restore the walk after coming back from a linked page
   const [hydrated, setHydrated] = useState(false);
@@ -340,10 +333,8 @@ export default function Quiz() {
           }
         : null
     );
-    setTimeout(() => {
-      setStage(5);
-      setBusy(false);
-    }, 450);
+    setStage(5);
+    setBusy(false);
   };
 
   const reset = () => {
@@ -425,10 +416,9 @@ export default function Quiz() {
             {error ? (
               <p className="py-8 text-center text-sm text-[#8f2e31]">{error}</p>
             ) : colleges.length === 0 || busy ? (
-              <div className="flex items-center justify-center gap-3 py-12 text-sm text-[#7a635d]">
-                <span className="h-5 w-5 animate-spin rounded-full border-2 border-[#eaded8] border-t-[#B52326]" />
+              <p className="py-12 text-center text-sm text-[#7a635d]">
                 {colleges.length === 0 ? "Loading…" : ""}
-              </div>
+              </p>
             ) : stage === 0 ? (
               <>
                 <StepHead
