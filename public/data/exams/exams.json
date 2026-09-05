@@ -31,7 +31,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Architecture",
+    "slug": "architecture"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "aat-ashoka-aptitude-test-ashoka-university",
@@ -83,7 +90,18 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Arts",
+    "slug": "arts"
+   },
+   {
+    "label": "Economics",
+    "slug": "economics"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "acet",
@@ -117,7 +135,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Arts",
+    "slug": "arts"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "agricet",
@@ -151,7 +176,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Agriculture",
+    "slug": "agriculture"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "aihmct-cbt",
@@ -210,7 +242,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Hotel Management",
+    "slug": "hotel-management"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "aiims-ee",
@@ -266,7 +305,18 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Nursing",
+    "slug": "nursing"
+   },
+   {
+    "label": "Paramedical",
+    "slug": "paramedical"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "aiish-et",
@@ -300,7 +350,9 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": null,
+  "colleges_link": null
  },
  {
   "exam_id": "ail-let",
@@ -355,7 +407,9 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": null,
+  "colleges_link": null
  },
  {
   "exam_id": "ailet",
@@ -414,7 +468,9 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": null,
+  "colleges_link": null
  },
  {
   "exam_id": "amu-aat",
@@ -448,7 +504,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Architecture",
+    "slug": "architecture"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "amu-et",
@@ -527,7 +590,22 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Agriculture",
+    "slug": "agriculture"
+   },
+   {
+    "label": "Arts",
+    "slug": "arts"
+   },
+   {
+    "label": "Commerce",
+    "slug": "commerce"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "ap-eapcet-am-category",
@@ -584,7 +662,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Agriculture",
+    "slug": "agriculture"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "ap-eapcet-e-category",
@@ -638,7 +723,26 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": "AP EAPCET",
-  "open_data_id": "apeapcet"
+  "open_data_id": "apeapcet",
+  "careers": [
+   {
+    "label": "Computer Science / Information Technology",
+    "slug": "computer-science-information-technology"
+   },
+   {
+    "label": "Electrical / Electronics / Communications Engineering",
+    "slug": "electrical-electronics-communications-engineering"
+   },
+   {
+    "label": "Artificial Intelligence and Data Science",
+    "slug": "artificial-intelligence-and-data-science"
+   },
+   {
+    "label": "Mechanical / Mechatronics Engineering",
+    "slug": "mechanical-mechatronics-engineering"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "apu-et",
@@ -688,7 +792,18 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Arts",
+    "slug": "arts"
+   },
+   {
+    "label": "Economics",
+    "slug": "economics"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "anantu-det",
@@ -722,7 +837,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Design",
+    "slug": "design"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "b-com-cet-146",
@@ -777,7 +899,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Commerce",
+    "slug": "commerce"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "ba-cet-184",
@@ -828,7 +957,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Arts",
+    "slug": "arts"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "ba-cet-197",
@@ -879,7 +1015,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Economics",
+    "slug": "economics"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "bajmc-cet-126",
@@ -934,7 +1077,9 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": null,
+  "colleges_link": null
  },
  {
   "exam_id": "bba-cet-125",
@@ -989,7 +1134,9 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": null,
+  "colleges_link": null
  },
  {
   "exam_id": "bca-cet-114",
@@ -1044,7 +1191,9 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": null,
+  "colleges_link": null
  },
  {
   "exam_id": "bcece",
@@ -1080,7 +1229,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Agriculture",
+    "slug": "agriculture"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "bhmct-cet-127",
@@ -1135,7 +1291,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Hotel Management",
+    "slug": "hotel-management"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "bitsat",
@@ -1198,7 +1361,9 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": null,
+  "colleges_link": null
  },
  {
   "exam_id": "bsc-yoga-cet",
@@ -1261,7 +1426,9 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": null,
+  "colleges_link": null
  },
  {
   "exam_id": "btech-bt-cet-130",
@@ -1316,7 +1483,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Biotechnology",
+    "slug": "biotechnology"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "bu-mat",
@@ -1375,7 +1549,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Hotel Management",
+    "slug": "hotel-management"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "bv-abop",
@@ -1426,7 +1607,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Biotechnology",
+    "slug": "biotechnology"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "bv-abop-cet",
@@ -1480,7 +1668,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Biotechnology",
+    "slug": "biotechnology"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "bv-b-sc-nursing-cet",
@@ -1539,7 +1734,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Nursing",
+    "slug": "nursing"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "bv-btech-cet",
@@ -1590,7 +1792,9 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": null,
+  "colleges_link": null
  },
  {
   "exam_id": "bv-lawug-cet",
@@ -1645,7 +1849,9 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": null,
+  "colleges_link": null
  },
  {
   "exam_id": "bv-opi-pa",
@@ -1679,7 +1885,9 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": null,
+  "colleges_link": null
  },
  {
   "exam_id": "bv-pharm-ug-cet",
@@ -1730,7 +1938,9 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": null,
+  "colleges_link": null
  },
  {
   "exam_id": "cee-llb",
@@ -1785,7 +1995,9 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": null,
+  "colleges_link": null
  },
  {
   "exam_id": "cet",
@@ -1840,7 +2052,9 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": null,
+  "colleges_link": null
  },
  {
   "exam_id": "cetug-aau",
@@ -1876,7 +2090,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Agriculture",
+    "slug": "agriculture"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "cg-pat",
@@ -1929,7 +2150,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Agriculture",
+    "slug": "agriculture"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "cg-pet",
@@ -1981,7 +2209,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Agriculture",
+    "slug": "agriculture"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "clat",
@@ -2017,7 +2252,18 @@
    "UG-CLAT"
   ],
   "predictor_exam": "CLAT",
-  "open_data_id": "clat"
+  "open_data_id": "clat",
+  "careers": [
+   {
+    "label": "Law (LLB)",
+    "slug": "law-llb"
+   },
+   {
+    "label": "Cyber Security",
+    "slug": "cyber-security"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "cmi-ee",
@@ -2064,7 +2310,9 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": null,
+  "colleges_link": null
  },
  {
   "exam_id": "comedk-uget",
@@ -2102,7 +2350,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Architecture",
+    "slug": "architecture"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "cuet",
@@ -2178,7 +2433,22 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Arts",
+    "slug": "arts"
+   },
+   {
+    "label": "Commerce",
+    "slug": "commerce"
+   },
+   {
+    "label": "Economics",
+    "slug": "economics"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "cuet-ug",
@@ -2249,7 +2519,22 @@
    "TISS-BAT (Bachelor Aptitude Test)"
   ],
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Agriculture",
+    "slug": "agriculture"
+   },
+   {
+    "label": "Arts",
+    "slug": "arts"
+   },
+   {
+    "label": "Commerce",
+    "slug": "commerce"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "dat-mains",
@@ -2283,7 +2568,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Design",
+    "slug": "design"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "dat-prelims",
@@ -2317,7 +2609,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Design",
+    "slug": "design"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "dt-mahe",
@@ -2353,7 +2652,18 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Design",
+    "slug": "design"
+   },
+   {
+    "label": "Hotel Management",
+    "slug": "hotel-management"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "design-cet-600",
@@ -2387,7 +2697,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Design",
+    "slug": "design"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "eat",
@@ -2421,7 +2738,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Hotel Management",
+    "slug": "hotel-management"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "fddi-aist",
@@ -2484,7 +2808,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Design",
+    "slug": "design"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "feat",
@@ -2539,7 +2870,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Arts",
+    "slug": "arts"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "gat-cat",
@@ -2573,7 +2911,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Design",
+    "slug": "design"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "gat",
@@ -2632,7 +2977,9 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": null,
+  "colleges_link": null
  },
  {
   "exam_id": "gbpuat-cee",
@@ -2689,7 +3036,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Agriculture",
+    "slug": "agriculture"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "gujcet",
@@ -2751,7 +3105,26 @@
    "SMAID-ET (SMAID \u2013 Entrance Test)"
   ],
   "predictor_exam": "GUJCET",
-  "open_data_id": "gujcet"
+  "open_data_id": "gujcet",
+  "careers": [
+   {
+    "label": "Computer Science / Information Technology",
+    "slug": "computer-science-information-technology"
+   },
+   {
+    "label": "Pharmacy",
+    "slug": "pharmacy"
+   },
+   {
+    "label": "Electrical / Electronics / Communications Engineering",
+    "slug": "electrical-electronics-communications-engineering"
+   },
+   {
+    "label": "Mechanical / Mechatronics Engineering",
+    "slug": "mechanical-mechatronics-engineering"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "hau-aat",
@@ -2798,7 +3171,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Agriculture",
+    "slug": "agriculture"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "hau-et",
@@ -2851,7 +3231,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Agriculture",
+    "slug": "agriculture"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "hau-et-haryana-agriculture-university-community-sc-entrance-test-haryana",
@@ -2898,7 +3285,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Agriculture",
+    "slug": "agriculture"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "iat",
@@ -2953,7 +3347,9 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": null,
+  "colleges_link": null
  },
  {
   "exam_id": "idss-oee",
@@ -3002,7 +3398,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Arts",
+    "slug": "arts"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "ihm-a",
@@ -3053,7 +3456,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Hotel Management",
+    "slug": "hotel-management"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "iicd-et",
@@ -3100,7 +3510,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Design",
+    "slug": "design"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "imat",
@@ -3135,7 +3552,9 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": null,
+  "colleges_link": null
  },
  {
   "exam_id": "ipl-at-rohtak",
@@ -3190,7 +3609,9 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": null,
+  "colleges_link": null
  },
  {
   "exam_id": "ipm-at-indore-ranchi",
@@ -3241,7 +3662,9 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": null,
+  "colleges_link": null
  },
  {
   "exam_id": "ipm-at-rohtak",
@@ -3292,7 +3715,9 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": null,
+  "colleges_link": null
  },
  {
   "exam_id": "isdi-challenge",
@@ -3355,7 +3780,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Design",
+    "slug": "design"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "isi-at",
@@ -3389,7 +3821,9 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": null,
+  "colleges_link": null
  },
  {
   "exam_id": "jcat",
@@ -3448,7 +3882,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Arts",
+    "slug": "arts"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "jcece-nursing",
@@ -3499,7 +3940,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Nursing",
+    "slug": "nursing"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "jcece-agriculture-allied",
@@ -3552,7 +4000,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Agriculture",
+    "slug": "agriculture"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "jee-advanced",
@@ -3621,7 +4076,26 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": "JoSAA",
-  "open_data_id": "josaa"
+  "open_data_id": "josaa",
+  "careers": [
+   {
+    "label": "Electrical / Electronics / Communications Engineering",
+    "slug": "electrical-electronics-communications-engineering"
+   },
+   {
+    "label": "Computer Science / Information Technology",
+    "slug": "computer-science-information-technology"
+   },
+   {
+    "label": "Mechanical / Mechatronics Engineering",
+    "slug": "mechanical-mechatronics-engineering"
+   },
+   {
+    "label": "Civil Engineering",
+    "slug": "civil-engineering"
+   }
+  ],
+  "colleges_link": "/colleges?exam=JEE Advanced"
  },
  {
   "exam_id": "jee-main-paper-1",
@@ -3680,7 +4154,26 @@
    "BTECH BT CET (Common Entrance Test)"
   ],
   "predictor_exam": "JoSAA",
-  "open_data_id": "josaa"
+  "open_data_id": "josaa",
+  "careers": [
+   {
+    "label": "Electrical / Electronics / Communications Engineering",
+    "slug": "electrical-electronics-communications-engineering"
+   },
+   {
+    "label": "Computer Science / Information Technology",
+    "slug": "computer-science-information-technology"
+   },
+   {
+    "label": "Mechanical / Mechatronics Engineering",
+    "slug": "mechanical-mechatronics-engineering"
+   },
+   {
+    "label": "Civil Engineering",
+    "slug": "civil-engineering"
+   }
+  ],
+  "colleges_link": "/colleges?exam=JEE Main"
  },
  {
   "exam_id": "jee-main-paper-2a",
@@ -3735,7 +4228,14 @@
    "BTECH BT CET (Common Entrance Test)"
   ],
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Architecture",
+    "slug": "architecture"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "jee-main-paper-2b",
@@ -3790,7 +4290,9 @@
    "BTECH BT CET (Common Entrance Test)"
   ],
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": null,
+  "colleges_link": null
  },
  {
   "exam_id": "jet-de",
@@ -3849,7 +4351,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Design",
+    "slug": "design"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "jipmat",
@@ -3900,7 +4409,9 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": null,
+  "colleges_link": null
  },
  {
   "exam_id": "jmi-et",
@@ -3969,7 +4480,22 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Arts",
+    "slug": "arts"
+   },
+   {
+    "label": "Commerce",
+    "slug": "commerce"
+   },
+   {
+    "label": "Hotel Management",
+    "slug": "hotel-management"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "jsat",
@@ -4027,7 +4553,22 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Arts",
+    "slug": "arts"
+   },
+   {
+    "label": "Commerce",
+    "slug": "commerce"
+   },
+   {
+    "label": "Economics",
+    "slug": "economics"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "kalsee",
@@ -4098,7 +4639,18 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Arts",
+    "slug": "arts"
+   },
+   {
+    "label": "Commerce",
+    "slug": "commerce"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "kea-cet",
@@ -4158,7 +4710,26 @@
    "KCET"
   ],
   "predictor_exam": "KCET",
-  "open_data_id": "kcet"
+  "open_data_id": "kcet",
+  "careers": [
+   {
+    "label": "Computer Science / Information Technology",
+    "slug": "computer-science-information-technology"
+   },
+   {
+    "label": "Artificial Intelligence and Data Science",
+    "slug": "artificial-intelligence-and-data-science"
+   },
+   {
+    "label": "Electrical / Electronics / Communications Engineering",
+    "slug": "electrical-electronics-communications-engineering"
+   },
+   {
+    "label": "Mechanical / Mechatronics Engineering",
+    "slug": "mechanical-mechatronics-engineering"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "keam",
@@ -4215,7 +4786,26 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": "KEAM",
-  "open_data_id": "keam"
+  "open_data_id": "keam",
+  "careers": [
+   {
+    "label": "Electrical / Electronics / Communications Engineering",
+    "slug": "electrical-electronics-communications-engineering"
+   },
+   {
+    "label": "Computer Science / Information Technology",
+    "slug": "computer-science-information-technology"
+   },
+   {
+    "label": "Artificial Intelligence and Data Science",
+    "slug": "artificial-intelligence-and-data-science"
+   },
+   {
+    "label": "Mechanical / Mechatronics Engineering",
+    "slug": "mechanical-mechatronics-engineering"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "kiit-ee",
@@ -4283,7 +4873,22 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Architecture",
+    "slug": "architecture"
+   },
+   {
+    "label": "Arts",
+    "slug": "arts"
+   },
+   {
+    "label": "Biotechnology",
+    "slug": "biotechnology"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "krea-ap",
@@ -4319,7 +4924,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Arts",
+    "slug": "arts"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "kuat",
@@ -4388,7 +5000,22 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Arts",
+    "slug": "arts"
+   },
+   {
+    "label": "Commerce",
+    "slug": "commerce"
+   },
+   {
+    "label": "Psychology",
+    "slug": "psychology"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "lkk-oee",
@@ -4435,7 +5062,9 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": null,
+  "colleges_link": null
  },
  {
   "exam_id": "mah-b-design-cet",
@@ -4498,7 +5127,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Design",
+    "slug": "design"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "mah-b-planning-cet",
@@ -4549,7 +5185,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Planning",
+    "slug": "planning"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "mah-bhmct-cet",
@@ -4600,7 +5243,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Hotel Management",
+    "slug": "hotel-management"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "mah-llb-3-yrs-cet",
@@ -4655,7 +5305,9 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": null,
+  "colleges_link": null
  },
  {
   "exam_id": "mah-llb-5-yrs-cet",
@@ -4714,7 +5366,9 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": null,
+  "colleges_link": null
  },
  {
   "exam_id": "met",
@@ -4795,7 +5449,18 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Biotechnology",
+    "slug": "biotechnology"
+   },
+   {
+    "label": "Nursing",
+    "slug": "nursing"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "mh-aac-cet",
@@ -4850,7 +5515,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Design",
+    "slug": "design"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "mh-b-sc-nursing-cet",
@@ -4909,7 +5581,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Nursing",
+    "slug": "nursing"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "mht-cet",
@@ -4974,7 +5653,26 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": "MHT CET",
-  "open_data_id": "mhtcet"
+  "open_data_id": "mhtcet",
+  "careers": [
+   {
+    "label": "Computer Science / Information Technology",
+    "slug": "computer-science-information-technology"
+   },
+   {
+    "label": "Pharmacy",
+    "slug": "pharmacy"
+   },
+   {
+    "label": "Electrical / Electronics / Communications Engineering",
+    "slug": "electrical-electronics-communications-engineering"
+   },
+   {
+    "label": "Mechanical / Mechatronics Engineering",
+    "slug": "mechanical-mechatronics-engineering"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "mitid-dat",
@@ -5008,7 +5706,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Design",
+    "slug": "design"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "mitwpu-as",
@@ -5042,7 +5747,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Arts",
+    "slug": "arts"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "mitwpu-cet",
@@ -5112,7 +5824,22 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Biotechnology",
+    "slug": "biotechnology"
+   },
+   {
+    "label": "Commerce",
+    "slug": "commerce"
+   },
+   {
+    "label": "Economics",
+    "slug": "economics"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "mitwpu-ug-dat",
@@ -5179,7 +5906,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Design",
+    "slug": "design"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "mp-pat",
@@ -5230,7 +5964,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Agriculture",
+    "slug": "agriculture"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "mp-pv-ft",
@@ -5282,7 +6023,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Agriculture",
+    "slug": "agriculture"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "msu-et",
@@ -5329,7 +6077,22 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Arts",
+    "slug": "arts"
+   },
+   {
+    "label": "Design",
+    "slug": "design"
+   },
+   {
+    "label": "Social Work",
+    "slug": "social-work"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "nata",
@@ -5363,7 +6126,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Architecture",
+    "slug": "architecture"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "nchm-jee",
@@ -5422,7 +6192,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Hotel Management",
+    "slug": "hotel-management"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "nda",
@@ -5479,7 +6256,9 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": null,
+  "colleges_link": null
  },
  {
   "exam_id": "neet-ug",
@@ -5568,7 +6347,22 @@
    "RPVT (Rajasthan Pre Veterinary Test)"
   ],
   "predictor_exam": "NEETUG",
-  "open_data_id": "neet"
+  "open_data_id": "neet",
+  "careers": [
+   {
+    "label": "Medicine (MBBS)",
+    "slug": "medicine-mbbs"
+   },
+   {
+    "label": "Dental",
+    "slug": "dental"
+   },
+   {
+    "label": "Nursing",
+    "slug": "nursing"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "nest",
@@ -5623,7 +6417,9 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": null,
+  "colleges_link": null
  },
  {
   "exam_id": "net",
@@ -5678,7 +6474,9 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": null,
+  "colleges_link": null
  },
  {
   "exam_id": "niift-caft",
@@ -5712,7 +6510,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Design",
+    "slug": "design"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "nmims-audition",
@@ -5746,7 +6551,9 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": null,
+  "colleges_link": null
  },
  {
   "exam_id": "nmims-cet",
@@ -5807,7 +6614,9 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": null,
+  "colleges_link": null
  },
  {
   "exam_id": "nmims-dat",
@@ -5841,7 +6650,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Design",
+    "slug": "design"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "nmims-lat",
@@ -5900,7 +6716,9 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": null,
+  "colleges_link": null
  },
  {
   "exam_id": "nmims-npat",
@@ -5958,7 +6776,22 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Arts",
+    "slug": "arts"
+   },
+   {
+    "label": "Commerce",
+    "slug": "commerce"
+   },
+   {
+    "label": "Economics",
+    "slug": "economics"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "nsuee",
@@ -5992,7 +6825,9 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": null,
+  "colleges_link": null
  },
  {
   "exam_id": "no-more-exists-lsat-india",
@@ -6047,7 +6882,9 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": null,
+  "colleges_link": null
  },
  {
   "exam_id": "ojee",
@@ -6104,7 +6941,26 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": "OJEE",
-  "open_data_id": "ojee"
+  "open_data_id": "ojee",
+  "careers": [
+   {
+    "label": "Computer Science / Information Technology",
+    "slug": "computer-science-information-technology"
+   },
+   {
+    "label": "Electrical / Electronics / Communications Engineering",
+    "slug": "electrical-electronics-communications-engineering"
+   },
+   {
+    "label": "Mechanical / Mechatronics Engineering",
+    "slug": "mechanical-mechatronics-engineering"
+   },
+   {
+    "label": "Civil Engineering",
+    "slug": "civil-engineering"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "ouat",
@@ -6157,7 +7013,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Agriculture",
+    "slug": "agriculture"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "para-cet-124",
@@ -6209,7 +7072,9 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": null,
+  "colleges_link": null
  },
  {
   "exam_id": "pau-cet",
@@ -6266,7 +7131,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Agriculture",
+    "slug": "agriculture"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "pdeu-at",
@@ -6300,7 +7172,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Arts",
+    "slug": "arts"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "pgimer-ee",
@@ -6336,7 +7215,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Nursing",
+    "slug": "nursing"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "pharma-cet-133",
@@ -6391,7 +7277,9 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": null,
+  "colleges_link": null
  },
  {
   "exam_id": "pu-llb-cet",
@@ -6442,7 +7330,9 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": null,
+  "colleges_link": null
  },
  {
   "exam_id": "pu-5-year-llb-et",
@@ -6497,7 +7387,9 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": null,
+  "colleges_link": null
  },
  {
   "exam_id": "pu-cet",
@@ -6551,7 +7443,18 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Agriculture",
+    "slug": "agriculture"
+   },
+   {
+    "label": "Biotechnology",
+    "slug": "biotechnology"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "pwc-et",
@@ -6608,7 +7511,22 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Arts",
+    "slug": "arts"
+   },
+   {
+    "label": "Commerce",
+    "slug": "commerce"
+   },
+   {
+    "label": "Economics",
+    "slug": "economics"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "rjet",
@@ -6669,7 +7587,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Agriculture",
+    "slug": "agriculture"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "rulet",
@@ -6703,7 +7628,9 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": null,
+  "colleges_link": null
  },
  {
   "exam_id": "seed",
@@ -6737,7 +7664,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Design",
+    "slug": "design"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "set-general",
@@ -6800,7 +7734,18 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Arts",
+    "slug": "arts"
+   },
+   {
+    "label": "Economics",
+    "slug": "economics"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "siteee",
@@ -6851,7 +7796,9 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": null,
+  "colleges_link": null
  },
  {
   "exam_id": "skuast-j-cet",
@@ -6904,7 +7851,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Agriculture",
+    "slug": "agriculture"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "skuast-k-cet",
@@ -6957,7 +7911,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Agriculture",
+    "slug": "agriculture"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "slat",
@@ -7016,7 +7977,9 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": null,
+  "colleges_link": null
  },
  {
   "exam_id": "smat-ug",
@@ -7073,7 +8036,9 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": null,
+  "colleges_link": null
  },
  {
   "exam_id": "smeat-ug",
@@ -7107,7 +8072,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Design",
+    "slug": "design"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "snioe-dat",
@@ -7158,7 +8130,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Design",
+    "slug": "design"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "snusat",
@@ -7197,7 +8176,18 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Arts",
+    "slug": "arts"
+   },
+   {
+    "label": "Economics",
+    "slug": "economics"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "snusat-apt",
@@ -7231,7 +8221,9 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": null,
+  "colleges_link": null
  },
  {
   "exam_id": "soetap-ug",
@@ -7266,7 +8258,18 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Agriculture",
+    "slug": "agriculture"
+   },
+   {
+    "label": "Nursing",
+    "slug": "nursing"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "soft-et",
@@ -7321,7 +8324,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Design",
+    "slug": "design"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "sppu-oee",
@@ -7375,7 +8385,22 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Arts",
+    "slug": "arts"
+   },
+   {
+    "label": "Biotechnology",
+    "slug": "biotechnology"
+   },
+   {
+    "label": "Hotel Management",
+    "slug": "hotel-management"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "srmjee-l-ug",
@@ -7434,7 +8459,9 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": null,
+  "colleges_link": null
  },
  {
   "exam_id": "srmjeee-ug",
@@ -7496,7 +8523,18 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Biotechnology",
+    "slug": "biotechnology"
+   },
+   {
+    "label": "Psychology",
+    "slug": "psychology"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "srmjeeh-ug",
@@ -7555,7 +8593,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Nursing",
+    "slug": "nursing"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "sru-aiee",
@@ -7610,7 +8655,9 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": null,
+  "colleges_link": null
  },
  {
   "exam_id": "sru-ee-group-a",
@@ -7644,7 +8691,9 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": null,
+  "colleges_link": null
  },
  {
   "exam_id": "sssihl-ugt",
@@ -7708,7 +8757,22 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Arts",
+    "slug": "arts"
+   },
+   {
+    "label": "Commerce",
+    "slug": "commerce"
+   },
+   {
+    "label": "Economics",
+    "slug": "economics"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "step",
@@ -7742,7 +8806,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Hotel Management",
+    "slug": "hotel-management"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "tg-eapcet-am",
@@ -7803,7 +8874,26 @@
    "TS-EAMCET"
   ],
   "predictor_exam": "TGEAPCET",
-  "open_data_id": "tgeapcet"
+  "open_data_id": "tgeapcet",
+  "careers": [
+   {
+    "label": "Computer Science / Information Technology",
+    "slug": "computer-science-information-technology"
+   },
+   {
+    "label": "Electrical / Electronics / Communications Engineering",
+    "slug": "electrical-electronics-communications-engineering"
+   },
+   {
+    "label": "Artificial Intelligence and Data Science",
+    "slug": "artificial-intelligence-and-data-science"
+   },
+   {
+    "label": "Civil Engineering",
+    "slug": "civil-engineering"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "tg-eapcet-e",
@@ -7859,7 +8949,26 @@
    "TS-EAMCET"
   ],
   "predictor_exam": "TGEAPCET",
-  "open_data_id": "tgeapcet"
+  "open_data_id": "tgeapcet",
+  "careers": [
+   {
+    "label": "Computer Science / Information Technology",
+    "slug": "computer-science-information-technology"
+   },
+   {
+    "label": "Electrical / Electronics / Communications Engineering",
+    "slug": "electrical-electronics-communications-engineering"
+   },
+   {
+    "label": "Artificial Intelligence and Data Science",
+    "slug": "artificial-intelligence-and-data-science"
+   },
+   {
+    "label": "Civil Engineering",
+    "slug": "civil-engineering"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "tslas-ot",
@@ -7893,7 +9002,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Arts",
+    "slug": "arts"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "uceed",
@@ -7948,7 +9064,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Design",
+    "slug": "design"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "ug-jet",
@@ -8020,7 +9143,22 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Arts",
+    "slug": "arts"
+   },
+   {
+    "label": "Commerce",
+    "slug": "commerce"
+   },
+   {
+    "label": "Design",
+    "slug": "design"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "ugat",
@@ -8081,7 +9219,18 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Commerce",
+    "slug": "commerce"
+   },
+   {
+    "label": "Hotel Management",
+    "slug": "hotel-management"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "uget",
@@ -8136,7 +9285,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Horticulture",
+    "slug": "horticulture"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "uid-dat",
@@ -8203,7 +9359,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Design",
+    "slug": "design"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "ulsat",
@@ -8262,7 +9425,9 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": null,
+  "colleges_link": null
  },
  {
   "exam_id": "up-catet",
@@ -8363,7 +9528,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Agriculture",
+    "slug": "agriculture"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "upesdat",
@@ -8406,7 +9578,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Design",
+    "slug": "design"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "upeseat-exam-test-centre-based",
@@ -8465,7 +9644,9 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": null,
+  "colleges_link": null
  },
  {
   "exam_id": "upeseat-test-online",
@@ -8520,7 +9701,9 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": null,
+  "colleges_link": null
  },
  {
   "exam_id": "upesmet-ug",
@@ -8554,7 +9737,9 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": null,
+  "colleges_link": null
  },
  {
   "exam_id": "upespat-exam-test-centre-based",
@@ -8613,7 +9798,9 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": null,
+  "colleges_link": null
  },
  {
   "exam_id": "upespat-test-online",
@@ -8668,7 +9855,9 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": null,
+  "colleges_link": null
  },
  {
   "exam_id": "uuhf-uet",
@@ -8719,7 +9908,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Agriculture",
+    "slug": "agriculture"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "viteee",
@@ -8779,7 +9975,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Biotechnology",
+    "slug": "biotechnology"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "vsat",
@@ -8822,7 +10025,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Arts",
+    "slug": "arts"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "wb-jenpas-ug",
@@ -8879,7 +10089,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Nursing",
+    "slug": "nursing"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "wbjee",
@@ -8957,7 +10174,26 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": "WBJEE",
-  "open_data_id": "wbjee"
+  "open_data_id": "wbjee",
+  "careers": [
+   {
+    "label": "Computer Science / Information Technology",
+    "slug": "computer-science-information-technology"
+   },
+   {
+    "label": "Electrical / Electronics / Communications Engineering",
+    "slug": "electrical-electronics-communications-engineering"
+   },
+   {
+    "label": "Artificial Intelligence and Data Science",
+    "slug": "artificial-intelligence-and-data-science"
+   },
+   {
+    "label": "Mechanical / Mechatronics Engineering",
+    "slug": "mechanical-mechatronics-engineering"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "wwi-et",
@@ -9011,7 +10247,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Design",
+    "slug": "design"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "xet",
@@ -9068,7 +10311,9 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": null,
+  "colleges_link": null
  },
  {
   "exam_id": "idat",
@@ -9102,7 +10347,14 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Design",
+    "slug": "design"
+   }
+  ],
+  "colleges_link": null
  },
  {
   "exam_id": "imat-iiad-management-aptitude-test-delhi",
@@ -9136,6 +10388,8 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null
+  "open_data_id": null,
+  "careers": null,
+  "colleges_link": null
  }
 ]

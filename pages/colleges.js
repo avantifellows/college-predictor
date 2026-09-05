@@ -563,10 +563,13 @@ const Colleges = () => {
   const [error, setError] = useState(null);
   const [q, setQ] = useState("");
 
-  // arriving from a career's college link: /colleges?q=IIT Delhi
+  // arriving from a career's college link (/colleges?q=IIT Delhi) or an
+  // exam card's "colleges accepting it" (/colleges?exam=JEE Advanced)
   useEffect(() => {
-    if (router.isReady && router.query.q) setQ(String(router.query.q));
-  }, [router.isReady, router.query.q]);
+    if (!router.isReady) return;
+    if (router.query.q) setQ(String(router.query.q));
+    if (router.query.exam) setExam(String(router.query.exam));
+  }, [router.isReady, router.query.q, router.query.exam]);
   const [state, setState] = useState("All");
   const [exam, setExam] = useState("All");
   const [sortKey, setSortKey] = useState("nirf");
@@ -685,17 +688,18 @@ const Colleges = () => {
                 hideValueWhileSearching
               />
             </div>
-            <select
-              value={sortKey}
-              onChange={(e) => setSortKey(e.target.value)}
-              className="min-h-[48px] rounded-xl border border-[#d8c7c1] bg-[#fffdfa] px-3 text-sm outline-none focus:border-[#b52326]"
-            >
-              {Object.entries(SORTS).map(([k, v]) => (
-                <option key={k} value={k}>
-                  Sort: {v.label}
-                </option>
-              ))}
-            </select>
+            {/* the shared control, not a native select — the browser's gray
+                option menu doesn't belong in this palette */}
+            <div className="min-w-[13rem]">
+              <Dropdown
+                options={Object.entries(SORTS).map(([k, v]) => ({
+                  value: k,
+                  label: `Sort: ${v.label}`,
+                }))}
+                selectedValue={sortKey}
+                onChange={(o) => setSortKey(o.value)}
+              />
+            </div>
           </div>
 
           {exams.length > 2 ? (

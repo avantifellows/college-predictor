@@ -197,6 +197,22 @@ const ExamRow = ({ e, index, expanded, onToggle }) => {
                     {e.remarks}
                   </p>
                 ) : null}
+                {e.careers?.length ? (
+                  <div className="flex flex-wrap items-center gap-1.5">
+                    <span className="text-xs font-semibold uppercase tracking-wide text-[#8f2e31]">
+                      Leads to
+                    </span>
+                    {e.careers.map((c) => (
+                      <Link
+                        key={c.slug}
+                        href={`/careers#${c.slug}`}
+                        className="rounded-full bg-[#f5ece8] px-2.5 py-1 text-xs font-bold text-[#8f2e31] transition hover:bg-[#f3dfd9]"
+                      >
+                        {c.label}
+                      </Link>
+                    ))}
+                  </div>
+                ) : null}
                 {e.replaces?.length ? (
                   <p className="text-xs leading-5 text-[#6d5550]">
                     Replaces:{" "}
@@ -210,6 +226,14 @@ const ExamRow = ({ e, index, expanded, onToggle }) => {
                       className="inline-flex items-center gap-1 rounded-full bg-[#B52326] px-3 py-1.5 text-xs font-semibold text-white transition hover:bg-[#8f2e31]"
                     >
                       Check your colleges
+                    </Link>
+                  ) : null}
+                  {e.colleges_link ? (
+                    <Link
+                      href={e.colleges_link}
+                      className="text-xs text-[#6d5550] underline hover:text-[#8f2e31]"
+                    >
+                      colleges accepting it
                     </Link>
                   ) : null}
                   {e.url ? (

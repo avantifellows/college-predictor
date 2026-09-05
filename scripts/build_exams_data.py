@@ -23,6 +23,53 @@ import pandas as pd
 
 SRC = "data-sources/exams_cleaned.csv"
 OUT = "public/data/exams/exams.json"
+# careers this exam leads to: predictor key -> exam_branch_mapping family ->
+# branches -> the career named after each branch (career_streams.csv), the
+# biggest seat pools first. Everything reads data-sources/, so there is no
+# circular dependency on careers.json.
+EXAM_MAP = "data-sources/exam_branch_mapping.csv"
+TAXONOMY = "data-sources/branch_taxonomy.csv"
+CAREERS_SRC = "data-sources/career_streams.csv"
+PREDICTOR_TO_FAMILY = {
+    "JoSAA": "JoSAA", "KCET": "KCET", "MHT CET": "MHT-CET",
+    "TGEAPCET": "TG-EAPCET", "AP EAPCET": "AP-EAPCET", "GUJCET": "GUJCET",
+    "WBJEE": "WBJEE", "KEAM": "KEAM", "OJEE": "OJEE", "CLAT": "CLAT",
+    "NEETUG": "NEET",
+}
+
+
+def careers_index():
+    def _n(s):
+        return re.sub(r"[^a-z0-9]+", " ", str(s).lower()).strip()
+
+    car = pd.read_csv(CAREERS_SRC)
+    career_by_name = {_n(c): slug(c) for c in car["Career Name"]}
+    tax = pd.read_csv(TAXONOMY)
+    parents = tax[tax.primary_branch_id.isna()]
+    # a branch leads to the career that carries its name…
+    branch_career = {}
+    for bid, bname in parents[["branch_id", "branch_name"]].values:
+        c = career_by_name.get(_n(bname))
+        if c:
+            branch_career[bid] = (c, str(bname).strip())
+    # …and the pinned pairs fill the renames (MBBS -> Medicine (MBBS),
+    # LLB -> Law (LLB)) — one source of truth with the careers build
+    from build_careers_data import CAREER_BRANCH
+    for career_name, bid in CAREER_BRANCH.items():
+        branch_career.setdefault(bid, (slug(career_name), career_name))
+    em = pd.read_csv(EXAM_MAP)
+    by_family = {}
+    for fam, g in em.groupby("exam"):
+        w = {}
+        for _, r in g.iterrows():
+            hit = branch_career.get(r.branch_id)
+            if hit:
+                w[hit] = w.get(hit, 0) + int(r.n_rows)
+        top = sorted(w.items(), key=lambda kv: -kv[1])[:4]
+        by_family[fam] = [{"label": name, "slug": cid} for (cid, name), _ in top]
+    return by_family, career_by_name
+
+
 # Hand-formatted paper patterns: the sheet stores sections and question counts
 # as two parallel run-on strings; scripts/pattern_formats.json aligns them into
 # rows, keyed by md5(pattern + "||" + questions_marks)[:10].
@@ -67,7 +114,12 @@ def pattern_key(pattern, marks):
     return hashlib.md5(raw.encode()).hexdigest()[:10]
 
 
+def _k2(s):
+    return re.sub(r"[^a-z0-9]+", " ", str(s).lower()).strip()
+
+
 def main():
+    careers_by_family, career_by_name = careers_index()
     fmt = {}
     if os.path.exists(PATTERNS):
         fmt = json.load(open(PATTERNS))
@@ -158,6 +210,23 @@ def main():
                              if pd.notna(f["avanti_open_data"])
                              and str(f["avanti_open_data"]).strip() else None),
         })
+        card = cards[-1]
+        pred = card["predictor_exam"]
+        fam = PREDICTOR_TO_FAMILY.get(pred or "")
+        careers = list(careers_by_family.get(fam, []))
+        if not careers:
+            # exams outside the cutoff mapping (UCEED, NID): a stream that
+            # IS a career name links to it (Design -> the Design career)
+            careers = [{"label": s, "slug": career_by_name[_k2(s)]}
+                       for s in streams if _k2(s) in career_by_name][:3]
+        card["careers"] = careers or None
+        # only the JoSAA family has its colleges on the Colleges tab so far
+        if fam == "JoSAA":
+            which = ("JEE Advanced" if acro.startswith("JEE Advanced")
+                     else "JEE Main")
+            card["colleges_link"] = f"/colleges?exam={which}"
+        else:
+            card["colleges_link"] = None
 
     # exam_id is the React key and the expand toggle — a duplicate breaks both
     ids = [c["exam_id"] for c in cards]
