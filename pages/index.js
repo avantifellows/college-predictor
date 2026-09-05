@@ -131,7 +131,6 @@ const GroupCard = ({ icon: Badge, title, items }) => (
 export default function Home() {
   const router = useRouter();
   const [action, setAction] = useState(null);
-  const [updated, setUpdated] = useState(null);
 
   // old deep links (/?exam=KCET) predate the landing — forward them to the
   // predictor form so nothing anyone bookmarked or shared breaks
@@ -140,13 +139,6 @@ export default function Home() {
       router.replace({ pathname: "/predictor", query: router.query });
     }
   }, [router.isReady, router.query, router]);
-
-  useEffect(() => {
-    fetch("/data/last_updated.json")
-      .then((r) => (r.ok ? r.json() : null))
-      .then((d) => d && setUpdated(d.date))
-      .catch(() => {});
-  }, []);
 
   const go = () => {
     if (!action) return;
@@ -211,11 +203,6 @@ export default function Home() {
             />
             <GroupCard icon={Wrench} title="Tools" items={TOOLS} />
           </div>
-          {updated ? (
-            <p className="mt-10 text-center text-xs text-[#a89a94]">
-              Data last updated {updated}
-            </p>
-          ) : null}
         </div>
       </div>
     </>

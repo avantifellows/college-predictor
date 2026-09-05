@@ -203,7 +203,7 @@ export default function Datasets() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#f5efe8] pb-16">
+    <div className="min-h-screen pb-16">
       <Head>
         <title>{`Open Datasets - ${TITLE_SHORT}`}</title>
         <meta

@@ -100,9 +100,12 @@ const Navbar = () => {
               className="h-full w-full cursor-pointer object-contain"
             />
           </Link>
-          <span className="hidden select-none border-l border-[#eaded8] pl-3 text-xl font-black text-[#2f2320] sm:block">
+          <Link
+            href="/"
+            className="hidden border-l border-[#eaded8] pl-3 text-xl font-black text-[#2f2320] transition hover:text-[#B52326] sm:block"
+          >
             futures
-          </span>
+          </Link>
         </div>
 
         <div className="flex gap-1.5">
@@ -116,11 +119,10 @@ const Navbar = () => {
       </div>
       <div
         ref={barRef}
-        className="w-full bg-[#B52326] px-4 py-2 text-white md:px-8"
+        className="w-full bg-[#B52326] px-4 py-3 text-white md:px-8"
       >
-        <div className="mx-auto grid max-w-6xl grid-cols-[1fr_auto_1fr] items-center gap-2">
-          <div />
-          <div className="flex flex-wrap items-center justify-center gap-2">
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-2">
+          <div className="flex flex-wrap items-center gap-2">
             <NavGroup
               label="Dashboards"
               items={DASHBOARDS}
@@ -146,14 +148,8 @@ const Navbar = () => {
               Datasets
             </Link>
           </div>
-          <Link
-            href="https://cv-generator.avantifellows.org/"
-            className="ml-auto inline-flex shrink-0 items-center justify-center rounded-full bg-white px-3 py-1.5 text-sm font-semibold text-black transition hover:bg-[#f8efec]"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            CV Generator
-          </Link>
+          {/* right side stays empty until Sign in ships */}
+          <div />
         </div>
       </div>
     </div>

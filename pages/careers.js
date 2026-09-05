@@ -328,7 +328,7 @@ export default function Careers() {
           content="What each career actually looks like: day-to-day work, pay, recruiters, and the entrance exams that lead there."
         />
       </Head>
-      <div className="min-h-screen bg-[#faf5ef] px-3 py-6 sm:px-6">
+      <div className="min-h-screen px-3 py-6 sm:px-6">
         <div className="mx-auto max-w-6xl rounded-2xl border border-[#eee1d7] bg-white p-4 shadow-sm sm:p-8">
           <h1 className="text-center text-3xl font-bold text-[#332724]">
             Careers
