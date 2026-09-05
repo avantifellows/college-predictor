@@ -57,6 +57,7 @@ const Dropdown = ({
   className,
   isClearable = false,
   placeholder,
+  isSearchable = true,
   // react-select keeps the chosen value painted behind the text you type, so a
   // long list reads as "All states" with a cursor blinking over it. Opt in to
   // hiding the value while the menu is open, so typing looks like typing.
@@ -70,6 +71,7 @@ const Dropdown = ({
       onChange={onChange}
       isDisabled={isDisabled}
       isClearable={isClearable}
+      isSearchable={isSearchable}
       styles={customStyles}
       instanceId={useId()}
       className={className}

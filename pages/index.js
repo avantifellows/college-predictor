@@ -168,6 +168,7 @@ export default function Home() {
                 selectedValue={action}
                 onChange={(o) => setAction(o.value)}
                 placeholder="choose an action…"
+                isSearchable={false}
               />
             </div>
             <button
