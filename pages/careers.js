@@ -15,154 +15,155 @@ const Dropdown = dynamic(() => import("../components/dropdown"), {
 
 const DATA_URL = "/data/careers/careers.json";
 
-const SectionHead = ({ n, children }) => (
-  <div className="mb-2 flex items-baseline gap-2">
-    <span className="font-mono text-xs text-[#b9a8a2]">
-      {String(n).padStart(2, "0")}
-    </span>
-    <h3 className="text-[13px] font-semibold uppercase tracking-wide text-[#8f2e31]">
+// future-v2's section pattern: a top rule, the number+title in their own
+// left column, roomy leading-7 body — the demarcation IS the layout
+const ProfileRow = ({ number, title, children }) => (
+  <section className="grid gap-3 border-t border-[#eaded8] py-6 md:grid-cols-[180px_1fr] md:gap-8">
+    <div>
+      <div className="text-xs font-black uppercase tracking-wide text-[#B52326]">
+        {number}
+      </div>
+      <h3 className="mt-1 text-base font-black text-[#2f2320]">{title}</h3>
+    </div>
+    <div className="min-w-0 text-[15px] leading-7 text-[#5f514c]">
       {children}
-    </h3>
-  </div>
+    </div>
+  </section>
 );
 
+const MetricCard = ({ label, value }) => {
+  if (!value) return null;
+  return (
+    <div className="min-w-0 rounded-lg border border-[#eaded8] bg-white p-3">
+      <div className="text-xs font-semibold uppercase tracking-wide text-[#8a6d63]">
+        {label}
+      </div>
+      <div className="mt-1 break-words text-sm font-bold text-[#2f2320]">
+        {value}
+      </div>
+    </div>
+  );
+};
+
 const Chip = ({ children }) => (
-  <span className="rounded-full border border-[#e3d1cb] bg-white px-2.5 py-1 text-xs text-[#5b3a34]">
+  <span className="rounded-full border border-[#eaded8] bg-white px-3 py-1.5 text-xs font-bold text-[#4f403a]">
     {children}
   </span>
 );
 
-const PayStat = ({ label, value }) => (
-  <div className="rounded-xl border border-[#eaded8] bg-[#fffdfa] px-4 py-3 text-center">
-    <div className="text-base font-bold tabular-nums text-[#332724]">
-      {value || "—"}
-    </div>
-    <div className="mt-0.5 text-[11px] text-[#6d5550]">{label}</div>
-  </div>
-);
-
 const CareerDetail = ({ c }) => (
-  <div className="space-y-7">
-    <div>
-      <h2 className="text-2xl font-bold text-[#332724]">{c.name}</h2>
+  <div className="min-w-0">
+    <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
+      <div>
+        <div className="text-xs font-bold uppercase tracking-wide text-[#B52326]">
+          Career
+        </div>
+        <h2 className="mt-2 break-words text-3xl font-black leading-tight text-[#2f2320] md:text-4xl">
+          {c.name}
+        </h2>
+      </div>
+      <div className="grid gap-2 sm:grid-cols-3 md:min-w-[340px]">
+        <MetricCard label="Starting pay" value={c.pay?.start} />
+        <MetricCard label="Mid-career" value={c.pay?.mid} />
+        <MetricCard label="Senior" value={c.pay?.senior} />
+      </div>
     </div>
 
-    {c.day_in_life ? (
-      <section>
-        <SectionHead n={1}>A day in the life</SectionHead>
-        <p className="text-sm leading-6 text-[#5b3a34]">{c.day_in_life}</p>
-      </section>
-    ) : null}
+    <div className="mt-7">
+      {c.day_in_life ? (
+        <ProfileRow number="01" title="A day in the life">
+          <p>{c.day_in_life}</p>
+        </ProfileRow>
+      ) : null}
 
-    {c.impact ? (
-      <section>
-        <SectionHead n={2}>Why it matters</SectionHead>
-        <p className="text-sm leading-6 text-[#5b3a34]">{c.impact}</p>
-      </section>
-    ) : null}
+      {c.impact ? (
+        <ProfileRow number="02" title="Why it matters">
+          <p>{c.impact}</p>
+        </ProfileRow>
+      ) : null}
 
-    {c.pay?.start || c.pay?.mid || c.pay?.senior ? (
-      <section>
-        <SectionHead n={3}>What it pays</SectionHead>
-        <div className="grid max-w-md grid-cols-3 gap-2">
-          <PayStat label="Starting" value={c.pay.start} />
-          <PayStat label="Mid-career" value={c.pay.mid} />
-          <PayStat label="Senior" value={c.pay.senior} />
-        </div>
-        <div className="mt-2 flex flex-wrap gap-1.5 text-xs">
-          {c.stability ? <Chip>Stability: {c.stability}</Chip> : null}
-          {c.automation_risk ? (
-            <Chip>Automation risk: {c.automation_risk}</Chip>
-          ) : null}
-        </div>
-        {c.where_work ? (
-          <p className="mt-2 text-xs leading-5 text-[#6d5550]">
-            {c.where_work}
+      {c.stability || c.automation_risk || c.where_work ? (
+        <ProfileRow number="03" title="Career outlook">
+          <div className="grid gap-3 sm:grid-cols-3">
+            <MetricCard label="Stability" value={c.stability} />
+            <MetricCard label="Automation risk" value={c.automation_risk} />
+            <MetricCard label="Where you work" value={c.where_work} />
+          </div>
+        </ProfileRow>
+      ) : null}
+
+      {c.recruiters?.length ? (
+        <ProfileRow number="04" title="Who hires">
+          <div className="flex flex-wrap gap-3">
+            {c.recruiters.map((r) => (
+              <Chip key={r}>{r}</Chip>
+            ))}
+          </div>
+        </ProfileRow>
+      ) : null}
+
+      {c.notable_people?.length ? (
+        <ProfileRow number="05" title="People you may know of">
+          <ul className="space-y-1.5">
+            {c.notable_people.map((p) => (
+              <li key={p}>{p}</li>
+            ))}
+          </ul>
+        </ProfileRow>
+      ) : null}
+
+      {c.specializations?.length ? (
+        <ProfileRow number="06" title="Ways to specialise">
+          <dl className="space-y-3">
+            {c.specializations.map((s) => (
+              <div key={s.name}>
+                <dt className="font-bold text-[#2f2320]">{s.name}</dt>
+                {s.blurb ? <dd>{s.blurb}</dd> : null}
+              </div>
+            ))}
+          </dl>
+        </ProfileRow>
+      ) : null}
+
+      <ProfileRow number="07" title="Exams that lead here">
+        {c.exams?.length ? (
+          <div className="mb-3 flex flex-wrap gap-3">
+            {c.exams.map((e) => (
+              <Link
+                key={e.label}
+                href={`/exams?q=${encodeURIComponent(e.q)}`}
+                className="rounded-full bg-[#f5ece8] px-3 py-1.5 text-xs font-bold text-[#8f2e31] transition hover:bg-[#f3dfd9]"
+              >
+                {e.label}
+              </Link>
+            ))}
+          </div>
+        ) : null}
+        {c.entry_exams_text ? (
+          <p className="text-sm leading-6 text-[#7d6b64]">
+            {c.entry_exams_text}
           </p>
         ) : null}
-      </section>
-    ) : null}
+      </ProfileRow>
 
-    {c.recruiters?.length ? (
-      <section>
-        <SectionHead n={4}>Who hires</SectionHead>
-        <div className="flex flex-wrap gap-1.5">
-          {c.recruiters.map((r) => (
-            <Chip key={r}>{r}</Chip>
-          ))}
-        </div>
-      </section>
-    ) : null}
-
-    {c.notable_people?.length ? (
-      <section>
-        <SectionHead n={5}>People you may know of</SectionHead>
-        <ul className="space-y-1 text-sm leading-6 text-[#5b3a34]">
-          {c.notable_people.map((p) => (
-            <li key={p}>{p}</li>
-          ))}
-        </ul>
-      </section>
-    ) : null}
-
-    {c.specializations?.length ? (
-      <section>
-        <SectionHead n={6}>Ways to specialise</SectionHead>
-        <dl className="space-y-2 text-sm">
-          {c.specializations.map((s) => (
-            <div key={s.name}>
-              <dt className="font-semibold text-[#332724]">{s.name}</dt>
-              {s.blurb ? (
-                <dd className="leading-6 text-[#5b3a34]">{s.blurb}</dd>
-              ) : null}
-            </div>
-          ))}
-        </dl>
-      </section>
-    ) : null}
-
-    <section>
-      <SectionHead n={7}>Exams that lead here</SectionHead>
-      {c.exams?.length ? (
-        <div className="flex flex-wrap gap-1.5">
-          {c.exams.map((e) => (
-            <Link
-              key={e.label}
-              href={`/exams?q=${encodeURIComponent(e.q)}`}
-              className="rounded-full border border-[#e3d1cb] bg-white px-2.5 py-1 text-xs font-semibold text-[#8f2e31] transition hover:bg-[#f8efec]"
-            >
-              {e.label}
-            </Link>
-          ))}
-        </div>
+      {c.top_colleges?.length ? (
+        <ProfileRow number="08" title="Colleges known for it">
+          <p>{c.top_colleges.join(", ")}</p>
+          <Link
+            href="/colleges"
+            className="mt-2 inline-block text-sm text-[#8f2e31] underline hover:text-[#B52326]"
+          >
+            compare these colleges
+          </Link>
+        </ProfileRow>
       ) : null}
-      {c.entry_exams_text ? (
-        <p className="mt-2 text-xs leading-5 text-[#6d5550]">
-          {c.entry_exams_text}
+
+      {c.sources ? (
+        <p className="border-t border-[#eaded8] pt-4 text-xs leading-5 text-[#9b8a82]">
+          Sources: {c.sources}
         </p>
       ) : null}
-    </section>
-
-    {c.top_colleges?.length ? (
-      <section>
-        <SectionHead n={8}>Colleges known for it</SectionHead>
-        <p className="text-sm leading-6 text-[#5b3a34]">
-          {c.top_colleges.join(", ")}
-        </p>
-        <Link
-          href="/colleges"
-          className="mt-1.5 inline-block text-xs text-[#6d5550] underline hover:text-[#8f2e31]"
-        >
-          compare colleges
-        </Link>
-      </section>
-    ) : null}
-
-    {c.sources ? (
-      <p className="border-t border-[#eaded8] pt-3 text-[11px] leading-5 text-[#9b8a82]">
-        Sources: {c.sources}
-      </p>
-    ) : null}
+    </div>
   </div>
 );
 
@@ -242,7 +243,7 @@ export default function Careers() {
                   hideValueWhileSearching
                 />
               </div>
-              <div className="hidden md:block">
+              <div className="hidden md:block md:border-r md:border-[#eaded8] md:pr-5">
                 <div className="relative mb-3">
                   <Search
                     size={14}
