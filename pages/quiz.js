@@ -429,7 +429,19 @@ export default function Quiz() {
                 <Dropdown
                   options={careers}
                   selectedValue={careerId}
-                  onChange={(o) => setCareerId(o.value)}
+                  onChange={(o) => {
+                    if (o.value !== careerId) {
+                      // a new career invalidates every later answer
+                      setDegreeGuesses([]);
+                      setDegreeRevealed(false);
+                      setDegreePick(null);
+                      setCollegeId(null);
+                      setExamGuess(null);
+                      setRankGuess("");
+                      setActual(undefined);
+                    }
+                    setCareerId(o.value);
+                  }}
                   placeholder="Pick a career…"
                   hideValueWhileSearching
                 />
@@ -489,6 +501,9 @@ export default function Quiz() {
                           onClick={() => {
                             setDegreePick(d);
                             setCollegeId(null);
+                            setExamGuess(null);
+                            setRankGuess("");
+                            setActual(undefined);
                             goTo(2);
                           }}
                           className="rounded-[10px] bg-[#B52326] px-4 py-2.5 text-sm font-black text-white transition hover:bg-[#9E1F22]"
@@ -566,6 +581,8 @@ export default function Quiz() {
                       onClick={() => {
                         setCollegeId(college.college_id);
                         setExamGuess(null);
+                        setRankGuess("");
+                        setActual(undefined);
                         goTo(3);
                       }}
                       className="block w-full rounded-xl border border-[#eaded8] bg-white p-3.5 text-left transition hover:border-[#B52326]/50 hover:bg-[#fdf8f6]"
