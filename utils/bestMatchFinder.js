@@ -167,6 +167,39 @@ const MATCH_SCORE_WEIGHTS = { closingRank: 0.5, nirfRank: 0.25, medianSalary: 0.
  * array order — essential here since NIRF rank and median CTC are
  * college-level, so every branch at one institute ties exactly.
  */
+/**
+ * Like percentileScores, but ranks each exam's items only against its own
+ * pool before merging the per-group maps back into one index-keyed map.
+ * JEE Advanced and JEE Main closing ranks are not the same scale — Advanced
+ * is drawn from Main's own qualifiers, a much smaller and more selective
+ * pool, so an IIT closing at 15,000 (Advanced) can be a harder result than
+ * an NIT closing at 5,000 (Main) despite the larger raw number. Pooling raw
+ * closing ranks across both exams would rank the IIT as "worse" purely
+ * because 15,000 > 5,000 — see the caller-must-not-mix-exams note on
+ * findMissedBetterOptions in josaaSimulator.js. NIRF and median CTC don't
+ * have this problem (college-level, same scale everywhere) and are still
+ * pooled directly in scoreMatches below.
+ */
+function percentileScoresByExam(items, key, higherIsBetter) {
+  const groups = new Map();
+  items.forEach((item, index) => {
+    const exam = item.exam;
+    if (!groups.has(exam)) groups.set(exam, []);
+    groups.get(exam).push(index);
+  });
+
+  const merged = new Map();
+  for (const indices of groups.values()) {
+    const subScores = percentileScores(
+      indices.map((i) => items[i]),
+      key,
+      higherIsBetter
+    );
+    subScores.forEach((score, subIndex) => merged.set(indices[subIndex], score));
+  }
+  return merged;
+}
+
 function percentileScores(items, key, higherIsBetter) {
   const present = items
     .map((item, index) => ({ index, value: item[key] }))
@@ -202,7 +235,7 @@ function percentileScores(items, key, higherIsBetter) {
  * 0 or diluting it down like an equal-weight mean would).
  */
 export function scoreMatches(items) {
-  const closing = percentileScores(items, "closingRank", false);
+  const closing = percentileScoresByExam(items, "closingRank", false);
   const nirf = percentileScores(items, "nirfRank", false);
   const salary = percentileScores(items, "medianSalary", true);
 
