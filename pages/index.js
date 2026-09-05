@@ -9,6 +9,7 @@ import {
   Award,
   Briefcase,
   Building2,
+  HelpCircle,
   ClipboardList,
   FileText,
   LayoutDashboard,
@@ -29,6 +30,7 @@ const Dropdown = dynamic(() => import("../components/dropdown"), {
 
 // every option completes the sentence "I want to …" — keep them short
 const ACTIONS = [
+  { value: "/quiz", label: "discover the path to my dream career" },
   { value: "/predictor", label: "predict my colleges from my exam rank" },
   { value: "/careers", label: "explore careers and what they pay" },
   { value: "/colleges", label: "browse colleges, fees and rankings" },
@@ -69,6 +71,12 @@ const DASHBOARDS = [
 ];
 
 const TOOLS = [
+  {
+    href: "/quiz",
+    icon: HelpCircle,
+    title: "Career Quiz",
+    desc: "Walk a career to its real cutoff, guessing as you go.",
+  },
   {
     href: "/predictor",
     icon: Target,
