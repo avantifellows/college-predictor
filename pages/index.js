@@ -26,21 +26,16 @@ const Dropdown = dynamic(() => import("../components/dropdown"), {
 // stat tiles, Datasets lives in the navbar only. The chooser uses the house
 // Dropdown, never the browser's native select.
 
+// every option completes the sentence "I want to …" — keep them short
 const ACTIONS = [
-  {
-    value: "/predictor",
-    label: "Predict the top colleges for me based on my entrance exam result",
-  },
-  { value: "/careers", label: "Discover careers and what they pay" },
-  { value: "/colleges", label: "Explore colleges, their fees and rankings" },
-  { value: "/exams", label: "Understand the entrance exams" },
-  {
-    value: "/scholarships",
-    label: "Find the best scholarship for my education",
-  },
+  { value: "/predictor", label: "predict my colleges from my exam rank" },
+  { value: "/careers", label: "explore careers and what they pay" },
+  { value: "/colleges", label: "browse colleges, fees and rankings" },
+  { value: "/exams", label: "understand the entrance exams" },
+  { value: "/scholarships", label: "find scholarships I can apply for" },
   {
     value: "https://cv-generator.avantifellows.org/",
-    label: "Build a professional resume in minutes",
+    label: "build my resume",
   },
 ];
 
