@@ -1591,7 +1591,7 @@ const PredictedCollegesTable = ({
       {displayData.length > 0 ? (
         <div className="overflow-x-auto rounded-xl border border-[#eaded8] bg-white shadow-sm">
           {isJosaaExam && compareSel.length > 0 ? (
-            <div className="fixed bottom-4 left-1/2 z-40 flex w-max max-w-[95vw] -translate-x-1/2 items-center gap-3 rounded-full border border-[#eaded8] bg-white px-5 py-2.5 text-sm shadow-lg">
+            <div className="fixed bottom-5 left-1/2 z-40 flex w-max max-w-[95vw] -translate-x-1/2 items-center gap-4 rounded-full border border-[#eaded8] bg-white px-6 py-3.5 text-base shadow-lg">
               <span className="whitespace-nowrap font-semibold text-[#5b3a34]">
                 {compareSel.length} of 3 picked
               </span>
@@ -1607,19 +1607,19 @@ const PredictedCollegesTable = ({
                           .replace(/^-+|-+$/g, "")}`
                     )
                     .join(",")}`}
-                  className="inline-flex items-center whitespace-nowrap rounded-full bg-[#B52326] px-4 py-1.5 text-xs font-semibold text-white transition hover:bg-[#9E1F22]"
+                  className="inline-flex items-center whitespace-nowrap rounded-full bg-[#B52326] px-5 py-2 text-sm font-semibold text-white transition hover:bg-[#9E1F22]"
                 >
                   Compare
                 </Link>
               ) : (
-                <span className="whitespace-nowrap text-xs text-[#7a635d]">
+                <span className="whitespace-nowrap text-sm text-[#7a635d]">
                   pick one more
                 </span>
               )}
               <button
                 type="button"
                 onClick={() => setCompareSel([])}
-                className="text-xs text-[#7a635d] underline hover:text-[#B52326]"
+                className="text-sm text-[#7a635d] underline hover:text-[#B52326]"
               >
                 clear
               </button>
