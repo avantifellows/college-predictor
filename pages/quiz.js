@@ -491,9 +491,7 @@ export default function Quiz() {
                     <p className="mb-4 text-sm leading-6 text-[#5f514c]">
                       Pick one to continue.
                     </p>
-                    <div className="flex flex-wrap items-center justify-between gap-3">
-                      <BackButton onClick={() => goTo(0)} />
-                      <div className="flex flex-wrap justify-end gap-2">
+                    <div className="flex flex-wrap gap-2">
                       {realDegrees.map((d) => (
                         <button
                           key={d}
@@ -511,7 +509,9 @@ export default function Quiz() {
                           {d} <ArrowRight size={14} className="inline" />
                         </button>
                       ))}
-                      </div>
+                    </div>
+                    <div className="mt-5">
+                      <BackButton onClick={() => goTo(0)} />
                     </div>
                   </div>
                 )}
