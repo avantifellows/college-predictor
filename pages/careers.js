@@ -155,7 +155,7 @@ const CareerDetail = ({ c }) => (
             href="/colleges"
             className="mt-2 inline-block text-sm text-[#8f2e31] underline hover:text-[#B52326]"
           >
-            browse all colleges
+            Browse all colleges
           </Link>
         </ProfileRow>
       ) : null}
