@@ -253,8 +253,10 @@ export default function Compare() {
               </div>
 
               {ready ? (
-                <div className="mt-8 overflow-x-auto">
-                  <table className="w-full min-w-[560px] border-collapse text-sm">
+                <>
+                <div className="mt-8 overflow-hidden rounded-xl border border-[#eaded8]">
+                  <div className="overflow-x-auto">
+                    <table className="w-full min-w-[560px] border-collapse text-sm">
                     <thead>
                       <tr className="border-b-2 border-[#e3d1cb] bg-[#f8efec] text-left">
                         <th className="w-[26%] px-3 py-2.5" />
@@ -334,12 +336,14 @@ export default function Compare() {
                         ))}
                       </tr>
                     </tbody>
-                  </table>
-                  <p className="mt-3 text-xs leading-5 text-[#9b8a82]">
+                    </table>
+                  </div>
+                </div>
+                <p className="mt-3 text-xs leading-5 text-[#9b8a82]">
                     Highlighted cells have the better number. Based on NIRF
                     data and each college&apos;s own fee circular.
                   </p>
-                </div>
+                </>
               ) : (
                 <p className="mt-8 text-center text-sm text-[#6d5550]">
                   Pick a college and branch for at least two options to see the
