@@ -13,12 +13,30 @@
    }
   ],
   "top_colleges": [
-   "Lal Bahadur Shastri National Academy of Administration (for IAS training)",
-   "Indian Institutes of Management (IIMs)",
-   "Shri Ram College of Commerce",
-   "Symbiosis Centre for Management Studies",
-   "Christ University",
-   "Narsee Monjee Institute of Management Studies"
+   {
+    "name": "Lal Bahadur Shastri National Academy of Administration (for IAS training)",
+    "q": null
+   },
+   {
+    "name": "Indian Institutes of Management (IIMs)",
+    "q": null
+   },
+   {
+    "name": "Shri Ram College of Commerce",
+    "q": null
+   },
+   {
+    "name": "Symbiosis Centre for Management Studies",
+    "q": null
+   },
+   {
+    "name": "Christ University",
+    "q": null
+   },
+   {
+    "name": "Narsee Monjee Institute of Management Studies",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b94-8 LPA",
@@ -109,12 +127,30 @@
    }
   ],
   "top_colleges": [
-   "IIT Bombay",
-   "IIT Kanpur",
-   "IIT Madras",
-   "IIST Thiruvananthapuram",
-   "IISc Bangalore",
-   "Punjab Engineering College"
+   {
+    "name": "IIT Bombay",
+    "q": "Indian Institute of Technology Bombay"
+   },
+   {
+    "name": "IIT Kanpur",
+    "q": "Indian Institute of Technology Kanpur"
+   },
+   {
+    "name": "IIT Madras",
+    "q": "Indian Institute of Technology Madras"
+   },
+   {
+    "name": "IIST Thiruvananthapuram",
+    "q": null
+   },
+   {
+    "name": "IISc Bangalore",
+    "q": null
+   },
+   {
+    "name": "Punjab Engineering College",
+    "q": "Punjab Engineering College, Chandigarh"
+   }
   ],
   "pay": {
    "start": "\u20b94-8 LPA",
@@ -137,37 +173,43 @@
     "college": "Indian Institute of Technology Bombay",
     "branch": "Aerospace Engineering",
     "exam": "JEE Advanced",
-    "closing": "2,305"
+    "closing": "2,305",
+    "q": "Indian Institute of Technology Bombay"
    },
    {
     "college": "Indian Institute of Technology Madras",
     "branch": "Aerospace Engineering",
     "exam": "JEE Advanced",
-    "closing": "2,749"
+    "closing": "2,749",
+    "q": "Indian Institute of Technology Madras"
    },
    {
     "college": "R. V. College of Engineering, Bangalore(AUTONOMOUS) R.V. VIDYANIKETAN POST, MYSORE ROAD,BANGALORE",
     "branch": "AERO SPACE ENGINEERING",
     "exam": "KCET",
-    "closing": "2,069"
+    "closing": "2,069",
+    "q": null
    },
    {
     "college": "M S Ramaiah Institute of Technology, Bangalore(AUTONOMOUS) VIDYA SOUDHA,MSR NAGAR,MSRIT POST,BANGALORE - 560054.",
     "branch": "AERO SPACE ENGINEERING",
     "exam": "KCET",
-    "closing": "6,536"
+    "closing": "6,536",
+    "q": null
    },
    {
     "college": "Jawahar Education Society's Annasaheb Chudaman Patil College of Engineering,Kharghar, Navi Mumbai",
     "branch": "Aeronautical Engineering",
     "exam": "MHT-CET",
-    "closing": "70,382"
+    "closing": "70,382",
+    "q": null
    },
    {
     "college": "Annasaheb Dange College of Engineering and Technology, Ashta, Sangli",
     "branch": "Aeronautical Engineering",
     "exam": "MHT-CET",
-    "closing": "77,682"
+    "closing": "77,682",
+    "q": null
    }
   ],
   "notable_people": [
@@ -248,12 +290,30 @@
    }
   ],
   "top_colleges": [
-   "IIT Kharagpur",
-   "Punjab Agricultural University",
-   "GB Pant University of Agriculture and Technology",
-   "Anand Agricultural University",
-   "CCS Haryana Agricultural University",
-   "Tamil Nadu Agricultural University"
+   {
+    "name": "IIT Kharagpur",
+    "q": "Indian Institute of Technology Kharagpur"
+   },
+   {
+    "name": "Punjab Agricultural University",
+    "q": null
+   },
+   {
+    "name": "GB Pant University of Agriculture and Technology",
+    "q": null
+   },
+   {
+    "name": "Anand Agricultural University",
+    "q": null
+   },
+   {
+    "name": "CCS Haryana Agricultural University",
+    "q": null
+   },
+   {
+    "name": "Tamil Nadu Agricultural University",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b93-6 LPA",
@@ -276,37 +336,43 @@
     "college": "Indian Institute of Technology Kharagpur",
     "branch": "Agricultural and Food Engineering",
     "exam": "JEE Advanced",
-    "closing": "10,498"
+    "closing": "10,498",
+    "q": "Indian Institute of Technology Kharagpur"
    },
    {
     "college": "Indian Institute of Technology Ropar",
     "branch": "Digital Agriculture",
     "exam": "JEE Advanced",
-    "closing": "13,685"
+    "closing": "13,685",
+    "q": "Indian Institute of Technology Ropar"
    },
    {
     "college": "REVA University RUKMINI KNOWLEDGE PARK, KATTIGENAHALLI, YELAHANKA,BANGALORE - 560064,",
     "branch": "B TECH IN AGRICULTURAL ENGINEERING",
     "exam": "KCET",
-    "closing": "72,864"
+    "closing": "72,864",
+    "q": null
    },
    {
     "college": "S E A College of Engineering & Technology, Virgonagar, Bangalore EKTA NAGAR, BASAVANAPURA, VIRGO NAGAR POST, BANGALORE - 560 049.",
     "branch": "AGRICULTURE ENGINEERING",
     "exam": "KCET",
-    "closing": "235,238"
+    "closing": "235,238",
+    "q": null
    },
    {
     "college": "Bidhan Chandra Krishi Viswa Vidyalaya, Mohanpur, Nadia",
     "branch": "Agricultural Engineering",
     "exam": "WBJEE",
-    "closing": "5,268"
+    "closing": "5,268",
+    "q": null
    },
    {
     "college": "FACULTY OF TECHNOLOGY, UTTAR BANGA KRISHI VISWAVIDYALAYA",
     "branch": "Agricultural Engineering",
     "exam": "WBJEE",
-    "closing": "11,599"
+    "closing": "11,599",
+    "q": null
    }
   ],
   "notable_people": [
@@ -342,11 +408,26 @@
    }
   ],
   "top_colleges": [
-   "Indian Agricultural Research Institute (IARI) New Delhi",
-   "Punjab Agricultural University",
-   "Tamil Nadu Agricultural University",
-   "G.B. Pant University of Agriculture and Technology",
-   "Anand Agricultural University"
+   {
+    "name": "Indian Agricultural Research Institute (IARI) New Delhi",
+    "q": null
+   },
+   {
+    "name": "Punjab Agricultural University",
+    "q": null
+   },
+   {
+    "name": "Tamil Nadu Agricultural University",
+    "q": null
+   },
+   {
+    "name": "G.B. Pant University of Agriculture and Technology",
+    "q": null
+   },
+   {
+    "name": "Anand Agricultural University",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b93-6 LPA",
@@ -428,11 +509,26 @@
    }
   ],
   "top_colleges": [
-   "School of Planning and Architecture Delhi",
-   "IIT Roorkee",
-   "Sir J.J. College of Architecture Mumbai",
-   "CEPT University Ahmedabad",
-   "Sushant School of Art and Architecture"
+   {
+    "name": "School of Planning and Architecture Delhi",
+    "q": null
+   },
+   {
+    "name": "IIT Roorkee",
+    "q": "Indian Institute of Technology Roorkee"
+   },
+   {
+    "name": "Sir J.J. College of Architecture Mumbai",
+    "q": null
+   },
+   {
+    "name": "CEPT University Ahmedabad",
+    "q": null
+   },
+   {
+    "name": "Sushant School of Art and Architecture",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b93-6 LPA",
@@ -455,37 +551,43 @@
     "college": "School of Planning & Architecture, New Delhi",
     "branch": "Architecture",
     "exam": "JEE Main",
-    "closing": "191"
+    "closing": "191",
+    "q": "School of Planning & Architecture, New Delhi"
    },
    {
     "college": "National Institute of Technology, Tiruchirappalli",
     "branch": "Architecture",
     "exam": "JEE Main",
-    "closing": "227"
+    "closing": "227",
+    "q": "National Institute of Technology, Tiruchirappalli"
    },
    {
     "college": "Jadavpur University",
     "branch": "Architectural Engineering",
     "exam": "WBJEE",
-    "closing": "2,233"
+    "closing": "2,233",
+    "q": null
    },
    {
     "college": "Sanaka Education Trusts Group of Institutions, Durgapur, Burdwan",
     "branch": "Architecture",
     "exam": "WBJEE",
-    "closing": "10,038"
+    "closing": "10,038",
+    "q": null
    },
    {
     "college": "Kamla Raheja Vidhyanidhi Institute for Architecture and Environmental Studies, Mumbai",
     "branch": "Architecture",
     "exam": "MHT-CET",
-    "closing": "30"
+    "closing": "30",
+    "q": null
    },
    {
     "college": "Sir J. J. College of Architecture, Mumbai",
     "branch": "Architecture",
     "exam": "MHT-CET",
-    "closing": "31"
+    "closing": "31",
+    "q": null
    }
   ],
   "notable_people": [
@@ -523,11 +625,26 @@
    }
   ],
   "top_colleges": [
-   "National Defence Academy (NDA) Khadakwasla",
-   "Indian Military Academy (IMA) Dehradun",
-   "Officers Training Academy (OTA) Chennai",
-   "Indian Naval Academy Ezhimala",
-   "Air Force Academy Hyderabad"
+   {
+    "name": "National Defence Academy (NDA) Khadakwasla",
+    "q": null
+   },
+   {
+    "name": "Indian Military Academy (IMA) Dehradun",
+    "q": null
+   },
+   {
+    "name": "Officers Training Academy (OTA) Chennai",
+    "q": null
+   },
+   {
+    "name": "Indian Naval Academy Ezhimala",
+    "q": null
+   },
+   {
+    "name": "Air Force Academy Hyderabad",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b96-10 LPA (including salary and allowances)",
@@ -620,12 +737,30 @@
    }
   ],
   "top_colleges": [
-   "IIT Hyderabad",
-   "IIIT Hyderabad",
-   "VIT Vellore",
-   "SRM Institute of Science and Technology",
-   "PES University",
-   "Manipal Institute of Technology"
+   {
+    "name": "IIT Hyderabad",
+    "q": "Indian Institute of Technology Hyderabad"
+   },
+   {
+    "name": "IIIT Hyderabad",
+    "q": null
+   },
+   {
+    "name": "VIT Vellore",
+    "q": null
+   },
+   {
+    "name": "SRM Institute of Science and Technology",
+    "q": null
+   },
+   {
+    "name": "PES University",
+    "q": null
+   },
+   {
+    "name": "Manipal Institute of Technology",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b95-10 LPA",
@@ -648,37 +783,43 @@
     "college": "Indian Institute of Technology Madras",
     "branch": "Artificial Intelligence and Data Analytics",
     "exam": "JEE Advanced",
-    "closing": "292"
+    "closing": "292",
+    "q": "Indian Institute of Technology Madras"
    },
    {
     "college": "Indian Institute of Technology Roorkee",
     "branch": "Data Science and Artificial Intelligence",
     "exam": "JEE Advanced",
-    "closing": "770"
+    "closing": "770",
+    "q": "Indian Institute of Technology Roorkee"
    },
    {
     "college": "R. V. College of Engineering, Bangalore(AUTONOMOUS) R.V. VIDYANIKETAN POST, MYSORE ROAD,BANGALORE",
     "branch": "COMPUTER SCIENCE AND ENGINEERING(ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING)",
     "exam": "KCET",
-    "closing": "742"
+    "closing": "742",
+    "q": null
    },
    {
     "college": "PES University 100 Feet Ring Road, Banashankari, 3rd Stage, Hosakerehalli, Near DSERT, , Bangalore KARNATAKA, pin code -560085",
     "branch": "B TECH IN COMPUTER SCIENCE & ENGINEERING(ARTIFICAL INTELLIGENCE & MACHINE LEARNING)",
     "exam": "KCET",
-    "closing": "2,694"
+    "closing": "2,694",
+    "q": null
    },
    {
     "college": "Heritage Institute of Technology, Kolkata",
     "branch": "Computer Science & Engineering",
     "exam": "WBJEE",
-    "closing": "3,417"
+    "closing": "3,417",
+    "q": null
    },
    {
     "college": "Techno Main Salt Lake, Sector-V, Salt Lake",
     "branch": "Computer Science & Engineering",
     "exam": "WBJEE",
-    "closing": "4,474"
+    "closing": "4,474",
+    "q": null
    }
   ],
   "notable_people": [
@@ -714,12 +855,30 @@
    }
   ],
   "top_colleges": [
-   "Sir J.J. School of Art Mumbai",
-   "Faculty of Fine Arts Maharaja Sayajirao University Baroda",
-   "Delhi College of Art",
-   "Kala Bhavana Visva-Bharati Santiniketan",
-   "Lady Shri Ram College for Women",
-   "National Institute of Design"
+   {
+    "name": "Sir J.J. School of Art Mumbai",
+    "q": null
+   },
+   {
+    "name": "Faculty of Fine Arts Maharaja Sayajirao University Baroda",
+    "q": null
+   },
+   {
+    "name": "Delhi College of Art",
+    "q": null
+   },
+   {
+    "name": "Kala Bhavana Visva-Bharati Santiniketan",
+    "q": null
+   },
+   {
+    "name": "Lady Shri Ram College for Women",
+    "q": null
+   },
+   {
+    "name": "National Institute of Design",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b92.5-5 LPA",
@@ -773,11 +932,26 @@
    }
   ],
   "top_colleges": [
-   "All India Institute of Speech and Hearing Mysore",
-   "AIIMS New Delhi",
-   "Ali Yavar Jung National Institute of Speech and Hearing Disabilities Mumbai",
-   "Christian Medical College Vellore",
-   "Sri Ramachandra Institute of Higher Education and Research"
+   {
+    "name": "All India Institute of Speech and Hearing Mysore",
+    "q": null
+   },
+   {
+    "name": "AIIMS New Delhi",
+    "q": null
+   },
+   {
+    "name": "Ali Yavar Jung National Institute of Speech and Hearing Disabilities Mumbai",
+    "q": null
+   },
+   {
+    "name": "Christian Medical College Vellore",
+    "q": null
+   },
+   {
+    "name": "Sri Ramachandra Institute of Higher Education and Research",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b93-5 LPA",
@@ -853,12 +1027,30 @@
    }
   ],
   "top_colleges": [
-   "VIT Vellore",
-   "SRM Institute of Science and Technology",
-   "Madras Institute of Technology",
-   "PSG College of Technology",
-   "Vellore Institute of Technology",
-   "MIT Manipal"
+   {
+    "name": "VIT Vellore",
+    "q": null
+   },
+   {
+    "name": "SRM Institute of Science and Technology",
+    "q": null
+   },
+   {
+    "name": "Madras Institute of Technology",
+    "q": "Indian Institute of Technology Madras"
+   },
+   {
+    "name": "PSG College of Technology",
+    "q": null
+   },
+   {
+    "name": "Vellore Institute of Technology",
+    "q": null
+   },
+   {
+    "name": "MIT Manipal",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b93-6 LPA",
@@ -881,37 +1073,43 @@
     "college": "Dayananda Sagar College of Engineering, Bangalore(AUTONOMOUS) SHAVIGE MALLESHWARA HILLS, KUMARASWAMY LAYOUT, BANGALORE-560078",
     "branch": "AUTOMOBILE ENGINEERING",
     "exam": "KCET",
-    "closing": "81,406"
+    "closing": "81,406",
+    "q": null
    },
    {
     "college": "M . S . Ramaiah University of Applied Sciences UNIVERSITY HOUSE, GNANAGANGOTHRI CAMPUS, NEW BEL ROAD, MSR ROAD, BANGALORE - 560054",
     "branch": "AUTOMOTIVE ENGINEERING",
     "exam": "KCET",
-    "closing": "94,698"
+    "closing": "94,698",
+    "q": null
    },
    {
     "college": "Dr.Sudhir Chandra Sur Institute of Technology and Sports Complex, Dum Dum",
     "branch": "Automobile Engineering",
     "exam": "WBJEE",
-    "closing": "59,821"
+    "closing": "59,821",
+    "q": null
    },
    {
     "college": "Mckv Institute of Engineering, Liluah, Howrah",
     "branch": "Automobile Engineering",
     "exam": "WBJEE",
-    "closing": "86,617"
+    "closing": "86,617",
+    "q": null
    },
    {
     "college": "Government College of Engineering & Research, Avasari Khurd",
     "branch": "Automobile Engineering",
     "exam": "MHT-CET",
-    "closing": "56,215"
+    "closing": "56,215",
+    "q": null
    },
    {
     "college": "Mahatma Education Society's Pillai College of Engineering, New Panvel",
     "branch": "Automobile Engineering",
     "exam": "MHT-CET",
-    "closing": "62,070"
+    "closing": "62,070",
+    "q": null
    }
   ],
   "notable_people": [
@@ -947,11 +1145,26 @@
    }
   ],
   "top_colleges": [
-   "Institute of Post Graduate Teaching and Research in Ayurveda Jamnagar",
-   "Banaras Hindu University Ayurveda Faculty",
-   "National Institute of Ayurveda Jaipur",
-   "Government Ayurved College Nagpur",
-   "Patanjali Bhartiya Ayurvigyan evam Anusandhan Sansthan"
+   {
+    "name": "Institute of Post Graduate Teaching and Research in Ayurveda Jamnagar",
+    "q": null
+   },
+   {
+    "name": "Banaras Hindu University Ayurveda Faculty",
+    "q": null
+   },
+   {
+    "name": "National Institute of Ayurveda Jaipur",
+    "q": null
+   },
+   {
+    "name": "Government Ayurved College Nagpur",
+    "q": null
+   },
+   {
+    "name": "Patanjali Bhartiya Ayurvigyan evam Anusandhan Sansthan",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b93-5 LPA",
@@ -1008,12 +1221,30 @@
    }
   ],
   "top_colleges": [
-   "IIT Delhi",
-   "IIT Kharagpur",
-   "ICT Mumbai (Institute of Chemical Technology)",
-   "Panjab University",
-   "Jadavpur University",
-   "BIT Mesra"
+   {
+    "name": "IIT Delhi",
+    "q": "Indian Institute of Technology Delhi"
+   },
+   {
+    "name": "IIT Kharagpur",
+    "q": "Indian Institute of Technology Kharagpur"
+   },
+   {
+    "name": "ICT Mumbai (Institute of Chemical Technology)",
+    "q": "Institute of Chemical Technology, Mumbai: Indian Oil Odisha Campus, Bhubaneswar"
+   },
+   {
+    "name": "Panjab University",
+    "q": null
+   },
+   {
+    "name": "Jadavpur University",
+    "q": null
+   },
+   {
+    "name": "BIT Mesra",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b94-7 LPA",
@@ -1060,12 +1291,30 @@
   "entry_exams_text": "No single fixed entrance exam for a Biochemistry bachelor's degree \u2014 most colleges admit based on Class 12 marks (with Biology and Chemistry); for master's or research roles, exams like CSIR-NET or GATE (a national exam for science and engineering postgraduate admissions and research jobs) become relevant.",
   "exams": null,
   "top_colleges": [
-   "University of Delhi",
-   "Christ University Bangalore",
-   "Fergusson College Pune",
-   "Madras Christian College",
-   "St. Xavier's College Mumbai",
-   "Panjab University"
+   {
+    "name": "University of Delhi",
+    "q": null
+   },
+   {
+    "name": "Christ University Bangalore",
+    "q": null
+   },
+   {
+    "name": "Fergusson College Pune",
+    "q": null
+   },
+   {
+    "name": "Madras Christian College",
+    "q": null
+   },
+   {
+    "name": "St. Xavier's College Mumbai",
+    "q": null
+   },
+   {
+    "name": "Panjab University",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b93-5.5 LPA",
@@ -1124,12 +1373,30 @@
    }
   ],
   "top_colleges": [
-   "IIT Delhi (Biochemical Engineering and Biotechnology)",
-   "IIT Guwahati",
-   "IIT Kharagpur",
-   "IIT Roorkee",
-   "IIIT Delhi",
-   "VIT Vellore"
+   {
+    "name": "IIT Delhi (Biochemical Engineering and Biotechnology)",
+    "q": "Indian Institute of Technology Delhi"
+   },
+   {
+    "name": "IIT Guwahati",
+    "q": null
+   },
+   {
+    "name": "IIT Kharagpur",
+    "q": "Indian Institute of Technology Kharagpur"
+   },
+   {
+    "name": "IIT Roorkee",
+    "q": "Indian Institute of Technology Roorkee"
+   },
+   {
+    "name": "IIIT Delhi",
+    "q": null
+   },
+   {
+    "name": "VIT Vellore",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b94-7 LPA",
@@ -1152,13 +1419,15 @@
     "college": "Indian Institute of Technology Madras",
     "branch": "Biological Engineering",
     "exam": "JEE Advanced",
-    "closing": "5,217"
+    "closing": "5,217",
+    "q": "Indian Institute of Technology Madras"
    },
    {
     "college": "Indian Institute of Technology Kanpur",
     "branch": "Biological Sciences and Bioengineering",
     "exam": "JEE Advanced",
-    "closing": "6,614"
+    "closing": "6,614",
+    "q": "Indian Institute of Technology Kanpur"
    }
   ],
   "notable_people": [
@@ -1198,12 +1467,30 @@
    }
   ],
   "top_colleges": [
-   "IIT Delhi (Biological Sciences and Bioengineering)",
-   "IIT Kanpur",
-   "IIT Guwahati",
-   "IIT Gandhinagar",
-   "IIT Jodhpur",
-   "IIT Mandi"
+   {
+    "name": "IIT Delhi (Biological Sciences and Bioengineering)",
+    "q": "Indian Institute of Technology Delhi"
+   },
+   {
+    "name": "IIT Kanpur",
+    "q": "Indian Institute of Technology Kanpur"
+   },
+   {
+    "name": "IIT Guwahati",
+    "q": null
+   },
+   {
+    "name": "IIT Gandhinagar",
+    "q": "Indian Institute of Technology Gandhinagar"
+   },
+   {
+    "name": "IIT Jodhpur",
+    "q": "Indian Institute of Technology Jodhpur"
+   },
+   {
+    "name": "IIT Mandi",
+    "q": "Indian Institute of Technology Mandi"
+   }
   ],
   "pay": {
    "start": "\u20b94-7 LPA",
@@ -1226,7 +1513,8 @@
     "college": "Indian Institute of Technology Madras",
     "branch": "Biological Science",
     "exam": "JEE Advanced",
-    "closing": "10,009"
+    "closing": "10,009",
+    "q": "Indian Institute of Technology Madras"
    }
   ],
   "notable_people": [
@@ -1257,12 +1545,30 @@
   "entry_exams_text": "No single fixed entrance exam for a general Biology bachelor's degree \u2014 most colleges admit based on Class 12 marks (with Biology as a subject); for research-focused master's or PhD programs later, exams like CSIR-NET (a national exam for science research fellowships and teaching jobs) matter.",
   "exams": null,
   "top_colleges": [
-   "St. Stephen's College Delhi",
-   "Miranda House Delhi",
-   "Fergusson College Pune",
-   "Loyola College Chennai",
-   "Christ University Bangalore",
-   "Presidency College Chennai"
+   {
+    "name": "St. Stephen's College Delhi",
+    "q": null
+   },
+   {
+    "name": "Miranda House Delhi",
+    "q": null
+   },
+   {
+    "name": "Fergusson College Pune",
+    "q": null
+   },
+   {
+    "name": "Loyola College Chennai",
+    "q": null
+   },
+   {
+    "name": "Christ University Bangalore",
+    "q": null
+   },
+   {
+    "name": "Presidency College Chennai",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b92.5-5 LPA",
@@ -1352,12 +1658,30 @@
    }
   ],
   "top_colleges": [
-   "IIT Hyderabad",
-   "IIT Bombay (Biomedical Engineering and Biosciences)",
-   "BITS Pilani",
-   "VIT Vellore",
-   "SRM Institute of Science and Technology",
-   "Manipal Institute of Technology"
+   {
+    "name": "IIT Hyderabad",
+    "q": "Indian Institute of Technology Hyderabad"
+   },
+   {
+    "name": "IIT Bombay (Biomedical Engineering and Biosciences)",
+    "q": "Indian Institute of Technology Bombay"
+   },
+   {
+    "name": "BITS Pilani",
+    "q": null
+   },
+   {
+    "name": "VIT Vellore",
+    "q": null
+   },
+   {
+    "name": "SRM Institute of Science and Technology",
+    "q": null
+   },
+   {
+    "name": "Manipal Institute of Technology",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b93.5-6.5 LPA",
@@ -1380,37 +1704,43 @@
     "college": "Indian Institute of Technology Madras",
     "branch": "Instrumentation and Biomedical Engineering",
     "exam": "JEE Advanced",
-    "closing": "4,362"
+    "closing": "4,362",
+    "q": "Indian Institute of Technology Madras"
    },
    {
     "college": "Indian Institute of Technology Hyderabad",
     "branch": "Biomedical Engineering",
     "exam": "JEE Advanced",
-    "closing": "7,641"
+    "closing": "7,641",
+    "q": "Indian Institute of Technology Hyderabad"
    },
    {
     "college": "K L E Technological Univeristy, Belgaum Campus (Formerly KLE Dr M.S.Sheshagiri College of Engineering and Technology) UDYAMBAGH,BELGAUM",
     "branch": "BIO-MEDICAL ENGINEERING",
     "exam": "KCET",
-    "closing": "149,969"
+    "closing": "149,969",
+    "q": null
    },
    {
     "college": "Sri Siddhartha Institute of Technology MARALUR ,TUMKUR",
     "branch": "BIO-MEDICAL ENGINEERING",
     "exam": "KCET",
-    "closing": "219,840"
+    "closing": "219,840",
+    "q": null
    },
    {
     "college": "Netaji Subhas Engineering College, Garia, Kolkata",
     "branch": "Biomedical Engineering",
     "exam": "WBJEE",
-    "closing": "17,996"
+    "closing": "17,996",
+    "q": null
    },
    {
     "college": "Jis College of Engineering, Kalyani, Nadia",
     "branch": "Biomedical Engineering",
     "exam": "WBJEE",
-    "closing": "21,662"
+    "closing": "21,662",
+    "q": null
    }
   ],
   "notable_people": [
@@ -1490,12 +1820,30 @@
    }
   ],
   "top_colleges": [
-   "Indian Institute of Technology Kharagpur",
-   "Vellore Institute of Technology",
-   "University of Pune",
-   "Panjab University",
-   "SASTRA University",
-   "Jawaharlal Nehru University"
+   {
+    "name": "Indian Institute of Technology Kharagpur",
+    "q": "Indian Institute of Technology Kharagpur"
+   },
+   {
+    "name": "Vellore Institute of Technology",
+    "q": null
+   },
+   {
+    "name": "University of Pune",
+    "q": null
+   },
+   {
+    "name": "Panjab University",
+    "q": null
+   },
+   {
+    "name": "SASTRA University",
+    "q": null
+   },
+   {
+    "name": "Jawaharlal Nehru University",
+    "q": "Jawaharlal Nehru University, Delhi"
+   }
   ],
   "pay": {
    "start": "\u20b93.5-6 LPA",
@@ -1518,37 +1866,43 @@
     "college": "Indian Institute of Technology Delhi",
     "branch": "Biotechnology and Biochemical Engineering",
     "exam": "JEE Advanced",
-    "closing": "4,992"
+    "closing": "4,992",
+    "q": "Indian Institute of Technology Delhi"
    },
    {
     "college": "Indian Institute of Technology Kharagpur",
     "branch": "Biotechnology and Biochemical Engineering",
     "exam": "JEE Advanced",
-    "closing": "8,148"
+    "closing": "8,148",
+    "q": "Indian Institute of Technology Kharagpur"
    },
    {
     "college": "R. V. College of Engineering, Bangalore(AUTONOMOUS) R.V. VIDYANIKETAN POST, MYSORE ROAD,BANGALORE",
     "branch": "BIO-TECHNOLOGY",
     "exam": "KCET",
-    "closing": "6,814"
+    "closing": "6,814",
+    "q": null
    },
    {
     "college": "M S Ramaiah Institute of Technology, Bangalore(AUTONOMOUS) VIDYA SOUDHA,MSR NAGAR,MSRIT POST,BANGALORE - 560054.",
     "branch": "BIO-TECHNOLOGY",
     "exam": "KCET",
-    "closing": "12,464"
+    "closing": "12,464",
+    "q": null
    },
    {
     "college": "Heritage Institute of Technology, Kolkata",
     "branch": "Biotechnology",
     "exam": "WBJEE",
-    "closing": "7,903"
+    "closing": "7,903",
+    "q": null
    },
    {
     "college": "Techno India University, Salt Lake",
     "branch": "Biotechnology",
     "exam": "WBJEE",
-    "closing": "11,170"
+    "closing": "11,170",
+    "q": null
    }
   ],
   "notable_people": [
@@ -1582,12 +1936,30 @@
   "entry_exams_text": "No single fixed entrance exam for a Botany bachelor's degree \u2014 most colleges admit based on Class 12 marks (with Biology as a subject); for research roles later, exams like CSIR-NET (a national exam for science research fellowships and teaching jobs) become relevant.",
   "exams": null,
   "top_colleges": [
-   "University of Delhi",
-   "Presidency College Chennai",
-   "St. Xavier's College Mumbai",
-   "Miranda House Delhi",
-   "Banaras Hindu University",
-   "Fergusson College Pune"
+   {
+    "name": "University of Delhi",
+    "q": null
+   },
+   {
+    "name": "Presidency College Chennai",
+    "q": null
+   },
+   {
+    "name": "St. Xavier's College Mumbai",
+    "q": null
+   },
+   {
+    "name": "Miranda House Delhi",
+    "q": null
+   },
+   {
+    "name": "Banaras Hindu University",
+    "q": null
+   },
+   {
+    "name": "Fergusson College Pune",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b92.5-5 LPA",
@@ -1635,11 +2007,26 @@
   "entry_exams_text": "CAT (Common Admission Test, the main national exam for getting into India's top business schools, testing quantitative, verbal, and logical reasoning skills). Note: an MBA is a postgraduate degree, meaning students first complete a bachelor's degree (in any subject) before applying - it is not something you do straight after Class 12.",
   "exams": null,
   "top_colleges": [
-   "Indian Institutes of Management (IIMs) Ahmedabad/Bangalore/Calcutta",
-   "Faculty of Management Studies (FMS) Delhi",
-   "Xavier Labour Relations Institute (XLRI) Jamshedpur",
-   "Indian School of Business (ISB) Hyderabad",
-   "Management Development Institute (MDI) Gurgaon"
+   {
+    "name": "Indian Institutes of Management (IIMs) Ahmedabad/Bangalore/Calcutta",
+    "q": null
+   },
+   {
+    "name": "Faculty of Management Studies (FMS) Delhi",
+    "q": null
+   },
+   {
+    "name": "Xavier Labour Relations Institute (XLRI) Jamshedpur",
+    "q": null
+   },
+   {
+    "name": "Indian School of Business (ISB) Hyderabad",
+    "q": null
+   },
+   {
+    "name": "Management Development Institute (MDI) Gurgaon",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b98-20 LPA",
@@ -1712,12 +2099,30 @@
    }
   ],
   "top_colleges": [
-   "IIT (BHU) Varanasi",
-   "Bengal Engineering and Science University (Jadavpur University)",
-   "Government College of Engineering and Ceramic Technology Kolkata",
-   "Anna University",
-   "NIT Rourkela",
-   "College of Engineering and Technology Bhubaneswar"
+   {
+    "name": "IIT (BHU) Varanasi",
+    "q": null
+   },
+   {
+    "name": "Bengal Engineering and Science University (Jadavpur University)",
+    "q": null
+   },
+   {
+    "name": "Government College of Engineering and Ceramic Technology Kolkata",
+    "q": null
+   },
+   {
+    "name": "Anna University",
+    "q": null
+   },
+   {
+    "name": "NIT Rourkela",
+    "q": "National Institute of Technology, Rourkela"
+   },
+   {
+    "name": "College of Engineering and Technology Bhubaneswar",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b93-5.5 LPA",
@@ -1740,31 +2145,36 @@
     "college": "Indian Institute of Technology (BHU) Varanasi",
     "branch": "Ceramic Engineering",
     "exam": "JEE Advanced",
-    "closing": "12,212"
+    "closing": "12,212",
+    "q": null
    },
    {
     "college": "National Institute of Technology, Rourkela",
     "branch": "Ceramic Engineering",
     "exam": "JEE Main",
-    "closing": "31,545"
+    "closing": "31,545",
+    "q": "National Institute of Technology, Rourkela"
    },
    {
     "college": "P D A College of Engineering, Gulbarga(AUTONOMOUS) AIWAN-E-SHAHI AREA,STATION ROAD,GULBARGA-585102",
     "branch": "CERAMICS & CEMENT ENGINEERING",
     "exam": "KCET",
-    "closing": "199,318"
+    "closing": "199,318",
+    "q": null
    },
    {
     "college": "Govt. College of Engineering & Ceramic Technology, Kolkata",
     "branch": "CERAMIC ENGINEERING AND TECHNOLOGY",
     "exam": "WBJEE",
-    "closing": "6,689"
+    "closing": "6,689",
+    "q": null
    },
    {
     "college": "University Departments of Anna University Chennai - ACT Campus Sardar Patel Road Guindy Chennai 600 025",
     "branch": "CERAMIC TECHNOLOGY",
     "exam": "TNEA",
-    "closing": "179/200 marks"
+    "closing": "179/200 marks",
+    "q": null
    }
   ],
   "notable_people": [
@@ -1795,13 +2205,34 @@
   "entry_exams_text": "CA Foundation, Intermediate, and Final exams conducted by ICAI (Institute of Chartered Accountants of India, the official body that trains and licenses accountants in India). There is no college degree needed first \u2014 you can register for CA Foundation right after Class 12 and study through ICAI's own multi-year program.",
   "exams": null,
   "top_colleges": [
-   "ICAI (the sole body that conducts CA training and exams",
-   "with regional offices in Delhi",
-   "Mumbai",
-   "Chennai",
-   "Kolkata",
-   "Kanpur)",
-   "plus private CA coaching institutes like VG Learning Destination and J.K. Shah Classes for exam preparation."
+   {
+    "name": "ICAI (the sole body that conducts CA training and exams",
+    "q": null
+   },
+   {
+    "name": "with regional offices in Delhi",
+    "q": null
+   },
+   {
+    "name": "Mumbai",
+    "q": "Institute of Chemical Technology, Mumbai: Indian Oil Odisha Campus, Bhubaneswar"
+   },
+   {
+    "name": "Chennai",
+    "q": null
+   },
+   {
+    "name": "Kolkata",
+    "q": null
+   },
+   {
+    "name": "Kanpur)",
+    "q": "Indian Institute of Technology Kanpur"
+   },
+   {
+    "name": "plus private CA coaching institutes like VG Learning Destination and J.K. Shah Classes for exam preparation.",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b96-9 LPA",
@@ -1886,12 +2317,30 @@
    }
   ],
   "top_colleges": [
-   "IIT Bombay",
-   "IIT Delhi",
-   "IIT Kanpur",
-   "ICT Mumbai (Institute of Chemical Technology)",
-   "IIT Madras",
-   "BITS Pilani"
+   {
+    "name": "IIT Bombay",
+    "q": "Indian Institute of Technology Bombay"
+   },
+   {
+    "name": "IIT Delhi",
+    "q": "Indian Institute of Technology Delhi"
+   },
+   {
+    "name": "IIT Kanpur",
+    "q": "Indian Institute of Technology Kanpur"
+   },
+   {
+    "name": "ICT Mumbai (Institute of Chemical Technology)",
+    "q": "Institute of Chemical Technology, Mumbai: Indian Oil Odisha Campus, Bhubaneswar"
+   },
+   {
+    "name": "IIT Madras",
+    "q": "Indian Institute of Technology Madras"
+   },
+   {
+    "name": "BITS Pilani",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b95-9 LPA",
@@ -1914,37 +2363,43 @@
     "college": "Indian Institute of Technology Bombay",
     "branch": "Chemical Engineering",
     "exam": "JEE Advanced",
-    "closing": "2,423"
+    "closing": "2,423",
+    "q": "Indian Institute of Technology Bombay"
    },
    {
     "college": "Indian Institute of Technology Delhi",
     "branch": "Chemical Engineering",
     "exam": "JEE Advanced",
-    "closing": "2,462"
+    "closing": "2,462",
+    "q": "Indian Institute of Technology Delhi"
    },
    {
     "college": "R. V. College of Engineering, Bangalore(AUTONOMOUS) R.V. VIDYANIKETAN POST, MYSORE ROAD,BANGALORE",
     "branch": "CHEMICAL ENGINEERING",
     "exam": "KCET",
-    "closing": "11,049"
+    "closing": "11,049",
+    "q": null
    },
    {
     "college": "B M S College of Engineering, Basavanagudi, Bangalore (AUTONOMOUS) POST BOX NO 1908, BULL TEMPLE ROAD,BANGALORE",
     "branch": "CHEMICAL ENGINEERING",
     "exam": "KCET",
-    "closing": "19,679"
+    "closing": "19,679",
+    "q": null
    },
    {
     "college": "Jadavpur University",
     "branch": "Chemical Engineering",
     "exam": "WBJEE",
-    "closing": "696"
+    "closing": "696",
+    "q": null
    },
    {
     "college": "University Of Calcutta",
     "branch": "Chemical Engineering",
     "exam": "WBJEE",
-    "closing": "1,736"
+    "closing": "1,736",
+    "q": null
    }
   ],
   "notable_people": [
@@ -1984,11 +2439,26 @@
    }
   ],
   "top_colleges": [
-   "Institute of Chemical Technology (ICT) Mumbai",
-   "IIT Bombay",
-   "IIT Delhi",
-   "Anna University Chennai",
-   "Harcourt Butler Technical University Kanpur"
+   {
+    "name": "Institute of Chemical Technology (ICT) Mumbai",
+    "q": "Institute of Chemical Technology, Mumbai: Indian Oil Odisha Campus, Bhubaneswar"
+   },
+   {
+    "name": "IIT Bombay",
+    "q": "Indian Institute of Technology Bombay"
+   },
+   {
+    "name": "IIT Delhi",
+    "q": "Indian Institute of Technology Delhi"
+   },
+   {
+    "name": "Anna University Chennai",
+    "q": null
+   },
+   {
+    "name": "Harcourt Butler Technical University Kanpur",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b94-8 LPA",
@@ -2011,13 +2481,15 @@
     "college": "Indian Institute of Technology Guwahati",
     "branch": "Chemical Science and Technology",
     "exam": "JEE Advanced",
-    "closing": "7,332"
+    "closing": "7,332",
+    "q": null
    },
    {
     "college": "Indian Institute of Technology Roorkee",
     "branch": "Chemical Sciences",
     "exam": "JEE Advanced",
-    "closing": "10,612"
+    "closing": "10,612",
+    "q": "Indian Institute of Technology Roorkee"
    }
   ],
   "notable_people": [
@@ -2053,12 +2525,30 @@
    }
   ],
   "top_colleges": [
-   "Indian Institute of Science (IISc) Bangalore",
-   "IIT Bombay",
-   "Delhi University",
-   "St. Stephen's College Delhi",
-   "Fergusson College Pune",
-   "BHU (Banaras Hindu University)"
+   {
+    "name": "Indian Institute of Science (IISc) Bangalore",
+    "q": null
+   },
+   {
+    "name": "IIT Bombay",
+    "q": "Indian Institute of Technology Bombay"
+   },
+   {
+    "name": "Delhi University",
+    "q": "Jawaharlal Nehru University, Delhi"
+   },
+   {
+    "name": "St. Stephen's College Delhi",
+    "q": null
+   },
+   {
+    "name": "Fergusson College Pune",
+    "q": null
+   },
+   {
+    "name": "BHU (Banaras Hindu University)",
+    "q": "Indian Institute of Technology (BHU) Varanasi"
+   }
   ],
   "pay": {
    "start": "\u20b93-6 LPA",
@@ -2082,19 +2572,22 @@
     "college": "Indian Institute of Technology Bombay",
     "branch": "Chemistry",
     "exam": "JEE Advanced",
-    "closing": "7,081"
+    "closing": "7,081",
+    "q": "Indian Institute of Technology Bombay"
    },
    {
     "college": "Indian Institute of Technology Delhi",
     "branch": "Chemistry",
     "exam": "JEE Advanced",
-    "closing": "8,107"
+    "closing": "8,107",
+    "q": "Indian Institute of Technology Delhi"
    },
    {
     "college": "Odisha University of Technology and Research (formerly College of Engineering and Technology), Bhubaneswar",
     "branch": "Integrated MSc in Chemistry",
     "exam": "OJEE",
-    "closing": "700,453 (JEE Main rank)"
+    "closing": "700,453 (JEE Main rank)",
+    "q": null
    }
   ],
   "notable_people": [
@@ -2159,12 +2652,30 @@
    }
   ],
   "top_colleges": [
-   "IIT Roorkee",
-   "IIT Delhi",
-   "IIT Madras",
-   "NIT Trichy",
-   "Jadavpur University",
-   "Delhi Technological University"
+   {
+    "name": "IIT Roorkee",
+    "q": "Indian Institute of Technology Roorkee"
+   },
+   {
+    "name": "IIT Delhi",
+    "q": "Indian Institute of Technology Delhi"
+   },
+   {
+    "name": "IIT Madras",
+    "q": "Indian Institute of Technology Madras"
+   },
+   {
+    "name": "NIT Trichy",
+    "q": null
+   },
+   {
+    "name": "Jadavpur University",
+    "q": null
+   },
+   {
+    "name": "Delhi Technological University",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b93.5-6 LPA",
@@ -2187,37 +2698,43 @@
     "college": "Indian Institute of Technology Bombay",
     "branch": "Civil Engineering",
     "exam": "JEE Advanced",
-    "closing": "4,095"
+    "closing": "4,095",
+    "q": "Indian Institute of Technology Bombay"
    },
    {
     "college": "Indian Institute of Technology Delhi",
     "branch": "Civil Engineering",
     "exam": "JEE Advanced",
-    "closing": "4,228"
+    "closing": "4,228",
+    "q": "Indian Institute of Technology Delhi"
    },
    {
     "college": "R. V. College of Engineering, Bangalore(AUTONOMOUS) R.V. VIDYANIKETAN POST, MYSORE ROAD,BANGALORE",
     "branch": "CIVIL ENGINEERING",
     "exam": "KCET",
-    "closing": "10,832"
+    "closing": "10,832",
+    "q": null
    },
    {
     "college": "M S Ramaiah Institute of Technology, Bangalore(AUTONOMOUS) VIDYA SOUDHA,MSR NAGAR,MSRIT POST,BANGALORE - 560054.",
     "branch": "CIVIL ENGINEERING",
     "exam": "KCET",
-    "closing": "30,510"
+    "closing": "30,510",
+    "q": null
    },
    {
     "college": "Jadavpur University",
     "branch": "Civil Engineering",
     "exam": "WBJEE",
-    "closing": "741"
+    "closing": "741",
+    "q": null
    },
    {
     "college": "Jalpaiguri Goverment Engineering College,Jalpaiguri",
     "branch": "Civil Engineering",
     "exam": "WBJEE",
-    "closing": "4,061"
+    "closing": "4,061",
+    "q": null
    }
   ],
   "notable_people": [
@@ -2253,11 +2770,26 @@
    }
   ],
   "top_colleges": [
-   "Shri Ram College of Commerce (SRCC) Delhi",
-   "St. Xavier's College Mumbai",
-   "Christ University Bangalore",
-   "Loyola College Chennai",
-   "Narsee Monjee College of Commerce Mumbai"
+   {
+    "name": "Shri Ram College of Commerce (SRCC) Delhi",
+    "q": null
+   },
+   {
+    "name": "St. Xavier's College Mumbai",
+    "q": null
+   },
+   {
+    "name": "Christ University Bangalore",
+    "q": null
+   },
+   {
+    "name": "Loyola College Chennai",
+    "q": null
+   },
+   {
+    "name": "Narsee Monjee College of Commerce Mumbai",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b93-5 LPA",
@@ -2315,12 +2847,30 @@
    }
   ],
   "top_colleges": [
-   "Christ University Bangalore",
-   "NIT Trichy (for MCA)",
-   "Symbiosis Institute of Computer Studies and Research",
-   "Loyola College Chennai",
-   "Jain University",
-   "Guru Gobind Singh Indraprastha University"
+   {
+    "name": "Christ University Bangalore",
+    "q": null
+   },
+   {
+    "name": "NIT Trichy (for MCA)",
+    "q": null
+   },
+   {
+    "name": "Symbiosis Institute of Computer Studies and Research",
+    "q": null
+   },
+   {
+    "name": "Loyola College Chennai",
+    "q": null
+   },
+   {
+    "name": "Jain University",
+    "q": null
+   },
+   {
+    "name": "Guru Gobind Singh Indraprastha University",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b93-6 LPA",
@@ -2415,12 +2965,30 @@
    }
   ],
   "top_colleges": [
-   "IIT Bombay",
-   "IIT Delhi",
-   "IIIT Hyderabad",
-   "BITS Pilani",
-   "VIT Vellore",
-   "NIT Trichy"
+   {
+    "name": "IIT Bombay",
+    "q": "Indian Institute of Technology Bombay"
+   },
+   {
+    "name": "IIT Delhi",
+    "q": "Indian Institute of Technology Delhi"
+   },
+   {
+    "name": "IIIT Hyderabad",
+    "q": null
+   },
+   {
+    "name": "BITS Pilani",
+    "q": null
+   },
+   {
+    "name": "VIT Vellore",
+    "q": null
+   },
+   {
+    "name": "NIT Trichy",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b95-12 LPA",
@@ -2443,37 +3011,43 @@
     "college": "Indian Institute of Technology Bombay",
     "branch": "Computer Science and Engineering",
     "exam": "JEE Advanced",
-    "closing": "66"
+    "closing": "66",
+    "q": "Indian Institute of Technology Bombay"
    },
    {
     "college": "Indian Institute of Technology Delhi",
     "branch": "Computer Science and Engineering",
     "exam": "JEE Advanced",
-    "closing": "126"
+    "closing": "126",
+    "q": "Indian Institute of Technology Delhi"
    },
    {
     "college": "R. V. College of Engineering, Bangalore(AUTONOMOUS) R.V. VIDYANIKETAN POST, MYSORE ROAD,BANGALORE",
     "branch": "COMPUTER SCIENCE AND ENGINEERING",
     "exam": "KCET",
-    "closing": "499"
+    "closing": "499",
+    "q": null
    },
    {
     "college": "PES University 100 Feet Ring Road, Banashankari, 3rd Stage, Hosakerehalli, Near DSERT, , Bangalore KARNATAKA, pin code -560085",
     "branch": "B TECH IN COMPUTER SCIENCE AND ENGINEERING",
     "exam": "KCET",
-    "closing": "1,654"
+    "closing": "1,654",
+    "q": null
    },
    {
     "college": "Jadavpur University",
     "branch": "Computer Science & Engineering",
     "exam": "WBJEE",
-    "closing": "17"
+    "closing": "17",
+    "q": null
    },
    {
     "college": "University Of Calcutta",
     "branch": "Computer Science & Engineering",
     "exam": "WBJEE",
-    "closing": "449"
+    "closing": "449",
+    "q": null
    }
   ],
   "notable_people": [
@@ -2550,21 +3124,39 @@
     "href": "/exams?q=WBJEE"
    },
    {
-    "label": "BITSAT",
-    "href": "/exams?q=BITSAT"
-   },
-   {
     "label": "KEA-CET",
     "href": "/exams?q=KEA-CET"
+   },
+   {
+    "label": "BITSAT",
+    "href": "/exams?q=BITSAT"
    }
   ],
   "top_colleges": [
-   "IIT Bombay",
-   "IIT Delhi",
-   "IIT Madras",
-   "BITS Pilani",
-   "IIIT Hyderabad",
-   "NIT Trichy"
+   {
+    "name": "IIT Bombay",
+    "q": "Indian Institute of Technology Bombay"
+   },
+   {
+    "name": "IIT Delhi",
+    "q": "Indian Institute of Technology Delhi"
+   },
+   {
+    "name": "IIT Madras",
+    "q": "Indian Institute of Technology Madras"
+   },
+   {
+    "name": "BITS Pilani",
+    "q": null
+   },
+   {
+    "name": "IIIT Hyderabad",
+    "q": null
+   },
+   {
+    "name": "NIT Trichy",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b94-10 LPA",
@@ -2587,37 +3179,43 @@
     "college": "Indian Institute of Technology Bombay",
     "branch": "Computer Science and Engineering",
     "exam": "JEE Advanced",
-    "closing": "66"
+    "closing": "66",
+    "q": "Indian Institute of Technology Bombay"
    },
    {
     "college": "Indian Institute of Technology Delhi",
     "branch": "Computer Science and Engineering",
     "exam": "JEE Advanced",
-    "closing": "126"
+    "closing": "126",
+    "q": "Indian Institute of Technology Delhi"
    },
    {
     "college": "R. V. College of Engineering, Bangalore(AUTONOMOUS) R.V. VIDYANIKETAN POST, MYSORE ROAD,BANGALORE",
     "branch": "COMPUTER SCIENCE AND ENGINEERING",
     "exam": "KCET",
-    "closing": "499"
+    "closing": "499",
+    "q": null
    },
    {
     "college": "PES University 100 Feet Ring Road, Banashankari, 3rd Stage, Hosakerehalli, Near DSERT, , Bangalore KARNATAKA, pin code -560085",
     "branch": "B TECH IN COMPUTER SCIENCE AND ENGINEERING",
     "exam": "KCET",
-    "closing": "1,654"
+    "closing": "1,654",
+    "q": null
    },
    {
     "college": "Jadavpur University",
     "branch": "Computer Science & Engineering",
     "exam": "WBJEE",
-    "closing": "17"
+    "closing": "17",
+    "q": null
    },
    {
     "college": "University Of Calcutta",
     "branch": "Computer Science & Engineering",
     "exam": "WBJEE",
-    "closing": "449"
+    "closing": "449",
+    "q": null
    }
   ],
   "notable_people": [
@@ -2699,12 +3297,30 @@
    }
   ],
   "top_colleges": [
-   "IIT Kanpur",
-   "IIIT Hyderabad",
-   "Amrita Vishwa Vidyapeetham",
-   "VIT Vellore",
-   "DSCI-recognized training institutes (Data Security Council of India",
-   "an industry body that promotes cyber security education)"
+   {
+    "name": "IIT Kanpur",
+    "q": "Indian Institute of Technology Kanpur"
+   },
+   {
+    "name": "IIIT Hyderabad",
+    "q": null
+   },
+   {
+    "name": "Amrita Vishwa Vidyapeetham",
+    "q": null
+   },
+   {
+    "name": "VIT Vellore",
+    "q": null
+   },
+   {
+    "name": "DSCI-recognized training institutes (Data Security Council of India",
+    "q": null
+   },
+   {
+    "name": "an industry body that promotes cyber security education)",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b95-10 LPA",
@@ -2727,37 +3343,43 @@
     "college": "National Institute of Electronics and Information Technology, Ajmer (Rajasthan)",
     "branch": "Computer Science and Engineering",
     "exam": "JEE Main",
-    "closing": "57,217"
+    "closing": "57,217",
+    "q": "National Institute of Electronics and Information Technology, Ajmer (Rajasthan)"
    },
    {
     "college": "R. V. College of Engineering, Bangalore(AUTONOMOUS) R.V. VIDYANIKETAN POST, MYSORE ROAD,BANGALORE",
     "branch": "COMPUTER SCIENCE AND ENGINEERING(CYBER SECURITY)",
     "exam": "KCET",
-    "closing": "990"
+    "closing": "990",
+    "q": null
    },
    {
     "college": "M S Ramaiah Institute of Technology, Bangalore(AUTONOMOUS) VIDYA SOUDHA,MSR NAGAR,MSRIT POST,BANGALORE - 560054.",
     "branch": "COMPUTER SCIENCE AND ENGINEERING(CYBER SECURITY)",
     "exam": "KCET",
-    "closing": "4,208"
+    "closing": "4,208",
+    "q": null
    },
    {
     "college": "Heritage Institute of Technology, Kolkata",
     "branch": "Computer Science & Engineering",
     "exam": "WBJEE",
-    "closing": "4,502"
+    "closing": "4,502",
+    "q": null
    },
    {
     "college": "Techno Main Salt Lake, Sector-V, Salt Lake",
     "branch": "Computer Science & Engineering",
     "exam": "WBJEE",
-    "closing": "7,431"
+    "closing": "7,431",
+    "q": null
    },
    {
     "college": "Shri Vile Parle Kelvani Mandal's Dwarkadas J. Sanghvi College of Engineering, Vile Parle,Mumbai",
     "branch": "Computer Science and Engineering",
     "exam": "MHT-CET",
-    "closing": "3,877"
+    "closing": "3,877",
+    "q": null
    }
   ],
   "notable_people": [
@@ -2812,11 +3434,26 @@
    }
   ],
   "top_colleges": [
-   "National Dairy Research Institute Karnal",
-   "College of Dairy Science Anand (Gujarat)",
-   "Dairy Science College Bengaluru",
-   "SMC College of Dairy Science Anand",
-   "College of Dairy Technology Warud"
+   {
+    "name": "National Dairy Research Institute Karnal",
+    "q": null
+   },
+   {
+    "name": "College of Dairy Science Anand (Gujarat)",
+    "q": null
+   },
+   {
+    "name": "Dairy Science College Bengaluru",
+    "q": null
+   },
+   {
+    "name": "SMC College of Dairy Science Anand",
+    "q": null
+   },
+   {
+    "name": "College of Dairy Technology Warud",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b93-5 LPA",
@@ -2839,13 +3476,15 @@
     "college": "Institute of Engineering and Technology, Dr. H. S. Gour University. Sagar (A Central University)",
     "branch": "Dairy Engineering",
     "exam": "JEE Main",
-    "closing": "117,845"
+    "closing": "117,845",
+    "q": "Institute of Engineering and Technology, Dr. H. S. Gour University. Sagar (A Central University)"
    },
    {
     "college": "West Bengal University of Animal & Fishery Sciences",
     "branch": "Dairy Technology",
     "exam": "WBJEE",
-    "closing": "11,413"
+    "closing": "11,413",
+    "q": null
    }
   ],
   "notable_people": [
@@ -2914,12 +3553,30 @@
    }
   ],
   "top_colleges": [
-   "IIT Bombay",
-   "IIT Delhi",
-   "IIIT Hyderabad",
-   "BITS Pilani",
-   "NIT Surathkal",
-   "IIT Kharagpur"
+   {
+    "name": "IIT Bombay",
+    "q": "Indian Institute of Technology Bombay"
+   },
+   {
+    "name": "IIT Delhi",
+    "q": "Indian Institute of Technology Delhi"
+   },
+   {
+    "name": "IIIT Hyderabad",
+    "q": null
+   },
+   {
+    "name": "BITS Pilani",
+    "q": null
+   },
+   {
+    "name": "NIT Surathkal",
+    "q": "National Institute of Technology Karnataka, Surathkal"
+   },
+   {
+    "name": "IIT Kharagpur",
+    "q": "Indian Institute of Technology Kharagpur"
+   }
   ],
   "pay": {
    "start": "\u20b95-10 LPA",
@@ -2942,37 +3599,43 @@
     "college": "Indian Institute of Technology Madras",
     "branch": "Artificial Intelligence and Data Analytics",
     "exam": "JEE Advanced",
-    "closing": "292"
+    "closing": "292",
+    "q": "Indian Institute of Technology Madras"
    },
    {
     "college": "Indian Institute of Technology Roorkee",
     "branch": "Data Science and Artificial Intelligence",
     "exam": "JEE Advanced",
-    "closing": "770"
+    "closing": "770",
+    "q": "Indian Institute of Technology Roorkee"
    },
    {
     "college": "R. V. College of Engineering, Bangalore(AUTONOMOUS) R.V. VIDYANIKETAN POST, MYSORE ROAD,BANGALORE",
     "branch": "COMPUTER SCIENCE AND ENGINEERING(ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING)",
     "exam": "KCET",
-    "closing": "742"
+    "closing": "742",
+    "q": null
    },
    {
     "college": "PES University 100 Feet Ring Road, Banashankari, 3rd Stage, Hosakerehalli, Near DSERT, , Bangalore KARNATAKA, pin code -560085",
     "branch": "B TECH IN COMPUTER SCIENCE & ENGINEERING(ARTIFICAL INTELLIGENCE & MACHINE LEARNING)",
     "exam": "KCET",
-    "closing": "2,694"
+    "closing": "2,694",
+    "q": null
    },
    {
     "college": "Heritage Institute of Technology, Kolkata",
     "branch": "Computer Science & Engineering",
     "exam": "WBJEE",
-    "closing": "3,417"
+    "closing": "3,417",
+    "q": null
    },
    {
     "college": "Techno Main Salt Lake, Sector-V, Salt Lake",
     "branch": "Computer Science & Engineering",
     "exam": "WBJEE",
-    "closing": "4,474"
+    "closing": "4,474",
+    "q": null
    }
   ],
   "notable_people": [
@@ -3009,11 +3672,26 @@
    }
   ],
   "top_colleges": [
-   "Maulana Azad Institute of Dental Sciences Delhi",
-   "Manipal College of Dental Sciences",
-   "King George's Medical University Lucknow",
-   "Government Dental College Mumbai",
-   "SRM Dental College Chennai"
+   {
+    "name": "Maulana Azad Institute of Dental Sciences Delhi",
+    "q": null
+   },
+   {
+    "name": "Manipal College of Dental Sciences",
+    "q": null
+   },
+   {
+    "name": "King George's Medical University Lucknow",
+    "q": null
+   },
+   {
+    "name": "Government Dental College Mumbai",
+    "q": null
+   },
+   {
+    "name": "SRM Dental College Chennai",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b93-6 LPA",
@@ -3035,13 +3713,15 @@
     "college": "Maulana Azad Institute of Dental Sciences, New Delhi",
     "branch": "BDS",
     "exam": "NEET",
-    "closing": "13,602 (AIQ)"
+    "closing": "13,602 (AIQ)",
+    "q": null
    },
    {
     "college": "RUHS College of Dental Science, Jaipur",
     "branch": "BDS",
     "exam": "NEET",
-    "closing": "13,694 (AIQ)"
+    "closing": "13,694 (AIQ)",
+    "q": null
    }
   ],
   "notable_people": [
@@ -3110,12 +3790,30 @@
    }
   ],
   "top_colleges": [
-   "National Institute of Design (NID) Ahmedabad",
-   "IIT Bombay (Industrial Design Centre)",
-   "National Institute of Fashion Technology (NIFT) Delhi",
-   "Srishti Manipal Institute of Art",
-   "Design and Technology Bangalore",
-   "Pearl Academy"
+   {
+    "name": "National Institute of Design (NID) Ahmedabad",
+    "q": null
+   },
+   {
+    "name": "IIT Bombay (Industrial Design Centre)",
+    "q": "Indian Institute of Technology Bombay"
+   },
+   {
+    "name": "National Institute of Fashion Technology (NIFT) Delhi",
+    "q": null
+   },
+   {
+    "name": "Srishti Manipal Institute of Art",
+    "q": null
+   },
+   {
+    "name": "Design and Technology Bangalore",
+    "q": null
+   },
+   {
+    "name": "Pearl Academy",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b94-8 LPA",
@@ -3138,37 +3836,43 @@
     "college": "Indian Institute of Technology Delhi",
     "branch": "Design",
     "exam": "JEE Advanced",
-    "closing": "12,217"
+    "closing": "12,217",
+    "q": "Indian Institute of Technology Delhi"
    },
    {
     "college": "Indian Institute of Information Technology, Design & Manufacturing, Kancheepuram",
     "branch": "Design Engineering",
     "exam": "JEE Main",
-    "closing": "46,678"
+    "closing": "46,678",
+    "q": "Indian Institute of Information Technology, Design & Manufacturing, Kancheepuram"
    },
    {
     "college": "K.L.S. Gogte Institute of Technology, Belgaum.(AUTONOMOUS) \"JNANA GANGA\", UDYAMBAG,BELGAUM",
     "branch": "COMMUNICATION DESIGN",
     "exam": "KCET",
-    "closing": "200,998"
+    "closing": "200,998",
+    "q": null
    },
    {
     "college": "Sir M V School of Architecture,Hunasamaranahalli, Bangalore KRISHNADEVARAYANAGAR,HUNASAMARANAHALLI,VIA YELAHANKA,BANGALORE - 562 157",
     "branch": "DESIGN",
     "exam": "KCET",
-    "closing": "220,401"
+    "closing": "220,401",
+    "q": null
    },
    {
     "college": "MIT Academy of Engineering,Alandi, Pune",
     "branch": "Design",
     "exam": "MHT-CET",
-    "closing": "101"
+    "closing": "101",
+    "q": null
    },
    {
     "college": "Terna Engineering College, Nerul, Navi Mumbai",
     "branch": "Design",
     "exam": "MHT-CET",
-    "closing": "167"
+    "closing": "167",
+    "q": null
    }
   ],
   "notable_people": [
@@ -3210,12 +3914,30 @@
    }
   ],
   "top_colleges": [
-   "IIT (ISM) Dhanbad",
-   "IIT Bombay",
-   "IIT Kharagpur",
-   "IIT Roorkee",
-   "University of Petroleum and Energy Studies Dehradun",
-   "Anna University"
+   {
+    "name": "IIT (ISM) Dhanbad",
+    "q": "Indian Institute of Technology (ISM) Dhanbad"
+   },
+   {
+    "name": "IIT Bombay",
+    "q": "Indian Institute of Technology Bombay"
+   },
+   {
+    "name": "IIT Kharagpur",
+    "q": "Indian Institute of Technology Kharagpur"
+   },
+   {
+    "name": "IIT Roorkee",
+    "q": "Indian Institute of Technology Roorkee"
+   },
+   {
+    "name": "University of Petroleum and Energy Studies Dehradun",
+    "q": null
+   },
+   {
+    "name": "Anna University",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b94-8 LPA",
@@ -3238,7 +3960,8 @@
     "college": "Indian Institute of Technology Kanpur",
     "branch": "Earth Sciences",
     "exam": "JEE Advanced",
-    "closing": "9,700"
+    "closing": "9,700",
+    "q": "Indian Institute of Technology Kanpur"
    }
   ],
   "notable_people": [
@@ -3288,11 +4011,26 @@
    }
   ],
   "top_colleges": [
-   "Delhi School of Economics",
-   "St. Stephen's College Delhi",
-   "Indian Statistical Institute (ISI) Kolkata",
-   "Presidency University Kolkata",
-   "Madras School of Economics"
+   {
+    "name": "Delhi School of Economics",
+    "q": null
+   },
+   {
+    "name": "St. Stephen's College Delhi",
+    "q": null
+   },
+   {
+    "name": "Indian Statistical Institute (ISI) Kolkata",
+    "q": null
+   },
+   {
+    "name": "Presidency University Kolkata",
+    "q": null
+   },
+   {
+    "name": "Madras School of Economics",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b94-8 LPA",
@@ -3315,13 +4053,15 @@
     "college": "Indian Institute of Technology Bombay",
     "branch": "Economics",
     "exam": "JEE Advanced",
-    "closing": "2,345"
+    "closing": "2,345",
+    "q": "Indian Institute of Technology Bombay"
    },
    {
     "college": "Indian Institute of Technology Kanpur",
     "branch": "Economics",
     "exam": "JEE Advanced",
-    "closing": "3,155"
+    "closing": "3,155",
+    "q": "Indian Institute of Technology Kanpur"
    }
   ],
   "notable_people": [
@@ -3390,12 +4130,30 @@
    }
   ],
   "top_colleges": [
-   "Jadavpur University",
-   "Jamia Millia Islamia",
-   "Aligarh Muslim University",
-   "Delhi Technological University",
-   "Punjab Engineering College",
-   "NIT Silchar"
+   {
+    "name": "Jadavpur University",
+    "q": null
+   },
+   {
+    "name": "Jamia Millia Islamia",
+    "q": null
+   },
+   {
+    "name": "Aligarh Muslim University",
+    "q": null
+   },
+   {
+    "name": "Delhi Technological University",
+    "q": null
+   },
+   {
+    "name": "Punjab Engineering College",
+    "q": "Punjab Engineering College, Chandigarh"
+   },
+   {
+    "name": "NIT Silchar",
+    "q": "National Institute of Technology, Silchar"
+   }
   ],
   "pay": {
    "start": "\u20b93.5-6.5 LPA",
@@ -3418,37 +4176,43 @@
     "college": "Indian Institute of Technology Bombay",
     "branch": "Electrical Engineering",
     "exam": "JEE Advanced",
-    "closing": "433"
+    "closing": "433",
+    "q": "Indian Institute of Technology Bombay"
    },
    {
     "college": "Indian Institute of Technology Delhi",
     "branch": "Electrical Engineering",
     "exam": "JEE Advanced",
-    "closing": "605"
+    "closing": "605",
+    "q": "Indian Institute of Technology Delhi"
    },
    {
     "college": "R. V. College of Engineering, Bangalore(AUTONOMOUS) R.V. VIDYANIKETAN POST, MYSORE ROAD,BANGALORE",
     "branch": "ELECTRONICS AND COMMUNICATION ENGINEERING",
     "exam": "KCET",
-    "closing": "1,100"
+    "closing": "1,100",
+    "q": null
    },
    {
     "college": "B M S College of Engineering, Basavanagudi, Bangalore (AUTONOMOUS) POST BOX NO 1908, BULL TEMPLE ROAD,BANGALORE",
     "branch": "ELECTRONICS AND COMMUNICATION ENGINEERING",
     "exam": "KCET",
-    "closing": "3,114"
+    "closing": "3,114",
+    "q": null
    },
    {
     "college": "Jadavpur University",
     "branch": "Electronics & Tele-Communication Engineering",
     "exam": "WBJEE",
-    "closing": "138"
+    "closing": "138",
+    "q": null
    },
    {
     "college": "University Of Calcutta",
     "branch": "Electronics & Communication Engineering",
     "exam": "WBJEE",
-    "closing": "911"
+    "closing": "911",
+    "q": null
    }
   ],
   "notable_people": [
@@ -3529,12 +4293,30 @@
    }
   ],
   "top_colleges": [
-   "NIT Trichy",
-   "NIT Warangal",
-   "VIT Vellore",
-   "SASTRA University",
-   "Anna University",
-   "Manipal Institute of Technology"
+   {
+    "name": "NIT Trichy",
+    "q": null
+   },
+   {
+    "name": "NIT Warangal",
+    "q": "National Institute of Technology, Warangal"
+   },
+   {
+    "name": "VIT Vellore",
+    "q": null
+   },
+   {
+    "name": "SASTRA University",
+    "q": null
+   },
+   {
+    "name": "Anna University",
+    "q": null
+   },
+   {
+    "name": "Manipal Institute of Technology",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b93.5-7 LPA",
@@ -3557,37 +4339,43 @@
     "college": "Indian Institute of Technology Bombay",
     "branch": "Electrical Engineering",
     "exam": "JEE Advanced",
-    "closing": "433"
+    "closing": "433",
+    "q": "Indian Institute of Technology Bombay"
    },
    {
     "college": "Indian Institute of Technology Delhi",
     "branch": "Electrical Engineering",
     "exam": "JEE Advanced",
-    "closing": "605"
+    "closing": "605",
+    "q": "Indian Institute of Technology Delhi"
    },
    {
     "college": "R. V. College of Engineering, Bangalore(AUTONOMOUS) R.V. VIDYANIKETAN POST, MYSORE ROAD,BANGALORE",
     "branch": "ELECTRONICS AND COMMUNICATION ENGINEERING",
     "exam": "KCET",
-    "closing": "1,100"
+    "closing": "1,100",
+    "q": null
    },
    {
     "college": "B M S College of Engineering, Basavanagudi, Bangalore (AUTONOMOUS) POST BOX NO 1908, BULL TEMPLE ROAD,BANGALORE",
     "branch": "ELECTRONICS AND COMMUNICATION ENGINEERING",
     "exam": "KCET",
-    "closing": "3,114"
+    "closing": "3,114",
+    "q": null
    },
    {
     "college": "Jadavpur University",
     "branch": "Electronics & Tele-Communication Engineering",
     "exam": "WBJEE",
-    "closing": "138"
+    "closing": "138",
+    "q": null
    },
    {
     "college": "University Of Calcutta",
     "branch": "Electronics & Communication Engineering",
     "exam": "WBJEE",
-    "closing": "911"
+    "closing": "911",
+    "q": null
    }
   ],
   "notable_people": [
@@ -3669,12 +4457,30 @@
    }
   ],
   "top_colleges": [
-   "IIT Bombay",
-   "IIT Delhi",
-   "IIT Kanpur",
-   "NIT Trichy",
-   "Delhi Technological University",
-   "VJTI Mumbai"
+   {
+    "name": "IIT Bombay",
+    "q": "Indian Institute of Technology Bombay"
+   },
+   {
+    "name": "IIT Delhi",
+    "q": "Indian Institute of Technology Delhi"
+   },
+   {
+    "name": "IIT Kanpur",
+    "q": "Indian Institute of Technology Kanpur"
+   },
+   {
+    "name": "NIT Trichy",
+    "q": null
+   },
+   {
+    "name": "Delhi Technological University",
+    "q": null
+   },
+   {
+    "name": "VJTI Mumbai",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b93.5-7 LPA",
@@ -3697,37 +4503,43 @@
     "college": "Indian Institute of Technology Bombay",
     "branch": "Electrical Engineering",
     "exam": "JEE Advanced",
-    "closing": "433"
+    "closing": "433",
+    "q": "Indian Institute of Technology Bombay"
    },
    {
     "college": "Indian Institute of Technology Delhi",
     "branch": "Electrical Engineering",
     "exam": "JEE Advanced",
-    "closing": "605"
+    "closing": "605",
+    "q": "Indian Institute of Technology Delhi"
    },
    {
     "college": "R. V. College of Engineering, Bangalore(AUTONOMOUS) R.V. VIDYANIKETAN POST, MYSORE ROAD,BANGALORE",
     "branch": "ELECTRONICS AND COMMUNICATION ENGINEERING",
     "exam": "KCET",
-    "closing": "1,100"
+    "closing": "1,100",
+    "q": null
    },
    {
     "college": "B M S College of Engineering, Basavanagudi, Bangalore (AUTONOMOUS) POST BOX NO 1908, BULL TEMPLE ROAD,BANGALORE",
     "branch": "ELECTRONICS AND COMMUNICATION ENGINEERING",
     "exam": "KCET",
-    "closing": "3,114"
+    "closing": "3,114",
+    "q": null
    },
    {
     "college": "Jadavpur University",
     "branch": "Electronics & Tele-Communication Engineering",
     "exam": "WBJEE",
-    "closing": "138"
+    "closing": "138",
+    "q": null
    },
    {
     "college": "University Of Calcutta",
     "branch": "Electronics & Communication Engineering",
     "exam": "WBJEE",
-    "closing": "911"
+    "closing": "911",
+    "q": null
    }
   ],
   "notable_people": [
@@ -3809,12 +4621,30 @@
    }
   ],
   "top_colleges": [
-   "IIT Delhi",
-   "IIT Kharagpur",
-   "IIIT Hyderabad",
-   "NIT Warangal",
-   "BITS Pilani",
-   "VIT Vellore"
+   {
+    "name": "IIT Delhi",
+    "q": "Indian Institute of Technology Delhi"
+   },
+   {
+    "name": "IIT Kharagpur",
+    "q": "Indian Institute of Technology Kharagpur"
+   },
+   {
+    "name": "IIIT Hyderabad",
+    "q": null
+   },
+   {
+    "name": "NIT Warangal",
+    "q": "National Institute of Technology, Warangal"
+   },
+   {
+    "name": "BITS Pilani",
+    "q": null
+   },
+   {
+    "name": "VIT Vellore",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b94-9 LPA",
@@ -3837,37 +4667,43 @@
     "college": "Indian Institute of Technology Bombay",
     "branch": "Electrical Engineering",
     "exam": "JEE Advanced",
-    "closing": "433"
+    "closing": "433",
+    "q": "Indian Institute of Technology Bombay"
    },
    {
     "college": "Indian Institute of Technology Delhi",
     "branch": "Electrical Engineering",
     "exam": "JEE Advanced",
-    "closing": "605"
+    "closing": "605",
+    "q": "Indian Institute of Technology Delhi"
    },
    {
     "college": "R. V. College of Engineering, Bangalore(AUTONOMOUS) R.V. VIDYANIKETAN POST, MYSORE ROAD,BANGALORE",
     "branch": "ELECTRONICS AND COMMUNICATION ENGINEERING",
     "exam": "KCET",
-    "closing": "1,100"
+    "closing": "1,100",
+    "q": null
    },
    {
     "college": "B M S College of Engineering, Basavanagudi, Bangalore (AUTONOMOUS) POST BOX NO 1908, BULL TEMPLE ROAD,BANGALORE",
     "branch": "ELECTRONICS AND COMMUNICATION ENGINEERING",
     "exam": "KCET",
-    "closing": "3,114"
+    "closing": "3,114",
+    "q": null
    },
    {
     "college": "Jadavpur University",
     "branch": "Electronics & Tele-Communication Engineering",
     "exam": "WBJEE",
-    "closing": "138"
+    "closing": "138",
+    "q": null
    },
    {
     "college": "University Of Calcutta",
     "branch": "Electronics & Communication Engineering",
     "exam": "WBJEE",
-    "closing": "911"
+    "closing": "911",
+    "q": null
    }
   ],
   "notable_people": [
@@ -3916,12 +4752,30 @@
    }
   ],
   "top_colleges": [
-   "IIT Bombay",
-   "TERI School of Advanced Studies Delhi",
-   "University of Petroleum and Energy Studies Dehradun",
-   "IIT Roorkee",
-   "NIT Rourkela",
-   "Amrita Vishwa Vidyapeetham"
+   {
+    "name": "IIT Bombay",
+    "q": "Indian Institute of Technology Bombay"
+   },
+   {
+    "name": "TERI School of Advanced Studies Delhi",
+    "q": null
+   },
+   {
+    "name": "University of Petroleum and Energy Studies Dehradun",
+    "q": null
+   },
+   {
+    "name": "IIT Roorkee",
+    "q": "Indian Institute of Technology Roorkee"
+   },
+   {
+    "name": "NIT Rourkela",
+    "q": "National Institute of Technology, Rourkela"
+   },
+   {
+    "name": "Amrita Vishwa Vidyapeetham",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b93.5-6.5 LPA",
@@ -3944,25 +4798,29 @@
     "college": "Indian Institute of Technology Bombay",
     "branch": "Energy Engineering",
     "exam": "JEE Advanced",
-    "closing": "2,494"
+    "closing": "2,494",
+    "q": "Indian Institute of Technology Bombay"
    },
    {
     "college": "Indian Institute of Technology Delhi",
     "branch": "Energy Engineering",
     "exam": "JEE Advanced",
-    "closing": "2,638"
+    "closing": "2,638",
+    "q": "Indian Institute of Technology Delhi"
    },
    {
     "college": "Sharanbasava University (Formerly Appa Institute of Engineering and Tech) SHARNBASVESHWARA INSTITUTIONS CAMPUS , KALABURAGI ( GULBARGA) -585103 , KARNATAKA",
     "branch": "B TECH IN ENERGY ENGINEERING",
     "exam": "KCET",
-    "closing": "247,485"
+    "closing": "247,485",
+    "q": null
    },
    {
     "college": "Jadavpur University",
     "branch": "Power Engineering",
     "exam": "WBJEE",
-    "closing": "616"
+    "closing": "616",
+    "q": null
    }
   ],
   "notable_people": [
@@ -4007,12 +4865,30 @@
    }
   ],
   "top_colleges": [
-   "IIT Kanpur",
-   "IIT Hyderabad",
-   "IIT Guwahati",
-   "IIT Roorkee",
-   "IIT Bhilai",
-   "National Institute of Design Ahmedabad"
+   {
+    "name": "IIT Kanpur",
+    "q": "Indian Institute of Technology Kanpur"
+   },
+   {
+    "name": "IIT Hyderabad",
+    "q": "Indian Institute of Technology Hyderabad"
+   },
+   {
+    "name": "IIT Guwahati",
+    "q": null
+   },
+   {
+    "name": "IIT Roorkee",
+    "q": "Indian Institute of Technology Roorkee"
+   },
+   {
+    "name": "IIT Bhilai",
+    "q": "Indian Institute of Technology Bhilai"
+   },
+   {
+    "name": "National Institute of Design Ahmedabad",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b94-8 LPA",
@@ -4035,13 +4911,15 @@
     "college": "Indian Institute of Technology Madras",
     "branch": "Engineering Design",
     "exam": "JEE Advanced",
-    "closing": "3,076"
+    "closing": "3,076",
+    "q": "Indian Institute of Technology Madras"
    },
    {
     "college": "GM University KARUR VILLAGE, KASABA HOBLI, DAVANGERE TALUK AND DISTRICT",
     "branch": "ENGINEERING DESIGN",
     "exam": "KCET",
-    "closing": "256,966"
+    "closing": "256,966",
+    "q": null
    }
   ],
   "notable_people": [
@@ -4082,12 +4960,30 @@
    }
   ],
   "top_colleges": [
-   "IIT Bombay",
-   "IIT Delhi",
-   "IIT Kanpur",
-   "IIT Madras (Engineering Physics/Physics programs)",
-   "BHU IIT (Varanasi)",
-   "IIT Hyderabad"
+   {
+    "name": "IIT Bombay",
+    "q": "Indian Institute of Technology Bombay"
+   },
+   {
+    "name": "IIT Delhi",
+    "q": "Indian Institute of Technology Delhi"
+   },
+   {
+    "name": "IIT Kanpur",
+    "q": "Indian Institute of Technology Kanpur"
+   },
+   {
+    "name": "IIT Madras (Engineering Physics/Physics programs)",
+    "q": "Indian Institute of Technology Madras"
+   },
+   {
+    "name": "BHU IIT (Varanasi)",
+    "q": "Indian Institute of Technology (BHU) Varanasi"
+   },
+   {
+    "name": "IIT Hyderabad",
+    "q": "Indian Institute of Technology Hyderabad"
+   }
   ],
   "pay": {
    "start": "\u20b96-12 LPA",
@@ -4111,13 +5007,15 @@
     "college": "Indian Institute of Technology Madras",
     "branch": "Engineering Physics",
     "exam": "JEE Advanced",
-    "closing": "1,441"
+    "closing": "1,441",
+    "q": "Indian Institute of Technology Madras"
    },
    {
     "college": "Indian Institute of Technology Bombay",
     "branch": "Engineering Physics",
     "exam": "JEE Advanced",
-    "closing": "1,490"
+    "closing": "1,490",
+    "q": "Indian Institute of Technology Bombay"
    }
   ],
   "notable_people": [
@@ -4161,11 +5059,26 @@
    }
   ],
   "top_colleges": [
-   "IIT Kanpur (Engineering Science programme)",
-   "IISER Pune",
-   "IISER Bhopal",
-   "BITS Pilani (interdisciplinary tracks)",
-   "IIT Gandhinagar"
+   {
+    "name": "IIT Kanpur (Engineering Science programme)",
+    "q": "Indian Institute of Technology Kanpur"
+   },
+   {
+    "name": "IISER Pune",
+    "q": null
+   },
+   {
+    "name": "IISER Bhopal",
+    "q": null
+   },
+   {
+    "name": "BITS Pilani (interdisciplinary tracks)",
+    "q": null
+   },
+   {
+    "name": "IIT Gandhinagar",
+    "q": "Indian Institute of Technology Gandhinagar"
+   }
   ],
   "pay": {
    "start": "\u20b96-10 LPA",
@@ -4188,13 +5101,15 @@
     "college": "Indian Institute of Technology Hyderabad",
     "branch": "Engineering Science",
     "exam": "JEE Advanced",
-    "closing": "3,258"
+    "closing": "3,258",
+    "q": "Indian Institute of Technology Hyderabad"
    },
    {
     "college": "Maulana Azad National Institute of Technology Bhopal",
     "branch": "B. Tech. and M. Tech. in Engineering and Computational Mechanics",
     "exam": "JEE Main",
-    "closing": "22,419"
+    "closing": "22,419",
+    "q": "Maulana Azad National Institute of Technology Bhopal"
    }
   ],
   "notable_people": [
@@ -4222,11 +5137,26 @@
    }
   ],
   "top_colleges": [
-   "St. Stephen's College Delhi",
-   "Lady Shri Ram College Delhi",
-   "Presidency College Chennai",
-   "Jadavpur University Kolkata",
-   "Miranda House Delhi"
+   {
+    "name": "St. Stephen's College Delhi",
+    "q": null
+   },
+   {
+    "name": "Lady Shri Ram College Delhi",
+    "q": null
+   },
+   {
+    "name": "Presidency College Chennai",
+    "q": null
+   },
+   {
+    "name": "Jadavpur University Kolkata",
+    "q": null
+   },
+   {
+    "name": "Miranda House Delhi",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b92.5-5 LPA",
@@ -4292,12 +5222,30 @@
    }
   ],
   "top_colleges": [
-   "IIT Roorkee",
-   "IIT Kharagpur",
-   "IIT Bombay",
-   "NIT Warangal",
-   "Anna University",
-   "Jadavpur University"
+   {
+    "name": "IIT Roorkee",
+    "q": "Indian Institute of Technology Roorkee"
+   },
+   {
+    "name": "IIT Kharagpur",
+    "q": "Indian Institute of Technology Kharagpur"
+   },
+   {
+    "name": "IIT Bombay",
+    "q": "Indian Institute of Technology Bombay"
+   },
+   {
+    "name": "NIT Warangal",
+    "q": "National Institute of Technology, Warangal"
+   },
+   {
+    "name": "Anna University",
+    "q": null
+   },
+   {
+    "name": "Jadavpur University",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b94-8 LPA",
@@ -4320,37 +5268,43 @@
     "college": "Indian Institute of Technology Bombay",
     "branch": "Environmental Science and Engineering",
     "exam": "JEE Advanced",
-    "closing": "4,696"
+    "closing": "4,696",
+    "q": "Indian Institute of Technology Bombay"
    },
    {
     "college": "Indian Institute of Technology (ISM) Dhanbad",
     "branch": "Environmental Engineering",
     "exam": "JEE Advanced",
-    "closing": "14,489"
+    "closing": "14,489",
+    "q": "Indian Institute of Technology (ISM) Dhanbad"
    },
    {
     "college": "Sri Jayachamarajendra College of Engineering(Constituent College of JSS Science & Technology University), Mysore JSS TECHNICAL INSTITUTIONS CAMPUS,MANASAGANGOTHRI PO,MYSORE",
     "branch": "ENVIRONMENTAL ENGINEERING",
     "exam": "KCET",
-    "closing": "93,107"
+    "closing": "93,107",
+    "q": null
    },
    {
     "college": "Eastern Academy of Science and Technology, Phulanakhara, Bhubanes",
     "branch": "Environmental Engineering",
     "exam": "OJEE",
-    "closing": "987,411 (JEE Main rank)"
+    "closing": "987,411 (JEE Main rank)",
+    "q": null
    },
    {
     "college": "Park College of Technology, Prema Ravi Nagar, Karumathampatty, Coimbatore-641659.",
     "branch": "ENVIRONMENTAL ENGINEERING",
     "exam": "TNEA",
-    "closing": "122.5/200 marks"
+    "closing": "122.5/200 marks",
+    "q": null
    },
    {
     "college": "Dhanalakshmi Srinivasan College of Engineering and Technology, ECR, Poonjeri, Mamallapuram, Kanchipuram-603104.",
     "branch": "ENVIRONMENTAL SCIENCE & TECHNOLOGY",
     "exam": "TNEA",
-    "closing": "95/200 marks"
+    "closing": "95/200 marks",
+    "q": null
    }
   ],
   "notable_people": [
@@ -4388,11 +5342,26 @@
    }
   ],
   "top_colleges": [
-   "Shri Ram College of Commerce (Delhi)",
-   "Narsee Monjee Institute of Management Studies (Mumbai)",
-   "Indian Institutes of Management (various cities)",
-   "St. Xavier's College (Kolkata/Mumbai)",
-   "Institute of Chartered Accountants of India"
+   {
+    "name": "Shri Ram College of Commerce (Delhi)",
+    "q": null
+   },
+   {
+    "name": "Narsee Monjee Institute of Management Studies (Mumbai)",
+    "q": null
+   },
+   {
+    "name": "Indian Institutes of Management (various cities)",
+    "q": null
+   },
+   {
+    "name": "St. Xavier's College (Kolkata/Mumbai)",
+    "q": null
+   },
+   {
+    "name": "Institute of Chartered Accountants of India",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b94-8 LPA",
@@ -4452,10 +5421,22 @@
    }
   ],
   "top_colleges": [
-   "Central Institute of Fisheries Education (Mumbai)",
-   "College of Fisheries (Kerala Agricultural University)",
-   "Fisheries College and Research Institute (Tamil Nadu)",
-   "West Bengal University of Animal and Fishery Sciences"
+   {
+    "name": "Central Institute of Fisheries Education (Mumbai)",
+    "q": null
+   },
+   {
+    "name": "College of Fisheries (Kerala Agricultural University)",
+    "q": null
+   },
+   {
+    "name": "Fisheries College and Research Institute (Tamil Nadu)",
+    "q": null
+   },
+   {
+    "name": "West Bengal University of Animal and Fishery Sciences",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b93-5 LPA",
@@ -4534,12 +5515,30 @@
    }
   ],
   "top_colleges": [
-   "IIT Kharagpur (Agricultural and Food Engineering)",
-   "NIFTEM (National Institute of Food Technology",
-   "Entrepreneurship and Management)",
-   "CFTRI Mysore",
-   "Punjab Agricultural University",
-   "GB Pant University"
+   {
+    "name": "IIT Kharagpur (Agricultural and Food Engineering)",
+    "q": "Indian Institute of Technology Kharagpur"
+   },
+   {
+    "name": "NIFTEM (National Institute of Food Technology",
+    "q": null
+   },
+   {
+    "name": "Entrepreneurship and Management)",
+    "q": null
+   },
+   {
+    "name": "CFTRI Mysore",
+    "q": null
+   },
+   {
+    "name": "Punjab Agricultural University",
+    "q": null
+   },
+   {
+    "name": "GB Pant University",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b94-7 LPA",
@@ -4562,37 +5561,43 @@
     "college": "National Institute of Technology, Rourkela",
     "branch": "Food Process Engineering",
     "exam": "JEE Main",
-    "closing": "38,826"
+    "closing": "38,826",
+    "q": "National Institute of Technology, Rourkela"
    },
    {
     "college": "Birla Institute of Technology, Mesra, Ranchi",
     "branch": "Food Engineering and Technology",
     "exam": "JEE Main",
-    "closing": "57,116"
+    "closing": "57,116",
+    "q": "Birla Institute of Technology, Mesra, Ranchi"
    },
    {
     "college": "Ghani Khan Choudhury Institute of Engineering & Technology, Malda",
     "branch": "Food Technology",
     "exam": "WBJEE",
-    "closing": "15,335"
+    "closing": "15,335",
+    "q": null
    },
    {
     "college": "Techno Main Salt Lake, Sector-V, Salt Lake",
     "branch": "Food Technology",
     "exam": "WBJEE",
-    "closing": "15,565"
+    "closing": "15,565",
+    "q": null
    },
    {
     "college": "Institute of Chemical Technology, Matunga, Mumbai",
     "branch": "Food Engineering and Technology",
     "exam": "MHT-CET",
-    "closing": "1,943"
+    "closing": "1,943",
+    "q": null
    },
    {
     "college": "Laxminarayan Innovation Technological University, Nagpur",
     "branch": "Food Technology",
     "exam": "MHT-CET",
-    "closing": "7,011"
+    "closing": "7,011",
+    "q": null
    }
   ],
   "notable_people": [
@@ -4626,10 +5631,22 @@
   "entry_exams_text": "No single fixed entrance exam \u2014 most students take a B.Sc in Forensic Science after Class 12, admission is usually based on Class 12 marks or a university-specific entrance test.",
   "exams": null,
   "top_colleges": [
-   "Lokmanya Tilak Institute of Forensic Science (Mumbai)",
-   "Government Institute of Forensic Science (Nagpur)",
-   "Institute of Forensic Science (Gujarat Forensic Sciences University)",
-   "Amity Institute of Forensic Sciences (Noida)"
+   {
+    "name": "Lokmanya Tilak Institute of Forensic Science (Mumbai)",
+    "q": null
+   },
+   {
+    "name": "Government Institute of Forensic Science (Nagpur)",
+    "q": null
+   },
+   {
+    "name": "Institute of Forensic Science (Gujarat Forensic Sciences University)",
+    "q": null
+   },
+   {
+    "name": "Amity Institute of Forensic Sciences (Noida)",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b93-5 LPA",
@@ -4662,10 +5679,22 @@
   "entry_exams_text": "Indian Forest Service Exam (a government exam through UPSC, the Union Public Service Commission, for top forest officer positions), or a B.Sc in Forestry through state agricultural or forestry university entrance tests.",
   "exams": null,
   "top_colleges": [
-   "Forest Research Institute (Dehradun)",
-   "Indira Gandhi Krishi Vishwavidyalaya (Raipur)",
-   "Kerala Agricultural University",
-   "Indian Institute of Forest Management (Bhopal)"
+   {
+    "name": "Forest Research Institute (Dehradun)",
+    "q": null
+   },
+   {
+    "name": "Indira Gandhi Krishi Vishwavidyalaya (Raipur)",
+    "q": null
+   },
+   {
+    "name": "Kerala Agricultural University",
+    "q": null
+   },
+   {
+    "name": "Indian Institute of Forest Management (Bhopal)",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b94-7 LPA",
@@ -4706,18 +5735,27 @@
     "href": "/exams?q=JEE Advanced"
    },
    {
-    "label": "KEA-CET",
-    "href": "/exams?q=KEA-CET"
-   },
-   {
     "label": "MHT-CET",
     "href": "/exams?q=MHT-CET"
+   },
+   {
+    "label": "KEA-CET",
+    "href": "/exams?q=KEA-CET"
    }
   ],
   "top_colleges": [
-   "Various state engineering colleges and polytechnic-linked institutes",
-   "regional NITs offering general/multi-disciplinary tracks",
-   "state technical universities"
+   {
+    "name": "Various state engineering colleges and polytechnic-linked institutes",
+    "q": null
+   },
+   {
+    "name": "regional NITs offering general/multi-disciplinary tracks",
+    "q": null
+   },
+   {
+    "name": "state technical universities",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b93-6 LPA",
@@ -4739,7 +5777,8 @@
     "college": "Indian Institute of Technology Mandi",
     "branch": "B.Tech in General Engineering",
     "exam": "JEE Advanced",
-    "closing": "10,184"
+    "closing": "10,184",
+    "q": "Indian Institute of Technology Mandi"
    }
   ],
   "notable_people": [
@@ -4769,11 +5808,26 @@
    }
   ],
   "top_colleges": [
-   "Indian Institute of Technology (various cities)",
-   "Indian School of Mines/IIT Dhanbad",
-   "Banaras Hindu University",
-   "University of Delhi",
-   "Jadavpur University"
+   {
+    "name": "Indian Institute of Technology (various cities)",
+    "q": null
+   },
+   {
+    "name": "Indian School of Mines/IIT Dhanbad",
+    "q": null
+   },
+   {
+    "name": "Banaras Hindu University",
+    "q": null
+   },
+   {
+    "name": "University of Delhi",
+    "q": null
+   },
+   {
+    "name": "Jadavpur University",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b94-8 LPA",
@@ -4795,13 +5849,15 @@
     "college": "Indian Institute of Technology Roorkee",
     "branch": "Geophysical Technology",
     "exam": "JEE Advanced",
-    "closing": "8,630"
+    "closing": "8,630",
+    "q": "Indian Institute of Technology Roorkee"
    },
    {
     "college": "Indian Institute of Technology Kharagpur",
     "branch": "Exploration Geophysics",
     "exam": "JEE Advanced",
-    "closing": "12,011"
+    "closing": "12,011",
+    "q": "Indian Institute of Technology Kharagpur"
    }
   ],
   "notable_people": [
@@ -4819,9 +5875,18 @@
   "entry_exams_text": "No single fixed entrance exam \u2014 HCLTech selects students directly after Class 12 based on an aptitude test and interview conducted by the company itself, not a national exam.",
   "exams": null,
   "top_colleges": [
-   "This is a company-run program",
-   "not a college degree \u2014 training happens directly at HCLTech's own TechBee centers",
-   "with an option to later complete a college degree alongside work."
+   {
+    "name": "This is a company-run program",
+    "q": null
+   },
+   {
+    "name": "not a college degree \u2014 training happens directly at HCLTech's own TechBee centers",
+    "q": null
+   },
+   {
+    "name": "with an option to later complete a college degree alongside work.",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b91.5-2.5 LPA",
@@ -4850,11 +5915,26 @@
   "entry_exams_text": "No single fixed entrance exam \u2014 many colleges take students based on Class 12 marks, though top universities like Delhi University and Jawaharlal Nehru University have their own entrance tests for higher studies.",
   "exams": null,
   "top_colleges": [
-   "Jawaharlal Nehru University (Delhi)",
-   "Delhi University",
-   "Presidency University (Kolkata)",
-   "Banaras Hindu University",
-   "Jadavpur University"
+   {
+    "name": "Jawaharlal Nehru University (Delhi)",
+    "q": "Jawaharlal Nehru University, Delhi"
+   },
+   {
+    "name": "Delhi University",
+    "q": "Jawaharlal Nehru University, Delhi"
+   },
+   {
+    "name": "Presidency University (Kolkata)",
+    "q": null
+   },
+   {
+    "name": "Banaras Hindu University",
+    "q": null
+   },
+   {
+    "name": "Jadavpur University",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b92.5-4.5 LPA",
@@ -4892,10 +5972,22 @@
    }
   ],
   "top_colleges": [
-   "National Institute of Homoeopathy (Kolkata)",
-   "Nehru Homoeopathic Medical College (Delhi)",
-   "Government Homoeopathic Medical College (Bengaluru)",
-   "Dr. M.P.K. Homoeopathic Medical College (Mumbai)"
+   {
+    "name": "National Institute of Homoeopathy (Kolkata)",
+    "q": null
+   },
+   {
+    "name": "Nehru Homoeopathic Medical College (Delhi)",
+    "q": null
+   },
+   {
+    "name": "Government Homoeopathic Medical College (Bengaluru)",
+    "q": null
+   },
+   {
+    "name": "Dr. M.P.K. Homoeopathic Medical College (Mumbai)",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b93-5 LPA",
@@ -4933,10 +6025,22 @@
    }
   ],
   "top_colleges": [
-   "Indian Agricultural Research Institute (Delhi)",
-   "Punjab Agricultural University",
-   "Kerala Agricultural University",
-   "Dr. Yashwant Singh Parmar University of Horticulture and Forestry"
+   {
+    "name": "Indian Agricultural Research Institute (Delhi)",
+    "q": null
+   },
+   {
+    "name": "Punjab Agricultural University",
+    "q": null
+   },
+   {
+    "name": "Kerala Agricultural University",
+    "q": null
+   },
+   {
+    "name": "Dr. Yashwant Singh Parmar University of Horticulture and Forestry",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b93-5 LPA",
@@ -4974,10 +6078,22 @@
    }
   ],
   "top_colleges": [
-   "Institute of Hotel Management (Mumbai/Delhi/various cities)",
-   "Welcomgroup Graduate School of Hotel Administration (Manipal)",
-   "Oberoi Centre of Learning and Development",
-   "Christ University (Bengaluru)"
+   {
+    "name": "Institute of Hotel Management (Mumbai/Delhi/various cities)",
+    "q": null
+   },
+   {
+    "name": "Welcomgroup Graduate School of Hotel Administration (Manipal)",
+    "q": null
+   },
+   {
+    "name": "Oberoi Centre of Learning and Development",
+    "q": null
+   },
+   {
+    "name": "Christ University (Bengaluru)",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b93-5 LPA",
@@ -5052,12 +6168,30 @@
    }
   ],
   "top_colleges": [
-   "IIT Delhi",
-   "IIT Bombay",
-   "NIT Trichy",
-   "PSG College of Technology",
-   "VJTI Mumbai",
-   "Anna University"
+   {
+    "name": "IIT Delhi",
+    "q": "Indian Institute of Technology Delhi"
+   },
+   {
+    "name": "IIT Bombay",
+    "q": "Indian Institute of Technology Bombay"
+   },
+   {
+    "name": "NIT Trichy",
+    "q": null
+   },
+   {
+    "name": "PSG College of Technology",
+    "q": null
+   },
+   {
+    "name": "VJTI Mumbai",
+    "q": null
+   },
+   {
+    "name": "Anna University",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b94-8 LPA",
@@ -5080,37 +6214,43 @@
     "college": "Indian Institute of Technology Bombay",
     "branch": "Industrial Engineering and Operations Research",
     "exam": "JEE Advanced",
-    "closing": "1,133"
+    "closing": "1,133",
+    "q": "Indian Institute of Technology Bombay"
    },
    {
     "college": "Indian Institute of Technology Delhi",
     "branch": "Production and Industrial Engineering",
     "exam": "JEE Advanced",
-    "closing": "3,027"
+    "closing": "3,027",
+    "q": "Indian Institute of Technology Delhi"
    },
    {
     "college": "R. V. College of Engineering, Bangalore(AUTONOMOUS) R.V. VIDYANIKETAN POST, MYSORE ROAD,BANGALORE",
     "branch": "INDUSTRIAL ENGINEERING & MANAGEMENT",
     "exam": "KCET",
-    "closing": "15,717"
+    "closing": "15,717",
+    "q": null
    },
    {
     "college": "B M S College of Engineering, Basavanagudi, Bangalore (AUTONOMOUS) POST BOX NO 1908, BULL TEMPLE ROAD,BANGALORE",
     "branch": "INDUSTRIAL ENGINEERING & MANAGEMENT",
     "exam": "KCET",
-    "closing": "32,144"
+    "closing": "32,144",
+    "q": null
    },
    {
     "college": "Jadavpur University",
     "branch": "Production Engineering",
     "exam": "WBJEE",
-    "closing": "717"
+    "closing": "717",
+    "q": null
    },
    {
     "college": "Maulana Abul Kalam Azad University of Technology, West Bengal",
     "branch": "INDUSTRIAL ENGINEERING",
     "exam": "WBJEE",
-    "closing": "9,500"
+    "closing": "9,500",
+    "q": null
    }
   ],
   "notable_people": [
@@ -5153,10 +6293,22 @@
    }
   ],
   "top_colleges": [
-   "Indian Institute of Technology (various cities)",
-   "Institute of Chemical Technology (Mumbai)",
-   "Birla Institute of Technology and Science (Pilani)",
-   "Indian Institute of Science (Bengaluru)"
+   {
+    "name": "Indian Institute of Technology (various cities)",
+    "q": null
+   },
+   {
+    "name": "Institute of Chemical Technology (Mumbai)",
+    "q": "Institute of Chemical Technology, Mumbai: Indian Oil Odisha Campus, Bhubaneswar"
+   },
+   {
+    "name": "Birla Institute of Technology and Science (Pilani)",
+    "q": null
+   },
+   {
+    "name": "Indian Institute of Science (Bengaluru)",
+    "q": "Indian Institute of Engineering Science and Technology, Shibpur"
+   }
   ],
   "pay": {
    "start": "\u20b94-8 LPA",
@@ -5178,13 +6330,15 @@
     "college": "Indian Institute of Technology Hyderabad",
     "branch": "Industrial Chemistry",
     "exam": "JEE Advanced",
-    "closing": "9,411"
+    "closing": "9,411",
+    "q": "Indian Institute of Technology Hyderabad"
    },
    {
     "college": "Indian Institute of Technology (BHU) Varanasi",
     "branch": "Industrial Chemistry",
     "exam": "JEE Advanced",
-    "closing": "10,699"
+    "closing": "10,699",
+    "q": null
    }
   ],
   "notable_people": [
@@ -5236,12 +6390,30 @@
    }
   ],
   "top_colleges": [
-   "IIT Kharagpur",
-   "IIT Delhi",
-   "NIT Trichy",
-   "VIT Vellore",
-   "Manipal Institute of Technology",
-   "ICT Mumbai"
+   {
+    "name": "IIT Kharagpur",
+    "q": "Indian Institute of Technology Kharagpur"
+   },
+   {
+    "name": "IIT Delhi",
+    "q": "Indian Institute of Technology Delhi"
+   },
+   {
+    "name": "NIT Trichy",
+    "q": null
+   },
+   {
+    "name": "VIT Vellore",
+    "q": null
+   },
+   {
+    "name": "Manipal Institute of Technology",
+    "q": null
+   },
+   {
+    "name": "ICT Mumbai",
+    "q": "Institute of Chemical Technology, Mumbai: Indian Oil Odisha Campus, Bhubaneswar"
+   }
   ],
   "pay": {
    "start": "\u20b94-8 LPA",
@@ -5264,37 +6436,43 @@
     "college": "Indian Institute of Technology Kharagpur",
     "branch": "Instrumentation Engineering",
     "exam": "JEE Advanced",
-    "closing": "2,561"
+    "closing": "2,561",
+    "q": "Indian Institute of Technology Kharagpur"
    },
    {
     "college": "National Institute of Technology, Tiruchirappalli",
     "branch": "Instrumentation and Control Engineering",
     "exam": "JEE Main",
-    "closing": "9,260"
+    "closing": "9,260",
+    "q": "National Institute of Technology, Tiruchirappalli"
    },
    {
     "college": "University Of Calcutta",
     "branch": "Instrumentation Engineering",
     "exam": "WBJEE",
-    "closing": "1,604"
+    "closing": "1,604",
+    "q": null
    },
    {
     "college": "COEP Technological University",
     "branch": "Instrumentation and Control Engineering",
     "exam": "MHT-CET",
-    "closing": "2,116"
+    "closing": "2,116",
+    "q": null
    },
    {
     "college": "Bansilal Ramnath Agarawal Charitable Trust's Vishwakarma Institute of Technology, Bibwewadi, Pune",
     "branch": "Instrumentation and Control Engineering",
     "exam": "MHT-CET",
-    "closing": "15,753"
+    "closing": "15,753",
+    "q": null
    },
    {
     "college": "PSG College of Technology (Autonomous) Peelamedu Coimbatore District 641004",
     "branch": "INSTRUMENTATION AND CONTROL ENGINEERING",
     "exam": "TNEA",
-    "closing": "194/200 marks"
+    "closing": "194/200 marks",
+    "q": null
    }
   ],
   "notable_people": [
@@ -5327,12 +6505,30 @@
   "entry_exams_text": "No single fixed entrance exam - most people join a language course or a university department (like JNU or Delhi University) based on Class 12 marks, and later prove their skill with the JLPT (Japanese Language Proficiency Test, an international exam that certifies how well you know Japanese, with levels from N5 easiest to N1 hardest).",
   "exams": null,
   "top_colleges": [
-   "Jawaharlal Nehru University (JNU)",
-   "Delhi University",
-   "Jamia Millia Islamia",
-   "English and Foreign Languages University (EFLU) Hyderabad",
-   "Symbiosis Pune",
-   "The Japan Foundation New Delhi (for JLPT training)"
+   {
+    "name": "Jawaharlal Nehru University (JNU)",
+    "q": "Jawaharlal Nehru University, Delhi"
+   },
+   {
+    "name": "Delhi University",
+    "q": "Jawaharlal Nehru University, Delhi"
+   },
+   {
+    "name": "Jamia Millia Islamia",
+    "q": null
+   },
+   {
+    "name": "English and Foreign Languages University (EFLU) Hyderabad",
+    "q": null
+   },
+   {
+    "name": "Symbiosis Pune",
+    "q": null
+   },
+   {
+    "name": "The Japan Foundation New Delhi (for JLPT training)",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b93-6 LPA",
@@ -5381,12 +6577,30 @@
   "entry_exams_text": "No single fixed entrance exam - many colleges admit students based on Class 12 marks or their own entrance test, though some students also take exams like the IIMC entrance test (Indian Institute of Mass Communication's own exam for its journalism courses).",
   "exams": null,
   "top_colleges": [
-   "Indian Institute of Mass Communication (IIMC) Delhi",
-   "Xavier Institute of Communications Mumbai",
-   "Asian College of Journalism Chennai",
-   "Symbiosis Institute of Media and Communication Pune",
-   "Delhi University",
-   "Jamia Millia Islamia"
+   {
+    "name": "Indian Institute of Mass Communication (IIMC) Delhi",
+    "q": null
+   },
+   {
+    "name": "Xavier Institute of Communications Mumbai",
+    "q": null
+   },
+   {
+    "name": "Asian College of Journalism Chennai",
+    "q": null
+   },
+   {
+    "name": "Symbiosis Institute of Media and Communication Pune",
+    "q": null
+   },
+   {
+    "name": "Delhi University",
+    "q": "Jawaharlal Nehru University, Delhi"
+   },
+   {
+    "name": "Jamia Millia Islamia",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b92.5-5 LPA",
@@ -5440,12 +6654,30 @@
    }
   ],
   "top_colleges": [
-   "National Law School of India University (NLSIU) Bangalore",
-   "National Law University (NLU) Delhi",
-   "NALSAR University of Law Hyderabad",
-   "Government Law College Mumbai",
-   "Symbiosis Law School Pune",
-   "Faculty of Law Delhi University"
+   {
+    "name": "National Law School of India University (NLSIU) Bangalore",
+    "q": null
+   },
+   {
+    "name": "National Law University (NLU) Delhi",
+    "q": null
+   },
+   {
+    "name": "NALSAR University of Law Hyderabad",
+    "q": null
+   },
+   {
+    "name": "Government Law College Mumbai",
+    "q": null
+   },
+   {
+    "name": "Symbiosis Law School Pune",
+    "q": null
+   },
+   {
+    "name": "Faculty of Law Delhi University",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b94-10 LPA",
@@ -5468,13 +6700,15 @@
     "college": "National Law School of India University (NLSIU), Bengaluru",
     "branch": "B.A. LL.B.",
     "exam": "CLAT",
-    "closing": "120"
+    "closing": "120",
+    "q": null
    },
    {
     "college": "NALSAR University of Law (NALSAR), Hyderabad",
     "branch": "B.A. LL.B.",
     "exam": "CLAT",
-    "closing": "168"
+    "closing": "168",
+    "q": null
    }
   ],
   "notable_people": [
@@ -5521,12 +6755,30 @@
    }
   ],
   "top_colleges": [
-   "Indian Institute of Science (IISc) Bangalore",
-   "Jawaharlal Nehru University (JNU)",
-   "Delhi University",
-   "University of Hyderabad",
-   "Banaras Hindu University (BHU)",
-   "Fergusson College Pune"
+   {
+    "name": "Indian Institute of Science (IISc) Bangalore",
+    "q": null
+   },
+   {
+    "name": "Jawaharlal Nehru University (JNU)",
+    "q": "Jawaharlal Nehru University, Delhi"
+   },
+   {
+    "name": "Delhi University",
+    "q": "Jawaharlal Nehru University, Delhi"
+   },
+   {
+    "name": "University of Hyderabad",
+    "q": "University of Hyderabad"
+   },
+   {
+    "name": "Banaras Hindu University (BHU)",
+    "q": null
+   },
+   {
+    "name": "Fergusson College Pune",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b93-5 LPA",
@@ -5549,7 +6801,8 @@
     "college": "National Institute of Technology, Rourkela",
     "branch": "Life Science",
     "exam": "JEE Main",
-    "closing": "50,388"
+    "closing": "50,388",
+    "q": "National Institute of Technology, Rourkela"
    }
   ],
   "notable_people": [
@@ -5611,10 +6864,22 @@
    }
   ],
   "top_colleges": [
-   "IIT Madras (Ocean Engineering)",
-   "IIT Kharagpur",
-   "Cochin University of Science and Technology",
-   "Andhra University College of Engineering"
+   {
+    "name": "IIT Madras (Ocean Engineering)",
+    "q": "Indian Institute of Technology Madras"
+   },
+   {
+    "name": "IIT Kharagpur",
+    "q": "Indian Institute of Technology Kharagpur"
+   },
+   {
+    "name": "Cochin University of Science and Technology",
+    "q": null
+   },
+   {
+    "name": "Andhra University College of Engineering",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b95-9 LPA",
@@ -5637,31 +6902,36 @@
     "college": "Indian Institute of Technology Madras",
     "branch": "Naval Architecture and Ocean Engineering",
     "exam": "JEE Advanced",
-    "closing": "6,993"
+    "closing": "6,993",
+    "q": "Indian Institute of Technology Madras"
    },
    {
     "college": "Indian Institute of Technology Kharagpur",
     "branch": "Ocean Engineering and Naval Architecture",
     "exam": "JEE Advanced",
-    "closing": "9,371"
+    "closing": "9,371",
+    "q": "Indian Institute of Technology Kharagpur"
    },
    {
     "college": "Srinivas Institute of Technology, Mangalore SRINIVAS CAMPUS",
     "branch": "MARINE ENGINEERING",
     "exam": "KCET",
-    "closing": "231,286"
+    "closing": "231,286",
+    "q": null
    },
    {
     "college": "Mohamed Sathak Engineering College (Autonomous), Sathak Nagar, East Coast Road, Pudhu Mayakulam, Kilakarai, Ramanathapuram District-623806.",
     "branch": "MARINE ENGINEERING",
     "exam": "TNEA",
-    "closing": "180/200 marks"
+    "closing": "180/200 marks",
+    "q": null
    },
    {
     "college": "Sri Venkateswara College of Engineering (Autonomous), Post Bag No.3, Pennalur, Sriperumbudur, Kanchipuram-602105.",
     "branch": "MARINE ENGINEERING",
     "exam": "TNEA",
-    "closing": "108.5/200 marks"
+    "closing": "108.5/200 marks",
+    "q": null
    }
   ],
   "notable_people": [
@@ -5726,10 +6996,22 @@
    }
   ],
   "top_colleges": [
-   "Indian Maritime University (Chennai and other campuses)",
-   "Marine Engineering and Research Institute (MERI) Kolkata/Mumbai",
-   "Tolani Maritime Institute",
-   "Sri Ramaswamy Memorial (SRM) maritime programs"
+   {
+    "name": "Indian Maritime University (Chennai and other campuses)",
+    "q": null
+   },
+   {
+    "name": "Marine Engineering and Research Institute (MERI) Kolkata/Mumbai",
+    "q": null
+   },
+   {
+    "name": "Tolani Maritime Institute",
+    "q": null
+   },
+   {
+    "name": "Sri Ramaswamy Memorial (SRM) maritime programs",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b98-15 LPA",
@@ -5752,31 +7034,36 @@
     "college": "Indian Institute of Technology Madras",
     "branch": "Naval Architecture and Ocean Engineering",
     "exam": "JEE Advanced",
-    "closing": "6,993"
+    "closing": "6,993",
+    "q": "Indian Institute of Technology Madras"
    },
    {
     "college": "Indian Institute of Technology Kharagpur",
     "branch": "Ocean Engineering and Naval Architecture",
     "exam": "JEE Advanced",
-    "closing": "9,371"
+    "closing": "9,371",
+    "q": "Indian Institute of Technology Kharagpur"
    },
    {
     "college": "Srinivas Institute of Technology, Mangalore SRINIVAS CAMPUS",
     "branch": "MARINE ENGINEERING",
     "exam": "KCET",
-    "closing": "231,286"
+    "closing": "231,286",
+    "q": null
    },
    {
     "college": "Mohamed Sathak Engineering College (Autonomous), Sathak Nagar, East Coast Road, Pudhu Mayakulam, Kilakarai, Ramanathapuram District-623806.",
     "branch": "MARINE ENGINEERING",
     "exam": "TNEA",
-    "closing": "180/200 marks"
+    "closing": "180/200 marks",
+    "q": null
    },
    {
     "college": "Sri Venkateswara College of Engineering (Autonomous), Post Bag No.3, Pennalur, Sriperumbudur, Kanchipuram-602105.",
     "branch": "MARINE ENGINEERING",
     "exam": "TNEA",
-    "closing": "108.5/200 marks"
+    "closing": "108.5/200 marks",
+    "q": null
    }
   ],
   "notable_people": [
@@ -5819,21 +7106,39 @@
     "href": "/exams?q=CUET"
    },
    {
-    "label": "ISI-AT",
-    "href": "/exams?q=ISI-AT"
-   },
-   {
     "label": "CMI-EE",
     "href": "/exams?q=CMI-EE"
+   },
+   {
+    "label": "ISI-AT",
+    "href": "/exams?q=ISI-AT"
    }
   ],
   "top_colleges": [
-   "Indian Statistical Institute (ISI) Kolkata",
-   "Chennai Mathematical Institute (CMI)",
-   "Indian Institute of Science (IISc) Bangalore",
-   "St. Stephen's College Delhi",
-   "Indian Institutes of Technology (IITs)",
-   "Tata Institute of Fundamental Research (TIFR)"
+   {
+    "name": "Indian Statistical Institute (ISI) Kolkata",
+    "q": null
+   },
+   {
+    "name": "Chennai Mathematical Institute (CMI)",
+    "q": null
+   },
+   {
+    "name": "Indian Institute of Science (IISc) Bangalore",
+    "q": null
+   },
+   {
+    "name": "St. Stephen's College Delhi",
+    "q": null
+   },
+   {
+    "name": "Indian Institutes of Technology (IITs)",
+    "q": null
+   },
+   {
+    "name": "Tata Institute of Fundamental Research (TIFR)",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b94-8 LPA",
@@ -5855,13 +7160,15 @@
     "college": "Indian Institute of Technology Bombay",
     "branch": "BS in Mathematics",
     "exam": "JEE Advanced",
-    "closing": "957"
+    "closing": "957",
+    "q": "Indian Institute of Technology Bombay"
    },
    {
     "college": "National Institute of Technology, Warangal",
     "branch": "Mathematics",
     "exam": "JEE Main",
-    "closing": "16,667"
+    "closing": "16,667",
+    "q": "National Institute of Technology, Warangal"
    }
   ],
   "notable_people": [
@@ -5906,11 +7213,26 @@
    }
   ],
   "top_colleges": [
-   "Indian Institute of Technology (IIT) Delhi",
-   "Indian Institute of Technology (IIT) Kharagpur",
-   "Indian Institute of Technology (IIT) Guwahati",
-   "Indian Institute of Technology (IIT) BHU Varanasi",
-   "Delhi Technological University"
+   {
+    "name": "Indian Institute of Technology (IIT) Delhi",
+    "q": "Indian Institute of Technology Delhi"
+   },
+   {
+    "name": "Indian Institute of Technology (IIT) Kharagpur",
+    "q": "Indian Institute of Technology Kharagpur"
+   },
+   {
+    "name": "Indian Institute of Technology (IIT) Guwahati",
+    "q": null
+   },
+   {
+    "name": "Indian Institute of Technology (IIT) BHU Varanasi",
+    "q": "Indian Institute of Technology (BHU) Varanasi"
+   },
+   {
+    "name": "Delhi Technological University",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b98-18 LPA",
@@ -5932,25 +7254,29 @@
     "college": "Indian Institute of Technology Delhi",
     "branch": "Mathematics and Computing",
     "exam": "JEE Advanced",
-    "closing": "323"
+    "closing": "323",
+    "q": "Indian Institute of Technology Delhi"
    },
    {
     "college": "Indian Institute of Technology Hyderabad",
     "branch": "Mathematics and Computing",
     "exam": "JEE Advanced",
-    "closing": "919"
+    "closing": "919",
+    "q": "Indian Institute of Technology Hyderabad"
    },
    {
     "college": "M . S . Ramaiah University of Applied Sciences UNIVERSITY HOUSE, GNANAGANGOTHRI CAMPUS, NEW BEL ROAD, MSR ROAD, BANGALORE - 560054",
     "branch": "B TECH IN MATHAMATICS AND COMPUTING",
     "exam": "KCET",
-    "closing": "17,900"
+    "closing": "17,900",
+    "q": null
    },
    {
     "college": "Odisha University of Technology and Research (formerly College of Engineering and Technology), Bhubaneswar",
     "branch": "Integrated MSc in Mathematics and Computing",
     "exam": "OJEE",
-    "closing": "374,769 (JEE Main rank)"
+    "closing": "374,769 (JEE Main rank)",
+    "q": null
    }
   ],
   "notable_people": [
@@ -6027,12 +7353,30 @@
    }
   ],
   "top_colleges": [
-   "IIT Bombay",
-   "IIT Delhi",
-   "IIT Madras",
-   "VIT Vellore",
-   "BITS Pilani",
-   "NIT Surathkal"
+   {
+    "name": "IIT Bombay",
+    "q": "Indian Institute of Technology Bombay"
+   },
+   {
+    "name": "IIT Delhi",
+    "q": "Indian Institute of Technology Delhi"
+   },
+   {
+    "name": "IIT Madras",
+    "q": "Indian Institute of Technology Madras"
+   },
+   {
+    "name": "VIT Vellore",
+    "q": null
+   },
+   {
+    "name": "BITS Pilani",
+    "q": null
+   },
+   {
+    "name": "NIT Surathkal",
+    "q": "National Institute of Technology Karnataka, Surathkal"
+   }
   ],
   "pay": {
    "start": "\u20b94-9 LPA",
@@ -6055,37 +7399,43 @@
     "college": "Indian Institute of Technology Delhi",
     "branch": "Engineering and Computational Mechanics",
     "exam": "JEE Advanced",
-    "closing": "1,103"
+    "closing": "1,103",
+    "q": "Indian Institute of Technology Delhi"
    },
    {
     "college": "Indian Institute of Technology Bombay",
     "branch": "Mechanical Engineering",
     "exam": "JEE Advanced",
-    "closing": "1,779"
+    "closing": "1,779",
+    "q": "Indian Institute of Technology Bombay"
    },
    {
     "college": "R. V. College of Engineering, Bangalore(AUTONOMOUS) R.V. VIDYANIKETAN POST, MYSORE ROAD,BANGALORE",
     "branch": "MECHANICAL ENGINEERING",
     "exam": "KCET",
-    "closing": "5,812"
+    "closing": "5,812",
+    "q": null
    },
    {
     "college": "PES University 100 Feet Ring Road, Banashankari, 3rd Stage, Hosakerehalli, Near DSERT, , Bangalore KARNATAKA, pin code -560085",
     "branch": "B TECH IN MECHANICAL ENGINEERING",
     "exam": "KCET",
-    "closing": "15,958"
+    "closing": "15,958",
+    "q": null
    },
    {
     "college": "Jadavpur University",
     "branch": "Mechanical Engineering",
     "exam": "WBJEE",
-    "closing": "537"
+    "closing": "537",
+    "q": null
    },
    {
     "college": "Kalyani Goverment Engineering College, Kalyani, Nadia",
     "branch": "Mechanical Engineering",
     "exam": "WBJEE",
-    "closing": "3,008"
+    "closing": "3,008",
+    "q": null
    }
   ],
   "notable_people": [
@@ -6168,12 +7518,30 @@
    }
   ],
   "top_colleges": [
-   "IIT Bombay",
-   "IIT Delhi",
-   "IIT Madras",
-   "IIT Kanpur",
-   "BITS Pilani",
-   "VIT Vellore"
+   {
+    "name": "IIT Bombay",
+    "q": "Indian Institute of Technology Bombay"
+   },
+   {
+    "name": "IIT Delhi",
+    "q": "Indian Institute of Technology Delhi"
+   },
+   {
+    "name": "IIT Madras",
+    "q": "Indian Institute of Technology Madras"
+   },
+   {
+    "name": "IIT Kanpur",
+    "q": "Indian Institute of Technology Kanpur"
+   },
+   {
+    "name": "BITS Pilani",
+    "q": null
+   },
+   {
+    "name": "VIT Vellore",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b94-8 LPA",
@@ -6196,37 +7564,43 @@
     "college": "Indian Institute of Technology Delhi",
     "branch": "Engineering and Computational Mechanics",
     "exam": "JEE Advanced",
-    "closing": "1,103"
+    "closing": "1,103",
+    "q": "Indian Institute of Technology Delhi"
    },
    {
     "college": "Indian Institute of Technology Bombay",
     "branch": "Mechanical Engineering",
     "exam": "JEE Advanced",
-    "closing": "1,779"
+    "closing": "1,779",
+    "q": "Indian Institute of Technology Bombay"
    },
    {
     "college": "R. V. College of Engineering, Bangalore(AUTONOMOUS) R.V. VIDYANIKETAN POST, MYSORE ROAD,BANGALORE",
     "branch": "MECHANICAL ENGINEERING",
     "exam": "KCET",
-    "closing": "5,812"
+    "closing": "5,812",
+    "q": null
    },
    {
     "college": "PES University 100 Feet Ring Road, Banashankari, 3rd Stage, Hosakerehalli, Near DSERT, , Bangalore KARNATAKA, pin code -560085",
     "branch": "B TECH IN MECHANICAL ENGINEERING",
     "exam": "KCET",
-    "closing": "15,958"
+    "closing": "15,958",
+    "q": null
    },
    {
     "college": "Jadavpur University",
     "branch": "Mechanical Engineering",
     "exam": "WBJEE",
-    "closing": "537"
+    "closing": "537",
+    "q": null
    },
    {
     "college": "Kalyani Goverment Engineering College, Kalyani, Nadia",
     "branch": "Mechanical Engineering",
     "exam": "WBJEE",
-    "closing": "3,008"
+    "closing": "3,008",
+    "q": null
    }
   ],
   "notable_people": [
@@ -6257,11 +7631,26 @@
   "entry_exams_text": "No single fixed national entrance exam - most colleges admit students into a BSc or diploma in Medical Lab Technology (MLT) based on Class 12 marks in Science, though some states and universities run their own entrance tests.",
   "exams": null,
   "top_colleges": [
-   "All India Institute of Medical Sciences (AIIMS) New Delhi",
-   "Christian Medical College (CMC) Vellore",
-   "Manipal Academy of Higher Education",
-   "Post Graduate Institute of Medical Education and Research (PGIMER) Chandigarh",
-   "Jamia Hamdard"
+   {
+    "name": "All India Institute of Medical Sciences (AIIMS) New Delhi",
+    "q": null
+   },
+   {
+    "name": "Christian Medical College (CMC) Vellore",
+    "q": null
+   },
+   {
+    "name": "Manipal Academy of Higher Education",
+    "q": null
+   },
+   {
+    "name": "Post Graduate Institute of Medical Education and Research (PGIMER) Chandigarh",
+    "q": null
+   },
+   {
+    "name": "Jamia Hamdard",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b92-4 LPA",
@@ -6315,11 +7704,26 @@
    }
   ],
   "top_colleges": [
-   "All India Institute of Medical Sciences (AIIMS) New Delhi",
-   "Christian Medical College (CMC) Vellore",
-   "Armed Forces Medical College (AFMC) Pune",
-   "Maulana Azad Medical College Delhi",
-   "King George's Medical University Lucknow"
+   {
+    "name": "All India Institute of Medical Sciences (AIIMS) New Delhi",
+    "q": null
+   },
+   {
+    "name": "Christian Medical College (CMC) Vellore",
+    "q": null
+   },
+   {
+    "name": "Armed Forces Medical College (AFMC) Pune",
+    "q": null
+   },
+   {
+    "name": "Maulana Azad Medical College Delhi",
+    "q": null
+   },
+   {
+    "name": "King George's Medical University Lucknow",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b96-10 LPA",
@@ -6342,13 +7746,15 @@
     "college": "AIIMS, New Delhi",
     "branch": "MBBS",
     "exam": "NEET",
-    "closing": "48 (AIQ)"
+    "closing": "48 (AIQ)",
+    "q": null
    },
    {
     "college": "Maulana Azad Medical College, New Delhi",
     "branch": "MBBS",
     "exam": "NEET",
-    "closing": "103 (AIQ)"
+    "closing": "103 (AIQ)",
+    "q": null
    }
   ],
   "notable_people": [
@@ -6424,12 +7830,30 @@
    }
   ],
   "top_colleges": [
-   "IIT Kharagpur",
-   "IIT Bombay",
-   "IIT Madras",
-   "IIT (BHU) Varanasi",
-   "NIT Rourkela",
-   "NIT Trichy"
+   {
+    "name": "IIT Kharagpur",
+    "q": "Indian Institute of Technology Kharagpur"
+   },
+   {
+    "name": "IIT Bombay",
+    "q": "Indian Institute of Technology Bombay"
+   },
+   {
+    "name": "IIT Madras",
+    "q": "Indian Institute of Technology Madras"
+   },
+   {
+    "name": "IIT (BHU) Varanasi",
+    "q": null
+   },
+   {
+    "name": "NIT Rourkela",
+    "q": "National Institute of Technology, Rourkela"
+   },
+   {
+    "name": "NIT Trichy",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b94-7 LPA",
@@ -6452,37 +7876,43 @@
     "college": "Indian Institute of Technology Delhi",
     "branch": "Materials Engineering",
     "exam": "JEE Advanced",
-    "closing": "3,470"
+    "closing": "3,470",
+    "q": "Indian Institute of Technology Delhi"
    },
    {
     "college": "Indian Institute of Technology Bombay",
     "branch": "Metallurgical Engineering and Materials Science",
     "exam": "JEE Advanced",
-    "closing": "4,119"
+    "closing": "4,119",
+    "q": "Indian Institute of Technology Bombay"
    },
    {
     "college": "Jadavpur University",
     "branch": "Metallurgical Engineering",
     "exam": "WBJEE",
-    "closing": "944"
+    "closing": "944",
+    "q": null
    },
    {
     "college": "Kaji Nazrul University, Asansol",
     "branch": "Metallurgical And Materials Engineeringwith Tfw",
     "exam": "WBJEE",
-    "closing": "14,963"
+    "closing": "14,963",
+    "q": null
    },
    {
     "college": "COEP Technological University",
     "branch": "Metallurgy and Material Technology",
     "exam": "MHT-CET",
-    "closing": "5,522"
+    "closing": "5,522",
+    "q": null
    },
    {
     "college": "Veer Surendra Sai University of Technology, Burla",
     "branch": "Metallurgical and Materials Engineering - TFW",
     "exam": "OJEE",
-    "closing": "253,935 (JEE Main rank)"
+    "closing": "253,935 (JEE Main rank)",
+    "q": null
    }
   ],
   "notable_people": [
@@ -6555,12 +7985,30 @@
    }
   ],
   "top_colleges": [
-   "IIT (ISM) Dhanbad",
-   "IIT Kharagpur",
-   "NIT Rourkela",
-   "VNIT Nagpur",
-   "IIT (BHU) Varanasi",
-   "MANIT Bhopal"
+   {
+    "name": "IIT (ISM) Dhanbad",
+    "q": "Indian Institute of Technology (ISM) Dhanbad"
+   },
+   {
+    "name": "IIT Kharagpur",
+    "q": "Indian Institute of Technology Kharagpur"
+   },
+   {
+    "name": "NIT Rourkela",
+    "q": "National Institute of Technology, Rourkela"
+   },
+   {
+    "name": "VNIT Nagpur",
+    "q": null
+   },
+   {
+    "name": "IIT (BHU) Varanasi",
+    "q": null
+   },
+   {
+    "name": "MANIT Bhopal",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b95-9 LPA",
@@ -6583,37 +8031,43 @@
     "college": "Indian Institute of Technology Kharagpur",
     "branch": "Mining Engineering",
     "exam": "JEE Advanced",
-    "closing": "9,821"
+    "closing": "9,821",
+    "q": "Indian Institute of Technology Kharagpur"
    },
    {
     "college": "Indian Institute of Technology (BHU) Varanasi",
     "branch": "Mining Engineering",
     "exam": "JEE Advanced",
-    "closing": "12,954"
+    "closing": "12,954",
+    "q": null
    },
    {
     "college": "Dr.T.Thimmaiah Institute of Technology, KGF 00RGAUM POST,KOLAR GOLD FIELDS - 563 120",
     "branch": "MINING ENGINEERING",
     "exam": "KCET",
-    "closing": "257,525"
+    "closing": "257,525",
+    "q": null
    },
    {
     "college": "Kaji Nazrul University, Asansol",
     "branch": "Mining Engineeringwith Tfw",
     "exam": "WBJEE",
-    "closing": "9,517"
+    "closing": "9,517",
+    "q": null
    },
    {
     "college": "Somayya Institute of Technology, Chandrapur",
     "branch": "Mining Engineering",
     "exam": "MHT-CET",
-    "closing": "128,353"
+    "closing": "128,353",
+    "q": null
    },
    {
     "college": "Rajiv Gandhi College of Engineering Research & Technology Chandrapur",
     "branch": "Mining Engineering",
     "exam": "MHT-CET",
-    "closing": "139,215"
+    "closing": "139,215",
+    "q": null
    }
   ],
   "notable_people": [
@@ -6644,11 +8098,26 @@
   "entry_exams_text": "No single fixed entrance exam - most music schools and university departments admit students based on an audition (a live performance test) or portfolio, rather than a written exam.",
   "exams": null,
   "top_colleges": [
-   "ITM School of Music",
-   "KM Music Conservatory Chennai (founded by A.R. Rahman)",
-   "Delhi University's Department of Music",
-   "Bhatkhande Music Institute Lucknow",
-   "True School of Music Mumbai"
+   {
+    "name": "ITM School of Music",
+    "q": null
+   },
+   {
+    "name": "KM Music Conservatory Chennai (founded by A.R. Rahman)",
+    "q": null
+   },
+   {
+    "name": "Delhi University's Department of Music",
+    "q": null
+   },
+   {
+    "name": "Bhatkhande Music Institute Lucknow",
+    "q": null
+   },
+   {
+    "name": "True School of Music Mumbai",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b92-5 LPA",
@@ -6701,12 +8170,30 @@
    }
   ],
   "top_colleges": [
-   "Delhi University",
-   "Fergusson College Pune",
-   "St. Xavier's College Mumbai",
-   "Miranda House Delhi",
-   "Presidency University Kolkata",
-   "Indian Institute of Science Education and Research (IISER)"
+   {
+    "name": "Delhi University",
+    "q": "Jawaharlal Nehru University, Delhi"
+   },
+   {
+    "name": "Fergusson College Pune",
+    "q": null
+   },
+   {
+    "name": "St. Xavier's College Mumbai",
+    "q": null
+   },
+   {
+    "name": "Miranda House Delhi",
+    "q": null
+   },
+   {
+    "name": "Presidency University Kolkata",
+    "q": null
+   },
+   {
+    "name": "Indian Institute of Science Education and Research (IISER)",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b93-5 LPA",
@@ -6746,11 +8233,26 @@
    }
   ],
   "top_colleges": [
-   "Government Yoga and Naturopathy Medical College Chennai",
-   "SDM College of Naturopathy and Yogic Sciences Karnataka",
-   "Yenepoya Naturopathy Medical College Mangalore",
-   "National Institute of Naturopathy Pune",
-   "Sri Sairam Ayurveda Medical College Chennai"
+   {
+    "name": "Government Yoga and Naturopathy Medical College Chennai",
+    "q": null
+   },
+   {
+    "name": "SDM College of Naturopathy and Yogic Sciences Karnataka",
+    "q": null
+   },
+   {
+    "name": "Yenepoya Naturopathy Medical College Mangalore",
+    "q": null
+   },
+   {
+    "name": "National Institute of Naturopathy Pune",
+    "q": null
+   },
+   {
+    "name": "Sri Sairam Ayurveda Medical College Chennai",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b93-5 LPA",
@@ -6786,12 +8288,30 @@
   "entry_exams_text": "IMU-CET (Indian Maritime University Common Entrance Test, the main exam to get into merchant navy officer training) is the standard route into a B.Sc. Nautical Science degree.",
   "exams": null,
   "top_colleges": [
-   "Indian Maritime University Chennai",
-   "Training Ship Chanakya Mumbai",
-   "Tolani Maritime Institute Pune",
-   "Marine Engineering and Research Institute Kolkata",
-   "Coimbatore Marine College",
-   "Anglo-Eastern Maritime Academy"
+   {
+    "name": "Indian Maritime University Chennai",
+    "q": null
+   },
+   {
+    "name": "Training Ship Chanakya Mumbai",
+    "q": null
+   },
+   {
+    "name": "Tolani Maritime Institute Pune",
+    "q": null
+   },
+   {
+    "name": "Marine Engineering and Research Institute Kolkata",
+    "q": null
+   },
+   {
+    "name": "Coimbatore Marine College",
+    "q": null
+   },
+   {
+    "name": "Anglo-Eastern Maritime Academy",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b96-12 LPA",
@@ -6845,12 +8365,30 @@
    }
   ],
   "top_colleges": [
-   "AIIMS College of Nursing Delhi",
-   "Christian Medical College Vellore",
-   "Manipal College of Nursing",
-   "Armed Forces Medical College Pune",
-   "PGIMER Chandigarh",
-   "NIMHANS Bangalore"
+   {
+    "name": "AIIMS College of Nursing Delhi",
+    "q": null
+   },
+   {
+    "name": "Christian Medical College Vellore",
+    "q": null
+   },
+   {
+    "name": "Manipal College of Nursing",
+    "q": null
+   },
+   {
+    "name": "Armed Forces Medical College Pune",
+    "q": null
+   },
+   {
+    "name": "PGIMER Chandigarh",
+    "q": null
+   },
+   {
+    "name": "NIMHANS Bangalore",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b92.5-4.5 LPA",
@@ -6874,7 +8412,8 @@
     "college": "College of Nursing BHU, VARANASI",
     "branch": "BSc Nursing",
     "exam": "NEET",
-    "closing": "45,932 (AIQ)"
+    "closing": "45,932 (AIQ)",
+    "q": null
    }
   ],
   "notable_people": [
@@ -6936,10 +8475,22 @@
    }
   ],
   "top_colleges": [
-   "IIT Madras (Department of Ocean Engineering)",
-   "IIT Kharagpur",
-   "National Institute of Ocean Technology (NIOT) Chennai",
-   "Cochin University of Science and Technology"
+   {
+    "name": "IIT Madras (Department of Ocean Engineering)",
+    "q": "Indian Institute of Technology Madras"
+   },
+   {
+    "name": "IIT Kharagpur",
+    "q": "Indian Institute of Technology Kharagpur"
+   },
+   {
+    "name": "National Institute of Ocean Technology (NIOT) Chennai",
+    "q": null
+   },
+   {
+    "name": "Cochin University of Science and Technology",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b95-9 LPA",
@@ -6962,31 +8513,36 @@
     "college": "Indian Institute of Technology Madras",
     "branch": "Naval Architecture and Ocean Engineering",
     "exam": "JEE Advanced",
-    "closing": "6,993"
+    "closing": "6,993",
+    "q": "Indian Institute of Technology Madras"
    },
    {
     "college": "Indian Institute of Technology Kharagpur",
     "branch": "Ocean Engineering and Naval Architecture",
     "exam": "JEE Advanced",
-    "closing": "9,371"
+    "closing": "9,371",
+    "q": "Indian Institute of Technology Kharagpur"
    },
    {
     "college": "Srinivas Institute of Technology, Mangalore SRINIVAS CAMPUS",
     "branch": "MARINE ENGINEERING",
     "exam": "KCET",
-    "closing": "231,286"
+    "closing": "231,286",
+    "q": null
    },
    {
     "college": "Mohamed Sathak Engineering College (Autonomous), Sathak Nagar, East Coast Road, Pudhu Mayakulam, Kilakarai, Ramanathapuram District-623806.",
     "branch": "MARINE ENGINEERING",
     "exam": "TNEA",
-    "closing": "180/200 marks"
+    "closing": "180/200 marks",
+    "q": null
    },
    {
     "college": "Sri Venkateswara College of Engineering (Autonomous), Post Bag No.3, Pennalur, Sriperumbudur, Kanchipuram-602105.",
     "branch": "MARINE ENGINEERING",
     "exam": "TNEA",
-    "closing": "108.5/200 marks"
+    "closing": "108.5/200 marks",
+    "q": null
    }
   ],
   "notable_people": [
@@ -7027,11 +8583,26 @@
    }
   ],
   "top_colleges": [
-   "Institute of Chemical Technology Mumbai",
-   "Harcourt Butler Technical University Kanpur",
-   "LD College of Engineering Ahmedabad",
-   "Government College of Engineering Amravati",
-   "University of Mumbai (Applied Chemistry stream)"
+   {
+    "name": "Institute of Chemical Technology Mumbai",
+    "q": "Institute of Chemical Technology, Mumbai: Indian Oil Odisha Campus, Bhubaneswar"
+   },
+   {
+    "name": "Harcourt Butler Technical University Kanpur",
+    "q": null
+   },
+   {
+    "name": "LD College of Engineering Ahmedabad",
+    "q": null
+   },
+   {
+    "name": "Government College of Engineering Amravati",
+    "q": null
+   },
+   {
+    "name": "University of Mumbai (Applied Chemistry stream)",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b93.5-6 LPA",
@@ -7054,13 +8625,15 @@
     "college": "Institute of Chemical Technology, Matunga, Mumbai",
     "branch": "Oil,Oleochemicals and Surfactants Technology",
     "exam": "MHT-CET",
-    "closing": "4,176"
+    "closing": "4,176",
+    "q": null
    },
    {
     "college": "Laxminarayan Innovation Technological University, Nagpur",
     "branch": "Oil Technology",
     "exam": "MHT-CET",
-    "closing": "27,925"
+    "closing": "27,925",
+    "q": null
    }
   ],
   "notable_people": [
@@ -7089,13 +8662,34 @@
    }
   ],
   "top_colleges": [
-   "Institute of Paper Technology (IIT Roorkee campus",
-   "Saharanpur)",
-   "IIT Roorkee",
-   "Indian Institute of Printing Technology",
-   "Government College of Engineering and Ceramic Technology Kolkata",
-   "PSG College of Technology",
-   "Punjab Technical University affiliated colleges"
+   {
+    "name": "Institute of Paper Technology (IIT Roorkee campus",
+    "q": null
+   },
+   {
+    "name": "Saharanpur)",
+    "q": null
+   },
+   {
+    "name": "IIT Roorkee",
+    "q": "Indian Institute of Technology Roorkee"
+   },
+   {
+    "name": "Indian Institute of Printing Technology",
+    "q": null
+   },
+   {
+    "name": "Government College of Engineering and Ceramic Technology Kolkata",
+    "q": null
+   },
+   {
+    "name": "PSG College of Technology",
+    "q": null
+   },
+   {
+    "name": "Punjab Technical University affiliated colleges",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b93-6 LPA",
@@ -7118,13 +8712,15 @@
     "college": "Laxminarayan Innovation Technological University, Nagpur",
     "branch": "Paper and Pulp Technology",
     "exam": "MHT-CET",
-    "closing": "50,044"
+    "closing": "50,044",
+    "q": null
    },
    {
     "college": "Sant Gadge Baba Amravati University,Amravati",
     "branch": "Paper and Pulp Technology",
     "exam": "MHT-CET",
-    "closing": "115,570"
+    "closing": "115,570",
+    "q": null
    }
   ],
   "notable_people": [
@@ -7165,12 +8761,30 @@
    }
   ],
   "top_colleges": [
-   "AIIMS Delhi (paramedical courses)",
-   "Christian Medical College Vellore",
-   "Manipal College of Health Professions",
-   "PGIMER Chandigarh",
-   "Jamia Hamdard New Delhi",
-   "Kasturba Medical College Mangalore"
+   {
+    "name": "AIIMS Delhi (paramedical courses)",
+    "q": null
+   },
+   {
+    "name": "Christian Medical College Vellore",
+    "q": null
+   },
+   {
+    "name": "Manipal College of Health Professions",
+    "q": null
+   },
+   {
+    "name": "PGIMER Chandigarh",
+    "q": null
+   },
+   {
+    "name": "Jamia Hamdard New Delhi",
+    "q": null
+   },
+   {
+    "name": "Kasturba Medical College Mangalore",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b92-4 LPA",
@@ -7240,12 +8854,30 @@
    }
   ],
   "top_colleges": [
-   "IIT (ISM) Dhanbad",
-   "University of Petroleum and Energy Studies (UPES) Dehradun",
-   "IIT Kharagpur",
-   "Pandit Deendayal Energy University",
-   "MIT Pune",
-   "Aliah University"
+   {
+    "name": "IIT (ISM) Dhanbad",
+    "q": "Indian Institute of Technology (ISM) Dhanbad"
+   },
+   {
+    "name": "University of Petroleum and Energy Studies (UPES) Dehradun",
+    "q": null
+   },
+   {
+    "name": "IIT Kharagpur",
+    "q": "Indian Institute of Technology Kharagpur"
+   },
+   {
+    "name": "Pandit Deendayal Energy University",
+    "q": null
+   },
+   {
+    "name": "MIT Pune",
+    "q": null
+   },
+   {
+    "name": "Aliah University",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b96-10 LPA",
@@ -7268,19 +8900,22 @@
     "college": "Indian Institute of Technology (ISM) Dhanbad",
     "branch": "Petroleum Engineering",
     "exam": "JEE Advanced",
-    "closing": "12,136"
+    "closing": "12,136",
+    "q": "Indian Institute of Technology (ISM) Dhanbad"
    },
    {
     "college": "JCT College of Engineering and Technology (Autonomous), Pichanur, Coimbatore South Taluk, Coimbatore-641105.",
     "branch": "PETROLEUM ENGINEERING",
     "exam": "TNEA",
-    "closing": "154.5/200 marks"
+    "closing": "154.5/200 marks",
+    "q": null
    },
    {
     "college": "Dhaanish Ahmed College of Engineering, Dhaanish Nagar, Vanchuvancherry, Padappai(Near Tambaram), Sriperumbudur Taluk, Kancheepuram District-601301.",
     "branch": "PETROLEUM ENGINEERING",
     "exam": "TNEA",
-    "closing": "149.5/200 marks"
+    "closing": "149.5/200 marks",
+    "q": null
    }
   ],
   "notable_people": [
@@ -7336,12 +8971,30 @@
    }
   ],
   "top_colleges": [
-   "BITS Pilani",
-   "Jamia Hamdard",
-   "ICT Mumbai (Institute of Chemical Technology)",
-   "NIPER (National Institute of Pharmaceutical Education and Research)",
-   "Panjab University",
-   "Manipal College of Pharmaceutical Sciences"
+   {
+    "name": "BITS Pilani",
+    "q": null
+   },
+   {
+    "name": "Jamia Hamdard",
+    "q": null
+   },
+   {
+    "name": "ICT Mumbai (Institute of Chemical Technology)",
+    "q": "Institute of Chemical Technology, Mumbai: Indian Oil Odisha Campus, Bhubaneswar"
+   },
+   {
+    "name": "NIPER (National Institute of Pharmaceutical Education and Research)",
+    "q": null
+   },
+   {
+    "name": "Panjab University",
+    "q": null
+   },
+   {
+    "name": "Manipal College of Pharmaceutical Sciences",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b94-7 LPA",
@@ -7364,19 +9017,22 @@
     "college": "Indian Institute of Technology (BHU) Varanasi",
     "branch": "Pharmaceutical Engineering & Technology",
     "exam": "JEE Advanced",
-    "closing": "13,225"
+    "closing": "13,225",
+    "q": null
    },
    {
     "college": "Institute of Chemical Technology, Matunga, Mumbai",
     "branch": "Pharmaceuticals Chemistry and Technology",
     "exam": "MHT-CET",
-    "closing": "1,049"
+    "closing": "1,049",
+    "q": null
    },
    {
     "college": "University Department of Chemical Technology, Aurangabad",
     "branch": "Pharmaceutical and Fine Chemical Technology",
     "exam": "MHT-CET",
-    "closing": "2,591"
+    "closing": "2,591",
+    "q": null
    }
   ],
   "notable_people": [
@@ -7438,12 +9094,30 @@
    }
   ],
   "top_colleges": [
-   "Institute of Chemical Technology Mumbai",
-   "Jamia Hamdard New Delhi",
-   "Panjab University Chandigarh",
-   "Birla Institute of Technology and Science Pilani",
-   "National Institute of Pharmaceutical Education and Research",
-   "Manipal College of Pharmaceutical Sciences"
+   {
+    "name": "Institute of Chemical Technology Mumbai",
+    "q": "Institute of Chemical Technology, Mumbai: Indian Oil Odisha Campus, Bhubaneswar"
+   },
+   {
+    "name": "Jamia Hamdard New Delhi",
+    "q": null
+   },
+   {
+    "name": "Panjab University Chandigarh",
+    "q": null
+   },
+   {
+    "name": "Birla Institute of Technology and Science Pilani",
+    "q": null
+   },
+   {
+    "name": "National Institute of Pharmaceutical Education and Research",
+    "q": null
+   },
+   {
+    "name": "Manipal College of Pharmaceutical Sciences",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b92.5-5 LPA",
@@ -7466,25 +9140,29 @@
     "college": "Institute of Chemical Technology, Matunga, Mumbai",
     "branch": "Pharmacy",
     "exam": "MHT-CET",
-    "closing": "42"
+    "closing": "42",
+    "q": null
    },
    {
     "college": "Dr. D.Y. Patil College of Pharmacy , Akurdi, Pune",
     "branch": "Pharm D",
     "exam": "MHT-CET",
-    "closing": "176"
+    "closing": "176",
+    "q": null
    },
    {
     "college": "University Departments of Anna University Chennai - ACT Campus Sardar Patel Road Guindy Chennai 600 025",
     "branch": "PHARMACEUTICAL TECHNOLOGY",
     "exam": "TNEA",
-    "closing": "184.5/200 marks"
+    "closing": "184.5/200 marks",
+    "q": null
    },
    {
     "college": "University College of Engineering Tiruchirappalli (Bharathidasan Institute of Technology) Tiruchirappalli District 620024",
     "branch": "PHARMACEUTICAL TECHNOLOGY",
     "exam": "TNEA",
-    "closing": "171.5/200 marks"
+    "closing": "171.5/200 marks",
+    "q": null
    }
   ],
   "notable_people": [
@@ -7530,12 +9208,30 @@
    }
   ],
   "top_colleges": [
-   "Indian Institute of Science Bangalore",
-   "IITs",
-   "Tata Institute of Fundamental Research Mumbai",
-   "St. Stephen's College Delhi",
-   "Indian Institute of Science Education and Research (IISER)",
-   "Chennai Mathematical Institute"
+   {
+    "name": "Indian Institute of Science Bangalore",
+    "q": null
+   },
+   {
+    "name": "IITs",
+    "q": null
+   },
+   {
+    "name": "Tata Institute of Fundamental Research Mumbai",
+    "q": null
+   },
+   {
+    "name": "St. Stephen's College Delhi",
+    "q": null
+   },
+   {
+    "name": "Indian Institute of Science Education and Research (IISER)",
+    "q": null
+   },
+   {
+    "name": "Chennai Mathematical Institute",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b94-8 LPA",
@@ -7558,19 +9254,22 @@
     "college": "Indian Institute of Technology Madras",
     "branch": "Physics",
     "exam": "JEE Advanced",
-    "closing": "3,555"
+    "closing": "3,555",
+    "q": "Indian Institute of Technology Madras"
    },
    {
     "college": "Indian Institute of Technology Kanpur",
     "branch": "Physics",
     "exam": "JEE Advanced",
-    "closing": "5,370"
+    "closing": "5,370",
+    "q": "Indian Institute of Technology Kanpur"
    },
    {
     "college": "Odisha University of Technology and Research (formerly College of Engineering and Technology), Bhubaneswar",
     "branch": "Integrated MSc in Applied Physics",
     "exam": "OJEE",
-    "closing": "648,410 (JEE Main rank)"
+    "closing": "648,410 (JEE Main rank)",
+    "q": null
    }
   ],
   "notable_people": [
@@ -7603,12 +9302,30 @@
   "entry_exams_text": "No single fixed entrance exam in most states \u2014 admission to the Bachelor of Physiotherapy (BPT) degree is usually based on Class 12 marks in Science subjects, though some universities hold their own entrance tests.",
   "exams": null,
   "top_colleges": [
-   "Maulana Azad Medical College Delhi",
-   "Christian Medical College Vellore",
-   "Manipal College of Allied Health Sciences",
-   "Jamia Hamdard New Delhi",
-   "Sancheti Institute of Orthopaedics Pune",
-   "All India Institute of Physical Medicine and Rehabilitation Mumbai"
+   {
+    "name": "Maulana Azad Medical College Delhi",
+    "q": null
+   },
+   {
+    "name": "Christian Medical College Vellore",
+    "q": null
+   },
+   {
+    "name": "Manipal College of Allied Health Sciences",
+    "q": null
+   },
+   {
+    "name": "Jamia Hamdard New Delhi",
+    "q": null
+   },
+   {
+    "name": "Sancheti Institute of Orthopaedics Pune",
+    "q": null
+   },
+   {
+    "name": "All India Institute of Physical Medicine and Rehabilitation Mumbai",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b92.5-4.5 LPA",
@@ -7690,11 +9407,26 @@
    }
   ],
   "top_colleges": [
-   "School of Planning and Architecture New Delhi",
-   "School of Planning and Architecture Bhopal",
-   "School of Planning and Architecture Vijayawada",
-   "CEPT University Ahmedabad",
-   "IIT Kharagpur (Architecture and Planning department)"
+   {
+    "name": "School of Planning and Architecture New Delhi",
+    "q": null
+   },
+   {
+    "name": "School of Planning and Architecture Bhopal",
+    "q": null
+   },
+   {
+    "name": "School of Planning and Architecture Vijayawada",
+    "q": null
+   },
+   {
+    "name": "CEPT University Ahmedabad",
+    "q": null
+   },
+   {
+    "name": "IIT Kharagpur (Architecture and Planning department)",
+    "q": "Indian Institute of Technology Kharagpur"
+   }
   ],
   "pay": {
    "start": "\u20b94-7 LPA",
@@ -7717,31 +9449,36 @@
     "college": "School of Planning & Architecture, New Delhi",
     "branch": "Planning",
     "exam": "JEE Main",
-    "closing": "209"
+    "closing": "209",
+    "q": "School of Planning & Architecture, New Delhi"
    },
    {
     "college": "Maulana Azad National Institute of Technology Bhopal",
     "branch": "Planning",
     "exam": "JEE Main",
-    "closing": "574"
+    "closing": "574",
+    "q": "Maulana Azad National Institute of Technology Bhopal"
    },
    {
     "college": "School of Planning and Architchure, University of Mysore 2nd Floor, Senate Bhavan, Manasagangotri P.O., Mysore",
     "branch": "B.PLAN",
     "exam": "KCET",
-    "closing": "187,039"
+    "closing": "187,039",
+    "q": null
    },
    {
     "college": "BMS College of Architecture,Basavanagudi,Bull Temple Road,,BMSCE Campus,Bangalore",
     "branch": "PLANNING",
     "exam": "KCET",
-    "closing": "238,799"
+    "closing": "238,799",
+    "q": null
    },
    {
     "college": "School of Architecture and Planning Anna University Chennai 600025",
     "branch": "B.Plan",
     "exam": "TNEA",
-    "closing": "187/200 marks"
+    "closing": "187/200 marks",
+    "q": null
    }
   ],
   "notable_people": [
@@ -7779,12 +9516,30 @@
    }
   ],
   "top_colleges": [
-   "St. Stephen's College Delhi",
-   "Lady Shri Ram College Delhi",
-   "Jawaharlal Nehru University",
-   "Presidency College Kolkata",
-   "Hindu College Delhi",
-   "Miranda House Delhi"
+   {
+    "name": "St. Stephen's College Delhi",
+    "q": null
+   },
+   {
+    "name": "Lady Shri Ram College Delhi",
+    "q": null
+   },
+   {
+    "name": "Jawaharlal Nehru University",
+    "q": "Jawaharlal Nehru University, Delhi"
+   },
+   {
+    "name": "Presidency College Kolkata",
+    "q": null
+   },
+   {
+    "name": "Hindu College Delhi",
+    "q": null
+   },
+   {
+    "name": "Miranda House Delhi",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b93-6 LPA",
@@ -7850,11 +9605,26 @@
    }
   ],
   "top_colleges": [
-   "Institute of Chemical Technology Mumbai",
-   "Central Institute of Plastics Engineering and Technology (multiple campuses)",
-   "Cochin University of Science and Technology",
-   "Harcourt Butler Technical University Kanpur",
-   "Indian Institute of Technology Delhi (Polymer Science programs)"
+   {
+    "name": "Institute of Chemical Technology Mumbai",
+    "q": "Institute of Chemical Technology, Mumbai: Indian Oil Odisha Campus, Bhubaneswar"
+   },
+   {
+    "name": "Central Institute of Plastics Engineering and Technology (multiple campuses)",
+    "q": null
+   },
+   {
+    "name": "Cochin University of Science and Technology",
+    "q": null
+   },
+   {
+    "name": "Harcourt Butler Technical University Kanpur",
+    "q": null
+   },
+   {
+    "name": "Indian Institute of Technology Delhi (Polymer Science programs)",
+    "q": "Indian Institute of Technology Delhi"
+   }
   ],
   "pay": {
    "start": "\u20b93.5-6.5 LPA",
@@ -7877,19 +9647,22 @@
     "college": "Institute of Chemical Technology, Matunga, Mumbai",
     "branch": "Polymer Engineering and Technology",
     "exam": "MHT-CET",
-    "closing": "3,683"
+    "closing": "3,683",
+    "q": null
    },
    {
     "college": "Laxminarayan Innovation Technological University, Nagpur",
     "branch": "Plastic and Polymer Engineering",
     "exam": "MHT-CET",
-    "closing": "39,158"
+    "closing": "39,158",
+    "q": null
    },
    {
     "college": "Central Institute of Petrochemicals Engineering and Technology (Formerly Central Institute of Plastics Engineering and Technology) (CIPET) Guindy Chennai 600032",
     "branch": "PLASTIC TECHNOLOGY",
     "exam": "TNEA",
-    "closing": "177.5/200 marks"
+    "closing": "177.5/200 marks",
+    "q": null
    }
   ],
   "notable_people": [
@@ -7923,12 +9696,30 @@
    }
   ],
   "top_colleges": [
-   "Indian Institute of Printing Technology",
-   "Government College of Engineering and Ceramic Technology Kolkata",
-   "PSG Polytechnic College",
-   "Bharatiya Vidya Bhavan's Printing Institute",
-   "Guru Nanak Dev Engineering College",
-   "College of Engineering Pune"
+   {
+    "name": "Indian Institute of Printing Technology",
+    "q": null
+   },
+   {
+    "name": "Government College of Engineering and Ceramic Technology Kolkata",
+    "q": null
+   },
+   {
+    "name": "PSG Polytechnic College",
+    "q": null
+   },
+   {
+    "name": "Bharatiya Vidya Bhavan's Printing Institute",
+    "q": null
+   },
+   {
+    "name": "Guru Nanak Dev Engineering College",
+    "q": null
+   },
+   {
+    "name": "College of Engineering Pune",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b93-5 LPA",
@@ -7951,7 +9742,8 @@
     "college": "Central University of Haryana",
     "branch": "Printing and Packaging Technology",
     "exam": "JEE Main",
-    "closing": "96,367"
+    "closing": "96,367",
+    "q": "Central University of Haryana"
    }
   ],
   "notable_people": [
@@ -7974,12 +9766,30 @@
    }
   ],
   "top_colleges": [
-   "University of Delhi",
-   "Tata Institute of Social Sciences (TISS) Mumbai",
-   "Christ University Bangalore",
-   "Fergusson College Pune",
-   "NIMHANS Bangalore",
-   "Ashoka University"
+   {
+    "name": "University of Delhi",
+    "q": null
+   },
+   {
+    "name": "Tata Institute of Social Sciences (TISS) Mumbai",
+    "q": null
+   },
+   {
+    "name": "Christ University Bangalore",
+    "q": null
+   },
+   {
+    "name": "Fergusson College Pune",
+    "q": null
+   },
+   {
+    "name": "NIMHANS Bangalore",
+    "q": null
+   },
+   {
+    "name": "Ashoka University",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b93-5 LPA",
@@ -8030,12 +9840,30 @@
   "entry_exams_text": "No single fixed entrance exam \u2014 most students join a diploma or B.Sc. in Radiography/Medical Imaging Technology after Class 12 (with Physics, Chemistry, Biology) based on marks or a college-specific entrance test. Note: this is different from becoming a radiologist doctor, which needs MBBS plus a specialization (covered separately under Medicine).",
   "exams": null,
   "top_colleges": [
-   "AIIMS New Delhi",
-   "Christian Medical College (CMC) Vellore",
-   "Manipal College of Health Professions",
-   "Kasturba Medical College",
-   "Jawaharlal Institute of Postgraduate Medical Education and Research (JIPMER)",
-   "Tata Memorial Centre School of Radiography"
+   {
+    "name": "AIIMS New Delhi",
+    "q": null
+   },
+   {
+    "name": "Christian Medical College (CMC) Vellore",
+    "q": null
+   },
+   {
+    "name": "Manipal College of Health Professions",
+    "q": null
+   },
+   {
+    "name": "Kasturba Medical College",
+    "q": null
+   },
+   {
+    "name": "Jawaharlal Institute of Postgraduate Medical Education and Research (JIPMER)",
+    "q": null
+   },
+   {
+    "name": "Tata Memorial Centre School of Radiography",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b92-4 LPA",
@@ -8106,12 +9934,30 @@
    }
   ],
   "top_colleges": [
-   "IIT Kanpur",
-   "IIT Bombay",
-   "IIIT Hyderabad",
-   "VIT Vellore",
-   "Manipal Institute of Technology",
-   "IIT Kharagpur"
+   {
+    "name": "IIT Kanpur",
+    "q": "Indian Institute of Technology Kanpur"
+   },
+   {
+    "name": "IIT Bombay",
+    "q": "Indian Institute of Technology Bombay"
+   },
+   {
+    "name": "IIIT Hyderabad",
+    "q": null
+   },
+   {
+    "name": "VIT Vellore",
+    "q": null
+   },
+   {
+    "name": "Manipal Institute of Technology",
+    "q": null
+   },
+   {
+    "name": "IIT Kharagpur",
+    "q": "Indian Institute of Technology Kharagpur"
+   }
   ],
   "pay": {
    "start": "\u20b95-10 LPA",
@@ -8134,37 +9980,43 @@
     "college": "National Institute of Technology, Kurukshetra",
     "branch": "ROBOTICS & AUTOMATION",
     "exam": "JEE Main",
-    "closing": "13,162"
+    "closing": "13,162",
+    "q": "National Institute of Technology, Kurukshetra"
    },
    {
     "college": "M . S . Ramaiah University of Applied Sciences UNIVERSITY HOUSE, GNANAGANGOTHRI CAMPUS, NEW BEL ROAD, MSR ROAD, BANGALORE - 560054",
     "branch": "B TECH IN ROBOTICS ENGINEERING",
     "exam": "KCET",
-    "closing": "27,316"
+    "closing": "27,316",
+    "q": null
    },
    {
     "college": "J S S Academy of Technical Education, Bangalore JSSATE CAMPUS,UTTARAHALLI-KENGERI ROAD ,BANGALORE 560060",
     "branch": "ROBOTICS AND AUTOMATION",
     "exam": "KCET",
-    "closing": "29,619"
+    "closing": "29,619",
+    "q": null
    },
    {
     "college": "Vivekanand Education Society's Institute of Technology, Chembur, Mumbai",
     "branch": "Automation and Robotics",
     "exam": "MHT-CET",
-    "closing": "11,990"
+    "closing": "11,990",
+    "q": null
    },
    {
     "college": "Dr. D. Y. Patil Pratishthan's D.Y.Patil College of Engineering Akurdi, Pune",
     "branch": "Robotics and Automation",
     "exam": "MHT-CET",
-    "closing": "17,072"
+    "closing": "17,072",
+    "q": null
    },
    {
     "college": "University Departments of Anna University Chennai - MIT Campus Chrompet Tambaram Taluk Chengalpattu District 600 044",
     "branch": "ROBOTICS AND AUTOMATION",
     "exam": "TNEA",
-    "closing": "196.5/200 marks"
+    "closing": "196.5/200 marks",
+    "q": null
    }
   ],
   "notable_people": [
@@ -8213,12 +10065,30 @@
    }
   ],
   "top_colleges": [
-   "National Institute of Occupational Health",
-   "Central Labour Institute Mumbai",
-   "Andhra University",
-   "Anna University",
-   "PSG College of Technology",
-   "Regional Labour Institute"
+   {
+    "name": "National Institute of Occupational Health",
+    "q": null
+   },
+   {
+    "name": "Central Labour Institute Mumbai",
+    "q": null
+   },
+   {
+    "name": "Andhra University",
+    "q": null
+   },
+   {
+    "name": "Anna University",
+    "q": null
+   },
+   {
+    "name": "PSG College of Technology",
+    "q": null
+   },
+   {
+    "name": "Regional Labour Institute",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b94-7 LPA",
@@ -8241,25 +10111,29 @@
     "college": "GRAMIN TECHNICAL AND MANAGEMENT CAMPUS NANDED.",
     "branch": "Safety and Fire Engineering",
     "exam": "MHT-CET",
-    "closing": "157,880"
+    "closing": "157,880",
+    "q": null
    },
    {
     "college": "Veer Surendra Sai University of Technology, Burla",
     "branch": "SAFETY AND FIRE ENGINEERING - TFW",
     "exam": "OJEE",
-    "closing": "277,096 (JEE Main rank)"
+    "closing": "277,096 (JEE Main rank)",
+    "q": null
    },
    {
     "college": "Sona College of Technology (Autonomous), Sona Nagar, Thiagarajar Polytechnic College Road, Suramangalam (P.O),Salem District-636005.",
     "branch": "Safety and Fire Engineering",
     "exam": "TNEA",
-    "closing": "141.5/200 marks"
+    "closing": "141.5/200 marks",
+    "q": null
    },
    {
     "college": "K S R College of Engineering (Autonomous), K S R Kalvi Nagar, Thokkavadi, Tiruchengode, Namakkal Dist-637215.",
     "branch": "Safety and Fire Engineering",
     "exam": "TNEA",
-    "closing": "132.5/200 marks"
+    "closing": "132.5/200 marks",
+    "q": null
    }
   ],
   "notable_people": [
@@ -8295,11 +10169,26 @@
    }
   ],
   "top_colleges": [
-   "University of Agricultural Sciences Bangalore",
-   "Central Sericultural Research and Training Institute (CSRTI) Mysore",
-   "Bangalore University",
-   "Tamil Nadu Agricultural University",
-   "Berhampore Sericulture College"
+   {
+    "name": "University of Agricultural Sciences Bangalore",
+    "q": null
+   },
+   {
+    "name": "Central Sericultural Research and Training Institute (CSRTI) Mysore",
+    "q": null
+   },
+   {
+    "name": "Bangalore University",
+    "q": null
+   },
+   {
+    "name": "Tamil Nadu Agricultural University",
+    "q": null
+   },
+   {
+    "name": "Berhampore Sericulture College",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b92.5-4 LPA",
@@ -8333,12 +10222,30 @@
   "entry_exams_text": "No single fixed entrance exam for a bachelor's degree \u2014 admission is usually based on Class 12 marks. For a Master's in Social Work (MSW), exams like TISS-NET (Tata Institute of Social Sciences' own entrance test) or CUET-PG are commonly used.",
   "exams": null,
   "top_colleges": [
-   "Tata Institute of Social Sciences (TISS) Mumbai",
-   "Delhi University",
-   "Christ University Bangalore",
-   "Loyola College Chennai",
-   "Jamia Millia Islamia",
-   "Nirmala Niketan Mumbai"
+   {
+    "name": "Tata Institute of Social Sciences (TISS) Mumbai",
+    "q": null
+   },
+   {
+    "name": "Delhi University",
+    "q": "Jawaharlal Nehru University, Delhi"
+   },
+   {
+    "name": "Christ University Bangalore",
+    "q": null
+   },
+   {
+    "name": "Loyola College Chennai",
+    "q": null
+   },
+   {
+    "name": "Jamia Millia Islamia",
+    "q": null
+   },
+   {
+    "name": "Nirmala Niketan Mumbai",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b92.5-4.5 LPA",
@@ -8397,12 +10304,30 @@
    }
   ],
   "top_colleges": [
-   "Indian Institute of Space Science and Technology (IIST)",
-   "IIT Bombay",
-   "IIT Kharagpur",
-   "IIT Kanpur",
-   "IISc Bangalore",
-   "Manipal Institute of Technology"
+   {
+    "name": "Indian Institute of Space Science and Technology (IIST)",
+    "q": null
+   },
+   {
+    "name": "IIT Bombay",
+    "q": "Indian Institute of Technology Bombay"
+   },
+   {
+    "name": "IIT Kharagpur",
+    "q": "Indian Institute of Technology Kharagpur"
+   },
+   {
+    "name": "IIT Kanpur",
+    "q": "Indian Institute of Technology Kanpur"
+   },
+   {
+    "name": "IISc Bangalore",
+    "q": null
+   },
+   {
+    "name": "Manipal Institute of Technology",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b96-10 LPA",
@@ -8425,7 +10350,8 @@
     "college": "Indian Institute of Technology Indore",
     "branch": "Space Science and Engineering",
     "exam": "JEE Advanced",
-    "closing": "6,996"
+    "closing": "6,996",
+    "q": "Indian Institute of Technology Indore"
    }
   ],
   "notable_people": [
@@ -8506,12 +10432,30 @@
    }
   ],
   "top_colleges": [
-   "IIT Delhi",
-   "IIT Bombay",
-   "IIT Madras",
-   "IIT Roorkee",
-   "NIT Trichy",
-   "VNIT Nagpur"
+   {
+    "name": "IIT Delhi",
+    "q": "Indian Institute of Technology Delhi"
+   },
+   {
+    "name": "IIT Bombay",
+    "q": "Indian Institute of Technology Bombay"
+   },
+   {
+    "name": "IIT Madras",
+    "q": "Indian Institute of Technology Madras"
+   },
+   {
+    "name": "IIT Roorkee",
+    "q": "Indian Institute of Technology Roorkee"
+   },
+   {
+    "name": "NIT Trichy",
+    "q": null
+   },
+   {
+    "name": "VNIT Nagpur",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b93.5-6 LPA",
@@ -8534,37 +10478,43 @@
     "college": "Indian Institute of Technology Bombay",
     "branch": "Civil Engineering",
     "exam": "JEE Advanced",
-    "closing": "4,095"
+    "closing": "4,095",
+    "q": "Indian Institute of Technology Bombay"
    },
    {
     "college": "Indian Institute of Technology Delhi",
     "branch": "Civil Engineering",
     "exam": "JEE Advanced",
-    "closing": "4,228"
+    "closing": "4,228",
+    "q": "Indian Institute of Technology Delhi"
    },
    {
     "college": "R. V. College of Engineering, Bangalore(AUTONOMOUS) R.V. VIDYANIKETAN POST, MYSORE ROAD,BANGALORE",
     "branch": "CIVIL ENGINEERING",
     "exam": "KCET",
-    "closing": "10,832"
+    "closing": "10,832",
+    "q": null
    },
    {
     "college": "M S Ramaiah Institute of Technology, Bangalore(AUTONOMOUS) VIDYA SOUDHA,MSR NAGAR,MSRIT POST,BANGALORE - 560054.",
     "branch": "CIVIL ENGINEERING",
     "exam": "KCET",
-    "closing": "30,510"
+    "closing": "30,510",
+    "q": null
    },
    {
     "college": "Jadavpur University",
     "branch": "Civil Engineering",
     "exam": "WBJEE",
-    "closing": "741"
+    "closing": "741",
+    "q": null
    },
    {
     "college": "Jalpaiguri Goverment Engineering College,Jalpaiguri",
     "branch": "Civil Engineering",
     "exam": "WBJEE",
-    "closing": "4,061"
+    "closing": "4,061",
+    "q": null
    }
   ],
   "notable_people": [
@@ -8601,11 +10551,26 @@
    }
   ],
   "top_colleges": [
-   "Indian Institute of Technology (IIT) Bombay",
-   "IIT Madras",
-   "Indian Institute of Science (IISc) Bangalore",
-   "Birla Institute of Technology and Science (BITS) Pilani",
-   "Indian Institute of Space Science and Technology (IIST)"
+   {
+    "name": "Indian Institute of Technology (IIT) Bombay",
+    "q": "Indian Institute of Technology Bombay"
+   },
+   {
+    "name": "IIT Madras",
+    "q": "Indian Institute of Technology Madras"
+   },
+   {
+    "name": "Indian Institute of Science (IISc) Bangalore",
+    "q": null
+   },
+   {
+    "name": "Birla Institute of Technology and Science (BITS) Pilani",
+    "q": null
+   },
+   {
+    "name": "Indian Institute of Space Science and Technology (IIST)",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b96-10 LPA",
@@ -8641,11 +10606,26 @@
   "entry_exams_text": "No single fixed entrance exam for teaching itself \u2014 most people complete a Bachelor's degree followed by a B.Ed. (Bachelor of Education, a professional teaching qualification) which some colleges admit into via marks or state-level tests. To teach in government schools, exams like CTET (Central Teacher Eligibility Test, required to become a government school teacher) are needed.",
   "exams": null,
   "top_colleges": [
-   "Regional Institutes of Education (under NCERT)",
-   "Delhi University",
-   "Jamia Millia Islamia",
-   "Tata Institute of Social Sciences (TISS)",
-   "Azim Premji University"
+   {
+    "name": "Regional Institutes of Education (under NCERT)",
+    "q": null
+   },
+   {
+    "name": "Delhi University",
+    "q": "Jawaharlal Nehru University, Delhi"
+   },
+   {
+    "name": "Jamia Millia Islamia",
+    "q": null
+   },
+   {
+    "name": "Tata Institute of Social Sciences (TISS)",
+    "q": null
+   },
+   {
+    "name": "Azim Premji University",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b92.5-4.5 LPA",
@@ -8732,12 +10712,30 @@
    }
   ],
   "top_colleges": [
-   "IIT Delhi",
-   "DKTE Textile and Engineering Institute",
-   "National Institute of Fashion Technology (NIFT)",
-   "Anna University",
-   "PSG College of Technology",
-   "UPTTI Kanpur"
+   {
+    "name": "IIT Delhi",
+    "q": "Indian Institute of Technology Delhi"
+   },
+   {
+    "name": "DKTE Textile and Engineering Institute",
+    "q": null
+   },
+   {
+    "name": "National Institute of Fashion Technology (NIFT)",
+    "q": null
+   },
+   {
+    "name": "Anna University",
+    "q": null
+   },
+   {
+    "name": "PSG College of Technology",
+    "q": null
+   },
+   {
+    "name": "UPTTI Kanpur",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b93-6 LPA",
@@ -8760,37 +10758,43 @@
     "college": "Indian Institute of Technology Delhi",
     "branch": "Textile Technology",
     "exam": "JEE Advanced",
-    "closing": "5,608"
+    "closing": "5,608",
+    "q": "Indian Institute of Technology Delhi"
    },
    {
     "college": "Dr. B R Ambedkar National Institute of Technology, Jalandhar",
     "branch": "Textile Technology",
     "exam": "JEE Main",
-    "closing": "51,222"
+    "closing": "51,222",
+    "q": "Dr. B R Ambedkar National Institute of Technology, Jalandhar"
    },
    {
     "college": "Bapuji Institute of Engineering & Technology, Davangere (AUTONOMOUS) BAPUJI INSTITUTE OF ENGINEERING & TECHNOLOGY,P.B. NO.325,SHAMANUR ROAD,DAVANGERE-577 004",
     "branch": "TEXTILES TECHNOLOGY",
     "exam": "KCET",
-    "closing": "225,173"
+    "closing": "225,173",
+    "q": null
    },
    {
     "college": "Govt.S K S J T Institute of Engineering, Bangalore AMBEDKAR VEEDHI, K.R. CIRCLE, BANGALORE-01",
     "branch": "SILK TECHNOLOGY",
     "exam": "KCET",
-    "closing": "247,848"
+    "closing": "247,848",
+    "q": null
    },
    {
     "college": "University Of Calcutta",
     "branch": "Jute & Fibre Technology",
     "exam": "WBJEE",
-    "closing": "3,523"
+    "closing": "3,523",
+    "q": null
    },
    {
     "college": "Govt. College of Engineering & Textile Technology, Serampore",
     "branch": "Textile Technology",
     "exam": "WBJEE",
-    "closing": "6,178"
+    "closing": "6,178",
+    "q": null
    }
   ],
   "notable_people": [
@@ -8827,11 +10831,26 @@
    }
   ],
   "top_colleges": [
-   "Indian Veterinary Research Institute (IVRI) Bareilly",
-   "Madras Veterinary College Chennai",
-   "Guru Angad Dev Veterinary and Animal Sciences University (GADVASU)",
-   "Bombay Veterinary College",
-   "National Dairy Research Institute (NDRI)"
+   {
+    "name": "Indian Veterinary Research Institute (IVRI) Bareilly",
+    "q": null
+   },
+   {
+    "name": "Madras Veterinary College Chennai",
+    "q": null
+   },
+   {
+    "name": "Guru Angad Dev Veterinary and Animal Sciences University (GADVASU)",
+    "q": null
+   },
+   {
+    "name": "Bombay Veterinary College",
+    "q": null
+   },
+   {
+    "name": "National Dairy Research Institute (NDRI)",
+    "q": null
+   }
   ],
   "pay": {
    "start": "\u20b93-5 LPA",
@@ -8884,12 +10903,30 @@
    }
   ],
   "top_colleges": [
-   "University of Delhi",
-   "Wildlife Institute of India (WII) Dehradun",
-   "St. Xavier's College Mumbai",
-   "Madras Christian College",
-   "University of Calcutta",
-   "Jawaharlal Nehru University (JNU)"
+   {
+    "name": "University of Delhi",
+    "q": null
+   },
+   {
+    "name": "Wildlife Institute of India (WII) Dehradun",
+    "q": null
+   },
+   {
+    "name": "St. Xavier's College Mumbai",
+    "q": null
+   },
+   {
+    "name": "Madras Christian College",
+    "q": null
+   },
+   {
+    "name": "University of Calcutta",
+    "q": null
+   },
+   {
+    "name": "Jawaharlal Nehru University (JNU)",
+    "q": "Jawaharlal Nehru University, Delhi"
+   }
   ],
   "pay": {
    "start": "\u20b92.5-4.5 LPA",

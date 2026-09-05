@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import dynamic from "next/dynamic";
+import { useRouter } from "next/router";
 import {
   ChevronDown,
   ChevronUp,
@@ -557,9 +558,15 @@ const SORTS = {
 };
 
 const Colleges = () => {
+  const router = useRouter();
   const [all, setAll] = useState([]);
   const [error, setError] = useState(null);
   const [q, setQ] = useState("");
+
+  // arriving from a career's college link: /colleges?q=IIT Delhi
+  useEffect(() => {
+    if (router.isReady && router.query.q) setQ(String(router.query.q));
+  }, [router.isReady, router.query.q]);
   const [state, setState] = useState("All");
   const [exam, setExam] = useState("All");
   const [sortKey, setSortKey] = useState("nirf");

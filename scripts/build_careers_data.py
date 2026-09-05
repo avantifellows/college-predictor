@@ -153,7 +153,7 @@ def _load_options_file(path):
     return _option_cache[path]
 
 
-def college_options(branch_id, em, per_exam=2, total=6):
+def college_options(branch_id, em, tab_link, per_exam=2, total=6):
     """A few real (college, branch, exam, closing number) rows per exam
     route for this career's branch. JoSAA splits into JEE Advanced (IITs)
     vs JEE Main; each row keeps its own rank basis — never compare the
@@ -189,8 +189,40 @@ def college_options(branch_id, em, per_exam=2, total=6):
                        else f"{int(v):,}{suffix}")
             out.append({"college": college,
                         "branch": str(prog).split(" (")[0],
-                        "exam": label, "closing": display})
+                        "exam": label, "closing": display,
+                        "q": tab_link(college)})
     return out[:total]
+
+
+COLLEGES_TAB = "public/data/colleges/colleges.json"
+ACRONYMS = {
+    "iit": "indian institute of technology",
+    "nit": "national institute of technology",
+    "iiit": "indian institute of information technology",
+    "iiest": "indian institute of engineering science and technology",
+    "spa": "school of planning and architecture",
+    "ict": "institute of chemical technology",
+}
+
+
+def college_linker():
+    """Match a sheet name like 'IIT Delhi' to the Colleges tab's display
+    name so the link's ?q= is guaranteed to find it. Conservative: only a
+    unique all-tokens match links; BITS/Jadavpur/AIIMS etc. (not in the
+    JoSAA-scoped tab) stay plain text."""
+    displays = [c["display_name"] for c in json.load(open(COLLEGES_TAB))]
+    dtokens = [(d, set(norm(d).split())) for d in displays]
+
+    def link(name):
+        base = re.sub(r"\(.*?\)", " ", str(name))  # drop parentheticals
+        toks = [ACRONYMS.get(t, t) for t in norm(base).split()]
+        toks = set(" ".join(toks).split())
+        if not toks:
+            return None
+        hits = [d for d, dt in dtokens if toks <= dt]
+        return hits[0] if len(hits) == 1 else None
+
+    return link
 
 
 def specializations(text):
@@ -213,6 +245,7 @@ def main():
     em = pd.read_csv(EXAM_MAP)
     exams_by_branch = em.groupby("branch_id")["exam"].agg(lambda s: sorted(set(s)))
     exam_cards = json.load(open(EXAMS_TAB))
+    tab_link = college_linker()
 
     cards, branch_to_career = [], {}
     for _, r in d.iterrows():
@@ -249,7 +282,10 @@ def main():
             "impact": str(r["Real-World Impact"]).strip() if pd.notna(r["Real-World Impact"]) else None,
             "entry_exams_text": str(r["Entry Exams"]).strip() if pd.notna(r["Entry Exams"]) else None,
             "exams": exams or None,
-            "top_colleges": split_list(r["Top Colleges"]),
+            # each college carries the tab's display name as q when it
+            # exists there, so 'IIT Delhi' becomes a working link
+            "top_colleges": [{"name": n, "q": tab_link(n)}
+                             for n in split_list(r["Top Colleges"])],
             "pay": {
                 "start": str(r["Starting Pay (LPA)"]).strip() if pd.notna(r["Starting Pay (LPA)"]) else None,
                 "mid": str(r["Mid-Career Pay (LPA)"]).strip() if pd.notna(r["Mid-Career Pay (LPA)"]) else None,
@@ -259,7 +295,7 @@ def main():
             "stability": str(r["Stability Outlook"]).strip() if pd.notna(r["Stability Outlook"]) else None,
             "automation_risk": str(r["Automation Risk"]).strip() if pd.notna(r["Automation Risk"]) else None,
             "where_work": str(r["Where You Can Work"]).strip() if pd.notna(r["Where You Can Work"]) else None,
-            "college_options": college_options(branch_id, em),
+            "college_options": college_options(branch_id, em, tab_link),
             "notable_people": split_list(r["Notable People"]),
             "sources": str(r["Sources"]).strip() if pd.notna(r["Sources"]) else None,
             "specializations": specializations(r["Common Specializations (Optional)"]),

@@ -166,6 +166,21 @@ const CareerDetail = ({ c }) => (
   </div>
 );
 
+// a college that exists on the Colleges tab links there, pre-searched with
+// the tab's own display name (so "IIT Delhi" actually finds it); colleges
+// outside the tab's coverage (BITS, Jadavpur…) stay plain text
+const CollegeName = ({ name, q }) =>
+  q ? (
+    <Link
+      href={`/colleges?q=${encodeURIComponent(q)}`}
+      className="underline decoration-[#e3d1cb] underline-offset-2 transition hover:text-[#8f2e31] hover:decoration-[#8f2e31]"
+    >
+      {name}
+    </Link>
+  ) : (
+    name
+  );
+
 const CollegeOptions = ({ c }) => (
   <>
     {c.college_options?.length ? (
@@ -184,7 +199,7 @@ const CollegeOptions = ({ c }) => (
               {c.college_options.map((o, i) => (
                 <tr key={i}>
                   <td className="px-3 py-2 font-semibold text-[#2f2320]">
-                    {o.college}
+                    <CollegeName name={o.college} q={o.q} />
                   </td>
                   <td className="px-3 py-2 text-[#5f514c]">{o.branch}</td>
                   <td className="px-3 py-2 text-[#5f514c]">{o.exam}</td>
@@ -203,7 +218,7 @@ const CollegeOptions = ({ c }) => (
               className="rounded-lg border border-[#eaded8] bg-[#fdf8f6] p-3"
             >
               <div className="break-words text-sm font-bold text-[#2f2320]">
-                {o.college}
+                <CollegeName name={o.college} q={o.q} />
               </div>
               <div className="mt-0.5 text-sm text-[#5f514c]">{o.branch}</div>
               <div className="mt-1 text-sm text-[#5f514c]">
@@ -225,7 +240,14 @@ const CollegeOptions = ({ c }) => (
       </>
     ) : (
       <>
-        <p>{c.top_colleges.join(", ")}</p>
+        <p>
+          {c.top_colleges.map((t, i) => (
+            <React.Fragment key={t.name}>
+              {i > 0 ? ", " : ""}
+              <CollegeName name={t.name} q={t.q} />
+            </React.Fragment>
+          ))}
+        </p>
         <p className="mt-2 text-xs leading-5 text-[#9b8a82]">
           No college admits into this field directly at UG level in the cutoff
           data we hold — the usual route is a related branch first (see the
