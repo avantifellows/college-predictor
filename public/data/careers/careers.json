@@ -755,7 +755,7 @@
    },
    {
     "name": "PES University",
-    "q": null
+    "q": "PES University Institute of Medical Sciences and Reseach Bangalore"
    },
    {
     "name": "Manipal Institute of Technology",
@@ -938,7 +938,7 @@
    },
    {
     "name": "AIIMS New Delhi",
-    "q": null
+    "q": "All India Institute of Medical Sciences, New Delhi"
    },
    {
     "name": "Ali Yavar Jung National Institute of Speech and Hearing Disabilities Mumbai",
@@ -946,7 +946,7 @@
    },
    {
     "name": "Christian Medical College Vellore",
-    "q": null
+    "q": "Christian Medical College, Vellore"
    },
    {
     "name": "Sri Ramachandra Institute of Higher Education and Research",
@@ -1293,7 +1293,7 @@
   "top_colleges": [
    {
     "name": "University of Delhi",
-    "q": null
+    "q": "University College of Medical Sciences & GTB Hospital, New Delhi"
    },
    {
     "name": "Christ University Bangalore",
@@ -1938,7 +1938,7 @@
   "top_colleges": [
    {
     "name": "University of Delhi",
-    "q": null
+    "q": "University College of Medical Sciences & GTB Hospital, New Delhi"
    },
    {
     "name": "Presidency College Chennai",
@@ -2215,7 +2215,7 @@
    },
    {
     "name": "Mumbai",
-    "q": "Institute of Chemical Technology, Mumbai: Indian Oil Odisha Campus, Bhubaneswar"
+    "q": null
    },
    {
     "name": "Chennai",
@@ -2227,7 +2227,7 @@
    },
    {
     "name": "Kanpur)",
-    "q": "Indian Institute of Technology Kanpur"
+    "q": null
    },
    {
     "name": "plus private CA coaching institutes like VG Learning Destination and J.K. Shah Classes for exam preparation.",
@@ -2535,7 +2535,7 @@
    },
    {
     "name": "Delhi University",
-    "q": "Jawaharlal Nehru University, Delhi"
+    "q": null
    },
    {
     "name": "St. Stephen's College Delhi",
@@ -2547,7 +2547,7 @@
    },
    {
     "name": "BHU (Banaras Hindu University)",
-    "q": "Indian Institute of Technology (BHU) Varanasi"
+    "q": null
    }
   ],
   "pay": {
@@ -3682,7 +3682,7 @@
    },
    {
     "name": "King George's Medical University Lucknow",
-    "q": null
+    "q": "King George Medical University, Lucknow"
    },
    {
     "name": "Government Dental College Mumbai",
@@ -4002,12 +4002,12 @@
     "href": "/exams?q=JEE Advanced"
    },
    {
-    "label": "ISI-AT",
-    "href": "/exams?q=ISI-AT"
-   },
-   {
     "label": "CUET",
     "href": "/exams?q=CUET"
+   },
+   {
+    "label": "ISI-AT",
+    "href": "/exams?q=ISI-AT"
    }
   ],
   "top_colleges": [
@@ -5735,12 +5735,12 @@
     "href": "/exams?q=JEE Advanced"
    },
    {
-    "label": "KEA-CET",
-    "href": "/exams?q=KEA-CET"
-   },
-   {
     "label": "MHT-CET",
     "href": "/exams?q=MHT-CET"
+   },
+   {
+    "label": "KEA-CET",
+    "href": "/exams?q=KEA-CET"
    }
   ],
   "top_colleges": [
@@ -5822,7 +5822,7 @@
    },
    {
     "name": "University of Delhi",
-    "q": null
+    "q": "University College of Medical Sciences & GTB Hospital, New Delhi"
    },
    {
     "name": "Jadavpur University",
@@ -5921,7 +5921,7 @@
    },
    {
     "name": "Delhi University",
-    "q": "Jawaharlal Nehru University, Delhi"
+    "q": null
    },
    {
     "name": "Presidency University (Kolkata)",
@@ -6307,7 +6307,7 @@
    },
    {
     "name": "Indian Institute of Science (Bengaluru)",
-    "q": "Indian Institute of Engineering Science and Technology, Shibpur"
+    "q": null
    }
   ],
   "pay": {
@@ -6511,7 +6511,7 @@
    },
    {
     "name": "Delhi University",
-    "q": "Jawaharlal Nehru University, Delhi"
+    "q": null
    },
    {
     "name": "Jamia Millia Islamia",
@@ -6523,7 +6523,7 @@
    },
    {
     "name": "Symbiosis Pune",
-    "q": null
+    "q": "Symbiosis Medical College for Women, Pune"
    },
    {
     "name": "The Japan Foundation New Delhi (for JLPT training)",
@@ -6595,7 +6595,7 @@
    },
    {
     "name": "Delhi University",
-    "q": "Jawaharlal Nehru University, Delhi"
+    "q": null
    },
    {
     "name": "Jamia Millia Islamia",
@@ -6765,7 +6765,7 @@
    },
    {
     "name": "Delhi University",
-    "q": "Jawaharlal Nehru University, Delhi"
+    "q": null
    },
    {
     "name": "University of Hyderabad",
@@ -7102,16 +7102,16 @@
     "href": "/exams?q=JEE Advanced"
    },
    {
+    "label": "CUET",
+    "href": "/exams?q=CUET"
+   },
+   {
     "label": "ISI-AT",
     "href": "/exams?q=ISI-AT"
    },
    {
     "label": "CMI-EE",
     "href": "/exams?q=CMI-EE"
-   },
-   {
-    "label": "CUET",
-    "href": "/exams?q=CUET"
    }
   ],
   "top_colleges": [
@@ -7633,11 +7633,11 @@
   "top_colleges": [
    {
     "name": "All India Institute of Medical Sciences (AIIMS) New Delhi",
-    "q": null
+    "q": "All India Institute of Medical Sciences, New Delhi"
    },
    {
     "name": "Christian Medical College (CMC) Vellore",
-    "q": null
+    "q": "Christian Medical College, Vellore"
    },
    {
     "name": "Manipal Academy of Higher Education",
@@ -7706,23 +7706,23 @@
   "top_colleges": [
    {
     "name": "All India Institute of Medical Sciences (AIIMS) New Delhi",
-    "q": null
+    "q": "All India Institute of Medical Sciences, New Delhi"
    },
    {
     "name": "Christian Medical College (CMC) Vellore",
-    "q": null
+    "q": "Christian Medical College, Vellore"
    },
    {
     "name": "Armed Forces Medical College (AFMC) Pune",
-    "q": null
+    "q": "Armed Forces Medical College, Pune"
    },
    {
     "name": "Maulana Azad Medical College Delhi",
-    "q": null
+    "q": "Maulana Azad Medical College, New Delhi"
    },
    {
     "name": "King George's Medical University Lucknow",
-    "q": null
+    "q": "King George Medical University, Lucknow"
    }
   ],
   "pay": {
@@ -7747,14 +7747,14 @@
     "branch": "MBBS",
     "exam": "NEET",
     "closing": "48 (AIQ)",
-    "q": null
+    "q": "All India Institute of Medical Sciences, New Delhi"
    },
    {
     "college": "Maulana Azad Medical College, New Delhi",
     "branch": "MBBS",
     "exam": "NEET",
     "closing": "103 (AIQ)",
-    "q": null
+    "q": "Maulana Azad Medical College, New Delhi"
    }
   ],
   "notable_people": [
@@ -8172,7 +8172,7 @@
   "top_colleges": [
    {
     "name": "Delhi University",
-    "q": "Jawaharlal Nehru University, Delhi"
+    "q": null
    },
    {
     "name": "Fergusson College Pune",
@@ -8371,7 +8371,7 @@
    },
    {
     "name": "Christian Medical College Vellore",
-    "q": null
+    "q": "Christian Medical College, Vellore"
    },
    {
     "name": "Manipal College of Nursing",
@@ -8379,7 +8379,7 @@
    },
    {
     "name": "Armed Forces Medical College Pune",
-    "q": null
+    "q": "Armed Forces Medical College, Pune"
    },
    {
     "name": "PGIMER Chandigarh",
@@ -8668,7 +8668,7 @@
    },
    {
     "name": "Saharanpur)",
-    "q": null
+    "q": "Shaikh-UL-Hind Maulana Mahmood Hasan Medical College, Saharanpur"
    },
    {
     "name": "IIT Roorkee",
@@ -8763,11 +8763,11 @@
   "top_colleges": [
    {
     "name": "AIIMS Delhi (paramedical courses)",
-    "q": null
+    "q": "All India Institute of Medical Sciences, New Delhi"
    },
    {
     "name": "Christian Medical College Vellore",
-    "q": null
+    "q": "Christian Medical College, Vellore"
    },
    {
     "name": "Manipal College of Health Professions",
@@ -8783,7 +8783,7 @@
    },
    {
     "name": "Kasturba Medical College Mangalore",
-    "q": null
+    "q": "Kasturba Medical College, Mangalore"
    }
   ],
   "pay": {
@@ -9304,11 +9304,11 @@
   "top_colleges": [
    {
     "name": "Maulana Azad Medical College Delhi",
-    "q": null
+    "q": "Maulana Azad Medical College, New Delhi"
    },
    {
     "name": "Christian Medical College Vellore",
-    "q": null
+    "q": "Christian Medical College, Vellore"
    },
    {
     "name": "Manipal College of Allied Health Sciences",
@@ -9768,7 +9768,7 @@
   "top_colleges": [
    {
     "name": "University of Delhi",
-    "q": null
+    "q": "University College of Medical Sciences & GTB Hospital, New Delhi"
    },
    {
     "name": "Tata Institute of Social Sciences (TISS) Mumbai",
@@ -9842,11 +9842,11 @@
   "top_colleges": [
    {
     "name": "AIIMS New Delhi",
-    "q": null
+    "q": "All India Institute of Medical Sciences, New Delhi"
    },
    {
     "name": "Christian Medical College (CMC) Vellore",
-    "q": null
+    "q": "Christian Medical College, Vellore"
    },
    {
     "name": "Manipal College of Health Professions",
@@ -10179,7 +10179,7 @@
    },
    {
     "name": "Bangalore University",
-    "q": null
+    "q": "PES University Institute of Medical Sciences and Reseach Bangalore"
    },
    {
     "name": "Tamil Nadu Agricultural University",
@@ -10228,7 +10228,7 @@
    },
    {
     "name": "Delhi University",
-    "q": "Jawaharlal Nehru University, Delhi"
+    "q": null
    },
    {
     "name": "Christ University Bangalore",
@@ -10612,7 +10612,7 @@
    },
    {
     "name": "Delhi University",
-    "q": "Jawaharlal Nehru University, Delhi"
+    "q": null
    },
    {
     "name": "Jamia Millia Islamia",
@@ -10905,7 +10905,7 @@
   "top_colleges": [
    {
     "name": "University of Delhi",
-    "q": null
+    "q": "University College of Medical Sciences & GTB Hospital, New Delhi"
    },
    {
     "name": "Wildlife Institute of India (WII) Dehradun",
