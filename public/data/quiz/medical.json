@@ -1,0 +1,6517 @@
+{
+ "source": "MCC 2025 Round 1, All India Quota",
+ "rows": [
+  {
+   "institute": "AIIMS, New Delhi",
+   "program": "MBBS",
+   "state": "Delhi (NCT)",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 48,
+    "OBC": 206,
+    "EWS": 254,
+    "SC": 644,
+    "ST": 1405
+   },
+   "college_q": "All India Institute of Medical Sciences, New Delhi",
+   "nirf": 1,
+   "seats": 132
+  },
+  {
+   "institute": "INST.OF MED.SCIENCES, BHU",
+   "program": "MBBS",
+   "state": "Uttar Pradesh",
+   "type": null,
+   "cutoffs": {
+    "Open": 1165,
+    "OBC": 1808,
+    "EWS": 2194,
+    "SC": 14965,
+    "ST": 26196
+   },
+   "college_q": "Institute of Medical Sciences, BHU, Varanasi",
+   "nirf": 6,
+   "seats": 100
+  },
+  {
+   "institute": "AIIMS, Rishikesh",
+   "program": "MBBS",
+   "state": "Uttarakhand",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 685,
+    "OBC": 1077,
+    "EWS": 1540,
+    "SC": 8240,
+    "ST": 11475
+   },
+   "college_q": "All India Institute of Medical Sciences, Rishikesh",
+   "nirf": 13,
+   "seats": 125
+  },
+  {
+   "institute": "AIIMS, Bhubaneswar",
+   "program": "MBBS",
+   "state": "Odisha",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 706,
+    "OBC": 1481,
+    "EWS": 2259,
+    "SC": 6034,
+    "ST": 14786
+   },
+   "college_q": "All India Institute of Medical Sciences, Bhubaneswar",
+   "nirf": 14,
+   "seats": 125
+  },
+  {
+   "institute": "MADRAS MEDICAL COLLEGE, CHENNAI",
+   "program": "MBBS",
+   "state": "Tamil Nadu",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 695,
+    "OBC": 920,
+    "EWS": 3168,
+    "SC": 6518,
+    "ST": 50544
+   },
+   "college_q": "Madras Medical College, Chennai",
+   "nirf": 16,
+   "seats": 250
+  },
+  {
+   "institute": "AIIMS, Jodhpur",
+   "program": "MBBS",
+   "state": "Rajasthan",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 392,
+    "OBC": 766,
+    "EWS": 1153,
+    "SC": 6920,
+    "ST": 7353
+   },
+   "college_q": "All India Institute of Medical Sciences, Jodhpur",
+   "nirf": 19,
+   "seats": 125
+  },
+  {
+   "institute": "AIIMS-Bhopal",
+   "program": "MBBS",
+   "state": "Madhya Pradesh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 531,
+    "OBC": 1142,
+    "EWS": 1582,
+    "SC": 7030,
+    "ST": 11713
+   },
+   "college_q": "All India Institute of Medical Sciences, Bhopal",
+   "nirf": 25,
+   "seats": 125
+  },
+  {
+   "institute": "Maulana Azad Medical College, New Delhi",
+   "program": "MBBS",
+   "state": "Delhi (NCT)",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 103,
+    "OBC": 381,
+    "EWS": 789,
+    "SC": 5218,
+    "ST": 5543
+   },
+   "college_q": "Maulana Azad Medical College, New Delhi",
+   "nirf": 26,
+   "seats": 250
+  },
+  {
+   "institute": "AIIMS, Patna",
+   "program": "MBBS",
+   "state": "Bihar",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 1537,
+    "OBC": 2132,
+    "EWS": 2988,
+    "SC": 14209,
+    "ST": 28862
+   },
+   "college_q": "All India Institute of Medical Sciences, Patna",
+   "nirf": 27,
+   "seats": 125
+  },
+  {
+   "institute": "AIIMS, Raipur",
+   "program": "MBBS",
+   "state": "Chhattisgarh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 1235,
+    "OBC": 1914,
+    "EWS": 2621,
+    "SC": 12231,
+    "ST": 22885
+   },
+   "college_q": "All India Institute of Medical Sciences, Raipur",
+   "nirf": 31,
+   "seats": 125
+  },
+  {
+   "institute": "Rajah Muthiah Medical College",
+   "program": "MBBS",
+   "state": "Tamil Nadu",
+   "type": null,
+   "cutoffs": {
+    "Open": 10207,
+    "OBC": 10727,
+    "EWS": 24156,
+    "SC": 58331,
+    "ST": 123915
+   },
+   "college_q": "Rajah Muthiah Medical College, Annamalainagar",
+   "nirf": 40,
+   "seats": 150
+  },
+  {
+   "institute": "B.J. MEDICAL COLLEGE, AHMEDABAD",
+   "program": "MBBS",
+   "state": "Gujarat",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 889,
+    "EWS": 2677,
+    "OBC": 3089,
+    "SC": 16367,
+    "ST": 55767
+   },
+   "college_q": "B J Medical College, Ahmedabad",
+   "nirf": 45,
+   "seats": 250
+  },
+  {
+   "institute": "ACSR Govt Medical College, Nellore",
+   "program": "MBBS",
+   "state": "Andhra Pradesh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 12352,
+    "OBC": 13892,
+    "EWS": 20208,
+    "SC": 66395,
+    "ST": 112021
+   }
+  },
+  {
+   "institute": "AGARTALA GOVT. DENTAL COLLEGE, AGARTAL",
+   "program": "BDS",
+   "state": "Tripura",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 26096,
+    "OBC": 27879,
+    "SC": 112727
+   }
+  },
+  {
+   "institute": "AGARTALA GOVT. MEDICAL COLLEGE, AGARTALA",
+   "program": "MBBS",
+   "state": "Tripura",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 18254,
+    "OBC": 20221,
+    "EWS": 23014,
+    "SC": 101319,
+    "ST": 117645
+   },
+   "college_q": "Agartala Government Medical College,Agartala",
+   "seats": 175
+  },
+  {
+   "institute": "AIIMS Bathinda",
+   "program": "MBBS",
+   "state": "Punjab",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 1733,
+    "OBC": 2369,
+    "EWS": 2999,
+    "SC": 19176,
+    "ST": 36036
+   }
+  },
+  {
+   "institute": "AIIMS Bilaspur Changar Palasiyan, Himachal Pradesh",
+   "program": "MBBS",
+   "state": "Himachal Pradesh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 2183,
+    "OBC": 2959,
+    "EWS": 3630,
+    "SC": 20587,
+    "ST": 40476
+   }
+  },
+  {
+   "institute": "AIIMS Guwahati, PO-CHANGSARI",
+   "program": "MBBS",
+   "state": "Assam",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 3177,
+    "OBC": 4063,
+    "EWS": 5310,
+    "SC": 30794,
+    "ST": 54984
+   }
+  },
+  {
+   "institute": "AIIMS Jammu, AIIMS",
+   "program": "MBBS",
+   "state": "Jammu And Kashmir",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 3389,
+    "OBC": 4085,
+    "EWS": 4603,
+    "SC": 32194,
+    "ST": 43200
+   }
+  },
+  {
+   "institute": "AIIMS Mangalagiri",
+   "program": "MBBS",
+   "state": "Andhra Pradesh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 1357,
+    "OBC": 2520,
+    "EWS": 4369,
+    "SC": 15527,
+    "ST": 31007
+   },
+   "college_q": "All India Institute of Medical Sciences, Mangalagiri, Vijayawada",
+   "seats": 125
+  },
+  {
+   "institute": "AIIMS Rajkot, Admission cell",
+   "program": "MBBS",
+   "state": "Gujarat",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 1997,
+    "OBC": 2998,
+    "EWS": 3215,
+    "SC": 21306,
+    "ST": 39706
+   }
+  },
+  {
+   "institute": "AIIMS, Bibi Nagar",
+   "program": "MBBS",
+   "state": "Telangana",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 1782,
+    "OBC": 2894,
+    "EWS": 3956,
+    "SC": 16647,
+    "ST": 39391
+   }
+  },
+  {
+   "institute": "AIIMS, Deogarh",
+   "program": "MBBS",
+   "state": "Jharkhand",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 3164,
+    "OBC": 3784,
+    "EWS": 4493,
+    "SC": 28136,
+    "ST": 51396
+   }
+  },
+  {
+   "institute": "AIIMS, Gorakhpur",
+   "program": "MBBS",
+   "state": "Uttar Pradesh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 2091,
+    "OBC": 2654,
+    "EWS": 3081,
+    "SC": 21412,
+    "ST": 45366
+   },
+   "college_q": "All India Institute of Medical Sciences, Gorakhpur",
+   "seats": 125
+  },
+  {
+   "institute": "AIIMS, Kalyani",
+   "program": "MBBS",
+   "state": "West Bengal",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 2276,
+    "OBC": 3406,
+    "EWS": 4292,
+    "SC": 17433,
+    "ST": 48654
+   },
+   "college_q": "All India Institute of Medical Sciences, Kalyani, Nadia",
+   "seats": 125
+  },
+  {
+   "institute": "AIIMS, Madurai",
+   "program": "MBBS",
+   "state": "Tamil Nadu",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 3597,
+    "OBC": 4627,
+    "EWS": 6467,
+    "SC": 33807,
+    "ST": 55735
+   }
+  },
+  {
+   "institute": "AIIMS, Nagpur",
+   "program": "MBBS",
+   "state": "Maharashtra",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 862,
+    "OBC": 1520,
+    "EWS": 1885,
+    "SC": 8326,
+    "ST": 16192
+   },
+   "college_q": "All India Institute of Medical Sciences, Nagpur",
+   "seats": 125
+  },
+  {
+   "institute": "AIIMS, Rai Bareli",
+   "program": "MBBS",
+   "state": "Uttar Pradesh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 2600,
+    "OBC": 3279,
+    "EWS": 3646,
+    "SC": 23301,
+    "ST": 41778
+   }
+  },
+  {
+   "institute": "ANUGRAH NARAYAN MAGADH MEDICAL COLLEGE, GAYA",
+   "program": "MBBS",
+   "state": "Bihar",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 10932,
+    "EWS": 11156,
+    "OBC": 11719,
+    "SC": 80403,
+    "ST": 101128
+   },
+   "college_q": "Anugrah Narayan Magadh Medical College, Gaya",
+   "seats": 120
+  },
+  {
+   "institute": "ATAL BIHARI VAJPAYEE GOVERNMENT MEDICAL COLLEGE, VIDISHA",
+   "program": "MBBS",
+   "state": "Madhya Pradesh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 8856,
+    "OBC": 10178,
+    "EWS": 10678,
+    "SC": 53247,
+    "ST": 78687
+   }
+  },
+  {
+   "institute": "Andhra Medical College, Visakhapatnam",
+   "program": "MBBS",
+   "state": "Andhra Pradesh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 3935,
+    "OBC": 5104,
+    "EWS": 7095,
+    "SC": 40812,
+    "ST": 57960
+   },
+   "college_q": "Andhra Medical College, Visakhapatnam",
+   "seats": 250
+  },
+  {
+   "institute": "Autonomous State Medical College, Gonda",
+   "program": "MBBS",
+   "state": "Uttar Pradesh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 16046,
+    "OBC": 16860,
+    "EWS": 18357,
+    "SC": 92544,
+    "ST": 112771
+   },
+   "college_q": "Autonomous State Medical College and Hospital Gonda",
+   "seats": 100
+  },
+  {
+   "institute": "Autonomous State Medical College, Kanpur Dehat",
+   "program": "MBBS",
+   "state": "Uttar Pradesh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 13409,
+    "EWS": 13411,
+    "OBC": 14958,
+    "SC": 83177,
+    "ST": 96527
+   }
+  },
+  {
+   "institute": "Autonomous State Medical College, Lalitpur",
+   "program": "MBBS",
+   "state": "Uttar Pradesh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 15683,
+    "OBC": 16674,
+    "EWS": 18487,
+    "SC": 95676,
+    "ST": 112116
+   },
+   "college_q": "Autonomous State Medical College Lalitpur",
+   "seats": 100
+  },
+  {
+   "institute": "Autonomous State Medical College, Pratapgarh",
+   "program": "MBBS",
+   "state": "Uttar Pradesh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 14577,
+    "OBC": 15429,
+    "EWS": 16768,
+    "SC": 91457,
+    "ST": 109057
+   },
+   "college_q": "Autonomous State Medical College Pratapgarh",
+   "seats": 100
+  },
+  {
+   "institute": "Autonomous State Medical College, Siddharthnagar",
+   "program": "MBBS",
+   "state": "Uttar Pradesh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 13648,
+    "EWS": 14051,
+    "OBC": 14797,
+    "SC": 90491,
+    "ST": 104601
+   },
+   "college_q": "Autonomous State Medical College, Siddharthnagar",
+   "seats": 100
+  },
+  {
+   "institute": "Autonomous state Medical College, Kaushambi",
+   "program": "MBBS",
+   "state": "Uttar Pradesh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 16095,
+    "OBC": 17035,
+    "EWS": 17261,
+    "SC": 93078,
+    "ST": 116120
+   },
+   "college_q": "Autonomous State Medical College and Hospital Kaushambi",
+   "seats": 100
+  },
+  {
+   "institute": "B.J. Government Medical College, Pune",
+   "program": "MBBS",
+   "state": "Maharashtra",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 2542,
+    "OBC": 4600,
+    "EWS": 5434,
+    "SC": 22585,
+    "ST": 62013
+   },
+   "college_q": "B. J. Govt. Medical College, Pune",
+   "seats": 250
+  },
+  {
+   "institute": "B.R.D. MEDICAL COLLEGE, GORAKHPUR",
+   "program": "MBBS",
+   "state": "Uttar Pradesh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 6053,
+    "OBC": 7479,
+    "EWS": 7783,
+    "SC": 51272,
+    "ST": 72634
+   }
+  },
+  {
+   "institute": "BUNDELKHAND MEDICAL COLLEGE, SAGAR",
+   "program": "MBBS",
+   "state": "Madhya Pradesh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 9704,
+    "OBC": 10863,
+    "EWS": 12542,
+    "SC": 72047,
+    "ST": 96392
+   },
+   "college_q": "Bundelkhand Medical College, Sagar",
+   "seats": 125
+  },
+  {
+   "institute": "BURDWAN MEDICAL COLLEGE, BURDWAN",
+   "program": "MBBS",
+   "state": "West Bengal",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 10078,
+    "OBC": 12345,
+    "EWS": 12584,
+    "SC": 67297,
+    "ST": 103156
+   }
+  },
+  {
+   "institute": "Barasat Government Medical College & Hospital, West Bengal",
+   "program": "MBBS",
+   "state": "West Bengal",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 13148,
+    "OBC": 16780,
+    "EWS": 18745,
+    "SC": 73405,
+    "ST": 116504
+   }
+  },
+  {
+   "institute": "COIMBATORE MEDICAL COLLEGE, COIMBATORE",
+   "program": "MBBS",
+   "state": "Tamil Nadu",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 3237,
+    "OBC": 3808,
+    "EWS": 15747,
+    "SC": 24118,
+    "ST": 103716
+   }
+  },
+  {
+   "institute": "Chandulal Chandrakar Memorial Government Medical College, Durg",
+   "program": "MBBS",
+   "state": "Chhattisgarh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 15834,
+    "OBC": 17986,
+    "EWS": 19738,
+    "SC": 98965,
+    "ST": 122663
+   }
+  },
+  {
+   "institute": "College Government Medical College Alwar",
+   "program": "MBBS",
+   "state": "Rajasthan",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 7064,
+    "OBC": 9182,
+    "EWS": 9325,
+    "SC": 51109,
+    "ST": 71707
+   },
+   "college_q": "Government Medical College, Alwar",
+   "seats": 100
+  },
+  {
+   "institute": "DR.S.C.GOVT MEDICAL COLLEGE",
+   "program": "MBBS",
+   "state": "Maharashtra",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 11240,
+    "OBC": 13158,
+    "EWS": 13312,
+    "SC": 79494,
+    "ST": 106595
+   }
+  },
+  {
+   "institute": "DR.S.N. MEDICAL COLLEGE, JODHPUR",
+   "program": "MBBS",
+   "state": "Rajasthan",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 3286,
+    "OBC": 3912,
+    "EWS": 4938,
+    "SC": 33440,
+    "ST": 48971
+   }
+  },
+  {
+   "institute": "Deben Mahata Government Medical College & Hospital",
+   "program": "MBBS",
+   "state": "West Bengal",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 18165,
+    "OBC": 19532,
+    "EWS": 19558,
+    "SC": 93051,
+    "ST": 127811
+   }
+  },
+  {
+   "institute": "Diamond Harbour Govt Medical College, New Town",
+   "program": "MBBS",
+   "state": "West Bengal",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 11448,
+    "EWS": 12066,
+    "OBC": 12358,
+    "SC": 80173,
+    "ST": 108951
+   }
+  },
+  {
+   "institute": "Dr. B.R. Ambedkar State Institute of Medical Sciences",
+   "program": "MBBS",
+   "state": "Punjab",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 4511,
+    "OBC": 5370,
+    "EWS": 7344,
+    "SC": 52619,
+    "ST": 70469
+   },
+   "college_q": "Dr B R Ambedkar State Institute of Medical Sciences, SAS Nagar , Mohali",
+   "seats": 100
+  },
+  {
+   "institute": "Dr. YS Parmar Govt. Medical College, Nahan",
+   "program": "MBBS",
+   "state": "Himachal Pradesh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 7501,
+    "EWS": 8356,
+    "OBC": 9347,
+    "SC": 59417,
+    "ST": 87699
+   }
+  },
+  {
+   "institute": "Dr.Radhakrishnan Government Medical College, Hamirpur",
+   "program": "MBBS",
+   "state": "Himachal Pradesh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 7307,
+    "EWS": 8627,
+    "OBC": 9722,
+    "SC": 59139,
+    "ST": 59565
+   },
+   "college_q": "Dr. Radhakrishnan Government Medical College, Hamirpur, H.P",
+   "seats": 120
+  },
+  {
+   "institute": "ESIC Dental College, Gulbarga",
+   "program": "BDS",
+   "state": "Karnataka",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 23384,
+    "EWS": 25759,
+    "OBC": 28506,
+    "SC": 128223
+   }
+  },
+  {
+   "institute": "G.S.V.M. MEDICAL COLLEGE, KANPUR",
+   "program": "MBBS",
+   "state": "Uttar Pradesh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 4575,
+    "OBC": 5462,
+    "EWS": 5550,
+    "SC": 38779,
+    "ST": 61551
+   }
+  },
+  {
+   "institute": "GAJRA RAJA MEDICAL COLLEGE, GWALIOR",
+   "program": "MBBS",
+   "state": "Madhya Pradesh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 6115,
+    "OBC": 7170,
+    "EWS": 8631,
+    "SC": 55037,
+    "ST": 66728
+   },
+   "college_q": "Gajra Raja Medical College, Gwalior",
+   "seats": 200
+  },
+  {
+   "institute": "GANDHI MEDICAL COLLEGE, BHOPAL",
+   "program": "MBBS",
+   "state": "Madhya Pradesh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 4807,
+    "OBC": 6618,
+    "EWS": 7666,
+    "SC": 49202,
+    "ST": 65754
+   },
+   "college_q": "Gandhi Medical College, Bhopal",
+   "seats": 250
+  },
+  {
+   "institute": "GMERS Medical College, Morbi",
+   "program": "MBBS",
+   "state": "Gujarat",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 16056,
+    "OBC": 17327,
+    "EWS": 18907,
+    "SC": 93826,
+    "ST": 118121
+   }
+  },
+  {
+   "institute": "GMERS Medical College, Navsari",
+   "program": "MBBS",
+   "state": "Gujarat",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 17448,
+    "EWS": 18734,
+    "OBC": 19567,
+    "SC": 94348,
+    "ST": 132548
+   }
+  },
+  {
+   "institute": "GMERS Medical College, Panchmahal Godhra",
+   "program": "MBBS",
+   "state": "Gujarat",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 17630,
+    "OBC": 18851,
+    "EWS": 19716,
+    "SC": 97582,
+    "ST": 130349
+   }
+  },
+  {
+   "institute": "GMERS Medical College, Porbandar",
+   "program": "MBBS",
+   "state": "Gujarat",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 15464,
+    "EWS": 16335,
+    "OBC": 18744,
+    "SC": 89070,
+    "ST": 132171
+   }
+  },
+  {
+   "institute": "GMERS Medical College, Rajpipla",
+   "program": "MBBS",
+   "state": "Gujarat",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 18038,
+    "OBC": 19984,
+    "EWS": 20692,
+    "SC": 97658,
+    "ST": 134204
+   },
+   "college_q": "GMERS Medical College, Rajpipla",
+   "seats": 100
+  },
+  {
+   "institute": "GOA DENTAL COLLEGE & HOSPITAL, GOA",
+   "program": "BDS",
+   "state": "Goa",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 34155,
+    "OBC": 34902,
+    "SC": 128784
+   }
+  },
+  {
+   "institute": "GOA MEDICAL COLLEGE, PANAJI",
+   "program": "MBBS",
+   "state": "Goa",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 7141,
+    "OBC": 10305,
+    "EWS": 11758,
+    "SC": 61252,
+    "ST": 87969
+   },
+   "college_q": "Goa Medical College, Panaji",
+   "seats": 200
+  },
+  {
+   "institute": "GOVERNMENT MEDICAL COLLEGE AND GENERAL HOSPITAL, SATARA",
+   "program": "MBBS",
+   "state": "Maharashtra",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 13129,
+    "OBC": 15276,
+    "EWS": 18612,
+    "SC": 93364,
+    "ST": 121048
+   }
+  },
+  {
+   "institute": "GOVERNMENT MEDICAL COLLEGE AND HOSPITAL, CHANDIGAR",
+   "program": "MBBS",
+   "state": "Chandigarh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 690,
+    "EWS": 1933,
+    "OBC": 2578,
+    "SC": 14060,
+    "ST": 26373
+   }
+  },
+  {
+   "institute": "GOVERNMENT MEDICAL COLLEGE Karimnagar Telangana, The Principal",
+   "program": "MBBS",
+   "state": "Telangana",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 18723,
+    "OBC": 19600,
+    "EWS": 21286,
+    "SC": 102429,
+    "ST": 134682
+   }
+  },
+  {
+   "institute": "GOVERNMENT MEDICAL COLLEGE MACHILIPATNAM",
+   "program": "MBBS",
+   "state": "Andhra Pradesh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 18990,
+    "OBC": 20022,
+    "EWS": 24175,
+    "SC": 86954,
+    "ST": 136153
+   },
+   "college_q": "Government Medical College, Machilipatnam",
+   "seats": 150
+  },
+  {
+   "institute": "GOVERNMENT MEDICAL COLLEGE NANDYAL",
+   "program": "MBBS",
+   "state": "Andhra Pradesh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 18974,
+    "OBC": 19791,
+    "EWS": 24454,
+    "SC": 94142,
+    "ST": 120014
+   },
+   "college_q": "Government Medical College, Nandyal",
+   "seats": 150
+  },
+  {
+   "institute": "GOVERNMENT MEDICAL COLLEGE PURNEA",
+   "program": "MBBS",
+   "state": "Bihar",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 14469,
+    "EWS": 15767,
+    "OBC": 16723,
+    "SC": 96494,
+    "ST": 116925
+   },
+   "college_q": "Government Medical College, Purnea",
+   "seats": 100
+  },
+  {
+   "institute": "GOVERNMENT MEDICAL COLLEGE, AKOLA",
+   "program": "MBBS",
+   "state": "Maharashtra",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 13519,
+    "OBC": 15210,
+    "EWS": 15562,
+    "SC": 84167,
+    "ST": 109737
+   },
+   "college_q": "Government Medical College, Akola",
+   "seats": 200
+  },
+  {
+   "institute": "GOVERNMENT MEDICAL COLLEGE, ANANTNAG J&K",
+   "program": "MBBS",
+   "state": "Jammu And Kashmir",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 12163,
+    "OBC": 17423,
+    "EWS": 18738,
+    "ST": 82029,
+    "SC": 85055
+   }
+  },
+  {
+   "institute": "GOVERNMENT MEDICAL COLLEGE, BARAN",
+   "program": "MBBS",
+   "state": "Rajasthan",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 12166,
+    "OBC": 12991,
+    "EWS": 14611,
+    "SC": 73549,
+    "ST": 89534
+   },
+   "college_q": "Government Medical College, Baran",
+   "seats": 100
+  },
+  {
+   "institute": "GOVERNMENT MEDICAL COLLEGE, BUNDI",
+   "program": "MBBS",
+   "state": "Rajasthan",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 10692,
+    "OBC": 11674,
+    "EWS": 13942,
+    "SC": 68952,
+    "ST": 86357
+   },
+   "college_q": "Government Medical College, Bundi",
+   "seats": 100
+  },
+  {
+   "institute": "GOVERNMENT MEDICAL COLLEGE, HANDWARA",
+   "program": "MBBS",
+   "state": "Jammu And Kashmir",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 17543,
+    "OBC": 18937,
+    "EWS": 21323,
+    "ST": 85106,
+    "SC": 100576
+   },
+   "college_q": "Government Medical College Handwara",
+   "seats": 100
+  },
+  {
+   "institute": "GOVERNMENT MEDICAL COLLEGE, LATUR",
+   "program": "MBBS",
+   "state": "Maharashtra",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 13256,
+    "OBC": 14886,
+    "EWS": 15523,
+    "SC": 88273,
+    "ST": 105247
+   },
+   "college_q": "Government Medical College, Latur",
+   "seats": 150
+  },
+  {
+   "institute": "GOVERNMENT MEDICAL COLLEGE, MEDAK",
+   "program": "MBBS",
+   "state": "Telangana",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 18073,
+    "EWS": 19796,
+    "OBC": 20339,
+    "SC": 104671
+   },
+   "college_q": "Government Medical College Medak",
+   "seats": 50
+  },
+  {
+   "institute": "GOVERNMENT MEDICAL COLLEGE, MIRAJ",
+   "program": "MBBS",
+   "state": "Maharashtra",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 10401,
+    "OBC": 11881,
+    "EWS": 14254,
+    "SC": 79887,
+    "ST": 101407
+   },
+   "college_q": "Government Medical College, Miraj",
+   "seats": 200
+  },
+  {
+   "institute": "GOVERNMENT MEDICAL COLLEGE, OSMANABAD",
+   "program": "MBBS",
+   "state": "Maharashtra",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 17216,
+    "OBC": 17566,
+    "EWS": 19184,
+    "SC": 92649,
+    "ST": 122369
+   },
+   "college_q": "Government Medical College, Osmanabad",
+   "seats": 100
+  },
+  {
+   "institute": "GOVERNMENT MEDICAL COLLEGE, RAJOURI",
+   "program": "MBBS",
+   "state": "Jammu And Kashmir",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 15602,
+    "EWS": 16757,
+    "OBC": 17502,
+    "SC": 90851,
+    "ST": 96694
+   },
+   "college_q": "Government Medical College, Rajouri, J&K",
+   "seats": 100
+  },
+  {
+   "institute": "GOVERNMENT MEDICAL COLLEGE, SANGAREDDY",
+   "program": "MBBS",
+   "state": "Telangana",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 18553,
+    "OBC": 19398,
+    "EWS": 22704,
+    "SC": 106139,
+    "ST": 124940
+   },
+   "college_q": "Government Medical College, Sangareddy",
+   "seats": 150
+  },
+  {
+   "institute": "GOVERNMENT MEDICAL COLLEGE, SRIGANGANAGAR",
+   "program": "MBBS",
+   "state": "Rajasthan",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 9183,
+    "OBC": 10558,
+    "EWS": 11821,
+    "SC": 67479,
+    "ST": 87766
+   }
+  },
+  {
+   "institute": "GOVERNMENT MEDICAL COLLEGE, SURAT",
+   "program": "MBBS",
+   "state": "Gujarat",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 3869,
+    "OBC": 5432,
+    "EWS": 6259,
+    "SC": 40475,
+    "ST": 67542
+   },
+   "college_q": "Government Medical College, Surat",
+   "seats": 250
+  },
+  {
+   "institute": "GOVT DEN COLL DENTAL WING PATIALA",
+   "program": "BDS",
+   "state": "Punjab",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 31652,
+    "OBC": 36315,
+    "EWS": 42615,
+    "SC": 100310,
+    "ST": 130865
+   }
+  },
+  {
+   "institute": "GOVT DENTAL COLLEGE Kannur",
+   "program": "BDS",
+   "state": "Kerala",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 30556,
+    "OBC": 32327,
+    "EWS": 46812,
+    "SC": 139802,
+    "ST": 166717
+   }
+  },
+  {
+   "institute": "GOVT MEDICAL COLLEGE VIZIANAGARAM",
+   "program": "MBBS",
+   "state": "Andhra Pradesh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 18762,
+    "OBC": 20200,
+    "EWS": 24086,
+    "SC": 92266,
+    "ST": 120297
+   },
+   "college_q": "Government medical college, vizianagaram",
+   "seats": 150
+  },
+  {
+   "institute": "GOVT MEDICAL COLLEGE, WANAPARTHY",
+   "program": "MBBS",
+   "state": "Telangana",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 20296,
+    "OBC": 20844,
+    "EWS": 24438,
+    "SC": 109044,
+    "ST": 133436
+   },
+   "college_q": "Government Medical College, Wanaparthy",
+   "seats": 150
+  },
+  {
+   "institute": "GOVT. COLLEGE OF DENTISTRY, INDORE",
+   "program": "BDS",
+   "state": "Madhya Pradesh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 26651,
+    "OBC": 28365,
+    "ST": 120444,
+    "SC": 145425
+   }
+  },
+  {
+   "institute": "GOVT. D.C. & RESEARCH INST, BANGALORE",
+   "program": "BDS",
+   "state": "Karnataka",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 21785,
+    "OBC": 32671,
+    "EWS": 34320,
+    "SC": 143021,
+    "ST": 159742
+   }
+  },
+  {
+   "institute": "GOVT. DC & RESEARCH INSt., BELLARY",
+   "program": "BDS",
+   "state": "Karnataka",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 33676,
+    "OBC": 36002,
+    "EWS": 42780,
+    "SC": 109870,
+    "ST": 178180
+   }
+  },
+  {
+   "institute": "GOVT. DENTAL COLL.& HOSP., JAMNAGAR",
+   "program": "BDS",
+   "state": "Gujarat",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 32396,
+    "OBC": 37300,
+    "EWS": 39518,
+    "ST": 104061,
+    "SC": 146158
+   }
+  },
+  {
+   "institute": "GOVT. DENTAL COLLEGE & HOSP, AHMEDABAD",
+   "program": "BDS",
+   "state": "Gujarat",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 32909,
+    "OBC": 35831,
+    "EWS": 36898,
+    "SC": 146595,
+    "ST": 196188
+   }
+  },
+  {
+   "institute": "GOVT. DENTAL COLLEGE & HOSP., AURANGABAD",
+   "program": "BDS",
+   "state": "Maharashtra",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 17519,
+    "OBC": 25483,
+    "EWS": 44623,
+    "SC": 84748,
+    "ST": 206111
+   }
+  },
+  {
+   "institute": "GOVT. DENTAL COLLEGE & HOSP., MUMBAI",
+   "program": "BDS",
+   "state": "Maharashtra",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 33047,
+    "OBC": 35963,
+    "EWS": 37507,
+    "SC": 154379,
+    "ST": 200550
+   }
+  },
+  {
+   "institute": "GOVT. DENTAL COLLEGE & HOSP., NAGPUR",
+   "program": "BDS",
+   "state": "Maharashtra",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 19219,
+    "EWS": 31500,
+    "OBC": 33160,
+    "SC": 150005
+   }
+  },
+  {
+   "institute": "GOVT. DENTAL COLLEGE, KOTTAYAM",
+   "program": "BDS",
+   "state": "Kerala",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 22211,
+    "OBC": 23679,
+    "SC": 131550
+   }
+  },
+  {
+   "institute": "GOVT. DENTAL COLLEGE, KOZIKODE",
+   "program": "BDS",
+   "state": "Kerala",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 24900,
+    "OBC": 25837,
+    "EWS": 36381,
+    "SC": 138237,
+    "ST": 142016
+   }
+  },
+  {
+   "institute": "GOVT. DENTAL COLLEGE, RAIPUR",
+   "program": "BDS",
+   "state": "Chhattisgarh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 37526,
+    "OBC": 39237,
+    "EWS": 40426,
+    "SC": 153063,
+    "ST": 202317
+   }
+  },
+  {
+   "institute": "GOVT. DENTAL COLLEGE, SHIMLA",
+   "program": "BDS",
+   "state": "Himachal Pradesh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 34576,
+    "OBC": 36033,
+    "EWS": 37924,
+    "SC": 146316,
+    "ST": 190648
+   }
+  },
+  {
+   "institute": "GOVT. DENTAL COLLEGE, TRIVANDRUM",
+   "program": "BDS",
+   "state": "Kerala",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 22159,
+    "OBC": 29186,
+    "EWS": 39814,
+    "SC": 147037
+   }
+  },
+  {
+   "institute": "GOVT. DHARAMAPURI MED COLL, DHARMAPURI",
+   "program": "MBBS",
+   "state": "Tamil Nadu",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 8508,
+    "OBC": 9428,
+    "EWS": 22081,
+    "SC": 48710,
+    "ST": 122847
+   }
+  },
+  {
+   "institute": "GOVT. KILPAUK MEDICAL COLLEGE, CHENNAI",
+   "program": "MBBS",
+   "state": "Tamil Nadu",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 1758,
+    "OBC": 2383,
+    "EWS": 14863,
+    "SC": 18270,
+    "ST": 68755
+   }
+  },
+  {
+   "institute": "GOVT. MEDICAL COLLEGE, AURANGABAD",
+   "program": "MBBS",
+   "state": "Maharashtra",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 7773,
+    "EWS": 9694,
+    "OBC": 9911,
+    "SC": 55261,
+    "ST": 89293
+   },
+   "college_q": "Government Medical College, Aurangabad",
+   "seats": 200
+  },
+  {
+   "institute": "GOVT. MEDICAL COLLEGE, KOTTAYAM",
+   "program": "MBBS",
+   "state": "Kerala",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 2172,
+    "OBC": 2835,
+    "EWS": 13677,
+    "SC": 47034,
+    "ST": 96851
+   },
+   "college_q": "Government Medical College, Kottayam",
+   "seats": 175
+  },
+  {
+   "institute": "GOVT. MEDICAL COLLEGE, KOZHIKODE",
+   "program": "MBBS",
+   "state": "Kerala",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 1173,
+    "OBC": 1556,
+    "EWS": 8702,
+    "SC": 15754,
+    "ST": 75126
+   },
+   "college_q": "Government Medical College, Kozhikode, Calicut",
+   "seats": 250
+  },
+  {
+   "institute": "GOVT. MEDICAL COLLEGE, NAGPUR",
+   "program": "MBBS",
+   "state": "Maharashtra",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 4260,
+    "OBC": 6433,
+    "EWS": 7746,
+    "SC": 28148,
+    "ST": 74877
+   },
+   "college_q": "Government Medical College, Nagpur",
+   "seats": 250
+  },
+  {
+   "institute": "GOVT. MEDICAL COLLEGE, PATIALA",
+   "program": "MBBS",
+   "state": "Punjab",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 4156,
+    "EWS": 7097,
+    "OBC": 7803,
+    "SC": 48687,
+    "ST": 79799
+   },
+   "college_q": "Government Medical College, Patiala",
+   "seats": 250
+  },
+  {
+   "institute": "GOVT. MEDICAL COLLEGE, TIRUNELVELI",
+   "program": "MBBS",
+   "state": "Tamil Nadu",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 5527,
+    "OBC": 6468,
+    "EWS": 20871,
+    "SC": 31919,
+    "ST": 119888
+   }
+  },
+  {
+   "institute": "GOVT. MOHAN KUMARAMANGALAM M.C., SALEM",
+   "program": "MBBS",
+   "state": "Tamil Nadu",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 5228,
+    "OBC": 5620,
+    "EWS": 21479,
+    "SC": 29781,
+    "ST": 108842
+   }
+  },
+  {
+   "institute": "GOVT. VELLORE MEDICAL COLLEGE, VELLORE",
+   "program": "MBBS",
+   "state": "Tamil Nadu",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 4451,
+    "OBC": 5264,
+    "EWS": 11898,
+    "SC": 32595,
+    "ST": 92580
+   },
+   "college_q": "Government Vellore Medical College, Vellore",
+   "seats": 100
+  },
+  {
+   "institute": "GOVT.MEDICAL COLLEGE, AMRITSAR",
+   "program": "MBBS",
+   "state": "Punjab",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 5197,
+    "OBC": 9023,
+    "EWS": 9124,
+    "SC": 52382,
+    "ST": 84935
+   },
+   "college_q": "Government Medical College, Amritsar",
+   "seats": 250
+  },
+  {
+   "institute": "GOVT.MEDICAL COLLEGE, KOTA",
+   "program": "MBBS",
+   "state": "Rajasthan",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 4680,
+    "OBC": 5100,
+    "EWS": 6519,
+    "SC": 39693,
+    "ST": 46112
+   },
+   "college_q": "Government Medical College, Kota",
+   "seats": 250
+  },
+  {
+   "institute": "GOVT.MEDICAL COLLEGE, THIRUVANANTHAPURAM",
+   "program": "MBBS",
+   "state": "Kerala",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 1695,
+    "OBC": 2301,
+    "EWS": 8450,
+    "SC": 39027,
+    "ST": 90752
+   }
+  },
+  {
+   "institute": "GOVT.MEDICAL COLLEGE, THRISSUR",
+   "program": "MBBS",
+   "state": "Kerala",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 2709,
+    "OBC": 3275,
+    "EWS": 11657,
+    "SC": 48613,
+    "ST": 101571
+   },
+   "college_q": "Government Medical College, Thrissur",
+   "seats": 175
+  },
+  {
+   "institute": "GUNTUR MEDICAL COLLEGE, GUNTUR",
+   "program": "MBBS",
+   "state": "Andhra Pradesh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 5030,
+    "OBC": 7898,
+    "EWS": 9219,
+    "SC": 43238,
+    "ST": 71488
+   }
+  },
+  {
+   "institute": "Government Dental College & Hospital, Srinagar",
+   "program": "BDS",
+   "state": "Jammu And Kashmir",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 27325,
+    "EWS": 37759,
+    "OBC": 37841,
+    "SC": 116222
+   }
+  },
+  {
+   "institute": "Government Dental College Dibrugarh, I Lane",
+   "program": "BDS",
+   "state": "Assam",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 38223,
+    "OBC": 38827,
+    "SC": 160911
+   }
+  },
+  {
+   "institute": "Government Dental College Hyderabad",
+   "program": "BDS",
+   "state": "Telangana",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 35615,
+    "OBC": 39328,
+    "EWS": 40573,
+    "SC": 148344,
+    "ST": 187445
+   }
+  },
+  {
+   "institute": "Government Dental College and Hospital, Vijayawada",
+   "program": "BDS",
+   "state": "Andhra Pradesh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 27395,
+    "OBC": 34088,
+    "SC": 108852,
+    "ST": 177989
+   }
+  },
+  {
+   "institute": "Government Dental College, Alappuzha",
+   "program": "BDS",
+   "state": "Kerala",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 29369,
+    "OBC": 30159,
+    "EWS": 47581,
+    "SC": 156772
+   }
+  },
+  {
+   "institute": "Government Dental College, Silchar",
+   "program": "BDS",
+   "state": "Assam",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 36421,
+    "OBC": 40319,
+    "EWS": 45338,
+    "SC": 149010,
+    "ST": 161821
+   }
+  },
+  {
+   "institute": "Government Dental College, Thrissur",
+   "program": "BDS",
+   "state": "Kerala",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 22199,
+    "OBC": 28784,
+    "SC": 150123
+   }
+  },
+  {
+   "institute": "Government DentalCollege and Hospital Paithna Bhaganbigha Rahui Nalanda",
+   "program": "BDS",
+   "state": "Bihar",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 34466,
+    "EWS": 37599,
+    "OBC": 38397,
+    "SC": 157338,
+    "ST": 188920
+   }
+  },
+  {
+   "institute": "Government Doon Medcial College, Dehradun",
+   "program": "MBBS",
+   "state": "Uttarakhand",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 5090,
+    "OBC": 7277,
+    "EWS": 7523,
+    "SC": 53341,
+    "ST": 81002
+   }
+  },
+  {
+   "institute": "Government Medcial College, Gondia",
+   "program": "MBBS",
+   "state": "Maharashtra",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 15517,
+    "OBC": 16238,
+    "EWS": 18457,
+    "SC": 95302,
+    "ST": 118775
+   }
+  },
+  {
+   "institute": "Government Medical College",
+   "program": "MBBS",
+   "state": "Maharashtra",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 18312,
+    "OBC": 19222,
+    "EWS": 20968,
+    "SC": 99496,
+    "ST": 130471
+   }
+  },
+  {
+   "institute": "Government Medical College & Hospital, Alibag-Raigad",
+   "program": "MBBS",
+   "state": "Maharashtra",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 15689,
+    "OBC": 17028,
+    "EWS": 18274,
+    "SC": 64009
+   }
+  },
+  {
+   "institute": "Government Medical College & Hospital, Jalpaiguri",
+   "program": "MBBS",
+   "state": "West Bengal",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 16071,
+    "OBC": 18810,
+    "EWS": 21857,
+    "SC": 98047,
+    "ST": 133067
+   }
+  },
+  {
+   "institute": "Government Medical College Chittorgarh",
+   "program": "MBBS",
+   "state": "Rajasthan",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 9008,
+    "OBC": 10122,
+    "EWS": 12570,
+    "SC": 59538,
+    "ST": 82664
+   },
+   "college_q": "Government Medical College, Chittorgarh",
+   "seats": 100
+  },
+  {
+   "institute": "Government Medical College Mahasamund Chhattisgarh",
+   "program": "MBBS",
+   "state": "Chhattisgarh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 16897,
+    "OBC": 18369,
+    "EWS": 19764,
+    "SC": 92487,
+    "ST": 124812
+   }
+  },
+  {
+   "institute": "Government Medical College Narsampet, Telangana",
+   "program": "MBBS",
+   "state": "Telangana",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 18763,
+    "OBC": 20374,
+    "EWS": 22880,
+    "SC": 104706,
+    "ST": 139117
+   }
+  },
+  {
+   "institute": "Government Medical College Nirmal",
+   "program": "MBBS",
+   "state": "Telangana",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 20114,
+    "OBC": 20895,
+    "EWS": 24815,
+    "SC": 95860,
+    "ST": 108496
+   },
+   "college_q": "Government Medical College, Nirmal",
+   "seats": 100
+  },
+  {
+   "institute": "Government Medical College Satna",
+   "program": "MBBS",
+   "state": "Madhya Pradesh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 14186,
+    "OBC": 14974,
+    "EWS": 16684,
+    "SC": 87788,
+    "ST": 108149
+   },
+   "college_q": "Government Medical College, Satna",
+   "seats": 150
+  },
+  {
+   "institute": "Government Medical College Siddipet",
+   "program": "MBBS",
+   "state": "Telangana",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 17333,
+    "OBC": 18607,
+    "EWS": 20415,
+    "SC": 92458,
+    "ST": 110028
+   },
+   "college_q": "Government Medical College, Siddipet",
+   "seats": 175
+  },
+  {
+   "institute": "Government Medical College Suryapet, AMARAVADI NAGAR",
+   "program": "MBBS",
+   "state": "Telangana",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 17662,
+    "OBC": 18618,
+    "EWS": 22645,
+    "SC": 99703,
+    "ST": 111793
+   }
+  },
+  {
+   "institute": "Government Medical College and District General Hospital, Ratnagiri",
+   "program": "MBBS",
+   "state": "Maharashtra",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 15483,
+    "OBC": 16229,
+    "EWS": 17948,
+    "SC": 96916,
+    "ST": 120996
+   }
+  },
+  {
+   "institute": "Government Medical College and ESIC Hospital, Coimbatore",
+   "program": "MBBS",
+   "state": "Tamil Nadu",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 5119,
+    "OBC": 5815,
+    "EWS": 9468,
+    "SC": 34638,
+    "ST": 111319
+   },
+   "college_q": "Government Medical College & ESIC Hospital, Coimbatore, TamilNadu",
+   "seats": 100
+  },
+  {
+   "institute": "Government Medical College and Hospital, Jajpur",
+   "program": "MBBS",
+   "state": "Odisha",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 13385,
+    "OBC": 17225,
+    "EWS": 19125,
+    "SC": 74418
+   },
+   "college_q": "Government Medical College and Hospital, Jajpur Odisha",
+   "seats": 50
+  },
+  {
+   "institute": "Government Medical College and Hospital, Keonjhar",
+   "program": "MBBS",
+   "state": "Odisha",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 16017,
+    "OBC": 19116,
+    "EWS": 21167,
+    "SC": 85852,
+    "ST": 140433
+   }
+  },
+  {
+   "institute": "Government Medical College, Amravati",
+   "program": "MBBS",
+   "state": "Maharashtra",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 16788,
+    "OBC": 18124,
+    "EWS": 18640,
+    "SC": 87522,
+    "ST": 113394
+   },
+   "college_q": "Government Medical College, Amravati",
+   "seats": 100
+  },
+  {
+   "institute": "Government Medical College, Ananthapuram",
+   "program": "MBBS",
+   "state": "Andhra Pradesh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 14025,
+    "OBC": 16934,
+    "EWS": 21311,
+    "SC": 80867,
+    "ST": 108314
+   },
+   "college_q": "Government Medical College, Ananthapuram",
+   "seats": 200
+  },
+  {
+   "institute": "Government Medical College, Anantnag",
+   "program": "MBBS",
+   "state": "Jammu And Kashmir",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 13813,
+    "OBC": 16225,
+    "EWS": 16965,
+    "SC": 86092,
+    "ST": 87023
+   },
+   "college_q": "Government Medical College, Anantnag",
+   "seats": 100
+  },
+  {
+   "institute": "Government Medical College, Ariyalur",
+   "program": "MBBS",
+   "state": "Tamil Nadu",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 11373,
+    "OBC": 12199,
+    "EWS": 24929,
+    "SC": 67307,
+    "ST": 142071
+   },
+   "college_q": "Government Medical College, Ariyalur",
+   "seats": 150
+  },
+  {
+   "institute": "Government Medical College, Banswara",
+   "program": "MBBS",
+   "state": "Rajasthan",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 11845,
+    "OBC": 12790,
+    "EWS": 14205,
+    "SC": 73571
+   },
+   "college_q": "Government Medical College, Banswara",
+   "seats": 100
+  },
+  {
+   "institute": "Government Medical College, Baramulla",
+   "program": "MBBS",
+   "state": "Jammu And Kashmir",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 14647,
+    "OBC": 17373,
+    "EWS": 21083,
+    "SC": 84046,
+    "ST": 92877
+   },
+   "college_q": "Government Medical College, Baramulla",
+   "seats": 100
+  },
+  {
+   "institute": "Government Medical College, Bhadradri",
+   "program": "MBBS",
+   "state": "Telangana",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 20375,
+    "OBC": 20893,
+    "EWS": 24456,
+    "SC": 106101,
+    "ST": 134753
+   },
+   "college_q": "Government Medical College, Bhadradri Kothagudem",
+   "seats": 150
+  },
+  {
+   "institute": "Government Medical College, Bhandara",
+   "program": "MBBS",
+   "state": "Maharashtra",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 17608,
+    "OBC": 18944,
+    "EWS": 20763,
+    "SC": 100731,
+    "ST": 126924
+   },
+   "college_q": "Government Medical College, Bhandara",
+   "seats": 100
+  },
+  {
+   "institute": "Government Medical College, Bhilwara",
+   "program": "MBBS",
+   "state": "Rajasthan",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 6820,
+    "OBC": 7943,
+    "EWS": 9186,
+    "SC": 52161,
+    "ST": 71638
+   },
+   "college_q": "Government Medical College, Bhilwara, Rajasthan",
+   "seats": 150
+  },
+  {
+   "institute": "Government Medical College, Churachandpur",
+   "program": "MBBS",
+   "state": "Manipur",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 18863,
+    "OBC": 21148,
+    "EWS": 25389,
+    "SC": 101484,
+    "ST": 136883
+   },
+   "college_q": "Government Medical College, Churachandpur",
+   "seats": 100
+  },
+  {
+   "institute": "Government Medical College, Dholpur",
+   "program": "MBBS",
+   "state": "Rajasthan",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 11216,
+    "OBC": 11403,
+    "EWS": 12787,
+    "SC": 74238,
+    "ST": 85978
+   },
+   "college_q": "Government Medical College, Dholpur",
+   "seats": 100
+  },
+  {
+   "institute": "Government Medical College, Dindigul",
+   "program": "MBBS",
+   "state": "Tamil Nadu",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 10362,
+    "OBC": 11474,
+    "EWS": 25414,
+    "SC": 56237,
+    "ST": 143103
+   },
+   "college_q": "Government Medical College, Dindigul",
+   "seats": 150
+  },
+  {
+   "institute": "Government Medical College, Doda",
+   "program": "MBBS",
+   "state": "Jammu And Kashmir",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 17315,
+    "EWS": 19321,
+    "OBC": 19533,
+    "ST": 56076,
+    "SC": 101256
+   },
+   "college_q": "Govt. Medical College, Doda, Kashmir",
+   "seats": 100
+  },
+  {
+   "institute": "Government Medical College, ESIC",
+   "program": "MBBS",
+   "state": "Kerala",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 5000,
+    "OBC": 5734,
+    "EWS": 18125,
+    "SC": 68567,
+    "ST": 112318
+   },
+   "college_q": "Government Medical College & ESIC Hospital, Coimbatore, TamilNadu",
+   "seats": 100
+  },
+  {
+   "institute": "Government Medical College, Eluru",
+   "program": "MBBS",
+   "state": "Andhra Pradesh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 18587,
+    "OBC": 19856,
+    "EWS": 23264,
+    "SC": 80839,
+    "ST": 137133
+   },
+   "college_q": "Government Medical College, Eluru",
+   "seats": 150
+  },
+  {
+   "institute": "Government Medical College, Hanumangarh",
+   "program": "MBBS",
+   "state": "Rajasthan",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 10750,
+    "OBC": 11806,
+    "EWS": 12972,
+    "SC": 70064,
+    "ST": 89380
+   },
+   "college_q": "Government Medical College, Hanumangarh",
+   "seats": 100
+  },
+  {
+   "institute": "Government Medical College, Hingoli",
+   "program": "MBBS",
+   "state": "Maharashtra",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 18639,
+    "OBC": 19403,
+    "EWS": 21219,
+    "SC": 101029,
+    "ST": 135062
+   },
+   "college_q": "Government Medical College, Hingoli",
+   "seats": 100
+  },
+  {
+   "institute": "Government Medical College, Jagtial",
+   "program": "MBBS",
+   "state": "Telangana",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 19790,
+    "OBC": 20790,
+    "EWS": 23585,
+    "SC": 106981,
+    "ST": 132096
+   },
+   "college_q": "Government Medical College, Jagtial",
+   "seats": 150
+  },
+  {
+   "institute": "Government Medical College, Jalna",
+   "program": "MBBS",
+   "state": "Maharashtra",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 18468,
+    "OBC": 19458,
+    "EWS": 21037,
+    "SC": 99386,
+    "ST": 134712
+   },
+   "college_q": "Government Medical College, Jalna",
+   "seats": 100
+  },
+  {
+   "institute": "Government Medical College, Jhunjhunu",
+   "program": "MBBS",
+   "state": "Rajasthan",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 9077,
+    "OBC": 10852,
+    "EWS": 13484,
+    "SC": 69214,
+    "ST": 71650
+   },
+   "college_q": "Government Medical College, Jhunjhunu",
+   "seats": 100
+  },
+  {
+   "institute": "Government Medical College, Kallakurichi",
+   "program": "MBBS",
+   "state": "Tamil Nadu",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 12032,
+    "OBC": 12487,
+    "EWS": 25511,
+    "SC": 66279,
+    "ST": 138714
+   },
+   "college_q": "Government Medical College, Kallakurichi",
+   "seats": 150
+  },
+  {
+   "institute": "Government Medical College, Kanker",
+   "program": "MBBS",
+   "state": "Chhattisgarh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 18309,
+    "OBC": 18938,
+    "EWS": 19977,
+    "SC": 97250,
+    "ST": 119386
+   },
+   "college_q": "Government Medical College, Kanker",
+   "seats": 125
+  },
+  {
+   "institute": "Government Medical College, Kathua",
+   "program": "MBBS",
+   "state": "Jammu And Kashmir",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 11929,
+    "OBC": 13523,
+    "EWS": 14377,
+    "SC": 51060
+   },
+   "college_q": "Government Medical College, Kathua",
+   "seats": 100
+  },
+  {
+   "institute": "Government Medical College, Khammam",
+   "program": "MBBS",
+   "state": "Telangana",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 19528,
+    "OBC": 19993,
+    "EWS": 21844,
+    "SC": 102052,
+    "ST": 122853
+   },
+   "college_q": "GOVERNMENT MEDICAL COLLEGE KHAMMAM",
+   "seats": 100
+  },
+  {
+   "institute": "Government Medical College, Konni",
+   "program": "MBBS",
+   "state": "Kerala",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 5786,
+    "OBC": 6039,
+    "EWS": 22633,
+    "SC": 74223,
+    "ST": 124805
+   },
+   "college_q": "Government Medical College, Konni",
+   "seats": 100
+  },
+  {
+   "institute": "Government Medical College, Korba(C.G.)",
+   "program": "MBBS",
+   "state": "Chhattisgarh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 18665,
+    "EWS": 19164,
+    "OBC": 19269,
+    "SC": 100028,
+    "ST": 114749
+   },
+   "college_q": "Government Medical College, Korba",
+   "seats": 125
+  },
+  {
+   "institute": "Government Medical College, Krishnagiri",
+   "program": "MBBS",
+   "state": "Tamil Nadu",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 10780,
+    "OBC": 12018,
+    "EWS": 25589,
+    "SC": 64780,
+    "ST": 142895
+   },
+   "college_q": "Government Medical College, Krishnagiri",
+   "seats": 150
+  },
+  {
+   "institute": "Government Medical College, Mahabubabad",
+   "program": "MBBS",
+   "state": "Telangana",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 19605,
+    "OBC": 20335,
+    "EWS": 23138,
+    "SC": 103876,
+    "ST": 121232
+   },
+   "college_q": "Government Medical College, Mahabubabad",
+   "seats": 150
+  },
+  {
+   "institute": "Government Medical College, Mahabubangar",
+   "program": "MBBS",
+   "state": "Telangana",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 16687,
+    "OBC": 18092,
+    "EWS": 21758,
+    "SC": 85262,
+    "ST": 105985
+   }
+  },
+  {
+   "institute": "Government Medical College, Maheshwaram",
+   "program": "MBBS",
+   "state": "Telangana",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 18701,
+    "OBC": 21032,
+    "EWS": 24918,
+    "SC": 106467
+   },
+   "college_q": "Government Medical College, Maheshwaram",
+   "seats": 50
+  },
+  {
+   "institute": "Government Medical College, Mancherial",
+   "program": "MBBS",
+   "state": "Telangana",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 20063,
+    "OBC": 20955,
+    "EWS": 24258,
+    "SC": 107118,
+    "ST": 135567
+   },
+   "college_q": "Government Medical College, Mancherial",
+   "seats": 100
+  },
+  {
+   "institute": "Government Medical College, Mumbai",
+   "program": "MBBS",
+   "state": "Maharashtra",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 4509,
+    "OBC": 6437,
+    "EWS": 6626,
+    "SC": 45429
+   },
+   "college_q": "Government Medical College L.T. Marg, Near L.T. Marg Police Station, Mumbai - 400001",
+   "seats": 50
+  },
+  {
+   "institute": "Government Medical College, Nagapattinam",
+   "program": "MBBS",
+   "state": "Tamil Nadu",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 12262,
+    "OBC": 12711,
+    "EWS": 25599,
+    "SC": 70965,
+    "ST": 144224
+   },
+   "college_q": "Government Medical College, Nagapattinam",
+   "seats": 150
+  },
+  {
+   "institute": "Government Medical College, Nagarkurnool",
+   "program": "MBBS",
+   "state": "Telangana",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 17900,
+    "OBC": 19721,
+    "EWS": 23307,
+    "SC": 102374,
+    "ST": 123852
+   },
+   "college_q": "Government Medical College, Nagarkurnool",
+   "seats": 150
+  },
+  {
+   "institute": "Government Medical College, Narayanpet",
+   "program": "MBBS",
+   "state": "Telangana",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 17038,
+    "OBC": 20307,
+    "EWS": 24991,
+    "SC": 90601,
+    "ST": 142347
+   },
+   "college_q": "Government Medical College, Narayanpet",
+   "seats": 50
+  },
+  {
+   "institute": "Government Medical College, Nashik",
+   "program": "MBBS",
+   "state": "Maharashtra",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 8011,
+    "OBC": 10842,
+    "ST": 72412,
+    "SC": 78673
+   },
+   "college_q": "Government Medical College,Nashik",
+   "seats": 50
+  },
+  {
+   "institute": "Government Medical College, Nilgiris",
+   "program": "MBBS",
+   "state": "Tamil Nadu",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 9136,
+    "OBC": 12179,
+    "EWS": 22451,
+    "SC": 70369,
+    "ST": 139363
+   },
+   "college_q": "Government Medical College, The Nilgiris",
+   "seats": 150
+  },
+  {
+   "institute": "Government Medical College, Nizamabad",
+   "program": "MBBS",
+   "state": "Telangana",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 15751,
+    "OBC": 16908,
+    "EWS": 17052,
+    "ST": 59713,
+    "SC": 80061
+   },
+   "college_q": "Government Medical College, Nizamabad",
+   "seats": 120
+  },
+  {
+   "institute": "Government Medical College, Omandurar",
+   "program": "MBBS",
+   "state": "Tamil Nadu",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 3171,
+    "OBC": 3612,
+    "EWS": 17554,
+    "SC": 23357,
+    "ST": 81149
+   },
+   "college_q": "Government Medical College, Omandurar",
+   "seats": 100
+  },
+  {
+   "institute": "Government Medical College, Pali",
+   "program": "MBBS",
+   "state": "Rajasthan",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 7175,
+    "OBC": 7989,
+    "EWS": 9460,
+    "SC": 57167,
+    "ST": 77081
+   },
+   "college_q": "Government Medical College, Pali, Rajasthan",
+   "seats": 150
+  },
+  {
+   "institute": "Government Medical College, Parbhani",
+   "program": "MBBS",
+   "state": "Maharashtra",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 17318,
+    "OBC": 18101,
+    "EWS": 20687,
+    "SC": 97428,
+    "ST": 119224
+   },
+   "college_q": "Government Medical College, Parbhani",
+   "seats": 100
+  },
+  {
+   "institute": "Government Medical College, Quthbullapur",
+   "program": "MBBS",
+   "state": "Telangana",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 13641,
+    "OBC": 20473,
+    "EWS": 24686,
+    "SC": 86163
+   },
+   "college_q": "Government medical College, Quthbullapur",
+   "seats": 50
+  },
+  {
+   "institute": "Government Medical College, Rajnandgaon",
+   "program": "MBBS",
+   "state": "Chhattisgarh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 15903,
+    "OBC": 16978,
+    "EWS": 17097,
+    "SC": 88113,
+    "ST": 119835
+   },
+   "college_q": "Government Medical College (Bharat Ratna Shri Atal Bihari Vajpyee Memorial Med. Col.), Rajnandgaon",
+   "seats": 125
+  },
+  {
+   "institute": "Government Medical College, Ramagundam",
+   "program": "MBBS",
+   "state": "Telangana",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 19450,
+    "OBC": 20489,
+    "EWS": 24249,
+    "SC": 107615,
+    "ST": 137439
+   },
+   "college_q": "Government Medical College, Ramagundam",
+   "seats": 150
+  },
+  {
+   "institute": "Government Medical College, Ramanathapuram",
+   "program": "MBBS",
+   "state": "Tamil Nadu",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 11523,
+    "OBC": 12576,
+    "EWS": 24911,
+    "SC": 70909,
+    "ST": 137499
+   },
+   "college_q": "Government Medical College, Ramanathapuram",
+   "seats": 100
+  },
+  {
+   "institute": "Government Medical College, Sawai Madhopur",
+   "program": "MBBS",
+   "state": "Rajasthan",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 11726,
+    "OBC": 12416,
+    "SC": 76436,
+    "ST": 78631
+   },
+   "college_q": "Government Medical College, Sawai Madhopur",
+   "seats": 100
+  },
+  {
+   "institute": "Government Medical College, Seoni",
+   "program": "MBBS",
+   "state": "Madhya Pradesh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 14303,
+    "OBC": 15843,
+    "EWS": 17567,
+    "SC": 90279,
+    "ST": 100004
+   },
+   "college_q": "Government Medical College, Seoni",
+   "seats": 100
+  },
+  {
+   "institute": "Government Medical College, Sindhudurg",
+   "program": "MBBS",
+   "state": "Maharashtra",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 16925,
+    "OBC": 17509,
+    "SC": 96743
+   },
+   "college_q": "Government Medical College, Sindhudurg",
+   "seats": 100
+  },
+  {
+   "institute": "Government Medical College, Sundargarh",
+   "program": "MBBS",
+   "state": "Odisha",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 17324,
+    "OBC": 18365,
+    "EWS": 19026,
+    "SC": 86518,
+    "ST": 127741
+   },
+   "college_q": "Government Medical College, Sundargarh",
+   "seats": 100
+  },
+  {
+   "institute": "Government Medical College, Thiruvallur",
+   "program": "MBBS",
+   "state": "Tamil Nadu",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 7347,
+    "OBC": 8804,
+    "EWS": 24538,
+    "SC": 29229
+   },
+   "college_q": "Government Medical College, Thiruvallur",
+   "seats": 100
+  },
+  {
+   "institute": "Government Medical College, Tiruppur",
+   "program": "MBBS",
+   "state": "Tamil Nadu",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 8914,
+    "OBC": 9659,
+    "EWS": 25118,
+    "SC": 52243,
+    "ST": 128206
+   },
+   "college_q": "Government Medical College, Tiruppur",
+   "seats": 100
+  },
+  {
+   "institute": "Government Medical College, Virudhunagar",
+   "program": "MBBS",
+   "state": "Tamil Nadu",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 10935,
+    "OBC": 11928,
+    "EWS": 25427,
+    "SC": 62728,
+    "ST": 145625
+   },
+   "college_q": "Government Medical College, Virudhunagar",
+   "seats": 150
+  },
+  {
+   "institute": "Government Medical College, Washim",
+   "program": "MBBS",
+   "state": "Maharashtra",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 18359,
+    "OBC": 19526,
+    "EWS": 21070,
+    "SC": 101553,
+    "ST": 135975
+   },
+   "college_q": "Government Medical College, Washim",
+   "seats": 100
+  },
+  {
+   "institute": "Government Medical College, Yadadri",
+   "program": "MBBS",
+   "state": "Telangana",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 18193,
+    "OBC": 20855,
+    "EWS": 24618,
+    "SC": 105026,
+    "ST": 129006
+   }
+  },
+  {
+   "institute": "Government Medical college, Ambernath",
+   "program": "MBBS",
+   "state": "Maharashtra",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 15846,
+    "EWS": 17837,
+    "OBC": 18031,
+    "SC": 79284,
+    "ST": 123743
+   },
+   "college_q": "Government Medical College, Ambernath",
+   "seats": 100
+  },
+  {
+   "institute": "Government Medical college, Haridwar",
+   "program": "MBBS",
+   "state": "Uttarakhand",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 9655,
+    "EWS": 13189,
+    "OBC": 13416,
+    "SC": 64598,
+    "ST": 94118
+   },
+   "college_q": "Government Medical College, Haridwar",
+   "seats": 100
+  },
+  {
+   "institute": "Government medical College",
+   "program": "MBBS",
+   "state": "Andhra Pradesh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 17923,
+    "OBC": 20234,
+    "EWS": 24545,
+    "SC": 85153,
+    "ST": 139038
+   }
+  },
+  {
+   "institute": "Government medical College, Namakkal",
+   "program": "MBBS",
+   "state": "Tamil Nadu",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 10014,
+    "OBC": 10949,
+    "SC": 65150,
+    "ST": 139759
+   },
+   "college_q": "Government Medical College, Namakkal",
+   "seats": 100
+  },
+  {
+   "institute": "Government of Medical College and Hospital, Balasore",
+   "program": "MBBS",
+   "state": "Odisha",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 11639,
+    "OBC": 13131,
+    "EWS": 13319,
+    "SC": 62738,
+    "ST": 138033
+   },
+   "college_q": "Government Medical College & Hospital (Renamed as Fakir Mohan Medical College & Hospital), Balasore",
+   "seats": 100
+  },
+  {
+   "institute": "Govt Dental College RIMS Kadapa",
+   "program": "BDS",
+   "state": "Andhra Pradesh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 37200,
+    "OBC": 41141,
+    "EWS": 46719,
+    "SC": 146583,
+    "ST": 175702
+   }
+  },
+  {
+   "institute": "Govt Medical College",
+   "program": "MBBS",
+   "state": "Rajasthan",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 8845,
+    "OBC": 11595,
+    "EWS": 13310,
+    "SC": 64079,
+    "ST": 83897
+   }
+  },
+  {
+   "institute": "Govt Medical College Badaun",
+   "program": "MBBS",
+   "state": "Gunera Wazidpur Ujhani Road Badaun U.P. 243601",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 11575,
+    "OBC": 12714,
+    "EWS": 13386,
+    "SC": 80494,
+    "ST": 98874
+   },
+   "college_q": "Government Medical College, Badaun, U.P.",
+   "seats": 100
+  },
+  {
+   "institute": "Govt Medical College Baramati",
+   "program": "MBBS",
+   "state": "Maharashtra",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 9314,
+    "OBC": 10290,
+    "EWS": 10774,
+    "SC": 46383,
+    "ST": 66674
+   },
+   "college_q": "Government Medical College & Hospital, Baramati",
+   "seats": 100
+  },
+  {
+   "institute": "Govt Medical College Barmer Rajasthan, NH-15",
+   "program": "MBBS",
+   "state": "Rajasthan",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 8652,
+    "OBC": 9907,
+    "EWS": 10691,
+    "SC": 60750,
+    "ST": 86623
+   }
+  },
+  {
+   "institute": "Govt Medical College Basti",
+   "program": "MBBS",
+   "state": "Uttar Pradesh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 12075,
+    "OBC": 12891,
+    "EWS": 14389,
+    "SC": 87588,
+    "ST": 96635
+   },
+   "college_q": "Government Medical College, Rampur, Basti",
+   "seats": 100
+  },
+  {
+   "institute": "Govt Medical College Faizabad",
+   "program": "MBBS",
+   "state": "Uttar Pradesh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 10015,
+    "OBC": 12105,
+    "EWS": 13711,
+    "SC": 80008,
+    "ST": 94355
+   },
+   "college_q": "Government Medical College, Faizabad",
+   "seats": 100
+  },
+  {
+   "institute": "Govt Medical College Firozabad",
+   "program": "MBBS",
+   "state": "Uttar Pradesh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 11125,
+    "OBC": 12477,
+    "EWS": 12673,
+    "SC": 71347
+   },
+   "college_q": "Government Medical College, Firozabad",
+   "seats": 100
+  },
+  {
+   "institute": "Govt Medical College Kannur",
+   "program": "MBBS",
+   "state": "Kerala",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 4510,
+    "OBC": 4799,
+    "EWS": 18568,
+    "SC": 67550,
+    "ST": 114542
+   },
+   "college_q": "Govt. Medical College,Pariyaram, Kannur (Prev. Known as Academy of Medical Sciences)",
+   "seats": 100
+  },
+  {
+   "institute": "Govt Medical College Nalgonda",
+   "program": "MBBS",
+   "state": "Telangana",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 17800,
+    "OBC": 18976,
+    "EWS": 22783,
+    "SC": 97450,
+    "ST": 112609
+   },
+   "college_q": "Government Medical College, Nalgonda",
+   "seats": 150
+  },
+  {
+   "institute": "Govt Medical College Ratlam, Gram Banjali",
+   "program": "MBBS",
+   "state": "Madhya Pradesh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 10378,
+    "OBC": 11364,
+    "EWS": 13505,
+    "SC": 76823,
+    "ST": 94834
+   }
+  },
+  {
+   "institute": "Govt Medical College Shahdol",
+   "program": "MBBS",
+   "state": "Madhya Pradesh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 13507,
+    "OBC": 13956,
+    "SC": 87702,
+    "ST": 99339
+   },
+   "college_q": "Government Medical College, Shahdol, MP",
+   "seats": 100
+  },
+  {
+   "institute": "Govt Medical College Vikarabad",
+   "program": "MBBS",
+   "state": "Telangana",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 20420,
+    "OBC": 20816,
+    "EWS": 24860,
+    "SC": 108627,
+    "ST": 126434
+   },
+   "college_q": "GOVERNMENT MEDICAL COLLEGE VIKARABAD",
+   "seats": 100
+  },
+  {
+   "institute": "Govt Medical College, Churu",
+   "program": "MBBS",
+   "state": "Rajasthan",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 7986,
+    "OBC": 9043,
+    "EWS": 10889,
+    "SC": 62644,
+    "ST": 75129
+   },
+   "college_q": "Government Medical College, Churu",
+   "seats": 150
+  },
+  {
+   "institute": "Govt Medical College, Dungarpur",
+   "program": "MBBS",
+   "state": "Rajasthan",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 10093,
+    "OBC": 10240,
+    "EWS": 11255,
+    "SC": 63897,
+    "ST": 84813
+   },
+   "college_q": "Government Medical College, Dungarpur",
+   "seats": 150
+  },
+  {
+   "institute": "Govt Medical College, Ernakulam",
+   "program": "MBBS",
+   "state": "Kerala",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 3969,
+    "OBC": 4577,
+    "EWS": 16822,
+    "SC": 53765,
+    "ST": 111935
+   },
+   "college_q": "Government Medical College, Ernakulam",
+   "seats": 110
+  },
+  {
+   "institute": "Govt Medical College, Idukki",
+   "program": "MBBS",
+   "state": "Kerala",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 6126,
+    "OBC": 6769,
+    "EWS": 22337,
+    "SC": 71598,
+    "ST": 122317
+   },
+   "college_q": "Government Medical College, Idukki",
+   "seats": 100
+  },
+  {
+   "institute": "Govt Medical College, Jogulamba",
+   "program": "MBBS",
+   "state": "Telangana",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 16584,
+    "OBC": 20497,
+    "SC": 108752,
+    "ST": 141607
+   }
+  },
+  {
+   "institute": "Govt Medical College, Mulugu",
+   "program": "MBBS",
+   "state": "Telangana",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 20167,
+    "OBC": 20605,
+    "EWS": 23911,
+    "SC": 94550,
+    "ST": 108980
+   },
+   "college_q": "Government Medical College, Mulugu",
+   "seats": 50
+  },
+  {
+   "institute": "Govt Medical College, Palakkad",
+   "program": "MBBS",
+   "state": "Kerala",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 5267,
+    "OBC": 6038,
+    "EWS": 18882,
+    "SC": 72773,
+    "ST": 123605
+   },
+   "college_q": "Government Medical College (Institute of Integrated Medical Sciences), Yakkara, Palakkad",
+   "seats": 100
+  },
+  {
+   "institute": "Govt Medical college Shivpuri",
+   "program": "MBBS",
+   "state": "Madhya Pradesh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 11464,
+    "OBC": 12501,
+    "EWS": 13188,
+    "SC": 78772,
+    "ST": 93136
+   },
+   "college_q": "Government Medical College, Shivpuri, MP",
+   "seats": 100
+  },
+  {
+   "institute": "Govt dental college Pudukkottai",
+   "program": "BDS",
+   "state": "Tamil Nadu",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 31541,
+    "OBC": 32557,
+    "SC": 100049
+   }
+  },
+  {
+   "institute": "Govt institute of Medcial Sciences, GREATER NOIDA",
+   "program": "MBBS",
+   "state": "Uttar Pradesh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 4401,
+    "OBC": 4758,
+    "EWS": 5490,
+    "SC": 40690,
+    "ST": 75015
+   }
+  },
+  {
+   "institute": "Govt. Medical College",
+   "program": "MBBS",
+   "state": "Telangana",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 20559,
+    "OBC": 20979,
+    "EWS": 22654,
+    "SC": 110389,
+    "ST": 140586
+   }
+  },
+  {
+   "institute": "Govt. Medical College Jayashankar Bhupalpally",
+   "program": "MBBS",
+   "state": "Telangana",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 20614,
+    "OBC": 21036,
+    "EWS": 24587,
+    "SC": 108227,
+    "ST": 138176
+   },
+   "college_q": "Government Medical College, Jayashankar Bhupalpally",
+   "seats": 100
+  },
+  {
+   "institute": "Govt. Medical College Karur",
+   "program": "MBBS",
+   "state": "Tamil Nadu",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 9450,
+    "OBC": 10029,
+    "EWS": 25254,
+    "SC": 63512,
+    "ST": 137328
+   },
+   "college_q": "Government Medical College, Karur",
+   "seats": 150
+  },
+  {
+   "institute": "Govt. Medical College Rajanna Sircilla",
+   "program": "MBBS",
+   "state": "Telangana",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 17968,
+    "OBC": 19248,
+    "EWS": 21384,
+    "ST": 63398,
+    "SC": 98635
+   },
+   "college_q": "Government Medical College, Rajanna Sircilla",
+   "seats": 100
+  },
+  {
+   "institute": "Govt. Medical College and Hospital, Chandrapur",
+   "program": "MBBS",
+   "state": "Maharashtra",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 14150,
+    "OBC": 15666,
+    "EWS": 17316,
+    "SC": 91853,
+    "ST": 102566
+   }
+  },
+  {
+   "institute": "Govt. Medical College, Jammu",
+   "program": "MBBS",
+   "state": "Jammu And Kashmir",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 6719,
+    "OBC": 9019,
+    "EWS": 10524,
+    "ST": 48602,
+    "SC": 56849
+   },
+   "college_q": "Government Medical College, Jammu",
+   "seats": 172
+  },
+  {
+   "institute": "Govt. Medical College, Kannauj",
+   "program": "MBBS",
+   "state": "Uttar Pradesh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 8103,
+    "OBC": 9957,
+    "EWS": 12381,
+    "SC": 70270,
+    "ST": 90009
+   },
+   "college_q": "Government Medical College, Kannauj",
+   "seats": 100
+  },
+  {
+   "institute": "Govt. Medical College, Khandwa",
+   "program": "MBBS",
+   "state": "Madhya Pradesh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 11960,
+    "OBC": 13570,
+    "EWS": 13721,
+    "SC": 81676,
+    "ST": 97439
+   },
+   "college_q": "Government Medical College, Khandwa, MP",
+   "seats": 120
+  },
+  {
+   "institute": "Govt. Medical College, Sirohi (rajasthan)",
+   "program": "MBBS",
+   "state": "Rajasthan",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 10476,
+    "OBC": 11449,
+    "EWS": 11658,
+    "SC": 71492,
+    "ST": 85339
+   },
+   "college_q": "Government Medical College, Sirohi",
+   "seats": 101
+  },
+  {
+   "institute": "Govt. Medical College, Srinagar",
+   "program": "MBBS",
+   "state": "Jammu And Kashmir",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 2592,
+    "EWS": 9681,
+    "OBC": 10134,
+    "ST": 42022,
+    "SC": 65652
+   },
+   "college_q": "Government Medical College, Srinagar",
+   "seats": 180
+  },
+  {
+   "institute": "Govt. Medical College, Udhampur",
+   "program": "MBBS",
+   "state": "Jammu And Kashmir",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 13995,
+    "EWS": 15320,
+    "OBC": 16112,
+    "SC": 73037,
+    "ST": 96718
+   },
+   "college_q": "Government Medical College Udhampur",
+   "seats": 100
+  },
+  {
+   "institute": "Govt. Pudukkottai Medical College Hopt., Pudukkott",
+   "program": "MBBS",
+   "state": "Tamil Nadu",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 11149,
+    "OBC": 11457,
+    "EWS": 25257,
+    "SC": 63589,
+    "ST": 139163
+   }
+  },
+  {
+   "institute": "Govt. Sivgangai M. C. Sivagangai",
+   "program": "MBBS",
+   "state": "Tamil Nadu",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 11038,
+    "OBC": 11634,
+    "EWS": 21550,
+    "SC": 63530,
+    "ST": 143700
+   }
+  },
+  {
+   "institute": "Gulbarga Institute of Medical Sciences, Gulbarga",
+   "program": "MBBS",
+   "state": "Karnataka",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 10554,
+    "OBC": 13440,
+    "EWS": 18548,
+    "SC": 82277,
+    "ST": 107916
+   },
+   "college_q": "Gulbarga Institute of Medical Sciences, Gulbarga",
+   "seats": 150
+  },
+  {
+   "institute": "INDIRA GANDHI GOVT.MEDICAL COLL., NAGPUR",
+   "program": "MBBS",
+   "state": "Maharashtra",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 6168,
+    "EWS": 7223,
+    "OBC": 8175,
+    "SC": 45726,
+    "ST": 84031
+   }
+  },
+  {
+   "institute": "Indira Gandhi Govt. Dental College, Jammu",
+   "program": "BDS",
+   "state": "Jammu And Kashmir",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 35974,
+    "OBC": 41359,
+    "EWS": 44677,
+    "SC": 143902,
+    "ST": 160684
+   }
+  },
+  {
+   "institute": "JHALAWAR MEDICAL COLLEGE, Jhalawar",
+   "program": "MBBS",
+   "state": "Rajasthan",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 5730,
+    "OBC": 6634,
+    "EWS": 7948,
+    "SC": 47963,
+    "ST": 59107
+   },
+   "college_q": "Jhalawar Medical College, Jhalawar",
+   "seats": 200
+  },
+  {
+   "institute": "JIPMER KARAIKAL",
+   "program": "MBBS",
+   "state": "Puducherry",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 2633,
+    "OBC": 3452,
+    "EWS": 5105,
+    "SC": 18865,
+    "ST": 46911
+   }
+  },
+  {
+   "institute": "JIPMER PUDUCHERRY",
+   "program": "MBBS",
+   "state": "Puducherry",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 258,
+    "OBC": 738,
+    "EWS": 1362,
+    "SC": 3877,
+    "ST": 6283
+   }
+  },
+  {
+   "institute": "Jawaharlal Nehru Medical College, Bhagalpur",
+   "program": "MBBS",
+   "state": "Bihar",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 9419,
+    "OBC": 10456,
+    "EWS": 11716,
+    "SC": 74652,
+    "ST": 99704
+   },
+   "college_q": "Jawaharlal Nehru Medical College, Bhagalpur",
+   "seats": 120
+  },
+  {
+   "institute": "Jhargram Government Medical College and Hospital, West Bengal",
+   "program": "MBBS",
+   "state": "West Bengal",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 19281,
+    "OBC": 19687,
+    "EWS": 20542,
+    "SC": 91235,
+    "ST": 125649
+   }
+  },
+  {
+   "institute": "K.A.P. VISWANATHAM Govt Medical College, TIRUCHIRAPALLI",
+   "program": "MBBS",
+   "state": "Tamil Nadu",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 6379,
+    "OBC": 6815,
+    "EWS": 23813,
+    "SC": 31945
+   }
+  },
+  {
+   "institute": "KANYAKUMARI GOVT. MED. COLL., ASARIPALLAM",
+   "program": "MBBS",
+   "state": "Tamil Nadu",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 7186,
+    "OBC": 7655,
+    "EWS": 23028,
+    "SC": 59491,
+    "ST": 133959
+   },
+   "college_q": "KanyaKumari Government Medical College, Asaripallam",
+   "seats": 150
+  },
+  {
+   "institute": "KURNOOL MEDICAL COLLEGE, KURNOOL",
+   "program": "MBBS",
+   "state": "Andhra Pradesh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 6159,
+    "EWS": 8126,
+    "OBC": 11587,
+    "SC": 33311,
+    "ST": 83520
+   },
+   "college_q": "Kurnool Medical College, Kurnool",
+   "seats": 250
+  },
+  {
+   "institute": "Kalpana Chawla Govt. Medical College, Karnal",
+   "program": "MBBS",
+   "state": "Haryana",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 4879,
+    "OBC": 6679,
+    "EWS": 7844,
+    "SC": 38201
+   }
+  },
+  {
+   "institute": "Kalyan Singh Government Medical College, Bulandshahr",
+   "program": "MBBS",
+   "state": "Uttar Pradesh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 10012,
+    "OBC": 12671,
+    "EWS": 13059,
+    "SC": 80178,
+    "ST": 104856
+   }
+  },
+  {
+   "institute": "Karwar Institute of Medical Sciences, Karwar",
+   "program": "MBBS",
+   "state": "Karnataka",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 13408,
+    "OBC": 15023,
+    "EWS": 21165,
+    "SC": 94467,
+    "ST": 122194
+   },
+   "college_q": "Karwar Institute of Medical Sciences, Karwar",
+   "seats": 150
+  },
+  {
+   "institute": "Kodagu Institute of Medical Sciences, Kodagu",
+   "program": "MBBS",
+   "state": "Karnataka",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 12096,
+    "OBC": 14401,
+    "EWS": 20632,
+    "SC": 88904,
+    "ST": 101343
+   },
+   "college_q": "Kodagu Institute of Medical Sciences, Kodagu",
+   "seats": 150
+  },
+  {
+   "institute": "L.L.R.M. MEDICAL COLLEGE, MEERUT",
+   "program": "MBBS",
+   "state": "Uttar Pradesh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 4621,
+    "OBC": 5741,
+    "EWS": 7780,
+    "SC": 44973,
+    "ST": 68635
+   }
+  },
+  {
+   "institute": "Lt. B R K Government Medical College, Jagdalpur",
+   "program": "MBBS",
+   "state": "Chhattisgarh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 15184,
+    "OBC": 16283,
+    "EWS": 18477,
+    "SC": 89843,
+    "ST": 111624
+   }
+  },
+  {
+   "institute": "Lt. L A M Govt. Medical College, Raigarh",
+   "program": "MBBS",
+   "state": "Chhattisgarh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 13428,
+    "OBC": 15234,
+    "EWS": 17136,
+    "SC": 86835,
+    "ST": 110330
+   }
+  },
+  {
+   "institute": "M.G.M. MEDICAL COLLEGE, INDORE",
+   "program": "MBBS",
+   "state": "Madhya Pradesh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 4185,
+    "OBC": 5686,
+    "EWS": 6389,
+    "SC": 37624,
+    "ST": 55468
+   },
+   "college_q": "M G M Medical College, Indore",
+   "seats": 250
+  },
+  {
+   "institute": "M.G.M. MEDICAL COLLEGE, JAMSHEDPUR",
+   "program": "MBBS",
+   "state": "Jharkhand",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 7201,
+    "OBC": 8819,
+    "EWS": 10130,
+    "SC": 66725,
+    "ST": 75249
+   },
+   "college_q": "M G M Medical College, Jamshedpur",
+   "seats": 100
+  },
+  {
+   "institute": "M.P. SHAH MEDICAL COLLEGE, JAMNAGAR",
+   "program": "MBBS",
+   "state": "Gujarat",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 5864,
+    "OBC": 7018,
+    "EWS": 7699,
+    "SC": 52210,
+    "ST": 71259
+   }
+  },
+  {
+   "institute": "MADURAI MEDICAL COLLEGE, MADURAI",
+   "program": "MBBS",
+   "state": "Tamil Nadu",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 2543,
+    "OBC": 3337,
+    "EWS": 16698,
+    "SC": 18462,
+    "ST": 103611
+   }
+  },
+  {
+   "institute": "MAHARSHI DEVRAHA BABA AUTONOMOUS STATE. MEDICAL COLLEGE, DEORIA",
+   "program": "MBBS",
+   "state": "Uttar Pradesh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 13815,
+    "OBC": 14957,
+    "SC": 88640,
+    "ST": 107291
+   },
+   "college_q": "Maharshi Devraha Baba Autonomous State Medical College, Deoria",
+   "seats": 100
+  },
+  {
+   "institute": "MEDICAL COLLEGE, BARODA",
+   "program": "MBBS",
+   "state": "Gujarat",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 2986,
+    "OBC": 4716,
+    "EWS": 5870,
+    "SC": 31499,
+    "ST": 63863
+   },
+   "college_q": "Medical College, Baroda",
+   "seats": 250
+  },
+  {
+   "institute": "NALANDA MEDICAL COLLEGE, PATNA",
+   "program": "MBBS",
+   "state": "Bihar",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 6106,
+    "EWS": 6711,
+    "OBC": 7268,
+    "SC": 57846,
+    "ST": 83513
+   },
+   "college_q": "Nalanda Medical College, Patna",
+   "seats": 150
+  },
+  {
+   "institute": "NDMC Medical College, Delhi",
+   "program": "MBBS",
+   "state": "Delhi (NCT)",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 1744,
+    "EWS": 2370,
+    "OBC": 2683,
+    "SC": 15798
+   }
+  },
+  {
+   "institute": "PATNA DENTAL COLLEGE & HOSPITAL, PATNA",
+   "program": "BDS",
+   "state": "Bihar",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 33370,
+    "OBC": 34138,
+    "SC": 153918
+   }
+  },
+  {
+   "institute": "PATNA MEDICAL COLLEGE, PATNA",
+   "program": "MBBS",
+   "state": "Bihar",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 3797,
+    "OBC": 4258,
+    "EWS": 5254,
+    "SC": 41551,
+    "ST": 71068
+   }
+  },
+  {
+   "institute": "PB. GOVT. DENTAL COLLEGE & HOSP, AMRITSAR",
+   "program": "BDS",
+   "state": "Punjab",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 34944,
+    "OBC": 37408,
+    "EWS": 40553,
+    "SC": 127028
+   }
+  },
+  {
+   "institute": "Prafulla Chandra Sen Government Medical College & Hospital, Arambagh",
+   "program": "MBBS",
+   "state": "West Bengal",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 18500,
+    "OBC": 19599,
+    "EWS": 20938,
+    "SC": 93574,
+    "ST": 109833
+   }
+  },
+  {
+   "institute": "Pt. J N M MEDICAL COLLEGE, RAIPUR",
+   "program": "MBBS",
+   "state": "Chhattisgarh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 6949,
+    "OBC": 9870,
+    "EWS": 11214,
+    "SC": 58783,
+    "ST": 90844
+   },
+   "college_q": "Pt. J N M Medical College, Raipur",
+   "seats": 230
+  },
+  {
+   "institute": "Pt. Jawahar Lal Nehru Govt. Med. College, Chamba",
+   "program": "MBBS",
+   "state": "Himachal Pradesh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 8311,
+    "OBC": 9441,
+    "EWS": 10034,
+    "SC": 61897,
+    "ST": 64330
+   },
+   "college_q": "Pt. Jawahar Lal Nehru Government Medical College, Chamba",
+   "seats": 120
+  },
+  {
+   "institute": "R.G. KAR MEDICAL COLLEGE, KOLKATA",
+   "program": "MBBS",
+   "state": "West Bengal",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 7997,
+    "EWS": 8600,
+    "OBC": 9315,
+    "SC": 53010,
+    "ST": 91629
+   }
+  },
+  {
+   "institute": "R.N.T. MEDICAL COLLEGE, UDAIPUR",
+   "program": "MBBS",
+   "state": "Rajasthan",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 3890,
+    "OBC": 4208,
+    "EWS": 5007,
+    "SC": 33922,
+    "ST": 45589
+   },
+   "college_q": "R N T Medical College, Udaipur",
+   "seats": 250
+  },
+  {
+   "institute": "RAMPURHAT GOVT MEDICAL COLLEGE RAMPURHAT",
+   "program": "MBBS",
+   "state": "West Bengal",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 17392,
+    "OBC": 18283,
+    "EWS": 19830,
+    "SC": 90561,
+    "ST": 122224
+   },
+   "college_q": "Rampurhat Government Medical College & Hospital, Rampurhat",
+   "seats": 100
+  },
+  {
+   "institute": "REGIONAL DENTAL COLLEGE, GUWAHATI",
+   "program": "BDS",
+   "state": "Assam",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 33970,
+    "OBC": 37083,
+    "EWS": 44671,
+    "SC": 151292,
+    "ST": 157982
+   }
+  },
+  {
+   "institute": "RUHS College of Medical Sciences, Jaipur",
+   "program": "MBBS",
+   "state": "Rajasthan",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 2658,
+    "OBC": 3313,
+    "EWS": 3873,
+    "SC": 30551,
+    "ST": 42487
+   },
+   "college_q": "RUHS College of Medical Sciences, Jaipur",
+   "seats": 150
+  },
+  {
+   "institute": "Raiganj Government Medical College, ABDULGHATA CAMPUS",
+   "program": "MBBS",
+   "state": "West Bengal",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 16264,
+    "OBC": 18300,
+    "EWS": 20444,
+    "SC": 97078,
+    "ST": 131714
+   }
+  },
+  {
+   "institute": "Rajarshee Chhatrapati Shahu Maharaj Government Medical College Kolhapur",
+   "program": "MBBS",
+   "state": "Maharashtra",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 11177,
+    "OBC": 13109,
+    "EWS": 14707,
+    "SC": 84885,
+    "ST": 105614
+   }
+  },
+  {
+   "institute": "Rajmata shrimati devendra kumari singhdeo government medical college, ambikapur",
+   "program": "MBBS",
+   "state": "Chhattisgarh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 17455,
+    "OBC": 18613,
+    "EWS": 19513,
+    "SC": 94867,
+    "ST": 121735
+   }
+  },
+  {
+   "institute": "Rangaraya Medical College, Kakinada",
+   "program": "MBBS",
+   "state": "Andhra Pradesh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 7601,
+    "OBC": 9686,
+    "EWS": 11432,
+    "SC": 47357,
+    "ST": 101082
+   },
+   "college_q": "Rangaraya Medical College, Kakinada",
+   "seats": 250
+  },
+  {
+   "institute": "S.C.B. MEDICAL COLLEGE, CUTTACK",
+   "program": "MBBS",
+   "state": "Odisha",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 2618,
+    "OBC": 4882,
+    "EWS": 4961,
+    "SC": 34846,
+    "ST": 91819
+   }
+  },
+  {
+   "institute": "S.M.S. MEDICAL COLLEGE, JAIPUR",
+   "program": "MBBS",
+   "state": "Rajasthan",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 1174,
+    "OBC": 1656,
+    "EWS": 1892,
+    "ST": 12960,
+    "SC": 13827
+   }
+  },
+  {
+   "institute": "S.N. MEDICAL COLLEGE, AGRA",
+   "program": "MBBS",
+   "state": "Uttar Pradesh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 4945,
+    "OBC": 6400,
+    "EWS": 7051,
+    "SC": 43947,
+    "ST": 66565
+   },
+   "college_q": "S N Medical College, Agra",
+   "seats": 200
+  },
+  {
+   "institute": "SARDAR PATEL MEDICAL COLLEGE, BIKANER",
+   "program": "MBBS",
+   "state": "Rajasthan",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 3278,
+    "OBC": 3662,
+    "EWS": 4472,
+    "SC": 30407,
+    "ST": 43157
+   },
+   "college_q": "Sardar Patel Medical College, Bikaner",
+   "seats": 250
+  },
+  {
+   "institute": "SH VASANT RAO NAIK GOVT.M.C., YAVATMAL",
+   "program": "MBBS",
+   "state": "Maharashtra",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 14578,
+    "OBC": 15069,
+    "EWS": 15782,
+    "SC": 87513,
+    "ST": 109913
+   }
+  },
+  {
+   "institute": "SHRI ATAL BIHARI VAJPAYEE GOVERNMENT MEDICAL COLLEGE, CHHAINSA",
+   "program": "MBBS",
+   "state": "Haryana",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 6948,
+    "OBC": 9896,
+    "EWS": 10384,
+    "SC": 47058,
+    "ST": 78248
+   }
+  },
+  {
+   "institute": "SHRI BHAUSAHEB HIRE GOVT. M.C., DHULE",
+   "program": "MBBS",
+   "state": "Maharashtra",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 12677,
+    "OBC": 14510,
+    "EWS": 16282,
+    "SC": 84858,
+    "ST": 110678
+   }
+  },
+  {
+   "institute": "SHRI KALYAN GOVT MEDICAL COLLEGE SIKAR",
+   "program": "MBBS",
+   "state": "Rajasthan",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 5485,
+    "OBC": 5834,
+    "EWS": 8660,
+    "SC": 44385,
+    "ST": 61287
+   },
+   "college_q": "Shri Kalyan Govt. Medical College, Sikar, Rajasthan",
+   "seats": 100
+  },
+  {
+   "institute": "SLBS Govt. Medical College, Mandi",
+   "program": "MBBS",
+   "state": "Himachal Pradesh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 6652,
+    "OBC": 7208,
+    "EWS": 9037,
+    "SC": 45199,
+    "ST": 59490
+   }
+  },
+  {
+   "institute": "SOBAN SINGH JEENA GOVERNMENT INSTITUTE OF MEDICAL SCIENCE & RESEARCH, ALMORA",
+   "program": "MBBS",
+   "state": "Uttarakhand",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 11917,
+    "EWS": 13273,
+    "OBC": 14052,
+    "SC": 78931,
+    "ST": 96534
+   },
+   "college_q": "Soban Singh jeena Government institute of Medical science & Research, Almora",
+   "seats": 100
+  },
+  {
+   "institute": "STANLEY MEDICAL COLLEGE, CHENNAI",
+   "program": "MBBS",
+   "state": "Tamil Nadu",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 1258,
+    "OBC": 1735,
+    "EWS": 8671,
+    "SC": 11335,
+    "ST": 63833
+   },
+   "college_q": "Stanley Medical College, Chennai",
+   "seats": 250
+  },
+  {
+   "institute": "Sarat Chandra Chattopadhyay Govt. Medical College & Hospital, Uluberia",
+   "program": "MBBS",
+   "state": "West Bengal",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 17944,
+    "EWS": 19261,
+    "OBC": 19405,
+    "SC": 84981,
+    "ST": 124635
+   }
+  },
+  {
+   "institute": "Sri Jagannath Medical College & Hospital, Puri",
+   "program": "MBBS",
+   "state": "Odisha",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 8718,
+    "OBC": 12264,
+    "EWS": 14447,
+    "SC": 59986,
+    "ST": 93818
+   },
+   "college_q": "Sri Jagannath Medical College & Hospital, Puri",
+   "seats": 100
+  },
+  {
+   "institute": "Sundarlal patwa Govt medical College mandsaur, Dean Office",
+   "program": "MBBS",
+   "state": "Madhya Pradesh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 13667,
+    "EWS": 15203,
+    "OBC": 15291,
+    "SC": 89434,
+    "ST": 107034
+   }
+  },
+  {
+   "institute": "TAMILNADU GOVT D.C. & HOSP, CHENNAI",
+   "program": "BDS",
+   "state": "Tamil Nadu",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 27940,
+    "EWS": 29880,
+    "OBC": 34000,
+    "SC": 121650,
+    "ST": 191150
+   }
+  },
+  {
+   "institute": "THENI GOVT. MEDICAL COLLEGE, THENI",
+   "program": "MBBS",
+   "state": "Tamil Nadu",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 6539,
+    "OBC": 7180,
+    "EWS": 23572,
+    "SC": 42836,
+    "ST": 120723
+   },
+   "college_q": "Theni Government Medical College, Theni",
+   "seats": 100
+  },
+  {
+   "institute": "THOOTHUKUDI MEDICAL COLLEGE, THOOTHUKUDI",
+   "program": "MBBS",
+   "state": "Tamil Nadu",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 7663,
+    "OBC": 8893,
+    "EWS": 24006,
+    "SC": 58560,
+    "ST": 129719
+   },
+   "college_q": "Thoothukudi Medical College, Thoothukudi",
+   "seats": 150
+  },
+  {
+   "institute": "TOPIWALA NATIONAL MEDICAL COLLEGE, MUMBAI",
+   "program": "MBBS",
+   "state": "Maharashtra",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 2876,
+    "OBC": 5749,
+    "EWS": 6365,
+    "SC": 39041,
+    "ST": 77991
+   },
+   "college_q": "Topiwala National Medical College, Mumbai",
+   "seats": 150
+  },
+  {
+   "institute": "Tamralipto Government Medical College & Hospital, West Bengal",
+   "program": "MBBS",
+   "state": "West Bengal",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 18793,
+    "OBC": 19665,
+    "EWS": 21290,
+    "SC": 102110,
+    "ST": 132634
+   }
+  },
+  {
+   "institute": "University College of Medical Sciences, New Delhi",
+   "program": "MBBS",
+   "state": "Delhi (NCT)",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 559,
+    "OBC": 1167,
+    "EWS": 1168,
+    "SC": 8538,
+    "ST": 13646
+   },
+   "college_q": "University College of Medical Sciences & GTB Hospital, New Delhi",
+   "seats": 170
+  },
+  {
+   "institute": "Vardhman Mahavir Medical College and Safdarjung Hospital New Delhi, VMMC",
+   "program": "MBBS",
+   "state": "Delhi (NCT)",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 132,
+    "OBC": 232,
+    "EWS": 693,
+    "SC": 2934,
+    "ST": 7556
+   }
+  },
+  {
+   "institute": "Veer Chandra Singh Garhwali Govt. Institute of Medical Science & Research, BADRINATH MARG",
+   "program": "MBBS",
+   "state": "Uttarakhand",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 9965,
+    "OBC": 12509,
+    "EWS": 12685,
+    "SC": 71513,
+    "ST": 93060
+   }
+  },
+  {
+   "institute": "Virendra Kumar Sakhlecha Government Medical College, Neemuch",
+   "program": "MBBS",
+   "state": "Madhya Pradesh",
+   "type": "Govt",
+   "cutoffs": {
+    "Open": 14281,
+    "EWS": 15713,
+    "OBC": 15727,
+    "SC": 85937,
+    "ST": 101593
+   }
+  },
+  {
+   "institute": "ASSAM MEDICAL COLLEGE, DIBRUGARH",
+   "program": "MBBS",
+   "state": "Assam",
+   "type": null,
+   "cutoffs": {
+    "Open": 11571,
+    "OBC": 14944,
+    "EWS": 16210,
+    "ST": 70087,
+    "SC": 81601
+   }
+  },
+  {
+   "institute": "Andaman and Nicobar Islands Institute of Medical S, Director ANIIMS",
+   "program": "MBBS",
+   "state": "Andaman And Nicobar Islands",
+   "type": null,
+   "cutoffs": {
+    "Open": 12014,
+    "OBC": 19826,
+    "EWS": 21558,
+    "SC": 104569,
+    "ST": 125622
+   }
+  },
+  {
+   "institute": "Atal Bihari Vajpayee Institute of Medical Sciences & DR RML HOSPITAL, NEW DELHI",
+   "program": "MBBS",
+   "state": "Delhi (NCT)",
+   "type": null,
+   "cutoffs": {
+    "Open": 215,
+    "OBC": 519,
+    "EWS": 1009,
+    "SC": 7191,
+    "ST": 14062
+   },
+   "college_q": "Atal Bihari Vajpayee Institute of Medical Sciences and Dr. RML Hospital, New Delhi",
+   "seats": 100
+  },
+  {
+   "institute": "Autonomous State Medical Collage, Kushinagar",
+   "program": "MBBS",
+   "state": "Uttar Pradesh",
+   "type": null,
+   "cutoffs": {
+    "Open": 13983,
+    "EWS": 15370,
+    "OBC": 16175,
+    "SC": 80124
+   }
+  },
+  {
+   "institute": "Autonomous State Medical College Society, Mirzapur",
+   "program": "MBBS",
+   "state": "Uttar Pradesh",
+   "type": null,
+   "cutoffs": {
+    "Open": 14400,
+    "OBC": 15629,
+    "EWS": 17073,
+    "SC": 89990,
+    "ST": 111337
+   },
+   "college_q": "Autonomous State Society Medical College Mirzapur",
+   "seats": 100
+  },
+  {
+   "institute": "Autonomous State Medical College, Etah",
+   "program": "MBBS",
+   "state": "Uttar Pradesh",
+   "type": null,
+   "cutoffs": {
+    "Open": 12447,
+    "OBC": 13655,
+    "EWS": 14072,
+    "SC": 89526,
+    "ST": 103371
+   },
+   "college_q": "Autonomous State Medical College Society, Etah, Uttar Pradesh",
+   "seats": 100
+  },
+  {
+   "institute": "Autonomous State Medical College, Fatehpur",
+   "program": "MBBS",
+   "state": "Uttar Pradesh",
+   "type": null,
+   "cutoffs": {
+    "Open": 13502,
+    "EWS": 14596,
+    "OBC": 14614,
+    "SC": 89467,
+    "ST": 104924
+   },
+   "college_q": "Autonomous State Medical College Society, Fatehpur",
+   "seats": 100
+  },
+  {
+   "institute": "Autonomous State Medical College, Ghazipur",
+   "program": "MBBS",
+   "state": "Uttar Pradesh",
+   "type": null,
+   "cutoffs": {
+    "Open": 15183,
+    "OBC": 15937,
+    "EWS": 16213,
+    "SC": 90264,
+    "ST": 113723
+   },
+   "college_q": "Autonomous State Medical College Society Ghazipur",
+   "seats": 100
+  },
+  {
+   "institute": "Autonomous State Medical College, Lakhimpur Kheri",
+   "program": "MBBS",
+   "state": "Uttar Pradesh",
+   "type": null,
+   "cutoffs": {
+    "Open": 15755,
+    "EWS": 17169,
+    "OBC": 17513,
+    "SC": 95644,
+    "ST": 116142
+   }
+  },
+  {
+   "institute": "Autonomous State Medical College, Pilibhit",
+   "program": "MBBS",
+   "state": "Uttar Pradesh",
+   "type": null,
+   "cutoffs": {
+    "Open": 14571,
+    "OBC": 16994,
+    "EWS": 17471,
+    "SC": 89345,
+    "ST": 114856
+   },
+   "college_q": "Autonomous State Medical College Pilibhit",
+   "seats": 100
+  },
+  {
+   "institute": "Autonomous State Medical College, Sonebhadra",
+   "program": "MBBS",
+   "state": "Uttar Pradesh",
+   "type": null,
+   "cutoffs": {
+    "Open": 16620,
+    "OBC": 17711,
+    "EWS": 17823,
+    "SC": 96570,
+    "ST": 115781
+   },
+   "college_q": "Autonomous State Medical College, Sonebhadra",
+   "seats": 100
+  },
+  {
+   "institute": "Autonomous State Medical College, Sultanpur",
+   "program": "MBBS",
+   "state": "Uttar Pradesh",
+   "type": null,
+   "cutoffs": {
+    "Open": 15600,
+    "OBC": 16796,
+    "EWS": 17806,
+    "SC": 92434,
+    "ST": 109960
+   },
+   "college_q": "Autonomous State Medical College Sultanpur",
+   "seats": 100
+  },
+  {
+   "institute": "Autonomous State Medical college Society Hardoi, Gaura Danda",
+   "program": "MBBS",
+   "state": "Uttar Pradesh",
+   "type": null,
+   "cutoffs": {
+    "Open": 14227,
+    "EWS": 14309,
+    "OBC": 15616,
+    "SC": 87884,
+    "ST": 108144
+   }
+  },
+  {
+   "institute": "Autonomous state Medical College, Sehud",
+   "program": "MBBS",
+   "state": "Uttar Pradesh",
+   "type": null,
+   "cutoffs": {
+    "Open": 16086,
+    "OBC": 17521,
+    "SC": 91920
+   }
+  },
+  {
+   "institute": "BANKURA SAMMILANI MED COLL, BANKURA",
+   "program": "MBBS",
+   "state": "West Bengal",
+   "type": null,
+   "cutoffs": {
+    "Open": 11895,
+    "OBC": 14053,
+    "EWS": 16226,
+    "SC": 78803,
+    "ST": 116490
+   },
+   "college_q": "Bankura Sammilani Medical College, Bankura",
+   "seats": 200
+  },
+  {
+   "institute": "BELGAUM INST. OF MEDICAL SCI., BELGAUM",
+   "program": "MBBS",
+   "state": "Karnataka",
+   "type": null,
+   "cutoffs": {
+    "Open": 7756,
+    "OBC": 11043,
+    "EWS": 12526,
+    "ST": 65058,
+    "SC": 75425
+   }
+  },
+  {
+   "institute": "BIDAR INSTITUTE OF MEDICAL SCI., BIDAR",
+   "program": "MBBS",
+   "state": "Karnataka",
+   "type": null,
+   "cutoffs": {
+    "Open": 11883,
+    "OBC": 14218,
+    "EWS": 18770,
+    "SC": 84284,
+    "ST": 95045
+   }
+  },
+  {
+   "institute": "Baba Kinaram Autonomous State Medical College, Chandauli",
+   "program": "MBBS",
+   "state": "Uttar Pradesh",
+   "type": null,
+   "cutoffs": {
+    "Open": 16316,
+    "OBC": 17687,
+    "EWS": 18191,
+    "SC": 93950,
+    "ST": 121111
+   }
+  },
+  {
+   "institute": "Bangalore Medical College and Research Institute",
+   "program": "MBBS",
+   "state": "Karnataka",
+   "type": null,
+   "cutoffs": {
+    "Open": 1338,
+    "OBC": 3040,
+    "EWS": 4514,
+    "SC": 23872,
+    "ST": 39918
+   },
+   "college_q": "Bangalore Medical College and Research Institute, Bangalore",
+   "seats": 250
+  },
+  {
+   "institute": "Bhima Bhoi Medical College and Hospital, Balangir",
+   "program": "MBBS",
+   "state": "Odisha",
+   "type": null,
+   "cutoffs": {
+    "Open": 13609,
+    "OBC": 16234,
+    "EWS": 20482,
+    "SC": 60630,
+    "ST": 127876
+   }
+  },
+  {
+   "institute": "Burdwan Dental College & Hospital, Burdwan",
+   "program": "BDS",
+   "state": "West Bengal",
+   "type": null,
+   "cutoffs": {
+    "Open": 26201,
+    "EWS": 30420,
+    "OBC": 31819,
+    "SC": 136525,
+    "ST": 172634
+   }
+  },
+  {
+   "institute": "C. Institute of Medical Sciences, Chamarajanagar",
+   "program": "MBBS",
+   "state": "Karnataka",
+   "type": null,
+   "cutoffs": {
+    "Open": 14419,
+    "OBC": 15745,
+    "EWS": 22472,
+    "SC": 86328,
+    "ST": 104491
+   }
+  },
+  {
+   "institute": "CALCUTTA NATIONAL MED COLL, KOLKATA",
+   "program": "MBBS",
+   "state": "West Bengal",
+   "type": null,
+   "cutoffs": {
+    "Open": 6375,
+    "OBC": 8258,
+    "EWS": 9437,
+    "SC": 44753,
+    "ST": 89140
+   },
+   "college_q": "Calcutta National Medical College, Kolkata",
+   "seats": 250
+  },
+  {
+   "institute": "CHENGALPATTU MEDICAL COLL, CHENGALPATTU",
+   "program": "MBBS",
+   "state": "Tamil Nadu",
+   "type": null,
+   "cutoffs": {
+    "Open": 3814,
+    "OBC": 4245,
+    "EWS": 17005,
+    "SC": 20765
+   },
+   "college_q": "Chengalpattu Medical College, Chengalpattu",
+   "seats": 100
+  },
+  {
+   "institute": "CHHATTISGARH INSTITUTE OF MEDICAL SCIENCES, BILASP",
+   "program": "MBBS",
+   "state": "Chhattisgarh",
+   "type": null,
+   "cutoffs": {
+    "Open": 9799,
+    "EWS": 11511,
+    "OBC": 11558,
+    "SC": 71211,
+    "ST": 99078
+   }
+  },
+  {
+   "institute": "CHIKKABALLAPURA INSTITUTE OF MEDICAL SCIENCES, KARNATAKA",
+   "program": "MBBS",
+   "state": "Karnataka",
+   "type": null,
+   "cutoffs": {
+    "Open": 12520,
+    "OBC": 14769,
+    "EWS": 22113,
+    "SC": 89766,
+    "ST": 111163
+   }
+  },
+  {
+   "institute": "COLLEGE OF MEDICINE and JNM HOSPITAL, KALYANI",
+   "program": "MBBS",
+   "state": "West Bengal",
+   "type": null,
+   "cutoffs": {
+    "Open": 10895,
+    "EWS": 12299,
+    "OBC": 12926,
+    "SC": 70966
+   },
+   "college_q": "College of Medicine and JNM Hospital, Kalyani, Nadia",
+   "seats": 125
+  },
+  {
+   "institute": "Chhindwara Institute of Medical Sciences, Teachers Colony",
+   "program": "MBBS",
+   "state": "Madhya Pradesh",
+   "type": null,
+   "cutoffs": {
+    "Open": 13087,
+    "OBC": 14156,
+    "EWS": 14978,
+    "SC": 88859,
+    "ST": 98233
+   }
+  },
+  {
+   "institute": "Chikkamagaluru Institute of Medical Sciences",
+   "program": "MBBS",
+   "state": "Karnataka",
+   "type": null,
+   "cutoffs": {
+    "Open": 15955,
+    "OBC": 16433,
+    "EWS": 23078,
+    "SC": 99928,
+    "ST": 122917
+   },
+   "college_q": "Chikkamagaluru Institute of Medical Sciences, Chikkamagaluru",
+   "seats": 150
+  },
+  {
+   "institute": "Chitradurga Medical College and Research Institute",
+   "program": "MBBS",
+   "state": "Karnataka",
+   "type": null,
+   "cutoffs": {
+    "Open": 16313,
+    "OBC": 17154,
+    "EWS": 22578,
+    "SC": 102160,
+    "ST": 125638
+   },
+   "college_q": "Chitradurga Medical College and Research Institute",
+   "seats": 150
+  },
+  {
+   "institute": "College of Nursing BHU, VARANASI",
+   "program": "BSc Nursing",
+   "state": "Uttar Pradesh",
+   "type": null,
+   "cutoffs": {
+    "Open": 45932,
+    "OBC": 56465,
+    "EWS": 64667,
+    "SC": 172552,
+    "ST": 229343
+   }
+  },
+  {
+   "institute": "DC, RIMS",
+   "program": "BDS",
+   "state": "Manipur",
+   "type": null,
+   "cutoffs": {
+    "Open": 20798,
+    "OBC": 33113,
+    "SC": 128010,
+    "ST": 169235
+   }
+  },
+  {
+   "institute": "DR. R. AHMED DENT.COLL & HOSP, KOLKATA",
+   "program": "BDS",
+   "state": "West Bengal",
+   "type": null,
+   "cutoffs": {
+    "Open": 33631,
+    "EWS": 36001,
+    "OBC": 36958,
+    "SC": 118617
+   }
+  },
+  {
+   "institute": "DR. VAISHAMPAYAM MEMORIAL M.C., SHOLAPUR",
+   "program": "MBBS",
+   "state": "Maharashtra",
+   "type": null,
+   "cutoffs": {
+    "Open": 10285,
+    "OBC": 11871,
+    "EWS": 12306,
+    "SC": 76556,
+    "ST": 103016
+   }
+  },
+  {
+   "institute": "DR.RAJENDRA PRASAD MC, TANDA",
+   "program": "MBBS",
+   "state": "Himachal Pradesh",
+   "type": null,
+   "cutoffs": {
+    "Open": 4392,
+    "EWS": 5308,
+    "OBC": 5651,
+    "SC": 38629,
+    "ST": 51266
+   }
+  },
+  {
+   "institute": "Darbhanga Medical College, Laheriasarai",
+   "program": "MBBS",
+   "state": "Bihar",
+   "type": null,
+   "cutoffs": {
+    "Open": 7873,
+    "OBC": 8947,
+    "EWS": 9039,
+    "SC": 64358,
+    "ST": 96744
+   }
+  },
+  {
+   "institute": "Dental Institue, RIMS",
+   "program": "BDS",
+   "state": "Jharkhand",
+   "type": null,
+   "cutoffs": {
+    "Open": 26797,
+    "EWS": 31856,
+    "OBC": 33163,
+    "SC": 135449,
+    "ST": 187194
+   }
+  },
+  {
+   "institute": "Dhubri Medical College, Assam",
+   "program": "MBBS",
+   "state": "Assam",
+   "type": null,
+   "cutoffs": {
+    "Open": 20273,
+    "OBC": 20681,
+    "EWS": 22798,
+    "SC": 104163,
+    "ST": 129921
+   }
+  },
+  {
+   "institute": "Diphu Medical College & Hospital, Assam",
+   "program": "MBBS",
+   "state": "Assam",
+   "type": null,
+   "cutoffs": {
+    "Open": 20448,
+    "OBC": 20668,
+    "EWS": 22629,
+    "SC": 100279,
+    "ST": 116747
+   },
+   "college_q": "Diphu Medical College & Hospital, Diphu, Assam",
+   "seats": 100
+  },
+  {
+   "institute": "Dr Ram Manohar Lohia Inst. of Med. Sce., Lucknow",
+   "program": "MBBS",
+   "state": "Uttar Pradesh",
+   "type": null,
+   "cutoffs": {
+    "Open": 3323,
+    "EWS": 3792,
+    "OBC": 4283,
+    "SC": 31794,
+    "ST": 56960
+   }
+  },
+  {
+   "institute": "Dr. B.S.A. Medical College, Delhi",
+   "program": "MBBS",
+   "state": "Delhi (NCT)",
+   "type": null,
+   "cutoffs": {
+    "Open": 1772,
+    "OBC": 2504,
+    "EWS": 2636,
+    "ST": 13670,
+    "SC": 15448
+   }
+  },
+  {
+   "institute": "Dr. Ziauddin Ahmed Dental College and Hospital, ALIGARH",
+   "program": "BDS",
+   "state": "Uttar Pradesh",
+   "type": null,
+   "cutoffs": {
+    "Open": 50332
+   }
+  },
+  {
+   "institute": "ESI-MC&PGIMS&R, Banglore",
+   "program": "MBBS",
+   "state": "Karnataka",
+   "type": null,
+   "cutoffs": {
+    "Open": 4951,
+    "OBC": 6851,
+    "EWS": 9673,
+    "SC": 49616,
+    "ST": 89273
+   }
+  },
+  {
+   "institute": "ESIC Dental College and Hospital, ESIC Hospital",
+   "program": "BDS",
+   "state": "Delhi (NCT)",
+   "type": null,
+   "cutoffs": {
+    "Open": 25450,
+    "EWS": 32549,
+    "OBC": 36188,
+    "SC": 131129,
+    "ST": 162417
+   }
+  },
+  {
+   "institute": "ESIC Medical College AND PGIMSR, Chennai",
+   "program": "MBBS",
+   "state": "Tamil Nadu",
+   "type": null,
+   "cutoffs": {
+    "Open": 6075,
+    "OBC": 8668,
+    "EWS": 16206,
+    "SC": 38354,
+    "ST": 61679
+   },
+   "college_q": "ESIC Medical College & PGIMSR, K.K Nagar, Chennai",
+   "seats": 150
+  },
+  {
+   "institute": "ESIC Medical College, Faridabad",
+   "program": "MBBS",
+   "state": "Haryana",
+   "type": null,
+   "cutoffs": {
+    "Open": 3587,
+    "OBC": 4957,
+    "EWS": 5048,
+    "SC": 32277,
+    "ST": 77216
+   }
+  },
+  {
+   "institute": "ESIC Medical College, Gulbarga",
+   "program": "MBBS",
+   "state": "Karnataka",
+   "type": null,
+   "cutoffs": {
+    "Open": 10190,
+    "OBC": 12466,
+    "EWS": 12609,
+    "SC": 70438,
+    "ST": 90459
+   }
+  },
+  {
+   "institute": "ESIC Medical College, Hyderbad",
+   "program": "MBBS",
+   "state": "Telangana",
+   "type": null,
+   "cutoffs": {
+    "Open": 3437,
+    "OBC": 7488,
+    "EWS": 11395,
+    "SC": 35287,
+    "ST": 56394
+   }
+  },
+  {
+   "institute": "ESIC PGIMSR, Joka",
+   "program": "MBBS",
+   "state": "West Bengal",
+   "type": null,
+   "cutoffs": {
+    "Open": 9732,
+    "OBC": 12801,
+    "EWS": 13132,
+    "SC": 54945,
+    "ST": 95435
+   }
+  },
+  {
+   "institute": "Employees State Insurance Corporation Medical College, Alwar",
+   "program": "MBBS",
+   "state": "Rajasthan",
+   "type": null,
+   "cutoffs": {
+    "Open": 5630,
+    "OBC": 6229,
+    "EWS": 7109,
+    "SC": 42813,
+    "ST": 75310
+   },
+   "college_q": "Employees State Insurance Corporation Medical College,Alwar",
+   "seats": 100
+  },
+  {
+   "institute": "FACULTY OF DEN SCI",
+   "program": "BDS",
+   "state": "Uttar Pradesh",
+   "type": null,
+   "cutoffs": {
+    "Open": 18646,
+    "OBC": 25322,
+    "EWS": 30594,
+    "SC": 129928,
+    "ST": 138880
+   }
+  },
+  {
+   "institute": "Faculty of Dentistry",
+   "program": "BDS",
+   "state": "Delhi (NCT)",
+   "type": null,
+   "cutoffs": {
+    "Open": 32346
+   }
+  },
+  {
+   "institute": "Fakhruddin Ali Ahmed Medical College, Barpeta",
+   "program": "MBBS",
+   "state": "Assam",
+   "type": null,
+   "cutoffs": {
+    "Open": 18466,
+    "OBC": 20218,
+    "EWS": 21139,
+    "SC": 104412,
+    "ST": 105467
+   },
+   "college_q": "Fakhruddin Ali Ahmed Medical College, Barpeta, Assam",
+   "seats": 125
+  },
+  {
+   "institute": "GDC",
+   "program": "BDS",
+   "state": "Haryana",
+   "type": null,
+   "cutoffs": {
+    "Open": 30921,
+    "OBC": 32836,
+    "EWS": 36395,
+    "SC": 137850,
+    "ST": 199957
+   }
+  },
+  {
+   "institute": "GMC DAUSA RAJASTHAN",
+   "program": "MBBS",
+   "state": "Rajasthan",
+   "type": null,
+   "cutoffs": {
+    "Open": 9156,
+    "EWS": 9592,
+    "OBC": 10620,
+    "SC": 60226,
+    "ST": 81530
+   }
+  },
+  {
+   "institute": "GMC Jangaon",
+   "program": "MBBS",
+   "state": "Telangana",
+   "type": null,
+   "cutoffs": {
+    "Open": 17116,
+    "OBC": 19834,
+    "EWS": 20808,
+    "SC": 100443,
+    "ST": 126893
+   }
+  },
+  {
+   "institute": "GMC KARAULI",
+   "program": "MBBS",
+   "state": "Rajasthan",
+   "type": null,
+   "cutoffs": {
+    "Open": 11635,
+    "OBC": 12209,
+    "EWS": 12727,
+    "SC": 76899,
+    "ST": 95572
+   }
+  },
+  {
+   "institute": "GMC Kamareddy",
+   "program": "MBBS",
+   "state": "Telangana",
+   "type": null,
+   "cutoffs": {
+    "Open": 19972,
+    "OBC": 20348,
+    "EWS": 24304,
+    "SC": 104069,
+    "ST": 112712
+   }
+  },
+  {
+   "institute": "GMC, Azamgarh",
+   "program": "MBBS",
+   "state": "Uttar Pradesh",
+   "type": null,
+   "cutoffs": {
+    "Open": 9989,
+    "OBC": 10733,
+    "EWS": 12252,
+    "SC": 68913,
+    "ST": 82489
+   }
+  },
+  {
+   "institute": "GMC, Manjeri",
+   "program": "MBBS",
+   "state": "Kerala",
+   "type": null,
+   "cutoffs": {
+    "Open": 4453,
+    "OBC": 5058,
+    "EWS": 16227,
+    "SC": 60586,
+    "ST": 111918
+   }
+  },
+  {
+   "institute": "GMC, Rajamahendravaram",
+   "program": "MBBS",
+   "state": "Andhra Pradesh",
+   "type": null,
+   "cutoffs": {
+    "Open": 18768,
+    "OBC": 19531,
+    "EWS": 23873,
+    "SC": 85380,
+    "ST": 119779
+   }
+  },
+  {
+   "institute": "GMC, Shahjhanpur",
+   "program": "MBBS",
+   "state": "Uttar Pradesh",
+   "type": null,
+   "cutoffs": {
+    "Open": 11666,
+    "OBC": 12722,
+    "EWS": 12823,
+    "SC": 85589,
+    "ST": 100855
+   }
+  },
+  {
+   "institute": "GOVERMENT MEDICAL COLLEGE NANDURBAR MAHARARASTRA",
+   "program": "MBBS",
+   "state": "Maharashtra",
+   "type": null,
+   "cutoffs": {
+    "Open": 15066,
+    "OBC": 16137,
+    "EWS": 17163,
+    "SC": 97338,
+    "ST": 114517
+   }
+  },
+  {
+   "institute": "GRANT MEDICAL COLL & SIR J.J.HOSP, MUMBAI",
+   "program": "MBBS",
+   "state": "Maharashtra",
+   "type": null,
+   "cutoffs": {
+    "Open": 2368,
+    "OBC": 4444,
+    "EWS": 5194,
+    "SC": 24786,
+    "ST": 60871
+   }
+  },
+  {
+   "institute": "GTMC, THIRUVARUR",
+   "program": "MBBS",
+   "state": "Tamil Nadu",
+   "type": null,
+   "cutoffs": {
+    "Open": 10400,
+    "OBC": 11030,
+    "EWS": 24639,
+    "SC": 62093,
+    "ST": 141327
+   }
+  },
+  {
+   "institute": "GURU GOVIND SINGH MED COLL, FARIDKOT",
+   "program": "MBBS",
+   "state": "Punjab",
+   "type": null,
+   "cutoffs": {
+    "Open": 6757,
+    "OBC": 9590,
+    "EWS": 11442,
+    "SC": 57502,
+    "ST": 96892
+   },
+   "college_q": "Guru Govind Singh Medical College, Faridkot",
+   "seats": 150
+  },
+  {
+   "institute": "GUWAHATI MEDICAL COLLEGE, GUWAHATI",
+   "program": "MBBS",
+   "state": "Assam",
+   "type": null,
+   "cutoffs": {
+    "Open": 7008,
+    "OBC": 10025,
+    "EWS": 10395,
+    "SC": 42675,
+    "ST": 61091
+   },
+   "college_q": "Gauhati Medical College, Guwahati",
+   "seats": 200
+  },
+  {
+   "institute": "GVMC, VILLUPURAM",
+   "program": "MBBS",
+   "state": "Tamil Nadu",
+   "type": null,
+   "cutoffs": {
+    "Open": 8176,
+    "OBC": 8924,
+    "EWS": 24331,
+    "SC": 36171,
+    "ST": 104456
+   }
+  },
+  {
+   "institute": "Gadag Institute of Medical Sciences",
+   "program": "MBBS",
+   "state": "Karnataka",
+   "type": null,
+   "cutoffs": {
+    "Open": 14287,
+    "OBC": 15554,
+    "EWS": 20274,
+    "ST": 94357,
+    "SC": 99128
+   },
+   "college_q": "Gadag Institute of Medical Sciences, Mallasamudra, Mulgund Road, Gadag",
+   "seats": 150
+  },
+  {
+   "institute": "Gandhi Medical College Musheerabad Secunderabad, MUSHEERABAD",
+   "program": "MBBS",
+   "state": "Telangana",
+   "type": null,
+   "cutoffs": {
+    "Open": 2173,
+    "OBC": 3554,
+    "EWS": 4977,
+    "SC": 33424,
+    "ST": 49216
+   }
+  },
+  {
+   "institute": "Gmc, Bahraich",
+   "program": "MBBS",
+   "state": "Uttar Pradesh",
+   "type": null,
+   "cutoffs": {
+    "Open": 13161,
+    "OBC": 13596,
+    "EWS": 14253,
+    "SC": 87369,
+    "ST": 106452
+   }
+  },
+  {
+   "institute": "Goverment Dental College & Hospital, Jalgaon",
+   "program": "BDS",
+   "state": "Maharashtra",
+   "type": null,
+   "cutoffs": {
+    "Open": 27499,
+    "OBC": 33009,
+    "EWS": 36700,
+    "SC": 156913
+   }
+  },
+  {
+   "institute": "Goverment Medical College And Hospital Jalgaon",
+   "program": "MBBS",
+   "state": "Maharashtra",
+   "type": null,
+   "cutoffs": {
+    "Open": 14860,
+    "OBC": 15816,
+    "EWS": 17282,
+    "SC": 91995,
+    "ST": 114432
+   }
+  },
+  {
+   "institute": "Goverment Medical College, Bettiah",
+   "program": "MBBS",
+   "state": "Bihar",
+   "type": null,
+   "cutoffs": {
+    "Open": 13214,
+    "OBC": 14092,
+    "EWS": 15505,
+    "SC": 91813,
+    "ST": 110052
+   }
+  },
+  {
+   "institute": "Goverment Medical College, Datia",
+   "program": "MBBS",
+   "state": "Madhya Pradesh",
+   "type": null,
+   "cutoffs": {
+    "Open": 12938,
+    "OBC": 13552,
+    "EWS": 14277,
+    "ST": 82283,
+    "SC": 87423
+   }
+  },
+  {
+   "institute": "Goverment Medical College, Gadchiroli",
+   "program": "MBBS",
+   "state": "Maharashtra",
+   "type": null,
+   "cutoffs": {
+    "Open": 18342,
+    "OBC": 19118,
+    "EWS": 19150,
+    "SC": 99295,
+    "ST": 126069
+   }
+  },
+  {
+   "institute": "HASSAN INST. MEDICAL SCIENCES, HASSAN",
+   "program": "MBBS",
+   "state": "Karnataka",
+   "type": null,
+   "cutoffs": {
+    "Open": 8923,
+    "OBC": 11099,
+    "EWS": 16784,
+    "SC": 66273,
+    "ST": 81970
+   },
+   "college_q": "Hassan Institute of Medical Sciences, Hassan",
+   "seats": 150
+  },
+  {
+   "institute": "Haveri Institute of Medical Sciences, Karnataka",
+   "program": "MBBS",
+   "state": "Karnataka",
+   "type": null,
+   "cutoffs": {
+    "Open": 15509,
+    "OBC": 16921,
+    "EWS": 22656,
+    "SC": 100011,
+    "ST": 126062
+   }
+  },
+  {
+   "institute": "Hinduhridayasamrat Balasaheb Thackeray Medical College and Dr. R. N. Cooper Municipal General Hospital, Maharashtra",
+   "program": "MBBS",
+   "state": "Maharashtra",
+   "type": null,
+   "cutoffs": {
+    "Open": 4153,
+    "OBC": 6279,
+    "EWS": 8531,
+    "SC": 43828,
+    "ST": 87349
+   }
+  },
+  {
+   "institute": "IMS BHU Dental, Varanasi",
+   "program": "BDS",
+   "state": "Uttar Pradesh",
+   "type": null,
+   "cutoffs": {
+    "Open": 28956,
+    "OBC": 32320,
+    "EWS": 32467,
+    "SC": 138864,
+    "ST": 178066
+   }
+  },
+  {
+   "institute": "INDIRA GANDHI MEDICAL COLL., SHIMLA",
+   "program": "MBBS",
+   "state": "Himachal Pradesh",
+   "type": null,
+   "cutoffs": {
+    "Open": 2882,
+    "EWS": 3786,
+    "OBC": 3947,
+    "SC": 26969,
+    "ST": 56136
+   },
+   "college_q": "Indira Gandhi Medical College, Shimla",
+   "seats": 120
+  },
+  {
+   "institute": "INST OF PG MED EDU & RESEARCH, KOLKATA",
+   "program": "MBBS",
+   "state": "West Bengal",
+   "type": null,
+   "cutoffs": {
+    "Open": 3260,
+    "OBC": 4770,
+    "EWS": 4783,
+    "SC": 22844,
+    "ST": 74360
+   }
+  },
+  {
+   "institute": "IRT Perundurai Medical College, Perundurai",
+   "program": "MBBS",
+   "state": "Tamil Nadu",
+   "type": null,
+   "cutoffs": {
+    "Open": 8412,
+    "OBC": 9354,
+    "EWS": 23489,
+    "SC": 51725,
+    "ST": 105143
+   }
+  },
+  {
+   "institute": "Indira Gandhi Institute of Medical Sciences, Patna",
+   "program": "MBBS",
+   "state": "Bihar",
+   "type": null,
+   "cutoffs": {
+    "Open": 4482,
+    "OBC": 5180,
+    "EWS": 5477,
+    "SC": 48808,
+    "ST": 79981
+   },
+   "college_q": "Indira Gandhi Institute of Medical Sciences, Sheikhpura, Patna",
+   "seats": 150
+  },
+  {
+   "institute": "Indira Gandhi Medical College & RI, Puducherry",
+   "program": "MBBS",
+   "state": "Puducherry",
+   "type": null,
+   "cutoffs": {
+    "Open": 8875,
+    "OBC": 12017,
+    "EWS": 18099,
+    "SC": 62291,
+    "ST": 99309
+   }
+  },
+  {
+   "institute": "JAWAHAR LAL NEHRU MEDICAL, AJMER",
+   "program": "MBBS",
+   "state": "Rajasthan",
+   "type": null,
+   "cutoffs": {
+    "Open": 4264,
+    "OBC": 4473,
+    "EWS": 5830,
+    "SC": 36316,
+    "ST": 53648
+   }
+  },
+  {
+   "institute": "JLN IMS, IMPHAL",
+   "program": "MBBS",
+   "state": "Manipur",
+   "type": null,
+   "cutoffs": {
+    "Open": 19283,
+    "OBC": 20402,
+    "EWS": 22504,
+    "SC": 81911,
+    "ST": 105760
+   }
+  },
+  {
+   "institute": "Jannayak Karpoori Thakur Medical college and Hospital, Madhepura",
+   "program": "MBBS",
+   "state": "Bihar",
+   "type": null,
+   "cutoffs": {
+    "Open": 14249,
+    "OBC": 15293,
+    "EWS": 17199,
+    "SC": 93794,
+    "ST": 112881
+   },
+   "college_q": "Jannayak Karpoori Thakur Medical College & Hospital, Madhepura, Bihar",
+   "seats": 100
+  },
+  {
+   "institute": "Jawaharlal Nehru Institute of Dental Sciences, Imphal",
+   "program": "BDS",
+   "state": "Manipur",
+   "type": null,
+   "cutoffs": {
+    "Open": 36801,
+    "OBC": 41398,
+    "EWS": 45112,
+    "SC": 134040
+   }
+  },
+  {
+   "institute": "Jawaharlal Nehru Medical College, AMU",
+   "program": "MBBS",
+   "state": "Uttar Pradesh",
+   "type": null,
+   "cutoffs": {
+    "Open": 3971
+   }
+  },
+  {
+   "institute": "Jorhat Medical College and Hospital, JORHAT",
+   "program": "MBBS",
+   "state": "Assam",
+   "type": null,
+   "cutoffs": {
+    "Open": 16465,
+    "OBC": 18742,
+    "EWS": 19097,
+    "ST": 89396,
+    "SC": 102267
+   },
+   "college_q": "Jorhat Medical College & Hospital , Jorhat",
+   "seats": 125
+  },
+  {
+   "institute": "KARNATAK INST. OF MEDICAL SC., HUBLI",
+   "program": "MBBS",
+   "state": "Karnataka",
+   "type": null,
+   "cutoffs": {
+    "Open": 5413,
+    "OBC": 8560,
+    "EWS": 12300,
+    "ST": 36875,
+    "SC": 45608
+   }
+  },
+  {
+   "institute": "KGMC, LUCKNOW",
+   "program": "MBBS",
+   "state": "Uttar Pradesh",
+   "type": null,
+   "cutoffs": {
+    "Open": 1628,
+    "EWS": 2830,
+    "OBC": 3102,
+    "SC": 15774,
+    "ST": 47323
+   }
+  },
+  {
+   "institute": "Kakatiya Medical College Warangal, SVP Road",
+   "program": "MBBS",
+   "state": "Telangana",
+   "type": null,
+   "cutoffs": {
+    "Open": 8974,
+    "OBC": 11711,
+    "EWS": 13673,
+    "ST": 51696,
+    "SC": 56260
+   }
+  },
+  {
+   "institute": "Kokrajhar Medical College & Hospital Rangalikhata, Rangalikhata Pt.-1",
+   "program": "MBBS",
+   "state": "Assam",
+   "type": null,
+   "cutoffs": {
+    "Open": 20679,
+    "OBC": 21330,
+    "EWS": 24869,
+    "SC": 105691,
+    "ST": 125887
+   }
+  },
+  {
+   "institute": "Koppal Institute of Medical Sciences, DIRECTOR",
+   "program": "MBBS",
+   "state": "Karnataka",
+   "type": null,
+   "cutoffs": {
+    "Open": 15274,
+    "OBC": 15999,
+    "EWS": 20884,
+    "SC": 93550,
+    "ST": 124471
+   }
+  },
+  {
+   "institute": "LOKMANYA TILAK MUNICIPAL M C, MUMBAI",
+   "program": "MBBS",
+   "state": "Maharashtra",
+   "type": null,
+   "cutoffs": {
+    "Open": 1887,
+    "OBC": 5576,
+    "EWS": 6602,
+    "SC": 34048,
+    "ST": 81412
+   }
+  },
+  {
+   "institute": "Lakhimpur Medical College, North Lakhimpur",
+   "program": "MBBS",
+   "state": "Assam",
+   "type": null,
+   "cutoffs": {
+    "Open": 20090,
+    "OBC": 21217,
+    "EWS": 21279,
+    "SC": 109291,
+    "ST": 132326
+   }
+  },
+  {
+   "institute": "M.G.D.C. & HOSPITAL, PUDUCHERRY",
+   "program": "BDS",
+   "state": "Puducherry",
+   "type": null,
+   "cutoffs": {
+    "Open": 34019,
+    "OBC": 40574,
+    "EWS": 45674,
+    "SC": 142377,
+    "ST": 149321
+   }
+  },
+  {
+   "institute": "MAHARAJA K.C. GAJAPATI M.C., BRAHMAPUR",
+   "program": "MBBS",
+   "state": "Odisha",
+   "type": null,
+   "cutoffs": {
+    "Open": 6010,
+    "EWS": 8140,
+    "OBC": 8851,
+    "SC": 50972,
+    "ST": 92855
+   }
+  },
+  {
+   "institute": "MAHARANI LAXMI BAI MEDICAL COLL, JHANSI",
+   "program": "MBBS",
+   "state": "Uttar Pradesh",
+   "type": null,
+   "cutoffs": {
+    "Open": 6180,
+    "OBC": 8044,
+    "EWS": 8885,
+    "SC": 61250,
+    "ST": 85744
+   },
+   "college_q": "Maharani Laxmi Bai Medical College, Jhansi",
+   "seats": 150
+  },
+  {
+   "institute": "MALDA MED. COLLEGE, MALDA",
+   "program": "MBBS",
+   "state": "West Bengal",
+   "type": null,
+   "cutoffs": {
+    "Open": 14398,
+    "OBC": 15958,
+    "EWS": 19347,
+    "SC": 90126,
+    "ST": 123538
+   },
+   "college_q": "Malda Medical College & Hospital, Malda",
+   "seats": 125
+  },
+  {
+   "institute": "MANDYA INST. OF MEDICAL SCI., MANDYA",
+   "program": "MBBS",
+   "state": "Karnataka",
+   "type": null,
+   "cutoffs": {
+    "Open": 7639,
+    "OBC": 10488,
+    "EWS": 15375,
+    "SC": 65232,
+    "ST": 82535
+   }
+  },
+  {
+   "institute": "MEDICAL COLLEGE, BHAVNAGAR",
+   "program": "MBBS",
+   "state": "Gujarat",
+   "type": null,
+   "cutoffs": {
+    "Open": 6717,
+    "OBC": 7497,
+    "EWS": 8150,
+    "SC": 58426,
+    "ST": 75318
+   },
+   "college_q": "Government Medical College, Bhavnagar",
+   "seats": 200
+  },
+  {
+   "institute": "MEDICAL COLLEGE, KOLKATA",
+   "program": "MBBS",
+   "state": "West Bengal",
+   "type": null,
+   "cutoffs": {
+    "Open": 2714,
+    "OBC": 5022,
+    "EWS": 5183,
+    "SC": 19710,
+    "ST": 70328
+   }
+  },
+  {
+   "institute": "MG Inst. of Medical Sciences, Sevagram Wardha",
+   "program": "MBBS",
+   "state": "Maharashtra",
+   "type": null,
+   "cutoffs": {
+    "Open": 9917,
+    "OBC": 14348,
+    "EWS": 15580,
+    "SC": 80997,
+    "ST": 103113
+   }
+  },
+  {
+   "institute": "MIDNAPORE MEDICAL COLLEGE, MIDNAPUR",
+   "program": "MBBS",
+   "state": "West Bengal",
+   "type": null,
+   "cutoffs": {
+    "Open": 13585,
+    "OBC": 15765,
+    "EWS": 17068,
+    "SC": 88573,
+    "ST": 125396
+   }
+  },
+  {
+   "institute": "MOTI LAL NEHRU MEDICAL COLL, ALLAHABAD",
+   "program": "MBBS",
+   "state": "Uttar Pradesh",
+   "type": null,
+   "cutoffs": {
+    "Open": 4991,
+    "OBC": 6175,
+    "EWS": 7089,
+    "SC": 44991,
+    "ST": 72549
+   },
+   "college_q": "Moti Lal Nehru Medical College, Allahabad",
+   "seats": 200
+  },
+  {
+   "institute": "MRA MEDICAL COLLEGE AMBEDKAR NAGAR, UP",
+   "program": "MBBS",
+   "state": "Uttar Pradesh",
+   "type": null,
+   "cutoffs": {
+    "Open": 9735,
+    "OBC": 10471,
+    "EWS": 10981,
+    "SC": 68461,
+    "ST": 89243
+   }
+  },
+  {
+   "institute": "MYSORE MED.& RESEARCH INST. MYSORE",
+   "program": "MBBS",
+   "state": "Karnataka",
+   "type": null,
+   "cutoffs": {
+    "Open": 3087,
+    "OBC": 5571,
+    "EWS": 7253,
+    "ST": 41829,
+    "SC": 45417
+   },
+   "college_q": "Mysore Medical College and Research Instt. (Prev.name Government Medical College), Mysore",
+   "seats": 200
+  },
+  {
+   "institute": "Maharaja Jitendra Narayan Medical College and Hospital Coochbehar, Vivekananda Street",
+   "program": "MBBS",
+   "state": "West Bengal",
+   "type": null,
+   "cutoffs": {
+    "Open": 18083,
+    "OBC": 18940,
+    "EWS": 20010,
+    "SC": 98006,
+    "ST": 128380
+   }
+  },
+  {
+   "institute": "Mahatma Vidur Autonomous State Medical College",
+   "program": "MBBS",
+   "state": "Uttar Pradesh",
+   "type": null,
+   "cutoffs": {
+    "Open": 12983,
+    "OBC": 15444,
+    "EWS": 15651,
+    "SC": 81689,
+    "ST": 114632
+   },
+   "college_q": "Mahatma Vidur Autonomous State Medical College",
+   "seats": 100
+  },
+  {
+   "institute": "Maulana Azad Institute of Dental Sciences, New Delhi",
+   "program": "BDS",
+   "state": "Delhi (NCT)",
+   "type": null,
+   "cutoffs": {
+    "Open": 13602,
+    "OBC": 24967,
+    "SC": 121378,
+    "ST": 134248
+   }
+  },
+  {
+   "institute": "Medinirai Medical College (previously Known as Palamu Medical College), Palamu",
+   "program": "MBBS",
+   "state": "Jharkhand",
+   "type": null,
+   "cutoffs": {
+    "Open": 15946,
+    "OBC": 17861,
+    "EWS": 19273,
+    "SC": 100039,
+    "ST": 122410
+   }
+  },
+  {
+   "institute": "Mursidabad M C & Hospital, Mursidabad",
+   "program": "MBBS",
+   "state": "West Bengal",
+   "type": null,
+   "cutoffs": {
+    "Open": 15566,
+    "OBC": 17170,
+    "EWS": 18344,
+    "SC": 88409,
+    "ST": 127409
+   }
+  },
+  {
+   "institute": "NAGALAND INSTITUTE OF MEDICAL SCIENCE AND RESEARCH PHIREBAGIE",
+   "program": "MBBS",
+   "state": "Nagaland",
+   "type": null,
+   "cutoffs": {
+    "Open": 21190,
+    "OBC": 21406,
+    "EWS": 25011,
+    "SC": 110219,
+    "ST": 134837
+   }
+  },
+  {
+   "institute": "NAIR HOSP DENTAL COLLEGE & HOSP, MUMBAI",
+   "program": "BDS",
+   "state": "Maharashtra",
+   "type": null,
+   "cutoffs": {
+    "Open": 23139,
+    "EWS": 31400,
+    "OBC": 33900,
+    "ST": 150701,
+    "SC": 155984
+   }
+  },
+  {
+   "institute": "NAMO Medical Education & Research Institute",
+   "program": "MBBS",
+   "state": "Dadra And Nagar Haveli",
+   "type": null,
+   "cutoffs": {
+    "Open": 8919,
+    "OBC": 10161,
+    "EWS": 11816,
+    "ST": 64012,
+    "SC": 72392
+   },
+   "college_q": "NAMO Medical Education and Research Institute, Silvassa Silvassa, U.T)",
+   "seats": 177
+  },
+  {
+   "institute": "NEIGRIHMS, SHILLONG",
+   "program": "MBBS",
+   "state": "Meghalaya",
+   "type": null,
+   "cutoffs": {
+    "Open": 10679
+   }
+  },
+  {
+   "institute": "NETAJI SUBHASH CHANDRA BOSE MC, JABALPUR",
+   "program": "MBBS",
+   "state": "Madhya Pradesh",
+   "type": null,
+   "cutoffs": {
+    "Open": 7037,
+    "OBC": 8481,
+    "EWS": 9209,
+    "SC": 57337,
+    "ST": 77845
+   }
+  },
+  {
+   "institute": "NILRATAN SIRKAR MEDICAL COLLEGE, KOLKATA",
+   "program": "MBBS",
+   "state": "West Bengal",
+   "type": null,
+   "cutoffs": {
+    "Open": 5524,
+    "OBC": 7671,
+    "EWS": 9130,
+    "SC": 31212,
+    "ST": 82262
+   }
+  },
+  {
+   "institute": "NORTH BENGAL DENT.COLL",
+   "program": "BDS",
+   "state": "West Bengal",
+   "type": null,
+   "cutoffs": {
+    "Open": 33670,
+    "EWS": 35725,
+    "OBC": 39073,
+    "SC": 118335,
+    "ST": 187116
+   }
+  },
+  {
+   "institute": "NORTH BENGAL MED.COLL, DARJEELING",
+   "program": "MBBS",
+   "state": "West Bengal",
+   "type": null,
+   "cutoffs": {
+    "Open": 10533,
+    "OBC": 13016,
+    "EWS": 14869,
+    "SC": 74422,
+    "ST": 101241
+   },
+   "college_q": "North Bengal Medical College, Darjeeling",
+   "seats": 200
+  },
+  {
+   "institute": "Nagaon Medical college, Dipholu",
+   "program": "MBBS",
+   "state": "Assam",
+   "type": null,
+   "cutoffs": {
+    "Open": 20485,
+    "OBC": 21404,
+    "EWS": 24034,
+    "SC": 109637
+   }
+  },
+  {
+   "institute": "Nalbari Medical College & Hospital Dakhingaon, Nalbari",
+   "program": "MBBS",
+   "state": "Assam",
+   "type": null,
+   "cutoffs": {
+    "Open": 20989,
+    "OBC": 21232,
+    "EWS": 24577,
+    "SC": 93101,
+    "ST": 123013
+   }
+  },
+  {
+   "institute": "Osmania Medical College Koti, HYDERABAD",
+   "program": "MBBS",
+   "state": "Telangana",
+   "type": null,
+   "cutoffs": {
+    "Open": 2892,
+    "OBC": 4329,
+    "EWS": 6616,
+    "SC": 34828,
+    "ST": 46941
+   }
+  },
+  {
+   "institute": "PT. B.D. SHARMA PGIMS, ROHTAK",
+   "program": "MBBS",
+   "state": "Haryana",
+   "type": null,
+   "cutoffs": {
+    "Open": 3756,
+    "OBC": 4592,
+    "EWS": 5562,
+    "SC": 35791,
+    "ST": 70969
+   }
+  },
+  {
+   "institute": "Phulo Jhano Medical College, Dumka",
+   "program": "MBBS",
+   "state": "Jharkhand",
+   "type": null,
+   "cutoffs": {
+    "Open": 15573,
+    "OBC": 17134,
+    "EWS": 17956,
+    "SC": 99931,
+    "ST": 102692
+   }
+  },
+  {
+   "institute": "Pt. D.D.U MEDICAL COLLEGE, RAJKOT",
+   "program": "MBBS",
+   "state": "Gujarat",
+   "type": null,
+   "cutoffs": {
+    "Open": 5609,
+    "OBC": 6453,
+    "EWS": 6691,
+    "SC": 46132,
+    "ST": 74989
+   }
+  },
+  {
+   "institute": "Pt. Raghunath Murmu Med. College, Baripada",
+   "program": "MBBS",
+   "state": "Odisha",
+   "type": null,
+   "cutoffs": {
+    "Open": 13201,
+    "EWS": 15632,
+    "OBC": 15728,
+    "SC": 71941,
+    "ST": 130285
+   },
+   "college_q": "Pt. Raghunath Murmu Medical College and Hospital, Baripada, Odisha",
+   "seats": 125
+  },
+  {
+   "institute": "RAICHUR INST. OF MEDICAL SCI., RAICHUR",
+   "program": "MBBS",
+   "state": "Karnataka",
+   "type": null,
+   "cutoffs": {
+    "Open": 13573,
+    "OBC": 14902,
+    "EWS": 15144,
+    "SC": 92986,
+    "ST": 116305
+   }
+  },
+  {
+   "institute": "RAJENDRA INST. OF MED. SCI., RANCHI",
+   "program": "MBBS",
+   "state": "Jharkhand",
+   "type": null,
+   "cutoffs": {
+    "Open": 4515,
+    "OBC": 5315,
+    "EWS": 6622,
+    "SC": 61029,
+    "ST": 83756
+   }
+  },
+  {
+   "institute": "RAJIV GANDHI INSTITUTE OF MEDICAL SCIENCES, KADAPA",
+   "program": "MBBS",
+   "state": "Andhra Pradesh",
+   "type": null,
+   "cutoffs": {
+    "Open": 14765,
+    "OBC": 17597,
+    "EWS": 22662,
+    "SC": 84095,
+    "ST": 124744
+   },
+   "college_q": "Rajiv Gandhi Institute of Medical Sciences, Kadapa",
+   "seats": 175
+  },
+  {
+   "institute": "RAJIV GANDHI MEDICAL COLLEGE, THANE",
+   "program": "MBBS",
+   "state": "Maharashtra",
+   "type": null,
+   "cutoffs": {
+    "Open": 5783,
+    "OBC": 7852,
+    "EWS": 9275,
+    "SC": 45376,
+    "ST": 83405
+   },
+   "college_q": "Rajiv Gandhi Medical College and Chhatrapati Shivaji Maharaj Hospital, Thane",
+   "seats": 100
+  },
+  {
+   "institute": "REGIONAL INST OF MEDICAL SCI, IMPHAL",
+   "program": "MBBS",
+   "state": "Manipur",
+   "type": null,
+   "cutoffs": {
+    "Open": 12184,
+    "OBC": 15062,
+    "EWS": 19897,
+    "ST": 60784,
+    "SC": 64770
+   }
+  },
+  {
+   "institute": "RIMS Srikakulam, Balaga Srikakulam",
+   "program": "MBBS",
+   "state": "Andhra Pradesh",
+   "type": null,
+   "cutoffs": {
+    "Open": 17565,
+    "OBC": 18461,
+    "EWS": 23287,
+    "SC": 84998,
+    "ST": 125112
+   }
+  },
+  {
+   "institute": "RIMS, Ongole",
+   "program": "MBBS",
+   "state": "Andhra Pradesh",
+   "type": null,
+   "cutoffs": {
+    "Open": 15574,
+    "OBC": 17411,
+    "EWS": 22309,
+    "SC": 77084,
+    "ST": 108820
+   }
+  },
+  {
+   "institute": "RUHS College of Dental Science, Jaipur",
+   "program": "BDS",
+   "state": "Rajasthan",
+   "type": null,
+   "cutoffs": {
+    "Open": 13694,
+    "EWS": 18374,
+    "OBC": 27912,
+    "SC": 133235,
+    "ST": 154776
+   }
+  },
+  {
+   "institute": "Rajah Muthiah Dental College and Hos., Annamalai",
+   "program": "BDS",
+   "state": "Tamil Nadu",
+   "type": null,
+   "cutoffs": {
+    "Open": 30682,
+    "OBC": 36696,
+    "EWS": 48617,
+    "SC": 133498,
+    "ST": 200828
+   }
+  },
+  {
+   "institute": "Rajiv Gandhi Institute Medical Sce of Adilabad, MAIN ROAD",
+   "program": "MBBS",
+   "state": "Telangana",
+   "type": null,
+   "cutoffs": {
+    "Open": 12965,
+    "OBC": 15996,
+    "EWS": 19688,
+    "SC": 68568,
+    "ST": 69858
+   }
+  },
+  {
+   "institute": "Rajkiya Medical College, Jalaun",
+   "program": "MBBS",
+   "state": "Uttar Pradesh",
+   "type": null,
+   "cutoffs": {
+    "Open": 11310,
+    "OBC": 11553,
+    "EWS": 14066,
+    "SC": 78141,
+    "ST": 98705
+   },
+   "college_q": "Rajkiya Medical College Jalaun, Orai, Uttar Pradesh",
+   "seats": 100
+  },
+  {
+   "institute": "Rani Durgavati Medical College, Banda",
+   "program": "MBBS",
+   "state": "Uttar Pradesh",
+   "type": null,
+   "cutoffs": {
+    "Open": 11345,
+    "OBC": 11745,
+    "EWS": 14526,
+    "SC": 84983,
+    "ST": 88346
+   }
+  },
+  {
+   "institute": "S.C.B. MEDICAL COLL(DENTAL), CUTTACK",
+   "program": "BDS",
+   "state": "Odisha",
+   "type": null,
+   "cutoffs": {
+    "Open": 22364,
+    "OBC": 24093,
+    "EWS": 33364,
+    "SC": 87414,
+    "ST": 119066
+   }
+  },
+  {
+   "institute": "S.S. MEDICAL COLLEGE, REWA",
+   "program": "MBBS",
+   "state": "Madhya Pradesh",
+   "type": null,
+   "cutoffs": {
+    "Open": 8400,
+    "EWS": 10166,
+    "OBC": 10171,
+    "SC": 68562,
+    "ST": 85260
+   }
+  },
+  {
+   "institute": "SETH G.S. MEDICAL COLLEGE, MUMBAI",
+   "program": "MBBS",
+   "state": "Maharashtra",
+   "type": null,
+   "cutoffs": {
+    "Open": 868,
+    "OBC": 3140,
+    "EWS": 4157,
+    "SC": 13389,
+    "ST": 49964
+   }
+  },
+  {
+   "institute": "SHEIKH BHIKHARI MEDICAL COLLEGE & HOSPITAL",
+   "program": "MBBS",
+   "state": "Jharkhand",
+   "type": null,
+   "cutoffs": {
+    "Open": 12242,
+    "OBC": 13249,
+    "EWS": 13986,
+    "SC": 83890,
+    "ST": 106302
+   }
+  },
+  {
+   "institute": "SHIMOGA INST. OF MEDICAL SCI., SHIMOGA",
+   "program": "MBBS",
+   "state": "Karnataka",
+   "type": null,
+   "cutoffs": {
+    "Open": 9413,
+    "OBC": 12825,
+    "EWS": 18024,
+    "SC": 82744,
+    "ST": 86585
+   }
+  },
+  {
+   "institute": "SHKM GMC, Nalhar",
+   "program": "MBBS",
+   "state": "Haryana",
+   "type": null,
+   "cutoffs": {
+    "Open": 9719,
+    "OBC": 11280,
+    "EWS": 11843,
+    "SC": 76041,
+    "ST": 99815
+   }
+  },
+  {
+   "institute": "SILCHAR MEDICAL COLLEGE, SILCHER",
+   "program": "MBBS",
+   "state": "Assam",
+   "type": null,
+   "cutoffs": {
+    "Open": 15335,
+    "EWS": 16345,
+    "OBC": 17257,
+    "ST": 83333,
+    "SC": 83710
+   }
+  },
+  {
+   "institute": "SJP Medical College, Bharatpur",
+   "program": "MBBS",
+   "state": "Rajasthan",
+   "type": null,
+   "cutoffs": {
+    "Open": 7816,
+    "OBC": 8220,
+    "EWS": 10461,
+    "SC": 58981,
+    "ST": 80646
+   }
+  },
+  {
+   "institute": "SKIMS Medical College, Bemina",
+   "program": "MBBS",
+   "state": "Jammu And Kashmir",
+   "type": null,
+   "cutoffs": {
+    "Open": 7138,
+    "EWS": 12621,
+    "OBC": 12809,
+    "ST": 49520,
+    "SC": 76564
+   }
+  },
+  {
+   "institute": "SRI KRISHNA MEDICAL COLLEGE, MUZAFFARPUR",
+   "program": "MBBS",
+   "state": "Bihar",
+   "type": null,
+   "cutoffs": {
+    "Open": 10324,
+    "OBC": 11096,
+    "EWS": 11619,
+    "SC": 78370,
+    "ST": 100741
+   }
+  },
+  {
+   "institute": "SUH Maulana Mahmood Hasan Medical College, Saharanpur",
+   "program": "MBBS",
+   "state": "Uttar Pradesh",
+   "type": null,
+   "cutoffs": {
+    "Open": 9465,
+    "EWS": 10628,
+    "OBC": 10873,
+    "SC": 75468
+   }
+  },
+  {
+   "institute": "SWAMI RAMANAND TiRTH RURAL M.C, AMBAJOGAI",
+   "program": "MBBS",
+   "state": "Maharashtra",
+   "type": null,
+   "cutoffs": {
+    "Open": 13885,
+    "OBC": 14161,
+    "EWS": 16534,
+    "SC": 88247,
+    "ST": 106444
+   }
+  },
+  {
+   "institute": "Sagar Dutta Medical College & Hospital, Kolkata",
+   "program": "MBBS",
+   "state": "West Bengal",
+   "type": null,
+   "cutoffs": {
+    "Open": 8390,
+    "OBC": 9832,
+    "EWS": 10336,
+    "SC": 54924,
+    "ST": 102218
+   }
+  },
+  {
+   "institute": "Saheed Laxman Nayak Med. College and Hos., Koraput",
+   "program": "MBBS",
+   "state": "Odisha",
+   "type": null,
+   "cutoffs": {
+    "Open": 15676,
+    "OBC": 17984,
+    "EWS": 20535,
+    "SC": 71174,
+    "ST": 128137
+   }
+  },
+  {
+   "institute": "Saheed Rendo Majhi Medical College & Hospital, Bhawanipatna",
+   "program": "MBBS",
+   "state": "Odisha",
+   "type": null,
+   "cutoffs": {
+    "Open": 18070,
+    "OBC": 19326,
+    "EWS": 20237,
+    "SC": 86703,
+    "ST": 134635
+   }
+  },
+  {
+   "institute": "Shaheed Nirmal Mahto Medical College & Hospital, Dhanbad",
+   "program": "MBBS",
+   "state": "Jharkhand",
+   "type": null,
+   "cutoffs": {
+    "Open": 9623,
+    "OBC": 10925,
+    "EWS": 11135,
+    "SC": 72753,
+    "ST": 87089
+   },
+   "college_q": "Shaheed Nirmal Mahto Medical College & Hospital, Dhanbad (formely known as Patliputra Medical College, Dhanbad)",
+   "seats": 100
+  },
+  {
+   "institute": "Shri Atal Bihari Vajpayee Medical College & Research Institute, Bengaluru",
+   "program": "MBBS",
+   "state": "Karnataka",
+   "type": null,
+   "cutoffs": {
+    "Open": 2355,
+    "OBC": 6170,
+    "EWS": 7942,
+    "ST": 42201,
+    "SC": 45057
+   }
+  },
+  {
+   "institute": "Siddartha Medical College, Vijayawada",
+   "program": "MBBS",
+   "state": "Andhra Pradesh",
+   "type": null,
+   "cutoffs": {
+    "Open": 10160,
+    "EWS": 13471,
+    "OBC": 13485,
+    "SC": 36798,
+    "ST": 92240
+   }
+  },
+  {
+   "institute": "Sri Venkateswara Medical College, Tirupati",
+   "program": "MBBS",
+   "state": "Andhra Pradesh",
+   "type": null,
+   "cutoffs": {
+    "Open": 8815,
+    "EWS": 11148,
+    "OBC": 12216,
+    "SC": 58561,
+    "ST": 93895
+   }
+  },
+  {
+   "institute": "T.D. MEDICAL COLLEGE, ALLAPPUZHA",
+   "program": "MBBS",
+   "state": "Kerala",
+   "type": null,
+   "cutoffs": {
+    "Open": 3414,
+    "OBC": 3940,
+    "EWS": 15032,
+    "SC": 51931,
+    "ST": 113270
+   }
+  },
+  {
+   "institute": "THANJAVUR MEDICAL COLL., THANJAVUR",
+   "program": "MBBS",
+   "state": "Tamil Nadu",
+   "type": null,
+   "cutoffs": {
+    "Open": 4073,
+    "OBC": 5063,
+    "EWS": 19617,
+    "SC": 25526,
+    "ST": 107213
+   },
+   "college_q": "Thanjavur Medical College, Thanjavur",
+   "seats": 150
+  },
+  {
+   "institute": "Tezpur Medical College, Tezpur",
+   "program": "MBBS",
+   "state": "Assam",
+   "type": null,
+   "cutoffs": {
+    "Open": 17344,
+    "OBC": 20306,
+    "EWS": 21375,
+    "SC": 105486,
+    "ST": 114020
+   },
+   "college_q": "Tezpur Medical College & Hospital, Tezpur",
+   "seats": 125
+  },
+  {
+   "institute": "Thiruvannamalai MC, Thiruvannamalai",
+   "program": "MBBS",
+   "state": "Tamil Nadu",
+   "type": null,
+   "cutoffs": {
+    "Open": 9897,
+    "OBC": 10306,
+    "EWS": 23068,
+    "SC": 43797,
+    "ST": 130919
+   }
+  },
+  {
+   "institute": "Tinsukia Medical College & Hospital, Tinsukia",
+   "program": "MBBS",
+   "state": "Assam",
+   "type": null,
+   "cutoffs": {
+    "Open": 20728,
+    "OBC": 21452,
+    "EWS": 24588,
+    "ST": 78349,
+    "SC": 107427
+   }
+  },
+  {
+   "institute": "Tomo Riba Institute Health and Medical Sciences, Naharlagun",
+   "program": "MBBS",
+   "state": "Arunachal Pradesh",
+   "type": null,
+   "cutoffs": {
+    "Open": 19272,
+    "EWS": 21264,
+    "OBC": 21275,
+    "SC": 98597,
+    "ST": 109278
+   },
+   "college_q": "Tomo Riba Institute of Health & Medical Sciences, Naharlagun",
+   "seats": 100
+  },
+  {
+   "institute": "UNS AUTONOMOUS STATE MEDICAL COLLEGES, Jaunpur",
+   "program": "MBBS",
+   "state": "Uttar Pradesh",
+   "type": null,
+   "cutoffs": {
+    "Open": 15127,
+    "EWS": 15549,
+    "OBC": 15718,
+    "SC": 90963,
+    "ST": 114568
+   }
+  },
+  {
+   "institute": "UTTARANCHAL F HOSP TRUST MC, HALDWANI",
+   "program": "MBBS",
+   "state": "Uttarakhand",
+   "type": null,
+   "cutoffs": {
+    "Open": 6264,
+    "EWS": 8694,
+    "OBC": 9129,
+    "SC": 62474,
+    "ST": 90836
+   }
+  },
+  {
+   "institute": "Uttar Pradesh University of Medical Sciences, Saifai",
+   "program": "MBBS",
+   "state": "Uttar Pradesh",
+   "type": null,
+   "cutoffs": {
+    "Open": 7361,
+    "OBC": 9014,
+    "EWS": 10109,
+    "SC": 58727,
+    "ST": 88813
+   }
+  },
+  {
+   "institute": "V.S.S. MEDICAL COLLEGE, BURLA",
+   "program": "MBBS",
+   "state": "Odisha",
+   "type": null,
+   "cutoffs": {
+    "Open": 7154,
+    "EWS": 9756,
+    "OBC": 10506,
+    "SC": 48795,
+    "ST": 102284
+   }
+  },
+  {
+   "institute": "VARDHMAN INSTITUTE OF MEDICAL SCIENCES, NALANDA",
+   "program": "MBBS",
+   "state": "Bihar",
+   "type": null,
+   "cutoffs": {
+    "Open": 7883,
+    "OBC": 9787,
+    "EWS": 10796,
+    "SC": 73828,
+    "ST": 80676
+   },
+   "college_q": "Vardhman Institute of Medical Sciences, Pawapuri, Nalanda",
+   "seats": 120
+  },
+  {
+   "institute": "VIJAYNAGAR INST OF MED. SC, BELLARY",
+   "program": "MBBS",
+   "state": "Karnataka",
+   "type": null,
+   "cutoffs": {
+    "Open": 11026,
+    "OBC": 13217,
+    "EWS": 16479,
+    "SC": 76105,
+    "ST": 93673
+   }
+  },
+  {
+   "institute": "YADGIRI INSTITUTE OF MEDICAL SCIENCES, YADGIRI",
+   "program": "MBBS",
+   "state": "Karnataka",
+   "type": null,
+   "cutoffs": {
+    "Open": 16640,
+    "OBC": 17557,
+    "EWS": 20459,
+    "SC": 101608,
+    "ST": 127896
+   },
+   "college_q": "Yadgiri Institute of Medical Sciences, Yadgiri",
+   "seats": 150
+  },
+  {
+   "institute": "ZORAM MEDICAL COLLEGE Falkawn, Academic Block",
+   "program": "MBBS",
+   "state": "Mizoram",
+   "type": null,
+   "cutoffs": {
+    "Open": 20924,
+    "OBC": 21320,
+    "EWS": 25440,
+    "SC": 103767
+   }
+  }
+ ]
+}
