@@ -425,7 +425,7 @@ export default function Quiz() {
               <>
                 <StepHead
                   kicker="Step 1 · Career"
-                  title="Which engineering career do you want to explore?"
+                  title="Which career do you want to explore?"
                   sub="Biggest seat pools first."
                 />
                 <Dropdown
