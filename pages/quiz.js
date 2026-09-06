@@ -63,9 +63,9 @@ const programString = (p) =>
     ? `${p.branch} (${p.years} Years, ${p.degree})`
     : p.branch;
 
-const StagePills = ({ stageIdx }) => (
+const StagePills = ({ stages, stageIdx }) => (
   <div className="flex flex-wrap items-center justify-center gap-2">
-    {STAGES.map((s, i) => (
+    {stages.map((s, i) => (
       <span
         key={s}
         className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-bold ${
@@ -448,7 +448,7 @@ export default function Quiz() {
   // the breadcrumb of what's locked in so far
   const crumb = [
     careerId && careerNames[careerId],
-    stage >= 2 && degreePick,
+    !isMed && stage >= 2 && degreePick,
     stage >= 3 && picked?.college.display_name,
     stage >= 4 && correctExam,
   ]
@@ -474,11 +474,15 @@ export default function Quiz() {
           </p>
           <div className="mt-5">
             <StagePills
-              stageIdx={
-                Math.min(stage, 5) === 5 && actual === undefined
-                  ? 4
-                  : Math.min(stage, 5)
-              }
+              stages={isMed ? STAGES.filter((x) => x !== "Degree") : STAGES}
+              stageIdx={(() => {
+                const i =
+                  Math.min(stage, 5) === 5 && actual === undefined
+                    ? 4
+                    : Math.min(stage, 5);
+                // medicine skips the Degree step, so later pills shift left
+                return isMed && i >= 2 ? i - 1 : i;
+              })()}
             />
           </div>
 
@@ -562,7 +566,23 @@ export default function Quiz() {
                   />
                 ) : null}
                 <div className="mt-5 flex justify-end">
-                  <BigButton disabled={!careerId} onClick={() => goTo(1)}>
+                  <BigButton
+                    disabled={!careerId}
+                    onClick={() => {
+                      if (isMed) {
+                        // the career pick IS the degree pick here ("Which
+                        // degree takes you into Medicine (MBBS)?" answers
+                        // itself), so the walk goes straight to College
+                        const prog = MED_CAREERS.find(
+                          (c) => c.id === careerId
+                        )?.program;
+                        setDegreePick(MED_DEGREE[prog]);
+                        goTo(2);
+                      } else {
+                        goTo(1);
+                      }
+                    }}
+                  >
                     Continue <ArrowRight size={16} />
                   </BigButton>
                 </div>
@@ -742,7 +762,7 @@ export default function Quiz() {
                   ) : null}
                 </div>
                 <div className="mt-4">
-                  <BackButton onClick={() => goTo(1)} />
+                  <BackButton onClick={() => goTo(isMed ? 0 : 1)} />
                 </div>
               </>
             ) : stage === 3 ? (
