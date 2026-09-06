@@ -52,7 +52,7 @@ const ROWS = [
       o.college.nirf?.ranking_year
         ? `Engineering, ${o.college.nirf.ranking_year}`
         : null,
-    get: (o) => o.college.nirf?.engineering_rank ?? null,
+    get: (o) => o.college.nirf?.rank ?? null,
     fmt: (v) => `#${v}`,
     betterLow: true,
   },
@@ -194,7 +194,10 @@ export default function Compare() {
   useEffect(() => {
     fetch(DATA_URL)
       .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
-      .then(setAll)
+      // compare rows are built for the JoSAA universe (rank band, fees,
+      // engineering placement); medical rows would compare mostly blanks —
+      // and across a different NIRF category, which highlights nonsense
+      .then((rows) => setAll(rows.filter((c) => c.counselling === "JoSAA")))
       .catch(() => setError("Could not load colleges right now."));
   }, []);
 
