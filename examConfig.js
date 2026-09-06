@@ -976,20 +976,24 @@ export const kcetConfig = {
         { value: "Karnataka", label: "Karnataka" },
       ],
     },
+    // Kannada-medium and Rural are HORIZONTAL quotas KEA publishes as
+    // separate rows (no row is both) — they EXPAND what a student is
+    // eligible for, they never narrow it. Asked as yes/no eligibility, so
+    // "Kannada + Rural" can't AND itself into zero results (Akshay's bug).
     {
-      name: "language",
-      label: "Choose your Class 1 - Class 10 Language",
+      name: "kannadaMedium",
+      label: "Did you study Class 1 - Class 10 in Kannada Medium?",
       options: [
-        { value: "Any", label: "Any" },
-        { value: "Kannada", label: "Kannada" },
+        { value: "No", label: "No" },
+        { value: "Yes", label: "Yes" },
       ],
     },
     {
-      name: "region",
-      label: "Choose Your Region",
+      name: "rural",
+      label: "Are you from a Rural Area?",
       options: [
-        { value: "Rural", label: "Rural" },
-        { value: "All", label: "All" },
+        { value: "No", label: "No" },
+        { value: "Yes", label: "Yes" },
       ],
     },
   ],
@@ -1005,8 +1009,10 @@ export const kcetConfig = {
     (item) => item.Category === query.category,
     (item) => item["Course Type"] === query.courseType,
     (item) => item.State === query.homeState || item.State === "All India",
-    (item) => query.language === "Any" || item.Language === query.language,
-    (item) => query.region === "All" || item["Rural/Urban"] === query.region,
+    // eligibility-expanding: everyone sees the base rows; saying Yes ADDS
+    // the Kannada / Rural quota rows rather than replacing the base ones
+    (item) => item.Language === "Any" || query.kannadaMedium === "Yes",
+    (item) => item["Rural/Urban"] === "All" || query.rural === "Yes",
     (item) => {
       if (!query.rank) return true;
       const closingRank = parseInt(item["Closing Rank"], 10);
@@ -1909,6 +1915,86 @@ export const ojeeConfig = {
   getSort: () => [["Closing Rank", "ASC"]],
 };
 
+export const clatConfig = {
+  name: "CLAT",
+  searchKeys: ["Institute", "Academic Program Name"],
+  // CLAT counsels on its All India Rank; the consortium publishes one
+  // Cut-Off Rank Table per NLU with that NLU's own state reservation
+  // roster. The form asks four simple questions and getFilters resolves
+  // them against the decomposed rows — never a 168-code category picker.
+  primaryInput: integerInput(
+    "Enter CLAT All India Rank (AIR)",
+    "Enter CLAT AIR"
+  ),
+  fields: [
+    {
+      name: "category",
+      label: "Select Category",
+      options: ["General", "EWS", "OBC", "SC", "ST"],
+    },
+    {
+      // the shared all-India state list (same as JoSAA): states without NLU
+      // domicile rows simply add nothing beyond the all-India rows
+      name: "homeState",
+      label: "Select Your Home State",
+      options: statesList,
+    },
+    {
+      name: "gender",
+      label: "Select Gender",
+      options: ["Male", "Female"],
+    },
+    {
+      name: "pwd",
+      label: "Are you a PWD Student?",
+      options: ["Yes", "No"],
+    },
+  ],
+  getDataPath: () => {
+    return path.join(process.cwd(), "public", "data", "CLAT", "clat_data.json");
+  },
+  getFilters: (query) => [
+    (item) => {
+      const canon = {
+        General: "GEN",
+        EWS: "EWS",
+        OBC: "OBC",
+        SC: "SC",
+        ST: "ST",
+      }[query.category];
+      const home = query.homeState || null;
+      const domOk =
+        item["Domicile State"] === "" ||
+        (home && item["Domicile State"] === home);
+      const isOverlay = item["Women Row"] || item["PwD Row"];
+      // vertical rows for the chosen category (all-India, plus home-state
+      // rows; state backward-class rosters count as OBC only via domicile)
+      if (!isOverlay && domOk) {
+        if (item["Canonical"] === canon) return true;
+        if (
+          canon === "OBC" &&
+          item["Canonical"] === "OBC-like" &&
+          home &&
+          item["Domicile State"] === home
+        )
+          return true;
+      }
+      // horizontal overlays are EXTRA rows, not substitutes
+      if (query.gender === "Female" && item["Women Row"] && domOk) return true;
+      if (query.pwd === "Yes" && item["PwD Row"] && domOk) return true;
+      return false;
+    },
+    (item) => {
+      if (!query.rank) return true;
+      const closingRank = parseInt(item["Closing Rank"], 10);
+      const userRank = parseInt(query.rank, 10);
+      if (isNaN(closingRank) || isNaN(userRank)) return false;
+      return closingRank >= userRank;
+    },
+  ],
+  getSort: () => [["Closing Rank", "ASC"]],
+};
+
 export const examConfigs = {
   "JoSAA": josaaConfig,
   "JEE Main-JOSAA": jeeMainJosaaConfig,
@@ -1924,6 +2010,7 @@ export const examConfigs = {
   "KEAM": keamConfig,
   "AP EAPCET": apEapcetConfig,
   "OJEE": ojeeConfig,
+  "CLAT": clatConfig,
   "TGEAPCET": tseApertConfig,
 };
 

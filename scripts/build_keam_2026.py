@@ -19,7 +19,7 @@ from pathlib import Path
 import pandas as pd
 
 REPO = Path(__file__).resolve().parent.parent
-PARQUET = Path("/Users/surya/jan2023/external_data_sources/keam/clean/keam_fact_cutoffs.parquet")
+PARQUET = REPO.parent / Path("external_data_sources/keam/clean/keam_fact_cutoffs.parquet")
 OUT = REPO / "public/data/KEAM/keam_data.json"
 
 CATS = ["SM", "EZ", "MU", "LA", "DV", "VK", "BH", "BX", "KN", "KU",

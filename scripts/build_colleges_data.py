@@ -64,6 +64,97 @@ def parse_rank(v):
     return int(digits), prep
 
 
+# branch text -> career page: JoSAA branch strings resolve to a parent
+# branch (exam_branch_mapping) and each parent to its career slug
+# (branch_to_career.json, built by build_careers_data.py) — so a branch in
+# a college's programme table can link to "what does this lead to".
+EXAM_BRANCH_MAP = "data-sources/exam_branch_mapping.csv"
+BRANCH_TO_CAREER = "public/data/careers/branch_to_career.json"
+
+
+def career_lookup():
+    import csv
+    b2c = json.load(open(BRANCH_TO_CAREER))
+    base_to_career = {}
+    conflicts = set()
+    with open(EXAM_BRANCH_MAP) as fh:
+        for r in csv.DictReader(fh):
+            if r["exam"] != "JoSAA":
+                continue
+            # strip ONLY the trailing "(4 Years, Bachelor of Technology)" —
+            # a first-paren split collapses "CSE (Cyber Security)" into
+            # plain CSE and links the wrong career
+            base = re.sub(r"\s*\(\d+\s*Years?,[^)]*\)$", "",
+                          r["branch_raw"]).strip()
+            cid = b2c.get(r["branch_id"])
+            if cid:
+                if base in base_to_career and base_to_career[base] != cid:
+                    conflicts.add(base)
+                base_to_career.setdefault(base, cid)
+    # a branch whose NAME is itself a career wins its own page
+    # ("Engineering Physics" -> engineering-physics, not physics)
+    career_ids = set(b2c.values())
+    for base in list(base_to_career):
+        exact = re.sub(r"[^a-z0-9]+", "-", base.lower()).strip("-")
+        if exact in career_ids:
+            base_to_career[base] = exact
+            conflicts.discard(base)
+    for b in sorted(conflicts):
+        print(f"  WARNING: branch base maps to two careers, kept first: {b}")
+    return base_to_career
+
+
+# Public / Private / Government-aided from AISHE's kind + management fields.
+# The few colleges AISHE leaves blank are pinned by name (all verified):
+# BIT Mesra and its off-campuses are a private deemed university; ICT Mumbai
+# is a state-funded deemed university.
+PUBLIC_KINDS = {
+    "Institute of National Importance", "Central University",
+    "State Public University", "Deemed University-Government",
+    "Institutes under Ministries",
+}
+PRIVATE_NAME_PINS = ("Birla Institute of Technology",)
+# NIELIT is an autonomous body under MeitY — public, but AISHE leaves it blank
+PUBLIC_NAME_PINS = ("Institute of Chemical Technology",
+                    "National Institute of Electronics")
+
+
+def ownership_of(kind, management, name):
+    k, m = str(kind or ""), str(management or "")
+    if "Aided" in k or "Aided" in m:
+        return "Government-aided"
+    if k in PUBLIC_KINDS or "Government" in m:
+        return "Public"
+    if "Private" in k or "Private" in m:
+        return "Private"
+    if any(p in name for p in PRIVATE_NAME_PINS):
+        return "Private"
+    if any(p in name for p in PUBLIC_NAME_PINS):
+        return "Public"
+    return None
+
+
+def disciplines_of(programs):
+    """Macro education types from what the college actually admits into.
+    JoSAA's universe is engineering-first; Architecture/Planning/Science
+    surface for the SPAs and the BSc-degree institutes (Akshay: show the
+    macro type, 3-4 max)."""
+    found, has_eng = [], False
+    for p in programs.get("list", []):
+        b = str(p.get("branch", "")).lower()
+        deg = str(p.get("degree", "")).lower()
+        if "architect" in b:
+            found.append("Architecture")
+        elif "planning" in b:
+            found.append("Planning")
+        elif "bachelor of science" in deg:
+            found.append("Science")
+        else:
+            has_eng = True
+    out = (["Engineering"] if has_eng else []) + sorted(set(found))
+    return out[:4]
+
+
 def build_josaa(client):
     from google.cloud import bigquery  # noqa: F401
 
@@ -113,23 +204,74 @@ def build_josaa(client):
 
     # ── NIRF: latest rank + a short history, Engineering category ────────────
     nirf = client.query("""
-    SELECT institute_id, ranking_year, nirf_rank, overall_score
+    SELECT institute_id, institute_name, ranking_year, nirf_rank, overall_score
     FROM `avantifellows.external_data_sources.nirf_fact_rankings`
     WHERE ranking_category = 'Engineering' AND nirf_rank IS NOT NULL
     """).to_dataframe()
 
+    # Rank-band rows (101-150 etc.): NIRF publishes NO institute_id for these,
+    # so they can't ride the crosswalk — they are matched to a college by the
+    # NIRF-printed name of its exactly-ranked years (same site, same
+    # formatting). This is what turns "PEC #87 (2022)" into "PEC, band 101-150
+    # in 2025": a college that slid out of the top 100 still has a current,
+    # honest NIRF position instead of a stale rank.
+    bands = client.query("""
+    SELECT institute_name, ranking_year, rank_band
+    FROM `avantifellows.external_data_sources.nirf_fact_rankings`
+    WHERE ranking_category = 'Engineering' AND rank_band IS NOT NULL
+    """).to_dataframe()
+
     # ── placement: UG 4-year is what a JoSAA applicant is entering ───────────
-    # Fall back through older NIRF years per institute rather than showing a
-    # blank: coverage goes 47 -> 59 of our institutes, and the year travels with
-    # the number so a 2022 figure is never passed off as current.
+    # Fall back through older NIRF editions per institute rather than showing
+    # a blank; the year travels with the number so an old figure is never
+    # passed off as current.
+    # First-party since Aug 2026: nirf_fact_dcs_placements is parsed straight
+    # from the institutes' own NIRF filings (external_data_sources nirf/), has
+    # ~2x the institutes of the old Dataful-derived aggregate (rank-band
+    # colleges file DCS PDFs too), no known holes, and carries
+    # graduated_on_time so both percentages share a real denominator.
     place = client.query("""
-    SELECT institute_id, ranking_year, academic_year, median_salary,
-           percentage_placed, students_placed, higher_studies_selected,
+    SELECT institute_id, edition_year AS ranking_year,
+           graduating_academic_year AS academic_year, median_salary,
+           graduated_on_time, students_placed, higher_studies_selected,
            first_year_intake
-    FROM `avantifellows.external_data_sources.nirf_fact_aggregate`
-    WHERE ranking_category = 'Engineering'
-      AND type LIKE 'UG [4 Years%'
+    FROM `avantifellows.external_data_sources.nirf_fact_dcs_placements`
+    WHERE discipline = 'Engineering'
+      AND program_level = 'UG-4Y'
+      AND NOT superseded
       AND median_salary IS NOT NULL AND median_salary > 0
+      AND graduated_on_time IS NOT NULL AND graduated_on_time > 0
+    """).to_dataframe()
+
+    # ── gender mix: women as a share of enrolled UG students ─────────────────
+    # From the institutes' own NIRF filings (dcs_strength), UG levels only —
+    # that's the cohort a JoSAA applicant would join. Latest edition per
+    # institute; the year ships with the number.
+    gender = client.query("""
+    SELECT institute_id, edition_year,
+           SUM(male) AS male, SUM(female) AS female
+    FROM `avantifellows.external_data_sources.nirf_fact_dcs_strength`
+    WHERE discipline = 'Engineering'
+      AND program_level LIKE 'UG%'
+      AND total IS NOT NULL AND total > 0
+    GROUP BY institute_id, edition_year
+    """).to_dataframe()
+
+    # ── fees: hand-collected from each college's own fee page ────────────────
+    # Entry-year figures (first semester/year incl. one-time charges),
+    # annualised in the clean layer. One number per college: the median
+    # across its courses — fee spread within a college is small next to the
+    # spread between colleges, and a range would crowd the expander.
+    fees = client.query("""
+    SELECT
+      college_id AS aishe_code,
+      CAST(APPROX_QUANTILES(IF(demo_id = 'OPEN', annual_total_fee, NULL), 2)[OFFSET(1)] AS INT64) AS annual_fee_open,
+      CAST(APPROX_QUANTILES(IF(tuition_fee = 0 AND (category IN ('SC','ST') OR is_pwd), annual_total_fee, NULL), 2)[OFFSET(1)] AS INT64) AS annual_fee_waived,
+      CAST(APPROX_QUANTILES(annual_hostel_mess_fee, 2)[OFFSET(1)] AS INT64) AS annual_hostel_mess,
+      APPROX_TOP_COUNT(source_url, 1)[OFFSET(0)].value AS source_url
+    FROM `avantifellows.external_data_sources.collegefees_fact_costs`
+    WHERE counselling = 'JOSAA'
+    GROUP BY college_id
     """).to_dataframe()
 
     naac = client.query("""
@@ -153,22 +295,24 @@ def build_josaa(client):
     )
     SELECT institute, academic_program_name, quota, seat_type, gender,
            closing_rank, closing_is_preparatory,
+           opening_rank, opening_is_preparatory,
            (SELECT y FROM latest) AS year, (SELECT r FROM lr) AS round
     FROM `avantifellows.external_data_sources.josaa_fact_cutoffs`
     WHERE year = (SELECT y FROM latest) AND round = (SELECT r FROM lr)
     """).to_dataframe()
 
-    return identity, nirf, place, naac, prog
+    return identity, nirf, bands, place, gender, fees, naac, prog
 
 
 def main():
+    careers_by_branch = career_lookup()
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
 
     from google.cloud import bigquery
     client = bigquery.Client(project="avantifellows", location="asia-south1")
-    identity, nirf, place, naac, prog = build_josaa(client)
+    identity, nirf, bands, place, gender, fees, naac, prog = build_josaa(client)
     print(f"  identity {len(identity)}  nirf {len(nirf)}  placement {len(place)}  "
           f"naac {len(naac)}  program rows {len(prog)}")
 
@@ -183,6 +327,20 @@ def main():
         place_by_id[iid] = g.sort_values(["ranking_year", "academic_year"], ascending=False)
 
     naac_by_aishe = {r.aishe_id: r for r in naac.itertuples()}
+
+    fees_by_aishe = {r.aishe_code: r for r in fees.itertuples()}
+
+    gender_by_id = {}
+    for iid, g in gender.groupby("institute_id"):
+        gender_by_id[iid] = g.sort_values("edition_year", ascending=False).iloc[0]
+
+    # band rows keyed by normalised NIRF-printed name
+    def _nname(x):
+        return re.sub(r"[^a-z0-9]", "", str(x).lower())
+    bands_by_name = {}
+    for r in bands.itertuples():
+        bands_by_name.setdefault(_nname(r.institute_name), []).append(
+            (int(r.ranking_year), r.rank_band))
 
     # programs grouped by the JoSAA institute name (the crosswalk's join key)
     prog_by_inst = {}
@@ -257,6 +415,16 @@ def main():
                     for x in g.head(6).itertuples()
                 ],
             }
+            # If the college fell out of the exact-rank list into a band in a
+            # LATER year, surface that as the current position — the exact
+            # rank stays as history.
+            band_hits = []
+            for nm in set(g.institute_name.dropna()):
+                band_hits += bands_by_name.get(_nname(nm), [])
+            band_hits = [b for b in band_hits if b[0] > int(top.ranking_year)]
+            if band_hits:
+                by, bb = max(band_hits)
+                nirf_block["latest_band"] = {"year": by, "band": bb}
 
         placement = None
         pframes = [place_by_id[n] for n in nids if n in place_by_id]
@@ -267,32 +435,25 @@ def main():
                 p = g.iloc[0]
                 def num(v, cast=float):
                     return None if v != v else cast(v)
-                # NIRF's percentage_placed counts JOBS ONLY, so a graduate who
-                # went to an MS or a PhD reads as "not placed". That understates
-                # research-heavy institutes badly — IIT Tirupati shows 55.6% when
-                # 90.7% of its graduates had an outcome, IIT Bombay 73.8% vs
-                # 99.9% — a 10-point median understatement across our 59 colleges
-                # and up to 35 points at the tail. Amogh flagged the IIT numbers
-                # as implausible, and he was right.
-                #
-                # We keep NIRF's own figure untouched under its own name, and add
-                # the combined outcome rate beside it. The denominator is
-                # recovered from NIRF's own arithmetic (placed / pct * 100) rather
-                # than using graduating_on_time, so the two percentages are always
-                # on the same base.
-                pct = (float(p.percentage_placed)
-                       if p.percentage_placed == p.percentage_placed else None)
+                # "Placed" counts JOBS ONLY, so a graduate who went to an MS or
+                # a PhD reads as "not placed". That understates research-heavy
+                # institutes badly — IIT Bombay 73.8% placed vs 99.9% with an
+                # outcome. Amogh flagged the IIT numbers as implausible, and he
+                # was right. Both percentages ship, on the same denominator:
+                # graduated_on_time as the institute filed it with NIRF.
                 placed_n = num(p.students_placed, int)
                 higher_n = num(p.higher_studies_selected, int)
-                outcome = None
-                if pct and placed_n and higher_n is not None and pct > 0:
-                    cohort = placed_n / pct * 100
-                    if cohort > 0:
-                        outcome = round(min(100.0, (placed_n + higher_n) / cohort * 100), 1)
+                grad_n = num(p.graduated_on_time, int)
+                pct = outcome = None
+                if grad_n:
+                    if placed_n is not None:
+                        pct = round(placed_n / grad_n * 100, 1)
+                    if placed_n is not None and higher_n is not None:
+                        outcome = round(min(100.0, (placed_n + higher_n) / grad_n * 100), 1)
 
                 placement = {
                     "median_salary": num(p.median_salary, int),
-                    "percentage_placed": (round(pct, 1) if pct is not None else None),
+                    "percentage_placed": pct,
                     # placed OR higher studies — what "did this degree lead
                     # somewhere" actually means for an engineering cohort.
                     "percentage_with_outcome": outcome,
@@ -308,6 +469,35 @@ def main():
                     # student over-read it.
                     "is_branch_specific": False,
                 }
+
+        ug_gender = None
+        grows = [gender_by_id[n] for n in nids if n in gender_by_id]
+        if grows:
+            gr = max(grows, key=lambda x: x.edition_year)
+            m, f = int(gr.male), int(gr.female)
+            if m + f > 0:
+                ug_gender = {
+                    "female_pct": round(f / (m + f) * 100, 1),
+                    "female": f,
+                    "male": m,
+                    "edition_year": int(gr.edition_year),
+                }
+
+        fee_block = None
+        fr = fees_by_aishe.get(r.aishe_code)
+        if fr is not None and not pd.isna(fr.annual_fee_open):
+            def _i(v):
+                return None if pd.isna(v) else int(v)
+            fee_block = {
+                "annual_fee": _i(fr.annual_fee_open),
+                "annual_fee_waived": _i(fr.annual_fee_waived),
+                "annual_hostel_mess": _i(fr.annual_hostel_mess),
+                "cycle": "2025-26",
+                "source_url": fr.source_url,
+                # first-year figure including one-time charges; later years
+                # are usually lower. The UI says so.
+                "is_entry_year": True,
+            }
 
         nb = naac_by_aishe.get(r.aishe_code)
         if nb is not None and nb.current_grade == nb.current_grade:
@@ -351,10 +541,15 @@ def main():
                     rank, prep = parse_rank(x.closing_rank)
                     if rank is not None and not prep and not x.closing_is_preparatory:
                         k = (branch, years, degree)
-                        if k not in best or rank > best[k]:
-                            best[k] = rank
+                        if k not in best or rank > best[k][0]:
+                            # opening rank travels with its own closing row so
+                            # the pair is one real quota, never a mix
+                            orank, oprep = parse_rank(x.opening_rank)
+                            best[k] = (rank, orank if not oprep else None)
             lst = [{"branch": b, "years": y, "degree": d,
-                    "indicative_closing_rank": best.get((b, y, d))}
+                    "indicative_closing_rank": (best.get((b, y, d)) or (None,))[0],
+                    "indicative_opening_rank": (best.get((b, y, d)) or (None, None))[1],
+                    "career_id": careers_by_branch.get(b)}
                    for (b, y, d) in branches]
             lst.sort(key=lambda z: (z["indicative_closing_rank"] is None,
                                     z["indicative_closing_rank"] or 0, z["branch"]))
@@ -398,6 +593,8 @@ def main():
             "district": r.district if isinstance(r.district, str) else None,
             "kind": r.kind if isinstance(r.kind, str) else None,
             "management": r.management if isinstance(r.management, str) else None,
+            "ownership": ownership_of(r.kind, r.management, josaa_name),
+            "disciplines": disciplines_of(programs),
             "year_established": (int(r.year_of_establishment)
                                  if r.year_of_establishment == r.year_of_establishment
                                  and r.year_of_establishment is not None else None),
@@ -406,6 +603,8 @@ def main():
             "counselling": "JoSAA",
             "programs": programs,
             "nirf": nirf_block,
+            "ug_gender": ug_gender,
+            "fees": fee_block,
             "placement": placement,
             "naac": naac_block,
             "data_sources": {

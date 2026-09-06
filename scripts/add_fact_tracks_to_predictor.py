@@ -25,7 +25,7 @@ from pathlib import Path
 import pandas as pd
 
 REPO = Path(__file__).resolve().parent.parent
-PARQUET = Path("/Users/surya/jan2023/external_data_sources/neet/clean/neet_fact_cutoffs.parquet")
+PARQUET = REPO.parent / Path("external_data_sources/neet/clean/neet_fact_cutoffs.parquet")
 NEETUG = REPO / "public/data/NEETUG/NEETUG.json"
 STATE_CATS = REPO / "public/data/NEETUG/neet_state_categories.json"
 

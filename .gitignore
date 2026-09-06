@@ -10,6 +10,9 @@ lerna-debug.log*
 .pnpm-debug.log*
 # csv
 *.csv
+# ...except the build inputs the data scripts read — these ship with the
+# repo so anyone can rebuild public/data from a bare clone
+!data-sources/*.csv
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json

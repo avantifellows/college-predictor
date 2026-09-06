@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Futures V2 Demo Table Review</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --text: #172026;
+      --muted: #5c6870;
+      --border: #d8dee3;
+      --soft: #f5f7f8;
+      --accent: #0f766e;
+      --warn: #8a5a00;
+      --new: #e7f5f1;
+      --existing: #eef2ff;
+      --extend: #fff7e6;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: #ffffff;
+      line-height: 1.45;
+    }
+
+    main {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 28px 28px 56px;
+    }
+
+    h1 {
+      margin: 0 0 6px;
+      font-size: 28px;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      margin: 30px 0 12px;
+      font-size: 19px;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 0 0 12px;
+      color: var(--muted);
+    }
+
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin: 18px 0 22px;
+    }
+
+    .summary div {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px;
+      background: var(--soft);
+      min-height: 96px;
+    }
+
+    .summary strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--text);
+    }
+
+    .note {
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      padding: 12px 14px;
+      margin: 18px 0;
+      background: #fbfdfc;
+    }
+
+    .note strong { color: var(--text); }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0 22px;
+      font-size: 13px;
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 9px 10px;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th {
+      background: #f0f3f5;
+      font-weight: 650;
+      color: #263238;
+    }
+
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 12px;
+      background: #f3f5f6;
+      border: 1px solid #e2e6e9;
+      border-radius: 4px;
+      padding: 1px 4px;
+      white-space: nowrap;
+    }
+
+    .tag {
+      display: inline-block;
+      border-radius: 999px;
+      padding: 2px 8px;
+      font-size: 12px;
+      font-weight: 650;
+      white-space: nowrap;
+    }
+
+    .existing { background: var(--existing); color: #24336b; }
+    .new { background: var(--new); color: #0f513f; }
+    .extend { background: var(--extend); color: var(--warn); }
+    .maybe { background: #f3f4f6; color: #4b5563; }
+
+    .tight td { padding: 7px 9px; }
+
+    @media (max-width: 860px) {
+      main { padding: 20px 14px 42px; }
+      .summary { grid-template-columns: 1fr; }
+      table { display: block; overflow-x: auto; white-space: normal; }
+      th, td { min-width: 160px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Futures V2 Demo Table Review</h1>
+    <p>Audience: Surya, Amogh, Priyanka. Scope: one-week Engineering + JoSAA demo, with a path to AFDB.</p>
+
+    <section class="summary">
+      <div>
+        <strong>Decision</strong>
+        Use AFDB-shaped tables as the contract. CSVs are allowed for the demo if they follow this shape.
+      </div>
+      <div>
+        <strong>Demo Data</strong>
+        Amogh's CSVs/prototype data are useful seed data, parsing references, and UI fixtures.
+      </div>
+      <div>
+        <strong>Product Data</strong>
+        AFDB remains the product database. external_data_sources remains the raw source layer.
+      </div>
+      <div>
+        <strong>Team Check</strong>
+        Main review needed: is this the right eventual table/API shape for the quiz, predictor, and Priyanka's ID mapping?
+      </div>
+    </section>
+
+    <div class="note">
+      <strong>Practical rule for this week:</strong>
+      start by checking the target contract below. If AFDB migrations are not ready, the demo can use CSV/JSON fixtures with the same shape. The key is to keep the demo data aligned with the eventual product tables.
+    </div>
+
+    <h2>Target Table Contract To Validate</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Table</th>
+          <th>Status</th>
+          <th>What It Supports</th>
+          <th>Why Existing / Why New</th>
+          <th>Do We Have Data?</th>
+          <th>Priyanka Relation</th>
+          <th>Amogh Relation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>college</code></td>
+          <td><span class="tag existing">existing</span></td>
+          <td>College cards, location, type, NIRF/salary/fee display where available.</td>
+          <td>Already canonical in AFDB. Do not create a Futures copy.</td>
+          <td>Yes: AFDB has colleges. Amogh has demo <code>college.csv</code>. Some enrichment fields may be sparse.</td>
+          <td>Her <code>colleges.json</code> can enrich/match, but should not blindly create duplicates.</td>
+          <td>His college CSV can be fixture/mapping review input.</td>
+        </tr>
+        <tr>
+          <td><code>branch</code></td>
+          <td><span class="tag extend">existing + columns</span></td>
+          <td>Specialization/program selection and JoSAA program display.</td>
+          <td>Already exists. Add only useful parsed fields like group, degree label, specialization, source program name.</td>
+          <td>Yes: AFDB has branches. Amogh has parsed <code>branch.csv</code>; needs dedupe/mapping before canonical use.</td>
+          <td>Can later connect to vertical/specialization data.</td>
+          <td>His JoSAA parsing is useful, but generated IDs should be reviewed.</td>
+        </tr>
+        <tr>
+          <td><code>exam</code></td>
+          <td><span class="tag existing">existing</span></td>
+          <td>Shows actual entrance exams like JEE Main / JEE Advanced.</td>
+          <td>Already used elsewhere, including portal flows. Keep semantics stable.</td>
+          <td>Yes: AFDB has exam rows. May need confirm exact JEE names/IDs.</td>
+          <td>Her <code>entrance_exams.json</code> can enrich abbreviation, website, eligibility later.</td>
+          <td>His <code>exam.csv</code> is reference/content only; do not redefine AFDB exam IDs.</td>
+        </tr>
+        <tr>
+          <td><code>exam_occurrence</code></td>
+          <td><span class="tag extend">existing + columns</span></td>
+          <td>Optional for demo; yearly exam dates/fees if displayed.</td>
+          <td>Existing empty-ish structure is the right place for yearly metadata.</td>
+          <td>Partial: Priyanka/Amogh may have dates/fees, but this can be manual/editable later.</td>
+          <td>Can consume yearly exam details from her exam data where available.</td>
+          <td>Can consume exam guide fields from his generated data after review.</td>
+        </tr>
+        <tr>
+          <td><code>demographic_profile</code></td>
+          <td><span class="tag existing">existing</span></td>
+          <td>Category/gender/PwD filtering for cutoff reveal and predictor.</td>
+          <td>Already exists. Use only where profiles are already cleanly mapped.</td>
+          <td>Mostly: AFDB has profiles. For demo, JoSAA seat type/gender can stay directly on <code>cutoffs</code>.</td>
+          <td>No direct relation except future category/eligibility expansion.</td>
+          <td>His cutoff seat type/gender values should remain source-faithful on <code>cutoffs</code>; profile mapping can come later.</td>
+        </tr>
+        <tr>
+          <td><code>cutoffs</code></td>
+          <td><span class="tag extend">existing + columns</span></td>
+          <td>Rank reveal and college predictor results.</td>
+          <td>Existing intended fact table. Extend it instead of creating a new cutoff table.</td>
+          <td>Yes: JoSAA cutoff CSV/BQ data exists. Product import needs year, round, rank space, source hash.</td>
+          <td>Indirect: once college IDs are mapped, her work helps connect source colleges.</td>
+          <td>His <code>cutoffs.csv</code> is very useful for demo, but needs missing source/year/rank fields for product.</td>
+        </tr>
+        <tr>
+          <td><code>vertical</code></td>
+          <td><span class="tag new">new table</span></td>
+          <td>Stream picker. For demo this can be just Engineering.</td>
+          <td>New because AFDB does not have a first-class broad career/education vertical.</td>
+          <td>Yes: Priyanka has vertical JSON. For demo seed one Engineering row.</td>
+          <td>Directly maps to <code>verticals.json</code>.</td>
+          <td>His prototype stream choices can map here.</td>
+        </tr>
+        <tr>
+          <td><code>vertical_branch</code></td>
+          <td><span class="tag new">new table</span></td>
+          <td>Maps Engineering to relevant branches/specializations.</td>
+          <td>New join table avoids hardcoding stream-to-branch logic in UI.</td>
+          <td>Enough for demo: can seed Engineering -> selected JoSAA branches.</td>
+          <td>Later maps to vertical-specialization/degree joins.</td>
+          <td>His branch grouping can seed this.</td>
+        </tr>
+        <tr>
+          <td><code>career</code></td>
+          <td><span class="tag new">new table</span></td>
+          <td>Career detail pages/cards in quiz.</td>
+          <td>New because AFDB has colleges/exams, not career content.</td>
+          <td>Yes if using Amogh's populated career sheet; prototype <code>career.csv</code> should be checked.</td>
+          <td>Can later map/enrich from <code>professions.json</code> and <code>career_prospects.json</code>.</td>
+          <td>Main owner: career names, content, pay, recruiters, outlook.</td>
+        </tr>
+        <tr>
+          <td><code>career_branch</code></td>
+          <td><span class="tag new">new table</span></td>
+          <td>Finds branches/programs that lead to a selected career.</td>
+          <td>New join table because one career can map to many branches and vice versa.</td>
+          <td>Partial: can seed from Amogh career-to-branch mapping; needs review.</td>
+          <td>Later can align to vertical-profession relationships.</td>
+          <td>His branch IDs/content are the starting point.</td>
+        </tr>
+        <tr>
+          <td><code>degree</code></td>
+          <td><span class="tag new">new table</span></td>
+          <td>Degree step, e.g. B.Tech / B.E. / B.Arch.</td>
+          <td>New normalized degree list. Any <code>branch.degree_label</code> is only a parsed display/helper field.</td>
+          <td>Yes: minimal demo rows can be manually seeded; Priyanka has broader degree data.</td>
+          <td>Directly maps to <code>degrees.json</code>.</td>
+          <td>His JoSAA program parsing can infer degree labels.</td>
+        </tr>
+        <tr>
+          <td><code>branch_degree</code></td>
+          <td><span class="tag new">new table</span></td>
+          <td>Connects selected branch/specialization to degree options.</td>
+          <td>New join table because branches and degrees are many-to-many over time.</td>
+          <td>Enough for demo: derive from JoSAA program names / Amogh branch parsing.</td>
+          <td>Later can connect vertical-degree data.</td>
+          <td>His parser is useful here.</td>
+        </tr>
+        <tr>
+          <td><code>counselling_process</code></td>
+          <td><span class="tag new">new table</span></td>
+          <td>Represents JoSAA as the admission/allotment process.</td>
+          <td>New because JoSAA is not an exam; it consumes JEE ranks.</td>
+          <td>Yes: seed one row for JoSAA.</td>
+          <td>Future vertical entrance exam data may mention processes, but not required now.</td>
+          <td>His JoSAA/cutoff work maps here.</td>
+        </tr>
+        <tr>
+          <td><code>counselling_process_exam</code></td>
+          <td><span class="tag new">new table</span></td>
+          <td>Maps JoSAA to JEE Main and JEE Advanced rank spaces.</td>
+          <td>New to avoid mixing IIT and NIT/IIIT/GFTI rank scales.</td>
+          <td>Yes: seed JoSAA -> JEE Advanced and JoSAA -> JEE Main.</td>
+          <td>May later connect to vertical entrance exam relationships.</td>
+          <td>His exam/cutoff logic should respect this split.</td>
+        </tr>
+        <tr>
+          <td><code>college_external_id</code></td>
+          <td><span class="tag new">new table</span></td>
+          <td>Maps AFDB colleges to JoSAA/AISHE/NIRF/source IDs.</td>
+          <td>New because no single source ID joins all datasets cleanly.</td>
+          <td>Partial: needs Priyanka mapping work. Demo can use reviewed mappings for JoSAA colleges only.</td>
+          <td>Main Priyanka table: connects her source-ID work to AFDB.</td>
+          <td>His college aliases/CSV can provide candidate mappings.</td>
+        </tr>
+        <tr>
+          <td><code>college_exam</code></td>
+          <td><span class="tag new">new table</span></td>
+          <td>Shows which exams are accepted for a college/program.</td>
+          <td>New normalized replacement for unclear legacy fields like <code>entrance_test</code>. This is about college eligibility, not JoSAA rank-space rules.</td>
+          <td>Partial: derive for JoSAA colleges from counseling/exam mapping; broader data later.</td>
+          <td>Maps to <code>college_entrance_exams.json</code> later.</td>
+          <td>His exam CSV can help seed after mapping to existing AFDB exams.</td>
+        </tr>
+        <tr>
+          <td><code>student_career_path</code></td>
+          <td><span class="tag new">new table</span></td>
+          <td>Saves a user's selected career path.</td>
+          <td>New because v2 quiz paths need persistence tied to user accounts.</td>
+          <td>No external data needed. Created by product usage.</td>
+          <td>No direct relation.</td>
+          <td>No direct relation except prototype save-flow behavior.</td>
+        </tr>
+        <tr>
+          <td><code>student_career_path_college</code></td>
+          <td><span class="tag new">new table</span></td>
+          <td>Saves selected colleges, guessed rank, and shown cutoff for a path.</td>
+          <td>New child table because one saved path can include multiple colleges/cutoffs.</td>
+          <td>No external data needed. Created by product usage.</td>
+          <td>No direct relation.</td>
+          <td>No direct relation except prototype final-path behavior.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>New Columns Needed On Existing Tables</h2>
+    <table class="tight">
+      <thead>
+        <tr>
+          <th>Existing Table</th>
+          <th>Column(s)</th>
+          <th>Needed For Demo?</th>
+          <th>Why Not A New Table?</th>
+          <th>Data Source</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>branch</code></td>
+          <td><code>branch_group</code>, <code>degree_label</code>, <code>specialization</code>, <code>source_program_name</code></td>
+          <td>Useful, not all mandatory.</td>
+          <td>These describe the branch/program row itself and help parse JoSAA names. <code>degree_label</code> is not the canonical degree relation.</td>
+          <td>Amogh branch CSV, JoSAA academic program names.</td>
+        </tr>
+        <tr>
+          <td><code>cutoffs</code></td>
+          <td><code>counselling_process_id</code>, <code>round</code>, <code>quota</code>, <code>seat_type</code>, <code>gender_pool</code>, <code>rank_space</code>, <code>cutoff_metric</code>, prep flags, <code>source</code>, <code>source_row_hash</code>, <code>is_active</code></td>
+          <td>Yes for product-grade JoSAA. Demo CSV can start smaller but should move toward this.</td>
+          <td><code>cutoffs</code> is already the fact table. JoSAA quota/category/gender strings stay here as source dimensions.</td>
+          <td>JoSAA cutoff data from CSV/BQ external_data_sources.</td>
+        </tr>
+        <tr>
+          <td><code>exam</code></td>
+          <td><code>abbreviation</code>, <code>website</code>, <code>eligibility_summary</code></td>
+          <td>Optional.</td>
+          <td>These are attributes of the exam, not separate entities.</td>
+          <td>Priyanka entrance exams JSON, Amogh exam content, manual review.</td>
+        </tr>
+        <tr>
+          <td><code>exam_occurrence</code></td>
+          <td>registration/test/result dates, fees, official URL, source</td>
+          <td>Optional for first demo.</td>
+          <td>Yearly/session data belongs to exam occurrence.</td>
+          <td>Priyanka/Amogh/manual yearly exam data.</td>
+        </tr>
+        <tr>
+          <td><code>college</code></td>
+          <td><code>city</code>, <code>website</code>, maybe <code>hostel_available</code></td>
+          <td>Optional. Add only if needed and sourced.</td>
+          <td>These are direct college attributes, but not necessary for JoSAA demo.</td>
+          <td>Priyanka colleges JSON, AISHE, manual enrichment. Hostel quality uncertain.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>What We Should Not Duplicate</h2>
+    <table class="tight">
+      <thead>
+        <tr>
+          <th>Temptation</th>
+          <th>Use Instead</th>
+          <th>Reason</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>A separate Futures college table</td>
+          <td><code>college</code> + <code>college_external_id</code></td>
+          <td>AFDB already has colleges; source IDs belong in mapping rows.</td>
+        </tr>
+        <tr>
+          <td>Treating JoSAA as an exam</td>
+          <td><code>counselling_process</code></td>
+          <td>JoSAA is allotment/counseling. JEE Main and JEE Advanced are the exams.</td>
+        </tr>
+        <tr>
+          <td>Using <code>college.entrance_test</code> for new logic</td>
+          <td><code>college_exam</code></td>
+          <td>The existing field is legacy/unclear and hard to query correctly.</td>
+        </tr>
+        <tr>
+          <td>CSV-only IDs becoming canonical</td>
+          <td>AFDB IDs plus source keys in mapping tables</td>
+          <td>Generated demo IDs are fine for fixtures, not long-term joins.</td>
+        </tr>
+        <tr>
+          <td>A new cutoff table</td>
+          <td>Extended <code>cutoffs</code></td>
+          <td>The AFDB table already exists for this fact; extend it with JoSAA dimensions.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Known Gaps To Close</h2>
+    <p>These are not reasons to block the demo. They are the places where the team should be careful so the demo can later become product data.</p>
+    <table class="tight">
+      <thead>
+        <tr>
+          <th>Area</th>
+          <th>Recommendation For This Week</th>
+          <th>Who Should Check</th>
+          <th>Later Product Version</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>College matching</td>
+          <td>Use a reviewed list of demo JoSAA colleges and their AFDB/demo keys.</td>
+          <td>Priyanka + Surya</td>
+          <td>Move reviewed source mappings into <code>college_external_id</code>.</td>
+        </tr>
+        <tr>
+          <td>Branch/program matching</td>
+          <td>Use Amogh's parsed branches, but review duplicates and only keep the demo branches needed.</td>
+          <td>Amogh + Surya</td>
+          <td>Promote clean rows into <code>branch</code>, <code>branch_degree</code>, and <code>career_branch</code>.</td>
+        </tr>
+        <tr>
+          <td>Career recommendations</td>
+          <td>For each demo career, mark a few relevant branches/program clusters.</td>
+          <td>Amogh</td>
+          <td>Add reviewed weights/primary flags in <code>career_branch</code>.</td>
+        </tr>
+        <tr>
+          <td>Cutoff correctness</td>
+          <td>Use one JoSAA year and latest/final round. Keep quota, seat type, gender, and JEE Main vs Advanced split on the cutoff row.</td>
+          <td>Surya + Amogh</td>
+          <td>Import all required cutoff dimensions with source hashes and repeatable refresh logic.</td>
+        </tr>
+        <tr>
+          <td>College facts</td>
+          <td>Show only fields we actually have. Hide missing fees, hostel, salary, placement, NAAC, or NIRF fields.</td>
+          <td>Priyanka + Amogh</td>
+          <td>Add source/update metadata and review generated fields before publishing.</td>
+        </tr>
+        <tr>
+          <td>Save path</td>
+          <td>For the demo, local/session save is fine. Product save should attach to account later.</td>
+          <td>Surya</td>
+          <td>Use <code>student_career_path</code> and <code>student_career_path_college</code>.</td>
+        </tr>
+        <tr>
+          <td>Fixture shape</td>
+          <td>Keep demo CSV/JSON keys close to the target tables in this document.</td>
+          <td>Surya + Amogh</td>
+          <td>Swap fixture loading for AFDB/API queries without changing the UI contract.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Minimum Demo Fixture Shape If AFDB Is Not Ready</h2>
+    <p>For a one-week demo, CSV/JSON files are fine. The point is not to create every table immediately; the point is to make the fixtures follow the target contract above so they can later become AFDB/API data with less rewriting.</p>
+    <table class="tight">
+      <thead>
+        <tr>
+          <th>Fixture</th>
+          <th>Minimum Columns</th>
+          <th>Can Come From</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>career.csv</code></td>
+          <td><code>slug</code>, <code>name</code>, content fields, <code>status</code>, <code>content_source</code></td>
+          <td>Amogh populated career sheet.</td>
+        </tr>
+        <tr>
+          <td><code>career_branch.csv</code></td>
+          <td><code>career_slug</code>, <code>branch_key</code>, <code>relevance_weight</code>, <code>is_primary</code></td>
+          <td>Amogh career-to-branch mapping, reviewed manually.</td>
+        </tr>
+        <tr>
+          <td><code>branch.csv</code></td>
+          <td><code>branch_key</code>, <code>name</code>, <code>branch_group</code>, <code>degree_label</code>, <code>specialization</code>, <code>source_program_name</code></td>
+          <td>AFDB branch plus Amogh JoSAA parsing.</td>
+        </tr>
+        <tr>
+          <td><code>college.csv</code></td>
+          <td><code>college_key</code>, <code>name</code>, <code>state</code>, <code>district/city</code>, type/ranking/fee/salary fields if available</td>
+          <td>AFDB college, Amogh fixture, Priyanka JSON/AISHE enrichment.</td>
+        </tr>
+        <tr>
+          <td><code>college_external_id.csv</code></td>
+          <td><code>college_key</code>, <code>source</code>, <code>source_key</code>, <code>source_name</code>, <code>match_method</code>, <code>match_confidence</code></td>
+          <td>Priyanka mapping work, Amogh aliases, JoSAA/AISHE/NIRF source rows.</td>
+        </tr>
+        <tr>
+          <td><code>cutoffs.csv</code></td>
+          <td><code>college_key</code>, <code>branch_key</code>, <code>year</code>, <code>round</code>, <code>quota</code>, <code>seat_type</code>, <code>gender_pool</code>, <code>rank_space</code>, <code>opening_rank</code>, <code>closing_rank</code>, <code>source_row_hash</code></td>
+          <td>Amogh cutoff CSV and external_data_sources JoSAA BQ table.</td>
+        </tr>
+        <tr>
+          <td><code>student_career_path.json</code></td>
+          <td><code>user_id</code>, <code>career_slug</code>, <code>branch_key</code>, <code>degree_key</code>, selected colleges and cutoff IDs/keys</td>
+          <td>Product runtime only. For demo, local/session data is okay.</td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+</body>
+</html>
