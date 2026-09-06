@@ -202,14 +202,15 @@ ACRONYMS = {
     "iiest": "indian institute of engineering science and technology",
     "spa": "school of planning and architecture",
     "ict": "institute of chemical technology",
+    "aiims": "all india institute of medical sciences",
 }
 
 
 def college_linker():
     """Match a sheet name like 'IIT Delhi' to the Colleges tab's display
     name so the link's ?q= is guaranteed to find it. Conservative: only a
-    unique all-tokens match links; BITS/Jadavpur/AIIMS etc. (not in the
-    JoSAA-scoped tab) stay plain text."""
+    unique all-tokens match links; names not on the tab (BITS, Jadavpur)
+    stay plain text."""
     displays = [c["display_name"] for c in json.load(open(COLLEGES_TAB))]
     dtokens = [(d, set(norm(d).split())) for d in displays]
 
@@ -217,6 +218,7 @@ def college_linker():
         base = re.sub(r"\(.*?\)", " ", str(name))  # drop parentheticals
         toks = [ACRONYMS.get(t, t) for t in norm(base).split()]
         toks = set(" ".join(toks).split())
+        toks.discard("s")  # possessive left by norm: "King George's"
         if not toks:
             return None
         hits = [d for d, dt in dtokens if toks <= dt]

@@ -39,29 +39,37 @@ def main() -> int:
 
     for c in rows:
         nirf, place, prog = c["nirf"], c["placement"], c["programs"]
+        medical = c["counselling"] != "JoSAA"
 
         # identity
         chk(c["college_id"], "missing college_id", c)
         chk(c["display_name"].strip(), "empty display_name", c)
         chk(c["entrance_exams"], "no entrance exam", c)
-        chk(all(e in ("JEE Main", "JEE Advanced") for e in c["entrance_exams"]),
+        chk(all(e in (("NEET-UG",) if medical else ("JEE Main", "JEE Advanced"))
+                for e in c["entrance_exams"]),
             "unexpected entrance exam", c, str(c["entrance_exams"]))
-        # a row may lack an AISHE code (crosswalk gap) but then the state, if we
-        # have one, must be flagged as inferred
-        if c.get("state") and not c["aishe_code"]:
+        # a JoSAA row may lack an AISHE code (crosswalk gap) but then the
+        # state, if we have one, must be flagged as inferred. Medical rows
+        # carry their state from NMC itself — never inferred.
+        if c.get("state") and not c["aishe_code"] and not medical:
             chk(c.get("state_is_inferred"), "unflagged inferred state", c)
         chk(not (c.get("state_is_inferred") and c["aishe_code"]),
             "inferred flag on an AISHE-matched row", c)
+        if medical:
+            chk(c["disciplines"] == ["Medicine"], "medical row without Medicine", c)
+            chk(nirf is None or nirf.get("category") == "Medical",
+                "medical row with a non-Medical NIRF rank", c)
 
-        # NIRF
+        # NIRF — Medical publishes ~50 exact ranks, Engineering up to ~300
         if nirf:
-            chk(1 <= nirf["engineering_rank"] <= 350, "rank out of range", c,
-                nirf["engineering_rank"])
+            cap = 100 if nirf.get("category") == "Medical" else 350
+            chk(1 <= nirf["rank"] <= cap, "rank out of range", c,
+                nirf["rank"])
             years = [h["year"] for h in nirf["rank_history"]]
             chk(len(years) == len(set(years)), "duplicate years in rank_history", c, str(years))
             chk(years == sorted(years, reverse=True), "rank_history not newest-first", c, str(years))
             newest = max(nirf["rank_history"], key=lambda h: h["year"])
-            chk(nirf["engineering_rank"] == newest["rank"],
+            chk(nirf["rank"] == newest["rank"],
                 "headline rank is not the newest history point", c)
             chk(nirf["ranking_year"] == newest["year"],
                 "ranking_year is not the newest history year", c)
@@ -81,7 +89,14 @@ def main() -> int:
         chk(prog["count"] > 0, "zero programs", c)
         chk(prog["count"] == len(prog["list"]), "count does not match list length", c)
         ranks = [p["indicative_closing_rank"] for p in prog["list"]]
-        chk(any(r is not None for r in ranks), "every branch rank is null", c)
+        if medical:
+            # medical rows carry NMC seats instead of a JoSAA closing rank
+            chk(all(r is None for r in ranks), "medical row with a JoSAA rank", c)
+            # 0 is a real figure — NMC lists suspended-intake colleges
+            chk(any(p.get("seats") is not None for p in prog["list"]),
+                "medical row without seats", c)
+        else:
+            chk(any(r is not None for r in ranks), "every branch rank is null", c)
         present = [r for r in ranks if r is not None]
         chk(present == sorted(present), "branch list not sorted by rank", c)
         for p in prog["list"]:

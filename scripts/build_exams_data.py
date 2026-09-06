@@ -220,11 +220,14 @@ def main():
             careers = [{"label": s, "slug": career_by_name[_k2(s)]}
                        for s in streams if _k2(s) in career_by_name][:3]
         card["careers"] = careers or None
-        # only the JoSAA family has its colleges on the Colleges tab so far
+        # families whose colleges live on the Colleges tab: JoSAA (128
+        # engineering) and NEET (780 NMC medical colleges)
         if fam == "JoSAA":
             which = ("JEE Advanced" if acro.startswith("JEE Advanced")
                      else "JEE Main")
             card["colleges_link"] = f"/colleges?exam={which}"
+        elif fam == "NEET":
+            card["colleges_link"] = "/colleges?exam=NEET-UG"
         else:
             card["colleges_link"] = None
 
