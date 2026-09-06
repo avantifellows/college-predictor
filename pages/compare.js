@@ -256,7 +256,7 @@ export default function Compare() {
         <title>College & Course Comparison - Avanti Fellows</title>
         <meta
           name="description"
-          content="Compare college and branch combinations side by side on real numbers: closing ranks, NIRF rank, fees, placements and the higher-studies path."
+          content="Compare college and branch combinations side by side: closing ranks, NIRF rank, fees, placements and the higher-studies path."
         />
       </Head>
       <div className="min-h-screen px-3 py-6 sm:px-6">
@@ -265,8 +265,7 @@ export default function Compare() {
             College &amp; Course Comparison
           </h1>
           <p className="mt-2 text-center text-sm text-[#6d5550]">
-            Pick your college and branch options, and compare them on real
-            numbers.
+            Pick your college and branch options, and see them side by side.
           </p>
 
           {error ? (

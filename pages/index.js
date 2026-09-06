@@ -75,7 +75,7 @@ const TOOLS = [
     href: "/quiz",
     icon: HelpCircle,
     title: "Career Quiz",
-    desc: "Walk a career to its real cutoff, guessing as you go.",
+    desc: "Walk a career to its cutoff, guessing as you go.",
   },
   {
     href: "/predictor",
@@ -87,7 +87,7 @@ const TOOLS = [
     href: "/compare",
     icon: Scale,
     title: "College & Course Comparison",
-    desc: "Your options side by side, on real numbers.",
+    desc: "Ranks, fees and placements side by side.",
   },
   {
     href: "https://cv-generator.avantifellows.org/",
