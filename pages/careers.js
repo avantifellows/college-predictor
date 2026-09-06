@@ -310,10 +310,11 @@ export default function Careers() {
 
   const pick = (id) => {
     setSelected(id);
-    // shallow router.replace keeps the hash inside Next's OWN history
-    // record — raw replaceState left Next's copy at '/careers', so coming
-    // BACK from an exam chip restored the page without the selection
-    router.replace(`/careers#${id}`, undefined, {
+    // shallow PUSH: every pick is a history entry, so the browser's Back
+    // walks back through the careers viewed instead of leaving the page.
+    // (Raw replaceState once left Next's history at '/careers' and broke
+    // returning from an exam chip; shallow keeps Next's record correct.)
+    router.push(`/careers#${id}`, undefined, {
       shallow: true,
       scroll: false,
     });

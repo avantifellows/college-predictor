@@ -755,7 +755,7 @@
    },
    {
     "name": "PES University",
-    "q": "PES University Institute of Medical Sciences and Reseach Bangalore"
+    "q": "PES University Institute of Medical Sciences and Research Bangalore"
    },
    {
     "name": "Manipal Institute of Technology",
@@ -4002,12 +4002,12 @@
     "href": "/exams?q=JEE Advanced"
    },
    {
-    "label": "CUET",
-    "href": "/exams?q=CUET"
-   },
-   {
     "label": "ISI-AT",
     "href": "/exams?q=ISI-AT"
+   },
+   {
+    "label": "CUET",
+    "href": "/exams?q=CUET"
    }
   ],
   "top_colleges": [
@@ -7102,16 +7102,16 @@
     "href": "/exams?q=JEE Advanced"
    },
    {
-    "label": "CUET",
-    "href": "/exams?q=CUET"
-   },
-   {
     "label": "ISI-AT",
     "href": "/exams?q=ISI-AT"
    },
    {
     "label": "CMI-EE",
     "href": "/exams?q=CMI-EE"
+   },
+   {
+    "label": "CUET",
+    "href": "/exams?q=CUET"
    }
   ],
   "top_colleges": [
@@ -10179,7 +10179,7 @@
    },
    {
     "name": "Bangalore University",
-    "q": "PES University Institute of Medical Sciences and Reseach Bangalore"
+    "q": "PES University Institute of Medical Sciences and Research Bangalore"
    },
    {
     "name": "Tamil Nadu Agricultural University",

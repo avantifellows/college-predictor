@@ -1106,8 +1106,12 @@ const ExamForm = () => {
                 {isSubmitDisabled() && (
                   <p className="mt-2 text-sm text-red-600">
                     {selectedExam === "JoSAA" &&
-                    formData.qualifiedJeeAdv === "Yes" &&
-                    (!formData.advRank || formData.advRank === "")
+                    rankMode === "estimate" &&
+                    (!formData.mainRank || formData.mainRank === "")
+                      ? "Enter your marks and press Estimate Rank first."
+                      : selectedExam === "JoSAA" &&
+                        formData.qualifiedJeeAdv === "Yes" &&
+                        (!formData.advRank || formData.advRank === "")
                       ? "Please enter your JEE Advanced rank."
                       : selectedExam === "JoSAA" &&
                         (!formData.mainRank || formData.mainRank === "")
