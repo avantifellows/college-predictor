@@ -991,7 +991,8 @@ def main():
                      else "Medical College"),
             "management": mgmt or None,
             "ownership": ownership,
-            "disciplines": ["Medicine"],
+            # no discipline badge: the NEET-UG chip already says medicine
+            "disciplines": [],
             "year_established": (int(r.year_of_inception)
                                  if r.year_of_inception == r.year_of_inception
                                  and r.year_of_inception is not None else None),

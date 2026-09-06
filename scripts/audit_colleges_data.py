@@ -56,7 +56,7 @@ def main() -> int:
         chk(not (c.get("state_is_inferred") and c["aishe_code"]),
             "inferred flag on an AISHE-matched row", c)
         if medical:
-            chk(c["disciplines"] == ["Medicine"], "medical row without Medicine", c)
+            chk(c["disciplines"] == [], "medical row with a discipline badge", c)
             chk(nirf is None or nirf.get("category") == "Medical",
                 "medical row with a non-Medical NIRF rank", c)
 
