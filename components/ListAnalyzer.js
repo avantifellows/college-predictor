@@ -19,7 +19,9 @@ const TAG_LABELS = { reach: "REACH", match: "MATCH", safety: "SAFETY" };
 const TagBadge = ({ tag }) => {
   if (!tag) return null;
   return (
-    <span className={`shrink-0 rounded-full px-2.5 py-1 text-[11px] font-bold ${TAG_STYLES[tag]}`}>
+    <span
+      className={`shrink-0 rounded-full px-2.5 py-1 text-[11px] font-bold ${TAG_STYLES[tag]}`}
+    >
       {TAG_LABELS[tag]}
     </span>
   );
@@ -35,14 +37,36 @@ const BalanceGauge = ({ score }) => {
     <div className="flex items-center gap-4">
       <svg width="88" height="88" viewBox="0 0 100 100" className="shrink-0">
         <circle
-          cx="50" cy="50" r="42" fill="none" stroke="#eaded8" strokeWidth="9"
-          strokeDasharray="264 264" transform="rotate(-90 50 50)" strokeLinecap="round"
+          cx="50"
+          cy="50"
+          r="42"
+          fill="none"
+          stroke="#eaded8"
+          strokeWidth="9"
+          strokeDasharray="264 264"
+          transform="rotate(-90 50 50)"
+          strokeLinecap="round"
         />
         <circle
-          cx="50" cy="50" r="42" fill="none" stroke={color} strokeWidth="9"
-          strokeDasharray={`${arc} 264`} transform="rotate(-90 50 50)" strokeLinecap="round"
+          cx="50"
+          cy="50"
+          r="42"
+          fill="none"
+          stroke={color}
+          strokeWidth="9"
+          strokeDasharray={`${arc} 264`}
+          transform="rotate(-90 50 50)"
+          strokeLinecap="round"
         />
-        <text x="50" y="50" textAnchor="middle" dominantBaseline="central" fontSize="22" fontWeight="700" fill="#3a2c28">
+        <text
+          x="50"
+          y="50"
+          textAnchor="middle"
+          dominantBaseline="central"
+          fontSize="22"
+          fontWeight="700"
+          fill="#3a2c28"
+        >
           {score}%
         </text>
       </svg>
@@ -77,7 +101,8 @@ const RecommendationCard = ({ rec }) => (
             <p className="text-[#5b4a45]">{c.program}</p>
             <p className="mt-0.5 text-xs text-[#7a655f]">
               Closing rank: {formatRank(c.closingRank)} · NIRF:{" "}
-              {c.nirfRank ?? "not ranked"} · Median CTC: {formatSalary(c.medianSalary)}
+              {c.nirfRank ?? "not ranked"} · Median CTC:{" "}
+              {formatSalary(c.medianSalary)}
             </p>
           </li>
         ))}
@@ -86,10 +111,22 @@ const RecommendationCard = ({ rec }) => (
   </div>
 );
 
-const ListAnalyzer = ({ choices, catalog, seatIndex, collegesByName, profile }) => {
+const ListAnalyzer = ({
+  choices,
+  catalog,
+  seatIndex,
+  collegesByName,
+  profile,
+}) => {
   const analysis = useMemo(() => {
     if (choices.length === 0) return null;
-    return analyzeList({ choices, catalog, seatIndex, collegesByName, profile });
+    return analyzeList({
+      choices,
+      catalog,
+      seatIndex,
+      collegesByName,
+      profile,
+    });
   }, [choices, catalog, seatIndex, collegesByName, profile]);
 
   return (
@@ -105,7 +142,9 @@ const ListAnalyzer = ({ choices, catalog, seatIndex, collegesByName, profile }) 
       ) : (
         analysis && (
           <>
-            <div className={`${cardClass} mt-4 flex flex-wrap items-center justify-between gap-4`}>
+            <div
+              className={`${cardClass} mt-4 flex flex-wrap items-center justify-between gap-4`}
+            >
               <BalanceGauge score={analysis.balanceScore} />
               <div className="flex flex-wrap gap-2">
                 <span className="rounded-full bg-[#fdf3f1] px-3 py-1 text-xs font-semibold text-[#b52326]">
@@ -131,7 +170,9 @@ const ListAnalyzer = ({ choices, catalog, seatIndex, collegesByName, profile }) 
                 >
                   <div className="flex items-start justify-between gap-2">
                     <p className="font-semibold text-[#3a2c28]">
-                      <span className="mr-2 font-bold text-[#b52326]">{i + 1}.</span>
+                      <span className="mr-2 font-bold text-[#b52326]">
+                        {i + 1}.
+                      </span>
                       {c.institute}
                     </p>
                     <TagBadge tag={c.tag} />
@@ -141,7 +182,9 @@ const ListAnalyzer = ({ choices, catalog, seatIndex, collegesByName, profile }) 
               ))}
             </ol>
 
-            <h3 className="mt-4 text-base font-bold text-[#3a2c28]">Recommendations</h3>
+            <h3 className="mt-4 text-base font-bold text-[#3a2c28]">
+              Recommendations
+            </h3>
             <div className="mt-2 space-y-3">
               {analysis.recommendations.map((rec) => (
                 <RecommendationCard key={rec.title} rec={rec} />

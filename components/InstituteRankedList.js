@@ -23,17 +23,29 @@ const STAT_COLORS = {
 };
 export const MatchStats = ({ item }) => (
   <div className="mt-2 flex flex-wrap gap-1.5">
-    <span className={`rounded-md px-2 py-1 text-xs font-bold ${STAT_COLORS.closing}`}>
+    <span
+      className={`rounded-md px-2 py-1 text-xs font-bold ${STAT_COLORS.closing}`}
+    >
       Closing {formatRank(item.closingRank)}
     </span>
-    <span className={`rounded-md px-2 py-1 text-xs font-bold ${STAT_COLORS.nirf}`}>
+    <span
+      className={`rounded-md px-2 py-1 text-xs font-bold ${STAT_COLORS.nirf}`}
+    >
       NIRF {item.nirfRank ?? "Not ranked"}
     </span>
-    <span className={`rounded-md px-2 py-1 text-xs font-bold ${STAT_COLORS.ctc}`}>
-      CTC {item.medianSalary == null ? "Not known" : formatSalary(item.medianSalary)}
+    <span
+      className={`rounded-md px-2 py-1 text-xs font-bold ${STAT_COLORS.ctc}`}
+    >
+      CTC{" "}
+      {item.medianSalary == null
+        ? "Not known"
+        : formatSalary(item.medianSalary)}
     </span>
-    <span className={`rounded-md px-2 py-1 text-xs font-bold ${STAT_COLORS.fees}`}>
-      Annual Fee {item.annualFee == null ? "Not known" : formatSalary(item.annualFee)}
+    <span
+      className={`rounded-md px-2 py-1 text-xs font-bold ${STAT_COLORS.fees}`}
+    >
+      Annual Fee{" "}
+      {item.annualFee == null ? "Not known" : formatSalary(item.annualFee)}
       {item.feeWaived ? " (waived)" : ""}
     </span>
   </div>
@@ -58,7 +70,9 @@ export const InstituteRankedList = ({
   // qualify (via isBetter above); once qualified, the best-fit one for the
   // student's own rank leads, same ordering as the closing-rank tab.
   const groups = Array.from(byInstitute.values())
-    .map((branches) => [...branches].sort((a, b) => a.closingRank - b.closingRank))
+    .map((branches) =>
+      [...branches].sort((a, b) => a.closingRank - b.closingRank)
+    )
     .sort((a, b) => a[0].closingRank - b[0].closingRank)
     .slice(0, displayLimit);
 
@@ -69,7 +83,11 @@ export const InstituteRankedList = ({
   return (
     <ul className="mt-3 space-y-2">
       {groups.map((branches) => (
-        <InstituteCard key={branches[0].institute} branches={branches} extraNote={extraNote} />
+        <InstituteCard
+          key={branches[0].institute}
+          branches={branches}
+          extraNote={extraNote}
+        />
       ))}
     </ul>
   );
@@ -98,11 +116,17 @@ const InstituteCard = ({ branches, extraNote }) => {
             title={
               expanded
                 ? "Show only the best branch"
-                : `${rest.length} more reachable branch${rest.length > 1 ? "es" : ""} at this institute`
+                : `${rest.length} more reachable branch${
+                    rest.length > 1 ? "es" : ""
+                  } at this institute`
             }
             className="shrink-0 flex items-center rounded-full bg-[#f8efec] p-1 text-[#b52326] transition hover:bg-[#f0e0da]"
           >
-            {expanded ? <ChevronUp size={14} strokeWidth={3} /> : <ChevronDown size={14} strokeWidth={3} />}
+            {expanded ? (
+              <ChevronUp size={14} strokeWidth={3} />
+            ) : (
+              <ChevronDown size={14} strokeWidth={3} />
+            )}
           </button>
         )}
       </div>
@@ -114,7 +138,9 @@ const InstituteCard = ({ branches, extraNote }) => {
         </p>
       )}
       <MatchStats item={best} />
-      {note && <p className="mt-1.5 text-xs font-bold text-[#1a7f37]">{note}</p>}
+      {note && (
+        <p className="mt-1.5 text-xs font-bold text-[#1a7f37]">{note}</p>
+      )}
 
       {expanded && (
         <ul className="mt-2 space-y-1.5 border-t border-[#f0e6e1] pt-2">
@@ -125,7 +151,9 @@ const InstituteCard = ({ branches, extraNote }) => {
             >
               <span className="text-[#3a2c28]">{b.program}</span>
               <span className="flex items-center gap-1.5">
-                <span className={`rounded-md px-2 py-0.5 text-xs font-bold ${STAT_COLORS.closing}`}>
+                <span
+                  className={`rounded-md px-2 py-0.5 text-xs font-bold ${STAT_COLORS.closing}`}
+                >
                   Closing {formatRank(b.closingRank)}
                 </span>
                 {b.listPosition != null && (

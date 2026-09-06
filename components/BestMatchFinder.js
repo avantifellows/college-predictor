@@ -5,7 +5,12 @@ import {
   findBestMatches,
   scoreMatches,
 } from "../utils/bestMatchFinder";
-import { cardClass, inputClass, primaryBtn, secondaryBtn } from "./mockAllotmentTheme";
+import {
+  cardClass,
+  inputClass,
+  primaryBtn,
+  secondaryBtn,
+} from "./mockAllotmentTheme";
 import { MatchStats } from "./InstituteRankedList";
 
 // A standalone discovery search, separate from the round-by-round mock —
@@ -64,8 +69,8 @@ const StepDots = ({ steps, currentIndex }) => (
               i === currentIndex
                 ? "bg-[#b52326] text-white"
                 : i < currentIndex
-                  ? "border-2 border-[#b52326] bg-white text-[#b52326]"
-                  : "border border-[#d8c7c1] text-[#5b4a45]"
+                ? "border-2 border-[#b52326] bg-white text-[#b52326]"
+                : "border border-[#d8c7c1] text-[#5b4a45]"
             }`}
           >
             {i + 1}
@@ -80,7 +85,9 @@ const StepDots = ({ steps, currentIndex }) => (
         </div>
         {i < steps.length - 1 && (
           <span
-            className={`mt-3 h-0.5 flex-1 rounded ${i < currentIndex ? "bg-[#b52326]" : "bg-[#e4d8d2]"}`}
+            className={`mt-3 h-0.5 flex-1 rounded ${
+              i < currentIndex ? "bg-[#b52326]" : "bg-[#e4d8d2]"
+            }`}
           />
         )}
       </React.Fragment>
@@ -91,7 +98,13 @@ const StepDots = ({ steps, currentIndex }) => (
 // A checkbox/radio row that visibly highlights when selected — a plain
 // border doesn't read as "chosen" at a glance the way a filled background
 // does, especially across a whole grid of these.
-const OptionRow = ({ checked, onChange, type = "checkbox", name, children }) => (
+const OptionRow = ({
+  checked,
+  onChange,
+  type = "checkbox",
+  name,
+  children,
+}) => (
   <label
     className={`flex items-center gap-2 rounded-lg border px-3 py-2 text-sm font-medium transition ${
       checked
@@ -162,7 +175,9 @@ const BestMatchFinder = ({ catalog, seatIndex, collegesByName, profile }) => {
   );
 
   const budget =
-    feeBudget !== "" && Number.isFinite(Number(feeBudget)) && Number(feeBudget) > 0
+    feeBudget !== "" &&
+    Number.isFinite(Number(feeBudget)) &&
+    Number(feeBudget) > 0
       ? Number(feeBudget)
       : null;
   const stateFilter = locationMode === "all" ? "all" : selectedStates;
@@ -207,8 +222,8 @@ const BestMatchFinder = ({ catalog, seatIndex, collegesByName, profile }) => {
     step === 0
       ? selectedBranches.size > 0
       : step === 1
-        ? locationMode === "all" || selectedStates.size > 0
-        : true; // fees step has no required answer
+      ? locationMode === "all" || selectedStates.size > 0
+      : true; // fees step has no required answer
 
   const saveAnswers = () => {
     try {
@@ -251,7 +266,9 @@ const BestMatchFinder = ({ catalog, seatIndex, collegesByName, profile }) => {
         </p>
       )}
 
-      {!showingResults && <StepDots steps={QUESTION_STEPS} currentIndex={step} />}
+      {!showingResults && (
+        <StepDots steps={QUESTION_STEPS} currentIndex={step} />
+      )}
 
       {!showingResults && step === 0 && (
         <div className="mt-4">
@@ -302,7 +319,9 @@ const BestMatchFinder = ({ catalog, seatIndex, collegesByName, profile }) => {
                 <button
                   type="button"
                   className={`${secondaryBtn} mb-2`}
-                  onClick={() => setSelectedStates(new Set([profile.homeState]))}
+                  onClick={() =>
+                    setSelectedStates(new Set([profile.homeState]))
+                  }
                 >
                   Just my home state ({profile.homeState})
                 </button>
@@ -325,7 +344,9 @@ const BestMatchFinder = ({ catalog, seatIndex, collegesByName, profile }) => {
 
       {!showingResults && step === 2 && (
         <div className="mt-4">
-          <h3 className="text-base font-bold text-[#3a2c28]">What about fees?</h3>
+          <h3 className="text-base font-bold text-[#3a2c28]">
+            What about fees?
+          </h3>
           <div className="mt-3 grid gap-3 sm:grid-cols-2">
             <label className="block">
               <span className="mb-1 block text-xs font-semibold text-[#5b4a45]">
@@ -418,8 +439,8 @@ const ResultsScreen = ({ matches, resultsTab, setResultsTab }) => (
 
     {matches.length === 0 && (
       <p className="mt-3 text-base text-[#5b4a45]">
-        No reachable institute matches your filters. Try widening your
-        branches, location, or fee budget.
+        No reachable institute matches your filters. Try widening your branches,
+        location, or fee budget.
       </p>
     )}
 
@@ -452,7 +473,9 @@ const MatchCard = ({ match, rank }) => (
 // Top 3 by composite score (closing rank + NIRF + median CTC, see
 // utils/bestMatchFinder.js's scoreMatches), irrespective of branch.
 const BestOverallSection = ({ matches }) => {
-  const top3 = [...matches].sort((a, b) => b.matchScore - a.matchScore).slice(0, 3);
+  const top3 = [...matches]
+    .sort((a, b) => b.matchScore - a.matchScore)
+    .slice(0, 3);
   return (
     <div className="mt-3 space-y-3">
       {top3.map((m, i) => (
@@ -490,7 +513,10 @@ const BestPerBranchSection = ({ matches }) => {
   return (
     <div className="mt-3 space-y-4">
       {groups.map(({ group, items }) => (
-        <div key={group.key} className="overflow-hidden rounded-xl border border-[#d8c7c1]">
+        <div
+          key={group.key}
+          className="overflow-hidden rounded-xl border border-[#d8c7c1]"
+        >
           <p className="bg-[#3a2c28] px-3 py-1.5 text-sm font-bold text-white">
             {group.label}
           </p>

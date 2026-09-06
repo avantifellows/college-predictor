@@ -129,7 +129,6 @@ const matchesProgramType = (programName, type) => {
   return true; // "all"
 };
 
-
 const MockAllotment = () => {
   const [state, setState] = useState(defaultState);
   const [hydrated, setHydrated] = useState(false);
@@ -583,17 +582,25 @@ const StepBar = ({ current, profileValid, choicesCount, locked, onSelect }) => {
                   active
                     ? "border-[#b52326] bg-[#b52326] text-white"
                     : done
-                      ? "border-[#b52326] bg-white text-[#b52326]"
-                      : disabled
-                        ? "border-[#e4d8d2] bg-[#f8efec] text-[#c9b8b2]"
-                        : "border-[#d8c7c1] bg-white text-[#5b4a45]"
+                    ? "border-[#b52326] bg-white text-[#b52326]"
+                    : disabled
+                    ? "border-[#e4d8d2] bg-[#f8efec] text-[#c9b8b2]"
+                    : "border-[#d8c7c1] bg-white text-[#5b4a45]"
                 }`}
               >
-                {done && !active ? <Check size={12} aria-hidden="true" /> : idx + 1}
+                {done && !active ? (
+                  <Check size={12} aria-hidden="true" />
+                ) : (
+                  idx + 1
+                )}
               </span>
               <span
                 className={`text-center text-sm font-semibold leading-tight ${
-                  active ? "text-[#b52326]" : disabled ? "text-[#c9b8b2]" : "text-[#5b4a45]"
+                  active
+                    ? "text-[#b52326]"
+                    : disabled
+                    ? "text-[#c9b8b2]"
+                    : "text-[#5b4a45]"
                 }`}
               >
                 {STEP_LABELS[step]}
@@ -1240,8 +1247,8 @@ const RoundCard = ({
   const statusLabel = !finalRevealed
     ? "provisional seat"
     : isFinalRound
-      ? "final result — last round"
-      : "final result — frozen";
+    ? "final result — last round"
+    : "final result — frozen";
   return (
     <div className={cardClass}>
       <p className="text-xs font-semibold uppercase tracking-wide text-[#b52326]">
@@ -1328,7 +1335,8 @@ const MISSED_OPTIONS_METRICS = {
     isBetter: (item) => item.feeSavings > 0,
     // The one figure MatchStats' generic fee chip can't show on its own —
     // how much cheaper this is than what the student actually got.
-    extraNote: (item) => `Save ${formatSalary(item.feeSavings)} vs. your allotment`,
+    extraNote: (item) =>
+      `Save ${formatSalary(item.feeSavings)} vs. your allotment`,
   },
 };
 
@@ -1395,10 +1403,13 @@ const MissedOptionsPanel = ({ missedOptions }) => {
   const feesMetric = useMemo(
     () => ({
       metricKey: "annualFee",
-      isBetter: (item) => (hasBudget ? item.annualFee <= budget : item.feeSavings > 0),
+      isBetter: (item) =>
+        hasBudget ? item.annualFee <= budget : item.feeSavings > 0,
       formatLabel: (value, item) =>
         `Fees: ${formatSalary(value)}${item.feeWaived ? " (waived)" : ""}` +
-        (hasBudget ? "" : ` · Save ${formatSalary(item.feeSavings)} vs. your allotment`),
+        (hasBudget
+          ? ""
+          : ` · Save ${formatSalary(item.feeSavings)} vs. your allotment`),
     }),
     [hasBudget, budget]
   );
@@ -1625,7 +1636,6 @@ const SimulateStep = ({
           : same institute, other branches only.
         </p>
       )}
-
 
       {finalRevealed && finalChoice && missedOptions.length > 0 && (
         <MissedOptionsPanel missedOptions={missedOptions} />
