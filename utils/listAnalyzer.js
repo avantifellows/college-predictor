@@ -50,7 +50,14 @@ const pairKey = (institute, program) => `${institute}|${program}`;
  * the ONE case the tutorial's static sample data never has to represent
  * (every one of its programs always has a cut), so tag stays null only
  * here, never for a merely-tight "reach" pick. */
-function closingRankAtFinalRound(institute, program, seatIndex, profile, collegesByName, rank) {
+function closingRankAtFinalRound(
+  institute,
+  program,
+  seatIndex,
+  profile,
+  collegesByName,
+  rank
+) {
   const seat = findSeatForChoice(
     institute,
     program,
@@ -71,12 +78,29 @@ function closingRankAtFinalRound(institute, program, seatIndex, profile, college
  * support — sourced from `catalog` (everything eligible for this profile)
  * minus what's already on the list, same as the tutorial's `avail`.
  */
-export function analyzeList({ choices, catalog, seatIndex, collegesByName, profile }) {
+export function analyzeList({
+  choices,
+  catalog,
+  seatIndex,
+  collegesByName,
+  profile,
+}) {
   const evaluated = choices.map((choice) => {
-    const rank = studentRankForInstitute(profile, choice.institute, collegesByName);
+    const rank = studentRankForInstitute(
+      profile,
+      choice.institute,
+      collegesByName
+    );
     const closingRank =
       rank != null
-        ? closingRankAtFinalRound(choice.institute, choice.program, seatIndex, profile, collegesByName, rank)
+        ? closingRankAtFinalRound(
+            choice.institute,
+            choice.program,
+            seatIndex,
+            profile,
+            collegesByName,
+            rank
+          )
         : null;
     return {
       ...choice,
@@ -106,12 +130,18 @@ export function analyzeList({ choices, catalog, seatIndex, collegesByName, profi
   // the student's rank) is NOT excluded here — the tutorial recommends
   // reach picks too (see "Room to aim higher"); only a program with no seat
   // row at all is left out.
-  const inListKeys = new Set(choices.map((c) => pairKey(c.institute, c.program)));
+  const inListKeys = new Set(
+    choices.map((c) => pairKey(c.institute, c.program))
+  );
   const candidates = [];
   for (const item of catalog) {
     const key = pairKey(item.institute, item.program);
     if (inListKeys.has(key)) continue;
-    const rank = studentRankForInstitute(profile, item.institute, collegesByName);
+    const rank = studentRankForInstitute(
+      profile,
+      item.institute,
+      collegesByName
+    );
     if (rank == null) continue;
     const closingRank = closingRankAtFinalRound(
       item.institute,
@@ -139,16 +169,22 @@ export function analyzeList({ choices, catalog, seatIndex, collegesByName, profi
 
   if (evaluated.length > 0) {
     if (nSafety === 0) {
-      let cands = byClosingRankAsc(candidates.filter((c) => c.tag === "safety")).slice(0, 2);
+      let cands = byClosingRankAsc(
+        candidates.filter((c) => c.tag === "safety")
+      ).slice(0, 2);
       if (cands.length === 0) {
         // Tutorial's fallback when NOTHING qualifies as safe: the loosest
         // (highest closing rank) options available, regardless of tag.
-        cands = [...candidates].sort((a, b) => b.closingRank - a.closingRank).slice(0, 2);
+        cands = [...candidates]
+          .sort((a, b) => b.closingRank - a.closingRank)
+          .slice(0, 2);
       }
       recommendations.push({
         type: "warning",
         title: "No safety net",
-        text: `Every program on your list closes at a rank ${nMatch ? "better than or near" : "better than"} yours. If the rounds don't go your way, you could end with no seat. Keep your reaches — and add a safety that still pays well:`,
+        text: `Every program on your list closes at a rank ${
+          nMatch ? "better than or near" : "better than"
+        } yours. If the rounds don't go your way, you could end with no seat. Keep your reaches — and add a safety that still pays well:`,
         candidates: cands,
       });
     } else if (nReach === 0 && nMatch === 0) {
@@ -156,13 +192,17 @@ export function analyzeList({ choices, catalog, seatIndex, collegesByName, profi
         type: "info",
         title: "Room to aim higher",
         text: "Every program on your list is comfortably below your expected rank. A higher choice at the top costs you nothing — consider adding one:",
-        candidates: byClosingRankAsc(candidates.filter((c) => c.tag !== "safety")).slice(0, 2),
+        candidates: byClosingRankAsc(
+          candidates.filter((c) => c.tag !== "safety")
+        ).slice(0, 2),
       });
     } else {
       recommendations.push({
         type: "good",
         title: "Balanced list",
-        text: `Your list combines ${nReach ? nReach + " reach, " : ""}${nMatch} match and ${nSafety} safety — aspiration on top, solid ground below.`,
+        text: `Your list combines ${
+          nReach ? nReach + " reach, " : ""
+        }${nMatch} match and ${nSafety} safety — aspiration on top, solid ground below.`,
         candidates: [],
       });
     }
@@ -171,9 +211,13 @@ export function analyzeList({ choices, catalog, seatIndex, collegesByName, profi
   // "Recommended for you" — the tutorial's catch-all: whatever hasn't
   // already been suggested above, isn't a reach, sorted by salary.
   const shown = new Set();
-  recommendations.forEach((r) => r.candidates.forEach((c) => shown.add(pairKey(c.institute, c.program))));
+  recommendations.forEach((r) =>
+    r.candidates.forEach((c) => shown.add(pairKey(c.institute, c.program)))
+  );
   const fits = byClosingRankAsc(
-    candidates.filter((c) => !shown.has(pairKey(c.institute, c.program)) && c.tag !== "reach")
+    candidates.filter(
+      (c) => !shown.has(pairKey(c.institute, c.program)) && c.tag !== "reach"
+    )
   );
   if (fits.length > 0) {
     recommendations.push({

@@ -1,7 +1,10 @@
 import Head from "next/head";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { loadPersistedState, ProfileChips } from "../../components/MockAllotment";
+import {
+  loadPersistedState,
+  ProfileChips,
+} from "../../components/MockAllotment";
 import { cardClass } from "../../components/mockAllotmentTheme";
 
 // Standalone page for the "My Choices" link in the Simulation view — a

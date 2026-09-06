@@ -26,22 +26,82 @@ import {
 // by keyword instead, in priority order (first match wins) so a compound
 // name like "Electrical and Electronics Engineering" lands in one place.
 export const BRANCH_GROUPS = [
-  { key: "cse", label: "Computer Science, IT & AI/Data", test: /computer|software|information technology|\bit\b|artificial intelligen|\bai\b|data scien|data analytic|data engineer|cyber|machine learning|\bml\b|robotics|business informatics/i },
-  { key: "ece", label: "Electronics & Communication", test: /electronics|communication engineering|telecommunication|vlsi|microelectronics|integrated circuit/i },
+  {
+    key: "cse",
+    label: "Computer Science, IT & AI/Data",
+    test: /computer|software|information technology|\bit\b|artificial intelligen|\bai\b|data scien|data analytic|data engineer|cyber|machine learning|\bml\b|robotics|business informatics/i,
+  },
+  {
+    key: "ece",
+    label: "Electronics & Communication",
+    test: /electronics|communication engineering|telecommunication|vlsi|microelectronics|integrated circuit/i,
+  },
   { key: "eee", label: "Electrical Engineering", test: /electrical/i },
-  { key: "mech", label: "Mechanical, Industrial & Production", test: /mechanical|mechatronics|manufacturing|industrial|production engineering|automation/i },
-  { key: "civil", label: "Civil & Environmental Engineering", test: /civil|construction|environmental/i },
-  { key: "chem", label: "Chemical & Petroleum Engineering", test: /chemical engineer|chemical technology|petroleum|polymer/i },
-  { key: "aero", label: "Aerospace & Aeronautical Engineering", test: /aerospace|aeronautical|space science|space engineer/i },
-  { key: "metallurgy", label: "Metallurgical & Materials Engineering", test: /metallurg|materials scien|materials engineer/i },
-  { key: "biotech", label: "Biotechnology & Biomedical Engineering", test: /\bbio/i },
-  { key: "mining", label: "Mining & Mineral Engineering", test: /mining|mineral/i },
-  { key: "architecture", label: "Architecture, Planning & Design", test: /architecture|planning|\bdesign\b/i },
-  { key: "maths", label: "Mathematics & Computational Sciences", test: /mathematic|computational|statistics|quantitative economics/i },
-  { key: "sciences", label: "Engineering Physics & Pure Sciences", test: /physics|chemistry|chemical scien|geology|geophysics|earth science/i },
-  { key: "textile", label: "Textile Engineering", test: /textile|carpet|handloom/i },
-  { key: "naval", label: "Naval Architecture & Ocean Engineering", test: /naval|ocean engineer/i },
-  { key: "food", label: "Food, Agricultural & Dairy Engineering", test: /food|agricultur|dairy/i },
+  {
+    key: "mech",
+    label: "Mechanical, Industrial & Production",
+    test: /mechanical|mechatronics|manufacturing|industrial|production engineering|automation/i,
+  },
+  {
+    key: "civil",
+    label: "Civil & Environmental Engineering",
+    test: /civil|construction|environmental/i,
+  },
+  {
+    key: "chem",
+    label: "Chemical & Petroleum Engineering",
+    test: /chemical engineer|chemical technology|petroleum|polymer/i,
+  },
+  {
+    key: "aero",
+    label: "Aerospace & Aeronautical Engineering",
+    test: /aerospace|aeronautical|space science|space engineer/i,
+  },
+  {
+    key: "metallurgy",
+    label: "Metallurgical & Materials Engineering",
+    test: /metallurg|materials scien|materials engineer/i,
+  },
+  {
+    key: "biotech",
+    label: "Biotechnology & Biomedical Engineering",
+    test: /\bbio/i,
+  },
+  {
+    key: "mining",
+    label: "Mining & Mineral Engineering",
+    test: /mining|mineral/i,
+  },
+  {
+    key: "architecture",
+    label: "Architecture, Planning & Design",
+    test: /architecture|planning|\bdesign\b/i,
+  },
+  {
+    key: "maths",
+    label: "Mathematics & Computational Sciences",
+    test: /mathematic|computational|statistics|quantitative economics/i,
+  },
+  {
+    key: "sciences",
+    label: "Engineering Physics & Pure Sciences",
+    test: /physics|chemistry|chemical scien|geology|geophysics|earth science/i,
+  },
+  {
+    key: "textile",
+    label: "Textile Engineering",
+    test: /textile|carpet|handloom/i,
+  },
+  {
+    key: "naval",
+    label: "Naval Architecture & Ocean Engineering",
+    test: /naval|ocean engineer/i,
+  },
+  {
+    key: "food",
+    label: "Food, Agricultural & Dairy Engineering",
+    test: /food|agricultur|dairy/i,
+  },
   { key: "other", label: "Other / Interdisciplinary Programs", test: /.*/ }, // catch-all, must stay last
 ];
 
@@ -49,7 +109,8 @@ export const BRANCH_GROUPS = [
  * wins, so BRANCH_GROUPS' order matters (see the "other" catch-all above). */
 export function classifyBranch(branchName) {
   const name = branchName || "";
-  return (BRANCH_GROUPS.find((g) => g.test.test(name)) || BRANCH_GROUPS.at(-1)).key;
+  return (BRANCH_GROUPS.find((g) => g.test.test(name)) || BRANCH_GROUPS.at(-1))
+    .key;
 }
 
 /** Every state actually represented in the catalog (not the generic all-
@@ -76,7 +137,9 @@ function effectiveFee(college, category, waiverAnswer) {
     return { amount: r?.amount ?? null, waived: r?.waived ?? false };
   }
   const amount =
-    waiverAnswer === "yes" ? (fees.annual_fee_waived ?? fees.annual_fee) : fees.annual_fee;
+    waiverAnswer === "yes"
+      ? fees.annual_fee_waived ?? fees.annual_fee
+      : fees.annual_fee;
   const waived = waiverAnswer === "yes" && fees.annual_fee_waived != null;
   return { amount: amount ?? null, waived };
 }
@@ -101,7 +164,11 @@ export function findBestMatches({
   const results = [];
 
   for (const item of catalog) {
-    const rank = studentRankForInstitute(profile, item.institute, collegesByName);
+    const rank = studentRankForInstitute(
+      profile,
+      item.institute,
+      collegesByName
+    );
     if (rank == null) continue;
 
     const seat = findSeatForChoice(
@@ -124,7 +191,8 @@ export function findBestMatches({
     if (branchGroupKeys.size > 0 && !branchGroupKeys.has(branchGroup)) continue;
 
     const fee = effectiveFee(college, profile.category, feeWaiverAnswer);
-    if (feeBudget != null && fee.amount != null && fee.amount > feeBudget) continue;
+    if (feeBudget != null && fee.amount != null && fee.amount > feeBudget)
+      continue;
 
     results.push({
       institute: item.institute,
@@ -154,7 +222,11 @@ export function findBestMatches({
 // already priced in, where NIRF is one methodology's opinion and median CTC
 // is a single self-reported college-wide average. NIRF and CTC still count,
 // as validators, just not as equal partners.
-const MATCH_SCORE_WEIGHTS = { closingRank: 0.5, nirfRank: 0.25, medianSalary: 0.25 };
+const MATCH_SCORE_WEIGHTS = {
+  closingRank: 0.5,
+  nirfRank: 0.25,
+  medianSalary: 0.25,
+};
 
 /**
  * Percentile rank (0 = worst in this set, 1 = best) for one metric across
@@ -195,7 +267,9 @@ function percentileScoresByExam(items, key, higherIsBetter) {
       key,
       higherIsBetter
     );
-    subScores.forEach((score, subIndex) => merged.set(indices[subIndex], score));
+    subScores.forEach((score, subIndex) =>
+      merged.set(indices[subIndex], score)
+    );
   }
   return merged;
 }
@@ -216,11 +290,15 @@ function percentileScores(items, key, higherIsBetter) {
   let i = 0;
   while (i < present.length) {
     let j = i;
-    while (j + 1 < present.length && present[j + 1].value === present[i].value) j += 1;
+    while (j + 1 < present.length && present[j + 1].value === present[i].value)
+      j += 1;
     const avgPosition = (i + j) / 2; // 0 (lowest value) .. length-1 (highest value)
     const percentile = avgPosition / (present.length - 1);
     for (let k = i; k <= j; k += 1) {
-      scores.set(present[k].index, higherIsBetter ? percentile : 1 - percentile);
+      scores.set(
+        present[k].index,
+        higherIsBetter ? percentile : 1 - percentile
+      );
     }
     i = j + 1;
   }
@@ -241,9 +319,18 @@ export function scoreMatches(items) {
 
   return items.map((item, index) => {
     const parts = [
-      closing.has(index) && { weight: MATCH_SCORE_WEIGHTS.closingRank, score: closing.get(index) },
-      nirf.has(index) && { weight: MATCH_SCORE_WEIGHTS.nirfRank, score: nirf.get(index) },
-      salary.has(index) && { weight: MATCH_SCORE_WEIGHTS.medianSalary, score: salary.get(index) },
+      closing.has(index) && {
+        weight: MATCH_SCORE_WEIGHTS.closingRank,
+        score: closing.get(index),
+      },
+      nirf.has(index) && {
+        weight: MATCH_SCORE_WEIGHTS.nirfRank,
+        score: nirf.get(index),
+      },
+      salary.has(index) && {
+        weight: MATCH_SCORE_WEIGHTS.medianSalary,
+        score: salary.get(index),
+      },
     ].filter(Boolean);
     const totalWeight = parts.reduce((sum, p) => sum + p.weight, 0);
     const matchScore =
