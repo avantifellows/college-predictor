@@ -127,7 +127,7 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
             // "#87 (2022)" here would be staler than what NIRF publishes.
             <span
               className="font-semibold text-[#332724]"
-              title={`In NIRF's ${nirf.latest_band.band} band in ${nirf.latest_band.year}; last exact rank #${nirf.rank} in ${nirf.ranking_year}`}
+              title={`In NIRF's ${nirf.latest_band.band} band in ${nirf.latest_band.year}; last exact rank #${nirf.engineering_rank} in ${nirf.ranking_year}`}
             >
               {nirf.latest_band.band}
               <span className="ml-1 text-[11px] font-normal text-[#6d5550]">
@@ -136,14 +136,9 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
             </span>
           ) : nirf ? (
             <>
-              <span className="font-semibold text-[#332724]">#{nirf.rank}</span>
-              {nirf.category && nirf.category !== "Engineering" ? (
-                // ranks only order colleges within one NIRF category, so a
-                // non-engineering rank says which list it is from
-                <span className="ml-1 text-[11px] font-normal text-[#6d5550]">
-                  {nirf.category}
-                </span>
-              ) : null}
+              <span className="font-semibold text-[#332724]">
+                #{nirf.engineering_rank}
+              </span>
               {(() => {
                 // Direction against LAST year, so a student sees movement in the
                 // table without expanding. A LOWER rank number is better, so a
@@ -241,11 +236,7 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
                               Degree
                             </th>
                             <th className="px-2 py-1.5 text-right font-semibold">
-                              {c.programs.list.some(
-                                (p) => p.indicative_closing_rank != null
-                              ) || !c.programs.list.some((p) => p.seats != null)
-                                ? "Closing rank"
-                                : "Annual seats"}
+                              Closing rank
                             </th>
                           </tr>
                         </thead>
@@ -274,9 +265,7 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
                                 {p.years ? ` · ${p.years} yr` : ""}
                               </td>
                               <td className="px-2 py-1.5 text-right tabular-nums text-[#332724]">
-                                {p.indicative_closing_rank ?? p.seats ?? (
-                                  <Dash />
-                                )}
+                                {p.indicative_closing_rank ?? <Dash />}
                               </td>
                             </tr>
                           ))}
@@ -397,11 +386,7 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
                       ) : null}
                     </dl>
                     <p className="mt-1.5 text-xs leading-5 text-[#6d5550]">
-                      NIRF {pl.ranking_year},{" "}
-                      {pl.source?.includes("Medical")
-                        ? "MBBS (UG 5-year)"
-                        : "UG 4-year"}{" "}
-                      · AY {pl.academic_year}
+                      NIRF {pl.ranking_year}, UG 4-year · AY {pl.academic_year}
                     </p>
                   </div>
                 ) : null}
@@ -487,8 +472,6 @@ const ABBREV = [
   [/\bnit\b/g, "national institute of technology"],
   [/\biiit\b/g, "indian institute of information technology"],
   [/\biit\b/g, "indian institute of technology"],
-  [/\baiims\b/g, "all india institute of medical sciences"],
-  [/\bgmc\b/g, "government medical college"],
 ];
 
 const expand = (q) => {
@@ -549,7 +532,8 @@ const NirfTrend = ({ history }) => {
 const SORTS = {
   nirf: {
     label: "NIRF rank",
-    fn: (a, b) => (a.nirf?.rank ?? 9e9) - (b.nirf?.rank ?? 9e9),
+    fn: (a, b) =>
+      (a.nirf?.engineering_rank ?? 9e9) - (b.nirf?.engineering_rank ?? 9e9),
   },
   salary: {
     label: "Median salary",
@@ -624,32 +608,25 @@ const Colleges = () => {
   );
 
   const filtered = useMemo(() => {
-    // Punctuation-blind matching: medical names are comma-heavy ("All India
-    // Institute of Medical Sciences, New Delhi"), so both the query and the
-    // haystack collapse to plain words before the substring test.
-    const plain = (x) =>
-      String(x)
-        .toLowerCase()
-        .replace(/[^a-z0-9]+/g, " ")
-        .trim();
-    const raw = plain(q);
+    const raw = q.trim().toLowerCase();
     // Match on either the literal text or its abbreviation-expanded form, so
     // "NIT Raipur" and "National Institute of Technology Raipur" both work.
     const needles = raw ? Array.from(new Set([raw, expand(raw)])) : [];
+    const needle = raw;
     const out = all.filter((c) => {
       if (state !== "All" && c.state !== state) return false;
       if (exam !== "All" && !c.entrance_exams.includes(exam)) return false;
-      if (!raw) return true;
+      if (!needle) return true;
       // Search the branch list too: "who teaches Aerospace" is a real question,
       // and the branch names are the richest text we hold.
-      const hay = plain(
-        [
-          c.display_name,
-          c.state || "",
-          c.district || "",
-          ...c.programs.list.map((p) => p.branch),
-        ].join(" ")
-      );
+      const hay = [
+        c.display_name,
+        c.state || "",
+        c.district || "",
+        ...c.programs.list.map((p) => p.branch),
+      ]
+        .join(" ")
+        .toLowerCase();
       return needles.some((n) => hay.includes(n));
     });
     return out.sort(SORTS[sortKey].fn);
@@ -665,7 +642,7 @@ const Colleges = () => {
         <title>Colleges - Avanti Fellows</title>
         <meta
           name="description"
-          content="Engineering and medical colleges — location, NIRF rank, MBBS seats, placement outcomes, and the programs each one offers."
+          content="Engineering colleges in JoSAA counselling — location, NIRF rank, placement outcomes, and the programs each one offers."
         />
       </Head>
 
@@ -829,9 +806,8 @@ const Colleges = () => {
 
               <p className="mt-6 border-t border-[#eaded8] pt-3 text-[11px] leading-5 text-[#6d5550]">
                 Sources: AISHE 2024-25 (identity) · NIRF 2025 (rank, placement)
-                · NAAC (accreditation) · JoSAA 2025 (branches) · NMC 2024-25
-                (medical colleges, MBBS seats). A dash means we do not have that
-                figure.
+                · NAAC (accreditation) · JoSAA 2025 (branches). A dash means we
+                do not have that figure.
               </p>
             </>
           )}

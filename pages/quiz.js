@@ -241,9 +241,7 @@ export default function Quiz() {
       fetch("/data/careers/careers.json").then((r) => r.json()),
     ])
       .then(([cols, cars]) => {
-        // the quiz walks a JEE rank to a JoSAA cutoff — medical rows on the
-        // colleges tab have no JEE rank space, so they stay out of the walk
-        setColleges(cols.filter((c) => c.counselling === "JoSAA"));
+        setColleges(cols);
         setCareerNames(
           Object.fromEntries(cars.map((c) => [c.career_id, c.name]))
         );
@@ -293,7 +291,7 @@ export default function Quiz() {
     const score =
       showHelper && prefSort === "salary"
         ? ({ college }) => -(college.placement?.median_salary ?? 0)
-        : ({ college }) => college.nirf?.rank ?? 9999;
+        : ({ college }) => college.nirf?.engineering_rank ?? 9999;
     return rows.slice().sort((a, b) => score(a) - score(b));
   }, [pairs, degreePick, collegeSearch, showHelper, prefState, prefSort]);
 
@@ -593,9 +591,9 @@ export default function Quiz() {
                         <span className="font-bold text-[#2f2320]">
                           {college.display_name}
                         </span>
-                        {college.nirf?.rank ? (
+                        {college.nirf?.engineering_rank ? (
                           <span className="shrink-0 text-xs font-bold text-[#8f2e31]">
-                            NIRF #{college.nirf.rank}
+                            NIRF #{college.nirf.engineering_rank}
                           </span>
                         ) : null}
                       </div>

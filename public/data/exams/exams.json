@@ -6362,7 +6362,7 @@
     "slug": "nursing"
    }
   ],
-  "colleges_link": "/colleges?exam=NEET-UG"
+  "colleges_link": null
  },
  {
   "exam_id": "nest",
