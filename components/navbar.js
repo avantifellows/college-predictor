@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import {
+  ListChecks,
   Award,
   Briefcase,
   Building2,
@@ -29,6 +30,7 @@ const DASHBOARDS = [
 const TOOLS = [
   { href: "/quiz", icon: HelpCircle, label: "Career Quiz" },
   { href: "/predictor", icon: Target, label: "College Predictor" },
+  { href: "/mock-allotment", icon: ListChecks, label: "JoSAA Mock Allotment" },
   { href: "/compare", icon: Scale, label: "College & Course Comparison" },
   {
     href: "https://cv-generator.avantifellows.org/",
@@ -147,16 +149,6 @@ const Navbar = () => {
               }`}
             >
               Datasets
-            </Link>
-            <Link
-              href="/mock-allotment"
-              className={`rounded-full px-3 py-1.5 text-sm font-semibold transition ${
-                pathname === "/mock-allotment"
-                  ? "bg-white/20"
-                  : "hover:bg-white/10 cursor-pointer"
-              }`}
-            >
-              Mock Allotment
             </Link>
           </div>
           {/* right side stays empty until Sign in ships */}
