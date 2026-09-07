@@ -10,16 +10,16 @@ import { formatRank, formatSalary } from "./mockAllotmentTheme";
 // options, fewer for a tighter results screen) without hardcoding one here.
 export const RANKED_LIST_DISPLAY_LIMIT = 8;
 
-// Colored, at-a-glance stat chips — one fixed color per metric, used
-// EVERYWHERE a match/option is shown (this file's InstituteCard AND
-// BestMatchFinder.js's MatchCard both render this), so the same four
-// numbers always look the same way instead of each screen inventing its
-// own dense gray sentence.
+// At-a-glance stat chips — one fixed style per metric, used everywhere a
+// match/option is shown, so the same four numbers always look the same way
+// instead of each screen inventing its own dense gray sentence.
+// House palette only: the closing rank (the decision-driving number) gets
+// the maroon tint; the college-level context stats stay quiet neutrals.
 const STAT_COLORS = {
-  closing: "bg-[#fdf3f1] text-[#b52326]",
-  nirf: "bg-[#e8f0fb] text-[#1d4ed8]",
-  ctc: "bg-[#eaf6ec] text-[#1a7f37]",
-  fees: "bg-[#fff6e5] text-[#8a6d1f]",
+  closing: "bg-[#fbeeec] text-[#8f2e31]",
+  nirf: "bg-[#f5ece8] text-[#5b3a34]",
+  ctc: "bg-[#f5ece8] text-[#5b3a34]",
+  fees: "bg-[#f5ece8] text-[#5b3a34]",
 };
 export const MatchStats = ({ item }) => (
   <div className="mt-2 flex flex-wrap gap-1.5">
@@ -94,7 +94,7 @@ export const InstituteRankedList = ({
 };
 
 // One institute's card within InstituteRankedList — same MatchStats chip
-// row BestMatchFinder.js's MatchCard uses, so this panel and Find Your Best
+// row used across the mock, so every results panel and Find Your Best
 // Match never look like two different features. Only its best (tightest
 // closing rank) branch shows the full stats by default; a round "+N" pill
 // expands the rest into a list below (just their closing rank, since

@@ -502,8 +502,7 @@ export function findMissedBetterOptions(
   // rank 1 is best, so worst-case is the largest int; salary's worst-case is
   // the smallest.
   const winningCollege = collegesByName.get(winningChoice.institute);
-  const winningNirf =
-    winningCollege?.nirf?.engineering_rank ?? Number.MAX_SAFE_INTEGER;
+  const winningNirf = winningCollege?.nirf?.rank ?? Number.MAX_SAFE_INTEGER;
   const winningSalary =
     winningCollege?.placement?.median_salary ?? Number.MIN_SAFE_INTEGER;
   const winningFee = annualFeeForCategory(winningCollege, profile.category);
@@ -534,7 +533,7 @@ export function findMissedBetterOptions(
 
     const college = collegesByName.get(item.institute);
     const fee = annualFeeForCategory(college, profile.category);
-    const nirfRank = college?.nirf?.engineering_rank ?? null;
+    const nirfRank = college?.nirf?.rank ?? null;
     const medianSalary = college?.placement?.median_salary ?? null;
 
     results.push({

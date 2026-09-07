@@ -9,10 +9,10 @@ import {
   buildCatalog,
   getRoundOneResult,
   advanceRound,
-  findMissedBetterOptions,
   annualFeeForCategory,
   TOTAL_ROUNDS,
 } from "../utils/josaaSimulator";
+import Dropdown from "./dropdown";
 import {
   formatRank,
   formatSalary,
@@ -21,8 +21,7 @@ import {
   primaryBtn,
   secondaryBtn,
 } from "./mockAllotmentTheme";
-import { InstituteRankedList, MatchStats } from "./InstituteRankedList";
-import { BEST_MATCH_STORAGE_KEY } from "./BestMatchFinder";
+import { MatchStats } from "./InstituteRankedList";
 
 // Practice JoSAA choice-filling + locking + a round-by-round freeze/float mock,
 // built entirely on data already in this repo (see docs/SIMULATION_DATA.md).
@@ -42,9 +41,9 @@ export const STORAGE_KEY = "josaaMockAllotmentState_v2";
 // & Manage. state.step still uses "simulate" internally (see lockChoices).
 const NAV_STEPS = ["info", "choices", "review"];
 const STEP_LABELS = {
-  info: "1. Student Info",
-  choices: "2. Choice Filling",
-  review: "3. Review & Manage",
+  info: "1. Your info",
+  choices: "2. Choice filling",
+  review: "3. Review & lock",
 };
 
 const categoryField = josaaConfig.fields.find((f) => f.name === "category");
@@ -64,14 +63,16 @@ const optionLabel = (opt) => (typeof opt === "string" ? opt : opt.label);
 // straight from here instead of re-deriving the category label lookup.
 export const ProfileChips = ({ profile }) => {
   const chips = [
-    optionLabel(
-      categoryField.options.find((o) => optionValue(o) === profile.category)
-    ) || profile.category,
+    `Category: ${
+      optionLabel(
+        categoryField.options.find((o) => optionValue(o) === profile.category)
+      ) || profile.category
+    }`,
     profile.gender,
-    profile.homeState,
-    `JEE Main rank: ${profile.mainRank}`,
+    `Home state: ${profile.homeState}`,
+    `JEE Main rank ${formatRank(profile.mainRank)}`,
     profile.qualifiedJeeAdv === "Yes"
-      ? `JEE Advanced rank: ${profile.advRank}`
+      ? `JEE Advanced rank ${formatRank(profile.advRank)}`
       : null,
   ].filter(Boolean);
 
@@ -139,7 +140,6 @@ const MockAllotment = () => {
   const [dataLoading, setDataLoading] = useState(false);
 
   const [search, setSearch] = useState("");
-  const [instituteFilter, setInstituteFilter] = useState("");
   const [programType, setProgramType] = useState("all");
 
   // Load any in-progress mock from localStorage once, on mount.
@@ -183,24 +183,18 @@ const MockAllotment = () => {
     return buildCatalog(rows, state.profile, collegesByName);
   }, [rows, collegesByName, state.profile]);
 
-  const instituteOptions = useMemo(
-    () => Array.from(new Set(catalog.map((c) => c.institute))).sort(),
-    [catalog]
-  );
-
   const filteredCatalog = useMemo(() => {
     // Tokenized AND-match across institute + program together, so "mesra
     // computer science" finds BIT Mesra's CSE row — a whole-phrase substring
     // match against each field separately can never span the two fields.
     const tokens = search.trim().toLowerCase().split(/\s+/).filter(Boolean);
     return catalog.filter((item) => {
-      if (instituteFilter && item.institute !== instituteFilter) return false;
       if (!matchesProgramType(item.program, programType)) return false;
       if (tokens.length === 0) return true;
       const haystack = `${item.institute} ${item.program}`.toLowerCase();
       return tokens.every((t) => haystack.includes(t));
     });
-  }, [catalog, search, instituteFilter, programType]);
+  }, [catalog, search, programType]);
 
   const chosenKeys = useMemo(
     () => new Set(state.choices.map((c) => `${c.institute}|${c.program}`)),
@@ -242,35 +236,6 @@ const MockAllotment = () => {
     state.trail.length > 0 ? state.trail[state.trail.length - 1] : null;
   const isFinalRound = current ? current.round >= TOTAL_ROUNDS : false;
   const finalRevealed = state.frozen || isFinalRound;
-
-  const missedOptions = useMemo(() => {
-    if (
-      !finalRevealed ||
-      !current?.provisional ||
-      !seatIndex ||
-      !collegesByName ||
-      catalog.length === 0
-    ) {
-      return [];
-    }
-    return findMissedBetterOptions(
-      catalog,
-      state.choices,
-      current.provisional.choice,
-      current.round,
-      seatIndex,
-      state.profile,
-      collegesByName
-    );
-  }, [
-    finalRevealed,
-    current,
-    catalog,
-    state.choices,
-    state.profile,
-    seatIndex,
-    collegesByName,
-  ]);
 
   const setStep = (step) => setState((s) => ({ ...s, step }));
   const setProfile = (patch) =>
@@ -376,12 +341,8 @@ const MockAllotment = () => {
 
   const restart = () => {
     window.localStorage.removeItem(STORAGE_KEY);
-    // Best Match answers are tied to this profile/rank — a fresh session
-    // shouldn't silently carry over stale filters from a previous one.
-    window.localStorage.removeItem(BEST_MATCH_STORAGE_KEY);
     setState(defaultState);
     setSearch("");
-    setInstituteFilter("");
     setProgramType("all");
   };
 
@@ -396,57 +357,17 @@ const MockAllotment = () => {
   if (!hydrated) return null;
 
   return (
-    <div className="mx-auto w-full max-w-7xl px-4 py-4 md:px-8">
-      <div className="flex flex-wrap items-start justify-between gap-3">
-        <h1 className="text-2xl font-bold text-[#3a2c28] md:text-3xl">
-          JoSAA Mock Allotment
-        </h1>
-
-        {/* These four are all real pages (pages/mock-allotment/), not popups
-            or inline toggles — each needs its own URL and a back link. Real
-            buttons (same classes the rest of the app uses), not plain text
-            links, so they read as actionable rather than incidental. */}
-        <div className="flex flex-wrap gap-2">
-          {/* Independent of the round simulation — just needs a valid
-              profile + catalog, so it's offered whether or not choices are
-              locked yet. */}
-          {profileValid && catalog.length > 0 && (
-            <Link
-              href="/mock-allotment/best-match"
-              className={`${primaryBtn} inline-flex items-center`}
-            >
-              Best Match
-            </Link>
-          )}
-          {/* Critiques the choices already on the list, so it needs at
-              least one to say anything useful. */}
-          {profileValid && state.choices.length > 0 && (
-            <Link
-              href="/mock-allotment/list-analyzer"
-              className={`${secondaryBtn} inline-flex items-center`}
-            >
-              Analyse List
-            </Link>
-          )}
-          {/* Only meaningful once there's a locked run to look back on. */}
-          {state.locked && (
-            <>
-              <Link
-                href="/mock-allotment/choices"
-                className={`${secondaryBtn} inline-flex items-center`}
-              >
-                My Choices
-              </Link>
-              <Link
-                href="/mock-allotment/rounds-history"
-                className={`${secondaryBtn} inline-flex items-center`}
-              >
-                Rounds History
-              </Link>
-            </>
-          )}
-        </div>
-      </div>
+    <div className="mx-auto w-full max-w-5xl px-4 py-6 md:px-6">
+      {/* One title, no side doors — every action lives inside its step.
+          The analysis and rounds-history links appear only where they make
+          sense: on the result screen (see SimulateStep). */}
+      <h1 className="text-center text-2xl font-bold text-[#3a2c28] md:text-3xl">
+        JoSAA Mock Allotment
+      </h1>
+      <p className="mt-2 text-center text-sm text-[#6d5550]">
+        Fill choices, lock them, then live the rounds: freeze, float or slide,
+        like the real counselling.
+      </p>
 
       {state.step !== "simulate" && (
         <StepBar
@@ -479,9 +400,6 @@ const MockAllotment = () => {
           choices={state.choices}
           search={search}
           setSearch={setSearch}
-          instituteFilter={instituteFilter}
-          setInstituteFilter={setInstituteFilter}
-          instituteOptions={instituteOptions}
           programType={programType}
           setProgramType={setProgramType}
           onAdd={addChoice}
@@ -489,7 +407,6 @@ const MockAllotment = () => {
           onReorder={reorderChoices}
           onMoveUp={moveChoiceUp}
           onMoveDown={moveChoiceDown}
-          onMoveToPosition={moveChoiceToPosition}
           onBack={() => setStep("info")}
           onNext={() => setStep("review")}
           locked={state.locked}
@@ -517,7 +434,6 @@ const MockAllotment = () => {
           onReorder={reorderChoices}
           onMoveUp={moveChoiceUp}
           onMoveDown={moveChoiceDown}
-          onMoveToPosition={moveChoiceToPosition}
           onRemove={removeChoice}
         />
       )}
@@ -529,7 +445,6 @@ const MockAllotment = () => {
           current={current}
           finalRevealed={finalRevealed}
           isFinalRound={isFinalRound}
-          missedOptions={missedOptions}
           collegesByName={collegesByName}
           profile={state.profile}
           onFreeze={freeze}
@@ -644,59 +559,50 @@ const Field = ({ label, children }) => (
   </label>
 );
 
+// number inputs without the browser's spinner arrows — they crowd the value
+const rankInputClass = `${inputClass} [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none`;
+
+const toOptions = (opts) =>
+  opts.map((o) => ({ value: optionValue(o), label: optionLabel(o) }));
+
 const InfoStep = ({ profile, setProfile, onNext, valid }) => (
   <div className={`${cardClass} mt-6`}>
     <div className="grid gap-4 md:grid-cols-2">
       <Field label={categoryField.label}>
-        <select
-          className={inputClass}
-          value={profile.category}
-          onChange={(e) => setProfile({ category: e.target.value })}
-        >
-          <option value="">Select…</option>
-          {categoryField.options.map((opt) => (
-            <option key={optionValue(opt)} value={optionValue(opt)}>
-              {optionLabel(opt)}
-            </option>
-          ))}
-        </select>
+        <Dropdown
+          options={toOptions(categoryField.options)}
+          selectedValue={profile.category || null}
+          onChange={(o) => setProfile({ category: o.value })}
+          placeholder="Select…"
+          isSearchable={false}
+        />
       </Field>
 
       <Field label={genderField.label}>
-        <select
-          className={inputClass}
-          value={profile.gender}
-          onChange={(e) => setProfile({ gender: e.target.value })}
-        >
-          <option value="">Select…</option>
-          {genderField.options.map((opt) => (
-            <option key={optionValue(opt)} value={optionValue(opt)}>
-              {optionLabel(opt)}
-            </option>
-          ))}
-        </select>
+        <Dropdown
+          options={toOptions(genderField.options)}
+          selectedValue={profile.gender || null}
+          onChange={(o) => setProfile({ gender: o.value })}
+          placeholder="Select…"
+          isSearchable={false}
+        />
       </Field>
 
       <Field label="Select Your Home State">
-        <select
-          className={inputClass}
-          value={profile.homeState}
-          onChange={(e) => setProfile({ homeState: e.target.value })}
-        >
-          <option value="">Select…</option>
-          {statesList.map((s) => (
-            <option key={s} value={s}>
-              {s}
-            </option>
-          ))}
-        </select>
+        <Dropdown
+          options={statesList.map((s) => ({ value: s, label: s }))}
+          selectedValue={profile.homeState || null}
+          onChange={(o) => setProfile({ homeState: o.value })}
+          placeholder="Select…"
+          hideValueWhileSearching
+        />
       </Field>
 
       <Field label="Enter JEE Main Category Rank">
         <input
           type="number"
           min="1"
-          className={inputClass}
+          className={rankInputClass}
           value={profile.mainRank}
           onChange={(e) => setProfile({ mainRank: e.target.value })}
           placeholder="e.g., 15000"
@@ -704,17 +610,12 @@ const InfoStep = ({ profile, setProfile, onNext, valid }) => (
       </Field>
 
       <Field label={qualifiedField.label}>
-        <select
-          className={inputClass}
-          value={profile.qualifiedJeeAdv}
-          onChange={(e) => setProfile({ qualifiedJeeAdv: e.target.value })}
-        >
-          {qualifiedField.options.map((opt) => (
-            <option key={optionValue(opt)} value={optionValue(opt)}>
-              {optionLabel(opt)}
-            </option>
-          ))}
-        </select>
+        <Dropdown
+          options={toOptions(qualifiedField.options)}
+          selectedValue={profile.qualifiedJeeAdv}
+          onChange={(o) => setProfile({ qualifiedJeeAdv: o.value })}
+          isSearchable={false}
+        />
       </Field>
 
       {profile.qualifiedJeeAdv === "Yes" && (
@@ -722,7 +623,7 @@ const InfoStep = ({ profile, setProfile, onNext, valid }) => (
           <input
             type="number"
             min="1"
-            className={inputClass}
+            className={rankInputClass}
             value={profile.advRank}
             onChange={(e) => setProfile({ advRank: e.target.value })}
             placeholder="e.g., 4000"
@@ -776,7 +677,6 @@ const ReorderableChoiceList = ({
   onReorder,
   onMoveUp,
   onMoveDown,
-  onMoveToPosition,
   onRemove,
 }) => {
   // Pointer Events (not the native HTML5 drag API) so the same handlers drive
@@ -794,10 +694,6 @@ const ReorderableChoiceList = ({
   // the drop-target highlight are visible otherwise).
   const [pointerPos, setPointerPos] = useState(null);
   const itemRefs = useRef([]);
-  // Manual "type a number, jump there" input state, per row (keyed by pair)
-  // so mid-typing values aren't clobbered by re-renders from other rows.
-  const [positionDrafts, setPositionDrafts] = useState({});
-
   const findGapAtY = (clientY) => {
     for (let i = 0; i < itemRefs.current.length; i += 1) {
       const rect = itemRefs.current[i]?.getBoundingClientRect();
@@ -835,18 +731,6 @@ const ReorderableChoiceList = ({
     setPointerPos(null);
   };
 
-  const commitPosition = (index, key) => {
-    const raw = positionDrafts[key];
-    setPositionDrafts((d) => {
-      const next = { ...d };
-      delete next[key];
-      return next;
-    });
-    if (raw === undefined || raw === "") return;
-    const parsed = Number(raw);
-    if (Number.isFinite(parsed)) onMoveToPosition(index, parsed);
-  };
-
   // Approximate which row to highlight as the drop target — just the
   // nearest row to the gap, not a true "insert here" line between rows.
   const highlightIndex =
@@ -880,21 +764,9 @@ const ReorderableChoiceList = ({
               >
                 <GripVertical size={16} className="text-[#c9b8b2]" />
               </span>
-              <input
-                type="number"
-                min={1}
-                max={choices.length}
-                value={positionDrafts[key] ?? index + 1}
-                onChange={(e) =>
-                  setPositionDrafts((d) => ({ ...d, [key]: e.target.value }))
-                }
-                onBlur={() => commitPosition(index, key)}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter") e.currentTarget.blur();
-                }}
-                className="w-11 shrink-0 rounded border border-[#d8c7c1] bg-[#fffdfa] px-1 py-0.5 text-center text-xs font-bold text-[#b52326] outline-none focus:border-[#b52326]"
-                aria-label="Move to position"
-              />
+              <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#fbeeec] text-xs font-black text-[#b52326]">
+                {index + 1}
+              </span>
               <div className="min-w-0 flex-1">
                 <p className="text-sm font-semibold text-[#3a2c28]">
                   {item.institute}
@@ -960,9 +832,6 @@ const ChoicesStep = ({
   choices,
   search,
   setSearch,
-  instituteFilter,
-  setInstituteFilter,
-  instituteOptions,
   programType,
   setProgramType,
   onAdd,
@@ -970,7 +839,6 @@ const ChoicesStep = ({
   onReorder,
   onMoveUp,
   onMoveDown,
-  onMoveToPosition,
   onBack,
   onNext,
   locked,
@@ -987,35 +855,38 @@ const ChoicesStep = ({
         {totalCatalogSize ? `(${totalCatalogSize} eligible for you)` : ""}
       </h2>
 
-      <div className="mt-3 grid gap-2 sm:grid-cols-2">
+      {/* ONE search box: tokenized across institute + program together, so
+          "iit indore cse" works. The old per-institute dropdown fought the
+          search (typing "iit" matched nothing while the dropdown held the
+          filter) — gone. Program types are chips, not a third select. */}
+      <div className="mt-3 space-y-2">
         <input
           className={inputClass}
-          placeholder="Search institute or program…"
+          placeholder="Search an institute or branch — try 'iit'…"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
-        <select
-          className={inputClass}
-          value={instituteFilter}
-          onChange={(e) => setInstituteFilter(e.target.value)}
-        >
-          <option value="">All institutes</option>
-          {instituteOptions.map((name) => (
-            <option key={name} value={name}>
-              {name}
-            </option>
+        <div className="flex flex-wrap gap-1.5">
+          {[
+            ["all", "All"],
+            ["engineering", "Engineering"],
+            ["architecture", "Architecture"],
+            ["planning", "Planning"],
+          ].map(([v, l]) => (
+            <button
+              key={v}
+              type="button"
+              onClick={() => setProgramType(v)}
+              className={`rounded-full border px-3 py-1 text-xs font-bold transition ${
+                programType === v
+                  ? "border-[#b52326] bg-[#b52326] text-white"
+                  : "border-[#e0cdc6] bg-white text-[#5b4a45] hover:border-[#b52326]/60"
+              }`}
+            >
+              {l}
+            </button>
           ))}
-        </select>
-        <select
-          className={`${inputClass} sm:col-span-2`}
-          value={programType}
-          onChange={(e) => setProgramType(e.target.value)}
-        >
-          <option value="all">All program types</option>
-          <option value="engineering">Engineering</option>
-          <option value="architecture">Architecture</option>
-          <option value="planning">Planning</option>
-        </select>
+        </div>
       </div>
 
       <div className="mt-3 max-h-96 overflow-y-auto rounded-lg border border-[#f0e6e1]">
@@ -1071,14 +942,13 @@ const ChoicesStep = ({
           onReorder={onReorder}
           onMoveUp={onMoveUp}
           onMoveDown={onMoveDown}
-          onMoveToPosition={onMoveToPosition}
           onRemove={onRemove}
         />
       )}
 
       <div className="mt-5 flex justify-between">
         <button type="button" className={secondaryBtn} onClick={onBack}>
-          ← Edit student info
+          ← Edit your info
         </button>
         <button
           type="button"
@@ -1103,7 +973,6 @@ const ReviewStep = ({
   onReorder,
   onMoveUp,
   onMoveDown,
-  onMoveToPosition,
   onRemove,
 }) => {
   // Purely cosmetic confirmation — reordering/removing already saves to state
@@ -1119,26 +988,8 @@ const ReviewStep = ({
   return (
     <div className={`${cardClass} mt-6`}>
       <h2 className="text-sm font-bold text-[#3a2c28]">Your profile</h2>
-      <div className="mt-2 flex flex-wrap gap-2 text-xs text-[#5b4a45]">
-        {[
-          optionLabel(
-            categoryField.options.find(
-              (o) => optionValue(o) === profile.category
-            )
-          ) || profile.category,
-          profile.gender,
-          profile.homeState,
-          `JEE Main rank: ${profile.mainRank}`,
-          profile.qualifiedJeeAdv === "Yes"
-            ? `JEE Advanced rank: ${profile.advRank}`
-            : null,
-        ]
-          .filter(Boolean)
-          .map((chip) => (
-            <span key={chip} className="rounded-full bg-[#f8efec] px-3 py-1">
-              {chip}
-            </span>
-          ))}
+      <div className="mt-2">
+        <ProfileChips profile={profile} />
       </div>
 
       <h2 className="mt-5 text-sm font-bold text-[#3a2c28]">
@@ -1156,7 +1007,6 @@ const ReviewStep = ({
             onReorder={onReorder}
             onMoveUp={onMoveUp}
             onMoveDown={onMoveDown}
-            onMoveToPosition={onMoveToPosition}
             onRemove={onRemove}
           />
         )
@@ -1247,12 +1097,12 @@ const RoundCard = ({
   const statusLabel = !finalRevealed
     ? "provisional seat"
     : isFinalRound
-    ? "final result — last round"
-    : "final result — frozen";
+    ? "final result"
+    : "final result (frozen)";
   return (
     <div className={cardClass}>
       <p className="text-xs font-semibold uppercase tracking-wide text-[#b52326]">
-        Round {current.round} of {TOTAL_ROUNDS} — {statusLabel}
+        Round {current.round} of {TOTAL_ROUNDS} · {statusLabel}
       </p>
       <p className="mt-1 text-lg font-bold text-[#3a2c28]">
         {choice.institute}
@@ -1266,278 +1116,12 @@ const RoundCard = ({
         <MatchStats
           item={{
             closingRank: closing,
-            nirfRank: college?.nirf?.engineering_rank ?? null,
+            nirfRank: college?.nirf?.rank ?? null,
             medianSalary: college?.placement?.median_salary ?? null,
             annualFee: fee?.amount ?? null,
             feeWaived: fee?.waived ?? false,
           }}
         />
-      )}
-    </div>
-  );
-};
-
-const MISSED_OPTIONS_TABS = [
-  {
-    key: "closingRank",
-    label: "By Closing Rank",
-    note: "",
-  },
-  {
-    key: "nirf",
-    label: "By NIRF Ranking",
-    note: "",
-  },
-  {
-    key: "salary",
-    label: "By Median CTC",
-    note: "Caution: median CTC is for the entire college, not branch-wise.",
-  },
-  {
-    key: "fees",
-    label: "By Fees",
-    note: "",
-  },
-];
-
-// The "actually better than what you got" filter for each non-closing-rank
-// tab — lower is "better" for fees (less rank-like, just cost), higher for
-// salary, lower for NIRF (rank 1 is best). All three are college-level
-// fields (colleges.json's nirf/placement/fees), so every branch at an
-// institute shares one identical value — grouped by institute in the UI
-// (see InstituteRankedList) rather than listed one row per branch, or a
-// college with 5 reachable branches would fill 5 of the top 8 slots.
-// Institutes that pass are then ranked by closing rank (tightest first),
-// same as the closing-rank tab — the metric here only decides who qualifies.
-//
-// `isBetter` filters to results that actually beat the student's own
-// allotment on this metric (using the nirfBetter/ctcBetter/feeSavings flags
-// findMissedBetterOptions attaches) — without it, this panel would happily
-// list an institute with a WORSE NIRF rank or a HIGHER fee than what the
-// student got, just because it was reachable. It's also what stops "By
-// Fees" from being the same handful of cheap-but-loose-cutoff colleges for
-// every student regardless of what they actually got — the bar moves with
-// each student's own result.
-const MISSED_OPTIONS_METRICS = {
-  nirf: {
-    metricKey: "nirfRank",
-    missingLabel: "a better NIRF rank than your allotment",
-    isBetter: (item) => item.nirfBetter === true,
-  },
-  salary: {
-    metricKey: "medianSalary",
-    missingLabel: "a better median CTC than your allotment",
-    isBetter: (item) => item.ctcBetter === true,
-  },
-  fees: {
-    metricKey: "annualFee",
-    missingLabel: "lower fees than your allotment",
-    isBetter: (item) => item.feeSavings > 0,
-    // The one figure MatchStats' generic fee chip can't show on its own —
-    // how much cheaper this is than what the student actually got.
-    extraNote: (item) =>
-      `Save ${formatSalary(item.feeSavings)} vs. your allotment`,
-  },
-};
-
-const MISSED_OPTIONS_DISPLAY_LIMIT = 8;
-
-const missedOptionRow = (opt) => (
-  <li
-    key={`${opt.institute}|${opt.program}`}
-    className="rounded-lg border border-[#f0e6e1] px-3 py-2.5 text-base"
-  >
-    <p className="font-bold text-[#3a2c28]">{opt.institute}</p>
-    <p className="text-sm font-medium text-[#5b4a45]">{opt.program}</p>
-    {opt.listPosition != null && (
-      <p className="mt-0.5 text-xs font-bold text-[#b52326]">
-        Was your choice #{opt.listPosition}
-      </p>
-    )}
-    <MatchStats item={opt} />
-  </li>
-);
-
-// Recomputes a result's fee fields under a DIRECT waiver answer instead of
-// the category-based assumption `annualFeeForCategory` bakes in (which only
-// ever grants the waived rate to SC/ST/EWS/PwD) — a General/OBC-NCL student
-// whose family income actually qualifies them can say so directly, and a
-// student who knows they DON'T qualify can rule the waived rate out even if
-// their category would normally get it. "unsure" keeps the category-based
-// numbers findMissedBetterOptions already computed.
-const effectiveFeeItem = (item, waiverAnswer) => {
-  if (waiverAnswer === "unsure") {
-    return {
-      annualFee: item.annualFee,
-      feeWaived: item.feeWaived,
-      feeSavings: item.feeSavings,
-    };
-  }
-  const annualFee =
-    waiverAnswer === "yes"
-      ? item.rawFeeWaived ?? item.rawFeeStandard
-      : item.rawFeeStandard;
-  const feeWaived = waiverAnswer === "yes" && item.rawFeeWaived != null;
-  const winningFee =
-    waiverAnswer === "yes"
-      ? item.winningFeeWaived ?? item.winningFeeStandard
-      : item.winningFeeStandard;
-  const feeSavings =
-    annualFee != null && winningFee != null ? winningFee - annualFee : null;
-  return { annualFee, feeWaived, feeSavings };
-};
-
-const MissedOptionsPanel = ({ missedOptions }) => {
-  const [tab, setTab] = useState("closingRank");
-  // Fees-tab-only refinement — asked directly instead of guessing from
-  // category alone (see effectiveFeeItem). Budget is optional: leave it
-  // blank and the tab falls back to "cheaper than your own allotment";
-  // fill it in and that becomes the bar instead.
-  const [feeBudget, setFeeBudget] = useState("");
-  const [feeWaiverAnswer, setFeeWaiverAnswer] = useState("unsure");
-  const activeTab = MISSED_OPTIONS_TABS.find((t) => t.key === tab);
-
-  const budget = Number(feeBudget);
-  const hasBudget = feeBudget !== "" && Number.isFinite(budget) && budget > 0;
-
-  const feesMetric = useMemo(
-    () => ({
-      metricKey: "annualFee",
-      isBetter: (item) =>
-        hasBudget ? item.annualFee <= budget : item.feeSavings > 0,
-      formatLabel: (value, item) =>
-        `Fees: ${formatSalary(value)}${item.feeWaived ? " (waived)" : ""}` +
-        (hasBudget
-          ? ""
-          : ` · Save ${formatSalary(item.feeSavings)} vs. your allotment`),
-    }),
-    [hasBudget, budget]
-  );
-
-  const feeItems = useMemo(
-    () =>
-      tab === "fees"
-        ? missedOptions.map((item) => ({
-            ...item,
-            ...effectiveFeeItem(item, feeWaiverAnswer),
-          }))
-        : missedOptions,
-    [tab, missedOptions, feeWaiverAnswer]
-  );
-
-  const metric = tab === "fees" ? feesMetric : MISSED_OPTIONS_METRICS[tab];
-  const missingLabel = hasBudget
-    ? `fees of ₹${feeBudget} or less`
-    : MISSED_OPTIONS_METRICS[tab]?.missingLabel;
-
-  return (
-    <div className={cardClass}>
-      <h2 className="text-base font-bold text-[#3a2c28]">
-        You may have gotten a better option
-      </h2>
-
-      <div className="mt-3 flex flex-wrap gap-1">
-        {MISSED_OPTIONS_TABS.map((t) => (
-          <button
-            key={t.key}
-            type="button"
-            onClick={() => setTab(t.key)}
-            className={`rounded-full px-3 py-1 text-sm font-semibold transition ${
-              tab === t.key
-                ? "bg-[#b52326] text-white"
-                : "border border-[#d8c7c1] text-[#5b4a45] hover:bg-[#f8efec]"
-            }`}
-          >
-            {t.label}
-          </button>
-        ))}
-      </div>
-      {activeTab.note && (
-        <p className="mt-2 text-xs text-[#9a8a84]">{activeTab.note}</p>
-      )}
-
-      {tab === "fees" && (
-        <div className="mt-3 grid gap-2 sm:grid-cols-2">
-          <label className="block">
-            <span className="mb-1 block text-xs font-semibold text-[#5b4a45]">
-              Max annual fees you can pay (₹)
-            </span>
-            <input
-              type="number"
-              min="0"
-              className={inputClass}
-              placeholder="Leave blank to compare vs. your allotment"
-              value={feeBudget}
-              onChange={(e) => setFeeBudget(e.target.value)}
-            />
-          </label>
-          <label className="block">
-            <span className="mb-1 block text-xs font-semibold text-[#5b4a45]">
-              Eligible for a fee waiver?
-            </span>
-            <select
-              className={inputClass}
-              value={feeWaiverAnswer}
-              onChange={(e) => setFeeWaiverAnswer(e.target.value)}
-            >
-              <option value="unsure">Not sure — go by my category</option>
-              <option value="yes">Yes</option>
-              <option value="no">No</option>
-            </select>
-          </label>
-        </div>
-      )}
-
-      {tab === "closingRank" && (
-        <ClosingRankGroups missedOptions={missedOptions} />
-      )}
-      {tab !== "closingRank" && (
-        <InstituteRankedList
-          items={feeItems}
-          metric={metric}
-          emptyMessage={`None of the reachable options have ${missingLabel}.`}
-        />
-      )}
-    </div>
-  );
-};
-
-// JEE Main and JEE Advanced closing ranks are different rank spaces (see
-// examSpaceFor in utils/josaaSimulator.js) — shown as two groups, never
-// merged into one sorted list.
-const ClosingRankGroups = ({ missedOptions }) => {
-  const advanced = missedOptions
-    .filter((o) => o.exam === "JEE Advanced")
-    .sort((a, b) => a.closingRank - b.closingRank)
-    .slice(0, MISSED_OPTIONS_DISPLAY_LIMIT);
-  const main = missedOptions
-    .filter((o) => o.exam === "JEE Main")
-    .sort((a, b) => a.closingRank - b.closingRank)
-    .slice(0, MISSED_OPTIONS_DISPLAY_LIMIT);
-
-  if (advanced.length === 0 && main.length === 0) {
-    return (
-      <p className="mt-3 text-base text-[#7a655f]">No missed options found.</p>
-    );
-  }
-
-  return (
-    <div className="mt-3 space-y-4">
-      {advanced.length > 0 && (
-        <div>
-          <p className="text-sm font-semibold text-[#5b4a45]">
-            JEE Advanced institutes (IITs)
-          </p>
-          <ul className="mt-2 space-y-2">{advanced.map(missedOptionRow)}</ul>
-        </div>
-      )}
-      {main.length > 0 && (
-        <div>
-          <p className="text-sm font-semibold text-[#5b4a45]">
-            JEE Main institutes (NITs / IIITs / GFTIs)
-          </p>
-          <ul className="mt-2 space-y-2">{main.map(missedOptionRow)}</ul>
-        </div>
       )}
     </div>
   );
@@ -1549,7 +1133,6 @@ const SimulateStep = ({
   current,
   finalRevealed,
   isFinalRound,
-  missedOptions,
   collegesByName,
   profile,
   onFreeze,
@@ -1637,10 +1220,6 @@ const SimulateStep = ({
         </p>
       )}
 
-      {finalRevealed && finalChoice && missedOptions.length > 0 && (
-        <MissedOptionsPanel missedOptions={missedOptions} />
-      )}
-
       {finalRevealed && !finalChoice && (
         <div className={cardClass}>
           <p className="text-sm text-[#7a655f]">
@@ -1656,9 +1235,30 @@ const SimulateStep = ({
         per-branch.
       </p>
 
-      <div className="flex flex-wrap gap-2">
-        <button type="button" className={secondaryBtn} onClick={onRestart}>
-          ↺ Restart mock allotment
+      {/* the ONLY doors out of the result: one analysis, one history — the
+          old Best Match wizard and the four-tab "better options" panel both
+          re-answered the same question and are gone */}
+      <div className="flex flex-wrap items-center gap-3">
+        {finalRevealed && finalChoice && (
+          <Link
+            href="/mock-allotment/list-analyzer"
+            className={`${primaryBtn} inline-flex items-center`}
+          >
+            Analyse my list
+          </Link>
+        )}
+        <Link
+          href="/mock-allotment/rounds-history"
+          className={`${secondaryBtn} inline-flex items-center`}
+        >
+          Rounds history
+        </Link>
+        <button
+          type="button"
+          className="text-xs text-[#7a635d] underline hover:text-[#b52326]"
+          onClick={onRestart}
+        >
+          Start over
         </button>
       </div>
     </div>

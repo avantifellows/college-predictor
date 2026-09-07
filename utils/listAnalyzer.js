@@ -1,7 +1,7 @@
 /**
  * "Analyse & Improve Your List" — evaluates the choices a student has
  * ALREADY built in Choice Filling, rather than searching fresh ones (that's
- * Find Your Best Match, see bestMatchFinder.js).
+ * a fresh search — this critiques the list the student already built).
  *
  * This is a direct port of avanti-student-tutorial.html's resultsHTML()
  * algorithm (tagOf, the balance score, and the recommendation logic) onto
@@ -21,7 +21,7 @@
  * a REACH tag already means neither pool admitted.
  *
  * "Reachable" is checked at the LAST round (loosest), same reasoning as
- * bestMatchFinder.js — this evaluates the list overall, not a specific
+ * a finder — this evaluates the list overall, not a specific
  * round of a specific simulated run.
  */
 
@@ -157,7 +157,7 @@ export function analyzeList({
       institute: item.institute,
       program: item.program,
       closingRank,
-      nirfRank: college?.nirf?.engineering_rank ?? null,
+      nirfRank: college?.nirf?.rank ?? null,
       medianSalary: college?.placement?.median_salary ?? null,
       tag: tagForRank(closingRank, rank),
     });

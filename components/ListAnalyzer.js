@@ -2,17 +2,17 @@ import React, { useMemo } from "react";
 import { analyzeList } from "../utils/listAnalyzer";
 import { formatRank, formatSalary, cardClass } from "./mockAllotmentTheme";
 
-// "Analyse & Improve Your List" — the counterpart to Find Your Best Match
-// (see pages/mock-allotment/best-match.js — same full-page treatment, not a
-// popup), but it critiques the choices the student has ALREADY built
-// instead of searching fresh ones. Reach/match/safety tagging + the balance
+// "Analyse & Improve Your List" — critiques the choices the student has
+// ALREADY built (a real page, not a popup). Reach/match/safety tagging + the balance
 // gauge are straight from avanti-student-tutorial.html's resultsHTML(),
 // applied to this app's own rank/closing-rank data — see utils/listAnalyzer.js.
 
+// REACH warns (maroon), MATCH sits neutral-warm, SAFETY reassures — the
+// same green the quiz already uses for a correct answer (#1f8a5b).
 const TAG_STYLES = {
-  reach: "bg-[#fdf3f1] text-[#b52326]",
-  match: "bg-[#fff6e5] text-[#8a6d1f]",
-  safety: "bg-[#eaf6ec] text-[#1a7f37]",
+  reach: "bg-[#fbeeec] text-[#8f2e31]",
+  match: "bg-[#f5ece8] text-[#8a6d1f]",
+  safety: "bg-[#e8f5ee] text-[#1f8a5b]",
 };
 const TAG_LABELS = { reach: "REACH", match: "MATCH", safety: "SAFETY" };
 
@@ -32,7 +32,7 @@ const TagBadge = ({ tag }) => {
 // circumference ≈ 264), colored red/amber/green by how balanced the list is.
 const BalanceGauge = ({ score }) => {
   const arc = (score / 100) * 264;
-  const color = score >= 70 ? "#1a7f37" : score >= 45 ? "#a9790a" : "#b52326";
+  const color = score >= 70 ? "#1f8a5b" : score >= 45 ? "#a9790a" : "#b52326";
   return (
     <div className="flex items-center gap-4">
       <svg width="88" height="88" viewBox="0 0 100 100" className="shrink-0">
@@ -81,9 +81,9 @@ const BalanceGauge = ({ score }) => {
 };
 
 const REC_STYLES = {
-  warning: "border-[#f0c9c9] bg-[#fdf3f1]",
-  info: "border-[#d8c7c1] bg-[#f8efec]",
-  good: "border-[#c8e6cc] bg-[#eaf6ec]",
+  warning: "border-[#f0c9c9] bg-[#fbeeec]",
+  info: "border-[#eaded8] bg-[#fdf8f6]",
+  good: "border-[#bfe0cd] bg-[#e8f5ee]",
 };
 
 const RecommendationCard = ({ rec }) => (
