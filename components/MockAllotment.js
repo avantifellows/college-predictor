@@ -517,10 +517,10 @@ const StepBar = ({ current, profileValid, choicesCount, locked, onSelect }) => {
                   active
                     ? "border-[#b52326] bg-[#b52326] text-white"
                     : done
-                    ? "border-[#b52326] bg-white text-[#b52326]"
-                    : disabled
-                    ? "border-[#e4d8d2] bg-[#f8efec] text-[#c9b8b2]"
-                    : "border-[#d8c7c1] bg-white text-[#5b4a45]"
+                      ? "border-[#b52326] bg-white text-[#b52326]"
+                      : disabled
+                        ? "border-[#e4d8d2] bg-[#f8efec] text-[#c9b8b2]"
+                        : "border-[#d8c7c1] bg-white text-[#5b4a45]"
                 }`}
               >
                 {done && !active ? (
@@ -534,8 +534,8 @@ const StepBar = ({ current, profileValid, choicesCount, locked, onSelect }) => {
                   active
                     ? "text-[#b52326]"
                     : disabled
-                    ? "text-[#c9b8b2]"
-                    : "text-[#5b4a45]"
+                      ? "text-[#c9b8b2]"
+                      : "text-[#5b4a45]"
                 }`}
               >
                 {STEP_LABELS[step]}
@@ -1353,7 +1353,9 @@ const SimulateStep = ({
       {/* once the run is over, the verdict on the LIST lives right here —
           balance gauge, reach/match/safety, and a few concrete suggestions —
           instead of behind a button hop */}
-      {finalRevealed && (
+      {/* the analyzer needs the loaded JoSAA data — on a reload of a
+          finished run it arrives a beat after the page does */}
+      {finalRevealed && collegesByName && seatIndex && catalog.length > 0 && (
         <>
           <div className="pt-2 text-center">
             <p className="text-sm font-semibold text-[#7a635d]">
