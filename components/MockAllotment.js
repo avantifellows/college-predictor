@@ -1,6 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import Link from "next/link";
-import { GripVertical, Check } from "lucide-react";
+import { ArrowDown, CheckCircle2, GripVertical, Check } from "lucide-react";
 import { josaaConfig, statesList } from "../examConfig";
 import {
   loadAllRoundsData,
@@ -22,6 +21,7 @@ import {
   secondaryBtn,
 } from "./mockAllotmentTheme";
 import { MatchStats } from "./InstituteRankedList";
+import ListAnalyzer from "./ListAnalyzer";
 
 // Practice JoSAA choice-filling + locking + a round-by-round freeze/float mock,
 // built entirely on data already in this repo (see docs/SIMULATION_DATA.md).
@@ -62,27 +62,35 @@ const optionLabel = (opt) => (typeof opt === "string" ? opt : opt.label);
 // their standalone pages too. Exported so those pages can import it
 // straight from here instead of re-deriving the category label lookup.
 export const ProfileChips = ({ profile }) => {
-  const chips = [
-    `Category: ${
+  const rows = [
+    [
+      "Category",
       optionLabel(
         categoryField.options.find((o) => optionValue(o) === profile.category)
-      ) || profile.category
-    }`,
-    profile.gender,
-    `Home state: ${profile.homeState}`,
-    `JEE Main rank ${formatRank(profile.mainRank)}`,
+      ) || profile.category,
+    ],
+    ["Seat pool", profile.gender],
+    ["Home state", profile.homeState],
+    ["JEE Main rank", formatRank(profile.mainRank)],
     profile.qualifiedJeeAdv === "Yes"
-      ? `JEE Advanced rank ${formatRank(profile.advRank)}`
+      ? ["JEE Advanced rank", formatRank(profile.advRank)]
       : null,
   ].filter(Boolean);
 
   return (
-    <div className="flex flex-wrap gap-2 text-xs text-[#5b4a45]">
-      {chips.map((chip) => (
-        <span key={chip} className="rounded-full bg-[#f8efec] px-3 py-1">
-          {chip}
-        </span>
-      ))}
+    <div className="rounded-xl border border-[#eaded8] bg-white px-4 py-3">
+      <dl className="grid grid-cols-2 gap-x-6 gap-y-2 sm:grid-cols-3">
+        {rows.map(([label, value]) => (
+          <div key={label} className="min-w-0">
+            <dt className="text-[11px] font-semibold uppercase tracking-wide text-[#8a6d63]">
+              {label}
+            </dt>
+            <dd className="mt-0.5 truncate text-sm font-bold text-[#2f2320]">
+              {value}
+            </dd>
+          </div>
+        ))}
+      </dl>
     </div>
   );
 };
@@ -187,7 +195,16 @@ const MockAllotment = () => {
     // Tokenized AND-match across institute + program together, so "mesra
     // computer science" finds BIT Mesra's CSE row — a whole-phrase substring
     // match against each field separately can never span the two fields.
-    const tokens = search.trim().toLowerCase().split(/\s+/).filter(Boolean);
+    // Abbreviations expand the way students type them ("nit trichy"), same
+    // list the Colleges tab search uses.
+    const ABBREV = {
+      nit: "national institute of technology",
+      iiit: "indian institute of information technology",
+      iit: "indian institute of technology",
+      spa: "school of planning and architecture",
+    };
+    const raw = search.trim().toLowerCase().split(/\s+/).filter(Boolean);
+    const tokens = raw.flatMap((t) => (ABBREV[t] || t).split(" "));
     return catalog.filter((item) => {
       if (!matchesProgramType(item.program, programType)) return false;
       if (tokens.length === 0) return true;
@@ -365,8 +382,8 @@ const MockAllotment = () => {
         JoSAA Mock Allotment
       </h1>
       <p className="mt-2 text-center text-sm text-[#6d5550]">
-        Fill choices, lock them, then live the rounds: freeze, float or slide,
-        like the real counselling.
+        Fill your choices, lock them, then play the rounds: freeze, float or
+        slide, just as JoSAA runs them.
       </p>
 
       {state.step !== "simulate" && (
@@ -446,6 +463,9 @@ const MockAllotment = () => {
           finalRevealed={finalRevealed}
           isFinalRound={isFinalRound}
           collegesByName={collegesByName}
+          catalog={catalog}
+          seatIndex={seatIndex}
+          trail={state.trail}
           profile={state.profile}
           onFreeze={freeze}
           onAdvance={(mode) =>
@@ -1094,25 +1114,28 @@ const RoundCard = ({
     );
   }
   const { choice, index, opening, closing } = current.provisional;
-  const statusLabel = !finalRevealed
-    ? "provisional seat"
-    : isFinalRound
-    ? "final result"
-    : "final result (frozen)";
-  return (
-    <div className={cardClass}>
-      <p className="text-xs font-semibold uppercase tracking-wide text-[#b52326]">
-        Round {current.round} of {TOTAL_ROUNDS} · {statusLabel}
-      </p>
-      <p className="mt-1 text-lg font-bold text-[#3a2c28]">
-        {choice.institute}
-      </p>
-      <p className="text-sm text-[#5b4a45]">{choice.program}</p>
-      <p className="mt-2 text-xs text-[#7a655f]">
-        Your preference #{index + 1} of {choicesCount} · Opening{" "}
-        {formatRank(opening)} / Closing {formatRank(closing)}
-      </p>
-      {finalRevealed && (
+  if (finalRevealed) {
+    // the moment of finality: a quiet tick and "Seat allotted", not confetti
+    return (
+      <div className="rounded-xl border-2 border-[#1f8a5b]/40 bg-white p-5 shadow-sm">
+        <div className="flex items-center gap-2">
+          <CheckCircle2 size={22} className="shrink-0 text-[#1f8a5b]" />
+          <p className="text-sm font-black uppercase tracking-wide text-[#1f8a5b]">
+            Seat allotted
+          </p>
+          <span className="text-xs font-semibold text-[#8a6d63]">
+            · Round {current.round} of {TOTAL_ROUNDS}
+            {isFinalRound ? "" : " (you froze this seat)"}
+          </span>
+        </div>
+        <p className="mt-2 text-xl font-black text-[#2f2320]">
+          {choice.institute}
+        </p>
+        <p className="mt-0.5 text-sm text-[#5b4a45]">{choice.program}</p>
+        <p className="mt-2 text-xs text-[#7a655f]">
+          Your preference #{index + 1} of {choicesCount} · Opening{" "}
+          {formatRank(opening)} / Closing {formatRank(closing)}
+        </p>
         <MatchStats
           item={{
             closingRank: closing,
@@ -1122,7 +1145,90 @@ const RoundCard = ({
             feeWaived: fee?.waived ?? false,
           }}
         />
-      )}
+      </div>
+    );
+  }
+  return (
+    <div className={cardClass}>
+      <p className="text-xs font-semibold uppercase tracking-wide text-[#b52326]">
+        Round {current.round} of {TOTAL_ROUNDS} · provisional seat
+      </p>
+      <p className="mt-1 text-lg font-bold text-[#3a2c28]">
+        {choice.institute}
+      </p>
+      <p className="text-sm text-[#5b4a45]">{choice.program}</p>
+      <p className="mt-2 text-xs text-[#7a655f]">
+        Your preference #{index + 1} of {choicesCount} · Opening{" "}
+        {formatRank(opening)} / Closing {formatRank(closing)}
+      </p>
+    </div>
+  );
+};
+
+// Rounds history as an overlay, not a page hop — the run stays on screen
+// behind it. Esc, the x, and a click on the backdrop all close it.
+const RoundsHistoryModal = ({ trail, onClose }) => {
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [onClose]);
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-[#2f2320]/50 p-4"
+      onClick={onClose}
+    >
+      <div
+        role="dialog"
+        aria-label="Rounds history"
+        className="max-h-[80vh] w-full max-w-lg overflow-y-auto rounded-2xl border border-[#eaded8] bg-white p-5 shadow-xl"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="flex items-center justify-between">
+          <h3 className="text-lg font-bold text-[#2f2320]">Rounds history</h3>
+          <button
+            type="button"
+            onClick={onClose}
+            aria-label="Close"
+            className="flex h-8 w-8 items-center justify-center rounded-full border border-[#e0cdc6] text-[#5b4a45] transition hover:border-[#b52326]/60 hover:text-[#b52326]"
+          >
+            ×
+          </button>
+        </div>
+        <div className="mt-3 space-y-3">
+          {trail.map((r) => (
+            <div
+              key={r.round}
+              className="rounded-xl border border-[#eaded8] p-3"
+            >
+              <p className="text-xs font-semibold uppercase tracking-wide text-[#b52326]">
+                Round {r.round} of {TOTAL_ROUNDS}
+                {r.mode ? ` · ${r.mode}` : ""}
+              </p>
+              {r.provisional ? (
+                <>
+                  <p className="mt-1 font-semibold text-[#3a2c28]">
+                    {r.provisional.choice.institute}
+                  </p>
+                  <p className="text-sm text-[#7a655f]">
+                    {r.provisional.choice.program}
+                  </p>
+                  <p className="mt-1 text-xs text-[#7a655f]">
+                    Opening {formatRank(r.provisional.opening)} / Closing{" "}
+                    {formatRank(r.provisional.closing)}
+                  </p>
+                </>
+              ) : (
+                <p className="mt-1 text-sm text-[#7a655f]">
+                  No seat reachable this round.
+                </p>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
@@ -1134,11 +1240,15 @@ const SimulateStep = ({
   finalRevealed,
   isFinalRound,
   collegesByName,
+  catalog,
+  seatIndex,
+  trail,
   profile,
   onFreeze,
   onAdvance,
   onRestart,
 }) => {
+  const [showHistory, setShowHistory] = useState(false);
   if (!locked) {
     return (
       <div className={`${cardClass} mt-6`}>
@@ -1174,6 +1284,23 @@ const SimulateStep = ({
         college={college}
         fee={fee}
       />
+
+      {!finalRevealed && (
+        <div className="rounded-xl border border-[#eaded8] bg-[#fdf8f6] p-4 text-sm leading-6 text-[#4a3a36]">
+          <p>
+            <span className="font-black text-[#2f2320]">Freeze</span>: accept
+            this seat and end your counselling here.
+          </p>
+          <p>
+            <span className="font-black text-[#2f2320]">Float</span>: keep this
+            seat, but try for anything higher on your list next round.
+          </p>
+          <p>
+            <span className="font-black text-[#2f2320]">Slide</span>: keep this
+            institute, but try for a better branch here next round.
+          </p>
+        </div>
+      )}
 
       {!finalRevealed && (
         <div className="flex flex-wrap gap-2">
@@ -1213,13 +1340,6 @@ const SimulateStep = ({
         </div>
       )}
 
-      {!finalRevealed && (
-        <p className="text-[11px] text-[#9a8a84]">
-          <strong>Float</strong>: checks your whole list. <strong>Slide</strong>
-          : same institute, other branches only.
-        </p>
-      )}
-
       {finalRevealed && !finalChoice && (
         <div className={cardClass}>
           <p className="text-sm text-[#7a655f]">
@@ -1230,29 +1350,39 @@ const SimulateStep = ({
         </div>
       )}
 
-      <p className="text-[11px] text-[#9a8a84]">
-        Based on JoSAA 2025 cutoffs. NIRF rank and CTC are per-college, not
-        per-branch.
-      </p>
+      {/* once the run is over, the verdict on the LIST lives right here —
+          balance gauge, reach/match/safety, and a few concrete suggestions —
+          instead of behind a button hop */}
+      {finalRevealed && (
+        <>
+          <div className="pt-2 text-center">
+            <p className="text-sm font-semibold text-[#7a635d]">
+              How strong was your list?
+            </p>
+            <ArrowDown
+              size={18}
+              className="mx-auto mt-2 text-[#B52326]/60"
+              aria-hidden="true"
+            />
+          </div>
+          <ListAnalyzer
+            choices={choices}
+            catalog={catalog}
+            seatIndex={seatIndex}
+            collegesByName={collegesByName}
+            profile={profile}
+          />
+        </>
+      )}
 
-      {/* the ONLY doors out of the result: one analysis, one history — the
-          old Best Match wizard and the four-tab "better options" panel both
-          re-answered the same question and are gone */}
-      <div className="flex flex-wrap items-center gap-3">
-        {finalRevealed && finalChoice && (
-          <Link
-            href="/mock-allotment/list-analyzer"
-            className={`${primaryBtn} inline-flex items-center`}
-          >
-            Analyse my list
-          </Link>
-        )}
-        <Link
-          href="/mock-allotment/rounds-history"
-          className={`${secondaryBtn} inline-flex items-center`}
+      <div className="flex flex-wrap items-center gap-3 border-t border-[#eaded8] pt-4">
+        <button
+          type="button"
+          className={secondaryBtn}
+          onClick={() => setShowHistory(true)}
         >
           Rounds history
-        </Link>
+        </button>
         <button
           type="button"
           className="text-xs text-[#7a635d] underline hover:text-[#b52326]"
@@ -1261,6 +1391,13 @@ const SimulateStep = ({
           Start over
         </button>
       </div>
+
+      {showHistory && (
+        <RoundsHistoryModal
+          trail={trail}
+          onClose={() => setShowHistory(false)}
+        />
+      )}
     </div>
   );
 };
