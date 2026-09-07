@@ -33,7 +33,7 @@ const GENDERS = ["Gender-Neutral", "Female-only (including Supernumerary)"];
 // the all-India-quota file has a real spread of colleges for it
 const MED_CAREERS = [
   { id: "medicine-mbbs", program: "MBBS" },
-  { id: "dental", program: "BDS" },
+  { id: "dentistry", program: "BDS" },
   { id: "nursing", program: "BSc Nursing" },
 ];
 const MED_DEGREE = { MBBS: "MBBS", BDS: "BDS", "BSc Nursing": "BSc Nursing" };

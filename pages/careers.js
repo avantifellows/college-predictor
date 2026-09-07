@@ -76,9 +76,9 @@ const CareerDetail = ({ c }) => (
         </h2>
       </div>
       <div className="grid gap-2 sm:grid-cols-3 md:min-w-[340px]">
-        <MetricCard label="Starting pay" value={c.pay?.start} />
-        <MetricCard label="Mid-career" value={c.pay?.mid} />
-        <MetricCard label="Senior" value={c.pay?.senior} />
+        <MetricCard label="Starting pay (0-5 yrs)" value={c.pay?.start} />
+        <MetricCard label="Mid-career (5-15 yrs)" value={c.pay?.mid} />
+        <MetricCard label="Senior (15+ yrs)" value={c.pay?.senior} />
       </div>
     </div>
 
@@ -271,6 +271,8 @@ export default function Careers() {
   const [all, setAll] = useState([]);
   const [error, setError] = useState(null);
   const [q, setQ] = useState("");
+  // 11th-12th stream filter — values match the sheet's controlled vocabulary
+  const [stream, setStream] = useState("All");
   const [selected, setSelected] = useState(null);
 
   useEffect(() => {
@@ -289,11 +291,21 @@ export default function Careers() {
 
   const filtered = useMemo(() => {
     const raw = q.trim().toLowerCase();
-    if (!raw) return all;
-    return all.filter((c) =>
+    let rows = all;
+    if (stream !== "All") {
+      // a career with "All" in the sheet is open to every stream
+      rows = rows.filter(
+        (c) =>
+          !c.eligible_streams ||
+          c.eligible_streams.includes("All") ||
+          c.eligible_streams.includes(stream)
+      );
+    }
+    if (!raw) return rows;
+    return rows.filter((c) =>
       raw.split(/\s+/).every((w) => c.name.toLowerCase().includes(w))
     );
-  }, [all, q]);
+  }, [all, q, stream]);
 
   // browser back/forward between careers (and back INTO this page from an
   // exam chip) re-selects from the hash
@@ -346,60 +358,87 @@ export default function Careers() {
               Loading careers…
             </p>
           ) : (
-            <div className="mt-6 gap-8 md:grid md:grid-cols-[16rem_1fr]">
-              {/* phone: one picker; desktop: searchable list */}
-              <div className="mb-6 md:hidden">
-                <Dropdown
-                  options={all.map((c) => ({
-                    value: c.career_id,
-                    label: c.name,
-                  }))}
-                  selectedValue={selected}
-                  onChange={(o) => pick(o.value)}
-                  className="w-full"
-                  hideValueWhileSearching
-                />
+            <>
+              <div className="mt-5 flex flex-wrap items-center justify-center gap-2">
+                <span className="text-xs font-semibold uppercase tracking-wide text-[#7a635d]">
+                  My stream:
+                </span>
+                {[
+                  "All",
+                  "Science (PCM)",
+                  "Science (PCB)",
+                  "Commerce",
+                  "Arts",
+                ].map((st) => (
+                  <button
+                    key={st}
+                    type="button"
+                    onClick={() => setStream(st)}
+                    className={`rounded-full border px-3 py-1 text-xs font-bold transition ${
+                      stream === st
+                        ? "border-[#B52326] bg-[#B52326] text-white"
+                        : "border-[#e0cdc6] bg-white text-[#5b3a34] hover:border-[#B52326]/60"
+                    }`}
+                  >
+                    {st === "All" ? "Any" : st}
+                  </button>
+                ))}
               </div>
-              <div className="hidden md:block md:border-r md:border-[#eaded8] md:pr-5">
-                <div className="relative mb-3">
-                  <Search
-                    size={14}
-                    className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[#b9a8a2]"
-                  />
-                  <input
-                    type="text"
-                    value={q}
-                    onChange={(ev) => setQ(ev.target.value)}
-                    placeholder="Search careers"
-                    className="w-full rounded-xl border border-[#d8c7c1] bg-[#fffdfa] py-2 pl-8 pr-3 text-sm text-[#2f2320] outline-none transition placeholder:text-[#7a6159] focus:border-[#b52326]"
+              <div className="mt-5 gap-8 md:grid md:grid-cols-[16rem_1fr]">
+                {/* phone: one picker; desktop: searchable list */}
+                <div className="mb-6 md:hidden">
+                  <Dropdown
+                    options={filtered.map((c) => ({
+                      value: c.career_id,
+                      label: c.name,
+                    }))}
+                    selectedValue={selected}
+                    onChange={(o) => pick(o.value)}
+                    className="w-full"
+                    hideValueWhileSearching
                   />
                 </div>
-                <nav className="max-h-[70vh] space-y-0.5 overflow-y-auto pr-1">
-                  {filtered.map((c) => (
-                    <button
-                      key={c.career_id}
-                      type="button"
-                      onClick={() => pick(c.career_id)}
-                      className={`block w-full rounded-lg px-3 py-1.5 text-left text-sm transition ${
-                        selected === c.career_id
-                          ? "bg-[#f8efec] font-semibold text-[#8f2e31]"
-                          : "text-[#5b3a34] hover:bg-[#fdf8f4]"
-                      }`}
-                    >
-                      {c.name}
-                    </button>
-                  ))}
-                  {filtered.length === 0 ? (
-                    <p className="px-3 py-2 text-xs text-[#6d5550]">
-                      No careers match.
-                    </p>
-                  ) : null}
-                </nav>
+                <div className="hidden md:block md:border-r md:border-[#eaded8] md:pr-5">
+                  <div className="relative mb-3">
+                    <Search
+                      size={14}
+                      className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[#b9a8a2]"
+                    />
+                    <input
+                      type="text"
+                      value={q}
+                      onChange={(ev) => setQ(ev.target.value)}
+                      placeholder="Search careers"
+                      className="w-full rounded-xl border border-[#d8c7c1] bg-[#fffdfa] py-2 pl-8 pr-3 text-sm text-[#2f2320] outline-none transition placeholder:text-[#7a6159] focus:border-[#b52326]"
+                    />
+                  </div>
+                  <nav className="max-h-[70vh] space-y-0.5 overflow-y-auto pr-1">
+                    {filtered.map((c) => (
+                      <button
+                        key={c.career_id}
+                        type="button"
+                        onClick={() => pick(c.career_id)}
+                        className={`block w-full rounded-lg px-3 py-1.5 text-left text-sm transition ${
+                          selected === c.career_id
+                            ? "bg-[#f8efec] font-semibold text-[#8f2e31]"
+                            : "text-[#5b3a34] hover:bg-[#fdf8f4]"
+                        }`}
+                      >
+                        {c.name}
+                      </button>
+                    ))}
+                    {filtered.length === 0 ? (
+                      <p className="px-3 py-2 text-xs text-[#6d5550]">
+                        No careers match.
+                      </p>
+                    ) : null}
+                  </nav>
+                </div>
+                <div className="min-w-0">
+                  {current ? <CareerDetail c={current} /> : null}
+                </div>
               </div>
-              <div className="min-w-0">
-                {current ? <CareerDetail c={current} /> : null}
-              </div>
-            </div>
+            </>
           )}
         </div>
       </div>
