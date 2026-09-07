@@ -63,6 +63,9 @@ const Dropdown = ({
   // hiding the value while the menu is open, so typing looks like typing.
   // Off by default: the nine existing call sites rely on the value staying put.
   hideValueWhileSearching = false,
+  // optional custom option renderer, passed straight to react-select —
+  // the home chooser uses it to tint one keyword per option
+  formatOptionLabel,
 }) => {
   const [isOpen, setIsOpen] = React.useState(false);
   return (
@@ -75,6 +78,7 @@ const Dropdown = ({
       styles={customStyles}
       instanceId={useId()}
       className={className}
+      formatOptionLabel={formatOptionLabel}
       onMenuOpen={() => setIsOpen(true)}
       onMenuClose={() => setIsOpen(false)}
       controlShouldRenderValue={!(hideValueWhileSearching && isOpen)}
