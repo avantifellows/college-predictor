@@ -52,8 +52,8 @@ const ACTIONS = [
   { value: "/compare", label: "compare colleges and branches", kw: "compare" },
   {
     value: "/mock-allotment",
-    label: "practise the JoSAA counselling rounds",
-    kw: "JoSAA",
+    label: "run a mock JoSAA allotment",
+    kw: "mock",
   },
   { value: "/exams", label: "learn about entrance exams", kw: "exams" },
   {
