@@ -32,16 +32,19 @@ const ProfileRow = ({ number, title, children }) => (
   </section>
 );
 
-const MetricCard = ({ label, value }) => {
+const MetricCard = ({ label, sub, value }) => {
   if (!value) return null;
   return (
     <div className="min-w-0 rounded-lg border border-[#eaded8] bg-white p-3">
-      <div className="text-xs font-semibold uppercase tracking-wide text-[#8a6d63]">
+      <div className="whitespace-nowrap text-xs font-semibold uppercase tracking-wide text-[#8a6d63]">
         {label}
       </div>
       <div className="mt-1 break-words text-sm font-bold text-[#2f2320]">
         {value}
       </div>
+      {sub ? (
+        <div className="mt-0.5 text-[11px] text-[#a89a94]">{sub}</div>
+      ) : null}
     </div>
   );
 };
@@ -76,9 +79,13 @@ const CareerDetail = ({ c }) => (
         </h2>
       </div>
       <div className="grid gap-2 sm:grid-cols-3 md:min-w-[340px]">
-        <MetricCard label="Starting pay (0-5 yrs)" value={c.pay?.start} />
-        <MetricCard label="Mid-career (5-15 yrs)" value={c.pay?.mid} />
-        <MetricCard label="Senior (15+ yrs)" value={c.pay?.senior} />
+        <MetricCard
+          label="Starting pay"
+          sub="first 5 years"
+          value={c.pay?.start}
+        />
+        <MetricCard label="Mid-career" sub="5-15 years in" value={c.pay?.mid} />
+        <MetricCard label="Senior" sub="15+ years in" value={c.pay?.senior} />
       </div>
     </div>
 

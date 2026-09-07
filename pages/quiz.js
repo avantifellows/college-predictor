@@ -867,7 +867,7 @@ export default function Quiz() {
                         ? "Closing NEET rank (AIR)…"
                         : `Closing ${correctExam} rank…`
                     }
-                    className="h-12 w-56 rounded-xl border border-[#d8c7c1] bg-[#fffdfa] px-3 text-[#2f2320] outline-none transition placeholder:text-[#7a6159] focus:border-[#b52326] focus:ring-[3px] focus:ring-[#b52326]/[0.12]"
+                    className="h-12 w-full max-w-xs rounded-xl border border-[#d8c7c1] bg-[#fffdfa] px-3 text-[#2f2320] outline-none transition [appearance:textfield] placeholder:text-[#7a6159] focus:border-[#b52326] focus:ring-[3px] focus:ring-[#b52326]/[0.12] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
                   />
                 </div>
                 <div className="mt-5 flex items-center justify-between">
