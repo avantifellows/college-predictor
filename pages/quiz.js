@@ -9,11 +9,12 @@ const Dropdown = dynamic(() => import("../components/dropdown"), {
 });
 
 // The Career Quiz, following the futures-v2 demo's design on shipped data:
-// Career -> Degree -> College -> Exam -> Rank (guess, then a Reality Check
-// screen) -> Path. Data: careers.json for names, colleges.json for
-// programmes/NIRF/fees, per-category JoSAA files for the cutoff reveal.
-// The guess-first steps exist because surveyed students underestimate
-// cutoffs by ~25%; guessing before seeing makes the answer stick.
+// Field -> Career -> Degree -> College -> Exam -> Rank (guess, then a
+// Reality Check screen) -> Path. Engineering reads colleges.json +
+// per-category JoSAA files; Medicine reads quiz/medical.json (MCC
+// all-India-quota cutoffs, built by build_quiz_medical.py). The guess-first
+// steps exist because surveyed students underestimate cutoffs by ~25%;
+// guessing before seeing makes the answer stick.
 
 const STAGES = ["Career", "Degree", "College", "Exam", "Rank", "Path"];
 
@@ -27,15 +28,44 @@ const DEGREE_DISTRACTORS = [
 const CATEGORIES = ["OPEN", "EWS", "OBC-NCL", "SC", "ST"];
 const GENDERS = ["Gender-Neutral", "Female-only (including Supernumerary)"];
 
+// ── the medical track ────────────────────────────────────────────────────
+// careers whose seats live in NEET counselling; a career shows only when
+// the all-India-quota file has a real spread of colleges for it
+const MED_CAREERS = [
+  { id: "medicine-mbbs", program: "MBBS" },
+  { id: "dentistry", program: "BDS" },
+  { id: "nursing", program: "BSc Nursing" },
+];
+const MED_DEGREE = { MBBS: "MBBS", BDS: "BDS", "BSc Nursing": "BSc Nursing" };
+// every option is a real medical-family degree — the confusion between
+// them is exactly what this step teaches
+const MED_DEGREE_POOL = [
+  "MBBS",
+  "BDS",
+  "BAMS (Ayurveda)",
+  "BSc Nursing",
+  "BPT (Physiotherapy)",
+  "B.Pharm",
+];
+const MED_CATEGORIES = ["Open", "EWS", "OBC", "SC", "ST"];
+// AIIMS ran its own entrance exam until 2019 — a distractor because many
+// students still believe it does
+const MED_EXAM_OPTIONS = [
+  "NEET-UG",
+  "JEE Main",
+  "CUET (UG)",
+  "The college's own entrance exam",
+];
+
 const fmtL = (n) => (n == null ? null : `₹${(n / 100000).toFixed(1)} L`);
 const programString = (p) =>
   p.years && p.degree
     ? `${p.branch} (${p.years} Years, ${p.degree})`
     : p.branch;
 
-const StagePills = ({ stageIdx }) => (
+const StagePills = ({ stages, stageIdx }) => (
   <div className="flex flex-wrap items-center justify-center gap-2">
-    {STAGES.map((s, i) => (
+    {stages.map((s, i) => (
       <span
         key={s}
         className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-bold ${
@@ -149,10 +179,12 @@ const McqOption = ({ letter, label, on, revealed, correct, onClick }) => (
 
 export default function Quiz() {
   const [colleges, setColleges] = useState([]);
+  const [medRows, setMedRows] = useState([]);
   const [careerNames, setCareerNames] = useState({});
   const [error, setError] = useState(null);
 
   const [stage, setStage] = useState(0);
+  const [field, setField] = useState(null); // "engineering" | "medicine"
   const [busy, setBusy] = useState(false);
   const [careerId, setCareerId] = useState(null);
   const [degreeGuesses, setDegreeGuesses] = useState([]);
@@ -176,9 +208,10 @@ export default function Quiz() {
   const [hydrated, setHydrated] = useState(false);
   useEffect(() => {
     try {
-      const saved = JSON.parse(sessionStorage.getItem("quizState") || "null");
+      const saved = JSON.parse(sessionStorage.getItem("quizState2") || "null");
       if (saved) {
         setStage(saved.stage ?? 0);
+        setField(saved.field ?? null);
         setCareerId(saved.careerId ?? null);
         setDegreeGuesses(saved.degreeGuesses ?? []);
         setDegreeRevealed(saved.degreeRevealed ?? false);
@@ -200,9 +233,10 @@ export default function Quiz() {
     if (!hydrated) return;
     try {
       sessionStorage.setItem(
-        "quizState",
+        "quizState2",
         JSON.stringify({
           stage,
+          field,
           careerId,
           degreeGuesses,
           degreeRevealed,
@@ -222,6 +256,7 @@ export default function Quiz() {
   }, [
     hydrated,
     stage,
+    field,
     careerId,
     degreeGuesses,
     degreeRevealed,
@@ -239,9 +274,13 @@ export default function Quiz() {
     Promise.all([
       fetch("/data/colleges/colleges.json").then((r) => r.json()),
       fetch("/data/careers/careers.json").then((r) => r.json()),
+      fetch("/data/quiz/medical.json").then((r) => r.json()),
     ])
-      .then(([cols, cars]) => {
-        setColleges(cols);
+      .then(([cols, cars, med]) => {
+        // engineering walks a JEE rank to a JoSAA cutoff, so only JoSAA
+        // rows feed that track; the medical track has its own file
+        setColleges(cols.filter((c) => c.counselling === "JoSAA"));
+        setMedRows(med.rows);
         setCareerNames(
           Object.fromEntries(cars.map((c) => [c.career_id, c.name]))
         );
@@ -250,6 +289,14 @@ export default function Quiz() {
   }, []);
 
   const careers = useMemo(() => {
+    if (field === "medicine") {
+      const count = {};
+      for (const r of medRows) count[r.program] = (count[r.program] || 0) + 1;
+      // a career needs a real spread of colleges to be worth a walk
+      return MED_CAREERS.filter((c) => (count[c.program] || 0) >= 5).map(
+        (c) => ({ value: c.id, label: careerNames[c.id] || c.id })
+      );
+    }
     const count = {};
     for (const c of colleges)
       for (const p of c.programs.list)
@@ -258,16 +305,39 @@ export default function Quiz() {
       .filter(([id]) => careerNames[id])
       .sort((a, b) => b[1] - a[1])
       .map(([id]) => ({ value: id, label: careerNames[id] }));
-  }, [colleges, careerNames]);
+  }, [field, medRows, colleges, careerNames]);
+
+  const isMed = field === "medicine";
 
   const pairs = useMemo(() => {
     if (!careerId) return [];
+    if (isMed) {
+      const prog = MED_CAREERS.find((c) => c.id === careerId)?.program;
+      return medRows
+        .filter((r) => r.program === prog)
+        .map((r) => ({
+          college: {
+            college_id: `${r.institute}|${r.program}`,
+            display_name: r.institute,
+            state: r.state,
+            nirf: r.nirf ? { rank: r.nirf } : null,
+            fees: null,
+            placement: null,
+            entrance_exams: ["NEET-UG"],
+            college_q: r.college_q || null,
+            seats: r.seats || null,
+            type: r.type || null,
+            cutoffs: r.cutoffs,
+          },
+          program: { branch: r.program, degree: MED_DEGREE[r.program] },
+        }));
+    }
     const out = [];
     for (const c of colleges)
       for (const p of c.programs.list)
         if (p.career_id === careerId) out.push({ college: c, program: p });
     return out;
-  }, [colleges, careerId]);
+  }, [isMed, medRows, colleges, careerId]);
 
   const realDegrees = useMemo(
     () => [
@@ -291,19 +361,27 @@ export default function Quiz() {
     const score =
       showHelper && prefSort === "salary"
         ? ({ college }) => -(college.placement?.median_salary ?? 0)
-        : ({ college }) => college.nirf?.engineering_rank ?? 9999;
+        : ({ college }) => college.nirf?.rank ?? 9999;
     return rows.slice().sort((a, b) => score(a) - score(b));
   }, [pairs, degreePick, collegeSearch, showHelper, prefState, prefSort]);
 
   const picked = pairs.find(({ college }) => college.college_id === collegeId);
   const correctExam = picked?.college.entrance_exams?.[0] || "JEE Main";
 
-  const states = useMemo(
-    () => [...new Set(colleges.map((c) => c.state).filter(Boolean))].sort(),
-    [colleges]
-  );
+  const states = useMemo(() => {
+    const src = isMed
+      ? pairs.map(({ college }) => college.state)
+      : colleges.map((c) => c.state);
+    return [...new Set(src.filter(Boolean))].sort();
+  }, [isMed, pairs, colleges]);
 
   const revealRank = async () => {
+    if (isMed) {
+      const r = picked?.college.cutoffs?.[category];
+      setActual(r != null ? { rank: r, quota: "AIQ" } : null);
+      setStage(5);
+      return;
+    }
     setBusy(true);
     const rows = await fetch(
       `/data/JEE/${encodeURIComponent(category)}.json`
@@ -339,11 +417,12 @@ export default function Quiz() {
 
   const reset = () => {
     try {
-      sessionStorage.removeItem("quizState");
+      sessionStorage.removeItem("quizState2");
     } catch (e) {
       /* noop */
     }
     setStage(0);
+    setField(null);
     setCareerId(null);
     setDegreeGuesses([]);
     setDegreeRevealed(false);
@@ -358,7 +437,9 @@ export default function Quiz() {
 
   const guessNum = Number(rankGuess);
   const quotaLabel =
-    actual?.quota === "AI"
+    actual?.quota === "AIQ"
+      ? "All India Quota"
+      : actual?.quota === "AI"
       ? "All India"
       : actual?.quota === "HS"
       ? "Home-state quota"
@@ -367,7 +448,7 @@ export default function Quiz() {
   // the breadcrumb of what's locked in so far
   const crumb = [
     careerId && careerNames[careerId],
-    stage >= 2 && degreePick,
+    !isMed && stage >= 2 && degreePick,
     stage >= 3 && picked?.college.display_name,
     stage >= 4 && correctExam,
   ]
@@ -393,11 +474,15 @@ export default function Quiz() {
           </p>
           <div className="mt-5">
             <StagePills
-              stageIdx={
-                Math.min(stage, 5) === 5 && actual === undefined
-                  ? 4
-                  : Math.min(stage, 5)
-              }
+              stages={isMed ? STAGES.filter((x) => x !== "Degree") : STAGES}
+              stageIdx={(() => {
+                const i =
+                  Math.min(stage, 5) === 5 && actual === undefined
+                    ? 4
+                    : Math.min(stage, 5);
+                // medicine skips the Degree step, so later pills shift left
+                return isMed && i >= 2 ? i - 1 : i;
+              })()}
             />
           </div>
 
@@ -423,30 +508,81 @@ export default function Quiz() {
               <>
                 <StepHead
                   kicker="Step 1 · Career"
-                  title="Which engineering career do you want to explore?"
-                  sub="Biggest seat pools first."
+                  title="Which career do you want to explore?"
                 />
-                <Dropdown
-                  options={careers}
-                  selectedValue={careerId}
-                  onChange={(o) => {
-                    if (o.value !== careerId) {
-                      // a new career invalidates every later answer
-                      setDegreeGuesses([]);
-                      setDegreeRevealed(false);
-                      setDegreePick(null);
-                      setCollegeId(null);
-                      setExamGuess(null);
-                      setRankGuess("");
-                      setActual(undefined);
-                    }
-                    setCareerId(o.value);
-                  }}
-                  placeholder="Pick a career…"
-                  hideValueWhileSearching
-                />
+                <div className="mb-3 grid grid-cols-2 gap-2">
+                  {[
+                    ["engineering", "Engineering"],
+                    ["medicine", "Medicine"],
+                  ].map(([v, l]) => (
+                    <button
+                      key={v}
+                      type="button"
+                      onClick={() => {
+                        if (v !== field) {
+                          // a new field invalidates everything after it
+                          setCareerId(null);
+                          setDegreeGuesses([]);
+                          setDegreeRevealed(false);
+                          setDegreePick(null);
+                          setCollegeId(null);
+                          setExamGuess(null);
+                          setRankGuess("");
+                          setActual(undefined);
+                          setCategory(v === "medicine" ? "Open" : "OPEN");
+                        }
+                        setField(v);
+                      }}
+                      className={`rounded-xl border px-4 py-3 text-sm font-black transition ${
+                        field === v
+                          ? "border-[#B52326] bg-[#fbeeec] text-[#8f2e31]"
+                          : "border-[#eaded8] bg-white text-[#4a3a36] hover:border-[#B52326]/50"
+                      }`}
+                    >
+                      {l}
+                    </button>
+                  ))}
+                </div>
+                {field ? (
+                  <Dropdown
+                    key={field}
+                    options={careers}
+                    selectedValue={careerId}
+                    onChange={(o) => {
+                      if (o.value !== careerId) {
+                        // a new career invalidates every later answer
+                        setDegreeGuesses([]);
+                        setDegreeRevealed(false);
+                        setDegreePick(null);
+                        setCollegeId(null);
+                        setExamGuess(null);
+                        setRankGuess("");
+                        setActual(undefined);
+                      }
+                      setCareerId(o.value);
+                    }}
+                    placeholder="Pick a career…"
+                    hideValueWhileSearching
+                  />
+                ) : null}
                 <div className="mt-5 flex justify-end">
-                  <BigButton disabled={!careerId} onClick={() => goTo(1)}>
+                  <BigButton
+                    disabled={!careerId}
+                    onClick={() => {
+                      if (isMed) {
+                        // the career pick IS the degree pick here ("Which
+                        // degree takes you into Medicine (MBBS)?" answers
+                        // itself), so the walk goes straight to College
+                        const prog = MED_CAREERS.find(
+                          (c) => c.id === careerId
+                        )?.program;
+                        setDegreePick(MED_DEGREE[prog]);
+                        goTo(2);
+                      } else {
+                        goTo(1);
+                      }
+                    }}
+                  >
                     Continue <ArrowRight size={16} />
                   </BigButton>
                 </div>
@@ -459,7 +595,12 @@ export default function Quiz() {
                   sub="Pick all you think are right, then check your answer."
                 />
                 <div className="space-y-2">
-                  {[...realDegrees, ...DEGREE_DISTRACTORS].map((d, di) => (
+                  {[
+                    ...realDegrees,
+                    ...(isMed
+                      ? MED_DEGREE_POOL.filter((d) => !realDegrees.includes(d))
+                      : DEGREE_DISTRACTORS),
+                  ].map((d, di) => (
                     <McqOption
                       key={d}
                       letter={String.fromCharCode(65 + di)}
@@ -562,15 +703,17 @@ export default function Quiz() {
                       placeholder="Any state"
                       hideValueWhileSearching
                     />
-                    <Dropdown
-                      options={[
-                        { value: "nirf", label: "Order by NIRF rank" },
-                        { value: "salary", label: "Order by median package" },
-                      ]}
-                      selectedValue={prefSort}
-                      onChange={(o) => setPrefSort(o.value)}
-                      isSearchable={false}
-                    />
+                    {!isMed ? (
+                      <Dropdown
+                        options={[
+                          { value: "nirf", label: "Order by NIRF rank" },
+                          { value: "salary", label: "Order by median package" },
+                        ]}
+                        selectedValue={prefSort}
+                        onChange={(o) => setPrefSort(o.value)}
+                        isSearchable={false}
+                      />
+                    ) : null}
                   </div>
                 ) : null}
                 <div className="max-h-[24rem] space-y-2 overflow-y-auto pr-1">
@@ -591,14 +734,16 @@ export default function Quiz() {
                         <span className="font-bold text-[#2f2320]">
                           {college.display_name}
                         </span>
-                        {college.nirf?.engineering_rank ? (
+                        {college.nirf?.rank ? (
                           <span className="shrink-0 text-xs font-bold text-[#8f2e31]">
-                            NIRF #{college.nirf.engineering_rank}
+                            NIRF #{college.nirf.rank}
                           </span>
                         ) : null}
                       </div>
                       <div className="mt-0.5 text-xs text-[#7a635d]">
                         {program.branch} · {college.state}
+                        {college.type ? ` · ${college.type}` : ""}
+                        {college.seats ? ` · ${college.seats} seats` : ""}
                         {college.fees?.annual_fee
                           ? ` · ${fmtL(college.fees.annual_fee)}/yr fee`
                           : ""}
@@ -617,7 +762,7 @@ export default function Quiz() {
                   ) : null}
                 </div>
                 <div className="mt-4">
-                  <BackButton onClick={() => goTo(1)} />
+                  <BackButton onClick={() => goTo(isMed ? 0 : 1)} />
                 </div>
               </>
             ) : stage === 3 ? (
@@ -628,7 +773,10 @@ export default function Quiz() {
                   sub="Guess first."
                 />
                 <div className="space-y-2">
-                  {["JEE Main", "JEE Advanced"].map((e, ei) => (
+                  {(isMed
+                    ? MED_EXAM_OPTIONS
+                    : ["JEE Main", "JEE Advanced"]
+                  ).map((e, ei) => (
                     <McqOption
                       key={e}
                       letter={String.fromCharCode(65 + ei)}
@@ -647,7 +795,9 @@ export default function Quiz() {
                         ? `Right, it's ${correctExam}.`
                         : `It's ${correctExam}.`}
                     </span>{" "}
-                    {correctExam === "JEE Advanced"
+                    {isMed
+                      ? "Every medical college admits MBBS and BDS through NEET-UG. AIIMS and JIPMER ran their own exams until 2019 — not any more."
+                      : correctExam === "JEE Advanced"
                       ? "IITs admit through JEE Advanced, which you qualify for via JEE Main."
                       : "NITs, IIITs and GFTIs admit on the JEE Main rank."}
                   </p>
@@ -666,34 +816,45 @@ export default function Quiz() {
                 <StepHead
                   kicker="Step 5 · Rank"
                   title={`Guess the closing rank for ${picked?.program.branch} at ${picked?.college.display_name}`}
-                  sub="Your category, gender and home state change the cutoff."
+                  sub={
+                    isMed
+                      ? "Your category changes the cutoff. This is the all-India quota — 15% of government seats; state-quota lists close separately."
+                      : "Your category, gender and home state change the cutoff."
+                  }
                 />
                 <div className="grid gap-3 sm:grid-cols-3">
                   <Dropdown
-                    options={CATEGORIES.map((c) => ({ value: c, label: c }))}
+                    options={(isMed ? MED_CATEGORIES : CATEGORIES).map((c) => ({
+                      value: c,
+                      label: c,
+                    }))}
                     selectedValue={category}
                     onChange={(o) => setCategory(o.value)}
                     isSearchable={false}
                   />
-                  <Dropdown
-                    options={GENDERS.map((g) => ({
-                      value: g,
-                      label:
-                        g === "Gender-Neutral"
-                          ? "Gender-Neutral"
-                          : "Female-only",
-                    }))}
-                    selectedValue={gender}
-                    onChange={(o) => setGender(o.value)}
-                    isSearchable={false}
-                  />
-                  <Dropdown
-                    options={states.map((s) => ({ value: s, label: s }))}
-                    selectedValue={homeState}
-                    onChange={(o) => setHomeState(o.value)}
-                    placeholder="Your home state…"
-                    hideValueWhileSearching
-                  />
+                  {!isMed ? (
+                    <Dropdown
+                      options={GENDERS.map((g) => ({
+                        value: g,
+                        label:
+                          g === "Gender-Neutral"
+                            ? "Gender-Neutral"
+                            : "Female-only",
+                      }))}
+                      selectedValue={gender}
+                      onChange={(o) => setGender(o.value)}
+                      isSearchable={false}
+                    />
+                  ) : null}
+                  {!isMed ? (
+                    <Dropdown
+                      options={states.map((s) => ({ value: s, label: s }))}
+                      selectedValue={homeState}
+                      onChange={(o) => setHomeState(o.value)}
+                      placeholder="Your home state…"
+                      hideValueWhileSearching
+                    />
+                  ) : null}
                 </div>
                 <div className="mt-4 flex flex-wrap items-center gap-3">
                   <input
@@ -701,14 +862,18 @@ export default function Quiz() {
                     min="1"
                     value={rankGuess}
                     onChange={(e) => setRankGuess(e.target.value)}
-                    placeholder={`Closing ${correctExam} rank…`}
+                    placeholder={
+                      isMed
+                        ? "Closing NEET rank (AIR)…"
+                        : `Closing ${correctExam} rank…`
+                    }
                     className="h-12 w-56 rounded-xl border border-[#d8c7c1] bg-[#fffdfa] px-3 text-[#2f2320] outline-none transition placeholder:text-[#7a6159] focus:border-[#b52326] focus:ring-[3px] focus:ring-[#b52326]/[0.12]"
                   />
                 </div>
                 <div className="mt-5 flex items-center justify-between">
                   <BackButton onClick={() => goTo(3)} />
                   <BigButton
-                    disabled={!(guessNum > 0) || !homeState}
+                    disabled={!(guessNum > 0) || (!isMed && !homeState)}
                     onClick={revealRank}
                   >
                     Reveal the cutoff <ArrowRight size={16} />
@@ -754,32 +919,50 @@ export default function Quiz() {
                       />
                       <span>
                         {(() => {
-                          const off = Math.round(
+                          const later = Math.round(
                             ((actual.rank - guessNum) / actual.rank) * 100
                           );
-                          if (Math.abs(off) <= 10)
+                          if (Math.abs(later) <= 10)
                             return "Your guess was within 10% of the answer.";
-                          return guessNum <= actual.rank
-                            ? `Your guessed rank is inside this cutoff. In fact the seat closes ${off}% later than your guess.`
-                            : `Your guessed rank is outside this cutoff. The seat closes ${Math.abs(
-                                off
-                              )}% earlier than your guess. Worth planning backup options.`;
+                          if (guessNum <= actual.rank)
+                            return `Your guessed rank is inside this cutoff. In fact the seat closes ${later}% later than your guess.`;
+                          // percentages explode when the cutoff is tiny
+                          // (AIIMS closes at 48) — big misses read in multiples
+                          const times = guessNum / actual.rank;
+                          if (times >= 2)
+                            return `Your guessed rank is outside this cutoff. The real one is ${
+                              times >= 10 ? Math.round(times) : times.toFixed(1)
+                            }x tighter than your guess. Worth planning backup options.`;
+                          const earlier = Math.round(
+                            ((guessNum - actual.rank) / guessNum) * 100
+                          );
+                          return `Your guessed rank is outside this cutoff. The seat closes ${earlier}% earlier than your guess. Worth planning backup options.`;
                         })()}
                       </span>
                     </div>
                     <div className="mt-4 rounded-xl border border-[#eaded8] bg-white p-4 text-sm text-[#5f514c]">
-                      {category} ·{" "}
-                      {gender === "Gender-Neutral"
-                        ? "Gender-Neutral"
-                        : "Female-only"}{" "}
-                      · {quotaLabel} · {correctExam} · JoSAA 2025
+                      {isMed ? (
+                        <>
+                          {category} · {quotaLabel} · NEET-UG · MCC 2025 Round
+                          1. State-quota seats close on separate lists, usually
+                          at an easier rank for home-state students.
+                        </>
+                      ) : (
+                        <>
+                          {category} ·{" "}
+                          {gender === "Gender-Neutral"
+                            ? "Gender-Neutral"
+                            : "Female-only"}{" "}
+                          · {quotaLabel} · {correctExam} · JoSAA 2025
+                        </>
+                      )}
                     </div>
                   </>
                 ) : (
                   <p className="rounded-xl border border-dashed border-[#d8c8c0] p-4 text-sm leading-6 text-[#5f514c]">
-                    No closing rank was published for this exact combination in
-                    JoSAA 2025. That can mean very few seats. Go back and try
-                    another category or college.
+                    {isMed
+                      ? "No all-India-quota seat closed for this category here in 2025 — these seats may fill through the state quota instead. Go back and try another category or college."
+                      : "No closing rank was published for this exact combination in JoSAA 2025. That can mean very few seats. Go back and try another category or college."}
                   </p>
                 )}
                 <div className="mt-6 flex items-center justify-between">
@@ -805,7 +988,9 @@ export default function Quiz() {
                       "Closing rank",
                       `${actual.rank.toLocaleString(
                         "en-IN"
-                      )} (${category}, ${quotaLabel.toLowerCase()}, JoSAA 2025)`,
+                      )} (${category}, ${quotaLabel.toLowerCase()}, ${
+                        isMed ? "MCC 2025" : "JoSAA 2025"
+                      })`,
                     ],
                     [
                       "College",
@@ -813,9 +998,18 @@ export default function Quiz() {
                         picked?.college.fees?.annual_fee
                           ? ` · ${fmtL(picked.college.fees.annual_fee)}/yr fee`
                           : ""
+                      }${
+                        isMed && picked?.college.seats
+                          ? ` · ${picked.college.seats} MBBS seats`
+                          : ""
                       }`,
                     ],
-                    ["Degree", `${degreePick} in ${picked?.program.branch}`],
+                    [
+                      "Degree",
+                      isMed
+                        ? degreePick
+                        : `${degreePick} in ${picked?.program.branch}`,
+                    ],
                     ["Career", careerNames[careerId]],
                   ]
                     .filter(Boolean)
@@ -839,14 +1033,20 @@ export default function Quiz() {
                   >
                     More about this career
                   </Link>
-                  <Link
-                    href={`/colleges?q=${encodeURIComponent(
-                      picked?.college.display_name || ""
-                    )}`}
-                    className="rounded-full bg-[#f5ece8] px-3.5 py-1.5 text-xs font-bold text-[#8f2e31] transition hover:bg-[#f3dfd9]"
-                  >
-                    More about this college
-                  </Link>
+                  {/* medicine links only when the MCC name matched a
+                      Colleges-tab row at build time — never a dead search */}
+                  {!isMed || picked?.college.college_q ? (
+                    <Link
+                      href={`/colleges?q=${encodeURIComponent(
+                        (isMed
+                          ? picked?.college.college_q
+                          : picked?.college.display_name) || ""
+                      )}`}
+                      className="rounded-full bg-[#f5ece8] px-3.5 py-1.5 text-xs font-bold text-[#8f2e31] transition hover:bg-[#f3dfd9]"
+                    >
+                      More about this college
+                    </Link>
+                  ) : null}
                   <button
                     type="button"
                     onClick={reset}

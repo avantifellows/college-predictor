@@ -37,6 +37,7 @@ CAREER_BRANCH = {
     "Marine Engineering": "MARINE",
     "Mechanical Engineering": "MECHENG",
     "Medicine (MBBS)": "MBBS",
+    "Dentistry": "DENTAL",
     "Ocean Engineering": "MARINE",
     "Structural Engineering": "CIVILENG",
     # deliberately unmapped: Armed Forces, CA, HCL TechBee, Japanese
@@ -202,14 +203,15 @@ ACRONYMS = {
     "iiest": "indian institute of engineering science and technology",
     "spa": "school of planning and architecture",
     "ict": "institute of chemical technology",
+    "aiims": "all india institute of medical sciences",
 }
 
 
 def college_linker():
     """Match a sheet name like 'IIT Delhi' to the Colleges tab's display
     name so the link's ?q= is guaranteed to find it. Conservative: only a
-    unique all-tokens match links; BITS/Jadavpur/AIIMS etc. (not in the
-    JoSAA-scoped tab) stay plain text."""
+    unique all-tokens match links; names not on the tab (BITS, Jadavpur)
+    stay plain text."""
     displays = [c["display_name"] for c in json.load(open(COLLEGES_TAB))]
     dtokens = [(d, set(norm(d).split())) for d in displays]
 
@@ -217,6 +219,7 @@ def college_linker():
         base = re.sub(r"\(.*?\)", " ", str(name))  # drop parentheticals
         toks = [ACRONYMS.get(t, t) for t in norm(base).split()]
         toks = set(" ".join(toks).split())
+        toks.discard("s")  # possessive left by norm: "King George's"
         if not toks:
             return None
         hits = [d for d, dt in dtokens if toks <= dt]
@@ -271,13 +274,23 @@ def main():
                                   "href": f"/exams?q={card['acronym']}"})
                 if len(exams) >= 3:
                     break
-        # exact-name careers own the reverse link (branch chip -> career)
+        # exact-name careers own the reverse link (branch chip -> career);
+        # a PINNED rename (Dentistry -> DENTAL) keeps its link too, but never
+        # steals a branch an exact-name career already claimed
         if branch_id and norm(name) in pmap:
             branch_to_career[branch_id] = cid
+        elif branch_id and CAREER_BRANCH.get(name) == branch_id:
+            branch_to_career.setdefault(branch_id, cid)
+        # Amogh's derived eligibility: which 11th-12th stream can reach this
+        # career. Controlled values; "All" means any stream qualifies.
+        streams_raw = (str(r["Eligible Streams (After Class 12)"]).strip()
+                       if pd.notna(r["Eligible Streams (After Class 12)"]) else "")
+        eligible = sorted({t.strip() for t in streams_raw.split(",") if t.strip()})
         cards.append({
             "career_id": cid,
             "name": name,
             "branch_id": branch_id,
+            "eligible_streams": eligible or None,
             "day_in_life": str(r["A Day in the Life"]).strip() if pd.notna(r["A Day in the Life"]) else None,
             "impact": str(r["Real-World Impact"]).strip() if pd.notna(r["Real-World Impact"]) else None,
             "entry_exams_text": str(r["Entry Exams"]).strip() if pd.notna(r["Entry Exams"]) else None,
@@ -287,9 +300,9 @@ def main():
             "top_colleges": [{"name": n, "q": tab_link(n)}
                              for n in split_list(r["Top Colleges"])],
             "pay": {
-                "start": str(r["Starting Pay (LPA)"]).strip() if pd.notna(r["Starting Pay (LPA)"]) else None,
-                "mid": str(r["Mid-Career Pay (LPA)"]).strip() if pd.notna(r["Mid-Career Pay (LPA)"]) else None,
-                "senior": str(r["Senior-Level Pay (LPA)"]).strip() if pd.notna(r["Senior-Level Pay (LPA)"]) else None,
+                "start": str(r["Starting Pay (0-5 yrs, LPA)"]).strip() if pd.notna(r["Starting Pay (0-5 yrs, LPA)"]) else None,
+                "mid": str(r["Mid-Career Pay (5-15 yrs, LPA)"]).strip() if pd.notna(r["Mid-Career Pay (5-15 yrs, LPA)"]) else None,
+                "senior": str(r["Senior-Level Pay (15+ yrs, LPA)"]).strip() if pd.notna(r["Senior-Level Pay (15+ yrs, LPA)"]) else None,
             },
             "recruiters": split_list(r["Top Recruiters"]),
             "stability": str(r["Stability Outlook"]).strip() if pd.notna(r["Stability Outlook"]) else None,

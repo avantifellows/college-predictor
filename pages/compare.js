@@ -52,7 +52,7 @@ const ROWS = [
       o.college.nirf?.ranking_year
         ? `Engineering, ${o.college.nirf.ranking_year}`
         : null,
-    get: (o) => o.college.nirf?.engineering_rank ?? null,
+    get: (o) => o.college.nirf?.rank ?? null,
     fmt: (v) => `#${v}`,
     betterLow: true,
   },
@@ -194,7 +194,10 @@ export default function Compare() {
   useEffect(() => {
     fetch(DATA_URL)
       .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
-      .then(setAll)
+      // compare rows are built for the JoSAA universe (rank band, fees,
+      // engineering placement); medical rows would compare mostly blanks —
+      // and across a different NIRF category, which highlights nonsense
+      .then((rows) => setAll(rows.filter((c) => c.counselling === "JoSAA")))
       .catch(() => setError("Could not load colleges right now."));
   }, []);
 
@@ -253,7 +256,7 @@ export default function Compare() {
         <title>College & Course Comparison - Avanti Fellows</title>
         <meta
           name="description"
-          content="Compare college and branch combinations side by side on real numbers: closing ranks, NIRF rank, fees, placements and the higher-studies path."
+          content="Compare college and branch combinations side by side: closing ranks, NIRF rank, fees, placements and the higher-studies path."
         />
       </Head>
       <div className="min-h-screen px-3 py-6 sm:px-6">
@@ -262,8 +265,7 @@ export default function Compare() {
             College &amp; Course Comparison
           </h1>
           <p className="mt-2 text-center text-sm text-[#6d5550]">
-            Pick your college and branch options, and compare them on real
-            numbers.
+            Pick your college and branch options, and see them side by side.
           </p>
 
           {error ? (

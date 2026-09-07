@@ -17,6 +17,21 @@ counselling body — 128 institutes across every state, one rank space. The
 builder is deliberately per-source so KCET / TG-EAPCET / GUJCET / NEET can be
 added as further `--source` blocks without reshaping the row.
 
+MEDICAL (added Sep 2026). Spine = nmc_fact_mbbs_seats, the NMC's own list of
+every MBBS college with its approved annual intake — 780 colleges, all of
+which appear in students' NEET predictor lists. Enrichment rides Priyanka's
+crosswalk (nmc_college_name -> aishe_code, 498 matched; the rest are mostly
+colleges newer than the AISHE vintage, which appear with identity from NMC
+alone). NIRF Medical ranks reach an NMC college two ways: the crosswalk's
+nirf_institute_ids where present, plus a state-constrained name match against
+the ~100 NIRF-Medical-ranked names with hand-verified pins for the
+university-umbrella cases (NIRF ranks "Banaras Hindu University"; the NMC row
+is "Institute of Medical Sciences, BHU"). PG-only institutes (PGIMER, SGPGI,
+NIMHANS, SCTIMST, ILBS) rightly match nothing — they admit no MBBS batch.
+No per-college NEET cutoff ships on the card: MCC prints institute names too
+abbreviated to match honestly ("KGMC, LUCKNOW"), and cutoffs are the
+predictor's job anyway.
+
 COVERAGE IS HONEST, NOT PADDED. Every enriched field carries its own source and
 year, because the vintages genuinely differ (AISHE 2024-25, NIRF 2025, placement
 AY 2023-24). A field we do not have is null with a stated reason where the
@@ -304,6 +319,194 @@ def build_josaa(client):
     return identity, nirf, bands, place, gender, fees, naac, prog
 
 
+# ── medical: NMC spine ───────────────────────────────────────────────────────
+
+# NIRF Medical entries whose printed name is a university umbrella or a
+# format variant the state-constrained matcher can't resolve. Values are the
+# NMC college string VERBATIM (typos like "Varansi" included — it's the join
+# key). Every pin verified against the NMC 2024-25 list; university pins name
+# the university's one MBBS college. Deliberately NOT pinned: PG-only
+# institutes (no MBBS batch), SVIMS Tirupati (its NMC row is the separate
+# women's college), Siksha `O` Anusandhan (two SUM Hospital rows in NMC —
+# ambiguous which the rank describes).
+NIRF_MEDICAL_PINS = {
+    "banaras hindu university": "Institute of Medical Sciences, BHU, Varansi",
+    "aligarh muslim university": "Jawaharlal Nehru Medical College, Aligarh",
+    "srm institute of science technology":
+        "SRM Medical College Hospital & Research Centre, Kancheepuram",
+    "s r m institute of science technology":
+        "SRM Medical College Hospital & Research Centre, Kancheepuram",
+    "saveetha institute of medical technical sciences":
+        "Saveetha Medical College and Hospital, Kanchipuram",
+    "sri ramachandra institute of higher education research":
+        "Sri Ramachandra Medical College & Research Institute, Chennai",
+    "chettinad academy of research education":
+        "Chettinad Hospital & Research Institute, Kanchipuram",
+    "psg institute of medical sciences research":
+        "PSG Institute of Medical Sciences, Coimbatore",
+    "madras medical college government general hospital":
+        "Madras Medical College, Chennai",
+    "sawai man singh medical college": "SMS Medical College, Jaipur",
+    "government medical college hospital|chandigarh":
+        "Government Medical College, Chandigarh",
+    "government medical college thiruvananthapuram":
+        "Medical College, Thiruvananthapuram",
+    "university college of medical sciences":
+        "University College of Medical Sciences & GTB Hospital, New Delhi",
+    "kasturba medical college|manipal": "Kasturba Medical College, Manipal",
+    "kasturba medical college|mangaluru": "Kasturba Medical College, Mangalore",
+    "kasturba medical college|mengaluru": "Kasturba Medical College, Mangalore",
+    "kalinga institute of industrial technology":
+        "Kalinga Institute of Medical Sciences, Bhubaneswar",
+    "scb medical college hospital": "SCB Medical College, Cuttack",
+    "krishna institute of medical sciences deemed university":
+        "Krishna Institute of Medical Sciences, Karad",
+    "annamalai university": "Rajah Muthiah Medical College, Annamalainagar",
+    "jamia hamdard": "Hamdard Institute of Medical Sciences & Research, New Delhi",
+    "maharishi markandeshwar":
+        "Maharishi Markandeshwar Institute Of Medical Sciences & Research, Mullana, Ambala",
+    "maharishi markandeshwar deemed to be university":
+        "Maharishi Markandeshwar Institute Of Medical Sciences & Research, Mullana, Ambala",
+    "datta meghe institute of medical sciences":
+        "Jawaharlal Nehru Medical College, Sawangi (Meghe), Wardha",
+    "datta meghe institute of higher education research":
+        "Jawaharlal Nehru Medical College, Sawangi (Meghe), Wardha",
+    "dr d y patil vidyapeeth":
+        "Dr. D Y Patil Medical College, Hospital and Research Centre, Pimpri, Pune",
+    "padmashree dr d y patil vidyapeeth mumbai":
+        "Padmashree Dr. D.Y.Patil Medical College, Navi Mumbai",
+    "pt b d sharma pgims":
+        "Pt. B D Sharma Postgraduate Institute of Medical Sciences, Rohtak (Haryana)",
+    "pandit bhagwat dayal sharma university of health sciences":
+        "Pt. B D Sharma Postgraduate Institute of Medical Sciences, Rohtak (Haryana)",
+    # Amrita's ranked medical school is the Kochi flagship (the Faridabad
+    # campus opened 2022, after the rank history begins)
+    "amrita vishwa vidyapeetham": "Amrita School of Medicine, Elamkara, Kochi",
+}
+
+_MED_STOP = {"the", "of", "and"}
+
+
+def _mnorm(s: str) -> str:
+    s = str(s).lower().replace("&", " and ")
+    s = re.sub(r"\bgovt\.?\b", "government", s)
+    s = re.sub(r"\(.*?\)", " ", s)
+    s = re.sub(r"[^a-z0-9]+", " ", s).strip()
+    return " ".join(t for t in s.split() if t not in _MED_STOP)
+
+
+def _mshort(s: str) -> str:
+    return _mnorm(str(s).split(",")[0])
+
+
+# display-only spelling fixes; the NMC string stays verbatim as the join key
+NMC_TYPO_FIXES = {"Varansi": "Varanasi", "Odhisha": "Odisha",
+                  "Telengana": "Telangana", "Resarch": "Research",
+                  "Reseach": "Research", "Instt. Of": "Institute of"}
+
+
+def clean_nmc_name(s: str) -> str:
+    """NMC prints footnote markers and seat-split notes inside the name."""
+    s = re.sub(r"\s*\((?=[^)]*(?:seats|Formerly))[^)]*\)", "", str(s))
+    s = re.sub(r"[*#]+\s*$", "", s).strip().rstrip(",").strip()
+    for bad, good in NMC_TYPO_FIXES.items():
+        s = s.replace(bad, good)
+    return s
+
+
+def match_nirf_medical_to_nmc(nirf_med, nmc):
+    """NIRF-Medical institute -> NMC college name. State-constrained exact /
+    short-name / fuzzy tiers, then the hand pins. Only unique hits count."""
+    import difflib
+    st_alias = {"orissa": "odisha", "pondicherry": "puducherry",
+                "new delhi": "delhi", "nct delhi": "delhi"}
+    def nst(s):
+        x = _mnorm(s)
+        return st_alias.get(x, x)
+
+    nmc_rows = list(nmc.itertuples())
+    by_id = {}
+    for r in nirf_med[["institute_id", "institute_name", "state", "city"]].drop_duplicates().itertuples():
+        pin = (NIRF_MEDICAL_PINS.get(f"{_mnorm(r.institute_name)}|{_mnorm(r.city)}")
+               or NIRF_MEDICAL_PINS.get(_mnorm(r.institute_name)))
+        if pin:
+            by_id[r.institute_id] = pin
+            continue
+        cand = [x for x in nmc_rows if nst(x.state) == nst(r.state)]
+        n_full, n_city = _mnorm(r.institute_name), _mnorm(f"{r.institute_name} {r.city}")
+        hits = [x for x in cand if _mnorm(x.college) in (n_full, n_city)]
+        if not hits:
+            hits = [x for x in cand if _mshort(x.college) == _mshort(r.institute_name)]
+        if not hits:
+            hits = [x for x in cand
+                    if difflib.SequenceMatcher(None, _mnorm(x.college), n_city).ratio() >= 0.88
+                    or difflib.SequenceMatcher(None, _mshort(x.college), _mshort(r.institute_name)).ratio() >= 0.92]
+        if len(hits) == 1:
+            by_id[r.institute_id] = hits[0].college
+    return by_id
+
+
+def build_medical(client):
+    print("Querying BigQuery (medical)…")
+    nmc = client.query("""
+    SELECT college, state, district, university, management_category,
+           year_of_inception, annual_intake_seats
+    FROM `avantifellows.external_data_sources.nmc_fact_mbbs_seats`
+    WHERE snapshot = '2024-25'
+    """).to_dataframe()
+
+    xwalk = client.query("""
+    WITH aishe AS (
+      SELECT aishe_code, name, state, district, website, year_of_establishment,
+             college_type AS kind, management
+      FROM `avantifellows.external_data_sources.aishe_dim_colleges`
+      UNION ALL
+      SELECT aishe_code, name, state, district, website, year_of_establishment,
+             university_type AS kind, CAST(NULL AS STRING) AS management
+      FROM `avantifellows.external_data_sources.aishe_dim_universities`
+      UNION ALL
+      SELECT aishe_code, name, state, district, website, year_of_establishment,
+             standalone_type AS kind, management
+      FROM `avantifellows.external_data_sources.aishe_dim_standalone_institutions`
+    )
+    SELECT m.nmc_college_name, m.aishe_code, m.nirf_institute_ids,
+           a.name AS aishe_name, a.website, a.kind
+    FROM `avantifellows.external_data_sources.overall_college_mapping` AS m
+    LEFT JOIN aishe AS a ON a.aishe_code = m.aishe_code
+    WHERE m.nmc_college_name IS NOT NULL AND m.nmc_college_name != ''
+    """).to_dataframe()
+
+    nirf_med = client.query("""
+    SELECT institute_id, institute_name, state, city, ranking_year,
+           nirf_rank, overall_score
+    FROM `avantifellows.external_data_sources.nirf_fact_rankings`
+    WHERE ranking_category = 'Medical' AND nirf_rank IS NOT NULL
+    """).to_dataframe()
+
+    place = client.query("""
+    SELECT institute_id, edition_year AS ranking_year,
+           graduating_academic_year AS academic_year, median_salary,
+           graduated_on_time, students_placed, higher_studies_selected,
+           first_year_intake
+    FROM `avantifellows.external_data_sources.nirf_fact_dcs_placements`
+    WHERE discipline = 'Medical' AND program_level = 'UG-5Y'
+      AND NOT superseded
+      AND median_salary IS NOT NULL AND median_salary > 0
+      AND graduated_on_time IS NOT NULL AND graduated_on_time > 0
+    """).to_dataframe()
+
+    gender = client.query("""
+    SELECT institute_id, edition_year,
+           SUM(male) AS male, SUM(female) AS female
+    FROM `avantifellows.external_data_sources.nirf_fact_dcs_strength`
+    WHERE discipline = 'Medical' AND program_level = 'UG-5Y'
+      AND total IS NOT NULL AND total > 0
+    GROUP BY institute_id, edition_year
+    """).to_dataframe()
+
+    return nmc, xwalk, nirf_med, place, gender
+
+
 def main():
     careers_by_branch = career_lookup()
     ap = argparse.ArgumentParser(description=__doc__)
@@ -395,9 +598,12 @@ def main():
                    .sort_values("ranking_year", ascending=False))
             top = g.iloc[0]
             nirf_block = {
-                "engineering_rank": int(top.nirf_rank),
-                "engineering_score": (round(float(top.overall_score), 2)
-                                      if top.overall_score == top.overall_score else None),
+                # rank within its NIRF category — never compare across
+                # categories (Engineering #40 vs Medical #40 means nothing)
+                "category": "Engineering",
+                "rank": int(top.nirf_rank),
+                "score": (round(float(top.overall_score), 2)
+                          if top.overall_score == top.overall_score else None),
                 "ranking_year": int(top.ranking_year),
                 # Score as well as rank. Rank is ORDINAL — it moves when other
                 # institutes move — so a falling rank can hide a rising college:
@@ -617,8 +823,209 @@ def main():
             },
         })
 
+    # ── medical rows: NMC spine ──────────────────────────────────────────────
+    nmc, xwalk, nirf_med, mplace, mgender = build_medical(client)
+    print(f"  nmc {len(nmc)}  crosswalked {len(xwalk)}  nirf-medical rows {len(nirf_med)}  "
+          f"placement {len(mplace)}  gender {len(mgender)}")
+
+    # the MBBS programme links to its career page like any JoSAA branch does
+    careers_file = json.load(open("public/data/careers/careers.json"))
+    mbbs_career = next((c["career_id"] for c in careers_file
+                        if c.get("branch_id") == "MBBS"), None)
+
+    xwalk_by_nmc = {r.nmc_college_name: r for r in xwalk.itertuples()}
+    nirf_by_nmc = {}
+    for iid, cname in match_nirf_medical_to_nmc(nirf_med, nmc).items():
+        nirf_by_nmc.setdefault(cname, set()).add(iid)
+    med_nirf_by_id = {}
+    for iid, g in nirf_med.groupby("institute_id"):
+        med_nirf_by_id[iid] = g.sort_values("ranking_year", ascending=False)
+    mplace_by_id = {}
+    for iid, g in mplace.groupby("institute_id"):
+        mplace_by_id[iid] = g.sort_values(["ranking_year", "academic_year"],
+                                          ascending=False)
+    mgender_by_id = {}
+    for iid, g in mgender.groupby("institute_id"):
+        mgender_by_id[iid] = g.sort_values("edition_year", ascending=False).iloc[0]
+
+    used_ids = {z["college_id"] for z in rows}
+    med_rows = []
+    for r in nmc.itertuples():
+        xr = xwalk_by_nmc.get(r.college)
+        # NIRF ids: the crosswalk's where present, plus the name-matched ones
+        nids = set(list(xr.nirf_institute_ids) if xr is not None
+                   and xr.nirf_institute_ids is not None else [])
+        nids |= nirf_by_nmc.get(r.college, set())
+
+        nirf_block = None
+        frames = [med_nirf_by_id[n] for n in nids if n in med_nirf_by_id]
+        if frames:
+            g = (pd.concat(frames)
+                   .drop_duplicates(subset=["ranking_year"], keep="first")
+                   .sort_values("ranking_year", ascending=False))
+            top = g.iloc[0]
+            nirf_block = {
+                "category": "Medical",
+                "rank": int(top.nirf_rank),
+                "score": (round(float(top.overall_score), 2)
+                          if top.overall_score == top.overall_score else None),
+                "ranking_year": int(top.ranking_year),
+                "rank_history": [
+                    {"year": int(x.ranking_year), "rank": int(x.nirf_rank),
+                     "score": (round(float(x.overall_score), 2)
+                               if x.overall_score == x.overall_score else None)}
+                    for x in g.head(6).itertuples()
+                ],
+            }
+
+        placement = None
+        pframes = [mplace_by_id[n] for n in nids if n in mplace_by_id]
+        if pframes:
+            g = pd.concat(pframes).sort_values(["ranking_year", "academic_year"],
+                                               ascending=False)
+            pr = g.iloc[0]
+            def num(v, cast=float):
+                return None if v != v else cast(v)
+            placed_n = num(pr.students_placed, int)
+            higher_n = num(pr.higher_studies_selected, int)
+            grad_n = num(pr.graduated_on_time, int)
+            pct = outcome = None
+            if grad_n:
+                if placed_n is not None:
+                    pct = round(placed_n / grad_n * 100, 1)
+                if placed_n is not None and higher_n is not None:
+                    outcome = round(min(100.0, (placed_n + higher_n) / grad_n * 100), 1)
+            placement = {
+                "median_salary": num(pr.median_salary, int),
+                "percentage_placed": pct,
+                "percentage_with_outcome": outcome,
+                "students_placed": num(pr.students_placed, int),
+                "higher_studies_selected": num(pr.higher_studies_selected, int),
+                "first_year_intake": num(pr.first_year_intake, int),
+                "academic_year": pr.academic_year,
+                "ranking_year": int(pr.ranking_year),
+                "source": "NIRF Medical, MBBS (UG 5-year)",
+                "is_branch_specific": False,
+            }
+
+        ug_gender = None
+        grows = [mgender_by_id[n] for n in nids if n in mgender_by_id]
+        if grows:
+            gr = max(grows, key=lambda x: x.edition_year)
+            m, f = int(gr.male), int(gr.female)
+            if m + f > 0:
+                ug_gender = {
+                    "female_pct": round(f / (m + f) * 100, 1),
+                    "female": f,
+                    "male": m,
+                    "edition_year": int(gr.edition_year),
+                }
+
+        aishe_code = (xr.aishe_code if xr is not None
+                      and isinstance(xr.aishe_code, str) and xr.aishe_code else None)
+        nb = naac_by_aishe.get(aishe_code) if aishe_code else None
+        is_aiims = "All India Institute of Medical Science" in str(r.college)
+        if nb is not None and nb.current_grade == nb.current_grade:
+            naac_block = {
+                "grade": nb.current_grade,
+                "cgpa": (round(float(nb.current_cgpa), 2)
+                         if nb.current_cgpa == nb.current_cgpa else None),
+                "cycle": (int(nb.current_cycle_number)
+                          if nb.current_cycle_number == nb.current_cycle_number else None),
+                "not_applicable_reason": None,
+            }
+        else:
+            naac_block = {
+                "grade": None, "cgpa": None, "cycle": None,
+                # AIIMS are Institutes of National Importance, same as IITs
+                "not_applicable_reason": (
+                    "Institutes of National Importance are exempt from NAAC accreditation"
+                    if is_aiims else None),
+            }
+
+        display = clean_nmc_name(r.college)
+        seats = (int(r.annual_intake_seats)
+                 if r.annual_intake_seats == r.annual_intake_seats
+                 and r.annual_intake_seats is not None else None)
+        programs = {
+            "count": 1,
+            "degrees": ["MBBS"],
+            "list": [{
+                "branch": "MBBS",
+                "years": 5.5,
+                "degree": "MBBS",
+                "seats": seats,
+                "indicative_closing_rank": None,
+                "indicative_opening_rank": None,
+                "career_id": mbbs_career,
+            }],
+            "source": "NMC 2024-25",
+            "rank_note": None,
+            "seats_note": "Annual MBBS intake approved by NMC.",
+        }
+
+        mgmt = str(r.management_category or "")
+        ownership = ("Public" if mgmt == "Government"
+                     else "Private" if mgmt in ("Trust", "Society", "Private")
+                     else None)
+
+        full_slug = re.sub(r"[^a-z0-9]+", "-", display.lower()).strip("-")
+        slug = full_slug[:60].rstrip("-")
+        if len(full_slug) > 60:
+            slug += "-" + hashlib.sha1(full_slug.encode()).hexdigest()[:6]
+        cid = aishe_code or f"nmc:{slug}"
+        if cid in used_ids:  # same AISHE row already on the tab (unlikely)
+            cid = f"nmc:{slug}"
+        used_ids.add(cid)
+
+        med_rows.append({
+            "college_id": cid,
+            "aishe_code": aishe_code,
+            "name": (xr.aishe_name if xr is not None
+                     and isinstance(xr.aishe_name, str) and xr.aishe_name else display),
+            "display_name": display,
+            "state": r.state if isinstance(r.state, str) and r.state else None,
+            "state_is_inferred": False,  # NMC states every college itself
+            "district": r.district if isinstance(r.district, str) and r.district else None,
+            "kind": (xr.kind if xr is not None and isinstance(xr.kind, str)
+                     else "Medical College"),
+            "management": mgmt or None,
+            "ownership": ownership,
+            # no discipline badge: the NEET-UG chip already says medicine
+            "disciplines": [],
+            "year_established": (int(r.year_of_inception)
+                                 if r.year_of_inception == r.year_of_inception
+                                 and r.year_of_inception is not None else None),
+            "website": (xr.website if xr is not None
+                        and isinstance(xr.website, str) and xr.website else None),
+            "university": (r.university
+                           if isinstance(r.university, str) and r.university else None),
+            "entrance_exams": ["NEET-UG"],
+            "counselling": "MCC / state NEET counselling",
+            "programs": programs,
+            "nirf": nirf_block,
+            "ug_gender": ug_gender,
+            "fees": None,
+            "placement": placement,
+            "naac": naac_block,
+            "data_sources": {
+                "identity": "NMC 2024-25" + (" / AISHE 2024-25" if aishe_code else ""),
+                "programs": "NMC 2024-25",
+                "ranking": f"NIRF {nirf_block['ranking_year']}" if nirf_block else None,
+                "placement": (f"NIRF {placement['ranking_year']} (AY {placement['academic_year']})"
+                              if placement else None),
+                "accreditation": "NAAC" if naac_block["grade"] else None,
+            },
+        })
+
+    print(f"  medical rows {len(med_rows)}"
+          f"  with NIRF {sum(1 for x in med_rows if x['nirf'])}"
+          f"  with placement {sum(1 for x in med_rows if x['placement'])}"
+          f"  with aishe {sum(1 for x in med_rows if x['aishe_code'])}")
+    rows += med_rows
+
     rows.sort(key=lambda z: (z["nirf"] is None,
-                             z["nirf"]["engineering_rank"] if z["nirf"] else 0,
+                             z["nirf"]["rank"] if z["nirf"] else 0,
                              z["display_name"]))
 
     print(f"\nbuilt {len(rows)} colleges")

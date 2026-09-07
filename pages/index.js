@@ -28,20 +28,63 @@ const Dropdown = dynamic(() => import("../components/dropdown"), {
 // stat tiles, Datasets lives in the navbar only. The chooser uses the house
 // Dropdown, never the browser's native select.
 
-// every option completes the sentence "I want to …" — keep them short
+// every option completes the sentence "I want to …" — keep them short.
+// kw is the one word that names the destination; it renders bold-red so a
+// scanning eye can pick the row without reading full sentences
 const ACTIONS = [
-  { value: "/quiz", label: "discover the path to my dream career" },
-  { value: "/predictor", label: "predict my colleges from my exam rank" },
-  { value: "/careers", label: "explore careers and what they pay" },
-  { value: "/colleges", label: "browse colleges, fees and rankings" },
-  { value: "/compare", label: "compare colleges and branches" },
-  { value: "/exams", label: "understand the entrance exams" },
-  { value: "/scholarships", label: "find scholarships I can apply for" },
+  { value: "/quiz", label: "discover the path to my dream career", kw: "path" },
+  {
+    value: "/predictor",
+    label: "predict my colleges from my exam rank",
+    kw: "predict",
+  },
+  {
+    value: "/careers",
+    label: "explore careers and what they pay",
+    kw: "careers",
+  },
+  {
+    value: "/colleges",
+    label: "browse colleges, fees and rankings",
+    kw: "colleges",
+  },
+  { value: "/compare", label: "compare colleges and branches", kw: "compare" },
+  { value: "/exams", label: "learn about entrance exams", kw: "exams" },
+  {
+    value: "/scholarships",
+    label: "find scholarships I can apply for",
+    kw: "scholarships",
+  },
   {
     value: "https://cv-generator.avantifellows.org/",
     label: "build my resume",
+    kw: "resume",
   },
 ];
+
+// bold-red keyword inside the option text; white when the row itself is
+// painted maroon (the selected row in a reopened menu)
+const actionLabel = (data, meta) => {
+  const { label, kw } = data;
+  if (!kw || !label.includes(kw)) return label;
+  const [before, after] = label.split(kw, 2);
+  const onSelectedRow =
+    meta.context === "menu" &&
+    (meta.selectValue || []).some((v) => v.value === data.value);
+  return (
+    <>
+      {before}
+      <span
+        className={`font-bold ${
+          onSelectedRow ? "text-white" : "text-[#B52326]"
+        }`}
+      >
+        {kw}
+      </span>
+      {after}
+    </>
+  );
+};
 
 const DASHBOARDS = [
   {
@@ -75,7 +118,7 @@ const TOOLS = [
     href: "/quiz",
     icon: HelpCircle,
     title: "Career Quiz",
-    desc: "Walk a career to its real cutoff, guessing as you go.",
+    desc: "Walk a career to its cutoff, guessing as you go.",
   },
   {
     href: "/predictor",
@@ -87,7 +130,7 @@ const TOOLS = [
     href: "/compare",
     icon: Scale,
     title: "College & Course Comparison",
-    desc: "Your options side by side, on real numbers.",
+    desc: "Ranks, fees and placements side by side.",
   },
   {
     href: "https://cv-generator.avantifellows.org/",
@@ -185,6 +228,7 @@ export default function Home() {
                 onChange={(o) => setAction(o.value)}
                 placeholder="choose an action…"
                 isSearchable={false}
+                formatOptionLabel={actionLabel}
               />
             </div>
             <button

@@ -1018,8 +1018,12 @@ const PredictedCollegesTable = ({
     // Kept deliberately narrower than the NEET rule below — this drops only
     // columns that are ENTIRELY absent, never ones that merely happen to be
     // constant on the current view.
+    // Only the answer pair is exempt here. college_type/seat_type's
+    // always-keep is about CONSTANT values (the Karnataka ask below) — a
+    // column with NO value on any visible row (Maharashtra's source carries
+    // no college type) is still an all-dash column and gets dropped.
     cols = cols.filter((col) => {
-      if (ALWAYS_KEEP.has(col.key)) return true;
+      if (col.key === "institute" || col.key === "closing_rank") return true;
       return displayData.some((row) => {
         const value = transformData(row)[col.key];
         return value !== null && value !== undefined && value !== "";
@@ -1426,6 +1430,16 @@ const PredictedCollegesTable = ({
                   >
                     {transformedItem.institute}
                   </Link>
+                ) : column.key === "Category" &&
+                  transformedItem["Category Label"] &&
+                  transformedItem["Category Label"] !==
+                    transformedItem["Category"] ? (
+                  <span
+                    title={transformedItem["Category Label"]}
+                    className="cursor-help underline decoration-dotted decoration-[#d8c7c1] underline-offset-2"
+                  >
+                    {getDisplayValue(column, transformedItem)}
+                  </span>
                 ) : (
                   getDisplayValue(column, transformedItem)
                 )}
