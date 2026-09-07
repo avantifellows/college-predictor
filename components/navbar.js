@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import {
+  ListChecks,
   Award,
   Briefcase,
   Building2,
@@ -29,6 +30,7 @@ const DASHBOARDS = [
 const TOOLS = [
   { href: "/quiz", icon: HelpCircle, label: "Career Quiz" },
   { href: "/predictor", icon: Target, label: "College Predictor" },
+  { href: "/mock-allotment", icon: ListChecks, label: "JoSAA Mock Allotment" },
   { href: "/compare", icon: Scale, label: "College & Course Comparison" },
   {
     href: "https://cv-generator.avantifellows.org/",

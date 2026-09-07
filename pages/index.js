@@ -13,6 +13,7 @@ import {
   ClipboardList,
   FileText,
   LayoutDashboard,
+  ListChecks,
   Scale,
   Target,
   Wrench,
@@ -49,6 +50,11 @@ const ACTIONS = [
     kw: "colleges",
   },
   { value: "/compare", label: "compare colleges and branches", kw: "compare" },
+  {
+    value: "/mock-allotment",
+    label: "practise the JoSAA counselling rounds",
+    kw: "JoSAA",
+  },
   { value: "/exams", label: "learn about entrance exams", kw: "exams" },
   {
     value: "/scholarships",
@@ -131,6 +137,12 @@ const TOOLS = [
     icon: Scale,
     title: "College & Course Comparison",
     desc: "Ranks, fees and placements side by side.",
+  },
+  {
+    href: "/mock-allotment",
+    icon: ListChecks,
+    title: "JoSAA Mock Allotment",
+    desc: "Fill choices, lock them, and play the rounds.",
   },
   {
     href: "https://cv-generator.avantifellows.org/",

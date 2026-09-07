@@ -78,7 +78,10 @@ const josaaSpecialQuotaByHomeState = {
   Ladakh: "LA",
 };
 
-const matchesJosaaQuota = (item, homeState) => {
+// Exported so the mock-allotment simulator (utils/josaaSimulator.js) can reuse
+// the exact same AI/HS/OS/JK/GO/LA matching the live predictor uses, instead of
+// a second copy of this logic that could quietly drift out of sync.
+export const matchesJosaaQuota = (item, homeState) => {
   if (item.Quota === "AI") {
     return true;
   }
