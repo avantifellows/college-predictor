@@ -11,7 +11,7 @@ const MockAllotmentPage = () => {
   return (
     <>
       <Head>
-        <title>JoSAA Mock Allotment</title>
+        <title>Mock Allotment | JoSAA & MHT CET</title>
       </Head>
       <MockAllotment />
     </>
