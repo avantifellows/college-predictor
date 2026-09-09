@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(SCRATCH=\"/c/Users/asus/AppData/Local/Temp/claude/c--Users-asus-Desktop-All-github-Projects-avanti-college-predictor-college-predictor/16086ba9-9082-4d29-bbd1-dd3bfdcbac2a/scratchpad\" *)"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\asus\\AppData\\Local\\Temp\\claude\\c--Users-asus-Desktop-All-github-Projects-avanti-college-predictor-college-predictor\\16086ba9-9082-4d29-bbd1-dd3bfdcbac2a\\scratchpad\\pwtest"
+    ]
+  }
+}
