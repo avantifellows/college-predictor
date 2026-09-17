@@ -179,6 +179,21 @@ const matchBranchIdx = (college, programName) => {
   if (idx < 0) idx = list.findIndex((p) => p.branch === base);
   // share links carry a slug, not the full degree string
   if (idx < 0) idx = list.findIndex((p) => slugify(p.branch) === base);
+  // links minted before the nested-paren fix carry the years/degree tail in
+  // the slug ("...-5-years-bachelor-and-master-of-technology-dual-degree");
+  // a prefix match on the branch slug still identifies the programme
+  if (idx < 0) {
+    const slug = slugify(base);
+    const hits = list
+      .map((p, i) => ({ i, s: slugify(p.branch) }))
+      .filter(({ s }) => slug === s || slug.startsWith(`${s}-`));
+    // longest branch-slug wins ("computer-science-and-engineering-..." must
+    // prefer CSE over a hypothetical shorter "computer-science")
+    if (hits.length > 0) {
+      hits.sort((a, b) => b.s.length - a.s.length);
+      idx = hits[0].i;
+    }
+  }
   return idx >= 0 ? String(idx) : null;
 };
 

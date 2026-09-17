@@ -1615,7 +1615,10 @@ const PredictedCollegesTable = ({
                     .map(
                       (x) =>
                         `${x.cid}~${String(x.program)
-                          .replace(/\s*\(\d+\s*Years?,[^)]*\)$/, "")
+                          // greedy .* so nested parens strip too — dual-degree
+                          // strings end "(5 Years, B.Tech and M.Tech (Dual
+                          // Degree))" and [^)]* stopped at the inner ")"
+                          .replace(/\s*\(\d+\s*Years?,.*\)$/, "")
                           .toLowerCase()
                           .replace(/[^a-z0-9]+/g, "-")
                           .replace(/^-+|-+$/g, "")}`

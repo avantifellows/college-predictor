@@ -383,9 +383,6 @@ export default function Quiz() {
       return;
     }
     setBusy(true);
-    const rows = await fetch(
-      `/data/JEE/${encodeURIComponent(category)}.json`
-    ).then((r) => r.json());
     const progStr = programString(picked.program);
     const wantQuota =
       correctExam === "JEE Advanced"
@@ -393,21 +390,53 @@ export default function Quiz() {
         : homeState === picked.college.state
         ? "HS"
         : "OS";
-    const match = rows.filter(
-      (r) =>
-        r.Institute === picked.college.display_name &&
-        r["Academic Program Name"] === progStr &&
-        r.Gender === gender
-    );
-    const row =
-      match.find((r) => r.Quota === wantQuota) ||
-      match.find((r) => r.Quota === "AI") ||
-      match[0];
+    const findRow = (rows, g) => {
+      const match = rows.filter(
+        (r) =>
+          r.Institute === picked.college.display_name &&
+          r["Academic Program Name"] === progStr &&
+          r.Gender === g
+      );
+      return (
+        match.find((r) => r.Quota === wantQuota) ||
+        match.find((r) => r.Quota === "AI") ||
+        match[0] ||
+        null
+      );
+    };
+    // JoSAA publishes no row for many category x gender pools even where the
+    // seat exists (Tezpur B.Des has ONE row: OPEN, Gender-Neutral). A student
+    // in a missing pool still competes through the wider one — a woman
+    // through gender-neutral seats, an EWS candidate through open seats — so
+    // fall back pool by pool and SAY so, instead of "no rank published"
+    // (JNV Banda pilot: EWS + Female at Tezpur Design hit exactly this).
+    const fetchRows = (cat) =>
+      fetch(`/data/JEE/${encodeURIComponent(cat)}.json`).then((r) => r.json());
+    let usedCategory = category;
+    let usedGender = gender;
+    let rows = await fetchRows(category);
+    let row = findRow(rows, gender);
+    if (!row && gender !== "Gender-Neutral") {
+      row = findRow(rows, "Gender-Neutral");
+      if (row) usedGender = "Gender-Neutral";
+    }
+    if (!row && category !== "OPEN") {
+      rows = await fetchRows("OPEN");
+      usedCategory = "OPEN";
+      usedGender = gender;
+      row = findRow(rows, gender);
+      if (!row && gender !== "Gender-Neutral") {
+        row = findRow(rows, "Gender-Neutral");
+        if (row) usedGender = "Gender-Neutral";
+      }
+    }
     setActual(
       row
         ? {
             rank: parseInt(String(row["Closing Rank"]).replace(/\D/g, ""), 10),
             quota: row.Quota,
+            usedCategory,
+            usedGender,
           }
         : null
     );
@@ -949,11 +978,25 @@ export default function Quiz() {
                         </>
                       ) : (
                         <>
-                          {category} ·{" "}
-                          {gender === "Gender-Neutral"
+                          {actual.usedCategory ?? category} ·{" "}
+                          {(actual.usedGender ?? gender) === "Gender-Neutral"
                             ? "Gender-Neutral"
                             : "Female-only"}{" "}
                           · {quotaLabel} · {correctExam} · JoSAA 2025
+                          {actual.usedCategory &&
+                          actual.usedCategory !== category ? (
+                            <span className="mt-1 block">
+                              JoSAA published no {category} seat here, so this
+                              is the open-seat cutoff. {category} candidates
+                              compete for open seats too.
+                            </span>
+                          ) : null}
+                          {actual.usedGender && actual.usedGender !== gender ? (
+                            <span className="mt-1 block">
+                              No separate women&apos;s pool was published here;
+                              this gender-neutral seat is open to everyone.
+                            </span>
+                          ) : null}
                         </>
                       )}
                     </div>
@@ -986,9 +1029,9 @@ export default function Quiz() {
                     ["Entrance exam", correctExam],
                     actual && [
                       "Closing rank",
-                      `${actual.rank.toLocaleString(
-                        "en-IN"
-                      )} (${category}, ${quotaLabel.toLowerCase()}, ${
+                      `${actual.rank.toLocaleString("en-IN")} (${
+                        actual.usedCategory ?? category
+                      }, ${quotaLabel.toLowerCase()}, ${
                         isMed ? "MCC 2025" : "JoSAA 2025"
                       })`,
                     ],

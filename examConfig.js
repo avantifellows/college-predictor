@@ -236,6 +236,10 @@ export const jacExamConfig = {
     {
       name: "isDefenseWard",
       label: "Are you a Defense Ward Student?",
+      // JNV Banda pilot: students didn't know the term and froze on the
+      // field — one plain line settles it
+      helperText:
+        "Defense ward means a child of armed forces personnel (Army, Navy, Air Force). Pick No if that's not you.",
       options: [
         { value: "No", label: "No" },
         { value: "Yes", label: "Yes" },
@@ -854,6 +858,10 @@ export const mhtCetConfig = {
     {
       name: "isDefenseWard",
       label: "Are you a Defense Ward Student?",
+      // JNV Banda pilot: students didn't know the term and froze on the
+      // field — one plain line settles it
+      helperText:
+        "Defense ward means a child of armed forces personnel (Army, Navy, Air Force). Pick No if that's not you.",
       options: [
         { value: "No", label: "No" },
         { value: "Yes", label: "Yes" },
