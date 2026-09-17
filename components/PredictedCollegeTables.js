@@ -500,6 +500,10 @@ const PredictedCollegesTable = ({
         format: formatSalary,
       },
       { key: "Seat Type", label: "Seat Type" },
+      // present only when the results mix pools (a Female-only student's
+      // view spans women-only and gender-neutral seats); the adaptive check
+      // below removes it when every row is one pool
+      { key: "seat_gender", label: "Seat Gender" },
     ],
     "JEE Main-JOSAA": [
       { key: "state", label: "State" },
@@ -784,6 +788,10 @@ const PredictedCollegesTable = ({
         state: item["State"],
         academic_program_name: item["Academic Program Name"],
         exam_type: item["Exam"],
+        seat_gender:
+          item["Gender"] === "Female-only (including Supernumerary)"
+            ? "Women-only"
+            : item["Gender"],
         nirf_rank: item["NIRF Rank"],
         closing_rank: item["Closing Rank"],
         expected_salary: item["Expected Salary"],
@@ -1030,17 +1038,41 @@ const PredictedCollegesTable = ({
       });
     });
 
+    const isConstant = (key) => {
+      const seen = new Set();
+      for (const row of displayData) {
+        seen.add(String(transformData(row)[key] ?? ""));
+        if (seen.size > 1) return false;
+      }
+      return true;
+    };
+    // JoSAA's one adaptive column: seat_gender only earns its place when the
+    // results actually mix pools (a Female-only student's view). Decided on
+    // fullData — `data` is just the visible page, and the tightest 30
+    // closings are usually all gender-neutral even when women-only seats sit
+    // further down the list.
+    if (isJosaaExam) {
+      const seen = new Set();
+      for (const row of fullData.length ? fullData : displayData) {
+        seen.add(String(transformData(row).seat_gender ?? ""));
+        if (seen.size > 1) break;
+      }
+      if (seen.size <= 1) {
+        cols = cols.filter((col) => col.key !== "seat_gender");
+      }
+    }
     if (!isNeet || displayData.length < 2) return cols;
     return cols.filter((col) => {
       if (ALWAYS_KEEP.has(col.key)) return true;
-      const seen = new Set();
-      for (const row of displayData) {
-        seen.add(String(transformData(row)[col.key] ?? ""));
-        if (seen.size > 1) return true; // it varies -> worth a column
-      }
-      return false; // constant across every row -> drop it
+      return !isConstant(col.key);
     });
-  }, [predicted_colleges_table_column_all, isNeet, displayData]);
+  }, [
+    predicted_colleges_table_column_all,
+    isNeet,
+    displayData,
+    isJosaaExam,
+    fullData,
+  ]);
 
   // Which counselling round(s) the visible cutoffs come from. Surya asked for this to be stated
   // "more broadly somewhere... for the particular state this is what we are using" rather than

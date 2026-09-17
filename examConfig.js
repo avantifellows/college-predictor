@@ -1293,7 +1293,16 @@ export const josaaConfig = {
   getFilters: (query) => {
     const normalizedProgram = String(query.program || "").toLowerCase();
     const baseFilters = [
-      (item) => item.Gender === query.gender || item.Gender === "All",
+      // JoSAA's own business rule: a female candidate is considered for
+      // BOTH pools — gender-neutral seats and the supernumerary female-only
+      // pool (same category rank space). Filtering to Female-only alone hid
+      // most of her real options (180-349 of 855 programme pairs publish no
+      // female pool at all). A gender-neutral pick stays gender-neutral.
+      (item) =>
+        item.Gender === query.gender ||
+        item.Gender === "All" ||
+        (query.gender === "Female-only (including Supernumerary)" &&
+          item.Gender === "Gender-Neutral"),
       (item) => {
         if (normalizedProgram === "architecture") {
           return item["Academic Program Name"]

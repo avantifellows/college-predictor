@@ -9,7 +9,6 @@ import {
   ClipboardList,
   Facebook,
   FileText,
-  HelpCircle,
   Instagram,
   Scale,
   Target,
@@ -28,7 +27,6 @@ const DASHBOARDS = [
 ];
 
 const TOOLS = [
-  { href: "/quiz", icon: HelpCircle, label: "Career Quiz" },
   { href: "/predictor", icon: Target, label: "College Predictor" },
   { href: "/mock-allotment", icon: ListChecks, label: "JoSAA Mock Allotment" },
   { href: "/compare", icon: Scale, label: "College & Course Comparison" },
