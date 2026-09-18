@@ -7,6 +7,7 @@ import Head from "next/head";
 import dynamic from "next/dynamic";
 import TneaScoreCalculator from "../components/TneaScoreCalculator";
 import { ExternalLink, PlayCircle } from "lucide-react";
+import { readProfile, profileDefaultsForFields } from "../utils/portalSession";
 
 // Dynamically import Dropdown with SSR disabled
 const Dropdown = dynamic(() => import("../components/dropdown"), {
@@ -173,6 +174,15 @@ const ExamForm = () => {
     setEstimateError("");
     setEstimatedRank(null);
     setEstimatedPercentile(null);
+    // Avanti students arriving from the portal get category / gender / home
+    // state pre-selected; anyone can still change them.
+    Object.assign(
+      baseFormData,
+      profileDefaultsForFields(
+        readProfile(),
+        examConfigs[selectedOption.value]?.fields || []
+      )
+    );
     setFormData(baseFormData);
   };
 
