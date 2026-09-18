@@ -41,17 +41,6 @@ export const STREAM_OPTIONS = [
   { value: "ca", label: "Commerce / CA" },
   { value: "foundation", label: "Foundation (Class 9-10)" },
 ];
-export const CATEGORY_OPTIONS = [
-  "Gen",
-  "Gen-EWS",
-  "OBC",
-  "SC",
-  "ST",
-  "PWD-Gen",
-  "PWD-OBC",
-  "PWD-SC",
-  "PWD-ST",
-].map((c) => ({ value: c, label: c }));
 
 const isBrowser = () => typeof window !== "undefined";
 
