@@ -90,11 +90,6 @@ export default function StudentCorner() {
                   <h1 className="text-[clamp(24px,3.6vw,34px)] font-black leading-tight text-[#2f2320]">
                     Hi{profile.name ? `, ${profile.name.split(" ")[0]}` : ""}
                   </h1>
-                  {profile.group ? (
-                    <p className="text-sm text-[#7a635d]">
-                      Signed in through Avanti · {profile.group}
-                    </p>
-                  ) : null}
                 </div>
                 <button
                   type="button"
