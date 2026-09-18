@@ -1,36 +1,20 @@
 import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
-import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
+import { Award, Briefcase, ClipboardList, LogOut, Target } from "lucide-react";
 import {
-  Award,
-  Briefcase,
-  ClipboardList,
-  LogOut,
-  Pencil,
-  Target,
-} from "lucide-react";
-import {
-  CATEGORY_OPTIONS,
   CLASS_OPTIONS,
   STREAM_OPTIONS,
   STREAM_TO_EXAM,
   clearProfile,
-  saveProfile,
   useStudentProfile,
 } from "../utils/portalSession";
-import { statesList } from "../examConfig";
 
-const Dropdown = dynamic(() => import("../components/dropdown"), {
-  ssr: false,
-});
-
-// Student Corner: what Futures knows about a signed-in Avanti student, the
-// shortcuts that follow from it, and a way to correct it. Futures works fully
+// Student Corner: what Futures knows about a signed-in Avanti student and the
+// shortcuts that follow from it. Details come from the Avanti profile and are
+// not edited here. Futures works fully
 // without this page; it only ever pre-fills.
-
-const STATE_OPTIONS = statesList.map((s) => ({ value: s, label: s }));
 
 const labelFor = (options, value) =>
   options.find((o) => o.value === value)?.label || value || "—";
@@ -61,79 +45,9 @@ const Shortcut = ({ href, icon: Icon, title, desc }) => (
   </Link>
 );
 
-const EditForm = ({ profile, onDone }) => {
-  const [draft, setDraft] = useState({
-    class: profile.class ?? null,
-    stream: profile.stream ?? null,
-    state: profile.state ?? null,
-    category: profile.category ?? null,
-  });
-  const set = (key) => (option) => setDraft({ ...draft, [key]: option.value });
-
-  return (
-    <div className="grid gap-4 sm:grid-cols-2">
-      <label className="text-sm font-semibold text-[#2f2320]">
-        Class
-        <Dropdown
-          options={CLASS_OPTIONS}
-          selectedValue={labelFor(CLASS_OPTIONS, draft.class)}
-          onChange={set("class")}
-          isSearchable={false}
-        />
-      </label>
-      <label className="text-sm font-semibold text-[#2f2320]">
-        Stream
-        <Dropdown
-          options={STREAM_OPTIONS}
-          selectedValue={labelFor(STREAM_OPTIONS, draft.stream)}
-          onChange={set("stream")}
-          isSearchable={false}
-        />
-      </label>
-      <label className="text-sm font-semibold text-[#2f2320]">
-        Home state
-        <Dropdown
-          options={STATE_OPTIONS}
-          selectedValue={draft.state}
-          onChange={set("state")}
-        />
-      </label>
-      <label className="text-sm font-semibold text-[#2f2320]">
-        Category
-        <Dropdown
-          options={CATEGORY_OPTIONS}
-          selectedValue={draft.category}
-          onChange={set("category")}
-          isSearchable={false}
-        />
-      </label>
-      <div className="flex gap-2 sm:col-span-2">
-        <button
-          type="button"
-          onClick={() => {
-            saveProfile({ ...profile, ...draft });
-            onDone();
-          }}
-          className="rounded-[10px] bg-[#B52326] px-5 py-2.5 text-sm font-black text-white transition hover:bg-[#9E1F22]"
-        >
-          Save
-        </button>
-        <button
-          type="button"
-          onClick={onDone}
-          className="rounded-[10px] border border-[#eaded8] bg-white px-5 py-2.5 text-sm font-bold text-[#2f2320] transition hover:bg-[#fbeeec]"
-        >
-          Cancel
-        </button>
-      </div>
-    </div>
-  );
-};
-
 export default function StudentCorner() {
   const router = useRouter();
   const profile = useStudentProfile();
-  const [editing, setEditing] = useState(false);
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
 
@@ -195,44 +109,24 @@ export default function StudentCorner() {
               </div>
 
               <section className="mt-6 rounded-2xl border border-[#eaded8] bg-[#fffdfa] p-5">
-                <div className="flex items-center justify-between">
-                  <h2 className="text-base font-black text-[#2f2320]">
-                    Your details
-                  </h2>
-                  {!editing ? (
-                    <button
-                      type="button"
-                      onClick={() => setEditing(true)}
-                      className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#B52326] hover:underline"
-                    >
-                      <Pencil size={14} /> Edit
-                    </button>
-                  ) : null}
-                </div>
+                <h2 className="text-base font-black text-[#2f2320]">
+                  Your details
+                </h2>
                 <p className="mt-1 text-sm text-[#7a635d]">
-                  We use these to pre-fill the college predictor and to point
-                  you at the right exams. You can change any of them.
+                  From your Avanti profile. We use these to pre-fill the college
+                  predictor and to point you at the right exams.
                 </p>
-                <div className="mt-4">
-                  {editing ? (
-                    <EditForm
-                      profile={profile}
-                      onDone={() => setEditing(false)}
-                    />
-                  ) : (
-                    <div className="grid gap-3 sm:grid-cols-2">
-                      <Fact
-                        label="Class"
-                        value={labelFor(CLASS_OPTIONS, profile.class)}
-                      />
-                      <Fact
-                        label="Stream"
-                        value={labelFor(STREAM_OPTIONS, profile.stream)}
-                      />
-                      <Fact label="Home state" value={profile.state || "—"} />
-                      <Fact label="Category" value={profile.category || "—"} />
-                    </div>
-                  )}
+                <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                  <Fact
+                    label="Class"
+                    value={labelFor(CLASS_OPTIONS, profile.class)}
+                  />
+                  <Fact
+                    label="Stream"
+                    value={labelFor(STREAM_OPTIONS, profile.stream)}
+                  />
+                  <Fact label="Home state" value={profile.state || "—"} />
+                  <Fact label="Category" value={profile.category || "—"} />
                 </div>
               </section>
 
