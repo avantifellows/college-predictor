@@ -7,10 +7,7 @@ import Head from "next/head";
 import dynamic from "next/dynamic";
 import TneaScoreCalculator from "../components/TneaScoreCalculator";
 import { ExternalLink, PlayCircle } from "lucide-react";
-import {
-  readProfile,
-  profileDefaultsForFields,
-} from "../utils/portalSession";
+import { readProfile, profileDefaultsForFields } from "../utils/portalSession";
 
 // Dynamically import Dropdown with SSR disabled
 const Dropdown = dynamic(() => import("../components/dropdown"), {
