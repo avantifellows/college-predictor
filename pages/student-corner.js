@@ -7,6 +7,7 @@ import {
   CLASS_OPTIONS,
   STREAM_OPTIONS,
   STREAM_TO_EXAM,
+  PORTAL_LOGIN_URL,
   clearProfile,
   useStudentProfile,
 } from "../utils/portalSession";
@@ -69,16 +70,16 @@ export default function StudentCorner() {
                 Student Corner
               </h1>
               <p className="mt-3 text-[15px] text-[#7a635d]">
-                This space is for Avanti Fellows students. Open Futures through
-                your Avanti link and your details will show up here. Everything
-                else on Futures works without it.
+                Avanti Fellows students can sign in to see their class, stream
+                and category here and have the college predictor pre-filled.
+                Everything else on Futures works without signing in.
               </p>
-              <Link
-                href="/"
+              <a
+                href={PORTAL_LOGIN_URL}
                 className="mt-6 inline-block rounded-[10px] bg-[#B52326] px-5 py-2.5 text-sm font-black text-white transition hover:bg-[#9E1F22]"
               >
-                Back to Futures
-              </Link>
+                Student login
+              </a>
             </div>
           ) : (
             <>

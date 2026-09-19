@@ -12,6 +12,11 @@ export const PORTAL_BACKEND_URL = (
   "https://uza9ixusuh.execute-api.ap-south-1.amazonaws.com"
 ).replace(/\/$/, "");
 
+// Avanti students sign in through the portal, which sends them back here with a launch token.
+export const PORTAL_LOGIN_URL =
+  process.env.NEXT_PUBLIC_PORTAL_LOGIN_URL ||
+  "https://auth.avantifellows.org/?platform=futures&authGroup=EnableStudents";
+
 const GRADE_ID_TO_CLASS = {
   1: 9,
   2: 10,

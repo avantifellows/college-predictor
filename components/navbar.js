@@ -15,7 +15,7 @@ import {
   UserRound,
 } from "lucide-react";
 import { usePathname } from "next/navigation";
-import { useStudentProfile } from "../utils/portalSession";
+import { PORTAL_LOGIN_URL, useStudentProfile } from "../utils/portalSession";
 
 // Navbar in the futures-standalone style: two grouped menus plus Datasets,
 // instead of seven flat links. Groups open on click (works on touch), close
@@ -167,7 +167,13 @@ const Navbar = () => {
               </span>
             </Link>
           ) : (
-            <div />
+            <a
+              href={PORTAL_LOGIN_URL}
+              className="inline-flex items-center gap-2 rounded-full bg-white px-3.5 py-1.5 text-sm font-bold text-[#B52326] shadow-sm transition hover:bg-[#f8efec]"
+            >
+              <UserRound size={15} />
+              Student login
+            </a>
           )}
         </div>
       </div>
