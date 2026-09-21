@@ -1,7 +1,10 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { CheckCircle2 } from "lucide-react";
 import { mhtCetConfig } from "../examConfig";
-import { loadMhtcetCatalog, getAllotmentResult } from "../utils/mhtcetSimulator";
+import {
+  loadMhtcetCatalog,
+  getAllotmentResult,
+} from "../utils/mhtcetSimulator";
 import Dropdown from "./dropdown";
 import {
   formatRank,
@@ -95,6 +98,8 @@ const defaultState = {
   // undefined = not computed yet; null = computed, nothing reachable;
   // otherwise { index, choice, closingRank } — see getAllotmentResult.
   result: undefined,
+  // set when a profile change re-resolved the list against a new catalog
+  staleNote: null,
 };
 
 function loadPersistedState() {
@@ -178,7 +183,43 @@ const MhtcetMockAllotment = ({ onChangeExam }) => {
     setCatalogError("");
     setCatalogLoading(true);
     loadMhtcetCatalog(state.profile)
-      .then(setCatalog)
+      .then((rows) => {
+        setCatalog(rows);
+        // A choice carries the closingRank of the catalog it was ADDED from.
+        // Change category (Open -> SC) and those cutoffs are now for the
+        // wrong seat pool — the allotment and the reach/match/safety tags
+        // would judge this student against someone else's cutoffs. So every
+        // time a fresh catalog lands, re-resolve the list against it: keep
+        // the student's order, take the new closingRank, and drop pairs that
+        // are no longer offered to this profile at all.
+        const byKey = new Map(rows.map((r) => [choiceItemKey(r), r]));
+        setState((st) => {
+          if (st.choices.length === 0) return st;
+          const next = st.choices
+            .map((c) => byKey.get(choiceItemKey(c)))
+            .filter(Boolean);
+          const unchanged =
+            next.length === st.choices.length &&
+            next.every((c, i) => c.closingRank === st.choices[i].closingRank);
+          if (unchanged) return st;
+          const dropped = st.choices.length - next.length;
+          return {
+            ...st,
+            choices: next,
+            // a locked run's result was computed from the old cutoffs
+            locked: false,
+            result: undefined,
+            staleNote:
+              dropped > 0
+                ? `Your profile changed, so ${dropped} choice${
+                    dropped === 1 ? "" : "s"
+                  } no longer open to you ${
+                    dropped === 1 ? "was" : "were"
+                  } removed and the rest updated to your new cutoffs.`
+                : "Your profile changed, so your choices now show the cutoffs for your new seat pool.",
+          };
+        });
+      })
       .catch((err) =>
         setCatalogError(err.message || "Could not load MHT CET data.")
       )
@@ -281,6 +322,20 @@ const MhtcetMockAllotment = ({ onChangeExam }) => {
             ← Choose a different exam
           </button>
         </p>
+      )}
+
+      {state.staleNote && (
+        <div className="mt-5 flex items-start justify-between gap-3 rounded-xl border border-[#f0c9c9] bg-[#fbeeec] px-4 py-3">
+          <p className="text-sm leading-6 text-[#8f2e31]">{state.staleNote}</p>
+          <button
+            type="button"
+            aria-label="Dismiss"
+            onClick={() => setState((st) => ({ ...st, staleNote: null }))}
+            className="shrink-0 text-sm font-bold text-[#8f2e31]"
+          >
+            ×
+          </button>
+        </div>
       )}
 
       {state.step !== "simulate" && (
@@ -693,9 +748,9 @@ const ResultCard = ({ result, choicesCount }) => {
     return (
       <div className={cardClass}>
         <p className="text-sm text-[#7a655f]">
-          Based on this rank and this list, no seat was reachable at the
-          final round. Go back and add more (or less competitive) choices, or
-          double check your rank.
+          Based on this rank and this list, no seat was reachable at the final
+          round. Go back and add more (or less competitive) choices, or double
+          check your rank.
         </p>
       </div>
     );
@@ -724,7 +779,14 @@ const ResultCard = ({ result, choicesCount }) => {
   );
 };
 
-const SimulateStep = ({ locked, choices, result, catalog, profile, onRestart }) => {
+const SimulateStep = ({
+  locked,
+  choices,
+  result,
+  catalog,
+  profile,
+  onRestart,
+}) => {
   if (!locked) {
     return (
       <div className={`${cardClass} mt-6`}>

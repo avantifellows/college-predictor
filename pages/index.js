@@ -50,7 +50,7 @@ const ACTIONS = [
   { value: "/compare", label: "compare colleges and branches", kw: "compare" },
   {
     value: "/mock-allotment",
-    label: "run a mock JoSAA or MHT CET allotment",
+    label: "run a mock counselling allotment",
     kw: "mock",
   },
   { value: "/exams", label: "learn about entrance exams", kw: "exams" },
@@ -134,7 +134,7 @@ const TOOLS = [
     href: "/mock-allotment",
     icon: ListChecks,
     title: "Mock Allotment",
-    desc: "Fill choices, lock them, and see your allotment — JoSAA or MHT CET.",
+    desc: "Fill choices, lock them, and see your allotment: JoSAA or MHT CET.",
   },
   {
     href: "https://cv-generator.avantifellows.org/",
