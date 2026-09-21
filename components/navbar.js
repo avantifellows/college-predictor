@@ -9,12 +9,13 @@ import {
   ClipboardList,
   Facebook,
   FileText,
-  HelpCircle,
   Instagram,
   Scale,
   Target,
+  UserRound,
 } from "lucide-react";
 import { usePathname } from "next/navigation";
+import { PORTAL_LOGIN_URL, useStudentProfile } from "../utils/portalSession";
 
 // Navbar in the futures-standalone style: two grouped menus plus Datasets,
 // instead of seven flat links. Groups open on click (works on touch), close
@@ -28,7 +29,6 @@ const DASHBOARDS = [
 ];
 
 const TOOLS = [
-  { href: "/quiz", icon: HelpCircle, label: "Career Quiz" },
   { href: "/predictor", icon: Target, label: "College Predictor" },
   { href: "/mock-allotment", icon: ListChecks, label: "JoSAA Mock Allotment" },
   { href: "/compare", icon: Scale, label: "College & Course Comparison" },
@@ -84,6 +84,7 @@ const NavGroup = ({ label, items, pathname, open, onToggle }) => {
 const Navbar = () => {
   const pathname = usePathname();
   const [open, setOpen] = useState(null);
+  const profile = useStudentProfile();
   const barRef = useRef(null);
 
   useEffect(() => setOpen(null), [pathname]);
@@ -151,8 +152,29 @@ const Navbar = () => {
               Datasets
             </Link>
           </div>
-          {/* right side stays empty until Sign in ships */}
-          <div />
+          {profile ? (
+            <Link
+              href="/student-corner"
+              className={`inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-semibold transition ${
+                pathname === "/student-corner"
+                  ? "bg-white/20"
+                  : "bg-white/10 hover:bg-white/20"
+              }`}
+            >
+              <UserRound size={15} />
+              <span className="max-w-[140px] truncate">
+                {profile.name ? profile.name.split(" ")[0] : "Student Corner"}
+              </span>
+            </Link>
+          ) : (
+            <a
+              href={PORTAL_LOGIN_URL}
+              className="inline-flex items-center gap-2 rounded-full bg-white px-3.5 py-1.5 text-sm font-bold text-[#B52326] shadow-sm transition hover:bg-[#f8efec]"
+            >
+              <UserRound size={15} />
+              Student login
+            </a>
+          )}
         </div>
       </div>
     </div>

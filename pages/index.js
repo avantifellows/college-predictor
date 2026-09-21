@@ -9,7 +9,6 @@ import {
   Award,
   Briefcase,
   Building2,
-  HelpCircle,
   ClipboardList,
   FileText,
   LayoutDashboard,
@@ -33,7 +32,6 @@ const Dropdown = dynamic(() => import("../components/dropdown"), {
 // kw is the one word that names the destination; it renders bold-red so a
 // scanning eye can pick the row without reading full sentences
 const ACTIONS = [
-  { value: "/quiz", label: "discover the path to my dream career", kw: "path" },
   {
     value: "/predictor",
     label: "predict my colleges from my exam rank",
@@ -120,12 +118,6 @@ const DASHBOARDS = [
 ];
 
 const TOOLS = [
-  {
-    href: "/quiz",
-    icon: HelpCircle,
-    title: "Career Quiz",
-    desc: "Walk a career to its cutoff, guessing as you go.",
-  },
   {
     href: "/predictor",
     icon: Target,
