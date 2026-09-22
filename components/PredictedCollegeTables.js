@@ -390,14 +390,50 @@ const PredictedCollegesTable = ({
   const supportsExpandedView = !isJosaaExam;
   // MHT CET rows carry no college id, but their institute names are the
   // Colleges tab's own (same CET Cell source), so compare keys on the name
-  const supportsCompare = isJosaaExam || exam === "MHT CET";
+  // exams whose result rows share the Colleges tab's own names (same source)
+  const NAME_LINK_EXAMS = new Set([
+    "MHT CET",
+    "KCET",
+    "TNEA",
+    "WBJEE",
+    "KEAM",
+    "AP EAPCET",
+    "TGEAPCET",
+    "OJEE",
+    "CLAT",
+    "GUJCET",
+  ]);
+  const supportsCompare = isJosaaExam || NAME_LINK_EXAMS.has(exam);
   const slugOf = (x) =>
     String(x || "")
       .toLowerCase()
       .replace(/[^a-z0-9]+/g, "-")
       .replace(/^-+|-+$/g, "");
+  // the institute name as the Colleges tab prints it. KEA prefixes its code
+  // ("E023  P E S College…") — strip it so the tab's search lands on one row.
+  const INSTITUTE_KEYS = new Set([
+    "institute",
+    "College Name",
+    "institute_name",
+  ]);
+  const linkNameOf = (t) => {
+    const raw =
+      t.institute ||
+      t["Institute"] ||
+      t["College Name"] ||
+      t.institute_name ||
+      "";
+    return exam === "KCET"
+      ? String(raw).replace(/^[A-Z]\d{3}\s+/, "")
+      : String(raw);
+  };
+  // KCET's predictor also covers medical/dental/ayurveda seats, which live on
+  // the tab under NEET, not KEA — no dead links for those rows
+  const canLinkRow = (t) =>
+    exam !== "KCET" ||
+    /engineer|architect/i.test(String(t["Course Type"] || "Engineering"));
   const compareIdOf = (t) =>
-    t["College ID"] || `n~${slugOf(t.institute || t["Institute"])}`;
+    t["College ID"] || (canLinkRow(t) ? `n~${slugOf(linkNameOf(t))}` : null);
   const supportsSalarySort = isJosaaExam;
   const salaryColumnKey = "expected_salary";
   const rankColumnKey = "closing_rank";
@@ -1461,16 +1497,17 @@ const PredictedCollegesTable = ({
             )}
             {predicted_colleges_table_column.map((column) => (
               <td key={column.key} className="px-4 py-3 align-top">
-                {column.key === "institute" &&
+                {INSTITUTE_KEYS.has(column.key) &&
                 ((isJosaaExam && transformedItem["College ID"]) ||
-                  exam === "MHT CET") ? (
+                  (NAME_LINK_EXAMS.has(exam) &&
+                    canLinkRow(transformedItem))) ? (
                   <Link
                     href={`/colleges?q=${encodeURIComponent(
-                      transformedItem.institute
+                      linkNameOf(transformedItem)
                     )}`}
                     className="underline decoration-[#e3d1cb] underline-offset-2 transition hover:text-[#8f2e31] hover:decoration-[#8f2e31]"
                   >
-                    {transformedItem.institute}
+                    {getDisplayValue(column, transformedItem)}
                   </Link>
                 ) : column.key === "Category" &&
                   transformedItem["Category Label"] &&

@@ -30,6 +30,13 @@ OUT = "public/data/exams/exams.json"
 EXAM_MAP = "data-sources/exam_branch_mapping.csv"
 TAXONOMY = "data-sources/branch_taxonomy.csv"
 CAREERS_SRC = "data-sources/career_streams.csv"
+# families whose colleges live on the Colleges tab -> the entrance_exams
+# label those rows carry (the ?exam= filter value)
+SPINE_EXAM_LABEL = {
+    "KCET": "KCET", "TNEA": "TNEA", "WBJEE": "WBJEE", "KEAM": "KEAM",
+    "AP-EAPCET": "AP EAPCET", "TG-EAPCET": "TG-EAPCET", "OJEE": "OJEE",
+    "CLAT": "CLAT", "GUJCET": "GUJCET",
+}
 PREDICTOR_TO_FAMILY = {
     "JoSAA": "JoSAA", "KCET": "KCET", "MHT CET": "MHT-CET",
     "TGEAPCET": "TG-EAPCET", "AP EAPCET": "AP-EAPCET", "GUJCET": "GUJCET",
@@ -230,6 +237,8 @@ def main():
             card["colleges_link"] = "/colleges?exam=NEET-UG"
         elif fam == "MHT-CET":
             card["colleges_link"] = "/colleges?exam=MHT CET"
+        elif fam in SPINE_EXAM_LABEL:
+            card["colleges_link"] = f"/colleges?exam={SPINE_EXAM_LABEL[fam]}"
         else:
             card["colleges_link"] = None
 

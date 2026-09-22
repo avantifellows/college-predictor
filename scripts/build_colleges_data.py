@@ -617,9 +617,186 @@ def build_mhtcet(client):
     return colleges, programs, nirf_mh, place
 
 
+# ── the other state counsellings + CLAT: one spec-driven spine ──────────────
+# Each spec names the cutoff fact table's columns and the row filter that
+# means "open category, all-gender, no sub-quota" — the one number that is
+# comparable across colleges. The rank is the LOOSEST closing across quotas /
+# rounds / phases (the easier door; never overstates difficulty), same rule
+# as JoSAA and MHT-CET above.
+D = "avantifellows.external_data_sources"
+STATE_SPECS = {
+    "KCET": dict(table="kcet_fact_cutoffs", year="year", name="college_name",
+                 code="college_code", branch="course_name", ctype="college_type",
+                 district=None, university=None, stream="stream",
+                 open_where="category_code = 'GM' AND domicile_pool = 'GEN'",
+                 key_by_name=True,  # KEA gives one college two codes (aided / private seats)
+                 label="KCET", counselling="KEA (KCET)", map_exam="KCET",
+                 state="Karnataka", source="KEA {y} Round 3"),
+    "TNEA": dict(table="tnea_fact_cutoffs", year="exam_year", name="college",
+                 code="code", branch="branch", ctype="college_type",
+                 district="district", university=None, stream=None,
+                 open_where="category = 'GEN'",
+                 label="TNEA", counselling="TNEA (Anna University)", map_exam="TNEA",
+                 state="Tamil Nadu", source="TNEA {y}"),
+    "WBJEE": dict(table="wbjee_fact_cutoffs", year="exam_year", name="institute",
+                  code=None, branch="program", ctype="college_type",
+                  district=None, university=None, stream=None,
+                  open_where="category = 'GEN' AND sub_pool = '' AND (seat_type IS NULL OR seat_type != 'JEE(Main) Seats')",
+                  label="WBJEE", counselling="WBJEE Board", map_exam="WBJEE",
+                  state="West Bengal", source="WBJEE {y}"),
+    "KEAM": dict(table="keam_fact_cutoffs", year="exam_year", name="college_name",
+                 code="college_code", branch="course", ctype="college_type",
+                 district=None, university=None, stream=None,
+                 open_where="category = 'GEN' AND sub_pool = '' AND phase != 'Trial'",
+                 label="KEAM", counselling="CEE Kerala (KEAM)", map_exam="KEAM",
+                 state="Kerala", source="KEAM {y}"),
+    "AP EAPCET": dict(table="apeapcet_fact_cutoffs", year="exam_year", name="college_name",
+                      code="college_code", branch="branch_code", ctype="college_type",
+                      district=None, university=None, stream=None,
+                      open_where="category = 'GEN' AND sub_pool = ''", gender_col="gender",
+                      label="AP EAPCET", counselling="AP-EAPCET counselling (APSCHE)",
+                      map_exam="AP-EAPCET", state="Andhra Pradesh", source="AP-EAPCET {y}"),
+    "TG-EAPCET": dict(table="tgeapcet_fact_cutoffs", year="year", name="college_name",
+                      code="college_code", branch="branch_name", ctype="college_type",
+                      district=None, university="affiliated_to", stream="stream",
+                      open_where="category = 'GEN'", gender_col="gender",
+                      label="TG-EAPCET", counselling="TG-EAPCET counselling (TGCHE)",
+                      map_exam="TG-EAPCET", state="Telangana", source="TG-EAPCET {y}"),
+    "OJEE": dict(table="ojee_fact_cutoffs", year="exam_year", name="institute",
+                 code=None, branch="programme", ctype=None,
+                 district=None, university=None, stream=None,
+                 open_where="category = 'GEN' AND seat_type = 'Gender Neutral' AND NOT tfw",
+                 label="OJEE", counselling="OJEE counselling", map_exam="OJEE",
+                 state="Odisha", source="OJEE {y}"),
+    "CLAT": dict(table="clat_fact_cutoffs", year="year", name="college",
+                 code=None, branch="program", ctype=None,
+                 district=None, university=None, stream=None,
+                 rank_col="air_cutoff", seats_col="seats",
+                 open_where="category_canonical = 'GEN' AND NOT is_women_row AND NOT is_pwd_row AND domicile_state IS NULL",
+                 label="CLAT", counselling="CLAT Consortium counselling", map_exam="CLAT",
+                 state=None, source="CLAT {y}"),
+    "GUJCET": dict(table="gujcet_fact_cutoffs", year="year", name="college_name",
+                   code=None, branch="branch_name", ctype="college_type",
+                   district=None, university=None, stream="stream",
+                   open_where="category = 'GEN' AND sub_pool = '' AND gender = 'All'",
+                   label="GUJCET", counselling="ACPC (GUJCET)", map_exam="GUJCET",
+                   state="Gujarat", source="ACPC {y}"),
+}
+
+# CLAT's table has no state column; NLU names carry the city
+NLU_CITY_STATE = {
+    "Patna": "Bihar", "Visakhapatnam": "Andhra Pradesh", "Jabalpur": "Madhya Pradesh",
+    "Prayagraj": "Uttar Pradesh", "Lucknow": "Uttar Pradesh", "Gandhinagar": "Gujarat",
+    "Silvassa": "Dadra and Nagar Haveli", "Raipur": "Chhattisgarh", "Shimla": "Himachal Pradesh",
+    "Goa": "Goa", "Chhatrapati Sambhajinagar": "Maharashtra", "Mumbai": "Maharashtra",
+    "Nagpur": "Maharashtra", "Hyderabad": "Telangana", "Bengaluru": "Karnataka",
+    "Sonepat": "Haryana", "Jodhpur": "Rajasthan", "Odisha": "Odisha", "Agartala": "Tripura",
+    "Assam": "Assam", "Ranchi": "Jharkhand", "Punjab": "Punjab",
+    "Tiruchirappalli": "Tamil Nadu", "Bhopal": "Madhya Pradesh", "Kochi": "Kerala",
+    "Kolkata": "West Bengal",
+}
+
+AP_BRANCH_LEGEND = Path(__file__).resolve().parent.parent.parent / "external_data_sources" / "apeapcet" / "branch_codes.csv"
+
+
+def generic_ownership(ctype):
+    t = str(ctype or "")
+    if not t or t == "Unknown":
+        return None
+    if "Aided" in t:
+        return "Government-aided"
+    if t in ("Govt", "Government", "Univ-Govt", "State-Univ-Dept") or t.startswith("Govt"):
+        return "Public"
+    if "Private" in t or "Deemed" in t or "SelfFin" in t or "SelfSup" in t or t == "Private/SF":
+        return "Private"
+    return None
+
+
+def discipline_of_program(name, stream=None):
+    n = str(name).lower()
+    st = str(stream or "").lower()
+    if "law" in st or "ll.b" in n or "llb" in n:
+        return "Law", "LL.B. (integrated)", 5
+    if "pharm" in n or st == "pharmacy":
+        return "Pharmacy", "B.Pharm", 4
+    if "arch" in n or st == "architecture":
+        return "Architecture", "B.Arch", 5
+    if "plan" in n and "planning" in n:
+        return "Planning", "B.Plan", 4
+    return "Engineering", "B.E. / B.Tech", 4
+
+
+def build_state_spines(client):
+    import csv
+    ap_legend = {}
+    if AP_BRANCH_LEGEND.exists():
+        with open(AP_BRANCH_LEGEND) as fh:
+            ap_legend = {r["branch_code"]: r["branch_name"].title() for r in csv.DictReader(fh)}
+    out = {}
+    for exam, sp in STATE_SPECS.items():
+        T = f"`{D}.{sp['table']}`"
+        rank = sp.get("rank_col", "closing_rank")
+        code = sp["code"] or "NULL"
+        ctype = sp["ctype"] or "NULL"
+        dist = sp["district"] or "NULL"
+        uni = sp["university"] or "NULL"
+        stream = sp["stream"] or "NULL"
+        seats = sp.get("seats_col") or "NULL"
+        gcol = sp.get("gender_col")
+        # AP/TG publish Boys and Girls pools; the open number is the Boys
+        # (general) pool — the Girls pool is only used for women's colleges,
+        # which have no Boys rows at all (see the fallback below)
+        rank_expr = f"MAX(IF({gcol} = 'Boys', {rank}, NULL))" if gcol else f"MAX({rank})"
+        girls_expr = f"MAX(IF({gcol} = 'Girls', {rank}, NULL))" if gcol else "NULL"
+        q = f"""
+        SELECT {sp['name']} AS college_name,
+               CAST({code} AS STRING) AS college_code,
+               CAST({ctype} AS STRING) AS college_type,
+               CAST({dist} AS STRING) AS district,
+               CAST({uni} AS STRING) AS university,
+               CAST({stream} AS STRING) AS stream,
+               {sp['branch']} AS branch,
+               {rank_expr} AS closing_rank,
+               {girls_expr} AS girls_rank,
+               MAX({seats}) AS seats,
+               MAX({sp['year']}) AS year
+        FROM {T}
+        WHERE {sp['year']} = (SELECT MAX({sp['year']}) FROM {T})
+          AND ({sp['open_where']})
+        GROUP BY 1, 2, 3, 4, 5, 6, 7
+        """
+        df = client.query(q).to_dataframe()
+        # colleges that publish NO open-category row still belong on the tab
+        allq = f"""
+        SELECT {sp['name']} AS college_name, CAST({code} AS STRING) AS college_code,
+               ANY_VALUE(CAST({ctype} AS STRING)) AS college_type,
+               ANY_VALUE(CAST({dist} AS STRING)) AS district,
+               ANY_VALUE(CAST({uni} AS STRING)) AS university,
+               ANY_VALUE(CAST({stream} AS STRING)) AS stream,
+               MAX({sp['year']}) AS year
+        FROM {T} WHERE {sp['year']} = (SELECT MAX({sp['year']}) FROM {T})
+        GROUP BY 1, 2
+        """
+        allc = client.query(allq).to_dataframe()
+        if exam == "AP EAPCET":
+            df["branch"] = df["branch"].map(lambda b: ap_legend.get(str(b), str(b)))
+        if gcol and len(df):
+            # women's colleges: no Boys pool anywhere -> their open number is
+            # the Girls pool
+            has_boys = df.groupby("college_name")["closing_rank"].transform(lambda c: c.notna().any())
+            df.loc[~has_boys, "closing_rank"] = df.loc[~has_boys, "girls_rank"]
+            df["women_only"] = ~has_boys
+        else:
+            df["women_only"] = False
+        out[exam] = (allc, df)
+        print(f"  {exam}: {len(allc)} colleges, {len(df)} open-category branch rows")
+    return out
+
+
 def main():
     careers_by_branch = career_lookup()
     careers_by_branch_mhtcet = career_lookup("MHT-CET")
+    careers_by_spine = {exam: career_lookup(sp["map_exam"]) for exam, sp in STATE_SPECS.items()}
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
@@ -1275,6 +1452,190 @@ def main():
           f"  with district {sum(1 for x in mh_rows if x['district'])}"
           f"  branches career-linked {sum(1 for x in mh_rows for p in x['programs']['list'] if p['career_id'])}")
     rows += mh_rows
+
+    # ── the nine state / CLAT spines ─────────────────────────────────────────
+    spines = build_state_spines(client)
+    nirf_all = client.query(f"""
+    SELECT institute_id, institute_name, state, ranking_category, ranking_year,
+           nirf_rank, overall_score
+    FROM `{D}.nirf_fact_rankings`
+    WHERE nirf_rank IS NOT NULL
+      AND ranking_category IN ('Engineering', 'Pharmacy', 'Architecture and Planning', 'Law')
+    """).to_dataframe()
+    nirf_all_by_id = {iid: g.sort_values("ranking_year", ascending=False)
+                      for iid, g in nirf_all.groupby("institute_id")}
+    place_all = client.query(f"""
+    SELECT institute_id, edition_year AS ranking_year,
+           graduating_academic_year AS academic_year, median_salary,
+           graduated_on_time, students_placed, higher_studies_selected,
+           first_year_intake, discipline
+    FROM `{D}.nirf_fact_dcs_placements`
+    WHERE ((discipline IN ('Engineering', 'Pharmacy') AND program_level = 'UG-4Y')
+           OR (discipline = 'Law' AND program_level = 'UG-5Y'))
+      AND NOT superseded
+      AND median_salary IS NOT NULL AND median_salary > 0
+      AND graduated_on_time IS NOT NULL AND graduated_on_time > 0
+    """).to_dataframe()
+    place_all_by_id = {iid: g.sort_values(["ranking_year", "academic_year"], ascending=False)
+                       for iid, g in place_all.groupby("institute_id")}
+
+    spine_rows = []
+    for exam, sp in STATE_SPECS.items():
+        allc, prog = spines[exam]
+        # synthetic code where the source has none, so the matcher has a key
+        def cid_of(row):
+            c = row.college_code
+            if sp.get("key_by_name") or not (isinstance(c, str) and c and c != "None"):
+                return _mnorm(row.college_name)[:60]
+            return c
+        allc = allc.assign(college_code=[cid_of(r) for r in allc.itertuples()])
+        prog = prog.assign(college_code=[cid_of(r) for r in prog.itertuples()])
+        # one code, two spellings across phases/rounds (KEAM's "TVE") — same
+        # college; keep one row, the programme rows already share the code
+        allc = allc.drop_duplicates(subset=["college_code"], keep="first")
+        prog_by_code = {c: g for c, g in prog.groupby("college_code")}
+        careers_here = careers_by_spine[exam]
+
+        # NIRF within this state (CLAT: Law list, all states)
+        if sp["state"]:
+            nirf_here = nirf_all[(nirf_all.state == sp["state"])
+                                 & (nirf_all.ranking_category != "Law")]
+        else:
+            nirf_here = nirf_all[nirf_all.ranking_category == "Law"]
+        code_by_nirf = match_nirf_to_mhtcet(nirf_here, allc)
+        nirf_ids_by_code = {}
+        for iid, code in code_by_nirf.items():
+            nirf_ids_by_code.setdefault(code, set()).add(iid)
+
+        n_nirf = n_place = 0
+        for r in allc.itertuples():
+            nids = nirf_ids_by_code.get(r.college_code, set())
+            nirf_block = None
+            frames = [nirf_all_by_id[n] for n in nids if n in nirf_all_by_id]
+            if frames:
+                g = pd.concat(frames).sort_values("ranking_year", ascending=False)
+                top_cat = g.iloc[0]["ranking_category"]
+                g = g[g["ranking_category"] == top_cat].drop_duplicates(subset=["ranking_year"])
+                top = g.iloc[0]
+                nirf_block = {
+                    "category": "Architecture" if top_cat.startswith("Architecture") else top_cat,
+                    "rank": int(top.nirf_rank),
+                    "score": (round(float(top.overall_score), 2)
+                              if top.overall_score == top.overall_score else None),
+                    "ranking_year": int(top.ranking_year),
+                    "rank_history": [
+                        {"year": int(x.ranking_year), "rank": int(x.nirf_rank),
+                         "score": (round(float(x.overall_score), 2)
+                                   if x.overall_score == x.overall_score else None)}
+                        for x in g.head(6).itertuples()
+                    ],
+                }
+                n_nirf += 1
+            placement = None
+            pframes = [place_all_by_id[n] for n in nids if n in place_all_by_id]
+            if pframes:
+                pr = pd.concat(pframes).sort_values(["ranking_year", "academic_year"],
+                                                    ascending=False).iloc[0]
+                def num(v, cast=float):
+                    return None if v != v else cast(v)
+                placed_n, higher_n, grad_n = (num(pr.students_placed, int),
+                                              num(pr.higher_studies_selected, int),
+                                              num(pr.graduated_on_time, int))
+                pct = outcome = None
+                if grad_n:
+                    if placed_n is not None:
+                        pct = round(placed_n / grad_n * 100, 1)
+                    if placed_n is not None and higher_n is not None:
+                        outcome = round(min(100.0, (placed_n + higher_n) / grad_n * 100), 1)
+                placement = {
+                    "median_salary": num(pr.median_salary, int),
+                    "percentage_placed": pct,
+                    "percentage_with_outcome": outcome,
+                    "students_placed": placed_n,
+                    "higher_studies_selected": higher_n,
+                    "first_year_intake": num(pr.first_year_intake, int),
+                    "academic_year": pr.academic_year,
+                    "ranking_year": int(pr.ranking_year),
+                    "source": f"NIRF {pr.discipline}, UG",
+                    "is_branch_specific": False,
+                }
+                n_place += 1
+
+            g = prog_by_code.get(r.college_code)
+            lst, degrees, disciplines = [], set(), set()
+            women_only = bool(g is not None and len(g) and g["women_only"].all())
+            if g is not None:
+                for x in g.itertuples():
+                    disc, degree, years = discipline_of_program(x.branch, x.stream if sp["stream"] else None)
+                    if exam == "CLAT":
+                        degree, years, disc = str(x.branch), 5, "Law"
+                    degrees.add(degree)
+                    disciplines.add(disc)
+                    closing = None if pd.isna(x.closing_rank) else int(x.closing_rank)
+                    seats = None if pd.isna(x.seats) else int(x.seats)
+                    entry = {
+                        "branch": str(x.branch),
+                        "years": years,
+                        "degree": degree,
+                        "indicative_closing_rank": closing,
+                        "indicative_opening_rank": None,
+                        "career_id": careers_here.get(str(x.branch)),
+                    }
+                    if seats is not None:
+                        entry["seats"] = seats
+                    lst.append(entry)
+            lst.sort(key=lambda z: (z["indicative_closing_rank"] is None,
+                                    z["indicative_closing_rank"] or 0, z["branch"]))
+            year = None if pd.isna(r.year) else int(r.year)
+            programs = {
+                "count": len(lst),
+                "degrees": sorted(degrees),
+                "list": lst,
+                "source": sp["source"].format(y=year),
+                "rank_note": f"Indicative open-category {sp['label']} closing rank.",
+            }
+            display = re.sub(r"\s+,", ",", re.sub(r"\s{2,}", " ", str(r.college_name))).strip()
+            state = sp["state"]
+            if exam == "CLAT":
+                state = next((st for city, st in NLU_CITY_STATE.items() if city in display), None)
+            spine_rows.append({
+                "college_id": f"{sp['map_exam'].lower()}:{r.college_code}",
+                "aishe_code": None,
+                "name": display,
+                "display_name": display,
+                "state": state,
+                "state_is_inferred": exam == "CLAT",
+                "district": (r.district if isinstance(r.district, str) and r.district
+                             and r.district != "None" else None),
+                "kind": "Women's college" if women_only else None,
+                "management": (r.college_type if isinstance(r.college_type, str)
+                               and r.college_type not in ("None", "Unknown") else None),
+                "ownership": generic_ownership(r.college_type),
+                "disciplines": sorted(disciplines)[:4] or (["Law"] if exam == "CLAT" else []),
+                "year_established": None,
+                "website": None,
+                "university": (r.university if isinstance(r.university, str)
+                               and r.university != "None" else None),
+                "entrance_exams": [sp["label"]],
+                "counselling": sp["counselling"],
+                "programs": programs,
+                "nirf": nirf_block,
+                "ug_gender": None,
+                "fees": None,
+                "placement": placement,
+                "naac": {"grade": None, "cgpa": None, "cycle": None,
+                         "not_applicable_reason": None},
+                "data_sources": {
+                    "identity": programs["source"],
+                    "programs": programs["source"],
+                    "ranking": f"NIRF {nirf_block['ranking_year']}" if nirf_block else None,
+                    "placement": (f"NIRF {placement['ranking_year']} (AY {placement['academic_year']})"
+                                  if placement else None),
+                    "accreditation": None,
+                },
+            })
+        print(f"  {exam}: {len(allc)} rows, NIRF {n_nirf}, placement {n_place}")
+    rows += spine_rows
 
     print(f"  medical rows {len(med_rows)}"
           f"  with NIRF {sum(1 for x in med_rows if x['nirf'])}"

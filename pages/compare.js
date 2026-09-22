@@ -33,9 +33,11 @@ const ROWS = [
     key: "closing",
     label: "Rank band",
     sub: (o) =>
-      o.college.counselling?.startsWith("MHT-CET")
-        ? "MHT-CET state merit rank, open category"
-        : "JoSAA opening to closing, open category",
+      o.college.counselling === "JoSAA"
+        ? "JoSAA opening to closing, open category"
+        : `${
+            o.college.entrance_exams?.[0] || "State"
+          } closing rank, open category`,
     get: (o) => o.program?.indicative_closing_rank ?? null,
     // a JoSAA rank and an MHT-CET rank are different number lines — never
     // crown a winner across them
@@ -225,11 +227,9 @@ export default function Compare() {
       // and across a different NIRF category, which highlights nonsense
       .then((rows) =>
         setAll(
-          rows.filter(
-            (c) =>
-              c.counselling === "JoSAA" ||
-              String(c.counselling).startsWith("MHT-CET")
-          )
+          // any spine whose branches carry a closing rank; medical rows
+          // (NMC seats, no rank) stay out
+          rows.filter((c) => !String(c.counselling).startsWith("MCC"))
         )
       )
       .catch(() => setError("Could not load colleges right now."));

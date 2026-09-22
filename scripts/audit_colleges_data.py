@@ -40,15 +40,14 @@ def main() -> int:
     for c in rows:
         nirf, place, prog = c["nirf"], c["placement"], c["programs"]
         medical = c["counselling"].startswith("MCC")
-        mhtcet = c["counselling"].startswith("MHT-CET")
+        mhtcet = not medical and c["counselling"] != "JoSAA"  # every state spine + CLAT
 
         # identity
         chk(c["college_id"], "missing college_id", c)
         chk(c["display_name"].strip(), "empty display_name", c)
         chk(c["entrance_exams"], "no entrance exam", c)
-        chk(all(e in (("NEET-UG",) if medical else ("MHT CET",) if mhtcet
-                      else ("JEE Main", "JEE Advanced"))
-                for e in c["entrance_exams"]),
+        chk(all(e in (("NEET-UG",) if medical else ("JEE Main", "JEE Advanced"))
+                for e in c["entrance_exams"]) or mhtcet,
             "unexpected entrance exam", c, str(c["entrance_exams"]))
         # a JoSAA row may lack an AISHE code (crosswalk gap) but then the
         # state, if we have one, must be flagged as inferred. Medical rows
@@ -64,7 +63,7 @@ def main() -> int:
 
         # NIRF — Medical publishes ~50 exact ranks, Engineering up to ~300
         if nirf:
-            cap = 100 if nirf.get("category") in ("Medical", "Pharmacy", "Architecture") else 350
+            cap = 100 if nirf.get("category") in ("Medical", "Pharmacy", "Architecture", "Law") else 350
             chk(1 <= nirf["rank"] <= cap, "rank out of range", c,
                 nirf["rank"])
             years = [h["year"] for h in nirf["rank_history"]]
@@ -88,7 +87,8 @@ def main() -> int:
                 "placement claims to be branch-specific (NIRF has no branch dimension)", c)
 
         # programs — the only field we expect at 100%
-        chk(prog["count"] > 0, "zero programs", c)
+        # a state-spine college may publish only reserved-category rows
+        chk(prog["count"] > 0 or mhtcet, "zero programs", c)
         chk(prog["count"] == len(prog["list"]), "count does not match list length", c)
         ranks = [p["indicative_closing_rank"] for p in prog["list"]]
         if medical:

@@ -742,7 +742,7 @@
     "slug": "mechanical-mechatronics-engineering"
    }
   ],
-  "colleges_link": null
+  "colleges_link": "/colleges?exam=AP EAPCET"
  },
  {
   "exam_id": "apu-et",
@@ -2263,7 +2263,7 @@
     "slug": "cyber-security"
    }
   ],
-  "colleges_link": null
+  "colleges_link": "/colleges?exam=CLAT"
  },
  {
   "exam_id": "cmi-ee",
@@ -3124,7 +3124,7 @@
     "slug": "mechanical-mechatronics-engineering"
    }
   ],
-  "colleges_link": null
+  "colleges_link": "/colleges?exam=GUJCET"
  },
  {
   "exam_id": "hau-aat",
@@ -4729,7 +4729,7 @@
     "slug": "mechanical-mechatronics-engineering"
    }
   ],
-  "colleges_link": null
+  "colleges_link": "/colleges?exam=KCET"
  },
  {
   "exam_id": "keam",
@@ -4805,7 +4805,7 @@
     "slug": "mechanical-mechatronics-engineering"
    }
   ],
-  "colleges_link": null
+  "colleges_link": "/colleges?exam=KEAM"
  },
  {
   "exam_id": "kiit-ee",
@@ -6960,7 +6960,7 @@
     "slug": "civil-engineering"
    }
   ],
-  "colleges_link": null
+  "colleges_link": "/colleges?exam=OJEE"
  },
  {
   "exam_id": "ouat",
@@ -8893,7 +8893,7 @@
     "slug": "civil-engineering"
    }
   ],
-  "colleges_link": null
+  "colleges_link": "/colleges?exam=TG-EAPCET"
  },
  {
   "exam_id": "tg-eapcet-e",
@@ -8968,7 +8968,7 @@
     "slug": "civil-engineering"
    }
   ],
-  "colleges_link": null
+  "colleges_link": "/colleges?exam=TG-EAPCET"
  },
  {
   "exam_id": "tslas-ot",
@@ -10193,7 +10193,7 @@
     "slug": "mechanical-mechatronics-engineering"
    }
   ],
-  "colleges_link": null
+  "colleges_link": "/colleges?exam=WBJEE"
  },
  {
   "exam_id": "wwi-et",
