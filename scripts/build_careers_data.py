@@ -75,9 +75,38 @@ def slug(s):
 
 
 def split_list(text, sep=","):
-    if pd.isna(text):
+    """Split a sheet cell into items on `sep` (and ';' / newlines), but never
+    inside brackets: "Narayana Murthy (Infosys co-founder, is a CA)" is ONE
+    person, and "ICAI (offices in Delhi, Mumbai, Chennai)" is one college.
+    Numbered prefixes ("1. IIT Bombay") are dropped."""
+    if text is None or (isinstance(text, float) and text != text):
         return []
-    return [t.strip() for t in str(text).split(sep) if t.strip()]
+    # the sheet pre-numbers some cells one item per line, and that numbering
+    # was itself split blind to brackets ("1. ICAI (…exams\n2. with offices
+    # in Delhi\n3. Mumbai…)") — turn those line breaks back into plain commas
+    # so the bracket-aware pass below re-joins what belongs together
+    text = re.sub(r"\s*\n\s*\d+[.)]\s*", ", ", str(text))
+    text = re.sub(r"^\s*\d+[.)]\s*", "", text)
+    out, buf, depth = [], [], 0
+    for ch in str(text):
+        if ch in "([":
+            depth += 1
+        elif ch in ")]":
+            depth = max(0, depth - 1)
+        if depth == 0 and (ch == sep or ch in ";\n"):
+            out.append("".join(buf))
+            buf = []
+        else:
+            buf.append(ch)
+    out.append("".join(buf))
+    items = []
+    for t in out:
+        t = re.sub(r"^\s*\d+[.)]\s*", "", t).strip().strip("•-–").strip()
+        # "…, and independent CA practice" -> the item, not the conjunction
+        t = re.sub(r"^(and|plus|or|as well as)\s+", "", t, flags=re.I).strip()
+        if t:
+            items.append(t)
+    return items
 
 
 def exam_mentions(text, exam_cards):

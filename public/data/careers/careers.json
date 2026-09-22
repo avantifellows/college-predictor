@@ -18,7 +18,27 @@
   ],
   "top_colleges": [
    {
-    "name": "1. Lal Bahadur Shastri National Academy of Administration (for IAS training)\n2. Indian Institutes of Management (IIMs)\n3. Shri Ram College of Commerce\n4. Symbiosis Centre for Management Studies\n5. Christ University\n6. Narsee Monjee Institute of Management Studies",
+    "name": "Lal Bahadur Shastri National Academy of Administration (for IAS training)",
+    "q": null
+   },
+   {
+    "name": "Indian Institutes of Management (IIMs)",
+    "q": null
+   },
+   {
+    "name": "Shri Ram College of Commerce",
+    "q": null
+   },
+   {
+    "name": "Symbiosis Centre for Management Studies",
+    "q": null
+   },
+   {
+    "name": "Christ University",
+    "q": null
+   },
+   {
+    "name": "Narsee Monjee Institute of Management Studies",
     "q": null
    }
   ],
@@ -42,8 +62,7 @@
   "notable_people": [
    "Kiran Bedi (first woman IPS officer)",
    "Armstrong Pame (IAS officer known for road-building)",
-   "N. Chandrasekaran (Tata Sons chairman",
-   "corporate leader)"
+   "N. Chandrasekaran (Tata Sons chairman, corporate leader)"
   ],
   "sources": "UPSC official reports, NIRF rankings, AmbitionBox, Glassdoor India, industry placement reports",
   "specializations": [
@@ -116,8 +135,28 @@
   ],
   "top_colleges": [
    {
-    "name": "1. IIT Bombay\n2. IIT Kanpur\n3. IIT Madras\n4. IIST Thiruvananthapuram\n5. IISc Bangalore\n6. Punjab Engineering College",
+    "name": "IIT Bombay",
+    "q": "Indian Institute of Technology Bombay"
+   },
+   {
+    "name": "IIT Kanpur",
+    "q": "Indian Institute of Technology Kanpur"
+   },
+   {
+    "name": "IIT Madras",
+    "q": "Indian Institute of Technology Madras"
+   },
+   {
+    "name": "IIST Thiruvananthapuram",
     "q": null
+   },
+   {
+    "name": "IISc Bangalore",
+    "q": null
+   },
+   {
+    "name": "Punjab Engineering College",
+    "q": "Punjab Engineering College, Chandigarh"
    }
   ],
   "pay": {
@@ -175,7 +214,9 @@
   ],
   "notable_people": [
    "A.P.J. Abdul Kalam: former President",
-   "rocket scientist; K. Sivan: former ISRO chairman; Ritu Karidhal: senior ISRO scientist on Mars mission"
+   "rocket scientist",
+   "K. Sivan: former ISRO chairman",
+   "Ritu Karidhal: senior ISRO scientist on Mars mission"
   ],
   "sources": "NIRF rankings, AmbitionBox, Glassdoor India, industry placement reports",
   "specializations": [
@@ -257,7 +298,27 @@
   ],
   "top_colleges": [
    {
-    "name": "1. IIT Kharagpur\n2. Punjab Agricultural University\n3. GB Pant University of Agriculture and Technology\n4. Anand Agricultural University\n5. CCS Haryana Agricultural University\n6. Tamil Nadu Agricultural University",
+    "name": "IIT Kharagpur",
+    "q": "Indian Institute of Technology Kharagpur"
+   },
+   {
+    "name": "Punjab Agricultural University",
+    "q": null
+   },
+   {
+    "name": "GB Pant University of Agriculture and Technology",
+    "q": null
+   },
+   {
+    "name": "Anand Agricultural University",
+    "q": null
+   },
+   {
+    "name": "CCS Haryana Agricultural University",
+    "q": null
+   },
+   {
+    "name": "Tamil Nadu Agricultural University",
     "q": null
    }
   ],
@@ -322,7 +383,8 @@
    }
   ],
   "notable_people": [
-   "M.S. Swaminathan: father of India's Green Revolution; Verghese Kurien: dairy and agri-industry pioneer"
+   "M.S. Swaminathan: father of India's Green Revolution",
+   "Verghese Kurien: dairy and agri-industry pioneer"
   ],
   "sources": "NIRF rankings, AmbitionBox, Glassdoor India, industry placement reports",
   "specializations": [
@@ -360,7 +422,23 @@
   ],
   "top_colleges": [
    {
-    "name": "1. Indian Agricultural Research Institute (IARI) New Delhi\n2. Punjab Agricultural University\n3. Tamil Nadu Agricultural University\n4. G.B. Pant University of Agriculture and Technology\n5. Anand Agricultural University",
+    "name": "Indian Agricultural Research Institute (IARI) New Delhi",
+    "q": null
+   },
+   {
+    "name": "Punjab Agricultural University",
+    "q": null
+   },
+   {
+    "name": "Tamil Nadu Agricultural University",
+    "q": null
+   },
+   {
+    "name": "G.B. Pant University of Agriculture and Technology",
+    "q": null
+   },
+   {
+    "name": "Anand Agricultural University",
     "q": null
    }
   ],
@@ -449,7 +527,23 @@
   ],
   "top_colleges": [
    {
-    "name": "1. School of Planning and Architecture Delhi\n2. IIT Roorkee\n3. Sir J.J. College of Architecture Mumbai\n4. CEPT University Ahmedabad\n5. Sushant School of Art and Architecture",
+    "name": "School of Planning and Architecture Delhi",
+    "q": null
+   },
+   {
+    "name": "IIT Roorkee",
+    "q": "Indian Institute of Technology Roorkee"
+   },
+   {
+    "name": "Sir J.J. College of Architecture Mumbai",
+    "q": "Sir J. J. College of Architecture, Mumbai"
+   },
+   {
+    "name": "CEPT University Ahmedabad",
+    "q": "Faculty of Technology, CEPT University, Ahmedabad"
+   },
+   {
+    "name": "Sushant School of Art and Architecture",
     "q": null
    }
   ],
@@ -532,7 +626,23 @@
   ],
   "top_colleges": [
    {
-    "name": "1. National Defence Academy (NDA) Khadakwasla\n2. Indian Military Academy (IMA) Dehradun\n3. Officers Training Academy (OTA) Chennai\n4. Indian Naval Academy Ezhimala\n5. Air Force Academy Hyderabad",
+    "name": "National Defence Academy (NDA) Khadakwasla",
+    "q": null
+   },
+   {
+    "name": "Indian Military Academy (IMA) Dehradun",
+    "q": null
+   },
+   {
+    "name": "Officers Training Academy (OTA) Chennai",
+    "q": null
+   },
+   {
+    "name": "Indian Naval Academy Ezhimala",
+    "q": null
+   },
+   {
+    "name": "Air Force Academy Hyderabad",
     "q": null
    }
   ],
@@ -632,7 +742,27 @@
   ],
   "top_colleges": [
    {
-    "name": "1. IIT Hyderabad\n2. IIIT Hyderabad\n3. VIT Vellore\n4. SRM Institute of Science and Technology\n5. PES University\n6. Manipal Institute of Technology",
+    "name": "IIT Hyderabad",
+    "q": "Indian Institute of Technology Hyderabad"
+   },
+   {
+    "name": "IIIT Hyderabad",
+    "q": null
+   },
+   {
+    "name": "VIT Vellore",
+    "q": null
+   },
+   {
+    "name": "SRM Institute of Science and Technology",
+    "q": null
+   },
+   {
+    "name": "PES University",
+    "q": null
+   },
+   {
+    "name": "Manipal Institute of Technology",
     "q": null
    }
   ],
@@ -697,7 +827,9 @@
    }
   ],
   "notable_people": [
-   "Andrew Ng: globally known AI educator; Rajat Monga: co-creator of TensorFlow; Anima Anandkumar: AI researcher at Caltech and Nvidia"
+   "Andrew Ng: globally known AI educator",
+   "Rajat Monga: co-creator of TensorFlow",
+   "Anima Anandkumar: AI researcher at Caltech and Nvidia"
   ],
   "sources": "NIRF rankings, AmbitionBox, Glassdoor India, industry placement reports",
   "specializations": [
@@ -734,7 +866,27 @@
   ],
   "top_colleges": [
    {
-    "name": "1. Sir J.J. School of Art Mumbai\n2. Faculty of Fine Arts Maharaja Sayajirao University Baroda\n3. Delhi College of Art\n4. Kala Bhavana Visva-Bharati Santiniketan\n5. Lady Shri Ram College for Women\n6. National Institute of Design",
+    "name": "Sir J.J. School of Art Mumbai",
+    "q": null
+   },
+   {
+    "name": "Faculty of Fine Arts Maharaja Sayajirao University Baroda",
+    "q": null
+   },
+   {
+    "name": "Delhi College of Art",
+    "q": null
+   },
+   {
+    "name": "Kala Bhavana Visva-Bharati Santiniketan",
+    "q": null
+   },
+   {
+    "name": "Lady Shri Ram College for Women",
+    "q": null
+   },
+   {
+    "name": "National Institute of Design",
     "q": null
    }
   ],
@@ -795,7 +947,23 @@
   ],
   "top_colleges": [
    {
-    "name": "1. All India Institute of Speech and Hearing Mysore\n2. AIIMS New Delhi\n3. Ali Yavar Jung National Institute of Speech and Hearing Disabilities Mumbai\n4. Christian Medical College Vellore\n5. Sri Ramachandra Institute of Higher Education and Research",
+    "name": "All India Institute of Speech and Hearing Mysore",
+    "q": null
+   },
+   {
+    "name": "AIIMS New Delhi",
+    "q": "All India Institute of Medical Sciences, New Delhi"
+   },
+   {
+    "name": "Ali Yavar Jung National Institute of Speech and Hearing Disabilities Mumbai",
+    "q": null
+   },
+   {
+    "name": "Christian Medical College Vellore",
+    "q": "Christian Medical College, Vellore"
+   },
+   {
+    "name": "Sri Ramachandra Institute of Higher Education and Research",
     "q": null
    }
   ],
@@ -878,7 +1046,27 @@
   ],
   "top_colleges": [
    {
-    "name": "1. VIT Vellore\n2. SRM Institute of Science and Technology\n3. Madras Institute of Technology\n4. PSG College of Technology\n5. Vellore Institute of Technology\n6. MIT Manipal",
+    "name": "VIT Vellore",
+    "q": null
+   },
+   {
+    "name": "SRM Institute of Science and Technology",
+    "q": null
+   },
+   {
+    "name": "Madras Institute of Technology",
+    "q": "Indian Institute of Technology Madras"
+   },
+   {
+    "name": "PSG College of Technology",
+    "q": "PSG College of Technology (Autonomous) Peelamedu Coimbatore District 641004"
+   },
+   {
+    "name": "Vellore Institute of Technology",
+    "q": null
+   },
+   {
+    "name": "MIT Manipal",
     "q": null
    }
   ],
@@ -936,7 +1124,8 @@
    }
   ],
   "notable_people": [
-   "Ratan Tata: led Tata Motors and the Tata Nano project; Pawan Goenka: former Mahindra Group executive and auto engineer"
+   "Ratan Tata: led Tata Motors and the Tata Nano project",
+   "Pawan Goenka: former Mahindra Group executive and auto engineer"
   ],
   "sources": "NIRF rankings, AmbitionBox, Glassdoor India, industry placement reports",
   "specializations": [
@@ -973,7 +1162,23 @@
   ],
   "top_colleges": [
    {
-    "name": "1. Institute of Post Graduate Teaching and Research in Ayurveda Jamnagar\n2. Banaras Hindu University Ayurveda Faculty\n3. National Institute of Ayurveda Jaipur\n4. Government Ayurved College Nagpur\n5. Patanjali Bhartiya Ayurvigyan evam Anusandhan Sansthan",
+    "name": "Institute of Post Graduate Teaching and Research in Ayurveda Jamnagar",
+    "q": null
+   },
+   {
+    "name": "Banaras Hindu University Ayurveda Faculty",
+    "q": null
+   },
+   {
+    "name": "National Institute of Ayurveda Jaipur",
+    "q": null
+   },
+   {
+    "name": "Government Ayurved College Nagpur",
+    "q": null
+   },
+   {
+    "name": "Patanjali Bhartiya Ayurvigyan evam Anusandhan Sansthan",
     "q": null
    }
   ],
@@ -1038,7 +1243,27 @@
   ],
   "top_colleges": [
    {
-    "name": "1. IIT Delhi\n2. IIT Kharagpur\n3. ICT Mumbai (Institute of Chemical Technology)\n4. Panjab University\n5. Jadavpur University\n6. BIT Mesra",
+    "name": "IIT Delhi",
+    "q": "Indian Institute of Technology Delhi"
+   },
+   {
+    "name": "IIT Kharagpur",
+    "q": "Indian Institute of Technology Kharagpur"
+   },
+   {
+    "name": "ICT Mumbai (Institute of Chemical Technology)",
+    "q": null
+   },
+   {
+    "name": "Panjab University",
+    "q": null
+   },
+   {
+    "name": "Jadavpur University",
+    "q": "Jadavpur University"
+   },
+   {
+    "name": "BIT Mesra",
     "q": null
    }
   ],
@@ -1060,7 +1285,8 @@
   "where_work": "Metro cities mainly",
   "college_options": [],
   "notable_people": [
-   "Kiran Mazumdar-Shaw: founder of Biocon; Cyrus Poonawalla: founder of Serum Institute of India"
+   "Kiran Mazumdar-Shaw: founder of Biocon",
+   "Cyrus Poonawalla: founder of Serum Institute of India"
   ],
   "sources": "NIRF rankings, AmbitionBox, Glassdoor India, industry placement reports",
   "specializations": [
@@ -1092,7 +1318,27 @@
   "exams": null,
   "top_colleges": [
    {
-    "name": "1. University of Delhi\n2. Christ University Bangalore\n3. Fergusson College Pune\n4. Madras Christian College\n5. St. Xavier's College Mumbai\n6. Panjab University",
+    "name": "University of Delhi",
+    "q": "University College of Medical Sciences & GTB Hospital, New Delhi"
+   },
+   {
+    "name": "Christ University Bangalore",
+    "q": null
+   },
+   {
+    "name": "Fergusson College Pune",
+    "q": null
+   },
+   {
+    "name": "Madras Christian College",
+    "q": null
+   },
+   {
+    "name": "St. Xavier's College Mumbai",
+    "q": null
+   },
+   {
+    "name": "Panjab University",
     "q": null
    }
   ],
@@ -1113,11 +1359,9 @@
   "where_work": "Metro cities mainly, since most pharma and research labs are based in major cities",
   "college_options": [],
   "notable_people": [
-   "G.N. Ramachandran (renowned Indian biochemist",
-   "known for protein structure research)",
+   "G.N. Ramachandran (renowned Indian biochemist, known for protein structure research)",
    "Obaid Siddiqi (pioneering Indian molecular biologist)",
-   "Kiran Mazumdar-Shaw (Biocon founder",
-   "biotech-biochemistry entrepreneur)"
+   "Kiran Mazumdar-Shaw (Biocon founder, biotech-biochemistry entrepreneur)"
   ],
   "sources": "NIRF rankings, UGC reports, AmbitionBox, Glassdoor India, pharma industry placement reports",
   "specializations": [
@@ -1159,7 +1403,27 @@
   ],
   "top_colleges": [
    {
-    "name": "1. IIT Delhi (Biochemical Engineering and Biotechnology)\n2. IIT Guwahati\n3. IIT Kharagpur\n4. IIT Roorkee\n5. IIIT Delhi\n6. VIT Vellore",
+    "name": "IIT Delhi (Biochemical Engineering and Biotechnology)",
+    "q": "Indian Institute of Technology Delhi"
+   },
+   {
+    "name": "IIT Guwahati",
+    "q": null
+   },
+   {
+    "name": "IIT Kharagpur",
+    "q": "Indian Institute of Technology Kharagpur"
+   },
+   {
+    "name": "IIT Roorkee",
+    "q": "Indian Institute of Technology Roorkee"
+   },
+   {
+    "name": "IIIT Delhi",
+    "q": null
+   },
+   {
+    "name": "VIT Vellore",
     "q": null
    }
   ],
@@ -1189,7 +1453,8 @@
    }
   ],
   "notable_people": [
-   "Kiran Mazumdar-Shaw: founder of Biocon; George Church: globally known biological engineering researcher"
+   "Kiran Mazumdar-Shaw: founder of Biocon",
+   "George Church: globally known biological engineering researcher"
   ],
   "sources": "NIRF rankings, AmbitionBox, Glassdoor India, industry placement reports",
   "specializations": [
@@ -1231,8 +1496,28 @@
   ],
   "top_colleges": [
    {
-    "name": "1. IIT Delhi (Biological Sciences and Bioengineering)\n2. IIT Kanpur\n3. IIT Guwahati\n4. IIT Gandhinagar\n5. IIT Jodhpur\n6. IIT Mandi",
+    "name": "IIT Delhi (Biological Sciences and Bioengineering)",
+    "q": "Indian Institute of Technology Delhi"
+   },
+   {
+    "name": "IIT Kanpur",
+    "q": "Indian Institute of Technology Kanpur"
+   },
+   {
+    "name": "IIT Guwahati",
     "q": null
+   },
+   {
+    "name": "IIT Gandhinagar",
+    "q": "Indian Institute of Technology Gandhinagar"
+   },
+   {
+    "name": "IIT Jodhpur",
+    "q": "Indian Institute of Technology Jodhpur"
+   },
+   {
+    "name": "IIT Mandi",
+    "q": "Indian Institute of Technology Mandi"
    }
   ],
   "pay": {
@@ -1261,7 +1546,8 @@
    }
   ],
   "notable_people": [
-   "Shubha Tole: neuroscientist at TIFR; Gagandeep Kang: leading Indian biologist and vaccine researcher"
+   "Shubha Tole: neuroscientist at TIFR",
+   "Gagandeep Kang: leading Indian biologist and vaccine researcher"
   ],
   "sources": "NIRF rankings, AmbitionBox, Glassdoor India, industry placement reports",
   "specializations": [
@@ -1293,7 +1579,27 @@
   "exams": null,
   "top_colleges": [
    {
-    "name": "1. St. Stephen's College Delhi\n2. Miranda House Delhi\n3. Fergusson College Pune\n4. Loyola College Chennai\n5. Christ University Bangalore\n6. Presidency College Chennai",
+    "name": "St. Stephen's College Delhi",
+    "q": null
+   },
+   {
+    "name": "Miranda House Delhi",
+    "q": null
+   },
+   {
+    "name": "Fergusson College Pune",
+    "q": null
+   },
+   {
+    "name": "Loyola College Chennai",
+    "q": "Loyola-ICAM College of Engineering and Technology (Autonomous), Loyola College Campus, Chennai-600034."
+   },
+   {
+    "name": "Christ University Bangalore",
+    "q": null
+   },
+   {
+    "name": "Presidency College Chennai",
     "q": null
    }
   ],
@@ -1314,8 +1620,7 @@
   "where_work": "Tier-2 cities, and fieldwork-based biology roles often require working in rural or forested areas",
   "college_options": [],
   "notable_people": [
-   "Salim Ali (India's most famous ornithologist",
-   "studied birds)",
+   "Salim Ali (India's most famous ornithologist, studied birds)",
    "Kamal Ranjan Gupta (noted Indian biologist)",
    "Vandana Shiva (environmental biologist and activist)"
   ],
@@ -1391,7 +1696,27 @@
   ],
   "top_colleges": [
    {
-    "name": "1. IIT Hyderabad\n2. IIT Bombay (Biomedical Engineering and Biosciences)\n3. BITS Pilani\n4. VIT Vellore\n5. SRM Institute of Science and Technology\n6. Manipal Institute of Technology",
+    "name": "IIT Hyderabad",
+    "q": "Indian Institute of Technology Hyderabad"
+   },
+   {
+    "name": "IIT Bombay (Biomedical Engineering and Biosciences)",
+    "q": "Indian Institute of Technology Bombay"
+   },
+   {
+    "name": "BITS Pilani",
+    "q": null
+   },
+   {
+    "name": "VIT Vellore",
+    "q": null
+   },
+   {
+    "name": "SRM Institute of Science and Technology",
+    "q": null
+   },
+   {
+    "name": "Manipal Institute of Technology",
     "q": null
    }
   ],
@@ -1456,7 +1781,8 @@
    }
   ],
   "notable_people": [
-   "Vinod Kumar Singh: prosthetics innovator; Ashok Jhunjhunwala: IIT Madras researcher in affordable healthcare tech"
+   "Vinod Kumar Singh: prosthetics innovator",
+   "Ashok Jhunjhunwala: IIT Madras researcher in affordable healthcare tech"
   ],
   "sources": "NIRF rankings, AmbitionBox, Glassdoor India, industry placement reports",
   "specializations": [
@@ -1537,8 +1863,28 @@
   ],
   "top_colleges": [
    {
-    "name": "1. Indian Institute of Technology Kharagpur\n2. Vellore Institute of Technology\n3. University of Pune\n4. Panjab University\n5. SASTRA University\n6. Jawaharlal Nehru University",
+    "name": "Indian Institute of Technology Kharagpur",
+    "q": "Indian Institute of Technology Kharagpur"
+   },
+   {
+    "name": "Vellore Institute of Technology",
     "q": null
+   },
+   {
+    "name": "University of Pune",
+    "q": null
+   },
+   {
+    "name": "Panjab University",
+    "q": null
+   },
+   {
+    "name": "SASTRA University",
+    "q": null
+   },
+   {
+    "name": "Jawaharlal Nehru University",
+    "q": "Jawaharlal Nehru University, Delhi"
    }
   ],
   "pay": {
@@ -1602,8 +1948,7 @@
    }
   ],
   "notable_people": [
-   "Kiran Mazumdar-Shaw (founder of Biocon",
-   "a major Indian biotech company)",
+   "Kiran Mazumdar-Shaw (founder of Biocon, a major Indian biotech company)",
    "Cyrus Poonawalla (founder of Serum Institute of India)",
    "Krishna Ella (co-founder of Bharat Biotech)"
   ],
@@ -1637,7 +1982,27 @@
   "exams": null,
   "top_colleges": [
    {
-    "name": "1. University of Delhi\n2. Presidency College Chennai\n3. St. Xavier's College Mumbai\n4. Miranda House Delhi\n5. Banaras Hindu University\n6. Fergusson College Pune",
+    "name": "University of Delhi",
+    "q": "University College of Medical Sciences & GTB Hospital, New Delhi"
+   },
+   {
+    "name": "Presidency College Chennai",
+    "q": null
+   },
+   {
+    "name": "St. Xavier's College Mumbai",
+    "q": null
+   },
+   {
+    "name": "Miranda House Delhi",
+    "q": null
+   },
+   {
+    "name": "Banaras Hindu University",
+    "q": null
+   },
+   {
+    "name": "Fergusson College Pune",
     "q": null
    }
   ],
@@ -1692,7 +2057,23 @@
   "exams": null,
   "top_colleges": [
    {
-    "name": "1. Indian Institutes of Management (IIMs) Ahmedabad/Bangalore/Calcutta\n2. Faculty of Management Studies (FMS) Delhi\n3. Xavier Labour Relations Institute (XLRI) Jamshedpur\n4. Indian School of Business (ISB) Hyderabad\n5. Management Development Institute (MDI) Gurgaon",
+    "name": "Indian Institutes of Management (IIMs) Ahmedabad/Bangalore/Calcutta",
+    "q": null
+   },
+   {
+    "name": "Faculty of Management Studies (FMS) Delhi",
+    "q": null
+   },
+   {
+    "name": "Xavier Labour Relations Institute (XLRI) Jamshedpur",
+    "q": null
+   },
+   {
+    "name": "Indian School of Business (ISB) Hyderabad",
+    "q": null
+   },
+   {
+    "name": "Management Development Institute (MDI) Gurgaon",
     "q": null
    }
   ],
@@ -1714,12 +2095,9 @@
   "where_work": "Metro cities mainly",
   "college_options": [],
   "notable_people": [
-   "Indra Nooyi (former CEO",
-   "PepsiCo)",
-   "Kumar Mangalam Birla (chairman",
-   "Aditya Birla Group)",
-   "Anand Mahindra (chairman",
-   "Mahindra Group)"
+   "Indra Nooyi (former CEO, PepsiCo)",
+   "Kumar Mangalam Birla (chairman, Aditya Birla Group)",
+   "Anand Mahindra (chairman, Mahindra Group)"
   ],
   "sources": "NIRF rankings, AmbitionBox, Glassdoor India, industry placement reports",
   "specializations": [
@@ -1772,8 +2150,28 @@
   ],
   "top_colleges": [
    {
-    "name": "1. IIT (BHU) Varanasi\n2. Bengal Engineering and Science University (Jadavpur University)\n3. Government College of Engineering and Ceramic Technology Kolkata\n4. Anna University\n5. NIT Rourkela\n6. College of Engineering and Technology Bhubaneswar",
+    "name": "IIT (BHU) Varanasi",
     "q": null
+   },
+   {
+    "name": "Bengal Engineering and Science University (Jadavpur University)",
+    "q": null
+   },
+   {
+    "name": "Government College of Engineering and Ceramic Technology Kolkata",
+    "q": null
+   },
+   {
+    "name": "Anna University",
+    "q": null
+   },
+   {
+    "name": "NIT Rourkela",
+    "q": "National Institute of Technology, Rourkela"
+   },
+   {
+    "name": "College of Engineering and Technology Bhubaneswar",
+    "q": "Odisha University of Technology and Research (formerly College of Engineering and Technology), Bhubaneswar"
    }
   ],
   "pay": {
@@ -1823,7 +2221,8 @@
    }
   ],
   "notable_people": [
-   "Notable practitioners are mostly industry leaders rather than public figures; senior technical directors at firms like Kajaria Ceramics and Saint-Gobain India are recognized within the field"
+   "Notable practitioners are mostly industry leaders rather than public figures",
+   "senior technical directors at firms like Kajaria Ceramics and Saint-Gobain India are recognized within the field"
   ],
   "sources": "NIRF rankings, AmbitionBox, Glassdoor India, industry placement reports",
   "specializations": [
@@ -1857,7 +2256,11 @@
   "exams": null,
   "top_colleges": [
    {
-    "name": "1. ICAI (the sole body that conducts CA training and exams\n2. with regional offices in Delhi\n3. Mumbai\n4. Chennai\n5. Kolkata\n6. Kanpur)\n7. plus private CA coaching institutes like VG Learning Destination and J.K. Shah Classes for exam preparation.",
+    "name": "ICAI (the sole body that conducts CA training and exams, with regional offices in Delhi, Mumbai, Chennai, Kolkata, Kanpur)",
+    "q": null
+   },
+   {
+    "name": "private CA coaching institutes like VG Learning Destination and J.K. Shah Classes for exam preparation.",
     "q": null
    }
   ],
@@ -1873,19 +2276,16 @@
    "PwC (the 'Big Four' global accounting firms)",
    "Tata Group",
    "Reliance Industries",
-   "and independent CA practice (working for yourself with your own clients)."
+   "independent CA practice (working for yourself with your own clients)."
   ],
   "stability": "High",
   "automation_risk": "Medium",
   "where_work": "Metro cities mainly for top firms, but independent practice works in smaller towns too",
   "college_options": [],
   "notable_people": [
-   "N. R. Narayana Murthy (Infosys co-founder",
-   "is a CA)",
-   "Piyush Goyal (Union Minister",
-   "qualified CA)",
-   "Kumar Mangalam Birla (industrialist",
-   "qualified CA)"
+   "N. R. Narayana Murthy (Infosys co-founder, is a CA)",
+   "Piyush Goyal (Union Minister, qualified CA)",
+   "Kumar Mangalam Birla (industrialist, qualified CA)"
   ],
   "sources": "ICAI official website, AmbitionBox, Glassdoor India, industry placement reports",
   "specializations": []
@@ -1949,7 +2349,27 @@
   ],
   "top_colleges": [
    {
-    "name": "1. IIT Bombay\n2. IIT Delhi\n3. IIT Kanpur\n4. ICT Mumbai (Institute of Chemical Technology)\n5. IIT Madras\n6. BITS Pilani",
+    "name": "IIT Bombay",
+    "q": "Indian Institute of Technology Bombay"
+   },
+   {
+    "name": "IIT Delhi",
+    "q": "Indian Institute of Technology Delhi"
+   },
+   {
+    "name": "IIT Kanpur",
+    "q": "Indian Institute of Technology Kanpur"
+   },
+   {
+    "name": "ICT Mumbai (Institute of Chemical Technology)",
+    "q": null
+   },
+   {
+    "name": "IIT Madras",
+    "q": "Indian Institute of Technology Madras"
+   },
+   {
+    "name": "BITS Pilani",
     "q": null
    }
   ],
@@ -2014,7 +2434,8 @@
    }
   ],
   "notable_people": [
-   "Mukesh Ambani: chairman of Reliance Industries; Ramesh Mashelkar: former director of CSIR and chemical engineer"
+   "Mukesh Ambani: chairman of Reliance Industries",
+   "Ramesh Mashelkar: former director of CSIR and chemical engineer"
   ],
   "sources": "NIRF rankings, AmbitionBox, Glassdoor India, industry placement reports",
   "specializations": [
@@ -2056,7 +2477,23 @@
   ],
   "top_colleges": [
    {
-    "name": "1. Institute of Chemical Technology (ICT) Mumbai\n2. IIT Bombay\n3. IIT Delhi\n4. Anna University Chennai\n5. Harcourt Butler Technical University Kanpur",
+    "name": "Institute of Chemical Technology (ICT) Mumbai",
+    "q": null
+   },
+   {
+    "name": "IIT Bombay",
+    "q": "Indian Institute of Technology Bombay"
+   },
+   {
+    "name": "IIT Delhi",
+    "q": "Indian Institute of Technology Delhi"
+   },
+   {
+    "name": "Anna University Chennai",
+    "q": null
+   },
+   {
+    "name": "Harcourt Butler Technical University Kanpur",
     "q": null
    }
   ],
@@ -2124,7 +2561,27 @@
   ],
   "top_colleges": [
    {
-    "name": "1. Indian Institute of Science (IISc) Bangalore\n2. IIT Bombay\n3. Delhi University\n4. St. Stephen's College Delhi\n5. Fergusson College Pune\n6. BHU (Banaras Hindu University)",
+    "name": "Indian Institute of Science (IISc) Bangalore",
+    "q": null
+   },
+   {
+    "name": "IIT Bombay",
+    "q": "Indian Institute of Technology Bombay"
+   },
+   {
+    "name": "Delhi University",
+    "q": null
+   },
+   {
+    "name": "St. Stephen's College Delhi",
+    "q": null
+   },
+   {
+    "name": "Fergusson College Pune",
+    "q": null
+   },
+   {
+    "name": "BHU (Banaras Hindu University)",
     "q": null
    }
   ],
@@ -2137,8 +2594,7 @@
    "Sun Pharma",
    "Cipla",
    "Dr. Reddy's Laboratories",
-   "CSIR (Council of Scientific and Industrial Research",
-   "a government science research body)",
+   "CSIR (Council of Scientific and Industrial Research, a government science research body)",
    "schools and colleges",
    "Tata Chemicals"
   ],
@@ -2228,7 +2684,27 @@
   ],
   "top_colleges": [
    {
-    "name": "1. IIT Roorkee\n2. IIT Delhi\n3. IIT Madras\n4. NIT Trichy\n5. Jadavpur University\n6. Delhi Technological University",
+    "name": "IIT Roorkee",
+    "q": "Indian Institute of Technology Roorkee"
+   },
+   {
+    "name": "IIT Delhi",
+    "q": "Indian Institute of Technology Delhi"
+   },
+   {
+    "name": "IIT Madras",
+    "q": "Indian Institute of Technology Madras"
+   },
+   {
+    "name": "NIT Trichy",
+    "q": null
+   },
+   {
+    "name": "Jadavpur University",
+    "q": "Jadavpur University"
+   },
+   {
+    "name": "Delhi Technological University",
     "q": null
    }
   ],
@@ -2293,7 +2769,8 @@
    }
   ],
   "notable_people": [
-   "E. Sreedharan: known as the 'Metro Man of India' for building Delhi Metro; M. Visvesvaraya: pioneering Indian civil engineer and statesman"
+   "E. Sreedharan: known as the 'Metro Man of India' for building Delhi Metro",
+   "M. Visvesvaraya: pioneering Indian civil engineer and statesman"
   ],
   "sources": "NIRF rankings, AmbitionBox, Glassdoor India, industry placement reports",
   "specializations": [
@@ -2330,7 +2807,23 @@
   ],
   "top_colleges": [
    {
-    "name": "1. Shri Ram College of Commerce (SRCC) Delhi\n2. St. Xavier's College Mumbai\n3. Christ University Bangalore\n4. Loyola College Chennai\n5. Narsee Monjee College of Commerce Mumbai",
+    "name": "Shri Ram College of Commerce (SRCC) Delhi",
+    "q": null
+   },
+   {
+    "name": "St. Xavier's College Mumbai",
+    "q": null
+   },
+   {
+    "name": "Christ University Bangalore",
+    "q": null
+   },
+   {
+    "name": "Loyola College Chennai",
+    "q": "Loyola-ICAM College of Engineering and Technology (Autonomous), Loyola College Campus, Chennai-600034."
+   },
+   {
+    "name": "Narsee Monjee College of Commerce Mumbai",
     "q": null
    }
   ],
@@ -2352,13 +2845,9 @@
   "where_work": "Works from anywhere for many finance-related roles, metro cities mainly for top corporate jobs",
   "college_options": [],
   "notable_people": [
-   "Uday Kotak (banker",
-   "founder of Kotak Mahindra Bank)",
-   "Kiran Mazumdar-Shaw (entrepreneur",
-   "Biocon founder",
-   "commerce background)",
-   "Falguni Nayar (Nykaa founder",
-   "commerce and MBA background)"
+   "Uday Kotak (banker, founder of Kotak Mahindra Bank)",
+   "Kiran Mazumdar-Shaw (entrepreneur, Biocon founder, commerce background)",
+   "Falguni Nayar (Nykaa founder, commerce and MBA background)"
   ],
   "sources": "NIRF rankings, AmbitionBox, Glassdoor India, industry placement reports",
   "specializations": [
@@ -2396,7 +2885,27 @@
   ],
   "top_colleges": [
    {
-    "name": "1. Christ University Bangalore\n2. NIT Trichy (for MCA)\n3. Symbiosis Institute of Computer Studies and Research\n4. Loyola College Chennai\n5. Jain University\n6. Guru Gobind Singh Indraprastha University",
+    "name": "Christ University Bangalore",
+    "q": null
+   },
+   {
+    "name": "NIT Trichy (for MCA)",
+    "q": null
+   },
+   {
+    "name": "Symbiosis Institute of Computer Studies and Research",
+    "q": null
+   },
+   {
+    "name": "Loyola College Chennai",
+    "q": "Loyola-ICAM College of Engineering and Technology (Autonomous), Loyola College Campus, Chennai-600034."
+   },
+   {
+    "name": "Jain University",
+    "q": null
+   },
+   {
+    "name": "Guru Gobind Singh Indraprastha University",
     "q": null
    }
   ],
@@ -2418,8 +2927,7 @@
   "where_work": "Works from anywhere, since most software jobs allow remote work",
   "college_options": [],
   "notable_people": [
-   "Sundar Pichai (though from a different degree path",
-   "widely seen as an inspiration in Indian tech)",
+   "Sundar Pichai (though from a different degree path, widely seen as an inspiration in Indian tech)",
    "Vinod Khosla (tech entrepreneur)",
    "Radhika Gupta (tech-driven business leader)"
   ],
@@ -2498,7 +3006,27 @@
   ],
   "top_colleges": [
    {
-    "name": "1. IIT Bombay\n2. IIT Delhi\n3. IIIT Hyderabad\n4. BITS Pilani\n5. VIT Vellore\n6. NIT Trichy",
+    "name": "IIT Bombay",
+    "q": "Indian Institute of Technology Bombay"
+   },
+   {
+    "name": "IIT Delhi",
+    "q": "Indian Institute of Technology Delhi"
+   },
+   {
+    "name": "IIIT Hyderabad",
+    "q": null
+   },
+   {
+    "name": "BITS Pilani",
+    "q": null
+   },
+   {
+    "name": "VIT Vellore",
+    "q": null
+   },
+   {
+    "name": "NIT Trichy",
     "q": null
    }
   ],
@@ -2650,7 +3178,27 @@
   ],
   "top_colleges": [
    {
-    "name": "1. IIT Bombay\n2. IIT Delhi\n3. IIT Madras\n4. BITS Pilani\n5. IIIT Hyderabad\n6. NIT Trichy",
+    "name": "IIT Bombay",
+    "q": "Indian Institute of Technology Bombay"
+   },
+   {
+    "name": "IIT Delhi",
+    "q": "Indian Institute of Technology Delhi"
+   },
+   {
+    "name": "IIT Madras",
+    "q": "Indian Institute of Technology Madras"
+   },
+   {
+    "name": "BITS Pilani",
+    "q": null
+   },
+   {
+    "name": "IIIT Hyderabad",
+    "q": null
+   },
+   {
+    "name": "NIT Trichy",
     "q": null
    }
   ],
@@ -2716,8 +3264,7 @@
   ],
   "notable_people": [
    "Sundar Pichai (CEO of Google)",
-   "Nandan Nilekani (co-founder of Infosys",
-   "built Aadhaar's tech)"
+   "Nandan Nilekani (co-founder of Infosys, built Aadhaar's tech)"
   ],
   "sources": "NIRF rankings, AmbitionBox, Glassdoor India, industry placement reports",
   "specializations": [
@@ -2798,7 +3345,23 @@
   ],
   "top_colleges": [
    {
-    "name": "1. IIT Kanpur\n2. IIIT Hyderabad\n3. Amrita Vishwa Vidyapeetham\n4. VIT Vellore\n5. DSCI-recognized training institutes (Data Security Council of India\n6. an industry body that promotes cyber security education)",
+    "name": "IIT Kanpur",
+    "q": "Indian Institute of Technology Kanpur"
+   },
+   {
+    "name": "IIIT Hyderabad",
+    "q": null
+   },
+   {
+    "name": "Amrita Vishwa Vidyapeetham",
+    "q": null
+   },
+   {
+    "name": "VIT Vellore",
+    "q": null
+   },
+   {
+    "name": "DSCI-recognized training institutes (Data Security Council of India, an industry body that promotes cyber security education)",
     "q": null
    }
   ],
@@ -2864,10 +3427,8 @@
   ],
   "notable_people": [
    "Ankit Fadia (well-known Indian ethical hacker and author)",
-   "Trishneet Arora (founder of TAC Security",
-   "a cyber security firm)",
-   "Rahul Tyagi (co-founder of Lucideus",
-   "a cyber security company)"
+   "Trishneet Arora (founder of TAC Security, a cyber security firm)",
+   "Rahul Tyagi (co-founder of Lucideus, a cyber security company)"
   ],
   "sources": "NIRF rankings, AmbitionBox, Glassdoor India, industry placement reports",
   "specializations": []
@@ -2920,7 +3481,23 @@
   ],
   "top_colleges": [
    {
-    "name": "1. National Dairy Research Institute Karnal\n2. College of Dairy Science Anand (Gujarat)\n3. Dairy Science College Bengaluru\n4. SMC College of Dairy Science Anand\n5. College of Dairy Technology Warud",
+    "name": "National Dairy Research Institute Karnal",
+    "q": null
+   },
+   {
+    "name": "College of Dairy Science Anand (Gujarat)",
+    "q": null
+   },
+   {
+    "name": "Dairy Science College Bengaluru",
+    "q": null
+   },
+   {
+    "name": "SMC College of Dairy Science Anand",
+    "q": null
+   },
+   {
+    "name": "College of Dairy Technology Warud",
     "q": null
    }
   ],
@@ -2957,8 +3534,7 @@
    }
   ],
   "notable_people": [
-   "Verghese Kurien (father of India's White Revolution",
-   "founded Amul)",
+   "Verghese Kurien (father of India's White Revolution, founded Amul)",
    "Stya Paul (dairy technology pioneer)"
   ],
   "sources": "NIRF rankings, AmbitionBox, Glassdoor India, industry placement reports",
@@ -3027,8 +3603,28 @@
   ],
   "top_colleges": [
    {
-    "name": "1. IIT Bombay\n2. IIT Delhi\n3. IIIT Hyderabad\n4. BITS Pilani\n5. NIT Surathkal\n6. IIT Kharagpur",
+    "name": "IIT Bombay",
+    "q": "Indian Institute of Technology Bombay"
+   },
+   {
+    "name": "IIT Delhi",
+    "q": "Indian Institute of Technology Delhi"
+   },
+   {
+    "name": "IIIT Hyderabad",
     "q": null
+   },
+   {
+    "name": "BITS Pilani",
+    "q": null
+   },
+   {
+    "name": "NIT Surathkal",
+    "q": "National Institute of Technology Karnataka, Surathkal"
+   },
+   {
+    "name": "IIT Kharagpur",
+    "q": "Indian Institute of Technology Kharagpur"
    }
   ],
   "pay": {
@@ -3130,7 +3726,23 @@
   ],
   "top_colleges": [
    {
-    "name": "1. Maulana Azad Institute of Dental Sciences Delhi\n2. Manipal College of Dental Sciences\n3. King George's Medical University Lucknow\n4. Government Dental College Mumbai\n5. SRM Dental College Chennai",
+    "name": "Maulana Azad Institute of Dental Sciences Delhi",
+    "q": null
+   },
+   {
+    "name": "Manipal College of Dental Sciences",
+    "q": null
+   },
+   {
+    "name": "King George's Medical University Lucknow",
+    "q": "King George Medical University, Lucknow"
+   },
+   {
+    "name": "Government Dental College Mumbai",
+    "q": null
+   },
+   {
+    "name": "SRM Dental College Chennai",
     "q": null
    }
   ],
@@ -3229,7 +3841,27 @@
   ],
   "top_colleges": [
    {
-    "name": "1. National Institute of Design (NID) Ahmedabad\n2. IIT Bombay (Industrial Design Centre)\n3. National Institute of Fashion Technology (NIFT) Delhi\n4. Srishti Manipal Institute of Art\n5. Design and Technology Bangalore\n6. Pearl Academy",
+    "name": "National Institute of Design (NID) Ahmedabad",
+    "q": null
+   },
+   {
+    "name": "IIT Bombay (Industrial Design Centre)",
+    "q": "Indian Institute of Technology Bombay"
+   },
+   {
+    "name": "National Institute of Fashion Technology (NIFT) Delhi",
+    "q": null
+   },
+   {
+    "name": "Srishti Manipal Institute of Art",
+    "q": null
+   },
+   {
+    "name": "Design and Technology Bangalore",
+    "q": null
+   },
+   {
+    "name": "Pearl Academy",
     "q": null
    }
   ],
@@ -3323,7 +3955,27 @@
   ],
   "top_colleges": [
    {
-    "name": "1. IIT (ISM) Dhanbad\n2. IIT Bombay\n3. IIT Kharagpur\n4. IIT Roorkee\n5. University of Petroleum and Energy Studies Dehradun\n6. Anna University",
+    "name": "IIT (ISM) Dhanbad",
+    "q": "Indian Institute of Technology (ISM) Dhanbad"
+   },
+   {
+    "name": "IIT Bombay",
+    "q": "Indian Institute of Technology Bombay"
+   },
+   {
+    "name": "IIT Kharagpur",
+    "q": "Indian Institute of Technology Kharagpur"
+   },
+   {
+    "name": "IIT Roorkee",
+    "q": "Indian Institute of Technology Roorkee"
+   },
+   {
+    "name": "University of Petroleum and Energy Studies Dehradun",
+    "q": null
+   },
+   {
+    "name": "Anna University",
     "q": null
    }
   ],
@@ -3353,8 +4005,7 @@
    }
   ],
   "notable_people": [
-   "M. S. Srinivasan (former Coal Secretary",
-   "mining expert)",
+   "M. S. Srinivasan (former Coal Secretary, mining expert)",
    "D. N. Wadia (pioneering Indian geologist)"
   ],
   "sources": "NIRF rankings, AmbitionBox, Glassdoor India, industry placement reports",
@@ -3404,7 +4055,23 @@
   ],
   "top_colleges": [
    {
-    "name": "1. Delhi School of Economics\n2. St. Stephen's College Delhi\n3. Indian Statistical Institute (ISI) Kolkata\n4. Presidency University Kolkata\n5. Madras School of Economics",
+    "name": "Delhi School of Economics",
+    "q": null
+   },
+   {
+    "name": "St. Stephen's College Delhi",
+    "q": null
+   },
+   {
+    "name": "Indian Statistical Institute (ISI) Kolkata",
+    "q": null
+   },
+   {
+    "name": "Presidency University Kolkata",
+    "q": null
+   },
+   {
+    "name": "Madras School of Economics",
     "q": null
    }
   ],
@@ -3504,8 +4171,28 @@
   ],
   "top_colleges": [
    {
-    "name": "1. Jadavpur University\n2. Jamia Millia Islamia\n3. Aligarh Muslim University\n4. Delhi Technological University\n5. Punjab Engineering College\n6. NIT Silchar",
+    "name": "Jadavpur University",
+    "q": "Jadavpur University"
+   },
+   {
+    "name": "Jamia Millia Islamia",
     "q": null
+   },
+   {
+    "name": "Aligarh Muslim University",
+    "q": null
+   },
+   {
+    "name": "Delhi Technological University",
+    "q": null
+   },
+   {
+    "name": "Punjab Engineering College",
+    "q": "Punjab Engineering College, Chandigarh"
+   },
+   {
+    "name": "NIT Silchar",
+    "q": "National Institute of Technology, Silchar"
    }
   ],
   "pay": {
@@ -3651,7 +4338,27 @@
   ],
   "top_colleges": [
    {
-    "name": "1. NIT Trichy\n2. NIT Warangal\n3. VIT Vellore\n4. SASTRA University\n5. Anna University\n6. Manipal Institute of Technology",
+    "name": "NIT Trichy",
+    "q": null
+   },
+   {
+    "name": "NIT Warangal",
+    "q": "National Institute of Technology, Warangal"
+   },
+   {
+    "name": "VIT Vellore",
+    "q": null
+   },
+   {
+    "name": "SASTRA University",
+    "q": null
+   },
+   {
+    "name": "Anna University",
+    "q": null
+   },
+   {
+    "name": "Manipal Institute of Technology",
     "q": null
    }
   ],
@@ -3717,8 +4424,7 @@
   ],
   "notable_people": [
    "M. Visvesvaraya (pioneering Indian engineer)",
-   "Narinder Singh Kapany (father of fibre optics",
-   "electronics innovator)"
+   "Narinder Singh Kapany (father of fibre optics, electronics innovator)"
   ],
   "sources": "NIRF rankings, AmbitionBox, Glassdoor India, industry placement reports",
   "specializations": [
@@ -3799,8 +4505,28 @@
   ],
   "top_colleges": [
    {
-    "name": "1. IIT Bombay\n2. IIT Delhi\n3. IIT Kanpur\n4. NIT Trichy\n5. Delhi Technological University\n6. VJTI Mumbai",
+    "name": "IIT Bombay",
+    "q": "Indian Institute of Technology Bombay"
+   },
+   {
+    "name": "IIT Delhi",
+    "q": "Indian Institute of Technology Delhi"
+   },
+   {
+    "name": "IIT Kanpur",
+    "q": "Indian Institute of Technology Kanpur"
+   },
+   {
+    "name": "NIT Trichy",
     "q": null
+   },
+   {
+    "name": "Delhi Technological University",
+    "q": null
+   },
+   {
+    "name": "VJTI Mumbai",
+    "q": "Veermata Jijabai Technological Institute(VJTI), Matunga, Mumbai"
    }
   ],
   "pay": {
@@ -3864,8 +4590,7 @@
    }
   ],
   "notable_people": [
-   "M. Visvesvaraya (legendary Indian engineer",
-   "dam and power systems)",
+   "M. Visvesvaraya (legendary Indian engineer, dam and power systems)",
    "Nikola Tesla (pioneer of modern electric power systems)"
   ],
   "sources": "NIRF rankings, AmbitionBox, Glassdoor India, industry placement reports",
@@ -3947,7 +4672,27 @@
   ],
   "top_colleges": [
    {
-    "name": "1. IIT Delhi\n2. IIT Kharagpur\n3. IIIT Hyderabad\n4. NIT Warangal\n5. BITS Pilani\n6. VIT Vellore",
+    "name": "IIT Delhi",
+    "q": "Indian Institute of Technology Delhi"
+   },
+   {
+    "name": "IIT Kharagpur",
+    "q": "Indian Institute of Technology Kharagpur"
+   },
+   {
+    "name": "IIIT Hyderabad",
+    "q": null
+   },
+   {
+    "name": "NIT Warangal",
+    "q": "National Institute of Technology, Warangal"
+   },
+   {
+    "name": "BITS Pilani",
+    "q": null
+   },
+   {
+    "name": "VIT Vellore",
     "q": null
    }
   ],
@@ -4062,7 +4807,27 @@
   ],
   "top_colleges": [
    {
-    "name": "1. IIT Bombay\n2. TERI School of Advanced Studies Delhi\n3. University of Petroleum and Energy Studies Dehradun\n4. IIT Roorkee\n5. NIT Rourkela\n6. Amrita Vishwa Vidyapeetham",
+    "name": "IIT Bombay",
+    "q": "Indian Institute of Technology Bombay"
+   },
+   {
+    "name": "TERI School of Advanced Studies Delhi",
+    "q": null
+   },
+   {
+    "name": "University of Petroleum and Energy Studies Dehradun",
+    "q": null
+   },
+   {
+    "name": "IIT Roorkee",
+    "q": "Indian Institute of Technology Roorkee"
+   },
+   {
+    "name": "NIT Rourkela",
+    "q": "National Institute of Technology, Rourkela"
+   },
+   {
+    "name": "Amrita Vishwa Vidyapeetham",
     "q": null
    }
   ],
@@ -4152,7 +4917,27 @@
   ],
   "top_colleges": [
    {
-    "name": "1. IIT Kanpur\n2. IIT Hyderabad\n3. IIT Guwahati\n4. IIT Roorkee\n5. IIT Bhilai\n6. National Institute of Design Ahmedabad",
+    "name": "IIT Kanpur",
+    "q": "Indian Institute of Technology Kanpur"
+   },
+   {
+    "name": "IIT Hyderabad",
+    "q": "Indian Institute of Technology Hyderabad"
+   },
+   {
+    "name": "IIT Guwahati",
+    "q": null
+   },
+   {
+    "name": "IIT Roorkee",
+    "q": "Indian Institute of Technology Roorkee"
+   },
+   {
+    "name": "IIT Bhilai",
+    "q": "Indian Institute of Technology Bhilai"
+   },
+   {
+    "name": "National Institute of Design Ahmedabad",
     "q": null
    }
   ],
@@ -4231,8 +5016,28 @@
   ],
   "top_colleges": [
    {
-    "name": "1. IIT Bombay\n2. IIT Delhi\n3. IIT Kanpur\n4. IIT Madras (Engineering Physics/Physics programs)\n5. BHU IIT (Varanasi)\n6. IIT Hyderabad",
-    "q": null
+    "name": "IIT Bombay",
+    "q": "Indian Institute of Technology Bombay"
+   },
+   {
+    "name": "IIT Delhi",
+    "q": "Indian Institute of Technology Delhi"
+   },
+   {
+    "name": "IIT Kanpur",
+    "q": "Indian Institute of Technology Kanpur"
+   },
+   {
+    "name": "IIT Madras (Engineering Physics/Physics programs)",
+    "q": "Indian Institute of Technology Madras"
+   },
+   {
+    "name": "BHU IIT (Varanasi)",
+    "q": "Indian Institute of Technology (BHU) Varanasi"
+   },
+   {
+    "name": "IIT Hyderabad",
+    "q": "Indian Institute of Technology Hyderabad"
    }
   ],
   "pay": {
@@ -4262,11 +5067,9 @@
    }
   ],
   "notable_people": [
-   "C.V. Raman (physicist",
-   "Nobel laureate)",
+   "C.V. Raman (physicist, Nobel laureate)",
    "Deepak Pandit (semiconductor researcher)",
-   "Homi Bhabha (physicist",
-   "nuclear program founder)"
+   "Homi Bhabha (physicist, nuclear program founder)"
   ],
   "sources": "NIRF rankings, AmbitionBox, Glassdoor India, industry placement reports",
   "specializations": [
@@ -4307,8 +5110,24 @@
   ],
   "top_colleges": [
    {
-    "name": "1. IIT Kanpur (Engineering Science programme)\n2. IISER Pune\n3. IISER Bhopal\n4. BITS Pilani (interdisciplinary tracks)\n5. IIT Gandhinagar",
+    "name": "IIT Kanpur (Engineering Science programme)",
+    "q": "Indian Institute of Technology Kanpur"
+   },
+   {
+    "name": "IISER Pune",
     "q": null
+   },
+   {
+    "name": "IISER Bhopal",
+    "q": null
+   },
+   {
+    "name": "BITS Pilani (interdisciplinary tracks)",
+    "q": null
+   },
+   {
+    "name": "IIT Gandhinagar",
+    "q": "Indian Institute of Technology Gandhinagar"
    }
   ],
   "pay": {
@@ -4337,12 +5156,9 @@
    }
   ],
   "notable_people": [
-   "Elon Musk (broad engineering background",
-   "entrepreneur)",
-   "Sundar Pichai (engineer",
-   "Google CEO)",
-   "Raghunath Mashelkar (scientist",
-   "broad engineering research)"
+   "Elon Musk (broad engineering background, entrepreneur)",
+   "Sundar Pichai (engineer, Google CEO)",
+   "Raghunath Mashelkar (scientist, broad engineering research)"
   ],
   "sources": "NIRF rankings, AmbitionBox, Glassdoor India, industry placement reports",
   "specializations": []
@@ -4366,7 +5182,23 @@
   ],
   "top_colleges": [
    {
-    "name": "1. St. Stephen's College Delhi\n2. Lady Shri Ram College Delhi\n3. Presidency College Chennai\n4. Jadavpur University Kolkata\n5. Miranda House Delhi",
+    "name": "St. Stephen's College Delhi",
+    "q": null
+   },
+   {
+    "name": "Lady Shri Ram College Delhi",
+    "q": null
+   },
+   {
+    "name": "Presidency College Chennai",
+    "q": null
+   },
+   {
+    "name": "Jadavpur University Kolkata",
+    "q": null
+   },
+   {
+    "name": "Miranda House Delhi",
     "q": null
    }
   ],
@@ -4389,9 +5221,7 @@
   "notable_people": [
    "Arundhati Roy (Booker Prize-winning Indian author)",
    "Chetan Bhagat (bestselling Indian English-language novelist)",
-   "Shashi Tharoor (writer",
-   "politician",
-   "known for his English vocabulary and books)"
+   "Shashi Tharoor (writer, politician, known for his English vocabulary and books)"
   ],
   "sources": "NIRF rankings, AmbitionBox, Glassdoor India, industry placement reports",
   "specializations": []
@@ -4440,8 +5270,28 @@
   ],
   "top_colleges": [
    {
-    "name": "1. IIT Roorkee\n2. IIT Kharagpur\n3. IIT Bombay\n4. NIT Warangal\n5. Anna University\n6. Jadavpur University",
+    "name": "IIT Roorkee",
+    "q": "Indian Institute of Technology Roorkee"
+   },
+   {
+    "name": "IIT Kharagpur",
+    "q": "Indian Institute of Technology Kharagpur"
+   },
+   {
+    "name": "IIT Bombay",
+    "q": "Indian Institute of Technology Bombay"
+   },
+   {
+    "name": "NIT Warangal",
+    "q": "National Institute of Technology, Warangal"
+   },
+   {
+    "name": "Anna University",
     "q": null
+   },
+   {
+    "name": "Jadavpur University",
+    "q": "Jadavpur University"
    }
   ],
   "pay": {
@@ -4492,8 +5342,7 @@
   ],
   "notable_people": [
    "Sunita Narain (environmental researcher and activist)",
-   "Rajendra Singh (water conservation engineer",
-   "Magsaysay awardee)"
+   "Rajendra Singh (water conservation engineer, Magsaysay awardee)"
   ],
   "sources": "NIRF rankings, AmbitionBox, Glassdoor India, industry placement reports",
   "specializations": [
@@ -4531,7 +5380,23 @@
   ],
   "top_colleges": [
    {
-    "name": "1. Shri Ram College of Commerce (Delhi)\n2. Narsee Monjee Institute of Management Studies (Mumbai)\n3. Indian Institutes of Management (various cities)\n4. St. Xavier's College (Kolkata/Mumbai)\n5. Institute of Chartered Accountants of India",
+    "name": "Shri Ram College of Commerce (Delhi)",
+    "q": null
+   },
+   {
+    "name": "Narsee Monjee Institute of Management Studies (Mumbai)",
+    "q": null
+   },
+   {
+    "name": "Indian Institutes of Management (various cities)",
+    "q": null
+   },
+   {
+    "name": "St. Xavier's College (Kolkata/Mumbai)",
+    "q": "St. Xavier's Catholic College of Engineering (Autonomous), Chunkankadai, Kanyakumari District, Nagercoil-629003."
+   },
+   {
+    "name": "Institute of Chartered Accountants of India",
     "q": null
    }
   ],
@@ -4599,7 +5464,19 @@
   ],
   "top_colleges": [
    {
-    "name": "1. Central Institute of Fisheries Education (Mumbai)\n2. College of Fisheries (Kerala Agricultural University)\n3. Fisheries College and Research Institute (Tamil Nadu)\n4. West Bengal University of Animal and Fishery Sciences",
+    "name": "Central Institute of Fisheries Education (Mumbai)",
+    "q": null
+   },
+   {
+    "name": "College of Fisheries (Kerala Agricultural University)",
+    "q": null
+   },
+   {
+    "name": "Fisheries College and Research Institute (Tamil Nadu)",
+    "q": null
+   },
+   {
+    "name": "West Bengal University of Animal and Fishery Sciences",
     "q": null
    }
   ],
@@ -4686,7 +5563,23 @@
   ],
   "top_colleges": [
    {
-    "name": "1. IIT Kharagpur (Agricultural and Food Engineering)\n2. NIFTEM (National Institute of Food Technology\n3. Entrepreneurship and Management)\n4. CFTRI Mysore\n5. Punjab Agricultural University\n6. GB Pant University",
+    "name": "IIT Kharagpur (Agricultural and Food Engineering)",
+    "q": "Indian Institute of Technology Kharagpur"
+   },
+   {
+    "name": "NIFTEM (National Institute of Food Technology, Entrepreneurship and Management)",
+    "q": null
+   },
+   {
+    "name": "CFTRI Mysore",
+    "q": null
+   },
+   {
+    "name": "Punjab Agricultural University",
+    "q": null
+   },
+   {
+    "name": "GB Pant University",
     "q": null
    }
   ],
@@ -4744,10 +5637,8 @@
    }
   ],
   "notable_people": [
-   "M.S. Swaminathan (agricultural scientist",
-   "food security pioneer)",
-   "Verghese Kurien (dairy and food processing pioneer",
-   "founder of Amul's model)"
+   "M.S. Swaminathan (agricultural scientist, food security pioneer)",
+   "Verghese Kurien (dairy and food processing pioneer, founder of Amul's model)"
   ],
   "sources": "NIRF rankings, AmbitionBox, Glassdoor India, industry placement reports",
   "specializations": [
@@ -4780,7 +5671,19 @@
   "exams": null,
   "top_colleges": [
    {
-    "name": "1. Lokmanya Tilak Institute of Forensic Science (Mumbai)\n2. Government Institute of Forensic Science (Nagpur)\n3. Institute of Forensic Science (Gujarat Forensic Sciences University)\n4. Amity Institute of Forensic Sciences (Noida)",
+    "name": "Lokmanya Tilak Institute of Forensic Science (Mumbai)",
+    "q": null
+   },
+   {
+    "name": "Government Institute of Forensic Science (Nagpur)",
+    "q": null
+   },
+   {
+    "name": "Institute of Forensic Science (Gujarat Forensic Sciences University)",
+    "q": null
+   },
+   {
+    "name": "Amity Institute of Forensic Sciences (Noida)",
     "q": null
    }
   ],
@@ -4821,7 +5724,19 @@
   "exams": null,
   "top_colleges": [
    {
-    "name": "1. Forest Research Institute (Dehradun)\n2. Indira Gandhi Krishi Vishwavidyalaya (Raipur)\n3. Kerala Agricultural University\n4. Indian Institute of Forest Management (Bhopal)",
+    "name": "Forest Research Institute (Dehradun)",
+    "q": null
+   },
+   {
+    "name": "Indira Gandhi Krishi Vishwavidyalaya (Raipur)",
+    "q": null
+   },
+   {
+    "name": "Kerala Agricultural University",
+    "q": null
+   },
+   {
+    "name": "Indian Institute of Forest Management (Bhopal)",
     "q": null
    }
   ],
@@ -4878,7 +5793,15 @@
   ],
   "top_colleges": [
    {
-    "name": "1. Various state engineering colleges and polytechnic-linked institutes\n2. regional NITs offering general/multi-disciplinary tracks\n3. state technical universities",
+    "name": "Various state engineering colleges and polytechnic-linked institutes",
+    "q": null
+   },
+   {
+    "name": "regional NITs offering general/multi-disciplinary tracks",
+    "q": null
+   },
+   {
+    "name": "state technical universities",
     "q": null
    }
   ],
@@ -4907,10 +5830,8 @@
    }
   ],
   "notable_people": [
-   "Sir M. Visvesvaraya (broad civil-mechanical engineer",
-   "statesman)",
-   "E. Sreedharan (multi-discipline infrastructure engineer",
-   "'Metro Man of India')"
+   "Sir M. Visvesvaraya (broad civil-mechanical engineer, statesman)",
+   "E. Sreedharan (multi-discipline infrastructure engineer, 'Metro Man of India')"
   ],
   "sources": "NIRF rankings, AmbitionBox, Glassdoor India, industry placement reports",
   "specializations": []
@@ -4939,8 +5860,24 @@
   ],
   "top_colleges": [
    {
-    "name": "1. Indian Institute of Technology (various cities)\n2. Indian School of Mines/IIT Dhanbad\n3. Banaras Hindu University\n4. University of Delhi\n5. Jadavpur University",
+    "name": "Indian Institute of Technology (various cities)",
     "q": null
+   },
+   {
+    "name": "Indian School of Mines/IIT Dhanbad",
+    "q": null
+   },
+   {
+    "name": "Banaras Hindu University",
+    "q": null
+   },
+   {
+    "name": "University of Delhi",
+    "q": "University College of Medical Sciences & GTB Hospital, New Delhi"
+   },
+   {
+    "name": "Jadavpur University",
+    "q": "Jadavpur University"
    }
   ],
   "pay": {
@@ -4987,7 +5924,15 @@
   "exams": null,
   "top_colleges": [
    {
-    "name": "1. This is a company-run program\n2. not a college degree \u2014 training happens directly at HCLTech's own TechBee centers\n3. with an option to later complete a college degree alongside work.",
+    "name": "This is a company-run program",
+    "q": null
+   },
+   {
+    "name": "not a college degree \u2014 training happens directly at HCLTech's own TechBee centers",
+    "q": null
+   },
+   {
+    "name": "with an option to later complete a college degree alongside work.",
     "q": null
    }
   ],
@@ -5023,8 +5968,24 @@
   "exams": null,
   "top_colleges": [
    {
-    "name": "1. Jawaharlal Nehru University (Delhi)\n2. Delhi University\n3. Presidency University (Kolkata)\n4. Banaras Hindu University\n5. Jadavpur University",
+    "name": "Jawaharlal Nehru University (Delhi)",
+    "q": "Jawaharlal Nehru University, Delhi"
+   },
+   {
+    "name": "Delhi University",
     "q": null
+   },
+   {
+    "name": "Presidency University (Kolkata)",
+    "q": "PRESIDENCY University ITGALPURA, RAJANUKUNTE, YELAHANKA, BENGALURU - 560 064"
+   },
+   {
+    "name": "Banaras Hindu University",
+    "q": null
+   },
+   {
+    "name": "Jadavpur University",
+    "q": "Jadavpur University"
    }
   ],
   "pay": {
@@ -5068,7 +6029,19 @@
   ],
   "top_colleges": [
    {
-    "name": "1. National Institute of Homoeopathy (Kolkata)\n2. Nehru Homoeopathic Medical College (Delhi)\n3. Government Homoeopathic Medical College (Bengaluru)\n4. Dr. M.P.K. Homoeopathic Medical College (Mumbai)",
+    "name": "National Institute of Homoeopathy (Kolkata)",
+    "q": null
+   },
+   {
+    "name": "Nehru Homoeopathic Medical College (Delhi)",
+    "q": null
+   },
+   {
+    "name": "Government Homoeopathic Medical College (Bengaluru)",
+    "q": null
+   },
+   {
+    "name": "Dr. M.P.K. Homoeopathic Medical College (Mumbai)",
     "q": null
    }
   ],
@@ -5114,7 +6087,19 @@
   ],
   "top_colleges": [
    {
-    "name": "1. Indian Agricultural Research Institute (Delhi)\n2. Punjab Agricultural University\n3. Kerala Agricultural University\n4. Dr. Yashwant Singh Parmar University of Horticulture and Forestry",
+    "name": "Indian Agricultural Research Institute (Delhi)",
+    "q": null
+   },
+   {
+    "name": "Punjab Agricultural University",
+    "q": null
+   },
+   {
+    "name": "Kerala Agricultural University",
+    "q": null
+   },
+   {
+    "name": "Dr. Yashwant Singh Parmar University of Horticulture and Forestry",
     "q": null
    }
   ],
@@ -5159,7 +6144,19 @@
   ],
   "top_colleges": [
    {
-    "name": "1. Institute of Hotel Management (Mumbai/Delhi/various cities)\n2. Welcomgroup Graduate School of Hotel Administration (Manipal)\n3. Oberoi Centre of Learning and Development\n4. Christ University (Bengaluru)",
+    "name": "Institute of Hotel Management (Mumbai/Delhi/various cities)",
+    "q": null
+   },
+   {
+    "name": "Welcomgroup Graduate School of Hotel Administration (Manipal)",
+    "q": null
+   },
+   {
+    "name": "Oberoi Centre of Learning and Development",
+    "q": null
+   },
+   {
+    "name": "Christ University (Bengaluru)",
     "q": null
    }
   ],
@@ -5241,7 +6238,27 @@
   ],
   "top_colleges": [
    {
-    "name": "1. IIT Delhi\n2. IIT Bombay\n3. NIT Trichy\n4. PSG College of Technology\n5. VJTI Mumbai\n6. Anna University",
+    "name": "IIT Delhi",
+    "q": "Indian Institute of Technology Delhi"
+   },
+   {
+    "name": "IIT Bombay",
+    "q": "Indian Institute of Technology Bombay"
+   },
+   {
+    "name": "NIT Trichy",
+    "q": null
+   },
+   {
+    "name": "PSG College of Technology",
+    "q": "PSG College of Technology (Autonomous) Peelamedu Coimbatore District 641004"
+   },
+   {
+    "name": "VJTI Mumbai",
+    "q": "Veermata Jijabai Technological Institute(VJTI), Matunga, Mumbai"
+   },
+   {
+    "name": "Anna University",
     "q": null
    }
   ],
@@ -5306,10 +6323,8 @@
    }
   ],
   "notable_people": [
-   "Ratan Tata (industrialist",
-   "manufacturing leader)",
-   "Ravi Kant (former Tata Motors MD",
-   "manufacturing expert)"
+   "Ratan Tata (industrialist, manufacturing leader)",
+   "Ravi Kant (former Tata Motors MD, manufacturing expert)"
   ],
   "sources": "NIRF rankings, AmbitionBox, Glassdoor India, industry placement reports",
   "specializations": [
@@ -5350,7 +6365,19 @@
   ],
   "top_colleges": [
    {
-    "name": "1. Indian Institute of Technology (various cities)\n2. Institute of Chemical Technology (Mumbai)\n3. Birla Institute of Technology and Science (Pilani)\n4. Indian Institute of Science (Bengaluru)",
+    "name": "Indian Institute of Technology (various cities)",
+    "q": null
+   },
+   {
+    "name": "Institute of Chemical Technology (Mumbai)",
+    "q": null
+   },
+   {
+    "name": "Birla Institute of Technology and Science (Pilani)",
+    "q": null
+   },
+   {
+    "name": "Indian Institute of Science (Bengaluru)",
     "q": null
    }
   ],
@@ -5432,7 +6459,27 @@
   ],
   "top_colleges": [
    {
-    "name": "1. IIT Kharagpur\n2. IIT Delhi\n3. NIT Trichy\n4. VIT Vellore\n5. Manipal Institute of Technology\n6. ICT Mumbai",
+    "name": "IIT Kharagpur",
+    "q": "Indian Institute of Technology Kharagpur"
+   },
+   {
+    "name": "IIT Delhi",
+    "q": "Indian Institute of Technology Delhi"
+   },
+   {
+    "name": "NIT Trichy",
+    "q": null
+   },
+   {
+    "name": "VIT Vellore",
+    "q": null
+   },
+   {
+    "name": "Manipal Institute of Technology",
+    "q": null
+   },
+   {
+    "name": "ICT Mumbai",
     "q": null
    }
   ],
@@ -5483,8 +6530,7 @@
    }
   ],
   "notable_people": [
-   "Verghese Kurien (engineering-driven institution builder",
-   "though dairy focused)",
+   "Verghese Kurien (engineering-driven institution builder, though dairy focused)",
    "instrumentation leaders at ISRO like former chairman K. Sivan (aerospace instrumentation background)"
   ],
   "sources": "NIRF rankings, AmbitionBox, Glassdoor India, industry placement reports",
@@ -5517,7 +6563,27 @@
   "exams": null,
   "top_colleges": [
    {
-    "name": "1. Jawaharlal Nehru University (JNU)\n2. Delhi University\n3. Jamia Millia Islamia\n4. English and Foreign Languages University (EFLU) Hyderabad\n5. Symbiosis Pune\n6. The Japan Foundation New Delhi (for JLPT training)",
+    "name": "Jawaharlal Nehru University (JNU)",
+    "q": "Jawaharlal Nehru University, Delhi"
+   },
+   {
+    "name": "Delhi University",
+    "q": null
+   },
+   {
+    "name": "Jamia Millia Islamia",
+    "q": null
+   },
+   {
+    "name": "English and Foreign Languages University (EFLU) Hyderabad",
+    "q": null
+   },
+   {
+    "name": "Symbiosis Pune",
+    "q": "Symbiosis Medical College for Women, Pune"
+   },
+   {
+    "name": "The Japan Foundation New Delhi (for JLPT training)",
     "q": null
    }
   ],
@@ -5540,8 +6606,7 @@
   "college_options": [],
   "notable_people": [
    "Minoru Sasaki (Japan Foundation India educator)",
-   "Ian Hideo Levy (Japanese-English literary translator",
-   "US-born)"
+   "Ian Hideo Levy (Japanese-English literary translator, US-born)"
   ],
   "sources": "NIRF rankings, AmbitionBox, Glassdoor India, industry placement reports",
   "specializations": [
@@ -5573,7 +6638,27 @@
   "exams": null,
   "top_colleges": [
    {
-    "name": "1. Indian Institute of Mass Communication (IIMC) Delhi\n2. Xavier Institute of Communications Mumbai\n3. Asian College of Journalism Chennai\n4. Symbiosis Institute of Media and Communication Pune\n5. Delhi University\n6. Jamia Millia Islamia",
+    "name": "Indian Institute of Mass Communication (IIMC) Delhi",
+    "q": null
+   },
+   {
+    "name": "Xavier Institute of Communications Mumbai",
+    "q": null
+   },
+   {
+    "name": "Asian College of Journalism Chennai",
+    "q": null
+   },
+   {
+    "name": "Symbiosis Institute of Media and Communication Pune",
+    "q": null
+   },
+   {
+    "name": "Delhi University",
+    "q": null
+   },
+   {
+    "name": "Jamia Millia Islamia",
     "q": null
    }
   ],
@@ -5634,7 +6719,27 @@
   ],
   "top_colleges": [
    {
-    "name": "1. National Law School of India University (NLSIU) Bangalore\n2. National Law University (NLU) Delhi\n3. NALSAR University of Law Hyderabad\n4. Government Law College Mumbai\n5. Symbiosis Law School Pune\n6. Faculty of Law Delhi University",
+    "name": "National Law School of India University (NLSIU) Bangalore",
+    "q": null
+   },
+   {
+    "name": "National Law University (NLU) Delhi",
+    "q": null
+   },
+   {
+    "name": "NALSAR University of Law Hyderabad",
+    "q": "NALSAR University of Law (NALSAR), Hyderabad"
+   },
+   {
+    "name": "Government Law College Mumbai",
+    "q": null
+   },
+   {
+    "name": "Symbiosis Law School Pune",
+    "q": null
+   },
+   {
+    "name": "Faculty of Law Delhi University",
     "q": null
    }
   ],
@@ -5664,8 +6769,7 @@
    }
   ],
   "notable_people": [
-   "Harish Salve (senior advocate",
-   "Supreme Court)",
+   "Harish Salve (senior advocate, Supreme Court)",
    "Indira Jaising (senior advocate and human rights lawyer)",
    "Justice D.Y. Chandrachud (former Chief Justice of India)"
   ],
@@ -5712,7 +6816,27 @@
   ],
   "top_colleges": [
    {
-    "name": "1. Indian Institute of Science (IISc) Bangalore\n2. Jawaharlal Nehru University (JNU)\n3. Delhi University\n4. University of Hyderabad\n5. Banaras Hindu University (BHU)\n6. Fergusson College Pune",
+    "name": "Indian Institute of Science (IISc) Bangalore",
+    "q": null
+   },
+   {
+    "name": "Jawaharlal Nehru University (JNU)",
+    "q": "Jawaharlal Nehru University, Delhi"
+   },
+   {
+    "name": "Delhi University",
+    "q": null
+   },
+   {
+    "name": "University of Hyderabad",
+    "q": null
+   },
+   {
+    "name": "Banaras Hindu University (BHU)",
+    "q": null
+   },
+   {
+    "name": "Fergusson College Pune",
     "q": null
    }
   ],
@@ -5743,8 +6867,7 @@
   ],
   "notable_people": [
    "Dr Gagandeep Kang (vaccine scientist and immunologist)",
-   "Dr Cyrus Poonawalla (founder",
-   "Serum Institute of India)"
+   "Dr Cyrus Poonawalla (founder, Serum Institute of India)"
   ],
   "sources": "NIRF rankings, AmbitionBox, Glassdoor India, industry placement reports",
   "specializations": [
@@ -5805,7 +6928,19 @@
   ],
   "top_colleges": [
    {
-    "name": "1. IIT Madras (Ocean Engineering)\n2. IIT Kharagpur\n3. Cochin University of Science and Technology\n4. Andhra University College of Engineering",
+    "name": "IIT Madras (Ocean Engineering)",
+    "q": "Indian Institute of Technology Madras"
+   },
+   {
+    "name": "IIT Kharagpur",
+    "q": "Indian Institute of Technology Kharagpur"
+   },
+   {
+    "name": "Cochin University of Science and Technology",
+    "q": null
+   },
+   {
+    "name": "Andhra University College of Engineering",
     "q": null
    }
   ],
@@ -5915,7 +7050,19 @@
   ],
   "top_colleges": [
    {
-    "name": "1. Indian Maritime University (Chennai and other campuses)\n2. Marine Engineering and Research Institute (MERI) Kolkata/Mumbai\n3. Tolani Maritime Institute\n4. Sri Ramaswamy Memorial (SRM) maritime programs",
+    "name": "Indian Maritime University (Chennai and other campuses)",
+    "q": null
+   },
+   {
+    "name": "Marine Engineering and Research Institute (MERI) Kolkata/Mumbai",
+    "q": null
+   },
+   {
+    "name": "Tolani Maritime Institute",
+    "q": null
+   },
+   {
+    "name": "Sri Ramaswamy Memorial (SRM) maritime programs",
     "q": null
    }
   ],
@@ -5959,7 +7106,8 @@
    }
   ],
   "notable_people": [
-   "Captain and Chief Engineer graduates from Indian Maritime University widely employed on global shipping fleets; senior marine engineers featured in Directorate General of Shipping recognitions"
+   "Captain and Chief Engineer graduates from Indian Maritime University widely employed on global shipping fleets",
+   "senior marine engineers featured in Directorate General of Shipping recognitions"
   ],
   "sources": "NIRF rankings, AmbitionBox, Glassdoor India, industry placement reports",
   "specializations": [
@@ -6013,7 +7161,27 @@
   ],
   "top_colleges": [
    {
-    "name": "1. Indian Statistical Institute (ISI) Kolkata\n2. Chennai Mathematical Institute (CMI)\n3. Indian Institute of Science (IISc) Bangalore\n4. St. Stephen's College Delhi\n5. Indian Institutes of Technology (IITs)\n6. Tata Institute of Fundamental Research (TIFR)",
+    "name": "Indian Statistical Institute (ISI) Kolkata",
+    "q": null
+   },
+   {
+    "name": "Chennai Mathematical Institute (CMI)",
+    "q": null
+   },
+   {
+    "name": "Indian Institute of Science (IISc) Bangalore",
+    "q": null
+   },
+   {
+    "name": "St. Stephen's College Delhi",
+    "q": null
+   },
+   {
+    "name": "Indian Institutes of Technology (IITs)",
+    "q": null
+   },
+   {
+    "name": "Tata Institute of Fundamental Research (TIFR)",
     "q": null
    }
   ],
@@ -6088,7 +7256,23 @@
   ],
   "top_colleges": [
    {
-    "name": "1. Indian Institute of Technology (IIT) Delhi\n2. Indian Institute of Technology (IIT) Kharagpur\n3. Indian Institute of Technology (IIT) Guwahati\n4. Indian Institute of Technology (IIT) BHU Varanasi\n5. Delhi Technological University",
+    "name": "Indian Institute of Technology (IIT) Delhi",
+    "q": "Indian Institute of Technology Delhi"
+   },
+   {
+    "name": "Indian Institute of Technology (IIT) Kharagpur",
+    "q": "Indian Institute of Technology Kharagpur"
+   },
+   {
+    "name": "Indian Institute of Technology (IIT) Guwahati",
+    "q": null
+   },
+   {
+    "name": "Indian Institute of Technology (IIT) BHU Varanasi",
+    "q": "Indian Institute of Technology (BHU) Varanasi"
+   },
+   {
+    "name": "Delhi Technological University",
     "q": null
    }
   ],
@@ -6209,8 +7393,28 @@
   ],
   "top_colleges": [
    {
-    "name": "1. IIT Bombay\n2. IIT Delhi\n3. IIT Madras\n4. VIT Vellore\n5. BITS Pilani\n6. NIT Surathkal",
+    "name": "IIT Bombay",
+    "q": "Indian Institute of Technology Bombay"
+   },
+   {
+    "name": "IIT Delhi",
+    "q": "Indian Institute of Technology Delhi"
+   },
+   {
+    "name": "IIT Madras",
+    "q": "Indian Institute of Technology Madras"
+   },
+   {
+    "name": "VIT Vellore",
     "q": null
+   },
+   {
+    "name": "BITS Pilani",
+    "q": null
+   },
+   {
+    "name": "NIT Surathkal",
+    "q": "National Institute of Technology Karnataka, Surathkal"
    }
   ],
   "pay": {
@@ -6275,8 +7479,7 @@
   ],
   "notable_people": [
    "Sir M. Visvesvaraya (pioneering mechanical/civil engineer)",
-   "Anand Mahindra (mechanical engineer",
-   "industrialist)",
+   "Anand Mahindra (mechanical engineer, industrialist)",
    "Kiran Mazumdar-Shaw's manufacturing-linked biotech engineering roots"
   ],
   "sources": "NIRF rankings, AmbitionBox, Glassdoor India, industry placement reports",
@@ -6358,7 +7561,27 @@
   ],
   "top_colleges": [
    {
-    "name": "1. IIT Bombay\n2. IIT Delhi\n3. IIT Madras\n4. IIT Kanpur\n5. BITS Pilani\n6. VIT Vellore",
+    "name": "IIT Bombay",
+    "q": "Indian Institute of Technology Bombay"
+   },
+   {
+    "name": "IIT Delhi",
+    "q": "Indian Institute of Technology Delhi"
+   },
+   {
+    "name": "IIT Madras",
+    "q": "Indian Institute of Technology Madras"
+   },
+   {
+    "name": "IIT Kanpur",
+    "q": "Indian Institute of Technology Kanpur"
+   },
+   {
+    "name": "BITS Pilani",
+    "q": null
+   },
+   {
+    "name": "VIT Vellore",
     "q": null
    }
   ],
@@ -6455,7 +7678,23 @@
   "exams": null,
   "top_colleges": [
    {
-    "name": "1. All India Institute of Medical Sciences (AIIMS) New Delhi\n2. Christian Medical College (CMC) Vellore\n3. Manipal Academy of Higher Education\n4. Post Graduate Institute of Medical Education and Research (PGIMER) Chandigarh\n5. Jamia Hamdard",
+    "name": "All India Institute of Medical Sciences (AIIMS) New Delhi",
+    "q": "All India Institute of Medical Sciences, New Delhi"
+   },
+   {
+    "name": "Christian Medical College (CMC) Vellore",
+    "q": "Christian Medical College, Vellore"
+   },
+   {
+    "name": "Manipal Academy of Higher Education",
+    "q": null
+   },
+   {
+    "name": "Post Graduate Institute of Medical Education and Research (PGIMER) Chandigarh",
+    "q": null
+   },
+   {
+    "name": "Jamia Hamdard",
     "q": null
    }
   ],
@@ -6477,8 +7716,7 @@
   "where_work": "Tier-2 cities",
   "college_options": [],
   "notable_people": [
-   "Dr Arjun Lal Bhalla (founder",
-   "Dr Lal PathLabs)",
+   "Dr Arjun Lal Bhalla (founder, Dr Lal PathLabs)",
    "Dr Ganesh Sanjeevi (pathology researcher and educator)"
   ],
   "sources": "NIRF rankings, AmbitionBox, Glassdoor India, industry placement reports",
@@ -6516,8 +7754,24 @@
   ],
   "top_colleges": [
    {
-    "name": "1. All India Institute of Medical Sciences (AIIMS) New Delhi\n2. Christian Medical College (CMC) Vellore\n3. Armed Forces Medical College (AFMC) Pune\n4. Maulana Azad Medical College Delhi\n5. King George's Medical University Lucknow",
-    "q": null
+    "name": "All India Institute of Medical Sciences (AIIMS) New Delhi",
+    "q": "All India Institute of Medical Sciences, New Delhi"
+   },
+   {
+    "name": "Christian Medical College (CMC) Vellore",
+    "q": "Christian Medical College, Vellore"
+   },
+   {
+    "name": "Armed Forces Medical College (AFMC) Pune",
+    "q": "Armed Forces Medical College, Pune"
+   },
+   {
+    "name": "Maulana Azad Medical College Delhi",
+    "q": "Maulana Azad Medical College, New Delhi"
+   },
+   {
+    "name": "King George's Medical University Lucknow",
+    "q": "King George Medical University, Lucknow"
    }
   ],
   "pay": {
@@ -6546,11 +7800,9 @@
    }
   ],
   "notable_people": [
-   "Dr Devi Shetty (cardiac surgeon",
-   "founder Narayana Health)",
+   "Dr Devi Shetty (cardiac surgeon, founder Narayana Health)",
    "Dr Randeep Guleria (former AIIMS director)",
-   "Dr Naresh Trehan (cardiac surgeon",
-   "Medanta founder)"
+   "Dr Naresh Trehan (cardiac surgeon, Medanta founder)"
   ],
   "sources": "NIRF rankings, AmbitionBox, Glassdoor India, industry placement reports",
   "specializations": [
@@ -6623,7 +7875,27 @@
   ],
   "top_colleges": [
    {
-    "name": "1. IIT Kharagpur\n2. IIT Bombay\n3. IIT Madras\n4. IIT (BHU) Varanasi\n5. NIT Rourkela\n6. NIT Trichy",
+    "name": "IIT Kharagpur",
+    "q": "Indian Institute of Technology Kharagpur"
+   },
+   {
+    "name": "IIT Bombay",
+    "q": "Indian Institute of Technology Bombay"
+   },
+   {
+    "name": "IIT Madras",
+    "q": "Indian Institute of Technology Madras"
+   },
+   {
+    "name": "IIT (BHU) Varanasi",
+    "q": null
+   },
+   {
+    "name": "NIT Rourkela",
+    "q": "National Institute of Technology, Rourkela"
+   },
+   {
+    "name": "NIT Trichy",
     "q": null
    }
   ],
@@ -6755,7 +8027,27 @@
   ],
   "top_colleges": [
    {
-    "name": "1. IIT (ISM) Dhanbad\n2. IIT Kharagpur\n3. NIT Rourkela\n4. VNIT Nagpur\n5. IIT (BHU) Varanasi\n6. MANIT Bhopal",
+    "name": "IIT (ISM) Dhanbad",
+    "q": "Indian Institute of Technology (ISM) Dhanbad"
+   },
+   {
+    "name": "IIT Kharagpur",
+    "q": "Indian Institute of Technology Kharagpur"
+   },
+   {
+    "name": "NIT Rourkela",
+    "q": "National Institute of Technology, Rourkela"
+   },
+   {
+    "name": "VNIT Nagpur",
+    "q": null
+   },
+   {
+    "name": "IIT (BHU) Varanasi",
+    "q": null
+   },
+   {
+    "name": "MANIT Bhopal",
     "q": null
    }
   ],
@@ -6852,7 +8144,23 @@
   "exams": null,
   "top_colleges": [
    {
-    "name": "1. ITM School of Music\n2. KM Music Conservatory Chennai (founded by A.R. Rahman)\n3. Delhi University's Department of Music\n4. Bhatkhande Music Institute Lucknow\n5. True School of Music Mumbai",
+    "name": "ITM School of Music",
+    "q": null
+   },
+   {
+    "name": "KM Music Conservatory Chennai (founded by A.R. Rahman)",
+    "q": null
+   },
+   {
+    "name": "Delhi University's Department of Music",
+    "q": null
+   },
+   {
+    "name": "Bhatkhande Music Institute Lucknow",
+    "q": null
+   },
+   {
+    "name": "True School of Music Mumbai",
     "q": null
    }
   ],
@@ -6913,7 +8221,27 @@
   ],
   "top_colleges": [
    {
-    "name": "1. Delhi University\n2. Fergusson College Pune\n3. St. Xavier's College Mumbai\n4. Miranda House Delhi\n5. Presidency University Kolkata\n6. Indian Institute of Science Education and Research (IISER)",
+    "name": "Delhi University",
+    "q": null
+   },
+   {
+    "name": "Fergusson College Pune",
+    "q": null
+   },
+   {
+    "name": "St. Xavier's College Mumbai",
+    "q": null
+   },
+   {
+    "name": "Miranda House Delhi",
+    "q": null
+   },
+   {
+    "name": "Presidency University Kolkata",
+    "q": null
+   },
+   {
+    "name": "Indian Institute of Science Education and Research (IISER)",
     "q": null
    }
   ],
@@ -6935,8 +8263,7 @@
   "college_options": [],
   "notable_people": [
    "Dr Anil Kakodkar (nuclear scientist)",
-   "Sunita Narain (environmentalist",
-   "Centre for Science and Environment)"
+   "Sunita Narain (environmentalist, Centre for Science and Environment)"
   ],
   "sources": "NIRF rankings, AmbitionBox, Glassdoor India, industry placement reports",
   "specializations": []
@@ -6960,7 +8287,23 @@
   ],
   "top_colleges": [
    {
-    "name": "1. Government Yoga and Naturopathy Medical College Chennai\n2. SDM College of Naturopathy and Yogic Sciences Karnataka\n3. Yenepoya Naturopathy Medical College Mangalore\n4. National Institute of Naturopathy Pune\n5. Sri Sairam Ayurveda Medical College Chennai",
+    "name": "Government Yoga and Naturopathy Medical College Chennai",
+    "q": null
+   },
+   {
+    "name": "SDM College of Naturopathy and Yogic Sciences Karnataka",
+    "q": null
+   },
+   {
+    "name": "Yenepoya Naturopathy Medical College Mangalore",
+    "q": null
+   },
+   {
+    "name": "National Institute of Naturopathy Pune",
+    "q": null
+   },
+   {
+    "name": "Sri Sairam Ayurveda Medical College Chennai",
     "q": null
    }
   ],
@@ -7003,7 +8346,27 @@
   "exams": null,
   "top_colleges": [
    {
-    "name": "1. Indian Maritime University Chennai\n2. Training Ship Chanakya Mumbai\n3. Tolani Maritime Institute Pune\n4. Marine Engineering and Research Institute Kolkata\n5. Coimbatore Marine College\n6. Anglo-Eastern Maritime Academy",
+    "name": "Indian Maritime University Chennai",
+    "q": null
+   },
+   {
+    "name": "Training Ship Chanakya Mumbai",
+    "q": null
+   },
+   {
+    "name": "Tolani Maritime Institute Pune",
+    "q": null
+   },
+   {
+    "name": "Marine Engineering and Research Institute Kolkata",
+    "q": null
+   },
+   {
+    "name": "Coimbatore Marine College",
+    "q": null
+   },
+   {
+    "name": "Anglo-Eastern Maritime Academy",
     "q": null
    }
   ],
@@ -7064,7 +8427,27 @@
   ],
   "top_colleges": [
    {
-    "name": "1. AIIMS College of Nursing Delhi\n2. Christian Medical College Vellore\n3. Manipal College of Nursing\n4. Armed Forces Medical College Pune\n5. PGIMER Chandigarh\n6. NIMHANS Bangalore",
+    "name": "AIIMS College of Nursing Delhi",
+    "q": null
+   },
+   {
+    "name": "Christian Medical College Vellore",
+    "q": "Christian Medical College, Vellore"
+   },
+   {
+    "name": "Manipal College of Nursing",
+    "q": null
+   },
+   {
+    "name": "Armed Forces Medical College Pune",
+    "q": "Armed Forces Medical College, Pune"
+   },
+   {
+    "name": "PGIMER Chandigarh",
+    "q": null
+   },
+   {
+    "name": "NIMHANS Bangalore",
     "q": null
    }
   ],
@@ -7158,7 +8541,19 @@
   ],
   "top_colleges": [
    {
-    "name": "1. IIT Madras (Department of Ocean Engineering)\n2. IIT Kharagpur\n3. National Institute of Ocean Technology (NIOT) Chennai\n4. Cochin University of Science and Technology",
+    "name": "IIT Madras (Department of Ocean Engineering)",
+    "q": "Indian Institute of Technology Madras"
+   },
+   {
+    "name": "IIT Kharagpur",
+    "q": "Indian Institute of Technology Kharagpur"
+   },
+   {
+    "name": "National Institute of Ocean Technology (NIOT) Chennai",
+    "q": null
+   },
+   {
+    "name": "Cochin University of Science and Technology",
     "q": null
    }
   ],
@@ -7244,8 +8639,24 @@
   ],
   "top_colleges": [
    {
-    "name": "1. Institute of Chemical Technology Mumbai\n2. Harcourt Butler Technical University Kanpur\n3. LD College of Engineering Ahmedabad\n4. Government College of Engineering Amravati\n5. University of Mumbai (Applied Chemistry stream)",
+    "name": "Institute of Chemical Technology Mumbai",
     "q": null
+   },
+   {
+    "name": "Harcourt Butler Technical University Kanpur",
+    "q": null
+   },
+   {
+    "name": "LD College of Engineering Ahmedabad",
+    "q": null
+   },
+   {
+    "name": "Government College of Engineering Amravati",
+    "q": "Government College of Engineering, Amravati"
+   },
+   {
+    "name": "University of Mumbai (Applied Chemistry stream)",
+    "q": "Usha Mittal Institute of Technology SNDT Women's University, Mumbai"
    }
   ],
   "pay": {
@@ -7304,7 +8715,27 @@
   ],
   "top_colleges": [
    {
-    "name": "1. Institute of Paper Technology (IIT Roorkee campus\n2. Saharanpur)\n3. IIT Roorkee\n4. Indian Institute of Printing Technology\n5. Government College of Engineering and Ceramic Technology Kolkata\n6. PSG College of Technology\n7. Punjab Technical University affiliated colleges",
+    "name": "Institute of Paper Technology (IIT Roorkee campus, Saharanpur)",
+    "q": null
+   },
+   {
+    "name": "IIT Roorkee",
+    "q": "Indian Institute of Technology Roorkee"
+   },
+   {
+    "name": "Indian Institute of Printing Technology",
+    "q": null
+   },
+   {
+    "name": "Government College of Engineering and Ceramic Technology Kolkata",
+    "q": null
+   },
+   {
+    "name": "PSG College of Technology",
+    "q": "PSG College of Technology (Autonomous) Peelamedu Coimbatore District 641004"
+   },
+   {
+    "name": "Punjab Technical University affiliated colleges",
     "q": null
    }
   ],
@@ -7376,8 +8807,28 @@
   ],
   "top_colleges": [
    {
-    "name": "1. AIIMS Delhi (paramedical courses)\n2. Christian Medical College Vellore\n3. Manipal College of Health Professions\n4. PGIMER Chandigarh\n5. Jamia Hamdard New Delhi\n6. Kasturba Medical College Mangalore",
+    "name": "AIIMS Delhi (paramedical courses)",
+    "q": "All India Institute of Medical Sciences, New Delhi"
+   },
+   {
+    "name": "Christian Medical College Vellore",
+    "q": "Christian Medical College, Vellore"
+   },
+   {
+    "name": "Manipal College of Health Professions",
     "q": null
+   },
+   {
+    "name": "PGIMER Chandigarh",
+    "q": null
+   },
+   {
+    "name": "Jamia Hamdard New Delhi",
+    "q": null
+   },
+   {
+    "name": "Kasturba Medical College Mangalore",
+    "q": "Kasturba Medical College, Mangalore"
    }
   ],
   "pay": {
@@ -7453,8 +8904,28 @@
   ],
   "top_colleges": [
    {
-    "name": "1. IIT (ISM) Dhanbad\n2. University of Petroleum and Energy Studies (UPES) Dehradun\n3. IIT Kharagpur\n4. Pandit Deendayal Energy University\n5. MIT Pune\n6. Aliah University",
+    "name": "IIT (ISM) Dhanbad",
+    "q": "Indian Institute of Technology (ISM) Dhanbad"
+   },
+   {
+    "name": "University of Petroleum and Energy Studies (UPES) Dehradun",
     "q": null
+   },
+   {
+    "name": "IIT Kharagpur",
+    "q": "Indian Institute of Technology Kharagpur"
+   },
+   {
+    "name": "Pandit Deendayal Energy University",
+    "q": "Pandit Deendayal Energy University,Gandhinagar"
+   },
+   {
+    "name": "MIT Pune",
+    "q": "MIT Academy of Engineering,Alandi, Pune"
+   },
+   {
+    "name": "Aliah University",
+    "q": "Aliah University, New Town"
    }
   ],
   "pay": {
@@ -7548,7 +9019,27 @@
   ],
   "top_colleges": [
    {
-    "name": "1. BITS Pilani\n2. Jamia Hamdard\n3. ICT Mumbai (Institute of Chemical Technology)\n4. NIPER (National Institute of Pharmaceutical Education and Research)\n5. Panjab University\n6. Manipal College of Pharmaceutical Sciences",
+    "name": "BITS Pilani",
+    "q": null
+   },
+   {
+    "name": "Jamia Hamdard",
+    "q": null
+   },
+   {
+    "name": "ICT Mumbai (Institute of Chemical Technology)",
+    "q": null
+   },
+   {
+    "name": "NIPER (National Institute of Pharmaceutical Education and Research)",
+    "q": null
+   },
+   {
+    "name": "Panjab University",
+    "q": null
+   },
+   {
+    "name": "Manipal College of Pharmaceutical Sciences",
     "q": null
    }
   ],
@@ -7649,7 +9140,27 @@
   ],
   "top_colleges": [
    {
-    "name": "1. Institute of Chemical Technology Mumbai\n2. Jamia Hamdard New Delhi\n3. Panjab University Chandigarh\n4. Birla Institute of Technology and Science Pilani\n5. National Institute of Pharmaceutical Education and Research\n6. Manipal College of Pharmaceutical Sciences",
+    "name": "Institute of Chemical Technology Mumbai",
+    "q": null
+   },
+   {
+    "name": "Jamia Hamdard New Delhi",
+    "q": null
+   },
+   {
+    "name": "Panjab University Chandigarh",
+    "q": null
+   },
+   {
+    "name": "Birla Institute of Technology and Science Pilani",
+    "q": null
+   },
+   {
+    "name": "National Institute of Pharmaceutical Education and Research",
+    "q": null
+   },
+   {
+    "name": "Manipal College of Pharmaceutical Sciences",
     "q": null
    }
   ],
@@ -7733,7 +9244,27 @@
   ],
   "top_colleges": [
    {
-    "name": "1. Indian Institute of Science Bangalore\n2. IITs\n3. Tata Institute of Fundamental Research Mumbai\n4. St. Stephen's College Delhi\n5. Indian Institute of Science Education and Research (IISER)\n6. Chennai Mathematical Institute",
+    "name": "Indian Institute of Science Bangalore",
+    "q": null
+   },
+   {
+    "name": "IITs",
+    "q": null
+   },
+   {
+    "name": "Tata Institute of Fundamental Research Mumbai",
+    "q": null
+   },
+   {
+    "name": "St. Stephen's College Delhi",
+    "q": null
+   },
+   {
+    "name": "Indian Institute of Science Education and Research (IISER)",
+    "q": null
+   },
+   {
+    "name": "Chennai Mathematical Institute",
     "q": null
    }
   ],
@@ -7804,7 +9335,27 @@
   "exams": null,
   "top_colleges": [
    {
-    "name": "1. Maulana Azad Medical College Delhi\n2. Christian Medical College Vellore\n3. Manipal College of Allied Health Sciences\n4. Jamia Hamdard New Delhi\n5. Sancheti Institute of Orthopaedics Pune\n6. All India Institute of Physical Medicine and Rehabilitation Mumbai",
+    "name": "Maulana Azad Medical College Delhi",
+    "q": "Maulana Azad Medical College, New Delhi"
+   },
+   {
+    "name": "Christian Medical College Vellore",
+    "q": "Christian Medical College, Vellore"
+   },
+   {
+    "name": "Manipal College of Allied Health Sciences",
+    "q": null
+   },
+   {
+    "name": "Jamia Hamdard New Delhi",
+    "q": null
+   },
+   {
+    "name": "Sancheti Institute of Orthopaedics Pune",
+    "q": null
+   },
+   {
+    "name": "All India Institute of Physical Medicine and Rehabilitation Mumbai",
     "q": null
    }
   ],
@@ -7894,8 +9445,24 @@
   ],
   "top_colleges": [
    {
-    "name": "1. School of Planning and Architecture New Delhi\n2. School of Planning and Architecture Bhopal\n3. School of Planning and Architecture Vijayawada\n4. CEPT University Ahmedabad\n5. IIT Kharagpur (Architecture and Planning department)",
+    "name": "School of Planning and Architecture New Delhi",
     "q": null
+   },
+   {
+    "name": "School of Planning and Architecture Bhopal",
+    "q": null
+   },
+   {
+    "name": "School of Planning and Architecture Vijayawada",
+    "q": null
+   },
+   {
+    "name": "CEPT University Ahmedabad",
+    "q": "Faculty of Technology, CEPT University, Ahmedabad"
+   },
+   {
+    "name": "IIT Kharagpur (Architecture and Planning department)",
+    "q": "Indian Institute of Technology Kharagpur"
    }
   ],
   "pay": {
@@ -7977,7 +9544,27 @@
   ],
   "top_colleges": [
    {
-    "name": "1. St. Stephen's College Delhi\n2. Lady Shri Ram College Delhi\n3. Jawaharlal Nehru University\n4. Presidency College Kolkata\n5. Hindu College Delhi\n6. Miranda House Delhi",
+    "name": "St. Stephen's College Delhi",
+    "q": null
+   },
+   {
+    "name": "Lady Shri Ram College Delhi",
+    "q": null
+   },
+   {
+    "name": "Jawaharlal Nehru University",
+    "q": "Jawaharlal Nehru University, Delhi"
+   },
+   {
+    "name": "Presidency College Kolkata",
+    "q": null
+   },
+   {
+    "name": "Hindu College Delhi",
+    "q": null
+   },
+   {
+    "name": "Miranda House Delhi",
     "q": null
    }
   ],
@@ -8050,8 +9637,24 @@
   ],
   "top_colleges": [
    {
-    "name": "1. Institute of Chemical Technology Mumbai\n2. Central Institute of Plastics Engineering and Technology (multiple campuses)\n3. Cochin University of Science and Technology\n4. Harcourt Butler Technical University Kanpur\n5. Indian Institute of Technology Delhi (Polymer Science programs)",
+    "name": "Institute of Chemical Technology Mumbai",
     "q": null
+   },
+   {
+    "name": "Central Institute of Plastics Engineering and Technology (multiple campuses)",
+    "q": "Central Institute of Petrochemicals Engineering and Technology (Formerly Central Institute of Plastics Engineering and Technology) (CIPET) Guindy Chennai 600032"
+   },
+   {
+    "name": "Cochin University of Science and Technology",
+    "q": null
+   },
+   {
+    "name": "Harcourt Butler Technical University Kanpur",
+    "q": null
+   },
+   {
+    "name": "Indian Institute of Technology Delhi (Polymer Science programs)",
+    "q": "Indian Institute of Technology Delhi"
    }
   ],
   "pay": {
@@ -8122,7 +9725,27 @@
   ],
   "top_colleges": [
    {
-    "name": "1. Indian Institute of Printing Technology\n2. Government College of Engineering and Ceramic Technology Kolkata\n3. PSG Polytechnic College\n4. Bharatiya Vidya Bhavan's Printing Institute\n5. Guru Nanak Dev Engineering College\n6. College of Engineering Pune",
+    "name": "Indian Institute of Printing Technology",
+    "q": null
+   },
+   {
+    "name": "Government College of Engineering and Ceramic Technology Kolkata",
+    "q": null
+   },
+   {
+    "name": "PSG Polytechnic College",
+    "q": null
+   },
+   {
+    "name": "Bharatiya Vidya Bhavan's Printing Institute",
+    "q": null
+   },
+   {
+    "name": "Guru Nanak Dev Engineering College",
+    "q": null
+   },
+   {
+    "name": "College of Engineering Pune",
     "q": null
    }
   ],
@@ -8176,7 +9799,27 @@
   ],
   "top_colleges": [
    {
-    "name": "1. University of Delhi\n2. Tata Institute of Social Sciences (TISS) Mumbai\n3. Christ University Bangalore\n4. Fergusson College Pune\n5. NIMHANS Bangalore\n6. Ashoka University",
+    "name": "University of Delhi",
+    "q": "University College of Medical Sciences & GTB Hospital, New Delhi"
+   },
+   {
+    "name": "Tata Institute of Social Sciences (TISS) Mumbai",
+    "q": null
+   },
+   {
+    "name": "Christ University Bangalore",
+    "q": null
+   },
+   {
+    "name": "Fergusson College Pune",
+    "q": null
+   },
+   {
+    "name": "NIMHANS Bangalore",
+    "q": null
+   },
+   {
+    "name": "Ashoka University",
     "q": null
    }
   ],
@@ -8188,9 +9831,7 @@
   "recruiters": [
    "Hospitals and mental health clinics",
    "schools and colleges",
-   "corporate HR departments (TCS",
-   "Infosys",
-   "Wipro)",
+   "corporate HR departments (TCS, Infosys, Wipro)",
    "NGOs like Sangath",
    "private counselling practices"
   ],
@@ -8200,8 +9841,7 @@
   "college_options": [],
   "notable_people": [
    "Dr. Achal Bhagat (psychiatrist and mental health advocate)",
-   "Kamlesh Singh (professor",
-   "IIT Delhi psychology)",
+   "Kamlesh Singh (professor, IIT Delhi psychology)",
    "Dr. Anna Chandy (India's first female psychotherapist)"
   ],
   "sources": "NIRF rankings, AmbitionBox, Glassdoor India, industry placement reports",
@@ -8234,7 +9874,27 @@
   "exams": null,
   "top_colleges": [
    {
-    "name": "1. AIIMS New Delhi\n2. Christian Medical College (CMC) Vellore\n3. Manipal College of Health Professions\n4. Kasturba Medical College\n5. Jawaharlal Institute of Postgraduate Medical Education and Research (JIPMER)\n6. Tata Memorial Centre School of Radiography",
+    "name": "AIIMS New Delhi",
+    "q": "All India Institute of Medical Sciences, New Delhi"
+   },
+   {
+    "name": "Christian Medical College (CMC) Vellore",
+    "q": "Christian Medical College, Vellore"
+   },
+   {
+    "name": "Manipal College of Health Professions",
+    "q": null
+   },
+   {
+    "name": "Kasturba Medical College",
+    "q": null
+   },
+   {
+    "name": "Jawaharlal Institute of Postgraduate Medical Education and Research (JIPMER)",
+    "q": null
+   },
+   {
+    "name": "Tata Memorial Centre School of Radiography",
     "q": null
    }
   ],
@@ -8312,8 +9972,28 @@
   ],
   "top_colleges": [
    {
-    "name": "1. IIT Kanpur\n2. IIT Bombay\n3. IIIT Hyderabad\n4. VIT Vellore\n5. Manipal Institute of Technology\n6. IIT Kharagpur",
+    "name": "IIT Kanpur",
+    "q": "Indian Institute of Technology Kanpur"
+   },
+   {
+    "name": "IIT Bombay",
+    "q": "Indian Institute of Technology Bombay"
+   },
+   {
+    "name": "IIIT Hyderabad",
     "q": null
+   },
+   {
+    "name": "VIT Vellore",
+    "q": null
+   },
+   {
+    "name": "Manipal Institute of Technology",
+    "q": null
+   },
+   {
+    "name": "IIT Kharagpur",
+    "q": "Indian Institute of Technology Kharagpur"
    }
   ],
   "pay": {
@@ -8413,7 +10093,27 @@
   ],
   "top_colleges": [
    {
-    "name": "1. National Institute of Occupational Health\n2. Central Labour Institute Mumbai\n3. Andhra University\n4. Anna University\n5. PSG College of Technology\n6. Regional Labour Institute",
+    "name": "National Institute of Occupational Health",
+    "q": null
+   },
+   {
+    "name": "Central Labour Institute Mumbai",
+    "q": null
+   },
+   {
+    "name": "Andhra University",
+    "q": null
+   },
+   {
+    "name": "Anna University",
+    "q": null
+   },
+   {
+    "name": "PSG College of Technology",
+    "q": "PSG College of Technology (Autonomous) Peelamedu Coimbatore District 641004"
+   },
+   {
+    "name": "Regional Labour Institute",
     "q": null
    }
   ],
@@ -8495,7 +10195,23 @@
   ],
   "top_colleges": [
    {
-    "name": "1. University of Agricultural Sciences Bangalore\n2. Central Sericultural Research and Training Institute (CSRTI) Mysore\n3. Bangalore University\n4. Tamil Nadu Agricultural University\n5. Berhampore Sericulture College",
+    "name": "University of Agricultural Sciences Bangalore",
+    "q": null
+   },
+   {
+    "name": "Central Sericultural Research and Training Institute (CSRTI) Mysore",
+    "q": null
+   },
+   {
+    "name": "Bangalore University",
+    "q": null
+   },
+   {
+    "name": "Tamil Nadu Agricultural University",
+    "q": null
+   },
+   {
+    "name": "Berhampore Sericulture College",
     "q": null
    }
   ],
@@ -8536,7 +10252,27 @@
   "exams": null,
   "top_colleges": [
    {
-    "name": "1. Tata Institute of Social Sciences (TISS) Mumbai\n2. Delhi University\n3. Christ University Bangalore\n4. Loyola College Chennai\n5. Jamia Millia Islamia\n6. Nirmala Niketan Mumbai",
+    "name": "Tata Institute of Social Sciences (TISS) Mumbai",
+    "q": null
+   },
+   {
+    "name": "Delhi University",
+    "q": null
+   },
+   {
+    "name": "Christ University Bangalore",
+    "q": null
+   },
+   {
+    "name": "Loyola College Chennai",
+    "q": "Loyola-ICAM College of Engineering and Technology (Autonomous), Loyola College Campus, Chennai-600034."
+   },
+   {
+    "name": "Jamia Millia Islamia",
+    "q": null
+   },
+   {
+    "name": "Nirmala Niketan Mumbai",
     "q": null
    }
   ],
@@ -8558,8 +10294,7 @@
   "where_work": "Tier-2 cities",
   "college_options": [],
   "notable_people": [
-   "Aruna Roy (social activist",
-   "Right to Information movement)",
+   "Aruna Roy (social activist, Right to Information movement)",
    "Bezwada Wilson (Safai Karamchari Andolan founder)",
    "Harsh Mander (social worker and author)"
   ],
@@ -8602,7 +10337,27 @@
   ],
   "top_colleges": [
    {
-    "name": "1. Indian Institute of Space Science and Technology (IIST)\n2. IIT Bombay\n3. IIT Kharagpur\n4. IIT Kanpur\n5. IISc Bangalore\n6. Manipal Institute of Technology",
+    "name": "Indian Institute of Space Science and Technology (IIST)",
+    "q": null
+   },
+   {
+    "name": "IIT Bombay",
+    "q": "Indian Institute of Technology Bombay"
+   },
+   {
+    "name": "IIT Kharagpur",
+    "q": "Indian Institute of Technology Kharagpur"
+   },
+   {
+    "name": "IIT Kanpur",
+    "q": "Indian Institute of Technology Kanpur"
+   },
+   {
+    "name": "IISc Bangalore",
+    "q": null
+   },
+   {
+    "name": "Manipal Institute of Technology",
     "q": null
    }
   ],
@@ -8714,7 +10469,27 @@
   ],
   "top_colleges": [
    {
-    "name": "1. IIT Delhi\n2. IIT Bombay\n3. IIT Madras\n4. IIT Roorkee\n5. NIT Trichy\n6. VNIT Nagpur",
+    "name": "IIT Delhi",
+    "q": "Indian Institute of Technology Delhi"
+   },
+   {
+    "name": "IIT Bombay",
+    "q": "Indian Institute of Technology Bombay"
+   },
+   {
+    "name": "IIT Madras",
+    "q": "Indian Institute of Technology Madras"
+   },
+   {
+    "name": "IIT Roorkee",
+    "q": "Indian Institute of Technology Roorkee"
+   },
+   {
+    "name": "NIT Trichy",
+    "q": null
+   },
+   {
+    "name": "VNIT Nagpur",
     "q": null
    }
   ],
@@ -8817,7 +10592,23 @@
   ],
   "top_colleges": [
    {
-    "name": "1. Indian Institute of Technology (IIT) Bombay\n2. IIT Madras\n3. Indian Institute of Science (IISc) Bangalore\n4. Birla Institute of Technology and Science (BITS) Pilani\n5. Indian Institute of Space Science and Technology (IIST)",
+    "name": "Indian Institute of Technology (IIT) Bombay",
+    "q": "Indian Institute of Technology Bombay"
+   },
+   {
+    "name": "IIT Madras",
+    "q": "Indian Institute of Technology Madras"
+   },
+   {
+    "name": "Indian Institute of Science (IISc) Bangalore",
+    "q": null
+   },
+   {
+    "name": "Birla Institute of Technology and Science (BITS) Pilani",
+    "q": null
+   },
+   {
+    "name": "Indian Institute of Space Science and Technology (IIST)",
     "q": null
    }
   ],
@@ -8839,8 +10630,7 @@
   "college_options": [],
   "notable_people": [
    "K. Sivan (former ISRO chairman)",
-   "Ritu Karidhal (ISRO systems engineer",
-   "'Rocket Woman of India')",
+   "Ritu Karidhal (ISRO systems engineer, 'Rocket Woman of India')",
    "Nambi Narayanan (ISRO propulsion systems expert)"
   ],
   "sources": "NIRF rankings, AmbitionBox, Glassdoor India, industry placement reports",
@@ -8860,7 +10650,23 @@
   "exams": null,
   "top_colleges": [
    {
-    "name": "1. Regional Institutes of Education (under NCERT)\n2. Delhi University\n3. Jamia Millia Islamia\n4. Tata Institute of Social Sciences (TISS)\n5. Azim Premji University",
+    "name": "Regional Institutes of Education (under NCERT)",
+    "q": null
+   },
+   {
+    "name": "Delhi University",
+    "q": null
+   },
+   {
+    "name": "Jamia Millia Islamia",
+    "q": null
+   },
+   {
+    "name": "Tata Institute of Social Sciences (TISS)",
+    "q": null
+   },
+   {
+    "name": "Azim Premji University",
     "q": null
    }
   ],
@@ -8882,10 +10688,8 @@
   "college_options": [],
   "notable_people": [
    "Sarojini Naidu (poet and educator)",
-   "Anand Kumar (founder of Super 30",
-   "famous math teacher)",
-   "Kiran Bir Sethi (founder of Riverside School",
-   "education innovator)"
+   "Anand Kumar (founder of Super 30, famous math teacher)",
+   "Kiran Bir Sethi (founder of Riverside School, education innovator)"
   ],
   "sources": "NIRF rankings, AmbitionBox, Glassdoor India, industry placement reports",
   "specializations": [
@@ -8954,7 +10758,27 @@
   ],
   "top_colleges": [
    {
-    "name": "1. IIT Delhi\n2. DKTE Textile and Engineering Institute\n3. National Institute of Fashion Technology (NIFT)\n4. Anna University\n5. PSG College of Technology\n6. UPTTI Kanpur",
+    "name": "IIT Delhi",
+    "q": "Indian Institute of Technology Delhi"
+   },
+   {
+    "name": "DKTE Textile and Engineering Institute",
+    "q": null
+   },
+   {
+    "name": "National Institute of Fashion Technology (NIFT)",
+    "q": null
+   },
+   {
+    "name": "Anna University",
+    "q": null
+   },
+   {
+    "name": "PSG College of Technology",
+    "q": "PSG College of Technology (Autonomous) Peelamedu Coimbatore District 641004"
+   },
+   {
+    "name": "UPTTI Kanpur",
     "q": null
    }
   ],
@@ -9057,7 +10881,23 @@
   ],
   "top_colleges": [
    {
-    "name": "1. Indian Veterinary Research Institute (IVRI) Bareilly\n2. Madras Veterinary College Chennai\n3. Guru Angad Dev Veterinary and Animal Sciences University (GADVASU)\n4. Bombay Veterinary College\n5. National Dairy Research Institute (NDRI)",
+    "name": "Indian Veterinary Research Institute (IVRI) Bareilly",
+    "q": null
+   },
+   {
+    "name": "Madras Veterinary College Chennai",
+    "q": null
+   },
+   {
+    "name": "Guru Angad Dev Veterinary and Animal Sciences University (GADVASU)",
+    "q": null
+   },
+   {
+    "name": "Bombay Veterinary College",
+    "q": null
+   },
+   {
+    "name": "National Dairy Research Institute (NDRI)",
     "q": null
    }
   ],
@@ -9117,8 +10957,28 @@
   ],
   "top_colleges": [
    {
-    "name": "1. University of Delhi\n2. Wildlife Institute of India (WII) Dehradun\n3. St. Xavier's College Mumbai\n4. Madras Christian College\n5. University of Calcutta\n6. Jawaharlal Nehru University (JNU)",
+    "name": "University of Delhi",
+    "q": "University College of Medical Sciences & GTB Hospital, New Delhi"
+   },
+   {
+    "name": "Wildlife Institute of India (WII) Dehradun",
     "q": null
+   },
+   {
+    "name": "St. Xavier's College Mumbai",
+    "q": null
+   },
+   {
+    "name": "Madras Christian College",
+    "q": null
+   },
+   {
+    "name": "University of Calcutta",
+    "q": "University Of Calcutta"
+   },
+   {
+    "name": "Jawaharlal Nehru University (JNU)",
+    "q": "Jawaharlal Nehru University, Delhi"
    }
   ],
   "pay": {
@@ -9139,8 +10999,7 @@
   "where_work": "Tier-2 cities (fieldwork often in rural/forest areas)",
   "college_options": [],
   "notable_people": [
-   "Salim Ali (India's most famous ornithologist",
-   "'Birdman of India')",
+   "Salim Ali (India's most famous ornithologist, 'Birdman of India')",
    "Ullas Karanth (tiger conservation scientist)",
    "Kartik Shanker (marine biologist and conservationist)"
   ],
