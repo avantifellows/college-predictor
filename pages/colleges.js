@@ -585,9 +585,20 @@ const Colleges = () => {
     if (!router.isReady) return;
     if (router.query.q) setQ(String(router.query.q));
     if (router.query.exam) setExam(String(router.query.exam));
+    if (router.query.stream) setStream(String(router.query.stream));
   }, [router.isReady, router.query.q, router.query.exam]);
   const [state, setState] = useState("All");
   const [exam, setExam] = useState("All");
+  // stream = what the college teaches (Engineering / Pharmacy / …). Medical
+  // rows carry no discipline badge (the NEET-UG chip says it), so they get
+  // their stream here.
+  const [stream, setStream] = useState("All");
+  const streamsOf = (c) =>
+    c.disciplines?.length
+      ? c.disciplines
+      : String(c.counselling).startsWith("MCC")
+      ? ["Medicine"]
+      : [];
   const [sortKey, setSortKey] = useState("nirf");
   // Same pattern as the predictor's salary ⓘ: a positioned card, not the
   // browser's native title box (which renders late, unstyled, and turns the
@@ -615,6 +626,14 @@ const Colleges = () => {
     ],
     [all]
   );
+  const streams = useMemo(
+    () => [
+      "All",
+      ...Array.from(new Set(all.flatMap((c) => streamsOf(c)))).sort(),
+    ],
+    [all]
+  );
+
   const exams = useMemo(
     () => [
       "All",
@@ -639,6 +658,7 @@ const Colleges = () => {
     const out = all.filter((c) => {
       if (state !== "All" && c.state !== state) return false;
       if (exam !== "All" && !c.entrance_exams.includes(exam)) return false;
+      if (stream !== "All" && !streamsOf(c).includes(stream)) return false;
       if (!raw) return true;
       // Search the branch list too: "who teaches Aerospace" is a real question,
       // and the branch names are the richest text we hold.
@@ -653,9 +673,9 @@ const Colleges = () => {
       return needles.some((n) => hay.includes(n));
     });
     return out.sort(SORTS[sortKey].fn);
-  }, [all, q, state, exam, sortKey]);
+  }, [all, q, state, exam, stream, sortKey]);
 
-  useEffect(() => setShown(PAGE_SIZE), [q, state, exam, sortKey]);
+  useEffect(() => setShown(PAGE_SIZE), [q, state, exam, stream, sortKey]);
 
   const th = "px-3 py-2 text-left text-xs font-semibold text-[#5b1f20]";
 
@@ -725,27 +745,27 @@ const Colleges = () => {
             </div>
           </div>
 
-          {exams.length > 2 ? (
-            <div className="mt-3 flex flex-wrap items-center gap-1.5">
-              <span className="text-xs font-semibold text-[#5b1f20]">
-                Entrance test:
-              </span>
-              {exams.map((e) => (
-                <button
-                  key={e}
-                  type="button"
-                  onClick={() => setExam(e)}
-                  className={`rounded-full border px-2.5 py-1 text-xs font-medium transition ${
-                    exam === e
-                      ? "border-[#8f2e31] bg-[#8f2e31] text-white"
-                      : "border-[#e3d1cb] bg-white text-[#5b3a34] hover:bg-[#f8efec]"
-                  }`}
-                >
-                  {e === "All" ? "Any" : e}
-                </button>
-              ))}
-            </div>
-          ) : null}
+          {/* a 14-exam chip row was clutter — two dropdowns instead */}
+          <div className="mt-3 grid gap-3 sm:grid-cols-2">
+            <Dropdown
+              options={streams.map((x) => ({
+                value: x,
+                label: x === "All" ? "Any stream" : x,
+              }))}
+              selectedValue={stream}
+              onChange={(o) => setStream(o.value)}
+              isSearchable={false}
+            />
+            <Dropdown
+              options={exams.map((x) => ({
+                value: x,
+                label: x === "All" ? "Any entrance test" : x,
+              }))}
+              selectedValue={exam}
+              onChange={(o) => setExam(o.value)}
+              hideValueWhileSearching
+            />
+          </div>
 
           {error ? (
             <p className="py-10 text-center text-sm text-red-600">{error}</p>
