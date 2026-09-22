@@ -77,10 +77,7 @@ const CareerDetail = ({ c }) => (
   <div className="min-w-0">
     <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
       <div>
-        <div className="text-xs font-bold uppercase tracking-wide text-[#B52326]">
-          Career
-        </div>
-        <h2 className="mt-2 break-words text-3xl font-black leading-tight text-[#2f2320] md:text-4xl">
+        <h2 className="break-words text-3xl font-black leading-tight text-[#2f2320] md:text-4xl">
           {c.name}
         </h2>
         <p className="mt-2 text-[15px] text-[#7a635d]">
@@ -346,6 +343,7 @@ export default function Careers() {
 
   const pick = (id) => {
     setSelected(id);
+    window.scrollTo({ top: 0 });
     // shallow PUSH: every pick is a history entry, so the browser's Back
     // walks back through the careers viewed instead of leaving the page.
     // (Raw replaceState once left Next's history at '/careers' and broke
@@ -366,134 +364,146 @@ export default function Careers() {
         />
       </Head>
       <div className="min-h-screen px-3 py-6 sm:px-6">
-        <div className="mx-auto max-w-6xl rounded-2xl border border-[#eee1d7] bg-white p-4 shadow-sm sm:p-8">
-          <h1 className="text-center text-3xl font-bold text-[#332724]">
-            Careers
-          </h1>
-          <p className="mt-2 text-center text-sm text-[#6d5550]">
-            Pay figures are typical ranges from public reports — treat them as
-            direction, not promises.
-          </p>
+        <div className="mx-auto max-w-6xl">
+          {current ? (
+            <button
+              type="button"
+              onClick={() => {
+                setSelected(null);
+                window.scrollTo({ top: 0 });
+                router.push("/careers", undefined, {
+                  shallow: true,
+                  scroll: false,
+                });
+              }}
+              className="mb-3 inline-flex items-center gap-1.5 text-sm font-semibold text-[#8f2e31] hover:underline"
+            >
+              ← All careers
+            </button>
+          ) : null}
+          <div className="mx-auto max-w-6xl rounded-2xl border border-[#eee1d7] bg-white p-4 shadow-sm sm:p-8">
+            {!current ? (
+              <>
+                <h1 className="text-center text-3xl font-bold text-[#332724]">
+                  Careers
+                </h1>
+                <p className="mt-2 text-center text-sm text-[#6d5550]">
+                  Pay figures are typical ranges from public reports — treat
+                  them as direction, not promises.
+                </p>
+              </>
+            ) : null}
 
-          {error ? (
-            <p className="py-10 text-center text-sm text-[#8f2e31]">{error}</p>
-          ) : all.length === 0 ? (
-            <p className="py-10 text-center text-sm text-[#6d5550]">
-              Loading careers…
-            </p>
-          ) : (
-            <>
-              {current ? (
-                <div className="mt-4">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setSelected(null);
-                      router.push("/careers", undefined, {
-                        shallow: true,
-                        scroll: false,
-                      });
-                    }}
-                    className="mb-5 inline-flex items-center gap-1.5 text-sm font-semibold text-[#8f2e31] hover:underline"
-                  >
-                    ← All careers
-                  </button>
-                  <CareerDetail c={current} />
-                </div>
-              ) : (
-                <>
-                  {/* one column, two dropdowns, a numbered list — the
+            {error ? (
+              <p className="py-10 text-center text-sm text-[#8f2e31]">
+                {error}
+              </p>
+            ) : all.length === 0 ? (
+              <p className="py-10 text-center text-sm text-[#6d5550]">
+                Loading careers…
+              </p>
+            ) : (
+              <>
+                {current ? (
+                  <div className="mt-1">
+                    <CareerDetail c={current} />
+                  </div>
+                ) : (
+                  <>
+                    {/* one column, two dropdowns, a numbered list — the
                       side-by-side list + detail read as stuffed to students */}
-                  <div className="mt-6 grid gap-4 sm:grid-cols-2">
-                    <label className="block">
-                      <span className="mb-1.5 block text-xs font-semibold uppercase tracking-wide text-[#7a635d]">
-                        Career domain
-                      </span>
-                      <Dropdown
-                        options={domains.map((d) => ({
-                          value: d,
-                          label: d === "All" ? "All domains" : d,
-                        }))}
-                        selectedValue={domain}
-                        onChange={(o) => setDomain(o.value)}
-                        isSearchable={false}
+                    <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                      <label className="block">
+                        <span className="mb-1.5 block text-xs font-semibold uppercase tracking-wide text-[#7a635d]">
+                          Career domain
+                        </span>
+                        <Dropdown
+                          options={domains.map((d) => ({
+                            value: d,
+                            label: d === "All" ? "All domains" : d,
+                          }))}
+                          selectedValue={domain}
+                          onChange={(o) => setDomain(o.value)}
+                          isSearchable={false}
+                        />
+                      </label>
+                      <label className="block">
+                        <span className="mb-1.5 block text-xs font-semibold uppercase tracking-wide text-[#7a635d]">
+                          Not sure of the domain? Pick your class 12 stream
+                        </span>
+                        <Dropdown
+                          options={[
+                            "All",
+                            "Science (PCM)",
+                            "Science (PCB)",
+                            "Commerce",
+                            "Arts",
+                          ].map((st) => ({
+                            value: st,
+                            label: st === "All" ? "All streams" : st,
+                          }))}
+                          selectedValue={stream}
+                          onChange={(o) => setStream(o.value)}
+                          isSearchable={false}
+                        />
+                      </label>
+                    </div>
+                    <div className="relative mt-4">
+                      <Search
+                        size={14}
+                        className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[#b9a8a2]"
                       />
-                    </label>
-                    <label className="block">
-                      <span className="mb-1.5 block text-xs font-semibold uppercase tracking-wide text-[#7a635d]">
-                        Not sure of the domain? Pick your class 12 stream
-                      </span>
-                      <Dropdown
-                        options={[
-                          "All",
-                          "Science (PCM)",
-                          "Science (PCB)",
-                          "Commerce",
-                          "Arts",
-                        ].map((st) => ({
-                          value: st,
-                          label: st === "All" ? "All streams" : st,
-                        }))}
-                        selectedValue={stream}
-                        onChange={(o) => setStream(o.value)}
-                        isSearchable={false}
+                      <input
+                        type="text"
+                        value={q}
+                        onChange={(ev) => setQ(ev.target.value)}
+                        placeholder="Search careers"
+                        className="w-full rounded-xl border border-[#d8c7c1] bg-[#fffdfa] py-2.5 pl-8 pr-3 text-sm text-[#2f2320] outline-none transition placeholder:text-[#7a6159] focus:border-[#b52326]"
                       />
-                    </label>
-                  </div>
-                  <div className="relative mt-4">
-                    <Search
-                      size={14}
-                      className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[#b9a8a2]"
-                    />
-                    <input
-                      type="text"
-                      value={q}
-                      onChange={(ev) => setQ(ev.target.value)}
-                      placeholder="Search careers"
-                      className="w-full rounded-xl border border-[#d8c7c1] bg-[#fffdfa] py-2.5 pl-8 pr-3 text-sm text-[#2f2320] outline-none transition placeholder:text-[#7a6159] focus:border-[#b52326]"
-                    />
-                  </div>
-                  <p className="mt-5 text-sm text-[#5b3a34]">
-                    Showing <span className="font-bold">{filtered.length}</span>{" "}
-                    career{filtered.length === 1 ? "" : "s"} for you. Click any
-                    of them to know more.
-                  </p>
-                  <ol className="mt-3 overflow-hidden rounded-xl border border-[#eaded8]">
-                    <li className="bg-[#f8efec] px-4 py-2 text-[11px] font-black uppercase tracking-wide text-[#5b1f20]">
-                      Career
-                    </li>
-                    {filtered.map((c, i) => (
-                      <li
-                        key={c.career_id}
-                        className="border-t border-[#f0e6e1]"
-                      >
-                        <button
-                          type="button"
-                          onClick={() => pick(c.career_id)}
-                          className="flex w-full items-baseline gap-4 bg-white px-4 py-3 text-left text-[15px] transition hover:bg-[#fdf8f4]"
+                    </div>
+                    <p className="mt-5 text-sm text-[#5b3a34]">
+                      Showing{" "}
+                      <span className="font-bold">{filtered.length}</span>{" "}
+                      career{filtered.length === 1 ? "" : "s"} for you. Click
+                      any of them to know more.
+                    </p>
+                    <ol className="mt-3 overflow-hidden rounded-xl border border-[#eaded8]">
+                      <li className="bg-[#f8efec] px-4 py-2 text-[11px] font-black uppercase tracking-wide text-[#5b1f20]">
+                        Career
+                      </li>
+                      {filtered.map((c, i) => (
+                        <li
+                          key={c.career_id}
+                          className="border-t border-[#f0e6e1]"
                         >
-                          <span className="w-7 shrink-0 text-xs tabular-nums text-[#a89a94]">
-                            {i + 1}
-                          </span>
-                          <span className="font-semibold text-[#2f2320]">
-                            {c.name}
-                          </span>
-                          <span className="ml-auto hidden text-xs text-[#a89a94] sm:inline">
-                            {c.domain}
-                          </span>
-                        </button>
-                      </li>
-                    ))}
-                    {filtered.length === 0 ? (
-                      <li className="border-t border-[#f0e6e1] bg-white px-4 py-4 text-sm text-[#6d5550]">
-                        No careers match these filters.
-                      </li>
-                    ) : null}
-                  </ol>
-                </>
-              )}
-            </>
-          )}
+                          <button
+                            type="button"
+                            onClick={() => pick(c.career_id)}
+                            className="flex w-full items-baseline gap-4 bg-white px-4 py-3 text-left text-[15px] transition hover:bg-[#fdf8f4]"
+                          >
+                            <span className="w-7 shrink-0 text-xs tabular-nums text-[#a89a94]">
+                              {i + 1}
+                            </span>
+                            <span className="font-semibold text-[#2f2320]">
+                              {c.name}
+                            </span>
+                            <span className="ml-auto hidden text-xs text-[#a89a94] sm:inline">
+                              {c.domain}
+                            </span>
+                          </button>
+                        </li>
+                      ))}
+                      {filtered.length === 0 ? (
+                        <li className="border-t border-[#f0e6e1] bg-white px-4 py-4 text-sm text-[#6d5550]">
+                          No careers match these filters.
+                        </li>
+                      ) : null}
+                    </ol>
+                  </>
+                )}
+              </>
+            )}
+          </div>
         </div>
       </div>
     </>
