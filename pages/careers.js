@@ -19,7 +19,7 @@ const DATA_URL = "/data/careers/careers.json";
 // future-v2's section pattern: a top rule, the number+title in their own
 // left column, roomy leading-7 body — the demarcation IS the layout
 const ProfileRow = ({ number, title, children }) => (
-  <section className="grid gap-3 border-t border-[#eaded8] py-6 md:grid-cols-[180px_1fr] md:gap-8">
+  <section className="grid gap-3 border-t border-[#eaded8] py-8 md:grid-cols-[200px_1fr] md:gap-10">
     <div>
       <div className="text-xs font-black uppercase tracking-wide text-[#B52326]">
         {number}
@@ -67,6 +67,12 @@ const NumberedRows = ({ rows }) => {
   ));
 };
 
+const streamsLine = (c) => {
+  const st = c.eligible_streams || [];
+  if (!st.length || st.includes("All")) return "open to every stream";
+  return `open to ${st.join(", ")}`;
+};
+
 const CareerDetail = ({ c }) => (
   <div className="min-w-0">
     <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
@@ -77,6 +83,9 @@ const CareerDetail = ({ c }) => (
         <h2 className="mt-2 break-words text-3xl font-black leading-tight text-[#2f2320] md:text-4xl">
           {c.name}
         </h2>
+        <p className="mt-2 text-[15px] text-[#7a635d]">
+          {c.domain} · {streamsLine(c)}
+        </p>
       </div>
       <div className="grid gap-2 sm:grid-cols-3 md:min-w-[340px]">
         <MetricCard
@@ -280,6 +289,7 @@ export default function Careers() {
   const [q, setQ] = useState("");
   // 11th-12th stream filter — values match the sheet's controlled vocabulary
   const [stream, setStream] = useState("All");
+  const [domain, setDomain] = useState("All");
   const [selected, setSelected] = useState(null);
 
   useEffect(() => {
@@ -289,9 +299,8 @@ export default function Careers() {
         setAll(d);
         // /careers#mechanical-engineering — deep link from a branch chip
         const h = window.location.hash.replace("#", "");
-        setSelected(
-          h && d.some((c) => c.career_id === h) ? h : d[0]?.career_id
-        );
+        // no hash -> the list page, not a default career
+        setSelected(h && d.some((c) => c.career_id === h) ? h : null);
       })
       .catch(() => setError("Could not load careers right now."));
   }, []);
@@ -299,6 +308,7 @@ export default function Careers() {
   const filtered = useMemo(() => {
     const raw = q.trim().toLowerCase();
     let rows = all;
+    if (domain !== "All") rows = rows.filter((c) => c.domain === domain);
     if (stream !== "All") {
       // a career with "All" in the sheet is open to every stream
       rows = rows.filter(
@@ -312,20 +322,27 @@ export default function Careers() {
     return rows.filter((c) =>
       raw.split(/\s+/).every((w) => c.name.toLowerCase().includes(w))
     );
-  }, [all, q, stream]);
+  }, [all, q, stream, domain]);
 
   // browser back/forward between careers (and back INTO this page from an
   // exam chip) re-selects from the hash
   useEffect(() => {
     const onHash = () => {
       const h = window.location.hash.replace("#", "");
-      if (h) setSelected(h);
+      setSelected(h || null);
     };
     window.addEventListener("hashchange", onHash);
     return () => window.removeEventListener("hashchange", onHash);
   }, []);
 
   const current = all.find((c) => c.career_id === selected);
+  const domains = useMemo(
+    () => [
+      "All",
+      ...Array.from(new Set(all.map((c) => c.domain).filter(Boolean))).sort(),
+    ],
+    [all]
+  );
 
   const pick = (id) => {
     setSelected(id);
@@ -366,47 +383,64 @@ export default function Careers() {
             </p>
           ) : (
             <>
-              <div className="mt-5 flex flex-wrap items-center justify-center gap-2">
-                <span className="text-xs font-semibold uppercase tracking-wide text-[#7a635d]">
-                  My stream:
-                </span>
-                {[
-                  "All",
-                  "Science (PCM)",
-                  "Science (PCB)",
-                  "Commerce",
-                  "Arts",
-                ].map((st) => (
+              {current ? (
+                <div className="mt-4">
                   <button
-                    key={st}
                     type="button"
-                    onClick={() => setStream(st)}
-                    className={`rounded-full border px-3 py-1 text-xs font-bold transition ${
-                      stream === st
-                        ? "border-[#B52326] bg-[#B52326] text-white"
-                        : "border-[#e0cdc6] bg-white text-[#5b3a34] hover:border-[#B52326]/60"
-                    }`}
+                    onClick={() => {
+                      setSelected(null);
+                      router.push("/careers", undefined, {
+                        shallow: true,
+                        scroll: false,
+                      });
+                    }}
+                    className="mb-5 inline-flex items-center gap-1.5 text-sm font-semibold text-[#8f2e31] hover:underline"
                   >
-                    {st === "All" ? "Any" : st}
+                    ← All careers
                   </button>
-                ))}
-              </div>
-              <div className="mt-5 gap-8 md:grid md:grid-cols-[16rem_1fr]">
-                {/* phone: one picker; desktop: searchable list */}
-                <div className="mb-6 md:hidden">
-                  <Dropdown
-                    options={filtered.map((c) => ({
-                      value: c.career_id,
-                      label: c.name,
-                    }))}
-                    selectedValue={selected}
-                    onChange={(o) => pick(o.value)}
-                    className="w-full"
-                    hideValueWhileSearching
-                  />
+                  <CareerDetail c={current} />
                 </div>
-                <div className="hidden md:block md:border-r md:border-[#eaded8] md:pr-5">
-                  <div className="relative mb-3">
+              ) : (
+                <>
+                  {/* one column, two dropdowns, a numbered list — the
+                      side-by-side list + detail read as stuffed to students */}
+                  <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                    <label className="block">
+                      <span className="mb-1.5 block text-xs font-semibold uppercase tracking-wide text-[#7a635d]">
+                        Career domain
+                      </span>
+                      <Dropdown
+                        options={domains.map((d) => ({
+                          value: d,
+                          label: d === "All" ? "All domains" : d,
+                        }))}
+                        selectedValue={domain}
+                        onChange={(o) => setDomain(o.value)}
+                        isSearchable={false}
+                      />
+                    </label>
+                    <label className="block">
+                      <span className="mb-1.5 block text-xs font-semibold uppercase tracking-wide text-[#7a635d]">
+                        Not sure of the domain? Pick your class 12 stream
+                      </span>
+                      <Dropdown
+                        options={[
+                          "All",
+                          "Science (PCM)",
+                          "Science (PCB)",
+                          "Commerce",
+                          "Arts",
+                        ].map((st) => ({
+                          value: st,
+                          label: st === "All" ? "All streams" : st,
+                        }))}
+                        selectedValue={stream}
+                        onChange={(o) => setStream(o.value)}
+                        isSearchable={false}
+                      />
+                    </label>
+                  </div>
+                  <div className="relative mt-4">
                     <Search
                       size={14}
                       className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[#b9a8a2]"
@@ -416,35 +450,48 @@ export default function Careers() {
                       value={q}
                       onChange={(ev) => setQ(ev.target.value)}
                       placeholder="Search careers"
-                      className="w-full rounded-xl border border-[#d8c7c1] bg-[#fffdfa] py-2 pl-8 pr-3 text-sm text-[#2f2320] outline-none transition placeholder:text-[#7a6159] focus:border-[#b52326]"
+                      className="w-full rounded-xl border border-[#d8c7c1] bg-[#fffdfa] py-2.5 pl-8 pr-3 text-sm text-[#2f2320] outline-none transition placeholder:text-[#7a6159] focus:border-[#b52326]"
                     />
                   </div>
-                  <nav className="max-h-[70vh] space-y-0.5 overflow-y-auto pr-1">
-                    {filtered.map((c) => (
-                      <button
+                  <p className="mt-5 text-sm text-[#5b3a34]">
+                    Showing <span className="font-bold">{filtered.length}</span>{" "}
+                    career{filtered.length === 1 ? "" : "s"} for you. Click any
+                    of them to know more.
+                  </p>
+                  <ol className="mt-3 overflow-hidden rounded-xl border border-[#eaded8]">
+                    <li className="bg-[#f8efec] px-4 py-2 text-[11px] font-black uppercase tracking-wide text-[#5b1f20]">
+                      Career
+                    </li>
+                    {filtered.map((c, i) => (
+                      <li
                         key={c.career_id}
-                        type="button"
-                        onClick={() => pick(c.career_id)}
-                        className={`block w-full rounded-lg px-3 py-1.5 text-left text-sm transition ${
-                          selected === c.career_id
-                            ? "bg-[#f8efec] font-semibold text-[#8f2e31]"
-                            : "text-[#5b3a34] hover:bg-[#fdf8f4]"
-                        }`}
+                        className="border-t border-[#f0e6e1]"
                       >
-                        {c.name}
-                      </button>
+                        <button
+                          type="button"
+                          onClick={() => pick(c.career_id)}
+                          className="flex w-full items-baseline gap-4 bg-white px-4 py-3 text-left text-[15px] transition hover:bg-[#fdf8f4]"
+                        >
+                          <span className="w-7 shrink-0 text-xs tabular-nums text-[#a89a94]">
+                            {i + 1}
+                          </span>
+                          <span className="font-semibold text-[#2f2320]">
+                            {c.name}
+                          </span>
+                          <span className="ml-auto hidden text-xs text-[#a89a94] sm:inline">
+                            {c.domain}
+                          </span>
+                        </button>
+                      </li>
                     ))}
                     {filtered.length === 0 ? (
-                      <p className="px-3 py-2 text-xs text-[#6d5550]">
-                        No careers match.
-                      </p>
+                      <li className="border-t border-[#f0e6e1] bg-white px-4 py-4 text-sm text-[#6d5550]">
+                        No careers match these filters.
+                      </li>
                     ) : null}
-                  </nav>
-                </div>
-                <div className="min-w-0">
-                  {current ? <CareerDetail c={current} /> : null}
-                </div>
-              </div>
+                  </ol>
+                </>
+              )}
             </>
           )}
         </div>

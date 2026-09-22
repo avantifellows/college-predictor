@@ -245,6 +245,11 @@ def main():
     parents = tax[tax.primary_branch_id.isna()]
     pmap = {norm(n): i for i, n in parents[["branch_id", "branch_name"]].values}
 
+    tax = pd.read_csv(TAXONOMY)
+    tax_vertical = {
+        r.branch_id: (str(r.vertical).strip() if pd.notna(r.vertical) and str(r.vertical).strip() else None)
+        for r in tax.itertuples()
+    }
     em = pd.read_csv(EXAM_MAP)
     exams_by_branch = em.groupby("branch_id")["exam"].agg(lambda s: sorted(set(s)))
     exam_cards = json.load(open(EXAMS_TAB))
@@ -286,10 +291,42 @@ def main():
         streams_raw = (str(r["Eligible Streams (After Class 12)"]).strip()
                        if pd.notna(r["Eligible Streams (After Class 12)"]) else "")
         eligible = sorted({t.strip() for t in streams_raw.split(",") if t.strip()})
+        # career domain = the branch taxonomy's vertical (Engineering, Medical
+        # Allied…); careers with no branch fall back to their exams / name
+        vertical = tax_vertical.get(branch_id) if branch_id else None
+        if not vertical:
+            joined = " ".join(e["label"] for e in exams).lower() + " " + name.lower()
+            if "neet" in joined or re.search(r"medic|nurs|pharm|dent|ayur|homeo|physio|radiol|audiol|lab tech|paramed|veterin|naturopath", joined):
+                vertical = "Medical Allied"
+            elif "clat" in joined or "law" in joined:
+                vertical = "Law"
+            elif re.search(r"engineer|technolog|josaa|jee|cet|eapcet|tnea|wbjee|keam|ojee", joined):
+                vertical = "Engineering"
+            elif re.search(r"commerce|account|finance|business|admin|economics|management", joined):
+                vertical = "Commerce & Management"
+            elif re.search(r"physics|chemistry|math|biolog|botany|zoolog|geolog|science|forensic", joined):
+                vertical = "Science"
+            elif re.search(r"arts|english|history|political|psycholog|journal|music|japanese|social|teaching", joined):
+                vertical = "Arts & Humanities"
+            else:
+                vertical = "Other"
+        # ~9 filterable domains: the taxonomy's finer verticals fold in
+        DOMAIN_FOLD = {
+            "Medical Allied": "Medicine & Health", "Medicine": "Medicine & Health",
+            "Ayurveda": "Medicine & Health", "Homeopathy": "Medicine & Health",
+            "Naturopathy": "Medicine & Health",
+            "Commerce": "Commerce & Management", "Management": "Commerce & Management",
+            "Humanities": "Arts & Humanities", "Education": "Arts & Humanities",
+            "Architecture": "Architecture & Design", "Design": "Architecture & Design",
+        }
+        vertical = DOMAIN_FOLD.get(vertical, vertical)
+        if vertical == "Other":
+            vertical = "Defence & Others"
         cards.append({
             "career_id": cid,
             "name": name,
             "branch_id": branch_id,
+            "domain": vertical,
             "eligible_streams": eligible or None,
             "day_in_life": str(r["A Day in the Life"]).strip() if pd.notna(r["A Day in the Life"]) else None,
             "impact": str(r["Real-World Impact"]).strip() if pd.notna(r["Real-World Impact"]) else None,

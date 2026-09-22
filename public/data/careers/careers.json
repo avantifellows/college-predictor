@@ -3,6 +3,7 @@
   "career_id": "administration",
   "name": "Administration",
   "branch_id": "ADMIN",
+  "domain": "Commerce & Management",
   "eligible_streams": [
    "All"
   ],
@@ -64,6 +65,7 @@
   "career_id": "aerospace-engineering",
   "name": "Aerospace Engineering",
   "branch_id": "AERO",
+  "domain": "Engineering",
   "eligible_streams": [
    "Science (PCM)"
   ],
@@ -195,6 +197,7 @@
   "career_id": "agricultural-engineering",
   "name": "Agricultural Engineering",
   "branch_id": "AGRIENG",
+  "domain": "Engineering",
   "eligible_streams": [
    "Science (PCB)",
    "Science (PCM)"
@@ -341,6 +344,7 @@
   "career_id": "agriculture",
   "name": "Agriculture",
   "branch_id": "AGRI",
+  "domain": "Agriculture",
   "eligible_streams": [
    "Science (PCB)",
    "Science (PCM)"
@@ -402,6 +406,7 @@
   "career_id": "architecture",
   "name": "Architecture",
   "branch_id": "ARCH",
+  "domain": "Architecture & Design",
   "eligible_streams": [
    "Science (PCM)"
   ],
@@ -512,6 +517,7 @@
   "career_id": "armed-forces-military-services",
   "name": "Armed Forces (Military Services)",
   "branch_id": null,
+  "domain": "Defence & Others",
   "eligible_streams": [
    "All"
   ],
@@ -571,6 +577,7 @@
   "career_id": "artificial-intelligence-and-data-science",
   "name": "Artificial Intelligence and Data Science",
   "branch_id": "AIML",
+  "domain": "Engineering",
   "eligible_streams": [
    "Science (PCM)"
   ],
@@ -712,6 +719,7 @@
   "career_id": "arts",
   "name": "Arts",
   "branch_id": "ARTS",
+  "domain": "Arts & Humanities",
   "eligible_streams": [
    "All"
   ],
@@ -772,6 +780,7 @@
   "career_id": "audiology",
   "name": "Audiology",
   "branch_id": "AUDI",
+  "domain": "Medicine & Health",
   "eligible_streams": [
    "Science (PCB)"
   ],
@@ -818,6 +827,7 @@
   "career_id": "automobile-engineering",
   "name": "Automobile Engineering",
   "branch_id": "AUTOENG",
+  "domain": "Engineering",
   "eligible_streams": [
    "Science (PCM)"
   ],
@@ -948,6 +958,7 @@
   "career_id": "ayurveda",
   "name": "Ayurveda",
   "branch_id": "AYUR",
+  "domain": "Medicine & Health",
   "eligible_streams": [
    "Science (PCB)"
   ],
@@ -1007,6 +1018,7 @@
   "career_id": "biochemical-engineering",
   "name": "Biochemical Engineering",
   "branch_id": "BIOCHEMENG",
+  "domain": "Engineering",
   "eligible_streams": [
    "Science (PCB)",
    "Science (PCM)"
@@ -1070,6 +1082,7 @@
   "career_id": "biochemistry",
   "name": "Biochemistry",
   "branch_id": "BIOCHEM",
+  "domain": "Science",
   "eligible_streams": [
    "Science (PCB)"
   ],
@@ -1126,6 +1139,7 @@
   "career_id": "biological-engineering",
   "name": "Biological Engineering",
   "branch_id": "BIOENG",
+  "domain": "Engineering",
   "eligible_streams": [
    "Science (PCB)",
    "Science (PCM)"
@@ -1197,6 +1211,7 @@
   "career_id": "biological-science-and-engineering",
   "name": "Biological Science And Engineering",
   "branch_id": "BIOSCI",
+  "domain": "Engineering",
   "eligible_streams": [
    "Science (PCB)",
    "Science (PCM)"
@@ -1268,6 +1283,7 @@
   "career_id": "biology",
   "name": "Biology",
   "branch_id": "BIO",
+  "domain": "Science",
   "eligible_streams": [
    "Science (PCB)"
   ],
@@ -1323,6 +1339,7 @@
   "career_id": "biomedical-engineering",
   "name": "Biomedical Engineering",
   "branch_id": "BIOMEDENG",
+  "domain": "Engineering",
   "eligible_streams": [
    "Science (PCB)",
    "Science (PCM)"
@@ -1461,6 +1478,7 @@
   "career_id": "biotechnology",
   "name": "Biotechnology",
   "branch_id": "BIOTECH",
+  "domain": "Science",
   "eligible_streams": [
    "Science (PCB)"
   ],
@@ -1609,6 +1627,7 @@
   "career_id": "botany",
   "name": "Botany",
   "branch_id": "BOT",
+  "domain": "Science",
   "eligible_streams": [
    "Science (PCB)"
   ],
@@ -1663,6 +1682,7 @@
   "career_id": "business-administration-mba",
   "name": "Business Administration (MBA)",
   "branch_id": "ADMIN",
+  "domain": "Commerce & Management",
   "eligible_streams": [
    "All"
   ],
@@ -1721,6 +1741,7 @@
   "career_id": "ceramic-engineering",
   "name": "Ceramic Engineering",
   "branch_id": "CERAMIC",
+  "domain": "Engineering",
   "eligible_streams": [
    "Science (PCM)"
   ],
@@ -1824,6 +1845,7 @@
   "career_id": "chartered-accountancy-ca",
   "name": "Chartered Accountancy (CA)",
   "branch_id": null,
+  "domain": "Commerce & Management",
   "eligible_streams": [
    "Arts",
    "Commerce",
@@ -1872,6 +1894,7 @@
   "career_id": "chemical-engineering",
   "name": "Chemical Engineering",
   "branch_id": "CHEMENG",
+  "domain": "Engineering",
   "eligible_streams": [
    "Science (PCM)"
   ],
@@ -2013,6 +2036,7 @@
   "career_id": "chemical-science-and-technology",
   "name": "Chemical Science And Technology",
   "branch_id": "CHEMSCI",
+  "domain": "Science",
   "eligible_streams": [
    "Science (PCB)",
    "Science (PCM)"
@@ -2072,6 +2096,7 @@
   "career_id": "chemistry",
   "name": "Chemistry",
   "branch_id": "CHEM",
+  "domain": "Science",
   "eligible_streams": [
    "Science (PCB)",
    "Science (PCM)"
@@ -2148,6 +2173,7 @@
   "career_id": "civil-engineering",
   "name": "Civil Engineering",
   "branch_id": "CIVILENG",
+  "domain": "Engineering",
   "eligible_streams": [
    "Science (PCM)"
   ],
@@ -2289,6 +2315,7 @@
   "career_id": "commerce",
   "name": "Commerce",
   "branch_id": "COMMERCE",
+  "domain": "Commerce & Management",
   "eligible_streams": [
    "Commerce"
   ],
@@ -2353,6 +2380,7 @@
   "career_id": "computer-application-bca-mca",
   "name": "Computer Application (BCA/MCA)",
   "branch_id": "BCA",
+  "domain": "Science",
   "eligible_streams": [
    "Commerce",
    "Science (PCM)"
@@ -2415,6 +2443,7 @@
   "career_id": "computer-science-information-technology",
   "name": "Computer Science / Information Technology",
   "branch_id": "CSIT",
+  "domain": "Engineering",
   "eligible_streams": [
    "Science (PCM)"
   ],
@@ -2558,6 +2587,7 @@
   "career_id": "computer-science-and-engineering",
   "name": "Computer Science And Engineering",
   "branch_id": "CSIT",
+  "domain": "Engineering",
   "eligible_streams": [
    "Science (PCM)"
   ],
@@ -2709,6 +2739,7 @@
   "career_id": "cyber-security",
   "name": "Cyber Security",
   "branch_id": "CYBERSEC",
+  "domain": "Engineering",
   "eligible_streams": [
    "Science (PCM)"
   ],
@@ -2845,6 +2876,7 @@
   "career_id": "dairy-engineering",
   "name": "Dairy Engineering",
   "branch_id": "DAIRYENG",
+  "domain": "Engineering",
   "eligible_streams": [
    "Science (PCB)",
    "Science (PCM)"
@@ -2936,6 +2968,7 @@
   "career_id": "data-engineering",
   "name": "Data Engineering",
   "branch_id": "AIML",
+  "domain": "Engineering",
   "eligible_streams": [
    "Science (PCM)"
   ],
@@ -3082,6 +3115,7 @@
   "career_id": "dentistry",
   "name": "Dentistry",
   "branch_id": "DENTAL",
+  "domain": "Medicine & Health",
   "eligible_streams": [
    "Science (PCB)"
   ],
@@ -3148,6 +3182,7 @@
   "career_id": "design",
   "name": "Design",
   "branch_id": "DESIGN",
+  "domain": "Architecture & Design",
   "eligible_streams": [
    "All"
   ],
@@ -3184,12 +3219,12 @@
     "href": "/predictor?exam=TNEA"
    },
    {
-    "label": "UCEED",
-    "href": "/exams?q=UCEED"
-   },
-   {
     "label": "DAT-Mains",
     "href": "/exams?q=DAT-Mains"
+   },
+   {
+    "label": "UCEED",
+    "href": "/exams?q=UCEED"
    }
   ],
   "top_colleges": [
@@ -3269,6 +3304,7 @@
   "career_id": "earth-science-and-engineering",
   "name": "Earth Science And Engineering",
   "branch_id": "EARTHSCI",
+  "domain": "Engineering",
   "eligible_streams": [
    "Science (PCM)"
   ],
@@ -3341,6 +3377,7 @@
   "career_id": "economics",
   "name": "Economics",
   "branch_id": "ECON",
+  "domain": "Commerce & Management",
   "eligible_streams": [
    "All"
   ],
@@ -3357,12 +3394,12 @@
     "href": "/exams?q=JEE Advanced"
    },
    {
-    "label": "ISI-AT",
-    "href": "/exams?q=ISI-AT"
-   },
-   {
     "label": "CUET",
     "href": "/exams?q=CUET"
+   },
+   {
+    "label": "ISI-AT",
+    "href": "/exams?q=ISI-AT"
    }
   ],
   "top_colleges": [
@@ -3408,6 +3445,7 @@
   "career_id": "electrical-electronics-communications-engineering",
   "name": "Electrical / Electronics / Communications Engineering",
   "branch_id": "ELEC",
+  "domain": "Engineering",
   "eligible_streams": [
    "Science (PCM)"
   ],
@@ -3554,6 +3592,7 @@
   "career_id": "electrical-and-electronics-engineering",
   "name": "Electrical And Electronics Engineering",
   "branch_id": "ELEC",
+  "domain": "Engineering",
   "eligible_streams": [
    "Science (PCM)"
   ],
@@ -3701,6 +3740,7 @@
   "career_id": "electrical-engineering",
   "name": "Electrical Engineering",
   "branch_id": "ELEC",
+  "domain": "Engineering",
   "eligible_streams": [
    "Science (PCM)"
   ],
@@ -3848,6 +3888,7 @@
   "career_id": "electronics-and-communications-engineering",
   "name": "Electronics And Communications Engineering",
   "branch_id": "ELEC",
+  "domain": "Engineering",
   "eligible_streams": [
    "Science (PCM)"
   ],
@@ -3994,6 +4035,7 @@
   "career_id": "energy-engineering",
   "name": "Energy Engineering",
   "branch_id": "ENERGYENG",
+  "domain": "Engineering",
   "eligible_streams": [
    "Science (PCM)"
   ],
@@ -4087,6 +4129,7 @@
   "career_id": "engineering-design",
   "name": "Engineering Design",
   "branch_id": "ENGDES",
+  "domain": "Engineering",
   "eligible_streams": [
    "Science (PCM)"
   ],
@@ -4169,6 +4212,7 @@
   "career_id": "engineering-physics",
   "name": "Engineering Physics",
   "branch_id": "ENGPHY",
+  "domain": "Engineering",
   "eligible_streams": [
    "Science (PCM)"
   ],
@@ -4244,6 +4288,7 @@
   "career_id": "engineering-science",
   "name": "Engineering Science",
   "branch_id": "ENGSCI",
+  "domain": "Engineering",
   "eligible_streams": [
    "Science (PCM)"
   ],
@@ -4306,6 +4351,7 @@
   "career_id": "english",
   "name": "English",
   "branch_id": "ENGLISH",
+  "domain": "Arts & Humanities",
   "eligible_streams": [
    "All"
   ],
@@ -4354,6 +4400,7 @@
   "career_id": "environmental-engineering",
   "name": "Environmental Engineering",
   "branch_id": "ENVENG",
+  "domain": "Engineering",
   "eligible_streams": [
    "Science (PCB)",
    "Science (PCM)"
@@ -4468,6 +4515,7 @@
   "career_id": "finance",
   "name": "Finance",
   "branch_id": "FIN",
+  "domain": "Commerce & Management",
   "eligible_streams": [
    "Commerce",
    "Science (PCM)"
@@ -4527,6 +4575,7 @@
   "career_id": "fishery-science",
   "name": "Fishery Science",
   "branch_id": "FISH",
+  "domain": "Science",
   "eligible_streams": [
    "Science (PCB)",
    "Science (PCM)"
@@ -4581,6 +4630,7 @@
   "career_id": "food-engineering",
   "name": "Food Engineering",
   "branch_id": "FOODENG",
+  "domain": "Engineering",
   "eligible_streams": [
    "Science (PCB)",
    "Science (PCM)"
@@ -4719,6 +4769,7 @@
   "career_id": "forensic-science",
   "name": "Forensic Science",
   "branch_id": "FORENSIC",
+  "domain": "Science",
   "eligible_streams": [
    "Science (PCB)",
    "Science (PCM)"
@@ -4759,6 +4810,7 @@
   "career_id": "forestry",
   "name": "Forestry",
   "branch_id": "FOREST",
+  "domain": "Science",
   "eligible_streams": [
    "Science (PCB)",
    "Science (PCM)"
@@ -4799,6 +4851,7 @@
   "career_id": "general-engineering",
   "name": "General Engineering",
   "branch_id": "GENENG",
+  "domain": "Engineering",
   "eligible_streams": [
    "Science (PCM)"
   ],
@@ -4815,12 +4868,12 @@
     "href": "/exams?q=JEE Advanced"
    },
    {
-    "label": "MHT-CET",
-    "href": "/exams?q=MHT-CET"
-   },
-   {
     "label": "KEA-CET",
     "href": "/exams?q=KEA-CET"
+   },
+   {
+    "label": "MHT-CET",
+    "href": "/exams?q=MHT-CET"
    }
   ],
   "top_colleges": [
@@ -4866,6 +4919,7 @@
   "career_id": "geology-geophysics-geological-technology",
   "name": "Geology / Geophysics / Geological Technology",
   "branch_id": "GEO",
+  "domain": "Science",
   "eligible_streams": [
    "Science (PCB)",
    "Science (PCM)"
@@ -4923,6 +4977,7 @@
   "career_id": "hcl-techbee-program",
   "name": "HCL TechBee Program",
   "branch_id": null,
+  "domain": "Defence & Others",
   "eligible_streams": [
    "All"
   ],
@@ -4958,6 +5013,7 @@
   "career_id": "history",
   "name": "History",
   "branch_id": "HIST",
+  "domain": "Arts & Humanities",
   "eligible_streams": [
    "All"
   ],
@@ -4997,6 +5053,7 @@
   "career_id": "homeopathy",
   "name": "Homeopathy",
   "branch_id": "HOMEO",
+  "domain": "Medicine & Health",
   "eligible_streams": [
    "Science (PCB)"
   ],
@@ -5041,6 +5098,7 @@
   "career_id": "horticulture",
   "name": "Horticulture",
   "branch_id": "HORTI",
+  "domain": "Agriculture",
   "eligible_streams": [
    "Science (PCB)",
    "Science (PCM)"
@@ -5086,6 +5144,7 @@
   "career_id": "hotel-management",
   "name": "Hotel Management",
   "branch_id": "HOTELMGT",
+  "domain": "Commerce & Management",
   "eligible_streams": [
    "All"
   ],
@@ -5131,6 +5190,7 @@
   "career_id": "industrial-manufacturing-production-engineering",
   "name": "Industrial / Manufacturing / Production Engineering",
   "branch_id": "INDENG",
+  "domain": "Engineering",
   "eligible_streams": [
    "Science (PCM)"
   ],
@@ -5271,6 +5331,7 @@
   "career_id": "industrial-chemistry",
   "name": "Industrial Chemistry",
   "branch_id": "INDCHEM",
+  "domain": "Engineering",
   "eligible_streams": [
    "Science (PCM)"
   ],
@@ -5328,6 +5389,7 @@
   "career_id": "instrumentation-engineering",
   "name": "Instrumentation Engineering",
   "branch_id": "INSTRENG",
+  "domain": "Engineering",
   "eligible_streams": [
    "Science (PCM)"
   ],
@@ -5445,6 +5507,7 @@
   "career_id": "japanese-language-translation",
   "name": "Japanese (Language & Translation)",
   "branch_id": null,
+  "domain": "Arts & Humanities",
   "eligible_streams": [
    "All"
   ],
@@ -5500,6 +5563,7 @@
   "career_id": "journalism",
   "name": "Journalism",
   "branch_id": "JOURNAL",
+  "domain": "Arts & Humanities",
   "eligible_streams": [
    "All"
   ],
@@ -5555,6 +5619,7 @@
   "career_id": "law-llb",
   "name": "Law (LLB)",
   "branch_id": "LLB",
+  "domain": "Law",
   "eligible_streams": [
    "All"
   ],
@@ -5624,6 +5689,7 @@
   "career_id": "life-science",
   "name": "Life Science",
   "branch_id": "LIFESCI",
+  "domain": "Science",
   "eligible_streams": [
    "Science (PCB)"
   ],
@@ -5700,6 +5766,7 @@
   "career_id": "marine-ocean-engineering",
   "name": "Marine / Ocean Engineering",
   "branch_id": "MARINE",
+  "domain": "Engineering",
   "eligible_streams": [
    "Science (PCM)"
   ],
@@ -5805,6 +5872,7 @@
   "career_id": "marine-engineering",
   "name": "Marine Engineering",
   "branch_id": "MARINE",
+  "domain": "Engineering",
   "eligible_streams": [
    "Science (PCM)"
   ],
@@ -5913,6 +5981,7 @@
   "career_id": "mathematics",
   "name": "Mathematics",
   "branch_id": "MATH",
+  "domain": "Science",
   "eligible_streams": [
    "Commerce",
    "Science (PCM)"
@@ -5930,16 +5999,16 @@
     "href": "/exams?q=JEE Advanced"
    },
    {
-    "label": "ISI-AT",
-    "href": "/exams?q=ISI-AT"
-   },
-   {
     "label": "CMI-EE",
     "href": "/exams?q=CMI-EE"
    },
    {
     "label": "CUET",
     "href": "/exams?q=CUET"
+   },
+   {
+    "label": "ISI-AT",
+    "href": "/exams?q=ISI-AT"
    }
   ],
   "top_colleges": [
@@ -5984,6 +6053,7 @@
   "career_id": "mathematics-and-computing",
   "name": "Mathematics And Computing",
   "branch_id": "MNC",
+  "domain": "Science",
   "eligible_streams": [
    "Science (PCM)"
   ],
@@ -6084,6 +6154,7 @@
   "career_id": "mechanical-mechatronics-engineering",
   "name": "Mechanical / Mechatronics Engineering",
   "branch_id": "MECHENG",
+  "domain": "Engineering",
   "eligible_streams": [
    "Science (PCM)"
   ],
@@ -6228,6 +6299,7 @@
   "career_id": "mechanical-engineering",
   "name": "Mechanical Engineering",
   "branch_id": "MECHENG",
+  "domain": "Engineering",
   "eligible_streams": [
    "Science (PCM)"
   ],
@@ -6373,6 +6445,7 @@
   "career_id": "medical-lab-technology",
   "name": "Medical Lab Technology",
   "branch_id": "LABTECH",
+  "domain": "Medicine & Health",
   "eligible_streams": [
    "Science (PCB)"
   ],
@@ -6428,6 +6501,7 @@
   "career_id": "medicine-mbbs",
   "name": "Medicine (MBBS)",
   "branch_id": "MBBS",
+  "domain": "Medicine & Health",
   "eligible_streams": [
    "Science (PCB)"
   ],
@@ -6498,6 +6572,7 @@
   "career_id": "metallurgy-engineering-and-material-science",
   "name": "Metallurgy Engineering And Material Science",
   "branch_id": "MEMS",
+  "domain": "Engineering",
   "eligible_streams": [
    "Science (PCM)"
   ],
@@ -6629,6 +6704,7 @@
   "career_id": "mining-engineering",
   "name": "Mining Engineering",
   "branch_id": "MININGENG",
+  "domain": "Engineering",
   "eligible_streams": [
    "Science (PCM)"
   ],
@@ -6766,6 +6842,7 @@
   "career_id": "music",
   "name": "Music",
   "branch_id": "MUSIC",
+  "domain": "Arts & Humanities",
   "eligible_streams": [
    "All"
   ],
@@ -6820,6 +6897,7 @@
   "career_id": "natural-science",
   "name": "Natural Science",
   "branch_id": "NATSCI",
+  "domain": "Science",
   "eligible_streams": [
    "Science (PCB)",
    "Science (PCM)"
@@ -6867,6 +6945,7 @@
   "career_id": "naturopathy",
   "name": "Naturopathy",
   "branch_id": "NATURO",
+  "domain": "Medicine & Health",
   "eligible_streams": [
    "Science (PCB)"
   ],
@@ -6914,6 +6993,7 @@
   "career_id": "nautical-science",
   "name": "Nautical Science",
   "branch_id": "NAUTICALSCI",
+  "domain": "Engineering",
   "eligible_streams": [
    "Science (PCM)"
   ],
@@ -6969,6 +7049,7 @@
   "career_id": "nursing",
   "name": "Nursing",
   "branch_id": "NURSING",
+  "domain": "Medicine & Health",
   "eligible_streams": [
    "Science (PCB)"
   ],
@@ -7038,6 +7119,7 @@
   "career_id": "ocean-engineering",
   "name": "Ocean Engineering",
   "branch_id": "MARINE",
+  "domain": "Engineering",
   "eligible_streams": [
    "Science (PCM)"
   ],
@@ -7143,6 +7225,7 @@
   "career_id": "oil-paints-dye-technology",
   "name": "Oil, Paints, Dye Technology",
   "branch_id": "OILPAINTTECH",
+  "domain": "Engineering",
   "eligible_streams": [
    "Science (PCM)"
   ],
@@ -7202,6 +7285,7 @@
   "career_id": "paper-and-printing-engineering",
   "name": "Paper And Printing Engineering",
   "branch_id": "PAPERENG",
+  "domain": "Engineering",
   "eligible_streams": [
    "Science (PCM)"
   ],
@@ -7273,6 +7357,7 @@
   "career_id": "paramedical",
   "name": "Paramedical",
   "branch_id": "PARAMED",
+  "domain": "Medicine & Health",
   "eligible_streams": [
    "Science (PCB)"
   ],
@@ -7337,6 +7422,7 @@
   "career_id": "petroleum-engineering",
   "name": "Petroleum Engineering",
   "branch_id": "PETROLENG",
+  "domain": "Engineering",
   "eligible_streams": [
    "Science (PCM)"
   ],
@@ -7426,6 +7512,7 @@
   "career_id": "pharmaceutical-engineering",
   "name": "Pharmaceutical Engineering",
   "branch_id": "PHARMAENG",
+  "domain": "Engineering",
   "eligible_streams": [
    "Science (PCB)",
    "Science (PCM)"
@@ -7522,6 +7609,7 @@
   "career_id": "pharmacy",
   "name": "Pharmacy",
   "branch_id": "PHARMA",
+  "domain": "Medicine & Health",
   "eligible_streams": [
    "Science (PCB)",
    "Science (PCM)"
@@ -7622,6 +7710,7 @@
   "career_id": "physics",
   "name": "Physics",
   "branch_id": "PHYSICS",
+  "domain": "Science",
   "eligible_streams": [
    "Science (PCM)"
   ],
@@ -7705,6 +7794,7 @@
   "career_id": "physiotherapy",
   "name": "Physiotherapy",
   "branch_id": "PHYSIO",
+  "domain": "Medicine & Health",
   "eligible_streams": [
    "Science (PCB)"
   ],
@@ -7760,6 +7850,7 @@
   "career_id": "planning",
   "name": "Planning",
   "branch_id": "PLAN",
+  "domain": "Architecture & Design",
   "eligible_streams": [
    "Arts",
    "Science (PCM)"
@@ -7871,6 +7962,7 @@
   "career_id": "political-science",
   "name": "Political Science",
   "branch_id": "POLISCI",
+  "domain": "Arts & Humanities",
   "eligible_streams": [
    "All"
   ],
@@ -7931,6 +8023,7 @@
   "career_id": "polymer-technology",
   "name": "Polymer Technology",
   "branch_id": "POLYMERTECH",
+  "domain": "Engineering",
   "eligible_streams": [
    "Science (PCM)"
   ],
@@ -8006,6 +8099,7 @@
   "career_id": "printing-engineering",
   "name": "Printing Engineering",
   "branch_id": "PRINTENG",
+  "domain": "Engineering",
   "eligible_streams": [
    "Science (PCM)"
   ],
@@ -8067,6 +8161,7 @@
   "career_id": "psychology",
   "name": "Psychology",
   "branch_id": "PSYCH",
+  "domain": "Arts & Humanities",
   "eligible_streams": [
    "All"
   ],
@@ -8129,6 +8224,7 @@
   "career_id": "radiology",
   "name": "Radiology",
   "branch_id": "RADIOLOGY",
+  "domain": "Medicine & Health",
   "eligible_streams": [
    "Science (PCB)"
   ],
@@ -8169,6 +8265,7 @@
   "career_id": "robotics-engineering",
   "name": "Robotics Engineering",
   "branch_id": "ROBOENG",
+  "domain": "Engineering",
   "eligible_streams": [
    "Science (PCM)"
   ],
@@ -8289,6 +8386,7 @@
   "career_id": "safety-engineering",
   "name": "Safety Engineering",
   "branch_id": "SAFETYENG",
+  "domain": "Engineering",
   "eligible_streams": [
    "Science (PCM)"
   ],
@@ -8381,6 +8479,7 @@
   "career_id": "sericulture",
   "name": "Sericulture",
   "branch_id": "SERI",
+  "domain": "Agriculture",
   "eligible_streams": [
    "Science (PCB)",
    "Science (PCM)"
@@ -8427,6 +8526,7 @@
   "career_id": "social-work",
   "name": "Social Work",
   "branch_id": "SOCIALWORK",
+  "domain": "Arts & Humanities",
   "eligible_streams": [
    "All"
   ],
@@ -8483,6 +8583,7 @@
   "career_id": "space-engineering",
   "name": "Space Engineering",
   "branch_id": "SPACEENG",
+  "domain": "Engineering",
   "eligible_streams": [
    "Science (PCM)"
   ],
@@ -8554,6 +8655,7 @@
   "career_id": "structural-engineering",
   "name": "Structural Engineering",
   "branch_id": "CIVILENG",
+  "domain": "Engineering",
   "eligible_streams": [
    "Science (PCM)"
   ],
@@ -8700,6 +8802,7 @@
   "career_id": "systems-engineering",
   "name": "Systems Engineering",
   "branch_id": "SYSENG",
+  "domain": "Engineering",
   "eligible_streams": [
    "Science (PCM)"
   ],
@@ -8747,6 +8850,7 @@
   "career_id": "teaching",
   "name": "Teaching",
   "branch_id": "TEACH",
+  "domain": "Arts & Humanities",
   "eligible_streams": [
    "All"
   ],
@@ -8803,6 +8907,7 @@
   "career_id": "textile-engineering",
   "name": "Textile Engineering",
   "branch_id": "TEXTILE",
+  "domain": "Engineering",
   "eligible_streams": [
    "Science (PCM)"
   ],
@@ -8937,6 +9042,7 @@
   "career_id": "veterinary",
   "name": "Veterinary",
   "branch_id": "VET",
+  "domain": "Medicine & Health",
   "eligible_streams": [
    "Science (PCB)"
   ],
@@ -8996,6 +9102,7 @@
   "career_id": "zoology",
   "name": "Zoology",
   "branch_id": "ZOO",
+  "domain": "Science",
   "eligible_streams": [
    "Science (PCB)"
   ],
