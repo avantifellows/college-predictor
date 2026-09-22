@@ -32,8 +32,14 @@ const ROWS = [
   {
     key: "closing",
     label: "Rank band",
-    sub: "JoSAA opening to closing, open category",
+    sub: (o) =>
+      o.college.counselling?.startsWith("MHT-CET")
+        ? "MHT-CET state merit rank, open category"
+        : "JoSAA opening to closing, open category",
     get: (o) => o.program?.indicative_closing_rank ?? null,
+    // a JoSAA rank and an MHT-CET rank are different number lines — never
+    // crown a winner across them
+    space: (o) => o.college.counselling,
     fmt: (v) => v.toLocaleString("en-IN"),
     display: (o) => {
       const open = o.program?.indicative_opening_rank;
@@ -50,10 +56,15 @@ const ROWS = [
     label: "NIRF rank",
     sub: (o) =>
       o.college.nirf?.ranking_year
-        ? `Engineering, ${o.college.nirf.ranking_year}`
+        ? `${o.college.nirf.category || "Engineering"}, ${
+            o.college.nirf.ranking_year
+          }`
         : null,
     get: (o) => o.college.nirf?.rank ?? null,
     fmt: (v) => `#${v}`,
+    // NIRF ranks only order institutes within one list (Engineering #40 vs
+    // Pharmacy #40 says nothing)
+    space: (o) => o.college.nirf?.category ?? null,
     betterLow: true,
   },
   {
@@ -212,7 +223,15 @@ export default function Compare() {
       // compare rows are built for the JoSAA universe (rank band, fees,
       // engineering placement); medical rows would compare mostly blanks —
       // and across a different NIRF category, which highlights nonsense
-      .then((rows) => setAll(rows.filter((c) => c.counselling === "JoSAA")))
+      .then((rows) =>
+        setAll(
+          rows.filter(
+            (c) =>
+              c.counselling === "JoSAA" ||
+              String(c.counselling).startsWith("MHT-CET")
+          )
+        )
+      )
       .catch(() => setError("Could not load colleges right now."));
   }, []);
 
@@ -224,7 +243,17 @@ export default function Compare() {
       .slice(0, MAX_OPTIONS)
       .map((part) => {
         const [cid, ...rest] = part.split("~");
-        const college = all.find((c) => c.college_id === cid);
+        let college = all.find((c) => c.college_id === cid);
+        if (!college && cid === "n" && rest.length >= 2) {
+          // n~<college slug>~<branch slug>
+          const [cslug, ...bslug] = rest;
+          college = all.find((c) => slugify(c.display_name) === cslug);
+          if (!college) return null;
+          return {
+            collegeId: college.college_id,
+            branchIdx: matchBranchIdx(college, bslug.join("~")),
+          };
+        }
         if (!college) return null;
         return {
           collegeId: cid,
@@ -259,6 +288,16 @@ export default function Compare() {
     const vals = picked.map((o) => row.get(o));
     const nums = vals.filter((v) => v != null);
     if (nums.length < 2 || nums.every((v) => v === nums[0])) return new Set();
+    if (row.space) {
+      // mixed number lines (JoSAA vs MHT-CET rank, Engineering vs Pharmacy
+      // NIRF): show the numbers, crown nobody
+      const spaces = new Set(
+        picked
+          .map((o, i) => (vals[i] == null ? null : row.space(o)))
+          .filter(Boolean)
+      );
+      if (spaces.size > 1) return new Set();
+    }
     const best = row.betterLow ? Math.min(...nums) : Math.max(...nums);
     return new Set(
       vals.map((v, i) => (v === best ? i : -1)).filter((i) => i >= 0)

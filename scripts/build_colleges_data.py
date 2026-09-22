@@ -87,14 +87,14 @@ EXAM_BRANCH_MAP = "data-sources/exam_branch_mapping.csv"
 BRANCH_TO_CAREER = "public/data/careers/branch_to_career.json"
 
 
-def career_lookup():
+def career_lookup(exam="JoSAA"):
     import csv
     b2c = json.load(open(BRANCH_TO_CAREER))
     base_to_career = {}
     conflicts = set()
     with open(EXAM_BRANCH_MAP) as fh:
         for r in csv.DictReader(fh):
-            if r["exam"] != "JoSAA":
+            if r["exam"] != exam:
                 continue
             # strip ONLY the trailing "(4 Years, Bachelor of Technology)" —
             # a first-paren split collapses "CSE (Cyber Security)" into
@@ -507,8 +507,119 @@ def build_medical(client):
     return nmc, xwalk, nirf_med, place, gender
 
 
+# ── MHT-CET: State CET Cell spine (Maharashtra) ─────────────────────────────
+
+MH_DISTRICTS = {
+    "Ahmednagar", "Akola", "Amravati", "Aurangabad", "Chhatrapati Sambhajinagar",
+    "Beed", "Bhandara", "Buldhana", "Chandrapur", "Dhule", "Gadchiroli",
+    "Gondia", "Hingoli", "Jalgaon", "Jalna", "Kolhapur", "Latur", "Mumbai",
+    "Nagpur", "Nanded", "Nandurbar", "Nashik", "Osmanabad", "Dharashiv",
+    "Palghar", "Parbhani", "Pune", "Raigad", "Ratnagiri", "Sangli", "Satara",
+    "Sindhudurg", "Solapur", "Thane", "Wardha", "Washim", "Yavatmal",
+}
+
+STREAM_DEGREE = {
+    "engineering": ("B.E. / B.Tech", 4, "Engineering"),
+    "pharmacy": ("B.Pharm", 4, "Pharmacy"),
+    "architecture": ("B.Arch", 5, "Architecture"),
+    "bdesign": ("B.Des", 4, "Design"),
+}
+
+
+def mh_district_of(name: str):
+    """The CET Cell prints '…, City' — accept it as the district only when the
+    city IS a district name; 'Pimpri' or 'Lonere' stay null rather than lie."""
+    tail = str(name).rsplit(",", 1)[-1].strip().rstrip(".")
+    return tail if tail in MH_DISTRICTS else None
+
+
+def mhtcet_ownership(college_type: str):
+    t = str(college_type or "")
+    if t in ("Govt", "State-Univ-Dept"):
+        return "Public"
+    if t == "Govt-Aided":
+        return "Government-aided"
+    if t.startswith("Private") or t == "Deemed":
+        return "Private"
+    return None
+
+
+def match_nirf_to_mhtcet(nirf_mh, colleges):
+    """NIRF (Maharashtra, Engineering/Pharmacy/Architecture) institute -> CET
+    college_code. Exact / short-name / token-subset tiers; unique hits only.
+    Both lists are Maharashtra, so the usual state constraint is implicit."""
+    def toks(x):
+        return set(_mnorm(x).split())
+    by_code = [(c.college_code, _mnorm(c.college_name), _mshort(c.college_name),
+                toks(c.college_name)) for c in colleges.itertuples()]
+    out = {}
+    for r in nirf_mh[["institute_id", "institute_name"]].drop_duplicates().itertuples():
+        n_full, n_short, n_toks = _mnorm(r.institute_name), _mshort(r.institute_name), toks(r.institute_name)
+        hits = [c for c, full, short, _ in by_code if full == n_full or short == n_short]
+        if not hits:
+            hits = [c for c, _, _, t in by_code if n_toks and n_toks <= t]
+        if len(set(hits)) == 1:
+            out[r.institute_id] = hits[0]
+    return out
+
+
+def build_mhtcet(client):
+    print("Querying BigQuery (MHT-CET)…")
+    T = "`avantifellows.external_data_sources.mhtcet_fact_cutoffs`"
+    colleges = client.query(f"""
+    SELECT college_code,
+           ANY_VALUE(college_name) AS college_name,
+           ANY_VALUE(college_type) AS college_type,
+           ANY_VALUE(status) AS status,
+           ANY_VALUE(home_university) AS home_university,
+           ANY_VALUE(source_url) AS source_url,
+           MAX(year) AS year
+    FROM {T}
+    WHERE year = (SELECT MAX(year) FROM {T})
+    GROUP BY college_code
+    """).to_dataframe()
+
+    # one indicative rank per branch: open category, all-gender seats, the
+    # LOOSEST closing across quotas (state level / home / other) — the easier
+    # door, comparable across colleges and never overstating difficulty.
+    # Opening rides on the same row so the pair is one real quota.
+    programs = client.query(f"""
+    SELECT college_code, stream, branch_name,
+           ARRAY_AGG(
+             IF(category = 'GEN' AND gender = 'All',
+                STRUCT(opening_rank, closing_rank, quota), NULL)
+             IGNORE NULLS ORDER BY closing_rank DESC LIMIT 1
+           )[SAFE_OFFSET(0)] AS best
+    FROM {T}
+    WHERE year = (SELECT MAX(year) FROM {T})
+    GROUP BY college_code, stream, branch_name
+    """).to_dataframe()
+
+    nirf_mh = client.query("""
+    SELECT institute_id, institute_name, ranking_category, ranking_year,
+           nirf_rank, overall_score
+    FROM `avantifellows.external_data_sources.nirf_fact_rankings`
+    WHERE state = 'Maharashtra' AND nirf_rank IS NOT NULL
+      AND ranking_category IN ('Engineering', 'Pharmacy', 'Architecture and Planning')
+    """).to_dataframe()
+
+    place = client.query("""
+    SELECT institute_id, edition_year AS ranking_year,
+           graduating_academic_year AS academic_year, median_salary,
+           graduated_on_time, students_placed, higher_studies_selected,
+           first_year_intake, discipline
+    FROM `avantifellows.external_data_sources.nirf_fact_dcs_placements`
+    WHERE discipline IN ('Engineering', 'Pharmacy') AND program_level = 'UG-4Y'
+      AND NOT superseded
+      AND median_salary IS NOT NULL AND median_salary > 0
+      AND graduated_on_time IS NOT NULL AND graduated_on_time > 0
+    """).to_dataframe()
+    return colleges, programs, nirf_mh, place
+
+
 def main():
     careers_by_branch = career_lookup()
+    careers_by_branch_mhtcet = career_lookup("MHT-CET")
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
@@ -1017,6 +1128,153 @@ def main():
                 "accreditation": "NAAC" if naac_block["grade"] else None,
             },
         })
+
+    # ── MHT-CET rows: State CET Cell spine ──────────────────────────────────
+    mh_colleges, mh_programs, nirf_mh, mh_place = build_mhtcet(client)
+    print(f"  mhtcet colleges {len(mh_colleges)}  programme rows {len(mh_programs)}  "
+          f"nirf-MH rows {len(nirf_mh)}  placement {len(mh_place)}")
+    nirf_code_by_id = match_nirf_to_mhtcet(nirf_mh, mh_colleges)
+    nirf_ids_by_code = {}
+    for iid, code in nirf_code_by_id.items():
+        nirf_ids_by_code.setdefault(code, set()).add(iid)
+    nirf_mh_by_id = {iid: g.sort_values("ranking_year", ascending=False)
+                     for iid, g in nirf_mh.groupby("institute_id")}
+    mh_place_by_id = {iid: g.sort_values(["ranking_year", "academic_year"], ascending=False)
+                      for iid, g in mh_place.groupby("institute_id")}
+    mh_prog_by_code = {code: g for code, g in mh_programs.groupby("college_code")}
+
+    mh_rows = []
+    for r in mh_colleges.itertuples():
+        nids = nirf_ids_by_code.get(r.college_code, set())
+        nirf_block = None
+        frames = [nirf_mh_by_id[n] for n in nids if n in nirf_mh_by_id]
+        if frames:
+            g = (pd.concat(frames)
+                   .sort_values("ranking_year", ascending=False))
+            # one institute may sit in two NIRF lists (Engineering AND
+            # Pharmacy); keep the category with the most recent, best rank
+            top_cat = g.iloc[0]["ranking_category"]
+            g = g[g["ranking_category"] == top_cat].drop_duplicates(subset=["ranking_year"])
+            top = g.iloc[0]
+            nirf_block = {
+                "category": "Architecture" if top_cat.startswith("Architecture") else top_cat,
+                "rank": int(top.nirf_rank),
+                "score": (round(float(top.overall_score), 2)
+                          if top.overall_score == top.overall_score else None),
+                "ranking_year": int(top.ranking_year),
+                "rank_history": [
+                    {"year": int(x.ranking_year), "rank": int(x.nirf_rank),
+                     "score": (round(float(x.overall_score), 2)
+                               if x.overall_score == x.overall_score else None)}
+                    for x in g.head(6).itertuples()
+                ],
+            }
+
+        placement = None
+        pframes = [mh_place_by_id[n] for n in nids if n in mh_place_by_id]
+        if pframes:
+            pr = pd.concat(pframes).sort_values(["ranking_year", "academic_year"],
+                                                ascending=False).iloc[0]
+            def num(v, cast=float):
+                return None if v != v else cast(v)
+            placed_n, higher_n, grad_n = (num(pr.students_placed, int),
+                                          num(pr.higher_studies_selected, int),
+                                          num(pr.graduated_on_time, int))
+            pct = outcome = None
+            if grad_n:
+                if placed_n is not None:
+                    pct = round(placed_n / grad_n * 100, 1)
+                if placed_n is not None and higher_n is not None:
+                    outcome = round(min(100.0, (placed_n + higher_n) / grad_n * 100), 1)
+            placement = {
+                "median_salary": num(pr.median_salary, int),
+                "percentage_placed": pct,
+                "percentage_with_outcome": outcome,
+                "students_placed": placed_n,
+                "higher_studies_selected": higher_n,
+                "first_year_intake": num(pr.first_year_intake, int),
+                "academic_year": pr.academic_year,
+                "ranking_year": int(pr.ranking_year),
+                "source": f"NIRF {pr.discipline}, UG 4-year",
+                "is_branch_specific": False,
+            }
+
+        # programmes: one row per branch with the open-category loosest rank
+        g = mh_prog_by_code.get(r.college_code)
+        lst, degrees, streams = [], set(), set()
+        if g is not None:
+            for x in g.itertuples():
+                degree, years, discipline = STREAM_DEGREE.get(
+                    str(x.stream), ("Degree", None, str(x.stream).title()))
+                degrees.add(degree)
+                streams.add(discipline)
+                best = x.best
+                closing = opening = None
+                if best is not None and best.get("closing_rank") is not None:
+                    closing = int(best["closing_rank"])
+                    if best.get("opening_rank") is not None:
+                        opening = int(best["opening_rank"])
+                lst.append({
+                    "branch": x.branch_name,
+                    "years": years,
+                    "degree": degree,
+                    "indicative_closing_rank": closing,
+                    "indicative_opening_rank": opening,
+                    "career_id": careers_by_branch_mhtcet.get(x.branch_name),
+                })
+        lst.sort(key=lambda z: (z["indicative_closing_rank"] is None,
+                                z["indicative_closing_rank"] or 0, z["branch"]))
+        programs = {
+            "count": len(lst),
+            "degrees": sorted(degrees),
+            "list": lst,
+            "source": f"MHT-CET CAP {int(r.year)}, rounds 1-4",
+            "rank_note": "Indicative open-category MHT-CET state merit rank.",
+        }
+
+        # CET Cell spacing quirks: "Institute , Andheri", double spaces
+        display = re.sub(r"\s+,", ",", re.sub(r"\s{2,}", " ", str(r.college_name))).strip()
+        mh_rows.append({
+            "college_id": f"mhtcet:{r.college_code}",
+            "aishe_code": None,
+            "name": display,
+            "display_name": display,
+            "state": "Maharashtra",
+            "state_is_inferred": False,
+            "district": mh_district_of(display),
+            "kind": r.status if isinstance(r.status, str) and r.status else None,
+            "management": r.college_type if isinstance(r.college_type, str) else None,
+            "ownership": mhtcet_ownership(r.college_type),
+            "disciplines": sorted(streams)[:4],
+            "year_established": None,
+            "website": None,
+            "university": (r.home_university
+                           if isinstance(r.home_university, str)
+                           and r.home_university != "Autonomous Institute" else None),
+            "entrance_exams": ["MHT CET"],
+            "counselling": "MHT-CET CAP (State CET Cell)",
+            "programs": programs,
+            "nirf": nirf_block,
+            "ug_gender": None,
+            "fees": None,
+            "placement": placement,
+            "naac": {"grade": None, "cgpa": None, "cycle": None,
+                     "not_applicable_reason": None},
+            "data_sources": {
+                "identity": f"State CET Cell, Maharashtra {int(r.year)}",
+                "programs": programs["source"],
+                "ranking": f"NIRF {nirf_block['ranking_year']}" if nirf_block else None,
+                "placement": (f"NIRF {placement['ranking_year']} (AY {placement['academic_year']})"
+                              if placement else None),
+                "accreditation": None,
+            },
+        })
+    print(f"  mhtcet rows {len(mh_rows)}"
+          f"  with NIRF {sum(1 for x in mh_rows if x['nirf'])}"
+          f"  with placement {sum(1 for x in mh_rows if x['placement'])}"
+          f"  with district {sum(1 for x in mh_rows if x['district'])}"
+          f"  branches career-linked {sum(1 for x in mh_rows for p in x['programs']['list'] if p['career_id'])}")
+    rows += mh_rows
 
     print(f"  medical rows {len(med_rows)}"
           f"  with NIRF {sum(1 for x in med_rows if x['nirf'])}"

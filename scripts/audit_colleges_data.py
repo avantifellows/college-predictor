@@ -39,19 +39,21 @@ def main() -> int:
 
     for c in rows:
         nirf, place, prog = c["nirf"], c["placement"], c["programs"]
-        medical = c["counselling"] != "JoSAA"
+        medical = c["counselling"].startswith("MCC")
+        mhtcet = c["counselling"].startswith("MHT-CET")
 
         # identity
         chk(c["college_id"], "missing college_id", c)
         chk(c["display_name"].strip(), "empty display_name", c)
         chk(c["entrance_exams"], "no entrance exam", c)
-        chk(all(e in (("NEET-UG",) if medical else ("JEE Main", "JEE Advanced"))
+        chk(all(e in (("NEET-UG",) if medical else ("MHT CET",) if mhtcet
+                      else ("JEE Main", "JEE Advanced"))
                 for e in c["entrance_exams"]),
             "unexpected entrance exam", c, str(c["entrance_exams"]))
         # a JoSAA row may lack an AISHE code (crosswalk gap) but then the
         # state, if we have one, must be flagged as inferred. Medical rows
         # carry their state from NMC itself — never inferred.
-        if c.get("state") and not c["aishe_code"] and not medical:
+        if c.get("state") and not c["aishe_code"] and not medical and not mhtcet:
             chk(c.get("state_is_inferred"), "unflagged inferred state", c)
         chk(not (c.get("state_is_inferred") and c["aishe_code"]),
             "inferred flag on an AISHE-matched row", c)
@@ -62,7 +64,7 @@ def main() -> int:
 
         # NIRF — Medical publishes ~50 exact ranks, Engineering up to ~300
         if nirf:
-            cap = 100 if nirf.get("category") == "Medical" else 350
+            cap = 100 if nirf.get("category") in ("Medical", "Pharmacy", "Architecture") else 350
             chk(1 <= nirf["rank"] <= cap, "rank out of range", c,
                 nirf["rank"])
             years = [h["year"] for h in nirf["rank_history"]]
@@ -95,7 +97,8 @@ def main() -> int:
             # 0 is a real figure — NMC lists suspended-intake colleges
             chk(any(p.get("seats") is not None for p in prog["list"]),
                 "medical row without seats", c)
-        else:
+        elif not mhtcet:
+            # a few CET pharmacy colleges publish no open-category row at all
             chk(any(r is not None for r in ranks), "every branch rank is null", c)
         present = [r for r in ranks if r is not None]
         chk(present == sorted(present), "branch list not sorted by rank", c)

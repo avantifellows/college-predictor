@@ -830,8 +830,9 @@ const Colleges = () => {
               <p className="mt-6 border-t border-[#eaded8] pt-3 text-[11px] leading-5 text-[#6d5550]">
                 Sources: AISHE 2024-25 (identity) · NIRF 2025 (rank, placement)
                 · NAAC (accreditation) · JoSAA 2025 (branches) · NMC 2024-25
-                (medical colleges, MBBS seats). A dash means we do not have that
-                figure.
+                (medical colleges, MBBS seats) · State CET Cell 2025
+                (Maharashtra colleges, MHT-CET ranks). A dash means we do not
+                have that figure.
               </p>
             </>
           )}

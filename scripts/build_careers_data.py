@@ -154,7 +154,7 @@ def _load_options_file(path):
     return _option_cache[path]
 
 
-def college_options(branch_id, em, tab_link, per_exam=2, total=6):
+def college_options(branch_id, em, tab_link, per_exam=1, total=6):
     """A few real (college, branch, exam, closing number) rows per exam
     route for this career's branch. JoSAA splits into JEE Advanced (IITs)
     vs JEE Main; each row keeps its own rank basis — never compare the

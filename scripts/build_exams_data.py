@@ -228,6 +228,8 @@ def main():
             card["colleges_link"] = f"/colleges?exam={which}"
         elif fam == "NEET":
             card["colleges_link"] = "/colleges?exam=NEET-UG"
+        elif fam == "MHT-CET":
+            card["colleges_link"] = "/colleges?exam=MHT CET"
         else:
             card["colleges_link"] = None
 

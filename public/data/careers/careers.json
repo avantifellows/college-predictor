@@ -143,13 +143,6 @@
     "q": "Indian Institute of Technology Bombay"
    },
    {
-    "college": "Indian Institute of Technology Madras",
-    "branch": "Aerospace Engineering",
-    "exam": "JEE Advanced",
-    "closing": "2,749",
-    "q": "Indian Institute of Technology Madras"
-   },
-   {
     "college": "R. V. College of Engineering, Bangalore(AUTONOMOUS) R.V. VIDYANIKETAN POST, MYSORE ROAD,BANGALORE",
     "branch": "AERO SPACE ENGINEERING",
     "exam": "KCET",
@@ -157,24 +150,24 @@
     "q": null
    },
    {
-    "college": "M S Ramaiah Institute of Technology, Bangalore(AUTONOMOUS) VIDYA SOUDHA,MSR NAGAR,MSRIT POST,BANGALORE - 560054.",
-    "branch": "AERO SPACE ENGINEERING",
-    "exam": "KCET",
-    "closing": "6,536",
-    "q": null
-   },
-   {
     "college": "Jawahar Education Society's Annasaheb Chudaman Patil College of Engineering,Kharghar, Navi Mumbai",
     "branch": "Aeronautical Engineering",
     "exam": "MHT-CET",
     "closing": "70,382",
+    "q": "Jawahar Education Society's Annasaheb Chudaman Patil College of Engineering,Kharghar, Navi Mumbai"
+   },
+   {
+    "college": "Odisha University of Technology and Research (formerly College of Engineering and Technology), Bhubaneswar",
+    "branch": "AEROSPACE ENGINEERING - TFW",
+    "exam": "OJEE",
+    "closing": "171,705 (JEE Main rank)",
     "q": null
    },
    {
-    "college": "Annasaheb Dange College of Engineering and Technology, Ashta, Sangli",
-    "branch": "Aeronautical Engineering",
-    "exam": "MHT-CET",
-    "closing": "77,682",
+    "college": "University Departments of Anna University Chennai - MIT Campus Chrompet Tambaram Taluk Chengalpattu District 600 044",
+    "branch": "AERONAUTICAL ENGINEERING",
+    "exam": "TNEA",
+    "closing": "196.5/200 marks",
     "q": null
    }
   ],
@@ -290,24 +283,10 @@
     "q": "Indian Institute of Technology Kharagpur"
    },
    {
-    "college": "Indian Institute of Technology Ropar",
-    "branch": "Digital Agriculture",
-    "exam": "JEE Advanced",
-    "closing": "13,685",
-    "q": "Indian Institute of Technology Ropar"
-   },
-   {
     "college": "REVA University RUKMINI KNOWLEDGE PARK, KATTIGENAHALLI, YELAHANKA,BANGALORE - 560064,",
     "branch": "B TECH IN AGRICULTURAL ENGINEERING",
     "exam": "KCET",
     "closing": "72,864",
-    "q": null
-   },
-   {
-    "college": "S E A College of Engineering & Technology, Virgonagar, Bangalore EKTA NAGAR, BASAVANAPURA, VIRGO NAGAR POST, BANGALORE - 560 049.",
-    "branch": "AGRICULTURE ENGINEERING",
-    "exam": "KCET",
-    "closing": "235,238",
     "q": null
    },
    {
@@ -318,10 +297,24 @@
     "q": null
    },
    {
-    "college": "FACULTY OF TECHNOLOGY, UTTAR BANGA KRISHI VISWAVIDYALAYA",
+    "college": "G. S. Mandal's Maharashtra Institute of Technology, Aurangabad",
     "branch": "Agricultural Engineering",
-    "exam": "WBJEE",
-    "closing": "11,599",
+    "exam": "MHT-CET",
+    "closing": "78,186",
+    "q": "G. S. Mandal's Maharashtra Institute of Technology, Aurangabad"
+   },
+   {
+    "college": "Bhubaneswar Engineering College, Pitapally, Bhubaneswar",
+    "branch": "Agriculture Engineering - TFW",
+    "exam": "OJEE",
+    "closing": "148,097 (JEE Main rank)",
+    "q": null
+   },
+   {
+    "college": "Bannari Amman Institute of Technology (Autonomous), Sathy-Bhavani Road, (State Highway), Alathukombai Post, Sathyamangalam (Taluk), Erode District-638401.",
+    "branch": "AGRICULTURAL ENGINEERING",
+    "exam": "TNEA",
+    "closing": "173.5/200 marks",
     "q": null
    }
   ],
@@ -480,13 +473,6 @@
     "q": "School of Planning & Architecture, New Delhi"
    },
    {
-    "college": "National Institute of Technology, Tiruchirappalli",
-    "branch": "Architecture",
-    "exam": "JEE Main",
-    "closing": "227",
-    "q": "National Institute of Technology, Tiruchirappalli"
-   },
-   {
     "college": "Jadavpur University",
     "branch": "Architectural Engineering",
     "exam": "WBJEE",
@@ -494,25 +480,11 @@
     "q": null
    },
    {
-    "college": "Sanaka Education Trusts Group of Institutions, Durgapur, Burdwan",
-    "branch": "Architecture",
-    "exam": "WBJEE",
-    "closing": "10,038",
-    "q": null
-   },
-   {
     "college": "Kamla Raheja Vidhyanidhi Institute for Architecture and Environmental Studies, Mumbai",
     "branch": "Architecture",
     "exam": "MHT-CET",
     "closing": "30",
-    "q": null
-   },
-   {
-    "college": "Sir J. J. College of Architecture, Mumbai",
-    "branch": "Architecture",
-    "exam": "MHT-CET",
-    "closing": "31",
-    "q": null
+    "q": "Kamla Raheja Vidhyanidhi Institute for Architecture and Environmental Studies, Mumbai"
    }
   ],
   "notable_people": [
@@ -682,24 +654,10 @@
     "q": "Indian Institute of Technology Madras"
    },
    {
-    "college": "Indian Institute of Technology Roorkee",
-    "branch": "Data Science and Artificial Intelligence",
-    "exam": "JEE Advanced",
-    "closing": "770",
-    "q": "Indian Institute of Technology Roorkee"
-   },
-   {
     "college": "R. V. College of Engineering, Bangalore(AUTONOMOUS) R.V. VIDYANIKETAN POST, MYSORE ROAD,BANGALORE",
     "branch": "COMPUTER SCIENCE AND ENGINEERING(ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING)",
     "exam": "KCET",
     "closing": "742",
-    "q": null
-   },
-   {
-    "college": "PES University 100 Feet Ring Road, Banashankari, 3rd Stage, Hosakerehalli, Near DSERT, , Bangalore KARNATAKA, pin code -560085",
-    "branch": "B TECH IN COMPUTER SCIENCE & ENGINEERING(ARTIFICAL INTELLIGENCE & MACHINE LEARNING)",
-    "exam": "KCET",
-    "closing": "2,694",
     "q": null
    },
    {
@@ -710,10 +668,24 @@
     "q": null
    },
    {
-    "college": "Techno Main Salt Lake, Sector-V, Salt Lake",
-    "branch": "Computer Science & Engineering",
-    "exam": "WBJEE",
-    "closing": "4,474",
+    "college": "COEP Technological University",
+    "branch": "Artificial Intelligence and Machine Learning",
+    "exam": "MHT-CET",
+    "closing": "469",
+    "q": "COEP Technological University"
+   },
+   {
+    "college": "Odisha University of Technology and Research (formerly College of Engineering and Technology), Bhubaneswar",
+    "branch": "Computer Science Engineering with specialization in Artificial Intelligence and Machine Learning",
+    "exam": "OJEE",
+    "closing": "44,381 (JEE Main rank)",
+    "q": null
+   },
+   {
+    "college": "University Departments of Anna University Chennai - MIT Campus Chrompet Tambaram Taluk Chengalpattu District 600 044",
+    "branch": "ARTIFICIAL INTELLIGENCE AND DATA SCIENCE",
+    "exam": "TNEA",
+    "closing": "198.5/200 marks",
     "q": null
    }
   ],
@@ -925,13 +897,6 @@
     "q": null
    },
    {
-    "college": "M . S . Ramaiah University of Applied Sciences UNIVERSITY HOUSE, GNANAGANGOTHRI CAMPUS, NEW BEL ROAD, MSR ROAD, BANGALORE - 560054",
-    "branch": "AUTOMOTIVE ENGINEERING",
-    "exam": "KCET",
-    "closing": "94,698",
-    "q": null
-   },
-   {
     "college": "Dr.Sudhir Chandra Sur Institute of Technology and Sports Complex, Dum Dum",
     "branch": "Automobile Engineering",
     "exam": "WBJEE",
@@ -939,24 +904,24 @@
     "q": null
    },
    {
-    "college": "Mckv Institute of Engineering, Liluah, Howrah",
-    "branch": "Automobile Engineering",
-    "exam": "WBJEE",
-    "closing": "86,617",
-    "q": null
-   },
-   {
     "college": "Government College of Engineering & Research, Avasari Khurd",
     "branch": "Automobile Engineering",
     "exam": "MHT-CET",
     "closing": "56,215",
+    "q": "Government College of Engineering & Research, Avasari Khurd"
+   },
+   {
+    "college": "Parala Maharaja Engineering College, Berhampur",
+    "branch": "Automobile Engineering - TFW",
+    "exam": "OJEE",
+    "closing": "993,027 (JEE Main rank)",
     "q": null
    },
    {
-    "college": "Mahatma Education Society's Pillai College of Engineering, New Panvel",
-    "branch": "Automobile Engineering",
-    "exam": "MHT-CET",
-    "closing": "62,070",
+    "college": "University Departments of Anna University Chennai - MIT Campus Chrompet Tambaram Taluk Chengalpattu District 600 044",
+    "branch": "AUTOMOBILE ENGINEERING",
+    "exam": "TNEA",
+    "closing": "193.5/200 marks",
     "q": null
    }
   ],
@@ -1207,13 +1172,6 @@
     "exam": "JEE Advanced",
     "closing": "5,217",
     "q": "Indian Institute of Technology Madras"
-   },
-   {
-    "college": "Indian Institute of Technology Kanpur",
-    "branch": "Biological Sciences and Bioengineering",
-    "exam": "JEE Advanced",
-    "closing": "6,614",
-    "q": "Indian Institute of Technology Kanpur"
    }
   ],
   "notable_people": [
@@ -1445,24 +1403,10 @@
     "q": "Indian Institute of Technology Madras"
    },
    {
-    "college": "Indian Institute of Technology Hyderabad",
-    "branch": "Biomedical Engineering",
-    "exam": "JEE Advanced",
-    "closing": "7,641",
-    "q": "Indian Institute of Technology Hyderabad"
-   },
-   {
     "college": "K L E Technological Univeristy, Belgaum Campus (Formerly KLE Dr M.S.Sheshagiri College of Engineering and Technology) UDYAMBAGH,BELGAUM",
     "branch": "BIO-MEDICAL ENGINEERING",
     "exam": "KCET",
     "closing": "149,969",
-    "q": null
-   },
-   {
-    "college": "Sri Siddhartha Institute of Technology MARALUR ,TUMKUR",
-    "branch": "BIO-MEDICAL ENGINEERING",
-    "exam": "KCET",
-    "closing": "219,840",
     "q": null
    },
    {
@@ -1473,10 +1417,24 @@
     "q": null
    },
    {
-    "college": "Jis College of Engineering, Kalyani, Nadia",
-    "branch": "Biomedical Engineering",
-    "exam": "WBJEE",
-    "closing": "21,662",
+    "college": "Vidyalankar Institute of Technology,Wadala, Mumbai",
+    "branch": "Bio Medical Engineering",
+    "exam": "MHT-CET",
+    "closing": "28,926",
+    "q": "Vidyalankar Institute of Technology,Wadala, Mumbai"
+   },
+   {
+    "college": "Veer Surendra Sai University of Technology, Burla",
+    "branch": "Biomedical Engineering - TFW",
+    "exam": "OJEE",
+    "closing": "270,761 (JEE Main rank)",
+    "q": null
+   },
+   {
+    "college": "University Departments of Anna University Chennai - CEG Campus Sardar Patel Road Guindy Chennai 600 025",
+    "branch": "BIO MEDICAL ENGINEERING",
+    "exam": "TNEA",
+    "closing": "195.5/200 marks",
     "q": null
    }
   ],
@@ -1590,24 +1548,10 @@
     "q": "Indian Institute of Technology Delhi"
    },
    {
-    "college": "Indian Institute of Technology Kharagpur",
-    "branch": "Biotechnology and Biochemical Engineering",
-    "exam": "JEE Advanced",
-    "closing": "8,148",
-    "q": "Indian Institute of Technology Kharagpur"
-   },
-   {
     "college": "R. V. College of Engineering, Bangalore(AUTONOMOUS) R.V. VIDYANIKETAN POST, MYSORE ROAD,BANGALORE",
     "branch": "BIO-TECHNOLOGY",
     "exam": "KCET",
     "closing": "6,814",
-    "q": null
-   },
-   {
-    "college": "M S Ramaiah Institute of Technology, Bangalore(AUTONOMOUS) VIDYA SOUDHA,MSR NAGAR,MSRIT POST,BANGALORE - 560054.",
-    "branch": "BIO-TECHNOLOGY",
-    "exam": "KCET",
-    "closing": "12,464",
     "q": null
    },
    {
@@ -1618,10 +1562,24 @@
     "q": null
    },
    {
-    "college": "Techno India University, Salt Lake",
-    "branch": "Biotechnology",
-    "exam": "WBJEE",
-    "closing": "11,170",
+    "college": "Kolhapur Institute of Technology's College of Engineering(Autonomous), Kolhapur",
+    "branch": "Bio Technology",
+    "exam": "MHT-CET",
+    "closing": "5,916",
+    "q": "Kolhapur Institute of Technology's College of Engineering(Autonomous), Kolhapur"
+   },
+   {
+    "college": "Odisha University of Technology and Research (formerly College of Engineering and Technology), Bhubaneswar",
+    "branch": "Bio Technology(SSC)",
+    "exam": "OJEE",
+    "closing": "219,451 (JEE Main rank)",
+    "q": null
+   },
+   {
+    "college": "PSG College of Technology (Autonomous) Peelamedu Coimbatore District 641004",
+    "branch": "BIO TECHNOLOGY",
+    "exam": "TNEA",
+    "closing": "194/200 marks",
     "q": null
    }
   ],
@@ -1822,13 +1780,6 @@
     "q": null
    },
    {
-    "college": "National Institute of Technology, Rourkela",
-    "branch": "Ceramic Engineering",
-    "exam": "JEE Main",
-    "closing": "31,545",
-    "q": "National Institute of Technology, Rourkela"
-   },
-   {
     "college": "P D A College of Engineering, Gulbarga(AUTONOMOUS) AIWAN-E-SHAHI AREA,STATION ROAD,GULBARGA-585102",
     "branch": "CERAMICS & CEMENT ENGINEERING",
     "exam": "KCET",
@@ -2004,24 +1955,10 @@
     "q": "Indian Institute of Technology Bombay"
    },
    {
-    "college": "Indian Institute of Technology Delhi",
-    "branch": "Chemical Engineering",
-    "exam": "JEE Advanced",
-    "closing": "2,462",
-    "q": "Indian Institute of Technology Delhi"
-   },
-   {
     "college": "R. V. College of Engineering, Bangalore(AUTONOMOUS) R.V. VIDYANIKETAN POST, MYSORE ROAD,BANGALORE",
     "branch": "CHEMICAL ENGINEERING",
     "exam": "KCET",
     "closing": "11,049",
-    "q": null
-   },
-   {
-    "college": "B M S College of Engineering, Basavanagudi, Bangalore (AUTONOMOUS) POST BOX NO 1908, BULL TEMPLE ROAD,BANGALORE",
-    "branch": "CHEMICAL ENGINEERING",
-    "exam": "KCET",
-    "closing": "19,679",
     "q": null
    },
    {
@@ -2032,10 +1969,24 @@
     "q": null
    },
    {
-    "college": "University Of Calcutta",
+    "college": "Institute of Chemical Technology, Matunga, Mumbai",
     "branch": "Chemical Engineering",
-    "exam": "WBJEE",
-    "closing": "1,736",
+    "exam": "MHT-CET",
+    "closing": "1,905",
+    "q": "Institute of Chemical Technology, Matunga, Mumbai"
+   },
+   {
+    "college": "Veer Surendra Sai University of Technology, Burla",
+    "branch": "Chemical Engineering - TFW",
+    "exam": "OJEE",
+    "closing": "239,956 (JEE Main rank)",
+    "q": null
+   },
+   {
+    "college": "Central Electrochemical Research Institute CECRI) Karaikudi Sivagangai District 630006",
+    "branch": "CHEMICAL AND ELECTRO CHEMICAL ENGINEERING",
+    "exam": "TNEA",
+    "closing": "196.5/200 marks",
     "q": null
    }
   ],
@@ -2108,13 +2059,6 @@
     "exam": "JEE Advanced",
     "closing": "7,332",
     "q": null
-   },
-   {
-    "college": "Indian Institute of Technology Roorkee",
-    "branch": "Chemical Sciences",
-    "exam": "JEE Advanced",
-    "closing": "10,612",
-    "q": "Indian Institute of Technology Roorkee"
    }
   ],
   "notable_people": [
@@ -2183,13 +2127,6 @@
     "exam": "JEE Advanced",
     "closing": "7,081",
     "q": "Indian Institute of Technology Bombay"
-   },
-   {
-    "college": "Indian Institute of Technology Delhi",
-    "branch": "Chemistry",
-    "exam": "JEE Advanced",
-    "closing": "8,107",
-    "q": "Indian Institute of Technology Delhi"
    },
    {
     "college": "Odisha University of Technology and Research (formerly College of Engineering and Technology), Bhubaneswar",
@@ -2294,24 +2231,10 @@
     "q": "Indian Institute of Technology Bombay"
    },
    {
-    "college": "Indian Institute of Technology Delhi",
-    "branch": "Civil Engineering",
-    "exam": "JEE Advanced",
-    "closing": "4,228",
-    "q": "Indian Institute of Technology Delhi"
-   },
-   {
     "college": "R. V. College of Engineering, Bangalore(AUTONOMOUS) R.V. VIDYANIKETAN POST, MYSORE ROAD,BANGALORE",
     "branch": "CIVIL ENGINEERING",
     "exam": "KCET",
     "closing": "10,832",
-    "q": null
-   },
-   {
-    "college": "M S Ramaiah Institute of Technology, Bangalore(AUTONOMOUS) VIDYA SOUDHA,MSR NAGAR,MSRIT POST,BANGALORE - 560054.",
-    "branch": "CIVIL ENGINEERING",
-    "exam": "KCET",
-    "closing": "30,510",
     "q": null
    },
    {
@@ -2322,10 +2245,24 @@
     "q": null
    },
    {
-    "college": "Jalpaiguri Goverment Engineering College,Jalpaiguri",
+    "college": "COEP Technological University",
     "branch": "Civil Engineering",
-    "exam": "WBJEE",
-    "closing": "4,061",
+    "exam": "MHT-CET",
+    "closing": "4,694",
+    "q": "COEP Technological University"
+   },
+   {
+    "college": "Veer Surendra Sai University of Technology, Burla",
+    "branch": "Civil Engineering(SSC) - TFW",
+    "exam": "OJEE",
+    "closing": "225,556 (JEE Main rank)",
+    "q": null
+   },
+   {
+    "college": "University Departments of Anna University Chennai - CEG Campus Sardar Patel Road Guindy Chennai 600 025",
+    "branch": "CIVIL ENGINEERING",
+    "exam": "TNEA",
+    "closing": "195.5/200 marks",
     "q": null
    }
   ],
@@ -2561,24 +2498,10 @@
     "q": "Indian Institute of Technology Bombay"
    },
    {
-    "college": "Indian Institute of Technology Delhi",
-    "branch": "Computer Science and Engineering",
-    "exam": "JEE Advanced",
-    "closing": "126",
-    "q": "Indian Institute of Technology Delhi"
-   },
-   {
     "college": "R. V. College of Engineering, Bangalore(AUTONOMOUS) R.V. VIDYANIKETAN POST, MYSORE ROAD,BANGALORE",
     "branch": "COMPUTER SCIENCE AND ENGINEERING",
     "exam": "KCET",
     "closing": "499",
-    "q": null
-   },
-   {
-    "college": "PES University 100 Feet Ring Road, Banashankari, 3rd Stage, Hosakerehalli, Near DSERT, , Bangalore KARNATAKA, pin code -560085",
-    "branch": "B TECH IN COMPUTER SCIENCE AND ENGINEERING",
-    "exam": "KCET",
-    "closing": "1,654",
     "q": null
    },
    {
@@ -2589,10 +2512,24 @@
     "q": null
    },
    {
-    "college": "University Of Calcutta",
-    "branch": "Computer Science & Engineering",
-    "exam": "WBJEE",
-    "closing": "449",
+    "college": "Veermata Jijabai Technological Institute(VJTI), Matunga, Mumbai",
+    "branch": "Computer Engineering",
+    "exam": "MHT-CET",
+    "closing": "119",
+    "q": "Veermata Jijabai Technological Institute(VJTI), Matunga, Mumbai"
+   },
+   {
+    "college": "Odisha University of Technology and Research (formerly College of Engineering and Technology), Bhubaneswar",
+    "branch": "Computer Science and Engineering(SSC) - TFW",
+    "exam": "OJEE",
+    "closing": "46,989 (JEE Main rank)",
+    "q": null
+   },
+   {
+    "college": "University Departments of Anna University Chennai - CEG Campus Sardar Patel Road Guindy Chennai 600 025",
+    "branch": "COMPUTER SCIENCE AND ENGINEERING",
+    "exam": "TNEA",
+    "closing": "200/200 marks",
     "q": null
    }
   ],
@@ -2712,24 +2649,10 @@
     "q": "Indian Institute of Technology Bombay"
    },
    {
-    "college": "Indian Institute of Technology Delhi",
-    "branch": "Computer Science and Engineering",
-    "exam": "JEE Advanced",
-    "closing": "126",
-    "q": "Indian Institute of Technology Delhi"
-   },
-   {
     "college": "R. V. College of Engineering, Bangalore(AUTONOMOUS) R.V. VIDYANIKETAN POST, MYSORE ROAD,BANGALORE",
     "branch": "COMPUTER SCIENCE AND ENGINEERING",
     "exam": "KCET",
     "closing": "499",
-    "q": null
-   },
-   {
-    "college": "PES University 100 Feet Ring Road, Banashankari, 3rd Stage, Hosakerehalli, Near DSERT, , Bangalore KARNATAKA, pin code -560085",
-    "branch": "B TECH IN COMPUTER SCIENCE AND ENGINEERING",
-    "exam": "KCET",
-    "closing": "1,654",
     "q": null
    },
    {
@@ -2740,10 +2663,24 @@
     "q": null
    },
    {
-    "college": "University Of Calcutta",
-    "branch": "Computer Science & Engineering",
-    "exam": "WBJEE",
-    "closing": "449",
+    "college": "Veermata Jijabai Technological Institute(VJTI), Matunga, Mumbai",
+    "branch": "Computer Engineering",
+    "exam": "MHT-CET",
+    "closing": "119",
+    "q": "Veermata Jijabai Technological Institute(VJTI), Matunga, Mumbai"
+   },
+   {
+    "college": "Odisha University of Technology and Research (formerly College of Engineering and Technology), Bhubaneswar",
+    "branch": "Computer Science and Engineering(SSC) - TFW",
+    "exam": "OJEE",
+    "closing": "46,989 (JEE Main rank)",
+    "q": null
+   },
+   {
+    "college": "University Departments of Anna University Chennai - CEG Campus Sardar Patel Road Guindy Chennai 600 025",
+    "branch": "COMPUTER SCIENCE AND ENGINEERING",
+    "exam": "TNEA",
+    "closing": "200/200 marks",
     "q": null
    }
   ],
@@ -2866,13 +2803,6 @@
     "q": null
    },
    {
-    "college": "M S Ramaiah Institute of Technology, Bangalore(AUTONOMOUS) VIDYA SOUDHA,MSR NAGAR,MSRIT POST,BANGALORE - 560054.",
-    "branch": "COMPUTER SCIENCE AND ENGINEERING(CYBER SECURITY)",
-    "exam": "KCET",
-    "closing": "4,208",
-    "q": null
-   },
-   {
     "college": "Heritage Institute of Technology, Kolkata",
     "branch": "Computer Science & Engineering",
     "exam": "WBJEE",
@@ -2880,17 +2810,24 @@
     "q": null
    },
    {
-    "college": "Techno Main Salt Lake, Sector-V, Salt Lake",
-    "branch": "Computer Science & Engineering",
-    "exam": "WBJEE",
-    "closing": "7,431",
-    "q": null
-   },
-   {
     "college": "Shri Vile Parle Kelvani Mandal's Dwarkadas J. Sanghvi College of Engineering, Vile Parle,Mumbai",
     "branch": "Computer Science and Engineering",
     "exam": "MHT-CET",
     "closing": "3,877",
+    "q": "Shri Vile Parle Kelvani Mandal's Dwarkadas J. Sanghvi College of Engineering, Vile Parle,Mumbai"
+   },
+   {
+    "college": "Sambalpur University Institute of Information Technology, Jyoti Vihar, Burla",
+    "branch": "Computer Science Engineering with specialization in Information and Cyber Security",
+    "exam": "OJEE",
+    "closing": "220,588 (JEE Main rank)",
+    "q": null
+   },
+   {
+    "college": "The National Law Institute University (NLIU), Bhopal",
+    "branch": "B.Sc. LL.B.",
+    "exam": "CLAT",
+    "closing": "698",
     "q": null
    }
   ],
@@ -3086,24 +3023,10 @@
     "q": "Indian Institute of Technology Madras"
    },
    {
-    "college": "Indian Institute of Technology Roorkee",
-    "branch": "Data Science and Artificial Intelligence",
-    "exam": "JEE Advanced",
-    "closing": "770",
-    "q": "Indian Institute of Technology Roorkee"
-   },
-   {
     "college": "R. V. College of Engineering, Bangalore(AUTONOMOUS) R.V. VIDYANIKETAN POST, MYSORE ROAD,BANGALORE",
     "branch": "COMPUTER SCIENCE AND ENGINEERING(ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING)",
     "exam": "KCET",
     "closing": "742",
-    "q": null
-   },
-   {
-    "college": "PES University 100 Feet Ring Road, Banashankari, 3rd Stage, Hosakerehalli, Near DSERT, , Bangalore KARNATAKA, pin code -560085",
-    "branch": "B TECH IN COMPUTER SCIENCE & ENGINEERING(ARTIFICAL INTELLIGENCE & MACHINE LEARNING)",
-    "exam": "KCET",
-    "closing": "2,694",
     "q": null
    },
    {
@@ -3114,10 +3037,24 @@
     "q": null
    },
    {
-    "college": "Techno Main Salt Lake, Sector-V, Salt Lake",
-    "branch": "Computer Science & Engineering",
-    "exam": "WBJEE",
-    "closing": "4,474",
+    "college": "COEP Technological University",
+    "branch": "Artificial Intelligence and Machine Learning",
+    "exam": "MHT-CET",
+    "closing": "469",
+    "q": "COEP Technological University"
+   },
+   {
+    "college": "Odisha University of Technology and Research (formerly College of Engineering and Technology), Bhubaneswar",
+    "branch": "Computer Science Engineering with specialization in Artificial Intelligence and Machine Learning",
+    "exam": "OJEE",
+    "closing": "44,381 (JEE Main rank)",
+    "q": null
+   },
+   {
+    "college": "University Departments of Anna University Chennai - MIT Campus Chrompet Tambaram Taluk Chengalpattu District 600 044",
+    "branch": "ARTIFICIAL INTELLIGENCE AND DATA SCIENCE",
+    "exam": "TNEA",
+    "closing": "198.5/200 marks",
     "q": null
    }
   ],
@@ -3185,13 +3122,6 @@
     "exam": "NEET",
     "closing": "13,602 (AIQ)",
     "q": null
-   },
-   {
-    "college": "RUHS College of Dental Science, Jaipur",
-    "branch": "BDS",
-    "exam": "NEET",
-    "closing": "13,694 (AIQ)",
-    "q": null
    }
   ],
   "notable_people": [
@@ -3254,12 +3184,12 @@
     "href": "/predictor?exam=TNEA"
    },
    {
-    "label": "DAT-Mains",
-    "href": "/exams?q=DAT-Mains"
-   },
-   {
     "label": "UCEED",
     "href": "/exams?q=UCEED"
+   },
+   {
+    "label": "DAT-Mains",
+    "href": "/exams?q=DAT-Mains"
    }
   ],
   "top_colleges": [
@@ -3293,13 +3223,6 @@
     "q": "Indian Institute of Technology Delhi"
    },
    {
-    "college": "Indian Institute of Information Technology, Design & Manufacturing, Kancheepuram",
-    "branch": "Design Engineering",
-    "exam": "JEE Main",
-    "closing": "46,678",
-    "q": "Indian Institute of Information Technology, Design & Manufacturing, Kancheepuram"
-   },
-   {
     "college": "K.L.S. Gogte Institute of Technology, Belgaum.(AUTONOMOUS) \"JNANA GANGA\", UDYAMBAG,BELGAUM",
     "branch": "COMMUNICATION DESIGN",
     "exam": "KCET",
@@ -3307,24 +3230,17 @@
     "q": null
    },
    {
-    "college": "Sir M V School of Architecture,Hunasamaranahalli, Bangalore KRISHNADEVARAYANAGAR,HUNASAMARANAHALLI,VIA YELAHANKA,BANGALORE - 562 157",
-    "branch": "DESIGN",
-    "exam": "KCET",
-    "closing": "220,401",
-    "q": null
-   },
-   {
     "college": "MIT Academy of Engineering,Alandi, Pune",
     "branch": "Design",
     "exam": "MHT-CET",
     "closing": "101",
-    "q": null
+    "q": "MIT Academy of Engineering,Alandi, Pune"
    },
    {
-    "college": "Terna Engineering College, Nerul, Navi Mumbai",
-    "branch": "Design",
-    "exam": "MHT-CET",
-    "closing": "167",
+    "college": "Thiagarajar College of Engineering (Autonomous) Tirupparankundram Madurai District 625015",
+    "branch": "Interior Design",
+    "exam": "TNEA",
+    "closing": "183/200 marks",
     "q": null
    }
   ],
@@ -3478,13 +3394,6 @@
     "exam": "JEE Advanced",
     "closing": "2,345",
     "q": "Indian Institute of Technology Bombay"
-   },
-   {
-    "college": "Indian Institute of Technology Kanpur",
-    "branch": "Economics",
-    "exam": "JEE Advanced",
-    "closing": "3,155",
-    "q": "Indian Institute of Technology Kanpur"
    }
   ],
   "notable_people": [
@@ -3586,24 +3495,10 @@
     "q": "Indian Institute of Technology Bombay"
    },
    {
-    "college": "Indian Institute of Technology Delhi",
-    "branch": "Electrical Engineering",
-    "exam": "JEE Advanced",
-    "closing": "605",
-    "q": "Indian Institute of Technology Delhi"
-   },
-   {
     "college": "R. V. College of Engineering, Bangalore(AUTONOMOUS) R.V. VIDYANIKETAN POST, MYSORE ROAD,BANGALORE",
     "branch": "ELECTRONICS AND COMMUNICATION ENGINEERING",
     "exam": "KCET",
     "closing": "1,100",
-    "q": null
-   },
-   {
-    "college": "B M S College of Engineering, Basavanagudi, Bangalore (AUTONOMOUS) POST BOX NO 1908, BULL TEMPLE ROAD,BANGALORE",
-    "branch": "ELECTRONICS AND COMMUNICATION ENGINEERING",
-    "exam": "KCET",
-    "closing": "3,114",
     "q": null
    },
    {
@@ -3614,10 +3509,24 @@
     "q": null
    },
    {
-    "college": "University Of Calcutta",
-    "branch": "Electronics & Communication Engineering",
-    "exam": "WBJEE",
-    "closing": "911",
+    "college": "Veermata Jijabai Technological Institute(VJTI), Matunga, Mumbai",
+    "branch": "Electronics and Telecommunication Engg",
+    "exam": "MHT-CET",
+    "closing": "1,173",
+    "q": "Veermata Jijabai Technological Institute(VJTI), Matunga, Mumbai"
+   },
+   {
+    "college": "Odisha University of Technology and Research (formerly College of Engineering and Technology), Bhubaneswar",
+    "branch": "Electronics & Communication Engineering - TFW",
+    "exam": "OJEE",
+    "closing": "92,842 (JEE Main rank)",
+    "q": null
+   },
+   {
+    "college": "University Departments of Anna University Chennai - CEG Campus Sardar Patel Road Guindy Chennai 600 025",
+    "branch": "ELECTRONICS AND COMMUNICATION ENGINEERING",
+    "exam": "TNEA",
+    "closing": "199.5/200 marks",
     "q": null
    }
   ],
@@ -3732,24 +3641,10 @@
     "q": "Indian Institute of Technology Bombay"
    },
    {
-    "college": "Indian Institute of Technology Delhi",
-    "branch": "Electrical Engineering",
-    "exam": "JEE Advanced",
-    "closing": "605",
-    "q": "Indian Institute of Technology Delhi"
-   },
-   {
     "college": "R. V. College of Engineering, Bangalore(AUTONOMOUS) R.V. VIDYANIKETAN POST, MYSORE ROAD,BANGALORE",
     "branch": "ELECTRONICS AND COMMUNICATION ENGINEERING",
     "exam": "KCET",
     "closing": "1,100",
-    "q": null
-   },
-   {
-    "college": "B M S College of Engineering, Basavanagudi, Bangalore (AUTONOMOUS) POST BOX NO 1908, BULL TEMPLE ROAD,BANGALORE",
-    "branch": "ELECTRONICS AND COMMUNICATION ENGINEERING",
-    "exam": "KCET",
-    "closing": "3,114",
     "q": null
    },
    {
@@ -3760,10 +3655,24 @@
     "q": null
    },
    {
-    "college": "University Of Calcutta",
-    "branch": "Electronics & Communication Engineering",
-    "exam": "WBJEE",
-    "closing": "911",
+    "college": "Veermata Jijabai Technological Institute(VJTI), Matunga, Mumbai",
+    "branch": "Electronics and Telecommunication Engg",
+    "exam": "MHT-CET",
+    "closing": "1,173",
+    "q": "Veermata Jijabai Technological Institute(VJTI), Matunga, Mumbai"
+   },
+   {
+    "college": "Odisha University of Technology and Research (formerly College of Engineering and Technology), Bhubaneswar",
+    "branch": "Electronics & Communication Engineering - TFW",
+    "exam": "OJEE",
+    "closing": "92,842 (JEE Main rank)",
+    "q": null
+   },
+   {
+    "college": "University Departments of Anna University Chennai - CEG Campus Sardar Patel Road Guindy Chennai 600 025",
+    "branch": "ELECTRONICS AND COMMUNICATION ENGINEERING",
+    "exam": "TNEA",
+    "closing": "199.5/200 marks",
     "q": null
    }
   ],
@@ -3879,24 +3788,10 @@
     "q": "Indian Institute of Technology Bombay"
    },
    {
-    "college": "Indian Institute of Technology Delhi",
-    "branch": "Electrical Engineering",
-    "exam": "JEE Advanced",
-    "closing": "605",
-    "q": "Indian Institute of Technology Delhi"
-   },
-   {
     "college": "R. V. College of Engineering, Bangalore(AUTONOMOUS) R.V. VIDYANIKETAN POST, MYSORE ROAD,BANGALORE",
     "branch": "ELECTRONICS AND COMMUNICATION ENGINEERING",
     "exam": "KCET",
     "closing": "1,100",
-    "q": null
-   },
-   {
-    "college": "B M S College of Engineering, Basavanagudi, Bangalore (AUTONOMOUS) POST BOX NO 1908, BULL TEMPLE ROAD,BANGALORE",
-    "branch": "ELECTRONICS AND COMMUNICATION ENGINEERING",
-    "exam": "KCET",
-    "closing": "3,114",
     "q": null
    },
    {
@@ -3907,10 +3802,24 @@
     "q": null
    },
    {
-    "college": "University Of Calcutta",
-    "branch": "Electronics & Communication Engineering",
-    "exam": "WBJEE",
-    "closing": "911",
+    "college": "Veermata Jijabai Technological Institute(VJTI), Matunga, Mumbai",
+    "branch": "Electronics and Telecommunication Engg",
+    "exam": "MHT-CET",
+    "closing": "1,173",
+    "q": "Veermata Jijabai Technological Institute(VJTI), Matunga, Mumbai"
+   },
+   {
+    "college": "Odisha University of Technology and Research (formerly College of Engineering and Technology), Bhubaneswar",
+    "branch": "Electronics & Communication Engineering - TFW",
+    "exam": "OJEE",
+    "closing": "92,842 (JEE Main rank)",
+    "q": null
+   },
+   {
+    "college": "University Departments of Anna University Chennai - CEG Campus Sardar Patel Road Guindy Chennai 600 025",
+    "branch": "ELECTRONICS AND COMMUNICATION ENGINEERING",
+    "exam": "TNEA",
+    "closing": "199.5/200 marks",
     "q": null
    }
   ],
@@ -4026,24 +3935,10 @@
     "q": "Indian Institute of Technology Bombay"
    },
    {
-    "college": "Indian Institute of Technology Delhi",
-    "branch": "Electrical Engineering",
-    "exam": "JEE Advanced",
-    "closing": "605",
-    "q": "Indian Institute of Technology Delhi"
-   },
-   {
     "college": "R. V. College of Engineering, Bangalore(AUTONOMOUS) R.V. VIDYANIKETAN POST, MYSORE ROAD,BANGALORE",
     "branch": "ELECTRONICS AND COMMUNICATION ENGINEERING",
     "exam": "KCET",
     "closing": "1,100",
-    "q": null
-   },
-   {
-    "college": "B M S College of Engineering, Basavanagudi, Bangalore (AUTONOMOUS) POST BOX NO 1908, BULL TEMPLE ROAD,BANGALORE",
-    "branch": "ELECTRONICS AND COMMUNICATION ENGINEERING",
-    "exam": "KCET",
-    "closing": "3,114",
     "q": null
    },
    {
@@ -4054,10 +3949,24 @@
     "q": null
    },
    {
-    "college": "University Of Calcutta",
-    "branch": "Electronics & Communication Engineering",
-    "exam": "WBJEE",
-    "closing": "911",
+    "college": "Veermata Jijabai Technological Institute(VJTI), Matunga, Mumbai",
+    "branch": "Electronics and Telecommunication Engg",
+    "exam": "MHT-CET",
+    "closing": "1,173",
+    "q": "Veermata Jijabai Technological Institute(VJTI), Matunga, Mumbai"
+   },
+   {
+    "college": "Odisha University of Technology and Research (formerly College of Engineering and Technology), Bhubaneswar",
+    "branch": "Electronics & Communication Engineering - TFW",
+    "exam": "OJEE",
+    "closing": "92,842 (JEE Main rank)",
+    "q": null
+   },
+   {
+    "college": "University Departments of Anna University Chennai - CEG Campus Sardar Patel Road Guindy Chennai 600 025",
+    "branch": "ELECTRONICS AND COMMUNICATION ENGINEERING",
+    "exam": "TNEA",
+    "closing": "199.5/200 marks",
     "q": null
    }
   ],
@@ -4138,13 +4047,6 @@
     "exam": "JEE Advanced",
     "closing": "2,494",
     "q": "Indian Institute of Technology Bombay"
-   },
-   {
-    "college": "Indian Institute of Technology Delhi",
-    "branch": "Energy Engineering",
-    "exam": "JEE Advanced",
-    "closing": "2,638",
-    "q": "Indian Institute of Technology Delhi"
    },
    {
     "college": "Sharanbasava University (Formerly Appa Institute of Engineering and Tech) SHARNBASVESHWARA INSTITUTIONS CAMPUS , KALABURAGI ( GULBARGA) -585103 , KARNATAKA",
@@ -4313,13 +4215,6 @@
     "exam": "JEE Advanced",
     "closing": "1,441",
     "q": "Indian Institute of Technology Madras"
-   },
-   {
-    "college": "Indian Institute of Technology Bombay",
-    "branch": "Engineering Physics",
-    "exam": "JEE Advanced",
-    "closing": "1,490",
-    "q": "Indian Institute of Technology Bombay"
    }
   ],
   "notable_people": [
@@ -4394,13 +4289,6 @@
     "exam": "JEE Advanced",
     "closing": "3,258",
     "q": "Indian Institute of Technology Hyderabad"
-   },
-   {
-    "college": "Maulana Azad National Institute of Technology Bhopal",
-    "branch": "B. Tech. and M. Tech. in Engineering and Computational Mechanics",
-    "exam": "JEE Main",
-    "closing": "22,419",
-    "q": "Maulana Azad National Institute of Technology Bhopal"
    }
   ],
   "notable_people": [
@@ -4534,13 +4422,6 @@
     "q": "Indian Institute of Technology Bombay"
    },
    {
-    "college": "Indian Institute of Technology (ISM) Dhanbad",
-    "branch": "Environmental Engineering",
-    "exam": "JEE Advanced",
-    "closing": "14,489",
-    "q": "Indian Institute of Technology (ISM) Dhanbad"
-   },
-   {
     "college": "Sri Jayachamarajendra College of Engineering(Constituent College of JSS Science & Technology University), Mysore JSS TECHNICAL INSTITUTIONS CAMPUS,MANASAGANGOTHRI PO,MYSORE",
     "branch": "ENVIRONMENTAL ENGINEERING",
     "exam": "KCET",
@@ -4559,13 +4440,6 @@
     "branch": "ENVIRONMENTAL ENGINEERING",
     "exam": "TNEA",
     "closing": "122.5/200 marks",
-    "q": null
-   },
-   {
-    "college": "Dhanalakshmi Srinivasan College of Engineering and Technology, ECR, Poonjeri, Mamallapuram, Kanchipuram-603104.",
-    "branch": "ENVIRONMENTAL SCIENCE & TECHNOLOGY",
-    "exam": "TNEA",
-    "closing": "95/200 marks",
     "q": null
    }
   ],
@@ -4791,13 +4665,6 @@
     "q": "National Institute of Technology, Rourkela"
    },
    {
-    "college": "Birla Institute of Technology, Mesra, Ranchi",
-    "branch": "Food Engineering and Technology",
-    "exam": "JEE Main",
-    "closing": "57,116",
-    "q": "Birla Institute of Technology, Mesra, Ranchi"
-   },
-   {
     "college": "Ghani Khan Choudhury Institute of Engineering & Technology, Malda",
     "branch": "Food Technology",
     "exam": "WBJEE",
@@ -4805,24 +4672,24 @@
     "q": null
    },
    {
-    "college": "Techno Main Salt Lake, Sector-V, Salt Lake",
-    "branch": "Food Technology",
-    "exam": "WBJEE",
-    "closing": "15,565",
-    "q": null
-   },
-   {
     "college": "Institute of Chemical Technology, Matunga, Mumbai",
     "branch": "Food Engineering and Technology",
     "exam": "MHT-CET",
     "closing": "1,943",
+    "q": "Institute of Chemical Technology, Matunga, Mumbai"
+   },
+   {
+    "college": "Bhubaneswar Engineering College, Pitapally, Bhubaneswar",
+    "branch": "FOOD ENGINEERING AND TECHNOLOGY",
+    "exam": "OJEE",
+    "closing": "1,506,598 (JEE Main rank)",
     "q": null
    },
    {
-    "college": "Laxminarayan Innovation Technological University, Nagpur",
-    "branch": "Food Technology",
-    "exam": "MHT-CET",
-    "closing": "7,011",
+    "college": "University Departments of Anna University Chennai - ACT Campus Sardar Patel Road Guindy Chennai 600 025",
+    "branch": "FOOD TECHNOLOGY",
+    "exam": "TNEA",
+    "closing": "191/200 marks",
     "q": null
    }
   ],
@@ -5044,13 +4911,6 @@
     "exam": "JEE Advanced",
     "closing": "8,630",
     "q": "Indian Institute of Technology Roorkee"
-   },
-   {
-    "college": "Indian Institute of Technology Kharagpur",
-    "branch": "Exploration Geophysics",
-    "exam": "JEE Advanced",
-    "closing": "12,011",
-    "q": "Indian Institute of Technology Kharagpur"
    }
   ],
   "notable_people": [
@@ -5350,24 +5210,10 @@
     "q": "Indian Institute of Technology Bombay"
    },
    {
-    "college": "Indian Institute of Technology Delhi",
-    "branch": "Production and Industrial Engineering",
-    "exam": "JEE Advanced",
-    "closing": "3,027",
-    "q": "Indian Institute of Technology Delhi"
-   },
-   {
     "college": "R. V. College of Engineering, Bangalore(AUTONOMOUS) R.V. VIDYANIKETAN POST, MYSORE ROAD,BANGALORE",
     "branch": "INDUSTRIAL ENGINEERING & MANAGEMENT",
     "exam": "KCET",
     "closing": "15,717",
-    "q": null
-   },
-   {
-    "college": "B M S College of Engineering, Basavanagudi, Bangalore (AUTONOMOUS) POST BOX NO 1908, BULL TEMPLE ROAD,BANGALORE",
-    "branch": "INDUSTRIAL ENGINEERING & MANAGEMENT",
-    "exam": "KCET",
-    "closing": "32,144",
     "q": null
    },
    {
@@ -5378,10 +5224,24 @@
     "q": null
    },
    {
-    "college": "Maulana Abul Kalam Azad University of Technology, West Bengal",
+    "college": "COEP Technological University",
+    "branch": "Manufacturing Science and Engineering",
+    "exam": "MHT-CET",
+    "closing": "3,224",
+    "q": "COEP Technological University"
+   },
+   {
+    "college": "Veer Surendra Sai University of Technology, Burla",
+    "branch": "Production Engineering - TFW",
+    "exam": "OJEE",
+    "closing": "441,849 (JEE Main rank)",
+    "q": null
+   },
+   {
+    "college": "University Departments of Anna University Chennai - CEG Campus Sardar Patel Road Guindy Chennai 600 025",
     "branch": "INDUSTRIAL ENGINEERING",
-    "exam": "WBJEE",
-    "closing": "9,500",
+    "exam": "TNEA",
+    "closing": "192/200 marks",
     "q": null
    }
   ],
@@ -5455,13 +5315,6 @@
     "exam": "JEE Advanced",
     "closing": "9,411",
     "q": "Indian Institute of Technology Hyderabad"
-   },
-   {
-    "college": "Indian Institute of Technology (BHU) Varanasi",
-    "branch": "Industrial Chemistry",
-    "exam": "JEE Advanced",
-    "closing": "10,699",
-    "q": null
    }
   ],
   "notable_people": [
@@ -5546,13 +5399,6 @@
     "q": "Indian Institute of Technology Kharagpur"
    },
    {
-    "college": "National Institute of Technology, Tiruchirappalli",
-    "branch": "Instrumentation and Control Engineering",
-    "exam": "JEE Main",
-    "closing": "9,260",
-    "q": "National Institute of Technology, Tiruchirappalli"
-   },
-   {
     "college": "University Of Calcutta",
     "branch": "Instrumentation Engineering",
     "exam": "WBJEE",
@@ -5564,14 +5410,7 @@
     "branch": "Instrumentation and Control Engineering",
     "exam": "MHT-CET",
     "closing": "2,116",
-    "q": null
-   },
-   {
-    "college": "Bansilal Ramnath Agarawal Charitable Trust's Vishwakarma Institute of Technology, Bibwewadi, Pune",
-    "branch": "Instrumentation and Control Engineering",
-    "exam": "MHT-CET",
-    "closing": "15,753",
-    "q": null
+    "q": "COEP Technological University"
    },
    {
     "college": "PSG College of Technology (Autonomous) Peelamedu Coimbatore District 641004",
@@ -5757,13 +5596,6 @@
     "exam": "CLAT",
     "closing": "120",
     "q": null
-   },
-   {
-    "college": "NALSAR University of Law (NALSAR), Hyderabad",
-    "branch": "B.A. LL.B.",
-    "exam": "CLAT",
-    "closing": "168",
-    "q": null
    }
   ],
   "notable_people": [
@@ -5935,13 +5767,6 @@
     "q": "Indian Institute of Technology Madras"
    },
    {
-    "college": "Indian Institute of Technology Kharagpur",
-    "branch": "Ocean Engineering and Naval Architecture",
-    "exam": "JEE Advanced",
-    "closing": "9,371",
-    "q": "Indian Institute of Technology Kharagpur"
-   },
-   {
     "college": "Srinivas Institute of Technology, Mangalore SRINIVAS CAMPUS",
     "branch": "MARINE ENGINEERING",
     "exam": "KCET",
@@ -5953,13 +5778,6 @@
     "branch": "MARINE ENGINEERING",
     "exam": "TNEA",
     "closing": "180/200 marks",
-    "q": null
-   },
-   {
-    "college": "Sri Venkateswara College of Engineering (Autonomous), Post Bag No.3, Pennalur, Sriperumbudur, Kanchipuram-602105.",
-    "branch": "MARINE ENGINEERING",
-    "exam": "TNEA",
-    "closing": "108.5/200 marks",
     "q": null
    }
   ],
@@ -6058,13 +5876,6 @@
     "q": "Indian Institute of Technology Madras"
    },
    {
-    "college": "Indian Institute of Technology Kharagpur",
-    "branch": "Ocean Engineering and Naval Architecture",
-    "exam": "JEE Advanced",
-    "closing": "9,371",
-    "q": "Indian Institute of Technology Kharagpur"
-   },
-   {
     "college": "Srinivas Institute of Technology, Mangalore SRINIVAS CAMPUS",
     "branch": "MARINE ENGINEERING",
     "exam": "KCET",
@@ -6076,13 +5887,6 @@
     "branch": "MARINE ENGINEERING",
     "exam": "TNEA",
     "closing": "180/200 marks",
-    "q": null
-   },
-   {
-    "college": "Sri Venkateswara College of Engineering (Autonomous), Post Bag No.3, Pennalur, Sriperumbudur, Kanchipuram-602105.",
-    "branch": "MARINE ENGINEERING",
-    "exam": "TNEA",
-    "closing": "108.5/200 marks",
     "q": null
    }
   ],
@@ -6130,12 +5934,12 @@
     "href": "/exams?q=ISI-AT"
    },
    {
-    "label": "CMI-EE",
-    "href": "/exams?q=CMI-EE"
-   },
-   {
     "label": "CUET",
     "href": "/exams?q=CUET"
+   },
+   {
+    "label": "CMI-EE",
+    "href": "/exams?q=CMI-EE"
    }
   ],
   "top_colleges": [
@@ -6166,13 +5970,6 @@
     "exam": "JEE Advanced",
     "closing": "957",
     "q": "Indian Institute of Technology Bombay"
-   },
-   {
-    "college": "National Institute of Technology, Warangal",
-    "branch": "Mathematics",
-    "exam": "JEE Main",
-    "closing": "16,667",
-    "q": "National Institute of Technology, Warangal"
    }
   ],
   "notable_people": [
@@ -6247,13 +6044,6 @@
     "exam": "JEE Advanced",
     "closing": "323",
     "q": "Indian Institute of Technology Delhi"
-   },
-   {
-    "college": "Indian Institute of Technology Hyderabad",
-    "branch": "Mathematics and Computing",
-    "exam": "JEE Advanced",
-    "closing": "919",
-    "q": "Indian Institute of Technology Hyderabad"
    },
    {
     "college": "M . S . Ramaiah University of Applied Sciences UNIVERSITY HOUSE, GNANAGANGOTHRI CAMPUS, NEW BEL ROAD, MSR ROAD, BANGALORE - 560054",
@@ -6377,24 +6167,10 @@
     "q": "Indian Institute of Technology Delhi"
    },
    {
-    "college": "Indian Institute of Technology Bombay",
-    "branch": "Mechanical Engineering",
-    "exam": "JEE Advanced",
-    "closing": "1,779",
-    "q": "Indian Institute of Technology Bombay"
-   },
-   {
     "college": "R. V. College of Engineering, Bangalore(AUTONOMOUS) R.V. VIDYANIKETAN POST, MYSORE ROAD,BANGALORE",
     "branch": "MECHANICAL ENGINEERING",
     "exam": "KCET",
     "closing": "5,812",
-    "q": null
-   },
-   {
-    "college": "PES University 100 Feet Ring Road, Banashankari, 3rd Stage, Hosakerehalli, Near DSERT, , Bangalore KARNATAKA, pin code -560085",
-    "branch": "B TECH IN MECHANICAL ENGINEERING",
-    "exam": "KCET",
-    "closing": "15,958",
     "q": null
    },
    {
@@ -6405,10 +6181,24 @@
     "q": null
    },
    {
-    "college": "Kalyani Goverment Engineering College, Kalyani, Nadia",
+    "college": "COEP Technological University",
     "branch": "Mechanical Engineering",
-    "exam": "WBJEE",
-    "closing": "3,008",
+    "exam": "MHT-CET",
+    "closing": "2,281",
+    "q": "COEP Technological University"
+   },
+   {
+    "college": "Veer Surendra Sai University of Technology, Burla",
+    "branch": "Mechanical Engineering - TFW",
+    "exam": "OJEE",
+    "closing": "210,593 (JEE Main rank)",
+    "q": null
+   },
+   {
+    "college": "University Departments of Anna University Chennai - CEG Campus Sardar Patel Road Guindy Chennai 600 025",
+    "branch": "MECHANICAL ENGINEERING",
+    "exam": "TNEA",
+    "closing": "196.5/200 marks",
     "q": null
    }
   ],
@@ -6525,24 +6315,10 @@
     "q": "Indian Institute of Technology Delhi"
    },
    {
-    "college": "Indian Institute of Technology Bombay",
-    "branch": "Mechanical Engineering",
-    "exam": "JEE Advanced",
-    "closing": "1,779",
-    "q": "Indian Institute of Technology Bombay"
-   },
-   {
     "college": "R. V. College of Engineering, Bangalore(AUTONOMOUS) R.V. VIDYANIKETAN POST, MYSORE ROAD,BANGALORE",
     "branch": "MECHANICAL ENGINEERING",
     "exam": "KCET",
     "closing": "5,812",
-    "q": null
-   },
-   {
-    "college": "PES University 100 Feet Ring Road, Banashankari, 3rd Stage, Hosakerehalli, Near DSERT, , Bangalore KARNATAKA, pin code -560085",
-    "branch": "B TECH IN MECHANICAL ENGINEERING",
-    "exam": "KCET",
-    "closing": "15,958",
     "q": null
    },
    {
@@ -6553,10 +6329,24 @@
     "q": null
    },
    {
-    "college": "Kalyani Goverment Engineering College, Kalyani, Nadia",
+    "college": "COEP Technological University",
     "branch": "Mechanical Engineering",
-    "exam": "WBJEE",
-    "closing": "3,008",
+    "exam": "MHT-CET",
+    "closing": "2,281",
+    "q": "COEP Technological University"
+   },
+   {
+    "college": "Veer Surendra Sai University of Technology, Burla",
+    "branch": "Mechanical Engineering - TFW",
+    "exam": "OJEE",
+    "closing": "210,593 (JEE Main rank)",
+    "q": null
+   },
+   {
+    "college": "University Departments of Anna University Chennai - CEG Campus Sardar Patel Road Guindy Chennai 600 025",
+    "branch": "MECHANICAL ENGINEERING",
+    "exam": "TNEA",
+    "closing": "196.5/200 marks",
     "q": null
    }
   ],
@@ -6679,13 +6469,6 @@
     "exam": "NEET",
     "closing": "48 (AIQ)",
     "q": "All India Institute of Medical Sciences, New Delhi"
-   },
-   {
-    "college": "Maulana Azad Medical College, New Delhi",
-    "branch": "MBBS",
-    "exam": "NEET",
-    "closing": "103 (AIQ)",
-    "q": "Maulana Azad Medical College, New Delhi"
    }
   ],
   "notable_people": [
@@ -6794,13 +6577,6 @@
     "q": "Indian Institute of Technology Delhi"
    },
    {
-    "college": "Indian Institute of Technology Bombay",
-    "branch": "Metallurgical Engineering and Materials Science",
-    "exam": "JEE Advanced",
-    "closing": "4,119",
-    "q": "Indian Institute of Technology Bombay"
-   },
-   {
     "college": "Jadavpur University",
     "branch": "Metallurgical Engineering",
     "exam": "WBJEE",
@@ -6808,24 +6584,24 @@
     "q": null
    },
    {
-    "college": "Kaji Nazrul University, Asansol",
-    "branch": "Metallurgical And Materials Engineeringwith Tfw",
-    "exam": "WBJEE",
-    "closing": "14,963",
-    "q": null
-   },
-   {
     "college": "COEP Technological University",
     "branch": "Metallurgy and Material Technology",
     "exam": "MHT-CET",
     "closing": "5,522",
-    "q": null
+    "q": "COEP Technological University"
    },
    {
     "college": "Veer Surendra Sai University of Technology, Burla",
     "branch": "Metallurgical and Materials Engineering - TFW",
     "exam": "OJEE",
     "closing": "253,935 (JEE Main rank)",
+    "q": null
+   },
+   {
+    "college": "University Departments of Anna University Chennai - CEG Campus Sardar Patel Road Guindy Chennai 600 025",
+    "branch": "MATERIAL SCIENCE AND ENGINEERING",
+    "exam": "TNEA",
+    "closing": "192.5/200 marks",
     "q": null
    }
   ],
@@ -6932,13 +6708,6 @@
     "q": "Indian Institute of Technology Kharagpur"
    },
    {
-    "college": "Indian Institute of Technology (BHU) Varanasi",
-    "branch": "Mining Engineering",
-    "exam": "JEE Advanced",
-    "closing": "12,954",
-    "q": null
-   },
-   {
     "college": "Dr.T.Thimmaiah Institute of Technology, KGF 00RGAUM POST,KOLAR GOLD FIELDS - 563 120",
     "branch": "MINING ENGINEERING",
     "exam": "KCET",
@@ -6957,13 +6726,20 @@
     "branch": "Mining Engineering",
     "exam": "MHT-CET",
     "closing": "128,353",
+    "q": "Somayya Institute of Technology, Chandrapur"
+   },
+   {
+    "college": "Government College of Engineering, Keonjhar",
+    "branch": "Mining Engineering - TFW",
+    "exam": "OJEE",
+    "closing": "177,827 (JEE Main rank)",
     "q": null
    },
    {
-    "college": "Rajiv Gandhi College of Engineering Research & Technology Chandrapur",
-    "branch": "Mining Engineering",
-    "exam": "MHT-CET",
-    "closing": "139,215",
+    "college": "University Departments of Anna University Chennai - CEG Campus Sardar Patel Road Guindy Chennai 600 025",
+    "branch": "MINING ENGINEERING",
+    "exam": "TNEA",
+    "closing": "193.5/200 marks",
     "q": null
    }
   ],
@@ -7329,13 +7105,6 @@
     "q": "Indian Institute of Technology Madras"
    },
    {
-    "college": "Indian Institute of Technology Kharagpur",
-    "branch": "Ocean Engineering and Naval Architecture",
-    "exam": "JEE Advanced",
-    "closing": "9,371",
-    "q": "Indian Institute of Technology Kharagpur"
-   },
-   {
     "college": "Srinivas Institute of Technology, Mangalore SRINIVAS CAMPUS",
     "branch": "MARINE ENGINEERING",
     "exam": "KCET",
@@ -7347,13 +7116,6 @@
     "branch": "MARINE ENGINEERING",
     "exam": "TNEA",
     "closing": "180/200 marks",
-    "q": null
-   },
-   {
-    "college": "Sri Venkateswara College of Engineering (Autonomous), Post Bag No.3, Pennalur, Sriperumbudur, Kanchipuram-602105.",
-    "branch": "MARINE ENGINEERING",
-    "exam": "TNEA",
-    "closing": "108.5/200 marks",
     "q": null
    }
   ],
@@ -7425,14 +7187,7 @@
     "branch": "Oil,Oleochemicals and Surfactants Technology",
     "exam": "MHT-CET",
     "closing": "4,176",
-    "q": null
-   },
-   {
-    "college": "Laxminarayan Innovation Technological University, Nagpur",
-    "branch": "Oil Technology",
-    "exam": "MHT-CET",
-    "closing": "27,925",
-    "q": null
+    "q": "Institute of Chemical Technology, Matunga, Mumbai"
    }
   ],
   "notable_people": [
@@ -7491,14 +7246,7 @@
     "branch": "Paper and Pulp Technology",
     "exam": "MHT-CET",
     "closing": "50,044",
-    "q": null
-   },
-   {
-    "college": "Sant Gadge Baba Amravati University,Amravati",
-    "branch": "Paper and Pulp Technology",
-    "exam": "MHT-CET",
-    "closing": "115,570",
-    "q": null
+    "q": "Laxminarayan Innovation Technological University, Nagpur"
    }
   ],
   "notable_people": [
@@ -7653,13 +7401,6 @@
     "exam": "TNEA",
     "closing": "154.5/200 marks",
     "q": null
-   },
-   {
-    "college": "Dhaanish Ahmed College of Engineering, Dhaanish Nagar, Vanchuvancherry, Padappai(Near Tambaram), Sriperumbudur Taluk, Kancheepuram District-601301.",
-    "branch": "PETROLEUM ENGINEERING",
-    "exam": "TNEA",
-    "closing": "149.5/200 marks",
-    "q": null
    }
   ],
   "notable_people": [
@@ -7753,14 +7494,7 @@
     "branch": "Pharmaceuticals Chemistry and Technology",
     "exam": "MHT-CET",
     "closing": "1,049",
-    "q": null
-   },
-   {
-    "college": "University Department of Chemical Technology, Aurangabad",
-    "branch": "Pharmaceutical and Fine Chemical Technology",
-    "exam": "MHT-CET",
-    "closing": "2,591",
-    "q": null
+    "q": "Institute of Chemical Technology, Matunga, Mumbai"
    }
   ],
   "notable_people": [
@@ -7853,27 +7587,13 @@
     "branch": "Pharmacy",
     "exam": "MHT-CET",
     "closing": "42",
-    "q": null
-   },
-   {
-    "college": "Dr. D.Y. Patil College of Pharmacy , Akurdi, Pune",
-    "branch": "Pharm D",
-    "exam": "MHT-CET",
-    "closing": "176",
-    "q": null
+    "q": "Institute of Chemical Technology, Matunga, Mumbai"
    },
    {
     "college": "University Departments of Anna University Chennai - ACT Campus Sardar Patel Road Guindy Chennai 600 025",
     "branch": "PHARMACEUTICAL TECHNOLOGY",
     "exam": "TNEA",
     "closing": "184.5/200 marks",
-    "q": null
-   },
-   {
-    "college": "University College of Engineering Tiruchirappalli (Bharathidasan Institute of Technology) Tiruchirappalli District 620024",
-    "branch": "PHARMACEUTICAL TECHNOLOGY",
-    "exam": "TNEA",
-    "closing": "171.5/200 marks",
     "q": null
    }
   ],
@@ -7951,13 +7671,6 @@
     "exam": "JEE Advanced",
     "closing": "3,555",
     "q": "Indian Institute of Technology Madras"
-   },
-   {
-    "college": "Indian Institute of Technology Kanpur",
-    "branch": "Physics",
-    "exam": "JEE Advanced",
-    "closing": "5,370",
-    "q": "Indian Institute of Technology Kanpur"
    },
    {
     "college": "Odisha University of Technology and Research (formerly College of Engineering and Technology), Bhubaneswar",
@@ -8119,24 +7832,10 @@
     "q": "School of Planning & Architecture, New Delhi"
    },
    {
-    "college": "Maulana Azad National Institute of Technology Bhopal",
-    "branch": "Planning",
-    "exam": "JEE Main",
-    "closing": "574",
-    "q": "Maulana Azad National Institute of Technology Bhopal"
-   },
-   {
     "college": "School of Planning and Architchure, University of Mysore 2nd Floor, Senate Bhavan, Manasagangotri P.O., Mysore",
     "branch": "B.PLAN",
     "exam": "KCET",
     "closing": "187,039",
-    "q": null
-   },
-   {
-    "college": "BMS College of Architecture,Basavanagudi,Bull Temple Road,,BMSCE Campus,Bangalore",
-    "branch": "PLANNING",
-    "exam": "KCET",
-    "closing": "238,799",
     "q": null
    },
    {
@@ -8284,14 +7983,7 @@
     "branch": "Polymer Engineering and Technology",
     "exam": "MHT-CET",
     "closing": "3,683",
-    "q": null
-   },
-   {
-    "college": "Laxminarayan Innovation Technological University, Nagpur",
-    "branch": "Plastic and Polymer Engineering",
-    "exam": "MHT-CET",
-    "closing": "39,158",
-    "q": null
+    "q": "Institute of Chemical Technology, Matunga, Mumbai"
    },
    {
     "college": "Central Institute of Petrochemicals Engineering and Technology (Formerly Central Institute of Plastics Engineering and Technology) (CIPET) Guindy Chennai 600032",
@@ -8559,25 +8251,11 @@
     "q": null
    },
    {
-    "college": "J S S Academy of Technical Education, Bangalore JSSATE CAMPUS,UTTARAHALLI-KENGERI ROAD ,BANGALORE 560060",
-    "branch": "ROBOTICS AND AUTOMATION",
-    "exam": "KCET",
-    "closing": "29,619",
-    "q": null
-   },
-   {
     "college": "Vivekanand Education Society's Institute of Technology, Chembur, Mumbai",
     "branch": "Automation and Robotics",
     "exam": "MHT-CET",
     "closing": "11,990",
-    "q": null
-   },
-   {
-    "college": "Dr. D. Y. Patil Pratishthan's D.Y.Patil College of Engineering Akurdi, Pune",
-    "branch": "Robotics and Automation",
-    "exam": "MHT-CET",
-    "closing": "17,072",
-    "q": null
+    "q": "Vivekanand Education Society's Institute of Technology, Chembur, Mumbai"
    },
    {
     "college": "University Departments of Anna University Chennai - MIT Campus Chrompet Tambaram Taluk Chengalpattu District 600 044",
@@ -8663,7 +8341,7 @@
     "branch": "Safety and Fire Engineering",
     "exam": "MHT-CET",
     "closing": "157,880",
-    "q": null
+    "q": "GRAMIN TECHNICAL AND MANAGEMENT CAMPUS NANDED."
    },
    {
     "college": "Veer Surendra Sai University of Technology, Burla",
@@ -8677,13 +8355,6 @@
     "branch": "Safety and Fire Engineering",
     "exam": "TNEA",
     "closing": "141.5/200 marks",
-    "q": null
-   },
-   {
-    "college": "K S R College of Engineering (Autonomous), K S R Kalvi Nagar, Thokkavadi, Tiruchengode, Namakkal Dist-637215.",
-    "branch": "Safety and Fire Engineering",
-    "exam": "TNEA",
-    "closing": "132.5/200 marks",
     "q": null
    }
   ],
@@ -8970,24 +8641,10 @@
     "q": "Indian Institute of Technology Bombay"
    },
    {
-    "college": "Indian Institute of Technology Delhi",
-    "branch": "Civil Engineering",
-    "exam": "JEE Advanced",
-    "closing": "4,228",
-    "q": "Indian Institute of Technology Delhi"
-   },
-   {
     "college": "R. V. College of Engineering, Bangalore(AUTONOMOUS) R.V. VIDYANIKETAN POST, MYSORE ROAD,BANGALORE",
     "branch": "CIVIL ENGINEERING",
     "exam": "KCET",
     "closing": "10,832",
-    "q": null
-   },
-   {
-    "college": "M S Ramaiah Institute of Technology, Bangalore(AUTONOMOUS) VIDYA SOUDHA,MSR NAGAR,MSRIT POST,BANGALORE - 560054.",
-    "branch": "CIVIL ENGINEERING",
-    "exam": "KCET",
-    "closing": "30,510",
     "q": null
    },
    {
@@ -8998,10 +8655,24 @@
     "q": null
    },
    {
-    "college": "Jalpaiguri Goverment Engineering College,Jalpaiguri",
+    "college": "COEP Technological University",
     "branch": "Civil Engineering",
-    "exam": "WBJEE",
-    "closing": "4,061",
+    "exam": "MHT-CET",
+    "closing": "4,694",
+    "q": "COEP Technological University"
+   },
+   {
+    "college": "Veer Surendra Sai University of Technology, Burla",
+    "branch": "Civil Engineering(SSC) - TFW",
+    "exam": "OJEE",
+    "closing": "225,556 (JEE Main rank)",
+    "q": null
+   },
+   {
+    "college": "University Departments of Anna University Chennai - CEG Campus Sardar Patel Road Guindy Chennai 600 025",
+    "branch": "CIVIL ENGINEERING",
+    "exam": "TNEA",
+    "closing": "195.5/200 marks",
     "q": null
    }
   ],
@@ -9207,24 +8878,10 @@
     "q": "Indian Institute of Technology Delhi"
    },
    {
-    "college": "Dr. B R Ambedkar National Institute of Technology, Jalandhar",
-    "branch": "Textile Technology",
-    "exam": "JEE Main",
-    "closing": "51,222",
-    "q": "Dr. B R Ambedkar National Institute of Technology, Jalandhar"
-   },
-   {
     "college": "Bapuji Institute of Engineering & Technology, Davangere (AUTONOMOUS) BAPUJI INSTITUTE OF ENGINEERING & TECHNOLOGY,P.B. NO.325,SHAMANUR ROAD,DAVANGERE-577 004",
     "branch": "TEXTILES TECHNOLOGY",
     "exam": "KCET",
     "closing": "225,173",
-    "q": null
-   },
-   {
-    "college": "Govt.S K S J T Institute of Engineering, Bangalore AMBEDKAR VEEDHI, K.R. CIRCLE, BANGALORE-01",
-    "branch": "SILK TECHNOLOGY",
-    "exam": "KCET",
-    "closing": "247,848",
     "q": null
    },
    {
@@ -9235,10 +8892,24 @@
     "q": null
    },
    {
-    "college": "Govt. College of Engineering & Textile Technology, Serampore",
+    "college": "Veermata Jijabai Technological Institute(VJTI), Matunga, Mumbai",
     "branch": "Textile Technology",
-    "exam": "WBJEE",
-    "closing": "6,178",
+    "exam": "MHT-CET",
+    "closing": "9,987",
+    "q": "Veermata Jijabai Technological Institute(VJTI), Matunga, Mumbai"
+   },
+   {
+    "college": "Odisha University of Technology and Research (formerly College of Engineering and Technology), Bhubaneswar",
+    "branch": "Textile Engineering - TFW",
+    "exam": "OJEE",
+    "closing": "607,472 (JEE Main rank)",
+    "q": null
+   },
+   {
+    "college": "PSG College of Technology (Autonomous) Peelamedu Coimbatore District 641004",
+    "branch": "FASHION TECHNOLOGY",
+    "exam": "TNEA",
+    "closing": "182/200 marks",
     "q": null
    }
   ],

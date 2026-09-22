@@ -319,7 +319,7 @@ const PredictedCollegesTable = ({
   // straight into /compare — the standalone's star-and-compare flow, without
   // accounts (selection lives for this results view only)
   const [compareSel, setCompareSel] = useState([]);
-  const compareKeyOf = (t) => `${t["College ID"]}~${t.academic_program_name}`;
+  const compareKeyOf = (t) => `${compareIdOf(t)}~${t.academic_program_name}`;
   const toggleCompare = (t) => {
     const key = compareKeyOf(t);
     setCompareSel((prev) =>
@@ -329,7 +329,7 @@ const PredictedCollegesTable = ({
         ? prev
         : [
             ...prev,
-            { key, cid: t["College ID"], program: t.academic_program_name },
+            { key, cid: compareIdOf(t), program: t.academic_program_name },
           ]
     );
   };
@@ -388,6 +388,16 @@ const PredictedCollegesTable = ({
     exam === "JoSAA" || exam === "JEE Main-JOSAA" || exam === "JEE Advanced";
   const isCombinedJosaaExam = exam === "JoSAA";
   const supportsExpandedView = !isJosaaExam;
+  // MHT CET rows carry no college id, but their institute names are the
+  // Colleges tab's own (same CET Cell source), so compare keys on the name
+  const supportsCompare = isJosaaExam || exam === "MHT CET";
+  const slugOf = (x) =>
+    String(x || "")
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+  const compareIdOf = (t) =>
+    t["College ID"] || `n~${slugOf(t.institute || t["Institute"])}`;
   const supportsSalarySort = isJosaaExam;
   const salaryColumnKey = "expected_salary";
   const rankColumnKey = "closing_rank";
@@ -1345,7 +1355,7 @@ const PredictedCollegesTable = ({
 
   const renderTableHeader = () => (
     <tr className={commonHeaderClass}>
-      {isJosaaExam && (
+      {supportsCompare && (
         <th className="whitespace-nowrap border-b border-[#decac3] px-3 py-3">
           Compare
         </th>
@@ -1420,9 +1430,9 @@ const PredictedCollegesTable = ({
               index % 2 === 0 ? "bg-[#fffdfa]" : "bg-white"
             }`}
           >
-            {isJosaaExam && (
+            {supportsCompare && (
               <td className="px-3 py-3 text-center align-top">
-                {transformedItem["College ID"] ? (
+                {compareIdOf(transformedItem) ? (
                   <input
                     type="checkbox"
                     aria-label={`Compare ${transformedItem.institute}`}
@@ -1452,8 +1462,8 @@ const PredictedCollegesTable = ({
             {predicted_colleges_table_column.map((column) => (
               <td key={column.key} className="px-4 py-3 align-top">
                 {column.key === "institute" &&
-                isJosaaExam &&
-                transformedItem["College ID"] ? (
+                ((isJosaaExam && transformedItem["College ID"]) ||
+                  exam === "MHT CET") ? (
                   <Link
                     href={`/colleges?q=${encodeURIComponent(
                       transformedItem.institute
@@ -1636,7 +1646,7 @@ const PredictedCollegesTable = ({
       )}
       {displayData.length > 0 ? (
         <div className="overflow-x-auto rounded-xl border border-[#eaded8] bg-white shadow-sm">
-          {isJosaaExam && compareSel.length > 0 ? (
+          {supportsCompare && compareSel.length > 0 ? (
             <div className="fixed bottom-5 left-1/2 z-40 flex w-max max-w-[95vw] -translate-x-1/2 items-center gap-4 rounded-full border border-[#eaded8] bg-white px-6 py-3.5 text-base shadow-lg">
               <span className="whitespace-nowrap font-semibold text-[#5b3a34]">
                 {compareSel.length} of 3 picked
