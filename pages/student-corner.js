@@ -108,10 +108,6 @@ export default function StudentCorner() {
                 <h2 className="text-base font-black text-[#2f2320]">
                   Your details
                 </h2>
-                <p className="mt-1 text-sm text-[#7a635d]">
-                  From your Avanti profile. We use these to pre-fill the college
-                  predictor and to point you at the right exams.
-                </p>
                 <div className="mt-4 grid gap-3 sm:grid-cols-2">
                   <Fact
                     label="Class"
