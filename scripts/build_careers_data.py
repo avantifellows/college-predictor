@@ -61,6 +61,8 @@ EXAM_LINKS = {
     "WBJEE": [("WBJEE", "/exams?q=WBJEE")],
     "KEAM": [("KEAM", "/exams?q=KEAM")],
     "OJEE": [("OJEE", "/exams?q=OJEE")],
+    # counselling on the JEE Main rank with no exam card of its own
+    "JAC-Chandigarh": [("JAC Chandigarh", "/predictor?exam=JAC Chandigarh")],
     "CLAT": [("CLAT", "/exams?q=CLAT")],
     "NEET": [("NEET-UG", "/exams?q=NEET")],
 }
@@ -171,7 +173,13 @@ OPTION_SOURCES = {
              "Closing Rank", False, ""),
     "TNEA": ("public/data/TNEA/tnea_data.json", "Branch",
              lambda r: True, "Cutoff Marks", True, "/200 marks"),
+    # last: five colleges in one city only fill spare slots
+    "JAC-Chandigarh": ("public/data/JACCHD/jacchd_data.json", "Academic Program Name",
+                       lambda r: r.get("Category") == "General",
+                       "Closing Rank", False, " (JEE Main rank)"),
 }
+
+EXAM_LABEL = {"JAC-Chandigarh": "JAC Chandigarh"}
 
 _option_cache = {}
 
@@ -210,9 +218,13 @@ def college_options(branch_id, em, tab_link, per_exam=1, total=6):
         # can link, then the toughest cutoff. Toughest-number-only surfaced
         # colleges students had never heard of (Amogh: "random colleges"),
         # and OJEE's JEE-Main ranks in the lakhs read as noise.
+        # only a NIRF list that matches the branch counts: a Pharmacy #56
+        # must not outrank an Engineering #75 for aerospace engineering
+        lists = NIRF_LISTS_BY_BRANCH.get(branch_id, {"Engineering"})
         def nirf_of(college):
             q = tab_link(college)
-            return NIRF_BY_DISPLAY.get(q, 10**6) if q else 10**6
+            cat, rank = NIRF_BY_DISPLAY.get(q, (None, None)) if q else (None, None)
+            return rank if cat in lists else 10**6
         rows = [kv for kv in best.items() if higher or kv[1][0] <= 300000]
         rows.sort(key=lambda kv: (nirf_of(kv[0]),
                                   -kv[1][0] if higher else kv[1][0]))
@@ -223,7 +235,7 @@ def college_options(branch_id, em, tab_link, per_exam=1, total=6):
                 label = ("JEE Advanced" if ("IIT" in ct and "IIIT" not in ct)
                          else "JEE Main")
             else:
-                label = exam
+                label = EXAM_LABEL.get(exam, exam)
             display = (f"{v:g}{suffix}" if higher
                        else f"{int(v):,}{suffix}")
             out.append({"college": college,
@@ -234,7 +246,12 @@ def college_options(branch_id, em, tab_link, per_exam=1, total=6):
 
 
 COLLEGES_TAB = "public/data/colleges/colleges.json"
-NIRF_BY_DISPLAY = {c["display_name"]: c["nirf"]["rank"]
+NIRF_LISTS_BY_BRANCH = {
+    "ARCH": {"Architecture"}, "PLAN": {"Architecture"},
+    "PHARMA": {"Pharmacy"}, "MBBS": {"Medical"}, "DENTAL": {"Medical", "Dental"},
+    "LLB": {"Law"},
+}
+NIRF_BY_DISPLAY = {c["display_name"]: (c["nirf"]["category"], c["nirf"]["rank"])
                    for c in json.load(open(COLLEGES_TAB)) if c.get("nirf")}
 ACRONYMS = {
     "iit": "indian institute of technology",
@@ -304,6 +321,14 @@ def main():
         if branch_id is not None and branch_id in exams_by_branch.index:
             for ex in exams_by_branch[branch_id]:
                 for label, href in EXAM_LINKS.get(ex, []):
+                    # a chip into the predictor must land on rows: JAC
+                    # Chandigarh's B.Arch is a Paper 2 rank, kept out of
+                    # its predictor, so Architecture gets no JAC chip
+                    if href.startswith("/predictor") and ex in OPTION_SOURCES:
+                        path, field = OPTION_SOURCES[ex][:2]
+                        raws = set(em[(em.exam == ex) & (em.branch_id == branch_id)].branch_raw)
+                        if not any(x.get(field) in raws for x in _load_options_file(path)):
+                            continue
                     exams.append({"label": label, "href": href})
         # exams the sheet names that our cutoff tables don't carry
         for m in exam_mentions(r["Entry Exams"], exam_cards):

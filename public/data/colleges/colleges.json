@@ -12608,6 +12608,80 @@
   }
  },
  {
+  "college_id": "jac-chandigarh:chandigarh college architecture chandigarh",
+  "aishe_code": null,
+  "name": "Chandigarh College of Architecture, Chandigarh",
+  "display_name": "Chandigarh College of Architecture, Chandigarh",
+  "state": "Chandigarh",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": null,
+  "management": null,
+  "ownership": null,
+  "disciplines": [
+   "Architecture"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "JEE Main"
+  ],
+  "counselling": "JAC Chandigarh",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "B.Arch"
+   ],
+   "list": [
+    {
+     "branch": "Bachelor of Architecture",
+     "years": 5,
+     "degree": "B.Arch",
+     "indicative_closing_rank": 1930,
+     "indicative_opening_rank": null,
+     "career_id": "architecture"
+    }
+   ],
+   "source": "JAC Chandigarh 2026",
+   "rank_note": "Indicative open-category JEE Main closing rank (B.Arch: Paper 2 rank)."
+  },
+  "nirf": {
+   "category": "Architecture",
+   "rank": 30,
+   "score": 52.6,
+   "ranking_year": 2024,
+   "rank_history": [
+    {
+     "year": 2024,
+     "rank": 30,
+     "score": 52.6
+    },
+    {
+     "year": 2023,
+     "rank": 29,
+     "score": 51.38
+    }
+   ]
+  },
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "JAC Chandigarh 2026",
+   "programs": "JAC Chandigarh 2026",
+   "ranking": "NIRF 2024",
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "du:delhi-college-of-arts-and-commerce",
   "aishe_code": null,
   "name": "Delhi College of Arts and Commerce",
@@ -82998,6 +83072,87 @@
   }
  },
  {
+  "college_id": "jac-chandigarh:chandigarh college engineering technology chandigarh",
+  "aishe_code": null,
+  "name": "Chandigarh College of Engineering & Technology, Chandigarh",
+  "display_name": "Chandigarh College of Engineering & Technology, Chandigarh",
+  "state": "Chandigarh",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": null,
+  "management": null,
+  "ownership": null,
+  "disciplines": [
+   "Engineering"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "JEE Main"
+  ],
+  "counselling": "JAC Chandigarh",
+  "programs": {
+   "count": 4,
+   "degrees": [
+    "B.E. / B.Tech"
+   ],
+   "list": [
+    {
+     "branch": "B.E. in Computer Science & Engineering",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 133151,
+     "indicative_opening_rank": null,
+     "career_id": "computer-science-information-technology"
+    },
+    {
+     "branch": "B.E. in Electronics & Communication Engineering",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 173971,
+     "indicative_opening_rank": null,
+     "career_id": "electrical-electronics-communications-engineering"
+    },
+    {
+     "branch": "B.E. in Mechanical Engineering",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 254261,
+     "indicative_opening_rank": null,
+     "career_id": "mechanical-mechatronics-engineering"
+    },
+    {
+     "branch": "B.E. in Civil Engineering",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 308610,
+     "indicative_opening_rank": null,
+     "career_id": "civil-engineering"
+    }
+   ],
+   "source": "JAC Chandigarh 2026",
+   "rank_note": "Indicative open-category JEE Main closing rank (B.Arch: Paper 2 rank)."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "JAC Chandigarh 2026",
+   "programs": "JAC Chandigarh 2026",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "mhtcet:16336",
   "aishe_code": null,
   "name": "Chandrabhaga College of Pharmacy,Katphal,Baramati",
@@ -97363,6 +97518,80 @@
   "data_sources": {
    "identity": "NMC 2024-25 / AISHE 2024-25",
    "programs": "NMC 2024-25",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "jac-chandigarh:dr s s bhatnagar university institute chemical engineering t",
+  "aishe_code": null,
+  "name": "Dr. S.S. Bhatnagar University Institute of Chemical Engineering and Technology, Panjab University, Chandigarh",
+  "display_name": "Dr. S.S. Bhatnagar University Institute of Chemical Engineering and Technology, Panjab University, Chandigarh",
+  "state": "Chandigarh",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": null,
+  "management": null,
+  "ownership": null,
+  "disciplines": [
+   "Engineering"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "JEE Main"
+  ],
+  "counselling": "JAC Chandigarh",
+  "programs": {
+   "count": 3,
+   "degrees": [
+    "B.E. / B.Tech",
+    "Integrated B.E.-MBA"
+   ],
+   "list": [
+    {
+     "branch": "B.E. in Chemical Engineering",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 152529,
+     "indicative_opening_rank": null,
+     "career_id": "chemical-engineering"
+    },
+    {
+     "branch": "Integrated B.E. (Chemical Engineering) - MBA",
+     "years": 5,
+     "degree": "Integrated B.E.-MBA",
+     "indicative_closing_rank": 198498,
+     "indicative_opening_rank": null,
+     "career_id": "chemical-engineering"
+    },
+    {
+     "branch": "B.E. in Food Technology",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 221975,
+     "indicative_opening_rank": null,
+     "career_id": "food-engineering"
+    }
+   ],
+   "source": "JAC Chandigarh 2026",
+   "rank_note": "Indicative open-category JEE Main closing rank (B.Arch: Paper 2 rank)."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "JAC Chandigarh 2026",
+   "programs": "JAC Chandigarh 2026",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -291935,6 +292164,184 @@
   "data_sources": {
    "identity": "State CET Cell, Maharashtra 2025",
    "programs": "MHT-CET CAP 2025, rounds 1-4",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "jac-chandigarh:university institute engineering technology pussg regional c",
+  "aishe_code": null,
+  "name": "University Institute of Engineering and Technology, PUSSG Regional Centre, Hoshiarpur",
+  "display_name": "University Institute of Engineering and Technology, PUSSG Regional Centre, Hoshiarpur",
+  "state": "Punjab",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": null,
+  "management": null,
+  "ownership": null,
+  "disciplines": [
+   "Engineering"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "JEE Main"
+  ],
+  "counselling": "JAC Chandigarh",
+  "programs": {
+   "count": 4,
+   "degrees": [
+    "B.E. / B.Tech"
+   ],
+   "list": [
+    {
+     "branch": "B.E. in Computer Science & Engineering",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 131129,
+     "indicative_opening_rank": null,
+     "career_id": "computer-science-information-technology"
+    },
+    {
+     "branch": "B.E. in Information Technology",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 185097,
+     "indicative_opening_rank": null,
+     "career_id": "computer-science-information-technology"
+    },
+    {
+     "branch": "B.E. in Electronics & Communication Engineering",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 196021,
+     "indicative_opening_rank": null,
+     "career_id": "electrical-electronics-communications-engineering"
+    },
+    {
+     "branch": "B.E. in Mechanical Engineering",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 223327,
+     "indicative_opening_rank": null,
+     "career_id": "mechanical-mechatronics-engineering"
+    }
+   ],
+   "source": "JAC Chandigarh 2026",
+   "rank_note": "Indicative open-category JEE Main closing rank (B.Arch: Paper 2 rank)."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "JAC Chandigarh 2026",
+   "programs": "JAC Chandigarh 2026",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "jac-chandigarh:university institute engineering technology panjab universit",
+  "aishe_code": null,
+  "name": "University Institute of Engineering and Technology, Panjab University, Chandigarh",
+  "display_name": "University Institute of Engineering and Technology, Panjab University, Chandigarh",
+  "state": "Chandigarh",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": null,
+  "management": null,
+  "ownership": null,
+  "disciplines": [
+   "Engineering"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "JEE Main"
+  ],
+  "counselling": "JAC Chandigarh",
+  "programs": {
+   "count": 6,
+   "degrees": [
+    "B.E. / B.Tech"
+   ],
+   "list": [
+    {
+     "branch": "B.E. in Computer Science & Engineering",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 51556,
+     "indicative_opening_rank": null,
+     "career_id": "computer-science-information-technology"
+    },
+    {
+     "branch": "B.E. in Information Technology",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 61896,
+     "indicative_opening_rank": null,
+     "career_id": "computer-science-information-technology"
+    },
+    {
+     "branch": "B.E. in Electronics & Communication Engineering",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 73198,
+     "indicative_opening_rank": null,
+     "career_id": "electrical-electronics-communications-engineering"
+    },
+    {
+     "branch": "B.E. in Electrical & Electronics Engineering",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 86123,
+     "indicative_opening_rank": null,
+     "career_id": "electrical-electronics-communications-engineering"
+    },
+    {
+     "branch": "B.E. in Mechanical Engineering",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 111582,
+     "indicative_opening_rank": null,
+     "career_id": "mechanical-mechatronics-engineering"
+    },
+    {
+     "branch": "B.E. in Bio Technology",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 210227,
+     "indicative_opening_rank": null,
+     "career_id": "biotechnology"
+    }
+   ],
+   "source": "JAC Chandigarh 2026",
+   "rank_note": "Indicative open-category JEE Main closing rank (B.Arch: Paper 2 rank)."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "JAC Chandigarh 2026",
+   "programs": "JAC Chandigarh 2026",
    "ranking": null,
    "placement": null,
    "accreditation": null

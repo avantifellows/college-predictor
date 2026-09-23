@@ -1932,6 +1932,66 @@ export const ojeeConfig = {
   getSort: () => [["Closing Rank", "ASC"]],
 };
 
+export const jacChandigarhConfig = {
+  name: "JAC Chandigarh (CCET, UIET PU)",
+  searchKeys: ["Institute", "Academic Program Name"],
+  // JAC Chandigarh admits on the JEE Main (Paper 1) common rank. B.Arch
+  // (Paper 2) and the Defence / Sports merit lists are other scales and are
+  // not in this file (scripts/build_jacchd_2026.py).
+  primaryInput: integerInput("Enter JEE (Main) Rank", "Enter JEE Main rank"),
+  fields: [
+    {
+      name: "category",
+      label: "Select Category",
+      // must equal the Category strings in jacchd_data.json
+      options: [
+        "General",
+        "EWS",
+        "EWS, tuition fee waiver seats",
+        "OBC / BC",
+        "SC",
+        "ST",
+        "PwD",
+        "OBC PwD",
+        "Rural area",
+        "Border area",
+        "One of only two girl children",
+        "Kashmiri migrant",
+        "Ward of a Panjab University employee",
+        "Orphan",
+        "Child or grandchild of a freedom fighter",
+        "Thalassemia patient",
+        "Cancer patient",
+      ],
+    },
+    {
+      name: "homeState",
+      label: "Select Your Home State",
+      options: ["Chandigarh", "Outside Chandigarh"],
+    },
+  ],
+  getDataPath: () => {
+    return path.join(process.cwd(), "public", "data", "JACCHD", "jacchd_data.json");
+  },
+  getFilters: (query) => [
+    (item) => item.Category === query.category,
+    // Panjab University institutes admit All India; CCET splits Chandigarh
+    // domicile (Home State) from everyone else (Other State)
+    (item) =>
+      item.Quota === "All India" ||
+      item.Quota ===
+        (query.homeState === "Chandigarh" ? "Home State" : "Other State"),
+    (item) => {
+      if (!query.rank) return true;
+      const closingRank = parseInt(item["Closing Rank"], 10);
+      const userRank = parseInt(query.rank, 10);
+      if (isNaN(closingRank) || isNaN(userRank)) return false;
+      return closingRank >= userRank;
+    },
+  ],
+  getSort: () => [["Closing Rank", "ASC"]],
+};
+
 export const clatConfig = {
   name: "CLAT",
   searchKeys: ["Institute", "Academic Program Name"],
@@ -2027,6 +2087,7 @@ export const examConfigs = {
   "KEAM": keamConfig,
   "AP EAPCET": apEapcetConfig,
   "OJEE": ojeeConfig,
+  "JAC Chandigarh": jacChandigarhConfig,
   "CLAT": clatConfig,
   "TGEAPCET": tseApertConfig,
 };

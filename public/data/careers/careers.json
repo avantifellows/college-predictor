@@ -565,11 +565,11 @@
   "where_work": "Metro cities mainly, though Tier-2 cities are growing in demand as real estate expands",
   "college_options": [
    {
-    "college": "Indian Institute of Technology Kharagpur",
+    "college": "School of Planning & Architecture, New Delhi",
     "branch": "Architecture",
-    "exam": "JEE Advanced",
-    "closing": "18,430",
-    "q": "Indian Institute of Technology Kharagpur"
+    "exam": "JEE Main",
+    "closing": "191",
+    "q": "School of Planning & Architecture, New Delhi"
    },
    {
     "college": "Jadavpur University",
@@ -798,11 +798,11 @@
     "q": "M S Ramaiah Institute of Technology, Bangalore(AUTONOMOUS) VIDYA SOUDHA,MSR NAGAR,MSRIT POST,BANGALORE - 560054."
    },
    {
-    "college": "Nshm Knowledge Campus, Durgapur Group of Institutions",
+    "college": "Heritage Institute of Technology, Kolkata",
     "branch": "Computer Science & Engineering",
     "exam": "WBJEE",
-    "closing": "29,642",
-    "q": "Nshm Knowledge Campus, Durgapur Group of Institutions"
+    "closing": "3,417",
+    "q": "Heritage Institute of Technology, Kolkata"
    },
    {
     "college": "COEP Technological University",
@@ -819,11 +819,11 @@
     "q": "Veer Surendra Sai University of Technology, Burla"
    },
    {
-    "college": "Thiagarajar College of Engineering (Autonomous) Tirupparankundram Madurai District 625015",
+    "college": "PSG College of Technology (Autonomous) Peelamedu Coimbatore District 641004",
     "branch": "Computer Science and Engineering",
     "exam": "TNEA",
-    "closing": "195/200 marks",
-    "q": "Thiagarajar College of Engineering (Autonomous) Tirupparankundram Madurai District 625015"
+    "closing": "198.5/200 marks",
+    "q": "PSG College of Technology (Autonomous) Peelamedu Coimbatore District 641004"
    }
   ],
   "notable_people": [
@@ -1088,11 +1088,11 @@
   "where_work": "Metro cities mainly",
   "college_options": [
    {
-    "college": "M . S . Ramaiah University of Applied Sciences UNIVERSITY HOUSE, GNANAGANGOTHRI CAMPUS, NEW BEL ROAD, MSR ROAD, BANGALORE - 560054",
-    "branch": "AUTOMOTIVE ENGINEERING",
+    "college": "Dayananda Sagar College of Engineering, Bangalore(AUTONOMOUS) SHAVIGE MALLESHWARA HILLS, KUMARASWAMY LAYOUT, BANGALORE-560078",
+    "branch": "AUTOMOBILE ENGINEERING",
     "exam": "KCET",
-    "closing": "94,698",
-    "q": "M . S . Ramaiah University of Applied Sciences UNIVERSITY HOUSE, GNANAGANGOTHRI CAMPUS, NEW BEL ROAD, MSR ROAD, BANGALORE - 560054"
+    "closing": "81,406",
+    "q": "Dayananda Sagar College of Engineering, Bangalore(AUTONOMOUS) SHAVIGE MALLESHWARA HILLS, KUMARASWAMY LAYOUT, BANGALORE-560078"
    },
    {
     "college": "Dr.Sudhir Chandra Sur Institute of Technology and Sports Complex, Dum Dum",
@@ -1814,6 +1814,10 @@
     "href": "/exams?q=GUJCET"
    },
    {
+    "label": "JAC Chandigarh",
+    "href": "/predictor?exam=JAC Chandigarh"
+   },
+   {
     "label": "JEE Main",
     "href": "/exams?q=JEE Main"
    },
@@ -2304,6 +2308,10 @@
     "href": "/exams?q=GUJCET"
    },
    {
+    "label": "JAC Chandigarh",
+    "href": "/predictor?exam=JAC Chandigarh"
+   },
+   {
     "label": "JEE Main",
     "href": "/exams?q=JEE Main"
    },
@@ -2419,11 +2427,11 @@
     "q": "Veer Surendra Sai University of Technology, Burla"
    },
    {
-    "college": "Annamalai University Faculty of Engineering and Technology Annamalai nagar Cuddalore",
+    "college": "Sri Sivasubramaniya Nadar College of Engineering (Autonomous), Rajiv Gandhi Salai (OMR), Kalavakkam,Kanchipuram District-603110.",
     "branch": "CHEMICAL ENGINEERING",
     "exam": "TNEA",
-    "closing": "157.5/200 marks",
-    "q": "Annamalai University Faculty of Engineering and Technology Annamalai nagar Cuddalore"
+    "closing": "192/200 marks",
+    "q": "Sri Sivasubramaniya Nadar College of Engineering (Autonomous), Rajiv Gandhi Salai (OMR), Kalavakkam,Kanchipuram District-603110."
    }
   ],
   "notable_people": [
@@ -2632,6 +2640,10 @@
     "href": "/exams?q=GUJCET"
    },
    {
+    "label": "JAC Chandigarh",
+    "href": "/predictor?exam=JAC Chandigarh"
+   },
+   {
     "label": "JEE Main",
     "href": "/exams?q=JEE Main"
    },
@@ -2747,11 +2759,11 @@
     "q": "Veer Surendra Sai University of Technology, Burla"
    },
    {
-    "college": "Thiagarajar College of Engineering (Autonomous) Tirupparankundram Madurai District 625015",
+    "college": "Sri Sivasubramaniya Nadar College of Engineering (Autonomous), Rajiv Gandhi Salai (OMR), Kalavakkam,Kanchipuram District-603110.",
     "branch": "CIVIL ENGINEERING",
     "exam": "TNEA",
-    "closing": "191/200 marks",
-    "q": "Thiagarajar College of Engineering (Autonomous) Tirupparankundram Madurai District 625015"
+    "closing": "192.5/200 marks",
+    "q": "Sri Sivasubramaniya Nadar College of Engineering (Autonomous), Rajiv Gandhi Salai (OMR), Kalavakkam,Kanchipuram District-603110."
    }
   ],
   "notable_people": [
@@ -2954,6 +2966,10 @@
     "href": "/exams?q=GUJCET"
    },
    {
+    "label": "JAC Chandigarh",
+    "href": "/predictor?exam=JAC Chandigarh"
+   },
+   {
     "label": "JEE Main",
     "href": "/exams?q=JEE Main"
    },
@@ -3069,11 +3085,11 @@
     "q": "Veer Surendra Sai University of Technology, Burla"
    },
    {
-    "college": "Thiagarajar College of Engineering (Autonomous) Tirupparankundram Madurai District 625015",
+    "college": "Sri Sivasubramaniya Nadar College of Engineering (Autonomous), Rajiv Gandhi Salai (OMR), Kalavakkam,Kanchipuram District-603110.",
     "branch": "COMPUTER SCIENCE AND ENGINEERING",
     "exam": "TNEA",
-    "closing": "197.5/200 marks",
-    "q": "Thiagarajar College of Engineering (Autonomous) Tirupparankundram Madurai District 625015"
+    "closing": "199/200 marks",
+    "q": "Sri Sivasubramaniya Nadar College of Engineering (Autonomous), Rajiv Gandhi Salai (OMR), Kalavakkam,Kanchipuram District-603110."
    }
   ],
   "notable_people": [
@@ -3118,6 +3134,10 @@
     "href": "/exams?q=GUJCET"
    },
    {
+    "label": "JAC Chandigarh",
+    "href": "/predictor?exam=JAC Chandigarh"
+   },
+   {
     "label": "JEE Main",
     "href": "/exams?q=JEE Main"
    },
@@ -3154,12 +3174,12 @@
     "href": "/exams?q=WBJEE"
    },
    {
-    "label": "KEA-CET",
-    "href": "/exams?q=KEA-CET"
-   },
-   {
     "label": "BITSAT",
     "href": "/exams?q=BITSAT"
+   },
+   {
+    "label": "KEA-CET",
+    "href": "/exams?q=KEA-CET"
    }
   ],
   "top_colleges": [
@@ -3241,11 +3261,11 @@
     "q": "Veer Surendra Sai University of Technology, Burla"
    },
    {
-    "college": "Thiagarajar College of Engineering (Autonomous) Tirupparankundram Madurai District 625015",
+    "college": "Sri Sivasubramaniya Nadar College of Engineering (Autonomous), Rajiv Gandhi Salai (OMR), Kalavakkam,Kanchipuram District-603110.",
     "branch": "COMPUTER SCIENCE AND ENGINEERING",
     "exam": "TNEA",
-    "closing": "197.5/200 marks",
-    "q": "Thiagarajar College of Engineering (Autonomous) Tirupparankundram Madurai District 625015"
+    "closing": "199/200 marks",
+    "q": "Sri Sivasubramaniya Nadar College of Engineering (Autonomous), Rajiv Gandhi Salai (OMR), Kalavakkam,Kanchipuram District-603110."
    }
   ],
   "notable_people": [
@@ -3383,11 +3403,11 @@
     "q": "M S Ramaiah Institute of Technology, Bangalore(AUTONOMOUS) VIDYA SOUDHA,MSR NAGAR,MSRIT POST,BANGALORE - 560054."
    },
    {
-    "college": "Jis University, Agarpara",
+    "college": "Heritage Institute of Technology, Kolkata",
     "branch": "Computer Science & Engineering",
     "exam": "WBJEE",
-    "closing": "24,017",
-    "q": "Jis University, Agarpara"
+    "closing": "4,502",
+    "q": "Heritage Institute of Technology, Kolkata"
    },
    {
     "college": "Bansilal Ramnath Agarawal Charitable Trust's Vishwakarma Institute of Technology, Bibwewadi, Pune",
@@ -3645,11 +3665,11 @@
     "q": "M S Ramaiah Institute of Technology, Bangalore(AUTONOMOUS) VIDYA SOUDHA,MSR NAGAR,MSRIT POST,BANGALORE - 560054."
    },
    {
-    "college": "Nshm Knowledge Campus, Durgapur Group of Institutions",
+    "college": "Heritage Institute of Technology, Kolkata",
     "branch": "Computer Science & Engineering",
     "exam": "WBJEE",
-    "closing": "29,642",
-    "q": "Nshm Knowledge Campus, Durgapur Group of Institutions"
+    "closing": "3,417",
+    "q": "Heritage Institute of Technology, Kolkata"
    },
    {
     "college": "COEP Technological University",
@@ -3666,11 +3686,11 @@
     "q": "Veer Surendra Sai University of Technology, Burla"
    },
    {
-    "college": "Thiagarajar College of Engineering (Autonomous) Tirupparankundram Madurai District 625015",
+    "college": "PSG College of Technology (Autonomous) Peelamedu Coimbatore District 641004",
     "branch": "Computer Science and Engineering",
     "exam": "TNEA",
-    "closing": "195/200 marks",
-    "q": "Thiagarajar College of Engineering (Autonomous) Tirupparankundram Madurai District 625015"
+    "closing": "198.5/200 marks",
+    "q": "PSG College of Technology (Autonomous) Peelamedu Coimbatore District 641004"
    }
   ],
   "notable_people": [
@@ -3876,11 +3896,11 @@
     "q": "Indian Institute of Technology Delhi"
    },
    {
-    "college": "BMS College of Architecture,Basavanagudi,Bull Temple Road,,BMSCE Campus,Bangalore",
-    "branch": "BACHELOR OF DESIGN(INTERIOR DESIGN)",
+    "college": "K.L.S. Gogte Institute of Technology, Belgaum.(AUTONOMOUS) \"JNANA GANGA\", UDYAMBAG,BELGAUM",
+    "branch": "COMMUNICATION DESIGN",
     "exam": "KCET",
-    "closing": "240,123",
-    "q": "BMS College of Architecture,Basavanagudi,Bull Temple Road,,BMSCE Campus,Bangalore"
+    "closing": "200,998",
+    "q": "K.L.S. Gogte Institute of Technology, Belgaum.(AUTONOMOUS) \"JNANA GANGA\", UDYAMBAG,BELGAUM"
    },
    {
     "college": "MIT Academy of Engineering,Alandi, Pune",
@@ -4115,6 +4135,10 @@
     "href": "/exams?q=GUJCET"
    },
    {
+    "label": "JAC Chandigarh",
+    "href": "/predictor?exam=JAC Chandigarh"
+   },
+   {
     "label": "JEE Main",
     "href": "/exams?q=JEE Main"
    },
@@ -4234,11 +4258,11 @@
     "q": "Veer Surendra Sai University of Technology, Burla"
    },
    {
-    "college": "Thiagarajar College of Engineering (Autonomous) Tirupparankundram Madurai District 625015",
+    "college": "Sri Sivasubramaniya Nadar College of Engineering (Autonomous), Rajiv Gandhi Salai (OMR), Kalavakkam,Kanchipuram District-603110.",
     "branch": "ELECTRONICS AND COMMUNICATION ENGINEERING",
     "exam": "TNEA",
-    "closing": "197/200 marks",
-    "q": "Thiagarajar College of Engineering (Autonomous) Tirupparankundram Madurai District 625015"
+    "closing": "198/200 marks",
+    "q": "Sri Sivasubramaniya Nadar College of Engineering (Autonomous), Rajiv Gandhi Salai (OMR), Kalavakkam,Kanchipuram District-603110."
    }
   ],
   "notable_people": [
@@ -4280,6 +4304,10 @@
    {
     "label": "GUJCET",
     "href": "/exams?q=GUJCET"
+   },
+   {
+    "label": "JAC Chandigarh",
+    "href": "/predictor?exam=JAC Chandigarh"
    },
    {
     "label": "JEE Main",
@@ -4401,11 +4429,11 @@
     "q": "Veer Surendra Sai University of Technology, Burla"
    },
    {
-    "college": "Thiagarajar College of Engineering (Autonomous) Tirupparankundram Madurai District 625015",
+    "college": "Sri Sivasubramaniya Nadar College of Engineering (Autonomous), Rajiv Gandhi Salai (OMR), Kalavakkam,Kanchipuram District-603110.",
     "branch": "ELECTRONICS AND COMMUNICATION ENGINEERING",
     "exam": "TNEA",
-    "closing": "197/200 marks",
-    "q": "Thiagarajar College of Engineering (Autonomous) Tirupparankundram Madurai District 625015"
+    "closing": "198/200 marks",
+    "q": "Sri Sivasubramaniya Nadar College of Engineering (Autonomous), Rajiv Gandhi Salai (OMR), Kalavakkam,Kanchipuram District-603110."
    }
   ],
   "notable_people": [
@@ -4447,6 +4475,10 @@
    {
     "label": "GUJCET",
     "href": "/exams?q=GUJCET"
+   },
+   {
+    "label": "JAC Chandigarh",
+    "href": "/predictor?exam=JAC Chandigarh"
    },
    {
     "label": "JEE Main",
@@ -4568,11 +4600,11 @@
     "q": "Veer Surendra Sai University of Technology, Burla"
    },
    {
-    "college": "Thiagarajar College of Engineering (Autonomous) Tirupparankundram Madurai District 625015",
+    "college": "Sri Sivasubramaniya Nadar College of Engineering (Autonomous), Rajiv Gandhi Salai (OMR), Kalavakkam,Kanchipuram District-603110.",
     "branch": "ELECTRONICS AND COMMUNICATION ENGINEERING",
     "exam": "TNEA",
-    "closing": "197/200 marks",
-    "q": "Thiagarajar College of Engineering (Autonomous) Tirupparankundram Madurai District 625015"
+    "closing": "198/200 marks",
+    "q": "Sri Sivasubramaniya Nadar College of Engineering (Autonomous), Rajiv Gandhi Salai (OMR), Kalavakkam,Kanchipuram District-603110."
    }
   ],
   "notable_people": [
@@ -4614,6 +4646,10 @@
    {
     "label": "GUJCET",
     "href": "/exams?q=GUJCET"
+   },
+   {
+    "label": "JAC Chandigarh",
+    "href": "/predictor?exam=JAC Chandigarh"
    },
    {
     "label": "JEE Main",
@@ -4735,11 +4771,11 @@
     "q": "Veer Surendra Sai University of Technology, Burla"
    },
    {
-    "college": "Thiagarajar College of Engineering (Autonomous) Tirupparankundram Madurai District 625015",
+    "college": "Sri Sivasubramaniya Nadar College of Engineering (Autonomous), Rajiv Gandhi Salai (OMR), Kalavakkam,Kanchipuram District-603110.",
     "branch": "ELECTRONICS AND COMMUNICATION ENGINEERING",
     "exam": "TNEA",
-    "closing": "197/200 marks",
-    "q": "Thiagarajar College of Engineering (Autonomous) Tirupparankundram Madurai District 625015"
+    "closing": "198/200 marks",
+    "q": "Sri Sivasubramaniya Nadar College of Engineering (Autonomous), Rajiv Gandhi Salai (OMR), Kalavakkam,Kanchipuram District-603110."
    }
   ],
   "notable_people": [
@@ -5504,6 +5540,10 @@
     "href": "/exams?q=GUJCET"
    },
    {
+    "label": "JAC Chandigarh",
+    "href": "/predictor?exam=JAC Chandigarh"
+   },
+   {
     "label": "JEE Main",
     "href": "/exams?q=JEE Main"
    },
@@ -5606,6 +5646,13 @@
     "exam": "TNEA",
     "closing": "177.5/200 marks",
     "q": "Rajalakshmi Engineering College (Autonomous), Rajalakshmi Nagar, Thandalam, Kanchipuram, Chennai-602105."
+   },
+   {
+    "college": "Dr. S.S. Bhatnagar University Institute of Chemical Engineering and Technology, Panjab University, Chandigarh",
+    "branch": "B.E. in Food Technology",
+    "exam": "JAC Chandigarh",
+    "closing": "221,975 (JEE Main rank)",
+    "q": "Dr. S.S. Bhatnagar University Institute of Chemical Engineering and Technology, Panjab University, Chandigarh"
    }
   ],
   "notable_people": [
@@ -5755,12 +5802,12 @@
     "href": "/exams?q=JEE Advanced"
    },
    {
-    "label": "MHT-CET",
-    "href": "/exams?q=MHT-CET"
-   },
-   {
     "label": "KEA-CET",
     "href": "/exams?q=KEA-CET"
+   },
+   {
+    "label": "MHT-CET",
+    "href": "/exams?q=MHT-CET"
    }
   ],
   "top_colleges": [
@@ -7116,12 +7163,12 @@
     "href": "/exams?q=CUET"
    },
    {
-    "label": "ISI-AT",
-    "href": "/exams?q=ISI-AT"
-   },
-   {
     "label": "CMI-EE",
     "href": "/exams?q=CMI-EE"
+   },
+   {
+    "label": "ISI-AT",
+    "href": "/exams?q=ISI-AT"
    }
   ],
   "top_colleges": [
@@ -7313,6 +7360,10 @@
     "href": "/exams?q=GUJCET"
    },
    {
+    "label": "JAC Chandigarh",
+    "href": "/predictor?exam=JAC Chandigarh"
+   },
+   {
     "label": "JEE Main",
     "href": "/exams?q=JEE Main"
    },
@@ -7428,11 +7479,11 @@
     "q": "Veer Surendra Sai University of Technology, Burla"
    },
    {
-    "college": "Thiagarajar College of Engineering (Autonomous) Tirupparankundram Madurai District 625015",
-    "branch": "MECHATRONICS",
+    "college": "Sri Sivasubramaniya Nadar College of Engineering (Autonomous), Rajiv Gandhi Salai (OMR), Kalavakkam,Kanchipuram District-603110.",
+    "branch": "MECHANICAL ENGINEERING",
     "exam": "TNEA",
-    "closing": "191.5/200 marks",
-    "q": "Thiagarajar College of Engineering (Autonomous) Tirupparankundram Madurai District 625015"
+    "closing": "194/200 marks",
+    "q": "Sri Sivasubramaniya Nadar College of Engineering (Autonomous), Rajiv Gandhi Salai (OMR), Kalavakkam,Kanchipuram District-603110."
    }
   ],
   "notable_people": [
@@ -7475,6 +7526,10 @@
    {
     "label": "GUJCET",
     "href": "/exams?q=GUJCET"
+   },
+   {
+    "label": "JAC Chandigarh",
+    "href": "/predictor?exam=JAC Chandigarh"
    },
    {
     "label": "JEE Main",
@@ -7596,11 +7651,11 @@
     "q": "Veer Surendra Sai University of Technology, Burla"
    },
    {
-    "college": "Thiagarajar College of Engineering (Autonomous) Tirupparankundram Madurai District 625015",
-    "branch": "MECHATRONICS",
+    "college": "Sri Sivasubramaniya Nadar College of Engineering (Autonomous), Rajiv Gandhi Salai (OMR), Kalavakkam,Kanchipuram District-603110.",
+    "branch": "MECHANICAL ENGINEERING",
     "exam": "TNEA",
-    "closing": "191.5/200 marks",
-    "q": "Thiagarajar College of Engineering (Autonomous) Tirupparankundram Madurai District 625015"
+    "closing": "194/200 marks",
+    "q": "Sri Sivasubramaniya Nadar College of Engineering (Autonomous), Rajiv Gandhi Salai (OMR), Kalavakkam,Kanchipuram District-603110."
    }
   ],
   "notable_people": [
@@ -9434,11 +9489,11 @@
   "where_work": "Metro cities mainly",
   "college_options": [
    {
-    "college": "Maulana Azad National Institute of Technology Bhopal",
+    "college": "School of Planning & Architecture, New Delhi",
     "branch": "Planning",
     "exam": "JEE Main",
-    "closing": "574",
-    "q": "Maulana Azad National Institute of Technology Bhopal"
+    "closing": "209",
+    "q": "School of Planning & Architecture, New Delhi"
    },
    {
     "college": "BMS College of Architecture,Basavanagudi,Bull Temple Road,,BMSCE Campus,Bangalore",
@@ -9972,11 +10027,11 @@
     "q": "National Institute of Technology, Kurukshetra"
    },
    {
-    "college": "M . S . Ramaiah University of Applied Sciences UNIVERSITY HOUSE, GNANAGANGOTHRI CAMPUS, NEW BEL ROAD, MSR ROAD, BANGALORE - 560054",
-    "branch": "B TECH IN ROBOTICS ENGINEERING",
+    "college": "KLE Technological University(Formerly (BVBCET) BVBHOOMARADDI COLLEGE CAMPUS, VIDYANAGAR, HUBBALLI",
+    "branch": "AUTOMATION AND ROBOTICS",
     "exam": "KCET",
-    "closing": "27,316",
-    "q": "M . S . Ramaiah University of Applied Sciences UNIVERSITY HOUSE, GNANAGANGOTHRI CAMPUS, NEW BEL ROAD, MSR ROAD, BANGALORE - 560054"
+    "closing": "29,813",
+    "q": "KLE Technological University(Formerly (BVBCET) BVBHOOMARADDI COLLEGE CAMPUS, VIDYANAGAR, HUBBALLI"
    },
    {
     "college": "Dr. D. Y. Patil Unitech Society's Dr. D. Y. Patil Institute of Technology, Pimpri, Pune",
@@ -10378,6 +10433,10 @@
     "href": "/exams?q=GUJCET"
    },
    {
+    "label": "JAC Chandigarh",
+    "href": "/predictor?exam=JAC Chandigarh"
+   },
+   {
     "label": "JEE Main",
     "href": "/exams?q=JEE Main"
    },
@@ -10497,11 +10556,11 @@
     "q": "Veer Surendra Sai University of Technology, Burla"
    },
    {
-    "college": "Thiagarajar College of Engineering (Autonomous) Tirupparankundram Madurai District 625015",
+    "college": "Sri Sivasubramaniya Nadar College of Engineering (Autonomous), Rajiv Gandhi Salai (OMR), Kalavakkam,Kanchipuram District-603110.",
     "branch": "CIVIL ENGINEERING",
     "exam": "TNEA",
-    "closing": "191/200 marks",
-    "q": "Thiagarajar College of Engineering (Autonomous) Tirupparankundram Madurai District 625015"
+    "closing": "192.5/200 marks",
+    "q": "Sri Sivasubramaniya Nadar College of Engineering (Autonomous), Rajiv Gandhi Salai (OMR), Kalavakkam,Kanchipuram District-603110."
    }
   ],
   "notable_people": [

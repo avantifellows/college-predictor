@@ -132,6 +132,14 @@ const expandedFields = {
     { key: "Category", label: "Category" },
     { key: "Opening Rank", label: "Opening Rank (JEE Main)" },
   ],
+  // JAC Chandigarh (2026; JEE Main ranks, loosest of Rounds 1-3 + Special)
+  "JAC Chandigarh": [
+    { key: "Year", label: "Data Year" },
+    { key: "Quota", label: "Quota" },
+    { key: "Category", label: "Category" },
+    { key: "Round", label: "Round" },
+    { key: "Opening Rank", label: "Opening Rank (JEE Main)" },
+  ],
   // AP EAPCET - Andhra Pradesh (2025 consolidated)
   "AP EAPCET": [
     { key: "Year", label: "Data Year" },
@@ -400,6 +408,7 @@ const PredictedCollegesTable = ({
     "AP EAPCET",
     "TGEAPCET",
     "OJEE",
+    "JAC Chandigarh",
     "CLAT",
     "GUJCET",
   ]);
@@ -620,6 +629,11 @@ const PredictedCollegesTable = ({
       // exam rank (which exists, for other courses).
       { key: "closing_rank", label: "Closing Rank (JEE Main)" },
     ],
+    "JAC Chandigarh": [
+      { key: "institute", label: "Institute" },
+      { key: "academic_program_name", label: "Program" },
+      { key: "closing_rank", label: "Closing Rank (JEE Main)" },
+    ],
     "AP EAPCET": [
       { key: "institute", label: "Institute" },
       // Branch codes are shown verbatim (CSE, AID, CSD...) - the official
@@ -727,6 +741,14 @@ const PredictedCollegesTable = ({
         "Rural/Urban": item["Rural/Urban"],
         "Category_Key": item["Category_Key"],
         "Closing Rank": item["Closing Rank"],
+      };
+    }
+    if (exam === "JAC Chandigarh") {
+      return {
+        ...item,
+        institute: item["Institute"],
+        academic_program_name: item["Academic Program Name"],
+        closing_rank: item["Closing Rank"],
       };
     }
     if (exam === "OJEE") {

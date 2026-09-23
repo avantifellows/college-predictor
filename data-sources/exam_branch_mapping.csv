@@ -1593,3 +1593,22 @@ WBJEE,Production Engineering (TFW),Production Engineering,INDENG,Industrial / Ma
 WBJEE,Robotics,Robotics,ROBOENG,Robotics Engineering,3,1,alias row in Branch sheet
 WBJEE,Textile Technology,Textile Technology,TEXTILE,Textile Engineering,159,2,alias row in Branch sheet
 WBJEE,Textile Technology (TFW),Textile Technology,TEXTILE,Textile Engineering,26,2,alias row in Branch sheet
+JAC-Chandigarh,B.E. in Bio Technology,Biotechnology,BIOTECH,Biotechnology,37,1,same string as another exam
+JAC-Chandigarh,B.E. in Bio Technology - TFW,Biotechnology,BIOTECH,Biotechnology,3,1,same string as another exam
+JAC-Chandigarh,B.E. in Chemical Engineering,Chemical Engineering,CHEMENG,Chemical Engineering,43,1,same string as another exam
+JAC-Chandigarh,B.E. in Civil Engineering,Civil Engineering,CIVILENG,Civil Engineering,41,1,same string as another exam
+JAC-Chandigarh,B.E. in Civil Engineering - TFW,Civil Engineering,CIVILENG,Civil Engineering,1,1,same string as another exam
+JAC-Chandigarh,B.E. in Computer Science & Engineering,Computer Science & Engineering,CSIT,Computer Science / Information Technology,141,3,same string as another exam
+JAC-Chandigarh,B.E. in Computer Science & Engineering - TFW,Computer Science & Engineering,CSIT,Computer Science / Information Technology,9,3,same string as another exam
+JAC-Chandigarh,B.E. in Electrical & Electronics Engineering,Electrical & Electronics Engineering,ELEC,Electrical / Electronics / Communications Engineering,44,1,same string as another exam
+JAC-Chandigarh,B.E. in Electrical & Electronics Engineering - TFW,Electrical & Electronics Engineering,ELEC,Electrical / Electronics / Communications Engineering,5,1,same string as another exam
+JAC-Chandigarh,B.E. in Electronics & Communication Engineering,Electronics & Communication Engineering,ELEC,Electrical / Electronics / Communications Engineering,129,3,same string as another exam
+JAC-Chandigarh,B.E. in Electronics & Communication Engineering - TFW,Electronics & Communication Engineering,ELEC,Electrical / Electronics / Communications Engineering,14,3,same string as another exam
+JAC-Chandigarh,B.E. in Food Technology,Food Technology,FOODENG,Food Engineering,32,1,same string as another exam
+JAC-Chandigarh,B.E. in Information Technology,Information Technology,CSIT,Computer Science / Information Technology,86,2,same string as another exam
+JAC-Chandigarh,B.E. in Information Technology - TFW,Information Technology,CSIT,Computer Science / Information Technology,7,2,same string as another exam
+JAC-Chandigarh,B.E. in Mechanical Engineering,Mechanical Engineering,MECHENG,Mechanical / Mechatronics Engineering ,120,3,same string as another exam
+JAC-Chandigarh,B.E. in Mechanical Engineering - TFW,Mechanical Engineering,MECHENG,Mechanical / Mechatronics Engineering ,10,3,same string as another exam
+JAC-Chandigarh,Bachelor of Architecture,Architecture,ARCH,Architecture,22,1,same string as another exam
+JAC-Chandigarh,Integrated B.E. (Chemical Engineering) - MBA,Chemical Engineering,CHEMENG,Chemical Engineering,38,1,same string as another exam
+JAC-Chandigarh,Integrated B.E. (Chemical Engineering) - MBA - TFW,Chemical Engineering,CHEMENG,Chemical Engineering,5,1,same string as another exam

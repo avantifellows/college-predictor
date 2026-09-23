@@ -712,6 +712,19 @@ STATE_SPECS = {
                  open_where="category_canonical = 'GEN' AND NOT is_women_row AND NOT is_pwd_row AND domicile_state IS NULL",
                  label="CLAT", counselling="CLAT Consortium counselling", map_exam="CLAT",
                  state=None, source="CLAT {y}"),
+    # JEE Main ranks; CCA's B.Arch rides its Paper 2 rank (own scale, like
+    # MHT-CET's architecture stream). Defence / Sports merit positions and
+    # the TFW pool never make the open number, nor does the SPOT round: it
+    # fills leftover seats at ranks several times deeper than Round 3
+    # (CCET Mechanical 2.5 lakh -> 14.6 lakh).
+    "JAC Chandigarh": dict(table="jacchd_fact_cutoffs", year="year", name="institute",
+                           code=None, branch="programme", ctype=None,
+                           district=None, university=None, stream=None,
+                           open_where="category = 'GEN' AND NOT tfw AND rank_basis != 'category merit list' AND round != 'SPOT Round'",
+                           label="JEE Main", counselling="JAC Chandigarh", map_exam="JAC-Chandigarh",
+                           state="Chandigarh", state_by_name={"Hoshiarpur": "Punjab"},
+                           source="JAC Chandigarh {y}",
+                           rank_note="Indicative open-category JEE Main closing rank (B.Arch: Paper 2 rank)."),
     "GUJCET": dict(table="gujcet_fact_cutoffs", year="year", name="college_name",
                    code=None, branch="branch_name", ctype="college_type",
                    district=None, university=None, stream="stream",
@@ -760,6 +773,8 @@ def discipline_of_program(name, stream=None):
         return "Architecture", "B.Arch", 5
     if "plan" in n and "planning" in n:
         return "Planning", "B.Plan", 4
+    if "integrated" in n and "mba" in n:
+        return "Engineering", "Integrated B.E.-MBA", 5
     return "Engineering", "B.E. / B.Tech", 4
 
 
@@ -1624,10 +1639,13 @@ def main():
                 "degrees": sorted(degrees),
                 "list": lst,
                 "source": sp["source"].format(y=year),
-                "rank_note": f"Indicative open-category {sp['label']} closing rank.",
+                "rank_note": sp.get("rank_note") or f"Indicative open-category {sp['label']} closing rank.",
             }
             display = re.sub(r"\s+,", ",", re.sub(r"\s{2,}", " ", str(r.college_name))).strip()
             state = sp["state"]
+            for part, st in sp.get("state_by_name", {}).items():
+                if part in display:
+                    state = st
             if exam == "CLAT":
                 state = next((st for city, st in NLU_CITY_STATE.items() if city in display), None)
             spine_rows.append({
