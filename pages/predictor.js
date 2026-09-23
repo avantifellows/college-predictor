@@ -1019,6 +1019,18 @@ const ExamForm = () => {
                                   students from 2024 and 2025. Actual 2025/26
                                   results may vary depending on the paper slot.
                                 </p>
+                                {/* pilot: students didn't see the Submit
+                                    button far below — the next step lives
+                                    right under the number */}
+                                {!isSubmitDisabled() && (
+                                  <button
+                                    type="button"
+                                    onClick={handleSubmit}
+                                    className="mt-3 w-full rounded-lg bg-[#B52326] px-4 py-2.5 text-sm font-bold text-white hover:bg-[#9E1F22]"
+                                  >
+                                    See colleges for this rank →
+                                  </button>
+                                )}
                               </div>
                             )}
                           </div>,

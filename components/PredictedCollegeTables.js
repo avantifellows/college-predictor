@@ -1389,6 +1389,14 @@ const PredictedCollegesTable = ({
     URL.revokeObjectURL(url);
   };
 
+  // pilot: nobody found the Compare column unprompted
+  const compareHint = supportsCompare ? (
+    <p className="mb-2 rounded-lg bg-[#fbeeec] px-3 py-2 text-sm text-[#8f2e31]">
+      <span className="font-bold">Tip:</span> tick up to 3 colleges in the
+      Compare column to see them side by side.
+    </p>
+  ) : null;
+
   const renderTableHeader = () => (
     <tr className={commonHeaderClass}>
       {supportsCompare && (
@@ -1721,6 +1729,7 @@ const PredictedCollegesTable = ({
               </button>
             </div>
           ) : null}
+          {compareHint}
           <table className={commonTableClass}>
             <thead>{renderTableHeader()}</thead>
             <tbody>{renderTableBody()}</tbody>

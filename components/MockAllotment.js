@@ -9,9 +9,12 @@ import {
   getRoundOneResult,
   advanceRound,
   annualFeeForCategory,
+  findSeatForChoice,
+  studentRankForInstitute,
   TOTAL_ROUNDS,
 } from "../utils/josaaSimulator";
 import Dropdown from "./dropdown";
+import { readProfile } from "../utils/portalSession";
 import {
   formatRank,
   formatSalary,
@@ -113,6 +116,35 @@ const defaultState = {
   frozen: false,
 };
 
+// Avanti profile -> mock form values (the portal stores gen / gen-ews / obc /
+// sc / st, optionally pwd- prefixed; gender as free text)
+const CATEGORY_FROM_STUDENT = {
+  gen: "open",
+  "gen-ews": "ews",
+  obc: "obc_ncl",
+  sc: "sc",
+  st: "st",
+};
+function profileFromStudent(student) {
+  const raw = String(student.category || "").toLowerCase();
+  const pwd = raw.startsWith("pwd-");
+  const base = CATEGORY_FROM_STUDENT[raw.replace(/^pwd-/, "")];
+  const out = {};
+  if (base) out.category = pwd ? `${base}_pwd` : base;
+  if (student.gender) {
+    out.gender = /^f/i.test(student.gender)
+      ? "Female-only (including Supernumerary)"
+      : "Gender-Neutral";
+  }
+  if (student.state && statesList.includes(student.state))
+    out.homeState = student.state;
+  return out;
+}
+const stripEmpty = (obj) =>
+  Object.fromEntries(
+    Object.entries(obj || {}).filter(([, v]) => v !== "" && v != null)
+  );
+
 export function loadPersistedState() {
   try {
     const raw = window.localStorage.getItem(STORAGE_KEY);
@@ -150,9 +182,25 @@ const MockAllotment = () => {
   const [search, setSearch] = useState("");
   const [programType, setProgramType] = useState("all");
 
-  // Load any in-progress mock from localStorage once, on mount.
+  // Load any in-progress mock from localStorage once, on mount. A run that
+  // belongs to a different signed-in student is discarded; a fresh run takes
+  // category / gender / home state from the student's Avanti profile.
   useEffect(() => {
-    setState(loadPersistedState());
+    const student = readProfile();
+    let loaded = loadPersistedState();
+    if (student && loaded.owner && loaded.owner !== student.user_id) {
+      loaded = defaultState;
+    }
+    if (student && !loaded.locked && loaded.choices.length === 0) {
+      loaded = {
+        ...loaded,
+        profile: {
+          ...profileFromStudent(student),
+          ...stripEmpty(loaded.profile),
+        },
+      };
+    }
+    setState({ ...loaded, owner: student ? student.user_id : null });
     setHydrated(true);
   }, []);
 
@@ -188,7 +236,17 @@ const MockAllotment = () => {
     ) {
       return [];
     }
-    return buildCatalog(rows, state.profile, collegesByName);
+    // IITs admit on the JEE Advanced rank only; without one they can never
+    // be allotted, so they are not offered (an SC student at category rank
+    // 967 picked IITs, entered only a Main rank, and got nothing)
+    const needsAdv = state.profile.qualifiedJeeAdv !== "Yes";
+    return buildCatalog(rows, state.profile, collegesByName).filter(
+      (item) =>
+        !needsAdv ||
+        !(collegesByName.get(item.institute)?.entrance_exams || []).includes(
+          "JEE Advanced"
+        )
+    );
   }, [rows, collegesByName, state.profile]);
 
   const filteredCatalog = useMemo(() => {
@@ -202,6 +260,18 @@ const MockAllotment = () => {
       iiit: "indian institute of information technology",
       iit: "indian institute of technology",
       spa: "school of planning and architecture",
+      trichy: "tiruchirappalli",
+      kgp: "kharagpur",
+      bhu: "varanasi",
+      bangalore: "bengaluru",
+      calcutta: "kolkata",
+      mnnit: "motilal nehru",
+      mnit: "malaviya",
+      vnit: "visvesvaraya",
+      svnit: "sardar vallabhbhai",
+      manit: "maulana azad",
+      nitk: "surathkal",
+      iiest: "shibpur",
     };
     const raw = search.trim().toLowerCase().split(/\s+/).filter(Boolean);
     const tokens = raw.flatMap((t) => (ABBREV[t] || t).split(" "));
@@ -409,6 +479,7 @@ const MockAllotment = () => {
 
       {!transitionLabel && state.step === "choices" && (
         <ChoicesStep
+          iitsOffered={state.profile.qualifiedJeeAdv === "Yes"}
           loading={dataLoading}
           error={dataError}
           catalog={filteredCatalog}
@@ -585,6 +656,79 @@ const rankInputClass = `${inputClass} [appearance:textfield] [&::-webkit-inner-s
 const toOptions = (opts) =>
   opts.map((o) => ({ value: optionValue(o), label: optionLabel(o) }));
 
+// Don't know the category rank yet? Same /api/jee-predict model the College
+// Predictor uses: JEE Main marks -> category rank, written into the field.
+const RankEstimator = ({ category, onEstimate }) => {
+  const [open, setOpen] = useState(false);
+  const [marks, setMarks] = useState("");
+  const [msg, setMsg] = useState("");
+  const [busy, setBusy] = useState(false);
+  const label =
+    optionLabel(
+      categoryField.options.find((o) => optionValue(o) === category)
+    ) || "";
+  if (!open) {
+    return (
+      <button
+        type="button"
+        onClick={() => setOpen(true)}
+        className="mt-1.5 text-xs font-semibold text-[#8f2e31] underline"
+      >
+        Don&apos;t know your rank? Estimate it from marks
+      </button>
+    );
+  }
+  const run = async () => {
+    if (!category) return setMsg("Pick your category first.");
+    if (/pwd/i.test(label))
+      return setMsg("Estimates aren't available for PwD categories.");
+    const m = Number(marks);
+    if (!(m >= 0 && m <= 300)) return setMsg("Enter marks out of 300.");
+    setBusy(true);
+    setMsg("");
+    try {
+      const res = await fetch("/api/jee-predict", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ marks: m, category: label }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Could not estimate.");
+      onEstimate(data.categoryRank);
+      setMsg(
+        `Estimated ${label} rank: ${formatRank(
+          data.categoryRank
+        )} (filled in above).`
+      );
+    } catch (e) {
+      setMsg(e.message);
+    }
+    setBusy(false);
+  };
+  return (
+    <div className="mt-2 flex flex-wrap items-center gap-2">
+      <input
+        type="number"
+        min="0"
+        max="300"
+        value={marks}
+        onChange={(e) => setMarks(e.target.value)}
+        placeholder="JEE Main marks /300"
+        className={`${rankInputClass} !w-44`}
+      />
+      <button
+        type="button"
+        className={secondaryBtn}
+        disabled={busy}
+        onClick={run}
+      >
+        {busy ? "Estimating…" : "Estimate"}
+      </button>
+      {msg ? <p className="w-full text-xs text-[#5b4a45]">{msg}</p> : null}
+    </div>
+  );
+};
+
 const InfoStep = ({ profile, setProfile, onNext, valid }) => (
   <div className={`${cardClass} mt-6`}>
     <div className="grid gap-4 md:grid-cols-2">
@@ -626,6 +770,10 @@ const InfoStep = ({ profile, setProfile, onNext, valid }) => (
           value={profile.mainRank}
           onChange={(e) => setProfile({ mainRank: e.target.value })}
           placeholder="e.g., 15000"
+        />
+        <RankEstimator
+          category={profile.category}
+          onEstimate={(r) => setProfile({ mainRank: String(r) })}
         />
       </Field>
 
@@ -844,6 +992,7 @@ const ReorderableChoiceList = ({
 };
 
 const ChoicesStep = ({
+  iitsOffered,
   loading,
   error,
   catalog,
@@ -874,6 +1023,11 @@ const ChoicesStep = ({
         Browse choices{" "}
         {totalCatalogSize ? `(${totalCatalogSize} eligible for you)` : ""}
       </h2>
+      {!iitsOffered && (
+        <p className="mt-1 text-xs text-[#7a655f]">
+          IITs appear once you enter a JEE Advanced rank in step 1.
+        </p>
+      )}
 
       {/* ONE search box: tokenized across institute + program together, so
           "iit indore cse" works. The old per-institute dropdown fought the
@@ -1344,9 +1498,53 @@ const SimulateStep = ({
         <div className={cardClass}>
           <p className="text-sm text-[#7a655f]">
             Based on this rank and this list, no seat was reachable across any
-            round. Go back and add more (or less competitive) choices, or double
-            check your rank.
+            round. Here is why, choice by choice:
           </p>
+          <ul className="mt-3 space-y-1.5 text-sm">
+            {choices.map((ch, idx) => {
+              const rank = studentRankForInstitute(
+                profile,
+                ch.institute,
+                collegesByName
+              );
+              const seat =
+                rank != null && seatIndex
+                  ? findSeatForChoice(
+                      ch.institute,
+                      ch.program,
+                      TOTAL_ROUNDS,
+                      seatIndex,
+                      profile,
+                      collegesByName,
+                      rank
+                    )
+                  : null;
+              const why =
+                rank == null
+                  ? "IITs need a JEE Advanced rank, and none was entered."
+                  : !seat
+                  ? "No seat for your category and quota in the final round."
+                  : `Final round closed at ${formatRank(
+                      seat.closing
+                    )}; your category rank is ${formatRank(rank)}.`;
+              return (
+                <li
+                  key={`${ch.institute}|${ch.program}`}
+                  className="rounded-lg border border-[#f0e6e1] px-3 py-2"
+                >
+                  <span className="font-semibold text-[#3a2c28]">
+                    {idx + 1}. {ch.institute}
+                  </span>
+                  <span className="block text-xs text-[#7a655f]">
+                    {ch.program}
+                  </span>
+                  <span className="mt-0.5 block text-xs font-semibold text-[#8f2e31]">
+                    {why}
+                  </span>
+                </li>
+              );
+            })}
+          </ul>
         </div>
       )}
 

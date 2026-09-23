@@ -489,6 +489,19 @@ const ABBREV = [
   [/\biit\b/g, "indian institute of technology"],
   [/\baiims\b/g, "all india institute of medical sciences"],
   [/\bgmc\b/g, "government medical college"],
+  // how students actually say it vs how the source prints it
+  [/\btrichy\b/g, "tiruchirappalli"],
+  [/\bkgp\b/g, "kharagpur"],
+  [/\bbangalore\b/g, "bengaluru"],
+  [/\bcalcutta\b/g, "kolkata"],
+  [/\bmnnit\b/g, "motilal nehru"],
+  [/\bmnit\b/g, "malaviya"],
+  [/\bvnit\b/g, "visvesvaraya"],
+  [/\bsvnit\b/g, "sardar vallabhbhai"],
+  [/\bmanit\b/g, "maulana azad"],
+  [/\bnitk\b/g, "surathkal"],
+  [/\biiest\b/g, "shibpur"],
+  [/\bcoep\b/g, "coep"],
 ];
 
 const expand = (q) => {
@@ -610,6 +623,9 @@ const Colleges = () => {
   };
   const hidePlacedTip = () => setPlacedTip(null);
   const [expanded, setExpanded] = useState({});
+  // arriving from a link (predictor result, career cutoff, compare header)
+  // lands on one college — open it instead of showing a bare row
+  const [autoOpened, setAutoOpened] = useState(null);
   const [shown, setShown] = useState(PAGE_SIZE);
 
   useEffect(() => {
@@ -674,6 +690,14 @@ const Colleges = () => {
     });
     return out.sort(SORTS[sortKey].fn);
   }, [all, q, state, exam, stream, sortKey]);
+
+  useEffect(() => {
+    if (!router.query.q || filtered.length !== 1) return;
+    const id = filtered[0].college_id;
+    if (autoOpened === id) return;
+    setAutoOpened(id);
+    setExpanded((p) => ({ ...p, [id]: true }));
+  }, [filtered, router.query.q, autoOpened]);
 
   useEffect(() => setShown(PAGE_SIZE), [q, state, exam, stream, sortKey]);
 

@@ -69,8 +69,29 @@ export function saveProfile(profile) {
   }
 }
 
+// everything Futures remembers about the current student; logout (or a
+// different student signing in) must wipe all of it, not just the profile —
+// a mock allotment run left behind shows the next student someone else's list
+export const STUDENT_STATE_KEYS = [
+  "josaaMockAllotmentState_v2",
+  "mhtcetMockAllotmentState_v1",
+  "mockAllotmentExamChoice_v1",
+];
+const STUDENT_SESSION_KEYS = ["quizState2"];
+
+export function clearStudentState() {
+  if (!isBrowser()) return;
+  try {
+    for (const k of STUDENT_STATE_KEYS) window.localStorage.removeItem(k);
+    for (const k of STUDENT_SESSION_KEYS) window.sessionStorage.removeItem(k);
+  } catch {
+    // ignore
+  }
+}
+
 export function clearProfile() {
   if (!isBrowser()) return;
+  clearStudentState();
   try {
     window.localStorage.removeItem(PROFILE_KEY);
     window.dispatchEvent(new Event(CHANGE_EVENT));
@@ -114,6 +135,11 @@ export async function consumeLaunchToken(token) {
     .filter((part) => part && part.trim() && part.trim() !== ".")
     .join(" ")
     .trim();
+
+  // a different student signing in on a shared lab computer: drop the
+  // previous student's runs before storing the new profile
+  const previous = readProfile();
+  if (previous && previous.user_id !== String(userId)) clearStudentState();
 
   const profile = {
     user_id: String(userId),

@@ -408,7 +408,12 @@
   "aliases": null,
   "predictor_exam": null,
   "open_data_id": null,
-  "careers": null,
+  "careers": [
+   {
+    "label": "Law (LLB)",
+    "slug": "law-llb"
+   }
+  ],
   "colleges_link": null
  },
  {
@@ -469,7 +474,12 @@
   "aliases": null,
   "predictor_exam": null,
   "open_data_id": null,
-  "careers": null,
+  "careers": [
+   {
+    "label": "Law (LLB)",
+    "slug": "law-llb"
+   }
+  ],
   "colleges_link": null
  },
  {
@@ -601,8 +611,16 @@
     "slug": "arts"
    },
    {
-    "label": "Commerce",
-    "slug": "commerce"
+    "label": "Chartered Accountancy (CA)",
+    "slug": "chartered-accountancy-ca"
+   },
+   {
+    "label": "Computer Science / Information Technology",
+    "slug": "computer-science-information-technology"
+   },
+   {
+    "label": "Law (LLB)",
+    "slug": "law-llb"
    }
   ],
   "colleges_link": null
@@ -801,6 +819,18 @@
    {
     "label": "Economics",
     "slug": "economics"
+   },
+   {
+    "label": "Physics",
+    "slug": "physics"
+   },
+   {
+    "label": "Chemistry",
+    "slug": "chemistry"
+   },
+   {
+    "label": "Mathematics",
+    "slug": "mathematics"
    }
   ],
   "colleges_link": null
@@ -901,6 +931,10 @@
   "predictor_exam": null,
   "open_data_id": null,
   "careers": [
+   {
+    "label": "Chartered Accountancy (CA)",
+    "slug": "chartered-accountancy-ca"
+   },
    {
     "label": "Commerce",
     "slug": "commerce"
@@ -1135,7 +1169,12 @@
   "aliases": null,
   "predictor_exam": null,
   "open_data_id": null,
-  "careers": null,
+  "careers": [
+   {
+    "label": "Business Administration (MBA)",
+    "slug": "business-administration-mba"
+   }
+  ],
   "colleges_link": null
  },
  {
@@ -1362,7 +1401,28 @@
   "aliases": null,
   "predictor_exam": null,
   "open_data_id": null,
-  "careers": null,
+  "careers": [
+   {
+    "label": "Computer Science / Information Technology",
+    "slug": "computer-science-information-technology"
+   },
+   {
+    "label": "Pharmacy",
+    "slug": "pharmacy"
+   },
+   {
+    "label": "Physics",
+    "slug": "physics"
+   },
+   {
+    "label": "Mechanical / Mechatronics Engineering",
+    "slug": "mechanical-mechatronics-engineering"
+   },
+   {
+    "label": "Electrical / Electronics / Communications Engineering",
+    "slug": "electrical-electronics-communications-engineering"
+   }
+  ],
   "colleges_link": null
  },
  {
@@ -1551,6 +1611,10 @@
   "predictor_exam": null,
   "open_data_id": null,
   "careers": [
+   {
+    "label": "Business Administration (MBA)",
+    "slug": "business-administration-mba"
+   },
    {
     "label": "Hotel Management",
     "slug": "hotel-management"
@@ -1793,7 +1857,24 @@
   "aliases": null,
   "predictor_exam": null,
   "open_data_id": null,
-  "careers": null,
+  "careers": [
+   {
+    "label": "Computer Science / Information Technology",
+    "slug": "computer-science-information-technology"
+   },
+   {
+    "label": "Mechanical / Mechatronics Engineering",
+    "slug": "mechanical-mechatronics-engineering"
+   },
+   {
+    "label": "Electrical / Electronics / Communications Engineering",
+    "slug": "electrical-electronics-communications-engineering"
+   },
+   {
+    "label": "Civil Engineering",
+    "slug": "civil-engineering"
+   }
+  ],
   "colleges_link": null
  },
  {
@@ -1850,7 +1931,12 @@
   "aliases": null,
   "predictor_exam": null,
   "open_data_id": null,
-  "careers": null,
+  "careers": [
+   {
+    "label": "Law (LLB)",
+    "slug": "law-llb"
+   }
+  ],
   "colleges_link": null
  },
  {
@@ -1939,7 +2025,12 @@
   "aliases": null,
   "predictor_exam": null,
   "open_data_id": null,
-  "careers": null,
+  "careers": [
+   {
+    "label": "Pharmacy",
+    "slug": "pharmacy"
+   }
+  ],
   "colleges_link": null
  },
  {
@@ -1996,7 +2087,12 @@
   "aliases": null,
   "predictor_exam": null,
   "open_data_id": null,
-  "careers": null,
+  "careers": [
+   {
+    "label": "Law (LLB)",
+    "slug": "law-llb"
+   }
+  ],
   "colleges_link": null
  },
  {
@@ -2214,6 +2310,22 @@
    {
     "label": "Agriculture",
     "slug": "agriculture"
+   },
+   {
+    "label": "Computer Science / Information Technology",
+    "slug": "computer-science-information-technology"
+   },
+   {
+    "label": "Mechanical / Mechatronics Engineering",
+    "slug": "mechanical-mechatronics-engineering"
+   },
+   {
+    "label": "Electrical / Electronics / Communications Engineering",
+    "slug": "electrical-electronics-communications-engineering"
+   },
+   {
+    "label": "Civil Engineering",
+    "slug": "civil-engineering"
    }
   ],
   "colleges_link": null
@@ -2311,7 +2423,20 @@
   "aliases": null,
   "predictor_exam": null,
   "open_data_id": null,
-  "careers": null,
+  "careers": [
+   {
+    "label": "Physics",
+    "slug": "physics"
+   },
+   {
+    "label": "Chemistry",
+    "slug": "chemistry"
+   },
+   {
+    "label": "Mathematics",
+    "slug": "mathematics"
+   }
+  ],
   "colleges_link": null
  },
  {
@@ -2355,6 +2480,22 @@
    {
     "label": "Architecture",
     "slug": "architecture"
+   },
+   {
+    "label": "Computer Science / Information Technology",
+    "slug": "computer-science-information-technology"
+   },
+   {
+    "label": "Pharmacy",
+    "slug": "pharmacy"
+   },
+   {
+    "label": "Mechanical / Mechatronics Engineering",
+    "slug": "mechanical-mechatronics-engineering"
+   },
+   {
+    "label": "Electrical / Electronics / Communications Engineering",
+    "slug": "electrical-electronics-communications-engineering"
    }
   ],
   "colleges_link": null
@@ -2440,12 +2581,20 @@
     "slug": "arts"
    },
    {
-    "label": "Commerce",
-    "slug": "commerce"
+    "label": "Business Administration (MBA)",
+    "slug": "business-administration-mba"
+   },
+   {
+    "label": "Chartered Accountancy (CA)",
+    "slug": "chartered-accountancy-ca"
    },
    {
     "label": "Economics",
     "slug": "economics"
+   },
+   {
+    "label": "Computer Science / Information Technology",
+    "slug": "computer-science-information-technology"
    }
   ],
   "colleges_link": null
@@ -2530,8 +2679,16 @@
     "slug": "arts"
    },
    {
-    "label": "Commerce",
-    "slug": "commerce"
+    "label": "Business Administration (MBA)",
+    "slug": "business-administration-mba"
+   },
+   {
+    "label": "Chartered Accountancy (CA)",
+    "slug": "chartered-accountancy-ca"
+   },
+   {
+    "label": "Economics",
+    "slug": "economics"
    }
   ],
   "colleges_link": null
@@ -3348,7 +3505,20 @@
   "aliases": null,
   "predictor_exam": null,
   "open_data_id": null,
-  "careers": null,
+  "careers": [
+   {
+    "label": "Physics",
+    "slug": "physics"
+   },
+   {
+    "label": "Chemistry",
+    "slug": "chemistry"
+   },
+   {
+    "label": "Mathematics",
+    "slug": "mathematics"
+   }
+  ],
   "colleges_link": null
  },
  {
@@ -3403,6 +3573,18 @@
    {
     "label": "Arts",
     "slug": "arts"
+   },
+   {
+    "label": "Physics",
+    "slug": "physics"
+   },
+   {
+    "label": "Chemistry",
+    "slug": "chemistry"
+   },
+   {
+    "label": "Mathematics",
+    "slug": "mathematics"
    }
   ],
   "colleges_link": null
@@ -3610,7 +3792,12 @@
   "aliases": null,
   "predictor_exam": null,
   "open_data_id": null,
-  "careers": null,
+  "careers": [
+   {
+    "label": "Law (LLB)",
+    "slug": "law-llb"
+   }
+  ],
   "colleges_link": null
  },
  {
@@ -3663,7 +3850,12 @@
   "aliases": null,
   "predictor_exam": null,
   "open_data_id": null,
-  "careers": null,
+  "careers": [
+   {
+    "label": "Business Administration (MBA)",
+    "slug": "business-administration-mba"
+   }
+  ],
   "colleges_link": null
  },
  {
@@ -3716,7 +3908,12 @@
   "aliases": null,
   "predictor_exam": null,
   "open_data_id": null,
-  "careers": null,
+  "careers": [
+   {
+    "label": "Business Administration (MBA)",
+    "slug": "business-administration-mba"
+   }
+  ],
   "colleges_link": null
  },
  {
@@ -3822,7 +4019,20 @@
   "aliases": null,
   "predictor_exam": null,
   "open_data_id": null,
-  "careers": null,
+  "careers": [
+   {
+    "label": "Physics",
+    "slug": "physics"
+   },
+   {
+    "label": "Chemistry",
+    "slug": "chemistry"
+   },
+   {
+    "label": "Mathematics",
+    "slug": "mathematics"
+   }
+  ],
   "colleges_link": null
  },
  {
@@ -4291,7 +4501,24 @@
   ],
   "predictor_exam": null,
   "open_data_id": null,
-  "careers": null,
+  "careers": [
+   {
+    "label": "Computer Science / Information Technology",
+    "slug": "computer-science-information-technology"
+   },
+   {
+    "label": "Mechanical / Mechatronics Engineering",
+    "slug": "mechanical-mechatronics-engineering"
+   },
+   {
+    "label": "Electrical / Electronics / Communications Engineering",
+    "slug": "electrical-electronics-communications-engineering"
+   },
+   {
+    "label": "Civil Engineering",
+    "slug": "civil-engineering"
+   }
+  ],
   "colleges_link": null
  },
  {
@@ -4410,7 +4637,12 @@
   "aliases": null,
   "predictor_exam": null,
   "open_data_id": null,
-  "careers": null,
+  "careers": [
+   {
+    "label": "Business Administration (MBA)",
+    "slug": "business-administration-mba"
+   }
+  ],
   "colleges_link": null
  },
  {
@@ -4487,12 +4719,20 @@
     "slug": "arts"
    },
    {
-    "label": "Commerce",
-    "slug": "commerce"
+    "label": "Business Administration (MBA)",
+    "slug": "business-administration-mba"
+   },
+   {
+    "label": "Chartered Accountancy (CA)",
+    "slug": "chartered-accountancy-ca"
    },
    {
     "label": "Hotel Management",
     "slug": "hotel-management"
+   },
+   {
+    "label": "Law (LLB)",
+    "slug": "law-llb"
    }
   ],
   "colleges_link": null
@@ -4560,12 +4800,20 @@
     "slug": "arts"
    },
    {
-    "label": "Commerce",
-    "slug": "commerce"
+    "label": "Business Administration (MBA)",
+    "slug": "business-administration-mba"
+   },
+   {
+    "label": "Chartered Accountancy (CA)",
+    "slug": "chartered-accountancy-ca"
    },
    {
     "label": "Economics",
     "slug": "economics"
+   },
+   {
+    "label": "Commerce",
+    "slug": "commerce"
    }
   ],
   "colleges_link": null
@@ -4646,8 +4894,20 @@
     "slug": "arts"
    },
    {
-    "label": "Commerce",
-    "slug": "commerce"
+    "label": "Business Administration (MBA)",
+    "slug": "business-administration-mba"
+   },
+   {
+    "label": "Chartered Accountancy (CA)",
+    "slug": "chartered-accountancy-ca"
+   },
+   {
+    "label": "Computer Science / Information Technology",
+    "slug": "computer-science-information-technology"
+   },
+   {
+    "label": "Law (LLB)",
+    "slug": "law-llb"
    }
   ],
   "colleges_link": null
@@ -4886,6 +5146,14 @@
    {
     "label": "Biotechnology",
     "slug": "biotechnology"
+   },
+   {
+    "label": "Business Administration (MBA)",
+    "slug": "business-administration-mba"
+   },
+   {
+    "label": "Design",
+    "slug": "design"
    }
   ],
   "colleges_link": null
@@ -4929,6 +5197,10 @@
    {
     "label": "Arts",
     "slug": "arts"
+   },
+   {
+    "label": "Business Administration (MBA)",
+    "slug": "business-administration-mba"
    }
   ],
   "colleges_link": null
@@ -5007,8 +5279,16 @@
     "slug": "arts"
    },
    {
-    "label": "Commerce",
-    "slug": "commerce"
+    "label": "Business Administration (MBA)",
+    "slug": "business-administration-mba"
+   },
+   {
+    "label": "Chartered Accountancy (CA)",
+    "slug": "chartered-accountancy-ca"
+   },
+   {
+    "label": "Law (LLB)",
+    "slug": "law-llb"
    },
    {
     "label": "Psychology",
@@ -5306,7 +5586,12 @@
   "aliases": null,
   "predictor_exam": null,
   "open_data_id": null,
-  "careers": null,
+  "careers": [
+   {
+    "label": "Law (LLB)",
+    "slug": "law-llb"
+   }
+  ],
   "colleges_link": null
  },
  {
@@ -5367,7 +5652,12 @@
   "aliases": null,
   "predictor_exam": null,
   "open_data_id": null,
-  "careers": null,
+  "careers": [
+   {
+    "label": "Law (LLB)",
+    "slug": "law-llb"
+   }
+  ],
   "colleges_link": null
  },
  {
@@ -5456,8 +5746,20 @@
     "slug": "biotechnology"
    },
    {
+    "label": "Business Administration (MBA)",
+    "slug": "business-administration-mba"
+   },
+   {
+    "label": "Computer Science / Information Technology",
+    "slug": "computer-science-information-technology"
+   },
+   {
     "label": "Nursing",
     "slug": "nursing"
+   },
+   {
+    "label": "Pharmacy",
+    "slug": "pharmacy"
    }
   ],
   "colleges_link": null
@@ -5831,12 +6133,20 @@
     "slug": "biotechnology"
    },
    {
-    "label": "Commerce",
-    "slug": "commerce"
+    "label": "Business Administration (MBA)",
+    "slug": "business-administration-mba"
+   },
+   {
+    "label": "Chartered Accountancy (CA)",
+    "slug": "chartered-accountancy-ca"
    },
    {
     "label": "Economics",
     "slug": "economics"
+   },
+   {
+    "label": "Computer Science / Information Technology",
+    "slug": "computer-science-information-technology"
    }
   ],
   "colleges_link": null
@@ -6084,12 +6394,20 @@
     "slug": "arts"
    },
    {
+    "label": "Business Administration (MBA)",
+    "slug": "business-administration-mba"
+   },
+   {
     "label": "Design",
     "slug": "design"
    },
    {
-    "label": "Social Work",
-    "slug": "social-work"
+    "label": "Law (LLB)",
+    "slug": "law-llb"
+   },
+   {
+    "label": "Physics",
+    "slug": "physics"
    }
   ],
   "colleges_link": null
@@ -6418,7 +6736,20 @@
   "aliases": null,
   "predictor_exam": null,
   "open_data_id": null,
-  "careers": null,
+  "careers": [
+   {
+    "label": "Physics",
+    "slug": "physics"
+   },
+   {
+    "label": "Chemistry",
+    "slug": "chemistry"
+   },
+   {
+    "label": "Mathematics",
+    "slug": "mathematics"
+   }
+  ],
   "colleges_link": null
  },
  {
@@ -6615,7 +6946,28 @@
   "aliases": null,
   "predictor_exam": null,
   "open_data_id": null,
-  "careers": null,
+  "careers": [
+   {
+    "label": "Computer Science / Information Technology",
+    "slug": "computer-science-information-technology"
+   },
+   {
+    "label": "Pharmacy",
+    "slug": "pharmacy"
+   },
+   {
+    "label": "Mechanical / Mechatronics Engineering",
+    "slug": "mechanical-mechatronics-engineering"
+   },
+   {
+    "label": "Electrical / Electronics / Communications Engineering",
+    "slug": "electrical-electronics-communications-engineering"
+   },
+   {
+    "label": "Civil Engineering",
+    "slug": "civil-engineering"
+   }
+  ],
   "colleges_link": null
  },
  {
@@ -6717,7 +7069,12 @@
   "aliases": null,
   "predictor_exam": null,
   "open_data_id": null,
-  "careers": null,
+  "careers": [
+   {
+    "label": "Law (LLB)",
+    "slug": "law-llb"
+   }
+  ],
   "colleges_link": null
  },
  {
@@ -6783,12 +7140,20 @@
     "slug": "arts"
    },
    {
-    "label": "Commerce",
-    "slug": "commerce"
+    "label": "Business Administration (MBA)",
+    "slug": "business-administration-mba"
+   },
+   {
+    "label": "Chartered Accountancy (CA)",
+    "slug": "chartered-accountancy-ca"
    },
    {
     "label": "Economics",
     "slug": "economics"
+   },
+   {
+    "label": "Hotel Management",
+    "slug": "hotel-management"
    }
   ],
   "colleges_link": null
@@ -6883,7 +7248,12 @@
   "aliases": null,
   "predictor_exam": null,
   "open_data_id": null,
-  "careers": null,
+  "careers": [
+   {
+    "label": "Law (LLB)",
+    "slug": "law-llb"
+   }
+  ],
   "colleges_link": null
  },
  {
@@ -7136,6 +7506,22 @@
    {
     "label": "Agriculture",
     "slug": "agriculture"
+   },
+   {
+    "label": "Computer Science / Information Technology",
+    "slug": "computer-science-information-technology"
+   },
+   {
+    "label": "Mechanical / Mechatronics Engineering",
+    "slug": "mechanical-mechatronics-engineering"
+   },
+   {
+    "label": "Electrical / Electronics / Communications Engineering",
+    "slug": "electrical-electronics-communications-engineering"
+   },
+   {
+    "label": "Civil Engineering",
+    "slug": "civil-engineering"
    }
   ],
   "colleges_link": null
@@ -7278,7 +7664,12 @@
   "aliases": null,
   "predictor_exam": null,
   "open_data_id": null,
-  "careers": null,
+  "careers": [
+   {
+    "label": "Pharmacy",
+    "slug": "pharmacy"
+   }
+  ],
   "colleges_link": null
  },
  {
@@ -7331,7 +7722,12 @@
   "aliases": null,
   "predictor_exam": null,
   "open_data_id": null,
-  "careers": null,
+  "careers": [
+   {
+    "label": "Law (LLB)",
+    "slug": "law-llb"
+   }
+  ],
   "colleges_link": null
  },
  {
@@ -7388,7 +7784,12 @@
   "aliases": null,
   "predictor_exam": null,
   "open_data_id": null,
-  "careers": null,
+  "careers": [
+   {
+    "label": "Law (LLB)",
+    "slug": "law-llb"
+   }
+  ],
   "colleges_link": null
  },
  {
@@ -7452,6 +7853,18 @@
    {
     "label": "Biotechnology",
     "slug": "biotechnology"
+   },
+   {
+    "label": "Physics",
+    "slug": "physics"
+   },
+   {
+    "label": "Chemistry",
+    "slug": "chemistry"
+   },
+   {
+    "label": "Mathematics",
+    "slug": "mathematics"
    }
   ],
   "colleges_link": null
@@ -7518,12 +7931,20 @@
     "slug": "arts"
    },
    {
-    "label": "Commerce",
-    "slug": "commerce"
+    "label": "Business Administration (MBA)",
+    "slug": "business-administration-mba"
+   },
+   {
+    "label": "Chartered Accountancy (CA)",
+    "slug": "chartered-accountancy-ca"
    },
    {
     "label": "Economics",
     "slug": "economics"
+   },
+   {
+    "label": "Physics",
+    "slug": "physics"
    }
   ],
   "colleges_link": null
@@ -7629,7 +8050,12 @@
   "aliases": null,
   "predictor_exam": null,
   "open_data_id": null,
-  "careers": null,
+  "careers": [
+   {
+    "label": "Law (LLB)",
+    "slug": "law-llb"
+   }
+  ],
   "colleges_link": null
  },
  {
@@ -7741,8 +8167,20 @@
     "slug": "arts"
    },
    {
+    "label": "Business Administration (MBA)",
+    "slug": "business-administration-mba"
+   },
+   {
     "label": "Economics",
     "slug": "economics"
+   },
+   {
+    "label": "Physics",
+    "slug": "physics"
+   },
+   {
+    "label": "Chemistry",
+    "slug": "chemistry"
    }
   ],
   "colleges_link": null
@@ -7797,7 +8235,24 @@
   "aliases": null,
   "predictor_exam": null,
   "open_data_id": null,
-  "careers": null,
+  "careers": [
+   {
+    "label": "Computer Science / Information Technology",
+    "slug": "computer-science-information-technology"
+   },
+   {
+    "label": "Mechanical / Mechatronics Engineering",
+    "slug": "mechanical-mechatronics-engineering"
+   },
+   {
+    "label": "Electrical / Electronics / Communications Engineering",
+    "slug": "electrical-electronics-communications-engineering"
+   },
+   {
+    "label": "Civil Engineering",
+    "slug": "civil-engineering"
+   }
+  ],
   "colleges_link": null
  },
  {
@@ -7978,7 +8433,12 @@
   "aliases": null,
   "predictor_exam": null,
   "open_data_id": null,
-  "careers": null,
+  "careers": [
+   {
+    "label": "Law (LLB)",
+    "slug": "law-llb"
+   }
+  ],
   "colleges_link": null
  },
  {
@@ -8183,8 +8643,20 @@
     "slug": "arts"
    },
    {
+    "label": "Business Administration (MBA)",
+    "slug": "business-administration-mba"
+   },
+   {
     "label": "Economics",
     "slug": "economics"
+   },
+   {
+    "label": "Physics",
+    "slug": "physics"
+   },
+   {
+    "label": "Chemistry",
+    "slug": "chemistry"
    }
   ],
   "colleges_link": null
@@ -8222,7 +8694,24 @@
   "aliases": null,
   "predictor_exam": null,
   "open_data_id": null,
-  "careers": null,
+  "careers": [
+   {
+    "label": "Computer Science / Information Technology",
+    "slug": "computer-science-information-technology"
+   },
+   {
+    "label": "Mechanical / Mechatronics Engineering",
+    "slug": "mechanical-mechatronics-engineering"
+   },
+   {
+    "label": "Electrical / Electronics / Communications Engineering",
+    "slug": "electrical-electronics-communications-engineering"
+   },
+   {
+    "label": "Civil Engineering",
+    "slug": "civil-engineering"
+   }
+  ],
   "colleges_link": null
  },
  {
@@ -8396,8 +8885,16 @@
     "slug": "biotechnology"
    },
    {
+    "label": "Computer Science / Information Technology",
+    "slug": "computer-science-information-technology"
+   },
+   {
     "label": "Hotel Management",
     "slug": "hotel-management"
+   },
+   {
+    "label": "Mechanical / Mechatronics Engineering",
+    "slug": "mechanical-mechatronics-engineering"
    }
   ],
   "colleges_link": null
@@ -8460,7 +8957,12 @@
   "aliases": null,
   "predictor_exam": null,
   "open_data_id": null,
-  "careers": null,
+  "careers": [
+   {
+    "label": "Law (LLB)",
+    "slug": "law-llb"
+   }
+  ],
   "colleges_link": null
  },
  {
@@ -8530,8 +9032,20 @@
     "slug": "biotechnology"
    },
    {
+    "label": "Computer Science / Information Technology",
+    "slug": "computer-science-information-technology"
+   },
+   {
     "label": "Psychology",
     "slug": "psychology"
+   },
+   {
+    "label": "Mechanical / Mechatronics Engineering",
+    "slug": "mechanical-mechatronics-engineering"
+   },
+   {
+    "label": "Electrical / Electronics / Communications Engineering",
+    "slug": "electrical-electronics-communications-engineering"
    }
   ],
   "colleges_link": null
@@ -8656,7 +9170,24 @@
   "aliases": null,
   "predictor_exam": null,
   "open_data_id": null,
-  "careers": null,
+  "careers": [
+   {
+    "label": "Computer Science / Information Technology",
+    "slug": "computer-science-information-technology"
+   },
+   {
+    "label": "Mechanical / Mechatronics Engineering",
+    "slug": "mechanical-mechatronics-engineering"
+   },
+   {
+    "label": "Electrical / Electronics / Communications Engineering",
+    "slug": "electrical-electronics-communications-engineering"
+   },
+   {
+    "label": "Civil Engineering",
+    "slug": "civil-engineering"
+   }
+  ],
   "colleges_link": null
  },
  {
@@ -8764,12 +9295,20 @@
     "slug": "arts"
    },
    {
-    "label": "Commerce",
-    "slug": "commerce"
+    "label": "Business Administration (MBA)",
+    "slug": "business-administration-mba"
+   },
+   {
+    "label": "Chartered Accountancy (CA)",
+    "slug": "chartered-accountancy-ca"
    },
    {
     "label": "Economics",
     "slug": "economics"
+   },
+   {
+    "label": "Physics",
+    "slug": "physics"
    }
   ],
   "colleges_link": null
@@ -9150,12 +9689,20 @@
     "slug": "arts"
    },
    {
-    "label": "Commerce",
-    "slug": "commerce"
+    "label": "Business Administration (MBA)",
+    "slug": "business-administration-mba"
+   },
+   {
+    "label": "Chartered Accountancy (CA)",
+    "slug": "chartered-accountancy-ca"
    },
    {
     "label": "Design",
     "slug": "design"
+   },
+   {
+    "label": "Economics",
+    "slug": "economics"
    }
   ],
   "colleges_link": null
@@ -9222,12 +9769,20 @@
   "open_data_id": null,
   "careers": [
    {
-    "label": "Commerce",
-    "slug": "commerce"
+    "label": "Business Administration (MBA)",
+    "slug": "business-administration-mba"
+   },
+   {
+    "label": "Chartered Accountancy (CA)",
+    "slug": "chartered-accountancy-ca"
    },
    {
     "label": "Hotel Management",
     "slug": "hotel-management"
+   },
+   {
+    "label": "Commerce",
+    "slug": "commerce"
    }
   ],
   "colleges_link": null
@@ -9426,7 +9981,12 @@
   "aliases": null,
   "predictor_exam": null,
   "open_data_id": null,
-  "careers": null,
+  "careers": [
+   {
+    "label": "Law (LLB)",
+    "slug": "law-llb"
+   }
+  ],
   "colleges_link": null
  },
  {
@@ -9645,7 +10205,24 @@
   "aliases": null,
   "predictor_exam": null,
   "open_data_id": null,
-  "careers": null,
+  "careers": [
+   {
+    "label": "Computer Science / Information Technology",
+    "slug": "computer-science-information-technology"
+   },
+   {
+    "label": "Mechanical / Mechatronics Engineering",
+    "slug": "mechanical-mechatronics-engineering"
+   },
+   {
+    "label": "Electrical / Electronics / Communications Engineering",
+    "slug": "electrical-electronics-communications-engineering"
+   },
+   {
+    "label": "Civil Engineering",
+    "slug": "civil-engineering"
+   }
+  ],
   "colleges_link": null
  },
  {
@@ -9702,7 +10279,24 @@
   "aliases": null,
   "predictor_exam": null,
   "open_data_id": null,
-  "careers": null,
+  "careers": [
+   {
+    "label": "Computer Science / Information Technology",
+    "slug": "computer-science-information-technology"
+   },
+   {
+    "label": "Mechanical / Mechatronics Engineering",
+    "slug": "mechanical-mechatronics-engineering"
+   },
+   {
+    "label": "Electrical / Electronics / Communications Engineering",
+    "slug": "electrical-electronics-communications-engineering"
+   },
+   {
+    "label": "Civil Engineering",
+    "slug": "civil-engineering"
+   }
+  ],
   "colleges_link": null
  },
  {
@@ -9738,7 +10332,12 @@
   "aliases": null,
   "predictor_exam": null,
   "open_data_id": null,
-  "careers": null,
+  "careers": [
+   {
+    "label": "Business Administration (MBA)",
+    "slug": "business-administration-mba"
+   }
+  ],
   "colleges_link": null
  },
  {
@@ -9799,7 +10398,12 @@
   "aliases": null,
   "predictor_exam": null,
   "open_data_id": null,
-  "careers": null,
+  "careers": [
+   {
+    "label": "Pharmacy",
+    "slug": "pharmacy"
+   }
+  ],
   "colleges_link": null
  },
  {
@@ -9856,7 +10460,12 @@
   "aliases": null,
   "predictor_exam": null,
   "open_data_id": null,
-  "careers": null,
+  "careers": [
+   {
+    "label": "Pharmacy",
+    "slug": "pharmacy"
+   }
+  ],
   "colleges_link": null
  },
  {
@@ -9980,6 +10589,22 @@
    {
     "label": "Biotechnology",
     "slug": "biotechnology"
+   },
+   {
+    "label": "Computer Science / Information Technology",
+    "slug": "computer-science-information-technology"
+   },
+   {
+    "label": "Mechanical / Mechatronics Engineering",
+    "slug": "mechanical-mechatronics-engineering"
+   },
+   {
+    "label": "Electrical / Electronics / Communications Engineering",
+    "slug": "electrical-electronics-communications-engineering"
+   },
+   {
+    "label": "Civil Engineering",
+    "slug": "civil-engineering"
    }
   ],
   "colleges_link": null
@@ -10312,7 +10937,12 @@
   "aliases": null,
   "predictor_exam": null,
   "open_data_id": null,
-  "careers": null,
+  "careers": [
+   {
+    "label": "Business Administration (MBA)",
+    "slug": "business-administration-mba"
+   }
+  ],
   "colleges_link": null
  },
  {
@@ -10389,7 +11019,12 @@
   "aliases": null,
   "predictor_exam": null,
   "open_data_id": null,
-  "careers": null,
+  "careers": [
+   {
+    "label": "Business Administration (MBA)",
+    "slug": "business-administration-mba"
+   }
+  ],
   "colleges_link": null
  }
 ]

@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import Head from "next/head";
+import { useStudentProfile } from "../utils/portalSession";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
@@ -286,6 +287,17 @@ export default function Careers() {
   const [q, setQ] = useState("");
   // 11th-12th stream filter — values match the sheet's controlled vocabulary
   const [stream, setStream] = useState("All");
+  // a signed-in student's stream pre-selects the class-12 filter (they can
+  // still switch it); engineering -> PCM, medical -> PCB, CA -> Commerce
+  const student = useStudentProfile();
+  useEffect(() => {
+    const map = {
+      engineering: "Science (PCM)",
+      medical: "Science (PCB)",
+      ca: "Commerce",
+    };
+    if (student?.stream && map[student.stream]) setStream(map[student.stream]);
+  }, [student?.stream]);
   const [domain, setDomain] = useState("All");
   const [selected, setSelected] = useState(null);
 
