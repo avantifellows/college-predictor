@@ -1971,7 +1971,13 @@ export const jacChandigarhConfig = {
     },
   ],
   getDataPath: () => {
-    return path.join(process.cwd(), "public", "data", "JACCHD", "jacchd_data.json");
+    return path.join(
+      process.cwd(),
+      "public",
+      "data",
+      "JACCHD",
+      "jacchd_data.json"
+    );
   },
   getFilters: (query) => [
     (item) => item.Category === query.category,
