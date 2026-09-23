@@ -599,6 +599,7 @@ const Colleges = () => {
     if (router.query.q) setQ(String(router.query.q));
     if (router.query.exam) setExam(String(router.query.exam));
     if (router.query.stream) setStream(String(router.query.stream));
+    if (router.query.career) setCareer(String(router.query.career));
   }, [router.isReady, router.query.q, router.query.exam]);
   const [state, setState] = useState("All");
   const [exam, setExam] = useState("All");
@@ -606,6 +607,8 @@ const Colleges = () => {
   // rows carry no discipline badge (the NEET-UG chip says it), so they get
   // their stream here.
   const [stream, setStream] = useState("All");
+  // arriving from a career page: only colleges with a branch leading there
+  const [career, setCareer] = useState(null);
   const streamsOf = (c) =>
     c.disciplines?.length
       ? c.disciplines
@@ -675,6 +678,8 @@ const Colleges = () => {
       if (state !== "All" && c.state !== state) return false;
       if (exam !== "All" && !c.entrance_exams.includes(exam)) return false;
       if (stream !== "All" && !streamsOf(c).includes(stream)) return false;
+      if (career && !c.programs.list.some((p) => p.career_id === career))
+        return false;
       if (!raw) return true;
       // Search the branch list too: "who teaches Aerospace" is a real question,
       // and the branch names are the richest text we hold.
@@ -689,7 +694,7 @@ const Colleges = () => {
       return needles.some((n) => hay.includes(n));
     });
     return out.sort(SORTS[sortKey].fn);
-  }, [all, q, state, exam, stream, sortKey]);
+  }, [all, q, state, exam, stream, career, sortKey]);
 
   useEffect(() => {
     if (!router.query.q || filtered.length !== 1) return;
@@ -699,7 +704,10 @@ const Colleges = () => {
     setExpanded((p) => ({ ...p, [id]: true }));
   }, [filtered, router.query.q, autoOpened]);
 
-  useEffect(() => setShown(PAGE_SIZE), [q, state, exam, stream, sortKey]);
+  useEffect(
+    () => setShown(PAGE_SIZE),
+    [q, state, exam, stream, career, sortKey]
+  );
 
   const th = "px-3 py-2 text-left text-xs font-semibold text-[#5b1f20]";
 
@@ -769,6 +777,20 @@ const Colleges = () => {
             </div>
           </div>
 
+          {career ? (
+            <div className="mt-3">
+              <button
+                type="button"
+                onClick={() => {
+                  setCareer(null);
+                  router.replace("/colleges", undefined, { shallow: true });
+                }}
+                className="inline-flex items-center gap-2 rounded-full bg-[#fbeeec] px-3 py-1 text-sm font-semibold text-[#8f2e31]"
+              >
+                Offering {career.replace(/-/g, " ")} <span aria-hidden>×</span>
+              </button>
+            </div>
+          ) : null}
           {/* a 14-exam chip row was clutter — two dropdowns instead */}
           <div className="mt-3 grid gap-3 sm:grid-cols-2">
             <Dropdown

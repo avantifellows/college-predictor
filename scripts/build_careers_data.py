@@ -206,7 +206,16 @@ def college_options(branch_id, em, tab_link, per_exam=1, total=6):
             key = re.sub(r"^[A-Z]\d+\s+", "", str(r.get("Institute") or "")).strip()
             if key not in best or (v > best[key][0]) == higher:
                 best[key] = (v, r)
-        rows = sorted(best.items(), key=lambda kv: kv[1][0], reverse=higher)
+        # which college represents this route: the best NIRF-ranked one we
+        # can link, then the toughest cutoff. Toughest-number-only surfaced
+        # colleges students had never heard of (Amogh: "random colleges"),
+        # and OJEE's JEE-Main ranks in the lakhs read as noise.
+        def nirf_of(college):
+            q = tab_link(college)
+            return NIRF_BY_DISPLAY.get(q, 10**6) if q else 10**6
+        rows = [kv for kv in best.items() if higher or kv[1][0] <= 300000]
+        rows.sort(key=lambda kv: (nirf_of(kv[0]),
+                                  -kv[1][0] if higher else kv[1][0]))
         for college, (v, r) in rows[:per_exam]:
             prog = r.get(prog_field)
             if exam == "JoSAA":
@@ -225,6 +234,8 @@ def college_options(branch_id, em, tab_link, per_exam=1, total=6):
 
 
 COLLEGES_TAB = "public/data/colleges/colleges.json"
+NIRF_BY_DISPLAY = {c["display_name"]: c["nirf"]["rank"]
+                   for c in json.load(open(COLLEGES_TAB)) if c.get("nirf")}
 ACRONYMS = {
     "iit": "indian institute of technology",
     "nit": "national institute of technology",

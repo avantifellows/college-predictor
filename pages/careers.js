@@ -272,10 +272,10 @@ const CollegeOptions = ({ c }) => (
     {/* honest label: /colleges is an information tab, there is no
         comparison tool (yet) */}
     <Link
-      href="/colleges"
+      href={`/colleges?career=${encodeURIComponent(c.career_id)}`}
       className="mt-2 inline-block text-sm text-[#8f2e31] underline hover:text-[#B52326]"
     >
-      Browse all colleges
+      Colleges offering this
     </Link>
   </>
 );

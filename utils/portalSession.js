@@ -214,8 +214,13 @@ function homeStateLabel(storedState, options) {
     (label) => label.toLowerCase() === storedState.toLowerCase()
   );
   if (exact) return exact;
-  // JAC-style "Delhi" / "Outside Delhi"
-  return findLabel(options, (label) => /^outside /i.test(label));
+  // "Outside Delhi" / "Outside Maharashtra" — only for a student who really
+  // is from outside that state. A Maharashtra student's MHT-CET home
+  // university isn't on the profile, so it stays blank for them to pick.
+  return findLabel(options, (label) => {
+    const m = label.match(/^outside (.+)$/i);
+    return m && m[1].trim().toLowerCase() !== storedState.toLowerCase();
+  });
 }
 
 /** Predictor form defaults (option labels) for the fields an exam actually has. */

@@ -195,7 +195,7 @@ export const jeeMainJosaaConfig = {
 
 export const jacExamConfig = {
   code: "JEE Main",
-  name: "JEE Main-JAC",
+  name: "JAC Delhi (DTU, NSUT, IIIT-D)",
   searchKeys: defaultSearchKeys,
   primaryInput: integerInput("Enter All India Rank", "Enter All India Rank"),
   fields: [
@@ -1210,7 +1210,7 @@ export const tneaConfig = {
 };
 
 export const josaaConfig = {
-  name: "JoSAA (JEE Main and Advanced)",
+  name: "JoSAA (IITs, NITs, IIITs)",
   code: "JoSAA",
   searchKeys: defaultSearchKeys,
   primaryInput: integerInput(
