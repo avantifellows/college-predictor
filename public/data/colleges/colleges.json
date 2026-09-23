@@ -375,7 +375,18 @@
   },
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 950000,
+   "percentage_placed": 14.5,
+   "percentage_with_outcome": 69.2,
+   "students_placed": 192,
+   "higher_studies_selected": 723,
+   "first_year_intake": null,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF College, UG 3-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -386,7 +397,7 @@
    "identity": "University of Delhi CSAS 2025",
    "programs": "University of Delhi CSAS 2025",
    "ranking": "NIRF 2025",
-   "placement": null,
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -1563,7 +1574,18 @@
   },
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 750000,
+   "percentage_placed": 15.8,
+   "percentage_with_outcome": 99.4,
+   "students_placed": 252,
+   "higher_studies_selected": 1339,
+   "first_year_intake": null,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF College, UG 3-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -1574,7 +1596,7 @@
    "identity": "University of Delhi CSAS 2025",
    "programs": "University of Delhi CSAS 2025",
    "ranking": "NIRF 2025",
-   "placement": null,
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -1981,7 +2003,18 @@
   },
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 570000,
+   "percentage_placed": 10.7,
+   "percentage_with_outcome": 26.7,
+   "students_placed": 195,
+   "higher_studies_selected": 292,
+   "first_year_intake": null,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF College, UG 3-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -1992,7 +2025,7 @@
    "identity": "University of Delhi CSAS 2025",
    "programs": "University of Delhi CSAS 2025",
    "ranking": "NIRF 2025",
-   "placement": null,
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -3017,7 +3050,18 @@
   },
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 810000,
+   "percentage_placed": 24.8,
+   "percentage_with_outcome": 82.7,
+   "students_placed": 371,
+   "higher_studies_selected": 863,
+   "first_year_intake": null,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF College, UG 3-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -3028,7 +3072,7 @@
    "identity": "University of Delhi CSAS 2025",
    "programs": "University of Delhi CSAS 2025",
    "ranking": "NIRF 2025",
-   "placement": null,
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -3781,7 +3825,18 @@
   },
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 700000,
+   "percentage_placed": 27.5,
+   "percentage_with_outcome": 88.7,
+   "students_placed": 100,
+   "higher_studies_selected": 222,
+   "first_year_intake": null,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF College, UG 3-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -3792,7 +3847,7 @@
    "identity": "University of Delhi CSAS 2025",
    "programs": "University of Delhi CSAS 2025",
    "ranking": "NIRF 2025",
-   "placement": null,
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -6429,7 +6484,18 @@
   },
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 509600,
+   "percentage_placed": 33.4,
+   "percentage_with_outcome": 88.7,
+   "students_placed": 551,
+   "higher_studies_selected": 910,
+   "first_year_intake": null,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF College, UG 3-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -6440,7 +6506,7 @@
    "identity": "University of Delhi CSAS 2025",
    "programs": "University of Delhi CSAS 2025",
    "ranking": "NIRF 2025",
-   "placement": null,
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -7342,200 +7408,6 @@
   }
  },
  {
-  "college_id": "wbjee:jadavpur university",
-  "aishe_code": null,
-  "name": "Jadavpur University",
-  "display_name": "Jadavpur University",
-  "state": "West Bengal",
-  "state_is_inferred": false,
-  "district": null,
-  "kind": null,
-  "management": "State-Univ-Dept",
-  "ownership": "Public",
-  "disciplines": [
-   "Architecture",
-   "Engineering"
-  ],
-  "year_established": null,
-  "website": null,
-  "university": null,
-  "entrance_exams": [
-   "WBJEE"
-  ],
-  "counselling": "WBJEE Board",
-  "programs": {
-   "count": 15,
-   "degrees": [
-    "B.Arch",
-    "B.E. / B.Tech"
-   ],
-   "list": [
-    {
-     "branch": "Computer Science & Engineering",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 161,
-     "indicative_opening_rank": null,
-     "career_id": "computer-science-information-technology"
-    },
-    {
-     "branch": "Information Technology",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 317,
-     "indicative_opening_rank": null,
-     "career_id": "computer-science-information-technology"
-    },
-    {
-     "branch": "Electronics & Tele-Communication Engineering",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 333,
-     "indicative_opening_rank": null,
-     "career_id": "electrical-electronics-communications-engineering"
-    },
-    {
-     "branch": "Instrumentation & Electronics",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 419,
-     "indicative_opening_rank": null,
-     "career_id": "electrical-electronics-communications-engineering"
-    },
-    {
-     "branch": "Electrical Engineering",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 533,
-     "indicative_opening_rank": null,
-     "career_id": "electrical-electronics-communications-engineering"
-    },
-    {
-     "branch": "Mechanical Engineering",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 739,
-     "indicative_opening_rank": null,
-     "career_id": "mechanical-mechatronics-engineering"
-    },
-    {
-     "branch": "Chemical Engineering",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 955,
-     "indicative_opening_rank": null,
-     "career_id": "chemical-engineering"
-    },
-    {
-     "branch": "Power Engineering",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 1026,
-     "indicative_opening_rank": null,
-     "career_id": "energy-engineering"
-    },
-    {
-     "branch": "Production Engineering",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 1246,
-     "indicative_opening_rank": null,
-     "career_id": "industrial-manufacturing-production-engineering"
-    },
-    {
-     "branch": "Metallurgical Engineering",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 1435,
-     "indicative_opening_rank": null,
-     "career_id": "metallurgy-engineering-and-material-science"
-    },
-    {
-     "branch": "Civil Engineering",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 1570,
-     "indicative_opening_rank": null,
-     "career_id": "civil-engineering"
-    },
-    {
-     "branch": "Construction Engineering",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 1799,
-     "indicative_opening_rank": null,
-     "career_id": "civil-engineering"
-    },
-    {
-     "branch": "Food Technology And Bio Chemical Engineering",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 1989,
-     "indicative_opening_rank": null,
-     "career_id": "chemical-engineering"
-    },
-    {
-     "branch": "PRINTING & PACKAGING TECHNOLOGY",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 2442,
-     "indicative_opening_rank": null,
-     "career_id": "industrial-manufacturing-production-engineering"
-    },
-    {
-     "branch": "Architectural Engineering",
-     "years": 5,
-     "degree": "B.Arch",
-     "indicative_closing_rank": 8860,
-     "indicative_opening_rank": null,
-     "career_id": "architecture"
-    }
-   ],
-   "source": "WBJEE 2026",
-   "rank_note": "Indicative open-category WBJEE closing rank."
-  },
-  "nirf": {
-   "category": "Architecture",
-   "rank": 16,
-   "score": 59.3,
-   "ranking_year": 2025,
-   "rank_history": [
-    {
-     "year": 2025,
-     "rank": 16,
-     "score": 59.3
-    }
-   ]
-  },
-  "ug_gender": null,
-  "fees": null,
-  "placement": {
-   "median_salary": 1050000,
-   "percentage_placed": 91.0,
-   "percentage_with_outcome": 99.7,
-   "students_placed": 790,
-   "higher_studies_selected": 75,
-   "first_year_intake": 1150,
-   "academic_year": "2023-24",
-   "ranking_year": 2025,
-   "source": "NIRF Engineering, UG",
-   "is_branch_specific": false
-  },
-  "naac": {
-   "grade": null,
-   "cgpa": null,
-   "cycle": null,
-   "not_applicable_reason": null
-  },
-  "data_sources": {
-   "identity": "WBJEE 2026",
-   "programs": "WBJEE 2026",
-   "ranking": "NIRF 2025",
-   "placement": "NIRF 2025 (AY 2023-24)",
-   "accreditation": null
-  }
- },
- {
   "college_id": "C-45415",
   "aishe_code": "C-45415",
   "name": "MADRAS MEDICAL COLLEGE, COLLEGE OF NURSING (Inst. Code - 163), CHENNAI",
@@ -8033,7 +7905,18 @@
   },
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 925000,
+   "percentage_placed": 26.9,
+   "percentage_with_outcome": 94.8,
+   "students_placed": 350,
+   "higher_studies_selected": 882,
+   "first_year_intake": null,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF College, UG 3-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -8044,7 +7927,7 @@
    "identity": "University of Delhi CSAS 2025",
    "programs": "University of Delhi CSAS 2025",
    "ranking": "NIRF 2025",
-   "placement": null,
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -8249,6 +8132,225 @@
   }
  },
  {
+  "college_id": "wbjee:jadavpur university",
+  "aishe_code": null,
+  "name": "Jadavpur University",
+  "display_name": "Jadavpur University",
+  "state": "West Bengal",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": null,
+  "management": "State-Univ-Dept",
+  "ownership": "Public",
+  "disciplines": [
+   "Architecture",
+   "Engineering"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "WBJEE"
+  ],
+  "counselling": "WBJEE Board",
+  "programs": {
+   "count": 15,
+   "degrees": [
+    "B.Arch",
+    "B.E. / B.Tech"
+   ],
+   "list": [
+    {
+     "branch": "Computer Science & Engineering",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 161,
+     "indicative_opening_rank": null,
+     "career_id": "computer-science-information-technology"
+    },
+    {
+     "branch": "Information Technology",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 317,
+     "indicative_opening_rank": null,
+     "career_id": "computer-science-information-technology"
+    },
+    {
+     "branch": "Electronics & Tele-Communication Engineering",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 333,
+     "indicative_opening_rank": null,
+     "career_id": "electrical-electronics-communications-engineering"
+    },
+    {
+     "branch": "Instrumentation & Electronics",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 419,
+     "indicative_opening_rank": null,
+     "career_id": "electrical-electronics-communications-engineering"
+    },
+    {
+     "branch": "Electrical Engineering",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 533,
+     "indicative_opening_rank": null,
+     "career_id": "electrical-electronics-communications-engineering"
+    },
+    {
+     "branch": "Mechanical Engineering",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 739,
+     "indicative_opening_rank": null,
+     "career_id": "mechanical-mechatronics-engineering"
+    },
+    {
+     "branch": "Chemical Engineering",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 955,
+     "indicative_opening_rank": null,
+     "career_id": "chemical-engineering"
+    },
+    {
+     "branch": "Power Engineering",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 1026,
+     "indicative_opening_rank": null,
+     "career_id": "energy-engineering"
+    },
+    {
+     "branch": "Production Engineering",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 1246,
+     "indicative_opening_rank": null,
+     "career_id": "industrial-manufacturing-production-engineering"
+    },
+    {
+     "branch": "Metallurgical Engineering",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 1435,
+     "indicative_opening_rank": null,
+     "career_id": "metallurgy-engineering-and-material-science"
+    },
+    {
+     "branch": "Civil Engineering",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 1570,
+     "indicative_opening_rank": null,
+     "career_id": "civil-engineering"
+    },
+    {
+     "branch": "Construction Engineering",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 1799,
+     "indicative_opening_rank": null,
+     "career_id": "civil-engineering"
+    },
+    {
+     "branch": "Food Technology And Bio Chemical Engineering",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 1989,
+     "indicative_opening_rank": null,
+     "career_id": "chemical-engineering"
+    },
+    {
+     "branch": "PRINTING & PACKAGING TECHNOLOGY",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 2442,
+     "indicative_opening_rank": null,
+     "career_id": "industrial-manufacturing-production-engineering"
+    },
+    {
+     "branch": "Architectural Engineering",
+     "years": 5,
+     "degree": "B.Arch",
+     "indicative_closing_rank": 8860,
+     "indicative_opening_rank": null,
+     "career_id": "architecture"
+    }
+   ],
+   "source": "WBJEE 2026",
+   "rank_note": "Indicative open-category WBJEE closing rank."
+  },
+  "nirf": {
+   "category": "Engineering",
+   "rank": 18,
+   "score": 64.54,
+   "ranking_year": 2025,
+   "rank_history": [
+    {
+     "year": 2025,
+     "rank": 18,
+     "score": 64.54
+    },
+    {
+     "year": 2024,
+     "rank": 12,
+     "score": 65.62
+    },
+    {
+     "year": 2023,
+     "rank": 10,
+     "score": 67.04
+    },
+    {
+     "year": 2022,
+     "rank": 11,
+     "score": 65.68
+    },
+    {
+     "year": 2021,
+     "rank": 17,
+     "score": 59.19
+    },
+    {
+     "year": 2020,
+     "rank": 17,
+     "score": 59.23
+    }
+   ]
+  },
+  "ug_gender": null,
+  "fees": null,
+  "placement": {
+   "median_salary": 1050000,
+   "percentage_placed": 91.0,
+   "percentage_with_outcome": 99.7,
+   "students_placed": 790,
+   "higher_studies_selected": 75,
+   "first_year_intake": 1150,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF Engineering, UG",
+   "is_branch_specific": false
+  },
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "WBJEE 2026",
+   "programs": "WBJEE 2026",
+   "ranking": "NIRF 2025",
+   "placement": "NIRF 2025 (AY 2023-24)",
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "du:shri-ram-college-of-commerce",
   "aishe_code": null,
   "name": "Shri Ram College of Commerce",
@@ -8339,7 +8441,18 @@
   },
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 845000,
+   "percentage_placed": 56.0,
+   "percentage_with_outcome": 99.0,
+   "students_placed": 525,
+   "higher_studies_selected": 403,
+   "first_year_intake": null,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF College, UG 3-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -8350,7 +8463,7 @@
    "identity": "University of Delhi CSAS 2025",
    "programs": "University of Delhi CSAS 2025",
    "ranking": "NIRF 2025",
-   "placement": null,
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -9127,7 +9240,18 @@
   },
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 420000,
+   "percentage_placed": 9.1,
+   "percentage_with_outcome": 79.4,
+   "students_placed": 67,
+   "higher_studies_selected": 520,
+   "first_year_intake": null,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF College, UG 3-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -9137,6 +9261,101 @@
   "data_sources": {
    "identity": "University of Delhi CSAS 2025",
    "programs": "University of Delhi CSAS 2025",
+   "ranking": "NIRF 2025",
+   "placement": "NIRF 2025 (AY 2023-24)",
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "clat:dr ram manohar lohiya national law university lucknow",
+  "aishe_code": null,
+  "name": "Dr. Ram Manohar Lohiya National Law University (RMLNLU), Lucknow",
+  "display_name": "Dr. Ram Manohar Lohiya National Law University (RMLNLU), Lucknow",
+  "state": "Uttar Pradesh",
+  "state_is_inferred": true,
+  "district": null,
+  "kind": null,
+  "management": null,
+  "ownership": null,
+  "disciplines": [
+   "Law"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CLAT"
+  ],
+  "counselling": "CLAT Consortium counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "B.A. LL.B. (Hons.)"
+   ],
+   "list": [
+    {
+     "branch": "B.A. LL.B. (Hons.)",
+     "years": 5,
+     "degree": "B.A. LL.B. (Hons.)",
+     "indicative_closing_rank": 799,
+     "indicative_opening_rank": null,
+     "career_id": "law-llb",
+     "seats": 80
+    }
+   ],
+   "source": "CLAT 2026",
+   "rank_note": "Indicative open-category CLAT closing rank."
+  },
+  "nirf": {
+   "category": "Law",
+   "rank": 21,
+   "score": 60.12,
+   "ranking_year": 2025,
+   "rank_history": [
+    {
+     "year": 2025,
+     "rank": 21,
+     "score": 60.12
+    },
+    {
+     "year": 2024,
+     "rank": 20,
+     "score": 55.92
+    },
+    {
+     "year": 2023,
+     "rank": 21,
+     "score": 50.9
+    },
+    {
+     "year": 2022,
+     "rank": 17,
+     "score": 53.23
+    },
+    {
+     "year": 2021,
+     "rank": 15,
+     "score": 51.44
+    },
+    {
+     "year": 2020,
+     "rank": 11,
+     "score": 53.57
+    }
+   ]
+  },
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "CLAT 2026",
+   "programs": "CLAT 2026",
    "ranking": "NIRF 2025",
    "placement": null,
    "accreditation": null
@@ -10258,7 +10477,18 @@
   },
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 500000,
+   "percentage_placed": 10.6,
+   "percentage_with_outcome": 54.0,
+   "students_placed": 143,
+   "higher_studies_selected": 587,
+   "first_year_intake": null,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF College, UG 3-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -10269,7 +10499,7 @@
    "identity": "University of Delhi CSAS 2025",
    "programs": "University of Delhi CSAS 2025",
    "ranking": "NIRF 2025",
-   "placement": null,
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -10918,7 +11148,18 @@
   },
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 475000,
+   "percentage_placed": 10.4,
+   "percentage_with_outcome": 34.5,
+   "students_placed": 97,
+   "higher_studies_selected": 226,
+   "first_year_intake": null,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF College, UG 3-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -10929,7 +11170,7 @@
    "identity": "University of Delhi CSAS 2025",
    "programs": "University of Delhi CSAS 2025",
    "ranking": "NIRF 2025",
-   "placement": null,
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -11729,7 +11970,18 @@
   },
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 605000,
+   "percentage_placed": 6.4,
+   "percentage_with_outcome": 20.3,
+   "students_placed": 94,
+   "higher_studies_selected": 206,
+   "first_year_intake": null,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF College, UG 3-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -11740,102 +11992,7 @@
    "identity": "University of Delhi CSAS 2025",
    "programs": "University of Delhi CSAS 2025",
    "ranking": "NIRF 2025",
-   "placement": null,
-   "accreditation": null
-  }
- },
- {
-  "college_id": "clat:dr ram manohar lohiya national law university lucknow",
-  "aishe_code": null,
-  "name": "Dr. Ram Manohar Lohiya National Law University (RMLNLU), Lucknow",
-  "display_name": "Dr. Ram Manohar Lohiya National Law University (RMLNLU), Lucknow",
-  "state": "Uttar Pradesh",
-  "state_is_inferred": true,
-  "district": null,
-  "kind": null,
-  "management": null,
-  "ownership": null,
-  "disciplines": [
-   "Law"
-  ],
-  "year_established": null,
-  "website": null,
-  "university": null,
-  "entrance_exams": [
-   "CLAT"
-  ],
-  "counselling": "CLAT Consortium counselling",
-  "programs": {
-   "count": 1,
-   "degrees": [
-    "B.A. LL.B. (Hons.)"
-   ],
-   "list": [
-    {
-     "branch": "B.A. LL.B. (Hons.)",
-     "years": 5,
-     "degree": "B.A. LL.B. (Hons.)",
-     "indicative_closing_rank": 799,
-     "indicative_opening_rank": null,
-     "career_id": "law-llb",
-     "seats": 80
-    }
-   ],
-   "source": "CLAT 2026",
-   "rank_note": "Indicative open-category CLAT closing rank."
-  },
-  "nirf": {
-   "category": "Law",
-   "rank": 29,
-   "score": 55.85,
-   "ranking_year": 2025,
-   "rank_history": [
-    {
-     "year": 2025,
-     "rank": 29,
-     "score": 55.85
-    },
-    {
-     "year": 2024,
-     "rank": 23,
-     "score": 55.05
-    },
-    {
-     "year": 2023,
-     "rank": 21,
-     "score": 50.9
-    },
-    {
-     "year": 2022,
-     "rank": 17,
-     "score": 53.23
-    },
-    {
-     "year": 2021,
-     "rank": 15,
-     "score": 51.44
-    },
-    {
-     "year": 2020,
-     "rank": 11,
-     "score": 53.57
-    }
-   ]
-  },
-  "ug_gender": null,
-  "fees": null,
-  "placement": null,
-  "naac": {
-   "grade": null,
-   "cgpa": null,
-   "cycle": null,
-   "not_applicable_reason": null
-  },
-  "data_sources": {
-   "identity": "CLAT 2026",
-   "programs": "CLAT 2026",
-   "ranking": "NIRF 2025",
-   "placement": null,
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -12490,7 +12647,18 @@
   },
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 540000,
+   "percentage_placed": 15.9,
+   "percentage_with_outcome": 49.1,
+   "students_placed": 151,
+   "higher_studies_selected": 316,
+   "first_year_intake": null,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF College, UG 3-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -12501,7 +12669,7 @@
    "identity": "University of Delhi CSAS 2025",
    "programs": "University of Delhi CSAS 2025",
    "ranking": "NIRF 2025",
-   "placement": null,
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -12840,7 +13008,18 @@
   },
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 360000,
+   "percentage_placed": 21.3,
+   "percentage_with_outcome": 89.0,
+   "students_placed": 120,
+   "higher_studies_selected": 381,
+   "first_year_intake": null,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF College, UG 3-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -12851,7 +13030,7 @@
    "identity": "University of Delhi CSAS 2025",
    "programs": "University of Delhi CSAS 2025",
    "ranking": "NIRF 2025",
-   "placement": null,
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -13328,228 +13507,16 @@
   },
   "ug_gender": null,
   "fees": null,
-  "placement": null,
-  "naac": {
-   "grade": null,
-   "cgpa": null,
-   "cycle": null,
-   "not_applicable_reason": null
-  },
-  "data_sources": {
-   "identity": "University of Delhi CSAS 2025",
-   "programs": "University of Delhi CSAS 2025",
-   "ranking": "NIRF 2025",
-   "placement": null,
-   "accreditation": null
-  }
- },
- {
-  "college_id": "kcet:m s ramaiah institute technology bangalore vidya soudha msr ",
-  "aishe_code": null,
-  "name": "M S Ramaiah Institute of Technology, Bangalore(AUTONOMOUS) VIDYA SOUDHA,MSR NAGAR,MSRIT POST,BANGALORE - 560054.",
-  "display_name": "M S Ramaiah Institute of Technology, Bangalore(AUTONOMOUS) VIDYA SOUDHA,MSR NAGAR,MSRIT POST,BANGALORE - 560054.",
-  "state": "Karnataka",
-  "state_is_inferred": false,
-  "district": null,
-  "kind": null,
-  "management": "Private",
-  "ownership": "Private",
-  "disciplines": [
-   "Engineering"
-  ],
-  "year_established": null,
-  "website": null,
-  "university": null,
-  "entrance_exams": [
-   "KCET"
-  ],
-  "counselling": "KEA (KCET)",
-  "programs": {
-   "count": 17,
-   "degrees": [
-    "B.E. / B.Tech"
-   ],
-   "list": [
-    {
-     "branch": "COMPUTER SCIENCE AND ENGINEERING",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 2076,
-     "indicative_opening_rank": null,
-     "career_id": "computer-science-information-technology"
-    },
-    {
-     "branch": "COMPUTER SCIENCE AND ENGINEERING(ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING)",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 2791,
-     "indicative_opening_rank": null,
-     "career_id": "artificial-intelligence-and-data-science"
-    },
-    {
-     "branch": "INFORMATION SCIENCE AND ENGINEERING",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 3196,
-     "indicative_opening_rank": null,
-     "career_id": "computer-science-information-technology"
-    },
-    {
-     "branch": "ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 3429,
-     "indicative_opening_rank": null,
-     "career_id": "artificial-intelligence-and-data-science"
-    },
-    {
-     "branch": "ELECTRONICS AND COMMUNICATION ENGINEERING",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 4080,
-     "indicative_opening_rank": null,
-     "career_id": "electrical-electronics-communications-engineering"
-    },
-    {
-     "branch": "ARTIFICIAL INTELLIGENCE AND DATA SCIENCE",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 4160,
-     "indicative_opening_rank": null,
-     "career_id": "artificial-intelligence-and-data-science"
-    },
-    {
-     "branch": "COMPUTER SCIENCE AND ENGINEERING(CYBER SECURITY)",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 4208,
-     "indicative_opening_rank": null,
-     "career_id": "cyber-security"
-    },
-    {
-     "branch": "AERO SPACE ENGINEERING",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 6536,
-     "indicative_opening_rank": null,
-     "career_id": "aerospace-engineering"
-    },
-    {
-     "branch": "ELECTRONICS AND TELECOMMUNICATION ENGINEERING",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 7708,
-     "indicative_opening_rank": null,
-     "career_id": "electrical-electronics-communications-engineering"
-    },
-    {
-     "branch": "ELECTRICAL & ELECTRONICS ENGINEERING",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 10791,
-     "indicative_opening_rank": null,
-     "career_id": "electrical-electronics-communications-engineering"
-    },
-    {
-     "branch": "BIO-TECHNOLOGY",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 12464,
-     "indicative_opening_rank": null,
-     "career_id": "biotechnology"
-    },
-    {
-     "branch": "ELECTRONICS AND INSTRUMENTATION ENGINEERING",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 15248,
-     "indicative_opening_rank": null,
-     "career_id": "electrical-electronics-communications-engineering"
-    },
-    {
-     "branch": "MECHANICAL ENGINEERING",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 20751,
-     "indicative_opening_rank": null,
-     "career_id": "mechanical-mechatronics-engineering"
-    },
-    {
-     "branch": "CHEMICAL ENGINEERING",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 21060,
-     "indicative_opening_rank": null,
-     "career_id": "chemical-engineering"
-    },
-    {
-     "branch": "CIVIL ENGINEERING",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 30510,
-     "indicative_opening_rank": null,
-     "career_id": "civil-engineering"
-    },
-    {
-     "branch": "MEDICAL ELECTRONICS ENGINEERING",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 31013,
-     "indicative_opening_rank": null,
-     "career_id": "electrical-electronics-communications-engineering"
-    },
-    {
-     "branch": "INDUSTRIAL ENGINEERING & MANAGEMENT",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 37513,
-     "indicative_opening_rank": null,
-     "career_id": "industrial-manufacturing-production-engineering"
-    }
-   ],
-   "source": "KEA 2025 Round 3",
-   "rank_note": "Indicative open-category KCET closing rank."
-  },
-  "nirf": {
-   "category": "Architecture",
-   "rank": 31,
-   "score": 53.54,
-   "ranking_year": 2025,
-   "rank_history": [
-    {
-     "year": 2025,
-     "rank": 31,
-     "score": 53.54
-    },
-    {
-     "year": 2024,
-     "rank": 21,
-     "score": 57.01
-    },
-    {
-     "year": 2023,
-     "rank": 23,
-     "score": 53.69
-    },
-    {
-     "year": 2022,
-     "rank": 17,
-     "score": 54.82
-    }
-   ]
-  },
-  "ug_gender": null,
-  "fees": null,
   "placement": {
-   "median_salary": 750000,
-   "percentage_placed": 73.2,
-   "percentage_with_outcome": 91.3,
-   "students_placed": 787,
-   "higher_studies_selected": 195,
-   "first_year_intake": 1080,
+   "median_salary": 425000,
+   "percentage_placed": 2.4,
+   "percentage_with_outcome": 23.1,
+   "students_placed": 9,
+   "higher_studies_selected": 78,
+   "first_year_intake": null,
    "academic_year": "2023-24",
    "ranking_year": 2025,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF College, UG 3-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -13559,8 +13526,8 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "KEA 2025 Round 3",
-   "programs": "KEA 2025 Round 3",
+   "identity": "University of Delhi CSAS 2025",
+   "programs": "University of Delhi CSAS 2025",
    "ranking": "NIRF 2025",
    "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
@@ -14148,7 +14115,18 @@
   },
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 650000,
+   "percentage_placed": 58.2,
+   "percentage_with_outcome": 98.4,
+   "students_placed": 294,
+   "higher_studies_selected": 203,
+   "first_year_intake": null,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF College, UG 3-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -14159,7 +14137,7 @@
    "identity": "University of Delhi CSAS 2025",
    "programs": "University of Delhi CSAS 2025",
    "ranking": "NIRF 2025",
-   "placement": null,
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -14602,7 +14580,18 @@
   },
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 450000,
+   "percentage_placed": 16.3,
+   "percentage_with_outcome": 44.5,
+   "students_placed": 251,
+   "higher_studies_selected": 434,
+   "first_year_intake": null,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF College, UG 3-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -14613,7 +14602,7 @@
    "identity": "University of Delhi CSAS 2025",
    "programs": "University of Delhi CSAS 2025",
    "ranking": "NIRF 2025",
-   "placement": null,
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -16144,7 +16133,18 @@
   },
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 526000,
+   "percentage_placed": 33.6,
+   "percentage_with_outcome": 77.0,
+   "students_placed": 367,
+   "higher_studies_selected": 474,
+   "first_year_intake": null,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF College, UG 3-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -16155,7 +16155,7 @@
    "identity": "University of Delhi CSAS 2025",
    "programs": "University of Delhi CSAS 2025",
    "ranking": "NIRF 2025",
-   "placement": null,
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -16507,7 +16507,18 @@
   },
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 500000,
+   "percentage_placed": 28.3,
+   "percentage_with_outcome": 89.1,
+   "students_placed": 302,
+   "higher_studies_selected": 650,
+   "first_year_intake": null,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF College, UG 3-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -16518,7 +16529,7 @@
    "identity": "University of Delhi CSAS 2025",
    "programs": "University of Delhi CSAS 2025",
    "ranking": "NIRF 2025",
-   "placement": null,
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -18478,7 +18489,18 @@
   },
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 386500,
+   "percentage_placed": 3.5,
+   "percentage_with_outcome": 34.1,
+   "students_placed": 14,
+   "higher_studies_selected": 122,
+   "first_year_intake": null,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF College, UG 3-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -18489,7 +18511,7 @@
    "identity": "University of Delhi CSAS 2025",
    "programs": "University of Delhi CSAS 2025",
    "ranking": "NIRF 2025",
-   "placement": null,
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -22599,7 +22621,18 @@
   },
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 490000,
+   "percentage_placed": 33.9,
+   "percentage_with_outcome": 90.5,
+   "students_placed": 347,
+   "higher_studies_selected": 579,
+   "first_year_intake": null,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF College, UG 3-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -22610,7 +22643,7 @@
    "identity": "University of Delhi CSAS 2025",
    "programs": "University of Delhi CSAS 2025",
    "ranking": "NIRF 2025",
-   "placement": null,
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -23570,7 +23603,18 @@
   },
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 350000,
+   "percentage_placed": 5.5,
+   "percentage_with_outcome": 36.5,
+   "students_placed": 31,
+   "higher_studies_selected": 175,
+   "first_year_intake": null,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF College, UG 3-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -23581,7 +23625,7 @@
    "identity": "University of Delhi CSAS 2025",
    "programs": "University of Delhi CSAS 2025",
    "ranking": "NIRF 2025",
-   "placement": null,
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -24541,7 +24585,18 @@
   },
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 500000,
+   "percentage_placed": 28.6,
+   "percentage_with_outcome": 87.6,
+   "students_placed": 316,
+   "higher_studies_selected": 653,
+   "first_year_intake": null,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF College, UG 3-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -24552,7 +24607,7 @@
    "identity": "University of Delhi CSAS 2025",
    "programs": "University of Delhi CSAS 2025",
    "ranking": "NIRF 2025",
-   "placement": null,
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -25737,7 +25792,18 @@
   },
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 177000,
+   "percentage_placed": 0.7,
+   "percentage_with_outcome": 29.6,
+   "students_placed": 3,
+   "higher_studies_selected": 123,
+   "first_year_intake": null,
+   "academic_year": "2020-21",
+   "ranking_year": 2022,
+   "source": "NIRF College, UG 3-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -25748,7 +25814,240 @@
    "identity": "University of Delhi CSAS 2025",
    "programs": "University of Delhi CSAS 2025",
    "ranking": "NIRF 2022",
-   "placement": null,
+   "placement": "NIRF 2022 (AY 2020-21)",
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "kcet:m s ramaiah institute technology bangalore vidya soudha msr ",
+  "aishe_code": null,
+  "name": "M S Ramaiah Institute of Technology, Bangalore(AUTONOMOUS) VIDYA SOUDHA,MSR NAGAR,MSRIT POST,BANGALORE - 560054.",
+  "display_name": "M S Ramaiah Institute of Technology, Bangalore(AUTONOMOUS) VIDYA SOUDHA,MSR NAGAR,MSRIT POST,BANGALORE - 560054.",
+  "state": "Karnataka",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": null,
+  "management": "Private",
+  "ownership": "Private",
+  "disciplines": [
+   "Engineering"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "KCET"
+  ],
+  "counselling": "KEA (KCET)",
+  "programs": {
+   "count": 17,
+   "degrees": [
+    "B.E. / B.Tech"
+   ],
+   "list": [
+    {
+     "branch": "COMPUTER SCIENCE AND ENGINEERING",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 2076,
+     "indicative_opening_rank": null,
+     "career_id": "computer-science-information-technology"
+    },
+    {
+     "branch": "COMPUTER SCIENCE AND ENGINEERING(ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING)",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 2791,
+     "indicative_opening_rank": null,
+     "career_id": "artificial-intelligence-and-data-science"
+    },
+    {
+     "branch": "INFORMATION SCIENCE AND ENGINEERING",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 3196,
+     "indicative_opening_rank": null,
+     "career_id": "computer-science-information-technology"
+    },
+    {
+     "branch": "ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 3429,
+     "indicative_opening_rank": null,
+     "career_id": "artificial-intelligence-and-data-science"
+    },
+    {
+     "branch": "ELECTRONICS AND COMMUNICATION ENGINEERING",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 4080,
+     "indicative_opening_rank": null,
+     "career_id": "electrical-electronics-communications-engineering"
+    },
+    {
+     "branch": "ARTIFICIAL INTELLIGENCE AND DATA SCIENCE",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 4160,
+     "indicative_opening_rank": null,
+     "career_id": "artificial-intelligence-and-data-science"
+    },
+    {
+     "branch": "COMPUTER SCIENCE AND ENGINEERING(CYBER SECURITY)",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 4208,
+     "indicative_opening_rank": null,
+     "career_id": "cyber-security"
+    },
+    {
+     "branch": "AERO SPACE ENGINEERING",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 6536,
+     "indicative_opening_rank": null,
+     "career_id": "aerospace-engineering"
+    },
+    {
+     "branch": "ELECTRONICS AND TELECOMMUNICATION ENGINEERING",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 7708,
+     "indicative_opening_rank": null,
+     "career_id": "electrical-electronics-communications-engineering"
+    },
+    {
+     "branch": "ELECTRICAL & ELECTRONICS ENGINEERING",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 10791,
+     "indicative_opening_rank": null,
+     "career_id": "electrical-electronics-communications-engineering"
+    },
+    {
+     "branch": "BIO-TECHNOLOGY",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 12464,
+     "indicative_opening_rank": null,
+     "career_id": "biotechnology"
+    },
+    {
+     "branch": "ELECTRONICS AND INSTRUMENTATION ENGINEERING",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 15248,
+     "indicative_opening_rank": null,
+     "career_id": "electrical-electronics-communications-engineering"
+    },
+    {
+     "branch": "MECHANICAL ENGINEERING",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 20751,
+     "indicative_opening_rank": null,
+     "career_id": "mechanical-mechatronics-engineering"
+    },
+    {
+     "branch": "CHEMICAL ENGINEERING",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 21060,
+     "indicative_opening_rank": null,
+     "career_id": "chemical-engineering"
+    },
+    {
+     "branch": "CIVIL ENGINEERING",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 30510,
+     "indicative_opening_rank": null,
+     "career_id": "civil-engineering"
+    },
+    {
+     "branch": "MEDICAL ELECTRONICS ENGINEERING",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 31013,
+     "indicative_opening_rank": null,
+     "career_id": "electrical-electronics-communications-engineering"
+    },
+    {
+     "branch": "INDUSTRIAL ENGINEERING & MANAGEMENT",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 37513,
+     "indicative_opening_rank": null,
+     "career_id": "industrial-manufacturing-production-engineering"
+    }
+   ],
+   "source": "KEA 2025 Round 3",
+   "rank_note": "Indicative open-category KCET closing rank."
+  },
+  "nirf": {
+   "category": "Engineering",
+   "rank": 75,
+   "score": 49.26,
+   "ranking_year": 2025,
+   "rank_history": [
+    {
+     "year": 2025,
+     "rank": 75,
+     "score": 49.26
+    },
+    {
+     "year": 2024,
+     "rank": 75,
+     "score": 48.33
+    },
+    {
+     "year": 2023,
+     "rank": 78,
+     "score": 45.99
+    },
+    {
+     "year": 2022,
+     "rank": 67,
+     "score": 45.17
+    },
+    {
+     "year": 2021,
+     "rank": 65,
+     "score": 43.74
+    },
+    {
+     "year": 2020,
+     "rank": 59,
+     "score": 43.74
+    }
+   ]
+  },
+  "ug_gender": null,
+  "fees": null,
+  "placement": {
+   "median_salary": 750000,
+   "percentage_placed": 73.2,
+   "percentage_with_outcome": 91.3,
+   "students_placed": 787,
+   "higher_studies_selected": 195,
+   "first_year_intake": 1080,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF Engineering, UG",
+   "is_branch_specific": false
+  },
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "KEA 2025 Round 3",
+   "programs": "KEA 2025 Round 3",
+   "ranking": "NIRF 2025",
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -27690,7 +27989,18 @@
   },
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 550000,
+   "percentage_placed": 21.9,
+   "percentage_with_outcome": 43.9,
+   "students_placed": 200,
+   "higher_studies_selected": 200,
+   "first_year_intake": null,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF College, UG 3-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -27701,7 +28011,7 @@
    "identity": "University of Delhi CSAS 2025",
    "programs": "University of Delhi CSAS 2025",
    "ranking": "NIRF 2025",
-   "placement": null,
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -28328,7 +28638,18 @@
   },
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 300000,
+   "percentage_placed": 14.0,
+   "percentage_with_outcome": 39.7,
+   "students_placed": 132,
+   "higher_studies_selected": 242,
+   "first_year_intake": null,
+   "academic_year": "2022-23",
+   "ranking_year": 2024,
+   "source": "NIRF College, UG 3-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -28339,7 +28660,7 @@
    "identity": "University of Delhi CSAS 2025",
    "programs": "University of Delhi CSAS 2025",
    "ranking": "NIRF 2024",
-   "placement": null,
+   "placement": "NIRF 2024 (AY 2022-23)",
    "accreditation": null
   }
  },
@@ -29760,7 +30081,18 @@
   },
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 240000,
+   "percentage_placed": 2.0,
+   "percentage_with_outcome": 22.5,
+   "students_placed": 18,
+   "higher_studies_selected": 185,
+   "first_year_intake": null,
+   "academic_year": "2017-18",
+   "ranking_year": 2019,
+   "source": "NIRF College, UG 3-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -29771,7 +30103,7 @@
    "identity": "University of Delhi CSAS 2025",
    "programs": "University of Delhi CSAS 2025",
    "ranking": "NIRF 2019",
-   "placement": null,
+   "placement": "NIRF 2019 (AY 2017-18)",
    "accreditation": null
   }
  },
@@ -30293,7 +30625,18 @@
   },
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 450000,
+   "percentage_placed": 14.8,
+   "percentage_with_outcome": 47.7,
+   "students_placed": 104,
+   "higher_studies_selected": 232,
+   "first_year_intake": null,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF College, UG 3-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -30304,7 +30647,7 @@
    "identity": "University of Delhi CSAS 2025",
    "programs": "University of Delhi CSAS 2025",
    "ranking": "NIRF 2025",
-   "placement": null,
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -30540,7 +30883,18 @@
   },
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 865000,
+   "percentage_placed": 65.6,
+   "percentage_with_outcome": 86.4,
+   "students_placed": 255,
+   "higher_studies_selected": 81,
+   "first_year_intake": null,
+   "academic_year": "2021-22",
+   "ranking_year": 2023,
+   "source": "NIRF College, UG 3-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -30551,7 +30905,7 @@
    "identity": "University of Delhi CSAS 2025",
    "programs": "University of Delhi CSAS 2025",
    "ranking": "NIRF 2023",
-   "placement": null,
+   "placement": "NIRF 2023 (AY 2021-22)",
    "accreditation": null
   }
  },
@@ -31864,7 +32218,18 @@
   },
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 550000,
+   "percentage_placed": 10.2,
+   "percentage_with_outcome": 28.6,
+   "students_placed": 113,
+   "higher_studies_selected": 205,
+   "first_year_intake": null,
+   "academic_year": "2021-22",
+   "ranking_year": 2023,
+   "source": "NIRF College, UG 3-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -31875,7 +32240,7 @@
    "identity": "University of Delhi CSAS 2025",
    "programs": "University of Delhi CSAS 2025",
    "ranking": "NIRF 2023",
-   "placement": null,
+   "placement": "NIRF 2023 (AY 2021-22)",
    "accreditation": null
   }
  },
@@ -33701,18 +34066,18 @@
     },
     {
      "year": 2022,
-     "rank": 73,
-     "score": 44.16
+     "rank": 122,
+     "score": 38.14
     },
     {
      "year": 2021,
-     "rank": 78,
-     "score": 41.29
+     "rank": 137,
+     "score": 35.94
     },
     {
      "year": 2020,
-     "rank": 83,
-     "score": 38.83
+     "rank": 152,
+     "score": 33.43
     }
    ]
   },

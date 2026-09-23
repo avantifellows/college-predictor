@@ -415,6 +415,8 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
                       NIRF {pl.ranking_year},{" "}
                       {pl.source?.includes("Medical")
                         ? "MBBS (UG 5-year)"
+                        : pl.source?.includes("3-year")
+                        ? "UG 3-year"
                         : "UG 4-year"}{" "}
                       · AY {pl.academic_year}
                     </p>

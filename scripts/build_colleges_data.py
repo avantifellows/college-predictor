@@ -1696,6 +1696,46 @@ def main():
     nirf_extra_by_id = {iid: g.sort_values("ranking_year", ascending=False)
                         for iid, g in nirf_extra.groupby("institute_id")}
 
+    nirf_ids_by_name = {}
+
+    # NIRF's College list files placements too; the first-party DCS pull
+    # never fetched that list, the aggregate table has it (UG 3-year)
+    college_place = client.query(f"""
+    SELECT institute_id, ranking_year, academic_year, median_salary,
+           graduating_on_time, students_placed, higher_studies_selected,
+           first_year_intake
+    FROM `{D}.nirf_fact_aggregate`
+    WHERE ranking_category = 'College' AND type LIKE 'UG [3%'
+      AND median_salary > 0""").to_dataframe()
+    college_place_by_id = {iid: g.sort_values(["ranking_year", "academic_year"], ascending=False)
+                           for iid, g in college_place.groupby("institute_id")}
+
+    def placement_for(name):
+        frames = [college_place_by_id[i] for i in nirf_ids_by_name.get(name, ()) if i in college_place_by_id]
+        if not frames:
+            return None
+        pr = pd.concat(frames).sort_values(["ranking_year", "academic_year"], ascending=False).iloc[0]
+        num = lambda v: None if pd.isna(v) else int(v)
+        placed, higher, grad = num(pr.students_placed), num(pr.higher_studies_selected), num(pr.graduating_on_time)
+        pct = outcome = None
+        if grad:
+            if placed is not None:
+                pct = round(placed / grad * 100, 1)
+            if placed is not None and higher is not None:
+                outcome = round(min(100.0, (placed + higher) / grad * 100), 1)
+        return {
+            "median_salary": num(pr.median_salary),
+            "percentage_placed": pct,
+            "percentage_with_outcome": outcome,
+            "students_placed": placed,
+            "higher_studies_selected": higher,
+            "first_year_intake": num(pr.first_year_intake),
+            "academic_year": pr.academic_year,
+            "ranking_year": int(pr.ranking_year),
+            "source": "NIRF College, UG 3-year",
+            "is_branch_specific": False,
+        }
+
     def nirf_block_for(names, cats, state=None):
         pool = nirf_extra[nirf_extra.ranking_category.isin(cats)]
         if state:
@@ -1706,6 +1746,7 @@ def main():
         for iid, nm in ids.items():
             by_name.setdefault(nm, set()).add(iid)
         out = {}
+        nirf_ids_by_name.update(by_name)
         for nm, iids in by_name.items():
             g = pd.concat([nirf_extra_by_id[i] for i in iids if i in nirf_extra_by_id])
             g = g[g.ranking_category.isin(cats)]
@@ -1765,7 +1806,14 @@ def main():
         du_rows.append(base_row("du:" + re.sub(r"[^a-z0-9]+", "-", nm.lower()).strip("-")[:70], re.sub(r"\s+", " ", nm).strip(), "Delhi",
                                 "CUET (UG)", "DU CSAS (CUET-UG)", programs, du_nirf.get(nm), disc,
                                 "University of Delhi CSAS 2025"))
+        du_rows[-1]["_nirf_name"] = nm
 
+    for r in du_rows:
+        pl = placement_for(r["_nirf_name"]) if r.get("_nirf_name") else None
+        r.pop("_nirf_name", None)
+        if pl:
+            r["placement"] = pl
+            r["data_sources"]["placement"] = f"NIRF {pl['ranking_year']} (AY {pl['academic_year']})"
     ii_names = sorted(iiser.institute.unique())
     long_names = {n: n.replace("IISER", "Indian Institute of Science Education and Research") for n in ii_names}
     ii_nirf_long = nirf_block_for(list(long_names.values()), ["Research Institutions", "Overall"])
