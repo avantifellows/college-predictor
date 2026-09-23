@@ -140,6 +140,12 @@ const expandedFields = {
     { key: "Round", label: "Round" },
     { key: "Opening Rank", label: "Opening Rank (JEE Main)" },
   ],
+  // AIIMS B.Sc. Nursing (2025; entrance overall ranks, loosest of 2 rounds)
+  "AIIMS Nursing": [
+    { key: "Year", label: "Data Year" },
+    { key: "Round", label: "Round" },
+    { key: "Opening Rank", label: "Opening Rank" },
+  ],
   // AP EAPCET - Andhra Pradesh (2025 consolidated)
   "AP EAPCET": [
     { key: "Year", label: "Data Year" },
@@ -409,10 +415,15 @@ const PredictedCollegesTable = ({
     "TGEAPCET",
     "OJEE",
     "JAC Chandigarh",
+    "AIIMS Nursing",
     "CLAT",
     "GUJCET",
   ]);
-  const supportsCompare = isJosaaExam || NAME_LINK_EXAMS.has(exam);
+  // AIIMS cards are MCC (medical) colleges, which /compare leaves out:
+  // name links yes, compare boxes no
+  const NO_COMPARE_EXAMS = new Set(["AIIMS Nursing"]);
+  const supportsCompare =
+    (isJosaaExam || NAME_LINK_EXAMS.has(exam)) && !NO_COMPARE_EXAMS.has(exam);
   const slugOf = (x) =>
     String(x || "")
       .toLowerCase()
@@ -629,6 +640,11 @@ const PredictedCollegesTable = ({
       // exam rank (which exists, for other courses).
       { key: "closing_rank", label: "Closing Rank (JEE Main)" },
     ],
+    "AIIMS Nursing": [
+      { key: "institute", label: "Institute" },
+      { key: "seat_category", label: "Seat" },
+      { key: "closing_rank", label: "Closing Rank" },
+    ],
     "JAC Chandigarh": [
       { key: "institute", label: "Institute" },
       { key: "academic_program_name", label: "Program" },
@@ -741,6 +757,15 @@ const PredictedCollegesTable = ({
         "Rural/Urban": item["Rural/Urban"],
         "Category_Key": item["Category_Key"],
         "Closing Rank": item["Closing Rank"],
+      };
+    }
+    if (exam === "AIIMS Nursing") {
+      return {
+        ...item,
+        institute: item["Institute"],
+        academic_program_name: "B.Sc. (Hons.) Nursing",
+        seat_category: item["Seat Category"],
+        closing_rank: item["Closing Rank"],
       };
     }
     if (exam === "JAC Chandigarh") {

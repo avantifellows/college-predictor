@@ -46,7 +46,8 @@ def main() -> int:
         chk(c["college_id"], "missing college_id", c)
         chk(c["display_name"].strip(), "empty display_name", c)
         chk(c["entrance_exams"], "no entrance exam", c)
-        chk(all(e in (("NEET-UG",) if medical else ("JEE Main", "JEE Advanced"))
+        # AIIMS-EE: the AIIMS cards also carry B.Sc. (Hons.) Nursing
+        chk(all(e in (("NEET-UG", "AIIMS-EE") if medical else ("JEE Main", "JEE Advanced"))
                 for e in c["entrance_exams"]) or mhtcet,
             "unexpected entrance exam", c, str(c["entrance_exams"]))
         # a JoSAA row may lack an AISHE code (crosswalk gap) but then the
@@ -90,7 +91,9 @@ def main() -> int:
         # a state-spine college may publish only reserved-category rows
         chk(prog["count"] > 0 or mhtcet, "zero programs", c)
         chk(prog["count"] == len(prog["list"]), "count does not match list length", c)
-        ranks = [p["indicative_closing_rank"] for p in prog["list"]]
+        # a programme on its own rank scale (AIIMS nursing on an MBBS card)
+        # names it in rank_label; the rules below are about the card's column
+        ranks = [p["indicative_closing_rank"] for p in prog["list"] if not p.get("rank_label")]
         if medical:
             # medical rows carry NMC seats instead of a JoSAA closing rank
             chk(all(r is None for r in ranks), "medical row with a JoSAA rank", c)

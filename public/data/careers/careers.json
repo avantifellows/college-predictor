@@ -3425,7 +3425,7 @@
    },
    {
     "college": "The National Law Institute University (NLIU), Bhopal",
-    "branch": "B.Sc. LL.B.",
+    "branch": "B.Sc. LL.B. (Hons.) Cyber Security",
     "exam": "CLAT",
     "closing": "698",
     "q": "The National Law Institute University (NLIU), Bhopal"
@@ -3837,12 +3837,12 @@
     "href": "/predictor?exam=TNEA"
    },
    {
-    "label": "DAT-Mains",
-    "href": "/exams?q=DAT-Mains"
-   },
-   {
     "label": "UCEED",
     "href": "/exams?q=UCEED"
+   },
+   {
+    "label": "DAT-Mains",
+    "href": "/exams?q=DAT-Mains"
    }
   ],
   "top_colleges": [
@@ -5802,12 +5802,12 @@
     "href": "/exams?q=JEE Advanced"
    },
    {
-    "label": "KEA-CET",
-    "href": "/exams?q=KEA-CET"
-   },
-   {
     "label": "MHT-CET",
     "href": "/exams?q=MHT-CET"
+   },
+   {
+    "label": "KEA-CET",
+    "href": "/exams?q=KEA-CET"
    }
   ],
   "top_colleges": [
@@ -6774,7 +6774,7 @@
   "college_options": [
    {
     "college": "National Law School of India University (NLSIU), Bengaluru",
-    "branch": "B.A. LL.B.",
+    "branch": "B.A. LL.B. (Hons.)",
     "exam": "CLAT",
     "closing": "120",
     "q": "National Law School of India University (NLSIU), Bengaluru"
@@ -7163,12 +7163,12 @@
     "href": "/exams?q=CUET"
    },
    {
-    "label": "CMI-EE",
-    "href": "/exams?q=CMI-EE"
-   },
-   {
     "label": "ISI-AT",
     "href": "/exams?q=ISI-AT"
+   },
+   {
+    "label": "CMI-EE",
+    "href": "/exams?q=CMI-EE"
    }
   ],
   "top_colleges": [
@@ -8434,6 +8434,10 @@
   "entry_exams_text": "NEET (National Eligibility cum Entrance Test) is increasingly required by many states for B.Sc. Nursing admission, though many colleges also admit based on Class 12 marks in Science subjects.",
   "exams": [
    {
+    "label": "AIIMS-EE",
+    "href": "/exams?q=AIIMS-EE"
+   },
+   {
     "label": "NEET-UG",
     "href": "/exams?q=NEET"
    }
@@ -8488,6 +8492,13 @@
     "exam": "NEET",
     "closing": "45,932 (AIQ)",
     "q": null
+   },
+   {
+    "college": "All India Institute of Medical Sciences, New Delhi",
+    "branch": "B.Sc. (Hons.) Nursing",
+    "exam": "AIIMS-EE",
+    "closing": "166 (AIIMS nursing rank)",
+    "q": "All India Institute of Medical Sciences, New Delhi"
    }
   ],
   "notable_people": [

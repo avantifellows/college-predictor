@@ -259,8 +259,9 @@ def main():
             card["colleges_link"] = "/colleges?exam=MHT CET"
         elif fam in SPINE_EXAM_LABEL:
             card["colleges_link"] = f"/colleges?exam={SPINE_EXAM_LABEL[fam]}"
-        elif acro in ("CUET (UG)", "IAT"):
-            # DU colleges (CUET) and the IISERs (IAT) live on the tab too
+        elif acro in ("CUET (UG)", "IAT", "AIIMS-EE"):
+            # DU colleges (CUET), the IISERs (IAT) and the AIIMS (nursing)
+            # live on the tab too
             card["colleges_link"] = f"/colleges?exam={acro}"
         else:
             card["colleges_link"] = None

@@ -304,8 +304,8 @@
   "remarks": "An Interview carrying 30 marks to follow after Test. Personnel Assessment to follow.",
   "replaces": null,
   "aliases": null,
-  "predictor_exam": null,
-  "open_data_id": null,
+  "predictor_exam": "AIIMS Nursing",
+  "open_data_id": "aiimsnursing",
   "careers": [
    {
     "label": "Nursing",
@@ -316,7 +316,7 @@
     "slug": "paramedical"
    }
   ],
-  "colleges_link": null
+  "colleges_link": "/colleges?exam=AIIMS-EE"
  },
  {
   "exam_id": "aiish-et",
@@ -2668,7 +2668,7 @@
    "TISS-BAT (Bachelor Aptitude Test)"
   ],
   "predictor_exam": null,
-  "open_data_id": null,
+  "open_data_id": "ducuet",
   "careers": [
    {
     "label": "Agriculture",
@@ -3504,7 +3504,7 @@
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
-  "open_data_id": null,
+  "open_data_id": "iiser",
   "careers": [
    {
     "label": "Physics",

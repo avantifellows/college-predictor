@@ -1895,6 +1895,36 @@ def main():
           f"  with aishe {sum(1 for x in med_rows if x['aishe_code'])}")
     rows += med_rows
 
+    # ── AIIMS B.Sc. (Hons.) Nursing on the 18 AIIMS cards ──────────────────
+    # A second programme with its OWN rank scale (AIIMS nursing entrance
+    # overall rank), so it carries rank_label and the card's column header
+    # ignores it. Open number = UR seat, loosest of the rounds.
+    nursing = client.query(f"""
+    SELECT institute, MAX(closing_rank) AS closing, MAX(year) AS year
+    FROM `{D}.aiimsnursing_fact_cutoffs` WHERE seat_category = 'UR'
+    GROUP BY 1""").to_dataframe()
+    aiims_city = {"DELHI": "new delhi", "BHATINDA": "bathinda",
+                  "MANGLAGIRI": "mangalagiri", "RAEBARELI": "rae bareli"}
+    aiims_cards = [r for r in rows if r["name"].lower().startswith("all india institute of medical")]
+    for x in nursing.itertuples():
+        key = x.institute.removeprefix("AIIMS ")
+        city = aiims_city.get(key, key.lower())
+        hits = [r for r in aiims_cards if city in r["name"].lower()]
+        assert len(hits) == 1, (x.institute, [h["name"] for h in hits])
+        card = hits[0]
+        card["programs"]["list"].append({
+            "branch": "B.Sc. (Hons.) Nursing", "years": 4, "degree": "B.Sc. (Hons.)",
+            "indicative_closing_rank": int(x.closing),
+            "indicative_opening_rank": None,
+            "rank_label": "closing rank, AIIMS nursing",
+            "career_id": "nursing",
+        })
+        card["programs"]["count"] = len(card["programs"]["list"])
+        card["programs"]["degrees"] = sorted(set(card["programs"]["degrees"]) | {"B.Sc. (Hons.)"})
+        if "AIIMS-EE" not in card["entrance_exams"]:
+            card["entrance_exams"] = card["entrance_exams"] + ["AIIMS-EE"]
+    print(f"  AIIMS nursing programme on {len(nursing)} AIIMS cards")
+
     rows.sort(key=lambda z: (z["nirf"] is None,
                              z["nirf"]["rank"] if z["nirf"] else 0,
                              z["display_name"]))

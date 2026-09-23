@@ -1998,6 +1998,57 @@ export const jacChandigarhConfig = {
   getSort: () => [["Closing Rank", "ASC"]],
 };
 
+export const aiimsNursingConfig = {
+  name: "AIIMS B.Sc. (Hons.) Nursing",
+  searchKeys: ["Institute"],
+  // allotted on the AIIMS B.Sc. Nursing entrance OVERALL rank, 18 AIIMS
+  // (scripts/build_aiimsnursing_2025.py)
+  primaryInput: integerInput(
+    "Enter AIIMS B.Sc. Nursing Rank",
+    "Enter AIIMS B.Sc. Nursing overall rank"
+  ),
+  fields: [
+    {
+      name: "category",
+      label: "Select Category",
+      options: ["UR", "EWS", "OBC", "SC", "ST"],
+    },
+    {
+      name: "isPWD",
+      label: "Are you a PwBD Student?",
+      options: ["No", "Yes"],
+    },
+  ],
+  getDataPath: () => {
+    return path.join(
+      process.cwd(),
+      "public",
+      "data",
+      "AIIMSNURSING",
+      "aiimsnursing_data.json"
+    );
+  },
+  getFilters: (query) => [
+    // UR seats are open to every category; PwBD seats only to PwBD
+    // candidates of that category
+    (item) => {
+      const seats = ["UR", query.category];
+      if (query.isPWD === "Yes") {
+        seats.push("UR-PWBD", `${query.category}-PWBD`);
+      }
+      return seats.includes(item["Seat Category"]);
+    },
+    (item) => {
+      if (!query.rank) return true;
+      const closingRank = parseInt(item["Closing Rank"], 10);
+      const userRank = parseInt(query.rank, 10);
+      if (isNaN(closingRank) || isNaN(userRank)) return false;
+      return closingRank >= userRank;
+    },
+  ],
+  getSort: () => [["Closing Rank", "ASC"]],
+};
+
 export const clatConfig = {
   name: "CLAT",
   searchKeys: ["Institute", "Academic Program Name"],
@@ -2094,6 +2145,7 @@ export const examConfigs = {
   "AP EAPCET": apEapcetConfig,
   "OJEE": ojeeConfig,
   "JAC Chandigarh": jacChandigarhConfig,
+  "AIIMS Nursing": aiimsNursingConfig,
   "CLAT": clatConfig,
   "TGEAPCET": tseApertConfig,
 };

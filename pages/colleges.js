@@ -256,7 +256,9 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
                               )
                                 ? "CUET score"
                                 : c.programs.list.some(
-                                    (p) => p.indicative_closing_rank != null
+                                    (p) =>
+                                      p.indicative_closing_rank != null &&
+                                      !p.rank_label
                                   ) ||
                                   !c.programs.list.some((p) => p.seats != null)
                                 ? "Closing rank"
@@ -292,6 +294,14 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
                                 {p.indicative_closing_rank ??
                                   p.indicative_min_score ??
                                   p.seats ?? <Dash />}
+                                {/* a programme on another rank scale than
+                                    the column (AIIMS nursing on an MBBS card)
+                                    names its own */}
+                                {p.rank_label ? (
+                                  <span className="block text-[11px] text-[#7a6159]">
+                                    {p.rank_label}
+                                  </span>
+                                ) : null}
                               </td>
                             </tr>
                           ))}

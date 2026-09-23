@@ -15,12 +15,14 @@
   "website": "aiims.edu",
   "university": "Statutory Autonomous, AIIMS(New Delhi)",
   "entrance_exams": [
-   "NEET-UG"
+   "NEET-UG",
+   "AIIMS-EE"
   ],
   "counselling": "MCC / state NEET counselling",
   "programs": {
-   "count": 1,
+   "count": 2,
    "degrees": [
+    "B.Sc. (Hons.)",
     "MBBS"
    ],
    "list": [
@@ -32,6 +34,15 @@
      "indicative_closing_rank": null,
      "indicative_opening_rank": null,
      "career_id": "medicine-mbbs"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Nursing",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": 166,
+     "indicative_opening_rank": null,
+     "rank_label": "closing rank, AIIMS nursing",
+     "career_id": "nursing"
     }
    ],
    "source": "NMC 2024-25",
@@ -5918,12 +5929,14 @@
   "website": "www.aiimsrishikesh.edu.in",
   "university": "Statutory Autonomous, AIIMS(Rishikesh)",
   "entrance_exams": [
-   "NEET-UG"
+   "NEET-UG",
+   "AIIMS-EE"
   ],
   "counselling": "MCC / state NEET counselling",
   "programs": {
-   "count": 1,
+   "count": 2,
    "degrees": [
+    "B.Sc. (Hons.)",
     "MBBS"
    ],
    "list": [
@@ -5935,6 +5948,15 @@
      "indicative_closing_rank": null,
      "indicative_opening_rank": null,
      "career_id": "medicine-mbbs"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Nursing",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": 602,
+     "indicative_opening_rank": null,
+     "rank_label": "closing rank, AIIMS nursing",
+     "career_id": "nursing"
     }
    ],
    "source": "NMC 2024-25",
@@ -6834,12 +6856,14 @@
   "website": "www.aiimsbhubaneswar.edu.in",
   "university": "Statutory Autonomous, AIIMS(Bhubaneswar)",
   "entrance_exams": [
-   "NEET-UG"
+   "NEET-UG",
+   "AIIMS-EE"
   ],
   "counselling": "MCC / state NEET counselling",
   "programs": {
-   "count": 1,
+   "count": 2,
    "degrees": [
+    "B.Sc. (Hons.)",
     "MBBS"
    ],
    "list": [
@@ -6851,6 +6875,15 @@
      "indicative_closing_rank": null,
      "indicative_opening_rank": null,
      "career_id": "medicine-mbbs"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Nursing",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": 928,
+     "indicative_opening_rank": null,
+     "rank_label": "closing rank, AIIMS nursing",
+     "career_id": "nursing"
     }
    ],
    "source": "NMC 2024-25",
@@ -8483,12 +8516,14 @@
   "website": "www.aiimsjodhpur.edu.in",
   "university": "Statutory Autonomous, AIIMS(Jodhpur)",
   "entrance_exams": [
-   "NEET-UG"
+   "NEET-UG",
+   "AIIMS-EE"
   ],
   "counselling": "MCC / state NEET counselling",
   "programs": {
-   "count": 1,
+   "count": 2,
    "degrees": [
+    "B.Sc. (Hons.)",
     "MBBS"
    ],
    "list": [
@@ -8500,6 +8535,15 @@
      "indicative_closing_rank": null,
      "indicative_opening_rank": null,
      "career_id": "medicine-mbbs"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Nursing",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": 512,
+     "indicative_opening_rank": null,
+     "rank_label": "closing rank, AIIMS nursing",
+     "career_id": "nursing"
     }
    ],
    "source": "NMC 2024-25",
@@ -9892,12 +9936,14 @@
   "website": "www.aiimsbhopal.edu.in",
   "university": "Statutory Autonomous, AIIMS(Bhopal)",
   "entrance_exams": [
-   "NEET-UG"
+   "NEET-UG",
+   "AIIMS-EE"
   ],
   "counselling": "MCC / state NEET counselling",
   "programs": {
-   "count": 1,
+   "count": 2,
    "degrees": [
+    "B.Sc. (Hons.)",
     "MBBS"
    ],
    "list": [
@@ -9909,6 +9955,15 @@
      "indicative_closing_rank": null,
      "indicative_opening_rank": null,
      "career_id": "medicine-mbbs"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Nursing",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": 907,
+     "indicative_opening_rank": null,
+     "rank_label": "closing rank, AIIMS nursing",
+     "career_id": "nursing"
     }
    ],
    "source": "NMC 2024-25",
@@ -10838,12 +10893,14 @@
   "website": "http://www.aiimspatna.edu.in",
   "university": "Statutory Autonomous, AIIMS(Patna)",
   "entrance_exams": [
-   "NEET-UG"
+   "NEET-UG",
+   "AIIMS-EE"
   ],
   "counselling": "MCC / state NEET counselling",
   "programs": {
-   "count": 1,
+   "count": 2,
    "degrees": [
+    "B.Sc. (Hons.)",
     "MBBS"
    ],
    "list": [
@@ -10855,6 +10912,15 @@
      "indicative_closing_rank": null,
      "indicative_opening_rank": null,
      "career_id": "medicine-mbbs"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Nursing",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": 1337,
+     "indicative_opening_rank": null,
+     "rank_label": "closing rank, AIIMS nursing",
+     "career_id": "nursing"
     }
    ],
    "source": "NMC 2024-25",
@@ -13247,12 +13313,14 @@
   "website": "www.aiimsraipur.edu.in",
   "university": "Statutory Autonomous, AIIMS(Raipur)",
   "entrance_exams": [
-   "NEET-UG"
+   "NEET-UG",
+   "AIIMS-EE"
   ],
   "counselling": "MCC / state NEET counselling",
   "programs": {
-   "count": 1,
+   "count": 2,
    "degrees": [
+    "B.Sc. (Hons.)",
     "MBBS"
    ],
    "list": [
@@ -13264,6 +13332,15 @@
      "indicative_closing_rank": null,
      "indicative_opening_rank": null,
      "career_id": "medicine-mbbs"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Nursing",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": 1492,
+     "indicative_opening_rank": null,
+     "rank_label": "closing rank, AIIMS nursing",
+     "career_id": "nursing"
     }
    ],
    "source": "NMC 2024-25",
@@ -56814,12 +56891,14 @@
   "website": "https://www.aiimsjammu.edu.in/",
   "university": null,
   "entrance_exams": [
-   "NEET-UG"
+   "NEET-UG",
+   "AIIMS-EE"
   ],
   "counselling": "MCC / state NEET counselling",
   "programs": {
-   "count": 1,
+   "count": 2,
    "degrees": [
+    "B.Sc. (Hons.)",
     "MBBS"
    ],
    "list": [
@@ -56831,6 +56910,15 @@
      "indicative_closing_rank": null,
      "indicative_opening_rank": null,
      "career_id": "medicine-mbbs"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Nursing",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": 1600,
+     "indicative_opening_rank": null,
+     "rank_label": "closing rank, AIIMS nursing",
+     "career_id": "nursing"
     }
    ],
    "source": "NMC 2024-25",
@@ -56871,12 +56959,14 @@
   "website": "https://aiimsguwahati.ac.in",
   "university": null,
   "entrance_exams": [
-   "NEET-UG"
+   "NEET-UG",
+   "AIIMS-EE"
   ],
   "counselling": "MCC / state NEET counselling",
   "programs": {
-   "count": 1,
+   "count": 2,
    "degrees": [
+    "B.Sc. (Hons.)",
     "MBBS"
    ],
    "list": [
@@ -56888,6 +56978,15 @@
      "indicative_closing_rank": null,
      "indicative_opening_rank": null,
      "career_id": "medicine-mbbs"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Nursing",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": 1707,
+     "indicative_opening_rank": null,
+     "rank_label": "closing rank, AIIMS nursing",
+     "career_id": "nursing"
     }
    ],
    "source": "NMC 2024-25",
@@ -56928,12 +57027,14 @@
   "website": "https://aiimsbathinda.edu.in",
   "university": "Statutory Autonomous, AIIMS(Bhatinda)",
   "entrance_exams": [
-   "NEET-UG"
+   "NEET-UG",
+   "AIIMS-EE"
   ],
   "counselling": "MCC / state NEET counselling",
   "programs": {
-   "count": 1,
+   "count": 2,
    "degrees": [
+    "B.Sc. (Hons.)",
     "MBBS"
    ],
    "list": [
@@ -56945,6 +57046,15 @@
      "indicative_closing_rank": null,
      "indicative_opening_rank": null,
      "career_id": "medicine-mbbs"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Nursing",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": 1043,
+     "indicative_opening_rank": null,
+     "rank_label": "closing rank, AIIMS nursing",
+     "career_id": "nursing"
     }
    ],
    "source": "NMC 2024-25",
@@ -56985,12 +57095,14 @@
   "website": "www.aiimsbibinagar.edu.in",
   "university": "Statutory Autonomous, AIIMS(Bibinagar)",
   "entrance_exams": [
-   "NEET-UG"
+   "NEET-UG",
+   "AIIMS-EE"
   ],
   "counselling": "MCC / state NEET counselling",
   "programs": {
-   "count": 1,
+   "count": 2,
    "degrees": [
+    "B.Sc. (Hons.)",
     "MBBS"
    ],
    "list": [
@@ -57002,6 +57114,15 @@
      "indicative_closing_rank": null,
      "indicative_opening_rank": null,
      "career_id": "medicine-mbbs"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Nursing",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": 1775,
+     "indicative_opening_rank": null,
+     "rank_label": "closing rank, AIIMS nursing",
+     "career_id": "nursing"
     }
    ],
    "source": "NMC 2024-25",
@@ -57042,12 +57163,14 @@
   "website": "https://aiimsbilaspur.edu.in/",
   "university": null,
   "entrance_exams": [
-   "NEET-UG"
+   "NEET-UG",
+   "AIIMS-EE"
   ],
   "counselling": "MCC / state NEET counselling",
   "programs": {
-   "count": 1,
+   "count": 2,
    "degrees": [
+    "B.Sc. (Hons.)",
     "MBBS"
    ],
    "list": [
@@ -57059,6 +57182,15 @@
      "indicative_closing_rank": null,
      "indicative_opening_rank": null,
      "career_id": "medicine-mbbs"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Nursing",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": 1134,
+     "indicative_opening_rank": null,
+     "rank_label": "closing rank, AIIMS nursing",
+     "career_id": "nursing"
     }
    ],
    "source": "NMC 2024-25",
@@ -57099,12 +57231,14 @@
   "website": "http://www.aiimsdeoghar.edu.in",
   "university": "Statutory Autonomous, AIIMS(Deoghar)",
   "entrance_exams": [
-   "NEET-UG"
+   "NEET-UG",
+   "AIIMS-EE"
   ],
   "counselling": "MCC / state NEET counselling",
   "programs": {
-   "count": 1,
+   "count": 2,
    "degrees": [
+    "B.Sc. (Hons.)",
     "MBBS"
    ],
    "list": [
@@ -57116,6 +57250,15 @@
      "indicative_closing_rank": null,
      "indicative_opening_rank": null,
      "career_id": "medicine-mbbs"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Nursing",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": 1555,
+     "indicative_opening_rank": null,
+     "rank_label": "closing rank, AIIMS nursing",
+     "career_id": "nursing"
     }
    ],
    "source": "NMC 2024-25",
@@ -57156,12 +57299,14 @@
   "website": null,
   "university": "Statutory Autonomous, AIIMS(Gorakhpur)",
   "entrance_exams": [
-   "NEET-UG"
+   "NEET-UG",
+   "AIIMS-EE"
   ],
   "counselling": "MCC / state NEET counselling",
   "programs": {
-   "count": 1,
+   "count": 2,
    "degrees": [
+    "B.Sc. (Hons.)",
     "MBBS"
    ],
    "list": [
@@ -57173,6 +57318,15 @@
      "indicative_closing_rank": null,
      "indicative_opening_rank": null,
      "career_id": "medicine-mbbs"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Nursing",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": 1418,
+     "indicative_opening_rank": null,
+     "rank_label": "closing rank, AIIMS nursing",
+     "career_id": "nursing"
     }
    ],
    "source": "NMC 2024-25",
@@ -57213,12 +57367,14 @@
   "website": "www.aiimskalyani.edu.in",
   "university": "Statutory Autonomous, AIIMS(Kalyani)",
   "entrance_exams": [
-   "NEET-UG"
+   "NEET-UG",
+   "AIIMS-EE"
   ],
   "counselling": "MCC / state NEET counselling",
   "programs": {
-   "count": 1,
+   "count": 2,
    "degrees": [
+    "B.Sc. (Hons.)",
     "MBBS"
    ],
    "list": [
@@ -57230,6 +57386,15 @@
      "indicative_closing_rank": null,
      "indicative_opening_rank": null,
      "career_id": "medicine-mbbs"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Nursing",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": 1063,
+     "indicative_opening_rank": null,
+     "rank_label": "closing rank, AIIMS nursing",
+     "career_id": "nursing"
     }
    ],
    "source": "NMC 2024-25",
@@ -57270,12 +57435,14 @@
   "website": "aiimsmangalagiri.edu.in",
   "university": "Statutory Autonomous, AIIMS(Mangalagiri)",
   "entrance_exams": [
-   "NEET-UG"
+   "NEET-UG",
+   "AIIMS-EE"
   ],
   "counselling": "MCC / state NEET counselling",
   "programs": {
-   "count": 1,
+   "count": 2,
    "degrees": [
+    "B.Sc. (Hons.)",
     "MBBS"
    ],
    "list": [
@@ -57287,6 +57454,15 @@
      "indicative_closing_rank": null,
      "indicative_opening_rank": null,
      "career_id": "medicine-mbbs"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Nursing",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": 1747,
+     "indicative_opening_rank": null,
+     "rank_label": "closing rank, AIIMS nursing",
+     "career_id": "nursing"
     }
    ],
    "source": "NMC 2024-25",
@@ -57327,12 +57503,14 @@
   "website": "aiimsnagpur.edu.in",
   "university": "Statutory Autonomous, AIIMS(Nagpur)",
   "entrance_exams": [
-   "NEET-UG"
+   "NEET-UG",
+   "AIIMS-EE"
   ],
   "counselling": "MCC / state NEET counselling",
   "programs": {
-   "count": 1,
+   "count": 2,
    "degrees": [
+    "B.Sc. (Hons.)",
     "MBBS"
    ],
    "list": [
@@ -57344,6 +57522,15 @@
      "indicative_closing_rank": null,
      "indicative_opening_rank": null,
      "career_id": "medicine-mbbs"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Nursing",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": 1496,
+     "indicative_opening_rank": null,
+     "rank_label": "closing rank, AIIMS nursing",
+     "career_id": "nursing"
     }
    ],
    "source": "NMC 2024-25",
@@ -57384,12 +57571,14 @@
   "website": null,
   "university": "Statutory Autonomous, AIIMS(RaeBareli)",
   "entrance_exams": [
-   "NEET-UG"
+   "NEET-UG",
+   "AIIMS-EE"
   ],
   "counselling": "MCC / state NEET counselling",
   "programs": {
-   "count": 1,
+   "count": 2,
    "degrees": [
+    "B.Sc. (Hons.)",
     "MBBS"
    ],
    "list": [
@@ -57401,6 +57590,15 @@
      "indicative_closing_rank": null,
      "indicative_opening_rank": null,
      "career_id": "medicine-mbbs"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Nursing",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": 1363,
+     "indicative_opening_rank": null,
+     "rank_label": "closing rank, AIIMS nursing",
+     "career_id": "nursing"
     }
    ],
    "source": "NMC 2024-25",

@@ -64,6 +64,7 @@ EXAM_LINKS = {
     # counselling on the JEE Main rank with no exam card of its own
     "JAC-Chandigarh": [("JAC Chandigarh", "/predictor?exam=JAC Chandigarh")],
     "CLAT": [("CLAT", "/exams?q=CLAT")],
+    "AIIMS-Nursing": [("AIIMS-EE", "/exams?q=AIIMS-EE")],
     "NEET": [("NEET-UG", "/exams?q=NEET")],
 }
 
@@ -119,7 +120,9 @@ def exam_mentions(text, exam_cards):
     out = []
     if pd.isna(text):
         return out
-    tokens = set(re.findall(r"\b[A-Z][A-Z-]{2,}[A-Za-z]*\b", str(text)))
+    # first-appearance order: a set's order changes run to run (hash
+    # randomisation), which reshuffled chips on every rebuild
+    tokens = dict.fromkeys(re.findall(r"\b[A-Z][A-Z-]{2,}[A-Za-z]*\b", str(text)))
     for tok in tokens:
         k = norm(tok)
         for card in exam_cards:
@@ -173,13 +176,16 @@ OPTION_SOURCES = {
              "Closing Rank", False, ""),
     "TNEA": ("public/data/TNEA/tnea_data.json", "Branch",
              lambda r: True, "Cutoff Marks", True, "/200 marks"),
+    "AIIMS-Nursing": ("public/data/AIIMSNURSING/aiimsnursing_data.json", "Academic Program Name",
+                      lambda r: r.get("Seat Category") == "UR",
+                      "Closing Rank", False, " (AIIMS nursing rank)"),
     # last: five colleges in one city only fill spare slots
     "JAC-Chandigarh": ("public/data/JACCHD/jacchd_data.json", "Academic Program Name",
                        lambda r: r.get("Category") == "General",
                        "Closing Rank", False, " (JEE Main rank)"),
 }
 
-EXAM_LABEL = {"JAC-Chandigarh": "JAC Chandigarh"}
+EXAM_LABEL = {"JAC-Chandigarh": "JAC Chandigarh", "AIIMS-Nursing": "AIIMS-EE"}
 
 _option_cache = {}
 
@@ -239,7 +245,7 @@ def college_options(branch_id, em, tab_link, per_exam=1, total=6):
             display = (f"{v:g}{suffix}" if higher
                        else f"{int(v):,}{suffix}")
             out.append({"college": college,
-                        "branch": str(prog).split(" (")[0],
+                        "branch": re.split(r" \((?!Hons)", str(prog))[0],
                         "exam": label, "closing": display,
                         "q": tab_link(college)})
     return out[:total]
@@ -249,7 +255,7 @@ COLLEGES_TAB = "public/data/colleges/colleges.json"
 NIRF_LISTS_BY_BRANCH = {
     "ARCH": {"Architecture"}, "PLAN": {"Architecture"},
     "PHARMA": {"Pharmacy"}, "MBBS": {"Medical"}, "DENTAL": {"Medical", "Dental"},
-    "LLB": {"Law"},
+    "LLB": {"Law"}, "NURSING": {"Medical"},
 }
 NIRF_BY_DISPLAY = {c["display_name"]: (c["nirf"]["category"], c["nirf"]["rank"])
                    for c in json.load(open(COLLEGES_TAB)) if c.get("nirf")}
