@@ -242,10 +242,17 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
                             </th>
                             <th className="px-2 py-1.5 text-right font-semibold">
                               {c.programs.list.some(
-                                (p) => p.indicative_closing_rank != null
-                              ) || !c.programs.list.some((p) => p.seats != null)
-                                ? "Closing rank"
-                                : "Annual seats"}
+                                (p) => p.indicative_min_score != null
+                              )
+                                ? "CUET score"
+                                : c.programs.list.some(
+                                      (p) => p.indicative_closing_rank != null
+                                    ) ||
+                                    !c.programs.list.some(
+                                      (p) => p.seats != null
+                                    )
+                                  ? "Closing rank"
+                                  : "Annual seats"}
                             </th>
                           </tr>
                         </thead>
@@ -274,9 +281,9 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
                                 {p.years ? ` · ${p.years} yr` : ""}
                               </td>
                               <td className="px-2 py-1.5 text-right tabular-nums text-[#332724]">
-                                {p.indicative_closing_rank ?? p.seats ?? (
-                                  <Dash />
-                                )}
+                                {p.indicative_closing_rank ??
+                                  p.indicative_min_score ??
+                                  p.seats ?? <Dash />}
                               </td>
                             </tr>
                           ))}
@@ -613,8 +620,8 @@ const Colleges = () => {
     c.disciplines?.length
       ? c.disciplines
       : String(c.counselling).startsWith("MCC")
-      ? ["Medicine"]
-      : [];
+        ? ["Medicine"]
+        : [];
   const [sortKey, setSortKey] = useState("nirf");
   // Same pattern as the predictor's salary ⓘ: a positioned card, not the
   // browser's native title box (which renders late, unstyled, and turns the

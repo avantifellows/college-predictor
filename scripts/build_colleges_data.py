@@ -560,6 +560,18 @@ def match_nirf_to_mhtcet(nirf_mh, colleges):
             hits = [c for c, _, _, t in by_code if n_toks and n_toks <= t]
         if len(set(hits)) == 1:
             out[r.institute_id] = hits[0]
+    # NIRF re-issues an institute's id when the format changes
+    # (IR-2-C-OC-C-22470 in 2018, IR-C-C-22470 since) but keeps the trailing
+    # number. A name match on one spelling ("St. Stephen`s", 2018) must pull
+    # in every sibling id, or the college shows a 2018 rank as current.
+    def tail(iid):
+        m = re.search(r"(\d+)$", str(iid))
+        return m.group(1) if m else None
+    code_by_tail = {tail(i): c for i, c in out.items() if tail(i)}
+    for iid in nirf_mh["institute_id"].unique():
+        t = tail(iid)
+        if t in code_by_tail and iid not in out:
+            out[iid] = code_by_tail[t]
     return out
 
 
@@ -1636,6 +1648,155 @@ def main():
             })
         print(f"  {exam}: {len(allc)} rows, NIRF {n_nirf}, placement {n_place}")
     rows += spine_rows
+
+    # ── DU (CUET-UG) and IISER (IAT) ────────────────────────────────────────
+    # DU publishes minimum allocation SCORES (higher = harder), not ranks:
+    # they ride `indicative_min_score`, never the rank field. IISER closing
+    # ranks are IAT overall ranks (loosest across rounds, UR).
+    import re as _re
+    careers_file_ids = {c["career_id"] for c in json.load(open("public/data/careers/careers.json"))}
+    PROGRAM_CAREER = [  # first keyword hit wins; only ids that exist are used
+        (r"b\.?\s?com|commerce|accounting", "commerce"),
+        (r"economic", "economics"), (r"psycholog", "psychology"),
+        (r"political", "political-science"), (r"histor", "history"),
+        (r"english", "english"), (r"journalism|mass comm", "journalism"),
+        (r"social work", "social-work"), (r"elementary education|b\.el\.ed", "teaching"),
+        (r"computer science|informatics|data science", "computer-science-information-technology"),
+        (r"biomedical", "biomedical-engineering"), (r"biochem", "biochemistry"),
+        (r"botany", "botany"), (r"zoology", "zoology"), (r"microbio|life science|biolog", "biology"),
+        (r"physics", "physics"), (r"chemistry|chemical engineering", "chemistry"),
+        (r"mathemat|statistic", "mathematics"), (r"music", "music"),
+        (r"food technology", "food-engineering"),
+        (r"electrical engineering", "electrical-electronics-communications-engineering"),
+        (r"bs-ms|computational", "natural-science"),
+    ]
+    def career_of_program(name):
+        n = name.lower()
+        if "chemical engineering" in n:
+            return "chemical-engineering" if "chemical-engineering" in careers_file_ids else None
+        for pat, cid in PROGRAM_CAREER:
+            if _re.search(pat, n):
+                return cid if cid in careers_file_ids else None
+        return None
+
+    du = client.query(f"""
+    SELECT college_name, program_name,
+           MAX(IF(category = 'UR', min_allocation_score, NULL)) AS ur_score
+    FROM `{D}.ducuet_fact_cutoffs` GROUP BY 1, 2""").to_dataframe()
+    iiser = client.query(f"""
+    SELECT institute, program_name, MAX(IF(category = 'UR', closing_rank, NULL)) AS ur_rank,
+           MAX(year) AS year
+    FROM `{D}.iiser_fact_cutoffs` GROUP BY 1, 2""").to_dataframe()
+    nirf_extra = client.query(f"""
+    SELECT institute_id, institute_name, state, ranking_category, ranking_year,
+           nirf_rank, overall_score
+    FROM `{D}.nirf_fact_rankings`
+    WHERE nirf_rank IS NOT NULL
+      AND ranking_category IN ('College', 'Research Institutions', 'Overall')""").to_dataframe()
+    nirf_extra_by_id = {iid: g.sort_values("ranking_year", ascending=False)
+                        for iid, g in nirf_extra.groupby("institute_id")}
+
+    def nirf_block_for(names, cats, state=None):
+        pool = nirf_extra[nirf_extra.ranking_category.isin(cats)]
+        if state:
+            pool = pool[pool.state == state]
+        frame = pd.DataFrame({"college_code": names, "college_name": names})
+        ids = match_nirf_to_mhtcet(pool, frame)
+        by_name = {}
+        for iid, nm in ids.items():
+            by_name.setdefault(nm, set()).add(iid)
+        out = {}
+        for nm, iids in by_name.items():
+            g = pd.concat([nirf_extra_by_id[i] for i in iids if i in nirf_extra_by_id])
+            g = g[g.ranking_category.isin(cats)]
+            # prefer the first category in `cats` the college is ranked in
+            for cat in cats:
+                gc = g[g.ranking_category == cat].drop_duplicates(subset=["ranking_year"]).sort_values("ranking_year", ascending=False)
+                if len(gc):
+                    top = gc.iloc[0]
+                    out[nm] = {
+                        "category": "Research" if cat.startswith("Research") else cat,
+                        "rank": int(top.nirf_rank),
+                        "score": round(float(top.overall_score), 2) if top.overall_score == top.overall_score else None,
+                        "ranking_year": int(top.ranking_year),
+                        "rank_history": [{"year": int(x.ranking_year), "rank": int(x.nirf_rank),
+                                          "score": round(float(x.overall_score), 2) if x.overall_score == x.overall_score else None}
+                                         for x in gc.head(6).itertuples()],
+                    }
+                    break
+        return out
+
+    def base_row(cid, name, state, exam, counselling, programs, nirf_block, disciplines, source):
+        return {
+            "college_id": cid, "aishe_code": None, "name": name, "display_name": name,
+            "state": state, "state_is_inferred": False, "district": None,
+            "kind": None, "management": None,
+            "ownership": "Public", "disciplines": disciplines, "year_established": None,
+            "website": None, "university": None, "entrance_exams": [exam],
+            "counselling": counselling, "programs": programs, "nirf": nirf_block,
+            "ug_gender": None, "fees": None, "placement": None,
+            "naac": {"grade": None, "cgpa": None, "cycle": None, "not_applicable_reason": None},
+            "data_sources": {"identity": source, "programs": source,
+                             "ranking": f"NIRF {nirf_block['ranking_year']}" if nirf_block else None,
+                             "placement": None, "accreditation": None},
+        }
+
+    du = du.assign(college_name=du.college_name.str.replace("Hansraj", "Hans Raj", regex=False))
+    du_names = sorted(du.college_name.unique())
+    du_nirf = nirf_block_for(du_names, ["College", "Overall"], state="Delhi")
+    du_rows = []
+    for nm, g in du.groupby("college_name"):
+        lst = []
+        for x in g.itertuples():
+            deg = _re.match(r"^(B\.?\s?[A-Za-z.]+(?:\s*\((?:Hons|Prog)\.?\))?)", x.program_name)
+            lst.append({"branch": x.program_name, "years": 3 if "B.Tech" not in x.program_name else 4,
+                        "degree": deg.group(1).strip() if deg else "UG",
+                        "indicative_closing_rank": None, "indicative_opening_rank": None,
+                        "indicative_min_score": None if pd.isna(x.ur_score) else round(float(x.ur_score), 1),
+                        "career_id": career_of_program(x.program_name)})
+        lst.sort(key=lambda z: (z["indicative_min_score"] is None, -(z["indicative_min_score"] or 0), z["branch"]))
+        disc = sorted({("Commerce" if "com" in p["branch"].lower() else
+                        "Science" if "b.sc" in p["branch"].lower() else "Arts") for p in lst})
+        programs = {"count": len(lst), "degrees": sorted({p["degree"] for p in lst}), "list": lst,
+                    "source": "DU CSAS 2025, rounds 1-3",
+                    "rank_note": "Lowest open-category CUET score that got a seat (out of about 1000 for most courses)."}
+        # full-name slug: DU lists day and evening colleges separately
+        # ("Satyawati College" / "… (Evening)"), and _mnorm drops brackets
+        du_rows.append(base_row("du:" + re.sub(r"[^a-z0-9]+", "-", nm.lower()).strip("-")[:70], re.sub(r"\s+", " ", nm).strip(), "Delhi",
+                                "CUET (UG)", "DU CSAS (CUET-UG)", programs, du_nirf.get(nm), disc,
+                                "University of Delhi CSAS 2025"))
+
+    ii_names = sorted(iiser.institute.unique())
+    long_names = {n: n.replace("IISER", "Indian Institute of Science Education and Research") for n in ii_names}
+    ii_nirf_long = nirf_block_for(list(long_names.values()), ["Research Institutions", "Overall"])
+    iiser_state = {"Berhampur": "Odisha", "Bhopal": "Madhya Pradesh", "Kolkata": "West Bengal",
+                   "Mohali": "Punjab", "Pune": "Maharashtra", "Thiruvananthapuram": "Kerala",
+                   "Tirupati": "Andhra Pradesh"}
+    ii_rows = []
+    for inst, g in iiser.groupby("institute"):
+        lst = []
+        for x in g.itertuples():
+            prog = x.program_name.replace(inst, "").strip()
+            deg = "B.Tech" if prog.startswith("B.Tech") else "BS-MS" if prog.startswith("BS-MS") else "BS"
+            lst.append({"branch": prog, "years": 5 if deg == "BS-MS" else 4, "degree": deg,
+                        "indicative_closing_rank": None if pd.isna(x.ur_rank) else int(x.ur_rank),
+                        "indicative_opening_rank": None,
+                        "career_id": career_of_program(prog)})
+        lst.sort(key=lambda z: (z["indicative_closing_rank"] is None, z["indicative_closing_rank"] or 0))
+        programs = {"count": len(lst), "degrees": sorted({p["degree"] for p in lst}), "list": lst,
+                    "source": "IISER admissions 2025, rounds 1-9",
+                    "rank_note": "Indicative open-category IAT overall closing rank."}
+        city = inst.replace("IISER ", "")
+        disc = sorted({"Engineering" if p["degree"] == "B.Tech" else "Science" for p in lst})
+        ii_rows.append(base_row(f"iiser:{city.lower()}", inst.replace("IISER", "Indian Institute of Science Education and Research"),
+                                iiser_state.get(city), "IAT", "IISER Joint Admissions (IAT)",
+                                programs, ii_nirf_long.get(long_names[inst]), disc,
+                                "IISER Admissions 2025"))
+    print(f"  DU rows {len(du_rows)} (NIRF {sum(1 for r in du_rows if r['nirf'])}),"
+          f" IISER rows {len(ii_rows)} (NIRF {sum(1 for r in ii_rows if r['nirf'])}),"
+          f" career-linked DU programmes {sum(1 for r in du_rows for p in r['programs']['list'] if p['career_id'])}"
+          f"/{sum(r['programs']['count'] for r in du_rows)}")
+    rows += du_rows + ii_rows
 
     print(f"  medical rows {len(med_rows)}"
           f"  with NIRF {sum(1 for x in med_rows if x['nirf'])}"

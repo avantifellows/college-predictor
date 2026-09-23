@@ -27,7 +27,7 @@
    },
    {
     "name": "Shri Ram College of Commerce",
-    "q": null
+    "q": "Shri Ram College of Commerce"
    },
    {
     "name": "Symbiosis Centre for Management Studies",
@@ -883,7 +883,7 @@
    },
    {
     "name": "Lady Shri Ram College for Women",
-    "q": null
+    "q": "Lady Shri Ram College for Women (W)"
    },
    {
     "name": "National Institute of Design",
@@ -3154,12 +3154,12 @@
     "href": "/exams?q=WBJEE"
    },
    {
-    "label": "BITSAT",
-    "href": "/exams?q=BITSAT"
-   },
-   {
     "label": "KEA-CET",
     "href": "/exams?q=KEA-CET"
+   },
+   {
+    "label": "BITSAT",
+    "href": "/exams?q=BITSAT"
    }
   ],
   "top_colleges": [
@@ -5360,7 +5360,7 @@
   "top_colleges": [
    {
     "name": "Shri Ram College of Commerce (Delhi)",
-    "q": null
+    "q": "Shri Ram College of Commerce"
    },
    {
     "name": "Narsee Monjee Institute of Management Studies (Mumbai)",
@@ -7112,16 +7112,16 @@
     "href": "/exams?q=JEE Advanced"
    },
    {
-    "label": "CMI-EE",
-    "href": "/exams?q=CMI-EE"
-   },
-   {
     "label": "CUET",
     "href": "/exams?q=CUET"
    },
    {
     "label": "ISI-AT",
     "href": "/exams?q=ISI-AT"
+   },
+   {
+    "label": "CMI-EE",
+    "href": "/exams?q=CMI-EE"
    }
   ],
   "top_colleges": [

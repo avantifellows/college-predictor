@@ -2691,7 +2691,7 @@
     "slug": "economics"
    }
   ],
-  "colleges_link": null
+  "colleges_link": "/colleges?exam=CUET (UG)"
  },
  {
   "exam_id": "dat-mains",
@@ -3519,7 +3519,7 @@
     "slug": "mathematics"
    }
   ],
-  "colleges_link": null
+  "colleges_link": "/colleges?exam=IAT"
  },
  {
   "exam_id": "idss-oee",

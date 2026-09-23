@@ -22,8 +22,8 @@ const fmtMoney = (n) =>
   n == null
     ? null
     : n >= 100000
-    ? `₹${(n / 100000).toFixed(1)} L`
-    : `₹${Math.round(n / 1000)}k`;
+      ? `₹${(n / 100000).toFixed(1)} L`
+      : `₹${Math.round(n / 1000)}k`;
 
 const pct = (n) => (n == null ? null : `${n}%`);
 
@@ -229,7 +229,12 @@ export default function Compare() {
         setAll(
           // any spine whose branches carry a closing rank; medical rows
           // (NMC seats, no rank) stay out
-          rows.filter((c) => !String(c.counselling).startsWith("MCC"))
+          // DU publishes CUET scores, not ranks — nothing to line up
+          rows.filter(
+            (c) =>
+              !String(c.counselling).startsWith("MCC") &&
+              !String(c.counselling).startsWith("DU ")
+          )
         )
       )
       .catch(() => setError("Could not load colleges right now."));
