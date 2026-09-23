@@ -544,7 +544,14 @@ def mhtcet_ownership(college_type: str):
     return None
 
 
-_UNIV_OF_CITY = re.compile(r"^(the )?university( of)? [a-z]+$")
+# a bare "University of <place>" or "<place> University" ("University of
+# Lucknow", "Rajasthan University") is a subset of many longer names. The
+# second form only for places: "Alliance University" is a real match.
+_PLACES = ("rajasthan|punjab|gujarat|kerala|assam|bihar|odisha|orissa|goa|manipur|mizoram|"
+           "nagaland|sikkim|tripura|meghalaya|jharkhand|uttarakhand|haryana|karnataka|"
+           "maharashtra|telangana|chhattisgarh|lucknow|mumbai|bombay|calcutta|kolkata|madras|"
+           "chennai|mysore|gauhati|delhi|allahabad|patna|jammu|kashmir|pune|hyderabad|kerela")
+_UNIV_OF_CITY = re.compile(rf"^(the )?university( of)? [a-z]+$|^({_PLACES}) university$")
 
 # one NIRF list per college when it is ranked in several the same year
 _NIRF_CAT_ORDER = ["Engineering", "Pharmacy", "Architecture and Planning",
@@ -1732,7 +1739,8 @@ def main():
            nirf_rank, overall_score
     FROM `{D}.nirf_fact_rankings`
     WHERE nirf_rank IS NOT NULL
-      AND ranking_category IN ('College', 'Research Institutions', 'Overall')""").to_dataframe()
+      AND ranking_category IN ('College', 'Research Institutions', 'Overall',
+                               'Agriculture and Allied Sectors', 'University')""").to_dataframe()
     nirf_extra_by_id = {iid: g.sort_values("ranking_year", ascending=False)
                         for iid, g in nirf_extra.groupby("institute_id")}
 
@@ -1799,7 +1807,8 @@ def main():
                 if len(gc):
                     top = gc.iloc[0]
                     out[nm] = {
-                        "category": "Research" if cat.startswith("Research") else cat,
+                        "category": ("Research" if cat.startswith("Research")
+                                     else "Agriculture" if cat.startswith("Agriculture") else cat),
                         "rank": int(top.nirf_rank),
                         "score": round(float(top.overall_score), 2) if top.overall_score == top.overall_score else None,
                         "ranking_year": int(top.ranking_year),
@@ -1887,7 +1896,45 @@ def main():
           f" IISER rows {len(ii_rows)} (NIRF {sum(1 for r in ii_rows if r['nirf'])}),"
           f" career-linked DU programmes {sum(1 for r in du_rows for p in r['programs']['list'] if p['career_id'])}"
           f"/{sum(r['programs']['count'] for r in du_rows)}")
-    rows += du_rows + ii_rows
+    # ── ICAR-UG (CUET): 72 agricultural universities ───────────────────────
+    # Cutoffs are CUET MARKS (three subjects, of 750; higher = harder), so
+    # they ride indicative_min_score like DU. ICAR's ranks are stream-wise
+    # and not comparable, so none are shown. Open number = lowest UR marks
+    # allotted, over home states and all five rounds.
+    icar = client.query(f"""
+    SELECT university, ANY_VALUE(university_city) AS city,
+           ANY_VALUE(university_state) AS state, course, course_raw,
+           MIN(IF(category = 'UR', marks_start, NULL)) AS ur_marks
+    FROM `{D}.icarug_fact_cutoffs` GROUP BY university, course, course_raw""").to_dataframe()
+    icar_careers = career_lookup("ICAR-UG")
+    ICAR_DISC = [(r"B\.Tech", "Engineering"), (r"Fisheries", "Fisheries"),
+                 (r"Community Science|Nutrition", "Science")]
+    def icar_disc(course):
+        return next((d for pat, d in ICAR_DISC if _re.search(pat, course)), "Agriculture")
+    icar_nirf = nirf_block_for(sorted(icar.university.unique()),
+                               ["Agriculture and Allied Sectors", "University", "Overall"])
+    icar_rows = []
+    for uni, g in icar.groupby("university"):
+        lst = [{"branch": x.course, "years": 4,
+                "degree": x.course.split(" ")[0] if not x.course.startswith("B.Sc. (Hons.)") else "B.Sc. (Hons.)",
+                "indicative_closing_rank": None, "indicative_opening_rank": None,
+                "indicative_min_score": None if pd.isna(x.ur_marks) else round(float(x.ur_marks), 1),
+                "career_id": icar_careers.get(x.course_raw)}
+               for x in g.itertuples()]
+        lst.sort(key=lambda z: (z["indicative_min_score"] is None, -(z["indicative_min_score"] or 0), z["branch"]))
+        programs = {"count": len(lst), "degrees": sorted({p["degree"] for p in lst}), "list": lst,
+                    "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+                    "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."}
+        row = base_row("icar:" + re.sub(r"[^a-z0-9]+", "-", uni.lower()).strip("-")[:70], uni,
+                       g.state.iloc[0], "CUET (UG)", "ICAR-UG counselling (CUET)", programs,
+                       icar_nirf.get(uni), sorted({icar_disc(c) for c in g.course})[:4],
+                       "ICAR-UG counselling 2025")
+        row["district"] = g.city.iloc[0]
+        icar_rows.append(row)
+    print(f"  ICAR rows {len(icar_rows)} (NIRF {sum(1 for r in icar_rows if r['nirf'])}),"
+          f" career-linked programmes {sum(1 for r in icar_rows for p in r['programs']['list'] if p['career_id'])}"
+          f"/{sum(r['programs']['count'] for r in icar_rows)}")
+    rows += du_rows + ii_rows + icar_rows
 
     print(f"  medical rows {len(med_rows)}"
           f"  with NIRF {sum(1 for x in med_rows if x['nirf'])}"

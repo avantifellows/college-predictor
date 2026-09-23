@@ -65,6 +65,9 @@ EXAM_LINKS = {
     "JAC-Chandigarh": [("JAC Chandigarh", "/predictor?exam=JAC Chandigarh")],
     "CLAT": [("CLAT", "/exams?q=CLAT")],
     "AIIMS-Nursing": [("AIIMS-EE", "/exams?q=AIIMS-EE")],
+    # ICAR counselling runs on CUET, whose card is all of CUET: straight to
+    # the ICAR predictor instead
+    "ICAR-UG": [("ICAR-UG (CUET)", "/predictor?exam=ICAR-UG")],
     "NEET": [("NEET-UG", "/exams?q=NEET")],
 }
 
@@ -179,13 +182,17 @@ OPTION_SOURCES = {
     "AIIMS-Nursing": ("public/data/AIIMSNURSING/aiimsnursing_data.json", "Academic Program Name",
                       lambda r: r.get("Seat Category") == "UR",
                       "Closing Rank", False, " (AIIMS nursing rank)"),
+    "ICAR-UG": ("public/data/ICARUG/icarug_data.json", "Course Raw",
+                lambda r: r.get("Category") == "UR",
+                "Cutoff Marks", True, " CUET marks (of 750)"),
     # last: five colleges in one city only fill spare slots
     "JAC-Chandigarh": ("public/data/JACCHD/jacchd_data.json", "Academic Program Name",
                        lambda r: r.get("Category") == "General",
                        "Closing Rank", False, " (JEE Main rank)"),
 }
 
-EXAM_LABEL = {"JAC-Chandigarh": "JAC Chandigarh", "AIIMS-Nursing": "AIIMS-EE"}
+EXAM_LABEL = {"JAC-Chandigarh": "JAC Chandigarh", "AIIMS-Nursing": "AIIMS-EE",
+              "ICAR-UG": "ICAR-UG (CUET)"}
 
 _option_cache = {}
 
@@ -256,6 +263,10 @@ NIRF_LISTS_BY_BRANCH = {
     "ARCH": {"Architecture"}, "PLAN": {"Architecture"},
     "PHARMA": {"Pharmacy"}, "MBBS": {"Medical"}, "DENTAL": {"Medical", "Dental"},
     "LLB": {"Law"}, "NURSING": {"Medical"},
+    "AGRI": {"Agriculture"}, "HORTI": {"Agriculture"}, "FOREST": {"Agriculture"},
+    "FISH": {"Agriculture"}, "SERI": {"Agriculture"},
+    "AGRIENG": {"Engineering", "Agriculture"}, "DAIRYENG": {"Engineering", "Agriculture"},
+    "FOODENG": {"Engineering", "Agriculture"},
 }
 NIRF_BY_DISPLAY = {c["display_name"]: (c["nirf"]["category"], c["nirf"]["rank"])
                    for c in json.load(open(COLLEGES_TAB)) if c.get("nirf")}
@@ -268,6 +279,9 @@ ACRONYMS = {
     "ict": "institute of chemical technology",
     "aiims": "all india institute of medical sciences",
 }
+
+
+SUBUNIT = re.compile(r"^(Faculty of Agricultural|Institute of Agricultural Sciences|Palli Siksha)", re.I)
 
 
 def college_linker():
@@ -285,7 +299,11 @@ def college_linker():
         toks.discard("s")  # possessive left by norm: "King George's"
         if not toks:
             return None
-        hits = [d for d, dt in dtokens if toks <= dt]
+        # a faculty / institute card (ICAR's "Faculty of Agricultural
+        # Sciences, Aligarh Muslim University") is not its whole university:
+        # "Aligarh Muslim University" on an EEE page must not land there
+        hits = [d for d, dt in dtokens if toks <= dt
+                and not (SUBUNIT.match(d) and not toks & {"faculty", "institute", "palli"})]
         return hits[0] if len(hits) == 1 else None
 
     return link

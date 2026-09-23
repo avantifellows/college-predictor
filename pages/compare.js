@@ -233,11 +233,12 @@ export default function Compare() {
         setAll(
           // any spine whose branches carry a closing rank; medical rows
           // (NMC seats, no rank) stay out
-          // DU publishes CUET scores, not ranks — nothing to line up
+          // DU and ICAR publish CUET scores, not ranks — nothing to line up
           rows.filter(
             (c) =>
               !String(c.counselling).startsWith("MCC") &&
-              !String(c.counselling).startsWith("DU ")
+              !String(c.counselling).startsWith("DU ") &&
+              !String(c.counselling).startsWith("ICAR-UG")
           )
         )
       )

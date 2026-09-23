@@ -759,6 +759,104 @@
   }
  },
  {
+  "college_id": "icar:icar-national-dairy-research-institute-karnal",
+  "aishe_code": null,
+  "name": "ICAR-National Dairy Research Institute, Karnal",
+  "display_name": "ICAR-National Dairy Research Institute, Karnal",
+  "state": "Haryana",
+  "state_is_inferred": false,
+  "district": "Karnal",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 3,
+   "degrees": [
+    "B.Tech."
+   ],
+   "list": [
+    {
+     "branch": "B.Tech. Dairy Technology",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 529.4,
+     "career_id": "dairy-engineering"
+    },
+    {
+     "branch": "B.Tech. Bio-Technology",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 525.1,
+     "career_id": "biotechnology"
+    },
+    {
+     "branch": "B.Tech. Food Technology",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 518.0,
+     "career_id": "food-engineering"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": {
+   "category": "Agriculture",
+   "rank": 2,
+   "score": 75.87,
+   "ranking_year": 2025,
+   "rank_history": [
+    {
+     "year": 2025,
+     "rank": 2,
+     "score": 75.87
+    },
+    {
+     "year": 2024,
+     "rank": 2,
+     "score": 71.18
+    },
+    {
+     "year": 2023,
+     "rank": 2,
+     "score": 70.45
+    }
+   ]
+  },
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
+   "ranking": "NIRF 2025",
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "U-0100",
   "aishe_code": "U-0100",
   "name": "Indian Institute of Technology, Delhi",
@@ -2378,6 +2476,143 @@
   }
  },
  {
+  "college_id": "icar:punjab-agricultural-university-ludhiana",
+  "aishe_code": null,
+  "name": "Punjab Agricultural University, Ludhiana",
+  "display_name": "Punjab Agricultural University, Ludhiana",
+  "state": "Punjab",
+  "state_is_inferred": false,
+  "district": "Ludhiana",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Agriculture",
+   "Engineering",
+   "Science"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 7,
+   "degrees": [
+    "B.Sc. (Hons.)",
+    "B.Tech."
+   ],
+   "list": [
+    {
+     "branch": "B.Sc. (Hons.) Agriculture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 594.4,
+     "career_id": "agriculture"
+    },
+    {
+     "branch": "B.Tech. Bio-Technology",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 427.6,
+     "career_id": "biotechnology"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Horticulture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 413.7,
+     "career_id": "horticulture"
+    },
+    {
+     "branch": "B.Tech. Food Technology",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 370.4,
+     "career_id": "food-engineering"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Food Nutrition and Dietetics",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 295.8,
+     "career_id": "food-engineering"
+    },
+    {
+     "branch": "B.Tech. Agricultural Engineering",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 265.1,
+     "career_id": "agricultural-engineering"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Community Science",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 216.2,
+     "career_id": "agriculture"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": {
+   "category": "Agriculture",
+   "rank": 3,
+   "score": 75.83,
+   "ranking_year": 2025,
+   "rank_history": [
+    {
+     "year": 2025,
+     "rank": 3,
+     "score": 75.83
+    },
+    {
+     "year": 2024,
+     "rank": 3,
+     "score": 69.63
+    },
+    {
+     "year": 2023,
+     "rank": 3,
+     "score": 65.98
+    }
+   ]
+  },
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
+   "ranking": "NIRF 2025",
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "U-0517",
   "aishe_code": "U-0517",
   "name": "Indian Institute of Technology, Kanpur",
@@ -3354,6 +3589,95 @@
   }
  },
  {
+  "college_id": "icar:icar-indian-veterinary-research-institute-izatnagar",
+  "aishe_code": null,
+  "name": "ICAR-Indian Veterinary Research Institute, Izatnagar",
+  "display_name": "ICAR-Indian Veterinary Research Institute, Izatnagar",
+  "state": "Uttar Pradesh",
+  "state_is_inferred": false,
+  "district": "Bareilly",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 2,
+   "degrees": [
+    "B.Tech."
+   ],
+   "list": [
+    {
+     "branch": "B.Tech. Bio-Technology",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 507.0,
+     "career_id": "biotechnology"
+    },
+    {
+     "branch": "B.Tech. Dairy Technology",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 471.6,
+     "career_id": "dairy-engineering"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": {
+   "category": "Agriculture",
+   "rank": 5,
+   "score": 67.66,
+   "ranking_year": 2025,
+   "rank_history": [
+    {
+     "year": 2025,
+     "rank": 5,
+     "score": 67.66
+    },
+    {
+     "year": 2024,
+     "rank": 5,
+     "score": 67.76
+    },
+    {
+     "year": 2023,
+     "rank": 6,
+     "score": 61.62
+    }
+   ]
+  },
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
+   "ranking": "NIRF 2025",
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "U-0573",
   "aishe_code": "U-0573",
   "name": "Indian Institute of Technology, Kharagpur",
@@ -4241,6 +4565,161 @@
   }
  },
  {
+  "college_id": "icar:tamil-nadu-agricultural-university-coimbatore",
+  "aishe_code": null,
+  "name": "Tamil Nadu Agricultural University, Coimbatore",
+  "display_name": "Tamil Nadu Agricultural University, Coimbatore",
+  "state": "Tamil Nadu",
+  "state_is_inferred": false,
+  "district": "Coimbatore",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Agriculture",
+   "Engineering",
+   "Science"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 9,
+   "degrees": [
+    "B.Sc. (Hons.)",
+    "B.Tech."
+   ],
+   "list": [
+    {
+     "branch": "B.Sc. (Hons.) Agriculture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 396.4,
+     "career_id": "agriculture"
+    },
+    {
+     "branch": "B.Tech. Bio-Technology",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 372.5,
+     "career_id": "biotechnology"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Agribusiness Management",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 345.9,
+     "career_id": "agriculture"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Horticulture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 327.8,
+     "career_id": "horticulture"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Forestry",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 303.0,
+     "career_id": "forestry"
+    },
+    {
+     "branch": "B.Tech. Agricultural Engineering",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 281.5,
+     "career_id": "agricultural-engineering"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Food Nutrition and Dietetics",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 257.3,
+     "career_id": "food-engineering"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Sericulture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 256.2,
+     "career_id": "sericulture"
+    },
+    {
+     "branch": "B.Tech. Food Technology",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 214.8,
+     "career_id": "food-engineering"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": {
+   "category": "Agriculture",
+   "rank": 6,
+   "score": 67.06,
+   "ranking_year": 2025,
+   "rank_history": [
+    {
+     "year": 2025,
+     "rank": 6,
+     "score": 67.06
+    },
+    {
+     "year": 2024,
+     "rank": 6,
+     "score": 64.92
+    },
+    {
+     "year": 2023,
+     "rank": 5,
+     "score": 61.71
+    }
+   ]
+  },
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
+   "ranking": "NIRF 2025",
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "U-0013",
   "aishe_code": "U-0013",
   "name": "Indian Institute of Technology, Hyderabad",
@@ -5093,6 +5572,241 @@
   }
  },
  {
+  "college_id": "icar:chaudhary-charan-singh-haryana-agricultural-university-hisar",
+  "aishe_code": null,
+  "name": "Chaudhary Charan Singh Haryana Agricultural University, Hisar",
+  "display_name": "Chaudhary Charan Singh Haryana Agricultural University, Hisar",
+  "state": "Haryana",
+  "state_is_inferred": false,
+  "district": "Hisar",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Agriculture",
+   "Engineering",
+   "Fisheries",
+   "Science"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 6,
+   "degrees": [
+    "B.F.Sc.",
+    "B.Sc. (Hons.)",
+    "B.Tech."
+   ],
+   "list": [
+    {
+     "branch": "B.Sc. (Hons.) Agriculture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 574.1,
+     "career_id": "agriculture"
+    },
+    {
+     "branch": "B.Tech. Agricultural Engineering",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 508.9,
+     "career_id": "agricultural-engineering"
+    },
+    {
+     "branch": "B.Tech. Bio-Technology",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 508.0,
+     "career_id": "biotechnology"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Agribusiness Management",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 462.8,
+     "career_id": "agriculture"
+    },
+    {
+     "branch": "B.F.Sc. Bachelor of Fisheries Sciences",
+     "years": 4,
+     "degree": "B.F.Sc.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 299.1,
+     "career_id": "fishery-science"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Community Science",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 213.2,
+     "career_id": "agriculture"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": {
+   "category": "Agriculture",
+   "rank": 10,
+   "score": 61.47,
+   "ranking_year": 2025,
+   "rank_history": [
+    {
+     "year": 2025,
+     "rank": 10,
+     "score": 61.47
+    },
+    {
+     "year": 2024,
+     "rank": 7,
+     "score": 63.75
+    },
+    {
+     "year": 2023,
+     "rank": 10,
+     "score": 59.07
+    }
+   ]
+  },
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
+   "ranking": "NIRF 2025",
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "icar:faculty-of-agricultural-sciences-aligarh-muslim-university",
+  "aishe_code": null,
+  "name": "Faculty of Agricultural Sciences, Aligarh Muslim University",
+  "display_name": "Faculty of Agricultural Sciences, Aligarh Muslim University",
+  "state": "Uttar Pradesh",
+  "state_is_inferred": false,
+  "district": "Aligarh",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Agriculture",
+   "Science"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 2,
+   "degrees": [
+    "B.Sc. (Hons.)"
+   ],
+   "list": [
+    {
+     "branch": "B.Sc. (Hons.) Agriculture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 475.2,
+     "career_id": "agriculture"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Community Science",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 137.8,
+     "career_id": "agriculture"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": {
+   "category": "University",
+   "rank": 10,
+   "score": 65.35,
+   "ranking_year": 2025,
+   "rank_history": [
+    {
+     "year": 2025,
+     "rank": 10,
+     "score": 65.35
+    },
+    {
+     "year": 2024,
+     "rank": 8,
+     "score": 65.57
+    },
+    {
+     "year": 2023,
+     "rank": 9,
+     "score": 63.88
+    },
+    {
+     "year": 2022,
+     "rank": 11,
+     "score": 61.43
+    },
+    {
+     "year": 2021,
+     "rank": 10,
+     "score": 58.97
+    },
+    {
+     "year": 2020,
+     "rank": 17,
+     "score": 54.3
+    }
+   ]
+  },
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
+   "ranking": "NIRF 2025",
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "U-0701",
   "aishe_code": "U-0701",
   "name": "Indian Institute of Technology (Banaras Hindu University), Varanasi",
@@ -5910,6 +6624,106 @@
    "programs": "JoSAA 2025 Round 6",
    "ranking": "NIRF 2025",
    "placement": "NIRF 2025 (AY 2023-24)",
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "icar:kerala-agricultural-university-thrissur",
+  "aishe_code": null,
+  "name": "Kerala Agricultural University, Thrissur",
+  "display_name": "Kerala Agricultural University, Thrissur",
+  "state": "Kerala",
+  "state_is_inferred": false,
+  "district": "Thrissur",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Agriculture",
+   "Engineering"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 3,
+   "degrees": [
+    "B.Sc. (Hons.)",
+    "B.Tech."
+   ],
+   "list": [
+    {
+     "branch": "B.Sc. (Hons.) Agriculture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 370.6,
+     "career_id": "agriculture"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Forestry",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 343.4,
+     "career_id": "forestry"
+    },
+    {
+     "branch": "B.Tech. Agricultural Engineering",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 208.4,
+     "career_id": "agricultural-engineering"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": {
+   "category": "Agriculture",
+   "rank": 12,
+   "score": 60.0,
+   "ranking_year": 2025,
+   "rank_history": [
+    {
+     "year": 2025,
+     "rank": 12,
+     "score": 60.0
+    },
+    {
+     "year": 2024,
+     "rank": 16,
+     "score": 55.3
+    },
+    {
+     "year": 2023,
+     "rank": 15,
+     "score": 52.52
+    }
+   ]
+  },
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
+   "ranking": "NIRF 2025",
+   "placement": null,
    "accreditation": null
   }
  },
@@ -6957,6 +7771,172 @@
   }
  },
  {
+  "college_id": "icar:dr-rajendra-prasad-central-agricultural-university-pusa",
+  "aishe_code": null,
+  "name": "Dr. Rajendra Prasad Central Agricultural University, Pusa",
+  "display_name": "Dr. Rajendra Prasad Central Agricultural University, Pusa",
+  "state": "Bihar",
+  "state_is_inferred": false,
+  "district": "Samastipur",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Agriculture",
+   "Engineering",
+   "Fisheries",
+   "Science"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 10,
+   "degrees": [
+    "B.F.Sc.",
+    "B.Sc. (Hons.)",
+    "B.Tech."
+   ],
+   "list": [
+    {
+     "branch": "B.Sc. (Hons.) Agriculture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 507.8,
+     "career_id": "agriculture"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Horticulture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 400.0,
+     "career_id": "horticulture"
+    },
+    {
+     "branch": "B.Tech. Bio-Technology",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 365.0,
+     "career_id": "biotechnology"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Forestry",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 321.2,
+     "career_id": "forestry"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Natural Farming",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 320.4,
+     "career_id": "agriculture"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Food Nutrition and Dietetics",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 295.8,
+     "career_id": "food-engineering"
+    },
+    {
+     "branch": "B.F.Sc. Bachelor of Fisheries Sciences",
+     "years": 4,
+     "degree": "B.F.Sc.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 287.1,
+     "career_id": "fishery-science"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Community Science",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 236.1,
+     "career_id": "agriculture"
+    },
+    {
+     "branch": "B.Tech. Food Technology",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 183.3,
+     "career_id": "food-engineering"
+    },
+    {
+     "branch": "B.Tech. Agricultural Engineering",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 167.5,
+     "career_id": "agricultural-engineering"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": {
+   "category": "Agriculture",
+   "rank": 14,
+   "score": 58.25,
+   "ranking_year": 2025,
+   "rank_history": [
+    {
+     "year": 2025,
+     "rank": 14,
+     "score": 58.25
+    },
+    {
+     "year": 2024,
+     "rank": 29,
+     "score": 47.94
+    },
+    {
+     "year": 2023,
+     "rank": 33,
+     "score": 43.34
+    }
+   ]
+  },
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
+   "ranking": "NIRF 2025",
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "keam:TVE",
   "aishe_code": null,
   "name": "College of Engineering, Thiruvananthapuram",
@@ -7437,6 +8417,106 @@
    "programs": "JoSAA 2025 Round 6",
    "ranking": "NIRF 2025",
    "placement": "NIRF 2025 (AY 2023-24)",
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "icar:bidhan-chandra-krishi-vishwavidyalaya-mohanpur",
+  "aishe_code": null,
+  "name": "Bidhan Chandra Krishi Vishwavidyalaya, Mohanpur",
+  "display_name": "Bidhan Chandra Krishi Vishwavidyalaya, Mohanpur",
+  "state": "West Bengal",
+  "state_is_inferred": false,
+  "district": "Nadia",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Agriculture",
+   "Engineering"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 3,
+   "degrees": [
+    "B.Sc. (Hons.)",
+    "B.Tech."
+   ],
+   "list": [
+    {
+     "branch": "B.Sc. (Hons.) Agriculture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 511.2,
+     "career_id": "agriculture"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Horticulture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 472.7,
+     "career_id": "horticulture"
+    },
+    {
+     "branch": "B.Tech. Agricultural Engineering",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 206.9,
+     "career_id": "agricultural-engineering"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": {
+   "category": "Agriculture",
+   "rank": 16,
+   "score": 57.64,
+   "ranking_year": 2025,
+   "rank_history": [
+    {
+     "year": 2025,
+     "rank": 16,
+     "score": 57.64
+    },
+    {
+     "year": 2024,
+     "rank": 13,
+     "score": 56.67
+    },
+    {
+     "year": 2023,
+     "rank": 16,
+     "score": 52.07
+    }
+   ]
+  },
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
+   "ranking": "NIRF 2025",
+   "placement": null,
    "accreditation": null
   }
  },
@@ -8161,6 +9241,107 @@
    "programs": "JoSAA 2025 Round 6",
    "ranking": "NIRF 2025",
    "placement": "NIRF 2025 (AY 2023-24)",
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "icar:assam-agricultural-university-jorhat",
+  "aishe_code": null,
+  "name": "Assam Agricultural University, Jorhat",
+  "display_name": "Assam Agricultural University, Jorhat",
+  "state": "Assam",
+  "state_is_inferred": false,
+  "district": "Jorhat",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Agriculture",
+   "Fisheries",
+   "Science"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 3,
+   "degrees": [
+    "B.F.Sc.",
+    "B.Sc. (Hons.)"
+   ],
+   "list": [
+    {
+     "branch": "B.Sc. (Hons.) Agriculture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 468.2,
+     "career_id": "agriculture"
+    },
+    {
+     "branch": "B.F.Sc. Bachelor of Fisheries Sciences",
+     "years": 4,
+     "degree": "B.F.Sc.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 379.6,
+     "career_id": "fishery-science"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Community Science",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 228.9,
+     "career_id": "agriculture"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": {
+   "category": "Agriculture",
+   "rank": 18,
+   "score": 57.2,
+   "ranking_year": 2025,
+   "rank_history": [
+    {
+     "year": 2025,
+     "rank": 18,
+     "score": 57.2
+    },
+    {
+     "year": 2024,
+     "rank": 14,
+     "score": 55.67
+    },
+    {
+     "year": 2023,
+     "rank": 19,
+     "score": 50.35
+    }
+   ]
+  },
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
+   "ranking": "NIRF 2025",
+   "placement": null,
    "accreditation": null
   }
  },
@@ -9094,6 +10275,104 @@
   }
  },
  {
+  "college_id": "icar:dr-y-s-parmar-university-of-horticulture-forestry-nauni",
+  "aishe_code": null,
+  "name": "Dr. Y.S. Parmar University of Horticulture & Forestry, Nauni",
+  "display_name": "Dr. Y.S. Parmar University of Horticulture & Forestry, Nauni",
+  "state": "Himachal Pradesh",
+  "state_is_inferred": false,
+  "district": "Solan",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Agriculture"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 3,
+   "degrees": [
+    "B.Sc. (Hons.)"
+   ],
+   "list": [
+    {
+     "branch": "B.Sc. (Hons.) Horticulture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 432.1,
+     "career_id": "horticulture"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Natural Farming",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 377.8,
+     "career_id": "agriculture"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Forestry",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 349.2,
+     "career_id": "forestry"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": {
+   "category": "Agriculture",
+   "rank": 20,
+   "score": 55.53,
+   "ranking_year": 2025,
+   "rank_history": [
+    {
+     "year": 2025,
+     "rank": 20,
+     "score": 55.53
+    },
+    {
+     "year": 2024,
+     "rank": 18,
+     "score": 54.67
+    },
+    {
+     "year": 2023,
+     "rank": 17,
+     "score": 51.63
+    }
+   ]
+  },
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
+   "ranking": "NIRF 2025",
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "du:acharya-narendra-dev-college",
   "aishe_code": null,
   "name": "Acharya Narendra Dev College",
@@ -9822,6 +11101,268 @@
    "programs": "NMC 2024-25",
    "ranking": "NIRF 2025",
    "placement": "NIRF 2025 (AY 2022-23)",
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "icar:central-agricultural-university-imphal",
+  "aishe_code": null,
+  "name": "Central Agricultural University, Imphal",
+  "display_name": "Central Agricultural University, Imphal",
+  "state": "Manipur",
+  "state_is_inferred": false,
+  "district": "Imphal",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Agriculture",
+   "Engineering",
+   "Fisheries",
+   "Science"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 9,
+   "degrees": [
+    "B.F.Sc.",
+    "B.Sc. (Hons.)",
+    "B.Tech."
+   ],
+   "list": [
+    {
+     "branch": "B.Sc. (Hons.) Agriculture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 441.3,
+     "career_id": "agriculture"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Horticulture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 358.8,
+     "career_id": "horticulture"
+    },
+    {
+     "branch": "B.F.Sc. Bachelor of Fisheries Sciences",
+     "years": 4,
+     "degree": "B.F.Sc.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 325.4,
+     "career_id": "fishery-science"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Forestry",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 308.3,
+     "career_id": "forestry"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Natural Farming",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 302.8,
+     "career_id": "agriculture"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Food Nutrition and Dietetics",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 251.6,
+     "career_id": "food-engineering"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Community Science",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 222.6,
+     "career_id": "agriculture"
+    },
+    {
+     "branch": "B.Tech. Agricultural Engineering",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 153.8,
+     "career_id": "agricultural-engineering"
+    },
+    {
+     "branch": "B.Tech. Food Technology",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 106.8,
+     "career_id": "food-engineering"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": {
+   "category": "Agriculture",
+   "rank": 24,
+   "score": 52.97,
+   "ranking_year": 2025,
+   "rank_history": [
+    {
+     "year": 2025,
+     "rank": 24,
+     "score": 52.97
+    },
+    {
+     "year": 2024,
+     "rank": 31,
+     "score": 47.53
+    },
+    {
+     "year": 2023,
+     "rank": 29,
+     "score": 45.46
+    }
+   ]
+  },
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
+   "ranking": "NIRF 2025",
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "icar:professor-jayashankar-telangana-agricultural-university-hyderabad",
+  "aishe_code": null,
+  "name": "Professor Jayashankar Telangana Agricultural University, Hyderabad",
+  "display_name": "Professor Jayashankar Telangana Agricultural University, Hyderabad",
+  "state": "Telangana",
+  "state_is_inferred": false,
+  "district": "Hyderabad",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Agriculture",
+   "Engineering",
+   "Science"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 4,
+   "degrees": [
+    "B.Sc. (Hons.)",
+    "B.Tech."
+   ],
+   "list": [
+    {
+     "branch": "B.Sc. (Hons.) Agriculture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 441.8,
+     "career_id": "agriculture"
+    },
+    {
+     "branch": "B.Tech. Food Technology",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 345.3,
+     "career_id": "food-engineering"
+    },
+    {
+     "branch": "B.Tech. Agricultural Engineering",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 292.9,
+     "career_id": "agricultural-engineering"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Community Science",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 197.9,
+     "career_id": "agriculture"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": {
+   "category": "Agriculture",
+   "rank": 24,
+   "score": 52.97,
+   "ranking_year": 2025,
+   "rank_history": [
+    {
+     "year": 2025,
+     "rank": 24,
+     "score": 52.97
+    },
+    {
+     "year": 2024,
+     "rank": 37,
+     "score": 44.73
+    }
+   ]
+  },
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
+   "ranking": "NIRF 2025",
+   "placement": null,
    "accreditation": null
   }
  },
@@ -10878,6 +12419,95 @@
   }
  },
  {
+  "college_id": "icar:tamil-nadu-veterinary-animal-sciences-university-chennai",
+  "aishe_code": null,
+  "name": "Tamil Nadu Veterinary & Animal Sciences University, Chennai",
+  "display_name": "Tamil Nadu Veterinary & Animal Sciences University, Chennai",
+  "state": "Tamil Nadu",
+  "state_is_inferred": false,
+  "district": "Chennai",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 2,
+   "degrees": [
+    "B.Tech."
+   ],
+   "list": [
+    {
+     "branch": "B.Tech. Dairy Technology",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 425.1,
+     "career_id": "dairy-engineering"
+    },
+    {
+     "branch": "B.Tech. Food Technology",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 309.5,
+     "career_id": "food-engineering"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": {
+   "category": "Agriculture",
+   "rank": 26,
+   "score": 52.91,
+   "ranking_year": 2025,
+   "rank_history": [
+    {
+     "year": 2025,
+     "rank": 26,
+     "score": 52.91
+    },
+    {
+     "year": 2024,
+     "rank": 17,
+     "score": 55.19
+    },
+    {
+     "year": 2023,
+     "rank": 12,
+     "score": 54.2
+    }
+   ]
+  },
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
+   "ranking": "NIRF 2025",
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "U-0686",
   "aishe_code": "U-0686",
   "name": "All India Institute of Medical Sciences, Patna",
@@ -10980,6 +12610,115 @@
    "programs": "NMC 2024-25",
    "ranking": "NIRF 2025",
    "placement": "NIRF 2025 (AY 2022-23)",
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "icar:anand-agricultural-university-anand",
+  "aishe_code": null,
+  "name": "Anand Agricultural University, Anand",
+  "display_name": "Anand Agricultural University, Anand",
+  "state": "Gujarat",
+  "state_is_inferred": false,
+  "district": "Anand",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Agriculture",
+   "Engineering"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 4,
+   "degrees": [
+    "B.Sc. (Hons.)",
+    "B.Tech."
+   ],
+   "list": [
+    {
+     "branch": "B.Sc. (Hons.) Agriculture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 493.0,
+     "career_id": "agriculture"
+    },
+    {
+     "branch": "B.Tech. Food Technology",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 403.0,
+     "career_id": "food-engineering"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Horticulture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 399.7,
+     "career_id": "horticulture"
+    },
+    {
+     "branch": "B.Tech. Agricultural Engineering",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 338.3,
+     "career_id": "agricultural-engineering"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": {
+   "category": "Agriculture",
+   "rank": 27,
+   "score": 51.67,
+   "ranking_year": 2025,
+   "rank_history": [
+    {
+     "year": 2025,
+     "rank": 27,
+     "score": 51.67
+    },
+    {
+     "year": 2024,
+     "rank": 23,
+     "score": 50.69
+    },
+    {
+     "year": 2023,
+     "rank": 18,
+     "score": 51.13
+    }
+   ]
+  },
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
+   "ranking": "NIRF 2025",
+   "placement": null,
    "accreditation": null
   }
  },
@@ -11541,6 +13280,101 @@
   "data_sources": {
    "identity": "CLAT 2026",
    "programs": "CLAT 2026",
+   "ranking": "NIRF 2025",
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "icar:indira-gandhi-krishi-vishwavidyalaya-raipur",
+  "aishe_code": null,
+  "name": "Indira Gandhi Krishi Vishwavidyalaya, Raipur",
+  "display_name": "Indira Gandhi Krishi Vishwavidyalaya, Raipur",
+  "state": "Chhattisgarh",
+  "state_is_inferred": false,
+  "district": "Raipur",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Agriculture",
+   "Engineering"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 3,
+   "degrees": [
+    "B.Sc. (Hons.)",
+    "B.Tech."
+   ],
+   "list": [
+    {
+     "branch": "B.Sc. (Hons.) Agriculture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 430.6,
+     "career_id": "agriculture"
+    },
+    {
+     "branch": "B.Tech. Food Technology",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 168.2,
+     "career_id": "food-engineering"
+    },
+    {
+     "branch": "B.Tech. Agricultural Engineering",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 160.3,
+     "career_id": "agricultural-engineering"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": {
+   "category": "Agriculture",
+   "rank": 28,
+   "score": 50.6,
+   "ranking_year": 2025,
+   "rank_history": [
+    {
+     "year": 2025,
+     "rank": 28,
+     "score": 50.6
+    },
+    {
+     "year": 2024,
+     "rank": 39,
+     "score": 44.14
+    }
+   ]
+  },
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
    "ranking": "NIRF 2025",
    "placement": null,
    "accreditation": null
@@ -12748,6 +14582,135 @@
   }
  },
  {
+  "college_id": "icar:chandra-shekhar-azad-university-of-agriculture-technology-kanpur",
+  "aishe_code": null,
+  "name": "Chandra Shekhar Azad University of Agriculture & Technology, Kanpur",
+  "display_name": "Chandra Shekhar Azad University of Agriculture & Technology, Kanpur",
+  "state": "Uttar Pradesh",
+  "state_is_inferred": false,
+  "district": "Kanpur",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Agriculture",
+   "Engineering",
+   "Fisheries",
+   "Science"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 7,
+   "degrees": [
+    "B.F.Sc.",
+    "B.Sc. (Hons.)",
+    "B.Tech."
+   ],
+   "list": [
+    {
+     "branch": "B.Sc. (Hons.) Agriculture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 458.8,
+     "career_id": "agriculture"
+    },
+    {
+     "branch": "B.Tech. Dairy Technology",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 400.7,
+     "career_id": "dairy-engineering"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Horticulture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 390.9,
+     "career_id": "horticulture"
+    },
+    {
+     "branch": "B.Tech. Agricultural Engineering",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 373.5,
+     "career_id": "agricultural-engineering"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Forestry",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 327.3,
+     "career_id": "forestry"
+    },
+    {
+     "branch": "B.F.Sc. Bachelor of Fisheries Sciences",
+     "years": 4,
+     "degree": "B.F.Sc.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 314.3,
+     "career_id": "fishery-science"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Community Science",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 225.8,
+     "career_id": "agriculture"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": {
+   "category": "Agriculture",
+   "rank": 30,
+   "score": 43.87,
+   "ranking_year": 2023,
+   "rank_history": [
+    {
+     "year": 2023,
+     "rank": 30,
+     "score": 43.87
+    }
+   ]
+  },
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
+   "ranking": "NIRF 2023",
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "du:delhi-college-of-arts-and-commerce",
   "aishe_code": null,
   "name": "Delhi College of Arts and Commerce",
@@ -13020,6 +14983,97 @@
    "programs": "University of Delhi CSAS 2025",
    "ranking": "NIRF 2025",
    "placement": "NIRF 2025 (AY 2023-24)",
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "icar:guru-angad-dev-veterinary-and-animal-sciences-university-ludhiana",
+  "aishe_code": null,
+  "name": "Guru Angad Dev Veterinary and Animal Sciences University, Ludhiana",
+  "display_name": "Guru Angad Dev Veterinary and Animal Sciences University, Ludhiana",
+  "state": "Punjab",
+  "state_is_inferred": false,
+  "district": "Ludhiana",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering",
+   "Fisheries"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 2,
+   "degrees": [
+    "B.F.Sc.",
+    "B.Tech."
+   ],
+   "list": [
+    {
+     "branch": "B.F.Sc. Bachelor of Fisheries Sciences",
+     "years": 4,
+     "degree": "B.F.Sc.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 295.8,
+     "career_id": "fishery-science"
+    },
+    {
+     "branch": "B.Tech. Dairy Technology",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 286.0,
+     "career_id": "dairy-engineering"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": {
+   "category": "Agriculture",
+   "rank": 30,
+   "score": 50.02,
+   "ranking_year": 2025,
+   "rank_history": [
+    {
+     "year": 2025,
+     "rank": 30,
+     "score": 50.02
+    },
+    {
+     "year": 2024,
+     "rank": 24,
+     "score": 50.52
+    },
+    {
+     "year": 2023,
+     "rank": 21,
+     "score": 47.79
+    }
+   ]
+  },
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
+   "ranking": "NIRF 2025",
+   "placement": null,
    "accreditation": null
   }
  },
@@ -13298,6 +15352,116 @@
   }
  },
  {
+  "college_id": "icar:acharya-n-g-ranga-agricultural-university-guntur",
+  "aishe_code": null,
+  "name": "Acharya N G Ranga Agricultural University, Guntur",
+  "display_name": "Acharya N G Ranga Agricultural University, Guntur",
+  "state": "Andhra Pradesh",
+  "state_is_inferred": false,
+  "district": "Guntur",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Agriculture",
+   "Engineering",
+   "Science"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 4,
+   "degrees": [
+    "B.Sc. (Hons.)",
+    "B.Tech."
+   ],
+   "list": [
+    {
+     "branch": "B.Sc. (Hons.) Agriculture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 424.9,
+     "career_id": "agriculture"
+    },
+    {
+     "branch": "B.Tech. Agricultural Engineering",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 295.0,
+     "career_id": "agricultural-engineering"
+    },
+    {
+     "branch": "B.Tech. Food Technology",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 277.7,
+     "career_id": "food-engineering"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Community Science",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 219.0,
+     "career_id": "agriculture"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": {
+   "category": "Agriculture",
+   "rank": 31,
+   "score": 49.45,
+   "ranking_year": 2025,
+   "rank_history": [
+    {
+     "year": 2025,
+     "rank": 31,
+     "score": 49.45
+    },
+    {
+     "year": 2024,
+     "rank": 26,
+     "score": 50.24
+    },
+    {
+     "year": 2023,
+     "rank": 20,
+     "score": 48.57
+    }
+   ]
+  },
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
+   "ranking": "NIRF 2025",
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "U-0690",
   "aishe_code": "U-0690",
   "name": "All India Institute of Medical Sciences, Raipur",
@@ -13405,6 +15569,86 @@
    "programs": "NMC 2024-25",
    "ranking": "NIRF 2025",
    "placement": "NIRF 2025 (AY 2022-23)",
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "icar:kerala-university-of-fisheries-and-ocean-studies-kochi",
+  "aishe_code": null,
+  "name": "Kerala University of Fisheries and Ocean Studies, Kochi",
+  "display_name": "Kerala University of Fisheries and Ocean Studies, Kochi",
+  "state": "Kerala",
+  "state_is_inferred": false,
+  "district": "Kochi",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Fisheries"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "B.F.Sc."
+   ],
+   "list": [
+    {
+     "branch": "B.F.Sc. Bachelor of Fisheries Sciences",
+     "years": 4,
+     "degree": "B.F.Sc.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 268.8,
+     "career_id": "fishery-science"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": {
+   "category": "Agriculture",
+   "rank": 31,
+   "score": 49.45,
+   "ranking_year": 2025,
+   "rank_history": [
+    {
+     "year": 2025,
+     "rank": 31,
+     "score": 49.45
+    },
+    {
+     "year": 2024,
+     "rank": 30,
+     "score": 47.84
+    },
+    {
+     "year": 2023,
+     "rank": 25,
+     "score": 46.86
+    }
+   ]
+  },
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
+   "ranking": "NIRF 2025",
+   "placement": null,
    "accreditation": null
   }
  },
@@ -14303,6 +16547,81 @@
   }
  },
  {
+  "college_id": "icar:tamil-nadu-dr-j-jayalalithaa-fisheries-university-nagapattinam",
+  "aishe_code": null,
+  "name": "Tamil Nadu Dr. J. Jayalalithaa Fisheries University, Nagapattinam",
+  "display_name": "Tamil Nadu Dr. J. Jayalalithaa Fisheries University, Nagapattinam",
+  "state": "Tamil Nadu",
+  "state_is_inferred": false,
+  "district": "Nagapattinam",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Fisheries"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "B.F.Sc."
+   ],
+   "list": [
+    {
+     "branch": "B.F.Sc. Bachelor of Fisheries Sciences",
+     "years": 4,
+     "degree": "B.F.Sc.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 247.5,
+     "career_id": "fishery-science"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": {
+   "category": "Agriculture",
+   "rank": 32,
+   "score": 46.46,
+   "ranking_year": 2024,
+   "rank_history": [
+    {
+     "year": 2024,
+     "rank": 32,
+     "score": 46.46
+    },
+    {
+     "year": 2023,
+     "rank": 40,
+     "score": 42.1
+    }
+   ]
+  },
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
+   "ranking": "NIRF 2024",
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "du:gargi-college-w",
   "aishe_code": null,
   "name": "Gargi College (W)",
@@ -14878,6 +17197,81 @@
   }
  },
  {
+  "college_id": "icar:sri-venkateswara-veterinary-university-tirupati",
+  "aishe_code": null,
+  "name": "Sri Venkateswara Veterinary University, Tirupati",
+  "display_name": "Sri Venkateswara Veterinary University, Tirupati",
+  "state": "Andhra Pradesh",
+  "state_is_inferred": false,
+  "district": "Tirupati",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "B.Tech."
+   ],
+   "list": [
+    {
+     "branch": "B.Tech. Dairy Technology",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 134.4,
+     "career_id": "dairy-engineering"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": {
+   "category": "Agriculture",
+   "rank": 33,
+   "score": 46.41,
+   "ranking_year": 2024,
+   "rank_history": [
+    {
+     "year": 2024,
+     "rank": 33,
+     "score": 46.41
+    },
+    {
+     "year": 2023,
+     "rank": 31,
+     "score": 43.83
+    }
+   ]
+  },
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
+   "ranking": "NIRF 2024",
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "tnea:5008",
   "aishe_code": null,
   "name": "Thiagarajar College of Engineering (Autonomous) Tirupparankundram Madurai District 625015",
@@ -15263,6 +17657,119 @@
   "data_sources": {
    "identity": "CLAT 2026",
    "programs": "CLAT 2026",
+   "ranking": "NIRF 2025",
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "icar:navsari-agricultural-university-navsari",
+  "aishe_code": null,
+  "name": "Navsari Agricultural University, Navsari",
+  "display_name": "Navsari Agricultural University, Navsari",
+  "state": "Gujarat",
+  "state_is_inferred": false,
+  "district": "Navsari",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Agriculture",
+   "Engineering"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 5,
+   "degrees": [
+    "B.Sc. (Hons.)",
+    "B.Tech."
+   ],
+   "list": [
+    {
+     "branch": "B.Sc. (Hons.) Agriculture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 463.7,
+     "career_id": "agriculture"
+    },
+    {
+     "branch": "B.Tech. Bio-Technology",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 452.4,
+     "career_id": "biotechnology"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Horticulture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 389.3,
+     "career_id": "horticulture"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Forestry",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 348.9,
+     "career_id": "forestry"
+    },
+    {
+     "branch": "B.Tech. Agricultural Engineering",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 347.6,
+     "career_id": "agricultural-engineering"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": {
+   "category": "Agriculture",
+   "rank": 34,
+   "score": 49.13,
+   "ranking_year": 2025,
+   "rank_history": [
+    {
+     "year": 2025,
+     "rank": 34,
+     "score": 49.13
+    },
+    {
+     "year": 2024,
+     "rank": 35,
+     "score": 45.9
+    }
+   ]
+  },
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
    "ranking": "NIRF 2025",
    "placement": null,
    "accreditation": null
@@ -15657,6 +18164,116 @@
   }
  },
  {
+  "college_id": "icar:university-of-agricultural-sciences-dharwad",
+  "aishe_code": null,
+  "name": "University of Agricultural Sciences, Dharwad",
+  "display_name": "University of Agricultural Sciences, Dharwad",
+  "state": "Karnataka",
+  "state_is_inferred": false,
+  "district": "Dharwad",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Agriculture",
+   "Engineering",
+   "Science"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 4,
+   "degrees": [
+    "B.Sc. (Hons.)",
+    "B.Tech."
+   ],
+   "list": [
+    {
+     "branch": "B.Sc. (Hons.) Agriculture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 421.0,
+     "career_id": "agriculture"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Forestry",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 303.9,
+     "career_id": "forestry"
+    },
+    {
+     "branch": "B.Tech. Food Technology",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 230.9,
+     "career_id": "food-engineering"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Community Science",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 188.9,
+     "career_id": "agriculture"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": {
+   "category": "Agriculture",
+   "rank": 35,
+   "score": 48.79,
+   "ranking_year": 2025,
+   "rank_history": [
+    {
+     "year": 2025,
+     "rank": 35,
+     "score": 48.79
+    },
+    {
+     "year": 2024,
+     "rank": 24,
+     "score": 50.52
+    },
+    {
+     "year": 2023,
+     "rank": 28,
+     "score": 46.5
+    }
+   ]
+  },
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
+   "ranking": "NIRF 2025",
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "nmc:dayanand-medical-college-hospital-ludhiana",
   "aishe_code": null,
   "name": "Dayanand Medical College & Hospital, Ludhiana",
@@ -15763,6 +18380,114 @@
    "programs": "NMC 2024-25",
    "ranking": "NIRF 2025",
    "placement": "NIRF 2025 (AY 2022-23)",
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "icar:mahatma-phule-krishi-vidyapeeth-rahuri",
+  "aishe_code": null,
+  "name": "Mahatma Phule Krishi Vidyapeeth, Rahuri",
+  "display_name": "Mahatma Phule Krishi Vidyapeeth, Rahuri",
+  "state": "Maharashtra",
+  "state_is_inferred": false,
+  "district": "Rahuri",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Agriculture",
+   "Engineering"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 5,
+   "degrees": [
+    "B.Sc. (Hons.)",
+    "B.Tech."
+   ],
+   "list": [
+    {
+     "branch": "B.Sc. (Hons.) Agriculture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 383.8,
+     "career_id": "agriculture"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Horticulture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 369.9,
+     "career_id": "horticulture"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Agribusiness Management",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 350.9,
+     "career_id": "agriculture"
+    },
+    {
+     "branch": "B.Tech. Food Technology",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 313.3,
+     "career_id": "food-engineering"
+    },
+    {
+     "branch": "B.Tech. Agricultural Engineering",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 225.8,
+     "career_id": "agricultural-engineering"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": {
+   "category": "Agriculture",
+   "rank": 36,
+   "score": 42.89,
+   "ranking_year": 2023,
+   "rank_history": [
+    {
+     "year": 2023,
+     "rank": 36,
+     "score": 42.89
+    }
+   ]
+  },
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
+   "ranking": "NIRF 2023",
+   "placement": null,
    "accreditation": null
   }
  },
@@ -15958,6 +18683,86 @@
    "programs": "NMC 2024-25",
    "ranking": "NIRF 2020",
    "placement": "NIRF 2020 (AY 2017-18)",
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "icar:lala-lajpat-rai-university-of-veterinary-animal-sciences-hisar",
+  "aishe_code": null,
+  "name": "Lala Lajpat Rai University of Veterinary & Animal Sciences, Hisar",
+  "display_name": "Lala Lajpat Rai University of Veterinary & Animal Sciences, Hisar",
+  "state": "Haryana",
+  "state_is_inferred": false,
+  "district": "Hisar",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "B.Tech."
+   ],
+   "list": [
+    {
+     "branch": "B.Tech. Dairy Technology",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 352.3,
+     "career_id": "dairy-engineering"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": {
+   "category": "Agriculture",
+   "rank": 37,
+   "score": 48.03,
+   "ranking_year": 2025,
+   "rank_history": [
+    {
+     "year": 2025,
+     "rank": 37,
+     "score": 48.03
+    },
+    {
+     "year": 2024,
+     "rank": 34,
+     "score": 46.17
+    },
+    {
+     "year": 2023,
+     "rank": 34,
+     "score": 43.26
+    }
+   ]
+  },
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
+   "ranking": "NIRF 2025",
+   "placement": null,
    "accreditation": null
   }
  },
@@ -16317,6 +19122,96 @@
    "programs": "University of Delhi CSAS 2025",
    "ranking": "NIRF 2025",
    "placement": "NIRF 2025 (AY 2023-24)",
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "icar:junagadh-agricultural-university-junagadh",
+  "aishe_code": null,
+  "name": "Junagadh Agricultural University, Junagadh",
+  "display_name": "Junagadh Agricultural University, Junagadh",
+  "state": "Gujarat",
+  "state_is_inferred": false,
+  "district": "Junagadh",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Agriculture",
+   "Engineering"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 3,
+   "degrees": [
+    "B.Sc. (Hons.)",
+    "B.Tech."
+   ],
+   "list": [
+    {
+     "branch": "B.Sc. (Hons.) Agriculture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 469.1,
+     "career_id": "agriculture"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Horticulture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 381.3,
+     "career_id": "horticulture"
+    },
+    {
+     "branch": "B.Tech. Agricultural Engineering",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 312.3,
+     "career_id": "agricultural-engineering"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": {
+   "category": "Agriculture",
+   "rank": 38,
+   "score": 42.34,
+   "ranking_year": 2023,
+   "rank_history": [
+    {
+     "year": 2023,
+     "rank": 38,
+     "score": 42.34
+    }
+   ]
+  },
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
+   "ranking": "NIRF 2023",
+   "placement": null,
    "accreditation": null
   }
  },
@@ -17126,6 +20021,178 @@
    "programs": "NMC 2024-25",
    "ranking": "NIRF 2025",
    "placement": "NIRF 2025 (AY 2022-23)",
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "icar:university-of-agricultural-sciences-raichur",
+  "aishe_code": null,
+  "name": "University of Agricultural Sciences, Raichur",
+  "display_name": "University of Agricultural Sciences, Raichur",
+  "state": "Karnataka",
+  "state_is_inferred": false,
+  "district": "Raichur",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Agriculture",
+   "Engineering"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 2,
+   "degrees": [
+    "B.Sc. (Hons.)",
+    "B.Tech."
+   ],
+   "list": [
+    {
+     "branch": "B.Sc. (Hons.) Agriculture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 427.0,
+     "career_id": "agriculture"
+    },
+    {
+     "branch": "B.Tech. Agricultural Engineering",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 291.0,
+     "career_id": "agricultural-engineering"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": {
+   "category": "Agriculture",
+   "rank": 39,
+   "score": 42.23,
+   "ranking_year": 2023,
+   "rank_history": [
+    {
+     "year": 2023,
+     "rank": 39,
+     "score": 42.23
+    }
+   ]
+  },
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
+   "ranking": "NIRF 2023",
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "icar:west-bengal-university-of-animal-fishery-sciences-kolkata",
+  "aishe_code": null,
+  "name": "West Bengal University of Animal & Fishery Sciences, Kolkata",
+  "display_name": "West Bengal University of Animal & Fishery Sciences, Kolkata",
+  "state": "West Bengal",
+  "state_is_inferred": false,
+  "district": "Kolkata",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering",
+   "Fisheries"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 2,
+   "degrees": [
+    "B.F.Sc.",
+    "B.Tech."
+   ],
+   "list": [
+    {
+     "branch": "B.F.Sc. Bachelor of Fisheries Sciences",
+     "years": 4,
+     "degree": "B.F.Sc.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 379.3,
+     "career_id": "fishery-science"
+    },
+    {
+     "branch": "B.Tech. Dairy Technology",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 273.3,
+     "career_id": "dairy-engineering"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": {
+   "category": "Agriculture",
+   "rank": 39,
+   "score": 46.97,
+   "ranking_year": 2025,
+   "rank_history": [
+    {
+     "year": 2025,
+     "rank": 39,
+     "score": 46.97
+    },
+    {
+     "year": 2024,
+     "rank": 28,
+     "score": 48.3
+    },
+    {
+     "year": 2023,
+     "rank": 26,
+     "score": 46.64
+    }
+   ]
+  },
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
+   "ranking": "NIRF 2025",
+   "placement": null,
    "accreditation": null
   }
  },
@@ -31126,6 +34193,76 @@
   }
  },
  {
+  "college_id": "icar:nagaland-university-sas-medziphema",
+  "aishe_code": null,
+  "name": "Nagaland University (SAS), Medziphema",
+  "display_name": "Nagaland University (SAS), Medziphema",
+  "state": "Nagaland",
+  "state_is_inferred": false,
+  "district": "Medziphema",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Agriculture"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "B.Sc. (Hons.)"
+   ],
+   "list": [
+    {
+     "branch": "B.Sc. (Hons.) Agriculture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 374.8,
+     "career_id": "agriculture"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": {
+   "category": "University",
+   "rank": 95,
+   "score": 38.14,
+   "ranking_year": 2018,
+   "rank_history": [
+    {
+     "year": 2018,
+     "rank": 95,
+     "score": 38.14
+    }
+   ]
+  },
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
+   "ranking": "NIRF 2018",
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "U-0613",
   "aishe_code": "U-0613",
   "name": "National Institute of Technology Manipur",
@@ -32547,6 +35684,101 @@
    "programs": "JoSAA 2025 Round 6",
    "ranking": "NIRF 2025",
    "placement": "NIRF 2025 (AY 2023-24)",
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "icar:palli-siksha-bhavana-visva-bharati-santiniketan",
+  "aishe_code": null,
+  "name": "Palli Siksha Bhavana, Visva-Bharati, Santiniketan",
+  "display_name": "Palli Siksha Bhavana, Visva-Bharati, Santiniketan",
+  "state": "West Bengal",
+  "state_is_inferred": false,
+  "district": "Santiniketan",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Agriculture"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "B.Sc. (Hons.)"
+   ],
+   "list": [
+    {
+     "branch": "B.Sc. (Hons.) Agriculture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 454.9,
+     "career_id": "agriculture"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": {
+   "category": "University",
+   "rank": 97,
+   "score": 43.11,
+   "ranking_year": 2023,
+   "rank_history": [
+    {
+     "year": 2023,
+     "rank": 97,
+     "score": 43.11
+    },
+    {
+     "year": 2022,
+     "rank": 98,
+     "score": 40.96
+    },
+    {
+     "year": 2021,
+     "rank": 64,
+     "score": 42.76
+    },
+    {
+     "year": 2020,
+     "rank": 50,
+     "score": 46.84
+    },
+    {
+     "year": 2019,
+     "rank": 37,
+     "score": 46.27
+    },
+    {
+     "year": 2018,
+     "rank": 31,
+     "score": 47.62
+    }
+   ]
+  },
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
+   "ranking": "NIRF 2023",
+   "placement": null,
    "accreditation": null
   }
  },
@@ -51519,6 +54751,132 @@
   }
  },
  {
+  "college_id": "icar:acharya-narendra-dev-university-of-agriculture-technology-ayodhya",
+  "aishe_code": null,
+  "name": "Acharya Narendra Dev University of Agriculture & Technology, Ayodhya",
+  "display_name": "Acharya Narendra Dev University of Agriculture & Technology, Ayodhya",
+  "state": "Uttar Pradesh",
+  "state_is_inferred": false,
+  "district": "Ayodhya",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Agriculture",
+   "Engineering",
+   "Fisheries",
+   "Science"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 8,
+   "degrees": [
+    "B.F.Sc.",
+    "B.Sc. (Hons.)",
+    "B.Tech."
+   ],
+   "list": [
+    {
+     "branch": "B.Sc. (Hons.) Agriculture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 462.3,
+     "career_id": "agriculture"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Horticulture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 378.2,
+     "career_id": "horticulture"
+    },
+    {
+     "branch": "B.Tech. Bio-Technology",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 370.0,
+     "career_id": "biotechnology"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Forestry",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 341.3,
+     "career_id": "forestry"
+    },
+    {
+     "branch": "B.Tech. Agricultural Engineering",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 341.3,
+     "career_id": "agricultural-engineering"
+    },
+    {
+     "branch": "B.F.Sc. Bachelor of Fisheries Sciences",
+     "years": 4,
+     "degree": "B.F.Sc.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 335.1,
+     "career_id": "fishery-science"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Food Nutrition and Dietetics",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 312.9,
+     "career_id": "food-engineering"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Community Science",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 263.4,
+     "career_id": "agriculture"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "C-22936",
   "aishe_code": "C-22936",
   "name": "Acharya Sri Chander College of Medical Science & Hospital",
@@ -54578,6 +57936,140 @@
   "data_sources": {
    "identity": "TNEA 2025",
    "programs": "TNEA 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "icar:agriculture-university-jodhpur",
+  "aishe_code": null,
+  "name": "Agriculture University, Jodhpur",
+  "display_name": "Agriculture University, Jodhpur",
+  "state": "Rajasthan",
+  "state_is_inferred": false,
+  "district": "Jodhpur",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Agriculture"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "B.Sc. (Hons.)"
+   ],
+   "list": [
+    {
+     "branch": "B.Sc. (Hons.) Agriculture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 419.9,
+     "career_id": "agriculture"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "icar:agriculture-university-kota",
+  "aishe_code": null,
+  "name": "Agriculture University, Kota",
+  "display_name": "Agriculture University, Kota",
+  "state": "Rajasthan",
+  "state_is_inferred": false,
+  "district": "Kota",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Agriculture"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 3,
+   "degrees": [
+    "B.Sc. (Hons.)"
+   ],
+   "list": [
+    {
+     "branch": "B.Sc. (Hons.) Agriculture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 460.0,
+     "career_id": "agriculture"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Horticulture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 390.5,
+     "career_id": "horticulture"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Forestry",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 338.3,
+     "career_id": "forestry"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -71633,6 +75125,112 @@
   }
  },
  {
+  "college_id": "icar:banda-university-of-agriculture-technology-banda",
+  "aishe_code": null,
+  "name": "Banda University of Agriculture & Technology, Banda",
+  "display_name": "Banda University of Agriculture & Technology, Banda",
+  "state": "Uttar Pradesh",
+  "state_is_inferred": false,
+  "district": "Banda",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Agriculture",
+   "Engineering",
+   "Science"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 6,
+   "degrees": [
+    "B.Sc. (Hons.)",
+    "B.Tech."
+   ],
+   "list": [
+    {
+     "branch": "B.Sc. (Hons.) Agriculture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 465.3,
+     "career_id": "agriculture"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Horticulture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 360.8,
+     "career_id": "horticulture"
+    },
+    {
+     "branch": "B.Tech. Food Technology",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 343.2,
+     "career_id": "food-engineering"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Forestry",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 325.1,
+     "career_id": "forestry"
+    },
+    {
+     "branch": "B.Tech. Agricultural Engineering",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 287.2,
+     "career_id": "agricultural-engineering"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Community Science",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 244.8,
+     "career_id": "agriculture"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "kcet:bangalore institute technology k r road bangalore k r road v",
   "aishe_code": null,
   "name": "Bangalore Institute of Technology, K.R.Road, Bangalore (AUTONOMOUS) K.R.ROAD, V.V.PURA, BANGALORE-560004",
@@ -76221,6 +79819,73 @@
   }
  },
  {
+  "college_id": "icar:bihar-agricultural-university-sabour",
+  "aishe_code": null,
+  "name": "Bihar Agricultural University, Sabour",
+  "display_name": "Bihar Agricultural University, Sabour",
+  "state": "Bihar",
+  "state_is_inferred": false,
+  "district": "Bhagalpur",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Agriculture"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 2,
+   "degrees": [
+    "B.Sc. (Hons.)"
+   ],
+   "list": [
+    {
+     "branch": "B.Sc. (Hons.) Agriculture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 467.0,
+     "career_id": "agriculture"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Horticulture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 433.7,
+     "career_id": "horticulture"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "kcet:biluru gurubasava mahaswamiji institute technology mudhol ba",
   "aishe_code": null,
   "name": "Biluru Gurubasava Mahaswamiji Institute of Technology,Mudhol,Bagalkote. MANTUR ROAD, MUDHOL,BAGALKOTE",
@@ -76748,6 +80413,84 @@
   "data_sources": {
    "identity": "ACPC 2025",
    "programs": "ACPC 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "icar:birsa-agricultural-university-ranchi",
+  "aishe_code": null,
+  "name": "Birsa Agricultural University, Ranchi",
+  "display_name": "Birsa Agricultural University, Ranchi",
+  "state": "Jharkhand",
+  "state_is_inferred": false,
+  "district": "Ranchi",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Agriculture",
+   "Fisheries"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 3,
+   "degrees": [
+    "B.F.Sc.",
+    "B.Sc. (Hons.)"
+   ],
+   "list": [
+    {
+     "branch": "B.Sc. (Hons.) Agriculture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 500.1,
+     "career_id": "agriculture"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Forestry",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 378.0,
+     "career_id": "forestry"
+    },
+    {
+     "branch": "B.F.Sc. Bachelor of Fisheries Sciences",
+     "years": 4,
+     "degree": "B.F.Sc.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 309.8,
+     "career_id": "fishery-science"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -80901,6 +84644,64 @@
   "data_sources": {
    "identity": "TNEA 2025",
    "programs": "TNEA 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "icar:csk-himachal-pradesh-krishi-vishvavidyalaya-palampur",
+  "aishe_code": null,
+  "name": "CSK Himachal Pradesh Krishi Vishvavidyalaya, Palampur",
+  "display_name": "CSK Himachal Pradesh Krishi Vishvavidyalaya, Palampur",
+  "state": "Himachal Pradesh",
+  "state_is_inferred": false,
+  "district": "Palampur",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Agriculture"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "B.Sc. (Hons.)"
+   ],
+   "list": [
+    {
+     "branch": "B.Sc. (Hons.) Agriculture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 559.4,
+     "career_id": "agriculture"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -90444,6 +94245,75 @@
   }
  },
  {
+  "college_id": "icar:dau-shri-vasudev-chandrakar-kamdhenu-vishwavidyalaya-durg",
+  "aishe_code": null,
+  "name": "Dau Shri Vasudev Chandrakar Kamdhenu Vishwavidyalaya, Durg",
+  "display_name": "Dau Shri Vasudev Chandrakar Kamdhenu Vishwavidyalaya, Durg",
+  "state": "Chhattisgarh",
+  "state_is_inferred": false,
+  "district": "Durg",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering",
+   "Fisheries"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 2,
+   "degrees": [
+    "B.F.Sc.",
+    "B.Tech."
+   ],
+   "list": [
+    {
+     "branch": "B.F.Sc. Bachelor of Fisheries Sciences",
+     "years": 4,
+     "degree": "B.F.Sc.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 258.2,
+     "career_id": "fishery-science"
+    },
+    {
+     "branch": "B.Tech. Dairy Technology",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 200.5,
+     "career_id": "dairy-engineering"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "mhtcet:2599",
   "aishe_code": null,
   "name": "Dayanand College of Architecture, Latur",
@@ -95330,6 +99200,104 @@
   }
  },
  {
+  "college_id": "icar:dr-balasaheb-sawant-konkan-krishi-vidyapeeth-dapoli",
+  "aishe_code": null,
+  "name": "Dr. Balasaheb Sawant Konkan Krishi Vidyapeeth, Dapoli",
+  "display_name": "Dr. Balasaheb Sawant Konkan Krishi Vidyapeeth, Dapoli",
+  "state": "Maharashtra",
+  "state_is_inferred": false,
+  "district": "Dapoli",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Agriculture",
+   "Engineering",
+   "Fisheries"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 5,
+   "degrees": [
+    "B.F.Sc.",
+    "B.Sc. (Hons.)",
+    "B.Tech."
+   ],
+   "list": [
+    {
+     "branch": "B.Sc. (Hons.) Agriculture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 383.6,
+     "career_id": "agriculture"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Horticulture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 355.5,
+     "career_id": "horticulture"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Forestry",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 321.6,
+     "career_id": "forestry"
+    },
+    {
+     "branch": "B.F.Sc. Bachelor of Fisheries Sciences",
+     "years": 4,
+     "degree": "B.F.Sc.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 298.3,
+     "career_id": "fishery-science"
+    },
+    {
+     "branch": "B.Tech. Agricultural Engineering",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 162.1,
+     "career_id": "agricultural-engineering"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "du:dr-bhim-rao-ambedkar-college",
   "aishe_code": null,
   "name": "Dr. Bhim Rao Ambedkar College",
@@ -97208,6 +101176,111 @@
   }
  },
  {
+  "college_id": "icar:dr-panjabrao-deshmukh-krishi-vidyapeeth-akola",
+  "aishe_code": null,
+  "name": "Dr. Panjabrao Deshmukh Krishi Vidyapeeth, Akola",
+  "display_name": "Dr. Panjabrao Deshmukh Krishi Vidyapeeth, Akola",
+  "state": "Maharashtra",
+  "state_is_inferred": false,
+  "district": "Akola",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Agriculture",
+   "Engineering"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 6,
+   "degrees": [
+    "B.Sc. (Hons.)",
+    "B.Tech."
+   ],
+   "list": [
+    {
+     "branch": "B.Sc. (Hons.) Agriculture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 382.8,
+     "career_id": "agriculture"
+    },
+    {
+     "branch": "B.Tech. Bio-Technology",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 364.2,
+     "career_id": "biotechnology"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Horticulture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 359.9,
+     "career_id": "horticulture"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Forestry",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 321.7,
+     "career_id": "forestry"
+    },
+    {
+     "branch": "B.Tech. Food Technology",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 313.5,
+     "career_id": "food-engineering"
+    },
+    {
+     "branch": "B.Tech. Agricultural Engineering",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 269.1,
+     "career_id": "agricultural-engineering"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "C-61898",
   "aishe_code": "C-61898",
   "name": "Dr PATNAM MAHENDER REDDY INSTITUTE OF MEDICAL SCIENCES",
@@ -98637,6 +102710,64 @@
    "ranking": null,
    "placement": null,
    "accreditation": "NAAC"
+  }
+ },
+ {
+  "college_id": "icar:dr-y-s-r-horticultural-university-venkataramannagudem",
+  "aishe_code": null,
+  "name": "Dr. Y.S.R. Horticultural University, Venkataramannagudem",
+  "display_name": "Dr. Y.S.R. Horticultural University, Venkataramannagudem",
+  "state": "Andhra Pradesh",
+  "state_is_inferred": false,
+  "district": "West Godavari",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Agriculture"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "B.Sc. (Hons.)"
+   ],
+   "list": [
+    {
+     "branch": "B.Sc. (Hons.) Horticulture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 327.6,
+     "career_id": "horticulture"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
   }
  },
  {
@@ -106707,6 +110838,96 @@
   "data_sources": {
    "identity": "State CET Cell, Maharashtra 2025",
    "programs": "MHT-CET CAP 2025, rounds 1-4",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "icar:g-b-pant-university-of-agriculture-technology-pantnagar",
+  "aishe_code": null,
+  "name": "G.B. Pant University of Agriculture & Technology, Pantnagar",
+  "display_name": "G.B. Pant University of Agriculture & Technology, Pantnagar",
+  "state": "Uttarakhand",
+  "state_is_inferred": false,
+  "district": "Pantnagar",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Agriculture",
+   "Engineering",
+   "Fisheries",
+   "Science"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 4,
+   "degrees": [
+    "B.F.Sc.",
+    "B.Sc. (Hons.)",
+    "B.Tech."
+   ],
+   "list": [
+    {
+     "branch": "B.Sc. (Hons.) Agriculture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 593.0,
+     "career_id": "agriculture"
+    },
+    {
+     "branch": "B.Tech. Agricultural Engineering",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 444.2,
+     "career_id": "agricultural-engineering"
+    },
+    {
+     "branch": "B.F.Sc. Bachelor of Fisheries Sciences",
+     "years": 4,
+     "degree": "B.F.Sc.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 291.5,
+     "career_id": "fishery-science"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Community Science",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 267.9,
+     "career_id": "agriculture"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -136298,6 +140519,180 @@
   }
  },
  {
+  "college_id": "icar:icar-iari-assam-hub",
+  "aishe_code": null,
+  "name": "ICAR-IARI Assam Hub",
+  "display_name": "ICAR-IARI Assam Hub",
+  "state": "Assam",
+  "state_is_inferred": false,
+  "district": "Dhemaji",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Agriculture"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "B.Sc. (Hons.)"
+   ],
+   "list": [
+    {
+     "branch": "B.Sc. (Hons.) Agriculture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 492.0,
+     "career_id": "agriculture"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "icar:icar-iari-jharkhand-hub",
+  "aishe_code": null,
+  "name": "ICAR-IARI Jharkhand Hub",
+  "display_name": "ICAR-IARI Jharkhand Hub",
+  "state": "Jharkhand",
+  "state_is_inferred": false,
+  "district": "Hazaribagh",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Agriculture"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "B.Sc. (Hons.)"
+   ],
+   "list": [
+    {
+     "branch": "B.Sc. (Hons.) Agriculture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 521.3,
+     "career_id": "agriculture"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "icar:icar-ndri-bengaluru-hub",
+  "aishe_code": null,
+  "name": "ICAR-NDRI Bengaluru Hub",
+  "display_name": "ICAR-NDRI Bengaluru Hub",
+  "state": "Karnataka",
+  "state_is_inferred": false,
+  "district": "Bengaluru",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "B.Tech."
+   ],
+   "list": [
+    {
+     "branch": "B.Tech. Dairy Technology",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 416.9,
+     "career_id": "dairy-engineering"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "C-57119",
   "aishe_code": "C-57119",
   "name": "ICARE INSTITUTE OF MEDICAL SCIENCES AND RESEARCH , HALDIA, West Bengal",
@@ -142723,6 +147118,84 @@
   "data_sources": {
    "identity": "ACPC 2025",
    "programs": "ACPC 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "icar:institute-of-agricultural-sciences-bhu-varanasi",
+  "aishe_code": null,
+  "name": "Institute of Agricultural Sciences, BHU, Varanasi",
+  "display_name": "Institute of Agricultural Sciences, BHU, Varanasi",
+  "state": "Uttar Pradesh",
+  "state_is_inferred": false,
+  "district": "Varanasi",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Agriculture",
+   "Engineering"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 3,
+   "degrees": [
+    "B.Sc. (Hons.)",
+    "B.Tech."
+   ],
+   "list": [
+    {
+     "branch": "B.Sc. (Hons.) Agriculture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 640.6,
+     "career_id": "agriculture"
+    },
+    {
+     "branch": "B.Tech. Food Technology",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 420.8,
+     "career_id": "food-engineering"
+    },
+    {
+     "branch": "B.Tech. Dairy Technology",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 366.7,
+     "career_id": "dairy-engineering"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -151502,6 +155975,84 @@
   "data_sources": {
    "identity": "NMC 2024-25 / AISHE 2024-25",
    "programs": "NMC 2024-25",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "icar:jawaharlal-nehru-krishi-vishwa-vidyalaya-jabalpur",
+  "aishe_code": null,
+  "name": "Jawaharlal Nehru Krishi Vishwa Vidyalaya, Jabalpur",
+  "display_name": "Jawaharlal Nehru Krishi Vishwa Vidyalaya, Jabalpur",
+  "state": "Madhya Pradesh",
+  "state_is_inferred": false,
+  "district": "Jabalpur",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Agriculture",
+   "Engineering"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 3,
+   "degrees": [
+    "B.Sc. (Hons.)",
+    "B.Tech."
+   ],
+   "list": [
+    {
+     "branch": "B.Sc. (Hons.) Agriculture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 450.2,
+     "career_id": "agriculture"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Forestry",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 350.3,
+     "career_id": "forestry"
+    },
+    {
+     "branch": "B.Tech. Agricultural Engineering",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 255.7,
+     "career_id": "agricultural-engineering"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -163601,6 +168152,75 @@
   }
  },
  {
+  "college_id": "icar:kamdhenu-university-gandhinagar",
+  "aishe_code": null,
+  "name": "Kamdhenu University, Gandhinagar",
+  "display_name": "Kamdhenu University, Gandhinagar",
+  "state": "Gujarat",
+  "state_is_inferred": false,
+  "district": "Gandhinagar",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering",
+   "Fisheries"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 2,
+   "degrees": [
+    "B.F.Sc.",
+    "B.Tech."
+   ],
+   "list": [
+    {
+     "branch": "B.Tech. Dairy Technology",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 428.3,
+     "career_id": "dairy-engineering"
+    },
+    {
+     "branch": "B.F.Sc. Bachelor of Fisheries Sciences",
+     "years": 4,
+     "degree": "B.F.Sc.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 265.9,
+     "career_id": "fishery-science"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "C-54806",
   "aishe_code": "C-54806",
   "name": "Kamineni Academy of Medical Sciences and Research Centre",
@@ -164730,6 +169350,75 @@
   }
  },
  {
+  "college_id": "icar:karnataka-veterinary-animal-and-fisheries-sciences-university-bidar",
+  "aishe_code": null,
+  "name": "Karnataka Veterinary, Animal and Fisheries Sciences University, Bidar",
+  "display_name": "Karnataka Veterinary, Animal and Fisheries Sciences University, Bidar",
+  "state": "Karnataka",
+  "state_is_inferred": false,
+  "district": "Bidar",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering",
+   "Fisheries"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 2,
+   "degrees": [
+    "B.F.Sc.",
+    "B.Tech."
+   ],
+   "list": [
+    {
+     "branch": "B.Tech. Dairy Technology",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 305.2,
+     "career_id": "dairy-engineering"
+    },
+    {
+     "branch": "B.F.Sc. Bachelor of Fisheries Sciences",
+     "years": 4,
+     "degree": "B.F.Sc.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 241.8,
+     "career_id": "fishery-science"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "tnea:1409",
   "aishe_code": null,
   "name": "Karpaga Vinayaga College of Engineering and Technology, G.S.T. Road, Chinna Kolambakkam, Palayanoor Post, Madurantagam Taluk, Kancheepuram Dist-603308.",
@@ -165791,6 +170480,82 @@
   }
  },
  {
+  "college_id": "icar:keladi-shivappa-nayaka-university-of-agricultural-horticultural-scienc",
+  "aishe_code": null,
+  "name": "Keladi Shivappa Nayaka University of Agricultural & Horticultural Sciences, Shivamogga",
+  "display_name": "Keladi Shivappa Nayaka University of Agricultural & Horticultural Sciences, Shivamogga",
+  "state": "Karnataka",
+  "state_is_inferred": false,
+  "district": "Shivamogga",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Agriculture"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 3,
+   "degrees": [
+    "B.Sc. (Hons.)"
+   ],
+   "list": [
+    {
+     "branch": "B.Sc. (Hons.) Agriculture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 431.9,
+     "career_id": "agriculture"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Horticulture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 358.0,
+     "career_id": "horticulture"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Forestry",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 324.2,
+     "career_id": "forestry"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "keam:KCT",
   "aishe_code": null,
   "name": "Kelappaji College of Agricultural Engineering and Food Technology, Tavanur",
@@ -165915,6 +170680,64 @@
   "data_sources": {
    "identity": "NMC 2024-25 / AISHE 2024-25",
    "programs": "NMC 2024-25",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "icar:kerala-veterinary-animal-sciences-university-pookode",
+  "aishe_code": null,
+  "name": "Kerala Veterinary & Animal Sciences University, Pookode",
+  "display_name": "Kerala Veterinary & Animal Sciences University, Pookode",
+  "state": "Kerala",
+  "state_is_inferred": false,
+  "district": "Wayanad",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "B.Tech."
+   ],
+   "list": [
+    {
+     "branch": "B.Tech. Dairy Technology",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 103.5,
+     "career_id": "dairy-engineering"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -182193,6 +187016,181 @@
   }
  },
  {
+  "college_id": "icar:maharana-pratap-horticultural-university-karnal",
+  "aishe_code": null,
+  "name": "Maharana Pratap Horticultural University, Karnal",
+  "display_name": "Maharana Pratap Horticultural University, Karnal",
+  "state": "Haryana",
+  "state_is_inferred": false,
+  "district": "Karnal",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Agriculture"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "B.Sc. (Hons.)"
+   ],
+   "list": [
+    {
+     "branch": "B.Sc. (Hons.) Horticulture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 372.6,
+     "career_id": "horticulture"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "icar:maharana-pratap-university-of-agriculture-technology-udaipur",
+  "aishe_code": null,
+  "name": "Maharana Pratap University of Agriculture & Technology, Udaipur",
+  "display_name": "Maharana Pratap University of Agriculture & Technology, Udaipur",
+  "state": "Rajasthan",
+  "state_is_inferred": false,
+  "district": "Udaipur",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Agriculture",
+   "Engineering",
+   "Fisheries",
+   "Science"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 7,
+   "degrees": [
+    "B.F.Sc.",
+    "B.Sc. (Hons.)",
+    "B.Tech."
+   ],
+   "list": [
+    {
+     "branch": "B.Sc. (Hons.) Agriculture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 501.0,
+     "career_id": "agriculture"
+    },
+    {
+     "branch": "B.F.Sc. Bachelor of Fisheries Sciences",
+     "years": 4,
+     "degree": "B.F.Sc.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 308.3,
+     "career_id": "fishery-science"
+    },
+    {
+     "branch": "B.Tech. Agricultural Engineering",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 307.2,
+     "career_id": "agricultural-engineering"
+    },
+    {
+     "branch": "B.Tech. Dairy Technology",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 303.5,
+     "career_id": "dairy-engineering"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Food Nutrition and Dietetics",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 298.9,
+     "career_id": "food-engineering"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Community Science",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 210.5,
+     "career_id": "agriculture"
+    },
+    {
+     "branch": "B.Tech. Food Technology",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 187.5,
+     "career_id": "food-engineering"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "C-52206",
   "aishe_code": "C-52206",
   "name": "Maharani Laxmi Bai Medical College, Jhansi",
@@ -182244,6 +187242,75 @@
   "data_sources": {
    "identity": "NMC 2024-25 / AISHE 2024-25",
    "programs": "NMC 2024-25",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "icar:maharashtra-animal-fishery-sciences-university-nagpur",
+  "aishe_code": null,
+  "name": "Maharashtra Animal & Fishery Sciences University, Nagpur",
+  "display_name": "Maharashtra Animal & Fishery Sciences University, Nagpur",
+  "state": "Maharashtra",
+  "state_is_inferred": false,
+  "district": "Nagpur",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering",
+   "Fisheries"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 2,
+   "degrees": [
+    "B.F.Sc.",
+    "B.Tech."
+   ],
+   "list": [
+    {
+     "branch": "B.F.Sc. Bachelor of Fisheries Sciences",
+     "years": 4,
+     "degree": "B.F.Sc.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 258.3,
+     "career_id": "fishery-science"
+    },
+    {
+     "branch": "B.Tech. Dairy Technology",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 118.9,
+     "career_id": "dairy-engineering"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -199458,6 +204525,64 @@
   }
  },
  {
+  "college_id": "icar:nanaji-deshmukh-veterinary-science-university-jabalpur",
+  "aishe_code": null,
+  "name": "Nanaji Deshmukh Veterinary Science University, Jabalpur",
+  "display_name": "Nanaji Deshmukh Veterinary Science University, Jabalpur",
+  "state": "Madhya Pradesh",
+  "state_is_inferred": false,
+  "district": "Jabalpur",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Fisheries"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "B.F.Sc."
+   ],
+   "list": [
+    {
+     "branch": "B.F.Sc. Bachelor of Fisheries Sciences",
+     "years": 4,
+     "degree": "B.F.Sc.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 267.0,
+     "career_id": "fishery-science"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "mhtcet:06762",
   "aishe_code": null,
   "name": "Nanasaheb Mahadik College of Engineering,Walwa, Sangli.",
@@ -204623,6 +209748,114 @@
   "data_sources": {
    "identity": "State CET Cell, Maharashtra 2025",
    "programs": "MHT-CET CAP 2025, rounds 1-4",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "icar:odisha-university-of-agriculture-technology-bhubaneswar",
+  "aishe_code": null,
+  "name": "Odisha University of Agriculture & Technology, Bhubaneswar",
+  "display_name": "Odisha University of Agriculture & Technology, Bhubaneswar",
+  "state": "Odisha",
+  "state_is_inferred": false,
+  "district": "Bhubaneswar",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Agriculture",
+   "Engineering",
+   "Fisheries",
+   "Science"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 6,
+   "degrees": [
+    "B.F.Sc.",
+    "B.Sc. (Hons.)",
+    "B.Tech."
+   ],
+   "list": [
+    {
+     "branch": "B.Sc. (Hons.) Agriculture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 483.0,
+     "career_id": "agriculture"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Horticulture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 426.0,
+     "career_id": "horticulture"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Forestry",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 339.0,
+     "career_id": "forestry"
+    },
+    {
+     "branch": "B.F.Sc. Bachelor of Fisheries Sciences",
+     "years": 4,
+     "degree": "B.F.Sc.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 317.5,
+     "career_id": "fishery-science"
+    },
+    {
+     "branch": "B.Tech. Agricultural Engineering",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 298.1,
+     "career_id": "agricultural-engineering"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Community Science",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 241.5,
+     "career_id": "agriculture"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -211132,6 +216365,64 @@
   "data_sources": {
    "identity": "State CET Cell, Maharashtra 2025",
    "programs": "MHT-CET CAP 2025, rounds 1-4",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "icar:pv-narsimha-rao-telangana-veterinary-university-hyderabad",
+  "aishe_code": null,
+  "name": "PV Narsimha Rao Telangana Veterinary University, Hyderabad",
+  "display_name": "PV Narsimha Rao Telangana Veterinary University, Hyderabad",
+  "state": "Telangana",
+  "state_is_inferred": false,
+  "district": "Hyderabad",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "B.Tech."
+   ],
+   "list": [
+    {
+     "branch": "B.Tech. Dairy Technology",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 146.0,
+     "career_id": "dairy-engineering"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -226222,6 +231513,73 @@
   }
  },
  {
+  "college_id": "icar:rajmata-vijayaraje-scindia-krishi-vishwa-vidyalaya-gwalior",
+  "aishe_code": null,
+  "name": "Rajmata Vijayaraje Scindia Krishi Vishwa Vidyalaya, Gwalior",
+  "display_name": "Rajmata Vijayaraje Scindia Krishi Vishwa Vidyalaya, Gwalior",
+  "state": "Madhya Pradesh",
+  "state_is_inferred": false,
+  "district": "Gwalior",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Agriculture"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 2,
+   "degrees": [
+    "B.Sc. (Hons.)"
+   ],
+   "list": [
+    {
+     "branch": "B.Sc. (Hons.) Agriculture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 426.9,
+     "career_id": "agriculture"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Horticulture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 380.5,
+     "career_id": "horticulture"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "C-51449",
   "aishe_code": "C-51449",
   "name": "RAJSHREE MEDICAL RESEARCH INSTITUTE, BAREILLY",
@@ -226932,6 +232290,102 @@
   "data_sources": {
    "identity": "NMC 2024-25 / AISHE 2024-25",
    "programs": "NMC 2024-25",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "icar:rani-lakshmi-bai-central-agricultural-university-jhansi",
+  "aishe_code": null,
+  "name": "Rani Lakshmi Bai Central Agricultural University, Jhansi",
+  "display_name": "Rani Lakshmi Bai Central Agricultural University, Jhansi",
+  "state": "Uttar Pradesh",
+  "state_is_inferred": false,
+  "district": "Jhansi",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Agriculture",
+   "Fisheries"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 5,
+   "degrees": [
+    "B.F.Sc.",
+    "B.Sc. (Hons.)"
+   ],
+   "list": [
+    {
+     "branch": "B.Sc. (Hons.) Agriculture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 540.2,
+     "career_id": "agriculture"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Horticulture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 402.4,
+     "career_id": "horticulture"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Natural Farming",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 342.1,
+     "career_id": "agriculture"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Forestry",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 337.2,
+     "career_id": "forestry"
+    },
+    {
+     "branch": "B.F.Sc. Bachelor of Fisheries Sciences",
+     "years": 4,
+     "degree": "B.F.Sc.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 304.3,
+     "career_id": "fishery-science"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -249271,6 +254725,152 @@
   }
  },
  {
+  "college_id": "icar:sardar-vallabhbhai-patel-university-of-agriculture-technology-meerut",
+  "aishe_code": null,
+  "name": "Sardar Vallabhbhai Patel University of Agriculture & Technology, Meerut",
+  "display_name": "Sardar Vallabhbhai Patel University of Agriculture & Technology, Meerut",
+  "state": "Uttar Pradesh",
+  "state_is_inferred": false,
+  "district": "Meerut",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Agriculture",
+   "Engineering"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 2,
+   "degrees": [
+    "B.Sc. (Hons.)",
+    "B.Tech."
+   ],
+   "list": [
+    {
+     "branch": "B.Sc. (Hons.) Agriculture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 520.2,
+     "career_id": "agriculture"
+    },
+    {
+     "branch": "B.Tech. Bio-Technology",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 391.3,
+     "career_id": "biotechnology"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "icar:sardarkrushinagar-dantiwada-agricultural-university-banaskantha",
+  "aishe_code": null,
+  "name": "Sardarkrushinagar Dantiwada Agricultural University, Banaskantha",
+  "display_name": "Sardarkrushinagar Dantiwada Agricultural University, Banaskantha",
+  "state": "Gujarat",
+  "state_is_inferred": false,
+  "district": "Sardarkrushinagar",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Agriculture",
+   "Science"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 3,
+   "degrees": [
+    "B.Sc. (Hons.)"
+   ],
+   "list": [
+    {
+     "branch": "B.Sc. (Hons.) Agriculture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 384.7,
+     "career_id": "agriculture"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Horticulture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 370.5,
+     "career_id": "horticulture"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Community Science",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 224.8,
+     "career_id": "agriculture"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "mhtcet:06907",
   "aishe_code": null,
   "name": "Sarogini College of Pharmacy, Kolhapur",
@@ -254150,6 +259750,198 @@
   "data_sources": {
    "identity": "NMC 2024-25 / AISHE 2024-25",
    "programs": "NMC 2024-25",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "icar:sher-e-kashmir-university-of-agricultural-sciences-technology-of-jammu",
+  "aishe_code": null,
+  "name": "Sher-e-Kashmir University of Agricultural Sciences & Technology of Jammu",
+  "display_name": "Sher-e-Kashmir University of Agricultural Sciences & Technology of Jammu",
+  "state": "Jammu and Kashmir",
+  "state_is_inferred": false,
+  "district": "Jammu",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Agriculture"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "B.Sc. (Hons.)"
+   ],
+   "list": [
+    {
+     "branch": "B.Sc. (Hons.) Agriculture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 443.8,
+     "career_id": "agriculture"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "icar:sher-e-kashmir-university-of-agricultural-sciences-technology-of-kashm",
+  "aishe_code": null,
+  "name": "Sher-e-Kashmir University of Agricultural Sciences & Technology of Kashmir, Srinagar",
+  "display_name": "Sher-e-Kashmir University of Agricultural Sciences & Technology of Kashmir, Srinagar",
+  "state": "Jammu and Kashmir",
+  "state_is_inferred": false,
+  "district": "Srinagar",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Agriculture",
+   "Engineering",
+   "Fisheries"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 9,
+   "degrees": [
+    "B.F.Sc.",
+    "B.Sc. (Hons.)",
+    "B.Tech."
+   ],
+   "list": [
+    {
+     "branch": "B.Sc. (Hons.) Agriculture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 438.6,
+     "career_id": "agriculture"
+    },
+    {
+     "branch": "B.Tech. Dairy Technology",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 383.6,
+     "career_id": "dairy-engineering"
+    },
+    {
+     "branch": "B.Tech. Bio-Technology",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 345.9,
+     "career_id": "biotechnology"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Horticulture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 332.4,
+     "career_id": "horticulture"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Forestry",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 308.7,
+     "career_id": "forestry"
+    },
+    {
+     "branch": "B.Tech. Agricultural Engineering",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 297.5,
+     "career_id": "agricultural-engineering"
+    },
+    {
+     "branch": "B.F.Sc. Bachelor of Fisheries Sciences",
+     "years": 4,
+     "degree": "B.F.Sc.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 273.8,
+     "career_id": "fishery-science"
+    },
+    {
+     "branch": "B.Tech. Food Technology",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 267.5,
+     "career_id": "food-engineering"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Sericulture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 233.3,
+     "career_id": "sericulture"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -271181,6 +276973,122 @@
   }
  },
  {
+  "college_id": "icar:sri-karan-narendra-agriculture-university-jobner",
+  "aishe_code": null,
+  "name": "Sri Karan Narendra Agriculture University, Jobner",
+  "display_name": "Sri Karan Narendra Agriculture University, Jobner",
+  "state": "Rajasthan",
+  "state_is_inferred": false,
+  "district": "Jaipur",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Agriculture"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "B.Sc. (Hons.)"
+   ],
+   "list": [
+    {
+     "branch": "B.Sc. (Hons.) Agriculture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 434.3,
+     "career_id": "agriculture"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "icar:sri-konda-laxman-telangana-horticultural-university-hyderabad",
+  "aishe_code": null,
+  "name": "Sri Konda Laxman Telangana Horticultural University, Hyderabad",
+  "display_name": "Sri Konda Laxman Telangana Horticultural University, Hyderabad",
+  "state": "Telangana",
+  "state_is_inferred": false,
+  "district": "Hyderabad",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Agriculture"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "B.Sc. (Hons.)"
+   ],
+   "list": [
+    {
+     "branch": "B.Sc. (Hons.) Horticulture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 339.3,
+     "career_id": "horticulture"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "tnea:1526",
   "aishe_code": null,
   "name": "Sri Krishna College of Engineering, T.R.S. Campus, Sri Krishna Nagar, Tiruttani Road,Arakkonam, Vellore-631003.",
@@ -279063,6 +284971,83 @@
   "data_sources": {
    "identity": "State CET Cell, Maharashtra 2025",
    "programs": "MHT-CET CAP 2025, rounds 1-4",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "icar:swami-keshwanand-rajasthan-agricultural-university-bikaner",
+  "aishe_code": null,
+  "name": "Swami Keshwanand Rajasthan Agricultural University, Bikaner",
+  "display_name": "Swami Keshwanand Rajasthan Agricultural University, Bikaner",
+  "state": "Rajasthan",
+  "state_is_inferred": false,
+  "district": "Bikaner",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Agriculture",
+   "Science"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 3,
+   "degrees": [
+    "B.Sc. (Hons.)"
+   ],
+   "list": [
+    {
+     "branch": "B.Sc. (Hons.) Agriculture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 420.9,
+     "career_id": "agriculture"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Food Nutrition and Dietetics",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 303.6,
+     "career_id": "food-engineering"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Community Science",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 197.5,
+     "career_id": "agriculture"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -292814,6 +298799,190 @@
   }
  },
  {
+  "college_id": "icar:university-of-agricultural-sciences-bengaluru",
+  "aishe_code": null,
+  "name": "University of Agricultural Sciences, Bengaluru",
+  "display_name": "University of Agricultural Sciences, Bengaluru",
+  "state": "Karnataka",
+  "state_is_inferred": false,
+  "district": "Bengaluru",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Agriculture",
+   "Engineering",
+   "Science"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 7,
+   "degrees": [
+    "B.Sc. (Hons.)",
+    "B.Tech."
+   ],
+   "list": [
+    {
+     "branch": "B.Sc. (Hons.) Agriculture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 497.1,
+     "career_id": "agriculture"
+    },
+    {
+     "branch": "B.Tech. Bio-Technology",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 475.0,
+     "career_id": "biotechnology"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Agribusiness Management",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 411.9,
+     "career_id": "agriculture"
+    },
+    {
+     "branch": "B.Tech. Agricultural Engineering",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 337.1,
+     "career_id": "agricultural-engineering"
+    },
+    {
+     "branch": "B.Tech. Food Technology",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 333.4,
+     "career_id": "food-engineering"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Food Nutrition and Dietetics",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 305.5,
+     "career_id": "food-engineering"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Sericulture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 254.5,
+     "career_id": "sericulture"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "icar:university-of-horticultural-sciences-bagalkot",
+  "aishe_code": null,
+  "name": "University of Horticultural Sciences, Bagalkot",
+  "display_name": "University of Horticultural Sciences, Bagalkot",
+  "state": "Karnataka",
+  "state_is_inferred": false,
+  "district": "Bagalkot",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Agriculture",
+   "Engineering"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 2,
+   "degrees": [
+    "B.Sc. (Hons.)",
+    "B.Tech."
+   ],
+   "list": [
+    {
+     "branch": "B.Sc. (Hons.) Horticulture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 337.5,
+     "career_id": "horticulture"
+    },
+    {
+     "branch": "B.Tech. Food Technology",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 265.3,
+     "career_id": "food-engineering"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "kcet:university mysuru b n bahadur institute management sciences ",
   "aishe_code": null,
   "name": "University of Mysuru B.N.BAHADUR INSTITUTE OF MANAGEMENT SCIENCES, (DOS IN BUSSINESS ADMINISTRATION)UNIVERSITY OF MYSORE, MANASAGANGOTRI,HUNSUR ROAD,MYSORE.",
@@ -293213,6 +299382,73 @@
   "data_sources": {
    "identity": "State CET Cell, Maharashtra 2025",
    "programs": "MHT-CET CAP 2025, rounds 1-4",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "icar:uttar-banga-krishi-viswavidyalaya-cooch-behar",
+  "aishe_code": null,
+  "name": "Uttar Banga Krishi Viswavidyalaya, Cooch Behar",
+  "display_name": "Uttar Banga Krishi Viswavidyalaya, Cooch Behar",
+  "state": "West Bengal",
+  "state_is_inferred": false,
+  "district": "Cooch Behar",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Agriculture"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 2,
+   "degrees": [
+    "B.Sc. (Hons.)"
+   ],
+   "list": [
+    {
+     "branch": "B.Sc. (Hons.) Agriculture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 430.9,
+     "career_id": "agriculture"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Horticulture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 416.0,
+     "career_id": "horticulture"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -295015,6 +301251,82 @@
   "data_sources": {
    "identity": "State CET Cell, Maharashtra 2025",
    "programs": "MHT-CET CAP 2025, rounds 1-4",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "icar:vcsg-uttarakhand-university-of-horticulture-forestry-bharsar",
+  "aishe_code": null,
+  "name": "VCSG Uttarakhand University of Horticulture & Forestry, Bharsar",
+  "display_name": "VCSG Uttarakhand University of Horticulture & Forestry, Bharsar",
+  "state": "Uttarakhand",
+  "state_is_inferred": false,
+  "district": "Bharsar",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Agriculture"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 3,
+   "degrees": [
+    "B.Sc. (Hons.)"
+   ],
+   "list": [
+    {
+     "branch": "B.Sc. (Hons.) Agriculture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 453.4,
+     "career_id": "agriculture"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Horticulture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 368.1,
+     "career_id": "horticulture"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Forestry",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 308.4,
+     "career_id": "forestry"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -299798,6 +306110,112 @@
   "data_sources": {
    "identity": "State CET Cell, Maharashtra 2025",
    "programs": "MHT-CET CAP 2025, rounds 1-4",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "icar:vasantrao-naik-marathwada-krishi-vidyapeeth-parbhani",
+  "aishe_code": null,
+  "name": "Vasantrao Naik Marathwada Krishi Vidyapeeth, Parbhani",
+  "display_name": "Vasantrao Naik Marathwada Krishi Vidyapeeth, Parbhani",
+  "state": "Maharashtra",
+  "state_is_inferred": false,
+  "district": "Parbhani",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Agriculture",
+   "Engineering",
+   "Science"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 6,
+   "degrees": [
+    "B.Sc. (Hons.)",
+    "B.Tech."
+   ],
+   "list": [
+    {
+     "branch": "B.Sc. (Hons.) Agriculture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 383.2,
+     "career_id": "agriculture"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Horticulture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 363.8,
+     "career_id": "horticulture"
+    },
+    {
+     "branch": "B.Tech. Bio-Technology",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 361.3,
+     "career_id": "biotechnology"
+    },
+    {
+     "branch": "B.Tech. Agricultural Engineering",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 273.2,
+     "career_id": "agricultural-engineering"
+    },
+    {
+     "branch": "B.Tech. Food Technology",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 268.7,
+     "career_id": "food-engineering"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Community Science",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 233.2,
+     "career_id": "agriculture"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
    "ranking": null,
    "placement": null,
    "accreditation": null

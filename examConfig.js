@@ -2049,6 +2049,49 @@ export const aiimsNursingConfig = {
   getSort: () => [["Closing Rank", "ASC"]],
 };
 
+export const icarUgConfig = {
+  name: "ICAR-UG (agriculture, through CUET)",
+  searchKeys: ["Institute", "Academic Program Name"],
+  // cutoffs are CUET marks over the three subjects ICAR counts, out of 750;
+  // ICAR's ranks are stream-wise, so marks are the comparable number
+  // (scripts/build_icarug_2025.py)
+  primaryInput: decimalInput(
+    "Enter CUET Marks (ICAR's three subjects, out of 750)",
+    "e.g., 480.5",
+    "750"
+  ),
+  fields: [
+    {
+      name: "category",
+      label: "Select Category",
+      options: ["UR", "OBC", "SC", "ST", "EWS", "UPS", "PwD"],
+      helperText:
+        "UPS is ICAR's quota for students from under-privileged states.",
+    },
+  ],
+  getDataPath: () => {
+    return path.join(
+      process.cwd(),
+      "public",
+      "data",
+      "ICARUG",
+      "icarug_data.json"
+    );
+  },
+  getFilters: (query) => [
+    // UR seats are open to every category
+    (item) => item.Category === "UR" || item.Category === query.category,
+    (item) => {
+      if (!query.rank) return true;
+      const cutoff = parseFloat(item["Cutoff Marks"]);
+      const marks = parseFloat(query.rank);
+      if (isNaN(cutoff) || isNaN(marks)) return false;
+      return marks >= cutoff;
+    },
+  ],
+  getSort: () => [["Cutoff Marks", "DESC"]],
+};
+
 export const clatConfig = {
   name: "CLAT",
   searchKeys: ["Institute", "Academic Program Name"],
@@ -2146,6 +2189,7 @@ export const examConfigs = {
   "OJEE": ojeeConfig,
   "JAC Chandigarh": jacChandigarhConfig,
   "AIIMS Nursing": aiimsNursingConfig,
+  "ICAR-UG": icarUgConfig,
   "CLAT": clatConfig,
   "TGEAPCET": tseApertConfig,
 };

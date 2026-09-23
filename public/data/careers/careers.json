@@ -256,6 +256,10 @@
     "href": "/exams?q=GUJCET"
    },
    {
+    "label": "ICAR-UG (CUET)",
+    "href": "/predictor?exam=ICAR-UG"
+   },
+   {
     "label": "JEE Main",
     "href": "/exams?q=JEE Main"
    },
@@ -303,7 +307,7 @@
    },
    {
     "name": "Punjab Agricultural University",
-    "q": null
+    "q": "Punjab Agricultural University, Ludhiana"
    },
    {
     "name": "GB Pant University of Agriculture and Technology",
@@ -311,7 +315,7 @@
    },
    {
     "name": "Anand Agricultural University",
-    "q": null
+    "q": "Anand Agricultural University, Anand"
    },
    {
     "name": "CCS Haryana Agricultural University",
@@ -319,7 +323,7 @@
    },
    {
     "name": "Tamil Nadu Agricultural University",
-    "q": null
+    "q": "Tamil Nadu Agricultural University, Coimbatore"
    }
   ],
   "pay": {
@@ -416,6 +420,10 @@
   "entry_exams_text": "ICAR AIEEA (a national exam to get into agriculture degree programs at government agricultural universities), or state-level agriculture entrance exams; some private colleges admit based on Class 12 marks.",
   "exams": [
    {
+    "label": "ICAR-UG (CUET)",
+    "href": "/predictor?exam=ICAR-UG"
+   },
+   {
     "label": "CUET (UG)",
     "href": "/exams?q=CUET (UG)"
    }
@@ -427,11 +435,11 @@
    },
    {
     "name": "Punjab Agricultural University",
-    "q": null
+    "q": "Punjab Agricultural University, Ludhiana"
    },
    {
     "name": "Tamil Nadu Agricultural University",
-    "q": null
+    "q": "Tamil Nadu Agricultural University, Coimbatore"
    },
    {
     "name": "G.B. Pant University of Agriculture and Technology",
@@ -439,7 +447,7 @@
    },
    {
     "name": "Anand Agricultural University",
-    "q": null
+    "q": "Anand Agricultural University, Anand"
    }
   ],
   "pay": {
@@ -458,7 +466,15 @@
   "stability": "High",
   "automation_risk": "Medium",
   "where_work": "Tier-2 cities, and many roles require working in rural areas near farms",
-  "college_options": [],
+  "college_options": [
+   {
+    "college": "Punjab Agricultural University, Ludhiana",
+    "branch": "B.Sc. (Hons.) Agriculture",
+    "exam": "ICAR-UG (CUET)",
+    "closing": "594.4 CUET marks (of 750)",
+    "q": "Punjab Agricultural University, Ludhiana"
+   }
+  ],
   "notable_people": [
    "M.S. Swaminathan (father of India's Green Revolution)",
    "Verghese Kurien (led India's dairy revolution)",
@@ -1812,6 +1828,10 @@
    {
     "label": "GUJCET",
     "href": "/exams?q=GUJCET"
+   },
+   {
+    "label": "ICAR-UG (CUET)",
+    "href": "/predictor?exam=ICAR-UG"
    },
    {
     "label": "JAC Chandigarh",
@@ -3461,6 +3481,10 @@
     "href": "/exams?q=GUJCET"
    },
    {
+    "label": "ICAR-UG (CUET)",
+    "href": "/predictor?exam=ICAR-UG"
+   },
+   {
     "label": "JEE Main",
     "href": "/exams?q=JEE Main"
    },
@@ -3488,7 +3512,7 @@
   "top_colleges": [
    {
     "name": "National Dairy Research Institute Karnal",
-    "q": null
+    "q": "ICAR-National Dairy Research Institute, Karnal"
    },
    {
     "name": "College of Dairy Science Anand (Gujarat)",
@@ -3536,7 +3560,14 @@
     "branch": "Dairy Technology",
     "exam": "WBJEE",
     "closing": "11,413",
-    "q": "West Bengal University of Animal & Fishery Sciences"
+    "q": null
+   },
+   {
+    "college": "ICAR-National Dairy Research Institute, Karnal",
+    "branch": "B.Tech. Dairy Technology",
+    "exam": "ICAR-UG (CUET)",
+    "closing": "529.44 CUET marks (of 750)",
+    "q": "ICAR-National Dairy Research Institute, Karnal"
    }
   ],
   "notable_people": [
@@ -5465,6 +5496,10 @@
   "entry_exams_text": "ICAR AIEEA (All India Entrance Examination for Admission, run by the Indian Council of Agricultural Research, for fisheries and agriculture degree courses), or state-level agricultural university entrance tests.",
   "exams": [
    {
+    "label": "ICAR-UG (CUET)",
+    "href": "/predictor?exam=ICAR-UG"
+   },
+   {
     "label": "JEE Main",
     "href": "/exams?q=JEE Main"
    },
@@ -5510,7 +5545,15 @@
   "stability": "Medium",
   "automation_risk": "Low",
   "where_work": "Tier-2 cities and coastal areas",
-  "college_options": [],
+  "college_options": [
+   {
+    "college": "Chaudhary Charan Singh Haryana Agricultural University, Hisar",
+    "branch": "B.F.Sc. Bachelor of Fisheries Sciences",
+    "exam": "ICAR-UG (CUET)",
+    "closing": "299.12 CUET marks (of 750)",
+    "q": "Chaudhary Charan Singh Haryana Agricultural University, Hisar"
+   }
+  ],
   "notable_people": [
    "Dr. Modadugu Vijay Gupta: World Food Prize winner for fish farming work | Dr. W. S. Lakra: former Director",
    "Central Institute of Fisheries Education"
@@ -5538,6 +5581,10 @@
    {
     "label": "GUJCET",
     "href": "/exams?q=GUJCET"
+   },
+   {
+    "label": "ICAR-UG (CUET)",
+    "href": "/predictor?exam=ICAR-UG"
    },
    {
     "label": "JAC Chandigarh",
@@ -5595,7 +5642,7 @@
    },
    {
     "name": "Punjab Agricultural University",
-    "q": null
+    "q": "Punjab Agricultural University, Ludhiana"
    },
    {
     "name": "GB Pant University",
@@ -5646,6 +5693,13 @@
     "exam": "TNEA",
     "closing": "177.5/200 marks",
     "q": "Rajalakshmi Engineering College (Autonomous), Rajalakshmi Nagar, Thandalam, Kanchipuram, Chennai-602105."
+   },
+   {
+    "college": "ICAR-National Dairy Research Institute, Karnal",
+    "branch": "B.Tech. Food Technology",
+    "exam": "ICAR-UG (CUET)",
+    "closing": "518.04 CUET marks (of 750)",
+    "q": "ICAR-National Dairy Research Institute, Karnal"
    },
    {
     "college": "Dr. S.S. Bhatnagar University Institute of Chemical Engineering and Technology, Panjab University, Chandigarh",
@@ -5740,7 +5794,12 @@
   "day_in_life": "A forestry professional manages forests, plants and protects trees, tracks wildlife, and works to stop illegal cutting of trees or poaching of animals. Work often happens outdoors, walking through forest areas, alongside paperwork on forest health and planning.",
   "impact": "Foresters protect India's tiger reserves like Ranthambore and Jim Corbett, manage timber and forest produce that rural communities depend on, and help fight climate change by keeping forests healthy. Their decisions affect whether forests survive for future generations and whether wildlife like elephants and tigers have safe habitats.",
   "entry_exams_text": "Indian Forest Service Exam (a government exam through UPSC, the Union Public Service Commission, for top forest officer positions), or a B.Sc in Forestry through state agricultural or forestry university entrance tests.",
-  "exams": null,
+  "exams": [
+   {
+    "label": "ICAR-UG (CUET)",
+    "href": "/predictor?exam=ICAR-UG"
+   }
+  ],
   "top_colleges": [
    {
     "name": "Forest Research Institute (Dehradun)",
@@ -5748,11 +5807,11 @@
    },
    {
     "name": "Indira Gandhi Krishi Vishwavidyalaya (Raipur)",
-    "q": null
+    "q": "Indira Gandhi Krishi Vishwavidyalaya, Raipur"
    },
    {
     "name": "Kerala Agricultural University",
-    "q": null
+    "q": "Kerala Agricultural University, Thrissur"
    },
    {
     "name": "Indian Institute of Forest Management (Bhopal)",
@@ -5774,7 +5833,15 @@
   "stability": "High",
   "automation_risk": "Low",
   "where_work": "Tier-2 cities",
-  "college_options": [],
+  "college_options": [
+   {
+    "college": "Tamil Nadu Agricultural University, Coimbatore",
+    "branch": "B.Sc. (Hons.) Forestry",
+    "exam": "ICAR-UG (CUET)",
+    "closing": "303.02 CUET marks (of 750)",
+    "q": "Tamil Nadu Agricultural University, Coimbatore"
+   }
+  ],
   "notable_people": [
    "Kailash Sankhala: known as father of Project Tiger | Ullas Karanth: renowned Indian tiger conservationist"
   ],
@@ -6100,6 +6167,10 @@
   "entry_exams_text": "ICAR AIEEA (All India Entrance Examination for Admission, run by the Indian Council of Agricultural Research, for agriculture and horticulture degree courses), or state agricultural university entrance tests.",
   "exams": [
    {
+    "label": "ICAR-UG (CUET)",
+    "href": "/predictor?exam=ICAR-UG"
+   },
+   {
     "label": "CUET (UG)",
     "href": "/exams?q=CUET (UG)"
    }
@@ -6111,11 +6182,11 @@
    },
    {
     "name": "Punjab Agricultural University",
-    "q": null
+    "q": "Punjab Agricultural University, Ludhiana"
    },
    {
     "name": "Kerala Agricultural University",
-    "q": null
+    "q": "Kerala Agricultural University, Thrissur"
    },
    {
     "name": "Dr. Yashwant Singh Parmar University of Horticulture and Forestry",
@@ -6137,7 +6208,15 @@
   "stability": "Medium",
   "automation_risk": "Low",
   "where_work": "Tier-2 and rural areas",
-  "college_options": [],
+  "college_options": [
+   {
+    "college": "Punjab Agricultural University, Ludhiana",
+    "branch": "B.Sc. (Hons.) Horticulture",
+    "exam": "ICAR-UG (CUET)",
+    "closing": "413.68 CUET marks (of 750)",
+    "q": "Punjab Agricultural University, Ludhiana"
+   }
+  ],
   "notable_people": [
    "M. S. Swaminathan: father of India's Green Revolution | Kavita Mishra: known horticulture research scientist"
   ],
@@ -10206,6 +10285,10 @@
   "entry_exams_text": "No single fixed entrance exam \u2014 students usually join a B.Sc. in Sericulture after Class 12 (Science stream) based on marks, though some agricultural universities use exams like ICAR AIEEA (a national entrance test for agriculture-related degrees).",
   "exams": [
    {
+    "label": "ICAR-UG (CUET)",
+    "href": "/predictor?exam=ICAR-UG"
+   },
+   {
     "label": "CUET (UG)",
     "href": "/exams?q=CUET (UG)"
    }
@@ -10225,7 +10308,7 @@
    },
    {
     "name": "Tamil Nadu Agricultural University",
-    "q": null
+    "q": "Tamil Nadu Agricultural University, Coimbatore"
    },
    {
     "name": "Berhampore Sericulture College",
@@ -10247,7 +10330,15 @@
   "stability": "Medium",
   "automation_risk": "Low",
   "where_work": "Tier-2 cities (mainly rural and semi-rural areas)",
-  "college_options": [],
+  "college_options": [
+   {
+    "college": "Tamil Nadu Agricultural University, Coimbatore",
+    "branch": "B.Sc. (Hons.) Sericulture",
+    "exam": "ICAR-UG (CUET)",
+    "closing": "256.19 CUET marks (of 750)",
+    "q": "Tamil Nadu Agricultural University, Coimbatore"
+   }
+  ],
   "notable_people": [
    "Scientists at the Central Silk Board",
    "researchers at CSRTI Mysore who developed improved silkworm breeds"
@@ -10904,7 +10995,7 @@
    },
    {
     "name": "Guru Angad Dev Veterinary and Animal Sciences University (GADVASU)",
-    "q": null
+    "q": "Guru Angad Dev Veterinary and Animal Sciences University, Ludhiana"
    },
    {
     "name": "Bombay Veterinary College",
@@ -10912,7 +11003,7 @@
    },
    {
     "name": "National Dairy Research Institute (NDRI)",
-    "q": null
+    "q": "ICAR-National Dairy Research Institute, Karnal"
    }
   ],
   "pay": {

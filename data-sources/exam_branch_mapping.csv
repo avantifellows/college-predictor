@@ -1613,3 +1613,16 @@ JAC-Chandigarh,Bachelor of Architecture,Architecture,ARCH,Architecture,22,1,same
 JAC-Chandigarh,Integrated B.E. (Chemical Engineering) - MBA,Chemical Engineering,CHEMENG,Chemical Engineering,38,1,same string as another exam
 JAC-Chandigarh,Integrated B.E. (Chemical Engineering) - MBA - TFW,Chemical Engineering,CHEMENG,Chemical Engineering,5,1,same string as another exam
 AIIMS-Nursing,B.Sc. (Hons.) Nursing,BSc Nursing,NURSING,Nursing,188,18,same string as another exam
+ICAR-UG,B.F.Sc. Bachelor of Fisheries Sciences,B.F.Sc. Bachelor of Fisheries Sciences,FISH,Fishery Science,762,22,taxonomy parent by name
+ICAR-UG,B.Sc. (Hons.) Agribusiness Management,B.Sc. (Hons.) Agribusiness Management,AGRI,Agriculture,83,4,provisional (for Amogh)
+ICAR-UG,B.Sc. (Hons.) Agriculture,B.Sc. (Hons.) Agriculture,AGRI,Agriculture,3505,50,taxonomy parent by name
+ICAR-UG,B.Sc. (Hons.) Community Science,B.Sc. (Hons.) Community Science,AGRI,Agriculture,687,18,provisional (for Amogh)
+ICAR-UG,B.Sc. (Hons.) Food Nutrition and Dietetics,B.Sc. (Hons.) Food Nutrition and Dietetics,FOODENG,Food Engineering,246,8,provisional (for Amogh)
+ICAR-UG,B.Sc. (Hons.) Forestry,B.Sc. (Hons.) Forestry,FOREST,Forestry,713,20,taxonomy parent by name
+ICAR-UG,B.Sc. (Hons.) Horticulture,B.Sc. (Hons.) Horticulture,HORTI,Horticulture,1548,30,taxonomy parent by name
+ICAR-UG,B.Sc. (Hons.) Nutural Farming,B.Sc. (Hons.) Natural Farming,AGRI,Agriculture,125,4,taxonomy parent by name
+ICAR-UG,B.Sc. (Hons.) Sericulture,B.Sc. (Hons.) Sericulture,SERI,Sericulture,89,3,taxonomy parent by name
+ICAR-UG,B.Tech. Agricultural Engineering,B.Tech. Agricultural Engineering,AGRIENG,Agricultural Engineering,956,27,same string as another exam
+ICAR-UG,B.Tech. Bio-Technology,B.Tech. Bio-Technology,BIOTECH,Biotechnology,484,13,same string as another exam
+ICAR-UG,B.Tech. Dairy Technology,B.Tech. Dairy Technology,DAIRYENG,Dairy Engineering,557,18,same string as another exam
+ICAR-UG,B.Tech. Food Technology,B.Tech. Food Technology,FOODENG,Food Engineering,741,20,same string as another exam

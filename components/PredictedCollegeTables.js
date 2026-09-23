@@ -140,6 +140,12 @@ const expandedFields = {
     { key: "Round", label: "Round" },
     { key: "Opening Rank", label: "Opening Rank (JEE Main)" },
   ],
+  // ICAR-UG (2025; CUET marks, three subjects of 750, lowest over rounds)
+  "ICAR-UG": [
+    { key: "Year", label: "Data Year" },
+    { key: "Category", label: "Category" },
+    { key: "Round", label: "Round" },
+  ],
   // AIIMS B.Sc. Nursing (2025; entrance overall ranks, loosest of 2 rounds)
   "AIIMS Nursing": [
     { key: "Year", label: "Data Year" },
@@ -416,12 +422,14 @@ const PredictedCollegesTable = ({
     "OJEE",
     "JAC Chandigarh",
     "AIIMS Nursing",
+    "ICAR-UG",
     "CLAT",
     "GUJCET",
   ]);
   // AIIMS cards are MCC (medical) colleges, which /compare leaves out:
   // name links yes, compare boxes no
-  const NO_COMPARE_EXAMS = new Set(["AIIMS Nursing"]);
+  // ICAR cutoffs are CUET marks, which /compare (ranks) can't line up
+  const NO_COMPARE_EXAMS = new Set(["AIIMS Nursing", "ICAR-UG"]);
   const supportsCompare =
     (isJosaaExam || NAME_LINK_EXAMS.has(exam)) && !NO_COMPARE_EXAMS.has(exam);
   const slugOf = (x) =>
@@ -640,6 +648,11 @@ const PredictedCollegesTable = ({
       // exam rank (which exists, for other courses).
       { key: "closing_rank", label: "Closing Rank (JEE Main)" },
     ],
+    "ICAR-UG": [
+      { key: "institute", label: "University" },
+      { key: "academic_program_name", label: "Course" },
+      { key: "cutoff_marks", label: "Cutoff (CUET marks)" },
+    ],
     "AIIMS Nursing": [
       { key: "institute", label: "Institute" },
       { key: "seat_category", label: "Seat" },
@@ -757,6 +770,14 @@ const PredictedCollegesTable = ({
         "Rural/Urban": item["Rural/Urban"],
         "Category_Key": item["Category_Key"],
         "Closing Rank": item["Closing Rank"],
+      };
+    }
+    if (exam === "ICAR-UG") {
+      return {
+        ...item,
+        institute: item["Institute"],
+        academic_program_name: item["Academic Program Name"],
+        cutoff_marks: item["Cutoff Marks"],
       };
     }
     if (exam === "AIIMS Nursing") {
