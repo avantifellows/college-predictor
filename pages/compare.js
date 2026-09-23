@@ -22,8 +22,8 @@ const fmtMoney = (n) =>
   n == null
     ? null
     : n >= 100000
-      ? `₹${(n / 100000).toFixed(1)} L`
-      : `₹${Math.round(n / 1000)}k`;
+    ? `₹${(n / 100000).toFixed(1)} L`
+    : `₹${Math.round(n / 1000)}k`;
 
 const pct = (n) => (n == null ? null : `${n}%`);
 
@@ -58,9 +58,11 @@ const ROWS = [
     label: "NIRF rank",
     sub: (o) =>
       o.college.nirf?.ranking_year
-        ? `${o.college.nirf.category || "Engineering"}, ${
-            o.college.nirf.ranking_year
-          }`
+        ? `${
+            o.college.nirf.category === "College"
+              ? "Degree colleges"
+              : o.college.nirf.category || "Engineering"
+          }, ${o.college.nirf.ranking_year}`
         : null,
     get: (o) => o.college.nirf?.rank ?? null,
     fmt: (v) => `#${v}`,

@@ -35,6 +35,16 @@ const PAGE_SIZE = 25;
 // appeared in the ranked band since, which is worth showing rather than hiding.
 const LATEST_NIRF = 2025;
 
+// NIRF publishes separate lists; their names as a student should read them
+export const nirfListLabel = (category) =>
+  ({
+    College: "Degree colleges",
+    Research: "Research",
+    Overall: "Overall",
+  }[category] ||
+  category ||
+  "Engineering");
+
 // Fees span ₹8,760 to ₹4.6L a year — below a lakh, "₹0.2 L" reads worse
 // than the plain rupee figure.
 const fmtFee = (v) => {
@@ -137,13 +147,12 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
           ) : nirf ? (
             <>
               <span className="font-semibold text-[#332724]">#{nirf.rank}</span>
-              {nirf.category && nirf.category !== "Engineering" ? (
-                // ranks only order colleges within one NIRF category, so a
-                // non-engineering rank says which list it is from
-                <span className="ml-1 text-[11px] font-normal text-[#6d5550]">
-                  {nirf.category}
-                </span>
-              ) : null}
+              {/* every rank names its NIRF list — four lists each have a
+                  #1, and NIRF's own "College" label read as "#1 college
+                  in India" */}
+              <span className="ml-1 text-[11px] font-normal text-[#6d5550]">
+                {nirfListLabel(nirf.category)}
+              </span>
               {(() => {
                 // Direction against LAST year, so a student sees movement in the
                 // table without expanding. A LOWER rank number is better, so a
@@ -246,13 +255,11 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
                               )
                                 ? "CUET score"
                                 : c.programs.list.some(
-                                      (p) => p.indicative_closing_rank != null
-                                    ) ||
-                                    !c.programs.list.some(
-                                      (p) => p.seats != null
-                                    )
-                                  ? "Closing rank"
-                                  : "Annual seats"}
+                                    (p) => p.indicative_closing_rank != null
+                                  ) ||
+                                  !c.programs.list.some((p) => p.seats != null)
+                                ? "Closing rank"
+                                : "Annual seats"}
                             </th>
                           </tr>
                         </thead>
@@ -620,8 +627,8 @@ const Colleges = () => {
     c.disciplines?.length
       ? c.disciplines
       : String(c.counselling).startsWith("MCC")
-        ? ["Medicine"]
-        : [];
+      ? ["Medicine"]
+      : [];
   const [sortKey, setSortKey] = useState("nirf");
   // Same pattern as the predictor's salary ⓘ: a positioned card, not the
   // browser's native title box (which renders late, unstyled, and turns the
