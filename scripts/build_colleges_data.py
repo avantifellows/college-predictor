@@ -1616,7 +1616,9 @@ def main():
                 "name": display,
                 "display_name": display,
                 "state": state,
-                "state_is_inferred": exam == "CLAT",
+                # CLAT's NLU states come from a hand-checked city list, not
+                # a guess — no "inferred" star
+                "state_is_inferred": False,
                 "district": (r.district if isinstance(r.district, str) and r.district
                              and r.district != "None" else None),
                 "kind": "Women's college" if women_only else None,
