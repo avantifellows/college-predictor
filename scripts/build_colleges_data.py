@@ -1916,7 +1916,7 @@ def main():
             "branch": "B.Sc. (Hons.) Nursing", "years": 4, "degree": "B.Sc. (Hons.)",
             "indicative_closing_rank": int(x.closing),
             "indicative_opening_rank": None,
-            "rank_label": "closing rank, AIIMS nursing",
+            "rank_label": "AIIMS nursing",
             "career_id": "nursing",
         })
         card["programs"]["count"] = len(card["programs"]["list"])
