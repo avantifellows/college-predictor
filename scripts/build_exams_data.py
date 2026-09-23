@@ -1,6 +1,6 @@
 """
 Build public/data/exams/exams.json from the cleaned exams sheet
-(~/jan2023/exams_cleaned.csv — Amogh's "List of entrance exams in India",
+(data-sources/exams_cleaned.csv — Amogh's "List of entrance exams in India",
 cleaned per exams_cleaning_notes.md).
 
 One JSON object per EXAM (the sheet is one row per exam x course-stream;

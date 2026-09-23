@@ -1,12 +1,12 @@
 """
 Build public/data/careers/careers.json from Amogh's career sheet
-(~/jan2023/Career_Streams_Engineering_Populated - Sheet1.csv, 107 careers).
+(data-sources/career_streams.csv, 107 careers).
 
 Each career carries the sheet's narrative fields plus a REAL exams join:
 career name -> parent branch in the taxonomy (89/107 match by name; the
 rest are pinned in CAREER_BRANCH below; non-academic careers like CA or
 HCL TechBee map to nothing and simply show no exam chips) -> the exams
-whose cutoff tables offer that branch, via ~/jan2023/exam_branch_mapping.csv.
+whose cutoff tables offer that branch, via data-sources/exam_branch_mapping.csv.
 
 branch_to_career.json is the reverse map (parent branch_id -> career slug)
 so the colleges tab can link a branch chip to its career page.
