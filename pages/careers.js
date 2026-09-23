@@ -5,6 +5,7 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import { Search } from "lucide-react";
+import { matchesQuery } from "../utils/search";
 
 const Dropdown = dynamic(() => import("../components/dropdown"), {
   ssr: false,
@@ -328,9 +329,7 @@ export default function Careers() {
       );
     }
     if (!raw) return rows;
-    return rows.filter((c) =>
-      raw.split(/\s+/).every((w) => c.name.toLowerCase().includes(w))
-    );
+    return rows.filter((c) => matchesQuery([c.name, c.domain || ""], raw));
   }, [all, q, stream, domain]);
 
   // browser back/forward between careers (and back INTO this page from an

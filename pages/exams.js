@@ -4,6 +4,7 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import { ChevronDown, ChevronUp, ExternalLink, Search } from "lucide-react";
+import { matchesQuery, plainText } from "../utils/search";
 
 // The shared searchable dropdown — same component as every other page.
 const Dropdown = dynamic(() => import("../components/dropdown"), {
@@ -235,7 +236,7 @@ const ExamRow = ({ e, index, expanded, onToggle }) => {
                       href={e.colleges_link}
                       className="text-xs text-[#6d5550] underline hover:text-[#8f2e31]"
                     >
-                      colleges accepting it
+                      Colleges accepting it
                     </Link>
                   ) : null}
                   {e.url ? (
@@ -245,7 +246,7 @@ const ExamRow = ({ e, index, expanded, onToggle }) => {
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1 text-xs text-[#6d5550] underline hover:text-[#8f2e31]"
                     >
-                      official site <ExternalLink size={12} />
+                      Official site <ExternalLink size={12} />
                     </a>
                   ) : null}
                   {e.open_data_id ? (
@@ -253,7 +254,7 @@ const ExamRow = ({ e, index, expanded, onToggle }) => {
                       href={`/datasets#${e.open_data_id}`}
                       className="text-xs text-[#6d5550] underline hover:text-[#8f2e31]"
                     >
-                      open data
+                      Open data
                     </Link>
                   ) : null}
                 </div>
@@ -303,6 +304,7 @@ export default function Exams() {
   const [where, setWhere] = useState("All");
   const [sort, setSort] = useState({ col: null, dir: "asc" });
   const [expandedId, setExpandedId] = useState(null);
+  const [autoOpened, setAutoOpened] = useState(false);
   const [shown, setShown] = useState(PAGE_SIZE);
 
   useEffect(() => {
@@ -338,19 +340,24 @@ export default function Exams() {
       if (where !== "All" && e.scope_type !== where && e.scope_state !== where)
         return false;
       if (!raw) return true;
-      const hay = [
-        e.name,
-        e.acronym,
-        e.scope,
-        e.scope_state || "",
-        ...(e.aliases || []),
-        ...e.streams,
-        ...(e.degrees || []),
-      ]
-        .join(" ")
-        .toLowerCase();
-      return raw.split(/\s+/).every((w) => hay.includes(w));
+      return matchesQuery(
+        [
+          e.name,
+          e.acronym,
+          e.scope,
+          e.scope_state || "",
+          ...(e.aliases || []),
+          ...e.streams,
+          ...(e.degrees || []),
+        ],
+        raw
+      );
     });
+    // an exact acronym hit ("IAT", "KCET") leads the list
+    const exact = (e) =>
+      plainText(e.acronym) === plainText(raw) ||
+      (e.aliases || []).some((a) => plainText(a) === plainText(raw));
+    if (raw) out = [...out].sort((a, b) => exact(b) - exact(a));
     if (sort.col) {
       const key =
         sort.col === "fee"
@@ -362,6 +369,28 @@ export default function Exams() {
     }
     return out;
   }, [all, q, stream, where, sort]);
+
+  // arriving from a link (/exams?q=IAT): open the card when the query lands
+  // on one exam, or on exactly one exact-acronym match
+  useEffect(() => {
+    if (autoOpened || !router.query.q || filtered.length === 0) return;
+    const raw = plainText(router.query.q);
+    const exacts = filtered.filter(
+      (e) =>
+        plainText(e.acronym) === raw ||
+        (e.aliases || []).some((a) => plainText(a) === raw)
+    );
+    const pick =
+      filtered.length === 1
+        ? filtered[0]
+        : exacts.length === 1
+        ? exacts[0]
+        : null;
+    if (pick) {
+      setExpandedId(pick.exam_id);
+      setAutoOpened(true);
+    }
+  }, [filtered, router.query.q, autoOpened]);
 
   useEffect(() => setShown(PAGE_SIZE), [q, stream, where, sort]);
 

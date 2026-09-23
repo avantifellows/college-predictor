@@ -1717,7 +1717,7 @@ const PredictedCollegesTable = ({
                 </Link>
               ) : (
                 <span className="whitespace-nowrap text-sm text-[#7a635d]">
-                  pick one more
+                  Pick one more
                 </span>
               )}
               <button
@@ -1725,7 +1725,7 @@ const PredictedCollegesTable = ({
                 onClick={() => setCompareSel([])}
                 className="text-sm text-[#7a635d] underline hover:text-[#B52326]"
               >
-                clear
+                Clear
               </button>
             </div>
           ) : null}

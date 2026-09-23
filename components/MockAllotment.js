@@ -25,6 +25,7 @@ import {
 } from "./mockAllotmentTheme";
 import { MatchStats } from "./InstituteRankedList";
 import ListAnalyzer from "./ListAnalyzer";
+import { matchesQuery } from "../utils/search";
 
 // Practice JoSAA choice-filling + locking + a round-by-round freeze/float mock,
 // built entirely on data already in this repo (see docs/SIMULATION_DATA.md).
@@ -255,31 +256,9 @@ const MockAllotment = () => {
     // match against each field separately can never span the two fields.
     // Abbreviations expand the way students type them ("nit trichy"), same
     // list the Colleges tab search uses.
-    const ABBREV = {
-      nit: "national institute of technology",
-      iiit: "indian institute of information technology",
-      iit: "indian institute of technology",
-      spa: "school of planning and architecture",
-      trichy: "tiruchirappalli",
-      kgp: "kharagpur",
-      bhu: "varanasi",
-      bangalore: "bengaluru",
-      calcutta: "kolkata",
-      mnnit: "motilal nehru",
-      mnit: "malaviya",
-      vnit: "visvesvaraya",
-      svnit: "sardar vallabhbhai",
-      manit: "maulana azad",
-      nitk: "surathkal",
-      iiest: "shibpur",
-    };
-    const raw = search.trim().toLowerCase().split(/\s+/).filter(Boolean);
-    const tokens = raw.flatMap((t) => (ABBREV[t] || t).split(" "));
     return catalog.filter((item) => {
       if (!matchesProgramType(item.program, programType)) return false;
-      if (tokens.length === 0) return true;
-      const haystack = `${item.institute} ${item.program}`.toLowerCase();
-      return tokens.every((t) => haystack.includes(t));
+      return matchesQuery([item.institute, item.program], search);
     });
   }, [catalog, search, programType]);
 

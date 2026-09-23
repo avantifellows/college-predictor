@@ -10,6 +10,7 @@ import {
   Info,
   Search,
 } from "lucide-react";
+import { matchesQuery } from "../utils/search";
 
 // The app's shared react-select wrapper — searchable, so a 30-state list can be
 // narrowed by typing. A native <select> only jumps on the first letter, which is
@@ -504,6 +505,12 @@ const ABBREV = [
   [/\baiims\b/g, "all india institute of medical sciences"],
   [/\bgmc\b/g, "government medical college"],
   // how students actually say it vs how the source prints it
+  [/\biiser\b/g, "indian institute of science education and research"],
+  [/\bnlu\b/g, "national law"],
+  [/\bsrcc\b/g, "shri ram college of commerce"],
+  [/\blsr\b/g, "lady shri ram"],
+  [/\bkmc\b/g, "kirori mal"],
+  [/\bstephens?\b/g, "stephen"],
   [/\btrichy\b/g, "tiruchirappalli"],
   [/\bkgp\b/g, "kharagpur"],
   [/\bbangalore\b/g, "bengaluru"],
@@ -676,18 +683,9 @@ const Colleges = () => {
   );
 
   const filtered = useMemo(() => {
-    // Punctuation-blind matching: medical names are comma-heavy ("All India
-    // Institute of Medical Sciences, New Delhi"), so both the query and the
-    // haystack collapse to plain words before the substring test.
-    const plain = (x) =>
-      String(x)
-        .toLowerCase()
-        .replace(/[^a-z0-9]+/g, " ")
-        .trim();
-    const raw = plain(q);
-    // Match on either the literal text or its abbreviation-expanded form, so
-    // "NIT Raipur" and "National Institute of Technology Raipur" both work.
-    const needles = raw ? Array.from(new Set([raw, expand(raw)])) : [];
+    // shared site-wide search: punctuation-blind, word by word, and aware
+    // of short forms (iiser, nit trichy, srcc) — see utils/search.js
+    const raw = q.trim();
     const out = all.filter((c) => {
       if (state !== "All" && c.state !== state) return false;
       if (exam !== "All" && !c.entrance_exams.includes(exam)) return false;
@@ -697,16 +695,25 @@ const Colleges = () => {
       if (!raw) return true;
       // Search the branch list too: "who teaches Aerospace" is a real question,
       // and the branch names are the richest text we hold.
-      const hay = plain(
+      return matchesQuery(
         [
           c.display_name,
           c.state || "",
           c.district || "",
           ...c.programs.list.map((p) => p.branch),
-        ].join(" ")
+        ],
+        raw
       );
-      return needles.some((n) => hay.includes(n));
     });
+    // a query that names a college ("iit bombay") shows only name/place
+    // matches; branch text is searched only when nothing matches by name
+    // ("aerospace") — otherwise a branch mentioning Bombay leaks in
+    if (raw) {
+      const byName = out.filter((c) =>
+        matchesQuery([c.display_name, c.state || "", c.district || ""], raw)
+      );
+      if (byName.length) return byName.sort(SORTS[sortKey].fn);
+    }
     return out.sort(SORTS[sortKey].fn);
   }, [all, q, state, exam, stream, career, sortKey]);
 

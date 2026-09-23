@@ -4,6 +4,7 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import { Plus, X } from "lucide-react";
+import { selectFilter } from "../utils/search";
 
 const Dropdown = dynamic(() => import("../components/dropdown"), {
   ssr: false,
@@ -159,6 +160,7 @@ const OptionPicker = ({ idx, colleges, option, setOption, remove }) => {
         onChange={(o) => setOption({ collegeId: o.value, branchIdx: null })}
         placeholder="Select a college…"
         hideValueWhileSearching
+        filterOption={selectFilter}
       />
       <div className="mt-2">
         <Dropdown

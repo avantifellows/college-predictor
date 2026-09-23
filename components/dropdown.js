@@ -66,6 +66,8 @@ const Dropdown = ({
   // optional custom option renderer, passed straight to react-select —
   // the home chooser uses it to tint one keyword per option
   formatOptionLabel,
+  // custom search matching (e.g. the site-wide selectFilter)
+  filterOption,
 }) => {
   const [isOpen, setIsOpen] = React.useState(false);
   return (
@@ -79,6 +81,7 @@ const Dropdown = ({
       instanceId={useId()}
       className={className}
       formatOptionLabel={formatOptionLabel}
+      {...(filterOption ? { filterOption } : {})}
       onMenuOpen={() => setIsOpen(true)}
       onMenuClose={() => setIsOpen(false)}
       controlShouldRenderValue={!(hideValueWhileSearching && isOpen)}
