@@ -381,7 +381,7 @@
    "percentage_with_outcome": 69.2,
    "students_placed": 192,
    "higher_studies_selected": 723,
-   "first_year_intake": null,
+   "first_year_intake": 956,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF College, UG 3-year",
@@ -1580,7 +1580,7 @@
    "percentage_with_outcome": 99.4,
    "students_placed": 252,
    "higher_studies_selected": 1339,
-   "first_year_intake": null,
+   "first_year_intake": 1257,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF College, UG 3-year",
@@ -2009,7 +2009,7 @@
    "percentage_with_outcome": 26.7,
    "students_placed": 195,
    "higher_studies_selected": 292,
-   "first_year_intake": null,
+   "first_year_intake": 1714,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF College, UG 3-year",
@@ -3056,7 +3056,7 @@
    "percentage_with_outcome": 82.7,
    "students_placed": 371,
    "higher_studies_selected": 863,
-   "first_year_intake": null,
+   "first_year_intake": 1506,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF College, UG 3-year",
@@ -3831,7 +3831,7 @@
    "percentage_with_outcome": 88.7,
    "students_placed": 100,
    "higher_studies_selected": 222,
-   "first_year_intake": null,
+   "first_year_intake": 410,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF College, UG 3-year",
@@ -6490,7 +6490,7 @@
    "percentage_with_outcome": 88.7,
    "students_placed": 551,
    "higher_studies_selected": 910,
-   "first_year_intake": null,
+   "first_year_intake": 1710,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF College, UG 3-year",
@@ -7911,7 +7911,7 @@
    "percentage_with_outcome": 94.8,
    "students_placed": 350,
    "higher_studies_selected": 882,
-   "first_year_intake": null,
+   "first_year_intake": 1048,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF College, UG 3-year",
@@ -8447,7 +8447,7 @@
    "percentage_with_outcome": 99.0,
    "students_placed": 525,
    "higher_studies_selected": 403,
-   "first_year_intake": null,
+   "first_year_intake": 781,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF College, UG 3-year",
@@ -9246,7 +9246,7 @@
    "percentage_with_outcome": 79.4,
    "students_placed": 67,
    "higher_studies_selected": 520,
-   "first_year_intake": null,
+   "first_year_intake": 853,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF College, UG 3-year",
@@ -10483,7 +10483,7 @@
    "percentage_with_outcome": 54.0,
    "students_placed": 143,
    "higher_studies_selected": 587,
-   "first_year_intake": null,
+   "first_year_intake": 1465,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF College, UG 3-year",
@@ -11154,7 +11154,7 @@
    "percentage_with_outcome": 34.5,
    "students_placed": 97,
    "higher_studies_selected": 226,
-   "first_year_intake": null,
+   "first_year_intake": 912,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF College, UG 3-year",
@@ -11976,7 +11976,7 @@
    "percentage_with_outcome": 20.3,
    "students_placed": 94,
    "higher_studies_selected": 206,
-   "first_year_intake": null,
+   "first_year_intake": 1673,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF College, UG 3-year",
@@ -11991,157 +11991,6 @@
   "data_sources": {
    "identity": "University of Delhi CSAS 2025",
    "programs": "University of Delhi CSAS 2025",
-   "ranking": "NIRF 2025",
-   "placement": "NIRF 2025 (AY 2023-24)",
-   "accreditation": null
-  }
- },
- {
-  "college_id": "gujcet:institute technology nirma university science technology ahm",
-  "aishe_code": null,
-  "name": "Institute Of Technology, Nirma University Of Science & Technology, Ahmedabad",
-  "display_name": "Institute Of Technology, Nirma University Of Science & Technology, Ahmedabad",
-  "state": "Gujarat",
-  "state_is_inferred": false,
-  "district": null,
-  "kind": null,
-  "management": "Private/SF",
-  "ownership": "Private",
-  "disciplines": [
-   "Engineering"
-  ],
-  "year_established": null,
-  "website": null,
-  "university": null,
-  "entrance_exams": [
-   "GUJCET"
-  ],
-  "counselling": "ACPC (GUJCET)",
-  "programs": {
-   "count": 8,
-   "degrees": [
-    "B.E. / B.Tech"
-   ],
-   "list": [
-    {
-     "branch": "COMPUTER SCIENCE & ENGINEERING",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 292,
-     "indicative_opening_rank": null,
-     "career_id": "computer-science-information-technology"
-    },
-    {
-     "branch": "ARTIFICIAL INTELLIGENCE(AI) AND MACHINE LEARNING",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 399,
-     "indicative_opening_rank": null,
-     "career_id": "artificial-intelligence-and-data-science"
-    },
-    {
-     "branch": "ELECTRONICS & COMMUNICATION ENGINEERING",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 707,
-     "indicative_opening_rank": null,
-     "career_id": "electrical-electronics-communications-engineering"
-    },
-    {
-     "branch": "MECHANICAL ENGINEERING",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 2121,
-     "indicative_opening_rank": null,
-     "career_id": "mechanical-mechatronics-engineering"
-    },
-    {
-     "branch": "ELECTRONICS & INSTRUMENTATION ENGINEERING",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 2186,
-     "indicative_opening_rank": null,
-     "career_id": "electrical-electronics-communications-engineering"
-    },
-    {
-     "branch": "CHEMICAL ENGINEERING",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 4538,
-     "indicative_opening_rank": null,
-     "career_id": "chemical-engineering"
-    },
-    {
-     "branch": "ELECTRICAL ENGINEERING",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 4619,
-     "indicative_opening_rank": null,
-     "career_id": "electrical-electronics-communications-engineering"
-    },
-    {
-     "branch": "CIVIL ENGINEERING",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 8414,
-     "indicative_opening_rank": null,
-     "career_id": "civil-engineering"
-    }
-   ],
-   "source": "ACPC 2025",
-   "rank_note": "Indicative open-category GUJCET closing rank."
-  },
-  "nirf": {
-   "category": "Architecture",
-   "rank": 29,
-   "score": 54.24,
-   "ranking_year": 2025,
-   "rank_history": [
-    {
-     "year": 2025,
-     "rank": 29,
-     "score": 54.24
-    },
-    {
-     "year": 2024,
-     "rank": 19,
-     "score": 57.69
-    },
-    {
-     "year": 2023,
-     "rank": 22,
-     "score": 54.06
-    },
-    {
-     "year": 2022,
-     "rank": 21,
-     "score": 51.54
-    }
-   ]
-  },
-  "ug_gender": null,
-  "fees": null,
-  "placement": {
-   "median_salary": 600000,
-   "percentage_placed": 73.4,
-   "percentage_with_outcome": 89.6,
-   "students_placed": 755,
-   "higher_studies_selected": 166,
-   "first_year_intake": 946,
-   "academic_year": "2023-24",
-   "ranking_year": 2025,
-   "source": "NIRF Engineering, UG",
-   "is_branch_specific": false
-  },
-  "naac": {
-   "grade": null,
-   "cgpa": null,
-   "cycle": null,
-   "not_applicable_reason": null
-  },
-  "data_sources": {
-   "identity": "ACPC 2025",
-   "programs": "ACPC 2025",
    "ranking": "NIRF 2025",
    "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
@@ -12653,7 +12502,7 @@
    "percentage_with_outcome": 49.1,
    "students_placed": 151,
    "higher_studies_selected": 316,
-   "first_year_intake": null,
+   "first_year_intake": 866,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF College, UG 3-year",
@@ -13014,7 +12863,7 @@
    "percentage_with_outcome": 89.0,
    "students_placed": 120,
    "higher_studies_selected": 381,
-   "first_year_intake": null,
+   "first_year_intake": 728,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF College, UG 3-year",
@@ -13513,7 +13362,7 @@
    "percentage_with_outcome": 23.1,
    "students_placed": 9,
    "higher_studies_selected": 78,
-   "first_year_intake": null,
+   "first_year_intake": 444,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF College, UG 3-year",
@@ -13797,6 +13646,167 @@
   "data_sources": {
    "identity": "AISHE 2024-25",
    "programs": "JoSAA 2025 Round 6",
+   "ranking": "NIRF 2025",
+   "placement": "NIRF 2025 (AY 2023-24)",
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "gujcet:institute technology nirma university science technology ahm",
+  "aishe_code": null,
+  "name": "Institute Of Technology, Nirma University Of Science & Technology, Ahmedabad",
+  "display_name": "Institute Of Technology, Nirma University Of Science & Technology, Ahmedabad",
+  "state": "Gujarat",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": null,
+  "management": "Private/SF",
+  "ownership": "Private",
+  "disciplines": [
+   "Engineering"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "GUJCET"
+  ],
+  "counselling": "ACPC (GUJCET)",
+  "programs": {
+   "count": 8,
+   "degrees": [
+    "B.E. / B.Tech"
+   ],
+   "list": [
+    {
+     "branch": "COMPUTER SCIENCE & ENGINEERING",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 292,
+     "indicative_opening_rank": null,
+     "career_id": "computer-science-information-technology"
+    },
+    {
+     "branch": "ARTIFICIAL INTELLIGENCE(AI) AND MACHINE LEARNING",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 399,
+     "indicative_opening_rank": null,
+     "career_id": "artificial-intelligence-and-data-science"
+    },
+    {
+     "branch": "ELECTRONICS & COMMUNICATION ENGINEERING",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 707,
+     "indicative_opening_rank": null,
+     "career_id": "electrical-electronics-communications-engineering"
+    },
+    {
+     "branch": "MECHANICAL ENGINEERING",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 2121,
+     "indicative_opening_rank": null,
+     "career_id": "mechanical-mechatronics-engineering"
+    },
+    {
+     "branch": "ELECTRONICS & INSTRUMENTATION ENGINEERING",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 2186,
+     "indicative_opening_rank": null,
+     "career_id": "electrical-electronics-communications-engineering"
+    },
+    {
+     "branch": "CHEMICAL ENGINEERING",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 4538,
+     "indicative_opening_rank": null,
+     "career_id": "chemical-engineering"
+    },
+    {
+     "branch": "ELECTRICAL ENGINEERING",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 4619,
+     "indicative_opening_rank": null,
+     "career_id": "electrical-electronics-communications-engineering"
+    },
+    {
+     "branch": "CIVIL ENGINEERING",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 8414,
+     "indicative_opening_rank": null,
+     "career_id": "civil-engineering"
+    }
+   ],
+   "source": "ACPC 2025",
+   "rank_note": "Indicative open-category GUJCET closing rank."
+  },
+  "nirf": {
+   "category": "Pharmacy",
+   "rank": 32,
+   "score": 57.08,
+   "ranking_year": 2025,
+   "rank_history": [
+    {
+     "year": 2025,
+     "rank": 32,
+     "score": 57.08
+    },
+    {
+     "year": 2024,
+     "rank": 37,
+     "score": 55.22
+    },
+    {
+     "year": 2023,
+     "rank": 37,
+     "score": 53.34
+    },
+    {
+     "year": 2022,
+     "rank": 28,
+     "score": 53.45
+    },
+    {
+     "year": 2021,
+     "rank": 20,
+     "score": 55.06
+    },
+    {
+     "year": 2020,
+     "rank": 17,
+     "score": 55.05
+    }
+   ]
+  },
+  "ug_gender": null,
+  "fees": null,
+  "placement": {
+   "median_salary": 600000,
+   "percentage_placed": 73.4,
+   "percentage_with_outcome": 89.6,
+   "students_placed": 755,
+   "higher_studies_selected": 166,
+   "first_year_intake": 946,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF Engineering, UG",
+   "is_branch_specific": false
+  },
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ACPC 2025",
+   "programs": "ACPC 2025",
    "ranking": "NIRF 2025",
    "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
@@ -14121,7 +14131,7 @@
    "percentage_with_outcome": 98.4,
    "students_placed": 294,
    "higher_studies_selected": 203,
-   "first_year_intake": null,
+   "first_year_intake": 507,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF College, UG 3-year",
@@ -14586,7 +14596,7 @@
    "percentage_with_outcome": 44.5,
    "students_placed": 251,
    "higher_studies_selected": 434,
-   "first_year_intake": null,
+   "first_year_intake": 1683,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF College, UG 3-year",
@@ -16139,7 +16149,7 @@
    "percentage_with_outcome": 77.0,
    "students_placed": 367,
    "higher_studies_selected": 474,
-   "first_year_intake": null,
+   "first_year_intake": 1199,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF College, UG 3-year",
@@ -16513,7 +16523,7 @@
    "percentage_with_outcome": 89.1,
    "students_placed": 302,
    "higher_studies_selected": 650,
-   "first_year_intake": null,
+   "first_year_intake": 1263,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF College, UG 3-year",
@@ -18495,7 +18505,7 @@
    "percentage_with_outcome": 34.1,
    "students_placed": 14,
    "higher_studies_selected": 122,
-   "first_year_intake": null,
+   "first_year_intake": 554,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF College, UG 3-year",
@@ -22627,7 +22637,7 @@
    "percentage_with_outcome": 90.5,
    "students_placed": 347,
    "higher_studies_selected": 579,
-   "first_year_intake": null,
+   "first_year_intake": 1095,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF College, UG 3-year",
@@ -23609,7 +23619,7 @@
    "percentage_with_outcome": 36.5,
    "students_placed": 31,
    "higher_studies_selected": 175,
-   "first_year_intake": null,
+   "first_year_intake": 686,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF College, UG 3-year",
@@ -24591,7 +24601,7 @@
    "percentage_with_outcome": 87.6,
    "students_placed": 316,
    "higher_studies_selected": 653,
-   "first_year_intake": null,
+   "first_year_intake": 1519,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF College, UG 3-year",
@@ -25424,165 +25434,6 @@
   }
  },
  {
-  "college_id": "tg-eapcet:JNTH",
-  "aishe_code": null,
-  "name": "JNTUH UNIVERSITY COLLEGE OF ENGG SCI AND TECH HYDERABAD",
-  "display_name": "JNTUH UNIVERSITY COLLEGE OF ENGG SCI AND TECH HYDERABAD",
-  "state": "Telangana",
-  "state_is_inferred": false,
-  "district": null,
-  "kind": null,
-  "management": "State-Univ-Dept",
-  "ownership": "Public",
-  "disciplines": [
-   "Engineering"
-  ],
-  "year_established": null,
-  "website": null,
-  "university": "JNTUH",
-  "entrance_exams": [
-   "TG-EAPCET"
-  ],
-  "counselling": "TG-EAPCET counselling (TGCHE)",
-  "programs": {
-   "count": 11,
-   "degrees": [
-    "B.E. / B.Tech"
-   ],
-   "list": [
-    {
-     "branch": "COMPUTER SCIENCE AND ENGINEERING",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 1228,
-     "indicative_opening_rank": null,
-     "career_id": "computer-science-information-technology"
-    },
-    {
-     "branch": "COMPUTER SCIENCE AND ENGINEERING (ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING)",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 1614,
-     "indicative_opening_rank": null,
-     "career_id": "artificial-intelligence-and-data-science"
-    },
-    {
-     "branch": "ELECTRONICS AND COMMUNICATION ENGINEERING",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 2719,
-     "indicative_opening_rank": null,
-     "career_id": "electrical-electronics-communications-engineering"
-    },
-    {
-     "branch": "COMPUTER SCIENCE AND ENGINEERING (CYBER SECURITY)",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 3268,
-     "indicative_opening_rank": null,
-     "career_id": "cyber-security"
-    },
-    {
-     "branch": "ELECTRICAL AND ELECTRONICS ENGINEERING",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 6932,
-     "indicative_opening_rank": null,
-     "career_id": "electrical-electronics-communications-engineering"
-    },
-    {
-     "branch": "MECHANICAL ENGINEERING",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 9578,
-     "indicative_opening_rank": null,
-     "career_id": "mechanical-mechatronics-engineering"
-    },
-    {
-     "branch": "CIVIL ENGINEERING",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 11033,
-     "indicative_opening_rank": null,
-     "career_id": "civil-engineering"
-    },
-    {
-     "branch": "CHEMICAL ENGINEERING",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 12282,
-     "indicative_opening_rank": null,
-     "career_id": "chemical-engineering"
-    },
-    {
-     "branch": "METALLURGICAL ENGINEERING",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 24498,
-     "indicative_opening_rank": null,
-     "career_id": "metallurgy-engineering-and-material-science"
-    },
-    {
-     "branch": "BIO-TECHNOLOGY",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 25920,
-     "indicative_opening_rank": null,
-     "career_id": "biotechnology"
-    },
-    {
-     "branch": "GEO INFORMATICS",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 32436,
-     "indicative_opening_rank": null,
-     "career_id": "computer-science-information-technology"
-    }
-   ],
-   "source": "TG-EAPCET 2025",
-   "rank_note": "Indicative open-category TG-EAPCET closing rank."
-  },
-  "nirf": {
-   "category": "Engineering",
-   "rank": 74,
-   "score": 49.36,
-   "ranking_year": 2025,
-   "rank_history": [
-    {
-     "year": 2025,
-     "rank": 74,
-     "score": 49.36
-    },
-    {
-     "year": 2024,
-     "rank": 70,
-     "score": 49.3
-    },
-    {
-     "year": 2023,
-     "rank": 71,
-     "score": 47.51
-    }
-   ]
-  },
-  "ug_gender": null,
-  "fees": null,
-  "placement": null,
-  "naac": {
-   "grade": null,
-   "cgpa": null,
-   "cycle": null,
-   "not_applicable_reason": null
-  },
-  "data_sources": {
-   "identity": "TG-EAPCET 2025",
-   "programs": "TG-EAPCET 2025",
-   "ranking": "NIRF 2025",
-   "placement": null,
-   "accreditation": null
-  }
- },
- {
   "college_id": "U-0042",
   "aishe_code": "U-0042",
   "name": "University of Hyderabad, Hyderabad",
@@ -25798,7 +25649,7 @@
    "percentage_with_outcome": 29.6,
    "students_placed": 3,
    "higher_studies_selected": 123,
-   "first_year_intake": null,
+   "first_year_intake": 448,
    "academic_year": "2020-21",
    "ranking_year": 2022,
    "source": "NIRF College, UG 3-year",
@@ -27995,7 +27846,7 @@
    "percentage_with_outcome": 43.9,
    "students_placed": 200,
    "higher_studies_selected": 200,
-   "first_year_intake": null,
+   "first_year_intake": 665,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF College, UG 3-year",
@@ -28644,7 +28495,7 @@
    "percentage_with_outcome": 39.7,
    "students_placed": 132,
    "higher_studies_selected": 242,
-   "first_year_intake": null,
+   "first_year_intake": 870,
    "academic_year": "2022-23",
    "ranking_year": 2024,
    "source": "NIRF College, UG 3-year",
@@ -30087,7 +29938,7 @@
    "percentage_with_outcome": 22.5,
    "students_placed": 18,
    "higher_studies_selected": 185,
-   "first_year_intake": null,
+   "first_year_intake": 1109,
    "academic_year": "2017-18",
    "ranking_year": 2019,
    "source": "NIRF College, UG 3-year",
@@ -30631,7 +30482,7 @@
    "percentage_with_outcome": 47.7,
    "students_placed": 104,
    "higher_studies_selected": 232,
-   "first_year_intake": null,
+   "first_year_intake": 886,
    "academic_year": "2023-24",
    "ranking_year": 2025,
    "source": "NIRF College, UG 3-year",
@@ -30889,7 +30740,7 @@
    "percentage_with_outcome": 86.4,
    "students_placed": 255,
    "higher_studies_selected": 81,
-   "first_year_intake": null,
+   "first_year_intake": 353,
    "academic_year": "2021-22",
    "ranking_year": 2023,
    "source": "NIRF College, UG 3-year",
@@ -32224,7 +32075,7 @@
    "percentage_with_outcome": 28.6,
    "students_placed": 113,
    "higher_studies_selected": 205,
-   "first_year_intake": null,
+   "first_year_intake": 1217,
    "academic_year": "2021-22",
    "ranking_year": 2023,
    "source": "NIRF College, UG 3-year",
@@ -34066,18 +33917,18 @@
     },
     {
      "year": 2022,
-     "rank": 122,
-     "score": 38.14
+     "rank": 73,
+     "score": 44.16
     },
     {
      "year": 2021,
-     "rank": 137,
-     "score": 35.94
+     "rank": 78,
+     "score": 41.29
     },
     {
      "year": 2020,
-     "rank": 152,
-     "score": 33.43
+     "rank": 83,
+     "score": 38.83
     }
    ]
   },
@@ -146433,6 +146284,143 @@
      "indicative_closing_rank": 91989,
      "indicative_opening_rank": null,
      "career_id": "mechanical-mechatronics-engineering"
+    }
+   ],
+   "source": "TG-EAPCET 2025",
+   "rank_note": "Indicative open-category TG-EAPCET closing rank."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "TG-EAPCET 2025",
+   "programs": "TG-EAPCET 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "tg-eapcet:JNTH",
+  "aishe_code": null,
+  "name": "JNTUH UNIVERSITY COLLEGE OF ENGG SCI AND TECH HYDERABAD",
+  "display_name": "JNTUH UNIVERSITY COLLEGE OF ENGG SCI AND TECH HYDERABAD",
+  "state": "Telangana",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": null,
+  "management": "State-Univ-Dept",
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": "JNTUH",
+  "entrance_exams": [
+   "TG-EAPCET"
+  ],
+  "counselling": "TG-EAPCET counselling (TGCHE)",
+  "programs": {
+   "count": 11,
+   "degrees": [
+    "B.E. / B.Tech"
+   ],
+   "list": [
+    {
+     "branch": "COMPUTER SCIENCE AND ENGINEERING",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 1228,
+     "indicative_opening_rank": null,
+     "career_id": "computer-science-information-technology"
+    },
+    {
+     "branch": "COMPUTER SCIENCE AND ENGINEERING (ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING)",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 1614,
+     "indicative_opening_rank": null,
+     "career_id": "artificial-intelligence-and-data-science"
+    },
+    {
+     "branch": "ELECTRONICS AND COMMUNICATION ENGINEERING",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 2719,
+     "indicative_opening_rank": null,
+     "career_id": "electrical-electronics-communications-engineering"
+    },
+    {
+     "branch": "COMPUTER SCIENCE AND ENGINEERING (CYBER SECURITY)",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 3268,
+     "indicative_opening_rank": null,
+     "career_id": "cyber-security"
+    },
+    {
+     "branch": "ELECTRICAL AND ELECTRONICS ENGINEERING",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 6932,
+     "indicative_opening_rank": null,
+     "career_id": "electrical-electronics-communications-engineering"
+    },
+    {
+     "branch": "MECHANICAL ENGINEERING",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 9578,
+     "indicative_opening_rank": null,
+     "career_id": "mechanical-mechatronics-engineering"
+    },
+    {
+     "branch": "CIVIL ENGINEERING",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 11033,
+     "indicative_opening_rank": null,
+     "career_id": "civil-engineering"
+    },
+    {
+     "branch": "CHEMICAL ENGINEERING",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 12282,
+     "indicative_opening_rank": null,
+     "career_id": "chemical-engineering"
+    },
+    {
+     "branch": "METALLURGICAL ENGINEERING",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 24498,
+     "indicative_opening_rank": null,
+     "career_id": "metallurgy-engineering-and-material-science"
+    },
+    {
+     "branch": "BIO-TECHNOLOGY",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 25920,
+     "indicative_opening_rank": null,
+     "career_id": "biotechnology"
+    },
+    {
+     "branch": "GEO INFORMATICS",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 32436,
+     "indicative_opening_rank": null,
+     "career_id": "computer-science-information-technology"
     }
    ],
    "source": "TG-EAPCET 2025",

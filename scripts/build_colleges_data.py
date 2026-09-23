@@ -544,6 +544,28 @@ def mhtcet_ownership(college_type: str):
     return None
 
 
+_UNIV_OF_CITY = re.compile(r"^(the )?university( of)? [a-z]+$")
+
+# one NIRF list per college when it is ranked in several the same year
+_NIRF_CAT_ORDER = ["Engineering", "Pharmacy", "Architecture and Planning",
+                   "Law", "Medical", "College", "Research Institutions",
+                   "University", "Overall"]
+
+
+def _latest_nirf(frames):
+    """Rows of the college's headline NIRF list, newest first. Ties within a
+    year go by _NIRF_CAT_ORDER, then rank, so the pick never depends on row
+    order."""
+    g = pd.concat(frames)
+    g = g.assign(_cat=g.ranking_category.map(
+        lambda c: _NIRF_CAT_ORDER.index(c) if c in _NIRF_CAT_ORDER else 99))
+    g = g.sort_values(["ranking_year", "_cat", "nirf_rank"],
+                      ascending=[False, True, True], kind="mergesort")
+    top_cat = g.iloc[0]["ranking_category"]
+    g = g[g["ranking_category"] == top_cat].drop_duplicates(subset=["ranking_year"])
+    return top_cat, g.drop(columns="_cat")
+
+
 def match_nirf_to_mhtcet(nirf_mh, colleges):
     """NIRF (Maharashtra, Engineering/Pharmacy/Architecture) institute -> CET
     college_code. Exact / short-name / token-subset tiers; unique hits only.
@@ -556,7 +578,10 @@ def match_nirf_to_mhtcet(nirf_mh, colleges):
     for r in nirf_mh[["institute_id", "institute_name"]].drop_duplicates().itertuples():
         n_full, n_short, n_toks = _mnorm(r.institute_name), _mshort(r.institute_name), toks(r.institute_name)
         hits = [c for c, full, short, _ in by_code if full == n_full or short == n_short]
-        if not hits:
+        # "University of Lucknow" is {university, lucknow}, a subset of
+        # "Dr. Ram Manohar Lohiya National Law University, Lucknow": a bare
+        # "University of <city>" never matches by token subset
+        if not hits and not _UNIV_OF_CITY.match(n_full):
             hits = [c for c, _, _, t in by_code if n_toks and n_toks <= t]
         if len(set(hits)) == 1:
             out[r.institute_id] = hits[0]
@@ -1338,12 +1363,9 @@ def main():
         nirf_block = None
         frames = [nirf_mh_by_id[n] for n in nids if n in nirf_mh_by_id]
         if frames:
-            g = (pd.concat(frames)
-                   .sort_values("ranking_year", ascending=False))
             # one institute may sit in two NIRF lists (Engineering AND
-            # Pharmacy); keep the category with the most recent, best rank
-            top_cat = g.iloc[0]["ranking_category"]
-            g = g[g["ranking_category"] == top_cat].drop_duplicates(subset=["ranking_year"])
+            # Pharmacy); _latest_nirf keeps one
+            top_cat, g = _latest_nirf(frames)
             top = g.iloc[0]
             nirf_block = {
                 "category": "Architecture" if top_cat.startswith("Architecture") else top_cat,
@@ -1525,9 +1547,7 @@ def main():
             nirf_block = None
             frames = [nirf_all_by_id[n] for n in nids if n in nirf_all_by_id]
             if frames:
-                g = pd.concat(frames).sort_values("ranking_year", ascending=False)
-                top_cat = g.iloc[0]["ranking_category"]
-                g = g[g["ranking_category"] == top_cat].drop_duplicates(subset=["ranking_year"])
+                top_cat, g = _latest_nirf(frames)
                 top = g.iloc[0]
                 nirf_block = {
                     "category": "Architecture" if top_cat.startswith("Architecture") else top_cat,
@@ -1700,15 +1720,18 @@ def main():
 
     nirf_ids_by_name = {}
 
-    # NIRF's College list files placements too; the first-party DCS pull
-    # never fetched that list, the aggregate table has it (UG 3-year)
+    # NIRF's College list (first-party DCS since Sep 2026): UG 3-year pools
+    # BA/BSc/BCom
     college_place = client.query(f"""
-    SELECT institute_id, ranking_year, academic_year, median_salary,
-           graduating_on_time, students_placed, higher_studies_selected,
+    SELECT institute_id, edition_year AS ranking_year,
+           graduating_academic_year AS academic_year, median_salary,
+           graduated_on_time, students_placed, higher_studies_selected,
            first_year_intake
-    FROM `{D}.nirf_fact_aggregate`
-    WHERE ranking_category = 'College' AND type LIKE 'UG [3%'
-      AND median_salary > 0""").to_dataframe()
+    FROM `{D}.nirf_fact_dcs_placements`
+    WHERE discipline = 'College' AND program_level = 'UG-3Y'
+      AND NOT superseded
+      AND median_salary IS NOT NULL AND median_salary > 0
+      AND graduated_on_time IS NOT NULL AND graduated_on_time > 0""").to_dataframe()
     college_place_by_id = {iid: g.sort_values(["ranking_year", "academic_year"], ascending=False)
                            for iid, g in college_place.groupby("institute_id")}
 
@@ -1718,7 +1741,7 @@ def main():
             return None
         pr = pd.concat(frames).sort_values(["ranking_year", "academic_year"], ascending=False).iloc[0]
         num = lambda v: None if pd.isna(v) else int(v)
-        placed, higher, grad = num(pr.students_placed), num(pr.higher_studies_selected), num(pr.graduating_on_time)
+        placed, higher, grad = num(pr.students_placed), num(pr.higher_studies_selected), num(pr.graduated_on_time)
         pct = outcome = None
         if grad:
             if placed is not None:
