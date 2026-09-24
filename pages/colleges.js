@@ -458,18 +458,16 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
                       ) : null}
                     </dl>
                     <p className="mt-1.5 text-xs leading-5 text-[#6d5550]">
-                      NIRF {pl.ranking_year},{" "}
+                      {/* who the numbers are about, in plain words; NIRF
+                          is only named as the source */}
                       {pl.source?.includes("Medical")
-                        ? "MBBS (UG 5-year)"
+                        ? "MBBS"
                         : pl.source?.includes("3-year")
-                        ? "UG 3-year"
+                        ? "3-year degree"
                         : pl.includes_dual_degree
-                        ? "UG 4- and 5-year"
-                        : "UG 4-year"}{" "}
-                      · AY {pl.academic_year}
-                      {/* NIRF gives one median per programme length; two
-                          medians don't combine */}
-                      {pl.includes_dual_degree ? " · median: 4-year only" : ""}
+                        ? "4- and 5-year"
+                        : "4-year degree"}{" "}
+                      graduates, {pl.academic_year} · NIRF {pl.ranking_year}
                     </p>
                   </div>
                 ) : null}
