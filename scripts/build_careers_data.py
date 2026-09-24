@@ -197,6 +197,10 @@ OPTION_SOURCES = {
               lambda r: r.get("Category") == "GEN" and r.get("Sub Category") == "None"
               and r.get("Domicile") == "UP" and r.get("Seat Gender") != "WOMEN",
               "Closing Rank", False, " (JEE Main rank)"),
+    "HBTU": ("public/data/HBTU/hbtu_data.json", "Branch",
+             lambda r: r.get("Category") == "GEN" and r.get("Sub Category") == "None"
+             and r.get("Quota") == "Home State",
+             "Closing Rank", False, " (JEE Main rank)"),
     # last: five colleges in one city only fill spare slots
     "JAC-Chandigarh": ("public/data/JACCHD/jacchd_data.json", "Academic Program Name",
                        lambda r: r.get("Category") == "General",

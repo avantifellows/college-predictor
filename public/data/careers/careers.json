@@ -1308,7 +1308,15 @@
   "stability": "High",
   "automation_risk": "Low",
   "where_work": "Metro cities mainly",
-  "college_options": [],
+  "college_options": [
+   {
+    "college": "Harcourt Butler Technical University, Kanpur",
+    "branch": "Chemical Technology",
+    "exam": "HBTU",
+    "closing": "135,571 (JEE Main rank)",
+    "q": "Harcourt Butler Technical University, Kanpur"
+   }
+  ],
   "notable_people": [
    "Kiran Mazumdar-Shaw: founder of Biocon",
    "Cyrus Poonawalla: founder of Serum Institute of India"
@@ -2543,7 +2551,7 @@
    },
    {
     "name": "Harcourt Butler Technical University Kanpur",
-    "q": null
+    "q": "Harcourt Butler Technical University, Kanpur"
    }
   ],
   "pay": {
@@ -5774,11 +5782,11 @@
     "q": "ICAR-National Dairy Research Institute, Karnal"
    },
    {
-    "college": "Dr. S.S. Bhatnagar University Institute of Chemical Engineering and Technology, Panjab University, Chandigarh",
-    "branch": "B.E. in Food Technology",
-    "exam": "JAC Chandigarh",
-    "closing": "221,975 (JEE Main rank)",
-    "q": "Dr. S.S. Bhatnagar University Institute of Chemical Engineering and Technology, Panjab University, Chandigarh"
+    "college": "Harcourt Butler Technical University, Kanpur",
+    "branch": "Chemical Technology",
+    "exam": "HBTU",
+    "closing": "142,779 (JEE Main rank)",
+    "q": "Harcourt Butler Technical University, Kanpur"
    }
   ],
   "notable_people": [
@@ -8839,7 +8847,7 @@
    },
    {
     "name": "Harcourt Butler Technical University Kanpur",
-    "q": null
+    "q": "Harcourt Butler Technical University, Kanpur"
    },
    {
     "name": "LD College of Engineering Ahmedabad",
@@ -8877,6 +8885,13 @@
     "exam": "MHT-CET",
     "closing": "4,176",
     "q": "Institute of Chemical Technology, Matunga, Mumbai"
+   },
+   {
+    "college": "Harcourt Butler Technical University, Kanpur",
+    "branch": "Chemical Technology",
+    "exam": "HBTU",
+    "closing": "86,488 (JEE Main rank)",
+    "q": "Harcourt Butler Technical University, Kanpur"
    }
   ],
   "notable_people": [
@@ -9838,7 +9853,7 @@
    },
    {
     "name": "Harcourt Butler Technical University Kanpur",
-    "q": null
+    "q": "Harcourt Butler Technical University, Kanpur"
    },
    {
     "name": "Indian Institute of Technology Delhi (Polymer Science programs)",
@@ -9875,6 +9890,13 @@
     "exam": "TNEA",
     "closing": "177.5/200 marks",
     "q": "Central Institute of Petrochemicals Engineering and Technology (Formerly Central Institute of Plastics Engineering and Technology) (CIPET) Guindy Chennai 600032"
+   },
+   {
+    "college": "Harcourt Butler Technical University, Kanpur",
+    "branch": "Chemical Technology",
+    "exam": "HBTU",
+    "closing": "116,609 (JEE Main rank)",
+    "q": "Harcourt Butler Technical University, Kanpur"
    }
   ],
   "notable_people": [

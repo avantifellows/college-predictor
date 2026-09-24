@@ -1694,3 +1694,23 @@ UPTAC,Robotics And Automation,Robotics And Automation,ROBOENG,Robotics Engineeri
 UPTAC,Textile Chemistry,Textile Chemistry,TEXTILE,Textile Engineering,24,1,same string as another exam
 UPTAC,Textile Engineering,Textile Engineering,TEXTILE,Textile Engineering,18,1,same string as another exam
 UPTAC,Textile Technology,Textile Technology,TEXTILE,Textile Engineering,49,2,same string as another exam
+HBTU,Bio Chemical Engineering,Bio Chemical Engineering,BIOCHEMENG,Biochemical Engineering,52,1,taxonomy parent by name
+HBTU,Chemical Engineering,Chemical Engineering,CHEMENG,Chemical Engineering,155,1,same string as another exam
+HBTU,Chemical Technology (Biochemical Engineering),Chemical Technology (Biochemical Engineering),BIOCHEMENG,Biochemical Engineering,122,1,taxonomy parent by name
+HBTU,Chemical Technology (Food Technology),Chemical Technology (Food Technology),FOODENG,Food Engineering,128,1,same string as another exam
+HBTU,Chemical Technology (Leather & Fashion Technology),Chemical Technology (Leather & Fashion Technology),OTHER,Other,91,1,same string as another exam
+HBTU,Chemical Technology (Oil Technology),Chemical Technology (Oil Technology),OILPAINTTECH,"Oil, Paints, Dye Technology",126,1,taxonomy alias row
+HBTU,Chemical Technology (Paint Technology),Chemical Technology (Paint Technology),OILPAINTTECH,"Oil, Paints, Dye Technology",103,1,taxonomy alias row
+HBTU,Chemical Technology (Plastic Technology),Chemical Technology (Plastic Technology),POLYMERTECH,Polymer Technology,111,1,taxonomy alias row
+HBTU,Civil Engineering,Civil Engineering,CIVILENG,Civil Engineering,193,1,same string as another exam
+HBTU,Computer Science & Engineering,Computer Science & Engineering,CSIT,Computer Science / Information Technology,136,1,same string as another exam
+HBTU,Computer Science & Engineering (AI & ML),Computer Science & Engineering (AI & ML),AIML,Artificial Intelligence / Machine Learning / Data Science,46,1,taxonomy parent by name
+HBTU,Electrical Engineering,Electrical Engineering,ELEC,Electrical / Electronics / Communications Engineering,167,1,same string as another exam
+HBTU,Electronics Engineering,Electronics Engineering,ELEC,Electrical / Electronics / Communications Engineering,174,1,same string as another exam
+HBTU,Food Technology,Food Technology,FOODENG,Food Engineering,59,1,same string as another exam
+HBTU,Information Technology,Information Technology,CSIT,Computer Science / Information Technology,153,1,same string as another exam
+HBTU,Leather Technology,Leather Technology,OTHER,Other,41,1,same string as another exam
+HBTU,Mechanical Engineering,Mechanical Engineering,MECHENG,Mechanical / Mechatronics Engineering ,165,1,same string as another exam
+HBTU,Oil Technology,Oil Technology,OILPAINTTECH,"Oil, Paints, Dye Technology",59,1,taxonomy alias row
+HBTU,Paint Technology,Paint Technology,OILPAINTTECH,"Oil, Paints, Dye Technology",51,1,taxonomy alias row
+HBTU,Plastic Technology,Plastic Technology,POLYMERTECH,Polymer Technology,51,1,taxonomy alias row

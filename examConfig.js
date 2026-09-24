@@ -2173,6 +2173,70 @@ export const uptacConfig = {
   getSort: () => [["Closing Rank", "ASC"]],
 };
 
+export const hbtuConfig = {
+  name: "HBTU Kanpur",
+  searchKeys: ["Institute", "Academic Program Name"],
+  // HBTU's own counselling on the JEE Main CRL rank
+  // (scripts/build_hbtu_2026.py). 'Home State' seats are for U.P. students,
+  // 'All India' seats for everyone.
+  primaryInput: integerInput("Enter JEE (Main) Rank", "Enter JEE Main rank"),
+  fields: [
+    {
+      name: "category",
+      label: "Select Category",
+      options: Object.keys(UPTAC_CATEGORY),
+    },
+    {
+      name: "subCategory",
+      label: "Any special quota?",
+      options: [
+        "None",
+        "Defence personnel ward",
+        "Freedom fighter dependant",
+        "Divyangjan",
+      ],
+    },
+    {
+      name: "gender",
+      label: "Select Gender",
+      options: ["Male", "Female"],
+    },
+    {
+      name: "homeState",
+      label: "Are you from Uttar Pradesh?",
+      helperText:
+        "Yes if you passed Class 12 in U.P. or your parents live in U.P.",
+      options: ["Yes", "No"],
+    },
+  ],
+  getDataPath: () => {
+    return path.join(process.cwd(), "public", "data", "HBTU", "hbtu_data.json");
+  },
+  getFilters: (query) => {
+    const cat = UPTAC_CATEGORY[query.category];
+    const subs = ["None"];
+    if (query.subCategory && query.subCategory !== "None")
+      subs.push(query.subCategory);
+    if (query.gender === "Female") subs.push("Female (UP)");
+    return [
+      (item) => query.homeState === "Yes" || item.Quota === "All India",
+      (item) =>
+        cat === "TFW"
+          ? item.Category === "TFW"
+          : item.Category === "GEN" || item.Category === cat,
+      (item) => subs.includes(item["Sub Category"]),
+      (item) => {
+        if (!query.rank) return true;
+        const closingRank = parseInt(item["Closing Rank"], 10);
+        const userRank = parseInt(query.rank, 10);
+        if (isNaN(closingRank) || isNaN(userRank)) return false;
+        return closingRank >= userRank;
+      },
+    ];
+  },
+  getSort: () => [["Closing Rank", "ASC"]],
+};
+
 export const clatConfig = {
   name: "CLAT",
   searchKeys: ["Institute", "Academic Program Name"],
@@ -2267,6 +2331,7 @@ export const examConfigs = {
   "JEE Main-JAC": jacExamConfig,
   "JAC Chandigarh": jacChandigarhConfig,
   "UPTAC": uptacConfig,
+  "HBTU": hbtuConfig,
   "AP EAPCET": apEapcetConfig,
   "GUJCET": gujcetConfig,
   "KCET": kcetConfig,

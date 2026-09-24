@@ -140,6 +140,15 @@ const expandedFields = {
     { key: "Round", label: "Round" },
     { key: "Opening Rank", label: "Opening Rank (JEE Main)" },
   ],
+  // HBTU (2026; JEE Main CRL ranks, loosest over the rounds)
+  HBTU: [
+    { key: "Year", label: "Data Year" },
+    { key: "Quota", label: "Quota" },
+    { key: "Category", label: "Category" },
+    { key: "Sub Category", label: "Special quota" },
+    { key: "Round", label: "Round" },
+    { key: "Opening Rank", label: "Opening Rank (JEE Main)" },
+  ],
   // UPTAC (2026; JEE Main ranks, loosest over the rounds open to you)
   UPTAC: [
     { key: "Year", label: "Data Year" },
@@ -430,6 +439,7 @@ const PredictedCollegesTable = ({
     "OJEE",
     "JAC Chandigarh",
     "UPTAC",
+    "HBTU",
     "AIIMS Nursing",
     "ICAR-UG",
     "CLAT",
@@ -657,6 +667,11 @@ const PredictedCollegesTable = ({
       // exam rank (which exists, for other courses).
       { key: "closing_rank", label: "Closing Rank (JEE Main)" },
     ],
+    HBTU: [
+      { key: "academic_program_name", label: "Program" },
+      { key: "Quota", label: "Quota" },
+      { key: "closing_rank", label: "Closing Rank (JEE Main)" },
+    ],
     UPTAC: [
       { key: "institute", label: "Institute" },
       { key: "academic_program_name", label: "Program" },
@@ -784,6 +799,14 @@ const PredictedCollegesTable = ({
         "Rural/Urban": item["Rural/Urban"],
         "Category_Key": item["Category_Key"],
         "Closing Rank": item["Closing Rank"],
+      };
+    }
+    if (exam === "HBTU") {
+      return {
+        ...item,
+        institute: item["Institute"],
+        academic_program_name: item["Academic Program Name"],
+        closing_rank: item["Closing Rank"],
       };
     }
     if (exam === "UPTAC") {

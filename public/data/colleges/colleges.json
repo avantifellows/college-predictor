@@ -49553,6 +49553,195 @@
   }
  },
  {
+  "college_id": "hbtu:harcourt butler technical university kanpur",
+  "aishe_code": null,
+  "name": "Harcourt Butler Technical University, Kanpur",
+  "display_name": "Harcourt Butler Technical University, Kanpur",
+  "state": "Uttar Pradesh",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": null,
+  "management": null,
+  "ownership": null,
+  "disciplines": [
+   "Engineering"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "JEE Main"
+  ],
+  "counselling": "HBTU counselling",
+  "programs": {
+   "count": 14,
+   "degrees": [
+    "B.E. / B.Tech"
+   ],
+   "list": [
+    {
+     "branch": "Computer Science & Engineering",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 38297,
+     "indicative_opening_rank": null,
+     "career_id": "computer-science-information-technology"
+    },
+    {
+     "branch": "Computer Science & Engineering (AI & ML)",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 41700,
+     "indicative_opening_rank": null,
+     "career_id": "artificial-intelligence-and-data-science"
+    },
+    {
+     "branch": "Information Technology",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 48796,
+     "indicative_opening_rank": null,
+     "career_id": "computer-science-information-technology"
+    },
+    {
+     "branch": "Electronics Engineering",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 52295,
+     "indicative_opening_rank": null,
+     "career_id": "electrical-electronics-communications-engineering"
+    },
+    {
+     "branch": "Electrical Engineering",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 59188,
+     "indicative_opening_rank": null,
+     "career_id": "electrical-electronics-communications-engineering"
+    },
+    {
+     "branch": "Mechanical Engineering",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 65478,
+     "indicative_opening_rank": null,
+     "career_id": "mechanical-mechatronics-engineering"
+    },
+    {
+     "branch": "Chemical Engineering",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 70325,
+     "indicative_opening_rank": null,
+     "career_id": "chemical-engineering"
+    },
+    {
+     "branch": "Civil Engineering",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 79276,
+     "indicative_opening_rank": null,
+     "career_id": "civil-engineering"
+    },
+    {
+     "branch": "Chemical Technology (Oil Technology)",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 121360,
+     "indicative_opening_rank": null,
+     "career_id": "oil-paints-dye-technology"
+    },
+    {
+     "branch": "Chemical Technology (Biochemical Engineering)",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 135571,
+     "indicative_opening_rank": null,
+     "career_id": "biochemical-engineering"
+    },
+    {
+     "branch": "Chemical Technology (Paint Technology)",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 152019,
+     "indicative_opening_rank": null,
+     "career_id": "oil-paints-dye-technology"
+    },
+    {
+     "branch": "Chemical Technology (Leather & Fashion Technology)",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 155228,
+     "indicative_opening_rank": null,
+     "career_id": null
+    },
+    {
+     "branch": "Chemical Technology (Plastic Technology)",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 156334,
+     "indicative_opening_rank": null,
+     "career_id": "polymer-technology"
+    },
+    {
+     "branch": "Chemical Technology (Food Technology)",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 158027,
+     "indicative_opening_rank": null,
+     "career_id": "food-engineering"
+    }
+   ],
+   "source": "HBTU counselling 2026",
+   "rank_note": "Indicative open-category JEE Main closing rank."
+  },
+  "nirf": {
+   "category": "Engineering",
+   "rank": 166,
+   "score": 32.69,
+   "ranking_year": 2020,
+   "rank_history": [
+    {
+     "year": 2020,
+     "rank": 166,
+     "score": 32.69
+    }
+   ],
+   "latest_band": {
+    "year": 2025,
+    "band": "201-300"
+   }
+  },
+  "ug_gender": null,
+  "fees": null,
+  "placement": {
+   "median_salary": 500000,
+   "percentage_placed": 53.8,
+   "percentage_with_outcome": 57.7,
+   "students_placed": 253,
+   "higher_studies_selected": 18,
+   "first_year_intake": 478,
+   "includes_dual_degree": false,
+   "academic_year": "2018-19",
+   "ranking_year": 2020,
+   "source": "NIRF Engineering, UG",
+   "is_branch_specific": false
+  },
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "HBTU counselling 2026",
+   "programs": "HBTU counselling 2026",
+   "ranking": "NIRF 2020",
+   "placement": "NIRF 2020 (AY 2018-19)",
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "tnea:4962",
   "aishe_code": null,
   "name": "National Engineering College (Autonomous), K.R. Nagar, Nalattinputhur, Kovilpatti, Tuticorin District-628503.",

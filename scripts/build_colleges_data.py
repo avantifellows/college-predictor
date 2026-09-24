@@ -796,6 +796,15 @@ STATE_SPECS = {
                   nirf_cats=["Engineering"],
                   label="JEE Main", counselling="UPTAC (AKTU)", map_exam="UPTAC",
                   state="Uttar Pradesh", source="UPTAC {y}"),
+    # HBTU Kanpur: its own counselling on the JEE Main CRL rank (NIC-hosted)
+    "HBTU": dict(table="nicorcr_fact_cutoffs", year="year", name="institute",
+                 code=None, branch="programme", ctype=None,
+                 district=None, university=None, stream=None,
+                 open_where=("board = 'HBTU' AND parent_category = 'GEN' "
+                             "AND sub_category IS NULL AND NOT tfw"),
+                 all_where="board = 'HBTU'", nirf_cats=["Engineering"],
+                 label="JEE Main", counselling="HBTU counselling", map_exam="HBTU",
+                 state="Uttar Pradesh", source="HBTU counselling {y}"),
     "GUJCET": dict(table="gujcet_fact_cutoffs", year="year", name="college_name",
                    code=None, branch="branch_name", ctype="college_type",
                    district=None, university=None, stream="stream",
