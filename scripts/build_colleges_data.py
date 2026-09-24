@@ -1934,7 +1934,64 @@ def main():
     print(f"  ICAR rows {len(icar_rows)} (NIRF {sum(1 for r in icar_rows if r['nirf'])}),"
           f" career-linked programmes {sum(1 for r in icar_rows for p in r['programs']['list'] if p['career_id'])}"
           f"/{sum(r['programs']['count'] for r in icar_rows)}")
-    rows += du_rows + ii_rows + icar_rows
+    # ── BHU UG (CUET): BHU's faculties and admitted colleges ───────────────
+    # Scores are BHU's CUET-based merit score, on each programme's own scale
+    # (B.A. up to ~374, B.Sc. ~637): indicative_min_score, like DU. Paid /
+    # special fee seats are separate pools with their own rows. Names carry
+    # the university ("Faculty of Arts, Banaras Hindu University").
+    bhu = client.query(f"""
+    SELECT college, kind, city, program, fee_type,
+           MIN(IF(category = 'UR', min_score, NULL)) AS ur_score
+    FROM `{D}.bhuug_fact_cutoffs` GROUP BY 1, 2, 3, 4, 5""").to_dataframe()
+    bhu_uni = nirf_block_for(["Banaras Hindu University"], ["University", "Overall"]).get("Banaras Hindu University")
+    bhu_colleges = nirf_block_for(sorted(bhu[bhu.kind == "BHU admitted college"].college.str.replace(r", Varanasi \(BHU\)$", "", regex=True).unique()),
+                                  ["College"], state="Uttar Pradesh")
+    BHU_DEGREE = [(r"^Bachelor of Arts and Bachelor of Legislative Law", "B.A. LL.B. (Hons.)", 5, "Law"),
+                  (r"^Bachelor of Technology", "B.Tech", 4, "Engineering"),
+                  (r"^Bachelor of Commerce \(Honours\)", "B.Com (Hons.)", 4, "Commerce"),
+                  (r"^Bachelor of Commerce", "B.Com", 3, "Commerce"),
+                  (r"^Bachelor of Science \(Honours\)", "B.Sc. (Hons.)", 4, "Science"),
+                  (r"^Bachelor of Science", "B.Sc.", 3, "Science"),
+                  (r"^Bachelor of Vocation", "B.Voc", 3, "Vocational"),
+                  (r"^Bachelor of Arts \(Honours\)", "B.A. (Hons.)", 4, "Arts"),
+                  # the Sanskrit faculty's four-year honours degree
+                  (r"^Shastri \(Honours\)", "Shastri (Hons.)", 4, "Arts"),
+                  (r"^Bachelor of", "UG", 3, "Arts")]
+    def bhu_degree(prog):
+        hit = next(((d, y, disc) for pat, d, y, disc in BHU_DEGREE if _re.search(pat, prog)), None)
+        if hit is None:
+            raise SystemExit(f"BHU programme with no degree rule: {prog!r}")
+        return hit
+    FEE_LABEL = {"paid": " (paid seat)", "special": " (special fee seat)"}
+    bhu_rows = []
+    for col, g in bhu.groupby("college"):
+        lst, discs = [], set()
+        for x in g.itertuples():
+            deg, yrs, disc = bhu_degree(x.program)
+            discs.add(disc)
+            lst.append({"branch": x.program + FEE_LABEL.get(x.fee_type, ""), "years": yrs, "degree": deg,
+                        "indicative_closing_rank": None, "indicative_opening_rank": None,
+                        "indicative_min_score": None if pd.isna(x.ur_score) else round(float(x.ur_score), 1),
+                        "career_id": career_of_program(x.program)})
+        lst.sort(key=lambda z: (z["indicative_min_score"] is None, -(z["indicative_min_score"] or 0), z["branch"]))
+        programs = {"count": len(lst), "degrees": sorted({p["degree"] for p in lst}), "list": lst,
+                    "source": "BHU UG admission 2025, Round 1 and Spot Round 2",
+                    "rank_note": "Lowest open-category BHU merit score (from CUET) that got a seat; each programme has its own scale."}
+        own = g.kind.iloc[0] == "BHU faculty"
+        nirf = bhu_uni if own else bhu_colleges.get(col.replace(", Varanasi (BHU)", ""))
+        row = base_row("bhu:" + re.sub(r"[^a-z0-9]+", "-", col.lower()).strip("-")[:70], col, "Uttar Pradesh",
+                       "CUET (UG)", "BHU UG admission (CUET)", programs, nirf, sorted(discs)[:4],
+                       "BHU UG admission 2025")
+        row["district"] = g.city.iloc[0]
+        row["university"] = "Banaras Hindu University"
+        if not own:
+            # admitted colleges are aided, not BHU itself: no ownership claim
+            row["ownership"] = None
+        bhu_rows.append(row)
+    print(f"  BHU rows {len(bhu_rows)} (NIRF {sum(1 for r in bhu_rows if r['nirf'])}),"
+          f" career-linked programmes {sum(1 for r in bhu_rows for p in r['programs']['list'] if p['career_id'])}"
+          f"/{sum(r['programs']['count'] for r in bhu_rows)}")
+    rows += du_rows + ii_rows + icar_rows + bhu_rows
 
     print(f"  medical rows {len(med_rows)}"
           f"  with NIRF {sum(1 for x in med_rows if x['nirf'])}"
