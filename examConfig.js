@@ -456,7 +456,7 @@ const neetSeatTypeOptions = [
 ];
 
 export const neetUGConfig = {
-  name: "NEETUG",
+  name: "NEET-UG (MBBS, BDS)",
   code: "NEETUG",
   // Institute + State cover both AIQ and state-quota rows for search.
   searchKeys: ["Institute", "State", "Academic Program Name", "Category"],
@@ -2173,25 +2173,27 @@ export const clatConfig = {
 };
 
 export const examConfigs = {
+  // Order = the predictor's exam dropdown: national routes first, then the
+  // JEE Main counsellings of Delhi and Chandigarh, then state CETs A-Z.
   "JoSAA": josaaConfig,
-  "JEE Main-JOSAA": jeeMainJosaaConfig,
-  "JEE Main-JAC": jacExamConfig,
-  "GUJCET": gujcetConfig,
-  "JEE Advanced": jeeAdvancedConfig,
-  // "NEET MCC": neetConfig,
+  "JEE Main-JOSAA": jeeMainJosaaConfig, // not in the dropdown
+  "JEE Advanced": jeeAdvancedConfig, // not in the dropdown
   "NEETUG": neetUGConfig,
-  "MHT CET": mhtCetConfig,
+  // "NEET MCC": neetConfig,
+  "CLAT": clatConfig,
+  "ICAR-UG": icarUgConfig,
+  "AIIMS Nursing": aiimsNursingConfig,
+  "JEE Main-JAC": jacExamConfig,
+  "JAC Chandigarh": jacChandigarhConfig,
+  "AP EAPCET": apEapcetConfig,
+  "GUJCET": gujcetConfig,
   "KCET": kcetConfig,
+  "KEAM": keamConfig,
+  "MHT CET": mhtCetConfig,
+  "OJEE": ojeeConfig,
+  "TGEAPCET": tseApertConfig,
   "TNEA": tneaConfig,
   "WBJEE": wbjeeConfig,
-  "KEAM": keamConfig,
-  "AP EAPCET": apEapcetConfig,
-  "OJEE": ojeeConfig,
-  "JAC Chandigarh": jacChandigarhConfig,
-  "AIIMS Nursing": aiimsNursingConfig,
-  "ICAR-UG": icarUgConfig,
-  "CLAT": clatConfig,
-  "TGEAPCET": tseApertConfig,
 };
 
 export default examConfigs;
