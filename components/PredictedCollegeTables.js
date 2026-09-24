@@ -140,6 +140,14 @@ const expandedFields = {
     { key: "Round", label: "Round" },
     { key: "Opening Rank", label: "Opening Rank (JEE Main)" },
   ],
+  // UPTAC (2026; JEE Main ranks, loosest over the rounds open to you)
+  UPTAC: [
+    { key: "Year", label: "Data Year" },
+    { key: "Category", label: "Category" },
+    { key: "Sub Category", label: "Quota" },
+    { key: "Round", label: "Round" },
+    { key: "Opening Rank", label: "Opening Rank (JEE Main)" },
+  ],
   // ICAR-UG (2025; CUET marks, three subjects of 750, lowest over rounds)
   "ICAR-UG": [
     { key: "Year", label: "Data Year" },
@@ -421,6 +429,7 @@ const PredictedCollegesTable = ({
     "TGEAPCET",
     "OJEE",
     "JAC Chandigarh",
+    "UPTAC",
     "AIIMS Nursing",
     "ICAR-UG",
     "CLAT",
@@ -648,6 +657,11 @@ const PredictedCollegesTable = ({
       // exam rank (which exists, for other courses).
       { key: "closing_rank", label: "Closing Rank (JEE Main)" },
     ],
+    UPTAC: [
+      { key: "institute", label: "Institute" },
+      { key: "academic_program_name", label: "Program" },
+      { key: "closing_rank", label: "Closing Rank (JEE Main)" },
+    ],
     "ICAR-UG": [
       { key: "institute", label: "University" },
       { key: "academic_program_name", label: "Course" },
@@ -770,6 +784,14 @@ const PredictedCollegesTable = ({
         "Rural/Urban": item["Rural/Urban"],
         "Category_Key": item["Category_Key"],
         "Closing Rank": item["Closing Rank"],
+      };
+    }
+    if (exam === "UPTAC") {
+      return {
+        ...item,
+        institute: item["Institute"],
+        academic_program_name: item["Academic Program Name"],
+        closing_rank: item["Closing Rank"],
       };
     }
     if (exam === "ICAR-UG") {

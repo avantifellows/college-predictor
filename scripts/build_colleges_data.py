@@ -390,7 +390,8 @@ _MED_STOP = {"the", "of", "and"}
 
 
 def _mnorm(s: str) -> str:
-    s = str(s).lower().replace("&", " and ")
+    # apostrophes vanish, not split: "Galgotia's" must equal NIRF's "Galgotias"
+    s = re.sub(r"['’`]", "", str(s).lower()).replace("&", " and ")
     s = re.sub(r"\bgovt\.?\b", "government", s)
     s = re.sub(r"\(.*?\)", " ", s)
     s = re.sub(r"[^a-z0-9]+", " ", s).strip()
@@ -553,6 +554,8 @@ _PLACES = ("rajasthan|punjab|gujarat|kerala|assam|bihar|odisha|orissa|goa|manipu
            "nagaland|sikkim|tripura|meghalaya|jharkhand|uttarakhand|haryana|karnataka|"
            "maharashtra|telangana|chhattisgarh|lucknow|mumbai|bombay|calcutta|kolkata|madras|"
            "chennai|mysore|gauhati|delhi|allahabad|patna|jammu|kashmir|pune|hyderabad|kerela")
+# (_mnorm drops "of", so both spellings)
+_NATIONAL = re.compile(r"^(indian institute (of )?(information )?technology|national institute (of )?technology)\b")
 _UNIV_OF_CITY = re.compile(rf"^(the )?university( of)? [a-z]+$|^({_PLACES}) university$")
 
 # one NIRF list per college when it is ranked in several the same year
@@ -590,7 +593,10 @@ def match_nirf_to_mhtcet(nirf_mh, colleges):
         # "University of Lucknow" is {university, lucknow}, a subset of
         # "Dr. Ram Manohar Lohiya National Law University, Lucknow": a bare
         # "University of <city>" never matches by token subset
-        if not hits and not _UNIV_OF_CITY.match(n_full):
+        # IIT / NIT / IIIT names are generic words + a city: "Indian Institute
+        # of Technology (BHU) Varanasi" is a subset of "Indian Institute of
+        # Handloom Technology, Varanasi". They match exactly via JoSAA.
+        if not hits and not _UNIV_OF_CITY.match(n_full) and not _NATIONAL.match(n_full):
             hits = [c for c, _, _, t in by_code if n_toks and n_toks <= t]
         if len(set(hits)) == 1:
             out[r.institute_id] = hits[0]
@@ -774,6 +780,21 @@ STATE_SPECS = {
                            state="Chandigarh", state_by_name={"Hoshiarpur": "Punjab"},
                            source="JAC Chandigarh {y}",
                            rank_note="Indicative open-category JEE Main closing rank (B.Arch: Paper 2 rank)."),
+    # UPTAC (AKTU): JEE Main ranks, open category without a U.P.
+    # sub-category, regular co-ed seats; loosest over all rounds incl. the
+    # special round (open to non-U.P. candidates)
+    "UPTAC": dict(table="uptac_fact_cutoffs", year="year", name="institute",
+                  code=None, branch="branch", ctype=None,
+                  district=None, university=None, stream=None,
+                  open_where=("rank_basis = 'JEE Main rank' AND allotted AND programme LIKE 'B.Tech (All%' "
+                              "AND parent_category = 'GEN' AND sub_category IS NULL AND NOT tfw "
+                              "AND seat_pool IS NULL AND seat_gender = 'Co-Education'"),
+                  # a card only for institutes UPTAC fills B.Tech seats for
+                  # (MBA / MCA / lateral-only institutes have no B.Tech row)
+                  all_where="programme LIKE 'B.Tech (All%' AND rank_basis = 'JEE Main rank' AND allotted",
+                  nirf_cats=["Engineering"],
+                  label="JEE Main", counselling="UPTAC (AKTU)", map_exam="UPTAC",
+                  state="Uttar Pradesh", source="UPTAC {y}"),
     "GUJCET": dict(table="gujcet_fact_cutoffs", year="year", name="college_name",
                    code=None, branch="branch_name", ctype="college_type",
                    district=None, university=None, stream="stream",
@@ -876,6 +897,7 @@ def build_state_spines(client):
                ANY_VALUE(CAST({stream} AS STRING)) AS stream,
                MAX({sp['year']}) AS year
         FROM {T} WHERE {sp['year']} = (SELECT MAX({sp['year']}) FROM {T})
+          AND ({sp.get('all_where', 'TRUE')})
         GROUP BY 1, 2
         """
         allc = client.query(allq).to_dataframe()
@@ -1603,6 +1625,8 @@ def main():
         if sp["state"]:
             nirf_here = nirf_all[(nirf_all.state == sp["state"])
                                  & (nirf_all.ranking_category != "Law")]
+            if sp.get("nirf_cats"):
+                nirf_here = nirf_here[nirf_here.ranking_category.isin(sp["nirf_cats"])]
         else:
             nirf_here = nirf_all[nirf_all.ranking_category == "Law"]
         code_by_nirf = match_nirf_to_mhtcet(nirf_here, allc)

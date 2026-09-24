@@ -1626,3 +1626,71 @@ ICAR-UG,B.Tech. Agricultural Engineering,B.Tech. Agricultural Engineering,AGRIEN
 ICAR-UG,B.Tech. Bio-Technology,B.Tech. Bio-Technology,BIOTECH,Biotechnology,484,13,same string as another exam
 ICAR-UG,B.Tech. Dairy Technology,B.Tech. Dairy Technology,DAIRYENG,Dairy Engineering,557,18,same string as another exam
 ICAR-UG,B.Tech. Food Technology,B.Tech. Food Technology,FOODENG,Food Engineering,741,20,same string as another exam
+UPTAC,Aeronautical Engineering,Aeronautical Engineering,AERO,Aerospace Engineering,19,1,same string as another exam
+UPTAC,Agricultural Engineering,Agricultural Engineering,AGRIENG,Agricultural Engineering,198,13,same string as another exam
+UPTAC,Artificial Intelligence,Artificial Intelligence,AIML,Artificial Intelligence / Machine Learning / Data Science,73,3,same string as another exam
+UPTAC,Artificial Intelligence (AI) And Data Science,Artificial Intelligence (AI) And Data Science,AIML,Artificial Intelligence / Machine Learning / Data Science,278,12,same string as another exam
+UPTAC,Artificial Intelligence And Machine Learning,Artificial Intelligence And Machine Learning,AIML,Artificial Intelligence / Machine Learning / Data Science,438,18,same string as another exam
+UPTAC,Automation and Robotics,Automation and Robotics,ROBOENG,Robotics Engineering,20,2,same string as another exam
+UPTAC,Automobile Engineering,Automobile Engineering,AUTOENG,Automobile Engineering,28,2,same string as another exam
+UPTAC,Bio Medical Engineering,Bio Medical Engineering,BIOMEDENG,Biomedical Engineering,17,1,same string as another exam
+UPTAC,Bioinformatics,Bioinformatics,BIOTECH,Biotechnology,14,1,same string as another exam
+UPTAC,Biotechnology,Biotechnology,BIOTECH,Biotechnology,502,25,same string as another exam
+UPTAC,CYBER SECURITY,CYBER SECURITY,CYBERSEC,Cyber Security,19,1,same string as another exam
+UPTAC,Carpet & Textile Technology,Carpet & Textile Technology,TEXTILE,Textile Engineering,28,1,taxonomy alias row
+UPTAC,Chemical Engineering,Chemical Engineering,CHEMENG,Chemical Engineering,230,8,same string as another exam
+UPTAC,Civil Engineering,Civil Engineering,CIVILENG,Civil Engineering,2325,131,same string as another exam
+UPTAC,Civil Engineering(Integrated M.Tech ),Civil Engineering(Integrated M.Tech ),CIVILENG,Civil Engineering,11,1,same string as another exam
+UPTAC,Computer Science,Computer Science,CSIT,Computer Science / Information Technology,374,14,same string as another exam
+UPTAC,Computer Science & Engineering (Artificial Intelligence & Data Science),Computer Science & Engineering (Artificial Intelligence & Data Science),CSIT,Computer Science / Information Technology,86,3,same string as another exam
+UPTAC,Computer Science & Engineering (Artificial Intelligence & Finance Management),Computer Science & Engineering (Artificial Intelligence & Finance Management),CSIT,Computer Science / Information Technology,29,1,same string as another exam
+UPTAC,Computer Science & Technology,Computer Science & Technology,CSIT,Computer Science / Information Technology,20,1,same string as another exam
+UPTAC,Computer Science (Data Science),Computer Science (Data Science),CSIT,Computer Science / Information Technology,16,1,same string as another exam
+UPTAC,Computer Science (Hindi),Computer Science (Hindi),CSIT,Computer Science / Information Technology,59,2,same string as another exam
+UPTAC,Computer Science And Design,Computer Science And Design,CSIT,Computer Science / Information Technology,23,1,same string as another exam
+UPTAC,Computer Science And Engineering(AIML),Computer Science And Engineering(AIML),AIML,Artificial Intelligence / Machine Learning / Data Science,41,1,same string as another exam
+UPTAC,Computer Science Information Technology,Computer Science Information Technology,CSIT,Computer Science / Information Technology,140,5,same string as another exam
+UPTAC,Computer Science and Business System,Computer Science and Business System,CSIT,Computer Science / Information Technology,39,1,same string as another exam
+UPTAC,Computer Science and Engineering,Computer Science and Engineering,CSIT,Computer Science / Information Technology,5468,195,same string as another exam
+UPTAC,Computer Science and Engineering (Artificial Intelligence & Machine Learning),Computer Science and Engineering (Artificial Intelligence & Machine Learning),AIML,Artificial Intelligence / Machine Learning / Data Science,2580,94,same string as another exam
+UPTAC,Computer Science and Engineering (Artificial Intelligence),Computer Science and Engineering (Artificial Intelligence),AIML,Artificial Intelligence / Machine Learning / Data Science,979,35,same string as another exam
+UPTAC,Computer Science and Engineering (Cyber Security),Computer Science and Engineering (Cyber Security),CYBERSEC,Cyber Security,293,13,same string as another exam
+UPTAC,Computer Science and Engineering (Data Science),Computer Science and Engineering (Data Science),CSIT,Computer Science / Information Technology,1309,58,same string as another exam
+UPTAC,Computer Science and Engineering (Hindi),Computer Science and Engineering (Hindi),CSIT,Computer Science / Information Technology,37,1,same string as another exam
+UPTAC,Computer Science and Engineering (Internet of Things),Computer Science and Engineering (Internet of Things),CSIT,Computer Science / Information Technology,79,3,same string as another exam
+UPTAC,Computer Science and Engineering(Integrated M.Tech),Computer Science and Engineering(Integrated M.Tech),CSIT,Computer Science / Information Technology,22,1,same string as another exam
+UPTAC,DATA SCIENCE,DATA SCIENCE,AIML,Artificial Intelligence / Machine Learning / Data Science,58,3,same string as another exam
+UPTAC,Electrical & Computer Engg.,Electrical & Computer Engg.,CSIT,Computer Science / Information Technology,98,4,taxonomy alias row
+UPTAC,Electrical & Electronics Engineering,Electrical & Electronics Engineering,ELEC,Electrical / Electronics / Communications Engineering,719,46,same string as another exam
+UPTAC,Electrical Engineering,Electrical Engineering,ELEC,Electrical / Electronics / Communications Engineering,1810,87,same string as another exam
+UPTAC,Electrical Engineering(Integrated M.Tech),Electrical Engineering(Integrated M.Tech),ELEC,Electrical / Electronics / Communications Engineering,11,1,same string as another exam
+UPTAC,Electronic And Computer Engineering,Electronic And Computer Engineering,ELEC,Electrical / Electronics / Communications Engineering,50,3,taxonomy alias row
+UPTAC,Electronics & Instrumentation Engineering,Electronics & Instrumentation Engineering,ELEC,Electrical / Electronics / Communications Engineering,52,2,same string as another exam
+UPTAC,Electronics Engineering,Electronics Engineering,ELEC,Electrical / Electronics / Communications Engineering,349,11,same string as another exam
+UPTAC,Electronics Engineering (VLSI Design and Technology),Electronics Engineering (VLSI Design and Technology),ELEC,Electrical / Electronics / Communications Engineering,188,8,same string as another exam
+UPTAC,Electronics and Communication (Advanced Communication Technology),Electronics and Communication (Advanced Communication Technology),ELEC,Electrical / Electronics / Communications Engineering,53,2,same string as another exam
+UPTAC,Electronics and Communication Engineering,Electronics and Communication Engineering,ELEC,Electrical / Electronics / Communications Engineering,2521,133,same string as another exam
+UPTAC,Electronics and Communication Engineering (VLSI Design and Technology),Electronics and Communication Engineering (VLSI Design and Technology),ELEC,Electrical / Electronics / Communications Engineering,17,1,same string as another exam
+UPTAC,Electronics and Communication Engineering(Integrated M.Tech),Electronics and Communication Engineering(Integrated M.Tech),ELEC,Electrical / Electronics / Communications Engineering,14,1,same string as another exam
+UPTAC,Electronics and Telecommunication Engineering,Electronics and Telecommunication Engineering,ELEC,Electrical / Electronics / Communications Engineering,12,1,same string as another exam
+UPTAC,Environmental Engineering,Environmental Engineering,ENVENG,Environmental Engineering,16,1,same string as another exam
+UPTAC,Food Engineering & Technology,Food Engineering & Technology,FOODENG,Food Engineering,70,4,same string as another exam
+UPTAC,Food Technology,Food Technology,FOODENG,Food Engineering,32,2,same string as another exam
+UPTAC,Handloom & Textile Technology,Handloom & Textile Technology,TEXTILE,Textile Engineering,25,1,same string as another exam
+UPTAC,Industrial Production Engineering,Industrial Production Engineering,INDENG,Industrial / Manufacturing / Production Engineering,19,1,same string as another exam
+UPTAC,Information Technology,Information Technology,CSIT,Computer Science / Information Technology,1661,69,same string as another exam
+UPTAC,Information Technology(Integrated M.Tech),Information Technology(Integrated M.Tech),CSIT,Computer Science / Information Technology,12,1,same string as another exam
+UPTAC,Instrumentation and Control Engineering,Instrumentation and Control Engineering,INSTRENG,Instrumentation Engineering,24,1,same string as another exam
+UPTAC,M.Tech (Integrated) Computer Science and Engineering,M.Tech (Integrated) Computer Science and Engineering,CSIT,Computer Science / Information Technology,27,1,taxonomy parent by name
+UPTAC,Man Made Fibre Technology,Man Made Fibre Technology,TEXTILE,Textile Engineering,21,1,"nearest parent, needs review"
+UPTAC,Manufacturing Technology,Manufacturing Technology,INDENG,Industrial / Manufacturing / Production Engineering,28,1,taxonomy parent by name
+UPTAC,Mechanical Engineering,Mechanical Engineering,MECHENG,Mechanical / Mechatronics Engineering ,2954,162,same string as another exam
+UPTAC,Mechanical Engineering(Integrated M.Tech),Mechanical Engineering(Integrated M.Tech),MECHENG,Mechanical / Mechatronics Engineering ,14,1,same string as another exam
+UPTAC,Mechanical and Mechatronics Engineering(Additive Manufacturing),Mechanical and Mechatronics Engineering(Additive Manufacturing),MECHENG,Mechanical / Mechatronics Engineering ,39,1,same string as another exam
+UPTAC,Mining Engineering,Mining Engineering,MININGENG,Mining Engineering,25,1,same string as another exam
+UPTAC,Plastic Engineering,Plastic Engineering,CHEMENG,Chemical Engineering,28,1,same string as another exam
+UPTAC,Production Engineering,Production Engineering,INDENG,Industrial / Manufacturing / Production Engineering,15,1,same string as another exam
+UPTAC,Robotics And Automation,Robotics And Automation,ROBOENG,Robotics Engineering,34,2,same string as another exam
+UPTAC,Textile Chemistry,Textile Chemistry,TEXTILE,Textile Engineering,24,1,same string as another exam
+UPTAC,Textile Engineering,Textile Engineering,TEXTILE,Textile Engineering,18,1,same string as another exam
+UPTAC,Textile Technology,Textile Technology,TEXTILE,Textile Engineering,49,2,same string as another exam

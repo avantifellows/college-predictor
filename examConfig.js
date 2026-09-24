@@ -2092,6 +2092,87 @@ export const icarUgConfig = {
   getSort: () => [["Cutoff Marks", "DESC"]],
 };
 
+const UPTAC_CATEGORY = {
+  General: "GEN",
+  OBC: "OBC",
+  SC: "SC",
+  ST: "ST",
+  EWS: "EWS",
+  "Tuition fee waiver seats": "TFW",
+};
+
+export const uptacConfig = {
+  name: "UPTAC (AKTU and UP colleges)",
+  searchKeys: ["Institute", "Academic Program Name"],
+  // B.Tech on the JEE Main rank (scripts/build_uptac_2026.py). Regular
+  // rounds are for U.P. students; the special round opens its open seats to
+  // everyone, so "Domicile" picks the row set.
+  primaryInput: integerInput("Enter JEE (Main) Rank", "Enter JEE Main rank"),
+  fields: [
+    {
+      name: "category",
+      label: "Select Category",
+      options: Object.keys(UPTAC_CATEGORY),
+    },
+    {
+      name: "subCategory",
+      label: "Any special quota?",
+      options: [
+        "None",
+        "Defence personnel ward",
+        "Freedom fighter dependant",
+        "Divyangjan",
+      ],
+    },
+    {
+      name: "gender",
+      label: "Select Gender",
+      options: ["Male", "Female"],
+    },
+    {
+      name: "homeState",
+      label: "Are you from Uttar Pradesh?",
+      helperText:
+        "Yes if you passed Class 12 in U.P. or your parents live in U.P.",
+      options: ["Yes", "No"],
+    },
+  ],
+  getDataPath: () => {
+    return path.join(
+      process.cwd(),
+      "public",
+      "data",
+      "UPTAC",
+      "uptac_data.json"
+    );
+  },
+  getFilters: (query) => {
+    const cat = UPTAC_CATEGORY[query.category];
+    const female = query.gender === "Female";
+    const subs = ["None"];
+    if (query.subCategory && query.subCategory !== "None")
+      subs.push(query.subCategory);
+    if (female) subs.push("Female (UP)");
+    return [
+      (item) => item.Domicile === (query.homeState === "Yes" ? "UP" : "Any"),
+      (item) =>
+        cat === "TFW"
+          ? item.Category === "TFW"
+          : item.Category === "GEN" || item.Category === cat,
+      (item) => subs.includes(item["Sub Category"]),
+      (item) => female || item["Seat Gender"] !== "WOMEN",
+      (item) => {
+        if (!query.rank) return true;
+        const closingRank = parseInt(item["Closing Rank"], 10);
+        const userRank = parseInt(query.rank, 10);
+        if (isNaN(closingRank) || isNaN(userRank)) return false;
+        return closingRank >= userRank;
+      },
+    ];
+  },
+  getSort: () => [["Closing Rank", "ASC"]],
+};
+
 export const clatConfig = {
   name: "CLAT",
   searchKeys: ["Institute", "Academic Program Name"],
@@ -2185,6 +2266,7 @@ export const examConfigs = {
   "AIIMS Nursing": aiimsNursingConfig,
   "JEE Main-JAC": jacExamConfig,
   "JAC Chandigarh": jacChandigarhConfig,
+  "UPTAC": uptacConfig,
   "AP EAPCET": apEapcetConfig,
   "GUJCET": gujcetConfig,
   "KCET": kcetConfig,

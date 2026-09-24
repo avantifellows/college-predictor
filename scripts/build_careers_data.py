@@ -75,6 +75,7 @@ EXAM_LINKS = {
     # ICAR counselling runs on CUET, whose card is all of CUET: straight to
     # the ICAR predictor instead
     "ICAR-UG": [("ICAR-UG (CUET)", "/predictor?exam=ICAR-UG")],
+    "UPTAC": [("UPTAC", "/predictor?exam=UPTAC")],
     "NEET": [("NEET-UG", "/exams?q=NEET")],
 }
 
@@ -192,6 +193,10 @@ OPTION_SOURCES = {
     "ICAR-UG": ("public/data/ICARUG/icarug_data.json", "Course Raw",
                 lambda r: r.get("Category") == "UR",
                 "Cutoff Marks", True, " CUET marks (of 750)"),
+    "UPTAC": ("public/data/UPTAC/uptac_data.json", "Branch",
+              lambda r: r.get("Category") == "GEN" and r.get("Sub Category") == "None"
+              and r.get("Domicile") == "UP" and r.get("Seat Gender") != "WOMEN",
+              "Closing Rank", False, " (JEE Main rank)"),
     # last: five colleges in one city only fill spare slots
     "JAC-Chandigarh": ("public/data/JACCHD/jacchd_data.json", "Academic Program Name",
                        lambda r: r.get("Category") == "General",
