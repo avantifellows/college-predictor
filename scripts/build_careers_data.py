@@ -24,6 +24,13 @@ EXAMS_TAB = "public/data/exams/exams.json"
 OUT_DIR = "public/data/careers"
 
 # careers whose names don't normalise onto a taxonomy parent
+# ICAR's agriculture-faculty degrees that have their own taxonomy branch
+# but no career page yet: send them to Agriculture
+BRANCH_CAREER_FALLBACK = {
+    "AGRIBUSMGT": "agriculture",
+    "COMMUNITYSCI": "agriculture",
+    "NUTRITION": "agriculture",
+}
 CAREER_BRANCH = {
     "Artificial Intelligence and Data Science": "AIML",
     "Business Administration (MBA)": "ADMIN",
@@ -446,6 +453,10 @@ def main():
 
     os.makedirs(OUT_DIR, exist_ok=True)
     json.dump(cards, open(f"{OUT_DIR}/careers.json", "w"), indent=1)
+    # branches with no career page of their own link to the nearest one
+    # (never overriding a branch that has its own)
+    for bid, cid in BRANCH_CAREER_FALLBACK.items():
+        branch_to_career.setdefault(bid, cid)
     json.dump(branch_to_career, open(f"{OUT_DIR}/branch_to_career.json", "w"), indent=1)
     with_exams = sum(1 for c in cards if c["exams"])
     print(f"{len(cards)} careers -> {OUT_DIR}/careers.json "

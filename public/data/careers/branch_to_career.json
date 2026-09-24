@@ -91,5 +91,8 @@
  "TEACH": "teaching",
  "TEXTILE": "textile-engineering",
  "VET": "veterinary",
- "ZOO": "zoology"
+ "ZOO": "zoology",
+ "AGRIBUSMGT": "agriculture",
+ "COMMUNITYSCI": "agriculture",
+ "NUTRITION": "agriculture"
 }
