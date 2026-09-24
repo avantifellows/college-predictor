@@ -245,17 +245,18 @@ def build_josaa(client):
     # ~2x the institutes of the old Dataful-derived aggregate (rank-band
     # colleges file DCS PDFs too), no known holes, and carries
     # graduated_on_time so both percentages share a real denominator.
-    place = client.query("""
-    SELECT institute_id, edition_year AS ranking_year,
-           graduating_academic_year AS academic_year, median_salary,
-           graduated_on_time, students_placed, higher_studies_selected,
-           first_year_intake
-    FROM `avantifellows.external_data_sources.nirf_fact_dcs_placements`
-    WHERE discipline = 'Engineering'
-      AND program_level = 'UG-4Y'
-      AND NOT superseded
-      AND median_salary IS NOT NULL AND median_salary > 0
-      AND graduated_on_time IS NOT NULL AND graduated_on_time > 0
+    place = client.query(f"""
+    SELECT p.institute_id, p.edition_year AS ranking_year,
+           p.graduating_academic_year AS academic_year, p.median_salary,
+           p.graduated_on_time, p.students_placed, p.higher_studies_selected,
+           {ENG_UG_INTAKE_COL}
+    FROM `avantifellows.external_data_sources.nirf_fact_dcs_placements` p
+    {ENG_UG_INTAKE_JOIN}
+    WHERE p.discipline = 'Engineering'
+      AND p.program_level = 'UG-4Y'
+      AND NOT p.superseded
+      AND p.median_salary IS NOT NULL AND p.median_salary > 0
+      AND p.graduated_on_time IS NOT NULL AND p.graduated_on_time > 0
     """).to_dataframe()
 
     # ── gender mix: women as a share of enrolled UG students ─────────────────
@@ -647,16 +648,17 @@ def build_mhtcet(client):
       AND ranking_category IN ('Engineering', 'Pharmacy', 'Architecture and Planning')
     """).to_dataframe()
 
-    place = client.query("""
-    SELECT institute_id, edition_year AS ranking_year,
-           graduating_academic_year AS academic_year, median_salary,
-           graduated_on_time, students_placed, higher_studies_selected,
-           first_year_intake, discipline
-    FROM `avantifellows.external_data_sources.nirf_fact_dcs_placements`
-    WHERE discipline IN ('Engineering', 'Pharmacy') AND program_level = 'UG-4Y'
-      AND NOT superseded
-      AND median_salary IS NOT NULL AND median_salary > 0
-      AND graduated_on_time IS NOT NULL AND graduated_on_time > 0
+    place = client.query(f"""
+    SELECT p.institute_id, p.edition_year AS ranking_year,
+           p.graduating_academic_year AS academic_year, p.median_salary,
+           p.graduated_on_time, p.students_placed, p.higher_studies_selected,
+           {ENG_UG_INTAKE_COL}, p.discipline
+    FROM `avantifellows.external_data_sources.nirf_fact_dcs_placements` p
+    {ENG_UG_INTAKE_JOIN}
+    WHERE p.discipline IN ('Engineering', 'Pharmacy') AND p.program_level = 'UG-4Y'
+      AND NOT p.superseded
+      AND p.median_salary IS NOT NULL AND p.median_salary > 0
+      AND p.graduated_on_time IS NOT NULL AND p.graduated_on_time > 0
     """).to_dataframe()
     return colleges, programs, nirf_mh, place
 
@@ -668,6 +670,21 @@ def build_mhtcet(client):
 # rounds / phases (the easier door; never overstates difficulty), same rule
 # as JoSAA and MHT-CET above.
 D = "avantifellows.external_data_sources"
+# First-year intake for an engineering placement row = UG 4-year + UG 5-year
+# (dual degree) sanctioned intake for the SAME entry year. The placement row
+# only carries its own level's intake, so IIT Bombay's 2020-21 entry read
+# 1,030 instead of 1,241 (211 dual-degree seats). Rows from other
+# disciplines keep their own figure; a missing year falls back to it.
+ENG_UG_INTAKE_JOIN = """
+    LEFT JOIN (
+      SELECT institute_id, academic_year, SUM(sanctioned_intake) AS ug_intake
+      FROM `avantifellows.external_data_sources.nirf_fact_dcs_intake`
+      WHERE discipline = 'Engineering' AND NOT superseded
+        AND program_level IN ('UG-4Y', 'UG-5Y')
+      GROUP BY 1, 2) i
+    ON i.institute_id = p.institute_id AND i.academic_year = p.intake_academic_year"""
+ENG_UG_INTAKE_COL = ("IF(p.discipline = 'Engineering' AND p.program_level = 'UG-4Y', "
+                     "COALESCE(i.ug_intake, p.first_year_intake), p.first_year_intake) AS first_year_intake")
 STATE_SPECS = {
     "KCET": dict(table="kcet_fact_cutoffs", year="year", name="college_name",
                  code="college_code", branch="course_name", ctype="college_type",
@@ -1521,16 +1538,17 @@ def main():
     nirf_all_by_id = {iid: g.sort_values("ranking_year", ascending=False)
                       for iid, g in nirf_all.groupby("institute_id")}
     place_all = client.query(f"""
-    SELECT institute_id, edition_year AS ranking_year,
-           graduating_academic_year AS academic_year, median_salary,
-           graduated_on_time, students_placed, higher_studies_selected,
-           first_year_intake, discipline
-    FROM `{D}.nirf_fact_dcs_placements`
-    WHERE ((discipline IN ('Engineering', 'Pharmacy') AND program_level = 'UG-4Y')
-           OR (discipline = 'Law' AND program_level = 'UG-5Y'))
-      AND NOT superseded
-      AND median_salary IS NOT NULL AND median_salary > 0
-      AND graduated_on_time IS NOT NULL AND graduated_on_time > 0
+    SELECT p.institute_id, p.edition_year AS ranking_year,
+           p.graduating_academic_year AS academic_year, p.median_salary,
+           p.graduated_on_time, p.students_placed, p.higher_studies_selected,
+           {ENG_UG_INTAKE_COL}, p.discipline
+    FROM `{D}.nirf_fact_dcs_placements` p
+    {ENG_UG_INTAKE_JOIN}
+    WHERE ((p.discipline IN ('Engineering', 'Pharmacy') AND p.program_level = 'UG-4Y')
+           OR (p.discipline = 'Law' AND p.program_level = 'UG-5Y'))
+      AND NOT p.superseded
+      AND p.median_salary IS NOT NULL AND p.median_salary > 0
+      AND p.graduated_on_time IS NOT NULL AND p.graduated_on_time > 0
     """).to_dataframe()
     place_all_by_id = {iid: g.sort_values(["ranking_year", "academic_year"], ascending=False)
                        for iid, g in place_all.groupby("institute_id")}

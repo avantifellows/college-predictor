@@ -95,11 +95,16 @@ const ROWS = [
     key: "higher",
     label: "Went for higher studies",
     sub: "the research / masters path (NIRF)",
+    // over the class's graduates, like the two rows above: "placed or in
+    // higher studies" minus "placed". First-year intake is the wrong base
+    // (it now includes 5-year dual-degree seats; higher studies is 4-year)
     get: (o) => {
       const p = o.college.placement;
-      if (!p?.higher_studies_selected || !p?.first_year_intake) return null;
-      return Math.round(
-        (p.higher_studies_selected / p.first_year_intake) * 100
+      if (p?.percentage_with_outcome == null || p?.percentage_placed == null)
+        return null;
+      return Math.max(
+        0,
+        Math.round(p.percentage_with_outcome - p.percentage_placed)
       );
     },
     fmt: pct,
