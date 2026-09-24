@@ -463,8 +463,13 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
                         ? "MBBS (UG 5-year)"
                         : pl.source?.includes("3-year")
                         ? "UG 3-year"
+                        : pl.includes_dual_degree
+                        ? "UG 4- and 5-year"
                         : "UG 4-year"}{" "}
                       · AY {pl.academic_year}
+                      {/* NIRF gives one median per programme length; two
+                          medians don't combine */}
+                      {pl.includes_dual_degree ? " · median: 4-year only" : ""}
                     </p>
                   </div>
                 ) : null}

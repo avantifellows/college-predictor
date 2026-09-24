@@ -248,10 +248,11 @@ def build_josaa(client):
     place = client.query(f"""
     SELECT p.institute_id, p.edition_year AS ranking_year,
            p.graduating_academic_year AS academic_year, p.median_salary,
-           p.graduated_on_time, p.students_placed, p.higher_studies_selected,
+           {ENG_UG5_COLS},
            {ENG_UG_INTAKE_COL}
     FROM `avantifellows.external_data_sources.nirf_fact_dcs_placements` p
     {ENG_UG_INTAKE_JOIN}
+    {ENG_UG5_JOIN}
     WHERE p.discipline = 'Engineering'
       AND p.program_level = 'UG-4Y'
       AND NOT p.superseded
@@ -651,10 +652,11 @@ def build_mhtcet(client):
     place = client.query(f"""
     SELECT p.institute_id, p.edition_year AS ranking_year,
            p.graduating_academic_year AS academic_year, p.median_salary,
-           p.graduated_on_time, p.students_placed, p.higher_studies_selected,
+           {ENG_UG5_COLS},
            {ENG_UG_INTAKE_COL}, p.discipline
     FROM `avantifellows.external_data_sources.nirf_fact_dcs_placements` p
     {ENG_UG_INTAKE_JOIN}
+    {ENG_UG5_JOIN}
     WHERE p.discipline IN ('Engineering', 'Pharmacy') AND p.program_level = 'UG-4Y'
       AND NOT p.superseded
       AND p.median_salary IS NOT NULL AND p.median_salary > 0
@@ -683,6 +685,29 @@ ENG_UG_INTAKE_JOIN = """
         AND program_level IN ('UG-4Y', 'UG-5Y')
       GROUP BY 1, 2) i
     ON i.institute_id = p.institute_id AND i.academic_year = p.intake_academic_year"""
+# Placement counts likewise add the UG 5-year graduates of the SAME
+# graduating year, so the % placed and the intake describe one group. Only
+# when all three 5-year counts exist. Median salary cannot be combined (two
+# medians don't make one) and stays the 4-year figure; includes_dual_degree
+# lets the card say so.
+ENG_UG5_JOIN = """
+    LEFT JOIN (
+      SELECT institute_id, graduating_academic_year,
+             SUM(graduated_on_time) AS g5, SUM(students_placed) AS p5,
+             SUM(higher_studies_selected) AS h5
+      FROM `avantifellows.external_data_sources.nirf_fact_dcs_placements`
+      WHERE discipline = 'Engineering' AND program_level = 'UG-5Y' AND NOT superseded
+        AND graduated_on_time > 0 AND students_placed IS NOT NULL
+        AND higher_studies_selected IS NOT NULL
+      GROUP BY 1, 2) f
+    ON f.institute_id = p.institute_id
+   AND f.graduating_academic_year = p.graduating_academic_year"""
+_DUAL = ("(p.discipline = 'Engineering' AND p.program_level = 'UG-4Y' AND f.g5 IS NOT NULL "
+         "AND p.students_placed IS NOT NULL AND p.higher_studies_selected IS NOT NULL)")
+ENG_UG5_COLS = (f"IF({_DUAL}, p.graduated_on_time + f.g5, p.graduated_on_time) AS graduated_on_time, "
+                f"IF({_DUAL}, p.students_placed + f.p5, p.students_placed) AS students_placed, "
+                f"IF({_DUAL}, p.higher_studies_selected + f.h5, p.higher_studies_selected) AS higher_studies_selected, "
+                f"COALESCE({_DUAL}, FALSE) AS includes_dual_degree")
 ENG_UG_INTAKE_COL = ("IF(p.discipline = 'Engineering' AND p.program_level = 'UG-4Y', "
                      "COALESCE(i.ug_intake, p.first_year_intake), p.first_year_intake) AS first_year_intake")
 STATE_SPECS = {
@@ -1030,6 +1055,7 @@ def main():
                     "students_placed": num(p.students_placed, int),
                     "higher_studies_selected": num(p.higher_studies_selected, int),
                     "first_year_intake": num(p.first_year_intake, int),
+                    "includes_dual_degree": bool(getattr(p, "includes_dual_degree", False)),
                     "academic_year": p.academic_year,
                     "ranking_year": int(p.ranking_year),
                     "source": "NIRF Engineering, UG 4-year",
@@ -1266,6 +1292,7 @@ def main():
                 "students_placed": num(pr.students_placed, int),
                 "higher_studies_selected": num(pr.higher_studies_selected, int),
                 "first_year_intake": num(pr.first_year_intake, int),
+                "includes_dual_degree": bool(getattr(pr, "includes_dual_degree", False)),
                 "academic_year": pr.academic_year,
                 "ranking_year": int(pr.ranking_year),
                 "source": "NIRF Medical, MBBS (UG 5-year)",
@@ -1443,6 +1470,7 @@ def main():
                 "students_placed": placed_n,
                 "higher_studies_selected": higher_n,
                 "first_year_intake": num(pr.first_year_intake, int),
+                "includes_dual_degree": bool(getattr(pr, "includes_dual_degree", False)),
                 "academic_year": pr.academic_year,
                 "ranking_year": int(pr.ranking_year),
                 "source": f"NIRF {pr.discipline}, UG 4-year",
@@ -1540,10 +1568,11 @@ def main():
     place_all = client.query(f"""
     SELECT p.institute_id, p.edition_year AS ranking_year,
            p.graduating_academic_year AS academic_year, p.median_salary,
-           p.graduated_on_time, p.students_placed, p.higher_studies_selected,
+           {ENG_UG5_COLS},
            {ENG_UG_INTAKE_COL}, p.discipline
     FROM `{D}.nirf_fact_dcs_placements` p
     {ENG_UG_INTAKE_JOIN}
+    {ENG_UG5_JOIN}
     WHERE ((p.discipline IN ('Engineering', 'Pharmacy') AND p.program_level = 'UG-4Y')
            OR (p.discipline = 'Law' AND p.program_level = 'UG-5Y'))
       AND NOT p.superseded
@@ -1626,6 +1655,7 @@ def main():
                     "students_placed": placed_n,
                     "higher_studies_selected": higher_n,
                     "first_year_intake": num(pr.first_year_intake, int),
+                "includes_dual_degree": bool(getattr(pr, "includes_dual_degree", False)),
                     "academic_year": pr.academic_year,
                     "ranking_year": int(pr.ranking_year),
                     "source": f"NIRF {pr.discipline}, UG",
