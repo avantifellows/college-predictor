@@ -1614,10 +1614,10 @@ JAC-Chandigarh,Integrated B.E. (Chemical Engineering) - MBA,Chemical Engineering
 JAC-Chandigarh,Integrated B.E. (Chemical Engineering) - MBA - TFW,Chemical Engineering,CHEMENG,Chemical Engineering,5,1,same string as another exam
 AIIMS-Nursing,B.Sc. (Hons.) Nursing,BSc Nursing,NURSING,Nursing,188,18,same string as another exam
 ICAR-UG,B.F.Sc. Bachelor of Fisheries Sciences,B.F.Sc. Bachelor of Fisheries Sciences,FISH,Fishery Science,762,22,taxonomy parent by name
-ICAR-UG,B.Sc. (Hons.) Agribusiness Management,B.Sc. (Hons.) Agribusiness Management,AGRI,Agriculture,83,4,"nearest parent, needs review"
+ICAR-UG,B.Sc. (Hons.) Agribusiness Management,B.Sc. (Hons.) Agribusiness Management,AGRIBUSMGT,Agribusiness Management,83,4,taxonomy alias row
 ICAR-UG,B.Sc. (Hons.) Agriculture,B.Sc. (Hons.) Agriculture,AGRI,Agriculture,3505,50,taxonomy parent by name
-ICAR-UG,B.Sc. (Hons.) Community Science,B.Sc. (Hons.) Community Science,AGRI,Agriculture,687,18,"nearest parent, needs review"
-ICAR-UG,B.Sc. (Hons.) Food Nutrition and Dietetics,B.Sc. (Hons.) Food Nutrition and Dietetics,FOODENG,Food Engineering,246,8,"nearest parent, needs review"
+ICAR-UG,B.Sc. (Hons.) Community Science,B.Sc. (Hons.) Community Science,COMMUNITYSCI,Community Science,687,18,taxonomy alias row
+ICAR-UG,B.Sc. (Hons.) Food Nutrition and Dietetics,B.Sc. (Hons.) Food Nutrition and Dietetics,NUTRITION,Food Nutrition and Dietetics,246,8,taxonomy alias row
 ICAR-UG,B.Sc. (Hons.) Forestry,B.Sc. (Hons.) Forestry,FOREST,Forestry,713,20,taxonomy parent by name
 ICAR-UG,B.Sc. (Hons.) Horticulture,B.Sc. (Hons.) Horticulture,HORTI,Horticulture,1548,30,taxonomy parent by name
 ICAR-UG,B.Sc. (Hons.) Nutural Farming,B.Sc. (Hons.) Natural Farming,AGRI,Agriculture,125,4,taxonomy parent by name
