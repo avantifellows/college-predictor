@@ -63,7 +63,11 @@ def main() -> int:
                 "medical row with a non-Medical NIRF rank", c)
 
         # NIRF — Medical publishes ~50 exact ranks, Engineering up to ~300
-        if nirf:
+        if nirf and nirf.get("rank") is None:
+            # band-only (never in the exact-rank list): a band and nothing else
+            chk(bool(nirf.get("latest_band")), "rank-less NIRF block without a band", c)
+            chk(nirf.get("rank_history") == [], "band-only block with a rank history", c)
+        elif nirf:
             cap = 100 if nirf.get("category") in ("Medical", "Pharmacy", "Architecture", "Law") else 350
             chk(1 <= nirf["rank"] <= cap, "rank out of range", c,
                 nirf["rank"])

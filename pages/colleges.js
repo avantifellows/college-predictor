@@ -35,6 +35,9 @@ const PAGE_SIZE = 25;
 // NIRF publishes yearly; a rank from an older cycle means the college has not
 // appeared in the ranked band since, which is worth showing rather than hiding.
 const LATEST_NIRF = 2025;
+const nirfSortRank = (c) =>
+  c.nirf?.rank ??
+  (c.nirf?.latest_band ? parseInt(c.nirf.latest_band.band, 10) : 9e9);
 
 // NIRF publishes separate lists; their names as a student should read them
 export const nirfListLabel = (category) =>
@@ -178,7 +181,11 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
             // "#87 (2022)" here would be staler than what NIRF publishes.
             <span
               className="font-semibold text-[#332724]"
-              title={`In NIRF's ${nirf.latest_band.band} band in ${nirf.latest_band.year}; last exact rank #${nirf.rank} in ${nirf.ranking_year}`}
+              title={
+                nirf.rank != null
+                  ? `In NIRF's ${nirf.latest_band.band} band in ${nirf.latest_band.year}; last exact rank #${nirf.rank} in ${nirf.ranking_year}`
+                  : `In NIRF's ${nirf.latest_band.band} band in ${nirf.latest_band.year}`
+              }
             >
               {nirf.latest_band.band}
               <span className="ml-1 text-[11px] font-normal text-[#6d5550]">
@@ -634,7 +641,8 @@ const NirfTrend = ({ history }) => {
 const SORTS = {
   nirf: {
     label: "NIRF rank",
-    fn: (a, b) => (a.nirf?.rank ?? 9e9) - (b.nirf?.rank ?? 9e9),
+    // band-only colleges sort at the band's top ("101-150" -> 101)
+    fn: (a, b) => nirfSortRank(a) - nirfSortRank(b),
   },
   salary: {
     label: "Median salary",

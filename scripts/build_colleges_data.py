@@ -678,6 +678,7 @@ def build_mhtcet(client):
 # rounds / phases (the easier door; never overstates difficulty), same rule
 # as JoSAA and MHT-CET above.
 D = "avantifellows.external_data_sources"
+LATEST_NIRF = 2025  # newest NIRF edition loaded (matches the audit and pages/colleges.js)
 # First-year intake for an engineering placement row = UG 4-year + UG 5-year
 # (dual degree) sanctioned intake for the SAME entry year. The placement row
 # only carries its own level's intake, so IIT Bombay's 2020-21 entry read
@@ -1603,6 +1604,17 @@ def main():
     """).to_dataframe()
     place_all_by_id = {iid: g.sort_values(["ranking_year", "academic_year"], ascending=False)
                        for iid, g in place_all.groupby("institute_id")}
+    # Most state-counselling colleges were never in NIRF's exact-rank list,
+    # only its 101-300 bands, which carry a name and city but no id. Bands
+    # from the last two editions attach by name within the state (older ones
+    # would be stale). Placements do NOT fall back to a name match on the
+    # filings: they carry no state, and exact names repeat across states
+    # (CBIT Hyderabad vs CBIT Proddatur; Centurion's Odisha vs AP campus).
+    state_bands = client.query(f"""
+    SELECT institute_name, state, ranking_year, rank_band
+    FROM `{D}.nirf_fact_rankings`
+    WHERE ranking_category = 'Engineering' AND rank_band IS NOT NULL
+      AND ranking_year >= {LATEST_NIRF - 1}""").to_dataframe()
 
     spine_rows = []
     for exam, sp in STATE_SPECS.items():
@@ -1633,6 +1645,15 @@ def main():
         nirf_ids_by_code = {}
         for iid, code in code_by_nirf.items():
             nirf_ids_by_code.setdefault(code, set()).add(iid)
+        bands_by_code = {}
+        if sp["state"]:
+            bh = state_bands[state_bands.state == sp["state"]]
+            band_frame = pd.DataFrame({"institute_id": ["band:" + n for n in bh.institute_name],
+                                       "institute_name": bh.institute_name}).drop_duplicates()
+            for bid, code in match_nirf_to_mhtcet(band_frame, allc).items():
+                g_b = bh[bh.institute_name == bid[5:]]
+                bands_by_code.setdefault(code, []).extend(
+                    (int(x.ranking_year), x.rank_band) for x in g_b.itertuples())
 
         n_nirf = n_place = 0
         for r in allc.itertuples():
@@ -1656,8 +1677,20 @@ def main():
                     ],
                 }
                 n_nirf += 1
+            band_hits = bands_by_code.get(r.college_code, [])
+            if band_hits:
+                by, bb = max(band_hits)
+                if nirf_block is None:
+                    # band-only: no exact rank, no score, no history
+                    nirf_block = {"category": "Engineering", "rank": None, "score": None,
+                                  "ranking_year": by, "rank_history": [],
+                                  "latest_band": {"year": by, "band": bb}}
+                    n_nirf += 1
+                elif by > nirf_block["ranking_year"]:
+                    nirf_block["latest_band"] = {"year": by, "band": bb}
             placement = None
             pframes = [place_all_by_id[n] for n in nids if n in place_all_by_id]
+
             if pframes:
                 pr = pd.concat(pframes).sort_values(["ranking_year", "academic_year"],
                                                     ascending=False).iloc[0]
@@ -2101,9 +2134,13 @@ def main():
             card["entrance_exams"] = card["entrance_exams"] + ["AIIMS-EE"]
     print(f"  AIIMS nursing programme on {len(nursing)} AIIMS cards")
 
-    rows.sort(key=lambda z: (z["nirf"] is None,
-                             z["nirf"]["rank"] if z["nirf"] else 0,
-                             z["display_name"]))
+    def nirf_sort(z):
+        n = z["nirf"]
+        if not n:
+            return 0
+        # band-only colleges sort at the band's top ("101-150" -> 101)
+        return n["rank"] if n["rank"] is not None else int(n["latest_band"]["band"].split("-")[0])
+    rows.sort(key=lambda z: (z["nirf"] is None, nirf_sort(z), z["display_name"]))
 
     print(f"\nbuilt {len(rows)} colleges")
     print(f"  with NIRF rank : {sum(1 for x in rows if x['nirf'])}")

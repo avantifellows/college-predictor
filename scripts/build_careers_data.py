@@ -280,7 +280,10 @@ NIRF_LISTS_BY_BRANCH = {
     "AGRIENG": {"Engineering", "Agriculture"}, "DAIRYENG": {"Engineering", "Agriculture"},
     "FOODENG": {"Engineering", "Agriculture"},
 }
-NIRF_BY_DISPLAY = {c["display_name"]: (c["nirf"]["category"], c["nirf"]["rank"])
+# a band-only college ranks at its band's top ("101-150" -> 101)
+NIRF_BY_DISPLAY = {c["display_name"]: (c["nirf"]["category"],
+                                       c["nirf"]["rank"] if c["nirf"]["rank"] is not None
+                                       else int(c["nirf"]["latest_band"]["band"].split("-")[0]))
                    for c in json.load(open(COLLEGES_TAB)) if c.get("nirf")}
 ACRONYMS = {
     "iit": "indian institute of technology",
