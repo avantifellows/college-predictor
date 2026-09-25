@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import dynamic from "next/dynamic";
+import { useRouter } from "next/router";
 import {
   ChevronDown,
   ChevronUp,
@@ -676,6 +677,7 @@ const SORTS = {
 };
 
 const Colleges = () => {
+  const router = useRouter();
   const [all, setAll] = useState([]);
   const [error, setError] = useState(null);
   // Filters live in the URL, so a filtered list or an opened college can be
@@ -692,7 +694,7 @@ const Colleges = () => {
     stream: "All",
     career: "",
     sort: "nirf",
-    type: "All",
+    type: "public",
     college: "",
   });
   const { q, state, exam, stream, career } = params;
@@ -701,10 +703,21 @@ const Colleges = () => {
   const setExam = (v) => setParam("exam", v);
   const setStream = (v) => setParam("stream", v);
   const setCareer = (v) => setParam("career", v || "");
-  // public vs private; government-aided counts with public (government-set
-  // fees on its aided seats) and the label says so
+  // public vs private, public first; government-aided counts with public
+  // (government-set fees on its aided seats) and the label says so.
+  // ?type=private / ?type=all; public is the default and stays off the URL.
   const type = params.type;
   const setType = (v) => setParam("type", v);
+  // a link that names a college, career or exam must not land on an empty
+  // list because the college is private: those arrivals start on all
+  const typeChecked = useRef(false);
+  useEffect(() => {
+    if (!urlReady || typeChecked.current) return;
+    typeChecked.current = true;
+    if (router.query.type) return;
+    if (q || params.college || career || exam !== "All") setType("all");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [urlReady]);
   const streamsOf = (c) =>
     c.disciplines?.length
       ? c.disciplines
@@ -946,9 +959,9 @@ const Colleges = () => {
           <div className="mt-3 grid gap-3 sm:grid-cols-3">
             <Dropdown
               options={[
-                { value: "All", label: "All colleges" },
                 { value: "public", label: "Public or govt-aided" },
                 { value: "private", label: "Private" },
+                { value: "all", label: "Public and private" },
               ]}
               selectedValue={type}
               onChange={(o) => setType(o.value)}
@@ -1046,6 +1059,18 @@ const Colleges = () => {
                 <p className="py-10 text-center text-sm text-[#6d5550]">
                   No colleges match. Try clearing the state or entrance-test
                   filter.
+                  {type === "public" ? (
+                    <>
+                      {" "}
+                      <button
+                        type="button"
+                        onClick={() => setType("all")}
+                        className="font-semibold text-[#8f2e31] hover:underline"
+                      >
+                        Include private colleges
+                      </button>
+                    </>
+                  ) : null}
                 </p>
               ) : null}
 

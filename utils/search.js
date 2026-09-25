@@ -54,10 +54,12 @@ const ALIASES = {
   mech: "mechanical",
 };
 
-// lower-case, punctuation to spaces: "St. Stephen's" -> "st stephen s"
+// lower-case, apostrophes dropped, other punctuation to spaces:
+// "St. Stephen's" -> "st stephens", so "galgotias" finds "Galgotia's"
 export const plainText = (x) =>
   String(x ?? "")
     .toLowerCase()
+    .replace(/['’`]/g, "")
     .replace(/&/g, " and ")
     .replace(/[^a-z0-9]+/g, " ")
     .trim();
