@@ -946,7 +946,7 @@ const Colleges = () => {
           <div className="mt-3 grid gap-3 sm:grid-cols-3">
             <Dropdown
               options={[
-                { value: "All", label: "Public or private" },
+                { value: "All", label: "All colleges" },
                 { value: "public", label: "Public or govt-aided" },
                 { value: "private", label: "Private" },
               ]}
