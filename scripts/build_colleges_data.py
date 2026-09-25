@@ -136,6 +136,9 @@ PUBLIC_NAME_PINS = ("Institute of Chemical Technology",
 
 def ownership_of(kind, management, name):
     k, m = str(kind or ""), str(management or "")
+    # "Private Un-Aided" contains "Aided": check the negative first
+    if re.search(r"un-?aided", f"{k} {m}", re.I):
+        return "Private"
     if "Aided" in k or "Aided" in m:
         return "Government-aided"
     if k in PUBLIC_KINDS or "Government" in m:
@@ -778,7 +781,9 @@ STATE_SPECS = {
                  open_where="category = 'GEN' AND seat_type = 'Gender Neutral' AND NOT tfw",
                  label="OJEE", counselling="OJEE counselling", map_exam="OJEE",
                  state="Odisha", source="OJEE {y}"),
-    "CLAT": dict(table="clat_fact_cutoffs", year="year", name="college",
+    "CLAT": dict(ownership="Public",  # NLUs are state-established universities
+                 ownership_by_name={"India International University of Legal Education and Research Goa": "Private"},
+                 table="clat_fact_cutoffs", year="year", name="college",
                  code=None, branch="program", ctype=None,
                  district=None, university=None, stream=None,
                  rank_col="air_cutoff", seats_col="seats",
@@ -790,7 +795,8 @@ STATE_SPECS = {
     # the TFW pool never make the open number, nor does the SPOT round: it
     # fills leftover seats at ranks several times deeper than Round 3
     # (CCET Mechanical 2.5 lakh -> 14.6 lakh).
-    "JAC Chandigarh": dict(table="jacchd_fact_cutoffs", year="year", name="institute",
+    "JAC Chandigarh": dict(ownership="Public",
+                           table="jacchd_fact_cutoffs", year="year", name="institute",
                            code=None, branch="programme", ctype=None,
                            district=None, university=None, stream=None,
                            open_where="category = 'GEN' AND NOT tfw AND rank_basis != 'category merit list' AND round != 'SPOT Round'",
@@ -814,7 +820,8 @@ STATE_SPECS = {
                   label="JEE Main", counselling="UPTAC (AKTU)", map_exam="UPTAC",
                   state="Uttar Pradesh", source="UPTAC {y}"),
     # HBTU Kanpur: its own counselling on the JEE Main CRL rank (NIC-hosted)
-    "HBTU": dict(table="nicorcr_fact_cutoffs", year="year", name="institute",
+    "HBTU": dict(ownership="Public",
+                 table="nicorcr_fact_cutoffs", year="year", name="institute",
                  code=None, branch="programme", ctype=None,
                  district=None, university=None, stream=None,
                  open_where=("board = 'HBTU' AND parent_category = 'GEN' "
@@ -941,6 +948,84 @@ def build_state_spines(client):
         out[exam] = (allc, df)
         print(f"  {exam}: {len(allc)} colleges, {len(df)} open-category branch rows")
     return out
+
+
+_GOVT_NAME = re.compile(r"\b(government|govt\.?|rajkiya)\b", re.I)
+# state universities and central bodies AISHE lists under another spelling
+# ("University of Lucknow"), which the matcher won't take on its own
+OWNERSHIP_NAME_PINS = {
+    "Lucknow University": "Public",
+    "D. D. U. Gorakhpur University": "Public",
+    "M. J. P. Ruhelkhand University": "Public",
+    "Dr. Bhim Rao Ambedkar University, Agra": "Public",
+    "Dr. Rammanohar Lohia Avadh University": "Public",
+    "Ch. Charan Singh University Campus": "Public",
+    "Khwaja Moinuddin Chishti Language University": "Public",
+    "Sardar Vallabhbhai Patel University of Agriculture & Technology": "Public",
+    "Sambalpur University Institute of Information Technology": "Public",
+    "VISVESVARAYA TECHNOLOGICAL UNIVERSITY": "Public",
+    "Parala Maharaja Engineering College": "Public",
+    "Central Institute of Petrochemicals Engineering": "Public",
+    "Central Institute of Plastic Engineering": "Public",
+    "CENTURION UNIVERSITY": "Private",
+    "NIST University": "Private",
+    "RAI TECHNOLOGICAL UNIVERSITY": "Private",
+    "THE CHANAKYA UNIVERSITY": "Private",
+    "KISHKINDA UNIVERSITY": "Private",
+}
+
+
+def fill_ownership_from_aishe(client, rows):
+    """Spines whose source prints no college type (UPTAC, OJEE, KEA's
+    'Unknown' rows) take it from AISHE, matched by name within the state.
+    Only AISHE's clear answers count: government and public-university
+    entries, and un-aided private ones. AISHE's self-reported 'Private
+    Aided' is left unclaimed — it tags self-financing colleges (Dr. M.C.
+    Saxena, Ashoka Institute Varanasi) as aided. What AISHE can't place, a
+    name that says government ("Rajkiya" is Hindi for it) settles."""
+    todo = [r for r in rows if not r.get("ownership") and r.get("state")]
+    if not todo:
+        return
+    D = "avantifellows.external_data_sources"
+    aishe = client.query(f"""
+    SELECT aishe_code AS institute_id, name AS institute_name, state,
+           college_type AS kind, management FROM `{D}.aishe_dim_colleges`
+    UNION ALL SELECT aishe_code, name, state, university_type,
+           CAST(NULL AS STRING) FROM `{D}.aishe_dim_universities`
+    UNION ALL SELECT aishe_code, name, state, standalone_type, management
+           FROM `{D}.aishe_dim_standalone_institutions`""").to_dataframe()
+    aishe["st"] = aishe.state.str.lower()
+    by_aishe = n_name = 0
+    for st in sorted({r["state"] for r in todo}):
+        here = [r for r in todo if r["state"] == st]
+        cand = pd.DataFrame({"college_code": [r["college_id"] for r in here],
+                             "college_name": [r["display_name"] for r in here]})
+        ai = aishe[aishe.st == st.lower()]
+        hits = {}
+        for aid, cid in match_nirf_to_mhtcet(ai, cand).items():
+            hits.setdefault(cid, set()).add(aid)
+        info = ai.set_index("institute_id")
+        for r in here:
+            ids = hits.get(r["college_id"], set())
+            if len(ids) == 1:
+                x = info.loc[list(ids)[0]]
+                x = x.iloc[0] if isinstance(x, pd.DataFrame) else x
+                o = ownership_of(x.kind, x.management, x.institute_name)
+                if o in ("Public", "Private"):
+                    r["ownership"] = o
+                    by_aishe += 1
+                    continue
+            pin = next((o for k, o in OWNERSHIP_NAME_PINS.items()
+                        if r["display_name"].startswith(k)), None)
+            if pin:
+                r["ownership"] = pin
+                n_name += 1
+            elif _GOVT_NAME.search(r["display_name"]):
+                r["ownership"] = "Public"
+                n_name += 1
+    left = sum(1 for r in rows if not r.get("ownership"))
+    print(f"  ownership: {by_aishe} from AISHE, {n_name} by name,"
+          f" {left} still unknown")
 
 
 def main():
@@ -1806,7 +1891,11 @@ def main():
                 "kind": "Women's college" if women_only else None,
                 "management": (r.college_type if isinstance(r.college_type, str)
                                and r.college_type not in ("None", "Unknown") else None),
-                "ownership": generic_ownership(r.college_type),
+                # sources without a college type: the spec says what every
+                # college in it is (the NLUs, Chandigarh's institutes, HBTU)
+                "ownership": (generic_ownership(r.college_type)
+                              or sp.get("ownership_by_name", {}).get(r.college_name)
+                              or sp.get("ownership")),
                 "disciplines": sorted(disciplines)[:4] or (["Law"] if exam == "CLAT" else []),
                 "year_established": None,
                 "website": None,
@@ -2122,8 +2211,9 @@ def main():
         row["district"] = g.city.iloc[0]
         row["university"] = "Banaras Hindu University"
         if not own:
-            # admitted colleges are aided, not BHU itself: no ownership claim
-            row["ownership"] = None
+            # admitted colleges (DAV PG, Arya Mahila, Vasanta, Vasant Kanya)
+            # are government-aided, not BHU itself
+            row["ownership"] = "Government-aided"
         bhu_rows.append(row)
     print(f"  BHU rows {len(bhu_rows)} (NIRF {sum(1 for r in bhu_rows if r['nirf'])}),"
           f" career-linked programmes {sum(1 for r in bhu_rows for p in r['programs']['list'] if p['career_id'])}"
@@ -2165,6 +2255,7 @@ def main():
         if "AIIMS-EE" not in card["entrance_exams"]:
             card["entrance_exams"] = card["entrance_exams"] + ["AIIMS-EE"]
     print(f"  AIIMS nursing programme on {len(nursing)} AIIMS cards")
+    fill_ownership_from_aishe(client, rows)
 
     def nirf_sort(z):
         n = z["nirf"]

@@ -692,6 +692,7 @@ const Colleges = () => {
     stream: "All",
     career: "",
     sort: "nirf",
+    type: "All",
     college: "",
   });
   const { q, state, exam, stream, career } = params;
@@ -700,6 +701,10 @@ const Colleges = () => {
   const setExam = (v) => setParam("exam", v);
   const setStream = (v) => setParam("stream", v);
   const setCareer = (v) => setParam("career", v || "");
+  // public vs private; government-aided counts with public (government-set
+  // fees on its aided seats) and the label says so
+  const type = params.type;
+  const setType = (v) => setParam("type", v);
   const streamsOf = (c) =>
     c.disciplines?.length
       ? c.disciplines
@@ -767,6 +772,12 @@ const Colleges = () => {
       if (state !== "All" && c.state !== state) return false;
       if (exam !== "All" && !c.entrance_exams.includes(exam)) return false;
       if (stream !== "All" && !streamsOf(c).includes(stream)) return false;
+      if (
+        type === "public" &&
+        !["Public", "Government-aided"].includes(c.ownership)
+      )
+        return false;
+      if (type === "private" && c.ownership !== "Private") return false;
       if (career && !c.programs.list.some((p) => p.career_id === career))
         return false;
       if (!raw) return true;
@@ -792,7 +803,7 @@ const Colleges = () => {
       if (byName.length) return byName.sort(SORTS[sortKey].fn);
     }
     return out.sort(SORTS[sortKey].fn);
-  }, [all, q, state, exam, stream, career, sortKey]);
+  }, [all, q, state, exam, stream, type, career, sortKey]);
 
   useEffect(() => {
     if (!q || q !== arrivedQ.current || filtered.length !== 1) return;
@@ -847,7 +858,7 @@ const Colleges = () => {
 
   useEffect(
     () => setShown(PAGE_SIZE),
-    [q, state, exam, stream, career, sortKey]
+    [q, state, exam, stream, type, career, sortKey]
   );
 
   const th = "px-3 py-2 text-left text-xs font-semibold text-[#5b1f20]";
@@ -932,7 +943,17 @@ const Colleges = () => {
             </div>
           ) : null}
           {/* a 14-exam chip row was clutter — two dropdowns instead */}
-          <div className="mt-3 grid gap-3 sm:grid-cols-2">
+          <div className="mt-3 grid gap-3 sm:grid-cols-3">
+            <Dropdown
+              options={[
+                { value: "All", label: "Public or private" },
+                { value: "public", label: "Public or govt-aided" },
+                { value: "private", label: "Private" },
+              ]}
+              selectedValue={type}
+              onChange={(o) => setType(o.value)}
+              isSearchable={false}
+            />
             <Dropdown
               options={streams.map((x) => ({
                 value: x,

@@ -675,7 +675,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Law"
   ],
@@ -2407,7 +2407,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Law"
   ],
@@ -3363,7 +3363,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Law"
   ],
@@ -3746,7 +3746,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Law"
   ],
@@ -13244,7 +13244,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Law"
   ],
@@ -15518,7 +15518,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Law"
   ],
@@ -15846,7 +15846,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Law"
   ],
@@ -17402,7 +17402,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering",
    "Planning"
@@ -17821,7 +17821,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Law"
   ],
@@ -18613,7 +18613,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Law"
   ],
@@ -20445,7 +20445,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Law"
   ],
@@ -20657,7 +20657,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Law"
   ],
@@ -21884,7 +21884,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Architecture"
   ],
@@ -22454,7 +22454,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Law"
   ],
@@ -23168,7 +23168,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Law"
   ],
@@ -24990,7 +24990,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Law"
   ],
@@ -25489,7 +25489,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Law"
   ],
@@ -27025,7 +27025,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Law"
   ],
@@ -27112,7 +27112,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Law"
   ],
@@ -45283,7 +45283,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Architecture",
    "Engineering"
@@ -47829,7 +47829,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -49482,7 +49482,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -50366,7 +50366,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Engineering"
   ],
@@ -55026,7 +55026,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -58054,7 +58054,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -60406,7 +60406,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -60592,7 +60592,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -67458,7 +67458,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Engineering"
   ],
@@ -67994,7 +67994,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -68988,7 +68988,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -71459,7 +71459,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -74328,7 +74328,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -75113,7 +75113,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -79246,7 +79246,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -80517,7 +80517,7 @@
   "district": "Varanasi",
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Government-aided",
   "disciplines": [
    "Arts",
    "Commerce"
@@ -85012,7 +85012,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -88106,7 +88106,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Engineering"
   ],
@@ -89514,7 +89514,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -89635,7 +89635,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -90194,7 +90194,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -90332,7 +90332,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -91247,7 +91247,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -92388,7 +92388,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -93082,7 +93082,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -93390,7 +93390,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -93463,7 +93463,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Engineering"
   ],
@@ -93544,7 +93544,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Engineering"
   ],
@@ -95245,7 +95245,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -95334,7 +95334,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -95471,7 +95471,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -95560,7 +95560,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -96603,7 +96603,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -97049,7 +97049,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -97283,7 +97283,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Engineering"
   ],
@@ -97461,7 +97461,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Engineering"
   ],
@@ -98827,7 +98827,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -98924,7 +98924,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -102109,7 +102109,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -102572,7 +102572,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Engineering"
   ],
@@ -102702,7 +102702,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Engineering"
   ],
@@ -103224,7 +103224,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Engineering"
   ],
@@ -103443,7 +103443,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Engineering"
   ],
@@ -104051,7 +104051,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -106266,7 +106266,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -106654,7 +106654,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -107335,7 +107335,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Engineering"
   ],
@@ -107432,7 +107432,7 @@
   "district": "Varanasi",
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Government-aided",
   "disciplines": [
    "Arts",
    "Commerce"
@@ -110814,7 +110814,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -112325,7 +112325,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -112972,7 +112972,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -114136,7 +114136,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Law"
   ],
@@ -117392,7 +117392,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Engineering"
   ],
@@ -119610,7 +119610,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Law"
   ],
@@ -119725,7 +119725,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Engineering"
   ],
@@ -119886,7 +119886,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [],
   "year_established": null,
   "website": null,
@@ -119930,7 +119930,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Engineering"
   ],
@@ -120004,7 +120004,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Engineering"
   ],
@@ -120710,7 +120710,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -121870,7 +121870,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -124340,7 +124340,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -125822,7 +125822,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -126348,7 +126348,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -127823,7 +127823,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -130186,7 +130186,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -131280,7 +131280,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -131935,7 +131935,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -134983,7 +134983,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -135088,7 +135088,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -135193,7 +135193,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -135290,7 +135290,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -135371,7 +135371,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -135484,7 +135484,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -138022,7 +138022,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -138583,7 +138583,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -141028,7 +141028,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Engineering"
   ],
@@ -141287,7 +141287,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Engineering"
   ],
@@ -154861,7 +154861,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -155274,7 +155274,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Law"
   ],
@@ -157116,7 +157116,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -157649,7 +157649,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -158177,7 +158177,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -158372,7 +158372,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -158445,7 +158445,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Law"
   ],
@@ -158901,7 +158901,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -159922,7 +159922,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -160213,7 +160213,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -160816,7 +160816,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -162913,7 +162913,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -163075,7 +163075,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Law"
   ],
@@ -163266,7 +163266,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Engineering"
   ],
@@ -163505,7 +163505,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Engineering"
   ],
@@ -165879,7 +165879,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Engineering"
   ],
@@ -166366,7 +166366,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -166560,7 +166560,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -167736,7 +167736,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Engineering"
   ],
@@ -168539,7 +168539,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -168620,7 +168620,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -168725,7 +168725,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -170274,7 +170274,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -170945,7 +170945,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -171375,7 +171375,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -171440,7 +171440,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -184000,7 +184000,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -184534,7 +184534,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -185125,7 +185125,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -185222,7 +185222,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -185937,7 +185937,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -188214,7 +188214,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -188303,7 +188303,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -189353,7 +189353,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Engineering"
   ],
@@ -189856,7 +189856,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -191109,7 +191109,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -192457,7 +192457,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Engineering"
   ],
@@ -193534,7 +193534,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -194004,7 +194004,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -196108,7 +196108,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -198556,7 +198556,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -198653,7 +198653,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -200330,7 +200330,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -200427,7 +200427,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -200500,7 +200500,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -200573,7 +200573,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Engineering"
   ],
@@ -201971,7 +201971,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Engineering"
   ],
@@ -208025,7 +208025,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Engineering"
   ],
@@ -208349,7 +208349,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -209427,7 +209427,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Engineering"
   ],
@@ -209557,7 +209557,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -209703,7 +209703,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -210516,7 +210516,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Law"
   ],
@@ -212337,7 +212337,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -213268,7 +213268,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -214703,7 +214703,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -218288,7 +218288,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [],
   "year_established": null,
   "website": null,
@@ -219077,7 +219077,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -219206,7 +219206,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -219279,7 +219279,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -220473,7 +220473,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -220562,7 +220562,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -220659,7 +220659,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -221361,7 +221361,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -226207,7 +226207,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -226280,7 +226280,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -226434,7 +226434,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -226677,7 +226677,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -227852,7 +227852,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -228607,7 +228607,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -230038,7 +230038,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Law"
   ],
@@ -230096,7 +230096,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Law"
   ],
@@ -230673,7 +230673,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [],
   "year_established": null,
   "website": null,
@@ -230717,7 +230717,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -232035,7 +232035,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -233613,7 +233613,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Architecture",
    "Engineering"
@@ -240863,7 +240863,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -241301,7 +241301,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -241601,7 +241601,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Engineering"
   ],
@@ -243850,7 +243850,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -244289,7 +244289,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -244443,7 +244443,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -245359,7 +245359,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -248431,7 +248431,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -248488,7 +248488,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -249152,7 +249152,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -249459,7 +249459,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -249831,7 +249831,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -250025,7 +250025,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -250753,7 +250753,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -251798,7 +251798,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -252468,7 +252468,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -252549,7 +252549,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -252670,7 +252670,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -255348,7 +255348,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Engineering"
   ],
@@ -255421,7 +255421,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Engineering"
   ],
@@ -255494,7 +255494,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Engineering"
   ],
@@ -255567,7 +255567,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Engineering"
   ],
@@ -255640,7 +255640,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Engineering"
   ],
@@ -255721,7 +255721,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Engineering"
   ],
@@ -255810,7 +255810,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Engineering"
   ],
@@ -256072,7 +256072,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -256234,7 +256234,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -256356,7 +256356,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -256755,7 +256755,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -258586,7 +258586,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -259695,7 +259695,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -261711,7 +261711,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -275856,7 +275856,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Engineering"
   ],
@@ -276180,7 +276180,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Engineering"
   ],
@@ -279915,7 +279915,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Engineering"
   ],
@@ -280798,7 +280798,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -282876,7 +282876,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -286777,7 +286777,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -298720,7 +298720,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -300107,7 +300107,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -304282,7 +304282,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -305114,7 +305114,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -306898,7 +306898,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -309009,7 +309009,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -309957,7 +309957,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -310759,7 +310759,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [],
   "year_established": null,
   "website": null,
@@ -312571,7 +312571,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -312652,7 +312652,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -314067,7 +314067,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -315346,7 +315346,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Law"
   ],
@@ -318301,7 +318301,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -319824,7 +319824,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -321703,7 +321703,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -322043,7 +322043,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -324744,7 +324744,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Engineering"
   ],
@@ -324825,7 +324825,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Engineering"
   ],
@@ -325374,7 +325374,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Engineering"
   ],
@@ -325846,7 +325846,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Engineering"
   ],
@@ -329987,7 +329987,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Engineering"
   ],
@@ -330084,7 +330084,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Engineering"
   ],
@@ -330641,7 +330641,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -331307,7 +331307,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Engineering"
   ],
@@ -332256,7 +332256,7 @@
   "district": "Varanasi",
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Government-aided",
   "disciplines": [
    "Arts",
    "Commerce"
@@ -333498,7 +333498,7 @@
   "district": "Varanasi",
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Government-aided",
   "disciplines": [
    "Arts",
    "Commerce"
@@ -335197,7 +335197,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -335351,7 +335351,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Public",
   "disciplines": [
    "Engineering"
   ],
@@ -335529,7 +335529,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [],
   "year_established": null,
   "website": null,
@@ -338269,7 +338269,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -338577,7 +338577,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -338763,7 +338763,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -338950,7 +338950,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -339770,7 +339770,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -341894,7 +341894,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
@@ -344849,7 +344849,7 @@
   "district": null,
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
