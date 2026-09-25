@@ -961,7 +961,7 @@ const Colleges = () => {
               options={[
                 { value: "public", label: "Public or govt-aided" },
                 { value: "private", label: "Private" },
-                { value: "all", label: "Public and private" },
+                { value: "all", label: "All colleges" },
               ]}
               selectedValue={type}
               onChange={(o) => setType(o.value)}
