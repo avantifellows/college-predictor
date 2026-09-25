@@ -745,7 +745,19 @@
   },
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 1600000,
+   "percentage_placed": 82.4,
+   "percentage_with_outcome": 84.7,
+   "students_placed": 70,
+   "higher_studies_selected": 2,
+   "first_year_intake": 80,
+   "includes_dual_degree": false,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF Law, UG 5-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -756,7 +768,7 @@
    "identity": "CLAT 2026",
    "programs": "CLAT 2026",
    "ranking": "NIRF 2025",
-   "placement": null,
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -2465,7 +2477,19 @@
   },
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 1750000,
+   "percentage_placed": 93.9,
+   "percentage_with_outcome": 100.0,
+   "students_placed": 108,
+   "higher_studies_selected": 7,
+   "first_year_intake": 120,
+   "includes_dual_degree": false,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF Law, UG 5-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -2476,7 +2500,7 @@
    "identity": "CLAT 2026",
    "programs": "CLAT 2026",
    "ranking": "NIRF 2025",
-   "placement": null,
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -3324,6 +3348,123 @@
   "data_sources": {
    "identity": "University of Delhi CSAS 2025",
    "programs": "University of Delhi CSAS 2025",
+   "ranking": "NIRF 2025",
+   "placement": "NIRF 2025 (AY 2023-24)",
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "clat:west bengal national university juridical sciences kolkata",
+  "aishe_code": null,
+  "name": "The West Bengal National University of Juridical Sciences (WBNUJS), Kolkata",
+  "display_name": "The West Bengal National University of Juridical Sciences (WBNUJS), Kolkata",
+  "state": "West Bengal",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": null,
+  "management": null,
+  "ownership": null,
+  "disciplines": [
+   "Law"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CLAT"
+  ],
+  "counselling": "CLAT Consortium counselling",
+  "programs": {
+   "count": 2,
+   "degrees": [
+    "B.A. LL.B. (Hons.)",
+    "B.Sc. LL.B. (Hons.) Criminology and Forensic Science"
+   ],
+   "list": [
+    {
+     "branch": "B.A. LL.B. (Hons.)",
+     "years": 5,
+     "degree": "B.A. LL.B. (Hons.)",
+     "indicative_closing_rank": 343,
+     "indicative_opening_rank": null,
+     "career_id": "law-llb",
+     "seats": 52
+    },
+    {
+     "branch": "B.Sc. LL.B. (Hons.) Criminology and Forensic Science",
+     "years": 5,
+     "degree": "B.Sc. LL.B. (Hons.) Criminology and Forensic Science",
+     "indicative_closing_rank": 598,
+     "indicative_opening_rank": null,
+     "career_id": "law-llb",
+     "seats": 23
+    }
+   ],
+   "source": "CLAT 2026",
+   "rank_note": "Indicative open-category CLAT closing rank."
+  },
+  "nirf": {
+   "category": "Law",
+   "rank": 4,
+   "score": 79.39,
+   "ranking_year": 2025,
+   "rank_history": [
+    {
+     "year": 2025,
+     "rank": 4,
+     "score": 79.39
+    },
+    {
+     "year": 2024,
+     "rank": 4,
+     "score": 76.39
+    },
+    {
+     "year": 2023,
+     "rank": 4,
+     "score": 69.34
+    },
+    {
+     "year": 2022,
+     "rank": 5,
+     "score": 70.72
+    },
+    {
+     "year": 2021,
+     "rank": 4,
+     "score": 71.24
+    },
+    {
+     "year": 2020,
+     "rank": 6,
+     "score": 63.32
+    }
+   ]
+  },
+  "ug_gender": null,
+  "fees": null,
+  "placement": {
+   "median_salary": 2000000,
+   "percentage_placed": 96.1,
+   "percentage_with_outcome": 100.0,
+   "students_placed": 122,
+   "higher_studies_selected": 5,
+   "first_year_intake": 127,
+   "includes_dual_degree": false,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF Law, UG 5-year",
+   "is_branch_specific": false
+  },
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "CLAT 2026",
+   "programs": "CLAT 2026",
    "ranking": "NIRF 2025",
    "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
@@ -13071,7 +13212,19 @@
   },
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 1450000,
+   "percentage_placed": 60.6,
+   "percentage_with_outcome": 67.7,
+   "students_placed": 60,
+   "higher_studies_selected": 7,
+   "first_year_intake": 115,
+   "includes_dual_degree": false,
+   "academic_year": "2020-21",
+   "ranking_year": 2022,
+   "source": "NIRF Law, UG 5-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -13082,7 +13235,7 @@
    "identity": "CLAT 2026",
    "programs": "CLAT 2026",
    "ranking": "NIRF 2022",
-   "placement": null,
+   "placement": "NIRF 2022 (AY 2020-21)",
    "accreditation": null
   }
  },
@@ -14971,7 +15124,7 @@
    "includes_dual_degree": false,
    "academic_year": "2023-24",
    "ranking_year": 2025,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -15529,7 +15682,19 @@
   },
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 1080000,
+   "percentage_placed": 80.9,
+   "percentage_with_outcome": 100.0,
+   "students_placed": 110,
+   "higher_studies_selected": 26,
+   "first_year_intake": 140,
+   "includes_dual_degree": false,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF Law, UG 5-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -15540,7 +15705,7 @@
    "identity": "CLAT 2026",
    "programs": "CLAT 2026",
    "ranking": "NIRF 2025",
-   "placement": null,
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -16378,7 +16543,7 @@
    "includes_dual_degree": false,
    "academic_year": "2023-24",
    "ranking_year": 2025,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -17502,7 +17667,19 @@
   },
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 700000,
+   "percentage_placed": 92.4,
+   "percentage_with_outcome": 92.4,
+   "students_placed": 158,
+   "higher_studies_selected": 0,
+   "first_year_intake": 178,
+   "includes_dual_degree": false,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF Law, UG 5-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -17513,7 +17690,7 @@
    "identity": "CLAT 2026",
    "programs": "CLAT 2026",
    "ranking": "NIRF 2025",
-   "placement": null,
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -18282,7 +18459,19 @@
   },
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 900000,
+   "percentage_placed": 19.0,
+   "percentage_with_outcome": 23.9,
+   "students_placed": 31,
+   "higher_studies_selected": 8,
+   "first_year_intake": 180,
+   "includes_dual_degree": false,
+   "academic_year": "2022-23",
+   "ranking_year": 2024,
+   "source": "NIRF Law, UG 5-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -18293,7 +18482,7 @@
    "identity": "CLAT 2026",
    "programs": "CLAT 2026",
    "ranking": "NIRF 2024",
-   "placement": null,
+   "placement": "NIRF 2024 (AY 2022-23)",
    "accreditation": null
   }
  },
@@ -20112,7 +20301,19 @@
   },
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 1600000,
+   "percentage_placed": 42.5,
+   "percentage_with_outcome": 95.6,
+   "students_placed": 48,
+   "higher_studies_selected": 60,
+   "first_year_intake": 122,
+   "includes_dual_degree": false,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF Law, UG 5-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -20123,7 +20324,7 @@
    "identity": "CLAT 2026",
    "programs": "CLAT 2026",
    "ranking": "NIRF 2025",
-   "placement": null,
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -22002,7 +22203,19 @@
   },
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 933000,
+   "percentage_placed": 38.6,
+   "percentage_with_outcome": 50.5,
+   "students_placed": 39,
+   "higher_studies_selected": 12,
+   "first_year_intake": 120,
+   "includes_dual_degree": false,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF Law, UG 5-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -22013,7 +22226,7 @@
    "identity": "CLAT 2026",
    "programs": "CLAT 2026",
    "ranking": "NIRF 2025",
-   "placement": null,
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -22679,7 +22892,19 @@
   },
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 1400000,
+   "percentage_placed": 55.6,
+   "percentage_with_outcome": 66.7,
+   "students_placed": 30,
+   "higher_studies_selected": 6,
+   "first_year_intake": 62,
+   "includes_dual_degree": false,
+   "academic_year": "2022-23",
+   "ranking_year": 2024,
+   "source": "NIRF Law, UG 5-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -22690,7 +22915,7 @@
    "identity": "CLAT 2026",
    "programs": "CLAT 2026",
    "ranking": "NIRF 2024",
-   "placement": null,
+   "placement": "NIRF 2024 (AY 2022-23)",
    "accreditation": null
   }
  },
@@ -23039,7 +23264,7 @@
    "includes_dual_degree": false,
    "academic_year": "2023-24",
    "ranking_year": 2025,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -24318,7 +24543,7 @@
    "includes_dual_degree": false,
    "academic_year": "2023-24",
    "ranking_year": 2025,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -24499,7 +24724,19 @@
   },
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 100000,
+   "percentage_placed": 46.8,
+   "percentage_with_outcome": 79.3,
+   "students_placed": 52,
+   "higher_studies_selected": 36,
+   "first_year_intake": 120,
+   "includes_dual_degree": false,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF Law, UG 5-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -24510,7 +24747,7 @@
    "identity": "CLAT 2026",
    "programs": "CLAT 2026",
    "ranking": "NIRF 2025",
-   "placement": null,
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -25001,7 +25238,19 @@
   },
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 890000,
+   "percentage_placed": 31.0,
+   "percentage_with_outcome": 58.6,
+   "students_placed": 18,
+   "higher_studies_selected": 16,
+   "first_year_intake": 60,
+   "includes_dual_degree": false,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF Law, UG 5-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -25012,7 +25261,7 @@
    "identity": "CLAT 2026",
    "programs": "CLAT 2026",
    "ranking": "NIRF 2025",
-   "placement": null,
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -26505,7 +26754,19 @@
   },
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 1500000,
+   "percentage_placed": 44.8,
+   "percentage_with_outcome": 86.6,
+   "students_placed": 30,
+   "higher_studies_selected": 28,
+   "first_year_intake": 120,
+   "includes_dual_degree": false,
+   "academic_year": "2022-23",
+   "ranking_year": 2024,
+   "source": "NIRF Law, UG 5-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -26516,7 +26777,7 @@
    "identity": "CLAT 2026",
    "programs": "CLAT 2026",
    "ranking": "NIRF 2024",
-   "placement": null,
+   "placement": "NIRF 2024 (AY 2022-23)",
    "accreditation": null
   }
  },
@@ -26580,7 +26841,19 @@
   },
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 600000,
+   "percentage_placed": 25.0,
+   "percentage_with_outcome": 41.7,
+   "students_placed": 30,
+   "higher_studies_selected": 20,
+   "first_year_intake": 120,
+   "includes_dual_degree": false,
+   "academic_year": "2022-23",
+   "ranking_year": 2024,
+   "source": "NIRF Law, UG 5-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -26591,7 +26864,7 @@
    "identity": "CLAT 2026",
    "programs": "CLAT 2026",
    "ranking": "NIRF 2024",
-   "placement": null,
+   "placement": "NIRF 2024 (AY 2022-23)",
    "accreditation": null
   }
  },
@@ -27443,7 +27716,7 @@
    "includes_dual_degree": false,
    "academic_year": "2022-23",
    "ranking_year": 2024,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -29659,7 +29932,7 @@
    "includes_dual_degree": false,
    "academic_year": "2023-24",
    "ranking_year": 2025,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -34351,7 +34624,7 @@
    "includes_dual_degree": true,
    "academic_year": "2023-24",
    "ranking_year": 2025,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -34865,7 +35138,7 @@
    "includes_dual_degree": false,
    "academic_year": "2023-24",
    "ranking_year": 2025,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -36001,7 +36274,7 @@
    "includes_dual_degree": false,
    "academic_year": "2023-24",
    "ranking_year": 2025,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -37316,7 +37589,7 @@
    "includes_dual_degree": false,
    "academic_year": "2023-24",
    "ranking_year": 2025,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -37421,7 +37694,7 @@
    "includes_dual_degree": false,
    "academic_year": "2023-24",
    "ranking_year": 2025,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -39087,7 +39360,7 @@
    "includes_dual_degree": false,
    "academic_year": "2023-24",
    "ranking_year": 2025,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -40762,7 +41035,7 @@
    "includes_dual_degree": false,
    "academic_year": "2023-24",
    "ranking_year": 2025,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -43004,7 +43277,7 @@
    "includes_dual_degree": false,
    "academic_year": "2017-18",
    "ranking_year": 2019,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -43172,7 +43445,7 @@
    "includes_dual_degree": false,
    "academic_year": "2023-24",
    "ranking_year": 2025,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -43700,7 +43973,7 @@
    "includes_dual_degree": false,
    "academic_year": "2023-24",
    "ranking_year": 2025,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -43898,7 +44171,7 @@
    "includes_dual_degree": false,
    "academic_year": "2023-24",
    "ranking_year": 2025,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -44100,7 +44373,7 @@
    "includes_dual_degree": true,
    "academic_year": "2023-24",
    "ranking_year": 2025,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -44662,7 +44935,7 @@
    "includes_dual_degree": false,
    "academic_year": "2023-24",
    "ranking_year": 2025,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -44892,7 +45165,7 @@
    "includes_dual_degree": false,
    "academic_year": "2023-24",
    "ranking_year": 2025,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -45143,7 +45416,7 @@
    "includes_dual_degree": false,
    "academic_year": "2023-24",
    "ranking_year": 2025,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -45357,7 +45630,7 @@
    "includes_dual_degree": false,
    "academic_year": "2023-24",
    "ranking_year": 2025,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -45659,7 +45932,7 @@
    "includes_dual_degree": false,
    "academic_year": "2023-24",
    "ranking_year": 2025,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -46007,7 +46280,7 @@
    "includes_dual_degree": false,
    "academic_year": "2023-24",
    "ranking_year": 2025,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -46174,7 +46447,7 @@
    "includes_dual_degree": false,
    "academic_year": "2017-18",
    "ranking_year": 2019,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -46400,7 +46673,7 @@
    "includes_dual_degree": false,
    "academic_year": "2018-19",
    "ranking_year": 2020,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -46688,7 +46961,7 @@
    "includes_dual_degree": false,
    "academic_year": "2023-24",
    "ranking_year": 2025,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -47029,7 +47302,7 @@
    "includes_dual_degree": false,
    "academic_year": "2021-22",
    "ranking_year": 2023,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -47402,7 +47675,7 @@
    "includes_dual_degree": false,
    "academic_year": "2023-24",
    "ranking_year": 2025,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -47585,7 +47858,7 @@
    "includes_dual_degree": false,
    "academic_year": "2017-18",
    "ranking_year": 2019,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -47767,7 +48040,7 @@
    "includes_dual_degree": false,
    "academic_year": "2018-19",
    "ranking_year": 2020,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -47957,7 +48230,7 @@
    "includes_dual_degree": false,
    "academic_year": "2023-24",
    "ranking_year": 2025,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -48121,7 +48394,7 @@
    "includes_dual_degree": false,
    "academic_year": "2021-22",
    "ranking_year": 2023,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -48327,7 +48600,7 @@
    "includes_dual_degree": false,
    "academic_year": "2018-19",
    "ranking_year": 2020,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -48486,7 +48759,7 @@
    "includes_dual_degree": false,
    "academic_year": "2023-24",
    "ranking_year": 2025,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -48651,7 +48924,7 @@
    "includes_dual_degree": false,
    "academic_year": "2017-18",
    "ranking_year": 2019,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -48778,7 +49051,7 @@
    "includes_dual_degree": false,
    "academic_year": "2020-21",
    "ranking_year": 2022,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -48934,7 +49207,7 @@
    "includes_dual_degree": false,
    "academic_year": "2023-24",
    "ranking_year": 2025,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -49143,7 +49416,7 @@
    "includes_dual_degree": false,
    "academic_year": "2017-18",
    "ranking_year": 2019,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -49337,7 +49610,7 @@
    "includes_dual_degree": false,
    "academic_year": "2018-19",
    "ranking_year": 2020,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -49535,7 +49808,7 @@
    "includes_dual_degree": false,
    "academic_year": "2023-24",
    "ranking_year": 2025,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -49724,7 +49997,7 @@
    "includes_dual_degree": false,
    "academic_year": "2018-19",
    "ranking_year": 2020,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -49872,7 +50145,7 @@
    "includes_dual_degree": false,
    "academic_year": "2022-23",
    "ranking_year": 2024,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -50060,7 +50333,7 @@
    "includes_dual_degree": false,
    "academic_year": "2023-24",
    "ranking_year": 2025,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -50586,7 +50859,7 @@
    "includes_dual_degree": false,
    "academic_year": "2023-24",
    "ranking_year": 2025,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -50769,7 +51042,7 @@
    "includes_dual_degree": false,
    "academic_year": "2023-24",
    "ranking_year": 2025,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -50947,7 +51220,7 @@
    "includes_dual_degree": false,
    "academic_year": "2022-23",
    "ranking_year": 2024,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -51090,7 +51363,7 @@
    "includes_dual_degree": false,
    "academic_year": "2023-24",
    "ranking_year": 2025,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -51394,7 +51667,7 @@
    "includes_dual_degree": false,
    "academic_year": "2023-24",
    "ranking_year": 2025,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -51900,7 +52173,7 @@
    "includes_dual_degree": false,
    "academic_year": "2019-20",
    "ranking_year": 2021,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -52061,7 +52334,7 @@
    "includes_dual_degree": false,
    "academic_year": "2017-18",
    "ranking_year": 2019,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -52378,7 +52651,7 @@
    "includes_dual_degree": false,
    "academic_year": "2018-19",
    "ranking_year": 2020,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -52708,7 +52981,7 @@
    "includes_dual_degree": false,
    "academic_year": "2018-19",
    "ranking_year": 2020,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -52853,7 +53126,7 @@
    "includes_dual_degree": false,
    "academic_year": "2017-18",
    "ranking_year": 2019,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -52979,7 +53252,7 @@
    "includes_dual_degree": false,
    "academic_year": "2018-19",
    "ranking_year": 2020,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -53422,7 +53695,7 @@
    "includes_dual_degree": false,
    "academic_year": "2021-22",
    "ranking_year": 2023,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -53900,7 +54173,7 @@
    "includes_dual_degree": false,
    "academic_year": "2023-24",
    "ranking_year": 2025,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -54064,7 +54337,7 @@
    "includes_dual_degree": false,
    "academic_year": "2023-24",
    "ranking_year": 2025,
-   "source": "NIRF Engineering, UG",
+   "source": "NIRF Engineering, UG 4-year",
    "is_branch_specific": false
   },
   "naac": {
@@ -317934,74 +318207,6 @@
   "data_sources": {
    "identity": "OJEE 2025",
    "programs": "OJEE 2025",
-   "ranking": null,
-   "placement": null,
-   "accreditation": null
-  }
- },
- {
-  "college_id": "clat:west bengal national university juridical sciences kolkata",
-  "aishe_code": null,
-  "name": "The West Bengal National University of Juridical Sciences (WBNUJS), Kolkata",
-  "display_name": "The West Bengal National University of Juridical Sciences (WBNUJS), Kolkata",
-  "state": "West Bengal",
-  "state_is_inferred": false,
-  "district": null,
-  "kind": null,
-  "management": null,
-  "ownership": null,
-  "disciplines": [
-   "Law"
-  ],
-  "year_established": null,
-  "website": null,
-  "university": null,
-  "entrance_exams": [
-   "CLAT"
-  ],
-  "counselling": "CLAT Consortium counselling",
-  "programs": {
-   "count": 2,
-   "degrees": [
-    "B.A. LL.B. (Hons.)",
-    "B.Sc. LL.B. (Hons.) Criminology and Forensic Science"
-   ],
-   "list": [
-    {
-     "branch": "B.A. LL.B. (Hons.)",
-     "years": 5,
-     "degree": "B.A. LL.B. (Hons.)",
-     "indicative_closing_rank": 343,
-     "indicative_opening_rank": null,
-     "career_id": "law-llb",
-     "seats": 52
-    },
-    {
-     "branch": "B.Sc. LL.B. (Hons.) Criminology and Forensic Science",
-     "years": 5,
-     "degree": "B.Sc. LL.B. (Hons.) Criminology and Forensic Science",
-     "indicative_closing_rank": 598,
-     "indicative_opening_rank": null,
-     "career_id": "law-llb",
-     "seats": 23
-    }
-   ],
-   "source": "CLAT 2026",
-   "rank_note": "Indicative open-category CLAT closing rank."
-  },
-  "nirf": null,
-  "ug_gender": null,
-  "fees": null,
-  "placement": null,
-  "naac": {
-   "grade": null,
-   "cgpa": null,
-   "cycle": null,
-   "not_applicable_reason": null
-  },
-  "data_sources": {
-   "identity": "CLAT 2026",
-   "programs": "CLAT 2026",
    "ranking": null,
    "placement": null,
    "accreditation": null

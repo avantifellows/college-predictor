@@ -471,6 +471,8 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
                         ? "MBBS"
                         : pl.source?.includes("3-year")
                         ? "3-year degree"
+                        : pl.source?.includes("5-year")
+                        ? "5-year degree"
                         : pl.includes_dual_degree
                         ? "4- and 5-year"
                         : "4-year degree"}{" "}

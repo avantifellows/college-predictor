@@ -1721,10 +1721,11 @@ def main():
                     "students_placed": placed_n,
                     "higher_studies_selected": higher_n,
                     "first_year_intake": num(pr.first_year_intake, int),
-                "includes_dual_degree": bool(getattr(pr, "includes_dual_degree", False)),
+                    "includes_dual_degree": bool(getattr(pr, "includes_dual_degree", False)),
                     "academic_year": pr.academic_year,
                     "ranking_year": int(pr.ranking_year),
-                    "source": f"NIRF {pr.discipline}, UG",
+                    "source": f"NIRF {pr.discipline}, UG "
+                              + ("5-year" if pr.discipline == "Law" else "4-year"),
                     "is_branch_specific": False,
                 }
                 n_place += 1
