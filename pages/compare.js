@@ -296,6 +296,39 @@ export default function Compare() {
 
   const ready = picked.length >= 2;
 
+  // the comparison on screen is the link: same ?o= format the predictor's
+  // compare button builds, so it can be shared or come back with Back
+  useEffect(() => {
+    if (!router.isReady || !ready) return;
+    // only complete slots; a half-filled third one stays off the link
+    const tokens = options.map((o) => {
+      const college = all.find((c) => c.college_id === o.collegeId);
+      if (!college || o.branchIdx == null) return undefined;
+      const p = college.programs.list[Number(o.branchIdx)];
+      // the short slug unless it would reopen a different programme
+      const slug = slugify(p.branch);
+      if (matchBranchIdx(college, slug) === String(o.branchIdx))
+        return `${o.collegeId}~${slug}`;
+      const full = `${p.branch} (${p.years} Years, ${p.degree})`;
+      if (matchBranchIdx(college, full) === String(o.branchIdx))
+        return `${o.collegeId}~${full}`;
+      return null;
+    });
+    if (tokens.some((t) => t === null)) return;
+    const o = tokens.filter(Boolean).join("|");
+    if (String(router.query.o || "") === o) return;
+    // built by hand so ~ and | stay readable instead of %7E / %7C
+    const readable = encodeURIComponent(o)
+      .replace(/%7C/gi, "|")
+      .replace(/%7E/gi, "~")
+      .replace(/%20/g, "+");
+    router.replace(`/compare?o=${readable}`, undefined, {
+      shallow: true,
+      scroll: false,
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [options, all, ready, router.isReady]);
+
   // every cell holding the best value highlights — two options that tie
   // and jointly beat a third both deserve the mark. Only a row where all
   // values are equal (or fewer than two exist) says nothing.

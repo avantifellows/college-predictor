@@ -1,8 +1,7 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import { useRouter } from "next/router";
 import {
   ChevronDown,
   ChevronUp,
@@ -11,6 +10,7 @@ import {
   Search,
 } from "lucide-react";
 import { matchesQuery } from "../utils/search";
+import useUrlParams from "../utils/useUrlParams";
 
 // The app's shared react-select wrapper — searchable, so a 30-state list can be
 // narrowed by typing. A native <select> only jumps on the first letter, which is
@@ -116,7 +116,8 @@ const CollegeRow = ({ c, index, expanded, onToggle }) => {
   return (
     <>
       <tr
-        className={`border-b border-[#eaded8] text-xs sm:text-sm ${
+        id={`college-${c.college_id}`}
+        className={`scroll-mt-4 border-b border-[#eaded8] text-xs sm:text-sm ${
           index % 2 === 0 ? "bg-[#fffdfa]" : "bg-white"
         }`}
       >
@@ -640,6 +641,12 @@ const NirfTrend = ({ history }) => {
   );
 };
 
+const slugify = (t) =>
+  String(t)
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+
 const SORTS = {
   nirf: {
     label: "NIRF rank",
@@ -669,35 +676,38 @@ const SORTS = {
 };
 
 const Colleges = () => {
-  const router = useRouter();
   const [all, setAll] = useState([]);
   const [error, setError] = useState(null);
-  const [q, setQ] = useState("");
-
-  // arriving from a career's college link (/colleges?q=IIT Delhi) or an
-  // exam card's "colleges accepting it" (/colleges?exam=JEE Advanced)
-  useEffect(() => {
-    if (!router.isReady) return;
-    if (router.query.q) setQ(String(router.query.q));
-    if (router.query.exam) setExam(String(router.query.exam));
-    if (router.query.stream) setStream(String(router.query.stream));
-    if (router.query.career) setCareer(String(router.query.career));
-  }, [router.isReady, router.query.q, router.query.exam]);
-  const [state, setState] = useState("All");
-  const [exam, setExam] = useState("All");
-  // stream = what the college teaches (Engineering / Pharmacy / …). Medical
+  // Filters live in the URL, so a filtered list or an opened college can be
+  // shared and Back returns to it. Links in use the same keys: a career's
+  // college link (/colleges?q=IIT Delhi), an exam card's "colleges accepting
+  // it" (/colleges?exam=JEE Advanced), a career's college list (?career=).
+  // stream = what the college teaches (Engineering / Pharmacy / …); medical
   // rows carry no discipline badge (the NEET-UG chip says it), so they get
-  // their stream here.
-  const [stream, setStream] = useState("All");
-  // arriving from a career page: only colleges with a branch leading there
-  const [career, setCareer] = useState(null);
+  // their stream here. college = the opened card.
+  const [params, setParam, urlReady] = useUrlParams({
+    q: "",
+    state: "All",
+    exam: "All",
+    stream: "All",
+    career: "",
+    sort: "nirf",
+    college: "",
+  });
+  const { q, state, exam, stream, career } = params;
+  const setQ = (v) => setParam("q", v);
+  const setState = (v) => setParam("state", v);
+  const setExam = (v) => setParam("exam", v);
+  const setStream = (v) => setParam("stream", v);
+  const setCareer = (v) => setParam("career", v || "");
   const streamsOf = (c) =>
     c.disciplines?.length
       ? c.disciplines
       : String(c.counselling).startsWith("MCC")
       ? ["Medicine"]
       : [];
-  const [sortKey, setSortKey] = useState("nirf");
+  const sortKey = SORTS[params.sort] ? params.sort : "nirf";
+  const setSortKey = (v) => setParam("sort", v);
   // Same pattern as the predictor's salary ⓘ: a positioned card, not the
   // browser's native title box (which renders late, unstyled, and turns the
   // cursor into a question mark).
@@ -711,6 +721,12 @@ const Colleges = () => {
   // arriving from a link (predictor result, career cutoff, compare header)
   // lands on one college — open it instead of showing a bare row
   const [autoOpened, setAutoOpened] = useState(null);
+  // the search the student ARRIVED with; typing a search that narrows to
+  // one college doesn't pop it open
+  const arrivedQ = useRef(null);
+  useEffect(() => {
+    if (urlReady && arrivedQ.current === null) arrivedQ.current = q;
+  }, [urlReady, q]);
   const [shown, setShown] = useState(PAGE_SIZE);
 
   useEffect(() => {
@@ -779,12 +795,55 @@ const Colleges = () => {
   }, [all, q, state, exam, stream, career, sortKey]);
 
   useEffect(() => {
-    if (!router.query.q || filtered.length !== 1) return;
+    if (!q || q !== arrivedQ.current || filtered.length !== 1) return;
     const id = filtered[0].college_id;
     if (autoOpened === id) return;
     setAutoOpened(id);
     setExpanded((p) => ({ ...p, [id]: true }));
-  }, [filtered, router.query.q, autoOpened]);
+  }, [filtered, q, autoOpened]);
+
+  // ?college=<name> opens that card; names that repeat across states carry
+  // the state too
+  const slugOf = useMemo(() => {
+    const count = {};
+    all.forEach((c) => {
+      const k = slugify(c.display_name);
+      count[k] = (count[k] || 0) + 1;
+    });
+    const out = {};
+    all.forEach((c) => {
+      const k = slugify(c.display_name);
+      out[c.college_id] =
+        count[k] > 1 ? `${k}-${slugify(c.state || c.college_id)}` : k;
+    });
+    return out;
+  }, [all]);
+  const linkedOpened = useRef(false);
+  useEffect(() => {
+    if (linkedOpened.current || !urlReady || !params.college || !all.length)
+      return;
+    linkedOpened.current = true;
+    const c = all.find((x) => slugOf[x.college_id] === params.college);
+    if (!c) return;
+    setExpanded((p) => ({ ...p, [c.college_id]: true }));
+    // not on the first page of the list as filtered: search for it
+    if (!filtered.slice(0, shown).includes(c)) setQ(c.display_name);
+    setTimeout(
+      () =>
+        document
+          .getElementById(`college-${c.college_id}`)
+          ?.scrollIntoView({ block: "start" }),
+      50
+    );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [urlReady, params.college, all, slugOf]);
+  const toggle = (c) => {
+    const opening = !expanded[c.college_id];
+    setExpanded((p) => ({ ...p, [c.college_id]: opening }));
+    setParam("college", (cur) =>
+      opening ? slugOf[c.college_id] : cur === slugOf[c.college_id] ? "" : cur
+    );
+  };
 
   useEffect(
     () => setShown(PAGE_SIZE),
@@ -865,7 +924,6 @@ const Colleges = () => {
                 type="button"
                 onClick={() => {
                   setCareer(null);
-                  router.replace("/colleges", undefined, { shallow: true });
                 }}
                 className="inline-flex items-center gap-2 rounded-full bg-[#fbeeec] px-3 py-1 text-sm font-semibold text-[#8f2e31]"
               >
@@ -944,12 +1002,7 @@ const Colleges = () => {
                         c={c}
                         index={i}
                         expanded={!!expanded[c.college_id]}
-                        onToggle={() =>
-                          setExpanded((p) => ({
-                            ...p,
-                            [c.college_id]: !p[c.college_id],
-                          }))
-                        }
+                        onToggle={() => toggle(c)}
                       />
                     ))}
                   </tbody>

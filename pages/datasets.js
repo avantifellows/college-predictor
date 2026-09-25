@@ -3,6 +3,7 @@ import Head from "next/head";
 import { ChevronDown, Download, Search } from "lucide-react";
 import getConstants from "../constants";
 import { matchesQuery } from "../utils/search";
+import useUrlParams from "../utils/useUrlParams";
 
 // Rendered entirely from the PUBLIC manifest: what you see is exactly what is
 // published (external_data_sources/open_data/publish.py). File titles follow
@@ -183,7 +184,10 @@ export default function Datasets() {
   const { TITLE_SHORT = "College Predictor" } = getConstants() || {};
   const [manifest, setManifest] = useState(null);
   const [error, setError] = useState(null);
-  const [q, setQ] = useState("");
+  // the search lives in the URL, so a filtered list can be shared
+  const [params, setParam] = useUrlParams({ q: "" });
+  const q = params.q;
+  const setQ = (v) => setParam("q", v);
 
   // /datasets#clat — open and scroll to that dataset's card
   const [hashId, setHashId] = useState(null);

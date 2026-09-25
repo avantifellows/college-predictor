@@ -1,10 +1,10 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import { useRouter } from "next/router";
 import { ChevronDown, ChevronUp, ExternalLink, Search } from "lucide-react";
 import { matchesQuery, plainText } from "../utils/search";
+import useUrlParams from "../utils/useUrlParams";
 
 // The shared searchable dropdown — same component as every other page.
 const Dropdown = dynamic(() => import("../components/dropdown"), {
@@ -42,7 +42,8 @@ const ExamRow = ({ e, index, expanded, onToggle }) => {
   return (
     <>
       <tr
-        className={`border-b border-[#eaded8] text-xs sm:text-sm ${
+        id={`exam-${e.exam_id}`}
+        className={`scroll-mt-4 border-b border-[#eaded8] text-xs sm:text-sm ${
           index % 2 === 0 ? "bg-[#fffdfa]" : "bg-white"
         }`}
       >
@@ -296,14 +297,45 @@ const SortTh = ({ label, col, sort, setSort, className = "" }) => {
 };
 
 export default function Exams() {
-  const router = useRouter();
   const [all, setAll] = useState([]);
   const [error, setError] = useState(null);
-  const [q, setQ] = useState("");
-  const [stream, setStream] = useState("All");
-  const [where, setWhere] = useState("All");
-  const [sort, setSort] = useState({ col: null, dir: "asc" });
-  const [expandedId, setExpandedId] = useState(null);
+  // filters, sort and the opened card live in the URL: shareable, and Back
+  // returns to them. A college's exam chip links in as /exams?q=JEE Advanced.
+  const [params, setParam, urlReady] = useUrlParams({
+    q: "",
+    stream: "All",
+    where: "All",
+    sort: "",
+    open: "",
+  });
+  const { q, stream, where } = params;
+  const setQ = (v) => setParam("q", v);
+  const setStream = (v) => setParam("stream", v);
+  const setWhere = (v) => setParam("where", v);
+  // sort=deadline / sort=-deadline
+  const sort = useMemo(
+    () =>
+      params.sort
+        ? {
+            col: params.sort.replace(/^-/, ""),
+            dir: params.sort.startsWith("-") ? "desc" : "asc",
+          }
+        : { col: null, dir: "asc" },
+    [params.sort]
+  );
+  const setSort = (v) => {
+    const next = typeof v === "function" ? v(sort) : v;
+    setParam(
+      "sort",
+      next.col ? `${next.dir === "desc" ? "-" : ""}${next.col}` : ""
+    );
+  };
+  const expandedId = params.open || null;
+  const setExpandedId = (id) => setParam("open", id || "");
+  const arrivedQ = useRef(null);
+  useEffect(() => {
+    if (urlReady && arrivedQ.current === null) arrivedQ.current = q;
+  }, [urlReady, q]);
   const [autoOpened, setAutoOpened] = useState(false);
   const [shown, setShown] = useState(PAGE_SIZE);
 
@@ -313,11 +345,6 @@ export default function Exams() {
       .then(setAll)
       .catch(() => setError("Could not load the exam list right now."));
   }, []);
-
-  // arriving from a college's exam chip: /exams?q=JEE Advanced
-  useEffect(() => {
-    if (router.isReady && router.query.q) setQ(String(router.query.q));
-  }, [router.isReady, router.query.q]);
 
   const streams = useMemo(
     () => ["All", ...Array.from(new Set(all.flatMap((e) => e.streams))).sort()],
@@ -373,8 +400,9 @@ export default function Exams() {
   // arriving from a link (/exams?q=IAT): open the card when the query lands
   // on one exam, or on exactly one exact-acronym match
   useEffect(() => {
-    if (autoOpened || !router.query.q || filtered.length === 0) return;
-    const raw = plainText(router.query.q);
+    if (autoOpened || !q || q !== arrivedQ.current || filtered.length === 0)
+      return;
+    const raw = plainText(q);
     const exacts = filtered.filter(
       (e) =>
         plainText(e.acronym) === raw ||
@@ -390,9 +418,29 @@ export default function Exams() {
       setExpandedId(pick.exam_id);
       setAutoOpened(true);
     }
-  }, [filtered, router.query.q, autoOpened]);
+  }, [filtered, q, autoOpened]);
 
   useEffect(() => setShown(PAGE_SIZE), [q, stream, where, sort]);
+
+  // a shared link to an opened card (?open=jee-main): make sure it's on
+  // screen even when the list around it is long
+  const linkedOpened = useRef(false);
+  useEffect(() => {
+    if (linkedOpened.current || !urlReady || !params.open || !all.length)
+      return;
+    linkedOpened.current = true;
+    const e = all.find((x) => x.exam_id === params.open);
+    if (!e) return;
+    if (!filtered.slice(0, PAGE_SIZE).includes(e)) setQ(e.acronym || e.name);
+    setTimeout(
+      () =>
+        document
+          .getElementById(`exam-${e.exam_id}`)
+          ?.scrollIntoView({ block: "start" }),
+      50
+    );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [urlReady, params.open, all]);
 
   const th =
     "px-3 py-2.5 text-left text-xs font-semibold uppercase tracking-wide text-[#5b1f20]";

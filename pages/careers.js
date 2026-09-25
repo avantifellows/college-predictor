@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import Head from "next/head";
 import { useStudentProfile } from "../utils/portalSession";
 import Link from "next/link";
@@ -6,6 +6,7 @@ import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import { Search } from "lucide-react";
 import { matchesQuery } from "../utils/search";
+import useUrlParams from "../utils/useUrlParams";
 
 const Dropdown = dynamic(() => import("../components/dropdown"), {
   ssr: false,
@@ -285,21 +286,36 @@ export default function Careers() {
   const router = useRouter();
   const [all, setAll] = useState([]);
   const [error, setError] = useState(null);
-  const [q, setQ] = useState("");
-  // 11th-12th stream filter — values match the sheet's controlled vocabulary
-  const [stream, setStream] = useState("All");
+  // list filters live in the URL (shareable; Back returns to them). stream
+  // = the 11th-12th stream, values from the sheet's controlled vocabulary
+  const [params, setParam, urlReady] = useUrlParams({
+    q: "",
+    stream: "All",
+    domain: "All",
+  });
+  const { q, stream, domain } = params;
+  const setQ = (v) => setParam("q", v);
+  const setStream = (v) => setParam("stream", v);
+  const setDomain = (v) => setParam("domain", v);
   // a signed-in student's stream pre-selects the class-12 filter (they can
-  // still switch it); engineering -> PCM, medical -> PCB, CA -> Commerce
+  // still switch it); engineering -> PCM, medical -> PCB, CA -> Commerce.
+  // Once, and never over a stream the link already carries.
   const student = useStudentProfile();
+  const profileApplied = useRef(false);
   useEffect(() => {
+    if (!urlReady || profileApplied.current || !student?.stream) return;
+    profileApplied.current = true;
     const map = {
       engineering: "Science (PCM)",
       medical: "Science (PCB)",
       ca: "Commerce",
     };
-    if (student?.stream && map[student.stream]) setStream(map[student.stream]);
-  }, [student?.stream]);
-  const [domain, setDomain] = useState("All");
+    if (!router.query.stream && map[student.stream])
+      setStream(map[student.stream]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [student?.stream, urlReady]);
+  // the list's filters when a career was opened, for "← All careers"
+  const listSearch = useRef("");
   const [selected, setSelected] = useState(null);
 
   useEffect(() => {
@@ -353,6 +369,7 @@ export default function Careers() {
   );
 
   const pick = (id) => {
+    listSearch.current = window.location.search;
     setSelected(id);
     window.scrollTo({ top: 0 });
     // shallow PUSH: every pick is a history entry, so the browser's Back
@@ -382,7 +399,7 @@ export default function Careers() {
               onClick={() => {
                 setSelected(null);
                 window.scrollTo({ top: 0 });
-                router.push("/careers", undefined, {
+                router.push(`/careers${listSearch.current}`, undefined, {
                   shallow: true,
                   scroll: false,
                 });
