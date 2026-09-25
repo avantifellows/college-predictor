@@ -3737,6 +3737,113 @@
   }
  },
  {
+  "college_id": "clat:gujarat national law university gandhinagar",
+  "aishe_code": null,
+  "name": "Gujarat National Law University (GNLU), Gandhinagar",
+  "display_name": "Gujarat National Law University (GNLU), Gandhinagar",
+  "state": "Gujarat",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": null,
+  "management": null,
+  "ownership": null,
+  "disciplines": [
+   "Law"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CLAT"
+  ],
+  "counselling": "CLAT Consortium counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "B.A. LL.B. (Hons.)"
+   ],
+   "list": [
+    {
+     "branch": "B.A. LL.B. (Hons.)",
+     "years": 5,
+     "degree": "B.A. LL.B. (Hons.)",
+     "indicative_closing_rank": 398,
+     "indicative_opening_rank": null,
+     "career_id": "law-llb",
+     "seats": 81
+    }
+   ],
+   "source": "CLAT 2026",
+   "rank_note": "Indicative open-category CLAT closing rank."
+  },
+  "nirf": {
+   "category": "Law",
+   "rank": 5,
+   "score": 76.23,
+   "ranking_year": 2025,
+   "rank_history": [
+    {
+     "year": 2025,
+     "rank": 5,
+     "score": 76.23
+    },
+    {
+     "year": 2024,
+     "rank": 8,
+     "score": 69.56
+    },
+    {
+     "year": 2023,
+     "rank": 7,
+     "score": 65.69
+    },
+    {
+     "year": 2022,
+     "rank": 8,
+     "score": 63.52
+    },
+    {
+     "year": 2021,
+     "rank": 6,
+     "score": 65.18
+    },
+    {
+     "year": 2020,
+     "rank": 7,
+     "score": 60.78
+    }
+   ]
+  },
+  "ug_gender": null,
+  "fees": null,
+  "placement": {
+   "median_salary": 1800000,
+   "percentage_placed": 96.7,
+   "percentage_with_outcome": 100.0,
+   "students_placed": 175,
+   "higher_studies_selected": 6,
+   "first_year_intake": 191,
+   "includes_dual_degree": false,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF Law, UG 5-year",
+   "is_branch_specific": false
+  },
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "CLAT 2026",
+   "programs": "CLAT 2026",
+   "ranking": "NIRF 2025",
+   "placement": "NIRF 2025 (AY 2023-24)",
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "icar:icar-indian-veterinary-research-institute-izatnagar",
   "aishe_code": null,
   "name": "ICAR-Indian Veterinary Research Institute, Izatnagar",
@@ -15402,6 +15509,123 @@
   }
  },
  {
+  "college_id": "clat:national law university odisha",
+  "aishe_code": null,
+  "name": "National Law University Odisha (NLUO)",
+  "display_name": "National Law University Odisha (NLUO)",
+  "state": "Odisha",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": null,
+  "management": null,
+  "ownership": null,
+  "disciplines": [
+   "Law"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CLAT"
+  ],
+  "counselling": "CLAT Consortium counselling",
+  "programs": {
+   "count": 2,
+   "degrees": [
+    "B.A. LL.B. (Hons.)",
+    "B.B.A. LL.B. (Hons.)"
+   ],
+   "list": [
+    {
+     "branch": "B.A. LL.B. (Hons.)",
+     "years": 5,
+     "degree": "B.A. LL.B. (Hons.)",
+     "indicative_closing_rank": 848,
+     "indicative_opening_rank": null,
+     "career_id": "law-llb",
+     "seats": 45
+    },
+    {
+     "branch": "B.B.A. LL.B. (Hons.)",
+     "years": 5,
+     "degree": "B.B.A. LL.B. (Hons.)",
+     "indicative_closing_rank": 892,
+     "indicative_opening_rank": null,
+     "career_id": "law-llb",
+     "seats": 22
+    }
+   ],
+   "source": "CLAT 2026",
+   "rank_note": "Indicative open-category CLAT closing rank."
+  },
+  "nirf": {
+   "category": "Law",
+   "rank": 15,
+   "score": 63.66,
+   "ranking_year": 2025,
+   "rank_history": [
+    {
+     "year": 2025,
+     "rank": 15,
+     "score": 63.66
+    },
+    {
+     "year": 2024,
+     "rank": 26,
+     "score": 54.49
+    },
+    {
+     "year": 2023,
+     "rank": 30,
+     "score": 46.02
+    },
+    {
+     "year": 2022,
+     "rank": 25,
+     "score": 48.81
+    },
+    {
+     "year": 2021,
+     "rank": 18,
+     "score": 50.31
+    },
+    {
+     "year": 2020,
+     "rank": 14,
+     "score": 51.94
+    }
+   ]
+  },
+  "ug_gender": null,
+  "fees": null,
+  "placement": {
+   "median_salary": 1400000,
+   "percentage_placed": 48.7,
+   "percentage_with_outcome": 55.1,
+   "students_placed": 77,
+   "higher_studies_selected": 10,
+   "first_year_intake": 180,
+   "includes_dual_degree": false,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF Law, UG 5-year",
+   "is_branch_specific": false
+  },
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "CLAT 2026",
+   "programs": "CLAT 2026",
+   "ranking": "NIRF 2025",
+   "placement": "NIRF 2025 (AY 2023-24)",
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "icar:bidhan-chandra-krishi-vishwavidyalaya-mohanpur",
   "aishe_code": null,
   "name": "Bidhan Chandra Krishi Vishwavidyalaya, Mohanpur",
@@ -20420,6 +20644,103 @@
    "programs": "ICAR-UG counselling 2025",
    "ranking": "NIRF 2025",
    "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "clat:maharashtra national law university nagpur",
+  "aishe_code": null,
+  "name": "Maharashtra National Law University (MNLU), Nagpur",
+  "display_name": "Maharashtra National Law University (MNLU), Nagpur",
+  "state": "Maharashtra",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": null,
+  "management": null,
+  "ownership": null,
+  "disciplines": [
+   "Law"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "CLAT"
+  ],
+  "counselling": "CLAT Consortium counselling",
+  "programs": {
+   "count": 2,
+   "degrees": [
+    "B.A. LL.B. (Hons.)",
+    "B.B.A. LL.B. (Hons.)"
+   ],
+   "list": [
+    {
+     "branch": "B.A. LL.B. (Hons.)",
+     "years": 5,
+     "degree": "B.A. LL.B. (Hons.)",
+     "indicative_closing_rank": 1406,
+     "indicative_opening_rank": null,
+     "career_id": "law-llb",
+     "seats": 34
+    },
+    {
+     "branch": "B.B.A. LL.B. (Hons.)",
+     "years": 5,
+     "degree": "B.B.A. LL.B. (Hons.)",
+     "indicative_closing_rank": 1491,
+     "indicative_opening_rank": null,
+     "career_id": "law-llb",
+     "seats": 17
+    }
+   ],
+   "source": "CLAT 2026",
+   "rank_note": "Indicative open-category CLAT closing rank."
+  },
+  "nirf": {
+   "category": "Law",
+   "rank": 28,
+   "score": 56.54,
+   "ranking_year": 2025,
+   "rank_history": [
+    {
+     "year": 2025,
+     "rank": 28,
+     "score": 56.54
+    },
+    {
+     "year": 2024,
+     "rank": 34,
+     "score": 51.43
+    }
+   ]
+  },
+  "ug_gender": null,
+  "fees": null,
+  "placement": {
+   "median_salary": 764000,
+   "percentage_placed": 77.3,
+   "percentage_with_outcome": 100.0,
+   "students_placed": 85,
+   "higher_studies_selected": 25,
+   "first_year_intake": 120,
+   "includes_dual_degree": false,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF Law, UG 5-year",
+   "is_branch_specific": false
+  },
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "CLAT 2026",
+   "programs": "CLAT 2026",
+   "ranking": "NIRF 2025",
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -48244,6 +48565,216 @@
    "programs": "TNEA 2025",
    "ranking": "NIRF 2022",
    "placement": "NIRF 2025 (AY 2023-24)",
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "keam:TCR",
+  "aishe_code": null,
+  "name": "Government Engineering College, Thrissur",
+  "display_name": "Government Engineering College, Thrissur",
+  "state": "Kerala",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": null,
+  "management": "Govt",
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
+  "year_established": null,
+  "website": null,
+  "university": null,
+  "entrance_exams": [
+   "KEAM"
+  ],
+  "counselling": "CEE Kerala (KEAM)",
+  "programs": {
+   "count": 16,
+   "degrees": [
+    "B.E. / B.Tech"
+   ],
+   "list": [
+    {
+     "branch": "Computer Science and Engineering",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 773,
+     "indicative_opening_rank": null,
+     "career_id": "computer-science-information-technology"
+    },
+    {
+     "branch": "Computer Science and Engineering",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 947,
+     "indicative_opening_rank": null,
+     "career_id": "computer-science-information-technology"
+    },
+    {
+     "branch": "Electronics and Communication Engineering",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 1155,
+     "indicative_opening_rank": null,
+     "career_id": "electrical-electronics-communications-engineering"
+    },
+    {
+     "branch": "Electronics and Communication Engineering",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 1331,
+     "indicative_opening_rank": null,
+     "career_id": "electrical-electronics-communications-engineering"
+    },
+    {
+     "branch": "Electrical and Electronics Engineering",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 2275,
+     "indicative_opening_rank": null,
+     "career_id": "electrical-electronics-communications-engineering"
+    },
+    {
+     "branch": "Electrical and Electronics Engineering",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 2601,
+     "indicative_opening_rank": null,
+     "career_id": "electrical-electronics-communications-engineering"
+    },
+    {
+     "branch": "Mechanical Engineering",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 3773,
+     "indicative_opening_rank": null,
+     "career_id": "mechanical-mechatronics-engineering"
+    },
+    {
+     "branch": "Mechanical Engineering",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 4267,
+     "indicative_opening_rank": null,
+     "career_id": "mechanical-mechatronics-engineering"
+    },
+    {
+     "branch": "Chemical Engineering",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 5674,
+     "indicative_opening_rank": null,
+     "career_id": "chemical-engineering"
+    },
+    {
+     "branch": "Cyber Physical Systems",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 6045,
+     "indicative_opening_rank": null,
+     "career_id": "cyber-security"
+    },
+    {
+     "branch": "Chemical Engineering",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 6213,
+     "indicative_opening_rank": null,
+     "career_id": "chemical-engineering"
+    },
+    {
+     "branch": "Cyber Physical Systems",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 6865,
+     "indicative_opening_rank": null,
+     "career_id": "cyber-security"
+    },
+    {
+     "branch": "Civil Engineering",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 7621,
+     "indicative_opening_rank": null,
+     "career_id": "civil-engineering"
+    },
+    {
+     "branch": "Civil Engineering",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 8100,
+     "indicative_opening_rank": null,
+     "career_id": "civil-engineering"
+    },
+    {
+     "branch": "Production Engineering",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 10371,
+     "indicative_opening_rank": null,
+     "career_id": "industrial-manufacturing-production-engineering"
+    },
+    {
+     "branch": "Production Engineering",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 11741,
+     "indicative_opening_rank": null,
+     "career_id": "industrial-manufacturing-production-engineering"
+    }
+   ],
+   "source": "KEAM 2026",
+   "rank_note": "Indicative open-category KEAM closing rank."
+  },
+  "nirf": {
+   "category": "Engineering",
+   "rank": 156,
+   "score": 34.91,
+   "ranking_year": 2021,
+   "rank_history": [
+    {
+     "year": 2021,
+     "rank": 156,
+     "score": 34.91
+    },
+    {
+     "year": 2020,
+     "rank": 164,
+     "score": 32.81
+    }
+   ],
+   "latest_band": {
+    "year": 2024,
+    "band": "201-300"
+   }
+  },
+  "ug_gender": null,
+  "fees": null,
+  "placement": {
+   "median_salary": 370000,
+   "percentage_placed": 70.3,
+   "percentage_with_outcome": 75.8,
+   "students_placed": 305,
+   "higher_studies_selected": 24,
+   "first_year_intake": 490,
+   "includes_dual_degree": false,
+   "academic_year": "2019-20",
+   "ranking_year": 2021,
+   "source": "NIRF Engineering, UG 4-year",
+   "is_branch_specific": false
+  },
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "KEAM 2026",
+   "programs": "KEAM 2026",
+   "ranking": "NIRF 2021",
+   "placement": "NIRF 2021 (AY 2019-20)",
    "accreditation": null
   }
  },
@@ -143766,183 +144297,6 @@
   }
  },
  {
-  "college_id": "keam:TCR",
-  "aishe_code": null,
-  "name": "Government Engineering College, Thrissur",
-  "display_name": "Government Engineering College, Thrissur",
-  "state": "Kerala",
-  "state_is_inferred": false,
-  "district": null,
-  "kind": null,
-  "management": "Govt",
-  "ownership": "Public",
-  "disciplines": [
-   "Engineering"
-  ],
-  "year_established": null,
-  "website": null,
-  "university": null,
-  "entrance_exams": [
-   "KEAM"
-  ],
-  "counselling": "CEE Kerala (KEAM)",
-  "programs": {
-   "count": 16,
-   "degrees": [
-    "B.E. / B.Tech"
-   ],
-   "list": [
-    {
-     "branch": "Computer Science and Engineering",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 773,
-     "indicative_opening_rank": null,
-     "career_id": "computer-science-information-technology"
-    },
-    {
-     "branch": "Computer Science and Engineering",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 947,
-     "indicative_opening_rank": null,
-     "career_id": "computer-science-information-technology"
-    },
-    {
-     "branch": "Electronics and Communication Engineering",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 1155,
-     "indicative_opening_rank": null,
-     "career_id": "electrical-electronics-communications-engineering"
-    },
-    {
-     "branch": "Electronics and Communication Engineering",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 1331,
-     "indicative_opening_rank": null,
-     "career_id": "electrical-electronics-communications-engineering"
-    },
-    {
-     "branch": "Electrical and Electronics Engineering",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 2275,
-     "indicative_opening_rank": null,
-     "career_id": "electrical-electronics-communications-engineering"
-    },
-    {
-     "branch": "Electrical and Electronics Engineering",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 2601,
-     "indicative_opening_rank": null,
-     "career_id": "electrical-electronics-communications-engineering"
-    },
-    {
-     "branch": "Mechanical Engineering",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 3773,
-     "indicative_opening_rank": null,
-     "career_id": "mechanical-mechatronics-engineering"
-    },
-    {
-     "branch": "Mechanical Engineering",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 4267,
-     "indicative_opening_rank": null,
-     "career_id": "mechanical-mechatronics-engineering"
-    },
-    {
-     "branch": "Chemical Engineering",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 5674,
-     "indicative_opening_rank": null,
-     "career_id": "chemical-engineering"
-    },
-    {
-     "branch": "Cyber Physical Systems",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 6045,
-     "indicative_opening_rank": null,
-     "career_id": "cyber-security"
-    },
-    {
-     "branch": "Chemical Engineering",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 6213,
-     "indicative_opening_rank": null,
-     "career_id": "chemical-engineering"
-    },
-    {
-     "branch": "Cyber Physical Systems",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 6865,
-     "indicative_opening_rank": null,
-     "career_id": "cyber-security"
-    },
-    {
-     "branch": "Civil Engineering",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 7621,
-     "indicative_opening_rank": null,
-     "career_id": "civil-engineering"
-    },
-    {
-     "branch": "Civil Engineering",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 8100,
-     "indicative_opening_rank": null,
-     "career_id": "civil-engineering"
-    },
-    {
-     "branch": "Production Engineering",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 10371,
-     "indicative_opening_rank": null,
-     "career_id": "industrial-manufacturing-production-engineering"
-    },
-    {
-     "branch": "Production Engineering",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 11741,
-     "indicative_opening_rank": null,
-     "career_id": "industrial-manufacturing-production-engineering"
-    }
-   ],
-   "source": "KEAM 2026",
-   "rank_note": "Indicative open-category KEAM closing rank."
-  },
-  "nirf": null,
-  "ug_gender": null,
-  "fees": null,
-  "placement": null,
-  "naac": {
-   "grade": null,
-   "cgpa": null,
-   "cycle": null,
-   "not_applicable_reason": null
-  },
-  "data_sources": {
-   "identity": "KEAM 2026",
-   "programs": "KEAM 2026",
-   "ranking": null,
-   "placement": null,
-   "accreditation": null
-  }
- },
- {
   "college_id": "gujcet:government engineering college valsad",
   "aishe_code": null,
   "name": "Government Engineering College, Valsad",
@@ -154905,64 +155259,6 @@
   "data_sources": {
    "identity": "NMC 2024-25 / AISHE 2024-25",
    "programs": "NMC 2024-25",
-   "ranking": null,
-   "placement": null,
-   "accreditation": null
-  }
- },
- {
-  "college_id": "clat:gujarat national law university gandhinagar",
-  "aishe_code": null,
-  "name": "Gujarat National Law University (GNLU), Gandhinagar",
-  "display_name": "Gujarat National Law University (GNLU), Gandhinagar",
-  "state": "Gujarat",
-  "state_is_inferred": false,
-  "district": null,
-  "kind": null,
-  "management": null,
-  "ownership": null,
-  "disciplines": [
-   "Law"
-  ],
-  "year_established": null,
-  "website": null,
-  "university": null,
-  "entrance_exams": [
-   "CLAT"
-  ],
-  "counselling": "CLAT Consortium counselling",
-  "programs": {
-   "count": 1,
-   "degrees": [
-    "B.A. LL.B. (Hons.)"
-   ],
-   "list": [
-    {
-     "branch": "B.A. LL.B. (Hons.)",
-     "years": 5,
-     "degree": "B.A. LL.B. (Hons.)",
-     "indicative_closing_rank": 398,
-     "indicative_opening_rank": null,
-     "career_id": "law-llb",
-     "seats": 81
-    }
-   ],
-   "source": "CLAT 2026",
-   "rank_note": "Indicative open-category CLAT closing rank."
-  },
-  "nirf": null,
-  "ug_gender": null,
-  "fees": null,
-  "placement": null,
-  "naac": {
-   "grade": null,
-   "cgpa": null,
-   "cycle": null,
-   "not_applicable_reason": null
-  },
-  "data_sources": {
-   "identity": "CLAT 2026",
-   "programs": "CLAT 2026",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -210279,74 +210575,6 @@
   }
  },
  {
-  "college_id": "clat:maharashtra national law university nagpur",
-  "aishe_code": null,
-  "name": "Maharashtra National Law University (MNLU), Nagpur",
-  "display_name": "Maharashtra National Law University (MNLU), Nagpur",
-  "state": "Maharashtra",
-  "state_is_inferred": false,
-  "district": null,
-  "kind": null,
-  "management": null,
-  "ownership": null,
-  "disciplines": [
-   "Law"
-  ],
-  "year_established": null,
-  "website": null,
-  "university": null,
-  "entrance_exams": [
-   "CLAT"
-  ],
-  "counselling": "CLAT Consortium counselling",
-  "programs": {
-   "count": 2,
-   "degrees": [
-    "B.A. LL.B. (Hons.)",
-    "B.B.A. LL.B. (Hons.)"
-   ],
-   "list": [
-    {
-     "branch": "B.A. LL.B. (Hons.)",
-     "years": 5,
-     "degree": "B.A. LL.B. (Hons.)",
-     "indicative_closing_rank": 1406,
-     "indicative_opening_rank": null,
-     "career_id": "law-llb",
-     "seats": 34
-    },
-    {
-     "branch": "B.B.A. LL.B. (Hons.)",
-     "years": 5,
-     "degree": "B.B.A. LL.B. (Hons.)",
-     "indicative_closing_rank": 1491,
-     "indicative_opening_rank": null,
-     "career_id": "law-llb",
-     "seats": 17
-    }
-   ],
-   "source": "CLAT 2026",
-   "rank_note": "Indicative open-category CLAT closing rank."
-  },
-  "nirf": null,
-  "ug_gender": null,
-  "fees": null,
-  "placement": null,
-  "naac": {
-   "grade": null,
-   "cgpa": null,
-   "cycle": null,
-   "not_applicable_reason": null
-  },
-  "data_sources": {
-   "identity": "CLAT 2026",
-   "programs": "CLAT 2026",
-   "ranking": null,
-   "placement": null,
-   "accreditation": null
-  }
- },
- {
   "college_id": "C-76503",
   "aishe_code": "C-76503",
   "name": "MAHARISHI MARKANDESHWAR COLLEGE OF MEDICAL SCIENCES AND RESEARCH, SADOPUR, AMBALA",
@@ -229835,74 +230063,6 @@
      "indicative_opening_rank": null,
      "career_id": "law-llb",
      "seats": 41
-    }
-   ],
-   "source": "CLAT 2026",
-   "rank_note": "Indicative open-category CLAT closing rank."
-  },
-  "nirf": null,
-  "ug_gender": null,
-  "fees": null,
-  "placement": null,
-  "naac": {
-   "grade": null,
-   "cgpa": null,
-   "cycle": null,
-   "not_applicable_reason": null
-  },
-  "data_sources": {
-   "identity": "CLAT 2026",
-   "programs": "CLAT 2026",
-   "ranking": null,
-   "placement": null,
-   "accreditation": null
-  }
- },
- {
-  "college_id": "clat:national law university odisha",
-  "aishe_code": null,
-  "name": "National Law University Odisha (NLUO)",
-  "display_name": "National Law University Odisha (NLUO)",
-  "state": "Odisha",
-  "state_is_inferred": false,
-  "district": null,
-  "kind": null,
-  "management": null,
-  "ownership": null,
-  "disciplines": [
-   "Law"
-  ],
-  "year_established": null,
-  "website": null,
-  "university": null,
-  "entrance_exams": [
-   "CLAT"
-  ],
-  "counselling": "CLAT Consortium counselling",
-  "programs": {
-   "count": 2,
-   "degrees": [
-    "B.A. LL.B. (Hons.)",
-    "B.B.A. LL.B. (Hons.)"
-   ],
-   "list": [
-    {
-     "branch": "B.A. LL.B. (Hons.)",
-     "years": 5,
-     "degree": "B.A. LL.B. (Hons.)",
-     "indicative_closing_rank": 848,
-     "indicative_opening_rank": null,
-     "career_id": "law-llb",
-     "seats": 45
-    },
-    {
-     "branch": "B.B.A. LL.B. (Hons.)",
-     "years": 5,
-     "degree": "B.B.A. LL.B. (Hons.)",
-     "indicative_closing_rank": 892,
-     "indicative_opening_rank": null,
-     "career_id": "law-llb",
-     "seats": 22
     }
    ],
    "source": "CLAT 2026",

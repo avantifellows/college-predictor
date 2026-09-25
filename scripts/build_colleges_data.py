@@ -578,10 +578,14 @@ def _latest_nirf(frames):
     return top_cat, g.drop(columns="_cat")
 
 
-def match_nirf_to_mhtcet(nirf_mh, colleges):
+def match_nirf_to_mhtcet(nirf_mh, colleges, places=None):
     """NIRF (Maharashtra, Engineering/Pharmacy/Architecture) institute -> CET
     college_code. Exact / short-name / token-subset tiers; unique hits only.
-    Both lists are Maharashtra, so the usual state constraint is implicit."""
+    Both lists are Maharashtra, so the usual state constraint is implicit.
+    `places` (institute_id -> [city, state]) breaks ties between campuses
+    for all-India lists: NIRF's "Gujarat National Law University" is the
+    Gandhinagar campus, its "National Law University" in Cuttack is NLU
+    Odisha."""
     def toks(x):
         return set(_mnorm(x).split())
     by_code = [(c.college_code, _mnorm(c.college_name), _mshort(c.college_name),
@@ -590,6 +594,11 @@ def match_nirf_to_mhtcet(nirf_mh, colleges):
     for r in nirf_mh[["institute_id", "institute_name"]].drop_duplicates().itertuples():
         n_full, n_short, n_toks = _mnorm(r.institute_name), _mshort(r.institute_name), toks(r.institute_name)
         hits = [c for c, full, short, _ in by_code if full == n_full or short == n_short]
+        # "Maharashtra National Law University, Nagpur" short-matches all
+        # three MNLU campuses; the one whose full name matches wins
+        exact = [c for c, full, _, _ in by_code if full == n_full]
+        if exact:
+            hits = exact
         # "University of Lucknow" is {university, lucknow}, a subset of
         # "Dr. Ram Manohar Lohiya National Law University, Lucknow": a bare
         # "University of <city>" never matches by token subset
@@ -598,6 +607,14 @@ def match_nirf_to_mhtcet(nirf_mh, colleges):
         # Handloom Technology, Varanasi". They match exactly via JoSAA.
         if not hits and not _UNIV_OF_CITY.match(n_full) and not _NATIONAL.match(n_full):
             hits = [c for c, _, _, t in by_code if n_toks and n_toks <= t]
+        if (len(set(hits)) != 1 and places
+                and not _UNIV_OF_CITY.match(n_full) and not _NATIONAL.match(n_full)):
+            for place in places.get(r.institute_id, []):
+                p_hits = [c for c, _, _, t in by_code
+                          if n_toks and (n_toks | toks(place)) <= t]
+                if len(set(p_hits)) == 1:
+                    hits = p_hits
+                    break
         if len(set(hits)) == 1:
             out[r.institute_id] = hits[0]
     # NIRF re-issues an institute's id when the format changes
@@ -1589,7 +1606,7 @@ def main():
     # ── the nine state / CLAT spines ─────────────────────────────────────────
     spines = build_state_spines(client)
     nirf_all = client.query(f"""
-    SELECT institute_id, institute_name, state, ranking_category, ranking_year,
+    SELECT institute_id, institute_name, city, state, ranking_category, ranking_year,
            nirf_rank, overall_score
     FROM `{D}.nirf_fact_rankings`
     WHERE nirf_rank IS NOT NULL
@@ -1650,7 +1667,12 @@ def main():
                 nirf_here = nirf_here[nirf_here.ranking_category.isin(sp["nirf_cats"])]
         else:
             nirf_here = nirf_all[nirf_all.ranking_category == "Law"]
-        code_by_nirf = match_nirf_to_mhtcet(nirf_here, allc)
+        places = None
+        if not sp["state"]:
+            places = {iid: list(dict.fromkeys(
+                          str(x) for x in list(g.city) + list(g.state) if x == x))
+                      for iid, g in nirf_here.groupby("institute_id")}
+        code_by_nirf = match_nirf_to_mhtcet(nirf_here, allc, places)
         nirf_ids_by_code = {}
         for iid, code in code_by_nirf.items():
             nirf_ids_by_code.setdefault(code, set()).add(iid)
