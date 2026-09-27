@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useCallback, useRef } from "react";
 import { useRouter } from "next/router";
-import getConstants from "../constants";
 import PredictedCollegeTables from "../components/PredictedCollegeTables";
 import Head from "next/head";
 import Fuse from "fuse.js";
