@@ -487,7 +487,7 @@ export default function Quiz() {
   return (
     <>
       <Head>
-        <title>Career Quiz - Avanti Fellows</title>
+        <title>Career Quiz - Futures</title>
         <meta
           name="description"
           content="The path to a career: degree, college, exam and cutoff. Guess each step, then see the answer."

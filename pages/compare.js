@@ -355,7 +355,7 @@ export default function Compare() {
   return (
     <>
       <Head>
-        <title>College & Course Comparison - Avanti Fellows</title>
+        <title>Compare Colleges - Futures</title>
         <meta
           name="description"
           content="Compare college and branch combinations side by side: closing ranks, NIRF rank, fees, placements and the higher-studies path."

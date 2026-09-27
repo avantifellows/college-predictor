@@ -879,7 +879,7 @@ const Colleges = () => {
   return (
     <>
       <Head>
-        <title>Colleges - Avanti Fellows</title>
+        <title>Colleges - Futures</title>
         <meta
           name="description"
           content="Engineering and medical colleges — location, NIRF rank, MBBS seats, placement outcomes, and the programs each one offers."

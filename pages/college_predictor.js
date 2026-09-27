@@ -1188,7 +1188,7 @@ const CollegePredictor = () => {
   return (
     <>
       <Head>
-        <title>College Predictor Results - {getConstants().TITLE_SHORT}</title>
+        <title>College Predictor Results - Futures</title>
       </Head>
       <div className="min-h-screen bg-[#fdf8f6] flex flex-col items-center pt-8 px-4">
         <div className="w-full max-w-6xl rounded-2xl border border-[#eaded8] bg-white p-6 shadow-sm md:p-8">

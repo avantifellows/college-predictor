@@ -207,7 +207,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Avanti Fellows - Futures</title>
+        <title>Futures - Avanti Fellows</title>
         <meta
           name="description"
           content="One stop guide to higher education and professional careers in India: predict your colleges, explore careers, compare colleges, and understand every entrance exam."

@@ -385,7 +385,7 @@ export default function Careers() {
   return (
     <>
       <Head>
-        <title>Careers - Avanti Fellows</title>
+        <title>Careers - Futures</title>
         <meta
           name="description"
           content="What each career actually looks like: day-to-day work, pay, recruiters, and the entrance exams that lead there."

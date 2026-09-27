@@ -1,7 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import Head from "next/head";
 import { ChevronDown, Download, Search } from "lucide-react";
-import getConstants from "../constants";
 import { matchesQuery } from "../utils/search";
 import useUrlParams from "../utils/useUrlParams";
 
@@ -181,7 +180,6 @@ const DatasetCard = ({ ds, defaultOpen }) => {
 };
 
 export default function Datasets() {
-  const { TITLE_SHORT = "College Predictor" } = getConstants() || {};
   const [manifest, setManifest] = useState(null);
   const [error, setError] = useState(null);
   // the search lives in the URL, so a filtered list can be shared
@@ -212,7 +210,7 @@ export default function Datasets() {
   return (
     <div className="min-h-screen pb-16">
       <Head>
-        <title>{`Open Datasets - ${TITLE_SHORT}`}</title>
+        <title>Open Datasets - Futures</title>
         <meta
           name="description"
           content="Download the public admissions data behind this site: official counselling documents and the tables extracted from them. CC BY 4.0."

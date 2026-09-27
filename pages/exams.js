@@ -448,7 +448,7 @@ export default function Exams() {
   return (
     <>
       <Head>
-        <title>Entrance Exams - Avanti Fellows</title>
+        <title>Entrance Exams - Futures</title>
         <meta
           name="description"
           content="Every undergraduate entrance exam in India: streams, eligibility, application fee, and typical timeline."

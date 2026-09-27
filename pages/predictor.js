@@ -661,7 +661,7 @@ const ExamForm = () => {
   return (
     <>
       <Head>
-        <title>College Predictor - Home</title>
+        <title>College Predictor - Futures</title>
       </Head>
       <div className="flex min-h-[calc(100vh-120px)] flex-col">
         <div className="mt-6 flex w-full flex-col items-center justify-start px-4 pb-10 sm:mt-8">
