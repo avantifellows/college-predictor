@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Layout from "../components/Layout";
 import PortalSessionBootstrap from "../components/PortalSessionBootstrap";
+import Analytics from "../components/Analytics";
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
@@ -9,6 +10,7 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Analytics />
       <PortalSessionBootstrap />
       <Layout>
         <Component {...pageProps} />

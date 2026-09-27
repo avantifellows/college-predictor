@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Script from "next/script";
 import getConstants from "../constants";
 import examConfigs from "../examConfig";
 import { useRouter } from "next/router";
@@ -665,19 +664,6 @@ const ExamForm = () => {
       </Head>
       <div className="flex min-h-[calc(100vh-120px)] flex-col">
         <div className="mt-6 flex w-full flex-col items-center justify-start px-4 pb-10 sm:mt-8">
-          <Script
-            src="https://www.googletagmanager.com/gtag/js?id=G-FHGVRT52L7"
-            strategy="afterInteractive"
-          />
-          <Script id="google-analytics" strategy="afterInteractive">
-            {`
-                        window.dataLayer = window.dataLayer || [];
-                        function gtag(){window.dataLayer.push(arguments);}
-                        gtag('js', new Date());
-
-                        gtag('config', 'G-FHGVRT52L7');
-                      `}
-          </Script>
           <div className="mt-4 flex w-full max-w-4xl flex-col items-center rounded-2xl border border-[#eaded8] bg-white p-5 pb-6 text-center shadow-sm sm:mt-6 sm:p-6">
             <h1 className="mb-2 text-2xl font-bold text-[#2f2320] md:text-3xl">
               {getConstants().TITLE}
