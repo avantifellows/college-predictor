@@ -91,6 +91,9 @@ const defaultState = {
   step: "info",
   profile: defaultProfile,
   choices: [],
+  // Choices dropped the last time the list was re-resolved against a fresh
+  // catalog (see reconcileChoices) — shown so they don't vanish silently.
+  removedChoices: [],
   locked: false,
   // undefined = not computed yet; null = computed, nothing reachable;
   // otherwise { index, choice, closingRank } — see getAllotmentResult.
@@ -127,6 +130,23 @@ const catalogKeyFor = (profile) =>
   });
 
 const choiceItemKey = (item) => `${item.institute}|${item.program}`;
+
+// Choices carry the closingRank of the catalog they were added from, and
+// that cutoff depends on the profile (an SC student's cutoff isn't Open's).
+// So whenever a catalog loads — e.g. after category changes — swap each
+// choice for its entry in the fresh catalog, keeping the order, and drop
+// the ones this profile is no longer eligible for.
+function reconcileChoices(state, catalog) {
+  const byKey = new Map(catalog.map((item) => [choiceItemKey(item), item]));
+  const choices = [];
+  const removedChoices = [];
+  for (const choice of state.choices) {
+    const fresh = byKey.get(choiceItemKey(choice));
+    if (fresh) choices.push(fresh);
+    else removedChoices.push(choice);
+  }
+  return { ...state, choices, removedChoices };
+}
 
 // Thin wrapper pinning the shared component's itemKey to the institute|
 // program shape used throughout this file.
@@ -173,16 +193,27 @@ const MhtcetMockAllotment = ({ onChangeExam }) => {
   useEffect(() => {
     if (state.step === "info" || !profileValid) return;
     if (loadedKeyRef.current === catalogKey) return;
-    loadedKeyRef.current = catalogKey;
+    const key = catalogKey;
+    loadedKeyRef.current = key;
+    // a response for a profile that has since changed again must not land —
+    // it would re-resolve the choices against the wrong cutoffs
+    const isCurrent = () => loadedKeyRef.current === key;
     setCatalog(null);
     setCatalogError("");
     setCatalogLoading(true);
     loadMhtcetCatalog(state.profile)
-      .then(setCatalog)
-      .catch((err) =>
-        setCatalogError(err.message || "Could not load MHT CET data.")
-      )
-      .finally(() => setCatalogLoading(false));
+      .then((fresh) => {
+        if (!isCurrent()) return;
+        setCatalog(fresh);
+        setState((s) => reconcileChoices(s, fresh));
+      })
+      .catch((err) => {
+        if (!isCurrent()) return;
+        setCatalogError(err.message || "Could not load MHT CET data.");
+      })
+      .finally(() => {
+        if (isCurrent()) setCatalogLoading(false);
+      });
   }, [state.step, profileValid, catalogKey, state.profile]);
 
   const filteredCatalog = useMemo(() => {
@@ -239,6 +270,8 @@ const MhtcetMockAllotment = ({ onChangeExam }) => {
       result: getAllotmentResult(s.choices, Number(s.profile.rank)),
       step: "simulate",
     }));
+  const dismissRemovedChoices = () =>
+    setState((s) => ({ ...s, removedChoices: [] }));
 
   // Purely cosmetic processing beat, same trick as JosaaMockAllotment's
   // runWithDelay — no real async work happens here.
@@ -295,6 +328,15 @@ const MhtcetMockAllotment = ({ onChangeExam }) => {
 
       {transitionLabel && <LoadingCard label={transitionLabel} />}
 
+      {!transitionLabel &&
+        state.step !== "info" &&
+        state.removedChoices.length > 0 && (
+          <RemovedChoicesNotice
+            removed={state.removedChoices}
+            onDismiss={dismissRemovedChoices}
+          />
+        )}
+
       {!transitionLabel && state.step === "info" && (
         <InfoStep
           profile={state.profile}
@@ -330,6 +372,9 @@ const MhtcetMockAllotment = ({ onChangeExam }) => {
           profile={state.profile}
           choices={state.choices}
           locked={state.locked}
+          // until this profile's catalog loads, choices may still hold the
+          // previous profile's cutoffs — don't let them get locked in
+          catalogReady={Boolean(catalog)}
           onBack={() => setStep("choices")}
           onLock={() =>
             runWithDelay(
@@ -363,6 +408,31 @@ const MhtcetMockAllotment = ({ onChangeExam }) => {
     </div>
   );
 };
+
+const RemovedChoicesNotice = ({ removed, onDismiss }) => (
+  <div className="mt-6 rounded-xl border border-[#f0c9c9] bg-[#fbeeec] px-4 py-3 text-sm text-[#3a2c28]">
+    <div className="flex items-start justify-between gap-3">
+      <p className="font-semibold">
+        {removed.length} choice{removed.length === 1 ? " was" : "s were"}{" "}
+        removed — not available for your updated profile:
+      </p>
+      <button
+        type="button"
+        onClick={onDismiss}
+        className="shrink-0 text-xs font-semibold text-[#7a635d] underline hover:text-[#b52326]"
+      >
+        Dismiss
+      </button>
+    </div>
+    <ul className="mt-1 list-disc pl-5 text-[#5b4a45]">
+      {removed.map((item) => (
+        <li key={choiceItemKey(item)}>
+          {item.institute} — {item.program}
+        </li>
+      ))}
+    </ul>
+  </div>
+);
 
 const CatalogRow = ({ item, added, onAdd, locked }) => (
   <div className="flex items-center justify-between gap-3 border-b border-[#f0e6e1] px-3 py-2 last:border-b-0">
@@ -590,6 +660,7 @@ const ReviewStep = ({
   profile,
   choices,
   locked,
+  catalogReady,
   onBack,
   onLock,
   onProceed,
@@ -666,10 +737,10 @@ const ReviewStep = ({
               <button
                 type="button"
                 className={primaryBtn}
-                disabled={choices.length === 0}
+                disabled={choices.length === 0 || !catalogReady}
                 onClick={onLock}
               >
-                Lock & Submit Choices
+                {catalogReady ? "Lock & Submit Choices" : "Loading…"}
               </button>
             </div>
           </>

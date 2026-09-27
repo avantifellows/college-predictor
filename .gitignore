@@ -157,3 +157,6 @@ scripts/*_out/
 # Excel exports — small, but these are student-level sheets, not code.
 *.xls
 *.xlsx
+
+.claude
+*.pptx
