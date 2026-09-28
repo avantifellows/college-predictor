@@ -56,8 +56,8 @@ const qualifiedField = josaaConfig.fields.find(
   (f) => f.name === "qualifiedJeeAdv"
 );
 
-const optionValue = (opt) => (typeof opt === "string" ? opt : opt.value);
-const optionLabel = (opt) => (typeof opt === "string" ? opt : opt.label);
+const optionValue = (opt) => (typeof opt === "string" ? opt : opt?.value);
+const optionLabel = (opt) => (typeof opt === "string" ? opt : opt?.label);
 
 // A reminder of who this run is — category, gender, home state, rank —
 // shown the same way everywhere in Mock Allotment: the Simulation results,

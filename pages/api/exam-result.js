@@ -17,7 +17,9 @@ const getIp = (req) => {
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100, // limit each IP to 100 requests per windowMs
+  // a school lab shares one IP: a class re-filtering the predictor together
+  // made ~100 requests in minutes and got locked out
+  max: 2000, // per IP per windowMs
   standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
   legacyHeaders: false, // Disable the `X-RateLimit-*` headers
   // trustProxy: true, // Removed as we are using a custom keyGenerator
