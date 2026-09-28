@@ -1946,7 +1946,7 @@ export const ojeeConfig = {
 };
 
 export const jacChandigarhConfig = {
-  name: "JAC Chandigarh (CCET, UIET PU)",
+  name: "JEE JAC Chandigarh (CCET, UIET, etc)",
   searchKeys: ["Institute", "Academic Program Name"],
   // JAC Chandigarh admits on the JEE Main (Paper 1) common rank. B.Arch
   // (Paper 2) and the Defence / Sports merit lists are other scales and are
