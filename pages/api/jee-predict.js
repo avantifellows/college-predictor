@@ -1,68 +1,37 @@
+// JEE Main marks (or percentile) -> percentile, all-India rank, category rank.
+//
+// The model revised in Aug 2026 with the academic teams (data-assistant
+// analysis/academic-levels-cutoffs, PR #150), replacing the older piecewise
+// fits that read ~90 percentile at 67 marks:
+//   - percentile <-> marks: a Weibull-CDF-inverse curve,
+//       marks = S * (-ln(1 - p/100))^(1/k),
+//     anchored at 90 percentile = 85 marks and 99 percentile = 160 marks (a
+//     "moderate" paper). Monotonic, saturates, never passes 300.
+//   - AIR = N * (1 - p/100), N = 15 lakh candidates.
+//   - category rank <-> AIR: per category, log(AIR) = b0 + b1*log(CR) +
+//     b2*log(CR)^2, fitted on ~2,700 labelled Avanti JEE Main 2025 students.
+//     Open needs none (its category rank is the AIR). Inverted here.
 const TOTAL_MARKS = 300;
 const TOTAL_TEST_TAKERS = 1500000;
 
-// Percentage -> Percentile (piecewise)
-const LFIT = -86.555129;
-const UFIT = 98.24994;
-const KFIT = 0.153249;
-const X0_FIT = 0.624824;
+// (p90, marks at p90, p99, marks at p99) for a moderate paper
+const ANCHOR = [90, 85, 99, 160];
+const solveSK = ([p90, m90, p99, m99]) => {
+  const x90 = -Math.log(1 - p90 / 100);
+  const x99 = -Math.log(1 - p99 / 100);
+  const kInv =
+    (Math.log(m99) - Math.log(m90)) / (Math.log(x99) - Math.log(x90));
+  return { S: Math.exp(Math.log(m90) - kInv * Math.log(x90)), k: 1 / kInv };
+};
+const { S, k } = solveSK(ANCHOR);
 
-// SC coefficients
-const F1_C1_M = 0.0251;
-const F1_C1_B = -19.5;
-const F1_C2_M = 0.0276;
-const F1_C2_B = -51.9;
-const F1_C3_M = 0.0383;
-const F1_C3_B = -373;
-const F1_C4_M = 0.0429;
-const F1_C4_B = -605;
-const F1_C5_M = 0.0515;
-const F1_C5_B = -1297;
-const F1_C6_M = 0.0571;
-const F1_C6_B = -1854;
-const F1_C7_M = 0.0738;
-const F1_C7_B = -4542;
-const F1_C8_M = 0.0892;
-const F1_C8_B = -9217;
-const F1_C9_M = 0.106;
-const F1_C9_B = -17937;
-const F1_C10_M = 0.118;
-const F1_C10_B = -30183;
-
-// OBC-NCL coefficients
-const F2_C1_M = 0.232;
-const F2_C1_B = -131;
-const F2_C2_M = 0.313;
-const F2_C2_B = -1180;
-const F2_C3_M = 0.351;
-const F2_C3_B = -2833;
-const F2_C4_M = 0.389;
-const F2_C4_B = -7865;
-
-// EWS coefficients
-const F3_C1_M = 0.129;
-const F3_C1_B = -77.2;
-const F3_C2_M = 0.145;
-const F3_C2_B = -100;
-const F3_C3_M = 0.118;
-const F3_C3_B = 7517;
-const F3_C4_M = 0.098;
-const F3_C4_B = 19862;
-const F3_C5_M = 0.0788;
-const F3_C5_B = 39286;
-
-// ST coefficients
-const F4_C1_M = 0.00725;
-const F4_C1_B = -32.2;
-const F4_C2_M = 0.0122;
-const F4_C2_B = -326;
-const F4_C3_M = 0.0165;
-const F4_C3_B = -930;
-const F4_C4_M_LINEAR = 0.0136;
-const F4_C4_M_QUAD = 1.76e-8;
-const F4_C4_B = -1146;
-const F4_C5_M = 0.0396;
-const F4_C5_B = -11081;
+// cr_air_models.json from the analysis
+const CR_AIR = {
+  "OBC-NCL": [2.994301380644778, 0.7376463727990962, 0.008116634409503646],
+  SC: [4.829901443014002, 0.842105692516867, -0.004706354675119741],
+  ST: [6.437680123152332, 0.8028635490854991, -0.008189470143248166],
+  EWS: [4.7073098201655785, 0.3958857670094553, 0.03271513675279924],
+};
 
 const ESTIMATION_SUPPORTED_CATEGORIES = new Set([
   "OPEN",
@@ -75,103 +44,35 @@ const PWD_CATEGORY_SUFFIX = "(PwD)";
 const PWD_CATEGORY_ERROR =
   "Rank estimation is currently unavailable for PwD categories. Please switch to 'No, I know my rank' and enter your rank directly.";
 
-const marksToPercentage = (score) => (score * 100) / TOTAL_MARKS;
-const percentageToMarks = (percentage) =>
-  Math.floor((percentage * TOTAL_MARKS) / 100);
-
-const percentageToPercentile = (percentage) => {
-  if (percentage <= 25) {
-    return LFIT + (UFIT - LFIT) / (1 + Math.exp(-KFIT * (percentage - X0_FIT)));
-  }
-  if (percentage <= 40) {
-    return 65.1 + 8.95 * Math.log(percentage);
-  }
-  return 100 * (1 - Math.exp(-0.095 * percentage));
-};
-
-const PERCENTILE_AT_25 =
-  LFIT + (UFIT - LFIT) / (1 + Math.exp(-KFIT * (25 - X0_FIT)));
-const PERCENTILE_AT_40 = 65.1 + 8.95 * Math.log(40);
-
-const percentileToPercentage = (percentile) => {
-  if (percentile <= PERCENTILE_AT_25) {
-    let low = 0;
-    let high = 25;
-    for (let i = 0; i < 50; i += 1) {
-      const mid = (low + high) / 2;
-      const testPercentile = percentageToPercentile(mid);
-      if (Math.abs(testPercentile - percentile) < 0.001) {
-        return mid;
-      }
-      if (testPercentile < percentile) {
-        low = mid;
-      } else {
-        high = mid;
-      }
-    }
-    return (low + high) / 2;
-  }
-
-  if (percentile <= PERCENTILE_AT_40) {
-    return Math.exp((percentile - 65.1) / 8.95);
-  }
-
-  if (percentile >= 100) return 100;
-  return -Math.log(1 - percentile / 100) / 0.095;
-};
-
+const marksToPercentile = (marks) =>
+  100 * (1 - Math.exp(-Math.pow(marks / S, k)));
+const percentileToMarks = (percentile) =>
+  Math.min(TOTAL_MARKS, S * Math.pow(-Math.log(1 - percentile / 100), 1 / k));
 const percentileToAir = (percentile) =>
-  Math.floor(TOTAL_TEST_TAKERS * (1 - percentile / 100));
+  Math.max(1, Math.floor(TOTAL_TEST_TAKERS * (1 - percentile / 100)));
 
-const calculateFunction1 = (value) => {
-  if (value < 10000) return F1_C1_M * value + F1_C1_B;
-  if (value <= 30000) return F1_C2_M * value + F1_C2_B;
-  if (value <= 50000) return F1_C3_M * value + F1_C3_B;
-  if (value <= 75000) return F1_C4_M * value + F1_C4_B;
-  if (value <= 100000) return F1_C5_M * value + F1_C5_B;
-  if (value <= 150000) return F1_C6_M * value + F1_C6_B;
-  if (value <= 300000) return F1_C7_M * value + F1_C7_B;
-  if (value <= 500000) return F1_C8_M * value + F1_C8_B;
-  if (value <= 1000000) return F1_C9_M * value + F1_C9_B;
-  return F1_C10_M * value + F1_C10_B;
-};
-
-const calculateFunction2 = (value) => {
-  if (value <= 10000) return F2_C1_M * value + F2_C1_B;
-  if (value <= 50000) return F2_C2_M * value + F2_C2_B;
-  if (value <= 100000) return F2_C3_M * value + F2_C3_B;
-  return F2_C4_M * value + F2_C4_B;
-};
-
-const calculateFunction3 = (value) => {
-  if (value <= 10000) return F3_C1_M * value + F3_C1_B;
-  if (value <= 300000) return F3_C2_M * value + F3_C2_B;
-  if (value <= 600000) return F3_C3_M * value + F3_C3_B;
-  if (value <= 1000000) return F3_C4_M * value + F3_C4_B;
-  return F3_C5_M * value + F3_C5_B;
-};
-
-const calculateFunction4 = (value) => {
-  if (value <= 50000) return F4_C1_M * value + F4_C1_B;
-  if (value <= 150000) return F4_C2_M * value + F4_C2_B;
-  if (value <= 200000) return F4_C3_M * value + F4_C3_B;
-  if (value <= 750000) {
-    return F4_C4_M_QUAD * value * value + F4_C4_M_LINEAR * value + F4_C4_B;
+// solve b2*x^2 + b1*x + (b0 - ln AIR) = 0 for x = ln(CR), on the rising branch
+const airToCat = (category, air) => {
+  if (category === "OPEN") return air;
+  const [b0, b1, b2] = CR_AIR[category];
+  const c = b0 - Math.log(air);
+  let x;
+  if (Math.abs(b2) < 1e-12) {
+    x = -c / b1;
+  } else {
+    const disc = b1 * b1 - 4 * b2 * c;
+    if (disc < 0) {
+      x = -b1 / (2 * b2); // the curve's turning point: the largest it reaches
+    } else {
+      const roots = [
+        (-b1 + Math.sqrt(disc)) / (2 * b2),
+        (-b1 - Math.sqrt(disc)) / (2 * b2),
+      ];
+      x = roots.find((r) => b1 + 2 * b2 * r > 0) ?? roots[0];
+    }
   }
-  return F4_C5_B + F4_C5_M * value;
-};
-
-const airToCat = (category, rank) => {
-  let raw;
-  if (category === "SC") raw = calculateFunction1(rank);
-  else if (category === "OBC-NCL") raw = calculateFunction2(rank);
-  else if (category === "EWS") raw = calculateFunction3(rank);
-  else if (category === "OPEN") raw = rank;
-  else if (category === "ST") raw = calculateFunction4(rank);
-  else throw new Error("Invalid category");
-
-  const rounded = Math.round(raw);
-  return rounded <= 0 ? 1 : rounded;
+  // a category rank is at least 1 and never above the all-India rank
+  return Math.max(1, Math.min(air, Math.floor(Math.exp(x))));
 };
 
 export default function handler(req, res) {
@@ -195,7 +96,6 @@ export default function handler(req, res) {
   }
 
   let marks;
-  let percentage;
   let percentile;
 
   if (marksRaw !== undefined && marksRaw !== null && marksRaw !== "") {
@@ -203,8 +103,7 @@ export default function handler(req, res) {
     if (Number.isNaN(marks) || marks < 0 || marks > TOTAL_MARKS) {
       return res.status(400).json({ error: "Marks must be between 0 and 300" });
     }
-    percentage = marksToPercentage(marks);
-    percentile = percentageToPercentile(percentage);
+    percentile = marksToPercentile(marks);
   } else if (
     percentileRaw !== undefined &&
     percentileRaw !== null &&
@@ -216,8 +115,7 @@ export default function handler(req, res) {
         .status(400)
         .json({ error: "Percentile must be between 0 and 100" });
     }
-    percentage = percentileToPercentage(percentile);
-    marks = percentageToMarks(percentage);
+    marks = percentile >= 100 ? TOTAL_MARKS : percentileToMarks(percentile);
   } else {
     return res
       .status(400)
@@ -232,16 +130,13 @@ export default function handler(req, res) {
     allIndiaRank = 1;
     categoryRank = 1;
     marks = TOTAL_MARKS;
-    percentage = 100;
   }
 
-  const percentageRounded = Number(percentage.toFixed(5));
-  const percentileRounded = Number(percentile.toFixed(5));
-
+  const percentage = (marks * 100) / TOTAL_MARKS;
   return res.status(200).json({
     marks: Math.round(marks),
-    percentage: percentageRounded,
-    percentile: percentileRounded,
+    percentage: Number(percentage.toFixed(5)),
+    percentile: Number(percentile.toFixed(5)),
     allIndiaRank,
     categoryRank,
   });
