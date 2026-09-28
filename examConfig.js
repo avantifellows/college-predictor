@@ -195,7 +195,7 @@ export const jeeMainJosaaConfig = {
 
 export const jacExamConfig = {
   code: "JEE Main",
-  name: "JAC Delhi (DTU, NSUT, IIIT-D)",
+  name: "JEE JAC Delhi (NSUT, DTU, etc)",
   searchKeys: defaultSearchKeys,
   primaryInput: integerInput("Enter All India Rank", "Enter All India Rank"),
   fields: [
@@ -221,7 +221,10 @@ export const jacExamConfig = {
     {
       name: "gender",
       label: "Select Gender",
-      options: ["Gender-Neutral", "Female-Only"],
+      options: [
+        { value: "Gender-Neutral", label: "Male" },
+        { value: "Female-Only", label: "Female" },
+      ],
     },
     {
       name: "homeState",
@@ -261,7 +264,11 @@ export const jacExamConfig = {
     (item) => item.Category === query.category,
     (item) => item.Defense === query.isDefenseWard,
     (item) => item.PWD === query.isPWD,
-    (item) => item.Gender === query.gender,
+    // a girl is considered for both pools, a boy only for gender-neutral
+    (item) =>
+      item.Gender === "Gender-Neutral" ||
+      (/female/i.test(String(query.gender || "")) &&
+        item.Gender === "Female-Only"),
     (item) =>
       parseInt(item["Closing Rank"], 10) >= 0.9 * parseInt(query.rank, 10),
   ],
@@ -531,19 +538,17 @@ export const neetUGConfig = {
       options: neetCentralCategoryOptions,
     },
     {
-      // Gender is a SEAT-TYPE filter, mirroring how every other exam (JoSAA,
-      // JEE, MHT CET) filters gender: pick a seat pool, see only that pool.
-      // Female-only = seats reserved for women (MH 30% / AP·TG 33.3% within each
-      // category, plus women-only AIQ institutions like LHMC/RAK/nursing);
-      // Gender-Neutral = seats open to all. "Show all" shows both. Optional, and
-      // only meaningful where female data exists (MH/TG/AP/AIQ).
+      // The student's gender, as in JoSAA: a girl is considered for both seat
+      // pools, a boy only for seats open to all. Female-only = seats reserved
+      // for women (MH 30% / AP·TG 33.3% within each category, plus women-only
+      // AIQ institutions like LHMC/RAK/nursing). Optional: unanswered shows
+      // everything.
       name: "gender",
       label: "Select Gender (optional)",
       optional: true,
       options: [
-        { value: "", label: "Show all seats" },
-        { value: "Female", label: "Female-only seats" },
-        { value: "Gender-Neutral", label: "Gender-neutral seats" },
+        { value: "Gender-Neutral", label: "Male" },
+        { value: "Female", label: "Female" },
       ],
     },
     {
@@ -666,9 +671,9 @@ export const neetUGConfig = {
       // list to the seat pool the user picked. Female-only rows are seats
       // reserved for women (MH/AP/TG) or women-only institutions (AIQ LHMC/RAK/
       // nursing); the rest are gender-neutral (open to all).
-      //   - "Female"            -> ONLY Female-only seats
-      //   - "Male/Gender-neutral" -> ONLY gender-neutral seats
-      //   - "Show all" / no selection -> everything
+      //   - "Female"            -> both pools
+      //   - "Male" (or an old "Gender-neutral seats" link) -> gender-neutral only
+      //   - no selection        -> everything
       // The form submits the option LABEL (see handleQueryObjectChange), so we
       // match on the label text.
       (item) => {
@@ -678,9 +683,9 @@ export const neetUGConfig = {
         const g = String(query.gender || "").toLowerCase();
         const isFemaleSeat =
           (item["Gender"] || "Gender-Neutral") === "Female-only";
-        if (g.includes("female")) return isFemaleSeat;
+        if (g.includes("female")) return true;
         if (g.includes("neutral") || g.includes("male")) return !isFemaleSeat;
-        return true; // "show all seats" or no selection
+        return true; // no selection (or an old "show all seats" link)
       },
       // Home-state category: constrains the home-state (state-file) rows to the
       // picked code. Keys on Source (not the literal "State Quota" label) so it
@@ -778,8 +783,8 @@ export const mhtCetConfig = {
       name: "gender",
       label: "Select Gender",
       options: [
-        { value: "Gender-Neutral", label: "Gender-Neutral" },
-        { value: "Female-Only", label: "Female-Only" },
+        { value: "Gender-Neutral", label: "Male" },
+        { value: "Female-Only", label: "Female" },
       ],
     },
     {
@@ -902,9 +907,9 @@ export const mhtCetConfig = {
     // larger pool — at Open/rank 5000 it showed 2,191 options instead of the
     // 4,414 she is actually eligible for.
     (item) =>
-      query.gender === "Female-Only"
+      /female/i.test(String(query.gender || ""))
         ? item.Gender === "Female-Only" || item.Gender === "Gender-Neutral"
-        : item.Gender === query.gender,
+        : item.Gender === "Gender-Neutral",
     // Home-region eligibility. `item.State` says who a seat is open to
     // ("Any" = State Level, "Home University", "Other than Home University")
     // and `item["Home University"]` says which university the college belongs
@@ -1210,7 +1215,7 @@ export const tneaConfig = {
 };
 
 export const josaaConfig = {
-  name: "JoSAA (IITs, NITs, IIITs)",
+  name: "JEE JoSAA (IITs, NITs, etc)",
   code: "JoSAA",
   searchKeys: defaultSearchKeys,
   primaryInput: integerInput(
@@ -1251,7 +1256,13 @@ export const josaaConfig = {
     {
       name: "gender",
       label: "Select Gender",
-      options: ["Gender-Neutral", "Female-only (including Supernumerary)"],
+      // Ask the student's gender, not a seat pool: a girl is considered for
+      // both pools, a boy only for gender-neutral seats. Values stay the
+      // pool names (the mock allotment keeps them); the form submits labels.
+      options: [
+        { value: "Gender-Neutral", label: "Male" },
+        { value: "Female-only (including Supernumerary)", label: "Female" },
+      ],
     },
     {
       name: "program",
@@ -1298,11 +1309,13 @@ export const josaaConfig = {
       // pool (same category rank space). Filtering to Female-only alone hid
       // most of her real options (180-349 of 855 programme pairs publish no
       // female pool at all). A gender-neutral pick stays gender-neutral.
+      // "Female" (or the old pool label) -> both pools; anything else -> only
+      // gender-neutral seats
       (item) =>
-        item.Gender === query.gender ||
         item.Gender === "All" ||
-        (query.gender === "Female-only (including Supernumerary)" &&
-          item.Gender === "Gender-Neutral"),
+        item.Gender === "Gender-Neutral" ||
+        (/female/i.test(String(query.gender || "")) &&
+          item.Gender === "Female-only (including Supernumerary)"),
       (item) => {
         if (normalizedProgram === "architecture") {
           return item["Academic Program Name"]

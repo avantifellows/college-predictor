@@ -204,7 +204,7 @@ function genderLabel(storedGender, options) {
   const female = /^f/i.test(storedGender);
   return female
     ? findLabel(options, (label) => /^female/i.test(label))
-    : findLabel(options, (label) => /^gender-neutral/i.test(label));
+    : findLabel(options, (label) => /^(male|gender-neutral)/i.test(label));
 }
 
 function homeStateLabel(storedState, options) {

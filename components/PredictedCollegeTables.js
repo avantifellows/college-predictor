@@ -617,6 +617,8 @@ const PredictedCollegesTable = ({
       { key: "academic_program_name", label: "Program" },
       { key: "closing_rank", label: "Closing Rank" },
       { key: "Category", label: "Category" },
+      // shown only when a girl's results mix both pools (check below)
+      { key: "seat_gender", label: "Seat Gender" },
     ],
     "JEE Advanced": [
       { key: "state", label: "State" },
@@ -950,7 +952,7 @@ const PredictedCollegesTable = ({
         seat_gender:
           item["Gender"] === "Female-only (including Supernumerary)"
             ? "Women-only"
-            : item["Gender"],
+            : "Open to all",
         nirf_rank: item["NIRF Rank"],
         closing_rank: item["Closing Rank"],
         expected_salary: item["Expected Salary"],
@@ -984,6 +986,8 @@ const PredictedCollegesTable = ({
         "PWD": item["PWD"],
         "Category_Key": item["Category_Key"],
         Category: item["Category"] || "",
+        seat_gender:
+          item["Gender"] === "Female-Only" ? "Women-only" : "Open to all",
       };
     }
     if (exam === "NEETUG") {
@@ -1210,7 +1214,7 @@ const PredictedCollegesTable = ({
     // fullData — `data` is just the visible page, and the tightest 30
     // closings are usually all gender-neutral even when women-only seats sit
     // further down the list.
-    if (isJosaaExam) {
+    if (isJosaaExam || exam === "JEE Main-JAC") {
       const seen = new Set();
       for (const row of fullData.length ? fullData : displayData) {
         seen.add(String(transformData(row).seat_gender ?? ""));

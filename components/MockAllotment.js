@@ -73,7 +73,12 @@ export const ProfileChips = ({ profile }) => {
         categoryField.options.find((o) => optionValue(o) === profile.category)
       ) || profile.category,
     ],
-    ["Seat pool", profile.gender],
+    [
+      "Gender",
+      optionLabel(
+        genderField.options.find((o) => optionValue(o) === profile.gender)
+      ) || profile.gender,
+    ],
     ["Home state", profile.homeState],
     ["JEE Main rank", formatRank(profile.mainRank)],
     profile.qualifiedJeeAdv === "Yes"
