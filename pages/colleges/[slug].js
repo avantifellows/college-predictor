@@ -4,19 +4,17 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import BackLink from "../../components/BackLink";
 import CollegeView from "../../components/CollegeView";
+import DetailBackLink from "../../components/DetailBackLink";
 import { loadColleges, slugMap } from "../../utils/collegesData";
-import { listBackHref } from "../../utils/listReturn";
 
 // One college, on its own page (/colleges/<name>). This file loads the data;
 // components/CollegeView.js draws it.
 export default function CollegePage() {
   const router = useRouter();
   const [college, setCollege] = useState(undefined);
-  const [back, setBack] = useState("/colleges");
 
   useEffect(() => {
     if (!router.isReady) return;
-    setBack(listBackHref("/colleges"));
     loadColleges()
       .then((all) => {
         const slugs = slugMap(all);
@@ -63,7 +61,10 @@ export default function CollegePage() {
           content={`${c.display_name}: programmes, closing ranks, NIRF rank, placements and fees.`}
         />
       </Head>
-      <CollegeView c={c} back={back} />
+      <CollegeView
+        c={c}
+        backSlot={<DetailBackLink list="/colleges" listLabel="All colleges" />}
+      />
     </>
   );
 }

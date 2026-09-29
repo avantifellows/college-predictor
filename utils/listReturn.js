@@ -17,7 +17,9 @@ export function rememberList(list) {
 export function listBackHref(list) {
   try {
     const saved = sessionStorage.getItem(key(list));
-    if (saved && saved.startsWith(list)) return saved;
+    // ?college= / ?open= always forward to a detail page: never a way back
+    if (saved && saved.startsWith(list) && !/[?&](college|open)=/.test(saved))
+      return saved;
   } catch (e) {
     /* ignore */
   }

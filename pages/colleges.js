@@ -15,6 +15,7 @@ import {
 } from "../components/collegeShared";
 import { loadColleges, slugMap, slugify } from "../utils/collegesData";
 import { rememberList } from "../utils/listReturn";
+import { markForward } from "../utils/navHistory";
 
 // The app's shared react-select wrapper — searchable, so a 30-state list can be
 // narrowed by typing. A native <select> only jumps on the first letter, which is
@@ -205,10 +206,6 @@ const Colleges = () => {
       .then(setAll)
       .catch(() => setError("Could not load the college list right now."));
   }, []);
-  // so a college page's "All colleges" comes back to this list as it is
-  useEffect(() => {
-    if (urlReady) rememberList("/colleges");
-  }, [urlReady, router.asPath]);
   const slugs = useMemo(() => (all.length ? slugMap(all) : {}), [all]);
   const hrefOf = (c) => `/colleges/${slugs[c.college_id]}`;
 
@@ -294,10 +291,19 @@ const Colleges = () => {
     }
     if (target) {
       redirected.current = true;
+      markForward(hrefOf(target));
       router.replace(hrefOf(target));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [urlReady, all, filtered, params.college, q]);
+
+  // so a college page's "All colleges" comes back to this list as it is;
+  // not while the list is about to forward (/colleges?q=NALSAR), or the
+  // back link would point at the hop and bounce straight back
+  useEffect(() => {
+    if (urlReady && all.length && !redirected.current)
+      rememberList("/colleges");
+  }, [urlReady, router.asPath, all.length]);
 
   useEffect(
     () => setShown(PAGE_SIZE),

@@ -4,19 +4,17 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import BackLink from "../../components/BackLink";
 import ExamView from "../../components/ExamView";
+import DetailBackLink from "../../components/DetailBackLink";
 import { loadExams } from "../../components/examShared";
-import { listBackHref } from "../../utils/listReturn";
 
 // One exam on its own page (/exams/<id>). This file loads the data;
 // components/ExamView.js draws it.
 export default function ExamPage() {
   const router = useRouter();
   const [exam, setExam] = useState(undefined);
-  const [back, setBack] = useState("/exams");
 
   useEffect(() => {
     if (!router.isReady) return;
-    setBack(listBackHref("/exams"));
     loadExams()
       .then((all) =>
         setExam(all.find((e) => e.exam_id === router.query.id) || null)
@@ -60,7 +58,10 @@ export default function ExamPage() {
           content={`${e.name}: eligibility, dates, fee, paper pattern and the colleges it leads to.`}
         />
       </Head>
-      <ExamView e={e} back={back} />
+      <ExamView
+        e={e}
+        backSlot={<DetailBackLink list="/exams" listLabel="All exams" />}
+      />
     </>
   );
 }

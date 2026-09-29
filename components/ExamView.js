@@ -19,7 +19,7 @@ const InfoCard = ({ icon: Icon, label, children }) => (
   </div>
 );
 
-export default function ExamView({ e, back = "/exams" }) {
+export default function ExamView({ e, back = "/exams", backSlot }) {
   const scope =
     e.scope_state && e.scope_type === "University"
       ? `${e.scope} · ${e.scope_state}`
@@ -28,7 +28,7 @@ export default function ExamView({ e, back = "/exams" }) {
   return (
     <div className="min-h-screen px-4 py-6 sm:px-6">
       <div className="mx-auto max-w-5xl">
-        <BackLink href={back}>All exams</BackLink>
+        {backSlot || <BackLink href={back}>All exams</BackLink>}
 
         <div className="mt-4 rounded-2xl border border-[#eaded8] bg-white p-4 sm:p-6">
           <div className="text-xs font-black uppercase tracking-wide text-[#B52326]">

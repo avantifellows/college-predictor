@@ -7,6 +7,7 @@ import { ChevronDown, ChevronRight, ChevronUp, Search } from "lucide-react";
 import BackLink from "../components/BackLink";
 import { Dash, fmtFee, loadExams } from "../components/examShared";
 import { rememberList } from "../utils/listReturn";
+import { markForward } from "../utils/navHistory";
 import { matchesQuery, plainText } from "../utils/search";
 import useUrlParams from "../utils/useUrlParams";
 
@@ -233,15 +234,18 @@ export default function Exams() {
     }
     if (pick) {
       redirected.current = true;
+      markForward(`/exams/${pick.exam_id}`);
       router.replace(`/exams/${pick.exam_id}`);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [urlReady, all, filtered, params.open, q]);
 
-  // so an exam page's "All exams" comes back to this list as it is
+  // so an exam page's "All exams" comes back to this list as it is; not
+  // while the list is about to forward (/exams?q=NEET-UG), or the back link
+  // would point at the hop and bounce straight back
   useEffect(() => {
-    if (urlReady) rememberList("/exams");
-  }, [urlReady, router.asPath]);
+    if (urlReady && all.length && !redirected.current) rememberList("/exams");
+  }, [urlReady, router.asPath, all.length]);
 
   useEffect(() => setShown(PAGE_SIZE), [q, stream, where, sort]);
 

@@ -66,7 +66,7 @@ const cohortOf = (pl) =>
     ? "4- and 5-year"
     : "4-year degree";
 
-export default function CollegeView({ c, back = "/colleges" }) {
+export default function CollegeView({ c, back = "/colleges", backSlot }) {
   const place = c.state
     ? `${c.district ? `${c.district}, ` : ""}${c.state}`
     : null;
@@ -80,7 +80,7 @@ export default function CollegeView({ c, back = "/colleges" }) {
   return (
     <div className="min-h-screen bg-[#fdf8f6] px-4 py-6 sm:px-6">
       <div className="mx-auto max-w-5xl">
-        <BackLink href={back}>All colleges</BackLink>
+        {backSlot || <BackLink href={back}>All colleges</BackLink>}
 
         <div className="mt-4 rounded-2xl border border-[#eaded8] bg-white p-4 sm:p-6">
           <div className="text-xs font-black uppercase tracking-wide text-[#B52326]">

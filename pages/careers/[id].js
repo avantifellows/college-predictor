@@ -2,19 +2,16 @@ import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import BackLink from "../../components/BackLink";
+import DetailBackLink from "../../components/DetailBackLink";
 import { CareerDetail, loadCareers } from "../../components/careerShared";
-import { listBackHref } from "../../utils/listReturn";
 
 // One career on its own page (/careers/<id>).
 export default function CareerPage() {
   const router = useRouter();
   const [career, setCareer] = useState(undefined);
-  const [back, setBack] = useState("/careers");
 
   useEffect(() => {
     if (!router.isReady) return;
-    setBack(listBackHref("/careers"));
     window.scrollTo({ top: 0 });
     loadCareers()
       .then((all) =>
@@ -37,7 +34,7 @@ export default function CareerPage() {
       <div className="min-h-screen px-3 py-6 sm:px-6">
         <div className="mx-auto max-w-6xl">
           <div className="mb-3">
-            <BackLink href={back}>All careers</BackLink>
+            <DetailBackLink list="/careers" listLabel="All careers" />
           </div>
           <div className="rounded-2xl border border-[#eee1d7] bg-white p-4 shadow-sm sm:p-8">
             {career === undefined ? (
