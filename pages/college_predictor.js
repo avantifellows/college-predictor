@@ -693,11 +693,10 @@ const CollegePredictor = () => {
     if (!examConfig) return null;
 
     const renderSelectionCard = (key, label, control, helperText) => (
-      <div
-        key={key}
-        className="rounded-xl border border-[#eaded8] bg-white px-4 py-3 shadow-sm"
-      >
-        <label className="mb-2 block text-sm font-semibold text-[#332724]">
+      // flat fields, a label over each control: boxes inside the filter
+      // panel read as clutter
+      <div key={key}>
+        <label className="mb-1.5 block text-sm font-semibold text-[#332724]">
           {label}
         </label>
         {control}
@@ -810,14 +809,14 @@ const CollegePredictor = () => {
 
     return (
       <div className="space-y-4">
-        <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid grid-cols-1 gap-x-5 gap-y-4 md:grid-cols-2 xl:grid-cols-3">
           {selectionCards}
           {primaryInputCard}
         </div>
 
         {queryObject.exam === "JoSAA" && (
           <>
-            <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3">
+            <div className="grid grid-cols-1 gap-x-5 gap-y-4 md:grid-cols-2 xl:grid-cols-3">
               {renderSelectionCard(
                 "rankMode",
                 "Do you want rank prediction?",
@@ -985,9 +984,9 @@ const CollegePredictor = () => {
                             queryObject.category
                           )
                         }
-                        className="w-full rounded-lg bg-[#B52326] px-4 py-2 text-white hover:bg-[#9E1F22] disabled:bg-gray-300 disabled:text-gray-600"
+                        className="w-full rounded-lg border border-[#B52326] bg-white px-4 py-2 text-sm font-semibold text-[#B52326] transition hover:bg-[#fbeeec] disabled:cursor-not-allowed disabled:border-[#e0cdc6] disabled:text-[#b9a8a2]"
                       >
-                        {isEstimating ? "Estimating..." : "Estimate Rank"}
+                        {isEstimating ? "Estimating…" : "Update my rank"}
                       </button>
                       {queryObject.category &&
                         !isJosaaEstimationSupportedCategory(
@@ -1106,6 +1105,19 @@ const CollegePredictor = () => {
     );
   };
 
+  // a field's question, short enough for a chip: "Select Your Home State" ->
+  // "Home state", "Did you qualify JEE Advanced?" -> "Qualified JEE Advanced"
+  const chipLabel = (label) => {
+    const t = String(label)
+      .replace(/^did you qualify\s+/i, "Qualified ")
+      .replace(/^are you an?\s+/i, "")
+      .replace(/^(select|enter)\s+(your\s+)?/i, "")
+      .replace(/\s*\((optional|as on your [^)]*)\)/gi, "")
+      .replace(/\?$/, "")
+      .trim();
+    return t.charAt(0).toUpperCase() + t.slice(1);
+  };
+
   const renderSelectionSummary = () => {
     const examConfig = examConfigs[queryObject.exam];
     if (!examConfig) return null;
@@ -1171,7 +1183,9 @@ const CollegePredictor = () => {
             key={item.key}
             className="inline-flex items-center gap-2 rounded-full border border-[#e3d1cb] bg-white px-3 py-1 text-xs text-[#5b3a34] sm:text-sm"
           >
-            <span className="font-semibold text-[#7a2628]">{item.label}:</span>
+            <span className="font-semibold text-[#7a2628]">
+              {chipLabel(item.label)}:
+            </span>
             <span>{item.value}</span>
           </span>
         ))}
