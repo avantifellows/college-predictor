@@ -49,8 +49,8 @@ const ACTIONS = [
   },
   { value: "/compare", label: "compare colleges and branches", kw: "compare" },
   {
-    value: "/mock-allotment",
-    label: "run a mock JoSAA allotment",
+    value: "/josaa",
+    label: "learn how JoSAA allotment works",
     kw: "mock",
   },
   { value: "/exams", label: "learn about entrance exams", kw: "exams" },
@@ -131,10 +131,10 @@ const TOOLS = [
     desc: "Ranks, fees and placements side by side.",
   },
   {
-    href: "/mock-allotment",
+    href: "/josaa",
     icon: ListChecks,
-    title: "JoSAA Mock Allotment",
-    desc: "Fill choices, lock them, and play the rounds.",
+    title: "JoSAA Quiz and Simulator",
+    desc: "How seat allotment works, then try the rounds yourself.",
   },
   {
     href: "https://cv-generator.avantifellows.org/",

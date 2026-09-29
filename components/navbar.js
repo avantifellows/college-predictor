@@ -30,7 +30,7 @@ const DASHBOARDS = [
 
 const TOOLS = [
   { href: "/predictor", icon: Target, label: "College Predictor" },
-  { href: "/mock-allotment", icon: ListChecks, label: "JoSAA Mock Allotment" },
+  { href: "/josaa", icon: ListChecks, label: "JoSAA Quiz and Simulator" },
   { href: "/compare", icon: Scale, label: "College & Course Comparison" },
   {
     href: "https://cv-generator.avantifellows.org/",
