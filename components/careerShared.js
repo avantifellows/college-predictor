@@ -1,3 +1,4 @@
+import React from "react";
 import Link from "next/link";
 
 // The career page's building blocks (shared by /careers/<id>).
