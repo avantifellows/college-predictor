@@ -29,16 +29,17 @@ export default function Section() {
             </span>
             <h1 className="text-3xl font-black text-[#2f2320]">{s.title}</h1>
           </div>
-          <div className="mt-8 grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-4">
+          <div className="mt-8 flex flex-wrap justify-center">
             {s.items.map((it) => (
-              <IconTile
-                key={it.name}
-                href={it.href}
-                icon={it.icon}
-                title={it.name}
-                line={it.line}
-                external={it.external}
-              />
+              <div key={it.name} className="w-1/2 p-1 sm:w-1/3 sm:p-2">
+                <IconTile
+                  href={it.href}
+                  icon={it.icon}
+                  title={it.name}
+                  line={it.line}
+                  external={it.external}
+                />
+              </div>
             ))}
           </div>
         </div>

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import { ChevronDown, Facebook, Instagram, UserRound } from "lucide-react";
-import { SECTIONS } from "../utils/siteMap";
+import { SECTIONS, menuOf } from "../utils/siteMap";
 import { usePathname } from "next/navigation";
 import { PORTAL_LOGIN_URL, useStudentProfile } from "../utils/portalSession";
 
@@ -27,10 +27,8 @@ const flatLink = (pathname, href) =>
       : "hover:bg-white/10 cursor-pointer"
   }`;
 
-const NavGroup = ({ label, items, pathname, open, onToggle }) => {
-  const active = items.some(
-    (i) => i.href === pathname || pathname.startsWith(`${i.href}/`)
-  );
+const NavGroup = ({ menuKey, label, items, pathname, open, onToggle }) => {
+  const active = menuOf(pathname) === menuKey;
   return (
     <div className="relative">
       <button
@@ -155,6 +153,7 @@ const Navbar = () => {
             {MENUS.map((m) => (
               <NavGroup
                 key={m.key}
+                menuKey={m.key}
                 label={m.label}
                 items={m.items}
                 pathname={pathname || ""}

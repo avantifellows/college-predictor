@@ -13,10 +13,13 @@ import {
 } from "lucide-react";
 import BackLink from "../../components/BackLink";
 import {
-  CollegeFacts,
   Dash,
   NirfCell,
+  NirfTrend,
   ProgramsTable,
+  fmtFee,
+  fmtSalary,
+  nirfListLabel,
 } from "../../components/collegeShared";
 import { loadColleges, slugMap } from "../../utils/collegesData";
 import { listBackHref } from "../../utils/listReturn";
@@ -45,6 +48,28 @@ const Section = ({ title, children }) => (
     {children}
   </section>
 );
+
+// a big number with a small label: the placement / fee headline figures
+const Stat = ({ label, value }) => (
+  <div className="rounded-xl bg-[#fdf6f4] px-3 py-3 sm:px-4">
+    <div className="text-xl font-black tabular-nums text-[#2f2320] sm:text-2xl">
+      {value ?? <Dash />}
+    </div>
+    <div className="mt-0.5 text-xs leading-snug text-[#6d5550]">{label}</div>
+  </div>
+);
+
+// who the placement numbers are about, in plain words
+const cohortOf = (pl) =>
+  pl.source?.includes("Medical")
+    ? "MBBS"
+    : pl.source?.includes("3-year")
+    ? "3-year degree"
+    : pl.source?.includes("5-year")
+    ? "5-year degree"
+    : pl.includes_dual_degree
+    ? "4- and 5-year"
+    : "4-year degree";
 
 export default function CollegePage() {
   const router = useRouter();
@@ -192,9 +217,120 @@ export default function CollegePage() {
             </div>
           </Section>
 
-          <section className="mt-6 grid gap-4 rounded-2xl border border-[#eaded8] bg-white p-4 sm:grid-cols-2 sm:p-6 lg:grid-cols-3">
-            <CollegeFacts c={c} showAbout={false} />
-          </section>
+          {c.placement ? (
+            <Section title="Placements">
+              <div className="grid grid-cols-2 gap-2 sm:grid-cols-4 sm:gap-3">
+                <Stat
+                  label="Median salary"
+                  value={fmtSalary(c.placement.median_salary)}
+                />
+                <Stat
+                  label="Placed or in higher studies"
+                  value={
+                    c.placement.percentage_with_outcome != null
+                      ? `${c.placement.percentage_with_outcome}%`
+                      : null
+                  }
+                />
+                <Stat
+                  label="Placed in a job"
+                  value={
+                    c.placement.percentage_placed != null
+                      ? `${c.placement.percentage_placed}%`
+                      : null
+                  }
+                />
+                <Stat
+                  label="Students placed"
+                  value={c.placement.students_placed}
+                />
+              </div>
+              <p className="mt-3 text-xs text-[#6d5550]">
+                {cohortOf(c.placement)} graduates, {c.placement.academic_year} ·
+                NIRF {c.placement.ranking_year}
+              </p>
+            </Section>
+          ) : null}
+
+          {c.nirf || c.naac?.grade ? (
+            <Section title="Rankings">
+              <div className="grid gap-5 sm:grid-cols-[14rem_1fr] sm:gap-8">
+                <div className="space-y-3">
+                  {c.nirf ? (
+                    <div>
+                      <div className="text-3xl font-black text-[#2f2320]">
+                        {c.nirf.latest_band
+                          ? c.nirf.latest_band.band
+                          : `#${c.nirf.rank}`}
+                      </div>
+                      <div className="text-xs text-[#6d5550]">
+                        NIRF {nirfListLabel(c.nirf.category)},{" "}
+                        {c.nirf.latest_band
+                          ? c.nirf.latest_band.year
+                          : c.nirf.ranking_year}
+                      </div>
+                    </div>
+                  ) : null}
+                  {c.naac?.grade ? (
+                    <div>
+                      <div className="text-xl font-black text-[#2f2320]">
+                        {c.naac.grade}
+                      </div>
+                      <div className="text-xs text-[#6d5550]">NAAC grade</div>
+                    </div>
+                  ) : null}
+                </div>
+                {c.nirf?.rank_history?.length > 1 ? (
+                  <div>
+                    <NirfTrend
+                      history={[...c.nirf.rank_history]
+                        .sort((x, y) => y.year - x.year)
+                        .slice(0, 4)}
+                    />
+                    <p className="mt-2 text-xs text-[#6d5550]">
+                      Bars show the NIRF score out of 100.
+                    </p>
+                  </div>
+                ) : null}
+              </div>
+            </Section>
+          ) : null}
+
+          {c.fees ? (
+            <Section title={`Fees (${c.fees.cycle})`}>
+              <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-3">
+                <Stat
+                  label="Tuition and institute fees, per year"
+                  value={fmtFee(c.fees.annual_fee)}
+                />
+                {c.fees.annual_hostel_mess != null ? (
+                  <Stat
+                    label="Hostel and mess, per year"
+                    value={fmtFee(c.fees.annual_hostel_mess)}
+                  />
+                ) : null}
+                {c.fees.annual_fee_waived != null ? (
+                  <Stat
+                    label="With SC/ST/PwD tuition waiver"
+                    value={fmtFee(c.fees.annual_fee_waived)}
+                  />
+                ) : null}
+              </div>
+              <p className="mt-3 text-xs text-[#6d5550]">
+                First-year figures. Later years are usually lower.{" "}
+                {c.fees.source_url ? (
+                  <a
+                    href={c.fees.source_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline hover:text-[#8f2e31]"
+                  >
+                    Source
+                  </a>
+                ) : null}
+              </p>
+            </Section>
+          ) : null}
         </div>
       </div>
     </>

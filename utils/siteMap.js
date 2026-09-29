@@ -5,7 +5,6 @@ import {
   School,
   ClipboardList,
   FileText,
-  HelpCircle,
   LineChart,
   ListChecks,
   Search,
@@ -20,19 +19,13 @@ export const SECTIONS = {
   careers: {
     title: "Careers",
     icon: Briefcase,
-    line: "Explore careers, take the quiz, make a CV",
+    line: "What careers pay, and make a CV",
     items: [
       {
         href: "/careers",
         icon: Search,
         name: "Explore careers",
         line: "What each career pays and needs",
-      },
-      {
-        href: "/quiz",
-        icon: HelpCircle,
-        name: "Career Quiz",
-        line: "Find the path to a career",
       },
       {
         href: CV_URL,
@@ -108,3 +101,24 @@ export const HOME_TILES = [
     line: "Scholarships you can apply for",
   },
 ];
+
+// which menu a page belongs to, so exactly one lights up. The predictor is
+// listed under both Colleges and Exams but lives under Colleges.
+export const MENU_OF_PATH = [
+  ["/careers", "careers"],
+  ["/colleges", "colleges"],
+  ["/compare", "colleges"],
+  ["/predictor", "colleges"],
+  ["/college_predictor", "colleges"],
+  ["/exams", "exams"],
+  ["/josaa", "exams"],
+  ["/mock-allotment", "exams"],
+];
+export const menuOf = (pathname = "") => {
+  const hit = MENU_OF_PATH.find(
+    ([p]) => pathname === p || pathname.startsWith(`${p}/`)
+  );
+  if (hit) return hit[1];
+  const m = pathname.match(/^\/sections\/(\w+)/);
+  return m ? m[1] : null;
+};
