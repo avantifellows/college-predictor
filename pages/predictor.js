@@ -7,6 +7,7 @@ import dynamic from "next/dynamic";
 import TneaScoreCalculator from "../components/TneaScoreCalculator";
 import { ExternalLink, PlayCircle } from "lucide-react";
 import { readProfile, profileDefaultsForFields } from "../utils/portalSession";
+import BackLink from "../components/BackLink";
 
 // Dynamically import Dropdown with SSR disabled
 const Dropdown = dynamic(() => import("../components/dropdown"), {
@@ -664,6 +665,9 @@ const ExamForm = () => {
       </Head>
       <div className="flex min-h-[calc(100vh-120px)] flex-col">
         <div className="mt-6 flex w-full flex-col items-center justify-start px-4 pb-10 sm:mt-8">
+          <div className="w-full max-w-4xl">
+            <BackLink />
+          </div>
           <div className="mt-4 flex w-full max-w-4xl flex-col items-center rounded-2xl border border-[#eaded8] bg-white p-5 pb-6 text-center shadow-sm sm:mt-6 sm:p-6">
             <h1 className="mb-2 text-2xl font-bold text-[#2f2320] md:text-3xl">
               {getConstants().TITLE}

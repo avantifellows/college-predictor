@@ -3,6 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { ArrowRight, Check } from "lucide-react";
+import BackLink from "../components/BackLink";
 
 // JoSAA landing: a short awareness quiz on how seat allotment works, then
 // the mock allotment simulator. Round counts change year to year (2023: 6,
@@ -298,7 +299,10 @@ export default function JoSAA() {
           content="How JoSAA seat allotment works: a short quiz on rounds, choices, freeze, float, slide and CSAB, then a mock allotment to try it yourself."
         />
       </Head>
-      <div className="min-h-screen px-3 py-6 sm:px-6 sm:py-10">
+      <div className="min-h-screen px-3 py-6 sm:px-6 sm:py-8">
+        <div className="mx-auto mb-3 max-w-2xl">
+          <BackLink />
+        </div>
         {inQuiz ? (
           <Quiz
             onExit={() => router.push("/josaa", undefined, { shallow: true })}

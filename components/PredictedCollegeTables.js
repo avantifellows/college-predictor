@@ -1517,7 +1517,9 @@ const PredictedCollegesTable = ({
   const renderTableHeader = () => (
     <tr className={commonHeaderClass}>
       {supportsCompare && (
-        <th className="whitespace-nowrap border-b border-[#decac3] px-3 py-3">
+        // students didn't notice Compare in the Pune review: the column
+        // wears the brand red header and a rose tint, in the site's palette
+        <th className="whitespace-nowrap border-b border-[#9E1F22] bg-[#B52326] px-3 py-3 text-center text-white">
           Compare
         </th>
       )}
@@ -1592,7 +1594,7 @@ const PredictedCollegesTable = ({
             }`}
           >
             {supportsCompare && (
-              <td className="px-3 py-3 text-center align-top">
+              <td className="border-r border-[#f0cfca] bg-[#fbeae8] px-3 py-3 text-center align-top">
                 {compareIdOf(transformedItem) ? (
                   <input
                     type="checkbox"
@@ -1615,7 +1617,7 @@ const PredictedCollegesTable = ({
                         : "Pick to compare"
                     }
                     onChange={() => toggleCompare(transformedItem)}
-                    className="h-4 w-4 accent-[#B52326] disabled:cursor-not-allowed disabled:opacity-30"
+                    className="h-5 w-5 cursor-pointer accent-[#B52326] disabled:cursor-not-allowed disabled:opacity-30"
                   />
                 ) : null}
               </td>
@@ -1830,11 +1832,11 @@ const PredictedCollegesTable = ({
                     .join(",")}`}
                   className="inline-flex items-center whitespace-nowrap rounded-full bg-[#B52326] px-5 py-2 text-sm font-semibold text-white transition hover:bg-[#9E1F22]"
                 >
-                  Compare
+                  Compare {compareSel.length} colleges →
                 </Link>
               ) : (
                 <span className="whitespace-nowrap text-sm text-[#7a635d]">
-                  Pick one more
+                  Pick one more to compare
                 </span>
               )}
               <button

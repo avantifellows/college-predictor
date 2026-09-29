@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import { Plus, X } from "lucide-react";
 import { selectFilter } from "../utils/search";
+import BackLink from "../components/BackLink";
 
 const Dropdown = dynamic(() => import("../components/dropdown"), {
   ssr: false,
@@ -362,6 +363,9 @@ export default function Compare() {
         />
       </Head>
       <div className="min-h-screen px-3 py-6 sm:px-6">
+        <div className="mx-auto mb-3 max-w-6xl">
+          <BackLink />
+        </div>
         <div className="mx-auto max-w-6xl rounded-2xl border border-[#eee1d7] bg-white p-4 shadow-sm sm:p-8">
           <h1 className="text-center text-3xl font-bold text-[#332724]">
             College &amp; Course Comparison

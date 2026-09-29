@@ -3,6 +3,7 @@ import Head from "next/head";
 import { ChevronDown, Download, Search } from "lucide-react";
 import { matchesQuery } from "../utils/search";
 import useUrlParams from "../utils/useUrlParams";
+import BackLink from "../components/BackLink";
 
 // Rendered entirely from the PUBLIC manifest: what you see is exactly what is
 // published (external_data_sources/open_data/publish.py). File titles follow
@@ -217,7 +218,10 @@ export default function Datasets() {
         />
       </Head>
 
-      <div className="mx-auto max-w-4xl px-4 pt-8">
+      <div className="mx-auto max-w-4xl px-4 pt-6">
+        <div className="mb-3">
+          <BackLink />
+        </div>
         <div className="rounded-2xl border border-[#eaded8] bg-white p-6 shadow-sm">
           <h1 className="text-2xl font-bold text-[#332724]">Open Datasets</h1>
           <p className="mt-2 text-[#685851]">

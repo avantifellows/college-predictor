@@ -2,7 +2,11 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import { ChevronDown, ChevronUp, ExternalLink, Search } from "lucide-react";
+import { useRouter } from "next/router";
+import { ChevronDown, ChevronRight, ChevronUp, Search } from "lucide-react";
+import BackLink from "../components/BackLink";
+import { Dash, fmtFee, loadExams } from "../components/examShared";
+import { rememberList } from "../utils/listReturn";
 import { matchesQuery, plainText } from "../utils/search";
 import useUrlParams from "../utils/useUrlParams";
 
@@ -18,255 +22,64 @@ const Dropdown = dynamic(() => import("../components/dropdown"), {
 // are search aliases on the successor, so a student who types the old name
 // still lands somewhere useful.
 
-const DATA_URL = "/data/exams/exams.json";
 const PAGE_SIZE = 30;
 
-const Dash = () => <span className="text-[#b9a8a2]">—</span>;
-
-const fmtFee = (e) => {
-  if (e.fee_number) return `₹${e.fee_number.toLocaleString("en-IN")}`;
-  return e.fee_display || null;
-};
-
-/** Label/value line used in the expander — left-aligned so long fuzzy
- *  dates ("3rd week of December/ 1st week of February") read as prose. */
-const DetailRow = ({ label, children }) => (
-  <div className="grid grid-cols-[6.5rem_1fr] gap-2">
-    <dt className="text-[#6d5550]">{label}</dt>
-    <dd>{children}</dd>
-  </div>
-);
-
-/** One exam row plus its expandable detail. */
-const ExamRow = ({ e, index, expanded, onToggle }) => {
-  return (
-    <>
-      <tr
-        id={`exam-${e.exam_id}`}
-        className={`scroll-mt-4 border-b border-[#eaded8] text-xs sm:text-sm ${
-          index % 2 === 0 ? "bg-[#fffdfa]" : "bg-white"
-        }`}
+/** One exam in the list; the whole row opens its page. */
+const ExamRow = ({ e, index, onOpen }) => (
+  <tr
+    onClick={onOpen}
+    className={`cursor-pointer border-b border-[#eaded8] text-xs transition hover:bg-[#fbeeec] sm:text-sm ${
+      index % 2 === 0 ? "bg-[#fffdfa]" : "bg-white"
+    }`}
+  >
+    <td className="px-3 py-3 align-top">
+      <Link
+        href={`/exams/${e.exam_id}`}
+        onClick={(ev) => ev.stopPropagation()}
+        className="font-semibold text-[#332724] hover:text-[#8f2e31]"
       >
-        <td className="px-3 py-3 align-top">
-          <button
-            type="button"
-            onClick={onToggle}
-            className="text-left font-semibold text-[#332724] hover:text-[#8f2e31]"
+        {e.name}
+      </Link>
+      {/* on phones the scope moves to its own column (Amogh) */}
+      <div className="mt-0.5 hidden text-[11px] text-[#6d5550] sm:block">
+        {e.scope_state && e.scope_type === "University"
+          ? `${e.scope} · ${e.scope_state}`
+          : e.scope}
+      </div>
+    </td>
+    <td className="px-3 py-3 align-top">
+      <div className="flex flex-wrap gap-1">
+        {e.streams.map((st) => (
+          <span
+            key={st}
+            className="rounded-full border border-[#e3d1cb] bg-white px-1.5 py-0.5 text-[11px] text-[#6d5550]"
           >
-            {e.name}
-          </button>
-          {/* on phones the scope moves to its own column (Amogh) */}
-          <div className="mt-0.5 hidden text-[11px] text-[#6d5550] sm:block">
-            {e.scope_state && e.scope_type === "University"
-              ? `${e.scope} · ${e.scope_state}`
-              : e.scope}
-          </div>
-        </td>
-        <td className="px-3 py-3 align-top">
-          <div className="flex flex-wrap gap-1">
-            {e.streams.map((s) => (
-              <span
-                key={s}
-                className="rounded-full border border-[#e3d1cb] bg-white px-1.5 py-0.5 text-[11px] text-[#6d5550]"
-              >
-                {s}
-              </span>
-            ))}
-          </div>
-        </td>
-        <td className="hidden max-w-[16rem] px-3 py-3 align-top lg:table-cell">
-          {e.eligibility ? (
-            <span className="line-clamp-2 text-[#5b3a34]">{e.eligibility}</span>
-          ) : (
-            <Dash />
-          )}
-        </td>
-        <td className="px-3 py-3 align-top text-[#5b3a34] sm:hidden">
-          {e.scope_type === "University"
-            ? e.scope_state || "University"
-            : e.scope_type}
-        </td>
-        <td className="hidden px-3 py-3 align-top tabular-nums sm:table-cell">
-          {fmtFee(e) || <Dash />}
-        </td>
-        <td className="px-3 py-3 align-top">{e.test_month || <Dash />}</td>
-        <td className="px-3 py-3 align-top">
-          <button
-            type="button"
-            onClick={onToggle}
-            className="inline-flex items-center gap-1 rounded-full border border-[#e3d1cb] bg-white px-3 py-1.5 text-xs font-semibold text-[#8f2e31] transition hover:bg-[#f8efec]"
-          >
-            {expanded ? "Less" : "More"}
-            {expanded ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
-          </button>
-        </td>
-      </tr>
-      {expanded ? (
-        <tr className="border-b border-[#eaded8] bg-[#fdf7f2]">
-          <td colSpan={7} className="px-4 py-4 sm:px-6">
-            {/* the table is min-640px wide; cap the detail text at the
-                viewport so phone users read it without side-scrolling */}
-            <div className="grid max-w-[calc(100vw-4rem)] gap-6 md:max-w-none md:grid-cols-5">
-              <div className="space-y-5 md:col-span-2">
-                <div>
-                  <h4 className="mb-1.5 text-[13px] font-semibold uppercase tracking-wide text-[#8f2e31]">
-                    Typical timeline
-                  </h4>
-                  <dl className="space-y-1 text-sm text-[#5b3a34]">
-                    {e.forms_out ? (
-                      <DetailRow label="Forms out">{e.forms_out}</DetailRow>
-                    ) : null}
-                    {e.last_date ? (
-                      <DetailRow label="Last date">{e.last_date}</DetailRow>
-                    ) : null}
-                    {e.test_date ? (
-                      <DetailRow label="Test">{e.test_date}</DetailRow>
-                    ) : null}
-                  </dl>
-                </div>
-                <div>
-                  <h4 className="mb-1.5 text-[13px] font-semibold uppercase tracking-wide text-[#8f2e31]">
-                    Test format
-                  </h4>
-                  <dl className="space-y-1 text-sm text-[#5b3a34]">
-                    {e.mode ? (
-                      <DetailRow label="Mode">{e.mode}</DetailRow>
-                    ) : null}
-                    {e.duration ? (
-                      <DetailRow label="Duration">{e.duration}</DetailRow>
-                    ) : null}
-                    {e.marking ? (
-                      <DetailRow label="Marking">
-                        <span className="tabular-nums">{e.marking}</span>
-                      </DetailRow>
-                    ) : null}
-                    {e.degrees?.length ? (
-                      <DetailRow label="Degrees">
-                        {e.degrees.join(", ")}
-                      </DetailRow>
-                    ) : null}
-                  </dl>
-                </div>
-              </div>
-              <div className="space-y-5 md:col-span-3">
-                {e.eligibility ? (
-                  <div>
-                    <h4 className="mb-1.5 text-[13px] font-semibold uppercase tracking-wide text-[#8f2e31]">
-                      Eligibility
-                    </h4>
-                    <p className="text-sm leading-6 text-[#5b3a34]">
-                      {e.eligibility}
-                    </p>
-                  </div>
-                ) : null}
-                {e.pattern_rows?.length || e.pattern ? (
-                  <div>
-                    <h4 className="mb-1.5 text-[13px] font-semibold uppercase tracking-wide text-[#8f2e31]">
-                      Paper pattern
-                    </h4>
-                    {e.pattern_rows?.length ? (
-                      <dl className="max-w-md space-y-1 text-sm text-[#5b3a34]">
-                        {e.pattern_rows.map(([label, count], i) => (
-                          <div
-                            key={i}
-                            className={`flex justify-between gap-3 ${
-                              label === "Total"
-                                ? "border-t border-[#e3d1cb] pt-1 font-semibold"
-                                : ""
-                            }`}
-                          >
-                            <dt>{label}</dt>
-                            <dd className="whitespace-nowrap tabular-nums">
-                              {count}
-                            </dd>
-                          </div>
-                        ))}
-                      </dl>
-                    ) : (
-                      <p className="text-sm leading-6 text-[#5b3a34]">
-                        {e.pattern}
-                      </p>
-                    )}
-                    {e.pattern_note ? (
-                      <p className="mt-1.5 text-xs leading-5 text-[#6d5550]">
-                        {e.pattern_note}
-                      </p>
-                    ) : null}
-                  </div>
-                ) : null}
-                {e.remarks ? (
-                  <p className="text-sm leading-6 text-[#5b3a34]">
-                    {e.remarks}
-                  </p>
-                ) : null}
-                {e.careers?.length ? (
-                  <div className="flex flex-wrap items-center gap-1.5">
-                    <span className="text-xs font-semibold uppercase tracking-wide text-[#8f2e31]">
-                      Leads to
-                    </span>
-                    {e.careers.map((c) => (
-                      <Link
-                        key={c.slug}
-                        href={`/careers#${c.slug}`}
-                        className="rounded-full bg-[#f5ece8] px-2.5 py-1 text-xs font-bold text-[#8f2e31] transition hover:bg-[#f3dfd9]"
-                      >
-                        {c.label}
-                      </Link>
-                    ))}
-                  </div>
-                ) : null}
-                {e.replaces?.length ? (
-                  <p className="text-xs leading-5 text-[#6d5550]">
-                    Replaces:{" "}
-                    {e.replaces.map((r) => r.split(" (")[0]).join(", ")}
-                  </p>
-                ) : null}
-                <div className="flex flex-wrap items-center gap-3 text-sm">
-                  {e.predictor_exam ? (
-                    <Link
-                      href={`/predictor?exam=${encodeURIComponent(
-                        e.predictor_exam
-                      )}`}
-                      className="inline-flex items-center gap-1 rounded-full bg-[#B52326] px-3 py-1.5 text-xs font-semibold text-white transition hover:bg-[#8f2e31]"
-                    >
-                      Check your colleges
-                    </Link>
-                  ) : null}
-                  {e.colleges_link ? (
-                    <Link
-                      href={e.colleges_link}
-                      className="text-xs text-[#6d5550] underline hover:text-[#8f2e31]"
-                    >
-                      Colleges accepting it
-                    </Link>
-                  ) : null}
-                  {e.url ? (
-                    <a
-                      href={e.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-xs text-[#6d5550] underline hover:text-[#8f2e31]"
-                    >
-                      Official site <ExternalLink size={12} />
-                    </a>
-                  ) : null}
-                  {e.open_data_id ? (
-                    <Link
-                      href={`/datasets#${e.open_data_id}`}
-                      className="text-xs text-[#6d5550] underline hover:text-[#8f2e31]"
-                    >
-                      Open data
-                    </Link>
-                  ) : null}
-                </div>
-              </div>
-            </div>
-          </td>
-        </tr>
-      ) : null}
-    </>
-  );
-};
+            {st}
+          </span>
+        ))}
+      </div>
+    </td>
+    <td className="hidden max-w-[16rem] px-3 py-3 align-top lg:table-cell">
+      {e.eligibility ? (
+        <span className="line-clamp-2 text-[#5b3a34]">{e.eligibility}</span>
+      ) : (
+        <Dash />
+      )}
+    </td>
+    <td className="px-3 py-3 align-top text-[#5b3a34] sm:hidden">
+      {e.scope_type === "University"
+        ? e.scope_state || "University"
+        : e.scope_type}
+    </td>
+    <td className="hidden px-3 py-3 align-top tabular-nums sm:table-cell">
+      {fmtFee(e) || <Dash />}
+    </td>
+    <td className="px-3 py-3 align-top">{e.test_month || <Dash />}</td>
+    <td className="px-2 py-3 align-top text-[#b9a8a2]">
+      <ChevronRight size={18} />
+    </td>
+  </tr>
+);
 
 /** Sortable column header — click toggles asc/desc, third click clears. */
 const SortTh = ({ label, col, sort, setSort, className = "" }) => {
@@ -297,6 +110,7 @@ const SortTh = ({ label, col, sort, setSort, className = "" }) => {
 };
 
 export default function Exams() {
+  const router = useRouter();
   const [all, setAll] = useState([]);
   const [error, setError] = useState(null);
   // filters, sort and the opened card live in the URL: shareable, and Back
@@ -330,18 +144,14 @@ export default function Exams() {
       next.col ? `${next.dir === "desc" ? "-" : ""}${next.col}` : ""
     );
   };
-  const expandedId = params.open || null;
-  const setExpandedId = (id) => setParam("open", id || "");
   const arrivedQ = useRef(null);
   useEffect(() => {
     if (urlReady && arrivedQ.current === null) arrivedQ.current = q;
   }, [urlReady, q]);
-  const [autoOpened, setAutoOpened] = useState(false);
   const [shown, setShown] = useState(PAGE_SIZE);
 
   useEffect(() => {
-    fetch(DATA_URL)
-      .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
+    loadExams()
       .then(setAll)
       .catch(() => setError("Could not load the exam list right now."));
   }, []);
@@ -397,50 +207,43 @@ export default function Exams() {
     return out;
   }, [all, q, stream, where, sort]);
 
-  // arriving from a link (/exams?q=IAT): open the card when the query lands
-  // on one exam, or on exactly one exact-acronym match
+  // A link that names one exam (a college's exam chip: /exams?q=JEE Advanced)
+  // or an older ?open= link goes straight to that exam's page: the query
+  // lands on one exam, or on exactly one exact-acronym match. Replace, so
+  // Back skips this hop.
+  const redirected = useRef(false);
   useEffect(() => {
-    if (autoOpened || !q || q !== arrivedQ.current || filtered.length === 0)
-      return;
-    const raw = plainText(q);
-    const exacts = filtered.filter(
-      (e) =>
-        plainText(e.acronym) === raw ||
-        (e.aliases || []).some((a) => plainText(a) === raw)
-    );
-    const pick =
-      filtered.length === 1
-        ? filtered[0]
-        : exacts.length === 1
-        ? exacts[0]
-        : null;
-    if (pick) {
-      setExpandedId(pick.exam_id);
-      setAutoOpened(true);
+    if (redirected.current || !urlReady || !all.length) return;
+    let pick = null;
+    if (params.open) {
+      pick = all.find((x) => x.exam_id === params.open) || null;
+    } else if (q && q === arrivedQ.current && filtered.length) {
+      const raw = plainText(q);
+      const exacts = filtered.filter(
+        (e) =>
+          plainText(e.acronym) === raw ||
+          (e.aliases || []).some((a) => plainText(a) === raw)
+      );
+      pick =
+        filtered.length === 1
+          ? filtered[0]
+          : exacts.length === 1
+          ? exacts[0]
+          : null;
     }
-  }, [filtered, q, autoOpened]);
+    if (pick) {
+      redirected.current = true;
+      router.replace(`/exams/${pick.exam_id}`);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [urlReady, all, filtered, params.open, q]);
+
+  // so an exam page's "All exams" comes back to this list as it is
+  useEffect(() => {
+    if (urlReady) rememberList("/exams");
+  }, [urlReady, router.asPath]);
 
   useEffect(() => setShown(PAGE_SIZE), [q, stream, where, sort]);
-
-  // a shared link to an opened card (?open=jee-main): make sure it's on
-  // screen even when the list around it is long
-  const linkedOpened = useRef(false);
-  useEffect(() => {
-    if (linkedOpened.current || !urlReady || !params.open || !all.length)
-      return;
-    linkedOpened.current = true;
-    const e = all.find((x) => x.exam_id === params.open);
-    if (!e) return;
-    if (!filtered.slice(0, PAGE_SIZE).includes(e)) setQ(e.acronym || e.name);
-    setTimeout(
-      () =>
-        document
-          .getElementById(`exam-${e.exam_id}`)
-          ?.scrollIntoView({ block: "start" }),
-      50
-    );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [urlReady, params.open, all]);
 
   const th =
     "px-3 py-2.5 text-left text-xs font-semibold uppercase tracking-wide text-[#5b1f20]";
@@ -455,6 +258,9 @@ export default function Exams() {
         />
       </Head>
       <div className="min-h-screen px-3 py-6 sm:px-6">
+        <div className="mx-auto mb-3 max-w-6xl">
+          <BackLink />
+        </div>
         <div className="mx-auto max-w-6xl rounded-2xl border border-[#eee1d7] bg-white p-4 shadow-sm sm:p-8">
           <h1 className="text-center text-3xl font-bold text-[#332724]">
             Entrance Exams
@@ -560,12 +366,7 @@ export default function Exams() {
                         key={e.exam_id}
                         e={e}
                         index={i}
-                        expanded={expandedId === e.exam_id}
-                        onToggle={() =>
-                          setExpandedId(
-                            expandedId === e.exam_id ? null : e.exam_id
-                          )
-                        }
+                        onOpen={() => router.push(`/exams/${e.exam_id}`)}
                       />
                     ))}
                   </tbody>

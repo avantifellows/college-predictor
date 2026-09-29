@@ -21,7 +21,7 @@ const MENUS = ["careers", "colleges", "exams"].map((k) => ({
 }));
 
 const flatLink = (pathname, href) =>
-  `rounded-full px-3 py-1.5 text-sm font-semibold transition ${
+  `rounded-full px-2 py-1.5 text-[13px] font-semibold transition sm:px-3 sm:text-sm ${
     pathname === href || pathname.startsWith(`${href}/`)
       ? "bg-white/20"
       : "hover:bg-white/10 cursor-pointer"
@@ -36,7 +36,7 @@ const NavGroup = ({ label, items, pathname, open, onToggle }) => {
       <button
         type="button"
         onClick={onToggle}
-        className={`inline-flex items-center gap-1 rounded-full px-3 py-1.5 text-sm font-semibold transition ${
+        className={`inline-flex items-center gap-0.5 rounded-full px-2 py-1.5 text-[13px] font-semibold transition sm:gap-1 sm:px-3 sm:text-sm ${
           active || open ? "bg-white/20" : "hover:bg-white/10"
         }`}
       >
@@ -85,6 +85,39 @@ const Navbar = () => {
     return () => document.removeEventListener("mousedown", onDoc);
   }, []);
 
+  // Student login / Student Corner: on the red bar (onRed) from tablet
+  // width up, in the white top bar on a phone
+  const account = (onRed) =>
+    profile ? (
+      <Link
+        href="/student-corner"
+        className={`inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-semibold transition ${
+          onRed
+            ? pathname === "/student-corner"
+              ? "bg-white/20 text-white"
+              : "bg-white/10 text-white hover:bg-white/20"
+            : "bg-[#fbeeec] text-[#B52326]"
+        }`}
+      >
+        <UserRound size={15} />
+        <span className="max-w-[140px] truncate">
+          {profile.name ? profile.name.split(" ")[0] : "Student Corner"}
+        </span>
+      </Link>
+    ) : (
+      <a
+        href={PORTAL_LOGIN_URL}
+        className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-sm font-bold shadow-sm transition ${
+          onRed
+            ? "bg-white text-[#B52326] hover:bg-[#f8efec]"
+            : "bg-[#B52326] text-white hover:bg-[#9E1F22]"
+        }`}
+      >
+        <UserRound size={15} />
+        {onRed ? "Student login" : "Login"}
+      </a>
+    );
+
   return (
     <div className="border-b border-[#eaded8] bg-white shadow-sm">
       <div className="mx-auto flex w-full max-w-6xl flex-row items-center justify-between px-5 py-2.5 md:px-8">
@@ -104,7 +137,10 @@ const Navbar = () => {
           </Link>
         </div>
 
-        <div className="flex gap-1.5">
+        <div className="flex items-center gap-1.5">
+          {/* on a phone the login sits up here, so the red bar keeps the
+              five menus on one line */}
+          <div className="mr-1 sm:hidden">{account(false)}</div>
           <SocialIcon socialLink={"https://www.facebook.com/avantifellows"}>
             <Facebook size={18} color="#fff" fill="#fff" strokeWidth="0.1" />
           </SocialIcon>
@@ -114,8 +150,8 @@ const Navbar = () => {
         </div>
       </div>
       <div ref={barRef} className="w-full bg-[#B52326] py-3 text-white">
-        <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-2 px-5 md:px-8">
-          <div className="flex flex-wrap items-center gap-2">
+        <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-2 px-3 sm:px-5 md:px-8">
+          <div className="flex flex-wrap items-center gap-0.5 sm:gap-2">
             {MENUS.map((m) => (
               <NavGroup
                 key={m.key}
@@ -132,36 +168,19 @@ const Navbar = () => {
             >
               Scholarships
             </Link>
+            {/* on a phone Datasets lives in the footer ("Built with open
+                data"), so the menus stay on one line */}
             <Link
               href="/datasets"
-              className={flatLink(pathname || "", "/datasets")}
+              className={`hidden sm:inline-block ${flatLink(
+                pathname || "",
+                "/datasets"
+              )}`}
             >
               Datasets
             </Link>
           </div>
-          {profile ? (
-            <Link
-              href="/student-corner"
-              className={`inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-semibold transition ${
-                pathname === "/student-corner"
-                  ? "bg-white/20"
-                  : "bg-white/10 hover:bg-white/20"
-              }`}
-            >
-              <UserRound size={15} />
-              <span className="max-w-[140px] truncate">
-                {profile.name ? profile.name.split(" ")[0] : "Student Corner"}
-              </span>
-            </Link>
-          ) : (
-            <a
-              href={PORTAL_LOGIN_URL}
-              className="inline-flex items-center gap-2 rounded-full bg-white px-3.5 py-1.5 text-sm font-bold text-[#B52326] shadow-sm transition hover:bg-[#f8efec]"
-            >
-              <UserRound size={15} />
-              Student login
-            </a>
-          )}
+          <div className="hidden shrink-0 sm:block">{account(true)}</div>
         </div>
       </div>
     </div>
