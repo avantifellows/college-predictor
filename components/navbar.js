@@ -1,47 +1,36 @@
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
-import {
-  ListChecks,
-  Award,
-  Briefcase,
-  Building2,
-  ChevronDown,
-  ClipboardList,
-  Facebook,
-  FileText,
-  Instagram,
-  Scale,
-  Target,
-  UserRound,
-} from "lucide-react";
+import { ChevronDown, Facebook, Instagram, UserRound } from "lucide-react";
+import { SECTIONS } from "../utils/siteMap";
 import { usePathname } from "next/navigation";
 import { PORTAL_LOGIN_URL, useStudentProfile } from "../utils/portalSession";
 
-// Navbar in the futures-standalone style: two grouped menus plus Datasets,
-// instead of seven flat links. Groups open on click (works on touch), close
-// on outside click or navigation.
+// Navbar in the futures v2 style: Careers / Colleges / Exams menus (the same
+// items as the section pages, from utils/siteMap), then Scholarships and
+// Datasets. Menus open on click (works on touch), close on outside click or
+// navigation.
+const MENUS = ["careers", "colleges", "exams"].map((k) => ({
+  key: k,
+  label: SECTIONS[k].title,
+  items: SECTIONS[k].items.map((i) => ({
+    href: i.href,
+    icon: i.icon,
+    label: i.name,
+    external: i.external,
+  })),
+}));
 
-const DASHBOARDS = [
-  { href: "/careers", icon: Briefcase, label: "Careers" },
-  { href: "/colleges", icon: Building2, label: "Colleges" },
-  { href: "/exams", icon: ClipboardList, label: "Exams" },
-  { href: "/scholarships", icon: Award, label: "Scholarships" },
-];
-
-const TOOLS = [
-  { href: "/predictor", icon: Target, label: "College Predictor" },
-  { href: "/josaa", icon: ListChecks, label: "JoSAA Quiz and Simulator" },
-  { href: "/compare", icon: Scale, label: "College & Course Comparison" },
-  {
-    href: "https://cv-generator.avantifellows.org/",
-    icon: FileText,
-    label: "CV Generator",
-    external: true,
-  },
-];
+const flatLink = (pathname, href) =>
+  `rounded-full px-3 py-1.5 text-sm font-semibold transition ${
+    pathname === href || pathname.startsWith(`${href}/`)
+      ? "bg-white/20"
+      : "hover:bg-white/10 cursor-pointer"
+  }`;
 
 const NavGroup = ({ label, items, pathname, open, onToggle }) => {
-  const active = items.some((i) => i.href === pathname);
+  const active = items.some(
+    (i) => i.href === pathname || pathname.startsWith(`${i.href}/`)
+  );
   return (
     <div className="relative">
       <button
@@ -127,27 +116,25 @@ const Navbar = () => {
       <div ref={barRef} className="w-full bg-[#B52326] py-3 text-white">
         <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-2 px-5 md:px-8">
           <div className="flex flex-wrap items-center gap-2">
-            <NavGroup
-              label="Dashboards"
-              items={DASHBOARDS}
-              pathname={pathname}
-              open={open === "dash"}
-              onToggle={() => setOpen(open === "dash" ? null : "dash")}
-            />
-            <NavGroup
-              label="Tools"
-              items={TOOLS}
-              pathname={pathname}
-              open={open === "tools"}
-              onToggle={() => setOpen(open === "tools" ? null : "tools")}
-            />
+            {MENUS.map((m) => (
+              <NavGroup
+                key={m.key}
+                label={m.label}
+                items={m.items}
+                pathname={pathname || ""}
+                open={open === m.key}
+                onToggle={() => setOpen(open === m.key ? null : m.key)}
+              />
+            ))}
+            <Link
+              href="/scholarships"
+              className={flatLink(pathname || "", "/scholarships")}
+            >
+              Scholarships
+            </Link>
             <Link
               href="/datasets"
-              className={`rounded-full px-3 py-1.5 text-sm font-semibold transition ${
-                pathname === "/datasets"
-                  ? "bg-white/20"
-                  : "hover:bg-white/10 cursor-pointer"
-              }`}
+              className={flatLink(pathname || "", "/datasets")}
             >
               Datasets
             </Link>

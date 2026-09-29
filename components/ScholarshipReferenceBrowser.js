@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import Fuse from "fuse.js";
 import Dropdown from "./dropdown";
+import BackLink from "./BackLink";
 import useUrlParams from "../utils/useUrlParams";
 import ScholarshipTable from "./ScholarshipTable";
 
@@ -331,8 +332,11 @@ const ScholarshipReferenceBrowser = () => {
   );
 
   return (
-    <div className="min-h-screen bg-[#fdf8f6] px-4 py-8">
+    <div className="min-h-screen bg-[#fdf8f6] px-4 py-6">
       <div className="mx-auto w-full max-w-6xl">
+        <div className="mb-3">
+          <BackLink />
+        </div>
         <div className="mb-6 rounded-2xl border border-[#eaded8] bg-white p-6 shadow-sm">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
             <div>
