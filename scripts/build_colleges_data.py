@@ -834,7 +834,22 @@ STATE_SPECS = {
                    district=None, university=None, stream="stream",
                    open_where="category = 'GEN' AND sub_pool = '' AND gender = 'All'",
                    label="GUJCET", counselling="ACPC (GUJCET)", map_exam="GUJCET",
-                   state="Gujarat", source="ACPC {y}"),
+                   state="Gujarat", source="ACPC {y}",
+                   # engineering colleges: Nirma's Institute of Technology must
+                   # not show the Pharmacy rank its university id also carries
+                   nirf_cats=["Engineering"],
+                   # NIRF band names ACPC spells differently (DA-IICT renamed
+                   # itself Dhirubhai Ambani University in 2024)
+                   band_pins={
+                       "Dhirubhai Ambani University, Gandhinagar":
+                           "Dhirubhai Ambani Institute of Information and Communication Technology",
+                       "Faculty Of Technology & Engineering(MSU)(SFI), Vadodara":
+                           "Maharaja Sayajirao University of Baroda",
+                       "Marwadi Education Foundation's Group of Institutions - Faculty of Engineering & Technology, Rajkot":
+                           "Marwadi University",
+                       "Institute of Infrastructure, Tech., Research & Management (IITRAM), Maninagar, Ahmedabad":
+                           "Institute of Infrastructure Technology Research and Management (IITRAM)",
+                   }),
 }
 
 # CLAT's table has no state column; NLU names carry the city
@@ -975,57 +990,236 @@ OWNERSHIP_NAME_PINS = {
 }
 
 
-def fill_ownership_from_aishe(client, rows):
-    """Spines whose source prints no college type (UPTAC, OJEE, KEA's
-    'Unknown' rows) take it from AISHE, matched by name within the state.
-    Only AISHE's clear answers count: government and public-university
-    entries, and un-aided private ones. AISHE's self-reported 'Private
-    Aided' is left unclaimed — it tags self-financing colleges (Dr. M.C.
-    Saxena, Ashoka Institute Varanasi) as aided. What AISHE can't place, a
-    name that says government ("Rajkiya" is Hindi for it) settles."""
-    todo = [r for r in rows if not r.get("ownership") and r.get("state")]
+# AISHE prints codes and short forms that no admissions list uses:
+# "AHMEDABAD INSTITUTE OF TECH, AHMEDABAD  002", "SAL INSTITUTE OF TECH. &
+# ENGG. RESEARCH". Both sides are cleaned the same way before matching.
+_TRAILING_CODE = re.compile(r"[\s,.-]+\d{2,4}\s*$")
+_SHORT_FORMS = [
+    (re.compile(r"\bengg\b\.?", re.I), "engineering"),
+    (re.compile(r"\btech\b\.?(?!n)", re.I), "technology"),
+    (re.compile(r"\binst\b\.?", re.I), "institute"),
+    (re.compile(r"\bcoll\b\.?", re.I), "college"),
+    (re.compile(r"\bmgmt\b\.?", re.I), "management"),
+]
+
+
+def _clean_for_match(name):
+    t = _TRAILING_CODE.sub("", str(name))
+    for rx, full in _SHORT_FORMS:
+        t = rx.sub(full, t)
+    return t
+
+
+def _core(t):
+    return set(_mnorm(_clean_for_match(str(t)).split(",")[0]).split())
+
+
+def _full(t):
+    return {w for w in _mnorm(_clean_for_match(str(t))).split() if not w.isdigit()}
+
+
+def _squash(t):
+    """the core with every space and mark gone: 'Maha Vidhyalaya' ==
+    'MAHAVIDHYALAYA'"""
+    return re.sub(r"[^a-z0-9]", "", _mnorm(_clean_for_match(str(t)).split(",")[0]))
+
+
+def _core_seq(t, drop=frozenset()):
+    """the core's words in order: 'HYDERABAD INST OF TECHNOLOGY AND MGMT' is
+    not 'INSTITUTE OF MANAGEMENT TECHNOLOGY, HYDERABAD'"""
+    return [w for w in _mnorm(_clean_for_match(str(t)).split(",")[0]).split()
+            if w not in drop]
+
+
+def _names_agree(college, aishe, district=None, state_districts=frozenset()):
+    """AISHE is full of short generic names ("Serampore College", "S S
+    College") that sit inside longer ones word for word, so the matcher's
+    token-subset tier is too loose for it. A match stands only if the names
+    agree on their core (the part before the first comma, brackets dropped):
+      - the same words, or the same letters once spaces go
+        ("Maha Vidhyalaya" / "MAHAVIDHYALAYA"), or
+      - AISHE's name is the college's core plus at most two words (a city:
+        "L.D. COLLEGE OF ENGINEERING, AHMEDABAD"), or
+      - the college's core is AISHE's plus words naming AISHE's own district
+        ("APOLLO INSTITUTE ... AHMEDABAD")
+    and the college's name doesn't put it in another district of the state:
+    Bharati Vidyapeeth College of Engineering, Navi Mumbai is not the Pune
+    one with the same core. (Localities and acronyms don't count: "Pitapally"
+    and "(BEC)" are not a clash.)"""
+    cc, ac, af, cf = _core(college), _core(aishe), _full(aishe), _full(college)
+    dist = set(_mnorm(str(district or "")).split())
+    if not cc:
+        return False
+    cseq = _core_seq(college)
+    aseq_full = [w for w in _mnorm(_clean_for_match(str(aishe))).split()
+                 if not w.isdigit()]
+    agree = (
+        # same words in the same order
+        cseq == _core_seq(aishe)
+        or (_squash(college) and _squash(college) == _squash(aishe))
+        # AISHE = the college's core (in order) plus up to two words
+        or (cc <= af and len(af - cc) <= 2
+            and [w for w in aseq_full if w in cc] == cseq)
+        # the college's core = AISHE's plus its district's name
+        or (ac and ac <= cc and len(cc - ac) <= 2 and (cc - ac) <= dist
+            and _core_seq(college, drop=dist) == _core_seq(aishe))
+    )
+    if not agree:
+        return False
+    # "Ganpat University, Institute of Computer Tech.": the institute is
+    # named after the comma, so AISHE's record must name it too, not just
+    # the university ("Ganpat University Institute of Technology" is a
+    # sister institute)
+    parts = _clean_for_match(str(college)).split(",", 1)
+    if (len(parts) == 2 and re.search(r"\buniversity\b", parts[0], re.I)
+            and re.search(r"\b(institute|school|faculty|college|department|centre|center)\b",
+                          parts[1], re.I)):
+        after = [w for w in _mnorm(parts[1]).split() if len(w) > 3][:3]
+        if after and not all(w in af for w in after[:2]):
+            return False
+    other_district = (cf - cc) & set(state_districts)
+    if other_district and not (other_district & dist) and not (other_district & af):
+        return False
+    return True
+
+
+def fill_from_aishe(client, rows):
+    """Colleges whose own source gives only a name (the state CET lists, DU,
+    BHU, ICAR, ...) take what they're missing from AISHE, matched by name
+    within the state: AISHE code, year established, district, website,
+    ownership, and through the AISHE code the NAAC grade. Only empty fields
+    are filled, only on a unique match.
+
+    Ownership takes AISHE's clear answers only: government and public-
+    university entries, and un-aided private ones. AISHE's self-reported
+    'Private Aided' is left unclaimed; it tags self-financing colleges
+    (Dr. M.C. Saxena, Ashoka Institute Varanasi) as aided. What AISHE can't
+    place, a name that says government ("Rajkiya" is Hindi for it) settles."""
+    def missing(r):
+        return (not r.get("ownership") or not r.get("aishe_code")
+                or not r.get("year_established") or not r.get("website")
+                or not r.get("district"))
+    todo = [r for r in rows if r.get("state") and missing(r)]
     if not todo:
         return
     D = "avantifellows.external_data_sources"
     aishe = client.query(f"""
-    SELECT aishe_code AS institute_id, name AS institute_name, state,
-           college_type AS kind, management FROM `{D}.aishe_dim_colleges`
-    UNION ALL SELECT aishe_code, name, state, university_type,
-           CAST(NULL AS STRING) FROM `{D}.aishe_dim_universities`
-    UNION ALL SELECT aishe_code, name, state, standalone_type, management
-           FROM `{D}.aishe_dim_standalone_institutions`""").to_dataframe()
+    SELECT aishe_code AS institute_id, name AS institute_name, state, district,
+           website, year_of_establishment AS est, college_type AS kind, management
+    FROM `{D}.aishe_dim_colleges`
+    UNION ALL SELECT aishe_code, name, state, district, website,
+           year_of_establishment, university_type, CAST(NULL AS STRING)
+    FROM `{D}.aishe_dim_universities`
+    UNION ALL SELECT aishe_code, name, state, district, website,
+           year_of_establishment, standalone_type, management
+    FROM `{D}.aishe_dim_standalone_institutions`""").to_dataframe()
+    naac = client.query(f"""
+    SELECT aishe_id, current_grade, current_cgpa, current_cycle_number
+    FROM `{D}.naac_dim_colleges`
+    UNION ALL SELECT aishe_id, current_grade, current_cgpa, current_cycle_number
+    FROM `{D}.naac_dim_universities`""").to_dataframe()
+    naac_by_aishe = {x.aishe_id: x for x in naac.itertuples()
+                     if x.current_grade == x.current_grade and x.current_grade}
     aishe["st"] = aishe.state.str.lower()
-    by_aishe = n_name = 0
+    aishe["match_name"] = aishe.institute_name.map(_clean_for_match)
+
+    def good(v):
+        return v is not None and v == v and str(v).strip() not in ("", "None", "NA", "-")
+
+    n = {k: 0 for k in ("matched", "aishe_code", "year", "district",
+                        "website", "naac", "own_aishe", "own_name")}
     for st in sorted({r["state"] for r in todo}):
         here = [r for r in todo if r["state"] == st]
         cand = pd.DataFrame({"college_code": [r["college_id"] for r in here],
-                             "college_name": [r["display_name"] for r in here]})
+                             "college_name": [_clean_for_match(r["display_name"]) for r in here]})
         ai = aishe[aishe.st == st.lower()]
         hits = {}
-        for aid, cid in match_nirf_to_mhtcet(ai, cand).items():
+        for aid, cid in match_nirf_to_mhtcet(
+                ai.assign(institute_name=ai.match_name), cand).items():
             hits.setdefault(cid, set()).add(aid)
+        # names the matcher misses on spacing alone
+        by_squash = {}
+        for aid, nm_ in zip(ai.institute_id, ai.institute_name):
+            by_squash.setdefault(_squash(nm_), set()).add(aid)
         info = ai.set_index("institute_id")
+        def row_of(aid):
+            v = info.loc[aid]
+            return v.iloc[0] if isinstance(v, pd.DataFrame) else v
+        state_districts = {w for d in ai.district.dropna()
+                           for w in _mnorm(str(d)).split() if len(w) > 3}
         for r in here:
-            ids = hits.get(r["college_id"], set())
-            if len(ids) == 1:
-                x = info.loc[list(ids)[0]]
-                x = x.iloc[0] if isinstance(x, pd.DataFrame) else x
+            ids = hits.get(r["college_id"], set()) or by_squash.get(
+                _squash(r["display_name"]), set())
+            # candidates whose names really agree; among several (AISHE
+            # lists an institute and its pharmacy wing, or the same name in
+            # two districts): the one in the district the college's name
+            # mentions, else the one with the fewest extra words
+            cands = [row_of(a) for a in ids]
+            cands = [v for v in cands if _names_agree(
+                r["display_name"], v.institute_name, v.district, state_districts)]
+            if len(cands) > 1:
+                lname = r["display_name"].lower()
+                inside = [v for v in cands if str(v.district or "").lower()
+                          and str(v.district).lower() in lname]
+                cands = inside or cands
+            if len(cands) > 1:
+                sizes = sorted(len(str(v.institute_name).split()) for v in cands)
+                if sizes[0] < sizes[1]:
+                    cands = [v for v in cands
+                             if len(str(v.institute_name).split()) == sizes[0]]
+            x = cands[0] if len(cands) == 1 else None
+            if x is not None:
+                n["matched"] += 1
+                if not r.get("aishe_code"):
+                    r["aishe_code"] = x.name
+                    n["aishe_code"] += 1
+                if not r.get("year_established") and good(x.est):
+                    try:
+                        y = int(float(x.est))
+                    except ValueError:
+                        y = None
+                    if y and 1800 <= y <= 2026:
+                        r["year_established"] = y
+                        n["year"] += 1
+                if not r.get("district") and good(x.district):
+                    r["district"] = str(x.district).strip().title()
+                    n["district"] += 1
+                if not r.get("website") and good(x.website):
+                    r["website"] = str(x.website).strip().rstrip("/")
+                    n["website"] += 1
+                nb = naac_by_aishe.get(r["aishe_code"])
+                if nb is not None and not (r.get("naac") or {}).get("grade"):
+                    r["naac"] = {
+                        "grade": nb.current_grade,
+                        "cgpa": (round(float(nb.current_cgpa), 2)
+                                 if nb.current_cgpa == nb.current_cgpa else None),
+                        "cycle": (int(nb.current_cycle_number)
+                                  if nb.current_cycle_number == nb.current_cycle_number else None),
+                        "not_applicable_reason": None,
+                    }
+                    r.setdefault("data_sources", {})["accreditation"] = "NAAC"
+                    n["naac"] += 1
+            if r.get("ownership"):
+                continue
+            if x is not None:
                 o = ownership_of(x.kind, x.management, x.institute_name)
                 if o in ("Public", "Private"):
                     r["ownership"] = o
-                    by_aishe += 1
+                    n["own_aishe"] += 1
                     continue
             pin = next((o for k, o in OWNERSHIP_NAME_PINS.items()
                         if r["display_name"].startswith(k)), None)
             if pin:
                 r["ownership"] = pin
-                n_name += 1
+                n["own_name"] += 1
             elif _GOVT_NAME.search(r["display_name"]):
                 r["ownership"] = "Public"
-                n_name += 1
+                n["own_name"] += 1
     left = sum(1 for r in rows if not r.get("ownership"))
-    print(f"  ownership: {by_aishe} from AISHE, {n_name} by name,"
-          f" {left} still unknown")
+    print(f"  AISHE fill-in: {n['matched']}/{len(todo)} matched; added "
+          f"{n['aishe_code']} codes, {n['year']} years, {n['district']} districts, "
+          f"{n['website']} websites, {n['naac']} NAAC grades; ownership "
+          f"{n['own_aishe']} from AISHE + {n['own_name']} by name ({left} unknown)")
 
 
 def main():
@@ -1770,12 +1964,26 @@ def main():
                 g_b = bh[bh.institute_name == bid[5:]]
                 bands_by_code.setdefault(code, []).extend(
                     (int(x.ranking_year), x.rank_band) for x in g_b.itertuples())
+            # hand-checked pairs the name match can't make
+            code_by_name = dict(zip(allc.college_name, allc.college_code))
+            for college_name, band_name in sp.get("band_pins", {}).items():
+                code = code_by_name.get(college_name)
+                g_b = bh[bh.institute_name == band_name]
+                if code is None or g_b.empty:
+                    print(f"  ! band pin unused: {college_name!r} -> {band_name!r}")
+                    continue
+                bands_by_code.setdefault(code, []).extend(
+                    (int(x.ranking_year), x.rank_band) for x in g_b.itertuples())
 
         n_nirf = n_place = 0
         for r in allc.itertuples():
             nids = nirf_ids_by_code.get(r.college_code, set())
             nirf_block = None
             frames = [nirf_all_by_id[n] for n in nids if n in nirf_all_by_id]
+            if sp.get("nirf_cats"):
+                # only the lists this spine's colleges belong to
+                frames = [f[f.ranking_category.isin(sp["nirf_cats"])] for f in frames]
+                frames = [f for f in frames if not f.empty]
             if frames:
                 top_cat, g = _latest_nirf(frames)
                 top = g.iloc[0]
@@ -2255,7 +2463,7 @@ def main():
         if "AIIMS-EE" not in card["entrance_exams"]:
             card["entrance_exams"] = card["entrance_exams"] + ["AIIMS-EE"]
     print(f"  AIIMS nursing programme on {len(nursing)} AIIMS cards")
-    fill_ownership_from_aishe(client, rows)
+    fill_from_aishe(client, rows)
 
     def nirf_sort(z):
         n = z["nirf"]
