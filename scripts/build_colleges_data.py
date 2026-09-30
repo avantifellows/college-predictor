@@ -43,6 +43,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
 import re
 from pathlib import Path
 
@@ -1000,6 +1001,10 @@ _SHORT_FORMS = [
     (re.compile(r"\binst\b\.?", re.I), "institute"),
     (re.compile(r"\bcoll\b\.?", re.I), "college"),
     (re.compile(r"\bmgmt\b\.?", re.I), "management"),
+    (re.compile(r"\bres\b\.?", re.I), "research"),
+    (re.compile(r"\bsci\b\.?", re.I), "science"),
+    (re.compile(r"\binstt\b\.?", re.I), "institute"),
+    (re.compile(r"\bpharm\b\.?", re.I), "pharmacy"),
 ]
 
 
@@ -1016,6 +1021,8 @@ _GENERIC_WORDS = {
     "pharmaceutical", "research", "studies", "centre", "center", "university",
     "government", "and", "of", "the", "technical", "polytechnic", "education",
     "applied", "arts", "commerce", "medical", "dental", "nursing", "law",
+    "hospital", "institution", "institutions", "group", "campus",
+    "autonomous", "sci", "sciences",
 }
 
 
@@ -1057,7 +1064,7 @@ def _names_agree(college, aishe, district=None, state_districts=frozenset()):
     and "(BEC)" are not a clash.)"""
     cc, ac, af, cf = _core(college), _core(aishe), _full(aishe), _full(college)
     dist = set(_mnorm(str(district or "")).split())
-    if not cc:
+    if not cc or not _markers_agree(college, aishe):
         return False
     cseq = _core_seq(college)
     aseq_full = [w for w in _mnorm(_clean_for_match(str(aishe))).split()
@@ -1117,6 +1124,175 @@ def _names_agree(college, aishe, district=None, state_districts=frozenset()):
     if other_district and not (other_district & dist) and not (other_district & af):
         return False
     return True
+
+
+# AISHE records a name can't reach: abbreviations in the admissions list
+AISHE_NAME_PINS = {
+    ("Gujarat", "L.E.College,Morbi"): "Lukhdhirji Engineering College, Morbi-031",
+}
+
+
+def _university_part(name):
+    """'Charotar University of Science & Technology (CHARUSAT) - Chandubhai
+    S Patel Institute' -> 'Charotar University of Science & Technology';
+    'Faculty Of Technology(Sfi), Dharmsinh Desai University, Nadiad' ->
+    'Dharmsinh Desai University'. None when the name isn't a unit of one."""
+    parts = [p.strip() for p in re.split(r"\s+-\s+|,|\(", str(name)) if p.strip()]
+    uni = [p for p in parts if re.search(r"\buniversity\b", p, re.I)]
+    if len(uni) != 1 or len(parts) < 2:
+        return None
+    return uni[0]
+
+
+def _word_near(w, pool, cut=0.8):
+    from difflib import SequenceMatcher
+    return any(SequenceMatcher(None, w, p).ratio() >= cut for p in pool)
+
+
+_GENDER_MARK = re.compile(r"\b(women'?s?|girls?|ladies|mahila)\b", re.I)
+_LEVEL_MARK = re.compile(r"\b(polytechnic|poly|diploma|d\.?\s?pharm\w*)\b", re.I)
+
+
+# a metro's colleges often print the city while AISHE files them under the
+# suburban district carved out of it
+_METRO_SPILL = {
+    "chengalpattu": {"chennai", "kancheepuram"}, "kancheepuram": {"chennai", "chengalpattu"},
+    "thiruvallur": {"chennai"}, "chennai": {"chengalpattu", "kancheepuram", "thiruvallur"},
+    "thane": {"mumbai", "navi"}, "raigad": {"mumbai", "navi"}, "palghar": {"thane", "mumbai"},
+    "ranga": {"hyderabad"}, "medchal": {"hyderabad"}, "sangareddy": {"hyderabad"},
+    "bengaluru": {"bangalore"}, "north": {"kolkata"}, "south": {"kolkata"},
+    "howrah": {"kolkata"}, "gautam": {"noida", "delhi"}, "ghaziabad": {"delhi"},
+    "gurugram": {"delhi", "gurgaon"},
+}
+
+
+def _markers_agree(college, aishe):
+    """a women's college is not its co-ed namesake; a polytechnic or a
+    D.Pharm college is not the degree college of the same trust"""
+    for rx in (_GENDER_MARK, _LEVEL_MARK):
+        if bool(rx.search(str(college))) != bool(rx.search(str(aishe))):
+            return False
+    return True
+
+
+def _spelling_agrees(college, aishe, district, state_districts=frozenset()):
+    """Close spelling is enough only if the rest agrees too:
+      - the distinctive words (not college / institute / hospital ...) are
+        alike: 'G R Medical College' is not 'The Oxford Medical College'
+      - the type words agree, allowing typos: 'Institute of Science and
+        Technology' is not 'Institute of Technology', but 'Engieering' is
+        'Engineering'
+      - the place: the first word after the core is in AISHE's name or is
+        AISHE's district ('RGIMS, Ongole' is not 'RGIMS, Kadapa')"""
+    from difflib import SequenceMatcher
+    dist = set(_mnorm(str(district or "")).split())
+    places = dist | (_full(aishe) - _core(aishe))
+    # typos of generic words ("Engieering", "ENGINEEIRNG") count as generic
+    gen = lambda w: w in _GENERIC_WORDS or (
+        len(w) > 5 and _word_near(w, [g for g in _GENERIC_WORDS if len(g) > 5], 0.8))
+    cseq = [w for w in _core_seq(college) if w not in places]
+    aseq = [w for w in _core_seq(aishe) if w not in places]
+    cd = "".join(w for w in cseq if not gen(w))
+    ad = "".join(w for w in aseq if not gen(w))
+    if not cd or not ad or not _markers_agree(college, aishe):
+        return False
+    # "R.N.G. Patel … - RNGPIT": one side's distinctive part inside the other's
+    contained = min(len(cd), len(ad)) >= 5 and (cd in ad or ad in cd)
+    # short names sit one letter apart: "D.B. Patil" is not "D Y Patil"
+    need = 0.93 if min(len(cd), len(ad)) < 10 else 0.85
+    if not contained and SequenceMatcher(None, cd, ad).ratio() < need:
+        return False
+    ct = {w for w in cseq if gen(w)}
+    at = {w for w in aseq if gen(w)}
+    for w in ct ^ at:
+        other = aseq if w in ct else cseq
+        if not _word_near(w, other):
+            return False
+    cc = _core(college)
+    seq = _mnorm(_clean_for_match(str(college))).split()
+    first = next((w for w in seq if w not in cc and w not in _GENERIC_WORDS
+                  and not w.isdigit()), None)
+    if first is None:
+        return True
+    af = _full(aishe)
+    a_extra = af - _core(aishe)
+    # a short name AISHE prints bare, in another district than the one the
+    # college's name gives ("Dr. D.Y. Patil College of Pharmacy, Akurdi,
+    # Pune" is not the Kolhapur one). Metro suburbs filed under newer
+    # districts ("…, Tambaram (Chennai)" -> Chengalpattu) are the same place.
+    if not a_extra and min(len(cd), len(ad)) < 14:
+        ok_places = set(dist)
+        for w in dist:
+            ok_places |= _METRO_SPILL.get(w, set())
+        named = [w for w in seq if w in state_districts and w not in cc]
+        if named and not any(w in ok_places or _word_near(w, ok_places, 0.85)
+                             for w in named):
+            return False
+    # AISHE names no place: the distinctive words already agreed, and the
+    # match is unique in the state ("Vidush Somany …, Kadi")
+    if not a_extra:
+        return True
+    # else the place must agree; it may sit inside AISHE's core ("… COLLEGE
+    # SURAT" has no comma), or be AISHE's district
+    return _word_near(first, a_extra | dist | af, 0.85)
+
+
+def _second_pass(r, ai, row_of, state_districts):
+    """For a college the name match missed: a hand pin; else the nearest
+    AISHE name by spelling (typos in the admissions list: 'Engieering',
+    'Tech. & Res.'), accepted only when clearly the best and at least 90%
+    alike; else, for 'X University - School of …', X's own record (a parent
+    link: website, district and NAAC, not the founding year).
+    Returns (record, how) or (None, None)."""
+    from difflib import SequenceMatcher
+    pin = AISHE_NAME_PINS.get((r["state"], r["display_name"]))
+    if pin:
+        hit = ai[ai.institute_name == pin]
+        return (row_of(hit.institute_id.iloc[0]), "pin") if len(hit) else (None, None)
+
+    name = r["display_name"]
+    cc = _core(name)
+    key_words = [w for w in _core_seq(name) if w not in _GENERIC_WORDS and len(w) > 3]
+    if key_words and not cc <= _GENERIC_WORDS:
+        first = key_words[0][:5]
+        pool = ai[ai.match_name.str.lower().str.contains(first, regex=False)]
+        target = _squash(name)
+        scored = sorted(
+            ((SequenceMatcher(None, target, _squash(nm_)).ratio(), aid)
+             for aid, nm_ in zip(pool.institute_id, pool.institute_name)),
+            reverse=True)
+        if scored and scored[0][0] >= 0.9 and (
+                len(scored) == 1 or scored[0][0] - scored[1][0] >= 0.04):
+            x = row_of(scored[0][1])
+            if _spelling_agrees(name, x.institute_name, x.district, state_districts):
+                # "Ganpat University, Institute of Computer Tech." landing on
+                # Ganpat University's own record is a parent link
+                if (_university_part(name) and re.search(
+                        r"\b(institute|school|faculty|college|department|centre|campus)\b",
+                        name, re.I)
+                        and "university" in str(x.kind).lower()):
+                    return x, "parent"
+                return x, "spelling"
+
+    uni = _university_part(name)
+    unit = re.search(
+        r"\b(institute|school|faculty|college|department|centre|campus)\b", name, re.I)
+    if uni and not re.search(r"\baffiliated\b", name, re.I):
+        target = _squash(uni)
+        unis = ai[ai.kind.astype(str).str.contains("University", case=False)]
+        scored = sorted(
+            ((SequenceMatcher(None, target, _squash(nm_)).ratio(), aid)
+             for aid, nm_ in zip(unis.institute_id, unis.institute_name)),
+            reverse=True)
+        if scored and scored[0][0] >= 0.9 and (
+                len(scored) == 1 or scored[0][0] - scored[1][0] >= 0.04):
+            x = row_of(scored[0][1])
+            # "Kaji Nazrul University, Asansol" IS the university: its own
+            # record; "Faculty of Arts, BHU" is a unit: a parent link
+            if not unit:
+                return (x, "spelling") if _markers_agree(name, x.institute_name) else (None, None)
+            return x, "parent"
+    return None, None
 
 
 def fill_from_aishe(client, rows):
@@ -1204,12 +1380,22 @@ def fill_from_aishe(client, rows):
                     cands = [v for v in cands
                              if len(str(v.institute_name).split()) == sizes[0]]
             x = cands[0] if len(cands) == 1 else None
+            how = "name" if x is not None else None
+            if x is None:
+                x, how = _second_pass(r, ai, row_of, state_districts)
+            if how:
+                n[how] = n.get(how, 0) + 1
+                if how != "name" and os.environ.get("AISHE_LOG"):
+                    print(f"    [{how}] {r['display_name'][:60]} -> "
+                          f"{x.institute_name[:55]} ({x.district})")
+            parent = how == "parent"
             if x is not None:
                 n["matched"] += 1
-                if not r.get("aishe_code"):
+                # a parent link is the university's record, not this unit's
+                if not r.get("aishe_code") and not parent:
                     r["aishe_code"] = x.name
                     n["aishe_code"] += 1
-                if not r.get("year_established") and good(x.est):
+                if not parent and not r.get("year_established") and good(x.est):
                     try:
                         y = int(float(x.est))
                     except ValueError:
@@ -1223,7 +1409,7 @@ def fill_from_aishe(client, rows):
                 if not r.get("website") and good(x.website):
                     r["website"] = str(x.website).strip().rstrip("/")
                     n["website"] += 1
-                nb = naac_by_aishe.get(r["aishe_code"])
+                nb = naac_by_aishe.get(x.name)
                 if nb is not None and not (r.get("naac") or {}).get("grade"):
                     r["naac"] = {
                         "grade": nb.current_grade,
@@ -1252,6 +1438,9 @@ def fill_from_aishe(client, rows):
                 r["ownership"] = "Public"
                 n["own_name"] += 1
     left = sum(1 for r in rows if not r.get("ownership"))
+    print(f"  AISHE links: {n.get('name', 0)} by name, {n.get('spelling', 0)} by "
+          f"close spelling, {n.get('pin', 0)} pinned, {n.get('parent', 0)} to the "
+          f"parent university")
     print(f"  AISHE fill-in: {n['matched']}/{len(todo)} matched; added "
           f"{n['aishe_code']} codes, {n['year']} years, {n['district']} districts, "
           f"{n['website']} websites, {n['naac']} NAAC grades; ownership "
