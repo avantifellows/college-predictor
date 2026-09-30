@@ -116,14 +116,64 @@ def build_new_rows(src: Path) -> list[dict]:
     return rows
 
 
+COLLEGES_PATH = Path(__file__).resolve().parent.parent / "public/data/colleges/colleges.json"
+
+
+def enrich_from_colleges(records: list[dict]) -> None:
+    """The ACPC PDFs carry no district, AISHE code, NIRF or placement, but the
+    Colleges tab has them for the same colleges (same ACPC names): district
+    and code from AISHE, NIRF rank or band, NIRF placement. Copy them onto
+    every predictor row of that college, so the results table's District
+    column and each row's details aren't blank."""
+    # spacing and punctuation vary between ACPC vintages ("University
+    # ,Gandhinagar" / "University,Gandhinagar")
+    key = lambda t: "".join(ch for ch in str(t).lower() if ch.isalnum())
+    colleges = json.loads(COLLEGES_PATH.read_text())
+    by_name = {key(c["display_name"]): c for c in colleges
+               if str(c.get("counselling", "")).startswith("ACPC")}
+    hit = set()
+    for r in records:
+        c = by_name.get(key(r.get("College Name")))
+        if c is None:
+            continue
+        hit.add(r["College Name"])
+        if c.get("district"):
+            r["District"] = c["district"]
+        if c.get("aishe_code"):
+            r["AISHE Code"] = c["aishe_code"]
+        n = c.get("nirf")
+        if n:
+            band = (n.get("latest_band") or {}).get("band")
+            r["NIRF Ranking"] = band if band else n.get("rank")
+        pl = c.get("placement") or {}
+        if pl.get("median_salary"):
+            r["Median Salary"] = pl["median_salary"]
+        if pl.get("percentage_with_outcome") is not None:
+            r["Avg Placement"] = pl["percentage_with_outcome"]
+    print(f"  enriched {len(hit)} colleges from the Colleges tab "
+          f"({sum(1 for r in records if r.get('District'))} rows with a district)")
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--src", required=True, type=Path,
+    ap.add_argument("--src", type=Path,
                     help="futures-v2 state_cet/scrape/extracted_data directory")
+    ap.add_argument("--enrich-only", action="store_true",
+                    help="refresh district / NIRF / placement from colleges.json "
+                         "on the existing file, without the ACPC CSVs")
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
 
     existing = json.loads(OUT_PATH.read_text())
+    if args.enrich_only:
+        enrich_from_colleges(existing)
+        if not args.dry_run:
+            with OUT_PATH.open("w", encoding="utf-8") as fh:
+                json.dump(existing, fh, ensure_ascii=False, separators=(",", ":"))
+            print(f"Written: {OUT_PATH}")
+        return
+    if not args.src:
+        ap.error("--src is required unless --enrich-only")
     # Medical has no ACPC engineering/pharmacy equivalent — carry it through
     # rather than dropping Gujarat medical cutoffs on the floor.
     medical = [x for x in existing if x.get("Program") == "Medical"]
@@ -138,6 +188,7 @@ def main() -> None:
         m.setdefault("closing_rank", None)
         m.setdefault("Year", None)   # legacy rows: cycle genuinely unknown
     records = new_rows + medical
+    enrich_from_colleges(records)
 
     print(f"\nTOTAL {len(records):,} rows (was {len(existing):,})")
     df = pd.DataFrame(records)

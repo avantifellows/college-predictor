@@ -1010,6 +1010,15 @@ def _clean_for_match(name):
     return t
 
 
+_GENERIC_WORDS = {
+    "faculty", "technology", "engineering", "institute", "college", "school",
+    "department", "science", "sciences", "management", "pharmacy",
+    "pharmaceutical", "research", "studies", "centre", "center", "university",
+    "government", "and", "of", "the", "technical", "polytechnic", "education",
+    "applied", "arts", "commerce", "medical", "dental", "nursing", "law",
+}
+
+
 def _core(t):
     return set(_mnorm(_clean_for_match(str(t)).split(",")[0]).split())
 
@@ -1076,6 +1085,33 @@ def _names_agree(college, aishe, district=None, state_districts=frozenset()):
                           parts[1], re.I)):
         after = [w for w in _mnorm(parts[1]).split() if len(w) > 3][:3]
         if after and not all(w in af for w in after[:2]):
+            return False
+    # A core made only of generic words ("Government Engineering College",
+    # "Faculty of Technology & Engineering") is shared by many colleges; for
+    # those the PLACE is the name. The first word after the core
+    # ("…, Bharuch", "…, Dharmsinh Desai University") must appear in AISHE's
+    # name, or, when AISHE prints the bare generic name, be AISHE's district.
+    # Keeps GEC Bharuch = GEC BHARUCH and GMC Bharatpur = a bare GMC in
+    # Bharatpur; rejects GEC Arasikere -> GEC Hassan, CE Thiruvananthapuram
+    # -> CE Attingal, DDU's faculty -> MSU's.
+    if cc <= _GENERIC_WORDS:
+        seq = _mnorm(_clean_for_match(str(college))).split()
+        first = next((w for w in seq if w not in cc and w not in _GENERIC_WORDS
+                      and not w.isdigit()), None)
+        # AISHE's own place words, relative to the college's core (a name
+        # with no comma, "GOVERNMENT ENGINEERING COLLEGE CHALLAKERE", folds
+        # the place into its core)
+        a_extra = af - cc
+        # spellings drift: Kozhikode / KOZHIKKODE, Payyanur / Payyannur
+        near = lambda w, pool: w in pool or (
+            len(w) >= 5 and any(len(p) >= 5 and p[:5] == w[:5] for p in pool))
+        if first is None:
+            if a_extra:
+                return False
+        elif a_extra:
+            if not near(first, a_extra):
+                return False
+        elif not near(first, dist):
             return False
     other_district = (cf - cc) & set(state_districts)
     if other_district and not (other_district & dist) and not (other_district & af):

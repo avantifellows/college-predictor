@@ -15024,20 +15024,20 @@
  },
  {
   "college_id": "keam:TVE",
-  "aishe_code": "C-9473",
+  "aishe_code": null,
   "name": "College of Engineering, Thiruvananthapuram",
   "display_name": "College of Engineering, Thiruvananthapuram",
   "state": "Kerala",
   "state_is_inferred": false,
-  "district": "Thiruvananthapuram",
+  "district": null,
   "kind": null,
   "management": "Govt",
   "ownership": "Public",
   "disciplines": [
    "Engineering"
   ],
-  "year_established": 2004,
-  "website": "www.ceattingal.ac.in",
+  "year_established": null,
+  "website": null,
   "university": null,
   "entrance_exams": [
    "KEAM"
@@ -45460,20 +45460,20 @@
  },
  {
   "college_id": "tg-eapcet:SUCE",
-  "aishe_code": "C-27616",
+  "aishe_code": null,
   "name": "UNIVERSITY COLLEGE OF ENGINEERING, HUSNABAD, SATAVAHANA UNIVERSITY",
   "display_name": "UNIVERSITY COLLEGE OF ENGINEERING, HUSNABAD, SATAVAHANA UNIVERSITY",
   "state": "Telangana",
   "state_is_inferred": false,
-  "district": "Khammam",
+  "district": null,
   "kind": null,
   "management": "State-Univ-Dept",
   "ownership": "Public",
   "disciplines": [
    "Engineering"
   ],
-  "year_established": 1976,
-  "website": "www.kuce.ac.in",
+  "year_established": null,
+  "website": null,
   "university": "SHVU",
   "entrance_exams": [
    "TG-EAPCET"
@@ -107182,20 +107182,20 @@
  },
  {
   "college_id": "ojee:college engineering patia bhubaneswar",
-  "aishe_code": "C-30032",
+  "aishe_code": null,
   "name": "College of Engineering, Patia, Bhubaneswar",
   "display_name": "College of Engineering, Patia, Bhubaneswar",
   "state": "Odisha",
   "state_is_inferred": false,
-  "district": "Khordha",
+  "district": null,
   "kind": null,
   "management": null,
-  "ownership": "Private",
+  "ownership": null,
   "disciplines": [
    "Engineering"
   ],
-  "year_established": 1999,
-  "website": "www.coeb.ac.in",
+  "year_established": null,
+  "website": null,
   "university": null,
   "entrance_exams": [
    "OJEE"
@@ -127022,12 +127022,12 @@
  },
  {
   "college_id": "gujcet:faculty technology engineering dharmsinh desai university na",
-  "aishe_code": "C-58344",
+  "aishe_code": null,
   "name": "Faculty Of Technology And Engineering(GIA), Dharmsinh Desai University, (DDU), Nadiad",
   "display_name": "Faculty Of Technology And Engineering(GIA), Dharmsinh Desai University, (DDU), Nadiad",
   "state": "Gujarat",
   "state_is_inferred": false,
-  "district": "Vadodara",
+  "district": null,
   "kind": null,
   "management": "Govt-Aided",
   "ownership": "Government-aided",
@@ -127035,7 +127035,7 @@
    "Engineering"
   ],
   "year_established": null,
-  "website": "www.msubaroda.ac.in",
+  "website": null,
   "university": null,
   "entrance_exams": [
    "GUJCET"
@@ -127111,12 +127111,12 @@
  },
  {
   "college_id": "gujcet:faculty technology dharmsinh desai university nadiad",
-  "aishe_code": "C-66984",
+  "aishe_code": null,
   "name": "Faculty Of Technology(Sfi), Dharmsinh Desai University, Nadiad",
   "display_name": "Faculty Of Technology(Sfi), Dharmsinh Desai University, Nadiad",
   "state": "Gujarat",
   "state_is_inferred": false,
-  "district": "Rajkot",
+  "district": null,
   "kind": null,
   "management": "Private/SF",
   "ownership": "Private",
@@ -133989,20 +133989,20 @@
  },
  {
   "college_id": "kcet:government engineering college arasikere arasikere hassan di",
-  "aishe_code": "C-1385",
+  "aishe_code": null,
   "name": "GOVERNMENT ENGINEERING COLLEGE, ARASIKERE ARASIKERE, HASSAN DISTRICT",
   "display_name": "GOVERNMENT ENGINEERING COLLEGE, ARASIKERE ARASIKERE, HASSAN DISTRICT",
   "state": "Karnataka",
   "state_is_inferred": false,
-  "district": "Hassan",
+  "district": null,
   "kind": null,
   "management": "Govt",
   "ownership": "Public",
   "disciplines": [
    "Engineering"
   ],
-  "year_established": 2007,
-  "website": "http://gec.karnataka.gov.in/gechassan.public",
+  "year_established": null,
+  "website": null,
   "university": null,
   "entrance_exams": [
    "KCET"
@@ -141128,7 +141128,7 @@
  },
  {
   "college_id": "mhtcet:02008",
-  "aishe_code": "C-34341",
+  "aishe_code": null,
   "name": "Government College of Engineering, Chhatrapati Sambhajinagar",
   "display_name": "Government College of Engineering, Chhatrapati Sambhajinagar",
   "state": "Maharashtra",
@@ -141140,8 +141140,8 @@
   "disciplines": [
    "Engineering"
   ],
-  "year_established": 1960,
-  "website": "www.geca.ac.in",
+  "year_established": null,
+  "website": null,
   "university": null,
   "entrance_exams": [
    "MHT CET"
@@ -141210,9 +141210,9 @@
   "fees": null,
   "placement": null,
   "naac": {
-   "grade": "B++",
-   "cgpa": 2.86,
-   "cycle": 1,
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
    "not_applicable_reason": null
   },
   "data_sources": {
@@ -141220,7 +141220,7 @@
    "programs": "MHT-CET CAP 2025, rounds 1-4",
    "ranking": null,
    "placement": null,
-   "accreditation": "NAAC"
+   "accreditation": null
   }
  },
  {
@@ -142018,7 +142018,7 @@
  },
  {
   "college_id": "mhtcet:02009",
-  "aishe_code": "C-11158",
+  "aishe_code": "C-34475",
   "name": "Government College of Pharmacy, Aurangabad",
   "display_name": "Government College of Pharmacy, Aurangabad",
   "state": "Maharashtra",
@@ -142030,8 +142030,8 @@
   "disciplines": [
    "Pharmacy"
   ],
-  "year_established": 1964,
-  "website": "www.gcopk.ac.in",
+  "year_established": 1996,
+  "website": "www.gcpharma.ac.in",
   "university": null,
   "entrance_exams": [
    "MHT CET"
@@ -142068,9 +142068,9 @@
   "fees": null,
   "placement": null,
   "naac": {
-   "grade": "A+",
-   "cgpa": 3.45,
-   "cycle": 1,
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
    "not_applicable_reason": null
   },
   "data_sources": {
@@ -142078,7 +142078,7 @@
    "programs": "MHT-CET CAP 2025, rounds 1-4",
    "ranking": null,
    "placement": null,
-   "accreditation": "NAAC"
+   "accreditation": null
   }
  },
  {
@@ -143322,20 +143322,20 @@
  },
  {
   "college_id": "keam:IDK",
-  "aishe_code": "C-11790",
+  "aishe_code": null,
   "name": "Government Engineering College, Idukki",
   "display_name": "Government Engineering College, Idukki",
   "state": "Kerala",
   "state_is_inferred": false,
-  "district": "Idukki",
+  "district": null,
   "kind": null,
   "management": "Govt",
   "ownership": "Public",
   "disciplines": [
    "Engineering"
   ],
-  "year_established": 2000,
-  "website": "www.gecidukki.ac.in",
+  "year_established": null,
+  "website": null,
   "university": null,
   "entrance_exams": [
    "KEAM"
@@ -143395,20 +143395,20 @@
  },
  {
   "college_id": "kcet:government engineering college karwar majali village karwar ",
-  "aishe_code": "C-1314",
+  "aishe_code": null,
   "name": "Government Engineering College, Karwar MAJALI VILLAGE, KARWAR TALUK, UTTARA KANNADA DIST, KARNATAKA -PIN 581345",
   "display_name": "Government Engineering College, Karwar MAJALI VILLAGE, KARWAR TALUK, UTTARA KANNADA DIST, KARNATAKA -PIN 581345",
   "state": "Karnataka",
   "state_is_inferred": false,
-  "district": "Uttara Kannada",
+  "district": null,
   "kind": null,
   "management": "Govt",
   "ownership": "Public",
   "disciplines": [
    "Engineering"
   ],
-  "year_established": 2009,
-  "website": "www.dte.karnataka.gov.in/institutes/geckarwar",
+  "year_established": null,
+  "website": null,
   "university": null,
   "entrance_exams": [
    "KCET"
@@ -143565,20 +143565,20 @@
  },
  {
   "college_id": "kcet:government engineering college kushalanagar medikeri road ma",
-  "aishe_code": null,
+  "aishe_code": "C-1274",
   "name": "Government Engineering College, Kushalanagar MEDIKERI ROAD,MADAPATNA,KUSHALANAGAR",
   "display_name": "Government Engineering College, Kushalanagar MEDIKERI ROAD,MADAPATNA,KUSHALANAGAR",
   "state": "Karnataka",
   "state_is_inferred": false,
-  "district": null,
+  "district": "Mandya",
   "kind": null,
   "management": "Govt",
   "ownership": "Public",
   "disciplines": [
    "Engineering"
   ],
-  "year_established": null,
-  "website": null,
+  "year_established": 2007,
+  "website": "http://gec.karnataka.gov.in/geckushalnagar/public/en",
   "university": null,
   "entrance_exams": [
    "KCET"
@@ -143840,20 +143840,20 @@
  },
  {
   "college_id": "keam:PKD",
-  "aishe_code": "C-43298",
+  "aishe_code": null,
   "name": "Government Engineering College, Palakkad",
   "display_name": "Government Engineering College, Palakkad",
   "state": "Kerala",
   "state_is_inferred": false,
-  "district": "Palakkad",
+  "district": null,
   "kind": null,
   "management": "Govt",
   "ownership": "Public",
   "disciplines": [
    "Engineering"
   ],
-  "year_established": 1999,
-  "website": "www.gecskp.ac.in",
+  "year_established": null,
+  "website": null,
   "university": null,
   "entrance_exams": [
    "KEAM"
@@ -144301,20 +144301,20 @@
  },
  {
   "college_id": "kcet:government engineering college ramanagaram doddamannugudde r",
-  "aishe_code": null,
+  "aishe_code": "C-1328",
   "name": "Government Engineering College, Ramanagaram DODDAMANNUGUDDE, RAMANAGAR, RAMANAGAR DISTRICT - 571 511",
   "display_name": "Government Engineering College, Ramanagaram DODDAMANNUGUDDE, RAMANAGAR, RAMANAGAR DISTRICT - 571 511",
   "state": "Karnataka",
   "state_is_inferred": false,
-  "district": null,
+  "district": "Bengaluru South",
   "kind": null,
   "management": "Govt",
   "ownership": "Public",
   "disciplines": [
    "Engineering"
   ],
-  "year_established": null,
-  "website": null,
+  "year_established": 2007,
+  "website": "https://gec.karnataka.gov.in/gecramanagara/public",
   "university": null,
   "entrance_exams": [
    "KCET"
@@ -144681,20 +144681,20 @@
  },
  {
   "college_id": "kcet:government engineering college viprasinagar gangavathi vipra",
-  "aishe_code": "C-61637",
+  "aishe_code": null,
   "name": "Government Engineering College, Viprasinagar, Gangavathi VIPRASAI NAGAR,GANGAVATHI,KOPPAL",
   "display_name": "Government Engineering College, Viprasinagar, Gangavathi VIPRASAI NAGAR,GANGAVATHI,KOPPAL",
   "state": "Karnataka",
   "state_is_inferred": false,
-  "district": "Koppal",
+  "district": null,
   "kind": null,
   "management": "Govt",
   "ownership": "Public",
   "disciplines": [
    "Engineering"
   ],
-  "year_established": 2019,
-  "website": "www.gecgangavathi.in",
+  "year_established": null,
+  "website": null,
   "university": null,
   "entrance_exams": [
    "KCET"
@@ -144827,12 +144827,12 @@
  },
  {
   "college_id": "kcet:government engineering college mailur bidar",
-  "aishe_code": "C-68030",
+  "aishe_code": null,
   "name": "Government Engineering College,Mailur,Bidar",
   "display_name": "Government Engineering College,Mailur,Bidar",
   "state": "Karnataka",
   "state_is_inferred": false,
-  "district": "Bidar",
+  "district": null,
   "kind": null,
   "management": "Govt",
   "ownership": "Public",
@@ -144840,7 +144840,7 @@
    "Engineering"
   ],
   "year_established": null,
-  "website": "https://dte.karnataka.gov.in/institutes/gecbidar",
+  "website": null,
   "university": null,
   "entrance_exams": [
    "KCET"
@@ -145445,7 +145445,7 @@
  },
  {
   "college_id": "nmc:government-medical-college-institute-of-integrated-medical-s-a424d3",
-  "aishe_code": "C-52001",
+  "aishe_code": null,
   "name": "Government Medical College (Institute of Integrated Medical Sciences), Yakkara, Palakkad",
   "display_name": "Government Medical College (Institute of Integrated Medical Sciences), Yakkara, Palakkad",
   "state": "Kerala",
@@ -145456,7 +145456,7 @@
   "ownership": "Public",
   "disciplines": [],
   "year_established": 2014,
-  "website": "www.gmcpalakkad.in",
+  "website": null,
   "university": "Kerala University of Health Sciences, Thrissur",
   "entrance_exams": [
    "NEET-UG"
@@ -146015,7 +146015,7 @@
  },
  {
   "college_id": "nmc:government-medical-college-ambernath",
-  "aishe_code": null,
+  "aishe_code": "C-74718",
   "name": "Government Medical College, Ambernath",
   "display_name": "Government Medical College, Ambernath",
   "state": "Maharashtra",
@@ -146026,7 +146026,7 @@
   "ownership": "Public",
   "disciplines": [],
   "year_established": 2024,
-  "website": null,
+  "website": "www.gmcambernath.com",
   "university": "Maharashtra University of Health Sciences, Nashik",
   "entrance_exams": [
    "NEET-UG"
@@ -146243,7 +146243,7 @@
  },
  {
   "college_id": "nmc:government-medical-college-ananthapuram",
-  "aishe_code": null,
+  "aishe_code": "C-30409",
   "name": "Government Medical College, Ananthapuram",
   "display_name": "Government Medical College, Ananthapuram",
   "state": "Andhra Pradesh",
@@ -146254,7 +146254,7 @@
   "ownership": "Public",
   "disciplines": [],
   "year_established": 2000,
-  "website": null,
+  "website": "http://gmcatp.in",
   "university": "Dr. YSR University of Health Sciences",
   "entrance_exams": [
    "NEET-UG"
@@ -150119,7 +150119,7 @@
  },
  {
   "college_id": "nmc:government-medical-college-manjeri-malapuram-dist",
-  "aishe_code": null,
+  "aishe_code": "C-55350",
   "name": "Government Medical College, Manjeri, Malapuram Dist.",
   "display_name": "Government Medical College, Manjeri, Malapuram Dist.",
   "state": "Kerala",
@@ -150130,7 +150130,7 @@
   "ownership": "Public",
   "disciplines": [],
   "year_established": 2013,
-  "website": null,
+  "website": "www.govtmedicalcollegemanjeri.ac.in",
   "university": "Kerala University of Health Sciences, Thrissur",
   "entrance_exams": [
    "NEET-UG"
@@ -151145,7 +151145,7 @@
  },
  {
   "college_id": "nmc:government-medical-college-omandurar",
-  "aishe_code": "C-68041",
+  "aishe_code": "C-56085",
   "name": "Government Medical College, Omandurar",
   "display_name": "Government Medical College, Omandurar",
   "state": "Tamil Nadu",
@@ -151156,7 +151156,7 @@
   "ownership": "Public",
   "disciplines": [],
   "year_established": 2015,
-  "website": "www.gmcnagai.ac.in",
+  "website": "www.gmcoge.tn.gov.in",
   "university": "The Tamilnadu Dr. MGR Medical University,Chennai",
   "entrance_exams": [
    "NEET-UG"
@@ -151487,7 +151487,7 @@
  },
  {
   "college_id": "nmc:government-medical-college-parippally-kollam",
-  "aishe_code": "C-58110",
+  "aishe_code": null,
   "name": "Government Medical College, Parippally, Kollam",
   "display_name": "Government Medical College, Parippally, Kollam",
   "state": "Kerala",
@@ -151498,7 +151498,7 @@
   "ownership": "Public",
   "disciplines": [],
   "year_established": 2017,
-  "website": "www.gmckollam.edu.in",
+  "website": null,
   "university": "Kerala University of Health Sciences, Thrissur",
   "entrance_exams": [
    "NEET-UG"
@@ -151658,7 +151658,7 @@
  },
  {
   "college_id": "nmc:government-medical-college-pudukottai-tamil-nadu",
-  "aishe_code": "C-68041",
+  "aishe_code": null,
   "name": "Government Medical College, Pudukottai, Tamil Nadu",
   "display_name": "Government Medical College, Pudukottai, Tamil Nadu",
   "state": "Tamil Nadu",
@@ -151669,7 +151669,7 @@
   "ownership": "Public",
   "disciplines": [],
   "year_established": 2017,
-  "website": "www.gmcnagai.ac.in",
+  "website": null,
   "university": "The Tamilnadu Dr. MGR Medical University,Chennai",
   "entrance_exams": [
    "NEET-UG"
@@ -281949,20 +281949,20 @@
  },
  {
   "college_id": "gujcet:school engineering plastindia international university vapi",
-  "aishe_code": "C-130",
+  "aishe_code": null,
   "name": "School of Engineering, Plastindia International University, Vapi",
   "display_name": "School of Engineering, Plastindia International University, Vapi",
   "state": "Gujarat",
   "state_is_inferred": false,
-  "district": "Rajkot",
+  "district": null,
   "kind": null,
   "management": "Private/SF",
   "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
-  "year_established": 2006,
-  "website": "http://www.rku.ac.in",
+  "year_established": null,
+  "website": null,
   "university": null,
   "entrance_exams": [
    "GUJCET"
@@ -321124,12 +321124,12 @@
  },
  {
   "college_id": "wbjee:university institute technology burdwan university",
-  "aishe_code": "C-61540",
+  "aishe_code": null,
   "name": "UNIVERSITY INSTITUTE OF TECHNOLOGY, BURDWAN UNIVERSITY",
   "display_name": "UNIVERSITY INSTITUTE OF TECHNOLOGY, BURDWAN UNIVERSITY",
   "state": "West Bengal",
   "state_is_inferred": false,
-  "district": "Purba Bardhaman",
+  "district": null,
   "kind": null,
   "management": "State-Univ-Dept",
   "ownership": "Public",
