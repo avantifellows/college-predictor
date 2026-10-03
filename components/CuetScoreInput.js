@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { X } from "lucide-react";
+import Dropdown from "./dropdown";
 import {
   LANGUAGES,
   SUBJECTS,
@@ -54,14 +55,18 @@ export default function CuetScoreInput({ value = "", onChange }) {
     update(rows.map((r, j) => (j === i ? { ...r, ...patch } : r)));
 
   const chosen = new Set(rows.map((r) => r.paper).filter(Boolean));
-  const options = (own) => (list) =>
-    list
-      .filter(([id]) => id === own || !chosen.has(id))
-      .map(([id, label]) => (
-        <option key={id} value={id}>
-          {label}
-        </option>
-      ));
+  // the site's dropdown, grouped; a paper picked in another row is left out
+  const groupsFor = (own) =>
+    [
+      ["Languages", LANGUAGES],
+      ["Subjects", SUBJECTS],
+      ["General", [GAT]],
+    ].map(([label, list]) => ({
+      label,
+      options: list
+        .filter(([id]) => id === own || !chosen.has(id))
+        .map(([value, text]) => ({ value, label: text })),
+    }));
 
   return (
     <div className="rounded-xl border border-[#eaded8] bg-[#fffdfa] p-4 text-left shadow-sm">
@@ -77,21 +82,13 @@ export default function CuetScoreInput({ value = "", onChange }) {
           const bad = r.score !== "" && !validScore(r.score);
           return (
             <div key={i} className="flex items-center gap-2">
-              <select
-                aria-label={`Paper ${i + 1}`}
-                value={r.paper}
-                onChange={(e) => setRow(i, { paper: e.target.value })}
-                className="min-w-0 flex-1 rounded-xl border border-[#d8c7c1] bg-white px-3 py-2.5 text-sm outline-none focus:border-[#b52326] focus:ring-2 focus:ring-[#f4d5d6]"
-              >
-                <option value="">Choose a paper</option>
-                <optgroup label="Languages">
-                  {options(r.paper)(LANGUAGES)}
-                </optgroup>
-                <optgroup label="Subjects">
-                  {options(r.paper)(SUBJECTS)}
-                </optgroup>
-                <optgroup label="General">{options(r.paper)([GAT])}</optgroup>
-              </select>
+              <Dropdown
+                className="min-w-0 flex-1 text-sm"
+                options={groupsFor(r.paper)}
+                selectedValue={r.paper}
+                placeholder="Choose a paper"
+                onChange={(option) => setRow(i, { paper: option.value })}
+              />
               <input
                 aria-label={`Score ${i + 1}`}
                 type="number"
@@ -102,7 +99,7 @@ export default function CuetScoreInput({ value = "", onChange }) {
                 value={r.score}
                 onChange={(e) => setRow(i, { score: e.target.value })}
                 placeholder="0-250"
-                className={`w-24 rounded-xl border bg-white px-3 py-2.5 text-center text-sm outline-none focus:ring-2 focus:ring-[#f4d5d6] ${
+                className={`h-12 w-24 rounded-xl border bg-[#fffdfa] px-3 text-center text-sm outline-none focus:ring-2 focus:ring-[#f4d5d6] ${
                   bad
                     ? "border-red-500 focus:border-red-500"
                     : "border-[#d8c7c1] focus:border-[#b52326]"

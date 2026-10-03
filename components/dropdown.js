@@ -89,10 +89,13 @@ const Dropdown = ({
         hideValueWhileSearching && isOpen ? "Type to search…" : placeholder
       }
       value={
-        options.find(
-          (option) =>
-            option.label === selectedValue || option.value === selectedValue
-        ) ?? null
+        // grouped options ({ label, options }) hold their choices one level down
+        options
+          .flatMap((option) => option.options || [option])
+          .find(
+            (option) =>
+              option.label === selectedValue || option.value === selectedValue
+          ) ?? null
       }
     />
   );
