@@ -107,7 +107,7 @@ export default function CuetScoreInput({ value = "", onChange }) {
                     setRow(i, { score: v });
                 }}
                 placeholder="0-250"
-                className={`h-12 w-24 rounded-xl border [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none bg-[#fffdfa] px-3 text-center text-sm outline-none focus:ring-2 focus:ring-[#f4d5d6] ${
+                className={`h-12 w-24 rounded-xl border bg-[#fffdfa] px-3 text-center text-sm outline-none focus:ring-2 focus:ring-[#f4d5d6] ${
                   bad
                     ? "border-red-500 focus:border-red-500"
                     : "border-[#d8c7c1] focus:border-[#b52326]"

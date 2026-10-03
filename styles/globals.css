@@ -5,10 +5,15 @@
 @tailwind utilities;
 
 @layer base {
+  /* no spinner arrows on any number box: WebKit/Blink, then Firefox */
   input[type="number"]::-webkit-inner-spin-button,
   input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
+  }
+  input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
   }
 
   :focus-visible {
