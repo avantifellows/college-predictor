@@ -20,7 +20,9 @@ const rowsFrom = (value) => {
     paper,
     score: String(score),
   }));
-  return rows.length ? rows : [{ paper: "", score: "" }];
+  // most students write 4 or 5 papers: start with 4 rows so that's clear
+  while (rows.length < 4) rows.push({ paper: "", score: "" });
+  return rows;
 };
 
 const validScore = (s) =>
@@ -74,7 +76,8 @@ export default function CuetScoreInput({ value = "", onChange }) {
         Your CUET scores
       </label>
       <p className="mb-3 text-xs leading-5 text-[#6d5550]">
-        Each paper out of 250, as on your scorecard.
+        Add every paper you took (up to 5), each score out of 250 as on your
+        scorecard.
       </p>
 
       <div className="flex flex-col gap-2">
@@ -97,9 +100,14 @@ export default function CuetScoreInput({ value = "", onChange }) {
                 min="0"
                 max={MAX_PAPER_SCORE}
                 value={r.score}
-                onChange={(e) => setRow(i, { score: e.target.value })}
+                onChange={(e) => {
+                  // refuse what can't be a score: over 250, or past 2 decimals
+                  const v = e.target.value;
+                  if (v === "" || (validScore(v) && /^\d*\.?\d{0,2}$/.test(v)))
+                    setRow(i, { score: v });
+                }}
                 placeholder="0-250"
-                className={`h-12 w-24 rounded-xl border bg-[#fffdfa] px-3 text-center text-sm outline-none focus:ring-2 focus:ring-[#f4d5d6] ${
+                className={`h-12 w-24 rounded-xl border [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none bg-[#fffdfa] px-3 text-center text-sm outline-none focus:ring-2 focus:ring-[#f4d5d6] ${
                   bad
                     ? "border-red-500 focus:border-red-500"
                     : "border-[#d8c7c1] focus:border-[#b52326]"
