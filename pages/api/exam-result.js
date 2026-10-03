@@ -149,14 +149,24 @@ export default async function handler(req, res) {
     }
   }
 
+  // CUET: per-paper scores instead of one number (see cuetConfig)
+  if (config.scoreInput && !req.query.scores) {
+    return res
+      .status(400)
+      .json({ error: "Please enter your score in at least one paper." });
+  }
+
   try {
     const dataPath = config.getDataPath(req.query.category);
     const data = await fs.readFile(dataPath, "utf8");
-    const fullData = JSON.parse(data);
+    let fullData = JSON.parse(data);
 
     if (!Array.isArray(fullData)) {
       return res.status(500).json({ error: "Data format invalid" });
     }
+    // fields the rows need from the query before filtering (CUET: the
+    // student's score for each course)
+    if (config.annotate) fullData = config.annotate(fullData, req.query);
 
     // Get filters based on the exam config and query parameters
     const filters = config.getFilters(req.query);
@@ -276,6 +286,11 @@ export default async function handler(req, res) {
     // Apply rank filter if it exists
     if (rankFilter) {
       filteredData = filteredData.filter(rankFilter);
+    }
+
+    // collapse rows the exam lists more than once (CUET: one per course)
+    if (config.finalize) {
+      filteredData = config.finalize(filteredData, req.query);
     }
 
     // Apply sorting based on exam type

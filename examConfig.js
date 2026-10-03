@@ -1,4 +1,5 @@
 import path from "path";
+import { courseMax, courseScore, parseScores } from "./utils/cuetRules";
 
 /**
  * This file contains configuration objects for various exams such as JEE Main-JOSAA, JEE Main-JAC, JEE Advanced, NEET, and MHT CET.
@@ -2330,6 +2331,96 @@ export const clatConfig = {
   getSort: () => [["Closing Rank", "ASC"]],
 };
 
+const CUET_CATEGORY = {
+  General: "UR",
+  OBC: "OBC",
+  SC: "SC",
+  ST: "ST",
+  EWS: "EWS",
+};
+
+export const cuetConfig = {
+  name: "CUET UG (DU, BHU)",
+  searchKeys: ["Institute", "Academic Program Name", "University"],
+  // DU and BHU admit on a per-course sum of CUET papers, so the student
+  // enters each paper's score (components/CuetScoreInput) instead of one
+  // number, and annotate() works out their score for every course from the
+  // course's rule (utils/cuetRules.js, scripts/build_cuet_2025.py).
+  scoreInput: "cuet",
+  fields: [
+    {
+      name: "category",
+      label: "Select Category",
+      options: Object.keys(CUET_CATEGORY),
+    },
+    {
+      name: "isPWD",
+      label: "Are you a PwBD Student?",
+      options: ["No", "Yes"],
+    },
+    {
+      name: "gender",
+      label: "Select Gender",
+      options: ["Male", "Female"],
+    },
+    {
+      name: "university",
+      label: "Select University",
+      options: ["Both", "Delhi University", "BHU"],
+    },
+  ],
+  getDataPath: () => {
+    return path.join(process.cwd(), "public", "data", "CUET", "cuet_data.json");
+  },
+  annotate: (rows, query) => {
+    const scores = parseScores(query.scores);
+    return rows.map((item) => {
+      const score = courseScore(item.Rule, scores);
+      return {
+        ...item,
+        "Your Score": score,
+        // how far above the cutoff, as a share of the course's scale (750
+        // or 1000), so courses on different scales sort together
+        Margin:
+          score === null
+            ? null
+            : (score - item["Cutoff Score"]) / courseMax(item.Rule),
+      };
+    });
+  },
+  getFilters: (query) => {
+    const seats = ["UR", CUET_CATEGORY[query.category]];
+    if (query.isPWD === "Yes") seats.push("PwBD");
+    return [
+      (item) => seats.includes(item.Category),
+      (item) => query.gender === "Female" || !item["Women Only"],
+      (item) =>
+        !query.university ||
+        query.university === "Both" ||
+        item.University === query.university,
+      (item) =>
+        item["Your Score"] !== null &&
+        item["Your Score"] >= item["Cutoff Score"],
+    ];
+  },
+  // open seats and your category's seats are two cutoffs for one course:
+  // keep the one you clear more easily, so each course is listed once
+  finalize: (rows) => {
+    const best = new Map();
+    for (const item of rows) {
+      const key = [item.Institute, item["Academic Program Name"], item.Seat];
+      const k = key.join("|");
+      const seen = best.get(k);
+      if (!seen || item["Cutoff Score"] < seen["Cutoff Score"]) {
+        best.set(k, item);
+      }
+    }
+    return [...best.values()];
+  },
+  // the seats you only just clear first: the most ambitious reachable ones
+  getSort: () => [["Margin", "ASC"]],
+};
+
 export const examConfigs = {
   // Order = the predictor's exam dropdown: national routes first, then the
   // JEE Main counsellings of Delhi and Chandigarh, then state CETs A-Z.
@@ -2339,6 +2430,7 @@ export const examConfigs = {
   "NEETUG": neetUGConfig,
   // "NEET MCC": neetConfig,
   "CLAT": clatConfig,
+  "CUET": cuetConfig,
   "ICAR-UG": icarUgConfig,
   "AIIMS Nursing": aiimsNursingConfig,
   "JEE Main-JAC": jacExamConfig,

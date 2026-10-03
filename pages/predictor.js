@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import dynamic from "next/dynamic";
 import TneaScoreCalculator from "../components/TneaScoreCalculator";
+import CuetScoreInput from "../components/CuetScoreInput";
 import { readProfile, profileDefaultsForFields } from "../utils/portalSession";
 import BackLink from "../components/BackLink";
 
@@ -564,6 +565,10 @@ const ExamForm = () => {
 
   const isSubmitDisabled = () => {
     if (canEstimateOnSubmit()) return isEstimating;
+    // CUET: the paper scores stand in for the rank
+    if (config?.scoreInput === "cuet") {
+      return !formData.scores || hasMissingConfiguredFields();
+    }
     // For TNEA exam
     if (selectedExam === "TNEA") {
       return (
@@ -733,6 +738,15 @@ const ExamForm = () => {
               {selectedExam && selectedExam === "TNEA" ? (
                 <div className="md:col-span-2">
                   <TneaScoreCalculator onScoreChange={handleTneaScoreChange} />
+                </div>
+              ) : config?.scoreInput === "cuet" ? (
+                <div className="md:col-span-2">
+                  <CuetScoreInput
+                    value={formData.scores || ""}
+                    onChange={(scores) =>
+                      setFormData((prev) => ({ ...prev, scores }))
+                    }
+                  />
                 </div>
               ) : (
                 selectedExam && (

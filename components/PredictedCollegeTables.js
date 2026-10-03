@@ -157,6 +157,13 @@ const expandedFields = {
     { key: "Round", label: "Round" },
     { key: "Opening Rank", label: "Opening Rank (JEE Main)" },
   ],
+  // CUET - DU and BHU (2025; each course's own CUET score, lowest over rounds)
+  CUET: [
+    { key: "University", label: "University" },
+    { key: "Category", label: "Category" },
+    { key: "Round", label: "Round" },
+    { key: "Year", label: "Data Year" },
+  ],
   // ICAR-UG (2025; CUET marks, three subjects of 750, lowest over rounds)
   "ICAR-UG": [
     { key: "Year", label: "Data Year" },
@@ -679,6 +686,15 @@ const PredictedCollegesTable = ({
       { key: "academic_program_name", label: "Program" },
       { key: "closing_rank", label: "Closing Rank (JEE Main)" },
     ],
+    // "Your score" is per course: DU and BHU add up different papers for
+    // each, so the student's score changes from row to row
+    CUET: [
+      { key: "institute", label: "College" },
+      { key: "academic_program_name", label: "Course" },
+      { key: "your_score", label: "Your score" },
+      { key: "cutoff_score", label: "Cutoff" },
+      { key: "seat", label: "Seat" },
+    ],
     "ICAR-UG": [
       { key: "institute", label: "University" },
       { key: "academic_program_name", label: "Course" },
@@ -817,6 +833,16 @@ const PredictedCollegesTable = ({
         institute: item["Institute"],
         academic_program_name: item["Academic Program Name"],
         closing_rank: item["Closing Rank"],
+      };
+    }
+    if (exam === "CUET") {
+      return {
+        ...item,
+        institute: item["Institute"],
+        academic_program_name: item["Academic Program Name"],
+        your_score: item["Your Score"],
+        cutoff_score: item["Cutoff Score"],
+        seat: item["Seat"],
       };
     }
     if (exam === "ICAR-UG") {

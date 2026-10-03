@@ -6,6 +6,8 @@ import Fuse from "fuse.js";
 import examConfigs from "../examConfig";
 import dynamic from "next/dynamic";
 import TneaScoreCalculator from "../components/TneaScoreCalculator";
+import CuetScoreInput from "../components/CuetScoreInput";
+import { PAPER_LABEL, parseScores } from "../utils/cuetRules";
 import { debounce } from "lodash";
 
 // Dynamically import Dropdown with SSR disabled
@@ -124,6 +126,7 @@ const RELAXABLE = [
   { key: "district", label: "district", any: "Any" },
   { key: "courseType", label: "course", any: "Any" },
   { key: "program", label: "program", any: null },
+  { key: "university", label: "university", any: "Both" },
 ];
 
 const findEmptyHint = async (query, signal) => {
@@ -760,7 +763,9 @@ const CollegePredictor = () => {
       });
 
     const primaryInputCard =
-      queryObject.exam !== "JoSAA" && queryObject.exam !== "TNEA"
+      queryObject.exam !== "JoSAA" &&
+      queryObject.exam !== "TNEA" &&
+      !examConfigs[queryObject.exam]?.scoreInput
         ? renderSelectionCard(
             "rank",
             getPrimaryInputConfig(queryObject.exam, queryObject).label,
@@ -1101,6 +1106,17 @@ const CollegePredictor = () => {
             readOnlyRank={true}
           />
         ) : null}
+
+        {examConfigs[queryObject.exam]?.scoreInput === "cuet" ? (
+          <CuetScoreInput
+            value={queryObject.scores || ""}
+            onChange={(scores) => {
+              const next = { ...queryObject, scores };
+              setQueryObject(next);
+              debouncedRouterPush(next);
+            }}
+          />
+        ) : null}
       </div>
     );
   };
@@ -1163,6 +1179,22 @@ const CollegePredictor = () => {
           key: "advRank",
           label: "JEE Advanced Category Rank",
           value: queryObject.advRank,
+        });
+      }
+    } else if (examConfig.scoreInput === "cuet") {
+      const scores = Object.entries(parseScores(queryObject.scores));
+      if (scores.length) {
+        summaryItems.push({
+          key: "scores",
+          label: "Scores",
+          value: scores
+            .map(
+              ([id, n]) =>
+                `${
+                  id === "gat" ? "GAT" : PAPER_LABEL[id].replace(/ \(.*\)$/, "")
+                } ${n}`
+            )
+            .join(", "),
         });
       }
     } else if (queryObject.rank) {

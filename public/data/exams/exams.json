@@ -2667,7 +2667,7 @@
    "JMI-ET (JMI Entrance Test)",
    "TISS-BAT (Bachelor Aptitude Test)"
   ],
-  "predictor_exam": null,
+  "predictor_exam": "CUET",
   "open_data_id": "ducuet",
   "careers": [
    {
