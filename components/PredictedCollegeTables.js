@@ -159,6 +159,8 @@ const expandedFields = {
   ],
   // CUET - DU and BHU (2025; each course's own CUET score, lowest over rounds)
   CUET: [
+    { key: "Papers Counted", label: "Papers counted" },
+    { key: "Out Of", label: "Out of" },
     { key: "University", label: "University" },
     { key: "Category", label: "Category" },
     { key: "Round", label: "Round" },
@@ -841,7 +843,10 @@ const PredictedCollegesTable = ({
         institute: item["Institute"],
         academic_program_name: item["Academic Program Name"],
         your_score: item["Your Score"],
-        cutoff_score: item["Cutoff Score"],
+        cutoff_score:
+          item["Cutoff Score"] == null
+            ? null
+            : `${item["Cutoff Score"]} / ${item["Out Of"]}`,
         seat: item["Seat"],
       };
     }

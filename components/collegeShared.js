@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { courseMax, coursePapers } from "../utils/cuetRules";
 import { ExternalLink } from "lucide-react";
 
 // Pieces shared by the colleges list and the college page.
@@ -237,6 +238,12 @@ export const ProgramsTable = ({ c }) => (
                     ) : (
                       p.branch
                     )}
+                    {/* CUET courses: the papers this course adds up */}
+                    {p.cuet_rule ? (
+                      <span className="block text-[11px] text-[#7a6159]">
+                        {coursePapers(p.cuet_rule)}
+                      </span>
+                    ) : null}
                   </td>
                   <td className="px-2 py-1.5 text-[#6d5550]">
                     {p.degree}
@@ -248,6 +255,14 @@ export const ProgramsTable = ({ c }) => (
                       className="px-2 py-1.5 text-right tabular-nums text-[#332724]"
                     >
                       {col.value(p) ?? <Dash />}
+                      {col.key === "score" &&
+                      p.cuet_rule &&
+                      col.value(p) != null ? (
+                        <span className="text-[#7a6159]">
+                          {" "}
+                          / {courseMax(p.cuet_rule)}
+                        </span>
+                      ) : null}
                       {/* a rank on its own scale (AIIMS nursing)
                           names it */}
                       {col.key === "rank" && p.rank_label ? (

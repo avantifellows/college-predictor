@@ -1,5 +1,10 @@
 import path from "path";
-import { courseMax, courseScore, parseScores } from "./utils/cuetRules";
+import {
+  courseMax,
+  coursePapers,
+  courseScore,
+  parseScores,
+} from "./utils/cuetRules";
 
 /**
  * This file contains configuration objects for various exams such as JEE Main-JOSAA, JEE Main-JAC, JEE Advanced, NEET, and MHT CET.
@@ -2378,6 +2383,8 @@ export const cuetConfig = {
       const score = courseScore(item.Rule, scores);
       return {
         ...item,
+        "Papers Counted": coursePapers(item.Rule),
+        "Out Of": courseMax(item.Rule),
         "Your Score": score,
         // how far above the cutoff, as a share of the course's scale (750
         // or 1000), so courses on different scales sort together

@@ -2493,6 +2493,10 @@ def main():
                              "placement": None, "accreditation": None},
         }
 
+    # each CUET course's rule (which papers it adds up, out of what), from
+    # the predictor's data: the card shows "226 / 250" and the papers
+    CUET_RULE = {(x["University"], x["Academic Program Name"]): x["Rule"]
+                 for x in json.load(open("public/data/CUET/cuet_data.json"))}
     du = du.assign(college_name=du.college_name.str.replace("Hansraj", "Hans Raj", regex=False))
     du_names = sorted(du.college_name.unique())
     du_nirf = nirf_block_for(du_names, ["College", "Overall"], state="Delhi")
@@ -2505,6 +2509,7 @@ def main():
                         "degree": deg.group(1).strip() if deg else "UG",
                         "indicative_closing_rank": None, "indicative_opening_rank": None,
                         "indicative_min_score": None if pd.isna(x.ur_score) else round(float(x.ur_score), 1),
+                        "cuet_rule": CUET_RULE.get(("Delhi University", x.program_name)),
                         "career_id": career_of_program(x.program_name)})
         lst.sort(key=lambda z: (z["indicative_min_score"] is None, -(z["indicative_min_score"] or 0), z["branch"]))
         disc = sorted({("Commerce" if "com" in p["branch"].lower() else
@@ -2631,6 +2636,7 @@ def main():
             lst.append({"branch": x.program + FEE_LABEL.get(x.fee_type, ""), "years": yrs, "degree": deg,
                         "indicative_closing_rank": None, "indicative_opening_rank": None,
                         "indicative_min_score": None if pd.isna(x.ur_score) else round(float(x.ur_score), 1),
+                        "cuet_rule": CUET_RULE.get(("BHU", x.program)),
                         "career_id": career_of_program(x.program)})
         lst.sort(key=lambda z: (z["indicative_min_score"] is None, -(z["indicative_min_score"] or 0), z["branch"]))
         programs = {"count": len(lst), "degrees": sorted({p["degree"] for p in lst}), "list": lst,

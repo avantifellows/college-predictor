@@ -226,6 +226,48 @@ export const courseMax = (ruleId) =>
   Math.max(...(CUET_RULES[ruleId]?.combos || [[]]).map((c) => c.length)) *
   MAX_PAPER_SCORE;
 
+const slotName = (slot) => {
+  const k = slot.join();
+  if (k === LANG_IDS.join()) return "language";
+  if (k === SUBJECT_IDS.join()) return "subject";
+  if (k === "gat") return "GAT";
+  if (k === EN_HI.join()) return "English or Hindi";
+  return slot
+    .map((id) => (id === "maths" ? "Maths" : PAPER_LABEL[id]))
+    .join(" or ");
+};
+
+/**
+ * The papers a course counts, short enough for a table line:
+ * "Language + Maths + 2 subjects", "Physics + Chemistry + Maths",
+ * "Sanskrit". Combinations are joined with "or".
+ */
+export function coursePapers(ruleId) {
+  const rule = CUET_RULES[ruleId];
+  if (!rule) return null;
+  const combo = (slots) => {
+    const parts = [];
+    for (const name of slots.map(slotName)) {
+      const last = parts[parts.length - 1];
+      if (last && last.name === name) last.n += 1;
+      else parts.push({ name, n: 1 });
+    }
+    return parts
+      .map(({ name, n }) =>
+        n === 1
+          ? name
+          : `${n} ${
+              name === "language" || name === "subject"
+                ? `${name}s`
+                : `x ${name}`
+            }`
+      )
+      .join(" + ");
+  };
+  const text = rule.combos.map(combo).join(", or ");
+  return text.charAt(0).toUpperCase() + text.slice(1);
+}
+
 /**
  * The student's score for a course under `ruleId`, or null when their papers
  * don't make up any of its combinations. `scores` is { paperId: number }.
