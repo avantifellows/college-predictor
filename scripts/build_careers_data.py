@@ -77,9 +77,10 @@ EXAM_LINKS = {
     "ICAR-UG": [("ICAR-UG (CUET)", "/predictor?exam=ICAR-UG")],
     "UPTAC": [("UPTAC", "/predictor?exam=UPTAC")],
     # DU / BHU admit on CUET papers: one chip, straight to the CUET predictor
-    "DU-CUET": [("CUET (DU, BHU, Allahabad)", "/predictor?exam=CUET")],
-    "BHU-CUET": [("CUET (DU, BHU, Allahabad)", "/predictor?exam=CUET")],
-    "ALD-CUET": [("CUET (DU, BHU, Allahabad)", "/predictor?exam=CUET")],
+    "DU-CUET": [("CUET (central universities)", "/predictor?exam=CUET")],
+    "BHU-CUET": [("CUET (central universities)", "/predictor?exam=CUET")],
+    "ALD-CUET": [("CUET (central universities)", "/predictor?exam=CUET")],
+    "CUSB-CUET": [("CUET (central universities)", "/predictor?exam=CUET")],
     "NEET": [("NEET-UG", "/exams?q=NEET")],
 }
 
@@ -218,6 +219,10 @@ OPTION_SOURCES = {
                  lambda r: r.get("University") == "University of Allahabad"
                  and r.get("Category") == "UR" and not r.get("Cutoff Note"),
                  "Cutoff Score", True, lambda r: f" / {r['Out Of']} CUET"),
+    "CUSB-CUET": ("public/data/CUET/cuet_data.json", "Academic Program Name",
+                  lambda r: r.get("University") == "Central University of South Bihar"
+                  and r.get("Category") == "UR" and not r.get("Cutoff Note"),
+                  "Cutoff Score", True, lambda r: f" / {r['Out Of']} CUET"),
     # last: five colleges in one city only fill spare slots
     "JAC-Chandigarh": ("public/data/JACCHD/jacchd_data.json", "Academic Program Name",
                        lambda r: r.get("Category") == "General",
@@ -226,7 +231,8 @@ OPTION_SOURCES = {
 
 EXAM_LABEL = {"JAC-Chandigarh": "JAC Chandigarh", "AIIMS-Nursing": "AIIMS-EE",
               "ICAR-UG": "ICAR-UG (CUET)", "DU-CUET": "CUET (DU)",
-              "BHU-CUET": "CUET (BHU)", "ALD-CUET": "CUET (Allahabad)"}
+              "BHU-CUET": "CUET (BHU)", "ALD-CUET": "CUET (Allahabad)",
+              "CUSB-CUET": "CUET (CUSB)"}
 
 _option_cache = {}
 
@@ -397,7 +403,7 @@ def main():
                         raws = set(em[(em.exam == ex) & (em.branch_id == branch_id)].branch_raw)
                         if not any(x.get(field) in raws for x in _load_options_file(path)):
                             continue
-                    # DU, BHU and Allahabad all lead to the one CUET chip
+                    # DU, BHU, Allahabad and CUSB all lead to the one CUET chip
                     if not any(e["label"] == label for e in exams):
                         exams.append({"label": label, "href": href})
         # exams the sheet names that our cutoff tables don't carry

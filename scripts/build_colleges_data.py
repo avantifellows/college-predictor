@@ -2372,6 +2372,9 @@ def main():
         (r"botany", "botany"), (r"zoology", "zoology"), (r"microbio|life science|biolog", "biology"),
         (r"physics", "physics"), (r"chemistry|chemical engineering", "chemistry"),
         (r"mathemat|\bmaths\b|statistic", "mathematics"), (r"music", "music"),
+        (r"\bllb\b|law", "law-llb"), (r"pharmacy|pharm", "pharmacy"),
+        (r"b\.?ed\b|education", "teaching"), (r"agricultur", "agriculture"),
+        (r"geolog", "geology-geophysics-geological-technology"), (r"sociolog", "sociology"),
         (r"bba|\bmba\b|management studies|business administration", "business-administration-mba"),
         (r"software", "computer-science-information-technology"),
         (r"food technology", "food-engineering"),
@@ -2690,7 +2693,33 @@ def main():
     ald_row.update(district="Prayagraj", kind="Central University",
                    website="http://www.allduniv.ac.in")
     print(f"  Allahabad card: {len(lst)} programmes, NIRF {'yes' if ald_row['nirf'] else 'no'}")
-    rows += du_rows + ii_rows + icar_rows + bhu_rows + [ald_row]
+    # ── Central University of South Bihar (CUET): one card ────────────────
+    cusb = client.query(f"""
+    SELECT program, MIN(IF(category = 'UR' AND NOT all_admitted, cutoff, NULL)) AS ur_cutoff
+    FROM `{D}.cusbug_fact_cutoffs` GROUP BY 1""").to_dataframe()
+    CUSB_DEGREE = [(r"B\.Ed", "B.A./B.Sc. B.Ed.", 4, "Education"), (r"Agriculture", "B.Sc. (Hons.)", 4, "Agriculture"),
+                   (r"LLB", "Law (integrated)", 5, "Law"), (r"Pharmacy", "D.Pharm", 2, "Pharmacy"),
+                   (r"UG-PG", "Integrated UG-PG", 5, "Science")]
+    lst, discs = [], set()
+    for x in cusb.itertuples():
+        deg, yrs, disc = next((d, y, dd) for pat, d, y, dd in CUSB_DEGREE if _re.search(pat, x.program))
+        discs.add(disc)
+        lst.append({"branch": x.program, "years": yrs, "degree": deg,
+                    "indicative_closing_rank": None, "indicative_opening_rank": None,
+                    "indicative_min_score": None if pd.isna(x.ur_cutoff) else round(float(x.ur_cutoff), 1),
+                    "cuet_rule": CUET_RULE.get(("Central University of South Bihar", x.program)),
+                    "career_id": career_of_program(x.program)})
+    lst.sort(key=lambda z: (z["indicative_min_score"] is None, -(z["indicative_min_score"] or 0), z["branch"]))
+    cusb_row = base_row("cusb:central-university-of-south-bihar", "Central University of South Bihar, Gaya", "Bihar",
+                        "CUET (UG)", "CUSB UG admission (CUET)",
+                        {"count": len(lst), "degrees": sorted({p["degree"] for p in lst}), "list": lst,
+                         "source": "CUSB UG admission 2025, rounds 1-6",
+                         "rank_note": "Lowest open-category CUET score that got a seat; each programme has its own scale (250 or 500)."},
+                        nirf_block_for(["Central University of South Bihar"], ["University", "Overall"]).get("Central University of South Bihar"),
+                        sorted(discs)[:4], "CUSB UG admission 2025")
+    cusb_row.update(district="Gaya", kind="Central University", website="https://www.cusb.ac.in")
+    print(f"  CUSB card: {len(lst)} programmes, NIRF {'yes' if cusb_row['nirf'] else 'no'}")
+    rows += du_rows + ii_rows + icar_rows + bhu_rows + [ald_row, cusb_row]
 
     print(f"  medical rows {len(med_rows)}"
           f"  with NIRF {sum(1 for x in med_rows if x['nirf'])}"

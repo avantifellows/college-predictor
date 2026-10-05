@@ -981,5 +981,203 @@
   "prorated": false,
   "needsLanguage": false,
   "zeroIfMissing": true
+ },
+ "CUSB_GAT_EN": {
+  "combos": [
+   [
+    [
+     "english"
+    ],
+    "G"
+   ]
+  ],
+  "max": 500,
+  "papers": "English + GAT",
+  "prorated": false,
+  "needsLanguage": false,
+  "zeroIfMissing": false
+ },
+ "CUSB_GAT": {
+  "combos": [
+   [
+    "G"
+   ]
+  ],
+  "max": 250,
+  "papers": "GAT",
+  "prorated": false,
+  "needsLanguage": false,
+  "zeroIfMissing": false
+ },
+ "CUSB_GAT_OR_MATH": {
+  "combos": [
+   [
+    "G"
+   ],
+   [
+    [
+     "maths"
+    ]
+   ]
+  ],
+  "max": 250,
+  "papers": "GAT, or Maths",
+  "prorated": false,
+  "needsLanguage": false,
+  "zeroIfMissing": false
+ },
+ "CUSB_GAT_CHEM": {
+  "combos": [
+   [
+    "G",
+    [
+     "chemistry"
+    ]
+   ]
+  ],
+  "max": 500,
+  "papers": "GAT + Chemistry",
+  "prorated": false,
+  "needsLanguage": false,
+  "zeroIfMissing": false
+ },
+ "CUSB_GAT_MATH": {
+  "combos": [
+   [
+    "G",
+    [
+     "maths"
+    ]
+   ]
+  ],
+  "max": 500,
+  "papers": "GAT + Maths",
+  "prorated": false,
+  "needsLanguage": false,
+  "zeroIfMissing": false
+ },
+ "CUSB_GAT_POLSCI": {
+  "combos": [
+   [
+    "G",
+    [
+     "polsci"
+    ]
+   ]
+  ],
+  "max": 500,
+  "papers": "GAT + Political Science",
+  "prorated": false,
+  "needsLanguage": false,
+  "zeroIfMissing": false
+ },
+ "CUSB_GAT_HIST": {
+  "combos": [
+   [
+    "G",
+    [
+     "history"
+    ]
+   ]
+  ],
+  "max": 500,
+  "papers": "GAT + History",
+  "prorated": false,
+  "needsLanguage": false,
+  "zeroIfMissing": false
+ },
+ "CUSB_PHY": {
+  "combos": [
+   [
+    [
+     "physics"
+    ]
+   ]
+  ],
+  "max": 250,
+  "papers": "Physics",
+  "prorated": false,
+  "needsLanguage": false,
+  "zeroIfMissing": false
+ },
+ "CUSB_GAT_ACC": {
+  "combos": [
+   [
+    "G",
+    [
+     "accountancy"
+    ]
+   ]
+  ],
+  "max": 500,
+  "papers": "GAT + Accountancy",
+  "prorated": false,
+  "needsLanguage": false,
+  "zeroIfMissing": false
+ },
+ "CUSB_GAT_HINDI": {
+  "combos": [
+   [
+    "G",
+    [
+     "hindi"
+    ]
+   ]
+  ],
+  "max": 500,
+  "papers": "GAT + Hindi",
+  "prorated": false,
+  "needsLanguage": false,
+  "zeroIfMissing": false
+ },
+ "CUSB_GAT_CS": {
+  "combos": [
+   [
+    "G",
+    [
+     "cs"
+    ]
+   ]
+  ],
+  "max": 500,
+  "papers": "GAT + Computer Science",
+  "prorated": false,
+  "needsLanguage": false,
+  "zeroIfMissing": false
+ },
+ "CUSB_GAT_BIO": {
+  "combos": [
+   [
+    "G",
+    [
+     "biology"
+    ]
+   ]
+  ],
+  "max": 500,
+  "papers": "GAT + Biology",
+  "prorated": false,
+  "needsLanguage": false,
+  "zeroIfMissing": false
+ },
+ "CUSB_AGRI": {
+  "combos": [
+   [
+    [
+     "chemistry"
+    ],
+    [
+     "agriculture",
+     "biology",
+     "maths",
+     "physics"
+    ]
+   ]
+  ],
+  "max": 500,
+  "papers": "Chemistry + Agriculture or Biology or Maths or Physics",
+  "prorated": false,
+  "needsLanguage": false,
+  "zeroIfMissing": false
  }
 }

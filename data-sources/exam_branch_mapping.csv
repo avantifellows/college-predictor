@@ -2408,3 +2408,26 @@ ALD-CUET,B.Voc. (Software Development),B.Voc. (Software Development),CSIT,Comput
 ALD-CUET,BBA-MBA (5-year integrated),BBA-MBA (5-year integrated),MBA,MBA,50,1,"nearest parent, needs review"
 ALD-CUET,Disaster Management and Environmental Studies (5-year integrated),Disaster Management and Environmental Studies (5-year integrated),GENSCI,Science,26,1,"nearest parent, needs review"
 ALD-CUET,Family and Community Sciences (5-year integrated B.Sc. & M.Sc.),Family and Community Sciences (5-year integrated B.Sc. & M.Sc.),COMMUNITYSCI,Community Science,1,1,taxonomy parent by name
+CUSB-CUET,2 Year Diploma in Pharmacy,2 Year Diploma in Pharmacy,PHARMA,Pharmacy,12,1,taxonomy parent by name
+CUSB-CUET,4 Year B.Sc. (Hons.) Agriculture,4 Year B.Sc. (Hons.) Agriculture,AGRI,Agriculture,16,1,taxonomy parent by name
+CUSB-CUET,4 Year Integrated B.A. B.Ed.,4 Year Integrated B.A. B.Ed.,TEACH,Teaching,7,1,"nearest parent, needs review"
+CUSB-CUET,4 Year Integrated B.Sc. B.Ed.,4 Year Integrated B.Sc. B.Ed.,TEACH,Teaching,7,1,"nearest parent, needs review"
+CUSB-CUET,5 Year Integrated BA.LLB (Hons.),5 Year Integrated BA.LLB (Hons.),LLB,LLB,14,1,"nearest parent, needs review"
+CUSB-CUET,5 Year Integrated BBA.LLB,5 Year Integrated BBA.LLB,LLB,LLB,7,1,"nearest parent, needs review"
+CUSB-CUET,5 Year Integrated UG-PG in Chemistry,5 Year Integrated UG-PG in Chemistry,CHEM,Chemistry,7,1,taxonomy parent by name
+CUSB-CUET,5 Year Integrated UG-PG in Commerce,5 Year Integrated UG-PG in Commerce,COMMERCE,Commerce,13,1,taxonomy parent by name
+CUSB-CUET,5 Year Integrated UG-PG in Computer Science,5 Year Integrated UG-PG in Computer Science,CSIT,Computer Science / Information Technology,7,1,"nearest parent, needs review"
+CUSB-CUET,5 Year Integrated UG-PG in Economics,5 Year Integrated UG-PG in Economics,ECON,Economics,12,1,taxonomy parent by name
+CUSB-CUET,5 Year Integrated UG-PG in English,5 Year Integrated UG-PG in English,ENGLISH,English,9,1,taxonomy parent by name
+CUSB-CUET,5 Year Integrated UG-PG in Geography,5 Year Integrated UG-PG in Geography,ARTS,Arts,16,1,"nearest parent, needs review"
+CUSB-CUET,5 Year Integrated UG-PG in Geology,5 Year Integrated UG-PG in Geology,GEO,Geology / Geophysics / Geological Technology,8,1,"nearest parent, needs review"
+CUSB-CUET,5 Year Integrated UG-PG in Hindi,5 Year Integrated UG-PG in Hindi,ARTS,Arts,7,1,"nearest parent, needs review"
+CUSB-CUET,5 Year Integrated UG-PG in History,5 Year Integrated UG-PG in History,HIST,History,10,1,taxonomy parent by name
+CUSB-CUET,5 Year Integrated UG-PG in Journalism and Mass Communication,5 Year Integrated UG-PG in Journalism and Mass Communication,JOURNAL,Journalism,11,1,taxonomy parent by name
+CUSB-CUET,5 Year Integrated UG-PG in Life Science,5 Year Integrated UG-PG in Life Science,LIFESCI,Life Science,8,1,taxonomy parent by name
+CUSB-CUET,5 Year Integrated UG-PG in Mathematics,5 Year Integrated UG-PG in Mathematics,MATH,Mathematics,11,1,taxonomy parent by name
+CUSB-CUET,5 Year Integrated UG-PG in Physics,5 Year Integrated UG-PG in Physics,PHYSICS,Physics,12,1,taxonomy parent by name
+CUSB-CUET,5 Year Integrated UG-PG in Political Science and International Relations,5 Year Integrated UG-PG in Political Science and International Relations,POLISCI,Political Science,7,1,taxonomy parent by name
+CUSB-CUET,5 Year Integrated UG-PG in Psychology,5 Year Integrated UG-PG in Psychology,PSYCH,Psychology,12,1,taxonomy parent by name
+CUSB-CUET,5 Year Integrated UG-PG in Sociology,5 Year Integrated UG-PG in Sociology,ARTS,Arts,7,1,"nearest parent, needs review"
+CUSB-CUET,5 Year Integrated UG-PG in Statistics,5 Year Integrated UG-PG in Statistics,MATH,Mathematics,10,1,taxonomy parent by name

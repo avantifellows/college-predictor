@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
-Build public/data/CUET/cuet_data.json from the DU, BHU and University of
-Allahabad cutoff facts (external_data_sources/ducuet, bhuug, allahabadug) — the same rows BigQuery serves.
+Build public/data/CUET/cuet_data.json from the DU, BHU, University of
+Allahabad and CUSB cutoff facts (external_data_sources/ducuet, bhuug,
+allahabadug, cusbug) — the same rows BigQuery serves.
 
 DU and BHU don't admit on one CUET total. Each course adds up its own set of
 papers (DU B.Sc. Physics: Physics + Chemistry + Maths; BHU B.A.: English or
@@ -28,6 +29,7 @@ EXT = REPO.parent / "external_data_sources"
 DU = EXT / "ducuet/clean/ducuet_fact_cutoffs.parquet"
 BHU = EXT / "bhuug/clean/bhuug_fact_cutoffs.parquet"
 ALD = EXT / "allahabadug/clean/allahabadug_fact_cutoffs.parquet"
+CUSB = EXT / "cusbug/clean/cusbug_fact_cutoffs.parquet"
 OUT = REPO / "public/data/CUET/cuet_data.json"
 
 # each course's rule and the rules themselves come from the cuet source
@@ -118,6 +120,31 @@ for r in ald.groupby(["program", "category"]).head(1).itertuples():
         "Category": "PwBD" if r.category == "PWD" else r.category,
         "Seat": "Regular",
         "Women Only": r.program.startswith("Family and Community Sciences"),
+        "Round": f"Round {r.round}",
+        "Cutoff Score": round(float(r.score), 2),
+        **({"Cutoff Note": "every applicant was offered a seat"} if r.all_admitted else {}),
+        "Rule": rule,
+        "Year": "2025",
+    })
+
+# Central University of South Bihar: one card, the loosest round per
+# programme and category ("All" = all registered candidates -> 0 + note)
+cusb = pd.read_parquet(CUSB)
+cusb = cusb[cusb.category.isin(["UR", "EWS", "OBC", "SC", "ST", "PWD"])]
+cusb = cusb.assign(score=cusb.cutoff.where(~cusb.all_admitted, 0.0))
+cusb = cusb.sort_values(["score", "round"], ascending=[True, False])
+for r in cusb.groupby(["program", "category"]).head(1).itertuples():
+    rule = rule_of.get(("CUSB", r.program))
+    if not rule:
+        missing.add(("CUSB", r.program))
+        continue
+    rows.append({
+        "University": "Central University of South Bihar",
+        "Institute": "Central University of South Bihar, Gaya",
+        "Academic Program Name": r.program,
+        "Category": "PwBD" if r.category == "PWD" else r.category,
+        "Seat": "Regular",
+        "Women Only": False,
         "Round": f"Round {r.round}",
         "Cutoff Score": round(float(r.score), 2),
         **({"Cutoff Note": "every applicant was offered a seat"} if r.all_admitted else {}),

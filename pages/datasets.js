@@ -33,6 +33,8 @@ const SEARCH_ALIASES = {
   ducuet: "cuet du delhi university csas arts science commerce",
   bhuug: "cuet bhu banaras hindu university varanasi arts science commerce",
   icarug: "icar cuet agriculture horticulture forestry veterinary fisheries",
+  allahabadug: "cuet allahabad prayagraj university uttar pradesh arts science commerce",
+  cusbug: "cuet cusb south bihar gaya central university integrated law",
   iiser: "iat science bs ms research",
   collegefees: "fees hostel mess tuition cost josaa kcet",
   nirf: "ranking rankings placement",
