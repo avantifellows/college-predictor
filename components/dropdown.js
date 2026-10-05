@@ -66,6 +66,8 @@ const Dropdown = ({
   // optional custom option renderer, passed straight to react-select —
   // the home chooser uses it to tint one keyword per option
   formatOptionLabel,
+  // custom search matching (e.g. the site-wide selectFilter)
+  filterOption,
 }) => {
   const [isOpen, setIsOpen] = React.useState(false);
   return (
@@ -79,6 +81,7 @@ const Dropdown = ({
       instanceId={useId()}
       className={className}
       formatOptionLabel={formatOptionLabel}
+      {...(filterOption ? { filterOption } : {})}
       onMenuOpen={() => setIsOpen(true)}
       onMenuClose={() => setIsOpen(false)}
       controlShouldRenderValue={!(hideValueWhileSearching && isOpen)}
@@ -86,10 +89,13 @@ const Dropdown = ({
         hideValueWhileSearching && isOpen ? "Type to search…" : placeholder
       }
       value={
-        options.find(
-          (option) =>
-            option.label === selectedValue || option.value === selectedValue
-        ) ?? null
+        // grouped options ({ label, options }) hold their choices one level down
+        options
+          .flatMap((option) => option.options || [option])
+          .find(
+            (option) =>
+              option.label === selectedValue || option.value === selectedValue
+          ) ?? null
       }
     />
   );

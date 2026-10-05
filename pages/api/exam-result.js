@@ -17,7 +17,9 @@ const getIp = (req) => {
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100, // limit each IP to 100 requests per windowMs
+  // a school lab shares one IP: a class re-filtering the predictor together
+  // made ~100 requests in minutes and got locked out
+  max: 2000, // per IP per windowMs
   standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
   legacyHeaders: false, // Disable the `X-RateLimit-*` headers
   // trustProxy: true, // Removed as we are using a custom keyGenerator
@@ -147,14 +149,24 @@ export default async function handler(req, res) {
     }
   }
 
+  // CUET: per-paper scores instead of one number (see cuetConfig)
+  if (config.scoreInput && !req.query.scores) {
+    return res
+      .status(400)
+      .json({ error: "Please enter your score in at least one paper." });
+  }
+
   try {
     const dataPath = config.getDataPath(req.query.category);
     const data = await fs.readFile(dataPath, "utf8");
-    const fullData = JSON.parse(data);
+    let fullData = JSON.parse(data);
 
     if (!Array.isArray(fullData)) {
       return res.status(500).json({ error: "Data format invalid" });
     }
+    // fields the rows need from the query before filtering (CUET: the
+    // student's score for each course)
+    if (config.annotate) fullData = config.annotate(fullData, req.query);
 
     // Get filters based on the exam config and query parameters
     const filters = config.getFilters(req.query);
@@ -274,6 +286,11 @@ export default async function handler(req, res) {
     // Apply rank filter if it exists
     if (rankFilter) {
       filteredData = filteredData.filter(rankFilter);
+    }
+
+    // collapse rows the exam lists more than once (CUET: one per course)
+    if (config.finalize) {
+      filteredData = config.finalize(filteredData, req.query);
     }
 
     // Apply sorting based on exam type

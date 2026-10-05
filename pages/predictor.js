@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
-import Script from "next/script";
 import getConstants from "../constants";
 import examConfigs from "../examConfig";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import dynamic from "next/dynamic";
 import TneaScoreCalculator from "../components/TneaScoreCalculator";
-import { ExternalLink, PlayCircle } from "lucide-react";
+import CuetScoreInput from "../components/CuetScoreInput";
+import { readProfile, profileDefaultsForFields } from "../utils/portalSession";
+import BackLink from "../components/BackLink";
 
 // Dynamically import Dropdown with SSR disabled
 const Dropdown = dynamic(() => import("../components/dropdown"), {
@@ -93,14 +94,11 @@ const isJosaaEstimationSupportedCategory = (category) =>
 const josaaPwdEstimateError =
   "Rank estimation is currently unavailable for PwD categories. Please switch to 'No, I know my rank' and enter your rank directly.";
 
-const helpVideoUrl =
-  "https://drive.google.com/file/d/10bBx7LSUd-3aFmRzqX4OZoMqNLeuPfpA/preview";
-const helpVideoViewUrl =
-  "https://drive.google.com/file/d/10bBx7LSUd-3aFmRzqX4OZoMqNLeuPfpA/view?usp=sharing";
-
 const ExamForm = () => {
   const [selectedExam, setSelectedExam] = useState("");
   const [formData, setFormData] = useState({});
+  // the live form, for handlers that take an override under the same name
+  const formDataState = formData;
   const [config, setConfig] = useState(null);
   const [rankError, setRankError] = useState("");
   const [primaryInputError, setPrimaryInputError] = useState("");
@@ -173,6 +171,15 @@ const ExamForm = () => {
     setEstimateError("");
     setEstimatedRank(null);
     setEstimatedPercentile(null);
+    // Avanti students arriving from the portal get category / gender / home
+    // state pre-selected; anyone can still change them.
+    Object.assign(
+      baseFormData,
+      profileDefaultsForFields(
+        readProfile(),
+        examConfigs[selectedOption.value]?.fields || []
+      )
+    );
     setFormData(baseFormData);
   };
 
@@ -275,6 +282,7 @@ const ExamForm = () => {
     setEstimatedRank(null);
     setEstimatedPercentile(null);
     setEstimateError("");
+    clearEstimatedRank();
     if (value === "") {
       setMarksError("");
       return;
@@ -295,6 +303,7 @@ const ExamForm = () => {
     setEstimatedRank(null);
     setEstimatedPercentile(null);
     setEstimateError("");
+    clearEstimatedRank();
     if (value === "") {
       setPercentileError("");
       return;
@@ -311,7 +320,16 @@ const ExamForm = () => {
     setPercentileError("");
   };
 
-  const handleEstimateRank = async () => {
+  // new marks make the last estimate stale: drop the rank it wrote, or Submit
+  // would search with the old one
+  const clearEstimatedRank = () => {
+    if (selectedExam === "JoSAA" && rankMode === "estimate")
+      setFormData((prev) => (prev.mainRank ? { ...prev, mainRank: "" } : prev));
+  };
+
+  // thenSubmit: Submit pressed with marks typed but no estimate yet, so
+  // estimate and go straight to the results
+  const handleEstimateRank = async ({ thenSubmit = false } = {}) => {
     if (!formData.category) {
       setEstimateError("Please select your category first.");
       return;
@@ -359,16 +377,15 @@ const ExamForm = () => {
 
       setEstimatedRank(data.categoryRank);
       setEstimatedPercentile(data.percentile);
-      setFormData((prevData) => {
-        const nextData = {
-          ...prevData,
-          mainRank: String(data.categoryRank),
-          qualifiedJeeAdv: "No",
-          rankMode: "estimate",
-        };
-        delete nextData.advRank;
-        return nextData;
-      });
+      const nextData = {
+        ...formData,
+        mainRank: String(data.categoryRank),
+        qualifiedJeeAdv: "No",
+        rankMode: "estimate",
+      };
+      delete nextData.advRank;
+      setFormData(nextData);
+      if (thenSubmit) handleSubmit(nextData);
     } catch (error) {
       setEstimateError("Unable to estimate rank right now.");
     } finally {
@@ -484,7 +501,8 @@ const ExamForm = () => {
     );
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (dataOverride) => {
+    const formData = dataOverride?.exam ? dataOverride : formDataState;
     // For JoSAA exam
     if (selectedExam === "JoSAA") {
       // Validate mainRank is provided
@@ -527,7 +545,30 @@ const ExamForm = () => {
     }
   };
 
+  // JoSAA estimate mode, marks (or percentile) typed, not estimated yet:
+  // Submit estimates first, so it shouldn't be blocked on the rank
+  const canEstimateOnSubmit = () =>
+    selectedExam === "JoSAA" &&
+    rankMode === "estimate" &&
+    !formData.mainRank &&
+    !!formData.category &&
+    isJosaaEstimationSupportedCategory(formData.category) &&
+    (estimateInputType === "marks"
+      ? marksInput !== "" && !marksError
+      : percentileInput !== "" && !percentileError) &&
+    ["gender", "program", "homeState"].every((f) => formData[f]);
+
+  const onSubmitClick = () =>
+    canEstimateOnSubmit()
+      ? handleEstimateRank({ thenSubmit: true })
+      : handleSubmit();
+
   const isSubmitDisabled = () => {
+    if (canEstimateOnSubmit()) return isEstimating;
+    // CUET: the paper scores stand in for the rank
+    if (config?.scoreInput === "cuet") {
+      return !formData.scores || hasMissingConfiguredFields();
+    }
     // For TNEA exam
     if (selectedExam === "TNEA") {
       return (
@@ -581,13 +622,10 @@ const ExamForm = () => {
     errorText = null,
     fullWidth = false
   ) => (
-    <div
-      key={key}
-      className={`${
-        fullWidth ? "md:col-span-2" : ""
-      } rounded-xl border border-[#eaded8] bg-[#fffdfa] p-4 text-left shadow-sm`}
-    >
-      <label className="mb-2 block text-sm font-semibold text-[#4a3935]">
+    // one flat form: a label over each control, no box around every
+    // question (boxes inside a box read as clutter)
+    <div key={key} className={`${fullWidth ? "md:col-span-2" : ""} text-left`}>
+      <label className="mb-1.5 block text-sm font-semibold text-[#4a3935]">
         {label}
       </label>
       {control}
@@ -651,23 +689,13 @@ const ExamForm = () => {
   return (
     <>
       <Head>
-        <title>College Predictor - Home</title>
+        <title>College Predictor - Futures</title>
       </Head>
       <div className="flex min-h-[calc(100vh-120px)] flex-col">
         <div className="mt-6 flex w-full flex-col items-center justify-start px-4 pb-10 sm:mt-8">
-          <Script
-            src="https://www.googletagmanager.com/gtag/js?id=G-FHGVRT52L7"
-            strategy="afterInteractive"
-          />
-          <Script id="google-analytics" strategy="afterInteractive">
-            {`
-                        window.dataLayer = window.dataLayer || [];
-                        function gtag(){window.dataLayer.push(arguments);}
-                        gtag('js', new Date());
-
-                        gtag('config', 'G-FHGVRT52L7');
-                      `}
-          </Script>
+          <div className="w-full max-w-4xl">
+            <BackLink />
+          </div>
           <div className="mt-4 flex w-full max-w-4xl flex-col items-center rounded-2xl border border-[#eaded8] bg-white p-5 pb-6 text-center shadow-sm sm:mt-6 sm:p-6">
             <h1 className="mb-2 text-2xl font-bold text-[#2f2320] md:text-3xl">
               {getConstants().TITLE}
@@ -681,7 +709,7 @@ const ExamForm = () => {
               </div>
             )}
 
-            <div className="grid w-full grid-cols-1 gap-3 md:grid-cols-2">
+            <div className="mt-4 grid w-full grid-cols-1 gap-x-6 gap-y-5 md:grid-cols-2">
               {renderFormCard(
                 "exam",
                 "Select Exam/Counselling Process",
@@ -710,6 +738,15 @@ const ExamForm = () => {
               {selectedExam && selectedExam === "TNEA" ? (
                 <div className="md:col-span-2">
                   <TneaScoreCalculator onScoreChange={handleTneaScoreChange} />
+                </div>
+              ) : config?.scoreInput === "cuet" ? (
+                <div className="md:col-span-2">
+                  <CuetScoreInput
+                    value={formData.scores || ""}
+                    onChange={(scores) =>
+                      setFormData((prev) => ({ ...prev, scores }))
+                    }
+                  />
                 </div>
               ) : (
                 selectedExam && (
@@ -965,7 +1002,7 @@ const ExamForm = () => {
                             )}
                             <button
                               type="button"
-                              onClick={handleEstimateRank}
+                              onClick={() => handleEstimateRank()}
                               disabled={
                                 isEstimating ||
                                 (estimateInputType === "marks"
@@ -977,9 +1014,9 @@ const ExamForm = () => {
                                   formData.category
                                 )
                               }
-                              className="rounded-lg bg-[#B52326] px-4 py-2 text-white hover:bg-[#9E1F22] disabled:bg-gray-300 disabled:text-gray-600"
+                              className="self-start rounded-lg border border-[#B52326] bg-white px-4 py-2 text-sm font-semibold text-[#B52326] transition hover:bg-[#fbeeec] disabled:cursor-not-allowed disabled:border-[#e0cdc6] disabled:text-[#b9a8a2]"
                             >
-                              {isEstimating ? "Estimating..." : "Estimate Rank"}
+                              {isEstimating ? "Estimating…" : "See my rank"}
                             </button>
                             {formData.category &&
                               !isJosaaEstimationSupportedCategory(
@@ -1009,6 +1046,18 @@ const ExamForm = () => {
                                   students from 2024 and 2025. Actual 2025/26
                                   results may vary depending on the paper slot.
                                 </p>
+                                {/* pilot: students didn't see the Submit
+                                    button far below — the next step lives
+                                    right under the number */}
+                                {!isSubmitDisabled() && (
+                                  <button
+                                    type="button"
+                                    onClick={() => handleSubmit()}
+                                    className="mt-3 w-full rounded-lg bg-[#B52326] px-4 py-2.5 text-sm font-bold text-white hover:bg-[#9E1F22]"
+                                  >
+                                    See colleges for this rank →
+                                  </button>
+                                )}
                               </div>
                             )}
                           </div>,
@@ -1097,18 +1146,20 @@ const ExamForm = () => {
             {selectedExam && (
               <div className="mt-4 w-full max-w-xl">
                 <button
-                  className="w-full rounded-lg bg-[#B52326] px-5 py-3 text-white cursor-pointer hover:bg-[#9E1F22] active:bg-[#8A1B1E] disabled:bg-gray-300 disabled:cursor-not-allowed sm:w-auto"
+                  className="w-full cursor-pointer rounded-xl bg-[#B52326] px-8 py-3 text-base font-bold text-white transition hover:bg-[#9E1F22] active:bg-[#8A1B1E] disabled:cursor-not-allowed disabled:bg-[#B52326]/40 sm:w-auto"
                   disabled={isSubmitDisabled()}
-                  onClick={handleSubmit}
+                  onClick={onSubmitClick}
                 >
-                  Submit
+                  {isEstimating ? "Finding your colleges…" : "Show my colleges"}
                 </button>
-                {isSubmitDisabled() && (
-                  <p className="mt-2 text-sm text-red-600">
+                {isSubmitDisabled() && !isEstimating && (
+                  <p className="mt-2 text-sm text-[#8f2e31]">
                     {selectedExam === "JoSAA" &&
                     rankMode === "estimate" &&
                     (!formData.mainRank || formData.mainRank === "")
-                      ? "Enter your marks and press Estimate Rank first."
+                      ? estimateInputType === "marks"
+                        ? "Enter your marks to continue."
+                        : "Enter your percentile to continue."
                       : selectedExam === "JoSAA" &&
                         formData.qualifiedJeeAdv === "Yes" &&
                         (!formData.advRank || formData.advRank === "")
@@ -1122,43 +1173,6 @@ const ExamForm = () => {
               </div>
             )}
           </div>
-
-          <section className="mt-5 w-full max-w-4xl overflow-hidden rounded-2xl border border-[#eaded8] bg-white shadow-sm">
-            <div className="flex flex-col gap-3 border-b border-[#eaded8] bg-[#fffdfa] px-5 py-4 text-left sm:flex-row sm:items-center sm:justify-between">
-              <div className="flex items-start gap-3">
-                <span className="mt-0.5 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#f8efec] text-[#B52326]">
-                  <PlayCircle size={20} aria-hidden="true" />
-                </span>
-                <div>
-                  <h2 className="text-lg font-bold text-[#2f2320]">
-                    Need help using the predictor?
-                  </h2>
-                  <p className="mt-1 text-sm leading-5 text-[#6d5550]">
-                    Watch this quick guide before filling the form, or scroll
-                    back here anytime.
-                  </p>
-                </div>
-              </div>
-              <a
-                href={helpVideoViewUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full border border-[#d8c7c1] bg-white px-4 py-2 text-sm font-semibold text-[#7a2628] transition hover:bg-[#f8efec]"
-              >
-                Open video
-                <ExternalLink size={15} aria-hidden="true" />
-              </a>
-            </div>
-            <div className="bg-black">
-              <iframe
-                src={helpVideoUrl}
-                title="College predictor help video"
-                className="aspect-video w-full border-0"
-                allow="autoplay; encrypted-media; picture-in-picture"
-                allowFullScreen
-              />
-            </div>
-          </section>
         </div>
       </div>
     </>

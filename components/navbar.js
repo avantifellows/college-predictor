@@ -1,53 +1,40 @@
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
-import {
-  ListChecks,
-  Award,
-  Briefcase,
-  Building2,
-  ChevronDown,
-  ClipboardList,
-  Facebook,
-  FileText,
-  HelpCircle,
-  Instagram,
-  Scale,
-  Target,
-} from "lucide-react";
+import { ChevronDown, Facebook, Instagram, UserRound } from "lucide-react";
+import { SECTIONS, menuOf } from "../utils/siteMap";
 import { usePathname } from "next/navigation";
+import { PORTAL_LOGIN_URL, useStudentProfile } from "../utils/portalSession";
 
-// Navbar in the futures-standalone style: two grouped menus plus Datasets,
-// instead of seven flat links. Groups open on click (works on touch), close
-// on outside click or navigation.
+// Navbar in the futures v2 style: Careers / Colleges / Exams menus (the same
+// items as the section pages, from utils/siteMap), then Scholarships and
+// Datasets. Menus open on click (works on touch), close on outside click or
+// navigation.
+const MENUS = ["careers", "colleges", "exams"].map((k) => ({
+  key: k,
+  label: SECTIONS[k].title,
+  items: SECTIONS[k].items.map((i) => ({
+    href: i.href,
+    icon: i.icon,
+    label: i.name,
+    external: i.external,
+  })),
+}));
 
-const DASHBOARDS = [
-  { href: "/careers", icon: Briefcase, label: "Careers" },
-  { href: "/colleges", icon: Building2, label: "Colleges" },
-  { href: "/exams", icon: ClipboardList, label: "Exams" },
-  { href: "/scholarships", icon: Award, label: "Scholarships" },
-];
+const flatLink = (pathname, href) =>
+  `rounded-full px-2 py-1.5 text-[13px] font-semibold transition sm:px-3 sm:text-sm ${
+    pathname === href || pathname.startsWith(`${href}/`)
+      ? "bg-white/20"
+      : "hover:bg-white/10 cursor-pointer"
+  }`;
 
-const TOOLS = [
-  { href: "/quiz", icon: HelpCircle, label: "Career Quiz" },
-  { href: "/predictor", icon: Target, label: "College Predictor" },
-  { href: "/mock-allotment", icon: ListChecks, label: "JoSAA Mock Allotment" },
-  { href: "/compare", icon: Scale, label: "College & Course Comparison" },
-  {
-    href: "https://cv-generator.avantifellows.org/",
-    icon: FileText,
-    label: "CV Generator",
-    external: true,
-  },
-];
-
-const NavGroup = ({ label, items, pathname, open, onToggle }) => {
-  const active = items.some((i) => i.href === pathname);
+const NavGroup = ({ menuKey, label, items, pathname, open, onToggle }) => {
+  const active = menuOf(pathname) === menuKey;
   return (
     <div className="relative">
       <button
         type="button"
         onClick={onToggle}
-        className={`inline-flex items-center gap-1 rounded-full px-3 py-1.5 text-sm font-semibold transition ${
+        className={`inline-flex items-center gap-0.5 rounded-full px-2 py-1.5 text-[13px] font-semibold transition sm:gap-1 sm:px-3 sm:text-sm ${
           active || open ? "bg-white/20" : "hover:bg-white/10"
         }`}
       >
@@ -84,6 +71,7 @@ const NavGroup = ({ label, items, pathname, open, onToggle }) => {
 const Navbar = () => {
   const pathname = usePathname();
   const [open, setOpen] = useState(null);
+  const profile = useStudentProfile();
   const barRef = useRef(null);
 
   useEffect(() => setOpen(null), [pathname]);
@@ -94,6 +82,39 @@ const Navbar = () => {
     document.addEventListener("mousedown", onDoc);
     return () => document.removeEventListener("mousedown", onDoc);
   }, []);
+
+  // Student login / Student Corner: on the red bar (onRed) from tablet
+  // width up, in the white top bar on a phone
+  const account = (onRed) =>
+    profile ? (
+      <Link
+        href="/student-corner"
+        className={`inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-semibold transition ${
+          onRed
+            ? pathname === "/student-corner"
+              ? "bg-white/20 text-white"
+              : "bg-white/10 text-white hover:bg-white/20"
+            : "bg-[#fbeeec] text-[#B52326]"
+        }`}
+      >
+        <UserRound size={15} />
+        <span className="max-w-[140px] truncate">
+          {profile.name ? profile.name.split(" ")[0] : "Student Corner"}
+        </span>
+      </Link>
+    ) : (
+      <a
+        href={PORTAL_LOGIN_URL}
+        className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-sm font-bold shadow-sm transition ${
+          onRed
+            ? "bg-white text-[#B52326] hover:bg-[#f8efec]"
+            : "bg-[#B52326] text-white hover:bg-[#9E1F22]"
+        }`}
+      >
+        <UserRound size={15} />
+        {onRed ? "Student login" : "Login"}
+      </a>
+    );
 
   return (
     <div className="border-b border-[#eaded8] bg-white shadow-sm">
@@ -114,7 +135,10 @@ const Navbar = () => {
           </Link>
         </div>
 
-        <div className="flex gap-1.5">
+        <div className="flex items-center gap-1.5">
+          {/* on a phone the login sits up here, so the red bar keeps the
+              five menus on one line */}
+          <div className="mr-1 sm:hidden">{account(false)}</div>
           <SocialIcon socialLink={"https://www.facebook.com/avantifellows"}>
             <Facebook size={18} color="#fff" fill="#fff" strokeWidth="0.1" />
           </SocialIcon>
@@ -124,35 +148,38 @@ const Navbar = () => {
         </div>
       </div>
       <div ref={barRef} className="w-full bg-[#B52326] py-3 text-white">
-        <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-2 px-5 md:px-8">
-          <div className="flex flex-wrap items-center gap-2">
-            <NavGroup
-              label="Dashboards"
-              items={DASHBOARDS}
-              pathname={pathname}
-              open={open === "dash"}
-              onToggle={() => setOpen(open === "dash" ? null : "dash")}
-            />
-            <NavGroup
-              label="Tools"
-              items={TOOLS}
-              pathname={pathname}
-              open={open === "tools"}
-              onToggle={() => setOpen(open === "tools" ? null : "tools")}
-            />
+        <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-2 px-3 sm:px-5 md:px-8">
+          <div className="flex flex-wrap items-center gap-0.5 sm:gap-2">
+            {MENUS.map((m) => (
+              <NavGroup
+                key={m.key}
+                menuKey={m.key}
+                label={m.label}
+                items={m.items}
+                pathname={pathname || ""}
+                open={open === m.key}
+                onToggle={() => setOpen(open === m.key ? null : m.key)}
+              />
+            ))}
+            <Link
+              href="/scholarships"
+              className={flatLink(pathname || "", "/scholarships")}
+            >
+              Scholarships
+            </Link>
+            {/* on a phone Datasets lives in the footer ("Built with open
+                data"), so the menus stay on one line */}
             <Link
               href="/datasets"
-              className={`rounded-full px-3 py-1.5 text-sm font-semibold transition ${
-                pathname === "/datasets"
-                  ? "bg-white/20"
-                  : "hover:bg-white/10 cursor-pointer"
-              }`}
+              className={`hidden sm:inline-block ${flatLink(
+                pathname || "",
+                "/datasets"
+              )}`}
             >
               Datasets
             </Link>
           </div>
-          {/* right side stays empty until Sign in ships */}
-          <div />
+          <div className="hidden shrink-0 sm:block">{account(true)}</div>
         </div>
       </div>
     </div>

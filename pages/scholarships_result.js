@@ -5,7 +5,7 @@ const ScholarshipsResultPage = () => {
   return (
     <>
       <Head>
-        <title>Scholarship Finder</title>
+        <title>Scholarship Finder - Futures</title>
       </Head>
       <ScholarshipReferenceBrowser />
     </>

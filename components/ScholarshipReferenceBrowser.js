@@ -1,6 +1,8 @@
 import React, { useEffect, useMemo, useState } from "react";
 import Fuse from "fuse.js";
 import Dropdown from "./dropdown";
+import BackLink from "./BackLink";
+import useUrlParams from "../utils/useUrlParams";
 import ScholarshipTable from "./ScholarshipTable";
 
 const fuseOptions = {
@@ -23,7 +25,7 @@ const defaultFilters = {
   grade: "",
   stream: "",
   gender: "",
-  familyIncome: "",
+  income: "",
   category: "",
   state: "",
   city: "",
@@ -145,9 +147,19 @@ const matchesFamilyIncome = (scholarship, selectedIncome) => {
 const ScholarshipReferenceBrowser = () => {
   const [scholarships, setScholarships] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [searchTerm, setSearchTerm] = useState("");
+  // search and filters live in the URL, so "open scholarships for Bihar"
+  // is a link a student can share (?status=Open&state=Bihar)
+  const [params, setParam] = useUrlParams({ q: "", ...defaultFilters });
+  const searchTerm = params.q;
+  const setSearchTerm = (v) => setParam("q", v);
   const [expandedRows, setExpandedRows] = useState({});
-  const [filters, setFilters] = useState(defaultFilters);
+  const filters = useMemo(
+    () =>
+      Object.fromEntries(
+        Object.keys(defaultFilters).map((k) => [k, params[k]])
+      ),
+    [params]
+  );
 
   useEffect(() => {
     // Served by /api/scholarship-data, which prefers the S3 object the daily
@@ -192,7 +204,7 @@ const ScholarshipReferenceBrowser = () => {
       grade: gradeOptions,
       stream: buildOptionsFromData(scholarships, "Stream", "All streams"),
       gender: buildOptionsFromData(scholarships, "Gender", "All genders"),
-      familyIncome: familyIncomeOptions,
+      income: familyIncomeOptions,
       category: buildOptionsFromData(
         scholarships,
         "Category",
@@ -259,7 +271,7 @@ const ScholarshipReferenceBrowser = () => {
         if (!matchesMultiValueField(scholarship.City, filters.city, ["Any"])) {
           return false;
         }
-        return matchesFamilyIncome(scholarship, filters.familyIncome);
+        return matchesFamilyIncome(scholarship, filters.income);
       }),
     [filters, searchedScholarships]
   );
@@ -288,22 +300,13 @@ const ScholarshipReferenceBrowser = () => {
     [filterOptions, filters]
   );
 
-  const setFilter = (name) => (selectedOption) => {
-    setFilters((currentFilters) => ({
-      ...currentFilters,
-      [name]: selectedOption?.value || "",
-    }));
-  };
+  const setFilter = (name) => (selectedOption) =>
+    setParam(name, selectedOption?.value || "");
 
-  const clearFilter = (name) => {
-    setFilters((currentFilters) => ({
-      ...currentFilters,
-      [name]: "",
-    }));
-  };
+  const clearFilter = (name) => setParam(name, "");
 
   const resetFilters = () => {
-    setFilters(defaultFilters);
+    Object.keys(defaultFilters).forEach((k) => setParam(k, ""));
     setSearchTerm("");
   };
 
@@ -329,8 +332,11 @@ const ScholarshipReferenceBrowser = () => {
   );
 
   return (
-    <div className="min-h-screen bg-[#fdf8f6] px-4 py-8">
+    <div className="min-h-screen bg-[#fdf8f6] px-4 py-6">
       <div className="mx-auto w-full max-w-6xl">
+        <div className="mb-3">
+          <BackLink />
+        </div>
         <div className="mb-6 rounded-2xl border border-[#eaded8] bg-white p-6 shadow-sm">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
             <div>
@@ -382,7 +388,7 @@ const ScholarshipReferenceBrowser = () => {
             {renderFilter("status", "Status")}
             {renderFilter("grade", "Grade")}
             {renderFilter("stream", "Stream")}
-            {renderFilter("familyIncome", "Family Income")}
+            {renderFilter("income", "Family Income")}
             {renderFilter("gender", "Gender")}
             {renderFilter("category", "Category")}
             {renderFilter("state", "State")}

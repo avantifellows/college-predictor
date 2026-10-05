@@ -132,6 +132,52 @@ const expandedFields = {
     { key: "Category", label: "Category" },
     { key: "Opening Rank", label: "Opening Rank (JEE Main)" },
   ],
+  // JAC Chandigarh (2026; JEE Main ranks, loosest of Rounds 1-3 + Special)
+  "JAC Chandigarh": [
+    { key: "Year", label: "Data Year" },
+    { key: "Quota", label: "Quota" },
+    { key: "Category", label: "Category" },
+    { key: "Round", label: "Round" },
+    { key: "Opening Rank", label: "Opening Rank (JEE Main)" },
+  ],
+  // HBTU (2026; JEE Main CRL ranks, loosest over the rounds)
+  HBTU: [
+    { key: "Year", label: "Data Year" },
+    { key: "Quota", label: "Quota" },
+    { key: "Category", label: "Category" },
+    { key: "Sub Category", label: "Special quota" },
+    { key: "Round", label: "Round" },
+    { key: "Opening Rank", label: "Opening Rank (JEE Main)" },
+  ],
+  // UPTAC (2026; JEE Main ranks, loosest over the rounds open to you)
+  UPTAC: [
+    { key: "Year", label: "Data Year" },
+    { key: "Category", label: "Category" },
+    { key: "Sub Category", label: "Quota" },
+    { key: "Round", label: "Round" },
+    { key: "Opening Rank", label: "Opening Rank (JEE Main)" },
+  ],
+  // CUET - DU and BHU (2025; each course's own CUET score, lowest over rounds)
+  CUET: [
+    { key: "Papers Counted", label: "Papers counted" },
+    { key: "Out Of", label: "Out of" },
+    { key: "University", label: "University" },
+    { key: "Category", label: "Category" },
+    { key: "Round", label: "Round" },
+    { key: "Year", label: "Data Year" },
+  ],
+  // ICAR-UG (2025; CUET marks, three subjects of 750, lowest over rounds)
+  "ICAR-UG": [
+    { key: "Year", label: "Data Year" },
+    { key: "Category", label: "Category" },
+    { key: "Round", label: "Round" },
+  ],
+  // AIIMS B.Sc. Nursing (2025; entrance overall ranks, loosest of 2 rounds)
+  "AIIMS Nursing": [
+    { key: "Year", label: "Data Year" },
+    { key: "Round", label: "Round" },
+    { key: "Opening Rank", label: "Opening Rank" },
+  ],
   // AP EAPCET - Andhra Pradesh (2025 consolidated)
   "AP EAPCET": [
     { key: "Year", label: "Data Year" },
@@ -319,7 +365,7 @@ const PredictedCollegesTable = ({
   // straight into /compare — the standalone's star-and-compare flow, without
   // accounts (selection lives for this results view only)
   const [compareSel, setCompareSel] = useState([]);
-  const compareKeyOf = (t) => `${t["College ID"]}~${t.academic_program_name}`;
+  const compareKeyOf = (t) => `${compareIdOf(t)}~${t.academic_program_name}`;
   const toggleCompare = (t) => {
     const key = compareKeyOf(t);
     setCompareSel((prev) =>
@@ -329,7 +375,7 @@ const PredictedCollegesTable = ({
         ? prev
         : [
             ...prev,
-            { key, cid: t["College ID"], program: t.academic_program_name },
+            { key, cid: compareIdOf(t), program: t.academic_program_name },
           ]
     );
   };
@@ -388,6 +434,62 @@ const PredictedCollegesTable = ({
     exam === "JoSAA" || exam === "JEE Main-JOSAA" || exam === "JEE Advanced";
   const isCombinedJosaaExam = exam === "JoSAA";
   const supportsExpandedView = !isJosaaExam;
+  // MHT CET rows carry no college id, but their institute names are the
+  // Colleges tab's own (same CET Cell source), so compare keys on the name
+  // exams whose result rows share the Colleges tab's own names (same source)
+  const NAME_LINK_EXAMS = new Set([
+    "MHT CET",
+    "KCET",
+    "TNEA",
+    "WBJEE",
+    "KEAM",
+    "AP EAPCET",
+    "TGEAPCET",
+    "OJEE",
+    "JAC Chandigarh",
+    "UPTAC",
+    "HBTU",
+    "AIIMS Nursing",
+    "ICAR-UG",
+    "CLAT",
+    "GUJCET",
+  ]);
+  // AIIMS cards are MCC (medical) colleges, which /compare leaves out:
+  // name links yes, compare boxes no
+  // ICAR cutoffs are CUET marks, which /compare (ranks) can't line up
+  const NO_COMPARE_EXAMS = new Set(["AIIMS Nursing", "ICAR-UG"]);
+  const supportsCompare =
+    (isJosaaExam || NAME_LINK_EXAMS.has(exam)) && !NO_COMPARE_EXAMS.has(exam);
+  const slugOf = (x) =>
+    String(x || "")
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+  // the institute name as the Colleges tab prints it. KEA prefixes its code
+  // ("E023  P E S College…") — strip it so the tab's search lands on one row.
+  const INSTITUTE_KEYS = new Set([
+    "institute",
+    "College Name",
+    "institute_name",
+  ]);
+  const linkNameOf = (t) => {
+    const raw =
+      t.institute ||
+      t["Institute"] ||
+      t["College Name"] ||
+      t.institute_name ||
+      "";
+    return exam === "KCET"
+      ? String(raw).replace(/^[A-Z]\d{3}\s+/, "")
+      : String(raw);
+  };
+  // KCET's predictor also covers medical/dental/ayurveda seats, which live on
+  // the tab under NEET, not KEA — no dead links for those rows
+  const canLinkRow = (t) =>
+    exam !== "KCET" ||
+    /engineer|architect/i.test(String(t["Course Type"] || "Engineering"));
+  const compareIdOf = (t) =>
+    t["College ID"] || (canLinkRow(t) ? `n~${slugOf(linkNameOf(t))}` : null);
   const supportsSalarySort = isJosaaExam;
   const salaryColumnKey = "expected_salary";
   const rankColumnKey = "closing_rank";
@@ -500,6 +602,10 @@ const PredictedCollegesTable = ({
         format: formatSalary,
       },
       { key: "Seat Type", label: "Seat Type" },
+      // present only when the results mix pools (a Female-only student's
+      // view spans women-only and gender-neutral seats); the adaptive check
+      // below removes it when every row is one pool
+      { key: "seat_gender", label: "Seat Gender" },
     ],
     "JEE Main-JOSAA": [
       { key: "state", label: "State" },
@@ -520,6 +626,8 @@ const PredictedCollegesTable = ({
       { key: "academic_program_name", label: "Program" },
       { key: "closing_rank", label: "Closing Rank" },
       { key: "Category", label: "Category" },
+      // shown only when a girl's results mix both pools (check below)
+      { key: "seat_gender", label: "Seat Gender" },
     ],
     "JEE Advanced": [
       { key: "state", label: "State" },
@@ -568,6 +676,40 @@ const PredictedCollegesTable = ({
       // "(JEE Main)" is load-bearing here, not noise: the OJEE page takes a
       // JEE Main rank, and an unlabelled rank column would read as an OJEE
       // exam rank (which exists, for other courses).
+      { key: "closing_rank", label: "Closing Rank (JEE Main)" },
+    ],
+    HBTU: [
+      { key: "academic_program_name", label: "Program" },
+      { key: "Quota", label: "Quota" },
+      { key: "closing_rank", label: "Closing Rank (JEE Main)" },
+    ],
+    UPTAC: [
+      { key: "institute", label: "Institute" },
+      { key: "academic_program_name", label: "Program" },
+      { key: "closing_rank", label: "Closing Rank (JEE Main)" },
+    ],
+    // "Your score" is per course: DU and BHU add up different papers for
+    // each, so the student's score changes from row to row
+    CUET: [
+      { key: "institute", label: "College" },
+      { key: "academic_program_name", label: "Course" },
+      { key: "your_score", label: "Your score" },
+      { key: "cutoff_score", label: "Cutoff" },
+      { key: "seat", label: "Seat" },
+    ],
+    "ICAR-UG": [
+      { key: "institute", label: "University" },
+      { key: "academic_program_name", label: "Course" },
+      { key: "cutoff_marks", label: "Cutoff (CUET marks)" },
+    ],
+    "AIIMS Nursing": [
+      { key: "institute", label: "Institute" },
+      { key: "seat_category", label: "Seat" },
+      { key: "closing_rank", label: "Closing Rank" },
+    ],
+    "JAC Chandigarh": [
+      { key: "institute", label: "Institute" },
+      { key: "academic_program_name", label: "Program" },
       { key: "closing_rank", label: "Closing Rank (JEE Main)" },
     ],
     "AP EAPCET": [
@@ -679,6 +821,60 @@ const PredictedCollegesTable = ({
         "Closing Rank": item["Closing Rank"],
       };
     }
+    if (exam === "HBTU") {
+      return {
+        ...item,
+        institute: item["Institute"],
+        academic_program_name: item["Academic Program Name"],
+        closing_rank: item["Closing Rank"],
+      };
+    }
+    if (exam === "UPTAC") {
+      return {
+        ...item,
+        institute: item["Institute"],
+        academic_program_name: item["Academic Program Name"],
+        closing_rank: item["Closing Rank"],
+      };
+    }
+    if (exam === "CUET") {
+      return {
+        ...item,
+        institute: item["Institute"],
+        academic_program_name: item["Academic Program Name"],
+        your_score: item["Your Score"],
+        cutoff_score:
+          item["Cutoff Score"] == null
+            ? null
+            : `${item["Cutoff Score"]} / ${item["Out Of"]}`,
+        seat: item["Seat"],
+      };
+    }
+    if (exam === "ICAR-UG") {
+      return {
+        ...item,
+        institute: item["Institute"],
+        academic_program_name: item["Academic Program Name"],
+        cutoff_marks: item["Cutoff Marks"],
+      };
+    }
+    if (exam === "AIIMS Nursing") {
+      return {
+        ...item,
+        institute: item["Institute"],
+        academic_program_name: "B.Sc. (Hons.) Nursing",
+        seat_category: item["Seat Category"],
+        closing_rank: item["Closing Rank"],
+      };
+    }
+    if (exam === "JAC Chandigarh") {
+      return {
+        ...item,
+        institute: item["Institute"],
+        academic_program_name: item["Academic Program Name"],
+        closing_rank: item["Closing Rank"],
+      };
+    }
     if (exam === "OJEE") {
       return {
         ...item,
@@ -784,6 +980,10 @@ const PredictedCollegesTable = ({
         state: item["State"],
         academic_program_name: item["Academic Program Name"],
         exam_type: item["Exam"],
+        seat_gender:
+          item["Gender"] === "Female-only (including Supernumerary)"
+            ? "Women-only"
+            : "Open to all",
         nirf_rank: item["NIRF Rank"],
         closing_rank: item["Closing Rank"],
         expected_salary: item["Expected Salary"],
@@ -817,6 +1017,8 @@ const PredictedCollegesTable = ({
         "PWD": item["PWD"],
         "Category_Key": item["Category_Key"],
         Category: item["Category"] || "",
+        seat_gender:
+          item["Gender"] === "Female-Only" ? "Women-only" : "Open to all",
       };
     }
     if (exam === "NEETUG") {
@@ -1030,17 +1232,41 @@ const PredictedCollegesTable = ({
       });
     });
 
+    const isConstant = (key) => {
+      const seen = new Set();
+      for (const row of displayData) {
+        seen.add(String(transformData(row)[key] ?? ""));
+        if (seen.size > 1) return false;
+      }
+      return true;
+    };
+    // JoSAA's one adaptive column: seat_gender only earns its place when the
+    // results actually mix pools (a Female-only student's view). Decided on
+    // fullData — `data` is just the visible page, and the tightest 30
+    // closings are usually all gender-neutral even when women-only seats sit
+    // further down the list.
+    if (isJosaaExam || exam === "JEE Main-JAC") {
+      const seen = new Set();
+      for (const row of fullData.length ? fullData : displayData) {
+        seen.add(String(transformData(row).seat_gender ?? ""));
+        if (seen.size > 1) break;
+      }
+      if (seen.size <= 1) {
+        cols = cols.filter((col) => col.key !== "seat_gender");
+      }
+    }
     if (!isNeet || displayData.length < 2) return cols;
     return cols.filter((col) => {
       if (ALWAYS_KEEP.has(col.key)) return true;
-      const seen = new Set();
-      for (const row of displayData) {
-        seen.add(String(transformData(row)[col.key] ?? ""));
-        if (seen.size > 1) return true; // it varies -> worth a column
-      }
-      return false; // constant across every row -> drop it
+      return !isConstant(col.key);
     });
-  }, [predicted_colleges_table_column_all, isNeet, displayData]);
+  }, [
+    predicted_colleges_table_column_all,
+    isNeet,
+    displayData,
+    isJosaaExam,
+    fullData,
+  ]);
 
   // Which counselling round(s) the visible cutoffs come from. Surya asked for this to be stated
   // "more broadly somewhere... for the particular state this is what we are using" rather than
@@ -1313,8 +1539,10 @@ const PredictedCollegesTable = ({
 
   const renderTableHeader = () => (
     <tr className={commonHeaderClass}>
-      {isJosaaExam && (
-        <th className="whitespace-nowrap border-b border-[#decac3] px-3 py-3">
+      {supportsCompare && (
+        // students didn't notice Compare in the Pune review: the column
+        // wears the brand red header and a rose tint, in the site's palette
+        <th className="whitespace-nowrap border-b border-[#9E1F22] bg-[#B52326] px-3 py-3 text-center text-white">
           Compare
         </th>
       )}
@@ -1388,9 +1616,9 @@ const PredictedCollegesTable = ({
               index % 2 === 0 ? "bg-[#fffdfa]" : "bg-white"
             }`}
           >
-            {isJosaaExam && (
-              <td className="px-3 py-3 text-center align-top">
-                {transformedItem["College ID"] ? (
+            {supportsCompare && (
+              <td className="border-r border-[#f0cfca] bg-[#fbeae8] px-3 py-3 text-center align-top">
+                {compareIdOf(transformedItem) ? (
                   <input
                     type="checkbox"
                     aria-label={`Compare ${transformedItem.institute}`}
@@ -1412,23 +1640,24 @@ const PredictedCollegesTable = ({
                         : "Pick to compare"
                     }
                     onChange={() => toggleCompare(transformedItem)}
-                    className="h-4 w-4 accent-[#B52326] disabled:cursor-not-allowed disabled:opacity-30"
+                    className="h-5 w-5 cursor-pointer accent-[#B52326] disabled:cursor-not-allowed disabled:opacity-30"
                   />
                 ) : null}
               </td>
             )}
             {predicted_colleges_table_column.map((column) => (
               <td key={column.key} className="px-4 py-3 align-top">
-                {column.key === "institute" &&
-                isJosaaExam &&
-                transformedItem["College ID"] ? (
+                {INSTITUTE_KEYS.has(column.key) &&
+                ((isJosaaExam && transformedItem["College ID"]) ||
+                  (NAME_LINK_EXAMS.has(exam) &&
+                    canLinkRow(transformedItem))) ? (
                   <Link
                     href={`/colleges?q=${encodeURIComponent(
-                      transformedItem.institute
+                      linkNameOf(transformedItem)
                     )}`}
                     className="underline decoration-[#e3d1cb] underline-offset-2 transition hover:text-[#8f2e31] hover:decoration-[#8f2e31]"
                   >
-                    {transformedItem.institute}
+                    {getDisplayValue(column, transformedItem)}
                   </Link>
                 ) : column.key === "Category" &&
                   transformedItem["Category Label"] &&
@@ -1604,7 +1833,7 @@ const PredictedCollegesTable = ({
       )}
       {displayData.length > 0 ? (
         <div className="overflow-x-auto rounded-xl border border-[#eaded8] bg-white shadow-sm">
-          {isJosaaExam && compareSel.length > 0 ? (
+          {supportsCompare && compareSel.length > 0 ? (
             <div className="fixed bottom-5 left-1/2 z-40 flex w-max max-w-[95vw] -translate-x-1/2 items-center gap-4 rounded-full border border-[#eaded8] bg-white px-6 py-3.5 text-base shadow-lg">
               <span className="whitespace-nowrap font-semibold text-[#5b3a34]">
                 {compareSel.length} of 3 picked
@@ -1615,7 +1844,10 @@ const PredictedCollegesTable = ({
                     .map(
                       (x) =>
                         `${x.cid}~${String(x.program)
-                          .replace(/\s*\(\d+\s*Years?,[^)]*\)$/, "")
+                          // greedy .* so nested parens strip too — dual-degree
+                          // strings end "(5 Years, B.Tech and M.Tech (Dual
+                          // Degree))" and [^)]* stopped at the inner ")"
+                          .replace(/\s*\(\d+\s*Years?,.*\)$/, "")
                           .toLowerCase()
                           .replace(/[^a-z0-9]+/g, "-")
                           .replace(/^-+|-+$/g, "")}`
@@ -1623,11 +1855,11 @@ const PredictedCollegesTable = ({
                     .join(",")}`}
                   className="inline-flex items-center whitespace-nowrap rounded-full bg-[#B52326] px-5 py-2 text-sm font-semibold text-white transition hover:bg-[#9E1F22]"
                 >
-                  Compare
+                  Compare {compareSel.length} colleges →
                 </Link>
               ) : (
                 <span className="whitespace-nowrap text-sm text-[#7a635d]">
-                  pick one more
+                  Pick one more to compare
                 </span>
               )}
               <button
@@ -1635,7 +1867,7 @@ const PredictedCollegesTable = ({
                 onClick={() => setCompareSel([])}
                 className="text-sm text-[#7a635d] underline hover:text-[#B52326]"
               >
-                clear
+                Clear
               </button>
             </div>
           ) : null}

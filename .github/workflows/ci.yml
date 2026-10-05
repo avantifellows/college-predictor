@@ -13,3 +13,19 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v3
       - uses: pre-commit/action@v3.0.0
+
+  pages:
+    # every college / exam / career page renders against the real data, and
+    # the site builds. A record that crashes its page fails here, not on a
+    # student's screen.
+    name: Pages render and build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run check:pages
+      - run: npm run build

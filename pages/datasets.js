@@ -1,7 +1,9 @@
 import React, { useEffect, useMemo, useState } from "react";
 import Head from "next/head";
 import { ChevronDown, Download, Search } from "lucide-react";
-import getConstants from "../constants";
+import { matchesQuery } from "../utils/search";
+import useUrlParams from "../utils/useUrlParams";
+import BackLink from "../components/BackLink";
 
 // Rendered entirely from the PUBLIC manifest: what you see is exactly what is
 // published (external_data_sources/open_data/publish.py). File titles follow
@@ -28,6 +30,8 @@ const SEARCH_ALIASES = {
   apeapcet: "andhra pradesh eamcet eapcet engineering",
   ojee: "odisha jee main mains btech engineering",
   clat: "law nlu llb",
+  ducuet: "cuet du delhi university csas arts science commerce",
+  iiser: "iat science bs ms research",
   collegefees: "fees hostel mess tuition cost josaa kcet",
   nirf: "ranking rankings placement",
   nmc: "mbbs medical seats",
@@ -177,10 +181,12 @@ const DatasetCard = ({ ds, defaultOpen }) => {
 };
 
 export default function Datasets() {
-  const { TITLE_SHORT = "College Predictor" } = getConstants() || {};
   const [manifest, setManifest] = useState(null);
   const [error, setError] = useState(null);
-  const [q, setQ] = useState("");
+  // the search lives in the URL, so a filtered list can be shared
+  const [params, setParam] = useUrlParams({ q: "" });
+  const q = params.q;
+  const setQ = (v) => setParam("q", v);
 
   // /datasets#clat — open and scroll to that dataset's card
   const [hashId, setHashId] = useState(null);
@@ -205,14 +211,17 @@ export default function Datasets() {
   return (
     <div className="min-h-screen pb-16">
       <Head>
-        <title>{`Open Datasets - ${TITLE_SHORT}`}</title>
+        <title>Open Datasets - Futures</title>
         <meta
           name="description"
           content="Download the public admissions data behind this site: official counselling documents and the tables extracted from them. CC BY 4.0."
         />
       </Head>
 
-      <div className="mx-auto max-w-4xl px-4 pt-8">
+      <div className="mx-auto max-w-4xl px-4 pt-6">
+        <div className="mb-3">
+          <BackLink />
+        </div>
         <div className="rounded-2xl border border-[#eaded8] bg-white p-6 shadow-sm">
           <h1 className="text-2xl font-bold text-[#332724]">Open Datasets</h1>
           <p className="mt-2 text-[#685851]">
@@ -274,20 +283,17 @@ export default function Datasets() {
         {(() => {
           // every typed word must appear somewhere in the dataset's text
           // (title, blurb, file titles, or its search aliases)
-          const words = q.trim().toLowerCase().split(/\s+/).filter(Boolean);
-          const matches = (d) => {
-            if (!words.length) return true;
-            const hay = [
-              d.title,
-              d.blurb,
-              d.id,
-              SEARCH_ALIASES[d.id] || "",
-              ...d.files.map((f) => f.title),
-            ]
-              .join(" ")
-              .toLowerCase();
-            return words.every((w) => hay.includes(w));
-          };
+          const matches = (d) =>
+            matchesQuery(
+              [
+                d.title,
+                d.blurb,
+                d.id,
+                SEARCH_ALIASES[d.id] || "",
+                ...d.files.map((f) => f.title),
+              ],
+              q
+            );
           const all = (
             Array.isArray(manifest?.datasets) ? manifest.datasets : []
           ).filter(matches);
@@ -311,7 +317,7 @@ export default function Datasets() {
                     // a search that narrows to one dataset opens it; a broad
                     // search keeps the list scannable
                     defaultOpen={
-                      (words.length > 0 && all.length === 1) || ds.id === hashId
+                      (q.trim() !== "" && all.length === 1) || ds.id === hashId
                     }
                   />
                 ))}

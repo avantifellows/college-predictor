@@ -1,7 +1,10 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { CheckCircle2 } from "lucide-react";
 import { mhtCetConfig } from "../examConfig";
-import { loadMhtcetCatalog, getAllotmentResult } from "../utils/mhtcetSimulator";
+import {
+  loadMhtcetCatalog,
+  getAllotmentResult,
+} from "../utils/mhtcetSimulator";
 import Dropdown from "./dropdown";
 import {
   formatRank,
@@ -218,10 +221,19 @@ const MhtcetMockAllotment = ({ onChangeExam }) => {
 
   const filteredCatalog = useMemo(() => {
     if (!catalog) return [];
-    const tokens = search.trim().toLowerCase().split(/\s+/).filter(Boolean);
+    // Punctuation-blind, like the Colleges tab: CAP names are full of dots
+    // and commas ("A. P. Shah Institute of Technology, Thane"), so "ap shah"
+    // and "AP Shah" must both find it. Tokens AND-match across institute and
+    // programme together, so "vjti computer" works.
+    const plain = (x) =>
+      String(x)
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, " ")
+        .trim();
+    const tokens = plain(search).split(" ").filter(Boolean);
     if (tokens.length === 0) return catalog;
     return catalog.filter((item) => {
-      const haystack = `${item.institute} ${item.program}`.toLowerCase();
+      const haystack = plain(`${item.institute} ${item.program}`);
       return tokens.every((t) => haystack.includes(t));
     });
   }, [catalog, search]);
@@ -764,9 +776,9 @@ const ResultCard = ({ result, choicesCount }) => {
     return (
       <div className={cardClass}>
         <p className="text-sm text-[#7a655f]">
-          Based on this rank and this list, no seat was reachable at the
-          final round. Go back and add more (or less competitive) choices, or
-          double check your rank.
+          Based on this rank and this list, no seat was reachable at the final
+          round. Go back and add more (or less competitive) choices, or double
+          check your rank.
         </p>
       </div>
     );
@@ -795,7 +807,14 @@ const ResultCard = ({ result, choicesCount }) => {
   );
 };
 
-const SimulateStep = ({ locked, choices, result, catalog, profile, onRestart }) => {
+const SimulateStep = ({
+  locked,
+  choices,
+  result,
+  catalog,
+  profile,
+  onRestart,
+}) => {
   if (!locked) {
     return (
       <div className={`${cardClass} mt-6`}>

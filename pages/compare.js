@@ -4,6 +4,8 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import { Plus, X } from "lucide-react";
+import { selectFilter } from "../utils/search";
+import BackLink from "../components/BackLink";
 
 const Dropdown = dynamic(() => import("../components/dropdown"), {
   ssr: false,
@@ -32,8 +34,16 @@ const ROWS = [
   {
     key: "closing",
     label: "Rank band",
-    sub: "JoSAA opening to closing, open category",
+    sub: (o) =>
+      o.college.counselling === "JoSAA"
+        ? "JoSAA opening to closing, open category"
+        : `${
+            o.college.entrance_exams?.[0] || "State"
+          } closing rank, open category`,
     get: (o) => o.program?.indicative_closing_rank ?? null,
+    // a JoSAA rank and an MHT-CET rank are different number lines — never
+    // crown a winner across them
+    space: (o) => o.college.counselling,
     fmt: (v) => v.toLocaleString("en-IN"),
     display: (o) => {
       const open = o.program?.indicative_opening_rank;
@@ -50,10 +60,17 @@ const ROWS = [
     label: "NIRF rank",
     sub: (o) =>
       o.college.nirf?.ranking_year
-        ? `Engineering, ${o.college.nirf.ranking_year}`
+        ? `${
+            o.college.nirf.category === "College"
+              ? "Degree colleges"
+              : o.college.nirf.category || "Engineering"
+          }, ${o.college.nirf.ranking_year}`
         : null,
     get: (o) => o.college.nirf?.rank ?? null,
     fmt: (v) => `#${v}`,
+    // NIRF ranks only order institutes within one list (Engineering #40 vs
+    // Pharmacy #40 says nothing)
+    space: (o) => o.college.nirf?.category ?? null,
     betterLow: true,
   },
   {
@@ -79,11 +96,16 @@ const ROWS = [
     key: "higher",
     label: "Went for higher studies",
     sub: "the research / masters path (NIRF)",
+    // over the class's graduates, like the two rows above: "placed or in
+    // higher studies" minus "placed". First-year intake is the wrong base
+    // (it now includes 5-year dual-degree seats; higher studies is 4-year)
     get: (o) => {
       const p = o.college.placement;
-      if (!p?.higher_studies_selected || !p?.first_year_intake) return null;
-      return Math.round(
-        (p.higher_studies_selected / p.first_year_intake) * 100
+      if (p?.percentage_with_outcome == null || p?.percentage_placed == null)
+        return null;
+      return Math.max(
+        0,
+        Math.round(p.percentage_with_outcome - p.percentage_placed)
       );
     },
     fmt: pct,
@@ -144,6 +166,7 @@ const OptionPicker = ({ idx, colleges, option, setOption, remove }) => {
         onChange={(o) => setOption({ collegeId: o.value, branchIdx: null })}
         placeholder="Select a college…"
         hideValueWhileSearching
+        filterOption={selectFilter}
       />
       <div className="mt-2">
         <Dropdown
@@ -179,6 +202,21 @@ const matchBranchIdx = (college, programName) => {
   if (idx < 0) idx = list.findIndex((p) => p.branch === base);
   // share links carry a slug, not the full degree string
   if (idx < 0) idx = list.findIndex((p) => slugify(p.branch) === base);
+  // links minted before the nested-paren fix carry the years/degree tail in
+  // the slug ("...-5-years-bachelor-and-master-of-technology-dual-degree");
+  // a prefix match on the branch slug still identifies the programme
+  if (idx < 0) {
+    const slug = slugify(base);
+    const hits = list
+      .map((p, i) => ({ i, s: slugify(p.branch) }))
+      .filter(({ s }) => slug === s || slug.startsWith(`${s}-`));
+    // longest branch-slug wins ("computer-science-and-engineering-..." must
+    // prefer CSE over a hypothetical shorter "computer-science")
+    if (hits.length > 0) {
+      hits.sort((a, b) => b.s.length - a.s.length);
+      idx = hits[0].i;
+    }
+  }
   return idx >= 0 ? String(idx) : null;
 };
 
@@ -197,7 +235,19 @@ export default function Compare() {
       // compare rows are built for the JoSAA universe (rank band, fees,
       // engineering placement); medical rows would compare mostly blanks —
       // and across a different NIRF category, which highlights nonsense
-      .then((rows) => setAll(rows.filter((c) => c.counselling === "JoSAA")))
+      .then((rows) =>
+        setAll(
+          // any spine whose branches carry a closing rank; medical rows
+          // (NMC seats, no rank) stay out
+          // DU and ICAR publish CUET scores, not ranks — nothing to line up
+          rows.filter(
+            (c) =>
+              !String(c.counselling).startsWith("MCC") &&
+              !String(c.counselling).startsWith("DU ") &&
+              !String(c.counselling).startsWith("ICAR-UG")
+          )
+        )
+      )
       .catch(() => setError("Could not load colleges right now."));
   }, []);
 
@@ -209,7 +259,17 @@ export default function Compare() {
       .slice(0, MAX_OPTIONS)
       .map((part) => {
         const [cid, ...rest] = part.split("~");
-        const college = all.find((c) => c.college_id === cid);
+        let college = all.find((c) => c.college_id === cid);
+        if (!college && cid === "n" && rest.length >= 2) {
+          // n~<college slug>~<branch slug>
+          const [cslug, ...bslug] = rest;
+          college = all.find((c) => slugify(c.display_name) === cslug);
+          if (!college) return null;
+          return {
+            collegeId: college.college_id,
+            branchIdx: matchBranchIdx(college, bslug.join("~")),
+          };
+        }
         if (!college) return null;
         return {
           collegeId: cid,
@@ -237,6 +297,39 @@ export default function Compare() {
 
   const ready = picked.length >= 2;
 
+  // the comparison on screen is the link: same ?o= format the predictor's
+  // compare button builds, so it can be shared or come back with Back
+  useEffect(() => {
+    if (!router.isReady || !ready) return;
+    // only complete slots; a half-filled third one stays off the link
+    const tokens = options.map((o) => {
+      const college = all.find((c) => c.college_id === o.collegeId);
+      if (!college || o.branchIdx == null) return undefined;
+      const p = college.programs.list[Number(o.branchIdx)];
+      // the short slug unless it would reopen a different programme
+      const slug = slugify(p.branch);
+      if (matchBranchIdx(college, slug) === String(o.branchIdx))
+        return `${o.collegeId}~${slug}`;
+      const full = `${p.branch} (${p.years} Years, ${p.degree})`;
+      if (matchBranchIdx(college, full) === String(o.branchIdx))
+        return `${o.collegeId}~${full}`;
+      return null;
+    });
+    if (tokens.some((t) => t === null)) return;
+    const o = tokens.filter(Boolean).join("|");
+    if (String(router.query.o || "") === o) return;
+    // built by hand so ~ and | stay readable instead of %7E / %7C
+    const readable = encodeURIComponent(o)
+      .replace(/%7C/gi, "|")
+      .replace(/%7E/gi, "~")
+      .replace(/%20/g, "+");
+    router.replace(`/compare?o=${readable}`, undefined, {
+      shallow: true,
+      scroll: false,
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [options, all, ready, router.isReady]);
+
   // every cell holding the best value highlights — two options that tie
   // and jointly beat a third both deserve the mark. Only a row where all
   // values are equal (or fewer than two exist) says nothing.
@@ -244,6 +337,16 @@ export default function Compare() {
     const vals = picked.map((o) => row.get(o));
     const nums = vals.filter((v) => v != null);
     if (nums.length < 2 || nums.every((v) => v === nums[0])) return new Set();
+    if (row.space) {
+      // mixed number lines (JoSAA vs MHT-CET rank, Engineering vs Pharmacy
+      // NIRF): show the numbers, crown nobody
+      const spaces = new Set(
+        picked
+          .map((o, i) => (vals[i] == null ? null : row.space(o)))
+          .filter(Boolean)
+      );
+      if (spaces.size > 1) return new Set();
+    }
     const best = row.betterLow ? Math.min(...nums) : Math.max(...nums);
     return new Set(
       vals.map((v, i) => (v === best ? i : -1)).filter((i) => i >= 0)
@@ -253,13 +356,16 @@ export default function Compare() {
   return (
     <>
       <Head>
-        <title>College & Course Comparison - Avanti Fellows</title>
+        <title>Compare Colleges - Futures</title>
         <meta
           name="description"
           content="Compare college and branch combinations side by side: closing ranks, NIRF rank, fees, placements and the higher-studies path."
         />
       </Head>
       <div className="min-h-screen px-3 py-6 sm:px-6">
+        <div className="mx-auto mb-3 max-w-6xl">
+          <BackLink />
+        </div>
         <div className="mx-auto max-w-6xl rounded-2xl border border-[#eee1d7] bg-white p-4 shadow-sm sm:p-8">
           <h1 className="text-center text-3xl font-bold text-[#332724]">
             College &amp; Course Comparison

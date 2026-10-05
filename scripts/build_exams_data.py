@@ -1,6 +1,6 @@
 """
 Build public/data/exams/exams.json from the cleaned exams sheet
-(~/jan2023/exams_cleaned.csv — Amogh's "List of entrance exams in India",
+(data-sources/exams_cleaned.csv — Amogh's "List of entrance exams in India",
 cleaned per exams_cleaning_notes.md).
 
 One JSON object per EXAM (the sheet is one row per exam x course-stream;
@@ -30,6 +30,13 @@ OUT = "public/data/exams/exams.json"
 EXAM_MAP = "data-sources/exam_branch_mapping.csv"
 TAXONOMY = "data-sources/branch_taxonomy.csv"
 CAREERS_SRC = "data-sources/career_streams.csv"
+# families whose colleges live on the Colleges tab -> the entrance_exams
+# label those rows carry (the ?exam= filter value)
+SPINE_EXAM_LABEL = {
+    "KCET": "KCET", "TNEA": "TNEA", "WBJEE": "WBJEE", "KEAM": "KEAM",
+    "AP-EAPCET": "AP EAPCET", "TG-EAPCET": "TG-EAPCET", "OJEE": "OJEE",
+    "CLAT": "CLAT", "GUJCET": "GUJCET",
+}
 PREDICTOR_TO_FAMILY = {
     "JoSAA": "JoSAA", "KCET": "KCET", "MHT CET": "MHT-CET",
     "TGEAPCET": "TG-EAPCET", "AP EAPCET": "AP-EAPCET", "GUJCET": "GUJCET",
@@ -217,8 +224,28 @@ def main():
         if not careers:
             # exams outside the cutoff mapping (UCEED, NID): a stream that
             # IS a career name links to it (Design -> the Design career)
-            careers = [{"label": s, "slug": career_by_name[_k2(s)]}
-                       for s in streams if _k2(s) in career_by_name][:3]
+            STREAM_CAREERS = {
+                "engineering": ["Computer Science / Information Technology",
+                                "Mechanical / Mechatronics Engineering",
+                                "Electrical / Electronics / Communications Engineering",
+                                "Civil Engineering"],
+                "pharma": ["Pharmacy"], "medical": ["Medicine (MBBS)"],
+                "dental": ["Dentistry"], "nursing": ["Nursing"],
+                "law": ["Law (LLB)"], "commerce": ["Chartered Accountancy (CA)", "Commerce"],
+                "business": ["Business Administration (MBA)"],
+                "science": ["Physics", "Chemistry", "Mathematics"],
+            }
+            # one career per stream first, then the rest, so a 3-stream exam
+            # (COMEDK: Architecture / Engineering / Pharma) shows all three
+            per_stream = [[nm for nm in (STREAM_CAREERS.get(_k2(st)) or [st])
+                           if _k2(nm) in career_by_name] for st in streams]
+            order = [lst[0] for lst in per_stream if lst] + \
+                    [nm for lst in per_stream for nm in lst[1:]]
+            careers = []
+            for nm in order:
+                if not any(c["label"] == nm for c in careers):
+                    careers.append({"label": nm, "slug": career_by_name[_k2(nm)]})
+            careers = careers[:5]
         card["careers"] = careers or None
         # families whose colleges live on the Colleges tab: JoSAA (128
         # engineering) and NEET (780 NMC medical colleges)
@@ -228,6 +255,14 @@ def main():
             card["colleges_link"] = f"/colleges?exam={which}"
         elif fam == "NEET":
             card["colleges_link"] = "/colleges?exam=NEET-UG"
+        elif fam == "MHT-CET":
+            card["colleges_link"] = "/colleges?exam=MHT CET"
+        elif fam in SPINE_EXAM_LABEL:
+            card["colleges_link"] = f"/colleges?exam={SPINE_EXAM_LABEL[fam]}"
+        elif acro in ("CUET (UG)", "IAT", "AIIMS-EE"):
+            # DU colleges (CUET), the IISERs (IAT) and the AIIMS (nursing)
+            # live on the tab too
+            card["colleges_link"] = f"/colleges?exam={acro}"
         else:
             card["colleges_link"] = None
 

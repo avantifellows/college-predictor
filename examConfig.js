@@ -1,4 +1,10 @@
 import path from "path";
+import {
+  courseMax,
+  coursePapers,
+  courseScore,
+  parseScores,
+} from "./utils/cuetRules";
 
 /**
  * This file contains configuration objects for various exams such as JEE Main-JOSAA, JEE Main-JAC, JEE Advanced, NEET, and MHT CET.
@@ -195,7 +201,7 @@ export const jeeMainJosaaConfig = {
 
 export const jacExamConfig = {
   code: "JEE Main",
-  name: "JEE Main-JAC",
+  name: "JEE JAC Delhi (NSUT, DTU, etc)",
   searchKeys: defaultSearchKeys,
   primaryInput: integerInput("Enter All India Rank", "Enter All India Rank"),
   fields: [
@@ -221,7 +227,10 @@ export const jacExamConfig = {
     {
       name: "gender",
       label: "Select Gender",
-      options: ["Gender-Neutral", "Female-Only"],
+      options: [
+        { value: "Gender-Neutral", label: "Male" },
+        { value: "Female-Only", label: "Female" },
+      ],
     },
     {
       name: "homeState",
@@ -236,6 +245,10 @@ export const jacExamConfig = {
     {
       name: "isDefenseWard",
       label: "Are you a Defense Ward Student?",
+      // JNV Banda pilot: students didn't know the term and froze on the
+      // field — one plain line settles it
+      helperText:
+        "Defense ward means a child of armed forces personnel (Army, Navy, Air Force). Pick No if that's not you.",
       options: [
         { value: "No", label: "No" },
         { value: "Yes", label: "Yes" },
@@ -257,7 +270,11 @@ export const jacExamConfig = {
     (item) => item.Category === query.category,
     (item) => item.Defense === query.isDefenseWard,
     (item) => item.PWD === query.isPWD,
-    (item) => item.Gender === query.gender,
+    // a girl is considered for both pools, a boy only for gender-neutral
+    (item) =>
+      item.Gender === "Gender-Neutral" ||
+      (/female/i.test(String(query.gender || "")) &&
+        item.Gender === "Female-Only"),
     (item) =>
       parseInt(item["Closing Rank"], 10) >= 0.9 * parseInt(query.rank, 10),
   ],
@@ -452,7 +469,7 @@ const neetSeatTypeOptions = [
 ];
 
 export const neetUGConfig = {
-  name: "NEETUG",
+  name: "NEET-UG (MBBS, BDS)",
   code: "NEETUG",
   // Institute + State cover both AIQ and state-quota rows for search.
   searchKeys: ["Institute", "State", "Academic Program Name", "Category"],
@@ -527,19 +544,17 @@ export const neetUGConfig = {
       options: neetCentralCategoryOptions,
     },
     {
-      // Gender is a SEAT-TYPE filter, mirroring how every other exam (JoSAA,
-      // JEE, MHT CET) filters gender: pick a seat pool, see only that pool.
-      // Female-only = seats reserved for women (MH 30% / AP·TG 33.3% within each
-      // category, plus women-only AIQ institutions like LHMC/RAK/nursing);
-      // Gender-Neutral = seats open to all. "Show all" shows both. Optional, and
-      // only meaningful where female data exists (MH/TG/AP/AIQ).
+      // The student's gender, as in JoSAA: a girl is considered for both seat
+      // pools, a boy only for seats open to all. Female-only = seats reserved
+      // for women (MH 30% / AP·TG 33.3% within each category, plus women-only
+      // AIQ institutions like LHMC/RAK/nursing). Optional: unanswered shows
+      // everything.
       name: "gender",
       label: "Select Gender (optional)",
       optional: true,
       options: [
-        { value: "", label: "Show all seats" },
-        { value: "Female", label: "Female-only seats" },
-        { value: "Gender-Neutral", label: "Gender-neutral seats" },
+        { value: "Gender-Neutral", label: "Male" },
+        { value: "Female", label: "Female" },
       ],
     },
     {
@@ -662,9 +677,9 @@ export const neetUGConfig = {
       // list to the seat pool the user picked. Female-only rows are seats
       // reserved for women (MH/AP/TG) or women-only institutions (AIQ LHMC/RAK/
       // nursing); the rest are gender-neutral (open to all).
-      //   - "Female"            -> ONLY Female-only seats
-      //   - "Male/Gender-neutral" -> ONLY gender-neutral seats
-      //   - "Show all" / no selection -> everything
+      //   - "Female"            -> both pools
+      //   - "Male" (or an old "Gender-neutral seats" link) -> gender-neutral only
+      //   - no selection        -> everything
       // The form submits the option LABEL (see handleQueryObjectChange), so we
       // match on the label text.
       (item) => {
@@ -674,9 +689,9 @@ export const neetUGConfig = {
         const g = String(query.gender || "").toLowerCase();
         const isFemaleSeat =
           (item["Gender"] || "Gender-Neutral") === "Female-only";
-        if (g.includes("female")) return isFemaleSeat;
+        if (g.includes("female")) return true;
         if (g.includes("neutral") || g.includes("male")) return !isFemaleSeat;
-        return true; // "show all seats" or no selection
+        return true; // no selection (or an old "show all seats" link)
       },
       // Home-state category: constrains the home-state (state-file) rows to the
       // picked code. Keys on Source (not the literal "State Quota" label) so it
@@ -774,8 +789,8 @@ export const mhtCetConfig = {
       name: "gender",
       label: "Select Gender",
       options: [
-        { value: "Gender-Neutral", label: "Gender-Neutral" },
-        { value: "Female-Only", label: "Female-Only" },
+        { value: "Gender-Neutral", label: "Male" },
+        { value: "Female-Only", label: "Female" },
       ],
     },
     {
@@ -854,6 +869,10 @@ export const mhtCetConfig = {
     {
       name: "isDefenseWard",
       label: "Are you a Defense Ward Student?",
+      // JNV Banda pilot: students didn't know the term and froze on the
+      // field — one plain line settles it
+      helperText:
+        "Defense ward means a child of armed forces personnel (Army, Navy, Air Force). Pick No if that's not you.",
       options: [
         { value: "No", label: "No" },
         { value: "Yes", label: "Yes" },
@@ -894,9 +913,9 @@ export const mhtCetConfig = {
     // larger pool — at Open/rank 5000 it showed 2,191 options instead of the
     // 4,414 she is actually eligible for.
     (item) =>
-      query.gender === "Female-Only"
+      /female/i.test(String(query.gender || ""))
         ? item.Gender === "Female-Only" || item.Gender === "Gender-Neutral"
-        : item.Gender === query.gender,
+        : item.Gender === "Gender-Neutral",
     // Home-region eligibility. `item.State` says who a seat is open to
     // ("Any" = State Level, "Home University", "Other than Home University")
     // and `item["Home University"]` says which university the college belongs
@@ -1202,7 +1221,7 @@ export const tneaConfig = {
 };
 
 export const josaaConfig = {
-  name: "JoSAA (JEE Main and Advanced)",
+  name: "JEE JoSAA (IITs, NITs, etc)",
   code: "JoSAA",
   searchKeys: defaultSearchKeys,
   primaryInput: integerInput(
@@ -1243,7 +1262,13 @@ export const josaaConfig = {
     {
       name: "gender",
       label: "Select Gender",
-      options: ["Gender-Neutral", "Female-only (including Supernumerary)"],
+      // Ask the student's gender, not a seat pool: a girl is considered for
+      // both pools, a boy only for gender-neutral seats. Values stay the
+      // pool names (the mock allotment keeps them); the form submits labels.
+      options: [
+        { value: "Gender-Neutral", label: "Male" },
+        { value: "Female-only (including Supernumerary)", label: "Female" },
+      ],
     },
     {
       name: "program",
@@ -1285,7 +1310,18 @@ export const josaaConfig = {
   getFilters: (query) => {
     const normalizedProgram = String(query.program || "").toLowerCase();
     const baseFilters = [
-      (item) => item.Gender === query.gender || item.Gender === "All",
+      // JoSAA's own business rule: a female candidate is considered for
+      // BOTH pools — gender-neutral seats and the supernumerary female-only
+      // pool (same category rank space). Filtering to Female-only alone hid
+      // most of her real options (180-349 of 855 programme pairs publish no
+      // female pool at all). A gender-neutral pick stays gender-neutral.
+      // "Female" (or the old pool label) -> both pools; anything else -> only
+      // gender-neutral seats
+      (item) =>
+        item.Gender === "All" ||
+        item.Gender === "Gender-Neutral" ||
+        (/female/i.test(String(query.gender || "")) &&
+          item.Gender === "Female-only (including Supernumerary)"),
       (item) => {
         if (normalizedProgram === "architecture") {
           return item["Academic Program Name"]
@@ -1915,6 +1951,311 @@ export const ojeeConfig = {
   getSort: () => [["Closing Rank", "ASC"]],
 };
 
+export const jacChandigarhConfig = {
+  name: "JEE JAC Chandigarh (CCET, UIET, etc)",
+  searchKeys: ["Institute", "Academic Program Name"],
+  // JAC Chandigarh admits on the JEE Main (Paper 1) common rank. B.Arch
+  // (Paper 2) and the Defence / Sports merit lists are other scales and are
+  // not in this file (scripts/build_jacchd_2026.py).
+  primaryInput: integerInput("Enter JEE (Main) Rank", "Enter JEE Main rank"),
+  fields: [
+    {
+      name: "category",
+      label: "Select Category",
+      // must equal the Category strings in jacchd_data.json
+      options: [
+        "General",
+        "EWS",
+        "EWS, tuition fee waiver seats",
+        "OBC / BC",
+        "SC",
+        "ST",
+        "PwD",
+        "OBC PwD",
+        "Rural area",
+        "Border area",
+        "One of only two girl children",
+        "Kashmiri migrant",
+        "Ward of a Panjab University employee",
+        "Orphan",
+        "Child or grandchild of a freedom fighter",
+        "Thalassemia patient",
+        "Cancer patient",
+      ],
+    },
+    {
+      name: "homeState",
+      label: "Select Your Home State",
+      options: ["Chandigarh", "Outside Chandigarh"],
+    },
+  ],
+  getDataPath: () => {
+    return path.join(
+      process.cwd(),
+      "public",
+      "data",
+      "JACCHD",
+      "jacchd_data.json"
+    );
+  },
+  getFilters: (query) => [
+    (item) => item.Category === query.category,
+    // Panjab University institutes admit All India; CCET splits Chandigarh
+    // domicile (Home State) from everyone else (Other State)
+    (item) =>
+      item.Quota === "All India" ||
+      item.Quota ===
+        (query.homeState === "Chandigarh" ? "Home State" : "Other State"),
+    (item) => {
+      if (!query.rank) return true;
+      const closingRank = parseInt(item["Closing Rank"], 10);
+      const userRank = parseInt(query.rank, 10);
+      if (isNaN(closingRank) || isNaN(userRank)) return false;
+      return closingRank >= userRank;
+    },
+  ],
+  getSort: () => [["Closing Rank", "ASC"]],
+};
+
+export const aiimsNursingConfig = {
+  name: "AIIMS B.Sc. (Hons.) Nursing",
+  searchKeys: ["Institute"],
+  // allotted on the AIIMS B.Sc. Nursing entrance OVERALL rank, 18 AIIMS
+  // (scripts/build_aiimsnursing_2025.py)
+  primaryInput: integerInput(
+    "Enter AIIMS B.Sc. Nursing Rank",
+    "Enter AIIMS B.Sc. Nursing overall rank"
+  ),
+  fields: [
+    {
+      name: "category",
+      label: "Select Category",
+      options: ["UR", "EWS", "OBC", "SC", "ST"],
+    },
+    {
+      name: "isPWD",
+      label: "Are you a PwBD Student?",
+      options: ["No", "Yes"],
+    },
+  ],
+  getDataPath: () => {
+    return path.join(
+      process.cwd(),
+      "public",
+      "data",
+      "AIIMSNURSING",
+      "aiimsnursing_data.json"
+    );
+  },
+  getFilters: (query) => [
+    // UR seats are open to every category; PwBD seats only to PwBD
+    // candidates of that category
+    (item) => {
+      const seats = ["UR", query.category];
+      if (query.isPWD === "Yes") {
+        seats.push("UR-PWBD", `${query.category}-PWBD`);
+      }
+      return seats.includes(item["Seat Category"]);
+    },
+    (item) => {
+      if (!query.rank) return true;
+      const closingRank = parseInt(item["Closing Rank"], 10);
+      const userRank = parseInt(query.rank, 10);
+      if (isNaN(closingRank) || isNaN(userRank)) return false;
+      return closingRank >= userRank;
+    },
+  ],
+  getSort: () => [["Closing Rank", "ASC"]],
+};
+
+export const icarUgConfig = {
+  name: "ICAR-UG (agriculture, through CUET)",
+  searchKeys: ["Institute", "Academic Program Name"],
+  // cutoffs are CUET marks over the three subjects ICAR counts, out of 750;
+  // ICAR's ranks are stream-wise, so marks are the comparable number
+  // (scripts/build_icarug_2025.py)
+  primaryInput: decimalInput(
+    "Enter CUET Marks (ICAR's three subjects, out of 750)",
+    "e.g., 480.5",
+    "750"
+  ),
+  fields: [
+    {
+      name: "category",
+      label: "Select Category",
+      options: ["UR", "OBC", "SC", "ST", "EWS", "UPS", "PwD"],
+      helperText:
+        "UPS is ICAR's quota for students from under-privileged states.",
+    },
+  ],
+  getDataPath: () => {
+    return path.join(
+      process.cwd(),
+      "public",
+      "data",
+      "ICARUG",
+      "icarug_data.json"
+    );
+  },
+  getFilters: (query) => [
+    // UR seats are open to every category
+    (item) => item.Category === "UR" || item.Category === query.category,
+    (item) => {
+      if (!query.rank) return true;
+      const cutoff = parseFloat(item["Cutoff Marks"]);
+      const marks = parseFloat(query.rank);
+      if (isNaN(cutoff) || isNaN(marks)) return false;
+      return marks >= cutoff;
+    },
+  ],
+  getSort: () => [["Cutoff Marks", "DESC"]],
+};
+
+const UPTAC_CATEGORY = {
+  General: "GEN",
+  OBC: "OBC",
+  SC: "SC",
+  ST: "ST",
+  EWS: "EWS",
+  "Tuition fee waiver seats": "TFW",
+};
+
+export const uptacConfig = {
+  name: "UPTAC (AKTU and UP colleges)",
+  searchKeys: ["Institute", "Academic Program Name"],
+  // B.Tech on the JEE Main rank (scripts/build_uptac_2026.py). Regular
+  // rounds are for U.P. students; the special round opens its open seats to
+  // everyone, so "Domicile" picks the row set.
+  primaryInput: integerInput("Enter JEE (Main) Rank", "Enter JEE Main rank"),
+  fields: [
+    {
+      name: "category",
+      label: "Select Category",
+      options: Object.keys(UPTAC_CATEGORY),
+    },
+    {
+      name: "subCategory",
+      label: "Any special quota?",
+      options: [
+        "None",
+        "Defence personnel ward",
+        "Freedom fighter dependant",
+        "Divyangjan",
+      ],
+    },
+    {
+      name: "gender",
+      label: "Select Gender",
+      options: ["Male", "Female"],
+    },
+    {
+      name: "homeState",
+      label: "Are you from Uttar Pradesh?",
+      helperText:
+        "Yes if you passed Class 12 in U.P. or your parents live in U.P.",
+      options: ["Yes", "No"],
+    },
+  ],
+  getDataPath: () => {
+    return path.join(
+      process.cwd(),
+      "public",
+      "data",
+      "UPTAC",
+      "uptac_data.json"
+    );
+  },
+  getFilters: (query) => {
+    const cat = UPTAC_CATEGORY[query.category];
+    const female = query.gender === "Female";
+    const subs = ["None"];
+    if (query.subCategory && query.subCategory !== "None")
+      subs.push(query.subCategory);
+    if (female) subs.push("Female (UP)");
+    return [
+      (item) => item.Domicile === (query.homeState === "Yes" ? "UP" : "Any"),
+      (item) =>
+        cat === "TFW"
+          ? item.Category === "TFW"
+          : item.Category === "GEN" || item.Category === cat,
+      (item) => subs.includes(item["Sub Category"]),
+      (item) => female || item["Seat Gender"] !== "WOMEN",
+      (item) => {
+        if (!query.rank) return true;
+        const closingRank = parseInt(item["Closing Rank"], 10);
+        const userRank = parseInt(query.rank, 10);
+        if (isNaN(closingRank) || isNaN(userRank)) return false;
+        return closingRank >= userRank;
+      },
+    ];
+  },
+  getSort: () => [["Closing Rank", "ASC"]],
+};
+
+export const hbtuConfig = {
+  name: "HBTU Kanpur",
+  searchKeys: ["Institute", "Academic Program Name"],
+  // HBTU's own counselling on the JEE Main CRL rank
+  // (scripts/build_hbtu_2026.py). 'Home State' seats are for U.P. students,
+  // 'All India' seats for everyone.
+  primaryInput: integerInput("Enter JEE (Main) Rank", "Enter JEE Main rank"),
+  fields: [
+    {
+      name: "category",
+      label: "Select Category",
+      options: Object.keys(UPTAC_CATEGORY),
+    },
+    {
+      name: "subCategory",
+      label: "Any special quota?",
+      options: [
+        "None",
+        "Defence personnel ward",
+        "Freedom fighter dependant",
+        "Divyangjan",
+      ],
+    },
+    {
+      name: "gender",
+      label: "Select Gender",
+      options: ["Male", "Female"],
+    },
+    {
+      name: "homeState",
+      label: "Are you from Uttar Pradesh?",
+      helperText:
+        "Yes if you passed Class 12 in U.P. or your parents live in U.P.",
+      options: ["Yes", "No"],
+    },
+  ],
+  getDataPath: () => {
+    return path.join(process.cwd(), "public", "data", "HBTU", "hbtu_data.json");
+  },
+  getFilters: (query) => {
+    const cat = UPTAC_CATEGORY[query.category];
+    const subs = ["None"];
+    if (query.subCategory && query.subCategory !== "None")
+      subs.push(query.subCategory);
+    if (query.gender === "Female") subs.push("Female (UP)");
+    return [
+      (item) => query.homeState === "Yes" || item.Quota === "All India",
+      (item) =>
+        cat === "TFW"
+          ? item.Category === "TFW"
+          : item.Category === "GEN" || item.Category === cat,
+      (item) => subs.includes(item["Sub Category"]),
+      (item) => {
+        if (!query.rank) return true;
+        const closingRank = parseInt(item["Closing Rank"], 10);
+        const userRank = parseInt(query.rank, 10);
+        if (isNaN(closingRank) || isNaN(userRank)) return false;
+        return closingRank >= userRank;
+      },
+    ];
+  },
+  getSort: () => [["Closing Rank", "ASC"]],
+};
+
 export const clatConfig = {
   name: "CLAT",
   searchKeys: ["Institute", "Academic Program Name"],
@@ -1995,23 +2336,123 @@ export const clatConfig = {
   getSort: () => [["Closing Rank", "ASC"]],
 };
 
+const CUET_CATEGORY = {
+  General: "UR",
+  OBC: "OBC",
+  SC: "SC",
+  ST: "ST",
+  EWS: "EWS",
+};
+
+export const cuetConfig = {
+  name: "CUET UG (DU, BHU)",
+  searchKeys: ["Institute", "Academic Program Name", "University"],
+  // DU and BHU admit on a per-course sum of CUET papers, so the student
+  // enters each paper's score (components/CuetScoreInput) instead of one
+  // number, and annotate() works out their score for every course from the
+  // course's rule (utils/cuetRules.js, scripts/build_cuet_2025.py).
+  scoreInput: "cuet",
+  fields: [
+    {
+      name: "category",
+      label: "Select Category",
+      options: Object.keys(CUET_CATEGORY),
+    },
+    {
+      name: "isPWD",
+      label: "Are you a PwBD Student?",
+      options: ["No", "Yes"],
+    },
+    {
+      name: "gender",
+      label: "Select Gender",
+      options: ["Male", "Female"],
+    },
+    {
+      name: "university",
+      label: "Select University",
+      options: ["Both", "Delhi University", "BHU"],
+    },
+  ],
+  getDataPath: () => {
+    return path.join(process.cwd(), "public", "data", "CUET", "cuet_data.json");
+  },
+  annotate: (rows, query) => {
+    const scores = parseScores(query.scores);
+    return rows.map((item) => {
+      const score = courseScore(item.Rule, scores);
+      return {
+        ...item,
+        "Papers Counted": coursePapers(item.Rule),
+        "Out Of": courseMax(item.Rule),
+        "Your Score": score,
+        // how far above the cutoff, as a share of the course's scale (750
+        // or 1000), so courses on different scales sort together
+        Margin:
+          score === null
+            ? null
+            : (score - item["Cutoff Score"]) / courseMax(item.Rule),
+      };
+    });
+  },
+  getFilters: (query) => {
+    const seats = ["UR", CUET_CATEGORY[query.category]];
+    if (query.isPWD === "Yes") seats.push("PwBD");
+    return [
+      (item) => seats.includes(item.Category),
+      (item) => query.gender === "Female" || !item["Women Only"],
+      (item) =>
+        !query.university ||
+        query.university === "Both" ||
+        item.University === query.university,
+      (item) =>
+        item["Your Score"] !== null &&
+        item["Your Score"] >= item["Cutoff Score"],
+    ];
+  },
+  // open seats and your category's seats are two cutoffs for one course:
+  // keep the one you clear more easily, so each course is listed once
+  finalize: (rows) => {
+    const best = new Map();
+    for (const item of rows) {
+      const key = [item.Institute, item["Academic Program Name"], item.Seat];
+      const k = key.join("|");
+      const seen = best.get(k);
+      if (!seen || item["Cutoff Score"] < seen["Cutoff Score"]) {
+        best.set(k, item);
+      }
+    }
+    return [...best.values()];
+  },
+  // the seats you only just clear first: the most ambitious reachable ones
+  getSort: () => [["Margin", "ASC"]],
+};
+
 export const examConfigs = {
+  // Order = the predictor's exam dropdown: national routes first, then the
+  // JEE Main counsellings of Delhi and Chandigarh, then state CETs A-Z.
   "JoSAA": josaaConfig,
-  "JEE Main-JOSAA": jeeMainJosaaConfig,
-  "JEE Main-JAC": jacExamConfig,
-  "GUJCET": gujcetConfig,
-  "JEE Advanced": jeeAdvancedConfig,
-  // "NEET MCC": neetConfig,
+  "JEE Main-JOSAA": jeeMainJosaaConfig, // not in the dropdown
+  "JEE Advanced": jeeAdvancedConfig, // not in the dropdown
   "NEETUG": neetUGConfig,
-  "MHT CET": mhtCetConfig,
+  // "NEET MCC": neetConfig,
+  "CLAT": clatConfig,
+  "CUET": cuetConfig,
+  "ICAR-UG": icarUgConfig,
+  "AIIMS Nursing": aiimsNursingConfig,
+  "JEE Main-JAC": jacExamConfig,
+  "JAC Chandigarh": jacChandigarhConfig,
+  "UPTAC": uptacConfig,
+  "HBTU": hbtuConfig,
+  "AP EAPCET": apEapcetConfig,
+  "GUJCET": gujcetConfig,
   "KCET": kcetConfig,
+  "KEAM": keamConfig,
+  "MHT CET": mhtCetConfig,
+  "OJEE": ojeeConfig,
+  "TGEAPCET": tseApertConfig,
   "TNEA": tneaConfig,
   "WBJEE": wbjeeConfig,
-  "KEAM": keamConfig,
-  "AP EAPCET": apEapcetConfig,
-  "OJEE": ojeeConfig,
-  "CLAT": clatConfig,
-  "TGEAPCET": tseApertConfig,
 };
 
 export default examConfigs;

@@ -1,15 +1,21 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
+import { ChevronRight, Info, Search } from "lucide-react";
+import { matchesQuery } from "../utils/search";
+import useUrlParams from "../utils/useUrlParams";
+import BackLink from "../components/BackLink";
 import {
-  ChevronDown,
-  ChevronUp,
-  ExternalLink,
-  Info,
-  Search,
-} from "lucide-react";
+  Dash,
+  NirfCell,
+  fmtSalary,
+  nirfSortRank,
+} from "../components/collegeShared";
+import { loadColleges, slugMap, slugify } from "../utils/collegesData";
+import { rememberList } from "../utils/listReturn";
+import { markForward } from "../utils/navHistory";
 
 // The app's shared react-select wrapper — searchable, so a 30-state list can be
 // narrowed by typing. A native <select> only jumps on the first letter, which is
@@ -18,538 +24,93 @@ const Dropdown = dynamic(() => import("../components/dropdown"), {
   ssr: false,
 });
 
-// The College tab: pure information display, one row per college.
-//
-// Deliberately NOT a cutoff tool — that is the College Predictor's job, and the
-// CTA on each row hands off to it. What lives here is everything a student asks
-// *about a college* once a rank has told them it is reachable: where it is, how
-// it ranks, what graduates earn, and what it actually teaches.
-//
-// Layout follows Amogh's spec (2026-08-19): must-haves immediately visible in
-// the table, good-to-haves present but behind an expander so the table stays
-// scannable on a phone.
+// The College tab: one row per college with the basics a student scans for
+// (where, NIRF, salary, placed); the whole row opens that college's own page
+// (/colleges/<name>) with everything else. Not a cutoff tool: that is the
+// College Predictor's job.
 
-const DATA_URL = "/data/colleges/colleges.json";
 const PAGE_SIZE = 25;
-// NIRF publishes yearly; a rank from an older cycle means the college has not
-// appeared in the ranked band since, which is worth showing rather than hiding.
-const LATEST_NIRF = 2025;
-
-// Fees span ₹8,760 to ₹4.6L a year — below a lakh, "₹0.2 L" reads worse
-// than the plain rupee figure.
-const fmtFee = (v) => {
-  if (v === null || v === undefined) return null;
-  return v >= 100000
-    ? `₹${(v / 100000).toFixed(1)} L`
-    : `₹${v.toLocaleString("en-IN")}`;
-};
-
-const fmtSalary = (v) => {
-  if (v === null || v === undefined) return null;
-  // Indian students read lakhs, not 1,400,000.
-  const lakh = v / 100000;
-  return lakh >= 100
-    ? `₹${(lakh / 100).toFixed(2)} Cr`
-    : `₹${lakh.toFixed(1)} L`;
-};
-
-const Dash = () => <span className="text-[#b9a8a2]">—</span>;
-
-/** A single college row plus its expandable detail. */
-const CollegeRow = ({ c, index, expanded, onToggle }) => {
-  const nirf = c.nirf;
+/** One college in the list; the whole row opens its page. */
+const CollegeListRow = ({ c, index, href, onOpen }) => {
   const pl = c.placement;
   return (
-    <>
-      <tr
-        className={`border-b border-[#eaded8] text-xs sm:text-sm ${
-          index % 2 === 0 ? "bg-[#fffdfa]" : "bg-white"
-        }`}
-      >
-        <td className="px-3 py-3 align-top">
-          <button
-            type="button"
-            onClick={onToggle}
-            className="text-left font-semibold text-[#332724] hover:text-[#8f2e31]"
-          >
-            {c.display_name}
-          </button>
-          <div className="mt-0.5 flex flex-wrap items-center gap-1.5 text-[11px] text-[#6d5550]">
-            {c.entrance_exams.map((e) => (
-              <Link
-                key={e}
-                href={`/exams?q=${encodeURIComponent(e)}`}
-                className="rounded-full border border-[#e3d1cb] bg-white px-1.5 py-0.5 transition hover:border-[#8f2e31] hover:text-[#8f2e31]"
-              >
-                {e}
-              </Link>
-            ))}
-            {/* what kind of place this is, at a glance (Akshay): ownership
-                plus the macro education types it admits into */}
-            {c.ownership ? (
-              <span
-                className={`rounded-full px-1.5 py-0.5 font-semibold ${
-                  c.ownership === "Private"
-                    ? "bg-[#FFB763]/20 text-[#8a5209]"
-                    : "bg-[#1F9E8F]/10 text-[#166f64]"
-                }`}
-              >
-                {c.ownership}
-              </span>
-            ) : null}
-            {(c.disciplines || []).map((d) => (
-              <span key={d} className="text-[#6d5550]">
-                {d}
-              </span>
-            ))}
-          </div>
-        </td>
-        <td className="px-3 py-3 align-top text-[#5b3a34]">
-          {c.state ? (
-            <>
-              {c.district ? `${c.district}, ` : ""}
-              {c.state}
-              {c.state_is_inferred ? (
-                <span title="Location read from the JoSAA institute name; not yet matched to AISHE">
-                  {" "}
-                  *
-                </span>
-              ) : null}
-            </>
-          ) : (
-            <Dash />
-          )}
-        </td>
-        <td className="px-3 py-3 align-top tabular-nums">
-          {nirf?.latest_band ? (
-            // Slid out of the exact-rank list into a band: the band IS the
-            // current NIRF position, the old exact rank is history. Showing
-            // "#87 (2022)" here would be staler than what NIRF publishes.
+    <tr
+      onClick={onOpen}
+      className={`cursor-pointer border-b border-[#eaded8] text-xs transition hover:bg-[#fbeeec] sm:text-sm ${
+        index % 2 === 0 ? "bg-[#fffdfa]" : "bg-white"
+      }`}
+    >
+      <td className="px-3 py-3 align-top">
+        <Link
+          href={href}
+          onClick={(e) => e.stopPropagation()}
+          className="font-semibold text-[#332724] hover:text-[#8f2e31]"
+        >
+          {c.display_name}
+        </Link>
+        <div className="mt-0.5 flex flex-wrap items-center gap-1.5 text-[11px] text-[#6d5550]">
+          {c.entrance_exams.map((e) => (
             <span
-              className="font-semibold text-[#332724]"
-              title={`In NIRF's ${nirf.latest_band.band} band in ${nirf.latest_band.year}; last exact rank #${nirf.rank} in ${nirf.ranking_year}`}
+              key={e}
+              className="rounded-full border border-[#e3d1cb] bg-white px-1.5 py-0.5"
             >
-              {nirf.latest_band.band}
-              <span className="ml-1 text-[11px] font-normal text-[#6d5550]">
-                band
-              </span>
+              {e}
             </span>
-          ) : nirf ? (
-            <>
-              <span className="font-semibold text-[#332724]">#{nirf.rank}</span>
-              {nirf.category && nirf.category !== "Engineering" ? (
-                // ranks only order colleges within one NIRF category, so a
-                // non-engineering rank says which list it is from
-                <span className="ml-1 text-[11px] font-normal text-[#6d5550]">
-                  {nirf.category}
-                </span>
-              ) : null}
-              {(() => {
-                // Direction against LAST year, so a student sees movement in the
-                // table without expanding. A LOWER rank number is better, so a
-                // negative delta is an improvement — shown as "▲" to match the
-                // intuition, not the arithmetic.
-                const h = [...nirf.rank_history].sort(
-                  (a, b) => b.year - a.year
-                );
-                if (h.length < 2) return null;
-                const d = h[1].rank - h[0].rank;
-                // Suppress moves of one or two places. Year-to-year rank churn
-                // in a league table is largely noise — Sorz et al. measure it at
-                // under 10% in the top 50 rising to 60% in lower bands — and a
-                // "▼1" invites a student to read signal into a coin flip. The
-                // Premier League table does the same, printing "–" for a
-                // one-place shuffle. 11 of our 58 ranked colleges sit here.
-                if (Math.abs(d) <= 2) return null;
-                return (
-                  <span
-                    className="ml-1 text-[11px] font-medium text-[#6d5550]"
-                    title={`${h[0].year}: #${h[0].rank} vs ${h[1].year}: #${h[1].rank}`}
-                  >
-                    {d > 0 ? `▲${d}` : `▼${Math.abs(d)}`}
-                  </span>
-                );
-              })()}
-              {nirf.ranking_year < LATEST_NIRF ? (
-                <span
-                  className="ml-1 text-[11px] font-normal text-[#6d5550]"
-                  title={`Last ranked in NIRF ${nirf.ranking_year}; not in the ranked band since`}
-                >
-                  ({nirf.ranking_year})
-                </span>
-              ) : null}
-            </>
-          ) : (
-            <Dash />
-          )}
-        </td>
-        <td className="px-3 py-3 align-top tabular-nums">
-          {pl?.median_salary ? (
-            <span className="font-semibold text-[#332724]">
-              {fmtSalary(pl.median_salary)}
-            </span>
-          ) : (
-            <Dash />
-          )}
-        </td>
-        <td className="px-3 py-3 align-top tabular-nums">
-          {pl?.percentage_with_outcome != null ? (
-            // The combined rate — placed in a job OR admitted to higher
-            // studies. NIRF's jobs-only figure makes research-heavy IITs
-            // read artificially low (73.8% vs 99.9% at IIT Bombay); the
-            // jobs-only split stays in the tooltip and the expander.
+          ))}
+          {c.ownership ? (
             <span
-              title={`${pl.percentage_with_outcome}% placed or in higher studies; ${pl.percentage_placed}% in jobs alone`}
+              className={`rounded-full px-1.5 py-0.5 font-semibold ${
+                c.ownership === "Private"
+                  ? "bg-[#FFB763]/20 text-[#8a5209]"
+                  : "bg-[#1F9E8F]/10 text-[#166f64]"
+              }`}
             >
-              {pl.percentage_with_outcome}%
+              {c.ownership}
             </span>
-          ) : (
-            <Dash />
-          )}
-        </td>
-        <td className="px-3 py-3 align-top">
-          <button
-            type="button"
-            onClick={onToggle}
-            className="inline-flex items-center gap-1 rounded-full border border-[#e3d1cb] bg-white px-3 py-1.5 text-xs font-semibold text-[#8f2e31] transition hover:bg-[#f8efec]"
-          >
-            {expanded ? "Less" : "More"}
-            {expanded ? <ChevronUp size={13} /> : <ChevronDown size={13} />}
-          </button>
-        </td>
-      </tr>
-
-      {expanded ? (
-        <tr className="border-b border-[#eaded8] bg-[#fdf8f5]">
-          <td colSpan={6} className="px-3 py-5 sm:px-5">
-            <div className="grid gap-6 md:grid-cols-10">
-              {/* ── programs: the only field with 100% coverage, so it leads ── */}
-              <div className="md:col-span-7">
-                <h4 className="mb-2 text-[13px] font-semibold uppercase tracking-wide text-[#8f2e31]">
-                  Programs offered ({c.programs.count})
-                </h4>
-                {c.programs.count ? (
-                  <>
-                    <div className="rounded-lg border border-[#eaded8] bg-white">
-                      <table className="w-full text-sm">
-                        <thead className="bg-[#f8efec] text-[#5b1f20]">
-                          <tr>
-                            <th className="px-2 py-1.5 text-left font-semibold">
-                              Branch
-                            </th>
-                            <th className="px-2 py-1.5 text-left font-semibold">
-                              Degree
-                            </th>
-                            <th className="px-2 py-1.5 text-right font-semibold">
-                              {c.programs.list.some(
-                                (p) => p.indicative_closing_rank != null
-                              ) || !c.programs.list.some((p) => p.seats != null)
-                                ? "Closing rank"
-                                : "Annual seats"}
-                            </th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {c.programs.list.map((p, i) => (
-                            <tr
-                              key={`${p.branch}-${p.degree}-${i}`}
-                              className="border-t border-[#f0e6e1]"
-                            >
-                              <td className="px-2 py-1.5 text-[#332724]">
-                                {/* a branch is a door to a career — link it
-                                    when we know which one */}
-                                {p.career_id ? (
-                                  <Link
-                                    href={`/careers#${p.career_id}`}
-                                    className="underline decoration-[#e3d1cb] underline-offset-2 transition hover:text-[#8f2e31] hover:decoration-[#8f2e31]"
-                                  >
-                                    {p.branch}
-                                  </Link>
-                                ) : (
-                                  p.branch
-                                )}
-                              </td>
-                              <td className="px-2 py-1.5 text-[#6d5550]">
-                                {p.degree}
-                                {p.years ? ` · ${p.years} yr` : ""}
-                              </td>
-                              <td className="px-2 py-1.5 text-right tabular-nums text-[#332724]">
-                                {p.indicative_closing_rank ?? p.seats ?? (
-                                  <Dash />
-                                )}
-                              </td>
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
-                    </div>
-                  </>
-                ) : (
-                  <p className="text-sm text-[#6d5550]">Not available.</p>
-                )}
-              </div>
-
-              <div className="space-y-5 md:col-span-3">
-                {nirf?.rank_history?.length > 1 ? (
-                  <div>
-                    <h4 className="mb-1.5 text-[13px] font-semibold uppercase tracking-wide text-[#8f2e31]">
-                      NIRF rank and score
-                    </h4>
-                    <NirfTrend history={nirf.rank_history} />
-                    <p className="mt-1.5 text-xs leading-5 text-[#6d5550]">
-                      Bars show NIRF score out of 100.
-                      {nirf.latest_band
-                        ? ` Ranked in the ${nirf.latest_band.band} band in ${nirf.latest_band.year} (NIRF publishes no score for bands).`
-                        : null}
-                    </p>
-                  </div>
-                ) : null}
-
-                {c.fees ? (
-                  <div>
-                    <h4 className="mb-1.5 text-[13px] font-semibold uppercase tracking-wide text-[#8f2e31]">
-                      Fees ({c.fees.cycle})
-                    </h4>
-                    <dl className="space-y-1 text-sm text-[#5b3a34]">
-                      <div className="flex justify-between gap-3">
-                        <dt>Tuition + institute fees</dt>
-                        <dd className="tabular-nums">
-                          {fmtFee(c.fees.annual_fee)}/yr
-                        </dd>
-                      </div>
-                      {c.fees.annual_fee_waived != null ? (
-                        <div className="flex justify-between gap-3">
-                          <dt>With SC/ST/PwD tuition waiver</dt>
-                          <dd className="tabular-nums">
-                            {fmtFee(c.fees.annual_fee_waived)}/yr
-                          </dd>
-                        </div>
-                      ) : null}
-                      {c.fees.annual_hostel_mess != null ? (
-                        <div className="flex justify-between gap-3">
-                          <dt>Hostel + mess</dt>
-                          <dd className="tabular-nums">
-                            {fmtFee(c.fees.annual_hostel_mess)}/yr
-                          </dd>
-                        </div>
-                      ) : null}
-                    </dl>
-                    <p className="mt-1.5 text-xs leading-5 text-[#6d5550]">
-                      First-year figure incl. one-time charges; later years are
-                      usually lower.{" "}
-                      {c.fees.source_url ? (
-                        <a
-                          href={c.fees.source_url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="underline hover:text-[#8f2e31]"
-                        >
-                          source
-                        </a>
-                      ) : null}
-                    </p>
-                  </div>
-                ) : null}
-
-                {pl ? (
-                  <div>
-                    <h4 className="mb-1.5 text-[13px] font-semibold uppercase tracking-wide text-[#8f2e31]">
-                      Placement details
-                    </h4>
-                    <dl className="space-y-1 text-sm text-[#5b3a34]">
-                      {pl.students_placed != null ? (
-                        <div className="flex justify-between gap-3">
-                          <dt>Students placed</dt>
-                          <dd className="tabular-nums">{pl.students_placed}</dd>
-                        </div>
-                      ) : null}
-                      {pl.higher_studies_selected != null ? (
-                        <div className="flex justify-between gap-3">
-                          <dt>Went to higher studies</dt>
-                          <dd className="tabular-nums">
-                            {pl.higher_studies_selected}
-                          </dd>
-                        </div>
-                      ) : null}
-                      {pl.percentage_placed != null ? (
-                        <div className="flex justify-between gap-3">
-                          <dt>Placed in a job</dt>
-                          <dd className="tabular-nums">
-                            {pl.percentage_placed}%
-                          </dd>
-                        </div>
-                      ) : null}
-                      {pl.percentage_with_outcome != null ? (
-                        <div className="flex justify-between gap-3">
-                          <dt>Placed or in higher studies</dt>
-                          <dd className="tabular-nums">
-                            {pl.percentage_with_outcome}%
-                          </dd>
-                        </div>
-                      ) : null}
-                      {pl.first_year_intake != null ? (
-                        <div className="flex justify-between gap-3">
-                          <dt>First-year intake</dt>
-                          <dd className="tabular-nums">
-                            {pl.first_year_intake}
-                          </dd>
-                        </div>
-                      ) : null}
-                    </dl>
-                    <p className="mt-1.5 text-xs leading-5 text-[#6d5550]">
-                      NIRF {pl.ranking_year},{" "}
-                      {pl.source?.includes("Medical")
-                        ? "MBBS (UG 5-year)"
-                        : "UG 4-year"}{" "}
-                      · AY {pl.academic_year}
-                    </p>
-                  </div>
-                ) : null}
-
-                <div>
-                  <h4 className="mb-1.5 text-[13px] font-semibold uppercase tracking-wide text-[#8f2e31]">
-                    About
-                  </h4>
-                  <dl className="space-y-1 text-sm text-[#5b3a34]">
-                    {c.ug_gender ? (
-                      <div className="flex justify-between gap-3">
-                        <dt>Women among UG students</dt>
-                        <dd
-                          className="tabular-nums"
-                          title={`${c.ug_gender.female.toLocaleString()} women / ${(
-                            c.ug_gender.male + c.ug_gender.female
-                          ).toLocaleString()} UG students, as filed with NIRF ${
-                            c.ug_gender.edition_year
-                          }`}
-                        >
-                          {c.ug_gender.female_pct}%
-                        </dd>
-                      </div>
-                    ) : null}
-                    {c.year_established ? (
-                      <div className="flex justify-between gap-3">
-                        <dt>Established</dt>
-                        <dd className="tabular-nums">{c.year_established}</dd>
-                      </div>
-                    ) : null}
-                    {c.management ? (
-                      <div className="flex justify-between gap-3">
-                        <dt>Management</dt>
-                        <dd className="text-right">{c.management}</dd>
-                      </div>
-                    ) : null}
-                    <div className="flex justify-between gap-3">
-                      <dt>NAAC grade</dt>
-                      <dd className="text-right">
-                        {c.naac.grade ? (
-                          <>
-                            {c.naac.grade}
-                            {c.naac.cgpa ? ` · ${c.naac.cgpa}` : ""}
-                          </>
-                        ) : c.naac.not_applicable_reason ? (
-                          <span title={c.naac.not_applicable_reason}>
-                            Not applicable
-                          </span>
-                        ) : (
-                          <Dash />
-                        )}
-                      </dd>
-                    </div>
-                  </dl>
-                  {c.website ? (
-                    <a
-                      href={
-                        c.website.startsWith("http")
-                          ? c.website
-                          : `https://${c.website}`
-                      }
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-2 inline-flex items-center gap-1 text-sm font-semibold text-[#8f2e31] hover:underline"
-                    >
-                      Official website <ExternalLink size={12} />
-                    </a>
-                  ) : null}
-                </div>
-              </div>
-            </div>
-          </td>
-        </tr>
-      ) : null}
-    </>
-  );
-};
-
-// Students type "NIT Raipur", "IIT B" — never "National Institute of Technology
-// Raipur". Expand the common abbreviations before matching so the search works
-// the way people actually refer to these colleges.
-const ABBREV = [
-  [/\bnit\b/g, "national institute of technology"],
-  [/\biiit\b/g, "indian institute of information technology"],
-  [/\biit\b/g, "indian institute of technology"],
-  [/\baiims\b/g, "all india institute of medical sciences"],
-  [/\bgmc\b/g, "government medical college"],
-];
-
-const expand = (q) => {
-  let out = q;
-  for (const [re, full] of ABBREV) out = out.replace(re, full);
-  return out;
-};
-
-/** NIRF trend: a bar per year on the SCORE, with the rank labelled beside it.
- *
- *  Score, not rank, drives the bars. Rank is ordinal — it moves when OTHER
- *  institutes move — so charting it can invert the story: IIT Ropar's score rose
- *  55.95 -> 59.66 since 2020 while its rank fell #25 -> #32. It improved; the
- *  field improved faster. Score is a property of the college itself, is present
- *  on every Engineering row, and is comparable year to year (the rank-1 score is
- *  88-90 in every cycle).
- *
- *  Bars rather than a line, because bars need no inverted axis to read: longer
- *  is plainly better. Scaled 0-100 (NIRF's own range) so bar length means the
- *  same thing on every college, not just within one card.
- */
-const NirfTrend = ({ history }) => {
-  const pts = [...history].sort((a, b) => b.year - a.year);
-  if (!pts.length) return null;
-  return (
-    <table className="w-full text-sm tabular-nums">
-      <tbody>
-        {pts.map((h) => (
-          <tr key={h.year}>
-            <td className="py-0.5 pr-2 text-[#6d5550]">{h.year}</td>
-            <td className="py-0.5 pr-2 font-semibold text-[#332724]">
-              #{h.rank}
-            </td>
-            <td className="w-full py-0.5">
-              {h.score != null ? (
-                <div className="flex items-center gap-1.5">
-                  <div className="h-2 flex-1 overflow-hidden rounded-full bg-[#f0e6e1]">
-                    <div
-                      className="h-full rounded-full bg-[#8f2e31]"
-                      style={{
-                        width: `${Math.max(2, Math.min(100, h.score))}%`,
-                      }}
-                    />
-                  </div>
-                  <span className="w-9 text-right text-xs text-[#6d5550]">
-                    {h.score.toFixed(1)}
-                  </span>
-                </div>
-              ) : null}
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
+          ) : null}
+        </div>
+      </td>
+      <td className="px-3 py-3 align-top text-[#5b3a34]">
+        {c.state ? (
+          <>
+            {c.district ? `${c.district}, ` : ""}
+            {c.state}
+          </>
+        ) : (
+          <Dash />
+        )}
+      </td>
+      <td className="px-3 py-3 align-top tabular-nums">
+        {c.nirf ? <NirfCell nirf={c.nirf} /> : <Dash />}
+      </td>
+      <td className="px-3 py-3 align-top tabular-nums">
+        {pl?.median_salary ? (
+          <span className="font-semibold text-[#332724]">
+            {fmtSalary(pl.median_salary)}
+          </span>
+        ) : (
+          <Dash />
+        )}
+      </td>
+      <td className="px-3 py-3 align-top tabular-nums">
+        {pl?.percentage_with_outcome != null ? (
+          `${pl.percentage_with_outcome}%`
+        ) : (
+          <Dash />
+        )}
+      </td>
+      <td className="px-2 py-3 align-top text-[#b9a8a2]">
+        <ChevronRight size={18} />
+      </td>
+    </tr>
   );
 };
 
 const SORTS = {
   nirf: {
     label: "NIRF rank",
-    fn: (a, b) => (a.nirf?.rank ?? 9e9) - (b.nirf?.rank ?? 9e9),
+    // band-only colleges sort at the band's top ("101-150" -> 101)
+    fn: (a, b) => nirfSortRank(a) - nirfSortRank(b),
   },
   salary: {
     label: "Median salary",
@@ -577,18 +138,52 @@ const Colleges = () => {
   const router = useRouter();
   const [all, setAll] = useState([]);
   const [error, setError] = useState(null);
-  const [q, setQ] = useState("");
-
-  // arriving from a career's college link (/colleges?q=IIT Delhi) or an
-  // exam card's "colleges accepting it" (/colleges?exam=JEE Advanced)
+  // Filters live in the URL, so a filtered list or an opened college can be
+  // shared and Back returns to it. Links in use the same keys: a career's
+  // college link (/colleges?q=IIT Delhi), an exam card's "colleges accepting
+  // it" (/colleges?exam=JEE Advanced), a career's college list (?career=).
+  // stream = what the college teaches (Engineering / Pharmacy / …); medical
+  // rows carry no discipline badge (the NEET-UG chip says it), so they get
+  // their stream here. college = the opened card.
+  const [params, setParam, urlReady] = useUrlParams({
+    q: "",
+    state: "All",
+    exam: "All",
+    stream: "All",
+    career: "",
+    sort: "nirf",
+    type: "public",
+    college: "",
+  });
+  const { q, state, exam, stream, career } = params;
+  const setQ = (v) => setParam("q", v);
+  const setState = (v) => setParam("state", v);
+  const setExam = (v) => setParam("exam", v);
+  const setStream = (v) => setParam("stream", v);
+  const setCareer = (v) => setParam("career", v || "");
+  // public vs private, public first; government-aided counts with public
+  // (government-set fees on its aided seats) and the label says so.
+  // ?type=private / ?type=all; public is the default and stays off the URL.
+  const type = params.type;
+  const setType = (v) => setParam("type", v);
+  // a link that names a college, career or exam must not land on an empty
+  // list because the college is private: those arrivals start on all
+  const typeChecked = useRef(false);
   useEffect(() => {
-    if (!router.isReady) return;
-    if (router.query.q) setQ(String(router.query.q));
-    if (router.query.exam) setExam(String(router.query.exam));
-  }, [router.isReady, router.query.q, router.query.exam]);
-  const [state, setState] = useState("All");
-  const [exam, setExam] = useState("All");
-  const [sortKey, setSortKey] = useState("nirf");
+    if (!urlReady || typeChecked.current) return;
+    typeChecked.current = true;
+    if (router.query.type) return;
+    if (q || params.college || career || exam !== "All") setType("all");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [urlReady]);
+  const streamsOf = (c) =>
+    c.disciplines?.length
+      ? c.disciplines
+      : String(c.counselling).startsWith("MCC")
+      ? ["Medicine"]
+      : [];
+  const sortKey = SORTS[params.sort] ? params.sort : "nirf";
+  const setSortKey = (v) => setParam("sort", v);
   // Same pattern as the predictor's salary ⓘ: a positioned card, not the
   // browser's native title box (which renders late, unstyled, and turns the
   // cursor into a question mark).
@@ -598,15 +193,21 @@ const Colleges = () => {
     setPlacedTip({ top: rect.bottom + 10, left: rect.right - 280 });
   };
   const hidePlacedTip = () => setPlacedTip(null);
-  const [expanded, setExpanded] = useState({});
+  // the search the student ARRIVED with; typing a search that narrows to
+  // one college doesn't jump to its page
+  const arrivedQ = useRef(null);
+  useEffect(() => {
+    if (urlReady && arrivedQ.current === null) arrivedQ.current = q;
+  }, [urlReady, q]);
   const [shown, setShown] = useState(PAGE_SIZE);
 
   useEffect(() => {
-    fetch(DATA_URL)
-      .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
+    loadColleges()
       .then(setAll)
       .catch(() => setError("Could not load the college list right now."));
   }, []);
+  const slugs = useMemo(() => (all.length ? slugMap(all) : {}), [all]);
+  const hrefOf = (c) => `/colleges/${slugs[c.college_id]}`;
 
   const states = useMemo(
     () => [
@@ -615,6 +216,14 @@ const Colleges = () => {
     ],
     [all]
   );
+  const streams = useMemo(
+    () => [
+      "All",
+      ...Array.from(new Set(all.flatMap((c) => streamsOf(c)))).sort(),
+    ],
+    [all]
+  );
+
   const exams = useMemo(
     () => [
       "All",
@@ -624,45 +233,89 @@ const Colleges = () => {
   );
 
   const filtered = useMemo(() => {
-    // Punctuation-blind matching: medical names are comma-heavy ("All India
-    // Institute of Medical Sciences, New Delhi"), so both the query and the
-    // haystack collapse to plain words before the substring test.
-    const plain = (x) =>
-      String(x)
-        .toLowerCase()
-        .replace(/[^a-z0-9]+/g, " ")
-        .trim();
-    const raw = plain(q);
-    // Match on either the literal text or its abbreviation-expanded form, so
-    // "NIT Raipur" and "National Institute of Technology Raipur" both work.
-    const needles = raw ? Array.from(new Set([raw, expand(raw)])) : [];
+    // shared site-wide search: punctuation-blind, word by word, and aware
+    // of short forms (iiser, nit trichy, srcc) — see utils/search.js
+    const raw = q.trim();
     const out = all.filter((c) => {
       if (state !== "All" && c.state !== state) return false;
       if (exam !== "All" && !c.entrance_exams.includes(exam)) return false;
+      if (stream !== "All" && !streamsOf(c).includes(stream)) return false;
+      if (
+        type === "public" &&
+        !["Public", "Government-aided"].includes(c.ownership)
+      )
+        return false;
+      if (type === "private" && c.ownership !== "Private") return false;
+      if (career && !c.programs.list.some((p) => p.career_id === career))
+        return false;
       if (!raw) return true;
       // Search the branch list too: "who teaches Aerospace" is a real question,
       // and the branch names are the richest text we hold.
-      const hay = plain(
+      return matchesQuery(
         [
           c.display_name,
           c.state || "",
           c.district || "",
           ...c.programs.list.map((p) => p.branch),
-        ].join(" ")
+        ],
+        raw
       );
-      return needles.some((n) => hay.includes(n));
     });
+    // a query that names a college ("iit bombay") shows only name/place
+    // matches; branch text is searched only when nothing matches by name
+    // ("aerospace") — otherwise a branch mentioning Bombay leaks in
+    if (raw) {
+      const byName = out.filter((c) =>
+        matchesQuery([c.display_name, c.state || "", c.district || ""], raw)
+      );
+      if (byName.length) return byName.sort(SORTS[sortKey].fn);
+    }
     return out.sort(SORTS[sortKey].fn);
-  }, [all, q, state, exam, sortKey]);
+  }, [all, q, state, exam, stream, type, career, sortKey]);
 
-  useEffect(() => setShown(PAGE_SIZE), [q, state, exam, sortKey]);
+  // A link that names one college (a predictor result, a career's college,
+  // a compare header: /colleges?q=IIT Delhi) or an older ?college= link goes
+  // straight to that college's page. Replace, so Back skips this hop.
+  const redirected = useRef(false);
+  useEffect(() => {
+    if (redirected.current || !urlReady || !all.length) return;
+    let target = null;
+    if (params.college) {
+      target = all.find(
+        (c) =>
+          slugs[c.college_id] === params.college ||
+          slugify(c.display_name) === params.college
+      );
+    } else if (q && q === arrivedQ.current && filtered.length === 1) {
+      target = filtered[0];
+    }
+    if (target) {
+      redirected.current = true;
+      markForward(hrefOf(target));
+      router.replace(hrefOf(target));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [urlReady, all, filtered, params.college, q]);
+
+  // so a college page's "All colleges" comes back to this list as it is;
+  // not while the list is about to forward (/colleges?q=NALSAR), or the
+  // back link would point at the hop and bounce straight back
+  useEffect(() => {
+    if (urlReady && all.length && !redirected.current)
+      rememberList("/colleges");
+  }, [urlReady, router.asPath, all.length]);
+
+  useEffect(
+    () => setShown(PAGE_SIZE),
+    [q, state, exam, stream, type, career, sortKey]
+  );
 
   const th = "px-3 py-2 text-left text-xs font-semibold text-[#5b1f20]";
 
   return (
     <>
       <Head>
-        <title>Colleges - Avanti Fellows</title>
+        <title>Colleges - Futures</title>
         <meta
           name="description"
           content="Engineering and medical colleges — location, NIRF rank, MBBS seats, placement outcomes, and the programs each one offers."
@@ -670,6 +323,9 @@ const Colleges = () => {
       </Head>
 
       <div className="mx-auto w-full max-w-6xl px-3 py-6 sm:px-4">
+        <div className="mb-3">
+          <BackLink />
+        </div>
         <div className="rounded-2xl border border-[#eaded8] bg-white p-4 shadow-sm sm:p-6">
           <h1 className="text-center text-2xl font-bold text-[#332724] sm:text-3xl">
             Colleges
@@ -678,7 +334,7 @@ const Colleges = () => {
             Closing ranks here are indicative and open-category. For full
             cutoffs, use the{" "}
             <Link
-              href="/"
+              href="/predictor"
               className="font-semibold text-[#8f2e31] hover:underline"
             >
               College Predictor
@@ -725,27 +381,50 @@ const Colleges = () => {
             </div>
           </div>
 
-          {exams.length > 2 ? (
-            <div className="mt-3 flex flex-wrap items-center gap-1.5">
-              <span className="text-xs font-semibold text-[#5b1f20]">
-                Entrance test:
-              </span>
-              {exams.map((e) => (
-                <button
-                  key={e}
-                  type="button"
-                  onClick={() => setExam(e)}
-                  className={`rounded-full border px-2.5 py-1 text-xs font-medium transition ${
-                    exam === e
-                      ? "border-[#8f2e31] bg-[#8f2e31] text-white"
-                      : "border-[#e3d1cb] bg-white text-[#5b3a34] hover:bg-[#f8efec]"
-                  }`}
-                >
-                  {e === "All" ? "Any" : e}
-                </button>
-              ))}
+          {career ? (
+            <div className="mt-3">
+              <button
+                type="button"
+                onClick={() => {
+                  setCareer(null);
+                }}
+                className="inline-flex items-center gap-2 rounded-full bg-[#fbeeec] px-3 py-1 text-sm font-semibold text-[#8f2e31]"
+              >
+                Offering {career.replace(/-/g, " ")} <span aria-hidden>×</span>
+              </button>
             </div>
           ) : null}
+          {/* a 14-exam chip row was clutter — two dropdowns instead */}
+          <div className="mt-3 grid gap-3 sm:grid-cols-3">
+            <Dropdown
+              options={[
+                { value: "public", label: "Public or govt-aided" },
+                { value: "private", label: "Private" },
+                { value: "all", label: "All colleges" },
+              ]}
+              selectedValue={type}
+              onChange={(o) => setType(o.value)}
+              isSearchable={false}
+            />
+            <Dropdown
+              options={streams.map((x) => ({
+                value: x,
+                label: x === "All" ? "Any stream" : x,
+              }))}
+              selectedValue={stream}
+              onChange={(o) => setStream(o.value)}
+              isSearchable={false}
+            />
+            <Dropdown
+              options={exams.map((x) => ({
+                value: x,
+                label: x === "All" ? "Any entrance test" : x,
+              }))}
+              selectedValue={exam}
+              onChange={(o) => setExam(o.value)}
+              hideValueWhileSearching
+            />
+          </div>
 
           {error ? (
             <p className="py-10 text-center text-sm text-red-600">{error}</p>
@@ -791,17 +470,12 @@ const Colleges = () => {
                   </thead>
                   <tbody>
                     {filtered.slice(0, shown).map((c, i) => (
-                      <CollegeRow
+                      <CollegeListRow
                         key={c.college_id}
                         c={c}
                         index={i}
-                        expanded={!!expanded[c.college_id]}
-                        onToggle={() =>
-                          setExpanded((p) => ({
-                            ...p,
-                            [c.college_id]: !p[c.college_id],
-                          }))
-                        }
+                        href={hrefOf(c)}
+                        onOpen={() => router.push(hrefOf(c))}
                       />
                     ))}
                   </tbody>
@@ -824,14 +498,27 @@ const Colleges = () => {
                 <p className="py-10 text-center text-sm text-[#6d5550]">
                   No colleges match. Try clearing the state or entrance-test
                   filter.
+                  {type === "public" ? (
+                    <>
+                      {" "}
+                      <button
+                        type="button"
+                        onClick={() => setType("all")}
+                        className="font-semibold text-[#8f2e31] hover:underline"
+                      >
+                        Include private colleges
+                      </button>
+                    </>
+                  ) : null}
                 </p>
               ) : null}
 
               <p className="mt-6 border-t border-[#eaded8] pt-3 text-[11px] leading-5 text-[#6d5550]">
                 Sources: AISHE 2024-25 (identity) · NIRF 2025 (rank, placement)
                 · NAAC (accreditation) · JoSAA 2025 (branches) · NMC 2024-25
-                (medical colleges, MBBS seats). A dash means we do not have that
-                figure.
+                (medical colleges, MBBS seats) · State CET Cell 2025
+                (Maharashtra colleges, MHT-CET ranks). A dash means we do not
+                have that figure.
               </p>
             </>
           )}
@@ -845,8 +532,8 @@ const Colleges = () => {
             left: `${Math.max(placedTip.left, 12)}px`,
           }}
         >
-          Share of graduates who got a job or joined higher studies. Expand a
-          row for the split.
+          Share of graduates who got a job or joined higher studies. Open a
+          college for the split.
         </div>
       )}
     </>
