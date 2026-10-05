@@ -18,11 +18,25 @@
  * filter passes every row when `rank` is absent), already filtered down from
  * 23 MB to a few hundred/thousand rows.
  *
- * A seat can vanish between CAP rounds the same way JoSAA's docs describe
- * (docs/SIMULATION_DATA.md) — so "final round" here means, per seat, the
- * highest Round number that seat actually has a row for, not a single global
- * round number (MHT-CET's rounds don't even cover every stream evenly: e.g.
- * B.Design mostly only has R2-R4 on record).
+ * WHICH ROUND we read is a deliberate choice, measured against the data
+ * rather than assumed. CAP publishes R1-R4, but a seat rarely appears in
+ * all of them: coverage is R1 52%, R2 73%, R3 29%, R4 41% (Open/GN
+ * engineering, 2,154 seats), and only 17% of seats have both an R1 and an
+ * R4 row.
+ *
+ * The intuition from JoSAA — later round = looser cutoff, because toppers
+ * leave — does NOT hold here. Where both rounds exist, R4 is TIGHTER than
+ * R1 for 296 of 384 seats, median -29%; the same holds across categories
+ * and for Pharmacy. MHT-CET's later rounds are largely a different, smaller
+ * pool (vacancies and institute-level rounds), not a looser pass over the
+ * same seats.
+ *
+ * So we read each seat's EARLIEST round, normally R1: it is the round every
+ * student actually fills choices for, it has the cleanest coverage, and it
+ * answers the question the mock is asked ("with this rank and this list,
+ * what do I get?"). Reading the last round instead made the mock quietly
+ * PESSIMISTIC — telling a student they would miss a seat they would in fact
+ * have been allotted in round 1.
  */
 
 const EXAM_NAME = "MHT CET";
@@ -36,7 +50,8 @@ const roundNumber = (roundLabel) => {
 
 /** Fetch this profile's full (all-rounds) catalog from the existing
  * predictor API and collapse it to one entry per Institute+Program pair —
- * the row from that pair's own last available round. Returns a flat array,
+ * the row from that pair's own EARLIEST available round (see the note at
+ * the top of this file for why earliest, not latest). Returns a flat array,
  * sorted alphabetically like JoSAA's buildCatalog (not by cutoff — a mock is
  * supposed to make students search and judge for themselves). Each entry:
  * `{ institute, program, closingRank, round }`. */
@@ -77,7 +92,11 @@ export async function loadMhtcetCatalog(profile) {
     const key = pairKey(institute, program);
     const round = roundNumber(row.Round);
     const existing = byPair.get(key);
-    if (existing && existing.round >= round) continue; // keep the LATEST round on record for this seat
+    // keep the EARLIEST round on record for this seat (round 0 means the
+    // source had no parseable round, so a real round always wins over it)
+    if (existing && (existing.round || Infinity) <= (round || Infinity)) {
+      continue;
+    }
 
     const closingRank = parseInt(row["Closing Rank"], 10);
     byPair.set(key, {
@@ -97,7 +116,7 @@ export async function loadMhtcetCatalog(profile) {
 
 /** The student's ordered choices ARE catalog entries (added straight from
  * the browsable catalog, same as JoSAA's choices), so each already carries
- * its own final-round `closingRank` — no second lookup needed. Returns the
+ * its own round-1 `closingRank` — no second lookup needed. Returns the
  * first (most-preferred) choice the rank clears, or null if none are
  * reachable. */
 export function getAllotmentResult(choices, rank) {

@@ -84,13 +84,20 @@ export function analyzeMhtcetList({ choices, catalog, rank }) {
         candidates: cands,
       });
     } else if (nReach === 0 && nMatch === 0) {
+      // Offer the reaches CLOSEST to the student's own rank, not the
+      // tightest in the catalog: sorting ascending here handed an
+      // all-safety list the single hardest seat in Maharashtra, which
+      // reads as a joke rather than advice. Nearest-first (descending,
+      // just under their rank) is a stretch they could actually land.
+      const nearestReaches = candidates
+        .filter((c) => c.tag !== "safety")
+        .sort((a, b) => b.closingRank - a.closingRank)
+        .slice(0, 2);
       recommendations.push({
         type: "info",
         title: "Room to aim higher",
-        text: "Every program on your list is comfortably below your expected rank. A higher choice at the top costs you nothing — consider adding one:",
-        candidates: byClosingRankAsc(
-          candidates.filter((c) => c.tag !== "safety")
-        ).slice(0, 2),
+        text: "Every program on your list closes well after your rank, so you would get your first choice. Putting a tougher option above them costs you nothing — if you miss it, your current list still stands:",
+        candidates: nearestReaches,
       });
     } else {
       recommendations.push({

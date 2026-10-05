@@ -27,10 +27,10 @@ import MhtcetListAnalyzer from "./MhtcetListAnalyzer";
 
 // Practice MHT-CET (Maharashtra CAP) choice-filling + locking, the MHT-CET
 // sibling of components/JosaaMockAllotment.js. Per product decision this
-// does NOT play round by round — CAP's final round is enough to say whether
-// a choice was reachable, so locking choices goes straight to a result (see
-// utils/mhtcetSimulator.js for why no freeze/float/slide trail is needed
-// here). Shares its stepper/reorder/loading UI with the JoSAA flow via
+// does NOT play round by round — the mock shows the round-1 outcome, which
+// is the round every student fills choices for, so locking goes straight to
+// a result (see utils/mhtcetSimulator.js for why round 1 and not the last
+// round, and why the data can't support a round-by-round player). Shares its stepper/reorder/loading UI with the JoSAA flow via
 // ./mockAllotmentShared, and its field definitions/options/copy with the
 // live predictor via mhtCetConfig (examConfig.js) — never redefined here.
 export const STORAGE_KEY = "mhtcetMockAllotmentState_v1";
@@ -313,8 +313,8 @@ const MhtcetMockAllotment = ({ onChangeExam }) => {
         MHT CET Mock Allotment
       </h1>
       <p className="mt-2 text-center text-sm text-[#6d5550]">
-        Fill your choices, lock them, and see the seat you'd be allotted at
-        MHT-CET CAP's final round.
+        Fill your choices, lock them, and see the seat you'd be allotted in CAP
+        round 1.
       </p>
       {onChangeExam && (
         <p className="mt-1 text-center">
@@ -792,7 +792,7 @@ const ResultCard = ({ result, choicesCount }) => {
           Seat allotted
         </p>
         <span className="text-xs font-semibold text-[#8a6d63]">
-          · CAP final round
+          · CAP round 1
         </span>
       </div>
       <p className="mt-2 text-xl font-black text-[#2f2320]">
@@ -802,6 +802,15 @@ const ResultCard = ({ result, choicesCount }) => {
       <p className="mt-2 text-xs text-[#7a655f]">
         Your preference #{index + 1} of {choicesCount} · Closing rank{" "}
         {formatRank(closingRank)}
+      </p>
+      {/* what the mock does NOT show, said plainly: CAP keeps going after
+          round 1, and its later rounds are a smaller vacancy pool where
+          cutoffs usually get tighter, not looser (see mhtcetSimulator) */}
+      <p className="mt-3 border-t border-[#eaded8] pt-3 text-xs leading-5 text-[#7a655f]">
+        CAP runs four rounds. This is round 1, the one you fill choices for.
+        Later rounds allot the seats left over, and their cutoffs are usually
+        tighter, so treat a round-1 miss as a real miss rather than waiting for
+        the list to loosen.
       </p>
     </div>
   );

@@ -30,7 +30,7 @@ const QUESTIONS = [
     q: "How many CAP rounds does the engineering admission run?",
     opts: ["1", "4", "8"],
     correct: 1,
-    fb: "CAP ran four rounds in the year our cutoffs come from. Not every course has all four: B.Design seats, for instance, only start appearing from round 2.",
+    fb: "CAP ran four rounds in the year our cutoffs come from. Round 1 is the one everyone fills choices for, and it is the round our simulator shows you. Later rounds allot the seats left over, and their cutoffs are usually tighter, not looser.",
   },
   {
     q: "Your home university region decides what?",
