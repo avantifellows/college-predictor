@@ -21,9 +21,7 @@ export function analyzeMhtcetList({ choices, catalog, rank }) {
   const evaluated = choices.map((choice) => ({
     ...choice,
     tag:
-      choice.closingRank != null
-        ? tagForRank(choice.closingRank, rank)
-        : null,
+      choice.closingRank != null ? tagForRank(choice.closingRank, rank) : null,
   }));
 
   const nReach = evaluated.filter((c) => c.tag === "reach").length;

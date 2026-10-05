@@ -104,8 +104,8 @@ export const Quiz = ({ onExit, questions, doneHeading, doneCta, simHref }) => {
               i < at
                 ? "bg-[#B52326]"
                 : i === at
-                  ? "bg-[#B52326]/60"
-                  : "bg-[#eee1d7]"
+                ? "bg-[#B52326]/60"
+                : "bg-[#eee1d7]"
             }`}
           />
         ))}
@@ -134,8 +134,8 @@ export const Quiz = ({ onExit, questions, doneHeading, doneCta, simHref }) => {
                 good
                   ? "border-[#2f7a45] bg-[#eef6ef] text-[#1f4d2c]"
                   : bad
-                    ? "border-[#B52326] bg-[#fdeceb] text-[#8f2e31]"
-                    : "border-[#e0cdc6] bg-white text-[#2f2320] hover:border-[#B52326]/50"
+                  ? "border-[#B52326] bg-[#fdeceb] text-[#8f2e31]"
+                  : "border-[#e0cdc6] bg-white text-[#2f2320] hover:border-[#B52326]/50"
               }`}
             >
               <span

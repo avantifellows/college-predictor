@@ -80,7 +80,3 @@ Exam - Scraped from Mohit Mangal pdf, needs review
 College - AISHE (colleges + universities joined with normalized schema) + naac (joined on AISHE code) + nirf (joined on AISHE code with some processing)
 Cutoffs - JoSAA data, tag with AISHE code
 Careers - AI generated - Done
-
-
-
-
