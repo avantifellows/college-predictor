@@ -2399,3 +2399,12 @@ DU-CUET,Bachelor of Business Administration (Financial Investment Analysis) (BBA
 DU-CUET,Bachelor of Elementary Education (B.El.Ed.),Bachelor of Elementary Education (B.El.Ed.),TEACH,Teaching,38,8,"nearest parent, needs review"
 DU-CUET,Bachelor of Management Studies (BMS),Bachelor of Management Studies (BMS),MBA,MBA,49,9,"nearest parent, needs review"
 DU-CUET,Five Year Integrated Program in Journalism,Five Year Integrated Program in Journalism,JOURNAL,Journalism,6,1,"nearest parent, needs review"
+ALD-CUET,B.A.,B.A.,ARTS,Arts,27,1,"nearest parent, needs review"
+ALD-CUET,B.Com,B.Com,COMMERCE,Commerce,49,1,taxonomy parent by name
+ALD-CUET,B.P.A. (Music),B.P.A. (Music),MUSIC,Music,22,1,taxonomy parent by name
+ALD-CUET,B.Sc. (Biology),B.Sc. (Biology),BIO,Biology,46,1,taxonomy parent by name
+ALD-CUET,B.Sc. (Maths),B.Sc. (Maths),MATH,Mathematics,48,1,taxonomy parent by name
+ALD-CUET,B.Voc. (Software Development),B.Voc. (Software Development),CSIT,Computer Science / Information Technology,43,1,"nearest parent, needs review"
+ALD-CUET,BBA-MBA (5-year integrated),BBA-MBA (5-year integrated),MBA,MBA,50,1,"nearest parent, needs review"
+ALD-CUET,Disaster Management and Environmental Studies (5-year integrated),Disaster Management and Environmental Studies (5-year integrated),GENSCI,Science,26,1,"nearest parent, needs review"
+ALD-CUET,Family and Community Sciences (5-year integrated B.Sc. & M.Sc.),Family and Community Sciences (5-year integrated B.Sc. & M.Sc.),COMMUNITYSCI,Community Science,1,1,taxonomy parent by name

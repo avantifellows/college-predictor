@@ -2371,7 +2371,9 @@ def main():
         (r"biomedical", "biomedical-engineering"), (r"biochem", "biochemistry"),
         (r"botany", "botany"), (r"zoology", "zoology"), (r"microbio|life science|biolog", "biology"),
         (r"physics", "physics"), (r"chemistry|chemical engineering", "chemistry"),
-        (r"mathemat|statistic", "mathematics"), (r"music", "music"),
+        (r"mathemat|\bmaths\b|statistic", "mathematics"), (r"music", "music"),
+        (r"bba|\bmba\b|management studies|business administration", "business-administration-mba"),
+        (r"software", "computer-science-information-technology"),
         (r"food technology", "food-engineering"),
         (r"electrical engineering", "electrical-electronics-communications-engineering"),
         (r"bs-ms|computational", "natural-science"),
@@ -2657,7 +2659,38 @@ def main():
     print(f"  BHU rows {len(bhu_rows)} (NIRF {sum(1 for r in bhu_rows if r['nirf'])}),"
           f" career-linked programmes {sum(1 for r in bhu_rows for p in r['programs']['list'] if p['career_id'])}"
           f"/{sum(r['programs']['count'] for r in bhu_rows)}")
-    rows += du_rows + ii_rows + icar_rows + bhu_rows
+    # ── University of Allahabad (CUET): one card for its UG programmes ─────
+    # The JoSAA card for the university is its J.K. Institute B.Tech (closing
+    # ranks); CUET marks get their own card so a table never mixes the two.
+    # Open number = loosest 2025 UR round; "All" admitted -> no number.
+    ald = client.query(f"""
+    SELECT program, MIN(IF(category = 'UR' AND NOT all_admitted, cutoff, NULL)) AS ur_cutoff
+    FROM `{D}.allahabadug_fact_cutoffs` WHERE year = 2025 GROUP BY 1""").to_dataframe()
+    ALD_DEGREE = [(r"^B\.A\.", "B.A.", 3, "Arts"), (r"^B\.Com", "B.Com", 3, "Commerce"),
+                  (r"^B\.Sc\.", "B.Sc.", 3, "Science"), (r"^BBA-MBA", "BBA-MBA", 5, "Management"),
+                  (r"^Disaster", "Integrated", 5, "Science"), (r"^B\.Voc", "B.Voc", 3, "Vocational"),
+                  (r"^B\.P\.A", "B.P.A.", 3, "Arts"), (r"^Family", "B.Sc. & M.Sc.", 5, "Science")]
+    lst, discs = [], set()
+    for x in ald.itertuples():
+        deg, yrs, disc = next((d, y, dd) for pat, d, y, dd in ALD_DEGREE if _re.search(pat, x.program))
+        discs.add(disc)
+        lst.append({"branch": x.program, "years": yrs, "degree": deg,
+                    "indicative_closing_rank": None, "indicative_opening_rank": None,
+                    "indicative_min_score": None if pd.isna(x.ur_cutoff) else round(float(x.ur_cutoff), 1),
+                    "cuet_rule": CUET_RULE.get(("University of Allahabad", x.program)),
+                    "career_id": career_of_program(x.program)})
+    lst.sort(key=lambda z: (z["indicative_min_score"] is None, -(z["indicative_min_score"] or 0), z["branch"]))
+    ald_row = base_row("ald:university-of-allahabad", "University of Allahabad, Prayagraj", "Uttar Pradesh",
+                       "CUET (UG)", "University of Allahabad UG admission (CUET)",
+                       {"count": len(lst), "degrees": sorted({p["degree"] for p in lst}), "list": lst,
+                        "source": "University of Allahabad UG admission 2025, all rounds",
+                        "rank_note": "Lowest open-category CUET marks (of 750) that got a seat."},
+                       nirf_block_for(["University of Allahabad"], ["University", "Overall"]).get("University of Allahabad"),
+                       sorted(discs)[:4], "University of Allahabad UG admission 2025")
+    ald_row.update(district="Prayagraj", kind="Central University",
+                   website="http://www.allduniv.ac.in")
+    print(f"  Allahabad card: {len(lst)} programmes, NIRF {'yes' if ald_row['nirf'] else 'no'}")
+    rows += du_rows + ii_rows + icar_rows + bhu_rows + [ald_row]
 
     print(f"  medical rows {len(med_rows)}"
           f"  with NIRF {sum(1 for x in med_rows if x['nirf'])}"

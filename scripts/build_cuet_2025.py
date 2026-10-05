@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Build public/data/CUET/cuet_data.json from the DU and BHU cutoff facts
-(external_data_sources/ducuet and bhuug) — the same rows BigQuery serves.
+Build public/data/CUET/cuet_data.json from the DU, BHU and University of
+Allahabad cutoff facts (external_data_sources/ducuet, bhuug, allahabadug) — the same rows BigQuery serves.
 
 DU and BHU don't admit on one CUET total. Each course adds up its own set of
 papers (DU B.Sc. Physics: Physics + Chemistry + Maths; BHU B.A.: English or
@@ -27,6 +27,7 @@ REPO = Path(__file__).resolve().parent.parent
 EXT = REPO.parent / "external_data_sources"
 DU = EXT / "ducuet/clean/ducuet_fact_cutoffs.parquet"
 BHU = EXT / "bhuug/clean/bhuug_fact_cutoffs.parquet"
+ALD = EXT / "allahabadug/clean/allahabadug_fact_cutoffs.parquet"
 OUT = REPO / "public/data/CUET/cuet_data.json"
 
 # each course's rule and the rules themselves come from the cuet source
@@ -97,6 +98,33 @@ for r in low.itertuples():
         "Year": "2025",
     })
 
+# University of Allahabad: one card, the loosest 2025 round per programme and
+# category. "All" (every registered candidate offered a seat) is the loosest
+# of all: cutoff 0 with a note, since a missing paper counts 0 there.
+ALD_INSTITUTE = "University of Allahabad, Prayagraj"
+ald = pd.read_parquet(ALD)
+ald = ald[(ald.year == 2025) & ald.category.isin(["UR", "EWS", "OBC", "SC", "ST", "PWD"])]
+ald = ald.assign(score=ald.cutoff.where(~ald.all_admitted, 0.0)).dropna(subset=["score"])
+ald = ald.sort_values(["score", "round"], ascending=[True, False])
+for r in ald.groupby(["program", "category"]).head(1).itertuples():
+    rule = rule_of.get(("ALD", r.program))
+    if not rule:
+        missing.add(("ALD", r.program))
+        continue
+    rows.append({
+        "University": "University of Allahabad",
+        "Institute": ALD_INSTITUTE,
+        "Academic Program Name": r.program,
+        "Category": "PwBD" if r.category == "PWD" else r.category,
+        "Seat": "Regular",
+        "Women Only": r.program.startswith("Family and Community Sciences"),
+        "Round": f"Round {r.round}",
+        "Cutoff Score": round(float(r.score), 2),
+        **({"Cutoff Note": "every applicant was offered a seat"} if r.all_admitted else {}),
+        "Rule": rule,
+        "Year": "2025",
+    })
+
 if missing:
     raise SystemExit(f"no rule for {len(missing)} courses:\n" +
                      "\n".join(f"  {u}: {p}" for u, p in sorted(missing)))
@@ -107,7 +135,8 @@ RULES_OUT.write_text(json.dumps({
     r.rule_id: {"combos": json.loads(r.combinations_json),
                 "max": int(r.max_score), "papers": r.papers,
                 "prorated": bool(r.prorated),
-                "needsLanguage": bool(r.needs_language)}
+                "needsLanguage": bool(r.needs_language),
+                "zeroIfMissing": bool(r.missing_counts_zero)}
     for r in rules.itertuples()}, indent=1))
 
 # each row says what its cutoff is out of (career pages print "902 / 1000")

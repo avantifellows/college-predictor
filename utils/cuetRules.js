@@ -79,15 +79,17 @@ export const CUET_RULES = Object.fromEntries(
   ])
 );
 
-// best sum filling `slots` with distinct papers from `scores`, or null
-const bestFill = (slots, scores, used = new Set()) => {
+// best sum filling `slots` with distinct papers from `scores`, or null.
+// zeroIfMissing: a slot no paper fills counts 0 instead (Allahabad scores a
+// paper the student didn't take as 0)
+const bestFill = (slots, scores, zeroIfMissing = false, used = new Set()) => {
   if (!slots.length) return 0;
   const [slot, ...rest] = slots;
-  let best = null;
+  let best = zeroIfMissing ? bestFill(rest, scores, true, used) : null;
   for (const id of slot) {
     if (used.has(id) || scores[id] === undefined) continue;
     used.add(id);
-    const tail = bestFill(rest, scores, used);
+    const tail = bestFill(rest, scores, zeroIfMissing, used);
     used.delete(id);
     if (tail !== null && (best === null || scores[id] + tail > best)) {
       best = scores[id] + tail;
@@ -119,7 +121,7 @@ export function courseScore(ruleId, scores) {
   const size = Math.max(...rule.combos.map((c) => c.length));
   let best = null;
   for (const combo of rule.combos) {
-    const sum = bestFill(combo, scores);
+    const sum = bestFill(combo, scores, rule.zeroIfMissing);
     if (sum === null) continue;
     const scaled = (sum * size) / combo.length;
     if (best === null || scaled > best) best = scaled;

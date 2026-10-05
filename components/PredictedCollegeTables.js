@@ -843,10 +843,11 @@ const PredictedCollegesTable = ({
         institute: item["Institute"],
         academic_program_name: item["Academic Program Name"],
         your_score: item["Your Score"],
-        cutoff_score:
-          item["Cutoff Score"] == null
-            ? null
-            : `${item["Cutoff Score"]} / ${item["Out Of"]}`,
+        cutoff_score: item["Cutoff Note"]
+          ? "All admitted"
+          : item["Cutoff Score"] == null
+          ? null
+          : `${item["Cutoff Score"]} / ${item["Out Of"]}`,
         seat: item["Seat"],
       };
     }

@@ -126,7 +126,7 @@ const RELAXABLE = [
   { key: "district", label: "district", any: "Any" },
   { key: "courseType", label: "course", any: "Any" },
   { key: "program", label: "program", any: null },
-  { key: "university", label: "university", any: "Both" },
+  { key: "university", label: "university", any: "All" },
 ];
 
 const findEmptyHint = async (query, signal) => {

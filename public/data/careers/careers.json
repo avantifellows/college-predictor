@@ -12,7 +12,7 @@
   "entry_exams_text": "UPSC Civil Services Exam (a national exam for government administrative jobs like IAS officer), CAT (a national exam to get into business schools like IIMs for a management degree), or no fixed exam at all if you join corporate admin roles straight after a BBA (Bachelor of Business Administration) degree.",
   "exams": [
    {
-    "label": "CUET (DU, BHU)",
+    "label": "CUET (DU, BHU, Allahabad)",
     "href": "/predictor?exam=CUET"
    },
    {
@@ -447,7 +447,7 @@
   "entry_exams_text": "ICAR AIEEA (a national exam to get into agriculture degree programs at government agricultural universities), or state-level agriculture entrance exams; some private colleges admit based on Class 12 marks.",
   "exams": [
    {
-    "label": "CUET (DU, BHU)",
+    "label": "CUET (DU, BHU, Allahabad)",
     "href": "/predictor?exam=CUET"
    },
    {
@@ -918,7 +918,7 @@
   "entry_exams_text": "No single fixed entrance exam \u2014 many colleges take students based on Class 12 marks, a portfolio of artwork, or their own entrance test; fine arts programs often require a practical drawing or design test.",
   "exams": [
    {
-    "label": "CUET (DU, BHU)",
+    "label": "CUET (DU, BHU, Allahabad)",
     "href": "/predictor?exam=CUET"
    }
   ],
@@ -978,6 +978,13 @@
     "exam": "CUET (BHU)",
     "closing": "359.81 / 500 CUET",
     "q": "Faculty of Social Sciences, Banaras Hindu University"
+   },
+   {
+    "college": "University of Allahabad, Prayagraj",
+    "branch": "B.A.",
+    "exam": "CUET (Allahabad)",
+    "closing": "417 / 750 CUET",
+    "q": "University of Allahabad, Prayagraj"
    }
   ],
   "notable_people": [
@@ -1395,7 +1402,7 @@
   "entry_exams_text": "No single fixed entrance exam for a Biochemistry bachelor's degree \u2014 most colleges admit based on Class 12 marks (with Biology and Chemistry); for master's or research roles, exams like CSIR-NET or GATE (a national exam for science and engineering postgraduate admissions and research jobs) become relevant.",
   "exams": [
    {
-    "label": "CUET (DU, BHU)",
+    "label": "CUET (DU, BHU, Allahabad)",
     "href": "/predictor?exam=CUET"
    }
   ],
@@ -1667,7 +1674,12 @@
   "day_in_life": "A biologist studies living things \u2014 animals, plants, cells, or ecosystems \u2014 through research, lab experiments, fieldwork, or teaching students about how life works. Some days are spent looking through microscopes or collecting samples outdoors, others are spent analyzing data or preparing lectures.",
   "impact": "Biologists working with organizations like the Wildlife Institute of India help protect endangered species like tigers, and biology teachers and researchers across Indian schools and universities train the next generation of doctors, scientists, and conservationists.",
   "entry_exams_text": "No single fixed entrance exam for a general Biology bachelor's degree \u2014 most colleges admit based on Class 12 marks (with Biology as a subject); for research-focused master's or PhD programs later, exams like CSIR-NET (a national exam for science research fellowships and teaching jobs) matter.",
-  "exams": null,
+  "exams": [
+   {
+    "label": "CUET (DU, BHU, Allahabad)",
+    "href": "/predictor?exam=CUET"
+   }
+  ],
   "top_colleges": [
    {
     "name": "St. Stephen's College Delhi",
@@ -1709,7 +1721,15 @@
   "stability": "Medium",
   "automation_risk": "Low",
   "where_work": "Tier-2 cities, and fieldwork-based biology roles often require working in rural or forested areas",
-  "college_options": [],
+  "college_options": [
+   {
+    "college": "University of Allahabad, Prayagraj",
+    "branch": "B.Sc.",
+    "exam": "CUET (Allahabad)",
+    "closing": "481 / 750 CUET",
+    "q": "University of Allahabad, Prayagraj"
+   }
+  ],
   "notable_people": [
    "Salim Ali (India's most famous ornithologist, studied birds)",
    "Kamal Ranjan Gupta (noted Indian biologist)",
@@ -2088,7 +2108,7 @@
   "entry_exams_text": "No single fixed entrance exam for a Botany bachelor's degree \u2014 most colleges admit based on Class 12 marks (with Biology as a subject); for research roles later, exams like CSIR-NET (a national exam for science research fellowships and teaching jobs) become relevant.",
   "exams": [
    {
-    "label": "CUET (DU, BHU)",
+    "label": "CUET (DU, BHU, Allahabad)",
     "href": "/predictor?exam=CUET"
    }
   ],
@@ -2183,7 +2203,7 @@
   "entry_exams_text": "CAT (Common Admission Test, the main national exam for getting into India's top business schools, testing quantitative, verbal, and logical reasoning skills). Note: an MBA is a postgraduate degree, meaning students first complete a bachelor's degree (in any subject) before applying - it is not something you do straight after Class 12.",
   "exams": [
    {
-    "label": "CUET (DU, BHU)",
+    "label": "CUET (DU, BHU, Allahabad)",
     "href": "/predictor?exam=CUET"
    }
   ],
@@ -2698,7 +2718,7 @@
   "entry_exams_text": "JEE (Joint Entrance Exam, for admission into engineering and some science programs) or CUET (Common University Entrance Test, used by many central universities for undergraduate admission) for a BSc in Chemistry; GATE (Graduate Aptitude Test in Engineering, needed for master's or research programs) or CSIR-NET (a national exam for research and teaching jobs in science) for higher studies later.",
   "exams": [
    {
-    "label": "CUET (DU, BHU)",
+    "label": "CUET (DU, BHU, Allahabad)",
     "href": "/predictor?exam=CUET"
    },
    {
@@ -2975,7 +2995,7 @@
   "entry_exams_text": "No single fixed entrance exam for a basic B.Com (Bachelor of Commerce) degree at most colleges \u2014 admission is usually based on Class 12 marks, though some top colleges use CUET (Common University Entrance Test, a common exam for admission to central universities).",
   "exams": [
    {
-    "label": "CUET (DU, BHU)",
+    "label": "CUET (DU, BHU, Allahabad)",
     "href": "/predictor?exam=CUET"
    },
    {
@@ -3035,6 +3055,13 @@
     "exam": "CUET (BHU)",
     "closing": "523.71 / 750 CUET",
     "q": "Faculty of Commerce, Banaras Hindu University"
+   },
+   {
+    "college": "University of Allahabad, Prayagraj",
+    "branch": "B.Com",
+    "exam": "CUET (Allahabad)",
+    "closing": "402.75 / 750 CUET",
+    "q": "University of Allahabad, Prayagraj"
    }
   ],
   "notable_people": [
@@ -3153,12 +3180,12 @@
   "entry_exams_text": "JEE (Joint Entrance Exam, for admission into engineering colleges) is the main exam for a BTech or BE degree in Computer Science or Information Technology; some states also have their own engineering entrance exams like MHT-CET or WBJEE.",
   "exams": [
    {
-    "label": "AP EAPCET",
-    "href": "/exams?q=AP-EAPCET"
+    "label": "CUET (DU, BHU, Allahabad)",
+    "href": "/predictor?exam=CUET"
    },
    {
-    "label": "CUET (DU, BHU)",
-    "href": "/predictor?exam=CUET"
+    "label": "AP EAPCET",
+    "href": "/exams?q=AP-EAPCET"
    },
    {
     "label": "GUJCET",
@@ -3329,12 +3356,12 @@
   "entry_exams_text": "JEE Main and JEE Advanced (national engineering entrance exams for top government colleges), BITSAT (entrance exam for BITS Pilani and its campuses), or state-level exams like MHT-CET and KCET for other engineering colleges.",
   "exams": [
    {
-    "label": "AP EAPCET",
-    "href": "/exams?q=AP-EAPCET"
+    "label": "CUET (DU, BHU, Allahabad)",
+    "href": "/predictor?exam=CUET"
    },
    {
-    "label": "CUET (DU, BHU)",
-    "href": "/predictor?exam=CUET"
+    "label": "AP EAPCET",
+    "href": "/exams?q=AP-EAPCET"
    },
    {
     "label": "GUJCET",
@@ -3672,7 +3699,7 @@
     "href": "/exams?q=AP-EAPCET"
    },
    {
-    "label": "CUET (DU, BHU)",
+    "label": "CUET (DU, BHU, Allahabad)",
     "href": "/predictor?exam=CUET"
    },
    {
@@ -4054,7 +4081,7 @@
     "href": "/exams?q=AP-EAPCET"
    },
    {
-    "label": "CUET (DU, BHU)",
+    "label": "CUET (DU, BHU, Allahabad)",
     "href": "/predictor?exam=CUET"
    },
    {
@@ -4295,7 +4322,7 @@
   "entry_exams_text": "No single fixed entrance exam for a basic Economics degree at most colleges \u2014 admission is usually based on Class 12 marks, though some top colleges use CUET (Common University Entrance Test, a common exam for central university admissions) or their own entrance test like DU's or ISI's admission test.",
   "exams": [
    {
-    "label": "CUET (DU, BHU)",
+    "label": "CUET (DU, BHU, Allahabad)",
     "href": "/predictor?exam=CUET"
    },
    {
@@ -4401,7 +4428,7 @@
     "href": "/exams?q=AP-EAPCET"
    },
    {
-    "label": "CUET (DU, BHU)",
+    "label": "CUET (DU, BHU, Allahabad)",
     "href": "/predictor?exam=CUET"
    },
    {
@@ -4580,7 +4607,7 @@
     "href": "/exams?q=AP-EAPCET"
    },
    {
-    "label": "CUET (DU, BHU)",
+    "label": "CUET (DU, BHU, Allahabad)",
     "href": "/predictor?exam=CUET"
    },
    {
@@ -4759,7 +4786,7 @@
     "href": "/exams?q=AP-EAPCET"
    },
    {
-    "label": "CUET (DU, BHU)",
+    "label": "CUET (DU, BHU, Allahabad)",
     "href": "/predictor?exam=CUET"
    },
    {
@@ -4938,7 +4965,7 @@
     "href": "/exams?q=AP-EAPCET"
    },
    {
-    "label": "CUET (DU, BHU)",
+    "label": "CUET (DU, BHU, Allahabad)",
     "href": "/predictor?exam=CUET"
    },
    {
@@ -5500,7 +5527,7 @@
   "entry_exams_text": "No single fixed entrance exam \u2014 most colleges admit students for a BA in English based on Class 12 marks, though some top universities use CUET (Common University Entrance Test, a common exam for central university admissions).",
   "exams": [
    {
-    "label": "CUET (DU, BHU)",
+    "label": "CUET (DU, BHU, Allahabad)",
     "href": "/predictor?exam=CUET"
    },
    {
@@ -5714,7 +5741,7 @@
   "entry_exams_text": "CA (Chartered Accountancy exam, run by ICAI, for accounting and finance experts), CFA (Chartered Financial Analyst, a global exam for investment professionals), CAT (Common Admission Test, for MBA in Finance), or simply a B.Com/BBA degree followed by on-the-job learning.",
   "exams": [
    {
-    "label": "CUET (DU, BHU)",
+    "label": "CUET (DU, BHU, Allahabad)",
     "href": "/predictor?exam=CUET"
    },
    {
@@ -5892,7 +5919,7 @@
     "href": "/exams?q=AP-EAPCET"
    },
    {
-    "label": "CUET (DU, BHU)",
+    "label": "CUET (DU, BHU, Allahabad)",
     "href": "/predictor?exam=CUET"
    },
    {
@@ -6257,7 +6284,7 @@
   "entry_exams_text": "GATE (Graduate Aptitude Test in Engineering, a national exam for getting into master's programs or government jobs in geology), or a B.Sc in Geology through Class 12 marks-based admission.",
   "exams": [
    {
-    "label": "CUET (DU, BHU)",
+    "label": "CUET (DU, BHU, Allahabad)",
     "href": "/predictor?exam=CUET"
    },
    {
@@ -6392,7 +6419,7 @@
   "entry_exams_text": "No single fixed entrance exam \u2014 many colleges take students based on Class 12 marks, though top universities like Delhi University and Jawaharlal Nehru University have their own entrance tests for higher studies.",
   "exams": [
    {
-    "label": "CUET (DU, BHU)",
+    "label": "CUET (DU, BHU, Allahabad)",
     "href": "/predictor?exam=CUET"
    }
   ],
@@ -6595,7 +6622,7 @@
   "entry_exams_text": "NCHMCT JEE (National Council for Hotel Management and Catering Technology Joint Entrance Exam, the main exam for hotel management degree admission in India).",
   "exams": [
    {
-    "label": "CUET (DU, BHU)",
+    "label": "CUET (DU, BHU, Allahabad)",
     "href": "/predictor?exam=CUET"
    },
    {
@@ -6895,7 +6922,7 @@
     "href": "/exams?q=AP-EAPCET"
    },
    {
-    "label": "CUET (DU, BHU)",
+    "label": "CUET (DU, BHU, Allahabad)",
     "href": "/predictor?exam=CUET"
    },
    {
@@ -7118,7 +7145,7 @@
   "entry_exams_text": "No single fixed entrance exam - many colleges admit students based on Class 12 marks or their own entrance test, though some students also take exams like the IIMC entrance test (Indian Institute of Mass Communication's own exam for its journalism courses).",
   "exams": [
    {
-    "label": "CUET (DU, BHU)",
+    "label": "CUET (DU, BHU, Allahabad)",
     "href": "/predictor?exam=CUET"
    }
   ],
@@ -7207,7 +7234,7 @@
   "entry_exams_text": "CLAT (Common Law Admission Test, a national exam that decides admission into most top law colleges in India, testing reading comprehension, reasoning, and general knowledge).",
   "exams": [
    {
-    "label": "CUET (DU, BHU)",
+    "label": "CUET (DU, BHU, Allahabad)",
     "href": "/predictor?exam=CUET"
    },
    {
@@ -7307,7 +7334,7 @@
   "entry_exams_text": "No single fixed entrance exam for the undergraduate degree - admission is usually based on Class 12 Science marks, though some top institutes use CUET (Common University Entrance Test, a national exam for admission to many Indian universities); for research careers, students later take exams like CSIR-NET (a national exam to become a science researcher or lecturer).",
   "exams": [
    {
-    "label": "CUET (DU, BHU)",
+    "label": "CUET (DU, BHU, Allahabad)",
     "href": "/predictor?exam=CUET"
    },
    {
@@ -7655,7 +7682,7 @@
   "entry_exams_text": "No single fixed entrance exam for the undergraduate degree - admission is usually through CUET (Common University Entrance Test, a national exam for admission to many Indian universities) or Class 12 marks; for top research institutes, students take exams like the ISI Admission Test or CMI Entrance Test (each institute's own exam for math talent).",
   "exams": [
    {
-    "label": "CUET (DU, BHU)",
+    "label": "CUET (DU, BHU, Allahabad)",
     "href": "/predictor?exam=CUET"
    },
    {
@@ -7741,6 +7768,13 @@
     "exam": "CUET (BHU)",
     "closing": "516.41 / 750 CUET",
     "q": "Mahila Maha Vidyalaya, Banaras Hindu University"
+   },
+   {
+    "college": "University of Allahabad, Prayagraj",
+    "branch": "B.Sc.",
+    "exam": "CUET (Allahabad)",
+    "closing": "399 / 750 CUET",
+    "q": "University of Allahabad, Prayagraj"
    }
   ],
   "notable_people": [
@@ -8220,7 +8254,7 @@
   "entry_exams_text": "No single fixed national entrance exam - most colleges admit students into a BSc or diploma in Medical Lab Technology (MLT) based on Class 12 marks in Science, though some states and universities run their own entrance tests.",
   "exams": [
    {
-    "label": "CUET (DU, BHU)",
+    "label": "CUET (DU, BHU, Allahabad)",
     "href": "/predictor?exam=CUET"
    }
   ],
@@ -8703,7 +8737,7 @@
   "entry_exams_text": "No single fixed entrance exam - most music schools and university departments admit students based on an audition (a live performance test) or portfolio, rather than a written exam.",
   "exams": [
    {
-    "label": "CUET (DU, BHU)",
+    "label": "CUET (DU, BHU, Allahabad)",
     "href": "/predictor?exam=CUET"
    }
   ],
@@ -8751,6 +8785,13 @@
     "exam": "CUET (BHU)",
     "closing": "315.59 / 500 CUET",
     "q": "Mahila Maha Vidyalaya, Banaras Hindu University"
+   },
+   {
+    "college": "University of Allahabad, Prayagraj",
+    "branch": "B.P.A.",
+    "exam": "CUET (Allahabad)",
+    "closing": "185 / 750 CUET",
+    "q": "University of Allahabad, Prayagraj"
    }
   ],
   "notable_people": [
@@ -9821,7 +9862,7 @@
   "entry_exams_text": "JEE (Joint Entrance Exam) or an institute's own entrance test gets you into a B.Sc./Integrated M.Sc. Physics program, and later IIT-JAM (Joint Admission Test for Masters, needed for master's programs) or CSIR-NET (a national exam for research fellowships and lecturer jobs) matters for research careers.",
   "exams": [
    {
-    "label": "CUET (DU, BHU)",
+    "label": "CUET (DU, BHU, Allahabad)",
     "href": "/predictor?exam=CUET"
    },
    {
@@ -10140,7 +10181,7 @@
   "entry_exams_text": "No single fixed entrance exam for the basic degree \u2014 many colleges take students based on Class 12 marks, though top colleges like Delhi University's best colleges use CUET (Common University Entrance Test, a national exam for undergraduate admission). Later, UPSC Civil Services Exam (the exam for top government administrative jobs) is a common path many political science graduates take.",
   "exams": [
    {
-    "label": "CUET (DU, BHU)",
+    "label": "CUET (DU, BHU, Allahabad)",
     "href": "/predictor?exam=CUET"
    },
    {
@@ -10240,7 +10281,7 @@
   "entry_exams_text": "JEE (Joint Entrance Exam) followed by a B.Tech in Polymer Technology or Plastics Engineering, or GATE (Graduate Aptitude Test in Engineering) for those pursuing a master's degree in the same field.",
   "exams": [
    {
-    "label": "CUET (DU, BHU)",
+    "label": "CUET (DU, BHU, Allahabad)",
     "href": "/predictor?exam=CUET"
    },
    {
@@ -10432,7 +10473,7 @@
   "entry_exams_text": "No single fixed entrance exam for a bachelor's degree \u2014 most colleges admit based on Class 12 marks, though some like Delhi University use CUET (Common University Entrance Test, a single exam many central universities use for admission). For a master's degree, exams like CUET-PG or university-specific tests are common.",
   "exams": [
    {
-    "label": "CUET (DU, BHU)",
+    "label": "CUET (DU, BHU, Allahabad)",
     "href": "/predictor?exam=CUET"
    },
    {
@@ -10531,7 +10572,7 @@
   "entry_exams_text": "No single fixed entrance exam \u2014 most students join a diploma or B.Sc. in Radiography/Medical Imaging Technology after Class 12 (with Physics, Chemistry, Biology) based on marks or a college-specific entrance test. Note: this is different from becoming a radiologist doctor, which needs MBBS plus a specialization (covered separately under Medicine).",
   "exams": [
    {
-    "label": "CUET (DU, BHU)",
+    "label": "CUET (DU, BHU, Allahabad)",
     "href": "/predictor?exam=CUET"
    }
   ],
@@ -10938,7 +10979,7 @@
   "entry_exams_text": "No single fixed entrance exam for a bachelor's degree \u2014 admission is usually based on Class 12 marks. For a Master's in Social Work (MSW), exams like TISS-NET (Tata Institute of Social Sciences' own entrance test) or CUET-PG are commonly used.",
   "exams": [
    {
-    "label": "CUET (DU, BHU)",
+    "label": "CUET (DU, BHU, Allahabad)",
     "href": "/predictor?exam=CUET"
    }
   ],
@@ -11357,7 +11398,7 @@
   "entry_exams_text": "No single fixed entrance exam for teaching itself \u2014 most people complete a Bachelor's degree followed by a B.Ed. (Bachelor of Education, a professional teaching qualification) which some colleges admit into via marks or state-level tests. To teach in government schools, exams like CTET (Central Teacher Eligibility Test, required to become a government school teacher) are needed.",
   "exams": [
    {
-    "label": "CUET (DU, BHU)",
+    "label": "CUET (DU, BHU, Allahabad)",
     "href": "/predictor?exam=CUET"
    }
   ],
@@ -11676,7 +11717,7 @@
   "entry_exams_text": "No single fixed entrance exam for a bachelor's degree \u2014 admission is usually based on Class 12 marks in Science. For a master's or research program, exams like CUET-PG or CSIR-UGC NET (a national exam for research fellowships and lectureship eligibility) are commonly used.",
   "exams": [
    {
-    "label": "CUET (DU, BHU)",
+    "label": "CUET (DU, BHU, Allahabad)",
     "href": "/predictor?exam=CUET"
    },
    {

@@ -2345,7 +2345,7 @@ const CUET_CATEGORY = {
 };
 
 export const cuetConfig = {
-  name: "CUET UG (DU, BHU)",
+  name: "CUET UG (DU, BHU, Allahabad)",
   searchKeys: ["Institute", "Academic Program Name", "University"],
   // DU and BHU admit on a per-course sum of CUET papers, so the student
   // enters each paper's score (components/CuetScoreInput) instead of one
@@ -2371,7 +2371,7 @@ export const cuetConfig = {
     {
       name: "university",
       label: "Select University",
-      options: ["Both", "Delhi University", "BHU"],
+      options: ["All", "Delhi University", "BHU", "University of Allahabad"],
     },
   ],
   getDataPath: () => {
@@ -2403,7 +2403,8 @@ export const cuetConfig = {
       (item) => query.gender === "Female" || !item["Women Only"],
       (item) =>
         !query.university ||
-        query.university === "Both" ||
+        query.university === "All" ||
+        query.university === "Both" || // links shared before Allahabad
         item.University === query.university,
       (item) =>
         item["Your Score"] !== null &&

@@ -21021,7 +21021,7 @@
      "indicative_opening_rank": null,
      "indicative_min_score": 525.0,
      "cuet_rule": "DU_L_MATH_GAT",
-     "career_id": null
+     "career_id": "business-administration-mba"
     },
     {
      "branch": "B.Sc (Prog.) Life Science",
@@ -24706,7 +24706,7 @@
      "indicative_opening_rank": null,
      "indicative_min_score": 538.2,
      "cuet_rule": "DU_L_MATH_GAT",
-     "career_id": null
+     "career_id": "business-administration-mba"
     },
     {
      "branch": "B.A. (Hons.) Business Economics",
@@ -27353,7 +27353,7 @@
      "indicative_opening_rank": null,
      "indicative_min_score": 545.9,
      "cuet_rule": "DU_VOC_SOFTWARE",
-     "career_id": null
+     "career_id": "computer-science-information-technology"
     },
     {
      "branch": "B.A Program (Hindi + History)",
@@ -27383,7 +27383,7 @@
      "indicative_opening_rank": null,
      "indicative_min_score": 483.7,
      "cuet_rule": "DU_L_MATH_GAT",
-     "career_id": null
+     "career_id": "business-administration-mba"
     },
     {
      "branch": "B.Sc (Hons.) Environmental Sciences",
@@ -35261,7 +35261,7 @@
      "indicative_opening_rank": null,
      "indicative_min_score": 443.3,
      "cuet_rule": "DU_L_MATH_GAT",
-     "career_id": null
+     "career_id": "business-administration-mba"
     },
     {
      "branch": "Bachelor of Management Studies (BMS)",
@@ -35271,7 +35271,7 @@
      "indicative_opening_rank": null,
      "indicative_min_score": 428.1,
      "cuet_rule": "DU_L_MATH_GAT",
-     "career_id": null
+     "career_id": "business-administration-mba"
     },
     {
      "branch": "B.Sc (Hons.) Chemistry",
@@ -37002,7 +37002,7 @@
      "indicative_opening_rank": null,
      "indicative_min_score": 498.1,
      "cuet_rule": "DU_L_MATH_GAT",
-     "career_id": null
+     "career_id": "business-administration-mba"
     },
     {
      "branch": "B.A. (Hons.) Business Economics",
@@ -42395,7 +42395,7 @@
      "indicative_opening_rank": null,
      "indicative_min_score": 452.3,
      "cuet_rule": "DU_L_MATH_GAT",
-     "career_id": null
+     "career_id": "business-administration-mba"
     },
     {
      "branch": "B.A. (Hons.) Hindi Patrakarita",
@@ -42647,7 +42647,7 @@
      "indicative_opening_rank": null,
      "indicative_min_score": 577.2,
      "cuet_rule": "DU_L_MATH_GAT",
-     "career_id": null
+     "career_id": "business-administration-mba"
     },
     {
      "branch": "Bachelor of Management Studies (BMS)",
@@ -42657,7 +42657,7 @@
      "indicative_opening_rank": null,
      "indicative_min_score": 555.0,
      "cuet_rule": "DU_L_MATH_GAT",
-     "career_id": null
+     "career_id": "business-administration-mba"
     }
    ],
    "source": "DU CSAS 2025, rounds 1-3",
@@ -43163,6 +43163,172 @@
    "ranking": "NIRF 2023",
    "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
+  }
+ },
+ {
+  "college_id": "ald:university-of-allahabad",
+  "aishe_code": "U-0548",
+  "name": "University of Allahabad, Prayagraj",
+  "display_name": "University of Allahabad, Prayagraj",
+  "state": "Uttar Pradesh",
+  "state_is_inferred": false,
+  "district": "Prayagraj",
+  "kind": "Central University",
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Arts",
+   "Commerce",
+   "Management",
+   "Science"
+  ],
+  "year_established": 1887,
+  "website": "http://www.allduniv.ac.in",
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "University of Allahabad UG admission (CUET)",
+  "programs": {
+   "count": 9,
+   "degrees": [
+    "B.A.",
+    "B.Com",
+    "B.P.A.",
+    "B.Sc.",
+    "B.Sc. & M.Sc.",
+    "B.Voc",
+    "BBA-MBA",
+    "Integrated"
+   ],
+   "list": [
+    {
+     "branch": "B.Sc. (Biology)",
+     "years": 3,
+     "degree": "B.Sc.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 481.0,
+     "cuet_rule": "ALD_SCI7",
+     "career_id": "biology"
+    },
+    {
+     "branch": "BBA-MBA (5-year integrated)",
+     "years": 5,
+     "degree": "BBA-MBA",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 434.4,
+     "cuet_rule": "ALD_BROAD",
+     "career_id": "business-administration-mba"
+    },
+    {
+     "branch": "B.A.",
+     "years": 3,
+     "degree": "B.A.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 417.0,
+     "cuet_rule": "ALD_BA",
+     "career_id": null
+    },
+    {
+     "branch": "B.Com",
+     "years": 3,
+     "degree": "B.Com",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 402.8,
+     "cuet_rule": "ALD_SCI7",
+     "career_id": "commerce"
+    },
+    {
+     "branch": "B.Sc. (Maths)",
+     "years": 3,
+     "degree": "B.Sc.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 399.0,
+     "cuet_rule": "ALD_BSC_MATHS",
+     "career_id": "mathematics"
+    },
+    {
+     "branch": "Disaster Management and Environmental Studies (5-year integrated)",
+     "years": 5,
+     "degree": "Integrated",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 364.0,
+     "cuet_rule": "ALD_BROAD",
+     "career_id": null
+    },
+    {
+     "branch": "B.Voc. (Software Development)",
+     "years": 3,
+     "degree": "B.Voc",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 326.5,
+     "cuet_rule": "ALD_BVOC_SD",
+     "career_id": "computer-science-information-technology"
+    },
+    {
+     "branch": "B.P.A. (Music)",
+     "years": 3,
+     "degree": "B.P.A.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 185.0,
+     "cuet_rule": "ALD_BPA",
+     "career_id": "music"
+    },
+    {
+     "branch": "Family and Community Sciences (5-year integrated B.Sc. & M.Sc.)",
+     "years": 5,
+     "degree": "B.Sc. & M.Sc.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 63.1,
+     "cuet_rule": "ALD_FACS",
+     "career_id": null
+    }
+   ],
+   "source": "University of Allahabad UG admission 2025, all rounds",
+   "rank_note": "Lowest open-category CUET marks (of 750) that got a seat."
+  },
+  "nirf": {
+   "category": "University",
+   "rank": 95,
+   "score": 33.86,
+   "ranking_year": 2017,
+   "rank_history": [
+    {
+     "year": 2017,
+     "rank": 95,
+     "score": 33.86
+    },
+    {
+     "year": 2016,
+     "rank": 95,
+     "score": 33.86
+    }
+   ]
+  },
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": "A",
+   "cgpa": 3.17,
+   "cycle": 3,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "University of Allahabad UG admission 2025",
+   "programs": "University of Allahabad UG admission 2025",
+   "ranking": "NIRF 2017",
+   "placement": null,
+   "accreditation": "NAAC"
   }
  },
  {
@@ -84190,7 +84356,7 @@
      "indicative_opening_rank": null,
      "indicative_min_score": 458.9,
      "cuet_rule": "DU_L_MATH_GAT",
-     "career_id": null
+     "career_id": "business-administration-mba"
     },
     {
      "branch": "B.A. (Hons.) Business Economics",
@@ -194160,7 +194326,7 @@
      "indicative_opening_rank": null,
      "indicative_min_score": 513.7,
      "cuet_rule": "DU_L_MATH_GAT",
-     "career_id": null
+     "career_id": "business-administration-mba"
     },
     {
      "branch": "B.Sc (Hons.) Mathematics",
