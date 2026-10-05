@@ -87,10 +87,10 @@ export const StepBar = ({
                   active
                     ? "border-[#b52326] bg-[#b52326] text-white"
                     : done
-                    ? "border-[#b52326] bg-white text-[#b52326]"
-                    : disabled
-                    ? "border-[#e4d8d2] bg-[#f8efec] text-[#c9b8b2]"
-                    : "border-[#d8c7c1] bg-white text-[#5b4a45]"
+                      ? "border-[#b52326] bg-white text-[#b52326]"
+                      : disabled
+                        ? "border-[#e4d8d2] bg-[#f8efec] text-[#c9b8b2]"
+                        : "border-[#d8c7c1] bg-white text-[#5b4a45]"
                 }`}
               >
                 {done && !active ? (
@@ -104,8 +104,8 @@ export const StepBar = ({
                   active
                     ? "text-[#b52326]"
                     : disabled
-                    ? "text-[#c9b8b2]"
-                    : "text-[#5b4a45]"
+                      ? "text-[#c9b8b2]"
+                      : "text-[#5b4a45]"
                 }`}
               >
                 {STEP_LABELS[step]}
@@ -283,3 +283,24 @@ export const ReorderableChoiceList = ({
     </>
   );
 };
+
+// A completed run is restored from localStorage, so opening the simulator
+// fresh — e.g. from /josaa's "try the simulation" button days later — drops
+// the student onto an old result with no obvious way back to the start:
+// "Start over" sits at the very bottom, below the whole list analysis, well
+// off the first screen. This says what they are looking at and puts the
+// restart in reach, at the top where they land.
+export const RestoredRunNotice = ({ onRestart }) => (
+  <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-[#eaded8] bg-[#fdf8f6] px-4 py-3">
+    <p className="text-sm text-[#5b4a45]">
+      This is the run you finished earlier, saved on this device.
+    </p>
+    <button
+      type="button"
+      onClick={onRestart}
+      className="shrink-0 rounded-full border border-[#b52326] bg-white px-4 py-1.5 text-xs font-bold text-[#b52326] transition hover:bg-[#fbeeec]"
+    >
+      Start a new run
+    </button>
+  </div>
+);

@@ -22,6 +22,7 @@ import {
   LoadingCard,
   StepBar,
   ReorderableChoiceList,
+  RestoredRunNotice,
 } from "./mockAllotmentShared";
 import MhtcetListAnalyzer from "./MhtcetListAnalyzer";
 
@@ -160,6 +161,9 @@ const Reorderable = (props) => (
 const MhtcetMockAllotment = ({ onChangeExam }) => {
   const [state, setState] = useState(defaultState);
   const [hydrated, setHydrated] = useState(false);
+  // did the run we loaded from storage ALREADY have a result? (as opposed to
+  // one the student just finished in front of us) — see RestoredRunNotice
+  const [restoredRun, setRestoredRun] = useState(false);
 
   const [catalog, setCatalog] = useState(null);
   const [catalogError, setCatalogError] = useState("");
@@ -169,7 +173,11 @@ const MhtcetMockAllotment = ({ onChangeExam }) => {
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    setState(loadPersistedState());
+    const saved = loadPersistedState();
+    setState(saved);
+    setRestoredRun(
+      Boolean(saved && saved.locked && saved.result !== undefined)
+    );
     setHydrated(true);
   }, []);
 
@@ -275,13 +283,16 @@ const MhtcetMockAllotment = ({ onChangeExam }) => {
   const moveChoiceUp = (index) => reorderChoices(index, Math.max(0, index - 1));
   const moveChoiceDown = (index) => reorderChoices(index, index + 2);
 
-  const lockChoices = () =>
+  const lockChoices = () => {
+    // a list locked now is a live run, not one restored from storage
+    setRestoredRun(false);
     setState((s) => ({
       ...s,
       locked: true,
       result: getAllotmentResult(s.choices, Number(s.profile.rank)),
       step: "simulate",
     }));
+  };
   const dismissRemovedChoices = () =>
     setState((s) => ({ ...s, removedChoices: [] }));
 
@@ -297,6 +308,7 @@ const MhtcetMockAllotment = ({ onChangeExam }) => {
   };
 
   const restart = () => {
+    setRestoredRun(false);
     window.localStorage.removeItem(STORAGE_KEY);
     setState(defaultState);
     setCatalog(null);
@@ -415,6 +427,7 @@ const MhtcetMockAllotment = ({ onChangeExam }) => {
           catalog={catalog}
           profile={state.profile}
           onRestart={restart}
+          restored={restoredRun}
         />
       )}
     </div>
@@ -823,6 +836,7 @@ const SimulateStep = ({
   catalog,
   profile,
   onRestart,
+  restored,
 }) => {
   if (!locked) {
     return (
@@ -836,6 +850,7 @@ const SimulateStep = ({
 
   return (
     <div className="mt-6 space-y-6">
+      {restored ? <RestoredRunNotice onRestart={onRestart} /> : null}
       <ProfileChips profile={profile} />
       <ResultCard result={result} choicesCount={choices.length} />
 

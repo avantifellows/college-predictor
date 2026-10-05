@@ -28,6 +28,7 @@ import {
   LoadingCard,
   StepBar,
   ReorderableChoiceList,
+  RestoredRunNotice,
 } from "./mockAllotmentShared";
 import { MatchStats } from "./InstituteRankedList";
 import ListAnalyzer from "./ListAnalyzer";
@@ -140,6 +141,9 @@ const matchesProgramType = (programName, type) => {
 const JosaaMockAllotment = ({ onChangeExam }) => {
   const [state, setState] = useState(defaultState);
   const [hydrated, setHydrated] = useState(false);
+  // did the run we loaded from storage ALREADY have a result? (as opposed to
+  // one the student just finished in front of us) — see RestoredRunNotice
+  const [restoredRun, setRestoredRun] = useState(false);
 
   const [rows, setRows] = useState(null);
   const [collegesByName, setCollegesByName] = useState(null);
@@ -151,7 +155,16 @@ const JosaaMockAllotment = ({ onChangeExam }) => {
 
   // Load any in-progress mock from localStorage once, on mount.
   useEffect(() => {
-    setState(loadPersistedState());
+    const saved = loadPersistedState();
+    setState(saved);
+    setRestoredRun(
+      Boolean(
+        saved &&
+          saved.locked &&
+          (saved.frozen ||
+            (saved.trail || []).some((r) => r.round >= TOTAL_ROUNDS))
+      )
+    );
     setHydrated(true);
   }, []);
 
@@ -294,7 +307,9 @@ const JosaaMockAllotment = ({ onChangeExam }) => {
   const moveChoiceUp = (index) => reorderChoices(index, Math.max(0, index - 1));
   const moveChoiceDown = (index) => reorderChoices(index, index + 2);
 
-  const lockChoices = () =>
+  const lockChoices = () => {
+    // a list locked now is a live run, not one restored from storage
+    setRestoredRun(false);
     setState((s) => ({
       ...s,
       locked: true,
@@ -302,6 +317,7 @@ const JosaaMockAllotment = ({ onChangeExam }) => {
       frozen: false,
       step: "simulate",
     }));
+  };
 
   const freeze = () => setState((s) => ({ ...s, frozen: true }));
 
@@ -337,6 +353,7 @@ const JosaaMockAllotment = ({ onChangeExam }) => {
   };
 
   const restart = () => {
+    setRestoredRun(false);
     window.localStorage.removeItem(STORAGE_KEY);
     setState(defaultState);
     setSearch("");
@@ -467,6 +484,7 @@ const JosaaMockAllotment = ({ onChangeExam }) => {
             )
           }
           onRestart={restart}
+          restored={restoredRun}
         />
       )}
     </div>
@@ -989,6 +1007,7 @@ const SimulateStep = ({
   onFreeze,
   onAdvance,
   onRestart,
+  restored,
 }) => {
   const [showHistory, setShowHistory] = useState(false);
   if (!locked) {
@@ -1017,6 +1036,9 @@ const SimulateStep = ({
 
   return (
     <div className="mt-6 space-y-6">
+      {restored && finalRevealed ? (
+        <RestoredRunNotice onRestart={onRestart} />
+      ) : null}
       <ProfileChips profile={profile} />
       <RoundCard
         current={current}
