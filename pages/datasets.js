@@ -36,6 +36,9 @@ const SEARCH_ALIASES = {
   allahabadug:
     "cuet allahabad prayagraj university uttar pradesh arts science commerce",
   cusbug: "cuet cusb south bihar gaya central university integrated law",
+  jnuug:
+    "cuet jnu jawaharlal nehru university foreign language french german japanese",
+  jamiaug: "cuet jamia millia islamia jmi delhi languages",
   iiser: "iat science bs ms research",
   collegefees: "fees hostel mess tuition cost josaa kcet",
   nirf: "ranking rankings placement",
