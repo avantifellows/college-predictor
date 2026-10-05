@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
 Build public/data/CUET/cuet_data.json from the DU, BHU, University of
-Allahabad and CUSB cutoff facts (external_data_sources/ducuet, bhuug,
-allahabadug, cusbug) — the same rows BigQuery serves.
+Allahabad, CUSB, JNU and Jamia cutoff facts (external_data_sources/ducuet,
+bhuug, allahabadug, cusbug, jnuug, jamiaug) — the same rows BigQuery serves.
 
 DU and BHU don't admit on one CUET total. Each course adds up its own set of
 papers (DU B.Sc. Physics: Physics + Chemistry + Maths; BHU B.A.: English or
@@ -30,6 +30,8 @@ DU = EXT / "ducuet/clean/ducuet_fact_cutoffs.parquet"
 BHU = EXT / "bhuug/clean/bhuug_fact_cutoffs.parquet"
 ALD = EXT / "allahabadug/clean/allahabadug_fact_cutoffs.parquet"
 CUSB = EXT / "cusbug/clean/cusbug_fact_cutoffs.parquet"
+JNU = EXT / "jnuug/clean/jnuug_fact_cutoffs.parquet"
+JMI = EXT / "jamiaug/clean/jamiaug_fact_cutoffs.parquet"
 OUT = REPO / "public/data/CUET/cuet_data.json"
 
 # each course's rule and the rules themselves come from the cuet source
@@ -152,6 +154,34 @@ for r in cusb.groupby(["program", "category"]).head(1).itertuples():
         "Year": "2025",
     })
 
+# JNU: Code-I seats (school leavers: Class 12 this year or last), loosest
+# list per programme and category; marks are of 100 (the rule rescales)
+jnu = pd.read_parquet(JNU)
+jnu = jnu[(jnu.seat_code == 1) & jnu.category.isin(["UR", "OBC", "SC", "ST", "EWS", "PWD"])]
+for r in jnu.sort_values(["cutoff_marks", "list_no"], ascending=[True, False]).groupby(["program", "category"]).head(1).itertuples():
+    rows.append({
+        "University": "JNU", "Institute": "Jawaharlal Nehru University, New Delhi",
+        "Academic Program Name": r.program,
+        "Category": "PwBD" if r.category == "PWD" else r.category,
+        "Seat": "Regular", "Women Only": False, "Round": f"List {r.list_no}",
+        "Cutoff Score": round(float(r.cutoff_marks), 2),
+        "Rule": rule_of[("JNU", r.program)], "Year": "2025",
+    })
+
+# Jamia: its categories are its own (religion, internal students, J&K); the
+# predictor asks none of that, so only the open GENERAL seats (and PwD) show
+jmi = pd.read_parquet(JMI)
+jmi = jmi[jmi.category.isin(["GENERAL", "PWD"])]
+for r in jmi.sort_values(["cutoff", "list_no"], ascending=[True, False]).groupby(["program", "category"]).head(1).itertuples():
+    rows.append({
+        "University": "Jamia Millia Islamia", "Institute": "Jamia Millia Islamia, New Delhi",
+        "Academic Program Name": r.program,
+        "Category": "UR" if r.category == "GENERAL" else "PwBD",
+        "Seat": "Regular", "Women Only": False, "Round": f"List {r.list_no}",
+        "Cutoff Score": round(float(r.cutoff), 2),
+        "Rule": rule_of[("JMI", r.program)], "Year": "2025",
+    })
+
 if missing:
     raise SystemExit(f"no rule for {len(missing)} courses:\n" +
                      "\n".join(f"  {u}: {p}" for u, p in sorted(missing)))
@@ -163,7 +193,8 @@ RULES_OUT.write_text(json.dumps({
                 "max": int(r.max_score), "papers": r.papers,
                 "prorated": bool(r.prorated),
                 "needsLanguage": bool(r.needs_language),
-                "zeroIfMissing": bool(r.missing_counts_zero)}
+                "zeroIfMissing": bool(r.missing_counts_zero),
+                "papersMax": int(r.papers_max)}
     for r in rules.itertuples()}, indent=1))
 
 # each row says what its cutoff is out of (career pages print "902 / 1000")

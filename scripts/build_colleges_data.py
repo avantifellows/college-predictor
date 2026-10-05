@@ -2719,7 +2719,50 @@ def main():
                         sorted(discs)[:4], "CUSB UG admission 2025")
     cusb_row.update(district="Gaya", kind="Central University", website="https://www.cusb.ac.in")
     print(f"  CUSB card: {len(lst)} programmes, NIRF {'yes' if cusb_row['nirf'] else 'no'}")
-    rows += du_rows + ii_rows + icar_rows + bhu_rows + [ald_row, cusb_row]
+    # ── JNU and Jamia (CUET) ───────────────────────────────────────────────
+    # JNU's card already exists (JoSAA B.Tech): its CUET programmes join that
+    # card (the programmes table shows a rank and a CUET-score column).
+    # Jamia gets a card. Open numbers: JNU Code-I UR, Jamia GENERAL, loosest list.
+    jnu = client.query(f"""
+    SELECT program, MIN(IF(category = 'UR' AND seat_code = 1, cutoff_marks, NULL)) AS ur
+    FROM `{D}.jnuug_fact_cutoffs` GROUP BY 1""").to_dataframe()
+    jnu_progs = [{"branch": x.program, "years": 3, "degree": "B.A. (Hons.)",
+                  "indicative_closing_rank": None, "indicative_opening_rank": None,
+                  "indicative_min_score": None if pd.isna(x.ur) else round(float(x.ur), 1),
+                  "cuet_rule": CUET_RULE.get(("JNU", x.program)),
+                  "career_id": career_of_program(x.program)} for x in jnu.itertuples()]
+    jmi = client.query(f"""
+    SELECT program, MIN(IF(category = 'GENERAL', cutoff, NULL)) AS ur
+    FROM `{D}.jamiaug_fact_cutoffs` GROUP BY 1""").to_dataframe()
+    jmi_progs = [{"branch": x.program, "years": 4 if "B.Sc." in x.program else 3,
+                  "degree": "B.Sc." if "B.Sc." in x.program else "B.A. (Hons.)",
+                  "indicative_closing_rank": None, "indicative_opening_rank": None,
+                  "indicative_min_score": None if pd.isna(x.ur) else round(float(x.ur), 1),
+                  "cuet_rule": CUET_RULE.get(("Jamia Millia Islamia", x.program)),
+                  "career_id": career_of_program(x.program)} for x in jmi.itertuples()]
+    for lst in (jnu_progs, jmi_progs):
+        lst.sort(key=lambda z: (z["indicative_min_score"] is None, -(z["indicative_min_score"] or 0), z["branch"]))
+    jmi_row = base_row("jmi:jamia-millia-islamia", "Jamia Millia Islamia, New Delhi", "Delhi",
+                       "CUET (UG)", "Jamia Millia Islamia admission (CUET)",
+                       {"count": len(jmi_progs), "degrees": sorted({p["degree"] for p in jmi_progs}),
+                        "list": jmi_progs, "source": "JMI CUET UG admission 2025, selection lists 1-3",
+                        "rank_note": "Lowest GENERAL-category CUET marks (of 250, one paper) that got a seat."},
+                       nirf_block_for(["Jamia Millia Islamia"], ["University", "Overall"]).get("Jamia Millia Islamia"),
+                       ["Arts", "Science"], "JMI CUET UG admission 2025")
+    jmi_row.update(district="South East Delhi", kind="Central University", website="https://www.jmi.ac.in")
+    rows += du_rows + ii_rows + icar_rows + bhu_rows + [ald_row, cusb_row, jmi_row]
+    jnu_card = next((r for r in rows if r["college_id"] == "U-0109"), None)
+    if jnu_card is None:
+        raise SystemExit("JNU's JoSAA card (U-0109) is gone: attach the CUET programmes elsewhere")
+    jnu_card["programs"]["list"] += jnu_progs
+    jnu_card["programs"]["count"] = len(jnu_card["programs"]["list"])
+    jnu_card["programs"]["degrees"] = sorted(set(jnu_card["programs"]["degrees"]) | {"B.A. (Hons.)"})
+    jnu_card["programs"]["source"] += "; JNU CUET UG 2025, lists 1-4"
+    jnu_card["programs"]["rank_note"] += " CUET score: JNU merit marks of 100 (English + GAT), Code-I."
+    jnu_card["entrance_exams"] = sorted(set(jnu_card["entrance_exams"]) | {"CUET (UG)"})
+    if "Arts" not in jnu_card["disciplines"]:
+        jnu_card["disciplines"] = jnu_card["disciplines"] + ["Arts"]
+    print(f"  JNU card +{len(jnu_progs)} CUET programmes; Jamia card {len(jmi_progs)} programmes, NIRF {'yes' if jmi_row['nirf'] else 'no'}")
 
     print(f"  medical rows {len(med_rows)}"
           f"  with NIRF {sum(1 for x in med_rows if x['nirf'])}"

@@ -2377,6 +2377,8 @@ export const cuetConfig = {
         "BHU",
         "University of Allahabad",
         "Central University of South Bihar",
+        "JNU",
+        "Jamia Millia Islamia",
       ],
     },
   ],

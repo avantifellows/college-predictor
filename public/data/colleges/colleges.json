@@ -2964,6 +2964,184 @@
   }
  },
  {
+  "college_id": "jmi:jamia-millia-islamia",
+  "aishe_code": null,
+  "name": "Jamia Millia Islamia, New Delhi",
+  "display_name": "Jamia Millia Islamia, New Delhi",
+  "state": "Delhi",
+  "state_is_inferred": false,
+  "district": "South East Delhi",
+  "kind": "Central University",
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Arts",
+   "Science"
+  ],
+  "year_established": null,
+  "website": "https://www.jmi.ac.in",
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)"
+  ],
+  "counselling": "Jamia Millia Islamia admission (CUET)",
+  "programs": {
+   "count": 9,
+   "degrees": [
+    "B.A. (Hons.)",
+    "B.Sc."
+   ],
+   "list": [
+    {
+     "branch": "B.A. (Hons.) Urdu",
+     "years": 3,
+     "degree": "B.A. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 222.8,
+     "cuet_rule": "JMI_URDU",
+     "career_id": null
+    },
+    {
+     "branch": "B.A. (Hons.) Hindi",
+     "years": 3,
+     "degree": "B.A. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 175.6,
+     "cuet_rule": "JMI_HINDI",
+     "career_id": null
+    },
+    {
+     "branch": "B.Sc. (Hons.) Applied Mathematics",
+     "years": 4,
+     "degree": "B.Sc.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 122.0,
+     "cuet_rule": "JMI_MATHS",
+     "career_id": "mathematics"
+    },
+    {
+     "branch": "B.Sc. (Multidisciplinary)",
+     "years": 4,
+     "degree": "B.Sc.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 112.1,
+     "cuet_rule": "JMI_GAT",
+     "career_id": null
+    },
+    {
+     "branch": "B.A. (Hons.) French & Francophone Studies",
+     "years": 3,
+     "degree": "B.A. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 95.5,
+     "cuet_rule": "JMI_GAT",
+     "career_id": null
+    },
+    {
+     "branch": "B.A. (Hons.) Spanish & Latin American Studies",
+     "years": 3,
+     "degree": "B.A. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 89.9,
+     "cuet_rule": "JMI_GAT",
+     "career_id": null
+    },
+    {
+     "branch": "B.A. (Hons.) Korean Language",
+     "years": 3,
+     "degree": "B.A. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 88.1,
+     "cuet_rule": "JMI_GAT",
+     "career_id": null
+    },
+    {
+     "branch": "B.A. (Hons.) Turkish Language & Literature",
+     "years": 3,
+     "degree": "B.A. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 67.3,
+     "cuet_rule": "JMI_GAT",
+     "career_id": null
+    },
+    {
+     "branch": "B.A. (Hons.) Sanskrit",
+     "years": 3,
+     "degree": "B.A. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 22.2,
+     "cuet_rule": "JMI_GAT",
+     "career_id": null
+    }
+   ],
+   "source": "JMI CUET UG admission 2025, selection lists 1-3",
+   "rank_note": "Lowest GENERAL-category CUET marks (of 250, one paper) that got a seat."
+  },
+  "nirf": {
+   "category": "University",
+   "rank": 4,
+   "score": 69.1,
+   "ranking_year": 2025,
+   "rank_history": [
+    {
+     "year": 2025,
+     "rank": 4,
+     "score": 69.1
+    },
+    {
+     "year": 2024,
+     "rank": 3,
+     "score": 68.11
+    },
+    {
+     "year": 2023,
+     "rank": 3,
+     "score": 67.73
+    },
+    {
+     "year": 2022,
+     "rank": 3,
+     "score": 65.91
+    },
+    {
+     "year": 2021,
+     "rank": 6,
+     "score": 60.74
+    },
+    {
+     "year": 2020,
+     "rank": 10,
+     "score": 61.07
+    }
+   ]
+  },
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "JMI CUET UG admission 2025",
+   "programs": "JMI CUET UG admission 2025",
+   "ranking": "NIRF 2025",
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "U-0368",
   "aishe_code": "U-0368",
   "name": "Jawaharlal Institute of Post Graduate Medical Education & Research, Puducherry",
@@ -180251,17 +180429,20 @@
   "management": null,
   "ownership": "Public",
   "disciplines": [
-   "Engineering"
+   "Engineering",
+   "Arts"
   ],
   "year_established": 1969,
   "website": "www.jnu.ac.in",
   "entrance_exams": [
+   "CUET (UG)",
    "JEE Main"
   ],
   "counselling": "JoSAA",
   "programs": {
-   "count": 2,
+   "count": 12,
    "degrees": [
+    "B.A. (Hons.)",
     "Bachelor of Technology"
    ],
    "quotas_offered": [
@@ -180283,10 +180464,110 @@
      "indicative_closing_rank": 41588,
      "indicative_opening_rank": 25670,
      "career_id": "electrical-electronics-communications-engineering"
+    },
+    {
+     "branch": "B.A. (Hons.) French",
+     "years": 3,
+     "degree": "B.A. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 65.4,
+     "cuet_rule": "JNU_EN_GAT",
+     "career_id": null
+    },
+    {
+     "branch": "B.A. (Hons.) German",
+     "years": 3,
+     "degree": "B.A. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 64.8,
+     "cuet_rule": "JNU_EN_GAT",
+     "career_id": null
+    },
+    {
+     "branch": "B.A. (Hons.) Japanese",
+     "years": 3,
+     "degree": "B.A. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 64.1,
+     "cuet_rule": "JNU_EN_GAT",
+     "career_id": null
+    },
+    {
+     "branch": "B.A. (Hons.) Spanish",
+     "years": 3,
+     "degree": "B.A. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 64.1,
+     "cuet_rule": "JNU_EN_GAT",
+     "career_id": null
+    },
+    {
+     "branch": "B.A. (Hons.) Chinese",
+     "years": 3,
+     "degree": "B.A. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 62.7,
+     "cuet_rule": "JNU_EN_GAT",
+     "career_id": null
+    },
+    {
+     "branch": "B.A. (Hons.) Korean",
+     "years": 3,
+     "degree": "B.A. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 62.1,
+     "cuet_rule": "JNU_EN_GAT",
+     "career_id": null
+    },
+    {
+     "branch": "B.A. (Hons.) Russian",
+     "years": 3,
+     "degree": "B.A. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 60.7,
+     "cuet_rule": "JNU_EN_GAT",
+     "career_id": null
+    },
+    {
+     "branch": "B.A. (Hons.) Persian",
+     "years": 3,
+     "degree": "B.A. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 56.7,
+     "cuet_rule": "JNU_EN_GAT",
+     "career_id": null
+    },
+    {
+     "branch": "B.A. (Hons.) Pashto",
+     "years": 3,
+     "degree": "B.A. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 55.4,
+     "cuet_rule": "JNU_EN_GAT",
+     "career_id": null
+    },
+    {
+     "branch": "B.A. (Hons.) Arabic",
+     "years": 3,
+     "degree": "B.A. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 55.0,
+     "cuet_rule": "JNU_EN_GAT",
+     "career_id": null
     }
    ],
-   "source": "JoSAA 2025 Round 6",
-   "rank_note": "Indicative open-category closing rank."
+   "source": "JoSAA 2025 Round 6; JNU CUET UG 2025, lists 1-4",
+   "rank_note": "Indicative open-category closing rank. CUET score: JNU merit marks of 100 (English + GAT), Code-I."
   },
   "nirf": null,
   "ug_gender": null,

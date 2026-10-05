@@ -53,6 +53,19 @@ export const valueCols = (list) => {
   const seatsOnly = list.some(
     (p) => p.seats != null && p.indicative_closing_rank == null
   );
+  if (score && rank)
+    return [
+      {
+        key: "rank",
+        label: "Closing rank",
+        value: (p) => p.indicative_closing_rank,
+      },
+      {
+        key: "score",
+        label: "CUET score",
+        value: (p) => p.indicative_min_score,
+      },
+    ];
   if (score)
     return [
       {

@@ -18,7 +18,8 @@
   "papers": "Language + 3 subjects, or 2 languages + 2 subjects",
   "prorated": false,
   "needsLanguage": false,
-  "zeroIfMissing": false
+  "zeroIfMissing": false,
+  "papersMax": 1000
  },
  "DU_BA_PROG": {
   "combos": [
@@ -44,7 +45,8 @@
   "papers": "Language + 3 subjects, or 2 languages + 2 subjects, or language + subject + GAT",
   "prorated": true,
   "needsLanguage": false,
-  "zeroIfMissing": false
+  "zeroIfMissing": false,
+  "papersMax": 1000
  },
  "DU_BCOM": {
   "combos": [
@@ -64,7 +66,8 @@
   "papers": "Language + 3 subjects, or language + subject + GAT",
   "prorated": true,
   "needsLanguage": false,
-  "zeroIfMissing": false
+  "zeroIfMissing": false,
+  "papersMax": 1000
  },
  "DU_VOC_SOFTWARE": {
   "combos": [
@@ -96,7 +99,8 @@
   "papers": "Language + Maths + 2 subjects, or 2 languages + Maths + subject, or language + Maths + GAT",
   "prorated": true,
   "needsLanguage": false,
-  "zeroIfMissing": false
+  "zeroIfMissing": false,
+  "papersMax": 1000
  },
  "DU_LANG_ENGLISH": {
   "combos": [
@@ -121,7 +125,8 @@
   "papers": "English + 3 subjects, or English + language + 2 subjects",
   "prorated": false,
   "needsLanguage": false,
-  "zeroIfMissing": false
+  "zeroIfMissing": false,
+  "papersMax": 1000
  },
  "DU_LANG_HINDI": {
   "combos": [
@@ -146,7 +151,8 @@
   "papers": "Hindi + 3 subjects, or Hindi + language + 2 subjects",
   "prorated": false,
   "needsLanguage": false,
-  "zeroIfMissing": false
+  "zeroIfMissing": false,
+  "papersMax": 1000
  },
  "DU_LANG_URDU": {
   "combos": [
@@ -171,7 +177,8 @@
   "papers": "Urdu + 3 subjects, or Urdu + language + 2 subjects",
   "prorated": false,
   "needsLanguage": false,
-  "zeroIfMissing": false
+  "zeroIfMissing": false,
+  "papersMax": 1000
  },
  "DU_LANG_BENGALI": {
   "combos": [
@@ -208,7 +215,8 @@
   "papers": "Bengali + 3 subjects, or Bengali + language + 2 subjects, or language + 3 subjects, or 2 languages + 2 subjects",
   "prorated": false,
   "needsLanguage": false,
-  "zeroIfMissing": false
+  "zeroIfMissing": false,
+  "papersMax": 1000
  },
  "DU_LANG_PUNJABI": {
   "combos": [
@@ -245,7 +253,8 @@
   "papers": "Punjabi + 3 subjects, or Punjabi + language + 2 subjects, or language + 3 subjects, or 2 languages + 2 subjects",
   "prorated": false,
   "needsLanguage": false,
-  "zeroIfMissing": false
+  "zeroIfMissing": false,
+  "papersMax": 1000
  },
  "DU_LANG_SANSKRIT": {
   "combos": [
@@ -270,7 +279,8 @@
   "papers": "Language + Sanskrit + 2 subjects, or Sanskrit + 3 subjects",
   "prorated": false,
   "needsLanguage": false,
-  "zeroIfMissing": false
+  "zeroIfMissing": false,
+  "papersMax": 1000
  },
  "DU_ECONOMICS": {
   "combos": [
@@ -287,7 +297,8 @@
   "papers": "Language + Maths + 2 subjects",
   "prorated": false,
   "needsLanguage": false,
-  "zeroIfMissing": false
+  "zeroIfMissing": false,
+  "papersMax": 1000
  },
  "DU_HINDI_PATRAKARITA": {
   "combos": [
@@ -310,7 +321,8 @@
   "papers": "Hindi + 3 subjects, or Hindi + GAT",
   "prorated": true,
   "needsLanguage": false,
-  "zeroIfMissing": false
+  "zeroIfMissing": false,
+  "papersMax": 1000
  },
  "DU_JOURNALISM": {
   "combos": [
@@ -333,7 +345,8 @@
   "papers": "English + 3 subjects, or English + GAT",
   "prorated": true,
   "needsLanguage": false,
-  "zeroIfMissing": false
+  "zeroIfMissing": false,
+  "papersMax": 1000
  },
  "DU_JOURNALISM_5YR": {
   "combos": [
@@ -353,7 +366,8 @@
   "papers": "Language + Mass Media + GAT, or language + GAT",
   "prorated": true,
   "needsLanguage": false,
-  "zeroIfMissing": false
+  "zeroIfMissing": false,
+  "papersMax": 750
  },
  "DU_MULTIMEDIA": {
   "combos": [
@@ -367,7 +381,8 @@
   "papers": "Language + subject + GAT",
   "prorated": false,
   "needsLanguage": false,
-  "zeroIfMissing": false
+  "zeroIfMissing": false,
+  "papersMax": 750
  },
  "DU_L_MATH_GAT": {
   "combos": [
@@ -383,7 +398,8 @@
   "papers": "Language + Maths + GAT",
   "prorated": false,
   "needsLanguage": false,
-  "zeroIfMissing": false
+  "zeroIfMissing": false,
+  "papersMax": 750
  },
  "DU_L_MATH_2": {
   "combos": [
@@ -408,7 +424,8 @@
   "papers": "Language + Maths + 2 subjects, or 2 languages + Maths + subject",
   "prorated": false,
   "needsLanguage": false,
-  "zeroIfMissing": false
+  "zeroIfMissing": false,
+  "papersMax": 1000
  },
  "DU_BCOM_HONS": {
   "combos": [
@@ -433,7 +450,8 @@
   "papers": "Language + Maths + 2 subjects, or language + Accountancy + 2 subjects",
   "prorated": false,
   "needsLanguage": false,
-  "zeroIfMissing": false
+  "zeroIfMissing": false,
+  "papersMax": 1000
  },
  "DU_PCB": {
   "combos": [
@@ -453,7 +471,8 @@
   "papers": "Physics + Chemistry + Biology",
   "prorated": false,
   "needsLanguage": true,
-  "zeroIfMissing": false
+  "zeroIfMissing": false,
+  "papersMax": 750
  },
  "DU_PCM": {
   "combos": [
@@ -473,7 +492,8 @@
   "papers": "Physics + Chemistry + Maths",
   "prorated": false,
   "needsLanguage": true,
-  "zeroIfMissing": false
+  "zeroIfMissing": false,
+  "papersMax": 750
  },
  "DU_BIOCHEM": {
   "combos": [
@@ -504,7 +524,8 @@
   "papers": "Chemistry + Biology + Physics, or Chemistry + Biology + Maths",
   "prorated": false,
   "needsLanguage": true,
-  "zeroIfMissing": false
+  "zeroIfMissing": false,
+  "papersMax": 750
  },
  "DU_PM_C_OR_CS": {
   "combos": [
@@ -535,7 +556,8 @@
   "papers": "Physics + Maths + Chemistry, or Physics + Maths + Computer Science",
   "prorated": false,
   "needsLanguage": true,
-  "zeroIfMissing": false
+  "zeroIfMissing": false,
+  "papersMax": 750
  },
  "DU_PC_B_OR_M": {
   "combos": [
@@ -566,7 +588,8 @@
   "papers": "Physics + Chemistry + Biology, or Physics + Chemistry + Maths",
   "prorated": false,
   "needsLanguage": true,
-  "zeroIfMissing": false
+  "zeroIfMissing": false,
+  "papersMax": 750
  },
  "DU_GEOLOGY": {
   "combos": [
@@ -608,7 +631,8 @@
   "papers": "Physics + Chemistry + Maths, or Physics + Chemistry + Geography, or Physics + Chemistry + Biology",
   "prorated": false,
   "needsLanguage": true,
-  "zeroIfMissing": false
+  "zeroIfMissing": false,
+  "papersMax": 750
  },
  "DU_HOME_SCIENCE": {
   "combos": [
@@ -635,7 +659,8 @@
   "papers": "Biology + Physics + subject, or Biology + Chemistry + subject",
   "prorated": false,
   "needsLanguage": true,
-  "zeroIfMissing": false
+  "zeroIfMissing": false,
+  "papersMax": 750
  },
  "BHU_L_GAT": {
   "combos": [
@@ -651,7 +676,8 @@
   "papers": "English or Hindi + GAT",
   "prorated": false,
   "needsLanguage": false,
-  "zeroIfMissing": false
+  "zeroIfMissing": false,
+  "papersMax": 500
  },
  "BHU_L_BIO": {
   "combos": [
@@ -669,7 +695,8 @@
   "papers": "English or Hindi + Biology",
   "prorated": false,
   "needsLanguage": false,
-  "zeroIfMissing": false
+  "zeroIfMissing": false,
+  "papersMax": 500
  },
  "BHU_BCOM": {
   "combos": [
@@ -687,7 +714,8 @@
   "papers": "Accountancy + Business Studies + GAT",
   "prorated": false,
   "needsLanguage": false,
-  "zeroIfMissing": false
+  "zeroIfMissing": false,
+  "papersMax": 750
  },
  "BHU_PCM": {
   "combos": [
@@ -707,7 +735,8 @@
   "papers": "Chemistry + Maths + Physics",
   "prorated": false,
   "needsLanguage": false,
-  "zeroIfMissing": false
+  "zeroIfMissing": false,
+  "papersMax": 750
  },
  "BHU_PCB": {
   "combos": [
@@ -727,7 +756,8 @@
   "papers": "Biology + Chemistry + Physics",
   "prorated": false,
   "needsLanguage": false,
-  "zeroIfMissing": false
+  "zeroIfMissing": false,
+  "papersMax": 750
  },
  "BHU_PCM_OR_PCB": {
   "combos": [
@@ -758,7 +788,8 @@
   "papers": "Chemistry + Maths + Physics, or Biology + Chemistry + Physics",
   "prorated": false,
   "needsLanguage": false,
-  "zeroIfMissing": false
+  "zeroIfMissing": false,
+  "papersMax": 750
  },
  "BHU_AGRI": {
   "combos": [
@@ -800,7 +831,8 @@
   "papers": "Chemistry + Maths + Physics, or Biology + Chemistry + Physics, or Agriculture + Biology + Chemistry",
   "prorated": false,
   "needsLanguage": false,
-  "zeroIfMissing": false
+  "zeroIfMissing": false,
+  "papersMax": 750
  },
  "BHU_SHASTRI": {
   "combos": [
@@ -814,7 +846,8 @@
   "papers": "Sanskrit",
   "prorated": false,
   "needsLanguage": false,
-  "zeroIfMissing": false
+  "zeroIfMissing": false,
+  "papersMax": 250
  },
  "ALD_BA": {
   "combos": [
@@ -840,7 +873,8 @@
   "papers": "English or Hindi + Economics or Political Science or Sociology or Psychology or Anthropology or History or Geography or Sanskrit + GAT",
   "prorated": false,
   "needsLanguage": false,
-  "zeroIfMissing": true
+  "zeroIfMissing": true,
+  "papersMax": 750
  },
  "ALD_BSC_MATHS": {
   "combos": [
@@ -862,7 +896,8 @@
   "papers": "English or Hindi + Physics or Chemistry or Maths or Computer Science + GAT",
   "prorated": false,
   "needsLanguage": false,
-  "zeroIfMissing": true
+  "zeroIfMissing": true,
+  "papersMax": 750
  },
  "ALD_SCI7": {
   "combos": [
@@ -887,7 +922,8 @@
   "papers": "English or Hindi + Accountancy or Physics or Chemistry or Maths or Computer Science or Biology or Environmental Science + GAT",
   "prorated": false,
   "needsLanguage": false,
-  "zeroIfMissing": true
+  "zeroIfMissing": true,
+  "papersMax": 750
  },
  "ALD_BROAD": {
   "combos": [
@@ -923,7 +959,8 @@
   "papers": "English or Hindi + Accountancy or Agriculture or Anthropology or Biology or Business Studies or Chemistry or Environmental Science or Computer Science or Economics or Geography or History or Home Science or Mass Media or Maths or Physics or Political Science or Psychology or Sociology + GAT",
   "prorated": false,
   "needsLanguage": false,
-  "zeroIfMissing": true
+  "zeroIfMissing": true,
+  "papersMax": 750
  },
  "ALD_BPA": {
   "combos": [
@@ -940,7 +977,8 @@
   "papers": "English or Hindi + subject + GAT",
   "prorated": false,
   "needsLanguage": false,
-  "zeroIfMissing": true
+  "zeroIfMissing": true,
+  "papersMax": 750
  },
  "ALD_BVOC_SD": {
   "combos": [
@@ -961,7 +999,8 @@
   "papers": "English or Hindi + Computer Science or Maths or Physics + GAT",
   "prorated": false,
   "needsLanguage": false,
-  "zeroIfMissing": true
+  "zeroIfMissing": true,
+  "papersMax": 750
  },
  "ALD_FACS": {
   "combos": [
@@ -980,7 +1019,8 @@
   "papers": "English or Hindi + Home Science + GAT",
   "prorated": false,
   "needsLanguage": false,
-  "zeroIfMissing": true
+  "zeroIfMissing": true,
+  "papersMax": 750
  },
  "CUSB_GAT_EN": {
   "combos": [
@@ -995,7 +1035,8 @@
   "papers": "English + GAT",
   "prorated": false,
   "needsLanguage": false,
-  "zeroIfMissing": false
+  "zeroIfMissing": false,
+  "papersMax": 500
  },
  "CUSB_GAT": {
   "combos": [
@@ -1007,7 +1048,8 @@
   "papers": "GAT",
   "prorated": false,
   "needsLanguage": false,
-  "zeroIfMissing": false
+  "zeroIfMissing": false,
+  "papersMax": 250
  },
  "CUSB_GAT_OR_MATH": {
   "combos": [
@@ -1024,7 +1066,8 @@
   "papers": "GAT, or Maths",
   "prorated": false,
   "needsLanguage": false,
-  "zeroIfMissing": false
+  "zeroIfMissing": false,
+  "papersMax": 250
  },
  "CUSB_GAT_CHEM": {
   "combos": [
@@ -1039,7 +1082,8 @@
   "papers": "GAT + Chemistry",
   "prorated": false,
   "needsLanguage": false,
-  "zeroIfMissing": false
+  "zeroIfMissing": false,
+  "papersMax": 500
  },
  "CUSB_GAT_MATH": {
   "combos": [
@@ -1054,7 +1098,8 @@
   "papers": "GAT + Maths",
   "prorated": false,
   "needsLanguage": false,
-  "zeroIfMissing": false
+  "zeroIfMissing": false,
+  "papersMax": 500
  },
  "CUSB_GAT_POLSCI": {
   "combos": [
@@ -1069,7 +1114,8 @@
   "papers": "GAT + Political Science",
   "prorated": false,
   "needsLanguage": false,
-  "zeroIfMissing": false
+  "zeroIfMissing": false,
+  "papersMax": 500
  },
  "CUSB_GAT_HIST": {
   "combos": [
@@ -1084,7 +1130,8 @@
   "papers": "GAT + History",
   "prorated": false,
   "needsLanguage": false,
-  "zeroIfMissing": false
+  "zeroIfMissing": false,
+  "papersMax": 500
  },
  "CUSB_PHY": {
   "combos": [
@@ -1098,7 +1145,8 @@
   "papers": "Physics",
   "prorated": false,
   "needsLanguage": false,
-  "zeroIfMissing": false
+  "zeroIfMissing": false,
+  "papersMax": 250
  },
  "CUSB_GAT_ACC": {
   "combos": [
@@ -1113,7 +1161,8 @@
   "papers": "GAT + Accountancy",
   "prorated": false,
   "needsLanguage": false,
-  "zeroIfMissing": false
+  "zeroIfMissing": false,
+  "papersMax": 500
  },
  "CUSB_GAT_HINDI": {
   "combos": [
@@ -1128,7 +1177,8 @@
   "papers": "GAT + Hindi",
   "prorated": false,
   "needsLanguage": false,
-  "zeroIfMissing": false
+  "zeroIfMissing": false,
+  "papersMax": 500
  },
  "CUSB_GAT_CS": {
   "combos": [
@@ -1143,7 +1193,8 @@
   "papers": "GAT + Computer Science",
   "prorated": false,
   "needsLanguage": false,
-  "zeroIfMissing": false
+  "zeroIfMissing": false,
+  "papersMax": 500
  },
  "CUSB_GAT_BIO": {
   "combos": [
@@ -1158,7 +1209,8 @@
   "papers": "GAT + Biology",
   "prorated": false,
   "needsLanguage": false,
-  "zeroIfMissing": false
+  "zeroIfMissing": false,
+  "papersMax": 500
  },
  "CUSB_AGRI": {
   "combos": [
@@ -1178,6 +1230,81 @@
   "papers": "Chemistry + Agriculture or Biology or Maths or Physics",
   "prorated": false,
   "needsLanguage": false,
-  "zeroIfMissing": false
+  "zeroIfMissing": false,
+  "papersMax": 500
+ },
+ "JNU_EN_GAT": {
+  "combos": [
+   [
+    [
+     "english"
+    ],
+    "G"
+   ]
+  ],
+  "max": 100,
+  "papers": "English + GAT",
+  "prorated": false,
+  "needsLanguage": false,
+  "zeroIfMissing": false,
+  "papersMax": 500
+ },
+ "JMI_GAT": {
+  "combos": [
+   [
+    "G"
+   ]
+  ],
+  "max": 250,
+  "papers": "GAT",
+  "prorated": false,
+  "needsLanguage": false,
+  "zeroIfMissing": false,
+  "papersMax": 250
+ },
+ "JMI_HINDI": {
+  "combos": [
+   [
+    [
+     "hindi"
+    ]
+   ]
+  ],
+  "max": 250,
+  "papers": "Hindi",
+  "prorated": false,
+  "needsLanguage": false,
+  "zeroIfMissing": false,
+  "papersMax": 250
+ },
+ "JMI_URDU": {
+  "combos": [
+   [
+    [
+     "urdu"
+    ]
+   ]
+  ],
+  "max": 250,
+  "papers": "Urdu",
+  "prorated": false,
+  "needsLanguage": false,
+  "zeroIfMissing": false,
+  "papersMax": 250
+ },
+ "JMI_MATHS": {
+  "combos": [
+   [
+    [
+     "maths"
+    ]
+   ]
+  ],
+  "max": 250,
+  "papers": "Maths",
+  "prorated": false,
+  "needsLanguage": false,
+  "zeroIfMissing": false,
+  "papersMax": 250
  }
 }

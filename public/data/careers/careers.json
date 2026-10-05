@@ -999,6 +999,20 @@
     "exam": "CUET (CUSB)",
     "closing": "230 / 500 CUET",
     "q": "Central University of South Bihar, Gaya"
+   },
+   {
+    "college": "Jawaharlal Nehru University, New Delhi",
+    "branch": "B.A. (Hons.) French",
+    "exam": "CUET (JNU)",
+    "closing": "65.42 / 100 (JNU merit)",
+    "q": null
+   },
+   {
+    "college": "Jamia Millia Islamia, New Delhi",
+    "branch": "B.A. (Hons.) Urdu",
+    "exam": "CUET (Jamia)",
+    "closing": "222.8 / 250 CUET",
+    "q": "Jamia Millia Islamia, New Delhi"
    }
   ],
   "notable_people": [
@@ -4526,7 +4540,7 @@
    },
    {
     "name": "Jamia Millia Islamia",
-    "q": null
+    "q": "Jamia Millia Islamia, New Delhi"
    },
    {
     "name": "Aligarh Muslim University",
@@ -7136,7 +7150,7 @@
    },
    {
     "name": "Jamia Millia Islamia",
-    "q": null
+    "q": "Jamia Millia Islamia, New Delhi"
    },
    {
     "name": "English and Foreign Languages University (EFLU) Hyderabad",
@@ -7228,7 +7242,7 @@
    },
    {
     "name": "Jamia Millia Islamia",
-    "q": null
+    "q": "Jamia Millia Islamia, New Delhi"
    }
   ],
   "pay": {
@@ -7859,6 +7873,13 @@
     "exam": "CUET (CUSB)",
     "closing": "195 / 500 CUET",
     "q": "Central University of South Bihar, Gaya"
+   },
+   {
+    "college": "Jamia Millia Islamia, New Delhi",
+    "branch": "B.Sc. (Hons.) Applied Mathematics",
+    "exam": "CUET (Jamia)",
+    "closing": "122.04 / 250 CUET",
+    "q": "Jamia Millia Islamia, New Delhi"
    }
   ],
   "notable_people": [
@@ -11118,7 +11139,7 @@
    },
    {
     "name": "Jamia Millia Islamia",
-    "q": null
+    "q": "Jamia Millia Islamia, New Delhi"
    },
    {
     "name": "Nirmala Niketan Mumbai",
@@ -11529,7 +11550,7 @@
    },
    {
     "name": "Jamia Millia Islamia",
-    "q": null
+    "q": "Jamia Millia Islamia, New Delhi"
    },
    {
     "name": "Tata Institute of Social Sciences (TISS)",

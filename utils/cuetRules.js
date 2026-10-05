@@ -126,7 +126,10 @@ export function courseScore(ruleId, scores) {
     const scaled = (sum * size) / combo.length;
     if (best === null || scaled > best) best = scaled;
   }
-  return best === null ? null : Math.round(best * 100) / 100;
+  if (best === null) return null;
+  // the university may print the paper total rescaled (JNU: of 500 -> of 100)
+  const scaled = rule.papersMax ? (best * rule.max) / rule.papersMax : best;
+  return Math.round(scaled * 100) / 100;
 }
 
 /** "english-212,maths-165" <-> { english: 212, maths: 165 } (the URL form) */
