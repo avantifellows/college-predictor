@@ -84,6 +84,12 @@ export const SECTIONS = {
         name: "JoSAA Quiz and Simulator",
         line: "How JoSAA seat allotment works",
       },
+      {
+        href: "/mhtcet",
+        icon: ListChecks,
+        name: "MHT CET Quiz and Simulator",
+        line: "How CAP seat allotment works",
+      },
     ],
   },
 };
@@ -112,6 +118,7 @@ export const MENU_OF_PATH = [
   ["/college_predictor", "colleges"],
   ["/exams", "exams"],
   ["/josaa", "exams"],
+  ["/mhtcet", "exams"],
   ["/mock-allotment", "exams"],
 ];
 export const menuOf = (pathname = "") => {
