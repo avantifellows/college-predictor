@@ -12,6 +12,10 @@
   "entry_exams_text": "UPSC Civil Services Exam (a national exam for government administrative jobs like IAS officer), CAT (a national exam to get into business schools like IIMs for a management degree), or no fixed exam at all if you join corporate admin roles straight after a BBA (Bachelor of Business Administration) degree.",
   "exams": [
    {
+    "label": "CUET (DU, BHU)",
+    "href": "/predictor?exam=CUET"
+   },
+   {
     "label": "BBA-CET (125)",
     "href": "/exams?q=BBA-CET (125)"
    }
@@ -58,7 +62,22 @@
   "stability": "High",
   "automation_risk": "Low",
   "where_work": "Metro cities mainly for corporate roles, but government postings can be anywhere including small towns",
-  "college_options": [],
+  "college_options": [
+   {
+    "college": "College of Vocational Studies",
+    "branch": "B.A.",
+    "exam": "CUET (DU)",
+    "closing": "681 / 1000 CUET",
+    "q": "College of Vocational Studies"
+   },
+   {
+    "college": "Rajiv Gandhi South Campus, Banaras Hindu University, Mirzapur",
+    "branch": "Bachelor of Vocation in Modern Office Management",
+    "exam": "CUET (BHU)",
+    "closing": "209.34 / 500 CUET",
+    "q": "Rajiv Gandhi South Campus, Banaras Hindu University, Mirzapur"
+   }
+  ],
   "notable_people": [
    "Kiran Bedi (first woman IPS officer)",
    "Armstrong Pame (IAS officer known for road-building)",
@@ -428,6 +447,10 @@
   "entry_exams_text": "ICAR AIEEA (a national exam to get into agriculture degree programs at government agricultural universities), or state-level agriculture entrance exams; some private colleges admit based on Class 12 marks.",
   "exams": [
    {
+    "label": "CUET (DU, BHU)",
+    "href": "/predictor?exam=CUET"
+   },
+   {
     "label": "ICAR-UG (CUET)",
     "href": "/predictor?exam=ICAR-UG"
    },
@@ -481,6 +504,13 @@
     "exam": "ICAR-UG (CUET)",
     "closing": "594.4 CUET marks (of 750)",
     "q": "Punjab Agricultural University, Ludhiana"
+   },
+   {
+    "college": "Faculty of Agriculture, Banaras Hindu University",
+    "branch": "Bachelor of Science (Honours) in Agriculture",
+    "exam": "CUET (BHU)",
+    "closing": "608.08 / 750 CUET",
+    "q": "Faculty of Agriculture, Banaras Hindu University"
    }
   ],
   "notable_people": [
@@ -888,8 +918,8 @@
   "entry_exams_text": "No single fixed entrance exam \u2014 many colleges take students based on Class 12 marks, a portfolio of artwork, or their own entrance test; fine arts programs often require a practical drawing or design test.",
   "exams": [
    {
-    "label": "CUET (UG)",
-    "href": "/exams?q=CUET (UG)"
+    "label": "CUET (DU, BHU)",
+    "href": "/predictor?exam=CUET"
    }
   ],
   "top_colleges": [
@@ -934,7 +964,22 @@
   "stability": "Medium",
   "automation_risk": "Medium",
   "where_work": "Metro cities mainly for galleries and agencies, but works from anywhere is increasingly possible for freelance artists and writers",
-  "college_options": [],
+  "college_options": [
+   {
+    "college": "Miranda House (W)",
+    "branch": "B.A Program",
+    "exam": "CUET (DU)",
+    "closing": "886.28 / 1000 CUET",
+    "q": "Miranda House (W)"
+   },
+   {
+    "college": "Faculty of Social Sciences, Banaras Hindu University",
+    "branch": "Bachelor of Arts (Honours) in Geography with Political Science",
+    "exam": "CUET (BHU)",
+    "closing": "359.81 / 500 CUET",
+    "q": "Faculty of Social Sciences, Banaras Hindu University"
+   }
+  ],
   "notable_people": [
    "M.F. Husain (celebrated modern Indian painter)",
    "Amrita Sher-Gil (pioneering Indian painter)",
@@ -1348,7 +1393,12 @@
   "day_in_life": "A biochemist works in a lab studying the chemical processes inside living things \u2014 like how cells make energy or how diseases change body chemistry \u2014 running experiments and analyzing results to understand health and disease better. Most of the day involves precise lab work with chemicals, samples, and lab equipment.",
   "impact": "Biochemists at companies like Biocon and Dr. Reddy's Laboratories help develop new medicines by understanding how drugs interact with the body at a chemical level, which is how India became a major global supplier of affordable generic medicines.",
   "entry_exams_text": "No single fixed entrance exam for a Biochemistry bachelor's degree \u2014 most colleges admit based on Class 12 marks (with Biology and Chemistry); for master's or research roles, exams like CSIR-NET or GATE (a national exam for science and engineering postgraduate admissions and research jobs) become relevant.",
-  "exams": null,
+  "exams": [
+   {
+    "label": "CUET (DU, BHU)",
+    "href": "/predictor?exam=CUET"
+   }
+  ],
   "top_colleges": [
    {
     "name": "University of Delhi",
@@ -1390,7 +1440,15 @@
   "stability": "Medium",
   "automation_risk": "Low",
   "where_work": "Metro cities mainly, since most pharma and research labs are based in major cities",
-  "college_options": [],
+  "college_options": [
+   {
+    "college": "Kirori Mal College",
+    "branch": "B.Sc Applied Physical Sciences with Analytical Methods in Chemistry & Biochemistry",
+    "exam": "CUET (DU)",
+    "closing": "350.01 / 750 CUET",
+    "q": "Kirori Mal College"
+   }
+  ],
   "notable_people": [
    "G.N. Ramachandran (renowned Indian biochemist, known for protein structure research)",
    "Obaid Siddiqi (pioneering Indian molecular biologist)",
@@ -2028,7 +2086,12 @@
   "day_in_life": "A botanist studies plants \u2014 their growth, genetics, diseases, and uses \u2014 spending time in labs examining plant samples, in botanical gardens or forests collecting specimens, or teaching students about plant science. Fieldwork days involve walking through natural areas identifying and studying plant life.",
   "impact": "Botanists at the Botanical Survey of India help discover and protect rare Indian plant species, and plant scientists working with seed companies help develop crop varieties that can survive droughts, directly supporting farmers' incomes across the country.",
   "entry_exams_text": "No single fixed entrance exam for a Botany bachelor's degree \u2014 most colleges admit based on Class 12 marks (with Biology as a subject); for research roles later, exams like CSIR-NET (a national exam for science research fellowships and teaching jobs) become relevant.",
-  "exams": null,
+  "exams": [
+   {
+    "label": "CUET (DU, BHU)",
+    "href": "/predictor?exam=CUET"
+   }
+  ],
   "top_colleges": [
    {
     "name": "University of Delhi",
@@ -2070,7 +2133,22 @@
   "stability": "Medium",
   "automation_risk": "Low",
   "where_work": "Tier-2 cities, and fieldwork-heavy botany roles often mean working near forests or rural research stations",
-  "college_options": [],
+  "college_options": [
+   {
+    "college": "Miranda House (W)",
+    "branch": "B.Sc (Hons.) Botany",
+    "exam": "CUET (DU)",
+    "closing": "625.25 / 750 CUET",
+    "q": "Miranda House (W)"
+   },
+   {
+    "college": "Faculty of Science, Banaras Hindu University",
+    "branch": "Bachelor of Science (Honours) in Botany with Chemistry",
+    "exam": "CUET (BHU)",
+    "closing": "547.63 / 750 CUET",
+    "q": "Faculty of Science, Banaras Hindu University"
+   }
+  ],
   "notable_people": [
    "Janaki Ammal (pioneering Indian botanist known for sugarcane research)",
    "E.K. Janaki Ammal (cytogeneticist and plant scientist)",
@@ -2103,7 +2181,12 @@
   "day_in_life": "An MBA graduate spends their day in meetings, analysing business numbers, planning strategy, or managing teams to help a company grow, cut costs, or launch new products - the exact tasks depend on which area of business they choose.",
   "impact": "MBA graduates working at companies like Tata, HUL, and McKinsey shape decisions on which products to launch, how to price them, and how to run operations efficiently, directly affecting jobs and the products millions of Indians use.",
   "entry_exams_text": "CAT (Common Admission Test, the main national exam for getting into India's top business schools, testing quantitative, verbal, and logical reasoning skills). Note: an MBA is a postgraduate degree, meaning students first complete a bachelor's degree (in any subject) before applying - it is not something you do straight after Class 12.",
-  "exams": null,
+  "exams": [
+   {
+    "label": "CUET (DU, BHU)",
+    "href": "/predictor?exam=CUET"
+   }
+  ],
   "top_colleges": [
    {
     "name": "Indian Institutes of Management (IIMs) Ahmedabad/Bangalore/Calcutta",
@@ -2142,7 +2225,22 @@
   "stability": "Medium",
   "automation_risk": "Low",
   "where_work": "Metro cities mainly",
-  "college_options": [],
+  "college_options": [
+   {
+    "college": "College of Vocational Studies",
+    "branch": "B.A.",
+    "exam": "CUET (DU)",
+    "closing": "681 / 1000 CUET",
+    "q": "College of Vocational Studies"
+   },
+   {
+    "college": "Rajiv Gandhi South Campus, Banaras Hindu University, Mirzapur",
+    "branch": "Bachelor of Vocation in Modern Office Management",
+    "exam": "CUET (BHU)",
+    "closing": "209.34 / 500 CUET",
+    "q": "Rajiv Gandhi South Campus, Banaras Hindu University, Mirzapur"
+   }
+  ],
   "notable_people": [
    "Indra Nooyi (former CEO, PepsiCo)",
    "Kumar Mangalam Birla (chairman, Aditya Birla Group)",
@@ -2600,6 +2698,10 @@
   "entry_exams_text": "JEE (Joint Entrance Exam, for admission into engineering and some science programs) or CUET (Common University Entrance Test, used by many central universities for undergraduate admission) for a BSc in Chemistry; GATE (Graduate Aptitude Test in Engineering, needed for master's or research programs) or CSIR-NET (a national exam for research and teaching jobs in science) for higher studies later.",
   "exams": [
    {
+    "label": "CUET (DU, BHU)",
+    "href": "/predictor?exam=CUET"
+   },
+   {
     "label": "JEE Main",
     "href": "/exams?q=JEE Main"
    },
@@ -2660,11 +2762,25 @@
   "where_work": "Tier-2 cities for teaching, metro cities mainly for research labs and pharma companies",
   "college_options": [
    {
-    "college": "Indian Institute of Technology Delhi",
+    "college": "Indian Institute of Technology Bombay",
     "branch": "Chemistry",
     "exam": "JEE Advanced",
-    "closing": "8,107",
-    "q": "Indian Institute of Technology Delhi"
+    "closing": "7,081",
+    "q": "Indian Institute of Technology Bombay"
+   },
+   {
+    "college": "Miranda House (W)",
+    "branch": "B.Sc (Hons.) Chemistry",
+    "exam": "CUET (DU)",
+    "closing": "461.4 / 750 CUET",
+    "q": "Miranda House (W)"
+   },
+   {
+    "college": "Faculty of Science, Banaras Hindu University",
+    "branch": "Bachelor of Science (Honours) in Chemistry with Botany",
+    "exam": "CUET (BHU)",
+    "closing": "556.11 / 750 CUET",
+    "q": "Faculty of Science, Banaras Hindu University"
    }
   ],
   "notable_people": [
@@ -2859,6 +2975,10 @@
   "entry_exams_text": "No single fixed entrance exam for a basic B.Com (Bachelor of Commerce) degree at most colleges \u2014 admission is usually based on Class 12 marks, though some top colleges use CUET (Common University Entrance Test, a common exam for admission to central universities).",
   "exams": [
    {
+    "label": "CUET (DU, BHU)",
+    "href": "/predictor?exam=CUET"
+   },
+   {
     "label": "CUET",
     "href": "/exams?q=CUET"
    }
@@ -2901,7 +3021,22 @@
   "stability": "High",
   "automation_risk": "Medium",
   "where_work": "Works from anywhere for many finance-related roles, metro cities mainly for top corporate jobs",
-  "college_options": [],
+  "college_options": [
+   {
+    "college": "Kirori Mal College",
+    "branch": "B.Com (Hons.)",
+    "exam": "CUET (DU)",
+    "closing": "897.17 / 1000 CUET",
+    "q": "Kirori Mal College"
+   },
+   {
+    "college": "Faculty of Commerce, Banaras Hindu University",
+    "branch": "Bachelor of Commerce (Honours)",
+    "exam": "CUET (BHU)",
+    "closing": "523.71 / 750 CUET",
+    "q": "Faculty of Commerce, Banaras Hindu University"
+   }
+  ],
   "notable_people": [
    "Uday Kotak (banker, founder of Kotak Mahindra Bank)",
    "Kiran Mazumdar-Shaw (entrepreneur, Biocon founder, commerce background)",
@@ -3020,6 +3155,10 @@
    {
     "label": "AP EAPCET",
     "href": "/exams?q=AP-EAPCET"
+   },
+   {
+    "label": "CUET (DU, BHU)",
+    "href": "/predictor?exam=CUET"
    },
    {
     "label": "GUJCET",
@@ -3192,6 +3331,10 @@
    {
     "label": "AP EAPCET",
     "href": "/exams?q=AP-EAPCET"
+   },
+   {
+    "label": "CUET (DU, BHU)",
+    "href": "/predictor?exam=CUET"
    },
    {
     "label": "GUJCET",
@@ -3529,6 +3672,10 @@
     "href": "/exams?q=AP-EAPCET"
    },
    {
+    "label": "CUET (DU, BHU)",
+    "href": "/predictor?exam=CUET"
+   },
+   {
     "label": "GUJCET",
     "href": "/exams?q=GUJCET"
    },
@@ -3620,6 +3767,13 @@
     "exam": "ICAR-UG (CUET)",
     "closing": "529.44 CUET marks (of 750)",
     "q": "ICAR-National Dairy Research Institute, Karnal"
+   },
+   {
+    "college": "Faculty of Agriculture, Banaras Hindu University",
+    "branch": "Bachelor of Technology in Dairy Technology",
+    "exam": "CUET (BHU)",
+    "closing": "378.35 / 750 CUET",
+    "q": "Faculty of Agriculture, Banaras Hindu University"
    }
   ],
   "notable_people": [
@@ -3900,6 +4054,10 @@
     "href": "/exams?q=AP-EAPCET"
    },
    {
+    "label": "CUET (DU, BHU)",
+    "href": "/predictor?exam=CUET"
+   },
+   {
     "label": "JEE Main",
     "href": "/exams?q=JEE Main"
    },
@@ -4002,6 +4160,13 @@
     "exam": "TNEA",
     "closing": "183/200 marks",
     "q": "Thiagarajar College of Engineering (Autonomous) Tirupparankundram Madurai District 625015"
+   },
+   {
+    "college": "Rajiv Gandhi South Campus, Banaras Hindu University, Mirzapur",
+    "branch": "Bachelor of Vocation in Fashion Technology & Apparel Design",
+    "exam": "CUET (BHU)",
+    "closing": "215.11 / 500 CUET",
+    "q": "Rajiv Gandhi South Campus, Banaras Hindu University, Mirzapur"
    }
   ],
   "notable_people": [
@@ -4130,6 +4295,10 @@
   "entry_exams_text": "No single fixed entrance exam for a basic Economics degree at most colleges \u2014 admission is usually based on Class 12 marks, though some top colleges use CUET (Common University Entrance Test, a common exam for central university admissions) or their own entrance test like DU's or ISI's admission test.",
   "exams": [
    {
+    "label": "CUET (DU, BHU)",
+    "href": "/predictor?exam=CUET"
+   },
+   {
     "label": "JEE Main",
     "href": "/exams?q=JEE Main"
    },
@@ -4191,6 +4360,20 @@
     "exam": "JEE Advanced",
     "closing": "2,345",
     "q": "Indian Institute of Technology Bombay"
+   },
+   {
+    "college": "Miranda House (W)",
+    "branch": "B.A. (Hons.) Economics",
+    "exam": "CUET (DU)",
+    "closing": "831.26 / 1000 CUET",
+    "q": "Miranda House (W)"
+   },
+   {
+    "college": "Faculty of Social Sciences, Banaras Hindu University",
+    "branch": "Bachelor of Arts (Honours) in Economics with Political Science",
+    "exam": "CUET (BHU)",
+    "closing": "357.92 / 500 CUET",
+    "q": "Faculty of Social Sciences, Banaras Hindu University"
    }
   ],
   "notable_people": [
@@ -4216,6 +4399,10 @@
    {
     "label": "AP EAPCET",
     "href": "/exams?q=AP-EAPCET"
+   },
+   {
+    "label": "CUET (DU, BHU)",
+    "href": "/predictor?exam=CUET"
    },
    {
     "label": "GUJCET",
@@ -4393,6 +4580,10 @@
     "href": "/exams?q=AP-EAPCET"
    },
    {
+    "label": "CUET (DU, BHU)",
+    "href": "/predictor?exam=CUET"
+   },
+   {
     "label": "GUJCET",
     "href": "/exams?q=GUJCET"
    },
@@ -4568,6 +4759,10 @@
     "href": "/exams?q=AP-EAPCET"
    },
    {
+    "label": "CUET (DU, BHU)",
+    "href": "/predictor?exam=CUET"
+   },
+   {
     "label": "GUJCET",
     "href": "/exams?q=GUJCET"
    },
@@ -4741,6 +4936,10 @@
    {
     "label": "AP EAPCET",
     "href": "/exams?q=AP-EAPCET"
+   },
+   {
+    "label": "CUET (DU, BHU)",
+    "href": "/predictor?exam=CUET"
    },
    {
     "label": "GUJCET",
@@ -5301,6 +5500,10 @@
   "entry_exams_text": "No single fixed entrance exam \u2014 most colleges admit students for a BA in English based on Class 12 marks, though some top universities use CUET (Common University Entrance Test, a common exam for central university admissions).",
   "exams": [
    {
+    "label": "CUET (DU, BHU)",
+    "href": "/predictor?exam=CUET"
+   },
+   {
     "label": "CUET",
     "href": "/exams?q=CUET"
    }
@@ -5342,7 +5545,22 @@
   "stability": "Medium",
   "automation_risk": "Medium",
   "where_work": "Works from anywhere for writing and editing roles, since much of this work can be done remotely",
-  "college_options": [],
+  "college_options": [
+   {
+    "college": "Miranda House (W)",
+    "branch": "B.A. (Hons.) English",
+    "exam": "CUET (DU)",
+    "closing": "851.33 / 1000 CUET",
+    "q": "Miranda House (W)"
+   },
+   {
+    "college": "Faculty of Arts, Banaras Hindu University",
+    "branch": "Bachelor of Arts (Honours) in English with German",
+    "exam": "CUET (BHU)",
+    "closing": "354.45 / 500 CUET",
+    "q": "Faculty of Arts, Banaras Hindu University"
+   }
+  ],
   "notable_people": [
    "Arundhati Roy (Booker Prize-winning Indian author)",
    "Chetan Bhagat (bestselling Indian English-language novelist)",
@@ -5496,6 +5714,10 @@
   "entry_exams_text": "CA (Chartered Accountancy exam, run by ICAI, for accounting and finance experts), CFA (Chartered Financial Analyst, a global exam for investment professionals), CAT (Common Admission Test, for MBA in Finance), or simply a B.Com/BBA degree followed by on-the-job learning.",
   "exams": [
    {
+    "label": "CUET (DU, BHU)",
+    "href": "/predictor?exam=CUET"
+   },
+   {
     "label": "BBA-CET (125)",
     "href": "/exams?q=BBA-CET (125)"
    }
@@ -5538,7 +5760,22 @@
   "stability": "High",
   "automation_risk": "Medium",
   "where_work": "Metro cities mainly",
-  "college_options": [],
+  "college_options": [
+   {
+    "college": "Ramanujan College",
+    "branch": "B.Voc. Banking, Financial Services and Insurance",
+    "exam": "CUET (DU)",
+    "closing": "676.67 / 1000 CUET",
+    "q": "Ramanujan College"
+   },
+   {
+    "college": "Faculty of Commerce, Banaras Hindu University",
+    "branch": "Bachelor of Commerce (Honours) in Financial Markets Management",
+    "exam": "CUET (BHU)",
+    "closing": "524.68 / 750 CUET",
+    "q": "Faculty of Commerce, Banaras Hindu University"
+   }
+  ],
   "notable_people": [
    "Uday Kotak: founded Kotak Mahindra Bank | Falguni Nayar: ex-banker turned Nykaa founder | Nirmala Sitharaman: India's Finance Minister"
   ],
@@ -5653,6 +5890,10 @@
    {
     "label": "AP EAPCET",
     "href": "/exams?q=AP-EAPCET"
+   },
+   {
+    "label": "CUET (DU, BHU)",
+    "href": "/predictor?exam=CUET"
    },
    {
     "label": "GUJCET",
@@ -6016,6 +6257,10 @@
   "entry_exams_text": "GATE (Graduate Aptitude Test in Engineering, a national exam for getting into master's programs or government jobs in geology), or a B.Sc in Geology through Class 12 marks-based admission.",
   "exams": [
    {
+    "label": "CUET (DU, BHU)",
+    "href": "/predictor?exam=CUET"
+   },
+   {
     "label": "JEE Main",
     "href": "/exams?q=JEE Main"
    },
@@ -6063,11 +6308,25 @@
   "where_work": "Works in remote mining/drilling sites often",
   "college_options": [
    {
-    "college": "Indian Institute of Technology Kharagpur",
-    "branch": "Exploration Geophysics",
+    "college": "Indian Institute of Technology Roorkee",
+    "branch": "Geophysical Technology",
     "exam": "JEE Advanced",
-    "closing": "12,011",
-    "q": "Indian Institute of Technology Kharagpur"
+    "closing": "8,630",
+    "q": "Indian Institute of Technology Roorkee"
+   },
+   {
+    "college": "Ram Lal Anand College",
+    "branch": "B.Sc (Hons.) Geology",
+    "exam": "CUET (DU)",
+    "closing": "459.42 / 750 CUET",
+    "q": "Ram Lal Anand College"
+   },
+   {
+    "college": "Faculty of Science, Banaras Hindu University",
+    "branch": "Bachelor of Science (Honours) in Earth Science with Geography",
+    "exam": "CUET (BHU)",
+    "closing": "514.55 / 750 CUET",
+    "q": "Faculty of Science, Banaras Hindu University"
    }
   ],
   "notable_people": [
@@ -6131,7 +6390,12 @@
   "day_in_life": "A historian reads old documents, books, and records, visits archives or old monuments, and writes or teaches about how people lived in the past. Days can involve research in libraries, interviewing people for oral history, or preparing lessons for students.",
   "impact": "Historians help India understand its own past, from the freedom struggle to ancient civilizations like the Indus Valley, and their research shapes museum exhibits, school textbooks, and documentaries watched by millions. Their work also helps settle debates about historical events and monuments that matter to communities today.",
   "entry_exams_text": "No single fixed entrance exam \u2014 many colleges take students based on Class 12 marks, though top universities like Delhi University and Jawaharlal Nehru University have their own entrance tests for higher studies.",
-  "exams": null,
+  "exams": [
+   {
+    "label": "CUET (DU, BHU)",
+    "href": "/predictor?exam=CUET"
+   }
+  ],
   "top_colleges": [
    {
     "name": "Jawaharlal Nehru University (Delhi)",
@@ -6169,7 +6433,22 @@
   "stability": "Medium",
   "automation_risk": "Low",
   "where_work": "Works from anywhere for research and writing",
-  "college_options": [],
+  "college_options": [
+   {
+    "college": "Miranda House (W)",
+    "branch": "B.A. (Hons.) History",
+    "exam": "CUET (DU)",
+    "closing": "882.71 / 1000 CUET",
+    "q": "Miranda House (W)"
+   },
+   {
+    "college": "Faculty of Social Sciences, Banaras Hindu University",
+    "branch": "Bachelor of Arts (Honours) in History with Political Science",
+    "exam": "CUET (BHU)",
+    "closing": "350.09 / 500 CUET",
+    "q": "Faculty of Social Sciences, Banaras Hindu University"
+   }
+  ],
   "notable_people": [
    "Romila Thapar: eminent Indian historian on ancient India | Ramachandra Guha: well-known historian and author"
   ],
@@ -6316,6 +6595,10 @@
   "entry_exams_text": "NCHMCT JEE (National Council for Hotel Management and Catering Technology Joint Entrance Exam, the main exam for hotel management degree admission in India).",
   "exams": [
    {
+    "label": "CUET (DU, BHU)",
+    "href": "/predictor?exam=CUET"
+   },
+   {
     "label": "JEE Advanced",
     "href": "/exams?q=JEE Advanced"
    }
@@ -6354,7 +6637,15 @@
   "stability": "Medium",
   "automation_risk": "Low",
   "where_work": "Metro cities and tourist destinations mainly",
-  "college_options": [],
+  "college_options": [
+   {
+    "college": "Rajiv Gandhi South Campus, Banaras Hindu University, Mirzapur",
+    "branch": "Bachelor of Vocation in Hospitality & Tourism Management",
+    "exam": "CUET (BHU)",
+    "closing": "210.94 / 500 CUET",
+    "q": "Rajiv Gandhi South Campus, Banaras Hindu University, Mirzapur"
+   }
+  ],
   "notable_people": [
    "Rattan Tata: guided Taj Hotels' growth as chairman of Tata Group | P. R. S. Oberoi: built the Oberoi hotel chain"
   ],
@@ -6604,6 +6895,10 @@
     "href": "/exams?q=AP-EAPCET"
    },
    {
+    "label": "CUET (DU, BHU)",
+    "href": "/predictor?exam=CUET"
+   },
+   {
     "label": "GUJCET",
     "href": "/exams?q=GUJCET"
    },
@@ -6706,6 +7001,13 @@
     "exam": "TNEA",
     "closing": "194/200 marks",
     "q": "PSG College of Technology (Autonomous) Peelamedu Coimbatore District 641004"
+   },
+   {
+    "college": "Bhaskaracharya College of Applied Sciences",
+    "branch": "B.Sc (Hons.) Instrumentation",
+    "exam": "CUET (DU)",
+    "closing": "214.5 / 750 CUET",
+    "q": "Bhaskaracharya College of Applied Sciences"
    }
   ],
   "notable_people": [
@@ -6814,7 +7116,12 @@
   "day_in_life": "A journalist spends their day finding stories, calling and meeting people to ask questions, verifying facts, and writing or recording reports for newspapers, TV, or websites before a deadline.",
   "impact": "Journalists at organisations like NDTV, The Hindu, and India Today inform millions of citizens about elections, floods, scams, and policy changes, helping people make informed decisions and holding powerful people accountable.",
   "entry_exams_text": "No single fixed entrance exam - many colleges admit students based on Class 12 marks or their own entrance test, though some students also take exams like the IIMC entrance test (Indian Institute of Mass Communication's own exam for its journalism courses).",
-  "exams": null,
+  "exams": [
+   {
+    "label": "CUET (DU, BHU)",
+    "href": "/predictor?exam=CUET"
+   }
+  ],
   "top_colleges": [
    {
     "name": "Indian Institute of Mass Communication (IIMC) Delhi",
@@ -6857,7 +7164,15 @@
   "stability": "Medium",
   "automation_risk": "Medium",
   "where_work": "Metro cities mainly",
-  "college_options": [],
+  "college_options": [
+   {
+    "college": "Lady Shri Ram College for Women (W)",
+    "branch": "B.A. (Hons.) Journalism",
+    "exam": "CUET (DU)",
+    "closing": "869.73 / 1000 CUET",
+    "q": "Lady Shri Ram College for Women (W)"
+   }
+  ],
   "notable_people": [
    "Barkha Dutt (TV journalist and anchor)",
    "Ravish Kumar (Hindi news anchor)",
@@ -6891,6 +7206,10 @@
   "impact": "Lawyers at firms handling cases for companies like Reliance or Tata, or working with everyday citizens, help resolve property disputes, business contracts, and criminal cases, and some go on to become judges who decide what is fair and legal in India.",
   "entry_exams_text": "CLAT (Common Law Admission Test, a national exam that decides admission into most top law colleges in India, testing reading comprehension, reasoning, and general knowledge).",
   "exams": [
+   {
+    "label": "CUET (DU, BHU)",
+    "href": "/predictor?exam=CUET"
+   },
    {
     "label": "CLAT",
     "href": "/exams?q=CLAT"
@@ -6945,6 +7264,13 @@
     "exam": "CLAT",
     "closing": "120",
     "q": "National Law School of India University (NLSIU), Bengaluru"
+   },
+   {
+    "college": "Faculty of Law, Banaras Hindu University",
+    "branch": "Bachelor of Arts and Bachelor of Legislative Law (Honours)",
+    "exam": "CUET (BHU)",
+    "closing": "373.63 / 500 CUET",
+    "q": "Faculty of Law, Banaras Hindu University"
    }
   ],
   "notable_people": [
@@ -6980,6 +7306,10 @@
   "impact": "Life science researchers at places like the Council of Scientific and Industrial Research (CSIR) and Serum Institute of India contribute to vaccines, better crops, and new medicines that improve health and food supply for millions.",
   "entry_exams_text": "No single fixed entrance exam for the undergraduate degree - admission is usually based on Class 12 Science marks, though some top institutes use CUET (Common University Entrance Test, a national exam for admission to many Indian universities); for research careers, students later take exams like CSIR-NET (a national exam to become a science researcher or lecturer).",
   "exams": [
+   {
+    "label": "CUET (DU, BHU)",
+    "href": "/predictor?exam=CUET"
+   },
    {
     "label": "JEE Main",
     "href": "/exams?q=JEE Main"
@@ -7042,6 +7372,13 @@
     "exam": "JEE Main",
     "closing": "50,388",
     "q": "National Institute of Technology, Rourkela"
+   },
+   {
+    "college": "Miranda House (W)",
+    "branch": "B.Sc",
+    "exam": "CUET (DU)",
+    "closing": "581.45 / 750 CUET",
+    "q": "Miranda House (W)"
    }
   ],
   "notable_people": [
@@ -7318,6 +7655,10 @@
   "entry_exams_text": "No single fixed entrance exam for the undergraduate degree - admission is usually through CUET (Common University Entrance Test, a national exam for admission to many Indian universities) or Class 12 marks; for top research institutes, students take exams like the ISI Admission Test or CMI Entrance Test (each institute's own exam for math talent).",
   "exams": [
    {
+    "label": "CUET (DU, BHU)",
+    "href": "/predictor?exam=CUET"
+   },
+   {
     "label": "JEE Main",
     "href": "/exams?q=JEE Main"
    },
@@ -7386,6 +7727,20 @@
     "exam": "JEE Advanced",
     "closing": "957",
     "q": "Indian Institute of Technology Bombay"
+   },
+   {
+    "college": "Miranda House (W)",
+    "branch": "B.Sc (Hons.) Mathematics",
+    "exam": "CUET (DU)",
+    "closing": "712.41 / 1000 CUET",
+    "q": "Miranda House (W)"
+   },
+   {
+    "college": "Mahila Maha Vidyalaya, Banaras Hindu University",
+    "branch": "Bachelor of Science (Honours) in Statistics with Computer Science",
+    "exam": "CUET (BHU)",
+    "closing": "516.41 / 750 CUET",
+    "q": "Mahila Maha Vidyalaya, Banaras Hindu University"
    }
   ],
   "notable_people": [
@@ -7863,7 +8218,12 @@
   "day_in_life": "A medical lab technologist spends their day in a hospital or diagnostic lab collecting blood or tissue samples, running them through machines, and preparing accurate test reports that doctors use to diagnose patients.",
   "impact": "Lab technologists working at chains like Dr Lal PathLabs and SRL Diagnostics generate the blood tests, sugar tests, and infection reports that doctors across India rely on every single day to treat patients correctly.",
   "entry_exams_text": "No single fixed national entrance exam - most colleges admit students into a BSc or diploma in Medical Lab Technology (MLT) based on Class 12 marks in Science, though some states and universities run their own entrance tests.",
-  "exams": null,
+  "exams": [
+   {
+    "label": "CUET (DU, BHU)",
+    "href": "/predictor?exam=CUET"
+   }
+  ],
   "top_colleges": [
    {
     "name": "All India Institute of Medical Sciences (AIIMS) New Delhi",
@@ -7902,7 +8262,15 @@
   "stability": "High",
   "automation_risk": "Medium",
   "where_work": "Tier-2 cities",
-  "college_options": [],
+  "college_options": [
+   {
+    "college": "Rajiv Gandhi South Campus, Banaras Hindu University, Mirzapur",
+    "branch": "Bachelor of Vocation in Medical Lab Technology",
+    "exam": "CUET (BHU)",
+    "closing": "389.19 / 500 CUET",
+    "q": "Rajiv Gandhi South Campus, Banaras Hindu University, Mirzapur"
+   }
+  ],
   "notable_people": [
    "Dr Arjun Lal Bhalla (founder, Dr Lal PathLabs)",
    "Dr Ganesh Sanjeevi (pathology researcher and educator)"
@@ -8333,7 +8701,12 @@
   "day_in_life": "A musician spends their day practicing an instrument or voice, rehearsing with others, performing at concerts or recording studios, or composing new songs and scores for films or albums.",
   "impact": "Musicians and composers like those working with Bollywood studios or T-Series create the songs and background scores that entertain and move millions of people across films, weddings, and everyday playlists in India.",
   "entry_exams_text": "No single fixed entrance exam - most music schools and university departments admit students based on an audition (a live performance test) or portfolio, rather than a written exam.",
-  "exams": null,
+  "exams": [
+   {
+    "label": "CUET (DU, BHU)",
+    "href": "/predictor?exam=CUET"
+   }
+  ],
   "top_colleges": [
    {
     "name": "ITM School of Music",
@@ -8371,7 +8744,15 @@
   "stability": "Medium",
   "automation_risk": "Medium",
   "where_work": "Metro cities mainly",
-  "college_options": [],
+  "college_options": [
+   {
+    "college": "Mahila Maha Vidyalaya, Banaras Hindu University",
+    "branch": "Bachelor of Arts (Honours) in Music Vocal with Music Instrumental",
+    "exam": "CUET (BHU)",
+    "closing": "315.59 / 500 CUET",
+    "q": "Mahila Maha Vidyalaya, Banaras Hindu University"
+   }
+  ],
   "notable_people": [
    "A.R. Rahman (Oscar-winning music composer)",
    "Zakir Hussain (world-renowned tabla player)",
@@ -9440,6 +9821,10 @@
   "entry_exams_text": "JEE (Joint Entrance Exam) or an institute's own entrance test gets you into a B.Sc./Integrated M.Sc. Physics program, and later IIT-JAM (Joint Admission Test for Masters, needed for master's programs) or CSIR-NET (a national exam for research fellowships and lecturer jobs) matters for research careers.",
   "exams": [
    {
+    "label": "CUET (DU, BHU)",
+    "href": "/predictor?exam=CUET"
+   },
+   {
     "label": "JEE Main",
     "href": "/exams?q=JEE Main"
    },
@@ -9501,6 +9886,20 @@
     "exam": "JEE Advanced",
     "closing": "3,555",
     "q": "Indian Institute of Technology Madras"
+   },
+   {
+    "college": "Miranda House (W)",
+    "branch": "B.Sc (Hons.) Physics",
+    "exam": "CUET (DU)",
+    "closing": "480.38 / 750 CUET",
+    "q": "Miranda House (W)"
+   },
+   {
+    "college": "Faculty of Science, Banaras Hindu University",
+    "branch": "Bachelor of Science (Honours) in Physics with Computer Science",
+    "exam": "CUET (BHU)",
+    "closing": "478.97 / 750 CUET",
+    "q": "Faculty of Science, Banaras Hindu University"
    }
   ],
   "notable_people": [
@@ -9741,6 +10140,10 @@
   "entry_exams_text": "No single fixed entrance exam for the basic degree \u2014 many colleges take students based on Class 12 marks, though top colleges like Delhi University's best colleges use CUET (Common University Entrance Test, a national exam for undergraduate admission). Later, UPSC Civil Services Exam (the exam for top government administrative jobs) is a common path many political science graduates take.",
   "exams": [
    {
+    "label": "CUET (DU, BHU)",
+    "href": "/predictor?exam=CUET"
+   },
+   {
     "label": "CUET",
     "href": "/exams?q=CUET"
    }
@@ -9787,7 +10190,22 @@
   "stability": "Medium",
   "automation_risk": "Low",
   "where_work": "Metro cities mainly",
-  "college_options": [],
+  "college_options": [
+   {
+    "college": "Miranda House (W)",
+    "branch": "B.A. (Hons.) Political Science",
+    "exam": "CUET (DU)",
+    "closing": "925.98 / 1000 CUET",
+    "q": "Miranda House (W)"
+   },
+   {
+    "college": "Faculty of Social Sciences, Banaras Hindu University",
+    "branch": "Bachelor of Arts (Honours) in Political Science with History",
+    "exam": "CUET (BHU)",
+    "closing": "373.83 / 500 CUET",
+    "q": "Faculty of Social Sciences, Banaras Hindu University"
+   }
+  ],
   "notable_people": [
    "Yogendra Yadav: well-known political scientist and commentator",
    "Shashi Tharoor: politician and former diplomat",
@@ -9821,6 +10239,10 @@
   "impact": "This work is behind everyday plastic items Indians use constantly, from PET bottles made by companies like Reliance Industries to tyres made by MRF and car parts made by Tata Motors' suppliers. Polymer technologists are also central to developing more eco-friendly, biodegradable plastics as India tries to reduce plastic pollution.",
   "entry_exams_text": "JEE (Joint Entrance Exam) followed by a B.Tech in Polymer Technology or Plastics Engineering, or GATE (Graduate Aptitude Test in Engineering) for those pursuing a master's degree in the same field.",
   "exams": [
+   {
+    "label": "CUET (DU, BHU)",
+    "href": "/predictor?exam=CUET"
+   },
    {
     "label": "GUJCET",
     "href": "/exams?q=GUJCET"
@@ -9897,6 +10319,13 @@
     "exam": "HBTU",
     "closing": "116,609 (JEE Main rank)",
     "q": "Harcourt Butler Technical University, Kanpur"
+   },
+   {
+    "college": "Bhaskaracharya College of Applied Sciences",
+    "branch": "B.Sc (Hons.) Polymer Science",
+    "exam": "CUET (DU)",
+    "closing": "210.48 / 750 CUET",
+    "q": "Bhaskaracharya College of Applied Sciences"
    }
   ],
   "notable_people": [
@@ -10003,6 +10432,10 @@
   "entry_exams_text": "No single fixed entrance exam for a bachelor's degree \u2014 most colleges admit based on Class 12 marks, though some like Delhi University use CUET (Common University Entrance Test, a single exam many central universities use for admission). For a master's degree, exams like CUET-PG or university-specific tests are common.",
   "exams": [
    {
+    "label": "CUET (DU, BHU)",
+    "href": "/predictor?exam=CUET"
+   },
+   {
     "label": "CUET",
     "href": "/exams?q=CUET"
    }
@@ -10048,7 +10481,22 @@
   "stability": "High",
   "automation_risk": "Low",
   "where_work": "Works from anywhere (many now offer online therapy)",
-  "college_options": [],
+  "college_options": [
+   {
+    "college": "Lady Shri Ram College for Women (W)",
+    "branch": "B.A. (Hons.) Psychology",
+    "exam": "CUET (DU)",
+    "closing": "926.53 / 1000 CUET",
+    "q": "Lady Shri Ram College for Women (W)"
+   },
+   {
+    "college": "Faculty of Social Sciences, Banaras Hindu University",
+    "branch": "Bachelor of Arts (Honours) in Psychology with Economics",
+    "exam": "CUET (BHU)",
+    "closing": "339.02 / 500 CUET",
+    "q": "Faculty of Social Sciences, Banaras Hindu University"
+   }
+  ],
   "notable_people": [
    "Dr. Achal Bhagat (psychiatrist and mental health advocate)",
    "Kamlesh Singh (professor, IIT Delhi psychology)",
@@ -10081,7 +10529,12 @@
   "day_in_life": "A radiology technologist operates machines like X-ray, CT scan, or MRI machines to take pictures of the inside of a patient's body, following a doctor's instructions. They position patients correctly, run the machine safely, and hand over the images to doctors who then read and diagnose from them.",
   "impact": "When someone breaks a bone or a doctor needs to check for a tumour, it's the radiology technologist who actually operates the machine that captures the image, at hospitals like Apollo, Fortis, or AIIMS. Without them, doctors would have no way to see what's happening inside a patient's body.",
   "entry_exams_text": "No single fixed entrance exam \u2014 most students join a diploma or B.Sc. in Radiography/Medical Imaging Technology after Class 12 (with Physics, Chemistry, Biology) based on marks or a college-specific entrance test. Note: this is different from becoming a radiologist doctor, which needs MBBS plus a specialization (covered separately under Medicine).",
-  "exams": null,
+  "exams": [
+   {
+    "label": "CUET (DU, BHU)",
+    "href": "/predictor?exam=CUET"
+   }
+  ],
   "top_colleges": [
    {
     "name": "AIIMS New Delhi",
@@ -10123,7 +10576,15 @@
   "stability": "High",
   "automation_risk": "Medium",
   "where_work": "Tier-2 cities",
-  "college_options": [],
+  "college_options": [
+   {
+    "college": "Department of Radiotherapy & Radiation Medicine, IMS, Banaras Hindu University",
+    "branch": "Bachelor of Science (Honours) in Medical Radiology and Imaging Technology",
+    "exam": "CUET (BHU)",
+    "closing": "651.9 / 750 CUET",
+    "q": "Department of Radiotherapy & Radiation Medicine, IMS, Banaras Hindu University"
+   }
+  ],
   "notable_people": [
    "Dr. Bhavin Jankharia (well-known radiologist and imaging expert)",
    "technologist training pioneers at AIIMS radiology departments"
@@ -10475,7 +10936,12 @@
   "day_in_life": "A social worker spends the day meeting with individuals, families, or communities facing difficulties like poverty, abuse, or addiction, and connects them to the help they need, such as government schemes, counselling, or shelters. They might visit slums, run awareness camps, or coordinate with NGOs and government offices.",
   "impact": "Social workers run programs that help rescue child labourers, support survivors of domestic violence, and help rural families access schemes like the Public Distribution System (PDS) for subsidized food. Organizations like Save the Children and CRY (Child Rights and You) rely on social workers to reach people who need help the most.",
   "entry_exams_text": "No single fixed entrance exam for a bachelor's degree \u2014 admission is usually based on Class 12 marks. For a Master's in Social Work (MSW), exams like TISS-NET (Tata Institute of Social Sciences' own entrance test) or CUET-PG are commonly used.",
-  "exams": null,
+  "exams": [
+   {
+    "label": "CUET (DU, BHU)",
+    "href": "/predictor?exam=CUET"
+   }
+  ],
   "top_colleges": [
    {
     "name": "Tata Institute of Social Sciences (TISS) Mumbai",
@@ -10518,7 +10984,15 @@
   "stability": "Medium",
   "automation_risk": "Low",
   "where_work": "Tier-2 cities",
-  "college_options": [],
+  "college_options": [
+   {
+    "college": "Dr. Bhim Rao Ambedkar College",
+    "branch": "B.A. (Hons.) Social Work",
+    "exam": "CUET (DU)",
+    "closing": "513.65 / 1000 CUET",
+    "q": null
+   }
+  ],
   "notable_people": [
    "Aruna Roy (social activist, Right to Information movement)",
    "Bezwada Wilson (Safai Karamchari Andolan founder)",
@@ -10881,7 +11355,12 @@
   "day_in_life": "A teacher plans lessons, explains topics to students in a classroom, checks homework, and helps students who are struggling to understand a subject. Outside class, they grade tests, prepare study materials, and sometimes meet parents to talk about a student's progress.",
   "impact": "Teachers shape the futures of millions of students in schools across India, from government schools under the Sarva Shiksha Abhiyan program to private chains like Delhi Public School (DPS), and their teaching often decides whether a child later cracks exams like JEE or simply loves learning. A good teacher can change the direction of a student's entire life.",
   "entry_exams_text": "No single fixed entrance exam for teaching itself \u2014 most people complete a Bachelor's degree followed by a B.Ed. (Bachelor of Education, a professional teaching qualification) which some colleges admit into via marks or state-level tests. To teach in government schools, exams like CTET (Central Teacher Eligibility Test, required to become a government school teacher) are needed.",
-  "exams": null,
+  "exams": [
+   {
+    "label": "CUET (DU, BHU)",
+    "href": "/predictor?exam=CUET"
+   }
+  ],
   "top_colleges": [
    {
     "name": "Regional Institutes of Education (under NCERT)",
@@ -10919,7 +11398,22 @@
   "stability": "High",
   "automation_risk": "Low",
   "where_work": "Tier-2 cities",
-  "college_options": [],
+  "college_options": [
+   {
+    "college": "Miranda House (W)",
+    "branch": "Bachelor of Elementary Education",
+    "exam": "CUET (DU)",
+    "closing": "716.18 / 1000 CUET",
+    "q": "Miranda House (W)"
+   },
+   {
+    "college": "Mahila Maha Vidyalaya, Banaras Hindu University",
+    "branch": "Bachelor of Arts (Honours) in Education with English",
+    "exam": "CUET (BHU)",
+    "closing": "299.39 / 500 CUET",
+    "q": "Mahila Maha Vidyalaya, Banaras Hindu University"
+   }
+  ],
   "notable_people": [
    "Sarojini Naidu (poet and educator)",
    "Anand Kumar (founder of Super 30, famous math teacher)",
@@ -11182,6 +11676,10 @@
   "entry_exams_text": "No single fixed entrance exam for a bachelor's degree \u2014 admission is usually based on Class 12 marks in Science. For a master's or research program, exams like CUET-PG or CSIR-UGC NET (a national exam for research fellowships and lectureship eligibility) are commonly used.",
   "exams": [
    {
+    "label": "CUET (DU, BHU)",
+    "href": "/predictor?exam=CUET"
+   },
+   {
     "label": "NET",
     "href": "/exams?q=NET"
    }
@@ -11228,7 +11726,22 @@
   "stability": "Medium",
   "automation_risk": "Low",
   "where_work": "Tier-2 cities (fieldwork often in rural/forest areas)",
-  "college_options": [],
+  "college_options": [
+   {
+    "college": "Miranda House (W)",
+    "branch": "B.Sc (Hons.) Zoology",
+    "exam": "CUET (DU)",
+    "closing": "657.86 / 750 CUET",
+    "q": "Miranda House (W)"
+   },
+   {
+    "college": "Faculty of Science, Banaras Hindu University",
+    "branch": "Bachelor of Science (Honours) in Zoology with Chemistry",
+    "exam": "CUET (BHU)",
+    "closing": "567.64 / 750 CUET",
+    "q": "Faculty of Science, Banaras Hindu University"
+   }
+  ],
   "notable_people": [
    "Salim Ali (India's most famous ornithologist, 'Birdman of India')",
    "Ullas Karanth (tiger conservation scientist)",

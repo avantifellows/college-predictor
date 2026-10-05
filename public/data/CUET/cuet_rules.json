@@ -1,0 +1,786 @@
+{
+ "DU_L3": {
+  "combos": [
+   [
+    "L",
+    "B",
+    "B",
+    "B"
+   ],
+   [
+    "L",
+    "L",
+    "B",
+    "B"
+   ]
+  ],
+  "max": 1000,
+  "papers": "Language + 3 subjects, or 2 languages + 2 subjects",
+  "prorated": false,
+  "needsLanguage": false
+ },
+ "DU_BA_PROG": {
+  "combos": [
+   [
+    "L",
+    "B",
+    "B",
+    "B"
+   ],
+   [
+    "L",
+    "L",
+    "B",
+    "B"
+   ],
+   [
+    "L",
+    "B",
+    "G"
+   ]
+  ],
+  "max": 1000,
+  "papers": "Language + 3 subjects, or 2 languages + 2 subjects, or language + subject + GAT",
+  "prorated": true,
+  "needsLanguage": false
+ },
+ "DU_BCOM": {
+  "combos": [
+   [
+    "L",
+    "B",
+    "B",
+    "B"
+   ],
+   [
+    "L",
+    "B",
+    "G"
+   ]
+  ],
+  "max": 1000,
+  "papers": "Language + 3 subjects, or language + subject + GAT",
+  "prorated": true,
+  "needsLanguage": false
+ },
+ "DU_VOC_SOFTWARE": {
+  "combos": [
+   [
+    "L",
+    [
+     "maths"
+    ],
+    "B",
+    "B"
+   ],
+   [
+    "L",
+    "L",
+    [
+     "maths"
+    ],
+    "B"
+   ],
+   [
+    "L",
+    [
+     "maths"
+    ],
+    "G"
+   ]
+  ],
+  "max": 1000,
+  "papers": "Language + Maths + 2 subjects, or 2 languages + Maths + subject, or language + Maths + GAT",
+  "prorated": true,
+  "needsLanguage": false
+ },
+ "DU_LANG_ENGLISH": {
+  "combos": [
+   [
+    [
+     "english"
+    ],
+    "B",
+    "B",
+    "B"
+   ],
+   [
+    [
+     "english"
+    ],
+    "L",
+    "B",
+    "B"
+   ]
+  ],
+  "max": 1000,
+  "papers": "English + 3 subjects, or English + language + 2 subjects",
+  "prorated": false,
+  "needsLanguage": false
+ },
+ "DU_LANG_HINDI": {
+  "combos": [
+   [
+    [
+     "hindi"
+    ],
+    "B",
+    "B",
+    "B"
+   ],
+   [
+    [
+     "hindi"
+    ],
+    "L",
+    "B",
+    "B"
+   ]
+  ],
+  "max": 1000,
+  "papers": "Hindi + 3 subjects, or Hindi + language + 2 subjects",
+  "prorated": false,
+  "needsLanguage": false
+ },
+ "DU_LANG_URDU": {
+  "combos": [
+   [
+    [
+     "urdu"
+    ],
+    "B",
+    "B",
+    "B"
+   ],
+   [
+    [
+     "urdu"
+    ],
+    "L",
+    "B",
+    "B"
+   ]
+  ],
+  "max": 1000,
+  "papers": "Urdu + 3 subjects, or Urdu + language + 2 subjects",
+  "prorated": false,
+  "needsLanguage": false
+ },
+ "DU_LANG_BENGALI": {
+  "combos": [
+   [
+    [
+     "bengali"
+    ],
+    "B",
+    "B",
+    "B"
+   ],
+   [
+    [
+     "bengali"
+    ],
+    "L",
+    "B",
+    "B"
+   ],
+   [
+    "L",
+    "B",
+    "B",
+    "B"
+   ],
+   [
+    "L",
+    "L",
+    "B",
+    "B"
+   ]
+  ],
+  "max": 1000,
+  "papers": "Bengali + 3 subjects, or Bengali + language + 2 subjects, or language + 3 subjects, or 2 languages + 2 subjects",
+  "prorated": false,
+  "needsLanguage": false
+ },
+ "DU_LANG_PUNJABI": {
+  "combos": [
+   [
+    [
+     "punjabi"
+    ],
+    "B",
+    "B",
+    "B"
+   ],
+   [
+    [
+     "punjabi"
+    ],
+    "L",
+    "B",
+    "B"
+   ],
+   [
+    "L",
+    "B",
+    "B",
+    "B"
+   ],
+   [
+    "L",
+    "L",
+    "B",
+    "B"
+   ]
+  ],
+  "max": 1000,
+  "papers": "Punjabi + 3 subjects, or Punjabi + language + 2 subjects, or language + 3 subjects, or 2 languages + 2 subjects",
+  "prorated": false,
+  "needsLanguage": false
+ },
+ "DU_LANG_SANSKRIT": {
+  "combos": [
+   [
+    "L",
+    [
+     "sanskrit"
+    ],
+    "B",
+    "B"
+   ],
+   [
+    [
+     "sanskrit"
+    ],
+    "B",
+    "B",
+    "B"
+   ]
+  ],
+  "max": 1000,
+  "papers": "Language + Sanskrit + 2 subjects, or Sanskrit + 3 subjects",
+  "prorated": false,
+  "needsLanguage": false
+ },
+ "DU_ECONOMICS": {
+  "combos": [
+   [
+    "L",
+    [
+     "maths"
+    ],
+    "B",
+    "B"
+   ]
+  ],
+  "max": 1000,
+  "papers": "Language + Maths + 2 subjects",
+  "prorated": false,
+  "needsLanguage": false
+ },
+ "DU_HINDI_PATRAKARITA": {
+  "combos": [
+   [
+    [
+     "hindi"
+    ],
+    "B",
+    "B",
+    "B"
+   ],
+   [
+    [
+     "hindi"
+    ],
+    "G"
+   ]
+  ],
+  "max": 1000,
+  "papers": "Hindi + 3 subjects, or Hindi + GAT",
+  "prorated": true,
+  "needsLanguage": false
+ },
+ "DU_JOURNALISM": {
+  "combos": [
+   [
+    [
+     "english"
+    ],
+    "B",
+    "B",
+    "B"
+   ],
+   [
+    [
+     "english"
+    ],
+    "G"
+   ]
+  ],
+  "max": 1000,
+  "papers": "English + 3 subjects, or English + GAT",
+  "prorated": true,
+  "needsLanguage": false
+ },
+ "DU_JOURNALISM_5YR": {
+  "combos": [
+   [
+    "L",
+    [
+     "massmedia"
+    ],
+    "G"
+   ],
+   [
+    "L",
+    "G"
+   ]
+  ],
+  "max": 750,
+  "papers": "Language + Mass Media + GAT, or language + GAT",
+  "prorated": true,
+  "needsLanguage": false
+ },
+ "DU_MULTIMEDIA": {
+  "combos": [
+   [
+    "L",
+    "B",
+    "G"
+   ]
+  ],
+  "max": 750,
+  "papers": "Language + subject + GAT",
+  "prorated": false,
+  "needsLanguage": false
+ },
+ "DU_L_MATH_GAT": {
+  "combos": [
+   [
+    "L",
+    [
+     "maths"
+    ],
+    "G"
+   ]
+  ],
+  "max": 750,
+  "papers": "Language + Maths + GAT",
+  "prorated": false,
+  "needsLanguage": false
+ },
+ "DU_L_MATH_2": {
+  "combos": [
+   [
+    "L",
+    [
+     "maths"
+    ],
+    "B",
+    "B"
+   ],
+   [
+    "L",
+    "L",
+    [
+     "maths"
+    ],
+    "B"
+   ]
+  ],
+  "max": 1000,
+  "papers": "Language + Maths + 2 subjects, or 2 languages + Maths + subject",
+  "prorated": false,
+  "needsLanguage": false
+ },
+ "DU_BCOM_HONS": {
+  "combos": [
+   [
+    "L",
+    [
+     "maths"
+    ],
+    "B",
+    "B"
+   ],
+   [
+    "L",
+    [
+     "accountancy"
+    ],
+    "B",
+    "B"
+   ]
+  ],
+  "max": 1000,
+  "papers": "Language + Maths + 2 subjects, or language + Accountancy + 2 subjects",
+  "prorated": false,
+  "needsLanguage": false
+ },
+ "DU_PCB": {
+  "combos": [
+   [
+    [
+     "physics"
+    ],
+    [
+     "chemistry"
+    ],
+    [
+     "biology"
+    ]
+   ]
+  ],
+  "max": 750,
+  "papers": "Physics + Chemistry + Biology",
+  "prorated": false,
+  "needsLanguage": true
+ },
+ "DU_PCM": {
+  "combos": [
+   [
+    [
+     "physics"
+    ],
+    [
+     "chemistry"
+    ],
+    [
+     "maths"
+    ]
+   ]
+  ],
+  "max": 750,
+  "papers": "Physics + Chemistry + Maths",
+  "prorated": false,
+  "needsLanguage": true
+ },
+ "DU_BIOCHEM": {
+  "combos": [
+   [
+    [
+     "chemistry"
+    ],
+    [
+     "biology"
+    ],
+    [
+     "physics"
+    ]
+   ],
+   [
+    [
+     "chemistry"
+    ],
+    [
+     "biology"
+    ],
+    [
+     "maths"
+    ]
+   ]
+  ],
+  "max": 750,
+  "papers": "Chemistry + Biology + Physics, or Chemistry + Biology + Maths",
+  "prorated": false,
+  "needsLanguage": true
+ },
+ "DU_PM_C_OR_CS": {
+  "combos": [
+   [
+    [
+     "physics"
+    ],
+    [
+     "maths"
+    ],
+    [
+     "chemistry"
+    ]
+   ],
+   [
+    [
+     "physics"
+    ],
+    [
+     "maths"
+    ],
+    [
+     "cs"
+    ]
+   ]
+  ],
+  "max": 750,
+  "papers": "Physics + Maths + Chemistry, or Physics + Maths + Computer Science",
+  "prorated": false,
+  "needsLanguage": true
+ },
+ "DU_PC_B_OR_M": {
+  "combos": [
+   [
+    [
+     "physics"
+    ],
+    [
+     "chemistry"
+    ],
+    [
+     "biology"
+    ]
+   ],
+   [
+    [
+     "physics"
+    ],
+    [
+     "chemistry"
+    ],
+    [
+     "maths"
+    ]
+   ]
+  ],
+  "max": 750,
+  "papers": "Physics + Chemistry + Biology, or Physics + Chemistry + Maths",
+  "prorated": false,
+  "needsLanguage": true
+ },
+ "DU_GEOLOGY": {
+  "combos": [
+   [
+    [
+     "physics"
+    ],
+    [
+     "chemistry"
+    ],
+    [
+     "maths"
+    ]
+   ],
+   [
+    [
+     "physics"
+    ],
+    [
+     "chemistry"
+    ],
+    [
+     "geography"
+    ]
+   ],
+   [
+    [
+     "physics"
+    ],
+    [
+     "chemistry"
+    ],
+    [
+     "biology"
+    ]
+   ]
+  ],
+  "max": 750,
+  "papers": "Physics + Chemistry + Maths, or Physics + Chemistry + Geography, or Physics + Chemistry + Biology",
+  "prorated": false,
+  "needsLanguage": true
+ },
+ "DU_HOME_SCIENCE": {
+  "combos": [
+   [
+    [
+     "biology"
+    ],
+    [
+     "physics"
+    ],
+    "B"
+   ],
+   [
+    [
+     "biology"
+    ],
+    [
+     "chemistry"
+    ],
+    "B"
+   ]
+  ],
+  "max": 750,
+  "papers": "Biology + Physics + subject, or Biology + Chemistry + subject",
+  "prorated": false,
+  "needsLanguage": true
+ },
+ "BHU_L_GAT": {
+  "combos": [
+   [
+    [
+     "english",
+     "hindi"
+    ],
+    "G"
+   ]
+  ],
+  "max": 500,
+  "papers": "English or Hindi + GAT",
+  "prorated": false,
+  "needsLanguage": false
+ },
+ "BHU_L_BIO": {
+  "combos": [
+   [
+    [
+     "english",
+     "hindi"
+    ],
+    [
+     "biology"
+    ]
+   ]
+  ],
+  "max": 500,
+  "papers": "English or Hindi + Biology",
+  "prorated": false,
+  "needsLanguage": false
+ },
+ "BHU_BCOM": {
+  "combos": [
+   [
+    [
+     "accountancy"
+    ],
+    [
+     "business"
+    ],
+    "G"
+   ]
+  ],
+  "max": 750,
+  "papers": "Accountancy + Business Studies + GAT",
+  "prorated": false,
+  "needsLanguage": false
+ },
+ "BHU_PCM": {
+  "combos": [
+   [
+    [
+     "chemistry"
+    ],
+    [
+     "maths"
+    ],
+    [
+     "physics"
+    ]
+   ]
+  ],
+  "max": 750,
+  "papers": "Chemistry + Maths + Physics",
+  "prorated": false,
+  "needsLanguage": false
+ },
+ "BHU_PCB": {
+  "combos": [
+   [
+    [
+     "biology"
+    ],
+    [
+     "chemistry"
+    ],
+    [
+     "physics"
+    ]
+   ]
+  ],
+  "max": 750,
+  "papers": "Biology + Chemistry + Physics",
+  "prorated": false,
+  "needsLanguage": false
+ },
+ "BHU_PCM_OR_PCB": {
+  "combos": [
+   [
+    [
+     "chemistry"
+    ],
+    [
+     "maths"
+    ],
+    [
+     "physics"
+    ]
+   ],
+   [
+    [
+     "biology"
+    ],
+    [
+     "chemistry"
+    ],
+    [
+     "physics"
+    ]
+   ]
+  ],
+  "max": 750,
+  "papers": "Chemistry + Maths + Physics, or Biology + Chemistry + Physics",
+  "prorated": false,
+  "needsLanguage": false
+ },
+ "BHU_AGRI": {
+  "combos": [
+   [
+    [
+     "chemistry"
+    ],
+    [
+     "maths"
+    ],
+    [
+     "physics"
+    ]
+   ],
+   [
+    [
+     "biology"
+    ],
+    [
+     "chemistry"
+    ],
+    [
+     "physics"
+    ]
+   ],
+   [
+    [
+     "agriculture"
+    ],
+    [
+     "biology"
+    ],
+    [
+     "chemistry"
+    ]
+   ]
+  ],
+  "max": 750,
+  "papers": "Chemistry + Maths + Physics, or Biology + Chemistry + Physics, or Agriculture + Biology + Chemistry",
+  "prorated": false,
+  "needsLanguage": false
+ },
+ "BHU_SHASTRI": {
+  "combos": [
+   [
+    [
+     "sanskrit"
+    ]
+   ]
+  ],
+  "max": 250,
+  "papers": "Sanskrit",
+  "prorated": false,
+  "needsLanguage": false
+ }
+}

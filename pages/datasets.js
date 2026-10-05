@@ -31,6 +31,8 @@ const SEARCH_ALIASES = {
   ojee: "odisha jee main mains btech engineering",
   clat: "law nlu llb",
   ducuet: "cuet du delhi university csas arts science commerce",
+  bhuug: "cuet bhu banaras hindu university varanasi arts science commerce",
+  icarug: "icar cuet agriculture horticulture forestry veterinary fisheries",
   iiser: "iat science bs ms research",
   collegefees: "fees hostel mess tuition cost josaa kcet",
   nirf: "ranking rankings placement",

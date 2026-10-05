@@ -6,9 +6,11 @@ Build public/data/CUET/cuet_data.json from the DU and BHU cutoff facts
 DU and BHU don't admit on one CUET total. Each course adds up its own set of
 papers (DU B.Sc. Physics: Physics + Chemistry + Maths; BHU B.A.: English or
 Hindi + GAT), so the student's score is different for every course. Each row
-carries the id of its course's rule (utils/cuetRules.js holds the rules, from
-the 2025 bulletins); the API adds up the student's paper scores per rule and
+carries the id of its course's rule; the API adds up the student's paper scores per rule and
 compares that with the cutoff.
+
+Rules: external_data_sources/cuet (cuet_dim_merit_rules, cuet_dim_program_rules),
+written to public/data/CUET/cuet_rules.json for utils/cuetRules.js.
 
 One row per (college, course, category[, BHU seat type]): the lowest score
 allotted over the published rounds (DU 1-3, BHU Round 1 and Spot Round 2).
@@ -16,7 +18,6 @@ Courses that also hold a practical or performance test (DU/BHU fine arts,
 performing arts) are left out: CUET alone can't place a student there.
 """
 import json
-import re
 from collections import Counter
 from pathlib import Path
 
@@ -28,85 +29,23 @@ DU = EXT / "ducuet/clean/ducuet_fact_cutoffs.parquet"
 BHU = EXT / "bhuug/clean/bhuug_fact_cutoffs.parquet"
 OUT = REPO / "public/data/CUET/cuet_data.json"
 
-# DU course -> rule id (utils/cuetRules.js). First match wins.
-DU_RULES = [
-    (r"^B\.?A\.? ?Program", "DU_BA_PROG"),
-    (r"^B\.A\. \(Vocational Studies\)", "DU_BA_PROG"),
-    (r"^B\.Voc\.? Software", "DU_VOC_SOFTWARE"),
-    (r"^B\.Voc", "DU_BA_PROG"),
-    (r"^Five Year Integrated Program in Journalism", "DU_JOURNALISM_5YR"),
-    (r"Hindi Patrakarita", "DU_HINDI_PATRAKARITA"),
-    (r"^B\.A\. \(Hons\.\) Journalism", "DU_JOURNALISM"),
-    (r"Multi ?Media and Mass Communication", "DU_MULTIMEDIA"),
-    (r"^B\.A\. \(Hons\.\) Business Economics", "DU_L_MATH_GAT"),
-    (r"^B\.A\. \(Hons\.\) Economics", "DU_ECONOMICS"),
-    (r"^B\.A\. \(Hons\.\) English", "DU_LANG_ENGLISH"),
-    (r"^B\.A\. \(Hons\.\) Hindi", "DU_LANG_HINDI"),
-    (r"^B\.A\. \(Hons\.\) Urdu", "DU_LANG_URDU"),
-    (r"^B\.A\. \(Hons\.\) Bengali", "DU_LANG_BENGALI"),
-    (r"^B\.A\. \(Hons\.\) Punjabi", "DU_LANG_PUNJABI"),
-    (r"^B\.A\. \(Hons\.\) Sanskrit", "DU_LANG_SANSKRIT"),
-    (r"^B\.A\. \(Hons\.\)", "DU_L3"),  # psychology, history, French, ...
-    (r"^Bachelor of Elementary Education", "DU_L3"),
-    (r"^Bachelor of Management Studies", "DU_L_MATH_GAT"),
-    (r"^Bachelor of Business Administration", "DU_L_MATH_GAT"),
-    (r"^B\.Tech\. Information Technology", "DU_L_MATH_GAT"),
-    (r"^B\.Com \(Hons\.\)", "DU_BCOM_HONS"),
-    (r"^B\.Com$", "DU_BCOM"),
-    (r"Bio-?Chemistry", "DU_BIOCHEM"),
-    (r"Electronics|Instrumentation|Physical Science with Computer",
-     "DU_PM_C_OR_CS"),
-    (r"Environmental Science|Food Technology", "DU_PC_B_OR_M"),
-    (r"Geology", "DU_GEOLOGY"),
-    (r"Home Science", "DU_HOME_SCIENCE"),
-    (r"Computer Science|Mathematic|Statistics", "DU_L_MATH_2"),
-    (r"Anthropology|Biological|Biomedical|Botany|Microbiology|Zoology|"
-     r"Life Science", "DU_PCB"),
-    (r"Chemistry|Physics|Polymer|Applied Physical Science", "DU_PCM"),
-]
+# each course's rule and the rules themselves come from the cuet source
+# (external_data_sources/cuet: read from the DU / BHU bulletins), the same
+# tables BigQuery serves
+RULES = EXT / "cuet/clean/cuet_dim_merit_rules.parquet"
+PROGRAM_RULES = EXT / "cuet/clean/cuet_dim_program_rules.parquet"
+RULES_OUT = REPO / "public/data/CUET/cuet_rules.json"
 
-# BHU programme -> rule id. Programme names are the fact's cleaned `program`.
-BHU_BIO = r"Botany|Zoology|Home Science"
-BHU_MATH = r"Mathematics|Statistics|Computer Science|Physics"
-
-
-def bhu_rule(p):
-    if p.startswith("Shastri"):
-        return "BHU_SHASTRI"
-    if p.startswith("Bachelor of Arts and Bachelor of Legislative Law"):
-        return "BHU_L_GAT"
-    if p.startswith("Bachelor of Arts"):
-        return "BHU_L_GAT"
-    if p.startswith("Bachelor of Commerce"):
-        return "BHU_BCOM"
-    if "Agriculture" in p or "Food Processing" in p:
-        return "BHU_AGRI"
-    if "Medical Lab Technology" in p:
-        return "BHU_L_BIO"
-    if p.startswith("Bachelor of Vocation"):
-        return "BHU_L_GAT"
-    if p.startswith("Bachelor of Technology"):
-        return "BHU_PCM"
-    if "Radiotherapy" in p:
-        return "BHU_PCM_OR_PCB"
-    if "Radiology" in p:
-        return "BHU_PCB"
-    if p.startswith("Bachelor of Science"):
-        subj = p.split(" in ", 1)[1]
-        bio, math = re.search(BHU_BIO, subj), re.search(BHU_MATH, subj)
-        if bio:
-            return "BHU_PCB"
-        if math:
-            return "BHU_PCM"
-        return "BHU_PCM_OR_PCB"  # Geography with Earth Science: either group
-    return None
+rule_of = {(r.university, r.program): r.rule_id
+           for r in pd.read_parquet(PROGRAM_RULES).itertuples()}
 
 
 def du_rule(p):
-    for pattern, rule in DU_RULES:
-        if re.search(pattern, p):
-            return rule
-    return None
+    return rule_of.get(("DU", p))
+
+
+def bhu_rule(p):
+    return rule_of.get(("BHU", p))
 
 
 # Women's colleges: shown to girls only
@@ -161,6 +100,20 @@ for r in low.itertuples():
 if missing:
     raise SystemExit(f"no rule for {len(missing)} courses:\n" +
                      "\n".join(f"  {u}: {p}" for u, p in sorted(missing)))
+
+rules = pd.read_parquet(RULES)
+RULES_OUT.parent.mkdir(parents=True, exist_ok=True)
+RULES_OUT.write_text(json.dumps({
+    r.rule_id: {"combos": json.loads(r.combinations_json),
+                "max": int(r.max_score), "papers": r.papers,
+                "prorated": bool(r.prorated),
+                "needsLanguage": bool(r.needs_language)}
+    for r in rules.itertuples()}, indent=1))
+
+# each row says what its cutoff is out of (career pages print "902 / 1000")
+max_of = dict(zip(rules.rule_id, rules.max_score))
+for x in rows:
+    x["Out Of"] = int(max_of[x["Rule"]])
 
 rows.sort(key=lambda x: (x["University"], x["Institute"],
                          x["Academic Program Name"], x["Category"]))

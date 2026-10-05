@@ -76,6 +76,9 @@ EXAM_LINKS = {
     # the ICAR predictor instead
     "ICAR-UG": [("ICAR-UG (CUET)", "/predictor?exam=ICAR-UG")],
     "UPTAC": [("UPTAC", "/predictor?exam=UPTAC")],
+    # DU / BHU admit on CUET papers: one chip, straight to the CUET predictor
+    "DU-CUET": [("CUET (DU, BHU)", "/predictor?exam=CUET")],
+    "BHU-CUET": [("CUET (DU, BHU)", "/predictor?exam=CUET")],
     "NEET": [("NEET-UG", "/exams?q=NEET")],
 }
 
@@ -201,6 +204,15 @@ OPTION_SOURCES = {
              lambda r: r.get("Category") == "GEN" and r.get("Sub Category") == "None"
              and r.get("Quota") == "Home State",
              "Closing Rank", False, " (JEE Main rank)"),
+    # DU / BHU on CUET: each course's own scale, so the suffix is per row
+    "DU-CUET": ("public/data/CUET/cuet_data.json", "Academic Program Name",
+                lambda r: r.get("University") == "Delhi University"
+                and r.get("Category") == "UR",
+                "Cutoff Score", True, lambda r: f" / {r['Out Of']} CUET"),
+    "BHU-CUET": ("public/data/CUET/cuet_data.json", "Academic Program Name",
+                 lambda r: r.get("University") == "BHU" and r.get("Category") == "UR"
+                 and r.get("Seat") == "Regular",
+                 "Cutoff Score", True, lambda r: f" / {r['Out Of']} CUET"),
     # last: five colleges in one city only fill spare slots
     "JAC-Chandigarh": ("public/data/JACCHD/jacchd_data.json", "Academic Program Name",
                        lambda r: r.get("Category") == "General",
@@ -208,7 +220,8 @@ OPTION_SOURCES = {
 }
 
 EXAM_LABEL = {"JAC-Chandigarh": "JAC Chandigarh", "AIIMS-Nursing": "AIIMS-EE",
-              "ICAR-UG": "ICAR-UG (CUET)"}
+              "ICAR-UG": "ICAR-UG (CUET)", "DU-CUET": "CUET (DU)",
+              "BHU-CUET": "CUET (BHU)"}
 
 _option_cache = {}
 
@@ -265,10 +278,11 @@ def college_options(branch_id, em, tab_link, per_exam=1, total=6):
                          else "JEE Main")
             else:
                 label = EXAM_LABEL.get(exam, exam)
-            display = (f"{v:g}{suffix}" if higher
-                       else f"{int(v):,}{suffix}")
+            sfx = suffix(r) if callable(suffix) else suffix
+            display = (f"{v:g}{sfx}" if higher
+                       else f"{int(v):,}{sfx}")
             out.append({"college": college,
-                        "branch": re.split(r" \((?!Hons)", str(prog))[0],
+                        "branch": re.split(r" \((?!Hon)", str(prog))[0],
                         "exam": label, "closing": display,
                         "q": tab_link(college)})
     return out[:total]
@@ -284,6 +298,12 @@ NIRF_LISTS_BY_BRANCH = {
     "AGRIENG": {"Engineering", "Agriculture"}, "DAIRYENG": {"Engineering", "Agriculture"},
     "FOODENG": {"Engineering", "Agriculture"},
 }
+# arts, science and commerce degrees (DU / BHU on CUET): colleges are
+# ranked on NIRF's College and University lists, not Engineering
+for _b in ("ARTS ECON ENGLISH HIST POLISCI PSYCH SOCIALWORK JOURNAL MUSIC TEACH "
+           "JAPANESE COMMERCE FIN MATH PHYSICS CHEM BOT ZOO LIFESCI BIOCHEM "
+           "COMMUNITYSCI GENSCI GEO").split():
+    NIRF_LISTS_BY_BRANCH.setdefault(_b, {"College", "University"})
 # a band-only college ranks at its band's top ("101-150" -> 101)
 NIRF_BY_DISPLAY = {c["display_name"]: (c["nirf"]["category"],
                                        c["nirf"]["rank"] if c["nirf"]["rank"] is not None
@@ -372,7 +392,9 @@ def main():
                         raws = set(em[(em.exam == ex) & (em.branch_id == branch_id)].branch_raw)
                         if not any(x.get(field) in raws for x in _load_options_file(path)):
                             continue
-                    exams.append({"label": label, "href": href})
+                    # DU and BHU both lead to the one CUET chip
+                    if not any(e["label"] == label for e in exams):
+                        exams.append({"label": label, "href": href})
         # exams the sheet names that our cutoff tables don't carry
         for m in exam_mentions(r["Entry Exams"], exam_cards):
             if not any(e["label"] == m["label"] for e in exams):
