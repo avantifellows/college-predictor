@@ -2755,11 +2755,48 @@ def main():
     jmi_row.update(district="South East Delhi", kind="Central University", website="https://www.jmi.ac.in")
     # ── BITS Pilani (BITSAT): a card per campus ─────────────────────────────
     # Latest BITSAT year's cut-off per programme (no categories at BITS).
-    # NIRF ranks BITS as one institute: the rank sits on the Pilani card.
     bits = client.query(f"""
     SELECT campus, program, cutoff_score, max_score FROM `{D}.bitsat_fact_cutoffs`
     WHERE exam_year = (SELECT MAX(exam_year) FROM `{D}.bitsat_fact_cutoffs`)""").to_dataframe()
-    bits_nirf = nirf_block_for(["Birla Institute of Technology and Science Pilani"], ["Engineering", "Overall"])
+    # NIRF ranks BITS as ONE institute (one return covers Pilani, Goa and
+    # Hyderabad: its first-year intake is all three campuses). Its
+    # NIRF spells the name differently per list, so pin its id (U-0391).
+    def nirf_block_by_id(suffix, cat):
+        gc = client.query(f"""
+        SELECT ranking_year, ANY_VALUE(nirf_rank) AS nirf_rank, ANY_VALUE(overall_score) AS overall_score
+        FROM `{D}.nirf_fact_rankings`
+        WHERE ENDS_WITH(institute_id, '{suffix}') AND ranking_category = '{cat}' AND nirf_rank IS NOT NULL
+        GROUP BY 1 ORDER BY 1 DESC""").to_dataframe()
+        if gc.empty:
+            return None
+        top = gc.iloc[0]
+        sc = lambda v: round(float(v), 2) if v == v else None
+        return {"category": cat, "rank": int(top.nirf_rank), "score": sc(top.overall_score),
+                "ranking_year": int(top.ranking_year),
+                "rank_history": [{"year": int(x.ranking_year), "rank": int(x.nirf_rank), "score": sc(x.overall_score)}
+                                 for x in gc.head(6).itertuples()]}
+    bits_nirf = nirf_block_by_id("-U-0391", "Engineering")
+    bp = client.query(f"""
+    SELECT edition_year, graduating_academic_year, graduated_on_time, students_placed,
+           higher_studies_selected, median_salary, first_year_intake
+    FROM `{D}.nirf_fact_dcs_placements`
+    WHERE institute_id LIKE 'IR-%-U-0391' AND discipline = 'Engineering'
+      AND program_level = 'UG-4Y' AND NOT superseded
+    ORDER BY edition_year DESC, graduating_academic_year DESC LIMIT 1""").to_dataframe()
+    bits_place = None
+    if len(bp):
+        b = bp.iloc[0]
+        grad, placed, higher = int(b.graduated_on_time), int(b.students_placed), int(b.higher_studies_selected)
+        bits_place = {
+            "median_salary": int(b.median_salary),
+            "percentage_placed": round(placed / grad * 100, 1) if grad else None,
+            "percentage_with_outcome": round(min(100.0, (placed + higher) / grad * 100), 1) if grad else None,
+            "students_placed": placed, "higher_studies_selected": higher,
+            "first_year_intake": int(b.first_year_intake), "includes_dual_degree": False,
+            "academic_year": b.graduating_academic_year, "ranking_year": int(b.edition_year),
+            "source": "NIRF Engineering, UG 4-year (BITS as a whole: Pilani, Goa and Hyderabad together)",
+            "is_branch_specific": False,
+        }
     BITS_CARDS = {"Pilani": ("bits:pilani", "BITS Pilani, Pilani Campus", "Rajasthan", "Jhunjhunu"),
                   "K K Birla Goa": ("bits:goa", "BITS Pilani, K K Birla Goa Campus", "Goa", "North Goa"),
                   "Hyderabad": ("bits:hyderabad", "BITS Pilani, Hyderabad Campus", "Telangana", "Sangareddy")}
@@ -2777,12 +2814,17 @@ def main():
                         "source": "BITS Pilani cut-off page, latest BITSAT",
                         "score_label": "BITSAT score",
                         "rank_note": f"Final BITSAT cut-off score (of {int(g.max_score.iloc[0])}); BITS has no category reservation."},
-                       bits_nirf.get("Birla Institute of Technology and Science Pilani") if campus == "Pilani" else None,
-                       ["Engineering", "Pharmacy", "Science"], "BITS cut-off page")
+                       bits_nirf, ["Engineering", "Pharmacy", "Science"], "BITS cut-off page")
         row.update(district=district, kind="Deemed University", ownership="Private",
                    website="https://www.bits-pilani.ac.in")
+        if bits_nirf:
+            row["data_sources"]["ranking"] = f"NIRF {bits_nirf['ranking_year']} (BITS as a whole)"
+        if bits_place:
+            row["placement"] = bits_place
+            row["data_sources"]["placement"] = (f"NIRF {bits_place['ranking_year']} "
+                                                f"(AY {bits_place['academic_year']}, BITS as a whole)")
         bits_rows.append(row)
-    print(f"  BITS cards {len(bits_rows)}; Pilani NIRF {'yes' if bits_rows and any(r['nirf'] for r in bits_rows) else 'no'}")
+    print(f"  BITS cards {len(bits_rows)}; NIRF {bits_nirf and bits_nirf['rank']} {bits_nirf and bits_nirf['category']}; placement {'yes' if bits_place else 'no'}")
     rows += du_rows + ii_rows + icar_rows + bhu_rows + [ald_row, cusb_row, jmi_row] + bits_rows
     jnu_card = next((r for r in rows if r["college_id"] == "U-0109"), None)
     if jnu_card is None:
