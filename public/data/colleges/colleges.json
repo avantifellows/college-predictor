@@ -16659,6 +16659,259 @@
   }
  },
  {
+  "college_id": "bits:pilani",
+  "aishe_code": "U-0391",
+  "name": "BITS Pilani, Pilani Campus",
+  "display_name": "BITS Pilani, Pilani Campus",
+  "state": "Rajasthan",
+  "state_is_inferred": false,
+  "district": "Jhunjhunu",
+  "kind": "Deemed University",
+  "management": null,
+  "ownership": "Private",
+  "disciplines": [
+   "Engineering",
+   "Pharmacy",
+   "Science"
+  ],
+  "year_established": 1964,
+  "website": "https://www.bits-pilani.ac.in",
+  "university": null,
+  "entrance_exams": [
+   "BITSAT"
+  ],
+  "counselling": "BITS admissions (BITSAT)",
+  "programs": {
+   "count": 18,
+   "degrees": [
+    "B.E.",
+    "B.Pharm.",
+    "M.Sc."
+   ],
+   "list": [
+    {
+     "branch": "B.E. Computer Science",
+     "years": 4,
+     "degree": "B.E.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 308,
+     "career_id": "computer-science-information-technology"
+    },
+    {
+     "branch": "B.E. Mathematics and Computing",
+     "years": 4,
+     "degree": "B.E.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 299,
+     "career_id": "mathematics"
+    },
+    {
+     "branch": "B.E. Electronics & Communication",
+     "years": 4,
+     "degree": "B.E.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 289,
+     "career_id": null
+    },
+    {
+     "branch": "B.E. Electrical & Electronics",
+     "years": 4,
+     "degree": "B.E.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 266,
+     "career_id": null
+    },
+    {
+     "branch": "B.E. Electronics & Instrumentation",
+     "years": 4,
+     "degree": "B.E.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 261,
+     "career_id": null
+    },
+    {
+     "branch": "M.Sc. Economics",
+     "years": 5,
+     "degree": "M.Sc.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 256,
+     "career_id": "economics"
+    },
+    {
+     "branch": "M.Sc. Semiconductor and Nanoscience",
+     "years": 5,
+     "degree": "M.Sc.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 246,
+     "career_id": null
+    },
+    {
+     "branch": "M.Sc. Mathematics",
+     "years": 5,
+     "degree": "M.Sc.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 241,
+     "career_id": "mathematics"
+    },
+    {
+     "branch": "B.E. Mechanical",
+     "years": 4,
+     "degree": "B.E.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 239,
+     "career_id": null
+    },
+    {
+     "branch": "M.Sc. Physics",
+     "years": 5,
+     "degree": "M.Sc.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 235,
+     "career_id": "physics"
+    },
+    {
+     "branch": "M.Sc. Chemistry",
+     "years": 5,
+     "degree": "M.Sc.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 227,
+     "career_id": "chemistry"
+    },
+    {
+     "branch": "B.E. Chemical",
+     "years": 4,
+     "degree": "B.E.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 226,
+     "career_id": null
+    },
+    {
+     "branch": "B.E. Manufacturing",
+     "years": 4,
+     "degree": "B.E.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 226,
+     "career_id": null
+    },
+    {
+     "branch": "B.E. Civil",
+     "years": 4,
+     "degree": "B.E.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 222,
+     "career_id": null
+    },
+    {
+     "branch": "M.Sc. Biological Sciences",
+     "years": 5,
+     "degree": "M.Sc.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 218,
+     "career_id": "biology"
+    },
+    {
+     "branch": "B.E. Environmental and Sustainability",
+     "years": 4,
+     "degree": "B.E.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 213,
+     "career_id": null
+    },
+    {
+     "branch": "B.E. Pharmaceutical Engg.",
+     "years": 4,
+     "degree": "B.E.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 211,
+     "career_id": "pharmacy"
+    },
+    {
+     "branch": "B.Pharm.",
+     "years": 4,
+     "degree": "B.Pharm.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 200,
+     "career_id": "pharmacy"
+    }
+   ],
+   "source": "BITS Pilani cut-off page, latest BITSAT",
+   "score_label": "BITSAT score",
+   "rank_note": "Final BITSAT cut-off score (of 390); BITS has no category reservation."
+  },
+  "nirf": {
+   "category": "Overall",
+   "rank": 16,
+   "score": 65.06,
+   "ranking_year": 2025,
+   "rank_history": [
+    {
+     "year": 2025,
+     "rank": 16,
+     "score": 65.06
+    },
+    {
+     "year": 2024,
+     "rank": 23,
+     "score": 60.87
+    },
+    {
+     "year": 2023,
+     "rank": 25,
+     "score": 58.76
+    },
+    {
+     "year": 2022,
+     "rank": 32,
+     "score": 55.1
+    },
+    {
+     "year": 2021,
+     "rank": 29,
+     "score": 53.32
+    },
+    {
+     "year": 2020,
+     "rank": 85,
+     "score": 44.17
+    }
+   ]
+  },
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": "A++",
+   "cgpa": 3.68,
+   "cycle": 4,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "BITS cut-off page",
+   "programs": "BITS cut-off page",
+   "ranking": "NIRF 2025",
+   "placement": null,
+   "accreditation": "NAAC"
+  }
+ },
+ {
   "college_id": "icar:bidhan-chandra-krishi-vishwavidyalaya-mohanpur",
   "aishe_code": "U-0568",
   "name": "Bidhan Chandra Krishi Vishwavidyalaya, Mohanpur",
@@ -90808,6 +91061,401 @@
   "data_sources": {
    "identity": "OJEE 2025",
    "programs": "OJEE 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "bits:hyderabad",
+  "aishe_code": null,
+  "name": "BITS Pilani, Hyderabad Campus",
+  "display_name": "BITS Pilani, Hyderabad Campus",
+  "state": "Telangana",
+  "state_is_inferred": false,
+  "district": "Sangareddy",
+  "kind": "Deemed University",
+  "management": null,
+  "ownership": "Private",
+  "disciplines": [
+   "Engineering",
+   "Pharmacy",
+   "Science"
+  ],
+  "year_established": null,
+  "website": "https://www.bits-pilani.ac.in",
+  "university": null,
+  "entrance_exams": [
+   "BITSAT"
+  ],
+  "counselling": "BITS admissions (BITSAT)",
+  "programs": {
+   "count": 17,
+   "degrees": [
+    "B.E.",
+    "B.Pharm.",
+    "M.Sc."
+   ],
+   "list": [
+    {
+     "branch": "B.E. Computer Science",
+     "years": 4,
+     "degree": "B.E.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 272,
+     "career_id": "computer-science-information-technology"
+    },
+    {
+     "branch": "B.E. Mathematics and Computing",
+     "years": 4,
+     "degree": "B.E.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 268,
+     "career_id": "mathematics"
+    },
+    {
+     "branch": "B.E. Electronics & Communication",
+     "years": 4,
+     "degree": "B.E.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 261,
+     "career_id": null
+    },
+    {
+     "branch": "B.E. Electrical & Electronics",
+     "years": 4,
+     "degree": "B.E.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 251,
+     "career_id": null
+    },
+    {
+     "branch": "B.E. Electronics & Instrumentation",
+     "years": 4,
+     "degree": "B.E.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 249,
+     "career_id": null
+    },
+    {
+     "branch": "M.Sc. Economics",
+     "years": 5,
+     "degree": "M.Sc.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 244,
+     "career_id": "economics"
+    },
+    {
+     "branch": "M.Sc. Semiconductor and Nanoscience",
+     "years": 5,
+     "degree": "M.Sc.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 241,
+     "career_id": null
+    },
+    {
+     "branch": "M.Sc. Mathematics",
+     "years": 5,
+     "degree": "M.Sc.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 230,
+     "career_id": "mathematics"
+    },
+    {
+     "branch": "M.Sc. Physics",
+     "years": 5,
+     "degree": "M.Sc.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 229,
+     "career_id": "physics"
+    },
+    {
+     "branch": "B.E. Mechanical",
+     "years": 4,
+     "degree": "B.E.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 228,
+     "career_id": null
+    },
+    {
+     "branch": "B.E. Chemical",
+     "years": 4,
+     "degree": "B.E.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 223,
+     "career_id": null
+    },
+    {
+     "branch": "M.Sc. Chemistry",
+     "years": 5,
+     "degree": "M.Sc.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 223,
+     "career_id": "chemistry"
+    },
+    {
+     "branch": "B.E. Civil",
+     "years": 4,
+     "degree": "B.E.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 220,
+     "career_id": null
+    },
+    {
+     "branch": "M.Sc. Biological Sciences",
+     "years": 5,
+     "degree": "M.Sc.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 217,
+     "career_id": "biology"
+    },
+    {
+     "branch": "B.E. Environmental and Sustainability",
+     "years": 4,
+     "degree": "B.E.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 208,
+     "career_id": null
+    },
+    {
+     "branch": "B.E. Pharmaceutical Engg.",
+     "years": 4,
+     "degree": "B.E.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 205,
+     "career_id": "pharmacy"
+    },
+    {
+     "branch": "B.Pharm.",
+     "years": 4,
+     "degree": "B.Pharm.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 200,
+     "career_id": "pharmacy"
+    }
+   ],
+   "source": "BITS Pilani cut-off page, latest BITSAT",
+   "score_label": "BITSAT score",
+   "rank_note": "Final BITSAT cut-off score (of 390); BITS has no category reservation."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "BITS cut-off page",
+   "programs": "BITS cut-off page",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "bits:goa",
+  "aishe_code": null,
+  "name": "BITS Pilani, K K Birla Goa Campus",
+  "display_name": "BITS Pilani, K K Birla Goa Campus",
+  "state": "Goa",
+  "state_is_inferred": false,
+  "district": "North Goa",
+  "kind": "Deemed University",
+  "management": null,
+  "ownership": "Private",
+  "disciplines": [
+   "Engineering",
+   "Pharmacy",
+   "Science"
+  ],
+  "year_established": null,
+  "website": "https://www.bits-pilani.ac.in",
+  "university": null,
+  "entrance_exams": [
+   "BITSAT"
+  ],
+  "counselling": "BITS admissions (BITSAT)",
+  "programs": {
+   "count": 15,
+   "degrees": [
+    "B.E.",
+    "M.Sc."
+   ],
+   "list": [
+    {
+     "branch": "B.E. Computer Science",
+     "years": 4,
+     "degree": "B.E.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 274,
+     "career_id": "computer-science-information-technology"
+    },
+    {
+     "branch": "B.E. Mathematics and Computing",
+     "years": 4,
+     "degree": "B.E.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 270,
+     "career_id": "mathematics"
+    },
+    {
+     "branch": "B.E. Electronics and Computer",
+     "years": 4,
+     "degree": "B.E.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 266,
+     "career_id": null
+    },
+    {
+     "branch": "B.E. Electronics & Communication",
+     "years": 4,
+     "degree": "B.E.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 261,
+     "career_id": null
+    },
+    {
+     "branch": "B.E. Electrical & Electronics",
+     "years": 4,
+     "degree": "B.E.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 253,
+     "career_id": null
+    },
+    {
+     "branch": "B.E. Electronics & Instrumentation",
+     "years": 4,
+     "degree": "B.E.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 250,
+     "career_id": null
+    },
+    {
+     "branch": "M.Sc. Economics",
+     "years": 5,
+     "degree": "M.Sc.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 246,
+     "career_id": "economics"
+    },
+    {
+     "branch": "M.Sc. Semiconductor and Nanoscience",
+     "years": 5,
+     "degree": "M.Sc.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 241,
+     "career_id": null
+    },
+    {
+     "branch": "B.E. Mechanical",
+     "years": 4,
+     "degree": "B.E.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 233,
+     "career_id": null
+    },
+    {
+     "branch": "M.Sc. Mathematics",
+     "years": 5,
+     "degree": "M.Sc.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 233,
+     "career_id": "mathematics"
+    },
+    {
+     "branch": "M.Sc. Physics",
+     "years": 5,
+     "degree": "M.Sc.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 231,
+     "career_id": "physics"
+    },
+    {
+     "branch": "B.E. Chemical",
+     "years": 4,
+     "degree": "B.E.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 223,
+     "career_id": null
+    },
+    {
+     "branch": "M.Sc. Chemistry",
+     "years": 5,
+     "degree": "M.Sc.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 223,
+     "career_id": "chemistry"
+    },
+    {
+     "branch": "M.Sc. Biological Sciences",
+     "years": 5,
+     "degree": "M.Sc.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 217,
+     "career_id": "biology"
+    },
+    {
+     "branch": "B.E. Environmental and Sustainability",
+     "years": 4,
+     "degree": "B.E.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 210,
+     "career_id": null
+    }
+   ],
+   "source": "BITS Pilani cut-off page, latest BITSAT",
+   "score_label": "BITSAT score",
+   "rank_note": "Final BITSAT cut-off score (of 390); BITS has no category reservation."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "BITS cut-off page",
+   "programs": "BITS cut-off page",
    "ranking": null,
    "placement": null,
    "accreditation": null

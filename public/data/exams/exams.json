@@ -1399,7 +1399,7 @@
   "remarks": null,
   "replaces": null,
   "aliases": null,
-  "predictor_exam": null,
+  "predictor_exam": "BITSAT",
   "open_data_id": null,
   "careers": [
    {

@@ -83,6 +83,7 @@ EXAM_LINKS = {
     "CUSB-CUET": [("CUET (central universities)", "/predictor?exam=CUET")],
     "JNU-CUET": [("CUET (central universities)", "/predictor?exam=CUET")],
     "JMI-CUET": [("CUET (central universities)", "/predictor?exam=CUET")],
+    "BITSAT": [("BITSAT", "/predictor?exam=BITSAT")],
     "NEET": [("NEET-UG", "/exams?q=NEET")],
 }
 
@@ -231,6 +232,8 @@ OPTION_SOURCES = {
     "JMI-CUET": ("public/data/CUET/cuet_data.json", "Academic Program Name",
                  lambda r: r.get("University") == "Jamia Millia Islamia" and r.get("Category") == "UR",
                  "Cutoff Score", True, lambda r: f" / {r['Out Of']} CUET"),
+    "BITSAT": ("public/data/BITSAT/bitsat_data.json", "Academic Program Name",
+               lambda r: True, "Cutoff Score", True, lambda r: f" / {r['Out Of']} BITSAT"),
     # last: five colleges in one city only fill spare slots
     "JAC-Chandigarh": ("public/data/JACCHD/jacchd_data.json", "Academic Program Name",
                        lambda r: r.get("Category") == "General",

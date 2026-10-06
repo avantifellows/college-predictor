@@ -2450,3 +2450,24 @@ JNU-CUET,B.A. (Hons.) Pashto,B.A. (Hons.) Pashto,ARTS,Arts,21,1,"nearest parent,
 JNU-CUET,B.A. (Hons.) Persian,B.A. (Hons.) Persian,ARTS,Arts,25,1,"nearest parent, needs review"
 JNU-CUET,B.A. (Hons.) Russian,B.A. (Hons.) Russian,ARTS,Arts,31,1,"nearest parent, needs review"
 JNU-CUET,B.A. (Hons.) Spanish,B.A. (Hons.) Spanish,ARTS,Arts,29,1,"nearest parent, needs review"
+BITSAT,B. Pharm,B.Pharm.,PHARMA,Pharmacy,14,2,taxonomy parent by name
+BITSAT,B.E. Chemical,B.E. Chemical,CHEMENG,Chemical Engineering,30,3,taxonomy parent by name
+BITSAT,B.E. Civil,B.E. Civil,CIVILENG,Civil Engineering,20,2,taxonomy parent by name
+BITSAT,B.E. Computer Science,B.E. Computer Science,CSIT,Computer Science / Information Technology,30,3,taxonomy parent by name
+BITSAT,B.E. Electrical & Electronics,B.E. Electrical & Electronics,ELEC,Electrical / Electronics / Communications Engineering,24,3,taxonomy parent by name
+BITSAT,B.E. Electrical and Electronics,B.E. Electrical & Electronics,ELEC,Electrical / Electronics / Communications Engineering,6,2,taxonomy parent by name
+BITSAT,B.E. Electronics & Communication,B.E. Electronics & Communication,ELEC,Electrical / Electronics / Communications Engineering,26,3,taxonomy parent by name
+BITSAT,B.E. Electronics & Instrumentation,B.E. Electronics & Instrumentation,INSTRENG,Instrumentation Engineering,30,3,taxonomy parent by name
+BITSAT,B.E. Electronics and Computer,B.E. Electronics and Computer,ELEC,Electrical / Electronics / Communications Engineering,2,1,"nearest parent, needs review"
+BITSAT,B.E. Environmental and Sustainability,B.E. Environmental and Sustainability,ENVENG,Environmental Engineering,6,3,taxonomy parent by name
+BITSAT,B.E. Manufacturing,B.E. Manufacturing,INDENG,Industrial / Manufacturing / Production Engineering,11,2,taxonomy parent by name
+BITSAT,B.E. Mathematics and Computing,B.E. Mathematics and Computing,MNC,Mathematics And Computing,9,3,taxonomy parent by name
+BITSAT,B.E. Mechanical,B.E. Mechanical,MECHENG,Mechanical / Mechatronics Engineering ,30,3,taxonomy parent by name
+BITSAT,B.E. Pharmaceutical Engg.,B.E. Pharmaceutical Engg.,PHARMAENG,Pharmaceutical Engineering,2,2,taxonomy parent by name
+BITSAT,B.Pharm.,B.Pharm.,PHARMA,Pharmacy,6,2,taxonomy parent by name
+BITSAT,M.Sc. Biological Sciences,M.Sc. Biological Sciences,BIO,Biology,30,3,taxonomy parent by name
+BITSAT,M.Sc. Chemistry,M.Sc. Chemistry,CHEM,Chemistry,30,3,taxonomy parent by name
+BITSAT,M.Sc. Economics,M.Sc. Economics,ECON,Economics,30,3,taxonomy parent by name
+BITSAT,M.Sc. Mathematics,M.Sc. Mathematics,MATH,Mathematics,30,3,taxonomy parent by name
+BITSAT,M.Sc. Physics,M.Sc. Physics,PHYSICS,Physics,30,3,taxonomy parent by name
+BITSAT,M.Sc. Semiconductor and Nanoscience,M.Sc. Semiconductor and Nanoscience,PHYSICS,Physics,6,3,"nearest parent, needs review"

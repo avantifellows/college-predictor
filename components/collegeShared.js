@@ -44,7 +44,7 @@ export const Dash = () => <span className="text-[#b9a8a2]">—</span>;
 // the programs table's number column(s). One column per card normally; a
 // card mixing annual seats (MBBS) and closing ranks (AIIMS nursing) gets
 // both, so a rank never sits under an "Annual seats" header.
-export const valueCols = (list) => {
+export const valueCols = (list, scoreLabel = "CUET score") => {
   const score = list.some((p) => p.indicative_min_score != null);
   const rank = list.some((p) => p.indicative_closing_rank != null);
   const seats = list.some((p) => p.seats != null);
@@ -62,7 +62,7 @@ export const valueCols = (list) => {
       },
       {
         key: "score",
-        label: "CUET score",
+        label: scoreLabel,
         value: (p) => p.indicative_min_score,
       },
     ];
@@ -70,7 +70,7 @@ export const valueCols = (list) => {
     return [
       {
         key: "score",
-        label: "CUET score",
+        label: scoreLabel,
         value: (p) => p.indicative_min_score,
       },
     ];
@@ -222,14 +222,16 @@ export const ProgramsTable = ({ c }) => (
               <tr>
                 <th className="px-2 py-1.5 text-left font-semibold">Branch</th>
                 <th className="px-2 py-1.5 text-left font-semibold">Degree</th>
-                {valueCols(c.programs.list).map((col) => (
-                  <th
-                    key={col.key}
-                    className="px-2 py-1.5 text-right font-semibold"
-                  >
-                    {col.label}
-                  </th>
-                ))}
+                {valueCols(c.programs.list, c.programs.score_label).map(
+                  (col) => (
+                    <th
+                      key={col.key}
+                      className="px-2 py-1.5 text-right font-semibold"
+                    >
+                      {col.label}
+                    </th>
+                  )
+                )}
               </tr>
             </thead>
             <tbody>
@@ -262,29 +264,31 @@ export const ProgramsTable = ({ c }) => (
                     {p.degree}
                     {p.years ? ` · ${p.years} yr` : ""}
                   </td>
-                  {valueCols(c.programs.list).map((col) => (
-                    <td
-                      key={col.key}
-                      className="px-2 py-1.5 text-right tabular-nums text-[#332724]"
-                    >
-                      {col.value(p) ?? <Dash />}
-                      {col.key === "score" &&
-                      p.cuet_rule &&
-                      col.value(p) != null ? (
-                        <span className="text-[#7a6159]">
-                          {" "}
-                          / {courseMax(p.cuet_rule)}
-                        </span>
-                      ) : null}
-                      {/* a rank on its own scale (AIIMS nursing)
+                  {valueCols(c.programs.list, c.programs.score_label).map(
+                    (col) => (
+                      <td
+                        key={col.key}
+                        className="px-2 py-1.5 text-right tabular-nums text-[#332724]"
+                      >
+                        {col.value(p) ?? <Dash />}
+                        {col.key === "score" &&
+                        p.cuet_rule &&
+                        col.value(p) != null ? (
+                          <span className="text-[#7a6159]">
+                            {" "}
+                            / {courseMax(p.cuet_rule)}
+                          </span>
+                        ) : null}
+                        {/* a rank on its own scale (AIIMS nursing)
                           names it */}
-                      {col.key === "rank" && p.rank_label ? (
-                        <span className="block text-[11px] text-[#7a6159]">
-                          {p.rank_label}
-                        </span>
-                      ) : null}
-                    </td>
-                  ))}
+                        {col.key === "rank" && p.rank_label ? (
+                          <span className="block text-[11px] text-[#7a6159]">
+                            {p.rank_label}
+                          </span>
+                        ) : null}
+                      </td>
+                    )
+                  )}
                 </tr>
               ))}
             </tbody>

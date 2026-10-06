@@ -157,6 +157,11 @@ const expandedFields = {
     { key: "Round", label: "Round" },
     { key: "Opening Rank", label: "Opening Rank (JEE Main)" },
   ],
+  // BITSAT (latest year; one cut-off per campus and programme)
+  BITSAT: [
+    { key: "Previous Years", label: "Earlier years (of 390)" },
+    { key: "Year", label: "Data Year" },
+  ],
   // CUET - DU and BHU (2025; each course's own CUET score, lowest over rounds)
   CUET: [
     { key: "Papers Counted", label: "Papers counted" },
@@ -453,11 +458,12 @@ const PredictedCollegesTable = ({
     "ICAR-UG",
     "CLAT",
     "GUJCET",
+    "BITSAT",
   ]);
   // AIIMS cards are MCC (medical) colleges, which /compare leaves out:
   // name links yes, compare boxes no
   // ICAR cutoffs are CUET marks, which /compare (ranks) can't line up
-  const NO_COMPARE_EXAMS = new Set(["AIIMS Nursing", "ICAR-UG"]);
+  const NO_COMPARE_EXAMS = new Set(["AIIMS Nursing", "ICAR-UG", "BITSAT"]);
   const supportsCompare =
     (isJosaaExam || NAME_LINK_EXAMS.has(exam)) && !NO_COMPARE_EXAMS.has(exam);
   const slugOf = (x) =>
@@ -688,6 +694,11 @@ const PredictedCollegesTable = ({
       { key: "academic_program_name", label: "Program" },
       { key: "closing_rank", label: "Closing Rank (JEE Main)" },
     ],
+    BITSAT: [
+      { key: "institute", label: "Campus" },
+      { key: "academic_program_name", label: "Programme" },
+      { key: "cutoff_score", label: "Cutoff (BITSAT score)" },
+    ],
     // "Your score" is per course: DU and BHU add up different papers for
     // each, so the student's score changes from row to row
     CUET: [
@@ -835,6 +846,14 @@ const PredictedCollegesTable = ({
         institute: item["Institute"],
         academic_program_name: item["Academic Program Name"],
         closing_rank: item["Closing Rank"],
+      };
+    }
+    if (exam === "BITSAT") {
+      return {
+        ...item,
+        institute: item["Institute"],
+        academic_program_name: item["Academic Program Name"],
+        cutoff_score: `${item["Cutoff Score"]} / ${item["Out Of"]}`,
       };
     }
     if (exam === "CUET") {

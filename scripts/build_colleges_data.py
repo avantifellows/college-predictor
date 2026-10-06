@@ -1129,6 +1129,9 @@ def _names_agree(college, aishe, district=None, state_districts=frozenset()):
 # AISHE records a name can't reach: abbreviations in the admissions list
 AISHE_NAME_PINS = {
     ("Gujarat", "L.E.College,Morbi"): "Lukhdhirji Engineering College, Morbi-031",
+    # AISHE lists BITS once (U-0391, Pilani); its Goa and Hyderabad campuses
+    # have no records of their own and stay unfilled
+    ("Rajasthan", "BITS Pilani, Pilani Campus"): "Birla Institute of Technology & Sciences, Pilani",
 }
 
 
@@ -2750,7 +2753,37 @@ def main():
                        nirf_block_for(["Jamia Millia Islamia"], ["University", "Overall"]).get("Jamia Millia Islamia"),
                        ["Arts", "Science"], "JMI CUET UG admission 2025")
     jmi_row.update(district="South East Delhi", kind="Central University", website="https://www.jmi.ac.in")
-    rows += du_rows + ii_rows + icar_rows + bhu_rows + [ald_row, cusb_row, jmi_row]
+    # ── BITS Pilani (BITSAT): a card per campus ─────────────────────────────
+    # Latest BITSAT year's cut-off per programme (no categories at BITS).
+    # NIRF ranks BITS as one institute: the rank sits on the Pilani card.
+    bits = client.query(f"""
+    SELECT campus, program, cutoff_score, max_score FROM `{D}.bitsat_fact_cutoffs`
+    WHERE exam_year = (SELECT MAX(exam_year) FROM `{D}.bitsat_fact_cutoffs`)""").to_dataframe()
+    bits_nirf = nirf_block_for(["Birla Institute of Technology and Science Pilani"], ["Engineering", "Overall"])
+    BITS_CARDS = {"Pilani": ("bits:pilani", "BITS Pilani, Pilani Campus", "Rajasthan", "Jhunjhunu"),
+                  "K K Birla Goa": ("bits:goa", "BITS Pilani, K K Birla Goa Campus", "Goa", "North Goa"),
+                  "Hyderabad": ("bits:hyderabad", "BITS Pilani, Hyderabad Campus", "Telangana", "Sangareddy")}
+    bits_rows = []
+    for campus, g in bits.groupby("campus"):
+        cid, name, state, district = BITS_CARDS[campus]
+        lst = [{"branch": x.program, "years": 5 if x.program.startswith("M.Sc.") else 4,
+                "degree": x.program.split(" ")[0],
+                "indicative_closing_rank": None, "indicative_opening_rank": None,
+                "indicative_min_score": int(x.cutoff_score),
+                "career_id": career_of_program(x.program)} for x in g.itertuples()]
+        lst.sort(key=lambda z: (-z["indicative_min_score"], z["branch"]))
+        row = base_row(cid, name, state, "BITSAT", "BITS admissions (BITSAT)",
+                       {"count": len(lst), "degrees": sorted({p["degree"] for p in lst}), "list": lst,
+                        "source": "BITS Pilani cut-off page, latest BITSAT",
+                        "score_label": "BITSAT score",
+                        "rank_note": f"Final BITSAT cut-off score (of {int(g.max_score.iloc[0])}); BITS has no category reservation."},
+                       bits_nirf.get("Birla Institute of Technology and Science Pilani") if campus == "Pilani" else None,
+                       ["Engineering", "Pharmacy", "Science"], "BITS cut-off page")
+        row.update(district=district, kind="Deemed University", ownership="Private",
+                   website="https://www.bits-pilani.ac.in")
+        bits_rows.append(row)
+    print(f"  BITS cards {len(bits_rows)}; Pilani NIRF {'yes' if bits_rows and any(r['nirf'] for r in bits_rows) else 'no'}")
+    rows += du_rows + ii_rows + icar_rows + bhu_rows + [ald_row, cusb_row, jmi_row] + bits_rows
     jnu_card = next((r for r in rows if r["college_id"] == "U-0109"), None)
     if jnu_card is None:
         raise SystemExit("JNU's JoSAA card (U-0109) is gone: attach the CUET programmes elsewhere")

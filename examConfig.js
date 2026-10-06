@@ -2336,6 +2336,44 @@ export const clatConfig = {
   getSort: () => [["Closing Rank", "ASC"]],
 };
 
+export const bitsatConfig = {
+  name: "BITSAT (BITS Pilani, Goa, Hyderabad)",
+  searchKeys: ["Institute", "Academic Program Name"],
+  // BITS admits on the BITSAT score alone (no category reservation): one
+  // cut-off per campus and programme, BITSAT 2026 (scripts/build_bitsat_data.py)
+  primaryInput: decimalInput(
+    "Enter BITSAT Score (out of 390)",
+    "e.g., 280",
+    "390"
+  ),
+  fields: [
+    {
+      name: "campus",
+      label: "Select Campus",
+      options: ["Any", "Pilani", "K K Birla Goa", "Hyderabad"],
+    },
+  ],
+  getDataPath: () => {
+    return path.join(
+      process.cwd(),
+      "public",
+      "data",
+      "BITSAT",
+      "bitsat_data.json"
+    );
+  },
+  getFilters: (query) => [
+    (item) =>
+      !query.campus || query.campus === "Any" || item.Campus === query.campus,
+    (item) => {
+      if (!query.rank) return true;
+      const score = parseFloat(query.rank);
+      return Number.isFinite(score) && score >= item["Cutoff Score"];
+    },
+  ],
+  getSort: () => [["Cutoff Score", "DESC"]],
+};
+
 const CUET_CATEGORY = {
   General: "UR",
   OBC: "OBC",
@@ -2447,6 +2485,7 @@ export const examConfigs = {
   // "NEET MCC": neetConfig,
   "CLAT": clatConfig,
   "CUET": cuetConfig,
+  "BITSAT": bitsatConfig,
   "ICAR-UG": icarUgConfig,
   "AIIMS Nursing": aiimsNursingConfig,
   "JEE Main-JAC": jacExamConfig,

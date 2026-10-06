@@ -39,6 +39,7 @@ const SEARCH_ALIASES = {
   jnuug:
     "cuet jnu jawaharlal nehru university foreign language french german japanese",
   jamiaug: "cuet jamia millia islamia jmi delhi languages",
+  bitsat: "bits pilani goa hyderabad bitsat engineering pharmacy",
   iiser: "iat science bs ms research",
   collegefees: "fees hostel mess tuition cost josaa kcet",
   nirf: "ranking rankings placement",

@@ -1706,6 +1706,10 @@
    {
     "label": "CUET (central universities)",
     "href": "/predictor?exam=CUET"
+   },
+   {
+    "label": "BITSAT",
+    "href": "/predictor?exam=BITSAT"
    }
   ],
   "top_colleges": [
@@ -1756,6 +1760,13 @@
     "exam": "CUET (Allahabad)",
     "closing": "481 / 750 CUET",
     "q": "University of Allahabad, Prayagraj"
+   },
+   {
+    "college": "BITS Pilani, Pilani Campus",
+    "branch": "M.Sc. Biological Sciences",
+    "exam": "BITSAT",
+    "closing": "218 / 390 BITSAT",
+    "q": null
    }
   ],
   "notable_people": [
@@ -2502,6 +2513,10 @@
     "href": "/exams?q=AP-EAPCET"
    },
    {
+    "label": "BITSAT",
+    "href": "/predictor?exam=BITSAT"
+   },
+   {
     "label": "GUJCET",
     "href": "/exams?q=GUJCET"
    },
@@ -2750,6 +2765,10 @@
     "href": "/predictor?exam=CUET"
    },
    {
+    "label": "BITSAT",
+    "href": "/predictor?exam=BITSAT"
+   },
+   {
     "label": "JEE Main",
     "href": "/exams?q=JEE Main"
    },
@@ -2836,6 +2855,13 @@
     "exam": "CUET (CUSB)",
     "closing": "221 / 500 CUET",
     "q": "Central University of South Bihar, Gaya"
+   },
+   {
+    "college": "BITS Pilani, Pilani Campus",
+    "branch": "M.Sc. Chemistry",
+    "exam": "BITSAT",
+    "closing": "227 / 390 BITSAT",
+    "q": null
    }
   ],
   "notable_people": [
@@ -2861,6 +2887,10 @@
    {
     "label": "AP EAPCET",
     "href": "/exams?q=AP-EAPCET"
+   },
+   {
+    "label": "BITSAT",
+    "href": "/predictor?exam=BITSAT"
    },
    {
     "label": "GUJCET",
@@ -3230,6 +3260,10 @@
     "href": "/exams?q=AP-EAPCET"
    },
    {
+    "label": "BITSAT",
+    "href": "/predictor?exam=BITSAT"
+   },
+   {
     "label": "GUJCET",
     "href": "/exams?q=GUJCET"
    },
@@ -3406,6 +3440,10 @@
     "href": "/exams?q=AP-EAPCET"
    },
    {
+    "label": "BITSAT",
+    "href": "/predictor?exam=BITSAT"
+   },
+   {
     "label": "GUJCET",
     "href": "/exams?q=GUJCET"
    },
@@ -3452,10 +3490,6 @@
    {
     "label": "WBJEE",
     "href": "/exams?q=WBJEE"
-   },
-   {
-    "label": "BITSAT",
-    "href": "/exams?q=BITSAT"
    },
    {
     "label": "KEA-CET",
@@ -4368,6 +4402,10 @@
     "href": "/predictor?exam=CUET"
    },
    {
+    "label": "BITSAT",
+    "href": "/predictor?exam=BITSAT"
+   },
+   {
     "label": "JEE Main",
     "href": "/exams?q=JEE Main"
    },
@@ -4450,6 +4488,13 @@
     "exam": "CUET (CUSB)",
     "closing": "100 / 250 CUET",
     "q": "Central University of South Bihar, Gaya"
+   },
+   {
+    "college": "BITS Pilani, Pilani Campus",
+    "branch": "M.Sc. Economics",
+    "exam": "BITSAT",
+    "closing": "256 / 390 BITSAT",
+    "q": null
    }
   ],
   "notable_people": [
@@ -4475,6 +4520,10 @@
    {
     "label": "AP EAPCET",
     "href": "/exams?q=AP-EAPCET"
+   },
+   {
+    "label": "BITSAT",
+    "href": "/predictor?exam=BITSAT"
    },
    {
     "label": "CUET (central universities)",
@@ -4656,6 +4705,10 @@
     "href": "/exams?q=AP-EAPCET"
    },
    {
+    "label": "BITSAT",
+    "href": "/predictor?exam=BITSAT"
+   },
+   {
     "label": "CUET (central universities)",
     "href": "/predictor?exam=CUET"
    },
@@ -4835,6 +4888,10 @@
     "href": "/exams?q=AP-EAPCET"
    },
    {
+    "label": "BITSAT",
+    "href": "/predictor?exam=BITSAT"
+   },
+   {
     "label": "CUET (central universities)",
     "href": "/predictor?exam=CUET"
    },
@@ -5012,6 +5069,10 @@
    {
     "label": "AP EAPCET",
     "href": "/exams?q=AP-EAPCET"
+   },
+   {
+    "label": "BITSAT",
+    "href": "/predictor?exam=BITSAT"
    },
    {
     "label": "CUET (central universities)",
@@ -5670,6 +5731,10 @@
     "href": "/exams?q=AP-EAPCET"
    },
    {
+    "label": "BITSAT",
+    "href": "/predictor?exam=BITSAT"
+   },
+   {
     "label": "GUJCET",
     "href": "/exams?q=GUJCET"
    },
@@ -5761,6 +5826,13 @@
     "exam": "TNEA",
     "closing": "122.5/200 marks",
     "q": "Park College of Technology, Prema Ravi Nagar, Karumathampatty, Coimbatore-641659."
+   },
+   {
+    "college": "BITS Pilani, Pilani Campus",
+    "branch": "B.E. Environmental and Sustainability",
+    "exam": "BITSAT",
+    "closing": "213 / 390 BITSAT",
+    "q": null
    }
   ],
   "notable_people": [
@@ -6766,6 +6838,10 @@
     "href": "/exams?q=AP-EAPCET"
    },
    {
+    "label": "BITSAT",
+    "href": "/predictor?exam=BITSAT"
+   },
+   {
     "label": "GUJCET",
     "href": "/exams?q=GUJCET"
    },
@@ -6883,6 +6959,13 @@
     "exam": "TNEA",
     "closing": "189/200 marks",
     "q": "PSG College of Technology (Autonomous) Peelamedu Coimbatore District 641004"
+   },
+   {
+    "college": "BITS Pilani, Pilani Campus",
+    "branch": "B.E. Manufacturing",
+    "exam": "BITSAT",
+    "closing": "226 / 390 BITSAT",
+    "q": null
    }
   ],
   "notable_people": [
@@ -6990,6 +7073,10 @@
    {
     "label": "AP EAPCET",
     "href": "/exams?q=AP-EAPCET"
+   },
+   {
+    "label": "BITSAT",
+    "href": "/predictor?exam=BITSAT"
    },
    {
     "label": "CUET (central universities)",
@@ -7105,6 +7192,13 @@
     "exam": "CUET (DU)",
     "closing": "214.5 / 750 CUET",
     "q": "Bhaskaracharya College of Applied Sciences"
+   },
+   {
+    "college": "BITS Pilani, Pilani Campus",
+    "branch": "B.E. Electronics & Instrumentation",
+    "exam": "BITSAT",
+    "closing": "261 / 390 BITSAT",
+    "q": null
    }
   ],
   "notable_people": [
@@ -7777,6 +7871,10 @@
     "href": "/predictor?exam=CUET"
    },
    {
+    "label": "BITSAT",
+    "href": "/predictor?exam=BITSAT"
+   },
+   {
     "label": "JEE Main",
     "href": "/exams?q=JEE Main"
    },
@@ -7903,6 +8001,10 @@
   "entry_exams_text": "JEE (Joint Entrance Examination, the national exam for getting into IITs and other top engineering colleges) for the BTech version of this degree; some universities also offer a BSc version admitted through Class 12 marks or CUET (Common University Entrance Test).",
   "exams": [
    {
+    "label": "BITSAT",
+    "href": "/predictor?exam=BITSAT"
+   },
+   {
     "label": "GUJCET",
     "href": "/exams?q=GUJCET"
    },
@@ -7978,6 +8080,13 @@
     "exam": "KCET",
     "closing": "17,900",
     "q": "M . S . Ramaiah University of Applied Sciences UNIVERSITY HOUSE, GNANAGANGOTHRI CAMPUS, NEW BEL ROAD, MSR ROAD, BANGALORE - 560054"
+   },
+   {
+    "college": "BITS Pilani, Pilani Campus",
+    "branch": "B.E. Mathematics and Computing",
+    "exam": "BITSAT",
+    "closing": "299 / 390 BITSAT",
+    "q": null
    }
   ],
   "notable_people": [
@@ -8015,6 +8124,10 @@
    {
     "label": "AP EAPCET",
     "href": "/exams?q=AP-EAPCET"
+   },
+   {
+    "label": "BITSAT",
+    "href": "/predictor?exam=BITSAT"
    },
    {
     "label": "GUJCET",
@@ -8187,6 +8300,10 @@
    {
     "label": "AP EAPCET",
     "href": "/exams?q=AP-EAPCET"
+   },
+   {
+    "label": "BITSAT",
+    "href": "/predictor?exam=BITSAT"
    },
    {
     "label": "GUJCET",
@@ -9734,6 +9851,10 @@
     "href": "/exams?q=AP-EAPCET"
    },
    {
+    "label": "BITSAT",
+    "href": "/predictor?exam=BITSAT"
+   },
+   {
     "label": "GUJCET",
     "href": "/exams?q=GUJCET"
    },
@@ -9810,6 +9931,13 @@
     "exam": "MHT-CET",
     "closing": "1,049",
     "q": "Institute of Chemical Technology, Matunga, Mumbai"
+   },
+   {
+    "college": "BITS Pilani, Pilani Campus",
+    "branch": "B.E. Pharmaceutical Engg.",
+    "exam": "BITSAT",
+    "closing": "211 / 390 BITSAT",
+    "q": null
    }
   ],
   "notable_people": [
@@ -9849,6 +9977,10 @@
    {
     "label": "AP EAPCET",
     "href": "/exams?q=AP-EAPCET"
+   },
+   {
+    "label": "BITSAT",
+    "href": "/predictor?exam=BITSAT"
    },
    {
     "label": "CUET (central universities)",
@@ -9942,6 +10074,13 @@
     "exam": "CUET (CUSB)",
     "closing": "33.36 / 250 CUET",
     "q": "Central University of South Bihar, Gaya"
+   },
+   {
+    "college": "BITS Pilani, Hyderabad Campus",
+    "branch": "B.Pharm.",
+    "exam": "BITSAT",
+    "closing": "200 / 390 BITSAT",
+    "q": "BITS Pilani, Hyderabad Campus"
    }
   ],
   "notable_people": [
@@ -9980,6 +10119,10 @@
    {
     "label": "CUET (central universities)",
     "href": "/predictor?exam=CUET"
+   },
+   {
+    "label": "BITSAT",
+    "href": "/predictor?exam=BITSAT"
    },
    {
     "label": "JEE Main",
@@ -10064,6 +10207,13 @@
     "exam": "CUET (CUSB)",
     "closing": "58 / 250 CUET",
     "q": "Central University of South Bihar, Gaya"
+   },
+   {
+    "college": "BITS Pilani, Pilani Campus",
+    "branch": "M.Sc. Semiconductor and Nanoscience",
+    "exam": "BITSAT",
+    "closing": "246 / 390 BITSAT",
+    "q": null
    }
   ],
   "notable_people": [
@@ -11299,6 +11449,10 @@
    {
     "label": "AP EAPCET",
     "href": "/exams?q=AP-EAPCET"
+   },
+   {
+    "label": "BITSAT",
+    "href": "/predictor?exam=BITSAT"
    },
    {
     "label": "GUJCET",
