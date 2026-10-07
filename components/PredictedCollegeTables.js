@@ -459,11 +459,18 @@ const PredictedCollegesTable = ({
     "CLAT",
     "GUJCET",
     "BITSAT",
+    "CUET",
   ]);
   // AIIMS cards are MCC (medical) colleges, which /compare leaves out:
   // name links yes, compare boxes no
   // ICAR cutoffs are CUET marks, which /compare (ranks) can't line up
-  const NO_COMPARE_EXAMS = new Set(["AIIMS Nursing", "ICAR-UG", "BITSAT"]);
+  // CUET and BITSAT are scores too
+  const NO_COMPARE_EXAMS = new Set([
+    "AIIMS Nursing",
+    "ICAR-UG",
+    "BITSAT",
+    "CUET",
+  ]);
   const supportsCompare =
     (isJosaaExam || NAME_LINK_EXAMS.has(exam)) && !NO_COMPARE_EXAMS.has(exam);
   const slugOf = (x) =>
@@ -491,9 +498,13 @@ const PredictedCollegesTable = ({
   };
   // KCET's predictor also covers medical/dental/ayurveda seats, which live on
   // the tab under NEET, not KEA — no dead links for those rows
+  // GUJCET's medical/pharmacy rows are nursing, physiotherapy and pharmacy
+  // colleges the tab doesn't carry: its engineering rows only
   const canLinkRow = (t) =>
-    exam !== "KCET" ||
-    /engineer|architect/i.test(String(t["Course Type"] || "Engineering"));
+    exam === "GUJCET"
+      ? String(t["Program"] || "Engineering") === "Engineering"
+      : exam !== "KCET" ||
+        /engineer|architect/i.test(String(t["Course Type"] || "Engineering"));
   const compareIdOf = (t) =>
     t["College ID"] || (canLinkRow(t) ? `n~${slugOf(linkNameOf(t))}` : null);
   const supportsSalarySort = isJosaaExam;

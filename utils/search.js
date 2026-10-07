@@ -18,6 +18,8 @@ const ALIASES = {
   trichy: "tiruchirappalli",
   kgp: "kharagpur",
   bhu: "banaras",
+  hansraj: "hans raj",
+  allahabad: "prayagraj",
   bangalore: "bengaluru",
   calcutta: "kolkata",
   bombay: "mumbai",
@@ -72,6 +74,7 @@ const BOTH_WAYS = {
   madras: "chennai",
   bangalore: "bengaluru",
   calcutta: "kolkata",
+  allahabad: "prayagraj",
 };
 
 export function queryTerms(query) {

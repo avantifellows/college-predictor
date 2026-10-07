@@ -4,7 +4,7 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import { ChevronRight, Info, Search } from "lucide-react";
-import { matchesQuery } from "../utils/search";
+import { matchesQuery, plainText } from "../utils/search";
 import useUrlParams from "../utils/useUrlParams";
 import BackLink from "../components/BackLink";
 import {
@@ -265,6 +265,13 @@ const Colleges = () => {
     // matches; branch text is searched only when nothing matches by name
     // ("aerospace") — otherwise a branch mentioning Bombay leaks in
     if (raw) {
+      // a link from a predictor row carries the card's exact name: show
+      // that card alone ("Hindu College" also matches "Hindu College of
+      // Engineering", "BITS Pilani, Pilani Campus" all three campuses)
+      const exact = out.filter(
+        (c) => plainText(c.display_name) === plainText(raw)
+      );
+      if (exact.length === 1) return exact;
       const byName = out.filter((c) =>
         matchesQuery([c.display_name, c.state || "", c.district || ""], raw)
       );

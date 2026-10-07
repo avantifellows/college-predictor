@@ -973,11 +973,11 @@
   "where_work": "Metro cities mainly for galleries and agencies, but works from anywhere is increasingly possible for freelance artists and writers",
   "college_options": [
    {
-    "college": "Miranda House (W)",
+    "college": "Hindu College",
     "branch": "B.A Program",
     "exam": "CUET (DU)",
-    "closing": "886.28 / 1000 CUET",
-    "q": "Miranda House (W)"
+    "closing": "936.18 / 1000 CUET",
+    "q": "Hindu College"
    },
    {
     "college": "Faculty of Social Sciences, Banaras Hindu University",
@@ -1005,7 +1005,7 @@
     "branch": "B.A. (Hons.) French",
     "exam": "CUET (JNU)",
     "closing": "65.42 / 100 (JNU merit)",
-    "q": null
+    "q": "Jawaharlal Nehru University, New Delhi"
    },
    {
     "college": "Jamia Millia Islamia, New Delhi",
@@ -1766,7 +1766,7 @@
     "branch": "M.Sc. Biological Sciences",
     "exam": "BITSAT",
     "closing": "218 / 390 BITSAT",
-    "q": null
+    "q": "BITS Pilani, Pilani Campus"
    }
   ],
   "notable_people": [
@@ -2050,7 +2050,7 @@
    },
    {
     "name": "Jawaharlal Nehru University",
-    "q": "Jawaharlal Nehru University, Delhi"
+    "q": "Jawaharlal Nehru University, New Delhi"
    }
   ],
   "pay": {
@@ -2194,11 +2194,11 @@
   "where_work": "Tier-2 cities, and fieldwork-heavy botany roles often mean working near forests or rural research stations",
   "college_options": [
    {
-    "college": "Miranda House (W)",
+    "college": "Hindu College",
     "branch": "B.Sc (Hons.) Botany",
     "exam": "CUET (DU)",
-    "closing": "625.25 / 750 CUET",
-    "q": "Miranda House (W)"
+    "closing": "634.06 / 750 CUET",
+    "q": "Hindu College"
    },
    {
     "college": "Faculty of Science, Banaras Hindu University",
@@ -2398,11 +2398,11 @@
   "where_work": "Tier-2 cities",
   "college_options": [
    {
-    "college": "National Institute of Technology, Rourkela",
+    "college": "Indian Institute of Technology (BHU) Varanasi",
     "branch": "Ceramic Engineering",
-    "exam": "JEE Main",
-    "closing": "31,545",
-    "q": "National Institute of Technology, Rourkela"
+    "exam": "JEE Advanced",
+    "closing": "12,212",
+    "q": "Indian Institute of Technology (BHU) Varanasi"
    },
    {
     "college": "P D A College of Engineering, Gulbarga(AUTONOMOUS) AIWAN-E-SHAHI AREA,STATION ROAD,GULBARGA-585102",
@@ -2836,11 +2836,11 @@
     "q": "Indian Institute of Technology Bombay"
    },
    {
-    "college": "Miranda House (W)",
+    "college": "Hindu College",
     "branch": "B.Sc (Hons.) Chemistry",
     "exam": "CUET (DU)",
-    "closing": "461.4 / 750 CUET",
-    "q": "Miranda House (W)"
+    "closing": "495.34 / 750 CUET",
+    "q": "Hindu College"
    },
    {
     "college": "Faculty of Science, Banaras Hindu University",
@@ -2861,7 +2861,7 @@
     "branch": "M.Sc. Chemistry",
     "exam": "BITSAT",
     "closing": "227 / 390 BITSAT",
-    "q": null
+    "q": "BITS Pilani, Pilani Campus"
    }
   ],
   "notable_people": [
@@ -3108,11 +3108,11 @@
   "where_work": "Works from anywhere for many finance-related roles, metro cities mainly for top corporate jobs",
   "college_options": [
    {
-    "college": "Kirori Mal College",
+    "college": "Hindu College",
     "branch": "B.Com (Hons.)",
     "exam": "CUET (DU)",
-    "closing": "897.17 / 1000 CUET",
-    "q": "Kirori Mal College"
+    "closing": "912.22 / 1000 CUET",
+    "q": "Hindu College"
    },
    {
     "college": "Faculty of Commerce, Banaras Hindu University",
@@ -3862,7 +3862,7 @@
     "branch": "Dairy Technology",
     "exam": "WBJEE",
     "closing": "11,413",
-    "q": null
+    "q": "West Bengal University of Animal & Fishery Sciences"
    },
    {
     "college": "ICAR-National Dairy Research Institute, Karnal",
@@ -4469,11 +4469,11 @@
     "q": "Indian Institute of Technology Bombay"
    },
    {
-    "college": "Miranda House (W)",
+    "college": "Hindu College",
     "branch": "B.A. (Hons.) Economics",
     "exam": "CUET (DU)",
-    "closing": "831.26 / 1000 CUET",
-    "q": "Miranda House (W)"
+    "closing": "877.84 / 1000 CUET",
+    "q": "Hindu College"
    },
    {
     "college": "Faculty of Social Sciences, Banaras Hindu University",
@@ -4494,7 +4494,7 @@
     "branch": "M.Sc. Economics",
     "exam": "BITSAT",
     "closing": "256 / 390 BITSAT",
-    "q": null
+    "q": "BITS Pilani, Pilani Campus"
    }
   ],
   "notable_people": [
@@ -5684,11 +5684,11 @@
   "where_work": "Works from anywhere for writing and editing roles, since much of this work can be done remotely",
   "college_options": [
    {
-    "college": "Miranda House (W)",
+    "college": "Hindu College",
     "branch": "B.A. (Hons.) English",
     "exam": "CUET (DU)",
-    "closing": "851.33 / 1000 CUET",
-    "q": "Miranda House (W)"
+    "closing": "885.72 / 1000 CUET",
+    "q": "Hindu College"
    },
    {
     "college": "Faculty of Arts, Banaras Hindu University",
@@ -5832,7 +5832,7 @@
     "branch": "B.E. Environmental and Sustainability",
     "exam": "BITSAT",
     "closing": "213 / 390 BITSAT",
-    "q": null
+    "q": "BITS Pilani, Pilani Campus"
    }
   ],
   "notable_people": [
@@ -6015,11 +6015,11 @@
   "where_work": "Tier-2 cities and coastal areas",
   "college_options": [
    {
-    "college": "Chaudhary Charan Singh Haryana Agricultural University, Hisar",
+    "college": "Sher-e-Kashmir University of Agricultural Sciences & Technology of Kashmir, Srinagar",
     "branch": "B.F.Sc. Bachelor of Fisheries Sciences",
     "exam": "ICAR-UG (CUET)",
-    "closing": "299.12 CUET marks (of 750)",
-    "q": "Chaudhary Charan Singh Haryana Agricultural University, Hisar"
+    "closing": "273.78 CUET marks (of 750)",
+    "q": "Sher-e-Kashmir University of Agricultural Sciences & Technology of Kashmir, Srinagar"
    }
   ],
   "notable_people": [
@@ -6561,7 +6561,7 @@
   "top_colleges": [
    {
     "name": "Jawaharlal Nehru University (Delhi)",
-    "q": "Jawaharlal Nehru University, Delhi"
+    "q": "Jawaharlal Nehru University, New Delhi"
    },
    {
     "name": "Delhi University",
@@ -6597,11 +6597,11 @@
   "where_work": "Works from anywhere for research and writing",
   "college_options": [
    {
-    "college": "Miranda House (W)",
+    "college": "Hindu College",
     "branch": "B.A. (Hons.) History",
     "exam": "CUET (DU)",
-    "closing": "882.71 / 1000 CUET",
-    "q": "Miranda House (W)"
+    "closing": "908.8 / 1000 CUET",
+    "q": "Hindu College"
    },
    {
     "college": "Faculty of Social Sciences, Banaras Hindu University",
@@ -6965,7 +6965,7 @@
     "branch": "B.E. Manufacturing",
     "exam": "BITSAT",
     "closing": "226 / 390 BITSAT",
-    "q": null
+    "q": "BITS Pilani, Pilani Campus"
    }
   ],
   "notable_people": [
@@ -7198,7 +7198,7 @@
     "branch": "B.E. Electronics & Instrumentation",
     "exam": "BITSAT",
     "closing": "261 / 390 BITSAT",
-    "q": null
+    "q": "BITS Pilani, Pilani Campus"
    }
   ],
   "notable_people": [
@@ -7236,7 +7236,7 @@
   "top_colleges": [
    {
     "name": "Jawaharlal Nehru University (JNU)",
-    "q": "Jawaharlal Nehru University, Delhi"
+    "q": "Jawaharlal Nehru University, New Delhi"
    },
    {
     "name": "Delhi University",
@@ -7535,7 +7535,7 @@
    },
    {
     "name": "Jawaharlal Nehru University (JNU)",
-    "q": "Jawaharlal Nehru University, Delhi"
+    "q": "Jawaharlal Nehru University, New Delhi"
    },
    {
     "name": "Delhi University",
@@ -7543,7 +7543,7 @@
    },
    {
     "name": "University of Hyderabad",
-    "q": null
+    "q": "University of Hyderabad"
    },
    {
     "name": "Banaras Hindu University (BHU)",
@@ -7945,11 +7945,11 @@
     "q": "Indian Institute of Technology Bombay"
    },
    {
-    "college": "Miranda House (W)",
-    "branch": "B.Sc (Hons.) Mathematics",
+    "college": "Hindu College",
+    "branch": "B.Sc (Hons.) Statistics",
     "exam": "CUET (DU)",
-    "closing": "712.41 / 1000 CUET",
-    "q": "Miranda House (W)"
+    "closing": "840.07 / 1000 CUET",
+    "q": "Hindu College"
    },
    {
     "college": "Mahila Maha Vidyalaya, Banaras Hindu University",
@@ -8086,7 +8086,7 @@
     "branch": "B.E. Mathematics and Computing",
     "exam": "BITSAT",
     "closing": "299 / 390 BITSAT",
-    "q": null
+    "q": "BITS Pilani, Pilani Campus"
    }
   ],
   "notable_people": [
@@ -9923,7 +9923,7 @@
     "branch": "Pharmaceutical Engineering & Technology",
     "exam": "JEE Advanced",
     "closing": "13,225",
-    "q": null
+    "q": "Indian Institute of Technology (BHU) Varanasi"
    },
    {
     "college": "Institute of Chemical Technology, Matunga, Mumbai",
@@ -9937,7 +9937,7 @@
     "branch": "B.E. Pharmaceutical Engg.",
     "exam": "BITSAT",
     "closing": "211 / 390 BITSAT",
-    "q": null
+    "q": "BITS Pilani, Pilani Campus"
    }
   ],
   "notable_people": [
@@ -10188,11 +10188,11 @@
     "q": "Indian Institute of Technology Madras"
    },
    {
-    "college": "Miranda House (W)",
+    "college": "Hindu College",
     "branch": "B.Sc (Hons.) Physics",
     "exam": "CUET (DU)",
-    "closing": "480.38 / 750 CUET",
-    "q": "Miranda House (W)"
+    "closing": "535.26 / 750 CUET",
+    "q": "Hindu College"
    },
    {
     "college": "Faculty of Science, Banaras Hindu University",
@@ -10213,7 +10213,7 @@
     "branch": "M.Sc. Semiconductor and Nanoscience",
     "exam": "BITSAT",
     "closing": "246 / 390 BITSAT",
-    "q": null
+    "q": "BITS Pilani, Pilani Campus"
    }
   ],
   "notable_people": [
@@ -10473,7 +10473,7 @@
    },
    {
     "name": "Jawaharlal Nehru University",
-    "q": "Jawaharlal Nehru University, Delhi"
+    "q": "Jawaharlal Nehru University, New Delhi"
    },
    {
     "name": "Presidency College Kolkata",
@@ -10506,11 +10506,11 @@
   "where_work": "Metro cities mainly",
   "college_options": [
    {
-    "college": "Miranda House (W)",
+    "college": "Hindu College",
     "branch": "B.A. (Hons.) Political Science",
     "exam": "CUET (DU)",
-    "closing": "925.98 / 1000 CUET",
-    "q": "Miranda House (W)"
+    "closing": "935.4 / 1000 CUET",
+    "q": "Hindu College"
    },
    {
     "college": "Faculty of Social Sciences, Banaras Hindu University",
@@ -11318,7 +11318,7 @@
     "branch": "B.A. (Hons.) Social Work",
     "exam": "CUET (DU)",
     "closing": "513.65 / 1000 CUET",
-    "q": null
+    "q": "Dr. Bhim Rao Ambedkar College"
    }
   ],
   "notable_people": [
@@ -11892,11 +11892,11 @@
     "q": "University Of Calcutta"
    },
    {
-    "college": "Veermata Jijabai Technological Institute(VJTI), Matunga, Mumbai",
-    "branch": "Textile Technology",
+    "college": "Institute of Chemical Technology, Matunga, Mumbai",
+    "branch": "Fibres and Textile Processing Technology",
     "exam": "MHT-CET",
-    "closing": "9,987",
-    "q": "Veermata Jijabai Technological Institute(VJTI), Matunga, Mumbai"
+    "closing": "10,961",
+    "q": "Institute of Chemical Technology, Matunga, Mumbai"
    },
    {
     "college": "PSG College of Technology (Autonomous) Peelamedu Coimbatore District 641004",
@@ -12046,7 +12046,7 @@
    },
    {
     "name": "Jawaharlal Nehru University (JNU)",
-    "q": "Jawaharlal Nehru University, Delhi"
+    "q": "Jawaharlal Nehru University, New Delhi"
    }
   ],
   "pay": {
@@ -12067,11 +12067,11 @@
   "where_work": "Tier-2 cities (fieldwork often in rural/forest areas)",
   "college_options": [
    {
-    "college": "Miranda House (W)",
+    "college": "Hindu College",
     "branch": "B.Sc (Hons.) Zoology",
     "exam": "CUET (DU)",
-    "closing": "657.86 / 750 CUET",
-    "q": "Miranda House (W)"
+    "closing": "678.44 / 750 CUET",
+    "q": "Hindu College"
    },
    {
     "college": "Faculty of Science, Banaras Hindu University",

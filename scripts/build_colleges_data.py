@@ -42,6 +42,7 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import collections
 import json
 import os
 import re
@@ -1450,6 +1451,162 @@ def fill_from_aishe(client, rows):
           f"{n['own_aishe']} from AISHE + {n['own_name']} by name ({left} unknown)")
 
 
+# NIRF list names drift across editions; one name per list
+_NIRF_CAT_CANON = {"Research": "Research Institutions", "Architecture": "Architecture and Planning",
+                   "State Public University": "State Public Universities"}
+_DISC_NIRF = {"Engineering": "Engineering", "Pharmacy": "Pharmacy", "Architecture": "Architecture and Planning",
+              "Planning": "Architecture and Planning", "Law": "Law", "Agriculture": "Agriculture and Allied Sectors",
+              "Fisheries": "Agriculture and Allied Sectors", "Management": "Management"}
+
+
+def nirf_from_aishe(client, rows):
+    """Last pass: NIRF ids end in the AISHE code (IR-O-U-0109 is AISHE
+    U-0109), so a card that knows its AISHE code can take its rank from it
+    when name matching found none (JNU, ICT Mumbai, Calcutta, the SPAs), or
+    when name matching landed on an old spelling's id and stopped at that
+    year (ARSD College at 2017 though it is ranked 2023-25).
+
+    The list follows the card: its disciplines first, then College /
+    University / Overall. An evening college shares its morning college's
+    AISHE code but NIRF ranks the morning college, so evening cards are
+    left alone."""
+    r = client.query(f"""
+    SELECT REGEXP_EXTRACT(institute_id, r'-([UCS]-[0-9]+)$') AS aishe, ranking_category,
+           ranking_year, MIN(nirf_rank) AS nirf_rank, ANY_VALUE(overall_score) AS overall_score
+    FROM `{D}.nirf_fact_rankings`
+    WHERE nirf_rank IS NOT NULL AND institute_id IS NOT NULL
+    GROUP BY 1, 2, 3""").to_dataframe()
+    r["ranking_category"] = r.ranking_category.replace(_NIRF_CAT_CANON)
+    # NIRF's ids carry the odd wrong AISHE code (Bharati Vidyapeeth's
+    # College of Engineering filed under MMCOE Pune's C-41309; a Chittoor
+    # college under a Thiruvallur one's C-16504): same state, and one
+    # distinctive word of NIRF's name inside the card's name
+    names = client.query(f"""
+    SELECT REGEXP_EXTRACT(institute_id, r'-([UCS]-[0-9]+)$') AS aishe,
+           ARRAY_AGG(DISTINCT institute_name IGNORE NULLS) AS names, ANY_VALUE(state) AS state,
+           ARRAY_AGG(DISTINCT city IGNORE NULLS) AS cities
+    FROM `{D}.nirf_fact_rankings` WHERE institute_id IS NOT NULL GROUP BY 1""").to_dataframe()
+    names = {x.aishe: x for x in names.itertuples()}
+    generic = {"college", "engineering", "institute", "technology", "university", "science", "sciences",
+               "of", "and", "the", "for", "women", "deemed", "national", "indian", "school", "pharmacy",
+               "pharmaceutical", "management", "research", "studies", "education", "agriculture",
+               "agricultural", "new", "delhi", "be", "university", "vishwavidyalaya", "mahavidyalaya"}
+    def squash(t):
+        t = t.lower().replace("orissa", "odisha").replace("bangalore", "bengaluru")
+        return re.sub(r"[^a-z ]", "", t)
+
+    shared = collections.Counter(r["aishe_code"] for r in rows
+                                 if r.get("aishe_code") and "(Evening)" not in r["name"])
+
+    def same_place(row):
+        x = names.get(row["aishe_code"])
+        if x is None:
+            return False
+        if x.state and row["state"] and x.state.lower() != row["state"].lower():
+            return False
+        card = squash(row["name"]).replace(" ", "")
+        # a campus or centre of a ranked institute (ICT's Jalna campus, VTU's
+        # Kalaburagi centre) is not the institute NIRF ranked: NIRF's city
+        # must be on the card
+        if re.search(r"off[- ]?campus", row["name"], re.I):
+            return False
+        is_campus = re.search(r"campus|centre|center|cpgs", row["name"], re.I)
+        if shared[row["aishe_code"]] > 1 or is_campus:
+            # a campus card's district is its parent's (from the AISHE pin)
+            here = card + ("" if is_campus else squash(row.get("district") or "").replace(" ", ""))
+            if not any(squash(cty).replace(" ", "")[:6] in here for cty in x.cities):
+                return False
+        # 3-letter words are acronyms (GMR, BNM); long words by their stem
+        # (Horticulture / Horticultural)
+        return any(w[:7] in card for nm in x.names for w in squash(nm).split()
+                   if len(w) >= 3 and w not in generic)
+    by_aishe = {a: g for a, g in r.dropna(subset=["aishe"]).groupby("aishe")}
+    sc = lambda v: round(float(v), 2) if v == v else None
+    filled, refreshed = [], []
+    for row in rows:
+        g = by_aishe.get(row["aishe_code"])
+        if g is None or "(Evening)" in row["name"] or not same_place(row):
+            continue
+        n = row["nirf"]
+        if n:
+            cat = _NIRF_CAT_CANON.get(n["category"], n["category"])
+            cat = {"Research": "Research Institutions", "Agriculture": "Agriculture and Allied Sectors"}.get(cat, cat)
+            gc = g[g.ranking_category == cat]
+            if n.get("rank") is None or gc.empty or gc.ranking_year.max() <= n["ranking_year"]:
+                continue
+            todo = refreshed
+        else:
+            prefs = [_DISC_NIRF[d] for d in (row["disciplines"] or []) if d in _DISC_NIRF]
+            prefs += ["College", "University", "Overall", "Research Institutions", "State Public Universities"]
+            cat = next((c for c in prefs if (g.ranking_category == c).any()), None)
+            if cat is None:
+                # ranked only in a list the card's subjects don't cover
+                # (a university ranked only in Pharmacy): no headline rank
+                continue
+            gc = g[g.ranking_category == cat]
+            todo = filled
+        gc = gc.sort_values("ranking_year", ascending=False)
+        top = gc.iloc[0]
+        row["nirf"] = {
+            "category": ("Research" if cat.startswith("Research")
+                         else "Agriculture" if cat.startswith("Agriculture") else cat),
+            "rank": int(top.nirf_rank), "score": sc(top.overall_score),
+            "ranking_year": int(top.ranking_year),
+            "rank_history": [{"year": int(x.ranking_year), "rank": int(x.nirf_rank), "score": sc(x.overall_score)}
+                             for x in gc.head(6).itertuples()],
+        }
+        row.setdefault("data_sources", {})["ranking"] = f"NIRF {int(top.ranking_year)}"
+        todo.append(f"{row['name'][:40]} -> {cat} #{int(top.nirf_rank)} ({int(top.ranking_year)})")
+    print(f"  NIRF by AISHE id: {len(filled)} filled, {len(refreshed)} refreshed")
+    for x in filled + refreshed:
+        print("    " + x)
+
+    # Placement the same way, from the four DCS blocks cards already use:
+    # Engineering UG-4Y, MBBS, College UG-3Y (DU-style colleges), Law UG-5Y.
+    # A university's UG totals mix all its programmes, so none of those.
+    pl = client.query(f"""
+    SELECT REGEXP_EXTRACT(institute_id, r'-([UCS]-[0-9]+)$') AS aishe, discipline, program_level,
+           edition_year AS ranking_year, graduating_academic_year AS academic_year, median_salary,
+           graduated_on_time, students_placed, higher_studies_selected, first_year_intake
+    FROM `{D}.nirf_fact_dcs_placements`
+    WHERE NOT superseded AND median_salary > 0 AND graduated_on_time > 0
+      AND STRUCT(discipline, program_level) IN (STRUCT('Engineering', 'UG-4Y'), STRUCT('Medical', 'UG-5Y'),
+                                                STRUCT('College', 'UG-3Y'), STRUCT('Law', 'UG-5Y'))
+    """).to_dataframe().dropna(subset=["aishe"])
+    pl = pl.sort_values(["ranking_year", "academic_year"], ascending=False)
+    pl_by = {k: g for k, g in pl.groupby(["aishe", "discipline"])}
+    label = {"Engineering": "NIRF Engineering, UG 4-year", "Medical": "NIRF Medical, MBBS (UG 5-year)",
+             "College": "NIRF College, UG 3-year", "Law": "NIRF Law, UG 5-year"}
+    num = lambda v: None if v != v or v is None else int(v)
+    got = collections.Counter()
+    for row in rows:
+        if row["placement"] or not row["aishe_code"] or "(Evening)" in row["name"]:
+            continue
+        disc = set(row["disciplines"] or [])
+        want = (["Medical"] if "NEET-UG" in row["entrance_exams"] else []) \
+            + (["Engineering"] if "Engineering" in disc else []) \
+            + (["Law"] if "Law" in disc else []) \
+            + (["College"] if disc & {"Arts", "Science", "Commerce"} else [])
+        hit = next((d for d in want if (row["aishe_code"], d) in pl_by), None)
+        if hit is None or not same_place(row):
+            continue
+        x = pl_by[(row["aishe_code"], hit)].iloc[0]
+        grad, placed, higher = int(x.graduated_on_time), num(x.students_placed), num(x.higher_studies_selected)
+        row["placement"] = {
+            "median_salary": int(x.median_salary),
+            "percentage_placed": round(placed / grad * 100, 1) if placed is not None else None,
+            "percentage_with_outcome": (round(min(100.0, (placed + higher) / grad * 100), 1)
+                                        if placed is not None and higher is not None else None),
+            "students_placed": placed, "higher_studies_selected": higher,
+            "first_year_intake": num(x.first_year_intake), "includes_dual_degree": False,
+            "academic_year": x.academic_year, "ranking_year": int(x.ranking_year),
+            "source": label[hit], "is_branch_specific": False,
+        }
+        row.setdefault("data_sources", {})["placement"] = f"NIRF {int(x.ranking_year)} (AY {x.academic_year})"
+        got[hit] += 1
+    print(f"  placement by AISHE id: {dict(got)}")
+
+
 def main():
     careers_by_branch = career_lookup()
     careers_by_branch_mhtcet = career_lookup("MHT-CET")
@@ -2665,9 +2822,9 @@ def main():
     print(f"  BHU rows {len(bhu_rows)} (NIRF {sum(1 for r in bhu_rows if r['nirf'])}),"
           f" career-linked programmes {sum(1 for r in bhu_rows for p in r['programs']['list'] if p['career_id'])}"
           f"/{sum(r['programs']['count'] for r in bhu_rows)}")
-    # ── University of Allahabad (CUET): one card for its UG programmes ─────
-    # The JoSAA card for the university is its J.K. Institute B.Tech (closing
-    # ranks); CUET marks get their own card so a table never mixes the two.
+    # ── University of Allahabad (CUET): UG programmes on its JoSAA card ────
+    # (U-0548, the J.K. Institute B.Tech), as for JNU: the programmes table
+    # shows a rank column and a CUET column side by side.
     # Open number = loosest 2025 UR round; "All" admitted -> no number.
     ald = client.query(f"""
     SELECT program, MIN(IF(category = 'UR' AND NOT all_admitted, cutoff, NULL)) AS ur_cutoff
@@ -2693,9 +2850,8 @@ def main():
                         "rank_note": "Lowest open-category CUET marks (of 750) that got a seat."},
                        nirf_block_for(["University of Allahabad"], ["University", "Overall"]).get("University of Allahabad"),
                        sorted(discs)[:4], "University of Allahabad UG admission 2025")
-    ald_row.update(district="Prayagraj", kind="Central University",
-                   website="http://www.allduniv.ac.in")
-    print(f"  Allahabad card: {len(lst)} programmes, NIRF {'yes' if ald_row['nirf'] else 'no'}")
+    ald_progs, ald_discs, ald_nirf = lst, discs, ald_row["nirf"]
+    print(f"  Allahabad: {len(lst)} CUET programmes")
     # ── Central University of South Bihar (CUET): one card ────────────────
     cusb = client.query(f"""
     SELECT program, MIN(IF(category = 'UR' AND NOT all_admitted, cutoff, NULL)) AS ur_cutoff
@@ -2825,7 +2981,7 @@ def main():
                                                 f"(AY {bits_place['academic_year']}, BITS as a whole)")
         bits_rows.append(row)
     print(f"  BITS cards {len(bits_rows)}; NIRF {bits_nirf and bits_nirf['rank']} {bits_nirf and bits_nirf['category']}; placement {'yes' if bits_place else 'no'}")
-    rows += du_rows + ii_rows + icar_rows + bhu_rows + [ald_row, cusb_row, jmi_row] + bits_rows
+    rows += du_rows + ii_rows + icar_rows + bhu_rows + [cusb_row, jmi_row] + bits_rows
     jnu_card = next((r for r in rows if r["college_id"] == "U-0109"), None)
     if jnu_card is None:
         raise SystemExit("JNU's JoSAA card (U-0109) is gone: attach the CUET programmes elsewhere")
@@ -2835,8 +2991,27 @@ def main():
     jnu_card["programs"]["source"] += "; JNU CUET UG 2025, lists 1-4"
     jnu_card["programs"]["rank_note"] += " CUET score: JNU merit marks of 100 (English + GAT), Code-I."
     jnu_card["entrance_exams"] = sorted(set(jnu_card["entrance_exams"]) | {"CUET (UG)"})
+    # the CUET predictor's links ask for "..., New Delhi" (as Jamia's card reads)
+    jnu_card.update(name="Jawaharlal Nehru University, New Delhi",
+                    display_name="Jawaharlal Nehru University, New Delhi")
     if "Arts" not in jnu_card["disciplines"]:
         jnu_card["disciplines"] = jnu_card["disciplines"] + ["Arts"]
+    ald_card = next((r for r in rows if r["college_id"] == "U-0548"), None)
+    if ald_card is None:
+        raise SystemExit("Allahabad's JoSAA card (U-0548) is gone: attach the CUET programmes elsewhere")
+    ald_card["programs"]["list"] += ald_progs
+    ald_card["programs"]["count"] = len(ald_card["programs"]["list"])
+    ald_card["programs"]["degrees"] = sorted(set(ald_card["programs"]["degrees"]) | {p["degree"] for p in ald_progs})
+    ald_card["programs"]["source"] += "; University of Allahabad UG admission 2025, all rounds"
+    ald_card["programs"]["rank_note"] += " CUET score: lowest open-category CUET marks (of 750) that got a seat."
+    ald_card["entrance_exams"] = sorted(set(ald_card["entrance_exams"]) | {"CUET (UG)"})
+    ald_card["disciplines"] = (ald_card["disciplines"] + sorted(ald_discs - set(ald_card["disciplines"])))[:4]
+    # the city is Prayagraj since 2018; the CUET predictor's links ask for it
+    ald_card.update(name="University of Allahabad, Prayagraj", display_name="University of Allahabad, Prayagraj",
+                    district="Prayagraj")
+    if not ald_card["nirf"]:
+        ald_card["nirf"] = ald_nirf
+    print(f"  Allahabad card +{len(ald_progs)} CUET programmes")
     print(f"  JNU card +{len(jnu_progs)} CUET programmes; Jamia card {len(jmi_progs)} programmes, NIRF {'yes' if jmi_row['nirf'] else 'no'}")
 
     print(f"  medical rows {len(med_rows)}"
@@ -2875,6 +3050,7 @@ def main():
             card["entrance_exams"] = card["entrance_exams"] + ["AIIMS-EE"]
     print(f"  AIIMS nursing programme on {len(nursing)} AIIMS cards")
     fill_from_aishe(client, rows)
+    nirf_from_aishe(client, rows)
 
     def nirf_sort(z):
         n = z["nirf"]

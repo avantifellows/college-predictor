@@ -354,7 +354,13 @@ def college_linker():
     displays = [c["display_name"] for c in json.load(open(COLLEGES_TAB))]
     dtokens = [(d, set(norm(d).split())) for d in displays]
 
+    exact = {norm(d): d for d in displays}
+
     def link(name):
+        # the tab's own name links as is ("BITS Pilani, Pilani Campus" is a
+        # token subset of all three BITS campuses)
+        if norm(str(name)) in exact:
+            return exact[norm(str(name))]
         base = re.sub(r"\(.*?\)", " ", str(name))  # drop parentheticals
         toks = [ACRONYMS.get(t, t) for t in norm(base).split()]
         toks = set(" ".join(toks).split())
