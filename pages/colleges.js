@@ -251,14 +251,16 @@ const Colleges = () => {
       if (!raw) return true;
       // Search the branch list too: "who teaches Aerospace" is a real question,
       // and the branch names are the richest text we hold.
-      return matchesQuery(
-        [
-          c.display_name,
-          c.state || "",
-          c.district || "",
-          ...c.programs.list.map((p) => p.branch),
-        ],
-        raw
+      return (
+        matchesQuery(
+          [
+            c.display_name,
+            c.state || "",
+            c.district || "",
+            ...c.programs.list.map((p) => p.branch),
+          ],
+          raw
+        ) || (c.aka || []).some((n) => matchesQuery(n, raw))
       );
     });
     // a query that names a college ("iit bombay") shows only name/place
@@ -268,12 +270,19 @@ const Colleges = () => {
       // a link from a predictor row carries the card's exact name: show
       // that card alone ("Hindu College" also matches "Hindu College of
       // Engineering", "BITS Pilani, Pilani Campus" all three campuses)
-      const exact = out.filter(
-        (c) => plainText(c.display_name) === plainText(raw)
+      const exact = out.filter((c) =>
+        [c.display_name, ...(c.aka || [])].some(
+          (n) => plainText(n) === plainText(raw)
+        )
       );
       if (exact.length === 1) return exact;
-      const byName = out.filter((c) =>
-        matchesQuery([c.display_name, c.state || "", c.district || ""], raw)
+      // aka: a merged card's other spellings (see merge_duplicate_cards)
+      const byName = out.filter(
+        (c) =>
+          matchesQuery(
+            [c.display_name, c.state || "", c.district || ""],
+            raw
+          ) || (c.aka || []).some((n) => matchesQuery(n, raw))
       );
       if (byName.length) return byName.sort(SORTS[sortKey].fn);
     }

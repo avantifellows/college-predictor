@@ -8638,14 +8638,14 @@
   }
  },
  {
-  "college_id": "S-25022",
-  "aishe_code": "S-25022",
-  "name": "INSTITUTE OF MEDICAL SCIENCES, AMROHA",
+  "college_id": "nmc:institute-of-medical-sciences-bhu-varanasi",
+  "aishe_code": null,
+  "name": "Institute of Medical Sciences, BHU, Varanasi",
   "display_name": "Institute of Medical Sciences, BHU, Varanasi",
   "state": "Uttar Pradesh",
   "state_is_inferred": false,
   "district": "Varansi",
-  "kind": "Technical/Polytechnic",
+  "kind": "Medical College",
   "management": "Government",
   "ownership": "Public",
   "disciplines": [],
@@ -8741,7 +8741,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC 2024-25 / AISHE 2024-25",
+   "identity": "NMC 2024-25",
    "programs": "NMC 2024-25",
    "ranking": "NIRF 2025",
    "placement": "NIRF 2025 (AY 2022-23)",
@@ -28796,6 +28796,166 @@
   }
  },
  {
+  "college_id": "icar:acharya-narendra-dev-university-of-agriculture-technology-ayodhya",
+  "aishe_code": "U-0531",
+  "name": "Acharya Narendra Dev University of Agriculture & Technology, Ayodhya",
+  "display_name": "Acharya Narendra Dev University of Agriculture & Technology, Ayodhya",
+  "state": "Uttar Pradesh",
+  "state_is_inferred": false,
+  "district": "Ayodhya",
+  "kind": null,
+  "management": null,
+  "ownership": "Public",
+  "disciplines": [
+   "Agriculture",
+   "Engineering",
+   "Fisheries",
+   "Science"
+  ],
+  "year_established": 1975,
+  "website": "www.nduat.org",
+  "university": null,
+  "entrance_exams": [
+   "CUET (UG)",
+   "JEE Main"
+  ],
+  "counselling": "ICAR-UG counselling (CUET)",
+  "programs": {
+   "count": 9,
+   "degrees": [
+    "B.E. / B.Tech",
+    "B.F.Sc.",
+    "B.Sc. (Hons.)",
+    "B.Tech."
+   ],
+   "list": [
+    {
+     "branch": "B.Sc. (Hons.) Agriculture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 462.3,
+     "score_max": 750,
+     "career_id": "agriculture"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Horticulture",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 378.2,
+     "score_max": 750,
+     "career_id": "horticulture"
+    },
+    {
+     "branch": "B.Tech. Bio-Technology",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 370.0,
+     "score_max": 750,
+     "career_id": "biotechnology"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Forestry",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 341.3,
+     "score_max": 750,
+     "career_id": "forestry"
+    },
+    {
+     "branch": "B.Tech. Agricultural Engineering",
+     "years": 4,
+     "degree": "B.Tech.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 341.3,
+     "score_max": 750,
+     "career_id": "agricultural-engineering"
+    },
+    {
+     "branch": "B.F.Sc. Bachelor of Fisheries Sciences",
+     "years": 4,
+     "degree": "B.F.Sc.",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 335.1,
+     "score_max": 750,
+     "career_id": "fishery-science"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Food Nutrition and Dietetics",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 312.9,
+     "score_max": 750,
+     "career_id": "agriculture"
+    },
+    {
+     "branch": "B.Sc. (Hons.) Community Science",
+     "years": 4,
+     "degree": "B.Sc. (Hons.)",
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "indicative_min_score": 263.4,
+     "score_max": 750,
+     "career_id": "agriculture"
+    },
+    {
+     "branch": "Computer Science and Engineering",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 1526968,
+     "indicative_opening_rank": null,
+     "career_id": "computer-science-information-technology",
+     "rank_label": "UPTAC"
+    }
+   ],
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up; UPTAC 2026",
+   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
+  },
+  "nirf": {
+   "category": "Agriculture",
+   "rank": 35,
+   "score": 43.13,
+   "ranking_year": 2023,
+   "rank_history": [
+    {
+     "year": 2023,
+     "rank": 35,
+     "score": 43.13
+    }
+   ]
+  },
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": "A++",
+   "cgpa": 3.53,
+   "cycle": 1,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "ICAR-UG counselling 2025",
+   "programs": "ICAR-UG counselling 2025",
+   "ranking": "NIRF 2023",
+   "placement": null,
+   "accreditation": "NAAC"
+  },
+  "aka": [
+   "Acharya Narendra Deva University of Agriculture & Technology, Kumarganj, Ayodhya"
+  ]
+ },
+ {
   "college_id": "iiser:pune",
   "aishe_code": "U-0305",
   "name": "Indian Institute of Science Education and Research Pune",
@@ -32504,12 +32664,14 @@
   "website": "www.wbuafscl.ac.in",
   "university": null,
   "entrance_exams": [
-   "CUET (UG)"
+   "CUET (UG)",
+   "WBJEE"
   ],
   "counselling": "ICAR-UG counselling (CUET)",
   "programs": {
-   "count": 2,
+   "count": 3,
    "degrees": [
+    "B.E. / B.Tech",
     "B.F.Sc.",
     "B.Tech."
    ],
@@ -32533,9 +32695,18 @@
      "indicative_min_score": 273.3,
      "score_max": 750,
      "career_id": "dairy-engineering"
+    },
+    {
+     "branch": "Dairy Technology",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 11413,
+     "indicative_opening_rank": null,
+     "career_id": "dairy-engineering",
+     "rank_label": "WBJEE"
     }
    ],
-   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up; WBJEE 2026",
    "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
   },
   "nirf": {
@@ -32576,7 +32747,10 @@
    "ranking": "NIRF 2025",
    "placement": null,
    "accreditation": null
-  }
+  },
+  "aka": [
+   "West Bengal University of Animal & Fishery Sciences"
+  ]
  },
  {
   "college_id": "icar:dr-y-s-r-horticultural-university-venkataramannagudem",
@@ -33607,19 +33781,19 @@
   }
  },
  {
-  "college_id": "C-11760",
-  "aishe_code": "C-11760",
-  "name": "Medical College, Gandhinagar. P.O, Kottayam- 686 008",
+  "college_id": "nmc:medical-college-thiruvananthapuram",
+  "aishe_code": null,
+  "name": "Medical College, Thiruvananthapuram",
   "display_name": "Medical College, Thiruvananthapuram",
   "state": "Kerala",
   "state_is_inferred": false,
   "district": "Thiruvanant hapuram",
-  "kind": "Affiliated College",
+  "kind": "Medical College",
   "management": "Government",
   "ownership": "Public",
   "disciplines": [],
   "year_established": 1951,
-  "website": "www.kottayammedicalcollege.org",
+  "website": null,
   "university": "Kerala University of Health Sciences, Thrissur",
   "entrance_exams": [
    "NEET-UG"
@@ -33690,7 +33864,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC 2024-25 / AISHE 2024-25",
+   "identity": "NMC 2024-25",
    "programs": "NMC 2024-25",
    "ranking": "NIRF 2024",
    "placement": "NIRF 2024 (AY 2021-22)",
@@ -75834,20 +76008,20 @@
  },
  {
   "college_id": "ap-eapcet:AVEV",
-  "aishe_code": "C-18157",
+  "aishe_code": "C-17993",
   "name": "AVANTHI INST. OF ENGINEERING AND TECHNOLOGY",
   "display_name": "AVANTHI INST. OF ENGINEERING AND TECHNOLOGY",
   "state": "Andhra Pradesh",
   "state_is_inferred": false,
-  "district": "Visakhapatnam",
+  "district": "Vizianagaram",
   "kind": null,
   "management": "Private",
   "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
-  "year_established": 1999,
-  "website": "www.avanthienggcollege.ac.in",
+  "year_established": 2005,
+  "website": "www.aietta.ac.in",
   "university": null,
   "entrance_exams": [
    "AP EAPCET"
@@ -75917,7 +76091,7 @@
   "placement": null,
   "naac": {
    "grade": "A+",
-   "cgpa": 3.32,
+   "cgpa": 3.38,
    "cycle": 2,
    "not_applicable_reason": null
   },
@@ -77607,197 +77781,6 @@
   "data_sources": {
    "identity": "KEA 2025 Round 3",
    "programs": "KEA 2025 Round 3",
-   "ranking": null,
-   "placement": null,
-   "accreditation": "NAAC"
-  }
- },
- {
-  "college_id": "icar:acharya-narendra-dev-university-of-agriculture-technology-ayodhya",
-  "aishe_code": "U-0531",
-  "name": "Acharya Narendra Dev University of Agriculture & Technology, Ayodhya",
-  "display_name": "Acharya Narendra Dev University of Agriculture & Technology, Ayodhya",
-  "state": "Uttar Pradesh",
-  "state_is_inferred": false,
-  "district": "Ayodhya",
-  "kind": null,
-  "management": null,
-  "ownership": "Public",
-  "disciplines": [
-   "Agriculture",
-   "Engineering",
-   "Fisheries",
-   "Science"
-  ],
-  "year_established": 1975,
-  "website": "www.nduat.org",
-  "university": null,
-  "entrance_exams": [
-   "CUET (UG)"
-  ],
-  "counselling": "ICAR-UG counselling (CUET)",
-  "programs": {
-   "count": 8,
-   "degrees": [
-    "B.F.Sc.",
-    "B.Sc. (Hons.)",
-    "B.Tech."
-   ],
-   "list": [
-    {
-     "branch": "B.Sc. (Hons.) Agriculture",
-     "years": 4,
-     "degree": "B.Sc. (Hons.)",
-     "indicative_closing_rank": null,
-     "indicative_opening_rank": null,
-     "indicative_min_score": 462.3,
-     "score_max": 750,
-     "career_id": "agriculture"
-    },
-    {
-     "branch": "B.Sc. (Hons.) Horticulture",
-     "years": 4,
-     "degree": "B.Sc. (Hons.)",
-     "indicative_closing_rank": null,
-     "indicative_opening_rank": null,
-     "indicative_min_score": 378.2,
-     "score_max": 750,
-     "career_id": "horticulture"
-    },
-    {
-     "branch": "B.Tech. Bio-Technology",
-     "years": 4,
-     "degree": "B.Tech.",
-     "indicative_closing_rank": null,
-     "indicative_opening_rank": null,
-     "indicative_min_score": 370.0,
-     "score_max": 750,
-     "career_id": "biotechnology"
-    },
-    {
-     "branch": "B.Sc. (Hons.) Forestry",
-     "years": 4,
-     "degree": "B.Sc. (Hons.)",
-     "indicative_closing_rank": null,
-     "indicative_opening_rank": null,
-     "indicative_min_score": 341.3,
-     "score_max": 750,
-     "career_id": "forestry"
-    },
-    {
-     "branch": "B.Tech. Agricultural Engineering",
-     "years": 4,
-     "degree": "B.Tech.",
-     "indicative_closing_rank": null,
-     "indicative_opening_rank": null,
-     "indicative_min_score": 341.3,
-     "score_max": 750,
-     "career_id": "agricultural-engineering"
-    },
-    {
-     "branch": "B.F.Sc. Bachelor of Fisheries Sciences",
-     "years": 4,
-     "degree": "B.F.Sc.",
-     "indicative_closing_rank": null,
-     "indicative_opening_rank": null,
-     "indicative_min_score": 335.1,
-     "score_max": 750,
-     "career_id": "fishery-science"
-    },
-    {
-     "branch": "B.Sc. (Hons.) Food Nutrition and Dietetics",
-     "years": 4,
-     "degree": "B.Sc. (Hons.)",
-     "indicative_closing_rank": null,
-     "indicative_opening_rank": null,
-     "indicative_min_score": 312.9,
-     "score_max": 750,
-     "career_id": "agriculture"
-    },
-    {
-     "branch": "B.Sc. (Hons.) Community Science",
-     "years": 4,
-     "degree": "B.Sc. (Hons.)",
-     "indicative_closing_rank": null,
-     "indicative_opening_rank": null,
-     "indicative_min_score": 263.4,
-     "score_max": 750,
-     "career_id": "agriculture"
-    }
-   ],
-   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
-   "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
-  },
-  "nirf": null,
-  "ug_gender": null,
-  "fees": null,
-  "placement": null,
-  "naac": {
-   "grade": "A++",
-   "cgpa": 3.53,
-   "cycle": 1,
-   "not_applicable_reason": null
-  },
-  "data_sources": {
-   "identity": "ICAR-UG counselling 2025",
-   "programs": "ICAR-UG counselling 2025",
-   "ranking": null,
-   "placement": null,
-   "accreditation": "NAAC"
-  }
- },
- {
-  "college_id": "uptac:acharya narendra deva university agriculture technology kuma",
-  "aishe_code": "U-0531",
-  "name": "Acharya Narendra Deva University of Agriculture & Technology, Kumarganj, Ayodhya",
-  "display_name": "Acharya Narendra Deva University of Agriculture & Technology, Kumarganj, Ayodhya",
-  "state": "Uttar Pradesh",
-  "state_is_inferred": false,
-  "district": "Ayodhya",
-  "kind": null,
-  "management": null,
-  "ownership": "Public",
-  "disciplines": [
-   "Engineering"
-  ],
-  "year_established": 1975,
-  "website": "www.nduat.org",
-  "university": null,
-  "entrance_exams": [
-   "JEE Main"
-  ],
-  "counselling": "UPTAC (AKTU)",
-  "programs": {
-   "count": 1,
-   "degrees": [
-    "B.E. / B.Tech"
-   ],
-   "list": [
-    {
-     "branch": "Computer Science and Engineering",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 1526968,
-     "indicative_opening_rank": null,
-     "career_id": "computer-science-information-technology"
-    }
-   ],
-   "source": "UPTAC 2026",
-   "rank_note": "Indicative open-category JEE Main closing rank."
-  },
-  "nirf": null,
-  "ug_gender": null,
-  "fees": null,
-  "placement": null,
-  "naac": {
-   "grade": "A++",
-   "cgpa": 3.53,
-   "cycle": 1,
-   "not_applicable_reason": null
-  },
-  "data_sources": {
-   "identity": "UPTAC 2026",
-   "programs": "UPTAC 2026",
    "ranking": null,
    "placement": null,
    "accreditation": "NAAC"
@@ -94675,19 +94658,19 @@
   }
  },
  {
-  "college_id": "C-70474",
-  "aishe_code": "C-70474",
-  "name": "AUTONOMOUS STATE MEDICAL COLLEGE HARDOI",
+  "college_id": "nmc:autonomous-state-medical-college-society-etah-uttar-pradesh",
+  "aishe_code": null,
+  "name": "Autonomous State Medical College Society, Etah, Uttar Pradesh",
   "display_name": "Autonomous State Medical College Society, Etah, Uttar Pradesh",
   "state": "Uttar Pradesh",
   "state_is_inferred": false,
   "district": "Etah",
-  "kind": "Affiliated College",
+  "kind": "Medical College",
   "management": "Government",
   "ownership": "Public",
   "disciplines": [],
   "year_established": 2021,
-  "website": "https://asmchardoi.org",
+  "website": null,
   "university": "Atal Bihari Vajpayee Medical University, Lucknow, Uttar Pradesh",
   "entrance_exams": [
    "NEET-UG"
@@ -94724,7 +94707,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC 2024-25 / AISHE 2024-25",
+   "identity": "NMC 2024-25",
    "programs": "NMC 2024-25",
    "ranking": null,
    "placement": null,
@@ -128500,19 +128483,19 @@
   }
  },
  {
-  "college_id": "C-1102",
-  "aishe_code": "C-1102",
-  "name": "Smt. B.K Shah Medical College & Research centre",
+  "college_id": "nmc:dr-m-k-shah-medical-college-research-centre-ahmedabad",
+  "aishe_code": "C-58231",
+  "name": "Dr. M.K. Shah Medical College & Research Centre, Ahmedabad",
   "display_name": "Dr. M.K. Shah Medical College & Research Centre, Ahmedabad",
   "state": "Gujarat",
   "state_is_inferred": false,
   "district": "Ahmedabad",
-  "kind": "Constituent / University College",
+  "kind": "Medical College",
   "management": "Trust",
   "ownership": "Private",
   "disciplines": [],
   "year_established": 2017,
-  "website": "www.sumandeepvidyapeethdu.edu.in",
+  "website": "www.mkshahmcrc.org",
   "university": "Gujarat University",
   "entrance_exams": [
    "NEET-UG"
@@ -128549,7 +128532,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC 2024-25 / AISHE 2024-25",
+   "identity": "NMC 2024-25",
    "programs": "NMC 2024-25",
    "ranking": null,
    "placement": null,
@@ -136811,14 +136794,14 @@
   }
  },
  {
-  "college_id": "S-26278",
-  "aishe_code": "S-26278",
-  "name": "NATIONAL  INSTITUTE  OF  MEDICAL SCIENCES",
+  "college_id": "nmc:fathima-instt-of-medical-sciences-kadapa",
+  "aishe_code": "C-30442",
+  "name": "Fathima Instt. of Medical Sciences, Kadapa",
   "display_name": "Fathima Instt. of Medical Sciences, Kadapa",
   "state": "Andhra Pradesh",
   "state_is_inferred": false,
   "district": "Kadapa",
-  "kind": "Paramedical",
+  "kind": "Medical College",
   "management": "Trust",
   "ownership": "Private",
   "disciplines": [],
@@ -136860,7 +136843,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC 2024-25 / AISHE 2024-25",
+   "identity": "NMC 2024-25",
    "programs": "NMC 2024-25",
    "ranking": null,
    "placement": null,
@@ -140276,19 +140259,19 @@
   }
  },
  {
-  "college_id": "C-58352",
-  "aishe_code": "C-58352",
-  "name": "GMERS Medical College",
+  "college_id": "nmc:gcs-medical-college-ahmedabad",
+  "aishe_code": null,
+  "name": "GCS Medical College, Ahmedabad",
   "display_name": "GCS Medical College, Ahmedabad",
   "state": "Gujarat",
   "state_is_inferred": false,
   "district": "Ahmedabad",
-  "kind": "Affiliated College",
+  "kind": "Medical College",
   "management": "Trust",
   "ownership": "Private",
   "disciplines": [],
   "year_established": 2011,
-  "website": "www.gmersmcgv.ac.in",
+  "website": null,
   "university": "Gujarat University",
   "entrance_exams": [
    "NEET-UG"
@@ -140325,7 +140308,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC 2024-25 / AISHE 2024-25",
+   "identity": "NMC 2024-25",
    "programs": "NMC 2024-25",
    "ranking": null,
    "placement": null,
@@ -142570,19 +142553,19 @@
   }
  },
  {
-  "college_id": "C-76865",
-  "aishe_code": "C-76865",
-  "name": "GOVERNMENT MEDICAL COLLEGE KODANGAL",
+  "college_id": "nmc:government-medical-college-jangaon",
+  "aishe_code": null,
+  "name": "GOVERNMENT MEDICAL COLLEGE JANGAON",
   "display_name": "GOVERNMENT MEDICAL COLLEGE JANGAON",
   "state": "Telangana",
   "state_is_inferred": false,
   "district": "Jangaon",
-  "kind": "Affiliated College",
+  "kind": "Medical College",
   "management": "Government",
   "ownership": "Public",
   "disciplines": [],
   "year_established": 2023,
-  "website": "www.gmckodangal.org",
+  "website": null,
   "university": "Kaloji Narayana Rao University of Health Sciences, Warangal",
   "entrance_exams": [
    "NEET-UG"
@@ -142619,7 +142602,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC 2024-25 / AISHE 2024-25",
+   "identity": "NMC 2024-25",
    "programs": "NMC 2024-25",
    "ranking": null,
    "placement": null,
@@ -146101,12 +146084,14 @@
   "year_established": 2010,
   "website": "www.gkciet.ac.in",
   "entrance_exams": [
-   "JEE Main"
+   "JEE Main",
+   "WBJEE"
   ],
   "counselling": "JoSAA",
   "programs": {
-   "count": 5,
+   "count": 10,
    "degrees": [
+    "B.E. / B.Tech",
     "Bachelor of Technology"
    ],
    "quotas_offered": [
@@ -146120,7 +146105,8 @@
      "degree": "Bachelor of Technology",
      "indicative_closing_rank": 147447,
      "indicative_opening_rank": 117449,
-     "career_id": "computer-science-information-technology"
+     "career_id": "computer-science-information-technology",
+     "rank_label": "JoSAA"
     },
     {
      "branch": "Electrical Engineering",
@@ -146128,7 +146114,8 @@
      "degree": "Bachelor of Technology",
      "indicative_closing_rank": 288733,
      "indicative_opening_rank": 183635,
-     "career_id": "electrical-electronics-communications-engineering"
+     "career_id": "electrical-electronics-communications-engineering",
+     "rank_label": "JoSAA"
     },
     {
      "branch": "Mechanical Engineering",
@@ -146136,7 +146123,8 @@
      "degree": "Bachelor of Technology",
      "indicative_closing_rank": 294449,
      "indicative_opening_rank": 217008,
-     "career_id": "mechanical-mechatronics-engineering"
+     "career_id": "mechanical-mechatronics-engineering",
+     "rank_label": "JoSAA"
     },
     {
      "branch": "Civil and Environmental Engineering",
@@ -146144,7 +146132,8 @@
      "degree": "Bachelor of Technology",
      "indicative_closing_rank": 450734,
      "indicative_opening_rank": 164509,
-     "career_id": "civil-engineering"
+     "career_id": "civil-engineering",
+     "rank_label": "JoSAA"
     },
     {
      "branch": "Food Technology",
@@ -146152,10 +146141,56 @@
      "degree": "Bachelor of Technology",
      "indicative_closing_rank": 522500,
      "indicative_opening_rank": 256557,
-     "career_id": "food-engineering"
+     "career_id": "food-engineering",
+     "rank_label": "JoSAA"
+    },
+    {
+     "branch": "Computer Science & Engineering (Artificial Intelligence And Machine Learning)",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 6227,
+     "indicative_opening_rank": null,
+     "career_id": "artificial-intelligence-and-data-science",
+     "rank_label": "WBJEE"
+    },
+    {
+     "branch": "Electrical Engineering",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 9510,
+     "indicative_opening_rank": null,
+     "career_id": "electrical-electronics-communications-engineering",
+     "rank_label": "WBJEE"
+    },
+    {
+     "branch": "Mechanical Engineering",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 12194,
+     "indicative_opening_rank": null,
+     "career_id": "mechanical-mechatronics-engineering",
+     "rank_label": "WBJEE"
+    },
+    {
+     "branch": "Civil And Environmental Engineering",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 14734,
+     "indicative_opening_rank": null,
+     "career_id": "civil-engineering",
+     "rank_label": "WBJEE"
+    },
+    {
+     "branch": "Food Technology",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 15335,
+     "indicative_opening_rank": null,
+     "career_id": "food-engineering",
+     "rank_label": "WBJEE"
     }
    ],
-   "source": "JoSAA 2025 Round 6",
+   "source": "JoSAA 2025 Round 6; WBJEE 2026",
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
@@ -146174,96 +146209,10 @@
    "ranking": null,
    "placement": null,
    "accreditation": null
-  }
- },
- {
-  "college_id": "wbjee:ghani khan choudhury institute engineering technology malda",
-  "aishe_code": "S-14559",
-  "name": "Ghani Khan Choudhury Institute of Engineering & Technology, Malda",
-  "display_name": "Ghani Khan Choudhury Institute of Engineering & Technology, Malda",
-  "state": "West Bengal",
-  "state_is_inferred": false,
-  "district": "Malda",
-  "kind": null,
-  "management": "Private/SF",
-  "ownership": "Private",
-  "disciplines": [
-   "Engineering"
-  ],
-  "year_established": 2010,
-  "website": "www.gkciet.ac.in",
-  "university": null,
-  "entrance_exams": [
-   "WBJEE"
-  ],
-  "counselling": "WBJEE Board",
-  "programs": {
-   "count": 5,
-   "degrees": [
-    "B.E. / B.Tech"
-   ],
-   "list": [
-    {
-     "branch": "Computer Science & Engineering (Artificial Intelligence And Machine Learning)",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 6227,
-     "indicative_opening_rank": null,
-     "career_id": "artificial-intelligence-and-data-science"
-    },
-    {
-     "branch": "Electrical Engineering",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 9510,
-     "indicative_opening_rank": null,
-     "career_id": "electrical-electronics-communications-engineering"
-    },
-    {
-     "branch": "Mechanical Engineering",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 12194,
-     "indicative_opening_rank": null,
-     "career_id": "mechanical-mechatronics-engineering"
-    },
-    {
-     "branch": "Civil And Environmental Engineering",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 14734,
-     "indicative_opening_rank": null,
-     "career_id": "civil-engineering"
-    },
-    {
-     "branch": "Food Technology",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 15335,
-     "indicative_opening_rank": null,
-     "career_id": "food-engineering"
-    }
-   ],
-   "source": "WBJEE 2026",
-   "rank_note": "Indicative open-category WBJEE closing rank."
   },
-  "nirf": null,
-  "ug_gender": null,
-  "fees": null,
-  "placement": null,
-  "naac": {
-   "grade": null,
-   "cgpa": null,
-   "cycle": null,
-   "not_applicable_reason": null
-  },
-  "data_sources": {
-   "identity": "WBJEE 2026",
-   "programs": "WBJEE 2026",
-   "ranking": null,
-   "placement": null,
-   "accreditation": null
-  }
+  "aka": [
+   "Ghani Khan Choudhury Institute of Engineering & Technology, Malda"
+  ]
  },
  {
   "college_id": "mhtcet:03216",
@@ -148472,19 +148421,19 @@
   }
  },
  {
-  "college_id": "C-47544",
-  "aishe_code": "C-47544",
-  "name": "GOVERNMENT HOMEOPHATHIC MEDICAL COLLEGE, LUCKNOW",
+  "college_id": "nmc:government-allopathic-medical-college-banda-up",
+  "aishe_code": null,
+  "name": "Government Allopathic Medical College, Banda, UP",
   "display_name": "Government Allopathic Medical College, Banda, UP",
   "state": "Uttar Pradesh",
   "state_is_inferred": false,
   "district": "Banda",
-  "kind": "Affiliated College",
+  "kind": "Medical College",
   "management": "Government",
   "ownership": "Public",
   "disciplines": [],
   "year_established": 2016,
-  "website": "www.nhmclucknow.com",
+  "website": null,
   "university": "King Georges Medical University,Lucknow",
   "entrance_exams": [
    "NEET-UG"
@@ -148521,7 +148470,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC 2024-25 / AISHE 2024-25",
+   "identity": "NMC 2024-25",
    "programs": "NMC 2024-25",
    "ranking": null,
    "placement": null,
@@ -154116,19 +154065,19 @@
   }
  },
  {
-  "college_id": "C-14007",
-  "aishe_code": "C-14007",
-  "name": "Govt. Medical College, Latur",
+  "college_id": "nmc:government-medical-college-l-t-marg-near-l-t-marg-police-sta-17f4d4",
+  "aishe_code": null,
+  "name": "Government Medical College L.T. Marg, Near L.T. Marg Police Station, Mumbai - 400001",
   "display_name": "Government Medical College L.T. Marg, Near L.T. Marg Police Station, Mumbai - 400001",
   "state": "Maharashtra",
   "state_is_inferred": false,
   "district": "Mumbai",
-  "kind": "Affiliated College",
+  "kind": "Medical College",
   "management": "Government",
   "ownership": "Public",
   "disciplines": [],
   "year_established": 2024,
-  "website": "https://www.vdgmclatur.org/",
+  "website": null,
   "university": "Maharashtra University of Health Sciences",
   "entrance_exams": [
    "NEET-UG"
@@ -154165,7 +154114,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC 2024-25 / AISHE 2024-25",
+   "identity": "NMC 2024-25",
    "programs": "NMC 2024-25",
    "ranking": null,
    "placement": null,
@@ -154173,19 +154122,19 @@
   }
  },
  {
-  "college_id": "C-71162",
-  "aishe_code": "C-71162",
-  "name": "GOVERNAMENT MEDICAL COLLEGE",
+  "college_id": "nmc:government-medical-college-medak",
+  "aishe_code": null,
+  "name": "Government Medical College Medak",
   "display_name": "Government Medical College Medak",
   "state": "Telangana",
   "state_is_inferred": false,
   "district": "Medak",
-  "kind": "Affiliated College",
+  "kind": "Medical College",
   "management": "Government",
   "ownership": "Public",
   "disciplines": [],
   "year_established": 2024,
-  "website": "https://gmcjangaon.org/",
+  "website": null,
   "university": "Kaloji Narayana Rao University of Health Sciences, Warangal",
   "entrance_exams": [
    "NEET-UG"
@@ -154222,7 +154171,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC 2024-25 / AISHE 2024-25",
+   "identity": "NMC 2024-25",
    "programs": "NMC 2024-25",
    "ranking": null,
    "placement": null,
@@ -155028,14 +154977,14 @@
   }
  },
  {
-  "college_id": "nmc:government-medical-college-banswara",
+  "college_id": "C-74054",
   "aishe_code": "C-74054",
-  "name": "Government Medical College, Banswara",
+  "name": "GOVERNMENT MEDICAL COLLEGE, BANSWARA",
   "display_name": "Government Medical College, Banswara",
   "state": "Rajasthan",
   "state_is_inferred": false,
   "district": "Banswara",
-  "kind": "Medical College",
+  "kind": "Affiliated College",
   "management": "Government",
   "ownership": "Public",
   "disciplines": [],
@@ -155077,7 +155026,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC 2024-25",
+   "identity": "NMC 2024-25 / AISHE 2024-25",
    "programs": "NMC 2024-25",
    "ranking": null,
    "placement": null,
@@ -155313,14 +155262,14 @@
   }
  },
  {
-  "college_id": "nmc:government-medical-college-bhadradri-kothagudem",
+  "college_id": "C-73154",
   "aishe_code": "C-73154",
-  "name": "Government Medical College, Bhadradri Kothagudem",
+  "name": "GOVERNMENT MEDICAL COLLEGE",
   "display_name": "Government Medical College, Bhadradri Kothagudem",
   "state": "Telangana",
   "state_is_inferred": false,
   "district": "Bhadradri Ko",
-  "kind": "Medical College",
+  "kind": "Affiliated College",
   "management": "Government",
   "ownership": "Public",
   "disciplines": [],
@@ -155362,7 +155311,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC 2024-25",
+   "identity": "NMC 2024-25 / AISHE 2024-25",
    "programs": "NMC 2024-25",
    "ranking": null,
    "placement": null,
@@ -155484,14 +155433,14 @@
   }
  },
  {
-  "college_id": "nmc:government-medical-college-bhavnagar",
+  "college_id": "C-7198",
   "aishe_code": "C-7198",
-  "name": "Government Medical College, Bhavnagar",
+  "name": "Government Medical College",
   "display_name": "Government Medical College, Bhavnagar",
   "state": "Gujarat",
   "state_is_inferred": false,
   "district": "Bhavnagar",
-  "kind": "Medical College",
+  "kind": "Affiliated College",
   "management": "Government",
   "ownership": "Public",
   "disciplines": [],
@@ -155533,7 +155482,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC 2024-25",
+   "identity": "NMC 2024-25 / AISHE 2024-25",
    "programs": "NMC 2024-25",
    "ranking": null,
    "placement": null,
@@ -155769,14 +155718,14 @@
   }
  },
  {
-  "college_id": "nmc:government-medical-college-chandrapur",
+  "college_id": "C-52455",
   "aishe_code": "C-52455",
-  "name": "Government Medical College, Chandrapur",
+  "name": "GOVERNMENT MEDICAL COLLEGE, CHANDRAPUR",
   "display_name": "Government Medical College, Chandrapur",
   "state": "Maharashtra",
   "state_is_inferred": false,
   "district": "Chandrapur",
-  "kind": "Medical College",
+  "kind": "Affiliated College",
   "management": "Government",
   "ownership": "Public",
   "disciplines": [],
@@ -155818,7 +155767,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC 2024-25",
+   "identity": "NMC 2024-25 / AISHE 2024-25",
    "programs": "NMC 2024-25",
    "ranking": null,
    "placement": null,
@@ -156396,14 +156345,14 @@
   }
  },
  {
-  "college_id": "nmc:government-medical-college-ernakulam",
+  "college_id": "C-49794",
   "aishe_code": "C-49794",
-  "name": "Government Medical College, Ernakulam",
+  "name": "GOVERNMENT MEDICAL COLLEGE, ERNAKULAM",
   "display_name": "Government Medical College, Ernakulam",
   "state": "Kerala",
   "state_is_inferred": false,
   "district": "Ernakulam",
-  "kind": "Medical College",
+  "kind": "Affiliated College",
   "management": "Government",
   "ownership": "Public",
   "disciplines": [],
@@ -156445,7 +156394,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC 2024-25",
+   "identity": "NMC 2024-25 / AISHE 2024-25",
    "programs": "NMC 2024-25",
    "ranking": null,
    "placement": null,
@@ -157935,14 +157884,14 @@
   }
  },
  {
-  "college_id": "nmc:government-medical-college-korba",
+  "college_id": "C-69450",
   "aishe_code": "C-69450",
-  "name": "Government Medical College, Korba",
+  "name": "GOVERNMENT MEDICAL COLLEGE, KORBA",
   "display_name": "Government Medical College, Korba",
   "state": "Chhattisgarh",
   "state_is_inferred": false,
   "district": "Korba",
-  "kind": "Medical College",
+  "kind": "Affiliated College",
   "management": "Government",
   "ownership": "Public",
   "disciplines": [],
@@ -157984,7 +157933,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC 2024-25",
+   "identity": "NMC 2024-25 / AISHE 2024-25",
    "programs": "NMC 2024-25",
    "ranking": null,
    "placement": null,
@@ -159645,14 +159594,14 @@
   }
  },
  {
-  "college_id": "nmc:government-medical-college-omandurar",
+  "college_id": "C-56085",
   "aishe_code": "C-56085",
-  "name": "Government Medical College, Omandurar",
+  "name": "GOVERNMENT MEDICAL COLLEGE, OMANDURAR ESTATE (Inst. Code -        )",
   "display_name": "Government Medical College, Omandurar",
   "state": "Tamil Nadu",
   "state_is_inferred": false,
   "district": "Omandurar",
-  "kind": "Medical College",
+  "kind": "Affiliated College",
   "management": "Government",
   "ownership": "Public",
   "disciplines": [],
@@ -159694,7 +159643,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC 2024-25",
+   "identity": "NMC 2024-25 / AISHE 2024-25",
    "programs": "NMC 2024-25",
    "ranking": null,
    "placement": null,
@@ -159759,19 +159708,19 @@
   }
  },
  {
-  "college_id": "nmc:government-medical-college-paderu",
+  "college_id": "C-77074",
   "aishe_code": "C-77074",
-  "name": "Government Medical College, Paderu",
+  "name": "GOVERNMENT MEDICAL COLLEGE, PADERU",
   "display_name": "Government Medical College, Paderu",
   "state": "Andhra Pradesh",
   "state_is_inferred": false,
   "district": "Alluri Sitharam District",
-  "kind": "Medical College",
+  "kind": "Affiliated College",
   "management": "Government",
   "ownership": "Public",
   "disciplines": [],
   "year_established": 2024,
-  "website": "https://gmcpaderu.com",
+  "website": "https://gmcpaderu.com/",
   "university": "Dr. YSR University of Health Sciences, Vijayawada",
   "entrance_exams": [
    "NEET-UG"
@@ -159808,7 +159757,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC 2024-25",
+   "identity": "NMC 2024-25 / AISHE 2024-25",
    "programs": "NMC 2024-25",
    "ranking": null,
    "placement": null,
@@ -160899,14 +160848,14 @@
   }
  },
  {
-  "college_id": "nmc:government-medical-college-seoni",
+  "college_id": "C-73307",
   "aishe_code": "C-73307",
-  "name": "Government Medical College, Seoni",
+  "name": "GOVERNMENT MEDICAL COLLEGE",
   "display_name": "Government Medical College, Seoni",
   "state": "Madhya Pradesh",
   "state_is_inferred": false,
   "district": "Seoni",
-  "kind": "Medical College",
+  "kind": "Affiliated College",
   "management": "Government",
   "ownership": "Public",
   "disciplines": [],
@@ -160948,7 +160897,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC 2024-25",
+   "identity": "NMC 2024-25 / AISHE 2024-25",
    "programs": "NMC 2024-25",
    "ranking": null,
    "placement": null,
@@ -162096,19 +162045,19 @@
   }
  },
  {
-  "college_id": "C-68896",
-  "aishe_code": "C-68896",
-  "name": "GOVERNMENT MEDICAL COLLEGE AND HOSPITAL, SATARA",
+  "college_id": "nmc:government-medical-college-and-district-hospital-ratnagiri",
+  "aishe_code": null,
+  "name": "Government Medical college and District Hospital, Ratnagiri",
   "display_name": "Government Medical college and District Hospital, Ratnagiri",
   "state": "Maharashtra",
   "state_is_inferred": false,
   "district": "Ratnagiri",
-  "kind": "Affiliated College",
+  "kind": "Medical College",
   "management": "Government",
   "ownership": "Public",
   "disciplines": [],
   "year_established": 2023,
-  "website": "www.gmcsatara.org",
+  "website": null,
   "university": "Maharashtra University of Health Sciences, Nashik.",
   "entrance_exams": [
    "NEET-UG"
@@ -162145,7 +162094,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC 2024-25 / AISHE 2024-25",
+   "identity": "NMC 2024-25",
    "programs": "NMC 2024-25",
    "ranking": null,
    "placement": null,
@@ -162989,19 +162938,19 @@
   }
  },
  {
-  "college_id": "C-22895",
-  "aishe_code": "C-22895",
-  "name": "Govt. Medical College",
+  "college_id": "nmc:govt-medical-college-doda-kashmir",
+  "aishe_code": "C-64875",
+  "name": "Govt. Medical College, Doda, Kashmir",
   "display_name": "Govt. Medical College, Doda, Kashmir",
   "state": "Jammu and Kashmir",
   "state_is_inferred": false,
   "district": "Doda",
-  "kind": "Affiliated College",
+  "kind": "Medical College",
   "management": "Government",
   "ownership": "Public",
   "disciplines": [],
   "year_established": 2020,
-  "website": "www.gmcjammu.nic.in",
+  "website": "WWW.gmcdoda.in",
   "university": "Kashmir University",
   "entrance_exams": [
    "NEET-UG"
@@ -163038,7 +162987,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC 2024-25 / AISHE 2024-25",
+   "identity": "NMC 2024-25",
    "programs": "NMC 2024-25",
    "ranking": null,
    "placement": null,
@@ -163103,19 +163052,19 @@
   }
  },
  {
-  "college_id": "C-8043",
-  "aishe_code": "C-8043",
-  "name": "GOVT. MEDICAL COLLEGE, KOZHIKKODE",
+  "college_id": "nmc:govt-medical-college-pariyaram-kannur-prev-known-as-academy-dbac05",
+  "aishe_code": null,
+  "name": "Govt. Medical College,Pariyaram, Kannur (Prev. Known as Academy of Medical Sciences)",
   "display_name": "Govt. Medical College,Pariyaram, Kannur (Prev. Known as Academy of Medical Sciences)",
   "state": "Kerala",
   "state_is_inferred": false,
   "district": "Kannur",
-  "kind": "Affiliated College",
+  "kind": "Medical College",
   "management": "Government",
   "ownership": "Public",
   "disciplines": [],
   "year_established": 1995,
-  "website": "www.calicutmedicalcollege.ac.in",
+  "website": null,
   "university": "Kerala University of Health Sciences, Thrissur",
   "entrance_exams": [
    "NEET-UG"
@@ -163152,7 +163101,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC 2024-25 / AISHE 2024-25",
+   "identity": "NMC 2024-25",
    "programs": "NMC 2024-25",
    "ranking": null,
    "placement": null,
@@ -167476,14 +167425,14 @@
   }
  },
  {
-  "college_id": "S-21521",
-  "aishe_code": "S-21521",
-  "name": "INDU INSTITUTE OF MEDICAL SCINECE",
+  "college_id": "nmc:hind-institute-of-medical-sciences-barabanki",
+  "aishe_code": null,
+  "name": "Hind Institute of Medical Sciences , Barabanki",
   "display_name": "Hind Institute of Medical Sciences , Barabanki",
   "state": "Uttar Pradesh",
   "state_is_inferred": false,
   "district": "Barabanki",
-  "kind": "Paramedical",
+  "kind": "Medical College",
   "management": "Trust",
   "ownership": "Private",
   "disciplines": [],
@@ -167525,7 +167474,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC 2024-25 / AISHE 2024-25",
+   "identity": "NMC 2024-25",
    "programs": "NMC 2024-25",
    "ranking": null,
    "placement": null,
@@ -167533,19 +167482,19 @@
   }
  },
  {
-  "college_id": "S-26865",
-  "aishe_code": "S-26865",
-  "name": "MRD INSTITUTE OF MEDICAL SCIENCES",
+  "college_id": "nmc:hind-institute-of-medical-sciences-sitapur",
+  "aishe_code": null,
+  "name": "Hind Institute of Medical Sciences, Sitapur",
   "display_name": "Hind Institute of Medical Sciences, Sitapur",
   "state": "Uttar Pradesh",
   "state_is_inferred": false,
   "district": "Sitapur",
-  "kind": "Pharmacy Institutions",
+  "kind": "Medical College",
   "management": "Trust",
   "ownership": "Private",
   "disciplines": [],
   "year_established": 2015,
-  "website": "mrdims.co.in",
+  "website": null,
   "university": "King Georges Medical University,Lucknow",
   "entrance_exams": [
    "NEET-UG"
@@ -167582,7 +167531,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC 2024-25 / AISHE 2024-25",
+   "identity": "NMC 2024-25",
    "programs": "NMC 2024-25",
    "ranking": null,
    "placement": null,
@@ -172017,8 +171966,9 @@
   ],
   "counselling": "JoSAA",
   "programs": {
-   "count": 1,
+   "count": 2,
    "degrees": [
+    "B.E. / B.Tech",
     "Bachelor of Technology"
    ],
    "quotas_offered": [
@@ -172031,10 +171981,20 @@
      "degree": "Bachelor of Technology",
      "indicative_closing_rank": 120668,
      "indicative_opening_rank": 95835,
-     "career_id": "textile-engineering"
+     "career_id": "textile-engineering",
+     "rank_label": "JoSAA"
+    },
+    {
+     "branch": "Carpet & Textile Technology",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 1531702,
+     "indicative_opening_rank": null,
+     "career_id": "textile-engineering",
+     "rank_label": "UPTAC"
     }
    ],
-   "source": "JoSAA 2025 Round 6",
+   "source": "JoSAA 2025 Round 6; UPTAC 2026",
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
@@ -172060,64 +172020,8 @@
    "ranking": null,
    "placement": null,
    "accreditation": null
-  }
- },
- {
-  "college_id": "uptac:indian institute carpet technology bhadohi",
-  "aishe_code": "C-46732",
-  "name": "Indian Institute of Carpet Technology, Bhadohi",
-  "display_name": "Indian Institute of Carpet Technology, Bhadohi",
-  "state": "Uttar Pradesh",
-  "state_is_inferred": false,
-  "district": "Bhadohi",
-  "kind": null,
-  "management": null,
-  "ownership": "Public",
-  "disciplines": [
-   "Engineering"
-  ],
-  "year_established": 2001,
-  "website": "www.iict.ac.in",
-  "university": null,
-  "entrance_exams": [
-   "JEE Main"
-  ],
-  "counselling": "UPTAC (AKTU)",
-  "programs": {
-   "count": 1,
-   "degrees": [
-    "B.E. / B.Tech"
-   ],
-   "list": [
-    {
-     "branch": "Carpet & Textile Technology",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 1531702,
-     "indicative_opening_rank": null,
-     "career_id": "textile-engineering"
-    }
-   ],
-   "source": "UPTAC 2026",
-   "rank_note": "Indicative open-category JEE Main closing rank."
   },
-  "nirf": null,
-  "ug_gender": null,
-  "fees": null,
-  "placement": null,
-  "naac": {
-   "grade": null,
-   "cgpa": null,
-   "cycle": null,
-   "not_applicable_reason": null
-  },
-  "data_sources": {
-   "identity": "UPTAC 2026",
-   "programs": "UPTAC 2026",
-   "ranking": null,
-   "placement": null,
-   "accreditation": null
-  }
+  "aka": []
  },
  {
   "college_id": "tnea:2343",
@@ -172197,8 +172101,9 @@
   ],
   "counselling": "JoSAA",
   "programs": {
-   "count": 1,
+   "count": 2,
    "degrees": [
+    "B.E. / B.Tech",
     "Bachelor of Technology"
    ],
    "quotas_offered": [
@@ -172211,10 +172116,20 @@
      "degree": "Bachelor of Technology",
      "indicative_closing_rank": 115651,
      "indicative_opening_rank": 87309,
-     "career_id": "textile-engineering"
+     "career_id": "textile-engineering",
+     "rank_label": "JoSAA"
+    },
+    {
+     "branch": "Handloom & Textile Technology",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 1458322,
+     "indicative_opening_rank": null,
+     "career_id": "textile-engineering",
+     "rank_label": "UPTAC"
     }
    ],
-   "source": "JoSAA 2025 Round 6",
+   "source": "JoSAA 2025 Round 6; UPTAC 2026",
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
@@ -172233,7 +172148,10 @@
    "ranking": null,
    "placement": null,
    "accreditation": null
-  }
+  },
+  "aka": [
+   "Indian Institute of Handloom Technology, Varanasi"
+  ]
  },
  {
   "college_id": "C-56312",
@@ -172296,63 +172214,6 @@
   "data_sources": {
    "identity": "AISHE 2024-25",
    "programs": "JoSAA 2025 Round 6",
-   "ranking": null,
-   "placement": null,
-   "accreditation": null
-  }
- },
- {
-  "college_id": "uptac:indian institute handloom technology varanasi",
-  "aishe_code": "S-14554",
-  "name": "Indian Institute of Handloom Technology, Varanasi",
-  "display_name": "Indian Institute of Handloom Technology, Varanasi",
-  "state": "Uttar Pradesh",
-  "state_is_inferred": false,
-  "district": "Varanasi",
-  "kind": null,
-  "management": null,
-  "ownership": "Public",
-  "disciplines": [
-   "Engineering"
-  ],
-  "year_established": 1956,
-  "website": "www.iihtvaranasi.edu.in",
-  "university": null,
-  "entrance_exams": [
-   "JEE Main"
-  ],
-  "counselling": "UPTAC (AKTU)",
-  "programs": {
-   "count": 1,
-   "degrees": [
-    "B.E. / B.Tech"
-   ],
-   "list": [
-    {
-     "branch": "Handloom & Textile Technology",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 1458322,
-     "indicative_opening_rank": null,
-     "career_id": "textile-engineering"
-    }
-   ],
-   "source": "UPTAC 2026",
-   "rank_note": "Indicative open-category JEE Main closing rank."
-  },
-  "nirf": null,
-  "ug_gender": null,
-  "fees": null,
-  "placement": null,
-  "naac": {
-   "grade": null,
-   "cgpa": null,
-   "cycle": null,
-   "not_applicable_reason": null
-  },
-  "data_sources": {
-   "identity": "UPTAC 2026",
-   "programs": "UPTAC 2026",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -191868,20 +191729,20 @@
  },
  {
   "college_id": "ap-eapcet:KIEK",
-  "aishe_code": "C-17992",
+  "aishe_code": null,
   "name": "KAKINADA INSTITUTE OF ENGG. AND TECHNOLOGY",
   "display_name": "KAKINADA INSTITUTE OF ENGG. AND TECHNOLOGY",
   "state": "Andhra Pradesh",
   "state_is_inferred": false,
-  "district": "East Godavari",
+  "district": null,
   "kind": null,
   "management": "Private",
   "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
-  "year_established": 2001,
-  "website": "www.kietgroup.com",
+  "year_established": null,
+  "website": null,
   "university": null,
   "entrance_exams": [
    "AP EAPCET"
@@ -192151,7 +192012,7 @@
  },
  {
   "college_id": "ap-eapcet:KISR",
-  "aishe_code": "C-18020",
+  "aishe_code": "C-17973",
   "name": "KAKINADA INSTITUTE OF TECHNOLOGY SCIENCES",
   "display_name": "KAKINADA INSTITUTE OF TECHNOLOGY SCIENCES",
   "state": "Andhra Pradesh",
@@ -192165,7 +192026,7 @@
    "Pharmacy"
   ],
   "year_established": 2008,
-  "website": "www.kitsdivili.ac.in",
+  "website": "www.kits.ac.in",
   "university": null,
   "entrance_exams": [
    "AP EAPCET"
@@ -192211,9 +192072,9 @@
   "fees": null,
   "placement": null,
   "naac": {
-   "grade": "A",
-   "cgpa": 3.03,
-   "cycle": 2,
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
    "not_applicable_reason": null
   },
   "data_sources": {
@@ -192221,7 +192082,7 @@
    "programs": "AP-EAPCET 2025",
    "ranking": null,
    "placement": null,
-   "accreditation": "NAAC"
+   "accreditation": null
   }
  },
  {
@@ -196730,19 +196591,19 @@
   }
  },
  {
-  "college_id": "S-20170",
-  "aishe_code": "S-20170",
-  "name": "LINGARAJA INSTITUTE OF MEDICAL SCIENCE",
+  "college_id": "nmc:kalinga-institute-of-medical-sciences-bhubaneswar",
+  "aishe_code": null,
+  "name": "Kalinga Institute of Medical Sciences, Bhubaneswar",
   "display_name": "Kalinga Institute of Medical Sciences, Bhubaneswar",
   "state": "Odisha",
   "state_is_inferred": false,
   "district": "Bhubaneswar",
-  "kind": "Paramedical",
+  "kind": "Medical College",
   "management": "Trust",
   "ownership": "Private",
   "disciplines": [],
   "year_established": 2007,
-  "website": "www.dstgroup.org.in",
+  "website": null,
   "university": "KIIT University (Deemed), Bhubaneswar",
   "entrance_exams": [
    "NEET-UG"
@@ -196779,7 +196640,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC 2024-25 / AISHE 2024-25",
+   "identity": "NMC 2024-25",
    "programs": "NMC 2024-25",
    "ranking": null,
    "placement": null,
@@ -205857,7 +205718,7 @@
  },
  {
   "college_id": "mhtcet:02538",
-  "aishe_code": "C-57752",
+  "aishe_code": "C-73704",
   "name": "Latur College of Pharmacy, Latur",
   "display_name": "Latur College of Pharmacy, Latur",
   "state": "Maharashtra",
@@ -205869,8 +205730,8 @@
   "disciplines": [
    "Pharmacy"
   ],
-  "year_established": 2015,
-  "website": "www.lcophasegaon.svss.ac.in",
+  "year_established": null,
+  "website": "www.lcoplatur.com",
   "university": null,
   "entrance_exams": [
    "MHT CET"
@@ -205899,9 +205760,9 @@
   "fees": null,
   "placement": null,
   "naac": {
-   "grade": "B++",
-   "cgpa": 2.97,
-   "cycle": 1,
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
    "not_applicable_reason": null
   },
   "data_sources": {
@@ -205909,7 +205770,7 @@
    "programs": "MHT-CET CAP 2025, rounds 1-4",
    "ranking": null,
    "placement": null,
-   "accreditation": "NAAC"
+   "accreditation": null
   }
  },
  {
@@ -221404,19 +221265,19 @@
   }
  },
  {
-  "college_id": "C-51350",
-  "aishe_code": "C-51350",
-  "name": "AL-AZHAR MEDICAL COLLEGE",
+  "college_id": "nmc:malabar-medical-college-kozhikode-calicut",
+  "aishe_code": null,
+  "name": "Malabar Medical College, Kozhikode, Calicut",
   "display_name": "Malabar Medical College, Kozhikode, Calicut",
   "state": "Kerala",
   "state_is_inferred": false,
   "district": "Calicut",
-  "kind": "Affiliated College",
+  "kind": "Medical College",
   "management": "Trust",
   "ownership": "Private",
   "disciplines": [],
   "year_established": 2010,
-  "website": "www.aamc.org.in",
+  "website": null,
   "university": "Kerala University of Health Sciences, Thrissur",
   "entrance_exams": [
    "NEET-UG"
@@ -221453,7 +221314,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC 2024-25 / AISHE 2024-25",
+   "identity": "NMC 2024-25",
    "programs": "NMC 2024-25",
    "ranking": null,
    "placement": null,
@@ -226042,19 +225903,19 @@
   }
  },
  {
-  "college_id": "C-76089",
-  "aishe_code": "C-76089",
-  "name": "RUMA INSTITUTE OF MEDICAL SCIENCES",
+  "college_id": "nmc:mayo-institute-of-medical-sciences-barabanki",
+  "aishe_code": null,
+  "name": "Mayo Institute of Medical Sciences, Barabanki",
   "display_name": "Mayo Institute of Medical Sciences, Barabanki",
   "state": "Uttar Pradesh",
   "state_is_inferred": false,
   "district": "Barabanki",
-  "kind": "Affiliated College",
+  "kind": "Medical College",
   "management": "Trust",
   "ownership": "Private",
   "disciplines": [],
   "year_established": 2012,
-  "website": "rimspbh.org.in",
+  "website": null,
   "university": "Dr. Ram Manohar Lohia Avadh University, Faizabad",
   "entrance_exams": [
    "NEET-UG"
@@ -226091,7 +225952,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC 2024-25 / AISHE 2024-25",
+   "identity": "NMC 2024-25",
    "programs": "NMC 2024-25",
    "ranking": null,
    "placement": null,
@@ -232405,20 +232266,20 @@
  },
  {
   "college_id": "ap-eapcet:NRNG",
-  "aishe_code": "C-26887",
+  "aishe_code": null,
   "name": "NARAYANA ENGINEERING COLLEGE",
   "display_name": "NARAYANA ENGINEERING COLLEGE",
   "state": "Andhra Pradesh",
   "state_is_inferred": false,
-  "district": "Sri Potti Sriramulu Nellore",
+  "district": null,
   "kind": null,
   "management": "Private",
   "ownership": "Private",
   "disciplines": [
    "Engineering"
   ],
-  "year_established": 1998,
-  "website": "www.necn.ac.in",
+  "year_established": null,
+  "website": null,
   "university": null,
   "entrance_exams": [
    "AP EAPCET"
@@ -234446,12 +234307,12 @@
  },
  {
   "college_id": "ap-eapcet:NRIA",
-  "aishe_code": "C-17990",
+  "aishe_code": "C-17942",
   "name": "NRI INSTITUTE OF TECHNOLOGY",
   "display_name": "NRI INSTITUTE OF TECHNOLOGY",
   "state": "Andhra Pradesh",
   "state_is_inferred": false,
-  "district": "Guntur",
+  "district": "Krishna",
   "kind": null,
   "management": "Private",
   "ownership": "Private",
@@ -234459,7 +234320,7 @@
    "Engineering"
   ],
   "year_established": 2008,
-  "website": "www.nriit.ac.in",
+  "website": "www.nriit.edu.in",
   "university": null,
   "entrance_exams": [
    "AP EAPCET"
@@ -234544,9 +234405,9 @@
   "fees": null,
   "placement": null,
   "naac": {
-   "grade": "A+",
-   "cgpa": 3.32,
-   "cycle": 1,
+   "grade": "A",
+   "cgpa": 3.18,
+   "cycle": 2,
    "not_applicable_reason": null
   },
   "data_sources": {
@@ -247622,14 +247483,14 @@
   }
  },
  {
-  "college_id": "S-18518",
-  "aishe_code": "S-18518",
-  "name": "MAITRI INSTITUTE OF MEDICAL SCIENCES",
+  "college_id": "nmc:pacific-institute-of-medical-sciences-umarda-udaipur",
+  "aishe_code": null,
+  "name": "Pacific Institute of Medical Sciences, Umarda, Udaipur",
   "display_name": "Pacific Institute of Medical Sciences, Umarda, Udaipur",
   "state": "Rajasthan",
   "state_is_inferred": false,
   "district": "Udaipur",
-  "kind": "Paramedical",
+  "kind": "Medical College",
   "management": "Society",
   "ownership": "Private",
   "disciplines": [],
@@ -247671,7 +247532,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC 2024-25 / AISHE 2024-25",
+   "identity": "NMC 2024-25",
    "programs": "NMC 2024-25",
    "ranking": null,
    "placement": null,
@@ -251365,19 +251226,19 @@
   }
  },
  {
-  "college_id": "S-26311",
-  "aishe_code": "S-26311",
-  "name": "RANA INSTITUTE OF MEDICAL SCIENCES",
+  "college_id": "nmc:prasad-institute-of-medical-sciences-lucknow",
+  "aishe_code": null,
+  "name": "Prasad Institute of Medical Sciences, Lucknow",
   "display_name": "Prasad Institute of Medical Sciences, Lucknow",
   "state": "Uttar Pradesh",
   "state_is_inferred": false,
   "district": "Lucknow",
-  "kind": "Pharmacy Institutions",
+  "kind": "Medical College",
   "management": "Trust",
   "ownership": "Private",
   "disciplines": [],
   "year_established": 2016,
-  "website": "www.rimsgroup.org",
+  "website": null,
   "university": "Dr. Ram Manohar Lohia Avadh University, Faizabad",
   "entrance_exams": [
    "NEET-UG"
@@ -251414,7 +251275,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC 2024-25 / AISHE 2024-25",
+   "identity": "NMC 2024-25",
    "programs": "NMC 2024-25",
    "ranking": null,
    "placement": null,
@@ -258032,19 +257893,19 @@
   }
  },
  {
-  "college_id": "C-76885",
-  "aishe_code": "C-76885",
-  "name": "ESIC MEDICAL COLLEGE AND HOSPITAL, LUDHIANA",
+  "college_id": "nmc:rimt-medical-college-and-hospital",
+  "aishe_code": null,
+  "name": "RIMT Medical College and Hospital",
   "display_name": "RIMT Medical College and Hospital",
   "state": "Punjab",
   "state_is_inferred": false,
   "district": "Fatehgarh Sa",
-  "kind": "Affiliated College",
+  "kind": "Medical College",
   "management": "Trust",
   "ownership": "Private",
   "disciplines": [],
   "year_established": 2024,
-  "website": "https://mcludhiana.esic.gov.in",
+  "website": null,
   "university": "hRiIbMT University",
   "entrance_exams": [
    "NEET-UG"
@@ -258081,7 +257942,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC 2024-25 / AISHE 2024-25",
+   "identity": "NMC 2024-25",
    "programs": "NMC 2024-25",
    "ranking": null,
    "placement": null,
@@ -261338,7 +261199,7 @@
  },
  {
   "college_id": "mhtcet:02539",
-  "aishe_code": "C-56861",
+  "aishe_code": null,
   "name": "Rajesh Bhaiyya Tope College of Pharmacy, Aurangabad",
   "display_name": "Rajesh Bhaiyya Tope College of Pharmacy, Aurangabad",
   "state": "Maharashtra",
@@ -261350,8 +261211,8 @@
   "disciplines": [
    "Pharmacy"
   ],
-  "year_established": 2016,
-  "website": "www.rbtpharmacy.com",
+  "year_established": null,
+  "website": null,
   "university": "Dr. Babasaheb Ambedkar Marathwada University",
   "entrance_exams": [
    "MHT CET"
@@ -262816,12 +262677,12 @@
  },
  {
   "college_id": "uptac:rajkiya engineering college sonebhadra",
-  "aishe_code": "C-62087",
+  "aishe_code": "C-61983",
   "name": "Rajkiya Engineering College, Sonebhadra",
   "display_name": "Rajkiya Engineering College, Sonebhadra",
   "state": "Uttar Pradesh",
   "state_is_inferred": false,
-  "district": "Kannauj",
+  "district": "Sonbhadra",
   "kind": null,
   "management": null,
   "ownership": "Public",
@@ -262829,7 +262690,7 @@
    "Engineering"
   ],
   "year_established": 2015,
-  "website": "www.reck.ac.in",
+  "website": "recsonbhadra.ac.in",
   "university": null,
   "entrance_exams": [
    "JEE Main"
@@ -286749,103 +286610,6 @@
   }
  },
  {
-  "college_id": "uptac:sardar vallabhbhai patel university agriculture technology m",
-  "aishe_code": "U-0540",
-  "name": "Sardar Vallabhbhai Patel University of Agriculture & Technology, Meerut",
-  "display_name": "Sardar Vallabhbhai Patel University of Agriculture & Technology, Meerut",
-  "state": "Uttar Pradesh",
-  "state_is_inferred": false,
-  "district": "Meerut",
-  "kind": null,
-  "management": null,
-  "ownership": "Public",
-  "disciplines": [
-   "Engineering"
-  ],
-  "year_established": 2000,
-  "website": "svpuat.edu.in",
-  "university": null,
-  "entrance_exams": [
-   "JEE Main"
-  ],
-  "counselling": "UPTAC (AKTU)",
-  "programs": {
-   "count": 6,
-   "degrees": [
-    "B.E. / B.Tech"
-   ],
-   "list": [
-    {
-     "branch": "Computer Science",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 922669,
-     "indicative_opening_rank": null,
-     "career_id": "computer-science-information-technology"
-    },
-    {
-     "branch": "Mechanical Engineering",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 1368395,
-     "indicative_opening_rank": null,
-     "career_id": "mechanical-mechatronics-engineering"
-    },
-    {
-     "branch": "Electronics and Communication Engineering",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 1446832,
-     "indicative_opening_rank": null,
-     "career_id": "electrical-electronics-communications-engineering"
-    },
-    {
-     "branch": "Chemical Engineering",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 1456209,
-     "indicative_opening_rank": null,
-     "career_id": "chemical-engineering"
-    },
-    {
-     "branch": "Artificial Intelligence (AI) And Data Science",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 1496152,
-     "indicative_opening_rank": null,
-     "career_id": "artificial-intelligence-and-data-science"
-    },
-    {
-     "branch": "Information Technology",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 1502157,
-     "indicative_opening_rank": null,
-     "career_id": "computer-science-information-technology"
-    }
-   ],
-   "source": "UPTAC 2026",
-   "rank_note": "Indicative open-category JEE Main closing rank."
-  },
-  "nirf": null,
-  "ug_gender": null,
-  "fees": null,
-  "placement": null,
-  "naac": {
-   "grade": "A",
-   "cgpa": 3.14,
-   "cycle": 1,
-   "not_applicable_reason": null
-  },
-  "data_sources": {
-   "identity": "UPTAC 2026",
-   "programs": "UPTAC 2026",
-   "ranking": null,
-   "placement": null,
-   "accreditation": "NAAC"
-  }
- },
- {
   "college_id": "icar:sardar-vallabhbhai-patel-university-of-agriculture-technology-meerut",
   "aishe_code": "U-0540",
   "name": "Sardar Vallabhbhai Patel University of Agriculture & Technology, Meerut",
@@ -286864,12 +286628,14 @@
   "website": "svpuat.edu.in",
   "university": null,
   "entrance_exams": [
-   "CUET (UG)"
+   "CUET (UG)",
+   "JEE Main"
   ],
   "counselling": "ICAR-UG counselling (CUET)",
   "programs": {
-   "count": 2,
+   "count": 8,
    "degrees": [
+    "B.E. / B.Tech",
     "B.Sc. (Hons.)",
     "B.Tech."
    ],
@@ -286893,9 +286659,63 @@
      "indicative_min_score": 391.3,
      "score_max": 750,
      "career_id": "biotechnology"
+    },
+    {
+     "branch": "Computer Science",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 922669,
+     "indicative_opening_rank": null,
+     "career_id": "computer-science-information-technology",
+     "rank_label": "UPTAC"
+    },
+    {
+     "branch": "Mechanical Engineering",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 1368395,
+     "indicative_opening_rank": null,
+     "career_id": "mechanical-mechatronics-engineering",
+     "rank_label": "UPTAC"
+    },
+    {
+     "branch": "Electronics and Communication Engineering",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 1446832,
+     "indicative_opening_rank": null,
+     "career_id": "electrical-electronics-communications-engineering",
+     "rank_label": "UPTAC"
+    },
+    {
+     "branch": "Chemical Engineering",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 1456209,
+     "indicative_opening_rank": null,
+     "career_id": "chemical-engineering",
+     "rank_label": "UPTAC"
+    },
+    {
+     "branch": "Artificial Intelligence (AI) And Data Science",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 1496152,
+     "indicative_opening_rank": null,
+     "career_id": "artificial-intelligence-and-data-science",
+     "rank_label": "UPTAC"
+    },
+    {
+     "branch": "Information Technology",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 1502157,
+     "indicative_opening_rank": null,
+     "career_id": "computer-science-information-technology",
+     "rank_label": "UPTAC"
     }
    ],
-   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up",
+   "source": "ICAR-UG counselling 2025, rounds 1-4 and mop-up; UPTAC 2026",
    "rank_note": "Lowest open-category CUET marks that got a seat (three subjects, out of 750)."
   },
   "nirf": null,
@@ -286914,7 +286734,8 @@
    "ranking": null,
    "placement": null,
    "accreditation": "NAAC"
-  }
+  },
+  "aka": []
  },
  {
   "college_id": "icar:sardarkrushinagar-dantiwada-agricultural-university-banaskantha",
@@ -288374,19 +288195,19 @@
   }
  },
  {
-  "college_id": "C-70557",
-  "aishe_code": "C-70557",
-  "name": "NANDHA MEDICAL COLLEGE AND HOSPITAL",
+  "college_id": "nmc:saveetha-medical-college-and-hospital-kanchipuram",
+  "aishe_code": null,
+  "name": "Saveetha Medical College and Hospital, Kanchipuram",
   "display_name": "Saveetha Medical College and Hospital, Kanchipuram",
   "state": "Tamil Nadu",
   "state_is_inferred": false,
   "district": "Kanchipuram",
-  "kind": "Affiliated College",
+  "kind": "Medical College",
   "management": "Trust",
   "ownership": "Private",
   "disciplines": [],
   "year_established": 2008,
-  "website": "www.nandhamedicalcollege.org",
+  "website": null,
   "university": "Saveetha University (Deemed), Chennai",
   "entrance_exams": [
    "NEET-UG"
@@ -288423,7 +288244,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC 2024-25 / AISHE 2024-25",
+   "identity": "NMC 2024-25",
    "programs": "NMC 2024-25",
    "ranking": null,
    "placement": null,
@@ -321205,19 +321026,19 @@
   }
  },
  {
-  "college_id": "C-75567",
-  "aishe_code": "C-75567",
-  "name": "JR MEDICAL COLLLEGE AND HOSPITAL",
+  "college_id": "nmc:tagore-medical-college-and-hospital-chennai",
+  "aishe_code": null,
+  "name": "Tagore Medical College and Hospital, Chennai",
   "display_name": "Tagore Medical College and Hospital, Chennai",
   "state": "Tamil Nadu",
   "state_is_inferred": false,
   "district": "Chennai",
-  "kind": "Constituent / University College",
+  "kind": "Medical College",
   "management": "Trust",
   "ownership": "Private",
   "disciplines": [],
   "year_established": 2010,
-  "website": "https://jrmch.ac.in/",
+  "website": null,
   "university": "The Tamilnadu Dr. MGR Medical University,Chennai",
   "entrance_exams": [
    "NEET-UG"
@@ -321254,7 +321075,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC 2024-25 / AISHE 2024-25",
+   "identity": "NMC 2024-25",
    "programs": "NMC 2024-25",
    "ranking": null,
    "placement": null,
@@ -327951,14 +327772,14 @@
   }
  },
  {
-  "college_id": "S-21538",
-  "aishe_code": "S-21538",
-  "name": "DWIVEDI INSTITUTE OF MEDICAL SCIENCES",
+  "college_id": "nmc:united-institute-of-medical-sciences-allahabad",
+  "aishe_code": null,
+  "name": "United Institute of Medical Sciences, Allahabad",
   "display_name": "United Institute of Medical Sciences, Allahabad",
   "state": "Uttar Pradesh",
   "state_is_inferred": false,
   "district": "Allahabad",
-  "kind": "Paramedical",
+  "kind": "Medical College",
   "management": "Society",
   "ownership": "Private",
   "disciplines": [],
@@ -328000,7 +327821,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC 2024-25 / AISHE 2024-25",
+   "identity": "NMC 2024-25",
    "programs": "NMC 2024-25",
    "ranking": null,
    "placement": null,
@@ -348690,63 +348511,6 @@
   "data_sources": {
    "identity": "State CET Cell, Maharashtra 2025",
    "programs": "MHT-CET CAP 2025, rounds 1-4",
-   "ranking": null,
-   "placement": null,
-   "accreditation": null
-  }
- },
- {
-  "college_id": "wbjee:west bengal university animal fishery sciences",
-  "aishe_code": "U-0591",
-  "name": "West Bengal University of Animal & Fishery Sciences",
-  "display_name": "West Bengal University of Animal & Fishery Sciences",
-  "state": "West Bengal",
-  "state_is_inferred": false,
-  "district": "Kolkata",
-  "kind": null,
-  "management": "State-Univ-Dept",
-  "ownership": "Public",
-  "disciplines": [
-   "Engineering"
-  ],
-  "year_established": 1995,
-  "website": "www.wbuafscl.ac.in",
-  "university": null,
-  "entrance_exams": [
-   "WBJEE"
-  ],
-  "counselling": "WBJEE Board",
-  "programs": {
-   "count": 1,
-   "degrees": [
-    "B.E. / B.Tech"
-   ],
-   "list": [
-    {
-     "branch": "Dairy Technology",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 11413,
-     "indicative_opening_rank": null,
-     "career_id": "dairy-engineering"
-    }
-   ],
-   "source": "WBJEE 2026",
-   "rank_note": "Indicative open-category WBJEE closing rank."
-  },
-  "nirf": null,
-  "ug_gender": null,
-  "fees": null,
-  "placement": null,
-  "naac": {
-   "grade": null,
-   "cgpa": null,
-   "cycle": null,
-   "not_applicable_reason": null
-  },
-  "data_sources": {
-   "identity": "WBJEE 2026",
-   "programs": "WBJEE 2026",
    "ranking": null,
    "placement": null,
    "accreditation": null

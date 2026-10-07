@@ -263,7 +263,10 @@ export default function Compare() {
         if (!college && cid === "n" && rest.length >= 2) {
           // n~<college slug>~<branch slug>
           const [cslug, ...bslug] = rest;
-          college = all.find((c) => slugify(c.display_name) === cslug);
+          // aka: a merged card's other spellings (the predictor row's name)
+          college = all.find((c) =>
+            [c.display_name, ...(c.aka || [])].some((n) => slugify(n) === cslug)
+          );
           if (!college) return null;
           return {
             collegeId: college.college_id,

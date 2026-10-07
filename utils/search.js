@@ -19,6 +19,7 @@ const ALIASES = {
   kgp: "kharagpur",
   bhu: "banaras",
   hansraj: "hans raj",
+  engg: "engineering",
   allahabad: "prayagraj",
   bangalore: "bengaluru",
   calcutta: "kolkata",

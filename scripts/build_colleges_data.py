@@ -1130,9 +1130,25 @@ def _names_agree(college, aishe, district=None, state_districts=frozenset()):
 # AISHE records a name can't reach: abbreviations in the admissions list
 AISHE_NAME_PINS = {
     ("Gujarat", "L.E.College,Morbi"): "Lukhdhirji Engineering College, Morbi-031",
-    # AISHE lists BITS once (U-0391, Pilani); its Goa and Hyderabad campuses
-    # have no records of their own and stay unfilled
+    # AISHE lists BITS Pilani as the university (U-0391); the Goa and
+    # Hyderabad campuses are set on their cards
     ("Rajasthan", "BITS Pilani, Pilani Campus"): "Birla Institute of Technology & Sciences, Pilani",
+}
+# Colleges that share a name with another college in the same state (two
+# counselling codes, two campuses): the name matcher hands both the same
+# AISHE code, so each card names its own. Districts from the counselling
+# data; None = AISHE has no entry we can tell apart, leave it blank.
+AISHE_ID_PINS = {
+    "ap-eapcet:AVEV": "C-17993",   # Avanthi, Bhogapuram (Vizianagaram); AVEN is Narsipatnam
+    "ap-eapcet:KISR": "C-17973",   # Kakinada Inst. of Technological Sciences, Ramachandrapuram
+    "ap-eapcet:KTSP": "C-18020",   # Kakinada Inst. of Technology & Science, Peddapuram
+    "ap-eapcet:NRIA": "C-17942",   # NRI, Agiripalli (Krishna); NRIT is Perecherla (Guntur)
+    "ap-eapcet:KIEK": None,        # KIET-II or KIET for Women: can't tell which
+    "ap-eapcet:NRNG": None,        # Narayana Nellore or Gudur: can't tell which
+    "mhtcet:02538": "C-73704",     # AISHE prints the DTE code: "2538-Latur College of Pharmacy"
+    "mhtcet:02553": "C-57752",     # Latur College of Pharmacy, Hasegaon
+    "mhtcet:02539": None,          # Rajesh Bhaiyya Tope College of Pharmacy: AISHE has only the B.Pharmacy one
+    "uptac:rajkiya engineering college sonebhadra": "C-61983",
 }
 
 
@@ -1364,7 +1380,10 @@ def fill_from_aishe(client, rows):
         state_districts = {w for d in ai.district.dropna()
                            for w in _mnorm(str(d)).split() if len(w) > 3}
         for r in here:
-            ids = hits.get(r["college_id"], set()) or by_squash.get(
+            pinned = r["college_id"] in AISHE_ID_PINS
+            if pinned and AISHE_ID_PINS[r["college_id"]] not in info.index:
+                continue
+            ids = set() if pinned else hits.get(r["college_id"], set()) or by_squash.get(
                 _squash(r["display_name"]), set())
             # candidates whose names really agree; among several (AISHE
             # lists an institute and its pharmacy wing, or the same name in
@@ -1385,7 +1404,9 @@ def fill_from_aishe(client, rows):
                              if len(str(v.institute_name).split()) == sizes[0]]
             x = cands[0] if len(cands) == 1 else None
             how = "name" if x is not None else None
-            if x is None:
+            if pinned:
+                x, how = row_of(AISHE_ID_PINS[r["college_id"]]), "pin"
+            elif x is None:
                 x, how = _second_pass(r, ai, row_of, state_districts)
             if how:
                 n[how] = n.get(how, 0) + 1
@@ -1449,6 +1470,74 @@ def fill_from_aishe(client, rows):
           f"{n['aishe_code']} codes, {n['year']} years, {n['district']} districts, "
           f"{n['website']} websites, {n['naac']} NAAC grades; ownership "
           f"{n['own_aishe']} from AISHE + {n['own_name']} by name ({left} unknown)")
+
+
+# counselling a card's programmes come from, by college_id prefix (an AISHE
+# code as the id is a JoSAA card)
+_COUNSELLING_OF = {"uptac": "UPTAC", "wbjee": "WBJEE", "icar": "ICAR", "josaa": "JoSAA"}
+
+
+def _counselling(cid):
+    pre = cid.split(":")[0] if ":" in cid else "josaa"
+    return _COUNSELLING_OF.get(pre, pre.upper())
+
+
+def merge_duplicate_cards(rows):
+    """One card per college. Two sources can each make a card for the same
+    college (GKCIET Malda via JoSAA and WBJEE; an agricultural university via
+    ICAR and UPTAC); the shared AISHE code shows it. Cards from DIFFERENT
+    sources with one AISHE code merge into the first (JoSAA, then ICAR, then
+    the state list); ranks from each counselling are labelled with it.
+    Same-source pairs stay apart: they are campuses or seat types (NIE
+    North/South, ICT Jalna, BVM aided/self-financed). Evening colleges share
+    the morning college's code and are never merged."""
+    order = {"JoSAA": 0, "ICAR": 1}
+    by = {}
+    for r in rows:
+        if r.get("aishe_code") and "(Evening)" not in r["name"]:
+            by.setdefault(r["aishe_code"], []).append(r)
+    drop = set()
+    for code, grp in by.items():
+        if len(grp) < 2 or len({_counselling(r["college_id"]) for r in grp}) < 2:
+            continue
+        grp = sorted(grp, key=lambda r: (order.get(_counselling(r["college_id"]), 2), -r["programs"]["count"]))
+        keep, rest = grp[0], grp[1:]
+        for row in [keep] + rest:
+            lab = _counselling(row["college_id"])
+            for p in row["programs"]["list"]:
+                if p.get("indicative_closing_rank") is not None and not p.get("rank_label"):
+                    p["rank_label"] = lab
+        for r in rest:
+            # the other source's spelling stays searchable: its predictor rows
+            # link by name ("Acharya Narendra Deva ..., Kumarganj")
+            keep["aka"] = sorted(set(keep.get("aka", [])) | {r["display_name"]} - {keep["display_name"]})
+            keep["programs"]["list"] += r["programs"]["list"]
+            keep["programs"]["degrees"] = sorted(set(keep["programs"]["degrees"]) | set(r["programs"]["degrees"]))
+            src = r["programs"].get("source")
+            if src and src not in (keep["programs"].get("source") or ""):
+                keep["programs"]["source"] = "; ".join(x for x in (keep["programs"].get("source"), src) if x)
+            keep["entrance_exams"] = sorted(set(keep["entrance_exams"]) | set(r["entrance_exams"]))
+            keep["disciplines"] = (keep["disciplines"] + [d for d in r["disciplines"] if d not in keep["disciplines"]])[:4]
+            for f in ("nirf", "placement", "fees", "ug_gender", "year_established", "website", "district"):
+                if not keep.get(f) and r.get(f):
+                    keep[f] = r[f]
+            drop.add(r["college_id"])
+            print(f"    merged {r['college_id']} into {keep['college_id']} ({keep['name'][:50]})")
+        keep["programs"]["count"] = len(keep["programs"]["list"])
+    rows[:] = [r for r in rows if r["college_id"] not in drop]
+    print(f"  merged {len(drop)} duplicate card(s)")
+
+
+def warn_shared_aishe(rows):
+    """Any AISHE code still on two cards is a duplicate or a bad pin."""
+    by = {}
+    for r in rows:
+        if r.get("aishe_code") and "(Evening)" not in r["name"]:
+            by.setdefault(r["aishe_code"], []).append(r["college_id"])
+    shared = {k: v for k, v in by.items() if len(v) > 1}
+    print(f"  AISHE codes on more than one card: {len(shared)}")
+    for k, v in shared.items():
+        print(f"    {k}: {v}")
 
 
 # NIRF list names drift across editions; one name per list
@@ -3066,7 +3155,9 @@ def main():
             card["entrance_exams"] = card["entrance_exams"] + ["AIIMS-EE"]
     print(f"  AIIMS nursing programme on {len(nursing)} AIIMS cards")
     fill_from_aishe(client, rows)
+    merge_duplicate_cards(rows)
     nirf_from_aishe(client, rows)
+    warn_shared_aishe(rows)
 
     def nirf_sort(z):
         n = z["nirf"]
