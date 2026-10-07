@@ -2748,6 +2748,7 @@ def main():
                 "degree": x.course.split(" ")[0] if not x.course.startswith("B.Sc. (Hons.)") else "B.Sc. (Hons.)",
                 "indicative_closing_rank": None, "indicative_opening_rank": None,
                 "indicative_min_score": None if pd.isna(x.ur_marks) else round(float(x.ur_marks), 1),
+                "score_max": 750,
                 "career_id": icar_careers.get(x.course_raw)}
                for x in g.itertuples()]
         lst.sort(key=lambda z: (z["indicative_min_score"] is None, -(z["indicative_min_score"] or 0), z["branch"]))
@@ -2948,21 +2949,31 @@ def main():
             "percentage_placed": round(placed / grad * 100, 1) if grad else None,
             "percentage_with_outcome": round(min(100.0, (placed + higher) / grad * 100), 1) if grad else None,
             "students_placed": placed, "higher_studies_selected": higher,
-            "first_year_intake": int(b.first_year_intake), "includes_dual_degree": False,
+            # NIRF's intake is all three campuses: on a campus card it would
+            # read as that campus's
+            "first_year_intake": None, "includes_dual_degree": False,
             "academic_year": b.graduating_academic_year, "ranking_year": int(b.edition_year),
             "source": "NIRF Engineering, UG 4-year (BITS as a whole: Pilani, Goa and Hyderabad together)",
             "is_branch_specific": False,
         }
-    BITS_CARDS = {"Pilani": ("bits:pilani", "BITS Pilani, Pilani Campus", "Rajasthan", "Jhunjhunu"),
-                  "K K Birla Goa": ("bits:goa", "BITS Pilani, K K Birla Goa Campus", "Goa", "North Goa"),
-                  "Hyderabad": ("bits:hyderabad", "BITS Pilani, Hyderabad Campus", "Telangana", "Sangareddy")}
+    # AISHE lists each campus: the university (U-0391) and the Goa and
+    # Hyderabad campuses as colleges; districts as AISHE gives them
+    BITS_CARDS = {"Pilani": ("bits:pilani", "BITS Pilani, Pilani Campus", "Rajasthan", "Jhunjhunu", "U-0391"),
+                  "K K Birla Goa": ("bits:goa", "BITS Pilani, K K Birla Goa Campus", "Goa", "South Goa", "C-61982"),
+                  "Hyderabad": ("bits:hyderabad", "BITS Pilani, Hyderabad Campus", "Telangana",
+                                "Medchal-Malkajgiri", "C-55231")}
+    bits_est = client.query(f"""
+    SELECT aishe_code, year_of_establishment AS est FROM `{D}.aishe_dim_universities` WHERE aishe_code = 'U-0391'
+    UNION ALL SELECT aishe_code, year_of_establishment FROM `{D}.aishe_dim_colleges`
+    WHERE aishe_code IN ('C-61982', 'C-55231')""").to_dataframe()
+    bits_est = {x.aishe_code: x.est for x in bits_est.itertuples()}
     bits_rows = []
     for campus, g in bits.groupby("campus"):
-        cid, name, state, district = BITS_CARDS[campus]
+        cid, name, state, district, aishe = BITS_CARDS[campus]
         lst = [{"branch": x.program, "years": 5 if x.program.startswith("M.Sc.") else 4,
                 "degree": x.program.split(" ")[0],
                 "indicative_closing_rank": None, "indicative_opening_rank": None,
-                "indicative_min_score": int(x.cutoff_score),
+                "indicative_min_score": int(x.cutoff_score), "score_max": int(x.max_score),
                 "career_id": career_of_program(x.program)} for x in g.itertuples()]
         lst.sort(key=lambda z: (-z["indicative_min_score"], z["branch"]))
         row = base_row(cid, name, state, "BITSAT", "BITS admissions (BITSAT)",
@@ -2971,6 +2982,11 @@ def main():
                         "score_label": "BITSAT score",
                         "rank_note": f"Final BITSAT cut-off score (of {int(g.max_score.iloc[0])}); BITS has no category reservation."},
                        bits_nirf, ["Engineering", "Pharmacy", "Science"], "BITS cut-off page")
+        # Pilani goes through AISHE_NAME_PINS with the rest (that pass also
+        # brings its NAAC grade); the two campuses are set here
+        if campus != "Pilani":
+            est = bits_est.get(aishe)
+            row.update(aishe_code=aishe, year_established=int(est) if est and str(est).isdigit() else None)
         row.update(district=district, kind="Deemed University", ownership="Private",
                    website="https://www.bits-pilani.ac.in")
         if bits_nirf:

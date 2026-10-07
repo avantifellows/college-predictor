@@ -142,7 +142,7 @@ export const ExamDetailBody = ({ e }) => (
             href={`/predictor?exam=${encodeURIComponent(e.predictor_exam)}`}
             className="inline-flex items-center gap-1 rounded-full bg-[#B52326] px-3 py-1.5 text-xs font-semibold text-white transition hover:bg-[#8f2e31]"
           >
-            Check your colleges
+            Predict your colleges
           </Link>
         ) : null}
         {e.colleges_link ? (

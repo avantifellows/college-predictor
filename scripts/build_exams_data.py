@@ -37,6 +37,8 @@ SPINE_EXAM_LABEL = {
     "AP-EAPCET": "AP EAPCET", "TG-EAPCET": "TG-EAPCET", "OJEE": "OJEE",
     "CLAT": "CLAT", "GUJCET": "GUJCET",
 }
+# exam labels the Colleges tab filters on
+TAB_EXAMS = {e for c in json.load(open("public/data/colleges/colleges.json")) for e in c["entrance_exams"]}
 PREDICTOR_TO_FAMILY = {
     "JoSAA": "JoSAA", "KCET": "KCET", "MHT CET": "MHT-CET",
     "TGEAPCET": "TG-EAPCET", "AP EAPCET": "AP-EAPCET", "GUJCET": "GUJCET",
@@ -262,6 +264,9 @@ def main():
         elif acro in ("CUET (UG)", "IAT", "AIIMS-EE"):
             # DU colleges (CUET), the IISERs (IAT) and the AIIMS (nursing)
             # live on the tab too
+            card["colleges_link"] = f"/colleges?exam={acro}"
+        elif acro in TAB_EXAMS:
+            # any exam the Colleges tab carries cards for (BITSAT)
             card["colleges_link"] = f"/colleges?exam={acro}"
         else:
             card["colleges_link"] = None

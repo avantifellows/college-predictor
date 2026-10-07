@@ -886,7 +886,8 @@ const PredictedCollegesTable = ({
         ...item,
         institute: item["Institute"],
         academic_program_name: item["Academic Program Name"],
-        cutoff_marks: item["Cutoff Marks"],
+        cutoff_marks:
+          item["Cutoff Marks"] == null ? null : `${item["Cutoff Marks"]} / 750`,
       };
     }
     if (exam === "AIIMS Nursing") {

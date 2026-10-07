@@ -272,11 +272,11 @@ export const ProgramsTable = ({ c }) => (
                       >
                         {col.value(p) ?? <Dash />}
                         {col.key === "score" &&
-                        p.cuet_rule &&
+                        (p.score_max || p.cuet_rule) &&
                         col.value(p) != null ? (
                           <span className="text-[#7a6159]">
                             {" "}
-                            / {courseMax(p.cuet_rule)}
+                            / {p.score_max || courseMax(p.cuet_rule)}
                           </span>
                         ) : null}
                         {/* a rank on its own scale (AIIMS nursing)
