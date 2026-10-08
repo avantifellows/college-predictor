@@ -152,11 +152,13 @@ export default function CollegeView({ c, back = "/colleges", backSlot }) {
           </Section>
         ) : null}
 
-        <Section title={`Programmes offered (${c.programs.count})`}>
-          <div className="overflow-x-auto">
-            <ProgramsTable c={c} />
-          </div>
-        </Section>
+        {c.programs.count ? (
+          <Section title={`Programmes offered (${c.programs.count})`}>
+            <div className="overflow-x-auto">
+              <ProgramsTable c={c} />
+            </div>
+          </Section>
+        ) : null}
 
         {c.placement ? (
           <Section title="Placements">

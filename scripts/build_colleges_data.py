@@ -1472,6 +1472,170 @@ def fill_from_aishe(client, rows):
           f"{n['own_aishe']} from AISHE + {n['own_name']} by name ({left} unknown)")
 
 
+# NIRF lists a school student can enter (undergraduate); an institute ranked
+# only in Management / Research / Innovation is a PG or research place
+_UG_NIRF_LISTS = {"Engineering", "College", "University", "Overall", "Pharmacy", "Law",
+                  "Medical", "Dental", "Architecture", "Architecture and Planning",
+                  "Agriculture and Allied Sectors", "State Public University",
+                  "State Public Universities"}
+_NIRF_LIST_DISCIPLINE = {"Engineering": "Engineering", "Pharmacy": "Pharmacy", "Law": "Law",
+                         "Architecture": "Architecture", "Architecture and Planning": "Architecture",
+                         "Agriculture and Allied Sectors": "Agriculture",
+                         "Medical": "Medicine", "Dental": "Medicine"}
+
+
+_GENERIC_NAME_WORDS = {"government", "govt", "medical", "dental", "college", "engineering", "institute",
+                       "of", "and", "the", "technology", "sciences", "science", "hospital", "university",
+                       "autonomous", "a", "pharmacy", "research", "centre", "center", "management", "arts",
+                       "commerce", "law", "school", "studies", "education"}
+# a unit of a university ("Faculty of Agricultural Sciences, AMU"): never
+# the university NIRF ranked
+_SUBUNIT = re.compile(r"^(faculty|department|dept|school|centre|center)\b|bhavana\b|\bconstituent\b", re.I)
+
+
+def _name_key(name, district=None):
+    """A spelling-tolerant key for 'is this the same college': the name before
+    its first comma, apostrophes and punctuation gone; a name made only of
+    shared words ("Government Dental College") takes its district."""
+    core = re.sub(r"[`'’]", "", str(name).split(",")[0].lower()).replace("&", " and ")
+    core = re.sub(r"\(.*?\)", " ", core)
+    words = re.findall(r"[a-z]+", core)
+    if not set(words) - _GENERIC_NAME_WORDS:
+        words += re.findall(r"[a-z]+", str(district or "").lower())
+    return "".join(w for w in words if w not in ("the", "autonomous"))
+
+
+def add_nirf_only_cards(client, rows):
+    """A college with NIRF data gets a card even when no exam on Futures
+    leads to it (private colleges admitting on board marks, state colleges
+    whose counselling we don't carry — Ujjain or Rewa Engineering College).
+
+    First, an existing card that names the institute (same state, the NIRF
+    name matcher) but lacks an AISHE code takes NIRF's code, so the passes
+    after this fill its rank and placement instead of a second card being
+    made. Then every institute left — NIRF-ranked or with a placement filing
+    (NIRF's or the institute's own website copy), in an undergraduate list,
+    data since 2021, known to AISHE — gets a card: AISHE identity, no exam,
+    no programmes; nirf_from_aishe fills rank and placement."""
+    r = client.query(f"""
+    WITH ids AS (
+      SELECT REGEXP_EXTRACT(institute_id, r'-([UCS]-[0-9]+)$') AS aishe, institute_id, institute_name,
+             ranking_category AS list, ranking_year AS yr
+      FROM `{D}.nirf_fact_rankings` WHERE institute_id IS NOT NULL AND nirf_rank IS NOT NULL
+      UNION ALL
+      SELECT REGEXP_EXTRACT(institute_id, r'-([UCS]-[0-9]+)$'), institute_id, institute_name, discipline, edition_year
+      FROM `{D}.nirf_fact_dcs_placements`)
+    SELECT aishe, ARRAY_AGG(DISTINCT list) AS lists, MAX(yr) AS last_year,
+           ARRAY_AGG(STRUCT(institute_id, institute_name) ORDER BY yr DESC LIMIT 1)[OFFSET(0)] AS latest
+    FROM ids WHERE aishe IS NOT NULL GROUP BY aishe""").to_dataframe()
+    a = client.query(f"""
+    SELECT aishe_code, name, state, district, website, year_of_establishment AS est,
+           college_type AS kind, management FROM `{D}.aishe_dim_colleges`
+    UNION ALL SELECT aishe_code, name, state, district, website, year_of_establishment,
+           university_type, CAST(NULL AS STRING) FROM `{D}.aishe_dim_universities`
+    UNION ALL SELECT aishe_code, name, state, district, website, year_of_establishment,
+           standalone_type, management FROM `{D}.aishe_dim_standalone_institutions`""").to_dataframe()
+    a = a.drop_duplicates("aishe_code").set_index("aishe_code")
+    have = {x["aishe_code"] for x in rows if x.get("aishe_code")}
+    ids = {x["college_id"] for x in rows}
+    todo = r[~r.aishe.isin(have) & r.aishe.isin(a.index)].copy()
+    todo["state"] = todo.aishe.map(a.state)
+    todo["institute_id"] = todo.latest.map(lambda v: v["institute_id"])
+    todo["institute_name"] = todo.latest.map(lambda v: v["institute_name"])
+
+    # 1. existing cards that are this institute, missing only the code
+    linked = 0
+    for st, g in todo.groupby("state"):
+        cards = [x for x in rows if (x.get("state") or "").lower() == str(st).lower()
+                 and not x.get("aishe_code") and "(Evening)" not in x["name"]]
+        if not cards:
+            continue
+        frame = pd.DataFrame({"college_code": [x["college_id"] for x in cards],
+                              "college_name": [x["display_name"] for x in cards]})
+        hits = match_nirf_to_mhtcet(g[["institute_id", "institute_name"]], frame)
+        by_id = {x["college_id"]: x for x in cards}
+        taken = {}
+        for iid, cid in hits.items():
+            taken.setdefault(cid, set()).add(iid)
+        for cid, iids in taken.items():
+            codes = {re.search(r"-([UCS]-\d+)$", i).group(1) for i in iids}
+            if _SUBUNIT.search(by_id[cid]["name"]) and any(c.startswith("U-") for c in codes):
+                continue
+            if len(codes) == 1:          # one institute only, never a guess
+                by_id[cid]["aishe_code"] = codes.pop()
+                linked += 1
+    have = {x["aishe_code"] for x in rows if x.get("aishe_code")}
+
+    # 2. a card for every institute still without one — unless a card in the
+    # same state spells the same name differently (Bhartiya / Bharatiya Vidya
+    # Bhavan's SPIT, "Medical College" / "Government Medical College,
+    # Thiruvananthapuram"): that card takes the code, or, holding another
+    # code already, is left alone
+    from difflib import SequenceMatcher
+    by_state = {}
+    for x in rows:
+        by_state.setdefault((x.get("state") or "").lower(), []).append(
+            (_name_key(x["display_name"], x.get("district")), x))
+    new, relinked, skipped = [], 0, 0
+    for t in todo[~todo.aishe.isin(have)].itertuples():
+        lists = set(t.lists)
+        if not lists & _UG_NIRF_LISTS or t.last_year < 2021 or t.aishe in ids:
+            continue
+        info = a.loc[t.aishe]
+        name = re.sub(r"\s+", " ", str(t.institute_name).replace('"', "")).strip()
+        key = _name_key(name, info.district)
+        same = [x for k, x in by_state.get(str(info.state).lower(), [])
+                if k and key and SequenceMatcher(None, k, key).ratio() >= 0.9]
+        if same:
+            if len(same) == 1 and not same[0].get("aishe_code") and not _SUBUNIT.search(same[0]["name"]):
+                same[0]["aishe_code"] = t.aishe
+                relinked += 1
+            else:
+                skipped += 1
+            continue
+        # NIRF's DCS spelling can carry the postal address ("…, Gole ka
+        # Mandir, P.O. Residency, Gwalior-474005"): keep the name and its town
+        if "," in name and (len(name) > 50 or re.search(r"\d{6}|P\.?O\.|Road|Marg", name)):
+            name = name.split(",")[0].strip() + (f", {str(info.district).title()}" if info.district else "")
+        try:
+            est = int(float(info.est))
+        except (TypeError, ValueError):
+            est = None
+        disc = sorted({_NIRF_LIST_DISCIPLINE[l] for l in lists if l in _NIRF_LIST_DISCIPLINE})
+        new.append({
+            "college_id": t.aishe, "aishe_code": t.aishe, "name": name, "display_name": name,
+            "state": str(info.state).title() if info.state else None, "state_is_inferred": False,
+            "district": str(info.district).strip().title() if info.district else None,
+            "kind": info.kind, "management": info.management,
+            "ownership": ownership_of(info.kind, info.management, name),
+            "disciplines": disc[:4],
+            "year_established": est if est and 1800 <= est <= 2026 else None,
+            "website": (str(info.website).strip().rstrip("/") if info.website
+                        and str(info.website).strip() not in ("-", "NA") else None),
+            "university": None, "entrance_exams": [], "counselling": None,
+            "programs": {"count": 0, "degrees": [], "list": [], "source": None, "rank_note": None},
+            "nirf": None, "ug_gender": None, "fees": None, "placement": None,
+            "naac": {"grade": None, "cgpa": None, "cycle": None, "not_applicable_reason": None},
+            "data_sources": {"identity": "AISHE 2024-25", "programs": None, "ranking": None,
+                             "placement": None, "accreditation": None},
+            # for nirf_from_aishe's list/placement choice; dropped before writing
+            "_nirf_lists": sorted(lists),
+        })
+    # a name only of shared words, or one another card carries, takes its town
+    # ("Government Dental College, Kozhikode"): card pages are found by name
+    seen = {}
+    for x in rows + new:
+        seen.setdefault(x["display_name"].lower(), []).append(x)
+    for x in new:
+        generic = not set(re.findall(r"[a-z]+", x["name"].lower())) - _GENERIC_NAME_WORDS
+        if (generic or len(seen[x["display_name"].lower()]) > 1) and x["district"] \
+                and x["district"].lower() not in x["name"].lower():
+            x["name"] = x["display_name"] = f"{x['name']}, {x['district']}"
+    rows += new
+    print(f"  NIRF-only: {linked + relinked} existing card(s) linked to their AISHE code, "
+          f"{len(new)} new card(s), {skipped} left alone (a card with another code has the name)")
+
+
 # counselling a card's programmes come from, by college_id prefix (an AISHE
 # code as the id is a JoSAA card)
 _COUNSELLING_OF = {"uptac": "UPTAC", "wbjee": "WBJEE", "icar": "ICAR", "josaa": "JoSAA"}
@@ -1570,11 +1734,17 @@ def nirf_from_aishe(client, rows):
     # College of Engineering filed under MMCOE Pune's C-41309; a Chittoor
     # college under a Thiruvallur one's C-16504): same state, and one
     # distinctive word of NIRF's name inside the card's name
+    # names from the rankings AND the placement filings: a college NIRF never
+    # ranked (Ujjain EC, from its own website's copy) is only in the latter
     names = client.query(f"""
+    WITH n AS (
+      SELECT institute_id, institute_name, state, city FROM `{D}.nirf_fact_rankings`
+      UNION ALL SELECT institute_id, institute_name, CAST(NULL AS STRING), CAST(NULL AS STRING)
+      FROM `{D}.nirf_fact_dcs_placements`)
     SELECT REGEXP_EXTRACT(institute_id, r'-([UCS]-[0-9]+)$') AS aishe,
            ARRAY_AGG(DISTINCT institute_name IGNORE NULLS) AS names, ANY_VALUE(state) AS state,
            ARRAY_AGG(DISTINCT city IGNORE NULLS) AS cities
-    FROM `{D}.nirf_fact_rankings` WHERE institute_id IS NOT NULL GROUP BY 1""").to_dataframe()
+    FROM n WHERE institute_id IS NOT NULL GROUP BY 1""").to_dataframe()
     names = {x.aishe: x for x in names.itertuples()}
     generic = {"college", "engineering", "institute", "technology", "university", "science", "sciences",
                "of", "and", "the", "for", "women", "deemed", "national", "indian", "school", "pharmacy",
@@ -1626,8 +1796,17 @@ def nirf_from_aishe(client, rows):
             todo = refreshed
         else:
             prefs = [_DISC_NIRF[d] for d in (row["disciplines"] or []) if d in _DISC_NIRF]
+            prefs += [l for l in ("Medical", "Dental") if l in row.get("_nirf_lists", ())]
             prefs += ["College", "University", "Overall", "Research Institutions", "State Public Universities"]
-            cat = next((c for c in prefs if (g.ranking_category == c).any()), None)
+            if row.get("_nirf_lists") is not None:
+                # a no-exam card: its most recent list first (DAVV is State
+                # Public Universities #49 in 2025, not Pharmacy #55 in 2019)
+                have = [c for c in prefs if (g.ranking_category == c).any()]
+                latest = {c: g[g.ranking_category == c].ranking_year.max() for c in have}
+                have.sort(key=lambda c: (-latest[c], prefs.index(c)))
+                cat = have[0] if have else None
+            else:
+                cat = next((c for c in prefs if (g.ranking_category == c).any()), None)
             if cat is None:
                 # ranked only in a list the card's subjects don't cover
                 # (a university ranked only in Pharmacy): no headline rank
@@ -1672,10 +1851,11 @@ def nirf_from_aishe(client, rows):
         if row["placement"] or not row["aishe_code"] or "(Evening)" in row["name"]:
             continue
         disc = set(row["disciplines"] or [])
-        want = (["Medical"] if "NEET-UG" in row["entrance_exams"] else []) \
+        nl = set(row.get("_nirf_lists", ()))
+        want = (["Medical"] if "NEET-UG" in row["entrance_exams"] or "Medical" in nl else []) \
             + (["Engineering"] if "Engineering" in disc else []) \
             + (["Law"] if "Law" in disc else []) \
-            + (["College"] if disc & {"Arts", "Science", "Commerce"} else [])
+            + (["College"] if disc & {"Arts", "Science", "Commerce"} or "College" in nl else [])
         hit = next((d for d in want if (row["aishe_code"], d) in pl_by), None)
         if hit is None or not same_place(row):
             continue
@@ -3156,8 +3336,11 @@ def main():
     print(f"  AIIMS nursing programme on {len(nursing)} AIIMS cards")
     fill_from_aishe(client, rows)
     merge_duplicate_cards(rows)
+    add_nirf_only_cards(client, rows)
     nirf_from_aishe(client, rows)
     warn_shared_aishe(rows)
+    for x in rows:
+        x.pop("_nirf_lists", None)
 
     def nirf_sort(z):
         n = z["nirf"]
