@@ -111,6 +111,10 @@ const ExamForm = () => {
   const [estimateError, setEstimateError] = useState("");
   const [estimatedRank, setEstimatedRank] = useState(null);
   const [estimatedPercentile, setEstimatedPercentile] = useState(null);
+  // JEE Advanced marks -> category rank (JoSAA estimate mode, qualified = Yes)
+  const [advMarksInput, setAdvMarksInput] = useState("");
+  const [advMarksError, setAdvMarksError] = useState("");
+  const [estimatedAdvRank, setEstimatedAdvRank] = useState(null);
   const [isEstimating, setIsEstimating] = useState(false);
   // NEET home-state -> that state's own category codes (for the optional
   // home-state category dropdown). Loaded once when NEET is selected.
@@ -195,6 +199,14 @@ const ExamForm = () => {
       if (selectedOption.label === "No" && newFormData.advRank) {
         delete newFormData.advRank;
       }
+      if (rankMode === "estimate") {
+        // the estimate covers both ranks: answering changes what it needs
+        delete newFormData.advRank;
+        newFormData.mainRank = "";
+        setEstimatedRank(null);
+        setEstimatedAdvRank(null);
+        setEstimateError("");
+      }
     }
 
     if (
@@ -249,6 +261,9 @@ const ExamForm = () => {
       setPercentileError("");
       setEstimateInputType("marks");
       setEstimateError("");
+      setAdvMarksInput("");
+      setAdvMarksError("");
+      setEstimatedAdvRank(null);
     } else {
       setFormData((prevData) => ({
         ...prevData,
@@ -297,6 +312,21 @@ const ExamForm = () => {
     setMarksError("");
   };
 
+  const handleAdvMarksChange = (e) => {
+    const value = e.target.value;
+    setAdvMarksInput(value);
+    setEstimatedAdvRank(null);
+    setEstimatedRank(null);
+    setEstimateError("");
+    clearEstimatedRank();
+    const marks = Number(value);
+    setAdvMarksError(
+      value === "" || (Number.isInteger(marks) && marks >= 0 && marks <= 360)
+        ? ""
+        : "Please enter marks between 0 and 360."
+    );
+  };
+
   const handlePercentileChange = (e) => {
     const value = e.target.value;
     setPercentileInput(value);
@@ -324,8 +354,17 @@ const ExamForm = () => {
   // would search with the old one
   const clearEstimatedRank = () => {
     if (selectedExam === "JoSAA" && rankMode === "estimate")
-      setFormData((prev) => (prev.mainRank ? { ...prev, mainRank: "" } : prev));
+      setFormData((prev) => {
+        if (!prev.mainRank && !prev.advRank) return prev;
+        const next = { ...prev, mainRank: "" };
+        delete next.advRank;
+        return next;
+      });
   };
+  const wantsAdvEstimate = () =>
+    selectedExam === "JoSAA" &&
+    rankMode === "estimate" &&
+    formData.qualifiedJeeAdv === "Yes";
 
   // thenSubmit: Submit pressed with marks typed but no estimate yet, so
   // estimate and go straight to the results
@@ -351,6 +390,13 @@ const ExamForm = () => {
       }
       if (percentileError) return;
     }
+    if (wantsAdvEstimate()) {
+      if (advMarksInput === "") {
+        setAdvMarksError("Please enter your JEE Advanced marks.");
+        return;
+      }
+      if (advMarksError) return;
+    }
 
     setIsEstimating(true);
     setEstimateError("");
@@ -375,15 +421,35 @@ const ExamForm = () => {
         return;
       }
 
-      setEstimatedRank(data.categoryRank);
-      setEstimatedPercentile(data.percentile);
       const nextData = {
         ...formData,
         mainRank: String(data.categoryRank),
-        qualifiedJeeAdv: "No",
         rankMode: "estimate",
       };
       delete nextData.advRank;
+      if (wantsAdvEstimate()) {
+        const advResponse = await fetch("/api/jee-adv-estimate", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            marks: Number(advMarksInput),
+            category: formData.category,
+          }),
+        });
+        const adv = await advResponse.json();
+        if (!advResponse.ok) {
+          setEstimateError(adv.error || "Unable to estimate rank.");
+          setIsEstimating(false);
+          return;
+        }
+        nextData.advRank = String(adv.rank);
+        setEstimatedAdvRank(adv.rank);
+      } else {
+        nextData.qualifiedJeeAdv = "No";
+        setEstimatedAdvRank(null);
+      }
+      setEstimatedRank(data.categoryRank);
+      setEstimatedPercentile(data.percentile);
       setFormData(nextData);
       if (thenSubmit) handleSubmit(nextData);
     } catch (error) {
@@ -556,6 +622,7 @@ const ExamForm = () => {
     (estimateInputType === "marks"
       ? marksInput !== "" && !marksError
       : percentileInput !== "" && !percentileError) &&
+    (!wantsAdvEstimate() || (advMarksInput !== "" && !advMarksError)) &&
     ["gender", "program", "homeState"].every((f) => formData[f]);
 
   const onSubmitClick = () =>
@@ -867,7 +934,6 @@ const ExamForm = () => {
                       )}
 
                     {selectedExam === "JoSAA" &&
-                      rankMode === "known" &&
                       config?.fields?.find(
                         (field) => field.name === "qualifiedJeeAdv"
                       ) &&
@@ -1000,11 +1066,48 @@ const ExamForm = () => {
                                 )}
                               </>
                             )}
+                            {formData.qualifiedJeeAdv === "Yes" && (
+                              <>
+                                <label className="mt-1 text-sm font-semibold text-[#5b3a34]">
+                                  JEE Advanced marks out of 360
+                                </label>
+                                <input
+                                  type="number"
+                                  step="1"
+                                  min="0"
+                                  max="360"
+                                  value={advMarksInput}
+                                  onChange={handleAdvMarksChange}
+                                  onKeyDown={(e) => {
+                                    if (
+                                      [".", "e", "E", "+", "-", " "].includes(
+                                        e.key
+                                      )
+                                    ) {
+                                      e.preventDefault();
+                                    }
+                                  }}
+                                  className={`w-full rounded-xl border bg-[#fffdfa] p-3 text-center outline-none transition focus:ring-2 focus:ring-[#f4d5d6] ${
+                                    advMarksError
+                                      ? "border-red-500 focus:border-red-500"
+                                      : "border-[#d8c7c1] focus:border-[#b52326]"
+                                  }`}
+                                  placeholder="e.g., 150"
+                                />
+                                {advMarksError && (
+                                  <p className="text-red-500 text-sm">
+                                    {advMarksError}
+                                  </p>
+                                )}
+                              </>
+                            )}
                             <button
                               type="button"
                               onClick={() => handleEstimateRank()}
                               disabled={
                                 isEstimating ||
+                                (wantsAdvEstimate() &&
+                                  (advMarksInput === "" || !!advMarksError)) ||
                                 (estimateInputType === "marks"
                                   ? marksInput === "" || !!marksError
                                   : percentileInput === "" ||
@@ -1041,6 +1144,12 @@ const ExamForm = () => {
                                   Predicted Category Rank:{" "}
                                   <strong>{estimatedRank}</strong>
                                 </p>
+                                {estimatedAdvRank && (
+                                  <p>
+                                    Predicted JEE Advanced Category Rank:{" "}
+                                    <strong>{estimatedAdvRank}</strong>
+                                  </p>
+                                )}
                                 <p className="text-xs text-gray-500 mt-1">
                                   Results are based on average data of 10k+
                                   students from 2024 and 2025. Actual 2025/26
