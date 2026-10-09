@@ -145,6 +145,47 @@
   "colleges_link": null
  },
  {
+  "exam_id": "afcat",
+  "name": "AFCAT (Air Force Common Admission Test)",
+  "acronym": "AFCAT",
+  "streams": [
+   "Defence"
+  ],
+  "degrees": [],
+  "scope": "All India",
+  "scope_type": "All India",
+  "scope_state": null,
+  "url": "https://afcat.cdac.in/",
+  "eligibility": "Flying: graduate/BE/BTech with Physics & Maths in Class 12, age 20-24. Ground Duty Technical: BE/BTech in notified branches, age 20-26. Ground Duty Non-Technical (Administration, Logistics, Accounts, Education): graduation with prescribed marks, age 20-26. Meteorology: postgraduate in notified science subjects.",
+  "fee_display": "Rs. 550/- + GST (no fee for NCC Special Entry)",
+  "fee_number": 550,
+  "test_month": "February",
+  "test_month_n": 2,
+  "forms_out": "Early June & Early December",
+  "last_date": "Late June & Late December",
+  "test_date": "August & February",
+  "mode": "Computer Based",
+  "duration": "120 minutes (+45 minutes EKT for technical branch)",
+  "marking": "+3/-1",
+  "pattern": "General Awareness, Verbal Ability in English, Numerical Ability, Reasoning & Military Aptitude. Technical branch also takes Engineering Knowledge Test (EKT). Followed by AFSB interview.",
+  "pattern_rows": null,
+  "pattern_note": null,
+  "remarks": "Held twice a year. Short Service Commission; some ground duty branches also offer Permanent Commission. Dates, age limits and vacancies change every notification; confirm on the official portal.",
+  "replaces": null,
+  "aliases": [
+   "Air Force"
+  ],
+  "predictor_exam": null,
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Armed Forces (Military Services)",
+    "slug": "armed-forces-military-services"
+   }
+  ],
+  "colleges_link": null
+ },
+ {
   "exam_id": "agricet",
   "name": "AGRICET (Agriculture Common Entrance Test)",
   "acronym": "AGRICET",
@@ -831,6 +872,129 @@
    {
     "label": "Mathematics",
     "slug": "mathematics"
+   }
+  ],
+  "colleges_link": null
+ },
+ {
+  "exam_id": "agniveer-army",
+  "name": "Agniveer Army (Common Entrance Exam)",
+  "acronym": "Agniveer Army",
+  "streams": [
+   "Defence"
+  ],
+  "degrees": [],
+  "scope": "All India",
+  "scope_type": "All India",
+  "scope_state": null,
+  "url": "https://joinindianarmy.nic.in/",
+  "eligibility": "Age 17.5-21 years. GD: Class 10 with 45% marks. Technical: Class 12 PCM with 50% marks. Clerk/Store Keeper Technical: Class 12 with 60% marks. Tradesman: Class 8 or Class 10 depending on trade.",
+  "fee_display": "Rs. 250/-",
+  "fee_number": 250,
+  "test_month": "June",
+  "test_month_n": 6,
+  "forms_out": "March - April",
+  "last_date": "April",
+  "test_date": "June - July",
+  "mode": "Computer Based",
+  "duration": "60-120 minutes depending on category",
+  "marking": "+2/-0.5",
+  "pattern": "Online Common Entrance Exam, then Physical Fitness Test, Physical Measurement Test and medical examination",
+  "pattern_rows": null,
+  "pattern_note": null,
+  "remarks": "4-year Agniveer term with a Seva Nidhi corpus at exit; about 25% retained as regular soldiers. Exam held in multiple languages. Registration usually opens in March. Bands for rally and exam stages vary by notification. Dates, age limits and vacancies change every notification; confirm on the official portal.",
+  "replaces": null,
+  "aliases": [
+   "Agnipath; Agniveer"
+  ],
+  "predictor_exam": null,
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Armed Forces (Military Services)",
+    "slug": "armed-forces-military-services"
+   }
+  ],
+  "colleges_link": null
+ },
+ {
+  "exam_id": "agniveer-navy-ssr-mr",
+  "name": "Agniveer Navy SSR / MR (INET)",
+  "acronym": "Agniveer Navy SSR / MR",
+  "streams": [
+   "Defence"
+  ],
+  "degrees": [],
+  "scope": "All India",
+  "scope_type": "All India",
+  "scope_state": null,
+  "url": "https://www.joinindiannavy.gov.in/",
+  "eligibility": "Age about 17.5-21 years. SSR: Class 12 with Maths & Physics plus one of Chemistry/Biology/Computer Science. MR: Class 10 pass.",
+  "fee_display": "Rs. 550/- (as per recent notifications)",
+  "fee_number": 550,
+  "test_month": null,
+  "test_month_n": null,
+  "forms_out": "Twice a year (as notified)",
+  "last_date": "About 3-4 weeks after notification",
+  "test_date": "As per notification",
+  "mode": "Computer Based",
+  "duration": "As per notification",
+  "marking": null,
+  "pattern": "Indian Navy Entrance Test (INET), then Physical Fitness Test and medical examination",
+  "pattern_rows": null,
+  "pattern_note": null,
+  "remarks": "4-year Agniveer term with a Seva Nidhi corpus at exit; about 25% retained as regular sailors. Women are also eligible. Dates, age limits and vacancies change every notification; confirm on the official portal.",
+  "replaces": null,
+  "aliases": [
+   "Agnipath; Agniveer; INET"
+  ],
+  "predictor_exam": null,
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Armed Forces (Military Services)",
+    "slug": "armed-forces-military-services"
+   }
+  ],
+  "colleges_link": null
+ },
+ {
+  "exam_id": "agniveer-vayu",
+  "name": "Agniveer Vayu (Air Force Intake Test)",
+  "acronym": "Agniveer Vayu",
+  "streams": [
+   "Defence"
+  ],
+  "degrees": [],
+  "scope": "All India",
+  "scope_type": "All India",
+  "scope_state": null,
+  "url": "https://agnipathvayu.cdac.in/",
+  "eligibility": "Age 17.5-21 years. Science stream: Class 12 with Physics, Maths & English, 50% aggregate and 50% in English, or a 3-year diploma/vocational course. Other than Science: Class 12 any stream with 50% aggregate and 50% in English.",
+  "fee_display": "Rs. 550/- + GST (as per recent notifications)",
+  "fee_number": 550,
+  "test_month": null,
+  "test_month_n": null,
+  "forms_out": "Twice a year (as notified)",
+  "last_date": "About 3-4 weeks after notification",
+  "test_date": "As per notification",
+  "mode": "Computer Based",
+  "duration": "As per notification",
+  "marking": "+1/-0.25",
+  "pattern": "Science stream: English, Physics, Maths. Other stream: Reasoning & General Awareness, English. Followed by Physical Fitness Test, adaptability test and medical examination.",
+  "pattern_rows": null,
+  "pattern_note": null,
+  "remarks": "4-year Agniveer term with a Seva Nidhi corpus at exit; about 25% retained as regular airmen. Dates, age limits and vacancies change every notification; confirm on the official portal.",
+  "replaces": null,
+  "aliases": [
+   "Agnipath; Agniveer"
+  ],
+  "predictor_exam": null,
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Armed Forces (Military Services)",
+    "slug": "armed-forces-military-services"
    }
   ],
   "colleges_link": null
@@ -4036,6 +4200,213 @@
   "colleges_link": null
  },
  {
+  "exam_id": "indian-army-ncc-special-entry-scheme",
+  "name": "Indian Army NCC Special Entry Scheme",
+  "acronym": "Indian Army NCC Special Entry Scheme",
+  "streams": [
+   "Defence"
+  ],
+  "degrees": [
+   "Graduation"
+  ],
+  "scope": "All India",
+  "scope_type": "All India",
+  "scope_state": null,
+  "url": "https://joinindianarmy.nic.in/",
+  "eligibility": "Graduate with at least 50% marks; NCC Senior Division/Wing for at least 3 years with NCC C certificate (minimum B grade); age about 19-25 years.",
+  "fee_display": "No fee",
+  "fee_number": null,
+  "test_month": null,
+  "test_month_n": null,
+  "forms_out": "Twice a year (as notified)",
+  "last_date": "About 3-4 weeks after notification",
+  "test_date": "SSB after shortlisting",
+  "mode": "Online application; shortlisting",
+  "duration": "No written exam",
+  "marking": null,
+  "pattern": "Shortlisting on NCC C certificate and degree marks, SSB interview, medical examination, merit list",
+  "pattern_rows": null,
+  "pattern_note": null,
+  "remarks": "Short Service Commission through OTA Chennai. Similar NCC entries exist for the Navy and Air Force. Dates, age limits and vacancies change every notification; confirm on the official portal.",
+  "replaces": null,
+  "aliases": null,
+  "predictor_exam": null,
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Armed Forces (Military Services)",
+    "slug": "armed-forces-military-services"
+   }
+  ],
+  "colleges_link": null
+ },
+ {
+  "exam_id": "indian-army-tes",
+  "name": "Indian Army TES (Technical Entry Scheme)",
+  "acronym": "Indian Army TES",
+  "streams": [
+   "Defence"
+  ],
+  "degrees": [
+   "BTech"
+  ],
+  "scope": "All India",
+  "scope_type": "All India",
+  "scope_state": null,
+  "url": "https://joinindianarmy.nic.in/",
+  "eligibility": "Class 12 with Physics, Chemistry & Maths; minimum 60% aggregate; valid JEE (Main) score; age about 16.5-19.5 years; unmarried male candidates.",
+  "fee_display": "No fee",
+  "fee_number": null,
+  "test_month": null,
+  "test_month_n": null,
+  "forms_out": "Twice a year (as notified)",
+  "last_date": "About 3-4 weeks after notification",
+  "test_date": "SSB at Selection Centres, about 2-3 months after shortlisting",
+  "mode": "Online application; JEE (Main) based shortlisting",
+  "duration": "No separate written exam",
+  "marking": null,
+  "pattern": "JEE (Main) shortlisting, SSB interview (5 days), medical examination, merit list",
+  "pattern_rows": null,
+  "pattern_note": null,
+  "remarks": "4 years of training: 1 year basic military training at OTA Gaya, then 3 years of engineering at CME Pune, MCTE Mhow or MCEME Secunderabad; commissioned as Lieutenant with Permanent Commission. Dates, age limits and vacancies change every notification; confirm on the official portal.",
+  "replaces": null,
+  "aliases": [
+   "TES"
+  ],
+  "predictor_exam": null,
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Armed Forces (Military Services)",
+    "slug": "armed-forces-military-services"
+   }
+  ],
+  "colleges_link": null
+ },
+ {
+  "exam_id": "indian-army-tgc-ssc-tech",
+  "name": "Indian Army TGC / SSC (Tech) (Technical Graduate Course / Short Service Commission Technical)",
+  "acronym": "Indian Army TGC / SSC (Tech)",
+  "streams": [
+   "Defence"
+  ],
+  "degrees": [
+   "BTech"
+  ],
+  "scope": "All India",
+  "scope_type": "All India",
+  "scope_state": null,
+  "url": "https://joinindianarmy.nic.in/",
+  "eligibility": "BE/BTech in notified disciplines (final-year students may apply); age about 20-27 years. TGC: men; SSC (Tech): men and women.",
+  "fee_display": "No fee",
+  "fee_number": null,
+  "test_month": null,
+  "test_month_n": null,
+  "forms_out": "Twice a year (as notified)",
+  "last_date": "About 3-4 weeks after notification",
+  "test_date": "SSB after shortlisting",
+  "mode": "Online application; shortlisting by degree marks",
+  "duration": "No written exam",
+  "marking": null,
+  "pattern": "Shortlisting by engineering marks, SSB interview, medical examination, merit list",
+  "pattern_rows": null,
+  "pattern_note": null,
+  "remarks": "TGC trains at IMA Dehradun (Permanent Commission); SSC (Tech) trains at OTA Chennai (Short Service Commission, extendable). Dates, age limits and vacancies change every notification; confirm on the official portal.",
+  "replaces": null,
+  "aliases": null,
+  "predictor_exam": null,
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Armed Forces (Military Services)",
+    "slug": "armed-forces-military-services"
+   }
+  ],
+  "colleges_link": null
+ },
+ {
+  "exam_id": "indian-navy-10-2-b-tech-cadet-entry-scheme",
+  "name": "Indian Navy 10+2 B.Tech Cadet Entry Scheme",
+  "acronym": "Indian Navy 10+2 B.Tech Cadet Entry Scheme",
+  "streams": [
+   "Defence"
+  ],
+  "degrees": [
+   "BTech"
+  ],
+  "scope": "All India",
+  "scope_type": "All India",
+  "scope_state": null,
+  "url": "https://www.joinindiannavy.gov.in/",
+  "eligibility": "Class 12 with Physics, Chemistry & Maths; minimum 70% in PCM and 50% in English; valid JEE (Main) rank; age about 16.5-19.5 years; unmarried.",
+  "fee_display": "No fee",
+  "fee_number": null,
+  "test_month": null,
+  "test_month_n": null,
+  "forms_out": "Twice a year (as notified)",
+  "last_date": "About 3-4 weeks after notification",
+  "test_date": "SSB at Bhopal, Bengaluru, Visakhapatnam or Kolkata, about 3-4 months after shortlisting",
+  "mode": "Online application; JEE (Main) based shortlisting",
+  "duration": "No separate written exam",
+  "marking": null,
+  "pattern": "JEE (Main) rank shortlisting, SSB interview (5 days), medical examination, final merit list",
+  "pattern_rows": null,
+  "pattern_note": null,
+  "remarks": "4-year B.Tech at Indian Naval Academy, Ezhimala, then commissioned as Sub Lieutenant (Permanent Commission). Branches: Executive, Engineering, Electrical. Dates, age limits and vacancies change every notification; confirm on the official portal.",
+  "replaces": null,
+  "aliases": null,
+  "predictor_exam": null,
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Armed Forces (Military Services)",
+    "slug": "armed-forces-military-services"
+   }
+  ],
+  "colleges_link": null
+ },
+ {
+  "exam_id": "indian-navy-ssc-officer-entries",
+  "name": "Indian Navy SSC Officer Entries (Executive / Technical / Education / Logistics)",
+  "acronym": "Indian Navy SSC Officer Entries",
+  "streams": [
+   "Defence"
+  ],
+  "degrees": [
+   "Graduation, BTech"
+  ],
+  "scope": "All India",
+  "scope_type": "All India",
+  "scope_state": null,
+  "url": "https://www.joinindiannavy.gov.in/",
+  "eligibility": "BE/BTech for Executive, Technical, Electrical and Pilot/Observer branches; postgraduate or engineering degree for Education; BE/BTech/MBA/PG for Logistics; age about 19.5-25 years.",
+  "fee_display": "No fee",
+  "fee_number": null,
+  "test_month": null,
+  "test_month_n": null,
+  "forms_out": "As notified (usually twice a year)",
+  "last_date": "About 3-4 weeks after notification",
+  "test_date": "SSB after shortlisting",
+  "mode": "Online application; shortlisting by degree marks",
+  "duration": "No written exam for most branches",
+  "marking": null,
+  "pattern": "Shortlisting on graduation marks, SSB interview, medical examination, merit list",
+  "pattern_rows": null,
+  "pattern_note": null,
+  "remarks": "Short Service Commission at Indian Naval Academy, Ezhimala. Pilot and Observer entries have additional flying fitness standards. Dates, age limits and vacancies change every notification; confirm on the official portal.",
+  "replaces": null,
+  "aliases": null,
+  "predictor_exam": null,
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Armed Forces (Military Services)",
+    "slug": "armed-forces-military-services"
+   }
+  ],
+  "colleges_link": null
+ },
+ {
   "exam_id": "jcat",
   "name": "JCAT (Jindal Creative Aptitude Test)",
   "acronym": "JCAT",
@@ -6575,7 +6946,12 @@
   "aliases": null,
   "predictor_exam": null,
   "open_data_id": null,
-  "careers": null,
+  "careers": [
+   {
+    "label": "Armed Forces (Military Services)",
+    "slug": "armed-forces-military-services"
+   }
+  ],
   "colleges_link": null
  },
  {
@@ -10464,6 +10840,49 @@
    {
     "label": "Pharmacy",
     "slug": "pharmacy"
+   }
+  ],
+  "colleges_link": null
+ },
+ {
+  "exam_id": "upsc-cds",
+  "name": "UPSC CDS (Combined Defence Services Examination)",
+  "acronym": "UPSC CDS",
+  "streams": [
+   "Defence"
+  ],
+  "degrees": [
+   "Graduation"
+  ],
+  "scope": "All India",
+  "scope_type": "All India",
+  "scope_state": null,
+  "url": "https://www.upsc.gov.in/",
+  "eligibility": "IMA (Army): any graduate. INA (Navy): BE/BTech. AFA (Air Force): graduate with Physics & Maths in Class 12, or BE/BTech. OTA (Army SSC, men and women): any graduate. Age roughly 19-25 depending on academy; IMA/INA/AFA men unmarried only.",
+  "fee_display": "Rs. 200/- (exempt for women/SC/ST)",
+  "fee_number": 200,
+  "test_month": "April",
+  "test_month_n": 4,
+  "forms_out": "Mid December & Mid May",
+  "last_date": "Early January & Mid June",
+  "test_date": "April & September",
+  "mode": "Pen & Paper Based",
+  "duration": "120 minutes per paper",
+  "marking": "+1/-0.33",
+  "pattern": "IMA/INA/AFA: English, General Knowledge, Elementary Mathematics. OTA: English, General Knowledge. Followed by SSB interview.",
+  "pattern_rows": null,
+  "pattern_note": null,
+  "remarks": "Held twice a year. Entry to Army (IMA, OTA), Navy (INA) and Air Force (AFA/Flying). Dates, age limits and vacancies change every notification; confirm on the official portal.",
+  "replaces": null,
+  "aliases": [
+   "CDS"
+  ],
+  "predictor_exam": null,
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Armed Forces (Military Services)",
+    "slug": "armed-forces-military-services"
    }
   ],
   "colleges_link": null
