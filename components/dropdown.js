@@ -28,6 +28,8 @@ const customStyles = {
       backgroundColor: state.isSelected ? "#9e1f22" : "#f3dfd9",
     },
   }),
+  // above modals (z-60), when the menu is drawn at page level
+  menuPortal: (provided) => ({ ...provided, zIndex: 80 }),
   menu: (provided) => ({
     ...provided,
     borderRadius: "0.75rem",
@@ -68,6 +70,8 @@ const Dropdown = ({
   formatOptionLabel,
   // custom search matching (e.g. the site-wide selectFilter)
   filterOption,
+  // draw the menu at page level, so a scrolling box (a modal) can't clip it
+  menuAtPageLevel = false,
 }) => {
   const [isOpen, setIsOpen] = React.useState(false);
   return (
@@ -82,6 +86,9 @@ const Dropdown = ({
       className={className}
       formatOptionLabel={formatOptionLabel}
       {...(filterOption ? { filterOption } : {})}
+      {...(menuAtPageLevel && typeof document !== "undefined"
+        ? { menuPortalTarget: document.body, menuPosition: "fixed" }
+        : {})}
       onMenuOpen={() => setIsOpen(true)}
       onMenuClose={() => setIsOpen(false)}
       controlShouldRenderValue={!(hideValueWhileSearching && isOpen)}

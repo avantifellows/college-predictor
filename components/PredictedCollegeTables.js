@@ -1,8 +1,22 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
-import { ArrowDown, ArrowUp, ArrowUpDown, Info } from "lucide-react";
+import {
+  ArrowDown,
+  ArrowUp,
+  ArrowUpDown,
+  Download,
+  Info,
+  SlidersHorizontal,
+  X,
+} from "lucide-react";
 import PropTypes from "prop-types";
 import examConfigs from "../examConfig";
+import CoachMarks from "./CoachMarks";
+import ChoiceBuilder from "./ChoiceBuilder";
+import { buildOrder, compareKeys } from "../utils/choiceScore";
+import { collegeFilterOption, shortCollegeName } from "../utils/collegeSearch";
+import Dropdown from "./dropdown";
+import { fmtSalary } from "./collegeShared";
 
 // Define fields for the expanded view
 const expandedFields = {
@@ -31,10 +45,14 @@ const expandedFields = {
     { key: "College Type", label: "College Type" },
     { key: "Management Type", label: "Management Type" },
     {
-      key: "Expected Salary",
-      label: "Expected Salary",
-      format: (value) =>
-        value ? `₹${Number(value).toLocaleString("en-IN")}` : "N/A",
+      key: "Median Salary",
+      label: "Median Salary",
+      format: (value) => fmtSalary(value) || "N/A",
+    },
+    {
+      key: "Placed %",
+      label: "Placed",
+      format: (value) => (value != null ? `${value}%` : "N/A"),
     },
   ],
   "JEE Main-JOSAA": [
@@ -44,10 +62,14 @@ const expandedFields = {
     { key: "College Type", label: "College Type" },
     { key: "Management Type", label: "Management Type" },
     {
-      key: "Expected Salary",
-      label: "Expected Salary",
-      format: (value) =>
-        value ? `₹${Number(value).toLocaleString("en-IN")}` : "N/A",
+      key: "Median Salary",
+      label: "Median Salary",
+      format: (value) => fmtSalary(value) || "N/A",
+    },
+    {
+      key: "Placed %",
+      label: "Placed",
+      format: (value) => (value != null ? `${value}%` : "N/A"),
     },
   ],
   "JEE Main-JAC": [
@@ -66,10 +88,14 @@ const expandedFields = {
     { key: "College Type", label: "College Type" },
     { key: "Management Type", label: "Management Type" },
     {
-      key: "Expected Salary",
-      label: "Expected Salary",
-      format: (value) =>
-        value ? `₹${Number(value).toLocaleString("en-IN")}` : "N/A",
+      key: "Median Salary",
+      label: "Median Salary",
+      format: (value) => fmtSalary(value) || "N/A",
+    },
+    {
+      key: "Placed %",
+      label: "Placed",
+      format: (value) => (value != null ? `${value}%` : "N/A"),
     },
   ],
   // Default fallback
@@ -80,10 +106,14 @@ const expandedFields = {
     { key: "College Type", label: "College Type" },
     { key: "Management Type", label: "Management Type" },
     {
-      key: "Expected Salary",
-      label: "Expected Salary",
-      format: (value) =>
-        value ? `₹${Number(value).toLocaleString("en-IN")}` : "N/A",
+      key: "Median Salary",
+      label: "Median Salary",
+      format: (value) => fmtSalary(value) || "N/A",
+    },
+    {
+      key: "Placed %",
+      label: "Placed",
+      format: (value) => (value != null ? `${value}%` : "N/A"),
     },
   ],
   // GUJCET - Gujarat Common Entrance Test
@@ -290,8 +320,10 @@ const neetCollegeTypeFromSeatType = (seatType) => {
   return "—";
 };
 
+// The college card's figures (utils/collegeFacts.js), so they match the
+// Colleges tab and Compare
 const SALARY_HELP_TEXT =
-  "Product of median salary and placement percentage of the graduating batch as reported by the college to NIRF. Data is reported as a college level aggregate";
+  "Reported to NIRF for the whole college, not for individual branches";
 
 // New ExpandedRow component
 const ExpandedRowComponent = ({ item, fields, exam, examColumnMapping }) => {
@@ -357,6 +389,11 @@ const PredictedCollegesTable = ({
   exam = "",
   searchTerm = "",
   onSearchChange = null,
+  // the full list of cutoffs: no rank, so no rank margin to mention
+  isFullList = false,
+  // the student's ranks, from the form (JoSAA)
+  mainRank = "",
+  advRank = "",
 }) => {
   const [expandedRows, setExpandedRows] = useState({});
   const [showAllRows, setShowAllRows] = useState(false); // State for showing all rows
@@ -365,7 +402,8 @@ const PredictedCollegesTable = ({
     order: "asc",
   });
   const [salaryTooltip, setSalaryTooltip] = useState(null);
-  const [josaaCollegeGroup, setJosaaCollegeGroup] = useState("main");
+  // "all" = JEE Main and JEE Advanced colleges in one list (the default)
+  const [josaaCollegeGroup, setJosaaCollegeGroup] = useState("all");
   // JoSAA rows carry the Colleges tab's college_id, so results can hand off
   // straight into /compare — the standalone's star-and-compare flow, without
   // accounts (selection lives for this results view only)
@@ -508,9 +546,151 @@ const PredictedCollegesTable = ({
   const compareIdOf = (t) =>
     t["College ID"] || (canLinkRow(t) ? `n~${slugOf(linkNameOf(t))}` : null);
   const supportsSalarySort = isJosaaExam;
-  const salaryColumnKey = "expected_salary";
+  const salaryColumnKey = "median_salary";
   const rankColumnKey = "closing_rank";
   const nirfRankColumnKey = "nirf_rank";
+
+  // Coach marks (design: futures tutorial artifact). Shown once per browser.
+  // Each tip only where its column exists:
+  // Compare on name-linked exams, sorting on JoSAA.
+  const tourSteps = [
+    supportsCompare && {
+      targets: ['[data-tour="compare-head"]', '[data-tour="compare-end"]'],
+      title: "Tick up to 3 colleges to compare",
+      body: "Pick colleges in this red column, then compare their fees, placements and cutoffs side by side.",
+    },
+    supportsSalarySort && {
+      targets: ['[data-tour="sort-first"]', '[data-tour="sort-last"]'],
+      title: "Tap a column name to sort",
+      body: "Sort by Median Salary to see where graduates earn most, or by NIRF Rank to see the best-ranked colleges first.",
+    },
+    isCombinedJosaaExam && {
+      targets: ['[data-tour="choice-cta"]', '[data-tour="choice-cta"]'],
+      title: "Not sure what to pick?",
+      body: "Tap Help me choose. A few quick questions put this list in the order that suits you.",
+    },
+  ].filter(Boolean);
+  const [tour, setTour] = useState(null); // { step, solo } while showing
+  // once a student builds a custom list: where to switch back, once per
+  // browser
+  const VIEW_TIP_SEEN = "futures:viewTipSeen";
+  const [viewTip, setViewTip] = useState(false);
+  const viewTipSteps = [
+    {
+      // the View dropdown that's showing: phones have their own
+      targets: Array(2).fill(
+        typeof window !== "undefined" && window.innerWidth >= 640
+          ? '[data-tour="view-toggle-desktop"]'
+          : '[data-tour="view-toggle"]'
+      ),
+      title: "Your custom list is on",
+      body: "Switch between it and the default list (by closing rank) here.",
+    },
+  ];
+  const closeViewTip = () => {
+    setViewTip(false);
+    try {
+      window.localStorage.setItem(VIEW_TIP_SEEN, "1");
+    } catch (e) {}
+  };
+
+  // College choice builder (JoSAA only): answers kept per browser
+  const CHOICES_KEY = "futures:josaaChoices";
+  const [choicePrefs, setChoicePrefs] = useState(null);
+  const [builderOpen, setBuilderOpen] = useState(false);
+  const [branchParents, setBranchParents] = useState(null);
+  useEffect(() => {
+    if (!isCombinedJosaaExam) return;
+    try {
+      const saved = JSON.parse(window.localStorage.getItem(CHOICES_KEY));
+      // answers saved by earlier versions of the quiz don't apply
+      if (saved?.interest && saved.workplace) {
+        setChoicePrefs({
+          ...saved,
+          states: saved.states || [],
+          families: saved.families || [],
+          branches: saved.branches || [],
+        });
+      }
+    } catch (e) {}
+    fetch("/data/JEE/josaa_branch_parents.json")
+      .then((r) => (r.ok ? r.json() : {}))
+      .then(setBranchParents)
+      .catch(() => setBranchParents({}));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isCombinedJosaaExam]);
+  const applyChoices = (answers) => {
+    const prefs = {
+      ...answers,
+      states: answers.states || [],
+      families: answers.families || [],
+      branches: answers.branches || [],
+    };
+    setChoicePrefs(prefs);
+    setBuilderOpen(false);
+    setJosaaCollegeGroup("all");
+    setSortConfig({ key: "choice", order: "asc" });
+    setShowAllRows(false);
+    try {
+      window.localStorage.setItem(CHOICES_KEY, JSON.stringify(answers));
+      if (window.localStorage.getItem(VIEW_TIP_SEEN) !== "1")
+        setTimeout(() => setViewTip(true), 400);
+    } catch (e) {}
+  };
+  // the quiz's options: states and parent branches present in these results
+  const builderStates = useMemo(
+    () =>
+      Array.from(
+        new Set(fullData.map((r) => r["State"]).filter(Boolean))
+      ).sort(),
+    [fullData]
+  );
+  const builderBranches = useMemo(() => {
+    if (!branchParents) return [];
+    const seen = new Map();
+    for (const r of fullData) {
+      const p = branchParents[r["Academic Program Name"]];
+      if (p) seen.set(p.id, p);
+    }
+    return [...seen.values()].sort((a, b) => a.name.localeCompare(b.name));
+  }, [fullData, branchParents]);
+  const tableScrollRef = useRef(null);
+  // v2: the "Help me choose" step was added, so everyone sees the tips once more
+  const TIPS_SEEN = "futures:predictorTipsSeen.v2";
+  const readSeen = () => {
+    try {
+      return window.localStorage.getItem(TIPS_SEEN) === "1";
+    } catch (e) {
+      return false;
+    }
+  };
+  const closeTour = () => {
+    setTour(null);
+    // the sort tip scrolls the table sideways to its column; put the
+    // college and program columns back in view
+    if (tableScrollRef.current)
+      tableScrollRef.current.scrollTo({ left: 0, behavior: "smooth" });
+    try {
+      window.localStorage.setItem(TIPS_SEEN, "1");
+    } catch (e) {}
+  };
+  const hasRows = data.length > 0;
+  useEffect(() => {
+    if (!hasRows || !tourSteps.length || readSeen()) return undefined;
+    const t = setTimeout(() => setTour({ step: 0, solo: false }), 600);
+    return () => clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [hasRows, tourSteps.length]);
+  // scrolling the table sideways before the tour ran: show the sort tip alone
+  const onTableScroll = (e) => {
+    if (tour || readSeen() || !supportsSalarySort) return;
+    if (e.currentTarget.scrollLeft > 40) {
+      setTour({
+        step: tourSteps.findIndex((t) => t.targets[0].includes("sort")),
+        solo: true,
+      });
+    }
+  };
 
   const fullDataExamCounts = useMemo(
     () => countJeeExamTypes(fullData),
@@ -524,35 +704,19 @@ const PredictedCollegesTable = ({
     fullDataExamCounts.advanced > 0;
 
   useEffect(() => {
-    if (!isCombinedJosaaExam) {
-      setJosaaCollegeGroup("main");
-      return;
-    }
+    // a group with no rows falls back to the combined list
     if (
-      josaaCollegeGroup === "advanced" &&
-      fullDataExamCounts.advanced === 0 &&
-      fullDataExamCounts.main > 0
+      !isCombinedJosaaExam ||
+      (josaaCollegeGroup === "advanced" && fullDataExamCounts.advanced === 0) ||
+      (josaaCollegeGroup === "main" && fullDataExamCounts.main === 0)
     ) {
-      setJosaaCollegeGroup("main");
-    }
-    if (
-      josaaCollegeGroup === "main" &&
-      fullDataExamCounts.main === 0 &&
-      fullDataExamCounts.advanced > 0
-    ) {
-      setJosaaCollegeGroup("advanced");
+      setJosaaCollegeGroup("all");
     }
   }, [exam, fullDataExamCounts, isCombinedJosaaExam, josaaCollegeGroup]);
 
   useEffect(() => {
     setShowAllRows(false);
   }, [josaaCollegeGroup, searchTerm]);
-
-  const formatSalary = (value) => {
-    const numericValue = Number(value);
-    if (!Number.isFinite(numericValue) || numericValue <= 0) return "N/A";
-    return `₹${numericValue.toLocaleString("en-IN")}`;
-  };
 
   const formatPercentage = (value) => {
     // Guard the raw value first: Number(null) is 0 and Number.isFinite(0) is
@@ -595,8 +759,20 @@ const PredictedCollegesTable = ({
 
   useEffect(() => {
     if (!supportsSalarySort) return;
-    setSortConfig({ key: rankColumnKey, order: "asc" });
-  }, [exam, data, josaaCollegeGroup, supportsSalarySort, rankColumnKey]);
+    setSortConfig({
+      key: choicePrefs ? "choice" : rankColumnKey,
+      order: "asc",
+    });
+    // !!choicePrefs: saved answers load after the first render
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [
+    exam,
+    data,
+    josaaCollegeGroup,
+    supportsSalarySort,
+    rankColumnKey,
+    !!choicePrefs,
+  ]);
 
   const examColumnMapping = {
     TNEA: [
@@ -614,11 +790,15 @@ const PredictedCollegesTable = ({
       { key: "closing_rank", label: "Closing Rank" },
       { key: "nirf_rank", label: "NIRF Rank" },
       {
-        key: "expected_salary",
-        label: "Expected Salary",
-        format: formatSalary,
+        key: "median_salary",
+        label: "Median Salary",
+        format: (value) => fmtSalary(value) || "N/A",
       },
-      { key: "Seat Type", label: "Seat Type" },
+      {
+        key: "placed_pct",
+        label: "Placed",
+        format: (value) => (value != null ? `${value}%` : "N/A"),
+      },
       // present only when the results mix pools (a Female-only student's
       // view spans women-only and gender-neutral seats); the adaptive check
       // below removes it when every row is one pool
@@ -631,11 +811,15 @@ const PredictedCollegesTable = ({
       { key: "closing_rank", label: "Closing Rank" },
       { key: "nirf_rank", label: "NIRF Rank" },
       {
-        key: "expected_salary",
-        label: "Expected Salary",
-        format: formatSalary,
+        key: "median_salary",
+        label: "Median Salary",
+        format: (value) => fmtSalary(value) || "N/A",
       },
-      { key: "Seat Type", label: "Seat Type" },
+      {
+        key: "placed_pct",
+        label: "Placed",
+        format: (value) => (value != null ? `${value}%` : "N/A"),
+      },
     ],
     "JEE Main-JAC": [
       { key: "state", label: "State" },
@@ -653,11 +837,15 @@ const PredictedCollegesTable = ({
       { key: "closing_rank", label: "Closing Rank" },
       { key: "nirf_rank", label: "NIRF Rank" },
       {
-        key: "expected_salary",
-        label: "Expected Salary",
-        format: formatSalary,
+        key: "median_salary",
+        label: "Median Salary",
+        format: (value) => fmtSalary(value) || "N/A",
       },
-      { key: "Seat Type", label: "Seat Type" },
+      {
+        key: "placed_pct",
+        label: "Placed",
+        format: (value) => (value != null ? `${value}%` : "N/A"),
+      },
     ],
     TGEAPCET: [
       { key: "institute_name", label: "Institute Name" },
@@ -810,8 +998,19 @@ const PredictedCollegesTable = ({
     ],
   };
 
-  const predicted_colleges_table_column_all =
-    examColumnMapping[exam] || examColumnMapping.DEFAULT;
+  const isCombinedView =
+    showJosaaCollegeGroupToggle && josaaCollegeGroup === "all";
+  const predicted_colleges_table_column_all = (() => {
+    const cols = examColumnMapping[exam] || examColumnMapping.DEFAULT;
+    if (!isCombinedView) return cols;
+    // Main and Advanced closing ranks are different scales: name the exam
+    const at = cols.findIndex((c) => c.key === "closing_rank");
+    return [
+      ...cols.slice(0, at),
+      { key: "exam_type", label: "Exam" },
+      ...cols.slice(at),
+    ];
+  })();
 
   const transformData = (item) => {
     if (exam === "GUJCET") {
@@ -1018,7 +1217,8 @@ const PredictedCollegesTable = ({
             : "Open to all",
         nirf_rank: item["NIRF Rank"],
         closing_rank: item["Closing Rank"],
-        expected_salary: item["Expected Salary"],
+        median_salary: item["Median Salary"],
+        placed_pct: item["Placed %"],
         "Seat Type": item["Seat Type"],
         "State": item["State"],
         "Quota": item["Quota"] || "AI",
@@ -1026,8 +1226,8 @@ const PredictedCollegesTable = ({
         "Opening Rank": item["Opening Rank"],
         "College Type": item["College Type"],
         "Management Type": item["Management Type"],
-        "Expected Salary": item["Expected Salary"],
-        "Salary Tier": item["Salary Tier"],
+        "Median Salary": item["Median Salary"],
+        "Placed %": item["Placed %"],
         "NIRF Rank": item["NIRF Rank"],
         "Exam": item["Exam"],
         Category: item["Seat Type"] || item["Category"] || "",
@@ -1129,10 +1329,7 @@ const PredictedCollegesTable = ({
   };
 
   const getSalaryValue = (item) => {
-    const raw =
-      item?.["Expected Salary"] ??
-      item?.expected_salary ??
-      item?.["Expected Salary as per NIRF"];
+    const raw = item?.["Median Salary"] ?? item?.median_salary;
     const numericValue = Number(raw);
     return Number.isFinite(numericValue) ? numericValue : null;
   };
@@ -1156,13 +1353,71 @@ const PredictedCollegesTable = ({
     return Number.isFinite(numericValue) ? numericValue : null;
   };
 
-  const examFilteredData = useMemo(() => {
-    if (!showJosaaCollegeGroupToggle) return data;
+  // The combined JoSAA list's filters: one college, branch (parent) and
+  // state each, or all
+  const [pickCollege, setPickCollege] = useState(null);
+  const [pickBranch, setPickBranch] = useState(null);
+  const [pickState, setPickState] = useState(null);
+  const collegeOptions = useMemo(
+    () =>
+      Array.from(new Set(fullData.map((r) => r["Institute"])))
+        .filter(Boolean)
+        .sort()
+        .map((c) => ({ value: c, label: c, short: shortCollegeName(c) })),
+    [fullData]
+  );
+  // the short name students use on top, the full JoSAA name under it; once
+  // chosen, the short name alone
+  const formatCollegeOption = (o, { context }) =>
+    context === "value" ? (
+      o.short || o.label
+    ) : o.short ? (
+      <span>
+        <span className="block font-bold">{o.short}</span>
+        <span className="block text-xs opacity-75">{o.label}</span>
+      </span>
+    ) : (
+      o.label
+    );
+  const pickedData = useMemo(() => {
+    if (!isCombinedJosaaExam) return data;
+    return data.filter(
+      (r) =>
+        (!pickCollege || r["Institute"] === pickCollege) &&
+        (!pickState || r["State"] === pickState) &&
+        (!pickBranch ||
+          branchParents?.[r["Academic Program Name"]]?.id === pickBranch)
+    );
+  }, [
+    data,
+    isCombinedJosaaExam,
+    pickCollege,
+    pickBranch,
+    pickState,
+    branchParents,
+  ]);
 
+  const examFilteredData = useMemo(() => {
+    if (!showJosaaCollegeGroupToggle) return pickedData;
+
+    if (josaaCollegeGroup === "all") return pickedData;
     const activeExam =
       josaaCollegeGroup === "advanced" ? "JEE Advanced" : "JEE Main";
-    return data.filter((item) => getJeeExamType(item) === activeExam);
-  }, [data, josaaCollegeGroup, showJosaaCollegeGroupToggle]);
+    return pickedData.filter((item) => getJeeExamType(item) === activeExam);
+  }, [pickedData, josaaCollegeGroup, showJosaaCollegeGroupToggle]);
+
+  // Choice-builder order (utils/choiceScore.js), from the whole result set
+  // so a search or exam tab doesn't move the percentiles
+  const choiceScore = useMemo(() => {
+    if (!choicePrefs || !branchParents) return null;
+    return buildOrder(fullData, choicePrefs, branchParents, {
+      "JEE Main": mainRank,
+      "JEE Advanced": advRank,
+    });
+  }, [fullData, choicePrefs, branchParents, mainRank, advRank]);
+  // in the combined list a closing rank only compares within its exam
+  const examOrder = (item) =>
+    isCombinedView ? (getJeeExamType(item) === "JEE Advanced" ? 0 : 1) : 0;
 
   const sortedData = useMemo(() => {
     if (!supportsSalarySort) return examFilteredData;
@@ -1170,9 +1425,26 @@ const PredictedCollegesTable = ({
     const { key, order } = sortConfig || {};
     const copy = [...examFilteredData];
 
+    if (key === "choice" && choiceScore) {
+      const keys = new Map(copy.map((r) => [r, choiceScore(r)]));
+      copy.sort((a, b) => {
+        const d = compareKeys(keys.get(a), keys.get(b));
+        if (d) return d;
+        // same key: harder seat first
+        return (
+          examOrder(a) - examOrder(b) ||
+          (getClosingRankValue(a) ?? Infinity) -
+            (getClosingRankValue(b) ?? Infinity)
+        );
+      });
+      return copy;
+    }
+
     copy.sort((a, b) => {
       let aVal = null;
       let bVal = null;
+      if (key === rankColumnKey && examOrder(a) !== examOrder(b))
+        return examOrder(a) - examOrder(b);
 
       if (key === salaryColumnKey) {
         aVal = getSalaryValue(a);
@@ -1192,7 +1464,14 @@ const PredictedCollegesTable = ({
     });
 
     return copy;
-  }, [examFilteredData, sortConfig, supportsSalarySort]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [
+    examFilteredData,
+    sortConfig,
+    supportsSalarySort,
+    choiceScore,
+    isCombinedView,
+  ]);
 
   // NEET: home-state seats and All-India-Quota seats live on different rank
   // scales, so instead of one list (where AIQ's tighter ranks bury the home-state
@@ -1218,11 +1497,36 @@ const PredictedCollegesTable = ({
     return { home, india };
   }, [isNeet, sortedData]);
 
+  // In the custom view, the states the student picked in the choice builder
+  // come first, as a stable re-ordering of the sort
+  const preferredStates =
+    isCombinedJosaaExam && sortConfig?.key === "choice"
+      ? choicePrefs?.states || []
+      : [];
+  const stateOrdered = useMemo(() => {
+    if (!preferredStates.length) return sortedData;
+    const inState = (r) => preferredStates.includes(r["State"]);
+    return [
+      ...sortedData.filter(inState),
+      ...sortedData.filter((r) => !inState(r)),
+    ];
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sortedData, preferredStates.join("|")]);
+
+  // how many rows show: the combined JoSAA list picks it (25/50/100/all);
+  // other exams show 30 until "Show More"
+  const [pageSize, setPageSize] = useState(50);
+  const rowLimit = isCombinedJosaaExam
+    ? pageSize
+    : showAllRows
+    ? Infinity
+    : ROWS_PER_PAGE_INITIAL;
+
   const displayData = useMemo(() => {
-    if (!isNeet) return sortedData;
+    if (!isNeet) return stateOrdered;
     const wantState = neetSeatTab === "home";
-    return sortedData.filter((r) => isHomeStateRow(r) === wantState);
-  }, [isNeet, sortedData, neetSeatTab]);
+    return stateOrdered.filter((r) => isHomeStateRow(r) === wantState);
+  }, [isNeet, stateOrdered, neetSeatTab]);
 
   // ADAPTIVE COLUMNS (NEET). A column whose value is IDENTICAL on every visible row carries no
   // information — it is just the user's own filter echoed back, and it steals width from the
@@ -1390,10 +1694,94 @@ const PredictedCollegesTable = ({
     return <ArrowUp size={16} />;
   };
 
+  // the combined JoSAA list's college, branch and state filters
+  const renderTableDropdowns = () => (
+    <>
+      <Dropdown
+        options={collegeOptions}
+        selectedValue={pickCollege}
+        onChange={(o) => setPickCollege(o?.value ?? null)}
+        filterOption={collegeFilterOption}
+        formatOptionLabel={formatCollegeOption}
+        placeholder="All colleges"
+        isClearable
+        menuAtPageLevel
+        hideValueWhileSearching
+      />
+      <Dropdown
+        options={builderBranches.map((b) => ({
+          value: b.id,
+          label: b.name,
+        }))}
+        selectedValue={pickBranch}
+        onChange={(o) => setPickBranch(o?.value ?? null)}
+        placeholder="All branches"
+        isClearable
+        menuAtPageLevel
+        hideValueWhileSearching
+      />
+      <Dropdown
+        options={builderStates.map((st) => ({
+          value: st,
+          label: st,
+        }))}
+        selectedValue={pickState}
+        onChange={(o) => setPickState(o?.value ?? null)}
+        placeholder="All states"
+        isClearable
+        menuAtPageLevel
+        hideValueWhileSearching
+      />
+    </>
+  );
+  // View: default (closing rank) or custom (the choice builder's order;
+  // with no answers yet, choosing it opens the builder)
+  const renderViewSelect = (tour) => (
+    <label
+      data-tour={tour}
+      className="flex items-center gap-1.5 whitespace-nowrap font-semibold"
+    >
+      View
+      <select
+        value={sortConfig?.key === "choice" ? "custom" : "default"}
+        onChange={(e) => {
+          if (e.target.value === "default")
+            setSortConfig({ key: rankColumnKey, order: "asc" });
+          else if (choicePrefs) setSortConfig({ key: "choice", order: "asc" });
+          else setBuilderOpen(true);
+        }}
+        className="rounded-lg border border-[#d8c7c1] bg-white px-1 py-0.5 text-xs font-bold text-[#2f2320] focus:border-[#B52326] focus:outline-none sm:px-2 sm:py-1 sm:text-sm"
+      >
+        <option value="default">Default</option>
+        <option value="custom">Custom</option>
+      </select>
+    </label>
+  );
+  // Phones: every filter (exam, college, branch, state) sits in one window
+  // behind a "Filter this table" button, to keep the page short
+  const [filtersOpen, setFiltersOpen] = useState(false);
+  const activeFilters =
+    (josaaCollegeGroup !== "all" ? 1 : 0) +
+    (pickCollege ? 1 : 0) +
+    (pickBranch ? 1 : 0) +
+    (pickState ? 1 : 0);
+  useEffect(() => {
+    if (!filtersOpen) return undefined;
+    const onKey = (e) => e.key === "Escape" && setFiltersOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [filtersOpen]);
+
   const renderJosaaCollegeGroupToggle = () => {
     if (!showJosaaCollegeGroupToggle) return null;
 
     const options = [
+      {
+        value: "all",
+        label: "All colleges",
+        detail: "JEE Main and Advanced",
+        count: searchedDataExamCounts.main + searchedDataExamCounts.advanced,
+      },
       {
         value: "main",
         label: "JEE Main colleges",
@@ -1419,7 +1807,7 @@ const PredictedCollegesTable = ({
               Show colleges by exam
             </p>
           </div>
-          <div className="grid w-full grid-cols-1 gap-2 sm:grid-cols-2 lg:w-auto">
+          <div className="grid w-full grid-cols-1 gap-2 sm:grid-cols-3 lg:w-auto">
             {options.map((option) => {
               const isActive = josaaCollegeGroup === option.value;
               return (
@@ -1574,13 +1962,23 @@ const PredictedCollegesTable = ({
       {supportsCompare && (
         // students didn't notice Compare in the Pune review: the column
         // wears the brand red header and a rose tint, in the site's palette
-        <th className="whitespace-nowrap border-b border-[#9E1F22] bg-[#B52326] px-3 py-3 text-center text-white">
+        <th
+          data-tour="compare-head"
+          className="whitespace-nowrap border-b border-[#9E1F22] bg-[#B52326] px-3 py-3 text-center text-white"
+        >
           Compare
         </th>
       )}
       {predicted_colleges_table_column.map((column) => (
         <th
           key={column.key}
+          data-tour={
+            supportsSalarySort && column.key === rankColumnKey
+              ? "sort-first"
+              : supportsSalarySort && column.key === salaryColumnKey
+              ? "sort-last"
+              : undefined
+          }
           className="px-4 py-3 border-b border-[#decac3] whitespace-nowrap"
         >
           {supportsSalarySort && column.key === rankColumnKey ? (
@@ -1633,9 +2031,7 @@ const PredictedCollegesTable = ({
   );
 
   const renderTableBody = () => {
-    const rowsToRender = showAllRows
-      ? displayData
-      : displayData.slice(0, ROWS_PER_PAGE_INITIAL);
+    const rowsToRender = displayData.slice(0, rowLimit);
 
     return rowsToRender.map((item, index) => {
       const transformedItem = transformData(item);
@@ -1649,7 +2045,14 @@ const PredictedCollegesTable = ({
             }`}
           >
             {supportsCompare && (
-              <td className="border-r border-[#f0cfca] bg-[#fbeae8] px-3 py-3 text-center align-top">
+              <td
+                data-tour={
+                  index === Math.min(4, rowsToRender.length - 1)
+                    ? "compare-end"
+                    : undefined
+                }
+                className="border-r border-[#f0cfca] bg-[#fbeae8] px-3 py-3 text-center align-top"
+              >
                 {compareIdOf(transformedItem) ? (
                   <input
                     type="checkbox"
@@ -1746,20 +2149,15 @@ const PredictedCollegesTable = ({
         : examConfig.legend;
     if (!legendItems.length) return null;
 
+    // the combined JoSAA list says this inside its FAQ instead
+    if (isCombinedJosaaExam) return null;
     if (isJosaaExam) {
       return (
-        <div className="mb-4 flex flex-wrap items-center gap-2 text-xs sm:text-sm text-[#5b3a34]">
-          <span className="inline-flex items-center rounded-full border border-[#e3d1cb] bg-[#fffdfa] px-3 py-1 font-medium">
-            Based on JoSAA 2025
-          </span>
-          <span className="inline-flex items-center rounded-full border border-[#e3d1cb] bg-[#fffdfa] px-3 py-1 font-medium">
-            Cutoffs are shown with a 10% margin above your category rank
-          </span>
-          <span className="basis-full pt-1 text-[#6d5550]">
-            Home-state quota is used where applicable; other colleges use
-            all-India or out-of-state cutoffs.
-          </span>
-        </div>
+        // the rows' closing ranks are JoSAA 2025 round 5 (checked against
+        // public/data/JEE/josaa_2025_all_rounds.json)
+        <p className="mb-4 text-sm text-[#6d5550]">
+          Based on JoSAA 2025 round 5 cutoffs
+        </p>
       );
     }
 
@@ -1797,10 +2195,18 @@ const PredictedCollegesTable = ({
       {renderLegend()}
       {fullData.length > 0 && (
         <div className="mb-4">
-          {renderJosaaCollegeGroupToggle()}
+          {/* phones: in the "Filter this table" window instead */}
+          <div className={isCombinedJosaaExam ? "hidden sm:block" : ""}>
+            {renderJosaaCollegeGroupToggle()}
+          </div>
           {renderNeetSeatTabs()}
           <div className="flex flex-col gap-3 xl:flex-row xl:items-center xl:justify-between">
-            {onSearchChange && (
+            {isCombinedJosaaExam && (
+              <div className="hidden w-full gap-3 sm:grid sm:grid-cols-3 xl:max-w-4xl">
+                {renderTableDropdowns()}
+              </div>
+            )}
+            {onSearchChange && !isCombinedJosaaExam && (
               <div className="w-full max-w-xl">
                 <input
                   type="text"
@@ -1817,17 +2223,19 @@ const PredictedCollegesTable = ({
               {/* Wrapped so the year line stacks UNDER the count instead of
                   becoming a third flex sibling beside it on sm+ screens.
                   (main's layout fix, kept.) */}
-              <div>
+              <div className={isCombinedJosaaExam ? "hidden" : ""}>
                 <p className="text-sm text-[#5b3a34]">
                   Showing{" "}
-                  {(!showAllRows && displayData.length > ROWS_PER_PAGE_INITIAL
-                    ? `${ROWS_PER_PAGE_INITIAL.toLocaleString(
+                  {(displayData.length > rowLimit
+                    ? `${rowLimit.toLocaleString(
                         "en-IN"
                       )} of ${displayData.length.toLocaleString("en-IN")}`
                     : displayData.length.toLocaleString("en-IN")) + " "}
                   {showJosaaCollegeGroupToggle
                     ? josaaCollegeGroup === "advanced"
                       ? "JEE Advanced college options."
+                      : josaaCollegeGroup === "all"
+                      ? "college options (JEE Main and Advanced)."
                       : "JEE Main college options."
                     : isNeet
                     ? neetSeatTab === "home"
@@ -1851,20 +2259,184 @@ const PredictedCollegesTable = ({
                   )
                 )}
               </div>
-              {displayData.length > 0 && (
+              {displayData.length > 0 && !isCombinedJosaaExam && (
                 <button
-                  className="w-full rounded-lg bg-[#B52326] px-4 py-2 text-white hover:bg-[#9E1F22] sm:w-auto"
+                  type="button"
+                  className="inline-flex w-auto items-center gap-1.5 self-start rounded-lg bg-[#B52326] px-3 py-1.5 text-sm font-bold text-white hover:bg-[#9E1F22]"
                   onClick={downloadCsv}
                 >
-                  Download CSV
+                  <Download size={15} />
+                  Download
                 </button>
               )}
             </div>
           </div>
         </div>
       )}
+      {isCombinedJosaaExam && fullData.length > 0 && (
+        <>
+          {/* phones: View on its own line, centred */}
+          <div className="mb-2 flex justify-center text-xs text-[#2f2320] sm:hidden">
+            {renderViewSelect("view-toggle")}
+          </div>
+          {/* "[50] entries" left; right: View (desktop), Filter (phones) and
+              Download. Phones: stuck to the top while scrolling. */}
+          <div className="sticky top-0 z-30 -mx-1 mb-3 flex items-center justify-between gap-2 bg-white px-1 py-2 text-xs text-[#2f2320] sm:static sm:mx-0 sm:mb-4 sm:bg-transparent sm:px-0 sm:py-0 sm:text-sm">
+            <label className="flex items-center gap-1 whitespace-nowrap sm:gap-1.5">
+              <select
+                value={pageSize === Infinity ? "all" : pageSize}
+                onChange={(e) =>
+                  setPageSize(
+                    e.target.value === "all" ? Infinity : +e.target.value
+                  )
+                }
+                className="rounded-lg border border-[#d8c7c1] bg-white px-1 py-0.5 text-xs font-bold text-[#2f2320] focus:border-[#B52326] focus:outline-none sm:px-2 sm:py-1.5 sm:text-sm"
+              >
+                {[25, 50, 100].map((n) => (
+                  <option key={n} value={n}>
+                    {n}
+                  </option>
+                ))}
+                <option value="all">all</option>
+              </select>
+              entries
+            </label>
+            <div className="flex items-center gap-2 sm:gap-3">
+              <div className="hidden sm:block">
+                {renderViewSelect("view-toggle-desktop")}
+              </div>
+              <button
+                type="button"
+                onClick={() => setFiltersOpen(true)}
+                className="flex flex-none items-center gap-1 whitespace-nowrap rounded-lg border-[1.5px] border-[#B52326] bg-[#fbeeec] px-2.5 py-1 text-xs font-extrabold text-[#B52326] sm:hidden"
+              >
+                <SlidersHorizontal size={14} />
+                Filter
+                {activeFilters > 0 && (
+                  <span className="flex h-4 min-w-[16px] items-center justify-center rounded-full bg-[#B52326] px-1 text-[10px] text-white">
+                    {activeFilters}
+                  </span>
+                )}
+              </button>
+              {displayData.length > 0 && (
+                <button
+                  type="button"
+                  onClick={downloadCsv}
+                  className="inline-flex flex-none items-center gap-1 whitespace-nowrap rounded-lg border-[1.5px] border-[#B52326] bg-[#B52326] px-2.5 py-1 text-xs font-bold text-white hover:bg-[#9E1F22] sm:gap-1.5 sm:py-1.5 sm:text-sm"
+                >
+                  <Download size={14} />
+                  Download
+                </button>
+              )}
+            </div>
+          </div>
+        </>
+      )}
+      {filtersOpen && (
+        <div
+          className="fixed inset-0 z-[60] flex items-end justify-center bg-[rgba(36,18,14,.55)] sm:hidden"
+          onClick={() => setFiltersOpen(false)}
+        >
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-label="Filter this table"
+            onClick={(e) => e.stopPropagation()}
+            className="flex max-h-[90vh] w-full flex-col rounded-t-[20px] bg-white p-5 text-left shadow-[0_24px_56px_rgba(74,42,38,.16)]"
+          >
+            <div className="mb-4 flex items-center justify-between">
+              <h2 className="font-['Lato',sans-serif] text-xl font-black text-[#2f2320]">
+                Filter this table
+              </h2>
+              <button
+                type="button"
+                onClick={() => setFiltersOpen(false)}
+                aria-label="Close"
+                className="rounded-lg p-1 text-[#7a635d] hover:bg-[#f3dcd8]"
+              >
+                <X size={20} />
+              </button>
+            </div>
+            <div className="min-h-0 flex-1 space-y-3 overflow-y-auto">
+              {renderJosaaCollegeGroupToggle()}
+              {renderTableDropdowns()}
+            </div>
+            <div className="mt-4 flex items-center justify-between gap-3">
+              <button
+                type="button"
+                disabled={!activeFilters}
+                onClick={() => {
+                  setJosaaCollegeGroup("all");
+                  setPickCollege(null);
+                  setPickBranch(null);
+                  setPickState(null);
+                }}
+                className="text-sm font-bold text-[#7a635d] hover:text-[#2f2320] disabled:opacity-40"
+              >
+                Clear all
+              </button>
+              <button
+                type="button"
+                onClick={() => setFiltersOpen(false)}
+                className="rounded-[10px] bg-[#B52326] px-5 py-2.5 text-sm font-extrabold text-white hover:bg-[#9E1F22]"
+              >
+                Show {displayData.length.toLocaleString("en-IN")} results
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+      {isCombinedJosaaExam && fullData.length > 0 && !builderOpen && (
+        // sticky CTA: lifts above the compare bar when that is showing
+        <div
+          className={`fixed right-4 z-40 sm:right-6 ${
+            compareSel.length > 0 ? "bottom-24" : "bottom-5"
+          }`}
+        >
+          <button
+            type="button"
+            data-tour="choice-cta"
+            onClick={() => setBuilderOpen(true)}
+            className="rounded-full bg-[#B52326] px-5 py-3 text-sm font-extrabold text-white shadow-[0_10px_28px_rgba(74,42,38,.25)] transition hover:-translate-y-px hover:bg-[#9E1F22] sm:text-base"
+          >
+            Help me choose a college and course
+          </button>
+        </div>
+      )}
+      {builderOpen && (
+        <ChoiceBuilder
+          states={builderStates}
+          branches={builderBranches}
+          initial={choicePrefs}
+          onDone={applyChoices}
+          onClose={() => setBuilderOpen(false)}
+        />
+      )}
+      {viewTip && !tour && (
+        <CoachMarks
+          steps={viewTipSteps}
+          step={0}
+          solo
+          onNext={closeViewTip}
+          onClose={closeViewTip}
+        />
+      )}
+      {tour && (
+        <CoachMarks
+          steps={tourSteps}
+          step={tour.step}
+          solo={tour.solo}
+          onNext={() => setTour((t) => ({ ...t, step: t.step + 1 }))}
+          onClose={closeTour}
+          clipTo={tableScrollRef}
+        />
+      )}
       {displayData.length > 0 ? (
-        <div className="overflow-x-auto rounded-xl border border-[#eaded8] bg-white shadow-sm">
+        <div
+          ref={tableScrollRef}
+          onScroll={onTableScroll}
+          className="overflow-x-auto rounded-xl border border-[#eaded8] bg-white shadow-sm"
+        >
           {supportsCompare && compareSel.length > 0 ? (
             <div className="fixed bottom-5 left-1/2 z-40 flex w-max max-w-[95vw] -translate-x-1/2 items-center gap-4 rounded-full border border-[#eaded8] bg-white px-6 py-3.5 text-base shadow-lg">
               <span className="whitespace-nowrap font-semibold text-[#5b3a34]">
@@ -1915,8 +2487,8 @@ const PredictedCollegesTable = ({
           </p>
         </div>
       ) : null}
-      {displayData.length > ROWS_PER_PAGE_INITIAL &&
-        !showAllRows && ( // Conditional button rendering
+      {displayData.length > rowLimit &&
+        !isCombinedJosaaExam && ( // the combined list has its own selector
           <div className="flex justify-center mt-4">
             <button
               className="whitespace-nowrap rounded-lg bg-[#B52326] px-6 py-3 font-semibold text-white hover:bg-[#9E1F22]"
@@ -1931,12 +2503,15 @@ const PredictedCollegesTable = ({
 };
 
 PredictedCollegesTable.propTypes = {
+  isFullList: PropTypes.bool,
+  mainRank: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  advRank: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   data: PropTypes.arrayOf(
     PropTypes.shape({
       "Institute ID": PropTypes.string, // For TNEA
       Institute: PropTypes.string.isRequired,
       Course: PropTypes.string, // TNEA-specific
-      Category: PropTypes.string.isRequired,
+      Category: PropTypes.string, // JoSAA rows carry Seat Type instead
       "Cutoff Marks": PropTypes.string, // TNEA-specific
       "Institute Type": PropTypes.string, // TNEA-specific
       State: PropTypes.string,
@@ -1946,11 +2521,8 @@ PredictedCollegesTable.propTypes = {
       "Opening Rank": PropTypes.string,
       "College Type": PropTypes.string,
       "Management Type": PropTypes.string,
-      "Expected Salary": PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number,
-      ]),
-      "Salary Tier": PropTypes.string,
+      "Median Salary": PropTypes.number,
+      "Placed %": PropTypes.number,
       "NIRF Rank": PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     })
   ),
