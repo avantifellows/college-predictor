@@ -1,6 +1,7 @@
 """
 Build public/data/careers/careers.json from Amogh's career sheet
-(data-sources/career_streams.csv, 107 careers).
+(data-sources/career_streams.csv, 171 careers; scripts/import_career_sheet.py
+brings a new sheet in).
 
 Each career carries the sheet's narrative fields plus a REAL exams join:
 career name -> parent branch in the taxonomy (89/107 match by name; the
@@ -33,7 +34,9 @@ BRANCH_CAREER_FALLBACK = {
 }
 CAREER_BRANCH = {
     "Artificial Intelligence and Data Science": "AIML",
-    "Business Administration (MBA)": "ADMIN",
+    "Business Administration (BBA / MBA)": "ADMIN",
+    "Public Administration (Civil Services)": "PUBADMIN",
+    "Philosophy": "PHILOSOPHY",
     "Computer Application (BCA/MCA)": "BCA",
     "Computer Science And Engineering": "CSIT",
     "Data Engineering": "AIML",
@@ -47,8 +50,110 @@ CAREER_BRANCH = {
     "Dentistry": "DENTAL",
     "Ocean Engineering": "MARINE",
     "Structural Engineering": "CIVILENG",
-    # deliberately unmapped: Armed Forces, CA, HCL TechBee, Japanese
+    # the Oct 2026 sheet's 64 new careers (and Armed Forces), reviewed in
+    # futures-data/branches/careers-oct2026/career_branch_mapping.csv
+    "Acting and Performing Arts": "PERFARTS",
+    "Actuarial Science": "ACTUARIAL",
+    "Air Traffic Control": "AVIATION",
+    "Airline Pilot": "AVIATION",
+    "Anesthesiology": "MBBS",
+    "Anthropology and Archaeology": "ANTHRO",
+    "Aviation Engineering and Maintenance": "AVIATION",
+    "Bioinformatics": "BIOTECH",
+    "Biostatistics": "STATISTICS",
+    "Blockchain and Emerging Tech": "CSIT",
+    "Business Intelligence and Analytics": "AIML",
+    "Cardiology": "MBBS",
+    "Chiropractic Care": "PHYSIO",
+    "Cinematography and Film Editing": "FILM",
+    "Court Reporting and Legal Transcription": "LLB",
+    "Culinary Arts (Chef)": "HOTELMGT",
+    "Data Science": "AIML",
+    "Dermatology": "MBBS",
+    "Dietetics and Nutrition": "NUTRITION",
+    "Emergency Medical Services": "PARAMED",
+    "Event Management": "MBA",
+    "Fashion Designing": "DESIGN",
+    "Fire and Safety Services": "SAFETYENG",
+    "Genetic Counselling and Genetics": "LIFESCI",
+    "Geographic Information Systems (GIS)": "GEOGRAPHY",
+    "Geography": "GEOGRAPHY",
+    "Gynaecology and Obstetrics": "MBBS",
+    "Human Resources Management": "MBA",
+    "Interior Design": "DESIGN",
+    "Investment Banking and Fund Management": "FIN",
+    "Jewellery Design and Gemology": "DESIGN",
+    "Librarianship and Archival Science": "LIBSCI",
+    "Logistics and Supply Chain Management": "MBA",
+    "Marketing Management": "MBA",
+    "Massage and Bodywork Therapy": "PHYSIO",
+    "Merchant Navy (Nautical Officer)": "NAUTICALSCI",
+    "Midwifery": "NURSING",
+    "Neurology": "MBBS",
+    "Nuclear Engineering": "NUCLEARENG",
+    "Occupational Therapy": "PARAMED",
+    "Ophthalmology and Optometry": "MBBS",
+    "Orthopedics": "MBBS",
+    "Paediatrics": "MBBS",
+    "Photography": "FILM",
+    "Podiatry": "PARAMED",
+    "Prosthetics and Orthotics": "PARAMED",
+    "Public Relations and Corporate Communications": "JOURNAL",
+    "Public Sector and Policy Analysis": "POLISCI",
+    "Real Estate": "MBA",
+    "Renewable Energy (Solar/Wind)": "ENERGYENG",
+    "Speech-Language Pathology": "AUDI",
+    "Sports Coaching and Athletics": "PHYSED",
+    "Surveying": "CIVILENG",
+    "Technical/Content Writing": "ENGLISH",
+    "Translation and Interpretation": "ENGLISH",
+    "Urban and Town Planning": "PLAN",
+    "Video Game Design and Development": "DESIGN",
+    "Web and UX/UI Design": "DESIGN",
+    "Indian Army Officer": "DEFENCE",
+    "Indian Army Jawan (Soldier / Agniveer)": "DEFENCE",
+    "Indian Navy Officer": "DEFENCE",
+    "Indian Navy Sailor (Agniveer SSR / MR)": "DEFENCE",
+    "Indian Air Force Officer": "DEFENCE",
+    "Indian Air Force Airman (Agniveer Vayu)": "DEFENCE",
+    "Armed Forces (Military Services)": "DEFENCE",
+    # deliberately unmapped: CA, HCL TechBee, Japanese
 }
+
+# The armed forces admit through their own exams, which no cutoff table
+# carries: each career lists its entries (Exams tab cards, by exam_id)
+CAREER_EXAMS = {
+    "Armed Forces (Military Services)": ["nda", "upsc-cds", "afcat"],
+    "Indian Army Officer": ["nda", "upsc-cds", "indian-army-tes",
+                            "indian-army-tgc-ssc-tech",
+                            "indian-army-ncc-special-entry-scheme"],
+    "Indian Army Jawan (Soldier / Agniveer)": ["agniveer-army"],
+    "Indian Navy Officer": ["nda", "upsc-cds",
+                            "indian-navy-10-2-b-tech-cadet-entry-scheme",
+                            "indian-navy-ssc-officer-entries"],
+    "Indian Navy Sailor (Agniveer SSR / MR)": ["agniveer-navy-ssr-mr"],
+    "Indian Air Force Officer": ["nda", "upsc-cds", "afcat"],
+    "Indian Air Force Airman (Agniveer Vayu)": ["agniveer-vayu"],
+    # undergraduate routes the cutoff tables don't carry
+    "Business Administration (BBA / MBA)": ["cuet-ug", "jipmat", "nmims-npat"],
+    "Philosophy": ["cuet-ug"],
+}
+
+RIASEC = ["R", "I", "A", "S", "E", "C"]
+
+
+def riasec_of(code, scores):
+    """The sheet's RIASEC code and 0-100 scores ("R:43.1 | I:15.6 | ..."),
+    for the career quiz. None when the sheet has no scores."""
+    if pd.isna(scores) or not str(scores).strip():
+        return None
+    vals = {}
+    for part in str(scores).split("|"):
+        k, v = part.split(":")
+        vals[k.strip()] = float(v)
+    assert set(vals) == set(RIASEC), f"bad RIASEC scores: {scores}"
+    return {"code": str(code).strip() if pd.notna(code) else None,
+            "scores": [vals[k] for k in RIASEC]}
 
 # how each mapping source shows up as a chip: label + where it leads.
 # Everything links into the Exams tab pre-searched, EXCEPT TNEA — Tamil
@@ -131,6 +236,13 @@ def split_list(text, sep=","):
     return items
 
 
+# a bare mention that means the national exam, not a same-named local one
+MENTION_PREFERS = {"cuet": "cuet-ug"}
+# names too broad to pick one card by: UPSC runs the Civil Services, CDS,
+# NDA and more, so "UPSC" alone would land on whichever card comes first
+AMBIGUOUS_MENTIONS = {"upsc"}
+
+
 def exam_mentions(text, exam_cards):
     """Exams NAMED in the sheet's Entry Exams prose, validated against the
     exams tab so a chip can never dead-end. Catches the routes our cutoff
@@ -141,10 +253,16 @@ def exam_mentions(text, exam_cards):
         return out
     # first-appearance order: a set's order changes run to run (hash
     # randomisation), which reshuffled chips on every rebuild
-    tokens = dict.fromkeys(re.findall(r"\b[A-Z][A-Z-]{2,}[A-Za-z]*\b", str(text)))
+    # "CUET (UG)" is one name: read without its "(UG)" it also matched
+    # Christ University's CUET card
+    tokens = dict.fromkeys(
+        re.findall(r"\b[A-Z][A-Z-]{2,}[A-Za-z]*\b(?:\s*\(UG\))?", str(text)))
     for tok in tokens:
         k = norm(tok)
-        for card in exam_cards:
+        if k in AMBIGUOUS_MENTIONS:
+            continue
+        preferred = [c for c in exam_cards if c["exam_id"] == MENTION_PREFERS.get(k)]
+        for card in preferred + exam_cards:
             hay = [card["acronym"]] + (card.get("aliases") or [])
             if any(norm(h).startswith(k) or k == norm(h) for h in hay):
                 # search by the matched card's ACRONYM, not the raw token —
@@ -410,6 +528,10 @@ def main():
         cid = slug(name)
         branch_id = CAREER_BRANCH.get(name) or pmap.get(norm(name))
         exams = []
+        cards_by_id = {e["exam_id"]: e for e in exam_cards}
+        for eid in CAREER_EXAMS.get(name, []):
+            card = cards_by_id[eid]  # KeyError = an exam the tab lacks
+            exams.append({"label": card["acronym"], "href": f"/exams/{eid}"})
         if branch_id is not None and branch_id in exams_by_branch.index:
             for ex in exams_by_branch[branch_id]:
                 for label, href in EXAM_LINKS.get(ex, []):
@@ -479,8 +601,10 @@ def main():
             "Architecture": "Architecture & Design", "Design": "Architecture & Design",
         }
         vertical = DOMAIN_FOLD.get(vertical, vertical)
+        # the armed forces are their own domain on the Careers menu;
+        # everything without one is "Others"
         if vertical == "Other":
-            vertical = "Defence & Others"
+            vertical = "Others"
         cards.append({
             "career_id": cid,
             "name": name,
@@ -508,8 +632,12 @@ def main():
             "notable_people": split_list(r["Notable People"]),
             "sources": str(r["Sources"]).strip() if pd.notna(r["Sources"]) else None,
             "specializations": specializations(r["Common Specializations (Optional)"]),
+            "riasec": riasec_of(r.get("RIASEC Code"), r.get("RIASEC Scores (0-100)")),
         })
 
+    # the list reads A-Z whatever order the sheet's rows are in (renamed
+    # careers keep their old row; new ones are appended)
+    cards.sort(key=lambda c: c["name"].lower())
     ids = [c["career_id"] for c in cards]
     dupes = {i for i in ids if ids.count(i) > 1}
     assert not dupes, f"duplicate career ids: {dupes}"

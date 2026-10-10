@@ -32,7 +32,7 @@ const ProfileRow = ({ number, title, children }) => (
   </section>
 );
 
-const MetricCard = ({ label, sub, value }) => {
+const MetricCard = ({ label, sub, value, note }) => {
   if (!value) return null;
   return (
     <div className="min-w-0 rounded-lg border border-[#eaded8] bg-white p-3">
@@ -44,6 +44,11 @@ const MetricCard = ({ label, sub, value }) => {
       </div>
       {sub ? (
         <div className="mt-0.5 text-[11px] text-[#a89a94]">{sub}</div>
+      ) : null}
+      {note ? (
+        <div className="mt-1.5 text-[11px] leading-snug text-[#7a635d]">
+          {note}
+        </div>
       ) : null}
     </div>
   );
@@ -89,6 +94,15 @@ export const CareerDetail = ({ c }) => (
           label="Starting pay"
           sub="first 5 years"
           value={c.pay?.start}
+          // IIT / NIT graduates out-earn these ranges: engineering careers
+          // those institutes teach (reached through JEE), not pilots or the
+          // merchant navy
+          note={
+            c.domain === "Engineering" &&
+            c.exams?.some((e) => /^JEE (Main|Advanced)$/.test(e.label))
+              ? "This can be much higher for graduates from top colleges like the IITs and NITs."
+              : null
+          }
         />
         <MetricCard label="Mid-career" sub="5-15 years in" value={c.pay?.mid} />
         <MetricCard label="Senior" sub="15+ years in" value={c.pay?.senior} />
