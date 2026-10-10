@@ -16,7 +16,8 @@ const Dropdown = dynamic(() => import("../components/dropdown"), {
   ssr: false,
 });
 
-// The Careers list: one row per career (name, domain, starting pay); each
+// The Careers list: one row per career (name, domain; pay is on its page, as
+// the long pay text crowded the row on phones); each
 // opens its own page, /careers/<id>. Content is Amogh's career sheet.
 
 export default function Careers() {
@@ -214,16 +215,6 @@ export default function Careers() {
                                 {c.domain}
                               </span>
                             </span>
-                            {c.pay?.start ? (
-                              <span className="shrink-0 text-right text-xs text-[#5b3a34]">
-                                <span className="block text-[10px] uppercase tracking-wide text-[#a89a94]">
-                                  Starting pay
-                                </span>
-                                <span className="font-semibold">
-                                  {c.pay.start}
-                                </span>
-                              </span>
-                            ) : null}
                             <ChevronRight
                               size={18}
                               className="shrink-0 text-[#b9a8a2]"

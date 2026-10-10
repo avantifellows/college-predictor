@@ -181,6 +181,10 @@
    {
     "label": "Armed Forces (Military Services)",
     "slug": "armed-forces-military-services"
+   },
+   {
+    "label": "Indian Air Force Officer",
+    "slug": "indian-air-force-officer"
    }
   ],
   "colleges_link": null
@@ -911,6 +915,10 @@
   "open_data_id": null,
   "careers": [
    {
+    "label": "Indian Army Jawan (Soldier / Agniveer)",
+    "slug": "indian-army-jawan-soldier-agniveer"
+   },
+   {
     "label": "Armed Forces (Military Services)",
     "slug": "armed-forces-military-services"
    }
@@ -952,6 +960,10 @@
   "open_data_id": null,
   "careers": [
    {
+    "label": "Indian Navy Sailor (Agniveer SSR / MR)",
+    "slug": "indian-navy-sailor-agniveer-ssr-mr"
+   },
+   {
     "label": "Armed Forces (Military Services)",
     "slug": "armed-forces-military-services"
    }
@@ -992,6 +1004,10 @@
   "predictor_exam": null,
   "open_data_id": null,
   "careers": [
+   {
+    "label": "Indian Air Force Airman (Agniveer Vayu)",
+    "slug": "indian-air-force-airman-agniveer-vayu"
+   },
    {
     "label": "Armed Forces (Military Services)",
     "slug": "armed-forces-military-services"
@@ -1335,8 +1351,8 @@
   "open_data_id": null,
   "careers": [
    {
-    "label": "Business Administration (MBA)",
-    "slug": "business-administration-mba"
+    "label": "Business Administration (BBA / MBA)",
+    "slug": "business-administration-bba-mba"
    }
   ],
   "colleges_link": null
@@ -1776,8 +1792,8 @@
   "open_data_id": null,
   "careers": [
    {
-    "label": "Business Administration (MBA)",
-    "slug": "business-administration-mba"
+    "label": "Business Administration (BBA / MBA)",
+    "slug": "business-administration-bba-mba"
    },
    {
     "label": "Hotel Management",
@@ -2745,8 +2761,8 @@
     "slug": "arts"
    },
    {
-    "label": "Business Administration (MBA)",
-    "slug": "business-administration-mba"
+    "label": "Business Administration (BBA / MBA)",
+    "slug": "business-administration-bba-mba"
    },
    {
     "label": "Chartered Accountancy (CA)",
@@ -2835,6 +2851,14 @@
   "open_data_id": "ducuet",
   "careers": [
    {
+    "label": "Business Administration (BBA / MBA)",
+    "slug": "business-administration-bba-mba"
+   },
+   {
+    "label": "Philosophy",
+    "slug": "philosophy"
+   },
+   {
     "label": "Agriculture",
     "slug": "agriculture"
    },
@@ -2843,16 +2867,8 @@
     "slug": "arts"
    },
    {
-    "label": "Business Administration (MBA)",
-    "slug": "business-administration-mba"
-   },
-   {
     "label": "Chartered Accountancy (CA)",
     "slug": "chartered-accountancy-ca"
-   },
-   {
-    "label": "Economics",
-    "slug": "economics"
    }
   ],
   "colleges_link": "/colleges?exam=CUET (UG)"
@@ -4016,8 +4032,8 @@
   "open_data_id": null,
   "careers": [
    {
-    "label": "Business Administration (MBA)",
-    "slug": "business-administration-mba"
+    "label": "Business Administration (BBA / MBA)",
+    "slug": "business-administration-bba-mba"
    }
   ],
   "colleges_link": null
@@ -4074,8 +4090,8 @@
   "open_data_id": null,
   "careers": [
    {
-    "label": "Business Administration (MBA)",
-    "slug": "business-administration-mba"
+    "label": "Business Administration (BBA / MBA)",
+    "slug": "business-administration-bba-mba"
    }
   ],
   "colleges_link": null
@@ -4234,6 +4250,10 @@
   "open_data_id": null,
   "careers": [
    {
+    "label": "Indian Army Officer",
+    "slug": "indian-army-officer"
+   },
+   {
     "label": "Armed Forces (Military Services)",
     "slug": "armed-forces-military-services"
    }
@@ -4277,6 +4297,10 @@
   "open_data_id": null,
   "careers": [
    {
+    "label": "Indian Army Officer",
+    "slug": "indian-army-officer"
+   },
+   {
     "label": "Armed Forces (Military Services)",
     "slug": "armed-forces-military-services"
    }
@@ -4317,6 +4341,10 @@
   "predictor_exam": null,
   "open_data_id": null,
   "careers": [
+   {
+    "label": "Indian Army Officer",
+    "slug": "indian-army-officer"
+   },
    {
     "label": "Armed Forces (Military Services)",
     "slug": "armed-forces-military-services"
@@ -4359,6 +4387,10 @@
   "open_data_id": null,
   "careers": [
    {
+    "label": "Indian Navy Officer",
+    "slug": "indian-navy-officer"
+   },
+   {
     "label": "Armed Forces (Military Services)",
     "slug": "armed-forces-military-services"
    }
@@ -4399,6 +4431,10 @@
   "predictor_exam": null,
   "open_data_id": null,
   "careers": [
+   {
+    "label": "Indian Navy Officer",
+    "slug": "indian-navy-officer"
+   },
    {
     "label": "Armed Forces (Military Services)",
     "slug": "armed-forces-military-services"
@@ -5010,8 +5046,8 @@
   "open_data_id": null,
   "careers": [
    {
-    "label": "Business Administration (MBA)",
-    "slug": "business-administration-mba"
+    "label": "Business Administration (BBA / MBA)",
+    "slug": "business-administration-bba-mba"
    }
   ],
   "colleges_link": null
@@ -5090,8 +5126,8 @@
     "slug": "arts"
    },
    {
-    "label": "Business Administration (MBA)",
-    "slug": "business-administration-mba"
+    "label": "Business Administration (BBA / MBA)",
+    "slug": "business-administration-bba-mba"
    },
    {
     "label": "Chartered Accountancy (CA)",
@@ -5171,8 +5207,8 @@
     "slug": "arts"
    },
    {
-    "label": "Business Administration (MBA)",
-    "slug": "business-administration-mba"
+    "label": "Business Administration (BBA / MBA)",
+    "slug": "business-administration-bba-mba"
    },
    {
     "label": "Chartered Accountancy (CA)",
@@ -5265,8 +5301,8 @@
     "slug": "arts"
    },
    {
-    "label": "Business Administration (MBA)",
-    "slug": "business-administration-mba"
+    "label": "Business Administration (BBA / MBA)",
+    "slug": "business-administration-bba-mba"
    },
    {
     "label": "Chartered Accountancy (CA)",
@@ -5519,8 +5555,8 @@
     "slug": "biotechnology"
    },
    {
-    "label": "Business Administration (MBA)",
-    "slug": "business-administration-mba"
+    "label": "Business Administration (BBA / MBA)",
+    "slug": "business-administration-bba-mba"
    },
    {
     "label": "Design",
@@ -5570,8 +5606,8 @@
     "slug": "arts"
    },
    {
-    "label": "Business Administration (MBA)",
-    "slug": "business-administration-mba"
+    "label": "Business Administration (BBA / MBA)",
+    "slug": "business-administration-bba-mba"
    }
   ],
   "colleges_link": null
@@ -5650,8 +5686,8 @@
     "slug": "arts"
    },
    {
-    "label": "Business Administration (MBA)",
-    "slug": "business-administration-mba"
+    "label": "Business Administration (BBA / MBA)",
+    "slug": "business-administration-bba-mba"
    },
    {
     "label": "Chartered Accountancy (CA)",
@@ -6117,8 +6153,8 @@
     "slug": "biotechnology"
    },
    {
-    "label": "Business Administration (MBA)",
-    "slug": "business-administration-mba"
+    "label": "Business Administration (BBA / MBA)",
+    "slug": "business-administration-bba-mba"
    },
    {
     "label": "Computer Science / Information Technology",
@@ -6504,8 +6540,8 @@
     "slug": "biotechnology"
    },
    {
-    "label": "Business Administration (MBA)",
-    "slug": "business-administration-mba"
+    "label": "Business Administration (BBA / MBA)",
+    "slug": "business-administration-bba-mba"
    },
    {
     "label": "Chartered Accountancy (CA)",
@@ -6765,8 +6801,8 @@
     "slug": "arts"
    },
    {
-    "label": "Business Administration (MBA)",
-    "slug": "business-administration-mba"
+    "label": "Business Administration (BBA / MBA)",
+    "slug": "business-administration-bba-mba"
    },
    {
     "label": "Design",
@@ -6950,6 +6986,18 @@
    {
     "label": "Armed Forces (Military Services)",
     "slug": "armed-forces-military-services"
+   },
+   {
+    "label": "Indian Army Officer",
+    "slug": "indian-army-officer"
+   },
+   {
+    "label": "Indian Navy Officer",
+    "slug": "indian-navy-officer"
+   },
+   {
+    "label": "Indian Air Force Officer",
+    "slug": "indian-air-force-officer"
    }
   ],
   "colleges_link": null
@@ -7512,12 +7560,12 @@
   "open_data_id": null,
   "careers": [
    {
-    "label": "Arts",
-    "slug": "arts"
+    "label": "Business Administration (BBA / MBA)",
+    "slug": "business-administration-bba-mba"
    },
    {
-    "label": "Business Administration (MBA)",
-    "slug": "business-administration-mba"
+    "label": "Arts",
+    "slug": "arts"
    },
    {
     "label": "Chartered Accountancy (CA)",
@@ -8307,8 +8355,8 @@
     "slug": "arts"
    },
    {
-    "label": "Business Administration (MBA)",
-    "slug": "business-administration-mba"
+    "label": "Business Administration (BBA / MBA)",
+    "slug": "business-administration-bba-mba"
    },
    {
     "label": "Chartered Accountancy (CA)",
@@ -8543,8 +8591,8 @@
     "slug": "arts"
    },
    {
-    "label": "Business Administration (MBA)",
-    "slug": "business-administration-mba"
+    "label": "Business Administration (BBA / MBA)",
+    "slug": "business-administration-bba-mba"
    },
    {
     "label": "Economics",
@@ -9019,8 +9067,8 @@
     "slug": "arts"
    },
    {
-    "label": "Business Administration (MBA)",
-    "slug": "business-administration-mba"
+    "label": "Business Administration (BBA / MBA)",
+    "slug": "business-administration-bba-mba"
    },
    {
     "label": "Economics",
@@ -9671,8 +9719,8 @@
     "slug": "arts"
    },
    {
-    "label": "Business Administration (MBA)",
-    "slug": "business-administration-mba"
+    "label": "Business Administration (BBA / MBA)",
+    "slug": "business-administration-bba-mba"
    },
    {
     "label": "Chartered Accountancy (CA)",
@@ -10065,8 +10113,8 @@
     "slug": "arts"
    },
    {
-    "label": "Business Administration (MBA)",
-    "slug": "business-administration-mba"
+    "label": "Business Administration (BBA / MBA)",
+    "slug": "business-administration-bba-mba"
    },
    {
     "label": "Chartered Accountancy (CA)",
@@ -10145,8 +10193,8 @@
   "open_data_id": null,
   "careers": [
    {
-    "label": "Business Administration (MBA)",
-    "slug": "business-administration-mba"
+    "label": "Business Administration (BBA / MBA)",
+    "slug": "business-administration-bba-mba"
    },
    {
     "label": "Chartered Accountancy (CA)",
@@ -10710,8 +10758,8 @@
   "open_data_id": null,
   "careers": [
    {
-    "label": "Business Administration (MBA)",
-    "slug": "business-administration-mba"
+    "label": "Business Administration (BBA / MBA)",
+    "slug": "business-administration-bba-mba"
    }
   ],
   "colleges_link": null
@@ -10883,6 +10931,18 @@
    {
     "label": "Armed Forces (Military Services)",
     "slug": "armed-forces-military-services"
+   },
+   {
+    "label": "Indian Army Officer",
+    "slug": "indian-army-officer"
+   },
+   {
+    "label": "Indian Navy Officer",
+    "slug": "indian-navy-officer"
+   },
+   {
+    "label": "Indian Air Force Officer",
+    "slug": "indian-air-force-officer"
    }
   ],
   "colleges_link": null
@@ -11358,8 +11418,8 @@
   "open_data_id": null,
   "careers": [
    {
-    "label": "Business Administration (MBA)",
-    "slug": "business-administration-mba"
+    "label": "Business Administration (BBA / MBA)",
+    "slug": "business-administration-bba-mba"
    }
   ],
   "colleges_link": null
@@ -11440,8 +11500,8 @@
   "open_data_id": null,
   "careers": [
    {
-    "label": "Business Administration (MBA)",
-    "slug": "business-administration-mba"
+    "label": "Business Administration (BBA / MBA)",
+    "slug": "business-administration-bba-mba"
    }
   ],
   "colleges_link": null

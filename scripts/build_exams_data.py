@@ -129,6 +129,7 @@ def _k2(s):
 
 def main():
     careers_by_family, career_by_name = careers_index()
+    from build_careers_data import CAREER_EXAMS
     fmt = {}
     if os.path.exists(PATTERNS):
         fmt = json.load(open(PATTERNS))
@@ -234,7 +235,7 @@ def main():
                 "pharma": ["Pharmacy"], "medical": ["Medicine (MBBS)"],
                 "dental": ["Dentistry"], "nursing": ["Nursing"],
                 "law": ["Law (LLB)"], "commerce": ["Chartered Accountancy (CA)", "Commerce"],
-                "business": ["Business Administration (MBA)"],
+                "business": ["Business Administration (BBA / MBA)"],
                 "science": ["Physics", "Chemistry", "Mathematics"],
                 "defence": ["Armed Forces (Military Services)"],
             }
@@ -249,6 +250,14 @@ def main():
                 if not any(c["label"] == nm for c in careers):
                     careers.append({"label": nm, "slug": career_by_name[_k2(nm)]})
             careers = careers[:5]
+        # careers that name this exam as their entry (the armed forces: NDA
+        # leads to the officer careers, Agniveer Vayu to Airman) come first
+        named = [{"label": nm, "slug": career_by_name[_k2(nm)]}
+                 for nm, ids in CAREER_EXAMS.items()
+                 if card["exam_id"] in ids and _k2(nm) in career_by_name]
+        if named:
+            careers = (named + [c for c in careers
+                                if c["label"] not in {n["label"] for n in named}])[:5]
         card["careers"] = careers or None
         # families whose colleges live on the Colleges tab: JoSAA (128
         # engineering) and NEET (780 NMC medical colleges)

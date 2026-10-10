@@ -294,8 +294,8 @@ CSIT080,"CS/IT, Design",CSIT,Computer Science,,Engineering
 CYBERSEC,Cyber Security,,,,Engineering
 DAIRYENG,Dairy Engineering,,,,Engineering
 DAIRYENG001,"Dairy Engineering (4 Years, Bachelor of Technology)",DAIRYENG,Dairy Engineering,,Engineering
-DEFENCE,Military,,,,Defence
-DEFENCE001,Armed Forces,DEFENCE,Military,,Defence
+DEFENCE,Armed Forces,,,,Armed Forces
+DEFENCE001,Armed Forces,DEFENCE,Armed Forces,,Armed Forces
 DENTAL,Dental,,,,Medical Allied
 DESIGN,Design,,,,Design
 DESIGN001,"Bachelor of Design (4 Years, Bachelor of Design)",DESIGN,Design,,Design
@@ -722,3 +722,15 @@ COMMUNITYSCI,Community Science,,,,Science
 COMMUNITYSCI001,B.Sc. (Hons.) Community Science,COMMUNITYSCI,Community Science,,Science
 NUTRITION,Food Nutrition and Dietetics,,,,Science
 NUTRITION001,B.Sc. (Hons.) Food Nutrition and Dietetics,NUTRITION,Food Nutrition and Dietetics,,Science
+PERFARTS,Performing Arts,,,,Humanities
+FILM,Film and Photography,,,,Humanities
+GEOGRAPHY,Geography,,,,Humanities
+ANTHRO,Anthropology and Archaeology,,,,Humanities
+LIBSCI,Library and Information Science,,,,Humanities
+ACTUARIAL,Actuarial Science,,,,Commerce
+STATISTICS,Statistics,,,,Science
+AVIATION,Aviation,,,,Engineering
+NUCLEARENG,Nuclear Engineering,,,,Engineering
+PHYSED,Physical Education,,,,Education
+PUBADMIN,Public Administration,,,,Public Services
+PHILOSOPHY,Philosophy,,,,Humanities
