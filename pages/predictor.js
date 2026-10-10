@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Link from "next/link";
 import getConstants from "../constants";
 import examConfigs from "../examConfig";
 import { useRouter } from "next/router";
@@ -8,6 +9,13 @@ import TneaScoreCalculator from "../components/TneaScoreCalculator";
 import CuetScoreInput from "../components/CuetScoreInput";
 import { readProfile, profileDefaultsForFields } from "../utils/portalSession";
 import BackLink from "../components/BackLink";
+import {
+  PREDICTOR_EXAMS,
+  allStreams,
+  counsellingLabel,
+  examsInStream,
+  routeForKey,
+} from "../utils/predictorRoutes";
 
 // Dynamically import Dropdown with SSR disabled
 const Dropdown = dynamic(() => import("../components/dropdown"), {
@@ -103,11 +111,21 @@ const ExamForm = () => {
   const [rankError, setRankError] = useState("");
   const [primaryInputError, setPrimaryInputError] = useState("");
   const [rankMode, setRankMode] = useState("estimate");
+  // "mine" = colleges for my rank / marks, "full" = every cutoff (design's gate)
+  const [view, setView] = useState(null);
+  // stream -> exam -> counselling (utils/predictorRoutes); the counselling
+  // names the examConfigs key held in selectedExam
+  const [examsById, setExamsById] = useState(null);
+  const [stream, setStream] = useState("");
+  const [routeExam, setRouteExam] = useState(null);
+  const [counselling, setCounselling] = useState(null);
+  // JoSAA: how the student gives each score
+  const [mainKind, setMainKind] = useState("rank"); // rank | marks | percentile
+  const [advKind, setAdvKind] = useState("rank"); // rank | marks
   const [marksInput, setMarksInput] = useState("");
   const [marksError, setMarksError] = useState("");
   const [percentileInput, setPercentileInput] = useState("");
   const [percentileError, setPercentileError] = useState("");
-  const [estimateInputType, setEstimateInputType] = useState("marks");
   const [estimateError, setEstimateError] = useState("");
   const [estimatedRank, setEstimatedRank] = useState(null);
   const [estimatedPercentile, setEstimatedPercentile] = useState(null);
@@ -121,18 +139,57 @@ const ExamForm = () => {
   const [neetStateCategories, setNeetStateCategories] = useState(null);
   const router = useRouter();
 
-  // Deep links from the Exams tab (/?exam=KCET) preselect the exam — through
-  // the same handler a click uses, so per-exam form initialisation happens.
+  // The Exams tab's records give each exam its streams.
   useEffect(() => {
-    const fromQuery = router.isReady && router.query.exam;
-    if (fromQuery && examConfigs[fromQuery] && !selectedExam) {
-      handleExamChange({
-        value: String(fromQuery),
-        code: examConfigs[fromQuery].code,
-      });
+    fetch("/data/exams/exams.json")
+      .then((r) => (r.ok ? r.json() : []))
+      .then((rows) =>
+        setExamsById(Object.fromEntries(rows.map((e) => [e.exam_id, e])))
+      )
+      .catch(() => setExamsById({}));
+  }, []);
+
+  // Deep links from the Exams tab (/predictor?exam=KCET&examId=kea-cet)
+  // preselect stream, exam and counselling — through the same handlers a
+  // click uses, so per-exam form initialisation happens.
+  useEffect(() => {
+    const key = router.isReady && router.query.exam;
+    if (!key || !examConfigs[key] || !examsById || counselling) return;
+    const route = routeForKey(String(key), examsById, router.query.examId);
+    if (!route) return;
+    setStream(route.stream);
+    setRouteExam(route.exam);
+    selectCounselling(
+      route.counselling,
+      router.query.examId === "jee-advanced" ? "Yes" : ""
+    );
+    // "Edit inputs" on the results page links back with every answer in the
+    // URL: refill them, after the counselling's own defaults
+    const q = router.query;
+    const restored = {};
+    for (const name of [
+      ...(examConfigs[key].fields || []).map((f) => f.name),
+      "qualifiedJeeAdv",
+      "mainRank",
+      "advRank",
+      "rank",
+      "scores",
+      "physicsMarks",
+      "chemistryMarks",
+      "mathsMarks",
+    ]) {
+      if (q[name] !== undefined && q[name] !== "")
+        restored[name] = String(q[name]);
+    }
+    if (Object.keys(restored).length) {
+      setFormData((prev) => ({ ...prev, ...restored }));
+    }
+    if (q.view === "full") setView("full");
+    else if (restored.mainRank || restored.rank || restored.scores) {
+      setView("mine");
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [router.isReady]);
+  }, [router.isReady, examsById]);
 
   const handleExamChange = (selectedOption) => {
     setSelectedExam(selectedOption.value);
@@ -171,7 +228,6 @@ const ExamForm = () => {
     setMarksError("");
     setPercentileInput("");
     setPercentileError("");
-    setEstimateInputType("marks");
     setEstimateError("");
     setEstimatedRank(null);
     setEstimatedPercentile(null);
@@ -199,25 +255,6 @@ const ExamForm = () => {
       if (selectedOption.label === "No" && newFormData.advRank) {
         delete newFormData.advRank;
       }
-      if (rankMode === "estimate") {
-        // the estimate covers both ranks: answering changes what it needs
-        delete newFormData.advRank;
-        newFormData.mainRank = "";
-        setEstimatedRank(null);
-        setEstimatedAdvRank(null);
-        setEstimateError("");
-      }
-    }
-
-    if (
-      selectedExam === "JoSAA" &&
-      rankMode === "estimate" &&
-      name === "category"
-    ) {
-      newFormData.mainRank = "";
-      setEstimatedRank(null);
-      setEstimatedPercentile(null);
-      setEstimateError("");
     }
 
     // A dropdown can change what the primary input is allowed to be — GUJCET's
@@ -238,225 +275,6 @@ const ExamForm = () => {
     }
 
     setFormData(newFormData);
-  };
-
-  const handleRankModeChange = (mode) => {
-    setRankMode(mode);
-    if (mode === "estimate") {
-      setFormData((prevData) => {
-        const nextData = {
-          ...prevData,
-          qualifiedJeeAdv: "No",
-          mainRank: "",
-          rankMode: "estimate",
-        };
-        delete nextData.advRank;
-        return nextData;
-      });
-      setEstimatedRank(null);
-      setEstimatedPercentile(null);
-      setMarksInput("");
-      setMarksError("");
-      setPercentileInput("");
-      setPercentileError("");
-      setEstimateInputType("marks");
-      setEstimateError("");
-      setAdvMarksInput("");
-      setAdvMarksError("");
-      setEstimatedAdvRank(null);
-    } else {
-      setFormData((prevData) => ({
-        ...prevData,
-        rankMode: "known",
-      }));
-      setEstimatedRank(null);
-      setEstimatedPercentile(null);
-      setMarksInput("");
-      setMarksError("");
-      setPercentileInput("");
-      setPercentileError("");
-      setEstimateInputType("marks");
-      setEstimateError("");
-    }
-  };
-
-  const handleEstimateInputTypeChange = (type) => {
-    setEstimateInputType(type);
-    setEstimatedRank(null);
-    setEstimatedPercentile(null);
-    setEstimateError("");
-    setMarksInput("");
-    setMarksError("");
-    setPercentileInput("");
-    setPercentileError("");
-  };
-
-  const handleMarksChange = (e) => {
-    const value = e.target.value;
-    setMarksInput(value);
-    setEstimatedRank(null);
-    setEstimatedPercentile(null);
-    setEstimateError("");
-    clearEstimatedRank();
-    if (value === "") {
-      setMarksError("");
-      return;
-    }
-    // Max marks is exam-specific: NEET is out of 720, JEE Main out of 300.
-    const maxMarks = Number(config?.estimateMarksInput?.max) || 300;
-    const marks = Number(value);
-    if (Number.isNaN(marks) || marks < 0 || marks > maxMarks) {
-      setMarksError(`Please enter marks between 0 and ${maxMarks}.`);
-      return;
-    }
-    setMarksError("");
-  };
-
-  const handleAdvMarksChange = (e) => {
-    const value = e.target.value;
-    setAdvMarksInput(value);
-    setEstimatedAdvRank(null);
-    setEstimatedRank(null);
-    setEstimateError("");
-    clearEstimatedRank();
-    const marks = Number(value);
-    setAdvMarksError(
-      value === "" || (Number.isInteger(marks) && marks >= 0 && marks <= 360)
-        ? ""
-        : "Please enter marks between 0 and 360."
-    );
-  };
-
-  const handlePercentileChange = (e) => {
-    const value = e.target.value;
-    setPercentileInput(value);
-    setEstimatedRank(null);
-    setEstimatedPercentile(null);
-    setEstimateError("");
-    clearEstimatedRank();
-    if (value === "") {
-      setPercentileError("");
-      return;
-    }
-    const percentileValue = Number(value);
-    if (
-      Number.isNaN(percentileValue) ||
-      percentileValue < 0 ||
-      percentileValue > 100
-    ) {
-      setPercentileError("Please enter percentile between 0 and 100.");
-      return;
-    }
-    setPercentileError("");
-  };
-
-  // new marks make the last estimate stale: drop the rank it wrote, or Submit
-  // would search with the old one
-  const clearEstimatedRank = () => {
-    if (selectedExam === "JoSAA" && rankMode === "estimate")
-      setFormData((prev) => {
-        if (!prev.mainRank && !prev.advRank) return prev;
-        const next = { ...prev, mainRank: "" };
-        delete next.advRank;
-        return next;
-      });
-  };
-  const wantsAdvEstimate = () =>
-    selectedExam === "JoSAA" &&
-    rankMode === "estimate" &&
-    formData.qualifiedJeeAdv === "Yes";
-
-  // thenSubmit: Submit pressed with marks typed but no estimate yet, so
-  // estimate and go straight to the results
-  const handleEstimateRank = async ({ thenSubmit = false } = {}) => {
-    if (!formData.category) {
-      setEstimateError("Please select your category first.");
-      return;
-    }
-    if (!isJosaaEstimationSupportedCategory(formData.category)) {
-      setEstimateError(josaaPwdEstimateError);
-      return;
-    }
-    if (estimateInputType === "marks") {
-      if (marksInput === "") {
-        setMarksError("Please enter your marks.");
-        return;
-      }
-      if (marksError) return;
-    } else {
-      if (percentileInput === "") {
-        setPercentileError("Please enter your percentile.");
-        return;
-      }
-      if (percentileError) return;
-    }
-    if (wantsAdvEstimate()) {
-      if (advMarksInput === "") {
-        setAdvMarksError("Please enter your JEE Advanced marks.");
-        return;
-      }
-      if (advMarksError) return;
-    }
-
-    setIsEstimating(true);
-    setEstimateError("");
-    try {
-      const response = await fetch("/api/jee-predict", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          marks: estimateInputType === "marks" ? Number(marksInput) : undefined,
-          percentile:
-            estimateInputType === "percentile"
-              ? Number(percentileInput)
-              : undefined,
-          category: formData.category,
-        }),
-      });
-
-      const data = await response.json();
-      if (!response.ok) {
-        setEstimateError(data.error || "Unable to estimate rank.");
-        setIsEstimating(false);
-        return;
-      }
-
-      const nextData = {
-        ...formData,
-        mainRank: String(data.categoryRank),
-        rankMode: "estimate",
-      };
-      delete nextData.advRank;
-      if (wantsAdvEstimate()) {
-        const advResponse = await fetch("/api/jee-adv-estimate", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            marks: Number(advMarksInput),
-            category: formData.category,
-          }),
-        });
-        const adv = await advResponse.json();
-        if (!advResponse.ok) {
-          setEstimateError(adv.error || "Unable to estimate rank.");
-          setIsEstimating(false);
-          return;
-        }
-        nextData.advRank = String(adv.rank);
-        setEstimatedAdvRank(adv.rank);
-      } else {
-        nextData.qualifiedJeeAdv = "No";
-        setEstimatedAdvRank(null);
-      }
-      setEstimatedRank(data.categoryRank);
-      setEstimatedPercentile(data.percentile);
-      setFormData(nextData);
-      if (thenSubmit) handleSubmit(nextData);
-    } catch (error) {
-      setEstimateError("Unable to estimate rank right now.");
-    } finally {
-      setIsEstimating(false);
-    }
   };
 
   // NEET marks -> All India Rank. Simpler than JoSAA: NEET has a single AIR
@@ -611,27 +429,10 @@ const ExamForm = () => {
     }
   };
 
-  // JoSAA estimate mode, marks (or percentile) typed, not estimated yet:
-  // Submit estimates first, so it shouldn't be blocked on the rank
-  const canEstimateOnSubmit = () =>
-    selectedExam === "JoSAA" &&
-    rankMode === "estimate" &&
-    !formData.mainRank &&
-    !!formData.category &&
-    isJosaaEstimationSupportedCategory(formData.category) &&
-    (estimateInputType === "marks"
-      ? marksInput !== "" && !marksError
-      : percentileInput !== "" && !percentileError) &&
-    (!wantsAdvEstimate() || (advMarksInput !== "" && !advMarksError)) &&
-    ["gender", "program", "homeState"].every((f) => formData[f]);
-
-  const onSubmitClick = () =>
-    canEstimateOnSubmit()
-      ? handleEstimateRank({ thenSubmit: true })
-      : handleSubmit();
+  // JoSAA submits through submitJosaa (it may estimate ranks first)
+  const onSubmitClick = () => handleSubmit();
 
   const isSubmitDisabled = () => {
-    if (canEstimateOnSubmit()) return isEstimating;
     // CUET: the paper scores stand in for the rank
     if (config?.scoreInput === "cuet") {
       return !formData.scores || hasMissingConfiguredFields();
@@ -681,6 +482,282 @@ const ExamForm = () => {
     );
   };
 
+  // "See the full list of cutoffs": the profile fields only, no rank, so the
+  // results list every cutoff (the API's view=full).
+  const handleFullListSubmit = () => {
+    const query = { exam: formData.exam, code: formData.code, view: "full" };
+    for (const field of config?.fields || []) {
+      if (formData[field.name]) query[field.name] = formData[field.name];
+    }
+    const queryString = getCleanQueryEntries(query)
+      .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
+      .join("&");
+    router.push(`/college_predictor?${queryString}`);
+  };
+
+  // ---- stream -> exam -> counselling ----------------------------------
+
+  const resetInputs = () => {
+    setView(null);
+    setMainKind("rank");
+    setAdvKind("rank");
+    setAdvMarksInput("");
+    setAdvMarksError("");
+    setEstimatedAdvRank(null);
+  };
+
+  const clearCounselling = () => {
+    setCounselling(null);
+    setSelectedExam("");
+    setConfig(null);
+    setFormData({});
+    resetInputs();
+  };
+
+  const selectCounselling = (c, qualifiedJeeAdv = "") => {
+    setCounselling(c);
+    resetInputs();
+    if (!c?.key) {
+      setSelectedExam("");
+      setConfig(null);
+      setFormData({});
+      return;
+    }
+    handleExamChange({ value: c.key, code: examConfigs[c.key].code });
+    if (c.key === "JoSAA") {
+      // the form asks for each rank (or marks) itself, so it starts from
+      // "known" and only estimates what the student gives as marks
+      setRankMode("known");
+      setFormData((prev) => ({
+        ...prev,
+        rankMode: "known",
+        qualifiedJeeAdv,
+      }));
+    }
+  };
+
+  const handleStreamChange = (option) => {
+    setStream(option.value);
+    setRouteExam(null);
+    clearCounselling();
+  };
+
+  const handleRouteExamChange = (option) => {
+    const exam = PREDICTOR_EXAMS.find((e) => e.id === option.value);
+    setRouteExam(exam);
+    // one counselling: nothing to choose
+    if (exam.counsellings.length === 1) selectCounselling(exam.counsellings[0]);
+    else clearCounselling();
+  };
+
+  // ---- JoSAA: JEE Main and JEE Advanced inputs --------------------------
+
+  const qualifiedAdv = formData.qualifiedJeeAdv === "Yes";
+  const needsMainEstimate = mainKind !== "rank";
+  const needsAdvEstimate = qualifiedAdv && advKind === "marks";
+  const canEstimate = isJosaaEstimationSupportedCategory(formData.category);
+
+  const handleMainKindChange = (kind) => {
+    setMainKind(kind);
+    setMarksInput("");
+    setMarksError("");
+    setPercentileInput("");
+    setPercentileError("");
+    setPrimaryInputError("");
+    setEstimatedRank(null);
+    setEstimatedPercentile(null);
+    setEstimateError("");
+    setFormData((prev) => ({ ...prev, mainRank: "" }));
+  };
+
+  const handleAdvKindChange = (kind) => {
+    setAdvKind(kind);
+    setAdvMarksInput("");
+    setAdvMarksError("");
+    setRankError("");
+    setEstimatedAdvRank(null);
+    setEstimateError("");
+    setFormData((prev) => {
+      const next = { ...prev };
+      delete next.advRank;
+      return next;
+    });
+  };
+
+  // marks or percentile typed: the last estimate is stale
+  const handleMainScoreChange = (kind) => (e) => {
+    const value = e.target.value;
+    const n = Number(value);
+    const ok =
+      kind === "marks"
+        ? Number.isInteger(n) && n >= 0 && n <= 300
+        : n >= 0 && n <= 100;
+    const error =
+      value === "" || ok
+        ? ""
+        : kind === "marks"
+        ? "Please enter marks between 0 and 300."
+        : "Please enter percentile between 0 and 100.";
+    if (kind === "marks") {
+      setMarksInput(value);
+      setMarksError(error);
+    } else {
+      setPercentileInput(value);
+      setPercentileError(error);
+    }
+    setEstimatedRank(null);
+    setEstimatedPercentile(null);
+    setEstimateError("");
+    setFormData((prev) => ({ ...prev, mainRank: "" }));
+  };
+
+  const handleAdvScoreChange = (e) => {
+    const value = e.target.value;
+    const n = Number(value);
+    setAdvMarksInput(value);
+    setAdvMarksError(
+      value === "" || (Number.isInteger(n) && n >= 0 && n <= 360)
+        ? ""
+        : "Please enter marks between 0 and 360."
+    );
+    setEstimatedAdvRank(null);
+    setEstimateError("");
+    setFormData((prev) => {
+      const next = { ...prev };
+      delete next.advRank;
+      return next;
+    });
+  };
+
+  // A new category or JEE Advanced answer changes what an estimate means
+  useEffect(() => {
+    setEstimatedRank(null);
+    setEstimatedPercentile(null);
+    setEstimatedAdvRank(null);
+    setEstimateError("");
+  }, [formData.category, formData.qualifiedJeeAdv]);
+
+  // Turns whatever was given as marks into ranks (/api/jee-predict for JEE
+  // Main, /api/jee-adv-estimate for JEE Advanced). Returns the form with the
+  // ranks filled in, or null if an estimate failed.
+  const estimateJosaaRanks = async () => {
+    setEstimateError("");
+    const next = {
+      ...formData,
+      rankMode: needsMainEstimate ? "estimate" : "known",
+    };
+    if (!qualifiedAdv) delete next.advRank;
+    if (!needsMainEstimate && !needsAdvEstimate) return next;
+    if (!canEstimate) {
+      setEstimateError(josaaPwdEstimateError);
+      return null;
+    }
+    setIsEstimating(true);
+    try {
+      if (needsMainEstimate) {
+        const res = await fetch("/api/jee-predict", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            marks: mainKind === "marks" ? Number(marksInput) : undefined,
+            percentile:
+              mainKind === "percentile" ? Number(percentileInput) : undefined,
+            category: formData.category,
+          }),
+        });
+        const data = await res.json();
+        if (!res.ok) {
+          setEstimateError(data.error || "Unable to estimate rank.");
+          return null;
+        }
+        next.mainRank = String(data.categoryRank);
+        setEstimatedRank(data.categoryRank);
+        setEstimatedPercentile(data.percentile);
+      }
+      if (needsAdvEstimate) {
+        const res = await fetch("/api/jee-adv-estimate", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            marks: Number(advMarksInput),
+            category: formData.category,
+          }),
+        });
+        const adv = await res.json();
+        if (!res.ok) {
+          setEstimateError(adv.error || "Unable to estimate rank.");
+          return null;
+        }
+        next.advRank = String(adv.rank);
+        setEstimatedAdvRank(adv.rank);
+      }
+      setFormData(next);
+      return next;
+    } catch (error) {
+      setEstimateError("Unable to estimate rank right now.");
+      return null;
+    } finally {
+      setIsEstimating(false);
+    }
+  };
+
+  const josaaFieldsReady = [
+    "category",
+    "gender",
+    "program",
+    "homeState",
+    "qualifiedJeeAdv",
+  ].every((f) => formData[f]);
+  const mainReady =
+    mainKind === "rank"
+      ? !!formData.mainRank && !primaryInputError
+      : mainKind === "marks"
+      ? marksInput !== "" && !marksError
+      : percentileInput !== "" && !percentileError;
+  const advReady =
+    !qualifiedAdv ||
+    (advKind === "rank"
+      ? !!formData.advRank && !rankError
+      : advMarksInput !== "" && !advMarksError);
+
+  const submitJosaa = async () => {
+    const next = await estimateJosaaRanks();
+    if (next) handleSubmit(next);
+  };
+
+  // ---- presentation -----------------------------------------------------
+
+  const fieldLabelClass =
+    "mb-1.5 block text-xs font-bold tracking-[0.04em] text-[#4a3a36]";
+  const inputClass = (hasError) =>
+    `w-full min-h-[46px] rounded-[10px] border-[1.5px] bg-white px-3.5 py-[11px] text-[15px] text-[#2f2320] outline-none transition focus:ring-[3px] focus:ring-[#fbeeec] ${
+      hasError
+        ? "border-red-500 focus:border-red-500"
+        : "border-[#e0cdc6] focus:border-[#B52326]"
+    }`;
+  const gateButtonClass = (on) =>
+    `rounded-xl border-[1.5px] px-[26px] py-3.5 text-[15px] font-extrabold transition ${
+      on
+        ? "border-[#B52326] bg-[#B52326] text-white"
+        : "border-[#d8c7c1] bg-[#fffdfa] text-[#5b3a34] hover:border-[#B52326] hover:text-[#B52326]"
+    }`;
+  const kindButtonClass = (on) =>
+    `rounded-[10px] border-[1.5px] px-5 py-2.5 text-sm font-extrabold transition ${
+      on
+        ? "border-[#B52326] bg-[#B52326] text-white"
+        : "border-[#d8c7c1] bg-[#fffdfa] text-[#5b3a34] hover:border-[#B52326] hover:text-[#B52326]"
+    }`;
+  const blockNumberKeys = (allowDecimal) => (e) => {
+    if (
+      ["e", "E", "+", "-", " "].includes(e.key) ||
+      (!allowDecimal && e.key === ".")
+    ) {
+      e.preventDefault();
+    }
+  };
+  const mockTestNote =
+    "If you haven't taken the exam yet, use your mock test marks.";
+
   const renderFormCard = (
     key,
     label,
@@ -691,10 +768,8 @@ const ExamForm = () => {
   ) => (
     // one flat form: a label over each control, no box around every
     // question (boxes inside a box read as clutter)
-    <div key={key} className={`${fullWidth ? "md:col-span-2" : ""} text-left`}>
-      <label className="mb-1.5 block text-sm font-semibold text-[#4a3935]">
-        {label}
-      </label>
+    <div key={key} className={`${fullWidth ? "col-span-full" : ""} text-left`}>
+      {label && <label className={fieldLabelClass}>{label}</label>}
       {control}
       {helperText && (
         <p className="mt-2 text-xs leading-5 text-[#6d5550]">{helperText}</p>
@@ -703,584 +778,508 @@ const ExamForm = () => {
     </div>
   );
 
+  const renderDropdownField = (field) =>
+    renderFormCard(
+      `${selectedExam}-${field.name}`,
+      typeof field.label === "function" ? field.label(formData) : field.label,
+      <Dropdown
+        options={(field.dynamicOptionsByHomeState
+          ? neetStateCategories?.[formData.homeState] || []
+          : field.options
+        ).map((option) =>
+          typeof option === "string" ? { value: option, label: option } : option
+        )}
+        onChange={handleInputChange(field.name)}
+        selectedValue={formData[field.name]}
+        className="w-full"
+      />,
+      field.helperText
+    );
+
   const renderFields = () => {
-    if (!selectedExam) return null;
-
-    if (!config) return null;
-
-    let fieldsToRender =
-      selectedExam === "JoSAA"
-        ? config.fields.filter((field) => field.name !== "qualifiedJeeAdv")
-        : config.fields;
-
-    // The NEET home-state category dropdown only makes sense once a home state
-    // that we actually have state-quota data for is chosen.
-    fieldsToRender = fieldsToRender.filter((field) => {
-      if (field.dynamicOptionsByHomeState) {
-        const hs = formData.homeState;
-        return (
-          hs &&
-          hs !== "Other" &&
-          neetStateCategories &&
-          Array.isArray(neetStateCategories[hs]) &&
-          neetStateCategories[hs].length > 0
-        );
-      }
-      return true;
-    });
-
-    return fieldsToRender.map((field) => {
-      // Resolve options: state-dependent for the dynamic field, else the static list.
-      const rawOptions = field.dynamicOptionsByHomeState
-        ? neetStateCategories?.[formData.homeState] || []
-        : field.options;
-
-      return renderFormCard(
-        `${selectedExam}-${field.name}`,
-        typeof field.label === "function" ? field.label(formData) : field.label,
-        <Dropdown
-          options={rawOptions.map((option) =>
-            typeof option === "string"
-              ? { value: option, label: option }
-              : option
-          )}
-          onChange={handleInputChange(field.name)}
-          selectedValue={formData[field.name]}
-          className="w-full"
-        />,
-        field.helperText
-      );
-    });
+    if (!selectedExam || !config) return null;
+    return (
+      config.fields
+        // JoSAA asks about JEE Advanced on its own, just before the inputs
+        .filter((field) => field.name !== "qualifiedJeeAdv")
+        // The NEET home-state category dropdown only makes sense once a home
+        // state that we actually have state-quota data for is chosen.
+        .filter((field) => {
+          if (!field.dynamicOptionsByHomeState) return true;
+          const hs = formData.homeState;
+          return (
+            hs &&
+            hs !== "Other" &&
+            Array.isArray(neetStateCategories?.[hs]) &&
+            neetStateCategories[hs].length > 0
+          );
+        })
+        .map(renderDropdownField)
+    );
   };
+
+  const renderKindToggle = (kinds, current, onChange) => (
+    <div className="mb-3 flex flex-wrap gap-2.5">
+      {kinds.map(([kind, label]) => (
+        <button
+          key={kind}
+          type="button"
+          onClick={() => onChange(kind)}
+          className={kindButtonClass(current === kind)}
+        >
+          {label}
+        </button>
+      ))}
+    </div>
+  );
+
+  // JoSAA: JEE Main as Rank / Marks / Percentile, then (if qualified) JEE
+  // Advanced as Rank / Marks. Marks become ranks through the estimators.
+  const renderJosaaInputs = () => (
+    <>
+      <div className="col-span-full text-left">
+        <span className={fieldLabelClass}>JEE Main</span>
+        {renderKindToggle(
+          [
+            ["rank", "Rank"],
+            ["marks", "Marks"],
+            ["percentile", "Percentile"],
+          ],
+          mainKind,
+          handleMainKindChange
+        )}
+        {mainKind === "rank"
+          ? renderFormCard(
+              "mainRank",
+              `Enter your JEE Main ${
+                formData.category ? formData.category + " " : ""
+              }category rank`,
+              <input
+                type="number"
+                step="1"
+                min="1"
+                value={formData.mainRank || ""}
+                onChange={handleRankChange}
+                onKeyDown={blockNumberKeys(false)}
+                className={inputClass(primaryInputError)}
+                placeholder="e.g. 4500"
+              />,
+              null,
+              primaryInputError
+            )
+          : mainKind === "marks"
+          ? renderFormCard(
+              "mainMarks",
+              `Enter your JEE Main marks (out of 300). ${mockTestNote}`,
+              <input
+                type="number"
+                step="1"
+                min="0"
+                max="300"
+                value={marksInput}
+                onChange={handleMainScoreChange("marks")}
+                onKeyDown={blockNumberKeys(false)}
+                className={inputClass(marksError)}
+                placeholder="e.g. 180"
+              />,
+              null,
+              marksError
+            )
+          : renderFormCard(
+              "mainPercentile",
+              "Enter your JEE Main percentile (out of 100)",
+              <input
+                type="number"
+                step="0.01"
+                min="0"
+                max="100"
+                value={percentileInput}
+                onChange={handleMainScoreChange("percentile")}
+                onKeyDown={blockNumberKeys(true)}
+                className={inputClass(percentileError)}
+                placeholder="e.g. 98.6"
+              />,
+              null,
+              percentileError
+            )}
+      </div>
+
+      {qualifiedAdv && (
+        <div className="col-span-full text-left">
+          <span className={fieldLabelClass}>JEE Advanced</span>
+          {renderKindToggle(
+            [
+              ["rank", "Rank"],
+              ["marks", "Marks"],
+            ],
+            advKind,
+            handleAdvKindChange
+          )}
+          {advKind === "rank"
+            ? renderFormCard(
+                "advRank",
+                config?.advancedInput?.label ||
+                  "Enter JEE Advanced Category Rank",
+                <input
+                  type="text"
+                  inputMode="numeric"
+                  value={formData.advRank || ""}
+                  onChange={handleAdvancedRankChange}
+                  onKeyDown={blockNumberKeys(false)}
+                  className={inputClass(rankError)}
+                  placeholder={
+                    config?.advancedInput?.placeholder || "e.g., 104 or 104P"
+                  }
+                />,
+                "Enter rank (e.g., 104) or rank with 'P' suffix (e.g., 104P)",
+                rankError
+              )
+            : renderFormCard(
+                "advMarks",
+                `Enter your JEE Advanced marks (out of 360). ${mockTestNote}`,
+                <input
+                  type="number"
+                  step="1"
+                  min="0"
+                  max="360"
+                  value={advMarksInput}
+                  onChange={handleAdvScoreChange}
+                  onKeyDown={blockNumberKeys(false)}
+                  className={inputClass(advMarksError)}
+                  placeholder="e.g. 150"
+                />,
+                null,
+                advMarksError
+              )}
+        </div>
+      )}
+
+      {(needsMainEstimate || needsAdvEstimate) && (
+        <div className="col-span-full flex flex-col gap-2.5 text-left">
+          {!canEstimate && formData.category ? (
+            <p className="text-sm text-[#6d5550]">
+              Rank prediction isn&apos;t available for PwD categories. Choose
+              Rank and enter your rank directly.
+            </p>
+          ) : (
+            !(estimatedRank || estimatedAdvRank) && (
+              <button
+                type="button"
+                onClick={() => estimateJosaaRanks()}
+                disabled={isEstimating || !mainReady || !advReady}
+                className="self-start rounded-[10px] border-[1.5px] border-[#B52326] bg-white px-4 py-2 text-sm font-bold text-[#B52326] transition hover:bg-[#fbeeec] disabled:cursor-not-allowed disabled:border-[#e0cdc6] disabled:text-[#b9a8a2]"
+              >
+                {isEstimating ? "Estimating…" : "See my predicted rank"}
+              </button>
+            )
+          )}
+          {estimateError && (
+            <p className="text-sm text-red-500">{estimateError}</p>
+          )}
+          {(estimatedRank || estimatedAdvRank) && (
+            <div className="rounded-xl border border-[#eaded8] bg-[#fbeeec] px-[18px] py-4 text-[15px] text-[#5f514c]">
+              {estimatedRank && (
+                <span className="block">
+                  Your predicted JEE Main {formData.category} category rank is{" "}
+                  <b className="font-['Lato',sans-serif] text-[22px] text-[#2f2320]">
+                    {Number(estimatedRank).toLocaleString("en-IN")}
+                  </b>
+                  {estimatedPercentile !== null && (
+                    <span className="block text-sm">
+                      Predicted percentile: <b>{estimatedPercentile}</b>
+                    </span>
+                  )}
+                </span>
+              )}
+              {estimatedAdvRank && (
+                <span className="mt-1 block">
+                  Your predicted JEE Advanced {formData.category} category rank
+                  is{" "}
+                  <b className="font-['Lato',sans-serif] text-[22px] text-[#2f2320]">
+                    {Number(estimatedAdvRank).toLocaleString("en-IN")}
+                  </b>
+                </span>
+              )}
+              <span className="mt-1.5 block text-[12.5px] leading-relaxed text-[#9b8a82]">
+                Indicative only. JEE Main is estimated from 10k+ students&apos;
+                results in 2024 and 2025, JEE Advanced from the official marks
+                at each rank in 2025 and 2026. Your actual rank can differ.
+              </span>
+            </div>
+          )}
+        </div>
+      )}
+    </>
+  );
+
+  // Every other exam has one input, defined by its config (a rank, or a score
+  // for exams that admit on marks). TNEA and CUET have their own calculators.
+  const renderSingleInput = () => {
+    if (selectedExam === "TNEA") {
+      return (
+        <div className="col-span-full">
+          <TneaScoreCalculator
+            initialPhysics={formData.physicsMarks || ""}
+            initialChemistry={formData.chemistryMarks || ""}
+            initialMaths={formData.mathsMarks || ""}
+            onScoreChange={handleTneaScoreChange}
+          />
+        </div>
+      );
+    }
+    if (config?.scoreInput === "cuet") {
+      return (
+        <div className="col-span-full">
+          <CuetScoreInput
+            value={formData.scores || ""}
+            onChange={(scores) => setFormData((prev) => ({ ...prev, scores }))}
+          />
+        </div>
+      );
+    }
+    // NEET is rank-only for now (see handleExamChange); the marks estimator
+    // in handleNeetEstimateRank is kept for when it is re-enabled.
+    const isScore = /score|marks/i.test(primaryInputConfig.label);
+    return renderFormCard(
+      "primaryInput",
+      primaryInputConfig.label,
+      <input
+        type="number"
+        step={primaryInputConfig.step}
+        min={primaryInputConfig.min}
+        max={primaryInputConfig.max}
+        value={formData.rank || ""}
+        onChange={handleRankChange}
+        onKeyDown={blockNumberKeys(primaryInputConfig.allowDecimal)}
+        className={inputClass(primaryInputError)}
+        placeholder={primaryInputConfig.placeholder}
+      />,
+      primaryInputConfig.helperText || (isScore ? mockTestNote : null),
+      primaryInputError
+    );
+  };
+
+  const isJosaa = selectedExam === "JoSAA";
+  // name what the counselling takes: JoSAA ranks or marks, the rest one
+  // input, a rank or a score
+  const mineLabel = isJosaa
+    ? "See colleges for my rank / marks"
+    : config?.scoreInput ||
+      selectedExam === "TNEA" ||
+      /score|marks/i.test(primaryInputConfig.label)
+    ? "See colleges for my score"
+    : "See colleges for my rank";
+  const submitDisabled =
+    view === "full"
+      ? hasMissingConfiguredFields()
+      : isJosaa
+      ? isEstimating || !josaaFieldsReady || !mainReady || !advReady
+      : isSubmitDisabled();
+  // JoSAA asks the JEE Advanced question once its profile is filled in
+  const showGate = selectedExam && (!isJosaa || !!formData.qualifiedJeeAdv);
+
+  const streamOptions = examsById
+    ? allStreams(examsById).map((s) => ({ value: s, label: s }))
+    : [];
+  const examOptions =
+    examsById && stream
+      ? examsInStream(stream, examsById).map((e) => ({
+          value: e.id,
+          label: e.label,
+        }))
+      : [];
+  const counsellingOptions = routeExam
+    ? routeExam.counsellings.map((c) => ({
+        value: c.label,
+        label: counsellingLabel(c),
+        soon: !c.key,
+      }))
+    : [];
 
   return (
     <>
       <Head>
-        <title>College Predictor - Futures</title>
+        <title>{getConstants().TITLE} - Futures</title>
       </Head>
       <div className="flex min-h-[calc(100vh-120px)] flex-col">
         <div className="mt-6 flex w-full flex-col items-center justify-start px-4 pb-10 sm:mt-8">
-          <div className="w-full max-w-4xl">
+          <div className="w-full max-w-[980px]">
             <BackLink />
           </div>
-          <div className="mt-4 flex w-full max-w-4xl flex-col items-center rounded-2xl border border-[#eaded8] bg-white p-5 pb-6 text-center shadow-sm sm:mt-6 sm:p-6">
-            <h1 className="mb-2 text-2xl font-bold text-[#2f2320] md:text-3xl">
+          <div className="mt-4 w-full max-w-[980px] sm:mt-6">
+            <h1 className="mb-6 mt-1 text-center font-['Lato',sans-serif] text-[28px] font-black text-[#2f2320] sm:text-[40px]">
               {getConstants().TITLE}
             </h1>
-            {/* TGEAPCET Disclaimer - Shows when EWS category is selected */}
-            {selectedExam === "TGEAPCET" && formData.category === "EWS" && (
-              <div className="bg-red-50 border-l-4 border-red-400 p-4 mb-6 w-full">
-                <p className="text-red-700 text-sm">
-                  Showing OC category data as EWS-specific data is limited.
-                </p>
-              </div>
-            )}
-
-            <div className="mt-4 grid w-full grid-cols-1 gap-x-6 gap-y-5 md:grid-cols-2">
-              {renderFormCard(
-                "exam",
-                "Select Exam/Counselling Process",
-                <Dropdown
-                  options={Object.keys(examConfigs)
-                    .filter(
-                      (exam) =>
-                        exam !== "JEE Main-JOSAA" && exam !== "JEE Advanced"
-                    )
-                    .map((exam) => ({
-                      value: exam,
-                      label: examConfigs[exam].name || exam,
-                      code: examConfigs[exam].code,
-                      apiEndpoint: examConfigs[exam].apiEndpoint,
-                    }))}
-                  onChange={handleExamChange}
-                  selectedValue={selectedExam}
-                  className="w-full"
-                />,
-                null,
-                null,
-                true
+            <div className="flex flex-col gap-[18px] rounded-[20px] border border-[#eaded8] bg-white px-5 py-6 shadow-[0_2px_8px_rgba(74,42,38,0.06)] sm:px-7 sm:py-[26px]">
+              {/* TGEAPCET Disclaimer - Shows when EWS category is selected */}
+              {selectedExam === "TGEAPCET" && formData.category === "EWS" && (
+                <div className="w-full border-l-4 border-red-400 bg-red-50 p-4">
+                  <p className="text-sm text-red-700">
+                    Showing OC category data as EWS-specific data is limited.
+                  </p>
+                </div>
               )}
-              {renderFields()}
 
-              {selectedExam && selectedExam === "TNEA" ? (
-                <div className="md:col-span-2">
-                  <TneaScoreCalculator onScoreChange={handleTneaScoreChange} />
-                </div>
-              ) : config?.scoreInput === "cuet" ? (
-                <div className="md:col-span-2">
-                  <CuetScoreInput
-                    value={formData.scores || ""}
-                    onChange={(scores) =>
-                      setFormData((prev) => ({ ...prev, scores }))
-                    }
+              <div className="grid w-full grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-4">
+                {renderFormCard(
+                  "stream",
+                  "Select stream",
+                  <Dropdown
+                    options={streamOptions}
+                    onChange={handleStreamChange}
+                    selectedValue={stream}
+                    placeholder={examsById ? "Select..." : "Loading..."}
+                    className="w-full"
                   />
-                </div>
-              ) : (
-                selectedExam && (
-                  <>
-                    {/* NEET marks->rank estimator disabled 2026-07-20 (Amogh):
-                        the 2025-fitted score-rank model is wrong for the 2026
-                        spread. NEET is rank-only until we handle year-to-year
-                        difficulty variance — so no estimate/known toggle, and
-                        the marks card below never renders (rankMode is forced to
-                        "known" for NEET in handleExamChange). Re-enable by
-                        restoring this toggle + the estimate keys in examConfig. */}
-                    {false &&
-                      selectedExam === "NEETUG" &&
-                      rankMode === "estimate" &&
-                      renderFormCard(
-                        "estimate",
-                        config?.estimateMarksInput?.label ||
-                          "Enter your NEET marks (out of 720)",
-                        <div className="flex flex-col gap-2.5">
-                          <input
-                            type="number"
-                            step="1"
-                            min="0"
-                            max="720"
-                            value={marksInput}
-                            onChange={handleMarksChange}
-                            onKeyDown={(e) => {
-                              if (
-                                [".", "e", "E", "+", "-", " "].includes(e.key)
-                              ) {
-                                e.preventDefault();
-                              }
-                            }}
-                            className={`w-full rounded-xl border bg-[#fffdfa] p-3 text-center outline-none transition focus:ring-2 focus:ring-[#f4d5d6] ${
-                              marksError
-                                ? "border-red-500 focus:border-red-500"
-                                : "border-[#d8c7c1] focus:border-[#b52326]"
-                            }`}
-                            placeholder={
-                              config?.estimateMarksInput?.placeholder ||
-                              "e.g., 545"
-                            }
-                          />
-                          {marksError && (
-                            <p className="text-red-500 text-sm">{marksError}</p>
-                          )}
-                          <button
-                            type="button"
-                            onClick={handleNeetEstimateRank}
-                            disabled={
-                              isEstimating || marksInput === "" || !!marksError
-                            }
-                            className="rounded-lg bg-[#B52326] px-4 py-2 text-white hover:bg-[#9E1F22] disabled:bg-gray-300 disabled:text-gray-600"
-                          >
-                            {isEstimating ? "Estimating..." : "Estimate Rank"}
-                          </button>
-                          {estimateError && (
-                            <p className="text-red-500 text-sm">
-                              {estimateError}
-                            </p>
-                          )}
-                          {estimatedRank && (
-                            <div className="rounded-xl border border-[#eaded8] bg-[#fffdfa] p-4 text-left text-sm text-gray-700">
-                              <p>
-                                Estimated All India Rank:{" "}
-                                <strong>
-                                  {Number(marksInput) > 640
-                                    ? `~${estimatedRank} (top tier)`
-                                    : estimatedRank}
-                                </strong>
-                              </p>
-                              <p className="text-xs text-gray-500 mt-1">
-                                Estimated from a NEET 2025 marks-vs-rank model
-                                (~32k students). Actual 2026 rank varies with
-                                paper difficulty.
-                              </p>
-                            </div>
-                          )}
-                        </div>,
-                        null,
-                        null,
-                        true
-                      )}
-
-                    {selectedExam === "JoSAA" &&
-                      renderFormCard(
-                        "rankMode",
-                        "Do you want rank prediction?",
-                        <div className="flex justify-center w-full">
-                          <div className="inline-flex w-full overflow-hidden rounded-xl border border-[#d8c7c1]">
-                            <button
-                              type="button"
-                              onClick={() => handleRankModeChange("estimate")}
-                              className={`flex-1 px-4 py-2 text-sm ${
-                                rankMode === "estimate"
-                                  ? "bg-[#B52326] text-white"
-                                  : "bg-white text-gray-700"
-                              }`}
-                            >
-                              Yes, estimate rank
-                            </button>
-                            <button
-                              type="button"
-                              onClick={() => handleRankModeChange("known")}
-                              className={`flex-1 px-4 py-2 text-sm ${
-                                rankMode === "known"
-                                  ? "bg-[#B52326] text-white"
-                                  : "bg-white text-gray-700"
-                              }`}
-                            >
-                              No, I know my rank
-                            </button>
-                          </div>
-                        </div>,
-                        null,
-                        null,
-                        true
-                      )}
-
-                    {selectedExam === "JoSAA" &&
-                      config?.fields?.find(
-                        (field) => field.name === "qualifiedJeeAdv"
-                      ) &&
-                      renderFormCard(
-                        "qualifiedJeeAdv",
-                        config.fields.find(
-                          (field) => field.name === "qualifiedJeeAdv"
-                        ).label,
-                        <Dropdown
-                          options={config.fields
-                            .find((field) => field.name === "qualifiedJeeAdv")
-                            .options.map((option) =>
-                              typeof option === "string"
-                                ? { value: option, label: option }
-                                : option
-                            )}
-                          onChange={handleInputChange("qualifiedJeeAdv")}
-                          className="w-full"
-                          selectedValue={formData.qualifiedJeeAdv}
-                        />
-                      )}
-
-                    {/* NEET in estimate mode already renders its own card
-                        above, so suppress the plain rank input for that case. */}
-                    {selectedExam === "NEETUG" && rankMode === "estimate"
-                      ? null
-                      : selectedExam === "JoSAA" && rankMode === "estimate"
-                      ? renderFormCard(
-                          "estimate",
-                          estimateInputType === "marks"
-                            ? config?.estimateMarksInput?.label ||
-                                "Enter JEE Main marks out of 300"
-                            : config?.estimatePercentileInput?.label ||
-                                "Enter JEE Main percentile",
-                          <div className="flex flex-col gap-2.5">
-                            <div className="flex justify-center w-full">
-                              <div className="inline-flex w-full overflow-hidden rounded-xl border border-[#d8c7c1]">
-                                <button
-                                  type="button"
-                                  onClick={() =>
-                                    handleEstimateInputTypeChange("marks")
-                                  }
-                                  className={`flex-1 px-4 py-2 text-sm ${
-                                    estimateInputType === "marks"
-                                      ? "bg-[#B52326] text-white"
-                                      : "bg-white text-gray-700"
-                                  }`}
-                                >
-                                  Marks
-                                </button>
-                                <button
-                                  type="button"
-                                  onClick={() =>
-                                    handleEstimateInputTypeChange("percentile")
-                                  }
-                                  className={`flex-1 px-4 py-2 text-sm ${
-                                    estimateInputType === "percentile"
-                                      ? "bg-[#B52326] text-white"
-                                      : "bg-white text-gray-700"
-                                  }`}
-                                >
-                                  Percentile
-                                </button>
-                              </div>
-                            </div>
-                            {estimateInputType === "marks" ? (
-                              <>
-                                <input
-                                  type="number"
-                                  step="1"
-                                  min="0"
-                                  max="300"
-                                  value={marksInput}
-                                  onChange={handleMarksChange}
-                                  onKeyDown={(e) => {
-                                    if (
-                                      [".", "e", "E", "+", "-", " "].includes(
-                                        e.key
-                                      )
-                                    ) {
-                                      e.preventDefault();
-                                    }
-                                  }}
-                                  className={`w-full rounded-xl border bg-[#fffdfa] p-3 text-center outline-none transition focus:ring-2 focus:ring-[#f4d5d6] ${
-                                    marksError
-                                      ? "border-red-500 focus:border-red-500"
-                                      : "border-[#d8c7c1] focus:border-[#b52326]"
-                                  }`}
-                                  placeholder={
-                                    config?.estimateMarksInput?.placeholder ||
-                                    "e.g., 182"
-                                  }
-                                />
-                                {marksError && (
-                                  <p className="text-red-500 text-sm">
-                                    {marksError}
-                                  </p>
-                                )}
-                              </>
-                            ) : (
-                              <>
-                                <input
-                                  type="number"
-                                  step="0.01"
-                                  min="0"
-                                  max="100"
-                                  value={percentileInput}
-                                  onChange={handlePercentileChange}
-                                  onKeyDown={(e) => {
-                                    if (
-                                      ["e", "E", "+", "-", " "].includes(e.key)
-                                    ) {
-                                      e.preventDefault();
-                                    }
-                                  }}
-                                  className={`w-full rounded-xl border bg-[#fffdfa] p-3 text-center outline-none transition focus:ring-2 focus:ring-[#f4d5d6] ${
-                                    percentileError
-                                      ? "border-red-500 focus:border-red-500"
-                                      : "border-[#d8c7c1] focus:border-[#b52326]"
-                                  }`}
-                                  placeholder={
-                                    config?.estimatePercentileInput
-                                      ?.placeholder || "e.g., 97.45"
-                                  }
-                                />
-                                {percentileError && (
-                                  <p className="text-red-500 text-sm">
-                                    {percentileError}
-                                  </p>
-                                )}
-                              </>
-                            )}
-                            {formData.qualifiedJeeAdv === "Yes" && (
-                              <>
-                                <label className="mt-1 text-sm font-semibold text-[#5b3a34]">
-                                  JEE Advanced marks out of 360
-                                </label>
-                                <input
-                                  type="number"
-                                  step="1"
-                                  min="0"
-                                  max="360"
-                                  value={advMarksInput}
-                                  onChange={handleAdvMarksChange}
-                                  onKeyDown={(e) => {
-                                    if (
-                                      [".", "e", "E", "+", "-", " "].includes(
-                                        e.key
-                                      )
-                                    ) {
-                                      e.preventDefault();
-                                    }
-                                  }}
-                                  className={`w-full rounded-xl border bg-[#fffdfa] p-3 text-center outline-none transition focus:ring-2 focus:ring-[#f4d5d6] ${
-                                    advMarksError
-                                      ? "border-red-500 focus:border-red-500"
-                                      : "border-[#d8c7c1] focus:border-[#b52326]"
-                                  }`}
-                                  placeholder="e.g., 150"
-                                />
-                                {advMarksError && (
-                                  <p className="text-red-500 text-sm">
-                                    {advMarksError}
-                                  </p>
-                                )}
-                              </>
-                            )}
-                            <button
-                              type="button"
-                              onClick={() => handleEstimateRank()}
-                              disabled={
-                                isEstimating ||
-                                (wantsAdvEstimate() &&
-                                  (advMarksInput === "" || !!advMarksError)) ||
-                                (estimateInputType === "marks"
-                                  ? marksInput === "" || !!marksError
-                                  : percentileInput === "" ||
-                                    !!percentileError) ||
-                                !formData.category ||
-                                !isJosaaEstimationSupportedCategory(
-                                  formData.category
-                                )
-                              }
-                              className="self-start rounded-lg border border-[#B52326] bg-white px-4 py-2 text-sm font-semibold text-[#B52326] transition hover:bg-[#fbeeec] disabled:cursor-not-allowed disabled:border-[#e0cdc6] disabled:text-[#b9a8a2]"
-                            >
-                              {isEstimating ? "Estimating…" : "See my rank"}
-                            </button>
-                            {formData.category &&
-                              !isJosaaEstimationSupportedCategory(
-                                formData.category
-                              ) && (
-                                <p className="text-sm text-[#6d5550]">
-                                  {josaaPwdEstimateError}
-                                </p>
-                              )}
-                            {estimateError && (
-                              <p className="text-red-500 text-sm">
-                                {estimateError}
-                              </p>
-                            )}
-                            {estimatedRank && estimatedPercentile !== null && (
-                              <div className="rounded-xl border border-[#eaded8] bg-[#fffdfa] p-4 text-left text-sm text-gray-700">
-                                <p>
-                                  Predicted Percentile:{" "}
-                                  <strong>{estimatedPercentile}</strong>
-                                </p>
-                                <p>
-                                  Predicted Category Rank:{" "}
-                                  <strong>{estimatedRank}</strong>
-                                </p>
-                                {estimatedAdvRank && (
-                                  <p>
-                                    Predicted JEE Advanced Category Rank:{" "}
-                                    <strong>{estimatedAdvRank}</strong>
-                                  </p>
-                                )}
-                                <p className="text-xs text-gray-500 mt-1">
-                                  Results are based on average data of 10k+
-                                  students from 2024 and 2025. Actual 2025/26
-                                  results may vary depending on the paper slot.
-                                </p>
-                                {/* pilot: students didn't see the Submit
-                                    button far below — the next step lives
-                                    right under the number */}
-                                {!isSubmitDisabled() && (
-                                  <button
-                                    type="button"
-                                    onClick={() => handleSubmit()}
-                                    className="mt-3 w-full rounded-lg bg-[#B52326] px-4 py-2.5 text-sm font-bold text-white hover:bg-[#9E1F22]"
-                                  >
-                                    See colleges for this rank →
-                                  </button>
-                                )}
-                              </div>
-                            )}
-                          </div>,
-                          null,
-                          null,
-                          true
+                )}
+                {stream &&
+                  renderFormCard(
+                    "routeExam",
+                    "Select exam",
+                    <Dropdown
+                      key={stream}
+                      options={examOptions}
+                      onChange={handleRouteExamChange}
+                      selectedValue={routeExam?.id}
+                      className="w-full"
+                    />
+                  )}
+                {routeExam &&
+                  renderFormCard(
+                    "counselling",
+                    "Select counselling",
+                    <Dropdown
+                      key={routeExam.id}
+                      options={counsellingOptions}
+                      onChange={(option) =>
+                        selectCounselling(
+                          routeExam.counsellings.find(
+                            (c) => c.label === option.value
+                          )
                         )
-                      : renderFormCard(
-                          "primaryInput",
-                          primaryInputConfig.label,
-                          <input
-                            type="number"
-                            step={primaryInputConfig.step}
-                            min={primaryInputConfig.min}
-                            max={primaryInputConfig.max}
-                            value={
-                              selectedExam === "JoSAA"
-                                ? formData.mainRank || ""
-                                : formData.rank || ""
-                            }
-                            onChange={handleRankChange}
-                            onKeyDown={(e) => {
-                              if (
-                                ["e", "E", "+", "-", " "].includes(e.key) ||
-                                (!primaryInputConfig.allowDecimal &&
-                                  e.key === ".")
-                              ) {
-                                e.preventDefault();
-                              }
-                            }}
-                            className={`w-full rounded-xl border bg-white px-4 py-3 text-left text-sm outline-none transition focus:ring-2 focus:ring-[#f4d5d6] sm:text-base ${
-                              primaryInputError
-                                ? "border-red-500 focus:border-red-500"
-                                : "border-[#d8c7c1] focus:border-[#b52326]"
-                            }`}
-                            placeholder={primaryInputConfig.placeholder}
-                          />,
-                          primaryInputConfig.helperText,
-                          primaryInputError
-                        )}
+                      }
+                      selectedValue={counselling?.label}
+                      formatOptionLabel={(option, { context }) =>
+                        option.soon && context === "menu" ? (
+                          <span>
+                            {option.label}{" "}
+                            <span className="text-xs text-[#9b8a82]">
+                              · cutoffs coming soon
+                            </span>
+                          </span>
+                        ) : (
+                          option.label
+                        )
+                      }
+                      className="w-full"
+                    />
+                  )}
+              </div>
 
-                    {/* JEE Advanced Rank input field - only show if user selected Yes for qualifiedJeeAdv */}
-                    {selectedExam === "JoSAA" &&
-                      rankMode === "known" &&
-                      formData.qualifiedJeeAdv === "Yes" &&
-                      renderFormCard(
-                        "advRank",
-                        config?.advancedInput?.label ||
-                          "Enter JEE Advanced Category Rank",
-                        <div className="flex flex-col w-full">
-                          <input
-                            type="string"
-                            step="1"
-                            value={formData.advRank || ""}
-                            onChange={handleAdvancedRankChange}
-                            onKeyDown={(e) => {
-                              if (
-                                [".", "e", "E", "+", "-", " "].includes(e.key)
-                              ) {
-                                e.preventDefault();
-                              }
-                            }}
-                            className={`w-full rounded-xl border bg-[#fffdfa] p-3 text-center outline-none transition focus:ring-2 focus:ring-[#f4d5d6] ${
-                              rankError
-                                ? "border-red-500 focus:border-red-500"
-                                : "border-[#d8c7c1] focus:border-[#b52326]"
-                            }`}
-                            placeholder={
-                              config?.advancedInput?.placeholder ||
-                              "e.g., 104 or 104P"
-                            }
-                          />
-                          <p className="text-xs text-gray-500 mt-2 leading-5">
-                            Enter rank (e.g., 104) or rank with 'P' suffix
-                            (e.g., 104P)
-                          </p>
-                        </div>,
-                        null,
-                        rankError
-                      )}
-                  </>
-                )
+              {counselling && !counselling.key && (
+                <div className="rounded-[20px] border border-[#eaded8] bg-[#fffdfa] px-5 py-4 text-left">
+                  <div className="font-['Lato',sans-serif] text-xl font-black text-[#2f2320]">
+                    {counselling.label} cutoffs are coming soon
+                  </div>
+                  <p className="mt-1.5 text-sm leading-relaxed text-[#6d5550]">
+                    Futures doesn&apos;t have {counselling.label} cutoffs yet,
+                    so we can&apos;t predict colleges for it. Pick another
+                    counselling above
+                    {routeExam?.examIds?.length ? (
+                      <>
+                        , or see{" "}
+                        <Link
+                          href={`/exams/${routeExam.examIds[0]}`}
+                          className="font-semibold text-[#B52326] underline underline-offset-2"
+                        >
+                          {routeExam.label} dates and eligibility
+                        </Link>
+                      </>
+                    ) : null}
+                    .
+                  </p>
+                </div>
+              )}
+
+              {selectedExam && (
+                <div className="grid w-full grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-4">
+                  {renderFields()}
+                  {isJosaa &&
+                    renderDropdownField(
+                      config.fields.find((f) => f.name === "qualifiedJeeAdv")
+                    )}
+                </div>
+              )}
+
+              {showGate && (
+                <div className="mt-1 text-left">
+                  <span className={fieldLabelClass}>
+                    What would you like to see?
+                  </span>
+                  <div className="mt-2 flex flex-wrap gap-3">
+                    <button
+                      type="button"
+                      onClick={() => setView("mine")}
+                      className={gateButtonClass(view === "mine")}
+                    >
+                      {mineLabel}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setView("full")}
+                      className={gateButtonClass(view === "full")}
+                    >
+                      See the full list of cutoffs
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              {showGate && view === "mine" && (
+                <div className="grid w-full grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-4">
+                  {isJosaa ? renderJosaaInputs() : renderSingleInput()}
+                </div>
+              )}
+
+              {showGate && (
+                <div className="text-left">
+                  <button
+                    type="button"
+                    className="inline-flex min-h-[50px] items-center justify-center gap-2 rounded-[10px] bg-[#B52326] px-[26px] py-3.5 text-base font-bold text-white shadow-[0_1px_2px_rgba(74,42,38,0.05)] transition hover:-translate-y-px hover:bg-[#9E1F22] active:translate-y-0 active:bg-[#8A1B1E] disabled:translate-y-0 disabled:cursor-not-allowed disabled:bg-[#e0cdc6] disabled:shadow-none"
+                    disabled={!view || submitDisabled}
+                    onClick={
+                      view === "full"
+                        ? handleFullListSubmit
+                        : isJosaa
+                        ? submitJosaa
+                        : onSubmitClick
+                    }
+                  >
+                    {isEstimating
+                      ? "Finding your colleges…"
+                      : view === "full"
+                      ? "Show full list of cutoffs"
+                      : "Show matching colleges"}
+                    <span aria-hidden="true">→</span>
+                  </button>
+                  {view && submitDisabled && !isEstimating && (
+                    <p className="mt-2 text-sm text-[#8f2e31]">
+                      {view === "full" || (isJosaa && !josaaFieldsReady)
+                        ? "Please fill all the required fields above."
+                        : isJosaa && !mainReady
+                        ? mainKind === "rank"
+                          ? "Please enter your JEE Main rank."
+                          : `Enter your JEE Main ${mainKind} to continue.`
+                        : isJosaa && !advReady
+                        ? advKind === "rank"
+                          ? "Please enter your JEE Advanced rank."
+                          : "Enter your JEE Advanced marks to continue."
+                        : "Please fill all the required fields before submitting!"}
+                    </p>
+                  )}
+                </div>
               )}
             </div>
-
-            {selectedExam && (
-              <div className="mt-4 w-full max-w-xl">
-                <button
-                  className="w-full cursor-pointer rounded-xl bg-[#B52326] px-8 py-3 text-base font-bold text-white transition hover:bg-[#9E1F22] active:bg-[#8A1B1E] disabled:cursor-not-allowed disabled:bg-[#B52326]/40 sm:w-auto"
-                  disabled={isSubmitDisabled()}
-                  onClick={onSubmitClick}
-                >
-                  {isEstimating ? "Finding your colleges…" : "Show my colleges"}
-                </button>
-                {isSubmitDisabled() && !isEstimating && (
-                  <p className="mt-2 text-sm text-[#8f2e31]">
-                    {selectedExam === "JoSAA" &&
-                    rankMode === "estimate" &&
-                    (!formData.mainRank || formData.mainRank === "")
-                      ? estimateInputType === "marks"
-                        ? "Enter your marks to continue."
-                        : "Enter your percentile to continue."
-                      : selectedExam === "JoSAA" &&
-                        formData.qualifiedJeeAdv === "Yes" &&
-                        (!formData.advRank || formData.advRank === "")
-                      ? "Please enter your JEE Advanced rank."
-                      : selectedExam === "JoSAA" &&
-                        (!formData.mainRank || formData.mainRank === "")
-                      ? "Please enter your JEE Main rank."
-                      : "Please fill all the required fields before submitting!"}
-                  </p>
-                )}
-              </div>
-            )}
           </div>
         </div>
       </div>
