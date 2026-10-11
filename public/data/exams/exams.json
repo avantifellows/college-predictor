@@ -5500,12 +5500,12 @@
   "open_data_id": "keam",
   "careers": [
    {
-    "label": "Computer Science / Information Technology",
-    "slug": "computer-science-information-technology"
-   },
-   {
     "label": "Electrical / Electronics / Communications Engineering",
     "slug": "electrical-electronics-communications-engineering"
+   },
+   {
+    "label": "Computer Science / Information Technology",
+    "slug": "computer-science-information-technology"
    },
    {
     "label": "Artificial Intelligence and Data Science",

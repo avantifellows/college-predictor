@@ -3801,11 +3801,11 @@
   "where_work": "Tier-2 cities, since many chemical plants are located outside big metros",
   "college_options": [
    {
-    "college": "Indian Institute of Technology Roorkee",
-    "branch": "Chemical Sciences",
+    "college": "Indian Institute of Technology Guwahati",
+    "branch": "Chemical Science and Technology",
     "exam": "JEE Advanced",
-    "closing": "10,612",
-    "q": "Indian Institute of Technology Roorkee"
+    "closing": "7,332",
+    "q": "Indian Institute of Technology Guwahati"
    }
   ],
   "notable_people": [
@@ -8955,10 +8955,6 @@
   "impact": "This work is why a car from Maruti Suzuki or a phone assembled for Samsung in India can be made quickly and consistently in huge numbers without wasting materials or time, directly affecting product prices and availability.",
   "entry_exams_text": "JEE (Joint Entrance Exam, the main exam to get into engineering colleges including IITs) for undergraduate study; GATE (a national exam for master's or government jobs) for higher studies.",
   "exams": [
-   {
-    "label": "AP EAPCET",
-    "href": "/exams?q=AP-EAPCET"
-   },
    {
     "label": "BITSAT",
     "href": "/predictor?exam=BITSAT"

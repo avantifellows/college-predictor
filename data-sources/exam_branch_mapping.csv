@@ -746,7 +746,7 @@ AP-EAPCET,ENV,Environmental Engineering,ENVENG,Environmental Engineering,20,1,ta
 AP-EAPCET,FDE,Food Engineering,FOODENG,Food Engineering,20,1,taxonomy alias row
 AP-EAPCET,FDT,Food Technology,FOODENG,Food Engineering,60,3,taxonomy alias row
 AP-EAPCET,INF,Information Technology,CSIT,Computer Science / Information Technology,960,49,taxonomy alias row
-AP-EAPCET,IOT,Internet Of Things (IoT),INDENG,Industrial / Manufacturing / Production Engineering,20,1,taxonomy alias row
+AP-EAPCET,IOT,Internet Of Things (IoT),CSIT,Computer Science / Information Technology,20,1,taxonomy alias row
 AP-EAPCET,MEC,Mechanical Engineering,MECHENG,Mechanical / Mechatronics Engineering ,2715,145,taxonomy alias row
 AP-EAPCET,MMT,Metallurgy And Material Technology,MEMS,Metallurgy Engineering And Material Science,18,1,taxonomy alias row
 AP-EAPCET,MIN,Mining Engineering,MININGENG,Mining Engineering,75,3,taxonomy alias row
@@ -806,7 +806,7 @@ CollegeFees,"B.Tech. in Electronics and Communication Engineering and M.Tech. in
 CollegeFees,"B.Tech. in Electronics and Communication Engineering and M.Tech. in VLSI Design (5 Years, Bachelor and Master of Technology (Dual Degree))","B.Tech. in Electronics and Communication Engineering and M.Tech. in VLSI Design (5 Years, Bachelor and Master of Technology (Dual Degree))",ELEC,Electrical / Electronics / Communications Engineering,10,1,taxonomy alias row
 CollegeFees,BIO- TECHNOLOGY,BIO- TECHNOLOGY,BIOTECH,Biotechnology,64,6,taxonomy alias row
 CollegeFees,BIO-MEDICAL ENGINEERING,BIO-MEDICAL ENGINEERING,BIOMEDENG,Biomedical Engineering,4,1,taxonomy alias row
-CollegeFees,"BS in Chemical Sciences (4 Years, Bachelor of Science)","BS in Chemical Sciences (4 Years, Bachelor of Science)",CHEMSCI,Chemical Science And Technology,8,1,taxonomy alias row
+CollegeFees,"BS in Chemical Sciences (4 Years, Bachelor of Science)","BS in Chemical Sciences (4 Years, Bachelor of Science)",CHEM,Chemistry,8,1,taxonomy alias row
 CollegeFees,"BS in Economics with MBA (IIM Bodh Gaya) (5 Years, Bachelor of Science and MBA (Dual Degree))","BS in Economics with MBA (IIM Bodh Gaya) (5 Years, Bachelor of Science and MBA (Dual Degree))",ECON,Economics,5,1,taxonomy alias row
 CollegeFees,"BS in Mathematics (4 Years, Bachelor of Science)","BS in Mathematics (4 Years, Bachelor of Science)",MATH,Mathematics,10,1,taxonomy alias row
 CollegeFees,"Bachelor of Design (4 Years, Bachelor of Design)","Bachelor of Design (4 Years, Bachelor of Design)",DESIGN,Design,3,1,taxonomy alias row
@@ -837,7 +837,7 @@ CollegeFees,"Chemical Engineering (4 Years, Bachelor of Technology)","Chemical E
 CollegeFees,"Chemical Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))","Chemical Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))",CHEMENG,Chemical Engineering,21,3,taxonomy alias row
 CollegeFees,"Chemical Engineering (5 Years, Integrated Masters in Technology)","Chemical Engineering (5 Years, Integrated Masters in Technology)",CHEMENG,Chemical Engineering,6,1,taxonomy alias row
 CollegeFees,"Chemical Science and Technology (4 Years, Bachelor of Technology)","Chemical Science and Technology (4 Years, Bachelor of Technology)",CHEMSCI,Chemical Science And Technology,20,2,taxonomy alias row
-CollegeFees,"Chemical Sciences (5 Years, Bachelor of Science and Master of Science (Dual Degree))","Chemical Sciences (5 Years, Bachelor of Science and Master of Science (Dual Degree))",CHEMSCI,Chemical Science And Technology,9,1,taxonomy alias row
+CollegeFees,"Chemical Sciences (5 Years, Bachelor of Science and Master of Science (Dual Degree))","Chemical Sciences (5 Years, Bachelor of Science and Master of Science (Dual Degree))",CHEM,Chemistry,9,1,taxonomy alias row
 CollegeFees,"Chemical Technology (5 Years, Bachelor and Master of Technology (Dual Degree))","Chemical Technology (5 Years, Bachelor and Master of Technology (Dual Degree))",CHEMENG,Chemical Engineering,6,1,taxonomy alias row
 CollegeFees,"Chemical and Biochemical Engineering (4 Years, Bachelor of Technology)","Chemical and Biochemical Engineering (4 Years, Bachelor of Technology)",CHEMENG,Chemical Engineering,8,1,taxonomy alias row
 CollegeFees,"Chemistry (4 Years, Bachelor of Science)","Chemistry (4 Years, Bachelor of Science)",CHEM,Chemistry,31,3,taxonomy alias row
@@ -1082,7 +1082,7 @@ JoSAA,"B.Tech in Mechanical Engineering and M.Tech in AI and Robotics (5 Years, 
 JoSAA,"B.Tech in Microelectronics & VLSI (4 Years, Bachelor of Technology)","B.Tech in Microelectronics & VLSI (4 Years, Bachelor of Technology)",ELEC,Electrical / Electronics / Communications Engineering,159,1,taxonomy alias row
 JoSAA,"B.Tech. in Electronics and Communication Engineering and M.Tech. in Communication Systems (5 Years, Bachelor and Master of Technology (Dual Degree))","B.Tech. in Electronics and Communication Engineering and M.Tech. in Communication Systems (5 Years, Bachelor and Master of Technology (Dual Degree))",ELEC,Electrical / Electronics / Communications Engineering,248,2,taxonomy alias row
 JoSAA,"B.Tech. in Electronics and Communication Engineering and M.Tech. in VLSI Design (5 Years, Bachelor and Master of Technology (Dual Degree))","B.Tech. in Electronics and Communication Engineering and M.Tech. in VLSI Design (5 Years, Bachelor and Master of Technology (Dual Degree))",ELEC,Electrical / Electronics / Communications Engineering,86,1,taxonomy alias row
-JoSAA,"BS in Chemical Sciences (4 Years, Bachelor of Science)","BS in Chemical Sciences (4 Years, Bachelor of Science)",CHEMSCI,Chemical Science And Technology,143,1,taxonomy alias row
+JoSAA,"BS in Chemical Sciences (4 Years, Bachelor of Science)","BS in Chemical Sciences (4 Years, Bachelor of Science)",CHEM,Chemistry,143,1,taxonomy alias row
 JoSAA,"BS in Economics with MBA (IIM Bodh Gaya) (5 Years, Bachelor of Science and MBA (Dual Degree))","BS in Economics with MBA (IIM Bodh Gaya) (5 Years, Bachelor of Science and MBA (Dual Degree))",ECON,Economics,55,1,taxonomy alias row
 JoSAA,"BS in Mathematics (4 Years, Bachelor of Science)","BS in Mathematics (4 Years, Bachelor of Science)",MATH,Mathematics,380,1,taxonomy alias row
 JoSAA,"Bachelor of Design (4 Years, Bachelor of Design)","Bachelor of Design (4 Years, Bachelor of Design)",DESIGN,Design,27,1,taxonomy alias row
@@ -1108,7 +1108,7 @@ JoSAA,"Chemical Engineering (4 Years, Bachelor of Technology)","Chemical Enginee
 JoSAA,"Chemical Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))","Chemical Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))",CHEMENG,Chemical Engineering,1957,6,taxonomy alias row
 JoSAA,"Chemical Engineering (5 Years, Integrated Masters in Technology)","Chemical Engineering (5 Years, Integrated Masters in Technology)",CHEMENG,Chemical Engineering,312,1,taxonomy alias row
 JoSAA,"Chemical Science and Technology (4 Years, Bachelor of Technology)","Chemical Science and Technology (4 Years, Bachelor of Technology)",CHEMSCI,Chemical Science And Technology,733,3,taxonomy alias row
-JoSAA,"Chemical Sciences (5 Years, Bachelor of Science and Master of Science (Dual Degree))","Chemical Sciences (5 Years, Bachelor of Science and Master of Science (Dual Degree))",CHEMSCI,Chemical Science And Technology,261,1,taxonomy alias row
+JoSAA,"Chemical Sciences (5 Years, Bachelor of Science and Master of Science (Dual Degree))","Chemical Sciences (5 Years, Bachelor of Science and Master of Science (Dual Degree))",CHEM,Chemistry,261,1,taxonomy alias row
 JoSAA,"Chemical Technology (5 Years, Bachelor and Master of Technology (Dual Degree))","Chemical Technology (5 Years, Bachelor and Master of Technology (Dual Degree))",CHEMENG,Chemical Engineering,165,1,taxonomy alias row
 JoSAA,"Chemical and Biochemical Engineering (4 Years, Bachelor of Technology)","Chemical and Biochemical Engineering (4 Years, Bachelor of Technology)",CHEMENG,Chemical Engineering,187,1,taxonomy alias row
 JoSAA,"Chemistry (4 Years, Bachelor of Science)","Chemistry (4 Years, Bachelor of Science)",CHEM,Chemistry,1411,4,taxonomy alias row
@@ -1310,13 +1310,13 @@ KEAM,Computer Science and Design,Computer Science and Design,CSIT,Computer Scien
 KEAM,Computer Science and Engineering,Computer Science and Engineering,CSIT,Computer Science / Information Technology,2267,112,taxonomy alias row
 KEAM,Computer Science and Engineering (Artificial Intelligence and Data Science),Computer Science and Engineering (Artificial Intelligence and Data Science),CSIT,Computer Science / Information Technology,16,1,taxonomy alias row
 KEAM,Electrical & Electronics,Electrical & Electronics,ELEC,Electrical / Electronics / Communications Engineering,714,81,taxonomy alias row
-KEAM,Electrical and Computer Engineering,Electrical and Computer Engineering,CSIT,Computer Science / Information Technology,264,14,taxonomy alias row
+KEAM,Electrical and Computer Engineering,Electrical and Computer Engineering,ELEC,Electrical / Electronics / Communications Engineering,264,14,taxonomy alias row
 KEAM,Electrical and Electronics Engineering,Electrical and Electronics Engineering,ELEC,Electrical / Electronics / Communications Engineering,1152,84,taxonomy alias row
 KEAM,Electronics and Computer Engineering,Electronics and Computer Engineering,ELEC,Electrical / Electronics / Communications Engineering,150,11,taxonomy alias row
 KEAM,Food Technology,Food Technology,FOODENG,Food Engineering,342,10,taxonomy alias row
 KEAM,Industrial Engineering,Industrial Engineering,INDENG,Industrial / Manufacturing / Production Engineering,71,2,taxonomy alias row
 KEAM,Information Technology,Information Technology,CSIT,Computer Science / Information Technology,352,8,taxonomy alias row
-KEAM,Internet of Things,Internet of Things,INDENG,Industrial / Manufacturing / Production Engineering,4,1,taxonomy alias row
+KEAM,Internet of Things,Internet of Things,CSIT,Computer Science / Information Technology,4,1,taxonomy alias row
 KEAM,Mechanical Engineering,Mechanical Engineering,MECHENG,Mechanical / Mechatronics Engineering ,2319,98,taxonomy alias row
 KEAM,Mechatronics Engineering,Mechatronics Engineering,MECHENG,Mechanical / Mechatronics Engineering ,83,6,taxonomy alias row
 KEAM,Production Engineering,Production Engineering,INDENG,Industrial / Manufacturing / Production Engineering,42,2,taxonomy alias row
@@ -1356,12 +1356,12 @@ MHT-CET,Design,Design,DESIGN,Design,19,3,taxonomy alias row
 MHT-CET,Dyestuff Technology,Dyestuff Technology,OILPAINTTECH,"Oil, Paints, Dye Technology",11,1,taxonomy alias row
 MHT-CET,Electrical Engg[Electronics and Power],Electrical Engg[Electronics and Power],ELEC,Electrical / Electronics / Communications Engineering,204,8,taxonomy alias row
 MHT-CET,Electrical Engineering,Electrical Engineering,ELEC,Electrical / Electronics / Communications Engineering,3688,194,taxonomy alias row
-MHT-CET,Electrical and Computer Engineering,Electrical and Computer Engineering,CSIT,Computer Science / Information Technology,91,6,taxonomy alias row
+MHT-CET,Electrical and Computer Engineering,Electrical and Computer Engineering,ELEC,Electrical / Electronics / Communications Engineering,91,6,taxonomy alias row
 MHT-CET,Electrical and Electronics Engineering,Electrical and Electronics Engineering,ELEC,Electrical / Electronics / Communications Engineering,55,4,taxonomy alias row
 MHT-CET,Electronics Engineering,Electronics Engineering,ELEC,Electrical / Electronics / Communications Engineering,164,7,taxonomy alias row
 MHT-CET,Electronics and Biomedical Engineering,Electronics and Biomedical Engineering,ELEC,Electrical / Electronics / Communications Engineering,27,1,taxonomy alias row
 MHT-CET,Electronics and Computer Engineering,Electronics and Computer Engineering,ELEC,Electrical / Electronics / Communications Engineering,1007,45,taxonomy alias row
-MHT-CET,Electronics and Computer Science,Electronics and Computer Science,CSIT,Computer Science / Information Technology,277,24,taxonomy alias row
+MHT-CET,Electronics and Computer Science,Electronics and Computer Science,ELEC,Electrical / Electronics / Communications Engineering,277,24,taxonomy alias row
 MHT-CET,Electronics and Telecommunication Engg,Electronics and Telecommunication Engg,ELEC,Electrical / Electronics / Communications Engineering,5261,238,taxonomy alias row
 MHT-CET,Fibres and Textile Processing Technology,Fibres and Textile Processing Technology,TEXTILE,Textile Engineering,14,1,taxonomy alias row
 MHT-CET,Food Engineering,Food Engineering,FOODENG,Food Engineering,9,1,taxonomy alias row
@@ -1372,7 +1372,7 @@ MHT-CET,Industrial IoT,Industrial IoT,INDENG,Industrial / Manufacturing / Produc
 MHT-CET,Information Technology,Information Technology,CSIT,Computer Science / Information Technology,3524,158,taxonomy alias row
 MHT-CET,Instrumentation Engineering,Instrumentation Engineering,INSTRENG,Instrumentation Engineering,180,10,taxonomy alias row
 MHT-CET,Instrumentation and Control Engineering,Instrumentation and Control Engineering,INSTRENG,Instrumentation Engineering,142,6,taxonomy alias row
-MHT-CET,Internet of Things (IoT),Internet of Things (IoT),INDENG,Industrial / Manufacturing / Production Engineering,6,1,taxonomy alias row
+MHT-CET,Internet of Things (IoT),Internet of Things (IoT),CSIT,Computer Science / Information Technology,6,1,taxonomy alias row
 MHT-CET,Man Made Textile Technology,Man Made Textile Technology,TEXTILE,Textile Engineering,13,1,taxonomy alias row
 MHT-CET,Manufacturing Science and Engineering,Manufacturing Science and Engineering,INDENG,Industrial / Manufacturing / Production Engineering,24,1,taxonomy alias row
 MHT-CET,Mechanical & Automation Engineering,Mechanical & Automation Engineering,MECHENG,Mechanical / Mechatronics Engineering ,62,4,taxonomy alias row
@@ -1433,8 +1433,8 @@ OJEE,Computer Science and Information Technology,Computer Science and Informatio
 OJEE,Computer Science and Information Technology - TFW,Computer Science and Information Technology,CSIT,Computer Science / Information Technology,2,2,taxonomy alias row
 OJEE,Electrical Engineering,Electrical Engineering,ELEC,Electrical / Electronics / Communications Engineering,148,66,taxonomy alias row
 OJEE,Electrical Engineering - TFW,Electrical Engineering,ELEC,Electrical / Electronics / Communications Engineering,13,13,taxonomy alias row
-OJEE,Electrical and Computer Engineering,Electrical and Computer Engineering,CSIT,Computer Science / Information Technology,8,4,taxonomy alias row
-OJEE,Electrical and Computer Engineering - TFW,Electrical and Computer Engineering,CSIT,Computer Science / Information Technology,2,2,taxonomy alias row
+OJEE,Electrical and Computer Engineering,Electrical and Computer Engineering,ELEC,Electrical / Electronics / Communications Engineering,8,4,taxonomy alias row
+OJEE,Electrical and Computer Engineering - TFW,Electrical and Computer Engineering,ELEC,Electrical / Electronics / Communications Engineering,2,2,taxonomy alias row
 OJEE,Electrical and Electronics Engineering(SSC),Electrical and Electronics Engineering,ELEC,Electrical / Electronics / Communications Engineering,10,2,taxonomy alias row
 OJEE,Electrical and Electronics Engineering(SSC) - TFW,Electrical and Electronics Engineering,ELEC,Electrical / Electronics / Communications Engineering,2,2,taxonomy alias row
 OJEE,Electrical and Electronics Engineering,Electrical and Electronics Engineering,ELEC,Electrical / Electronics / Communications Engineering,64,35,taxonomy alias row
@@ -1506,7 +1506,7 @@ TNEA,Cyber Security,Cyber Security,CSIT,Computer Science And Engineering,18,3,ta
 TNEA,ELECTRICAL AND ELECTRONICS ENGINEERING,ELECTRICAL AND ELECTRONICS ENGINEERING,ELEC,Electrical / Electronics / Communications Engineering,1272,326,taxonomy alias row
 TNEA,ELECTRICAL AND ELECTRONICS ENGINEERING (SS),ELECTRICAL AND ELECTRONICS ENGINEERING,ELEC,Electrical / Electronics / Communications Engineering,17,3,taxonomy alias row
 TNEA,ENVIRONMENTAL ENGINEERING,ENVIRONMENTAL ENGINEERING,ENVENG,Environmental Engineering,4,1,taxonomy alias row
-TNEA,Electrical and Computer Engineering,Electrical and Computer Engineering,CSIT,Computer Science / Information Technology,26,5,taxonomy alias row
+TNEA,Electrical and Computer Engineering,Electrical and Computer Engineering,ELEC,Electrical / Electronics / Communications Engineering,26,5,taxonomy alias row
 TNEA,Electronics and Computer Engineering,Electronics and Computer Engineering,ELEC,Electrical / Electronics / Communications Engineering,16,3,taxonomy alias row
 TNEA,FOOD TECHNOLOGY (SS),FOOD TECHNOLOGY,FOODENG,Food Engineering,6,1,taxonomy alias row
 TNEA,FOOD TECHNOLOGY,FOOD TECHNOLOGY,FOODENG,Food Engineering,91,18,taxonomy alias row
@@ -1660,7 +1660,7 @@ UPTAC,Computer Science and Engineering (Hindi),Computer Science and Engineering 
 UPTAC,Computer Science and Engineering (Internet of Things),Computer Science and Engineering (Internet of Things),CSIT,Computer Science / Information Technology,79,3,same string as another exam
 UPTAC,Computer Science and Engineering(Integrated M.Tech),Computer Science and Engineering(Integrated M.Tech),CSIT,Computer Science / Information Technology,22,1,same string as another exam
 UPTAC,DATA SCIENCE,DATA SCIENCE,AIML,Artificial Intelligence / Machine Learning / Data Science,58,3,same string as another exam
-UPTAC,Electrical & Computer Engg.,Electrical & Computer Engg.,CSIT,Computer Science / Information Technology,98,4,taxonomy alias row
+UPTAC,Electrical & Computer Engg.,Electrical & Computer Engg.,ELEC,Electrical / Electronics / Communications Engineering,98,4,taxonomy alias row
 UPTAC,Electrical & Electronics Engineering,Electrical & Electronics Engineering,ELEC,Electrical / Electronics / Communications Engineering,719,46,same string as another exam
 UPTAC,Electrical Engineering,Electrical Engineering,ELEC,Electrical / Electronics / Communications Engineering,1810,87,same string as another exam
 UPTAC,Electrical Engineering(Integrated M.Tech),Electrical Engineering(Integrated M.Tech),ELEC,Electrical / Electronics / Communications Engineering,11,1,same string as another exam
