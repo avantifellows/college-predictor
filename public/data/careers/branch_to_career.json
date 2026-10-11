@@ -9,7 +9,6 @@
  "MBBS": "anesthesiology",
  "ANTHRO": "anthropology-and-archaeology",
  "ARCH": "architecture",
- "DEFENCE": "armed-forces-military-services",
  "AIML": "artificial-intelligence-and-data-science",
  "ARTS": "arts",
  "AUDI": "audiology",
@@ -99,6 +98,7 @@
  "TEXTILE": "textile-engineering",
  "VET": "veterinary",
  "ZOO": "zoology",
+ "DEFENCE": "indian-army-officer",
  "PHILO": "philosophy",
  "AGRIBUSMGT": "agriculture",
  "COMMUNITYSCI": "agriculture"

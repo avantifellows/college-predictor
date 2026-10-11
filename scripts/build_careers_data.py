@@ -6,7 +6,7 @@ brings a new sheet in).
 Each career carries the sheet's narrative fields plus a REAL exams join:
 career name -> parent branch in the taxonomy (89/107 match by name; the
 rest are pinned in CAREER_BRANCH below; non-academic careers like CA or
-HCL TechBee map to nothing and simply show no exam chips) -> the exams
+Japanese map to nothing and simply show no exam chips) -> the exams
 whose cutoff tables offer that branch, via data-sources/exam_branch_mapping.csv.
 
 branch_to_career.json is the reverse map (parent branch_id -> career slug)
@@ -114,14 +114,12 @@ CAREER_BRANCH = {
     "Indian Navy Sailor (Agniveer SSR / MR)": "DEFENCE",
     "Indian Air Force Officer": "DEFENCE",
     "Indian Air Force Airman (Agniveer Vayu)": "DEFENCE",
-    "Armed Forces (Military Services)": "DEFENCE",
-    # deliberately unmapped: CA, HCL TechBee, Japanese
+    # deliberately unmapped: CA, Japanese
 }
 
 # The armed forces admit through their own exams, which no cutoff table
 # carries: each career lists its entries (Exams tab cards, by exam_id)
 CAREER_EXAMS = {
-    "Armed Forces (Military Services)": ["nda", "upsc-cds", "afcat"],
     "Indian Army Officer": ["nda", "upsc-cds", "indian-army-tes",
                             "indian-army-tgc-ssc-tech",
                             "indian-army-ncc-special-entry-scheme"],
@@ -193,6 +191,21 @@ EXAM_LINKS = {
 
 def norm(s):
     return re.sub(r"[^a-z0-9]+", " ", str(s).lower()).strip()
+
+
+PARENT_STREAMS = {"Science (PCM)", "Science (PCB)", "Commerce", "Arts"}
+
+
+def parent_stream(r, name):
+    v = str(r.get("Parent Stream", "")).strip()
+    assert v in PARENT_STREAMS, f"{name}: Parent Stream {v!r}"
+    return v
+
+
+def pay_tier(r, name):
+    v = str(r.get("Pay Tier", "")).strip()
+    assert v in {"High", "Mid", "Low"}, f"{name}: Pay Tier {v!r}"
+    return v
 
 
 def slug(s):
@@ -611,6 +624,12 @@ def main():
             "branch_id": branch_id,
             "domain": vertical,
             "eligible_streams": eligible or None,
+            # the one class-12 stream a career belongs to (sheet's "Parent
+            # Stream"), unlike eligible_streams, which lists every way in
+            "parent_stream": parent_stream(r, name),
+            # the sheet's "Pay Tier" (High / Mid / Low), a rough guide shown
+            # as rupee symbols in the Career Quiz results
+            "pay_tier": pay_tier(r, name),
             "day_in_life": str(r["A Day in the Life"]).strip() if pd.notna(r["A Day in the Life"]) else None,
             "impact": str(r["Real-World Impact"]).strip() if pd.notna(r["Real-World Impact"]) else None,
             "entry_exams_text": str(r["Entry Exams"]).strip() if pd.notna(r["Entry Exams"]) else None,

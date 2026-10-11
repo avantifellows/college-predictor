@@ -179,12 +179,16 @@
   "open_data_id": null,
   "careers": [
    {
-    "label": "Armed Forces (Military Services)",
-    "slug": "armed-forces-military-services"
-   },
-   {
     "label": "Indian Air Force Officer",
     "slug": "indian-air-force-officer"
+   },
+   {
+    "label": "Indian Army Officer",
+    "slug": "indian-army-officer"
+   },
+   {
+    "label": "Indian Navy Officer",
+    "slug": "indian-navy-officer"
    }
   ],
   "colleges_link": null
@@ -919,8 +923,16 @@
     "slug": "indian-army-jawan-soldier-agniveer"
    },
    {
-    "label": "Armed Forces (Military Services)",
-    "slug": "armed-forces-military-services"
+    "label": "Indian Army Officer",
+    "slug": "indian-army-officer"
+   },
+   {
+    "label": "Indian Navy Officer",
+    "slug": "indian-navy-officer"
+   },
+   {
+    "label": "Indian Air Force Officer",
+    "slug": "indian-air-force-officer"
    }
   ],
   "colleges_link": null
@@ -964,8 +976,16 @@
     "slug": "indian-navy-sailor-agniveer-ssr-mr"
    },
    {
-    "label": "Armed Forces (Military Services)",
-    "slug": "armed-forces-military-services"
+    "label": "Indian Army Officer",
+    "slug": "indian-army-officer"
+   },
+   {
+    "label": "Indian Navy Officer",
+    "slug": "indian-navy-officer"
+   },
+   {
+    "label": "Indian Air Force Officer",
+    "slug": "indian-air-force-officer"
    }
   ],
   "colleges_link": null
@@ -1009,8 +1029,16 @@
     "slug": "indian-air-force-airman-agniveer-vayu"
    },
    {
-    "label": "Armed Forces (Military Services)",
-    "slug": "armed-forces-military-services"
+    "label": "Indian Army Officer",
+    "slug": "indian-army-officer"
+   },
+   {
+    "label": "Indian Navy Officer",
+    "slug": "indian-navy-officer"
+   },
+   {
+    "label": "Indian Air Force Officer",
+    "slug": "indian-air-force-officer"
    }
   ],
   "colleges_link": null
@@ -4250,8 +4278,12 @@
     "slug": "indian-army-officer"
    },
    {
-    "label": "Armed Forces (Military Services)",
-    "slug": "armed-forces-military-services"
+    "label": "Indian Navy Officer",
+    "slug": "indian-navy-officer"
+   },
+   {
+    "label": "Indian Air Force Officer",
+    "slug": "indian-air-force-officer"
    }
   ],
   "colleges_link": null
@@ -4297,8 +4329,12 @@
     "slug": "indian-army-officer"
    },
    {
-    "label": "Armed Forces (Military Services)",
-    "slug": "armed-forces-military-services"
+    "label": "Indian Navy Officer",
+    "slug": "indian-navy-officer"
+   },
+   {
+    "label": "Indian Air Force Officer",
+    "slug": "indian-air-force-officer"
    }
   ],
   "colleges_link": null
@@ -4342,8 +4378,12 @@
     "slug": "indian-army-officer"
    },
    {
-    "label": "Armed Forces (Military Services)",
-    "slug": "armed-forces-military-services"
+    "label": "Indian Navy Officer",
+    "slug": "indian-navy-officer"
+   },
+   {
+    "label": "Indian Air Force Officer",
+    "slug": "indian-air-force-officer"
    }
   ],
   "colleges_link": null
@@ -4387,8 +4427,12 @@
     "slug": "indian-navy-officer"
    },
    {
-    "label": "Armed Forces (Military Services)",
-    "slug": "armed-forces-military-services"
+    "label": "Indian Army Officer",
+    "slug": "indian-army-officer"
+   },
+   {
+    "label": "Indian Air Force Officer",
+    "slug": "indian-air-force-officer"
    }
   ],
   "colleges_link": null
@@ -4432,8 +4476,12 @@
     "slug": "indian-navy-officer"
    },
    {
-    "label": "Armed Forces (Military Services)",
-    "slug": "armed-forces-military-services"
+    "label": "Indian Army Officer",
+    "slug": "indian-army-officer"
+   },
+   {
+    "label": "Indian Air Force Officer",
+    "slug": "indian-air-force-officer"
    }
   ],
   "colleges_link": null
@@ -6979,10 +7027,6 @@
   "predictor_exam": null,
   "open_data_id": null,
   "careers": [
-   {
-    "label": "Armed Forces (Military Services)",
-    "slug": "armed-forces-military-services"
-   },
    {
     "label": "Indian Army Officer",
     "slug": "indian-army-officer"
@@ -10924,10 +10968,6 @@
   "predictor_exam": null,
   "open_data_id": null,
   "careers": [
-   {
-    "label": "Armed Forces (Military Services)",
-    "slug": "armed-forces-military-services"
-   },
    {
     "label": "Indian Army Officer",
     "slug": "indian-army-officer"

@@ -7,6 +7,8 @@
   "eligible_streams": [
    "All"
   ],
+  "parent_stream": "Arts",
+  "pay_tier": "Low",
   "day_in_life": "An actor spends the day rehearsing lines, attending auditions, and performing in front of a camera or a live audience, often repeating the same scene many times until it feels right. Off days go into training the voice and body, and meeting directors or casting agents for new roles.",
   "impact": "Actors bring stories to life in films, web series, and TV shows like those made by Yash Raj Films or Dharma Productions, and on OTT platforms like Netflix India, giving people entertainment, comfort, and new ideas to think about.",
   "entry_exams_text": null,
@@ -68,6 +70,8 @@
    "Commerce",
    "Science (PCM)"
   ],
+  "parent_stream": "Commerce",
+  "pay_tier": "High",
   "day_in_life": "An actuary uses maths, statistics, and probability to figure out how likely certain risky events are, like accidents or deaths, and then works out how much an insurance company should charge for policies. Most of the day is spent building number models on a computer and explaining these findings to company leaders.",
   "impact": "Actuaries help companies like LIC, HDFC Life, and ICICI Lombard set fair insurance prices, so that when someone's house burns down or a family loses an earning member, there is money set aside to support them.",
   "entry_exams_text": null,
@@ -128,6 +132,8 @@
   "eligible_streams": [
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "High",
   "day_in_life": "An aerospace engineer designs, tests, and improves parts of aircraft, satellites, or rockets, spending the day on computer simulations, running physical tests in wind tunnels or labs, and checking that designs will survive extreme speeds and pressures. They also work with big teams to review drawings and fix problems before something is built.",
   "impact": "Their work puts India's satellites into orbit through ISRO (Indian Space Research Organisation), keeps passenger jets flying safely for airlines like IndiGo and Air India, and builds defence aircraft like the Tejas fighter jet.",
   "entry_exams_text": "JEE (Joint Entrance Examination, the national exam to get into engineering colleges) Main and Advanced (for IITs), or state-level engineering entrance exams; GATE (Graduate Aptitude Test in Engineering, needed for master's or government jobs) later for higher studies.",
@@ -298,6 +304,8 @@
    "Science (PCB)",
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "High",
   "day_in_life": "An agricultural engineer designs machines, irrigation systems, and storage methods that help farmers grow and save more crops, spending the day visiting fields, testing equipment like tractors or seed-sowing machines, and planning water supply systems for farms.",
   "impact": "Their work helps Indian farmers use less water through drip irrigation, reduces crop loss with better storage silos, and powers companies like Mahindra Agri and John Deere India that build tractors used across the country.",
   "entry_exams_text": "JEE (Joint Entrance Examination, the national exam to get into engineering colleges) Main, or state-level engineering entrance exams; ICAR AIEEA (All India Entrance Examination for admission to agricultural universities) for agriculture-focused colleges.",
@@ -485,6 +493,8 @@
    "Science (PCB)",
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCB)",
+  "pay_tier": "Mid",
   "day_in_life": "An agriculture professional studies soil, crops, and weather, advises farmers on better farming methods, or works on developing new seeds and farming technology. Some days involve visiting farms, other days are spent in a lab or office analyzing data.",
   "impact": "Agricultural scientists at ICAR (Indian Council of Agricultural Research) helped develop high-yield wheat and rice varieties that reduced India's dependence on imported food during the Green Revolution, and companies like ITC Limited work with millions of farmers today to improve crop quality and income.",
   "entry_exams_text": "ICAR AIEEA (a national exam to get into agriculture degree programs at government agricultural universities), or state-level agriculture entrance exams; some private colleges admit based on Class 12 marks.",
@@ -603,6 +613,8 @@
   "eligible_streams": [
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "High",
   "day_in_life": "An air traffic controller sits in a control room or tower, watching radar screens and talking to pilots on the radio to guide planes safely for takeoff, landing, and flying through the sky without crashing into each other. The job needs constant focus because even a small mistake can be dangerous.",
   "impact": "Controllers at airports like Delhi's IGI Airport and Mumbai's Chhatrapati Shivaji Airport keep thousands of flights moving safely every day, making sure families reach weddings, business travelers make meetings, and cargo reaches on time.",
   "entry_exams_text": null,
@@ -648,6 +660,8 @@
   "eligible_streams": [
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "High",
   "day_in_life": "A trainee pilot spends the day in ground classes learning how planes and weather work, then practices flying in a simulator or a real small aircraft with an instructor watching closely. Later, as a working pilot, the day includes pre-flight checks, flying passengers or cargo, and talking constantly with air traffic control.",
   "impact": "Pilots at airlines like IndiGo, Air India, and Vistara safely fly millions of Indians to weddings, jobs, and family visits every year, connecting small towns and big cities across the country.",
   "entry_exams_text": null,
@@ -709,6 +723,8 @@
   "eligible_streams": [
    "Science (PCB)"
   ],
+  "parent_stream": "Science (PCB)",
+  "pay_tier": "High",
   "day_in_life": "An anesthesiologist is the doctor who makes sure a patient feels no pain and stays safely unconscious or numb during surgery, closely watching their heartbeat, breathing, and blood pressure throughout the operation. This career requires first completing MBBS (the basic medical degree doctors need) and then doing further specialized training in anesthesia.",
   "impact": "Anesthesiologists working in hospitals like AIIMS, Apollo, and Fortis make it possible for millions of Indians to safely undergo surgeries, from emergency operations to planned procedures like knee replacements, without feeling pain.",
   "entry_exams_text": null,
@@ -770,6 +786,8 @@
   "eligible_streams": [
    "Arts"
   ],
+  "parent_stream": "Arts",
+  "pay_tier": "Low",
   "day_in_life": "An anthropologist studies how different groups of people live, think, and organize their societies, often spending months living among a community to observe their customs, while an archaeologist digs at old sites to find pots, tools, and bones that reveal how people lived long ago. Both jobs involve fieldwork outdoors as well as writing reports and research papers.",
   "impact": "Archaeologists working with the Archaeological Survey of India have uncovered and protected sites like the ruins at Hampi and the Indus Valley cities, helping India understand and preserve its own history for future generations.",
   "entry_exams_text": null,
@@ -829,6 +847,8 @@
   "eligible_streams": [
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "Mid",
   "day_in_life": "An architect designs buildings and spaces, drawing plans on computers, visiting construction sites to check progress, and meeting clients to understand what they want built. A typical day mixes creative design work with practical problem-solving about materials and safety.",
   "impact": "Architects designed iconic Indian buildings like the Lotus Temple in Delhi and the Statue of Unity's visitor complex in Gujarat, and every school, hospital, and home you've ever entered was shaped by an architect's plans before it was built.",
   "entry_exams_text": "NATA (National Aptitude Test in Architecture, checks drawing and design skills) or JEE Main Paper 2 (an engineering entrance exam with a special paper for architecture admissions).",
@@ -960,101 +980,6 @@
   }
  },
  {
-  "career_id": "armed-forces-military-services",
-  "name": "Armed Forces (Military Services)",
-  "branch_id": "DEFENCE",
-  "domain": "Armed Forces",
-  "eligible_streams": [
-   "All"
-  ],
-  "day_in_life": "An officer in the Indian Army, Navy, or Air Force leads a team of soldiers, sailors, or airmen, plans and carries out training or missions, and takes responsibility for their unit's safety and readiness. A typical day could involve physical training, operating equipment, or making quick decisions during an exercise or real operation.",
-  "impact": "Armed forces officers protect India's borders and respond during disasters, like when the Army carried out flood rescue operations in Kerala or the Air Force airlifted supplies during the COVID-19 pandemic, directly protecting citizens' lives.",
-  "entry_exams_text": "NDA (National Defence Academy exam, for students right after Class 12 to join the Army, Navy, or Air Force as officers) or CDS (Combined Defence Services exam, for graduates who want to become officers) both conducted by UPSC (Union Public Service Commission, the body that runs major government exams).",
-  "exams": [
-   {
-    "label": "NDA",
-    "href": "/exams/nda"
-   },
-   {
-    "label": "UPSC CDS",
-    "href": "/exams/upsc-cds"
-   },
-   {
-    "label": "AFCAT",
-    "href": "/exams/afcat"
-   }
-  ],
-  "top_colleges": [
-   {
-    "name": "National Defence Academy (NDA) Khadakwasla",
-    "q": null
-   },
-   {
-    "name": "Indian Military Academy (IMA) Dehradun",
-    "q": null
-   },
-   {
-    "name": "Officers Training Academy (OTA) Chennai",
-    "q": null
-   },
-   {
-    "name": "Indian Naval Academy Ezhimala",
-    "q": null
-   },
-   {
-    "name": "Air Force Academy Hyderabad",
-    "q": null
-   }
-  ],
-  "pay": {
-   "start": "\u20b96-10 LPA (including salary and allowances)",
-   "mid": "\u20b912-20 LPA",
-   "senior": "\u20b925-40+ LPA (for senior ranks like Colonel and above, including allowances and benefits)"
-  },
-  "recruiters": [
-   "Indian Army",
-   "Indian Navy",
-   "Indian Air Force",
-   "Coast Guard",
-   "Border Security Force (a separate paramilitary force guarding India's borders)"
-  ],
-  "stability": "High",
-  "automation_risk": "Low",
-  "where_work": "Requires postings across India, including remote and border areas, not a fixed-location job",
-  "college_options": [],
-  "notable_people": [
-   "Field Marshal Sam Manekshaw (led Indian Army during the 1971 war)",
-   "Marshal Arjan Singh (only Indian Air Force officer to hold five-star rank)",
-   "Admiral Sunil Lanba (former Indian Navy chief)"
-  ],
-  "sources": "UPSC official website, Indian Army/Navy/Air Force recruitment portals, defence placement reports",
-  "specializations": [
-   {
-    "name": "Army",
-    "blurb": "Land-based operations, leading infantry, tank, or engineering units on ground missions."
-   },
-   {
-    "name": "Navy",
-    "blurb": "Sea-based operations, commanding or serving on warships and submarines to protect India's coasts and waters."
-   },
-   {
-    "name": "Air Force",
-    "blurb": "Air-based operations, flying fighter jets or transport aircraft and managing air defense systems."
-   }
-  ],
-  "riasec": {
-   "code": "RCE",
-   "scores": [
-    72.7,
-    29.3,
-    1.2,
-    40.8,
-    51.3,
-    55.8
-   ]
-  }
- },
- {
   "career_id": "artificial-intelligence-and-data-science",
   "name": "Artificial Intelligence and Data Science",
   "branch_id": "AIML",
@@ -1062,6 +987,8 @@
   "eligible_streams": [
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "High",
   "day_in_life": "A professional in this field writes computer programs that learn patterns from large amounts of data, spending the day cleaning messy data, training models on computers, and checking whether the model's predictions (like recommending a movie or detecting fraud) are actually correct.",
   "impact": "This work powers the recommendations you see on Flipkart and Netflix, helps banks like HDFC catch fraudulent transactions, and lets companies like Ola predict the best routes and prices in real time.",
   "entry_exams_text": "JEE (Joint Entrance Examination, the national exam to get into engineering colleges) Main and Advanced, or state-level engineering entrance exams, for BTech programs specifically titled AI and Data Science offered by many colleges.",
@@ -1241,6 +1168,8 @@
   "eligible_streams": [
    "All"
   ],
+  "parent_stream": "Arts",
+  "pay_tier": "Low",
   "day_in_life": "Someone in the arts might paint, sculpt, write, act, or study human history and culture, spending days practicing their craft, exhibiting or performing work, or researching and discussing ideas in classrooms and libraries. The exact routine depends heavily on which art form or subject they focus on.",
   "impact": "Artists like M.F. Husain shaped how the world sees Indian painting, while graphic designers and illustrators working for brands like Amul create the visual ads and mascots millions of Indians recognize every day.",
   "entry_exams_text": "No single fixed entrance exam \u2014 many colleges take students based on Class 12 marks, a portfolio of artwork, or their own entrance test; fine arts programs often require a practical drawing or design test.",
@@ -1376,6 +1305,8 @@
   "eligible_streams": [
    "Science (PCB)"
   ],
+  "parent_stream": "Science (PCB)",
+  "pay_tier": "Mid",
   "day_in_life": "An audiologist tests people's hearing using special machines, helps fit hearing aids, and works with patients (including babies and elderly people) who have hearing or balance problems. Most of the day is spent in a clinic or hospital doing tests and talking with patients about their results.",
   "impact": "Audiologists working at hospitals like AIIMS help identify hearing loss in newborns early so they can get treatment before it affects their speech and learning, and companies like Cochlear India provide hearing implants that let deaf children hear sound for the first time.",
   "entry_exams_text": "NEET (National Eligibility cum Entrance Test, mainly for medical courses, though audiology entry is often through this or direct college admission) or state-level entrance exams for Bachelor of Audiology and Speech-Language Pathology (BASLP) programs; some colleges admit based on Class 12 marks.",
@@ -1450,6 +1381,8 @@
   "eligible_streams": [
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "High",
   "day_in_life": "An automobile engineer designs and tests parts of cars, bikes, or trucks, spending the day working on engine or body designs using computer software, running crash and performance tests, and solving problems that come up on the factory floor.",
   "impact": "Their work brings new car models from Tata Motors and Mahindra to Indian roads, improves fuel efficiency and safety features, and is behind the shift to electric vehicles being made by companies like Ola Electric and Tata.",
   "entry_exams_text": "JEE (Joint Entrance Examination, the national exam to get into engineering colleges) Main, or state-level engineering entrance exams; GATE (Graduate Aptitude Test in Engineering) later for higher studies or government jobs.",
@@ -1610,6 +1543,8 @@
   "eligible_streams": [
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "High",
   "day_in_life": "An aviation maintenance engineer inspects, repairs, and services aircraft parts like engines and landing gear to make sure planes are completely safe before they fly. The work happens mostly in hangars, checking systems against strict safety checklists.",
   "impact": "Engineers working with Air India, IndiGo, and Hindustan Aeronautics Limited (HAL) keep aircraft airworthy and safe, which is why flights carrying millions of Indian passengers each year land safely.",
   "entry_exams_text": null,
@@ -1670,6 +1605,8 @@
   "eligible_streams": [
    "Science (PCB)"
   ],
+  "parent_stream": "Science (PCB)",
+  "pay_tier": "Mid",
   "day_in_life": "An Ayurvedic doctor examines patients, diagnoses illness using traditional methods alongside modern checks, and prescribes herbal medicines, diet changes, and therapies like massage or yoga. A typical day is much like a regular doctor's, but treatments rely on natural remedies rather than only modern pharmaceutical drugs.",
   "impact": "Ayurvedic doctors at hospitals run by trusts and government AYUSH (Ayurveda, Yoga, Unani, Siddha, Homeopathy) departments treat chronic conditions like arthritis and digestive disorders, and companies like Patanjali Ayurved and Himalaya Wellness turn traditional remedies into products used by millions of Indian households.",
   "entry_exams_text": "NEET (National Eligibility cum Entrance Test, the same exam used for medical college admissions in India, also required for BAMS - Bachelor of Ayurvedic Medicine and Surgery).",
@@ -1758,6 +1695,8 @@
    "Science (PCB)",
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "High",
   "day_in_life": "A biochemical engineer designs the large machines and processes used to grow living cells or convert raw biological material into useful products, spending the day monitoring fermentation tanks, adjusting temperature and chemical levels, and scaling up lab experiments into factory-sized production.",
   "impact": "Their work is behind vaccines made by Indian companies like Serum Institute of India and Bharat Biotech, insulin production, and biofuels that reduce dependence on petrol and diesel.",
   "entry_exams_text": "JEE (Joint Entrance Examination, the national exam to get into engineering colleges) Main, or state-level engineering entrance exams; GATE (Graduate Aptitude Test in Engineering) for higher studies or public sector jobs.",
@@ -1861,6 +1800,8 @@
   "eligible_streams": [
    "Science (PCB)"
   ],
+  "parent_stream": "Science (PCB)",
+  "pay_tier": "Mid",
   "day_in_life": "A biochemist works in a lab studying the chemical processes inside living things \u2014 like how cells make energy or how diseases change body chemistry \u2014 running experiments and analyzing results to understand health and disease better. Most of the day involves precise lab work with chemicals, samples, and lab equipment.",
   "impact": "Biochemists at companies like Biocon and Dr. Reddy's Laboratories help develop new medicines by understanding how drugs interact with the body at a chemical level, which is how India became a major global supplier of affordable generic medicines.",
   "entry_exams_text": "No single fixed entrance exam for a Biochemistry bachelor's degree \u2014 most colleges admit based on Class 12 marks (with Biology and Chemistry); for master's or research roles, exams like CSIR-NET or GATE (a national exam for science and engineering postgraduate admissions and research jobs) become relevant.",
@@ -1961,6 +1902,8 @@
    "Science (PCB)",
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCB)",
+  "pay_tier": "Mid",
   "day_in_life": "A bioinformatics professional uses computer programs to study biological data, like DNA sequences, to help answer questions in medicine and research, such as which gene causes a disease. Most of the day is spent writing code, running analysis software, and working with large sets of biological data.",
   "impact": "Bioinformatics experts working with companies like Biocon and research institutes like CCMB help develop new medicines and understand diseases faster, such as by analyzing COVID-19 virus mutations during the pandemic.",
   "entry_exams_text": null,
@@ -2123,6 +2066,8 @@
    "Science (PCB)",
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "High",
   "day_in_life": "A biological engineer applies engineering methods to living systems and biological processes, spending the day designing lab experiments, building sensors or devices that measure biological activity, and working on projects like water treatment using microbes or engineered organisms that produce useful substances.",
   "impact": "Their work helps design better wastewater treatment plants for Indian cities, develops engineered organisms used in agriculture to fight crop diseases, and supports biotech startups building environmentally friendly industrial processes.",
   "entry_exams_text": "JEE (Joint Entrance Examination, the national exam to get into engineering colleges) Main, or state-level engineering entrance exams, for BTech programs in Biological Engineering or related biotech branches; GATE (Graduate Aptitude Test in Engineering) for higher studies.",
@@ -2226,6 +2171,8 @@
   "eligible_streams": [
    "Science (PCB)"
   ],
+  "parent_stream": "Science (PCB)",
+  "pay_tier": "Mid",
   "day_in_life": "A biologist studies living things \u2014 animals, plants, cells, or ecosystems \u2014 through research, lab experiments, fieldwork, or teaching students about how life works. Some days are spent looking through microscopes or collecting samples outdoors, others are spent analyzing data or preparing lectures.",
   "impact": "Biologists working with organizations like the Wildlife Institute of India help protect endangered species like tigers, and biology teachers and researchers across Indian schools and universities train the next generation of doctors, scientists, and conservationists.",
   "entry_exams_text": "No single fixed entrance exam for a general Biology bachelor's degree \u2014 most colleges admit based on Class 12 marks (with Biology as a subject); for research-focused master's or PhD programs later, exams like CSIR-NET (a national exam for science research fellowships and teaching jobs) matter.",
@@ -2352,6 +2299,8 @@
    "Science (PCB)",
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "High",
   "day_in_life": "A biomedical engineer designs and maintains medical devices and equipment like MRI machines, artificial limbs, or hospital monitors, spending the day testing device safety, working with doctors to understand what patients need, and fixing or calibrating machines used in hospitals.",
   "impact": "Their work is behind affordable medical devices made by Indian companies like Skanray Technologies, low-cost prosthetic limbs from organisations like the Jaipur Foot project, and imaging machines used daily in hospitals like AIIMS.",
   "entry_exams_text": "JEE (Joint Entrance Examination, the national exam to get into engineering colleges) Main, or state-level engineering entrance exams, for BTech programs in Biomedical Engineering; GATE (Graduate Aptitude Test in Engineering) for higher studies.",
@@ -2527,6 +2476,8 @@
    "Commerce",
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCB)",
+  "pay_tier": "Mid",
   "day_in_life": "A biostatistician designs studies and analyzes health and medical data using statistics, such as figuring out whether a new medicine actually works better than an old one based on trial results. Most of the day involves working with data software and writing reports for doctors or drug companies.",
   "impact": "Biostatisticians working with companies like Cipla, Dr. Reddy's, and the Indian Council of Medical Research (ICMR) help prove whether new vaccines and medicines are safe and effective before they reach patients across India.",
   "entry_exams_text": null,
@@ -2574,6 +2525,8 @@
   "eligible_streams": [
    "Science (PCB)"
   ],
+  "parent_stream": "Science (PCB)",
+  "pay_tier": "Mid",
   "day_in_life": "A biotechnologist uses living cells, bacteria, or plants to create useful products like medicines, vaccines, or better crops, working in labs to run experiments and in factories to help scale up production. Days can involve growing cell cultures, testing samples, or working with machines that manufacture biological products.",
   "impact": "Biotechnology companies like Serum Institute of India and Bharat Biotech developed and manufactured COVID-19 vaccines like Covishield and Covaxin that were given to hundreds of millions of Indians, showing how this field directly saves lives at a massive scale.",
   "entry_exams_text": "No single fixed entrance exam for a bachelor's degree \u2014 many colleges admit based on Class 12 marks, though some use exams like BITSAT (Birla Institute of Technology and Science Admission Test) or state entrance tests; for master's programs, exams like GAT-B (Graduate Aptitude Test in Biotechnology) apply.",
@@ -2766,6 +2719,8 @@
    "Commerce",
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "High",
   "day_in_life": "A blockchain developer writes computer code to build secure digital systems, such as apps that let people trade cryptocurrency or verify records without needing a bank or middleman, called decentralized apps. The day involves programming, testing code for security flaws, and keeping up with fast-changing new technology.",
   "impact": "Blockchain developers at companies like Polygon (built by Indian founders) and Infosys build systems used worldwide for secure payments, supply chain tracking, and digital identity, putting India on the map in this growing global field.",
   "entry_exams_text": null,
@@ -2930,6 +2885,8 @@
   "eligible_streams": [
    "Science (PCB)"
   ],
+  "parent_stream": "Science (PCB)",
+  "pay_tier": "Mid",
   "day_in_life": "A botanist studies plants \u2014 their growth, genetics, diseases, and uses \u2014 spending time in labs examining plant samples, in botanical gardens or forests collecting specimens, or teaching students about plant science. Fieldwork days involve walking through natural areas identifying and studying plant life.",
   "impact": "Botanists at the Botanical Survey of India help discover and protect rare Indian plant species, and plant scientists working with seed companies help develop crop varieties that can survive droughts, directly supporting farmers' incomes across the country.",
   "entry_exams_text": "No single fixed entrance exam for a Botany bachelor's degree \u2014 most colleges admit based on Class 12 marks (with Biology as a subject); for research roles later, exams like CSIR-NET (a national exam for science research fellowships and teaching jobs) become relevant.",
@@ -3036,6 +2993,8 @@
   "eligible_streams": [
    "All"
   ],
+  "parent_stream": "Commerce",
+  "pay_tier": "High",
   "day_in_life": "A business administration graduate (a BBA after Class 12, often followed by an MBA) spends the day in meetings, analysing business numbers, planning strategy, or managing teams to help a company grow, cut costs, or launch new products. The exact tasks depend on the area of business they choose.",
   "impact": "MBA graduates working at companies like Tata, HUL, and McKinsey shape decisions on which products to launch, how to price them, and how to run operations efficiently, directly affecting jobs and the products millions of Indians use.",
   "entry_exams_text": "For a BBA after Class 12: IPMAT (for the IIM integrated programmes), CUET (UG) for central universities, or college tests such as NPAT and SET. For an MBA after graduation: CAT, the main national exam for India's top business schools.",
@@ -3164,6 +3123,8 @@
    "Commerce",
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "High",
   "day_in_life": "A business intelligence analyst pulls numbers from a company's sales, customers, or operations and turns them into charts and dashboards that managers can quickly understand. Most of the day goes into cleaning messy spreadsheets, writing queries to pull data, and building visual reports that answer questions like 'why did sales drop in Chennai last month?'",
   "impact": "When Swiggy decides which cities need more delivery riders, or when Tata Motors figures out which car model is selling best in which state, business intelligence teams are the ones who found that answer in the data. Their reports directly shape decisions worth crores of rupees.",
   "entry_exams_text": null,
@@ -3318,6 +3279,8 @@
   "eligible_streams": [
    "Science (PCB)"
   ],
+  "parent_stream": "Science (PCB)",
+  "pay_tier": "High",
   "day_in_life": "A cardiologist is a heart doctor who spends the day examining patients with chest pain or breathing trouble, reading heart scans like ECGs, and deciding whether someone needs medicines, a small procedure like inserting a stent, or heart surgery. In a hospital, they often move between the outpatient clinic, the ICU, and the operation theatre in the same day.",
   "impact": "Heart disease is one of the biggest killers in India, and cardiologists at hospitals like Fortis, Apollo, and AIIMS perform life-saving procedures like angioplasty (opening a blocked blood vessel) every single day, giving patients years of extra life.",
   "entry_exams_text": null,
@@ -3393,6 +3356,8 @@
   "eligible_streams": [
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "High",
   "day_in_life": "A ceramic engineer develops and tests materials like glass, tiles, bricks, and advanced ceramics used in electronics, spending the day mixing raw materials, running furnace and kiln tests, and checking how strong or heat-resistant the finished material is.",
   "impact": "Their work is behind the tiles and sanitaryware made by companies like Kajaria and Hindware, the glass used in buildings and phone screens, and advanced ceramic parts used in electronics and space equipment.",
   "entry_exams_text": "JEE (Joint Entrance Examination, the national exam to get into engineering colleges) Main, or state-level engineering entrance exams; GATE (Graduate Aptitude Test in Engineering) for higher studies or government jobs.",
@@ -3531,6 +3496,8 @@
    "Commerce",
    "Science (PCM)"
   ],
+  "parent_stream": "Commerce",
+  "pay_tier": "High",
   "day_in_life": "A Chartered Accountant checks company accounts for errors, prepares tax filings, and advises businesses on how to save money and follow financial rules. On a typical day they might review a company's expense sheets, sign off on its yearly financial report, or meet a client to plan how much tax they owe.",
   "impact": "Every big Indian company, from Tata to a local textile business, needs a Chartered Accountant to make sure its money records are honest and legal before they are shown to investors or the government. Without CAs, companies could hide losses or dodge taxes, so CAs act like referees for business honesty.",
   "entry_exams_text": "CA Foundation, Intermediate, and Final exams conducted by ICAI (Institute of Chartered Accountants of India, the official body that trains and licenses accountants in India). There is no college degree needed first \u2014 you can register for CA Foundation right after Class 12 and study through ICAI's own multi-year program.",
@@ -3590,6 +3557,8 @@
   "eligible_streams": [
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "High",
   "day_in_life": "A chemical engineer designs and runs large-scale processes that turn raw materials into everyday products, spending the day monitoring plant equipment like reactors and pipelines, running safety checks, and tweaking chemical processes to make them more efficient.",
   "impact": "Their work is behind the petrol at Indian Oil pumps, the fertilizers that help farmers grow crops, and the medicines produced by pharmaceutical companies like Cipla and Sun Pharma.",
   "entry_exams_text": "JEE (Joint Entrance Examination, the national exam to get into engineering colleges) Main and Advanced, or state-level engineering entrance exams; GATE (Graduate Aptitude Test in Engineering) for higher studies or public sector jobs.",
@@ -3777,6 +3746,8 @@
    "Science (PCB)",
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "Mid",
   "day_in_life": "Someone in this field works on turning chemistry ideas into real industrial products, like running plant equipment that makes plastics, dyes, or petroleum products, and checking that manufacturing processes are efficient and safe. Their day looks more like being on a factory floor or in a pilot plant than working in a pure research lab.",
   "impact": "This field makes possible the everyday plastic bottles, paints, fertilizers, and fuels made by companies like Reliance Industries and Asian Paints, by turning raw chemicals into usable products at a large scale.",
   "entry_exams_text": "JEE (Joint Entrance Exam, for admission into engineering and technology programs) for undergraduate courses; GATE (Graduate Aptitude Test in Engineering, needed for master's programs or government technical jobs) for higher studies.",
@@ -3864,6 +3835,8 @@
    "Science (PCB)",
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "Mid",
   "day_in_life": "A chemist mixes chemicals in a lab to test how they react, records results carefully, and figures out why something worked or didn't. Depending on the job, they might develop a new medicine ingredient, test water quality, or teach chemistry concepts to students.",
   "impact": "Chemists are behind everyday things like the medicines you take from companies such as Cipla and Sun Pharma, the fertilizers that help farmers grow more food, and the quality checks that make sure your shampoo or food packaging is safe.",
   "entry_exams_text": "JEE (Joint Entrance Exam, for admission into engineering and some science programs) or CUET (Common University Entrance Test, used by many central universities for undergraduate admission) for a BSc in Chemistry; GATE (Graduate Aptitude Test in Engineering, needed for master's or research programs) or CSIR-NET (a national exam for research and teaching jobs in science) for higher studies later.",
@@ -3999,6 +3972,8 @@
   "eligible_streams": [
    "Science (PCB)"
   ],
+  "parent_stream": "Science (PCB)",
+  "pay_tier": "Mid",
   "day_in_life": "A chiropractor examines how a person's spine and joints move, then uses their hands to gently adjust the back, neck, or joints to relieve pain, most often for people with back pain, neck stiffness, or posture problems from sitting too long. Sessions usually happen one-on-one in a small clinic room.",
   "impact": "As more Indians in cities develop back and neck pain from desk jobs and phone use, wellness clinics in places like Mumbai and Bengaluru increasingly offer chiropractic sessions as a drug-free way to manage everyday pain, though this is still a small and new field in India.",
   "entry_exams_text": null,
@@ -4044,6 +4019,8 @@
   "eligible_streams": [
    "All"
   ],
+  "parent_stream": "Arts",
+  "pay_tier": "Low",
   "day_in_life": "A cinematographer decides how a film or ad looks on screen by choosing camera angles, lighting, and movement, while a film editor sits later at a computer piecing together the shot footage into a smooth, emotional story. On a shoot day, a cinematographer directs the camera and lighting crew for hours to get one perfect scene.",
   "impact": "The visual style of films like RRR or Pathaan, and the fast-cut trailers you see on YouTube, are shaped entirely by cinematographers and editors working with directors at studios like Yash Raj Films and Dharma Productions.",
   "entry_exams_text": null,
@@ -4104,6 +4081,8 @@
   "eligible_streams": [
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "High",
   "day_in_life": "A civil engineer plans and oversees the building of roads, bridges, and buildings, spending the day reviewing construction site progress, checking that structures meet safety standards, and working with architects and contractors to solve on-site problems.",
   "impact": "Their work builds the metro lines in cities like Delhi and Mumbai, the highways connecting Indian cities, and housing projects that give people places to live, shaping how millions of Indians travel and live every day.",
   "entry_exams_text": "JEE (Joint Entrance Examination, the national exam to get into engineering colleges) Main and Advanced, or state-level engineering entrance exams; GATE (Graduate Aptitude Test in Engineering) for higher studies or government jobs.",
@@ -4290,6 +4269,8 @@
   "eligible_streams": [
    "Commerce"
   ],
+  "parent_stream": "Commerce",
+  "pay_tier": "Mid",
   "day_in_life": "A commerce graduate's day depends on the path they choose \u2014 it could mean managing a company's budget, analyzing stock market trends, handling banking transactions, or running their own small business accounts. It's a broad degree, so the daily work varies a lot by which job you pick after graduating.",
   "impact": "Commerce graduates keep businesses across India running smoothly, from helping a startup manage its cash flow to helping banks like HDFC process loans, making sure money moves correctly through the economy.",
   "entry_exams_text": "No single fixed entrance exam for a basic B.Com (Bachelor of Commerce) degree at most colleges \u2014 admission is usually based on Class 12 marks, though some top colleges use CUET (Common University Entrance Test, a common exam for admission to central universities).",
@@ -4412,6 +4393,8 @@
    "Commerce",
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "Mid",
   "day_in_life": "A BCA/MCA (Bachelor/Master of Computer Applications) graduate writes software code, builds websites or apps, tests programs for bugs, and works with teams to solve business problems using computers. Most days are spent coding at a computer, in meetings discussing what to build, or fixing issues in existing software.",
   "impact": "BCA and MCA graduates build and maintain everyday apps and websites like those used by Flipkart, Paytm, and Zomato, meaning the app you use to order food or pay a friend was very likely built and maintained by people with this exact degree.",
   "entry_exams_text": "No single fixed entrance exam for BCA \u2014 most colleges admit based on Class 12 marks; for MCA (after BCA or another bachelor's degree), exams like NIMCET (NIT MCA Common Entrance Test, for admission into National Institutes of Technology) are common.",
@@ -4504,6 +4487,8 @@
   "eligible_streams": [
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "High",
   "day_in_life": "Someone in this field writes code to build software, apps, or websites, tests it to fix bugs, and works with a team to launch products that people use every day. A typical day might involve writing a new feature for an app, debugging why something isn't working, or reviewing a teammate's code.",
   "impact": "This field builds the apps and systems millions of Indians use daily, like Paytm for payments, Swiggy for food delivery, and the banking apps that let you check your account on your phone.",
   "entry_exams_text": "JEE (Joint Entrance Exam, for admission into engineering colleges) is the main exam for a BTech or BE degree in Computer Science or Information Technology; some states also have their own engineering entrance exams like MHT-CET or WBJEE.",
@@ -4696,6 +4681,8 @@
    "Arts",
    "Commerce"
   ],
+  "parent_stream": "Arts",
+  "pay_tier": "Mid",
   "day_in_life": "A court reporter or legal transcriptionist listens to court hearings, depositions, or recorded legal conversations and types them out word-for-word into an official written record. Much of the work involves typing quickly and accurately while wearing headphones, and checking the text against legal terms to make sure nothing is missed.",
   "impact": "Accurate written records from legal transcriptionists let judges, lawyers, and courts like the Delhi High Court refer back to exactly what was said in a case, which can matter years later during an appeal.",
   "entry_exams_text": null,
@@ -4774,6 +4761,8 @@
   "eligible_streams": [
    "All"
   ],
+  "parent_stream": "Commerce",
+  "pay_tier": "Mid",
   "day_in_life": "A chef plans menus, prepares and cooks food, and manages a kitchen team, often starting early to prep ingredients and staying through a busy service where dozens of dishes go out under time pressure. Days involve a lot of standing, chopping, tasting, and quick decisions when something goes wrong.",
   "impact": "Chefs behind restaurant chains like Bikanervala or five-star hotel kitchens at the Taj and Oberoi shape what millions of Indians eat when they dine out, and some, like on MasterChef India, influence how the whole country cooks at home.",
   "entry_exams_text": null,
@@ -4847,6 +4836,8 @@
   "eligible_streams": [
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "High",
   "day_in_life": "A cyber security professional protects computer systems from hackers by finding weak spots before criminals do, monitoring for suspicious activity, and responding quickly if a company's data gets attacked. On a normal day they might run a test attack on their own company's systems to find gaps, or investigate an alert about unusual login activity.",
   "impact": "Cyber security experts protect things like your bank's online systems, Aadhaar's data (India's national ID system), and companies like Zomato from hackers stealing personal information or money, which is why banks and government agencies invest heavily in this field.",
   "entry_exams_text": "JEE (Joint Entrance Exam, for engineering admission) for a BTech in Computer Science or a related field, followed by specialized certifications like CEH (Certified Ethical Hacker) or CompTIA Security+ that are industry-recognized proof of cyber security skills, not government exams.",
@@ -5022,6 +5013,8 @@
    "Science (PCB)",
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "High",
   "day_in_life": "A dairy engineer designs and manages the machines and factory processes that turn raw milk into products like packaged milk, paneer, cheese, and ice cream, making sure everything stays clean and safe to eat. They also troubleshoot equipment breakdowns on the factory floor and check that hygiene rules are followed.",
   "impact": "The machines that process milk at Amul's dairy plants in Gujarat or Mother Dairy's facilities in Delhi were designed and are run by dairy engineers, making sure the milk that reaches your home every morning is safe to drink. Without them, large-scale dairy products would not stay fresh or safe for millions of people.",
   "entry_exams_text": "ICAR AIEEA (a national entrance exam for agriculture-related degrees including dairy technology, run by the Indian Council of Agricultural Research), or state-level agricultural university entrance exams.",
@@ -5161,6 +5154,8 @@
   "eligible_streams": [
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "High",
   "day_in_life": "A data engineer builds the pipelines and systems that collect, clean, and store huge amounts of data so that other teams can use it for analysis or building apps. Much of the day goes into writing code that moves data reliably from one system to another without losing or breaking it.",
   "impact": "The systems that let Flipkart recommend products to you or let Ola calculate the fastest route and fare were built on data pipelines set up by data engineers. Banks like HDFC also rely on data engineers to safely manage the transaction data of millions of customers.",
   "entry_exams_text": "JEE Main and JEE Advanced (national engineering entrance exams for top government colleges) for a Computer Science or IT degree, or BITSAT and state-level exams for other colleges; there is no exam specifically named \"data engineering\" in India.",
@@ -5343,6 +5338,8 @@
   "eligible_streams": [
    "Science (PCB)"
   ],
+  "parent_stream": "Science (PCB)",
+  "pay_tier": "High",
   "day_in_life": "A dentist examines patients' teeth and gums, fills cavities, performs procedures like root canals or extractions, and gives advice on oral hygiene. Most of the day is spent seeing patients one after another in a clinic or hospital, often doing hands-on procedures with dental tools.",
   "impact": "Dentists fix painful problems like cavities and gum disease that affect a huge number of Indians, and clinics or hospital chains like Clove Dental treat millions of patients every year, preventing small issues from becoming serious health problems.",
   "entry_exams_text": "NEET (National Eligibility cum Entrance Test, the single common exam for admission into all medical and dental courses in India) for a BDS (Bachelor of Dental Surgery) degree.",
@@ -5437,6 +5434,8 @@
   "eligible_streams": [
    "Science (PCB)"
   ],
+  "parent_stream": "Science (PCB)",
+  "pay_tier": "High",
   "day_in_life": "A dermatologist is a skin doctor who examines patients with skin, hair, or nail problems, ranging from acne and rashes to more serious conditions, and prescribes treatments or performs small procedures like removing a mole. Clinic days are usually packed with back-to-back patient consultations.",
   "impact": "Dermatologists at clinics and hospitals across India treat common problems like acne and pigmentation that affect millions of teenagers and adults, and also catch early signs of skin cancer that can save lives if treated in time.",
   "entry_exams_text": null,
@@ -5510,6 +5509,8 @@
   "eligible_streams": [
    "All"
   ],
+  "parent_stream": "Arts",
+  "pay_tier": "Mid",
   "day_in_life": "A designer sketches or creates digital drafts of a product, app screen, outfit, or object, gets feedback from a team, and refines it until it looks good and works well for the people using it. The daily work varies a lot depending on the type of design, from drawing on a tablet to arranging fabric on a mannequin.",
   "impact": "Designers shape the products and experiences Indians use daily, like the easy-to-use screens on the PhonePe app, the clothes sold by brands like FabIndia, and the sleek look of products from companies like Godrej.",
   "entry_exams_text": "UCEED (Undergraduate Common Entrance Examination for Design, for admission to top design institutes like IITs and NID) or NID DAT (National Institute of Design Admission Test) are the main design entrance exams in India.",
@@ -5674,6 +5675,8 @@
   "eligible_streams": [
    "Science (PCB)"
   ],
+  "parent_stream": "Science (PCB)",
+  "pay_tier": "Mid",
   "day_in_life": "A dietitian studies what a person eats and creates meal plans to help them manage weight, diabetes, or other health conditions, often meeting patients one-on-one or working with hospital kitchens to plan meals for patients. Some days involve consultations, others involve reading medical reports to decide what changes in diet are needed.",
   "impact": "With diabetes and obesity rising sharply in India, dietitians working in hospitals like Apollo or as independent consultants help millions of people manage these conditions through food instead of only medicine.",
   "entry_exams_text": null,
@@ -5747,6 +5750,8 @@
   "eligible_streams": [
    "All"
   ],
+  "parent_stream": "Commerce",
+  "pay_tier": "Mid",
   "day_in_life": "An economist studies data about money, prices, jobs, and markets to understand what's happening in the economy and predict what might happen next. Their day might involve analyzing government data, writing a report on inflation, or advising a company on pricing strategy.",
   "impact": "Economists help shape decisions like how much the Reserve Bank of India (India's central bank) should change interest rates, or how companies like Ola set prices, which affects things like loan costs and job availability for everyone.",
   "entry_exams_text": "No single fixed entrance exam for a basic Economics degree at most colleges \u2014 admission is usually based on Class 12 marks, though some top colleges use CUET (Common University Entrance Test, a common exam for central university admissions) or their own entrance test like DU's or ISI's admission test.",
@@ -5878,6 +5883,8 @@
   "eligible_streams": [
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "High",
   "day_in_life": "This is a broad, combined engineering branch offered by some colleges that covers a mix of electrical power systems, electronic circuits, and communication technology in one degree, instead of picking just one of those areas. A typical day could involve working on anything from wiring and motors to circuit boards to mobile signal systems, depending on the specific job taken after graduating.",
   "impact": "Graduates of this combined branch have the flexibility to work in power companies like Tata Power, in electronics manufacturing, or in telecom companies like Airtel, because their degree touches all three areas. This broad training is useful for smaller companies or government jobs that want an all-rounder rather than a narrow specialist.",
   "entry_exams_text": "JEE Main and JEE Advanced (national engineering entrance exams for top government colleges), or state-level engineering entrance exams like MHT-CET, KCET, or WBJEE.",
@@ -6072,6 +6079,8 @@
   "eligible_streams": [
    "Science (PCB)"
   ],
+  "parent_stream": "Science (PCB)",
+  "pay_tier": "Mid",
   "day_in_life": "Emergency medical technicians and paramedics respond to accidents and medical emergencies, often arriving in an ambulance to give first treatment, like stopping bleeding or helping someone breathe, before rushing the patient to a hospital. The job involves being on call for sudden emergencies at any time of day or night.",
   "impact": "Paramedics working with ambulance services like 108 (a free government emergency number in many states) or private providers like Ziqitza Health Care save lives on the way to the hospital, especially in road accidents, which are extremely common in India.",
   "entry_exams_text": null,
@@ -6132,6 +6141,8 @@
   "eligible_streams": [
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "High",
   "day_in_life": "An energy engineer works on how to generate, store, and use energy more efficiently, especially from renewable sources like solar and wind, and often designs systems to reduce energy waste in buildings or factories. A typical day could involve calculating how many solar panels a factory needs, or checking how much energy a building wastes and suggesting fixes.",
   "impact": "The engineers designing India's huge solar parks, like Bhadla Solar Park in Rajasthan, or wind farms run by Suzlon, are energy engineers helping India move to cleaner power. Their work directly affects how quickly India can cut pollution while still having enough electricity for its growing population.",
   "entry_exams_text": "JEE Main and JEE Advanced (national engineering entrance exams for top government colleges) for a degree in Energy Engineering or a related branch, or state-level engineering entrance exams; some institutes also offer this through GATE (a national exam for master's admission) after a bachelor's degree.",
@@ -6257,6 +6268,8 @@
   "eligible_streams": [
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "High",
   "day_in_life": "An engineering design graduate works on turning ideas into real, usable products by sketching, modelling on computer software, and testing prototypes of things like machine parts, medical devices, or consumer gadgets. A typical day might involve using 3D design software, building and testing a physical prototype, or discussing with a team how to make a product easier to manufacture.",
   "impact": "The people who design the shape and mechanics of products like Titan watches, Bajaj scooters, or medical devices used in Indian hospitals rely on engineering design skills to make sure the product works well and can actually be manufactured. This field turns a rough idea into something that companies can actually build and sell.",
   "entry_exams_text": "JEE Main and JEE Advanced (national engineering entrance exams for top government colleges, this specific programme is offered at IIT Kanpur and a few others), or state-level engineering entrance exams for design-focused programmes elsewhere.",
@@ -6371,6 +6384,8 @@
   "eligible_streams": [
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "High",
   "day_in_life": "A person in this field spends the day using deep physics ideas (like how light, electricity, or tiny particles behave) to design real devices \u2014 for example working on computer chips, lasers, or sensors. Work usually happens in a lab or on a computer, running experiments or building models to test how a device will behave.",
   "impact": "This work sits behind things like the camera sensor in your phone, the semiconductor chips made by companies like Applied Materials or Tata Electronics, and fibre-optic cables that carry the internet across India. Without this deep physics-plus-engineering thinking, such advanced hardware could not be designed.",
   "entry_exams_text": "JEE (Joint Entrance Exam, the main exam to get into engineering colleges including IITs) \u2014 specifically for the Engineering Physics programs offered at a few IITs; GATE (a national exam for master's or government engineering jobs) later on for higher studies.",
@@ -6476,6 +6491,8 @@
   "eligible_streams": [
    "All"
   ],
+  "parent_stream": "Arts",
+  "pay_tier": "Low",
   "day_in_life": "Someone with a degree in English might spend their day writing articles, editing other people's writing, teaching literature to students, or creating content for a company's website or marketing. The actual work depends heavily on which job they pick, from journalism to publishing to teaching.",
   "impact": "People with English backgrounds write the news you read, the books published by companies like Penguin Random House India, and the content that brands like Zomato use to talk to customers, shaping how information and stories reach people.",
   "entry_exams_text": "No single fixed entrance exam \u2014 most colleges admit students for a BA in English based on Class 12 marks, though some top universities use CUET (Common University Entrance Test, a common exam for central university admissions).",
@@ -6577,6 +6594,8 @@
    "Science (PCB)",
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "High",
   "day_in_life": "A person in this field designs systems that clean polluted water, treat sewage, or reduce air pollution from factories, often visiting treatment plants or construction sites to check that things are built and working correctly. They also use computers to model how pollution spreads and to plan solutions like waste management systems for cities.",
   "impact": "This work makes sure cities like Delhi and Mumbai have safer drinking water and reduces the smog that affects daily life; companies like VA Tech Wabag build and run water treatment plants across India relying on these engineers.",
   "entry_exams_text": "JEE (Joint Entrance Exam, the main exam to get into engineering colleges including IITs) for undergraduate study, often taken as a specialization within Civil Engineering; GATE (a national exam for master's or government jobs) for higher studies or government roles.",
@@ -6729,6 +6748,8 @@
   "eligible_streams": [
    "All"
   ],
+  "parent_stream": "Commerce",
+  "pay_tier": "Mid",
   "day_in_life": "An event manager plans and runs weddings, concerts, product launches, or conferences, handling everything from booking venues and vendors to making sure the sound system works and the food arrives on time. On the day of the event, they are constantly on their feet, solving last-minute problems like a delayed delivery or a missing chair.",
   "impact": "Event managers make things like a Sunburn music festival, a Bollywood celebrity wedding, or a company's annual conference actually happen smoothly, turning an idea into a real experience for thousands of guests. Without them, big gatherings across India would fall apart from poor planning.",
   "entry_exams_text": null,
@@ -6810,6 +6831,8 @@
   "eligible_streams": [
    "All"
   ],
+  "parent_stream": "Arts",
+  "pay_tier": "Mid",
   "day_in_life": "A fashion designer sketches new clothing ideas, picks fabrics and colours, and works with tailors to turn drawings into actual garments people can wear. They also study what styles are trending and adjust their designs so they will sell well in stores or online.",
   "impact": "Fashion designers create the clothes sold by Indian brands like FabIndia, Manish Malhotra's label, or Zara India, shaping what millions of people wear every day and helping India's textile and garment export business, which employs crores of workers, stay competitive worldwide.",
   "entry_exams_text": null,
@@ -6942,6 +6965,8 @@
    "Commerce",
    "Science (PCM)"
   ],
+  "parent_stream": "Commerce",
+  "pay_tier": "High",
   "day_in_life": "A finance professional spends the day looking at numbers, spreadsheets, and market news to decide where money should go or how to make it grow. This could mean helping a company raise money, planning a family's investments, or managing a business's budget and cash flow.",
   "impact": "Finance people are behind big moments like Zomato or LIC listing on the stock market, and behind everyday things like helping a small business get a loan from HDFC Bank to expand. Without finance professionals, companies couldn't raise money to grow and people wouldn't get advice on saving for a house or retirement.",
   "entry_exams_text": "CA (Chartered Accountancy exam, run by ICAI, for accounting and finance experts), CFA (Chartered Financial Analyst, a global exam for investment professionals), CAT (Common Admission Test, for MBA in Finance), or simply a B.Com/BBA degree followed by on-the-job learning.",
@@ -7048,6 +7073,8 @@
    "All",
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "High",
   "day_in_life": "A fire and safety officer inspects buildings, factories, or malls to check that fire exits, extinguishers, and alarms all work properly, and trains staff on what to do in an emergency. When a fire or accident happens, they lead the response to put it out safely and get people to safety.",
   "impact": "These professionals prevent tragedies like factory fires or building collapses by making sure places like the Mumbai Metro, an Infosys campus, or a Reliance refinery follow safety rules, directly saving lives and property across Indian workplaces.",
   "entry_exams_text": null,
@@ -7149,6 +7176,8 @@
    "Science (PCB)",
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCB)",
+  "pay_tier": "Mid",
   "day_in_life": "A fishery scientist studies fish and water bodies, working out how to breed fish healthily, keep ponds and rivers clean, or help fish farmers get bigger harvests. Some days involve fieldwork at ponds or the coast, other days involve lab tests on water and fish samples.",
   "impact": "India is one of the world's biggest fish producers, and fishery scientists help fish farmers in states like Andhra Pradesh and West Bengal grow more fish like rohu and shrimp for export and local markets. Their work keeps fish affordable and safe to eat for millions of Indians, and supports the livelihoods of coastal and rural fishing families.",
   "entry_exams_text": "ICAR AIEEA (All India Entrance Examination for Admission, run by the Indian Council of Agricultural Research, for fisheries and agriculture degree courses), or state-level agricultural university entrance tests.",
@@ -7239,6 +7268,8 @@
    "Science (PCB)",
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "High",
   "day_in_life": "A person in this field works in factories or labs figuring out how to process, package, and preserve food so it stays safe and tasty for longer \u2014 for example designing the machines that pasteurize milk or the process that keeps chips crunchy in a sealed packet. They also test new food products and make sure factory equipment meets hygiene and safety rules.",
   "impact": "This work is why milk from companies like Amul stays fresh in tetra packs for months and why packaged snacks from brands like Haldiram's don't spoil quickly, letting food reach people safely across India's long supply chains.",
   "entry_exams_text": "JEE (Joint Entrance Exam, the main exam to get into engineering colleges including IITs) for a few specialized programs; ICAR AIEEA (an entrance exam for agriculture-related degrees, including food technology, at agricultural universities) is more commonly used.",
@@ -7426,6 +7457,8 @@
    "Science (PCB)",
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCB)",
+  "pay_tier": "Mid",
   "day_in_life": "A forensic scientist examines evidence from crime scenes, like blood samples, fingerprints, or broken objects, in a lab to figure out what happened and who was involved. They often write detailed reports that police and courts use to solve cases.",
   "impact": "Forensic scientists help solve real crimes, like identifying suspects through DNA testing or analyzing weapons in high-profile police investigations across India. Their careful lab work can decide whether an innocent person is cleared or a guilty person is caught, directly affecting justice in courts.",
   "entry_exams_text": "No single fixed entrance exam \u2014 most students take a B.Sc in Forensic Science after Class 12, admission is usually based on Class 12 marks or a university-specific entrance test.",
@@ -7490,6 +7523,8 @@
    "Science (PCB)",
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCB)",
+  "pay_tier": "Mid",
   "day_in_life": "A forestry professional manages forests, plants and protects trees, tracks wildlife, and works to stop illegal cutting of trees or poaching of animals. Work often happens outdoors, walking through forest areas, alongside paperwork on forest health and planning.",
   "impact": "Foresters protect India's tiger reserves like Ranthambore and Jim Corbett, manage timber and forest produce that rural communities depend on, and help fight climate change by keeping forests healthy. Their decisions affect whether forests survive for future generations and whether wildlife like elephants and tigers have safe habitats.",
   "entry_exams_text": "Indian Forest Service Exam (a government exam through UPSC, the Union Public Service Commission, for top forest officer positions), or a B.Sc in Forestry through state agricultural or forestry university entrance tests.",
@@ -7566,6 +7601,8 @@
   "eligible_streams": [
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "High",
   "day_in_life": "A person in this field studies the basics of several engineering branches together (like a bit of mechanical, electrical, and civil) without specializing deeply in one, usually at smaller colleges that offer a broad first-year-style program throughout the degree. Actual daily work after graduation varies a lot and depends on which industry or company hires them, often in general technical, maintenance, or supervisory roles.",
   "impact": "Graduates from this kind of broad program often become the utility players in factories or infrastructure companies \u2014 for example handling general technical operations at an L&T project site \u2014 because they can understand and coordinate across different engineering teams.",
   "entry_exams_text": "JEE (Joint Entrance Exam) or state-level engineering entrance exams (like MHT-CET in Maharashtra or KCET in Karnataka) depending on the state and college offering the general engineering program.",
@@ -7651,6 +7688,8 @@
   "eligible_streams": [
    "Science (PCB)"
   ],
+  "parent_stream": "Science (PCB)",
+  "pay_tier": "Mid",
   "day_in_life": "A genetic counsellor meets with families to explain what a genetic test result means in simple words, such as whether a baby might inherit a health condition, and helps them decide what to do next. A geneticist, on the other hand, mostly works in a lab or research centre studying DNA (the code inside our cells that decides our traits) to discover what causes diseases.",
   "impact": "Genetic counsellors at hospitals like Apollo or Fortis help thousands of Indian couples understand results from tests like NIPT (a pregnancy screening test) before making major family decisions, while geneticists at institutes like CCMB Hyderabad have helped uncover the genetic causes behind conditions common in Indian populations.",
   "entry_exams_text": null,
@@ -7749,6 +7788,8 @@
    "Commerce",
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "Low",
   "day_in_life": "A GIS (Geographic Information Systems) specialist uses special mapping software to turn location data, like satellite images or GPS coordinates, into maps that help people make decisions, such as where to build a new road or how a flood might spread. They spend most of their day working on computers, layering different kinds of data onto digital maps.",
   "impact": "GIS professionals help companies like Zomato and Swiggy figure out the fastest delivery routes, help the government plan projects like the Delhi Metro expansion, and help disaster teams predict flood zones during monsoons using tools like ISRO's Bhuvan mapping platform.",
   "entry_exams_text": null,
@@ -7812,6 +7853,8 @@
    "Commerce",
    "Science (PCM)"
   ],
+  "parent_stream": "Arts",
+  "pay_tier": "Low",
   "day_in_life": "A geographer studies the Earth itself, things like climate patterns, rivers, population movement, and cities, often teaching in colleges, researching at universities, or advising the government on land and environment policy. Their day might involve analysing rainfall data, writing research papers, or lecturing students about why cities grow where they do.",
   "impact": "Geographers help India plan for challenges like water shortages in Chennai, monsoon flooding in Assam, or how fast cities like Bengaluru are expanding, work that directly shapes government policies through bodies like the Survey of India and NITI Aayog.",
   "entry_exams_text": null,
@@ -7874,6 +7917,8 @@
    "Science (PCB)",
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "Mid",
   "day_in_life": "A geologist studies rocks, soil, and the structure of the earth to find out what lies underground, such as oil, minerals, or groundwater, or to understand earthquakes and landslides. Work involves fieldwork at mines, hills, or drilling sites, plus lab analysis of rock and soil samples.",
   "impact": "Geologists help companies like ONGC (Oil and Natural Gas Corporation) find oil and gas reserves that power India's homes and vehicles, and help mining companies locate coal and metal deposits used in construction and electronics. They also study earthquake-prone zones like the Himalayas to help build safer buildings and warn of disasters.",
   "entry_exams_text": "GATE (Graduate Aptitude Test in Engineering, a national exam for getting into master's programs or government jobs in geology), or a B.Sc in Geology through Class 12 marks-based admission.",
@@ -7983,6 +8028,8 @@
   "eligible_streams": [
    "Science (PCB)"
   ],
+  "parent_stream": "Science (PCB)",
+  "pay_tier": "High",
   "day_in_life": "A gynaecologist and obstetrician is a doctor who takes care of women's reproductive health, delivering babies, monitoring pregnancies, and treating health issues related to the female body. Their day includes seeing patients in clinics, performing check-ups like ultrasounds, and sometimes rushing into surgery to deliver a baby safely.",
   "impact": "These doctors are the reason millions of safe deliveries happen every year in Indian hospitals like AIIMS and Fortis La Femme, directly reducing maternal and infant deaths and helping women get timely treatment for serious health conditions.",
   "entry_exams_text": null,
@@ -8037,61 +8084,6 @@
   }
  },
  {
-  "career_id": "hcl-techbee-program",
-  "name": "HCL TechBee Program",
-  "branch_id": null,
-  "domain": "Others",
-  "eligible_streams": [
-   "All"
-  ],
-  "day_in_life": "A TechBee student joins right after Class 12 instead of going to college, and spends the day partly learning IT skills like coding and business basics, and partly doing real paid work at HCLTech, a large Indian IT company. Over time, the classroom learning reduces and the real job work increases.",
-  "impact": "TechBee lets students from ordinary financial backgrounds start earning a salary and gaining real work experience at 18, instead of spending three to four years and lakhs of rupees on a college degree first. It has helped thousands of Indian students, especially from smaller towns, get into the IT industry without the usual engineering degree route.",
-  "entry_exams_text": "No single fixed entrance exam \u2014 HCLTech selects students directly after Class 12 based on an aptitude test and interview conducted by the company itself, not a national exam.",
-  "exams": null,
-  "top_colleges": [
-   {
-    "name": "This is a company-run program",
-    "q": null
-   },
-   {
-    "name": "not a college degree \u2014 training happens directly at HCLTech's own TechBee centers",
-    "q": null
-   },
-   {
-    "name": "with an option to later complete a college degree alongside work.",
-    "q": null
-   }
-  ],
-  "pay": {
-   "start": "\u20b91.5-2.5 LPA",
-   "mid": "\u20b94-7 LPA",
-   "senior": "\u20b910-18 LPA"
-  },
-  "recruiters": [
-   "HCLTech (the program leads directly to a job at HCLTech itself)"
-  ],
-  "stability": "Medium",
-  "automation_risk": "Medium",
-  "where_work": "Metro and Tier-2 cities where HCLTech centers are located",
-  "college_options": [],
-  "notable_people": [
-   "This is a young program without long-tenured famous alumni yet \u2014 students who join are mostly at the start of their careers."
-  ],
-  "sources": "HCLTech official program information, AmbitionBox employee reviews, news coverage of the program",
-  "specializations": [],
-  "riasec": {
-   "code": "CIR",
-   "scores": [
-    45.8,
-    57.2,
-    12.6,
-    27.4,
-    20.4,
-    82.8
-   ]
-  }
- },
- {
   "career_id": "history",
   "name": "History",
   "branch_id": "HIST",
@@ -8099,6 +8091,8 @@
   "eligible_streams": [
    "All"
   ],
+  "parent_stream": "Arts",
+  "pay_tier": "Low",
   "day_in_life": "A historian reads old documents, books, and records, visits archives or old monuments, and writes or teaches about how people lived in the past. Days can involve research in libraries, interviewing people for oral history, or preparing lessons for students.",
   "impact": "Historians help India understand its own past, from the freedom struggle to ancient civilizations like the Indus Valley, and their research shapes museum exhibits, school textbooks, and documentaries watched by millions. Their work also helps settle debates about historical events and monuments that matter to communities today.",
   "entry_exams_text": "No single fixed entrance exam \u2014 many colleges take students based on Class 12 marks, though top universities like Delhi University and Jawaharlal Nehru University have their own entrance tests for higher studies.",
@@ -8193,6 +8187,8 @@
   "eligible_streams": [
    "Science (PCB)"
   ],
+  "parent_stream": "Science (PCB)",
+  "pay_tier": "Mid",
   "day_in_life": "A homeopathic doctor meets patients, listens carefully to their symptoms and lifestyle, and prescribes homeopathic medicines, which are natural remedies given in small diluted doses. Much of the day is spent in consultations at a clinic or hospital, similar to a regular doctor's visit.",
   "impact": "Homeopathy doctors treat millions of Indians every year as an alternative or addition to regular medicine, especially for chronic issues like allergies or skin problems, and many government hospitals in India have dedicated homeopathy departments. This gives patients more treatment choices and supports India's AYUSH system (a government ministry for Ayurveda, Yoga, Unani, Siddha, and Homeopathy).",
   "entry_exams_text": "NEET (National Eligibility cum Entrance Test, the common medical entrance exam in India, also used for homeopathy degree admissions).",
@@ -8262,6 +8258,8 @@
    "Science (PCB)",
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCB)",
+  "pay_tier": "Mid",
   "day_in_life": "A horticulturist works with fruits, vegetables, flowers, and garden plants, figuring out the best ways to grow them, protect them from disease, and increase harvest quality. Work can be in fields, greenhouses, nurseries, or research labs, testing new plant varieties and farming methods.",
   "impact": "Horticulturists help farmers grow better mangoes in Maharashtra, grapes in Nashik, or flowers sold across Indian cities, directly affecting the fruits and vegetables that end up in every Indian kitchen. Better horticulture techniques also help farmers earn more money and reduce crop losses from pests and disease.",
   "entry_exams_text": "ICAR AIEEA (All India Entrance Examination for Admission, run by the Indian Council of Agricultural Research, for agriculture and horticulture degree courses), or state agricultural university entrance tests.",
@@ -8342,6 +8340,8 @@
   "eligible_streams": [
    "All"
   ],
+  "parent_stream": "Commerce",
+  "pay_tier": "Mid",
   "day_in_life": "A hotel management professional oversees parts of a hotel like guest check-ins, food service, housekeeping, or events, making sure guests have a smooth and pleasant stay. Days involve coordinating staff, solving guest problems on the spot, and managing bookings or budgets.",
   "impact": "Hotel managers run the operations behind major Indian hotel chains like Taj and Oberoi that host tourists, business travelers, and big weddings, directly supporting India's tourism industry which employs millions. Good hotel management also shapes how international visitors experience India, affecting tourism revenue for the whole country.",
   "entry_exams_text": "NCHMCT JEE (National Council for Hotel Management and Catering Technology Joint Entrance Exam, the main exam for hotel management degree admission in India).",
@@ -8423,6 +8423,8 @@
   "eligible_streams": [
    "All"
   ],
+  "parent_stream": "Commerce",
+  "pay_tier": "High",
   "day_in_life": "A Human Resources (HR) manager hires new employees, resolves workplace conflicts, and makes sure the company follows fair rules about pay, leave, and employee wellbeing. Their day is a mix of interviewing candidates, planning training programs, and talking to employees who need help with work issues.",
   "impact": "HR managers at companies like TCS and Infosys are responsible for hiring and supporting the millions of employees who keep India's IT and business sectors running, and they shape workplace culture at nearly every Indian company, from startups to giants like Tata.",
   "entry_exams_text": null,
@@ -8504,6 +8506,8 @@
   "eligible_streams": [
    "All"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "Mid",
   "day_in_life": "An airman keeps aircraft flying and the base running: servicing engines and airframes, maintaining radars and electronic systems, loading weapons, driving ground vehicles, guarding the base, or handling records and supplies. Work follows strict safety checklists, since even a small error can ground an aircraft.",
   "impact": "Airmen are the technical crew behind every sortie, keeping fighters, transport aircraft and helicopters ready to fly and bases secure. Agniveer Vayus get four years of Air Force training and a service package, and a share of them are retained for a full career.",
   "entry_exams_text": null,
@@ -8541,14 +8545,14 @@
    }
   ],
   "riasec": {
-   "code": "RCI",
+   "code": "CRE",
    "scores": [
-    90.0,
-    35.0,
-    1.0,
+    78.0,
+    8.0,
+    2.0,
     15.0,
-    18.0,
-    58.0
+    35.0,
+    88.0
    ]
   }
  },
@@ -8562,6 +8566,8 @@
    "Commerce",
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "Mid",
   "day_in_life": "An Air Force officer is either a pilot flying fighters, transport aircraft or helicopters, or a ground duty officer who runs the base: air traffic, radars, aircraft maintenance, weapons systems, logistics, accounts, or administration. Flying officers split time between briefings, simulator and flight training, and missions, while ground officers manage teams and technical operations.",
   "impact": "The Air Force defends India's airspace, delivers aid in disasters, and carries out air rescue, like the airlift of supplies during the COVID-19 pandemic and the evacuation flights of Operation Ganga. Its pilots and technical officers keep the country's aircraft and air defence ready at all times.",
   "entry_exams_text": null,
@@ -8626,7 +8632,7 @@
    "code": "REC",
    "scores": [
     75.0,
-    55.0,
+    8.0,
     2.0,
     30.0,
     62.0,
@@ -8642,6 +8648,8 @@
   "eligible_streams": [
    "All"
   ],
+  "parent_stream": "Arts",
+  "pay_tier": "Mid",
   "day_in_life": "A jawan is a soldier in the Army who does the hands-on work of the unit: physical training, weapons drill, guarding posts, patrolling, maintaining vehicles and equipment, and carrying out the orders of the officers and junior leaders above them. Some soldiers work in technical, clerical, or store-keeping roles. Postings may be at a base, a border post, or an exercise area, and the day follows a strict routine.",
   "impact": "Soldiers are the backbone of the Army, guarding the Line of Control, patrolling the borders, and helping in rescue work during disasters. A jawan who joins as an Agniveer gets four years of military training and a service package, and the best performers can be kept on for a full career.",
   "entry_exams_text": null,
@@ -8691,14 +8699,14 @@
    }
   ],
   "riasec": {
-   "code": "RCS",
+   "code": "CRE",
    "scores": [
-    88.0,
-    12.0,
-    1.0,
+    80.0,
+    8.0,
+    2.0,
     35.0,
-    25.0,
-    55.0
+    40.0,
+    88.0
    ]
   }
  },
@@ -8710,6 +8718,8 @@
   "eligible_streams": [
    "All"
   ],
+  "parent_stream": "Arts",
+  "pay_tier": "Mid",
   "day_in_life": "An Army officer leads a platoon or company of soldiers, plans training and field exercises, inspects equipment and weapons, and takes charge of their unit's welfare and readiness. Time is split between physical training, classroom briefings, paperwork, and field postings that can mean weeks in the mountains, desert or jungle. During operations or disaster relief, officers make quick decisions and lead from the front.",
   "impact": "Army officers defend India's land borders and counter terrorism, and are often the first on the ground in floods, earthquakes, and landslides, like the Army's rescue and relief work during the Kerala floods, protecting citizens' lives and property.",
   "entry_exams_text": null,
@@ -8779,14 +8789,14 @@
    }
   ],
   "riasec": {
-   "code": "ERC",
+   "code": "REC",
    "scores": [
-    68.0,
-    28.0,
+    80.0,
+    8.0,
     2.0,
     45.0,
     72.0,
-    52.0
+    55.0
    ]
   }
  },
@@ -8798,6 +8808,8 @@
   "eligible_streams": [
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "Mid",
   "day_in_life": "A naval officer works on a warship, submarine or at a naval base, running a department like navigation, weapons, engineering, or logistics. The day mixes bridge watches, drills at sea, supervising sailors, maintaining complex machinery, and planning missions. Pilots and observers fly helicopters and maritime patrol aircraft from ships and airfields.",
   "impact": "Naval officers guard India's 7,500 km coastline and sea trade routes, fight piracy, and rescue people at sea, like the Navy's anti-piracy missions in the Gulf of Aden and evacuation and relief operations during cyclones and floods.",
   "entry_exams_text": null,
@@ -8862,7 +8874,7 @@
    "code": "REC",
    "scores": [
     78.0,
-    40.0,
+    8.0,
     2.0,
     32.0,
     60.0,
@@ -8878,6 +8890,8 @@
   "eligible_streams": [
    "All"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "Mid",
   "day_in_life": "A sailor works on a ship, submarine or at a naval base keeping the vessel running: operating radars and weapons, maintaining engines and electrical systems, cooking and stewarding for the crew, or handling the ship's stores and records. Life at sea means watches at all hours and long deployments, while shore postings are more regular.",
   "impact": "Sailors are the working crew of the Navy, keeping warships and submarines at sea and ready, and taking part in patrols, anti-piracy missions, and rescue work. Agniveers get four years of naval training and a service package, and a share are retained for a full career.",
   "entry_exams_text": null,
@@ -8916,14 +8930,14 @@
    }
   ],
   "riasec": {
-   "code": "RCI",
+   "code": "CRE",
    "scores": [
-    92.0,
-    22.0,
-    1.0,
+    80.0,
+    8.0,
+    2.0,
     20.0,
-    20.0,
-    52.0
+    35.0,
+    88.0
    ]
   }
  },
@@ -8935,6 +8949,8 @@
   "eligible_streams": [
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "High",
   "day_in_life": "A person in this field works on factory floors figuring out the fastest, cheapest, and safest way to make products at large scale \u2014 deciding how machines, workers, and materials should be arranged, and fixing bottlenecks that slow production down. They spend time observing assembly lines, analyzing data on defects or delays, and planning improvements.",
   "impact": "This work is why a car from Maruti Suzuki or a phone assembled for Samsung in India can be made quickly and consistently in huge numbers without wasting materials or time, directly affecting product prices and availability.",
   "entry_exams_text": "JEE (Joint Entrance Exam, the main exam to get into engineering colleges including IITs) for undergraduate study; GATE (a national exam for master's or government jobs) for higher studies.",
@@ -9113,6 +9129,8 @@
   "eligible_streams": [
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "High",
   "day_in_life": "An industrial chemist works in factories or labs figuring out how to make chemical products safely and efficiently, like paints, fertilizers, plastics, or medicines. Days involve testing raw materials, running lab experiments, and checking that finished products meet quality and safety standards.",
   "impact": "Industrial chemists help companies like Asian Paints make the paint on Indian walls and Tata Chemicals produce fertilizers that help farmers grow more crops. Their work ensures everyday products like soaps, plastics, and medicines are made safely and consistently at a large scale.",
   "entry_exams_text": "JEE (Joint Entrance Examination, the national exam for engineering admissions, including chemical engineering) or GATE (Graduate Aptitude Test in Engineering, for master's and government job entry) for higher studies.",
@@ -9194,6 +9212,8 @@
   "eligible_streams": [
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "High",
   "day_in_life": "A person in this field designs and maintains the sensors and control systems that measure things like temperature, pressure, or flow in factories and plants, and makes sure machines respond automatically and correctly to those readings. Work often involves calibrating equipment, troubleshooting faulty sensors, and programming control systems in places like oil refineries or power plants.",
   "impact": "This work keeps places like Reliance's oil refineries and NTPC's power plants running safely by constantly monitoring conditions and automatically preventing accidents like overheating or pressure buildup.",
   "entry_exams_text": "JEE (Joint Entrance Exam, the main exam to get into engineering colleges including IITs) for undergraduate study; GATE (a national exam for master's or government jobs) for higher studies or PSU (government-owned company) recruitment.",
@@ -9368,6 +9388,8 @@
   "eligible_streams": [
    "All"
   ],
+  "parent_stream": "Arts",
+  "pay_tier": "Mid",
   "day_in_life": "An interior designer plans how the inside of a home, office, or restaurant should look and function, choosing furniture, colours, lighting, and layout to make the space both beautiful and useful. They meet clients to understand what they want, create design plans, and supervise workers who carry out the actual construction and decoration.",
   "impact": "Interior designers shape the look of places Indians visit every day, from a Starbucks caf\u00e9 in Mumbai to apartments built by DLF or Godrej Properties, and skilled design can make homes more comfortable and workplaces more productive.",
   "entry_exams_text": null,
@@ -9499,6 +9521,8 @@
    "Commerce",
    "Science (PCM)"
   ],
+  "parent_stream": "Commerce",
+  "pay_tier": "High",
   "day_in_life": "An investment banker helps companies raise money, merge with other companies, or go public by selling shares on the stock market, spending long hours building financial models and pitching deals to clients. A fund manager, instead, decides how to invest large pools of money, like mutual funds, to try to grow it over time.",
   "impact": "Investment bankers helped structure massive Indian deals like the LIC IPO (when a company sells shares to the public for the first time) or the Air India-Vistara merger, while fund managers at firms like SBI Mutual Fund decide how crores of rupees from everyday Indian savers get invested.",
   "entry_exams_text": null,
@@ -9581,6 +9605,8 @@
   "eligible_streams": [
    "All"
   ],
+  "parent_stream": "Arts",
+  "pay_tier": "Low",
   "day_in_life": "A person in this field spends their day reading, writing, and speaking Japanese - translating documents, interpreting conversations between Japanese and Indian colleagues in meetings, or teaching the language to students.",
   "impact": "Japanese speakers help Indian employees work smoothly with Japanese companies like Suzuki (which owns Maruti), Honda, Sony, and Toyota, and make it possible for business deals, car manuals, and anime or manga to be understood in India.",
   "entry_exams_text": "No single fixed entrance exam - most people join a language course or a university department (like JNU or Delhi University) based on Class 12 marks, and later prove their skill with the JLPT (Japanese Language Proficiency Test, an international exam that certifies how well you know Japanese, with levels from N5 easiest to N1 hardest).",
@@ -9667,6 +9693,8 @@
   "eligible_streams": [
    "All"
   ],
+  "parent_stream": "Arts",
+  "pay_tier": "Mid",
   "day_in_life": "A jewellery designer sketches new necklace, ring, or earring designs, picks out gemstones (like diamonds or rubies), and works with goldsmiths to turn drawings into finished pieces. A gemologist spends the day examining stones under special lights and microscopes to check if they are genuine and how much they are worth.",
   "impact": "India is one of the world's biggest hubs for cutting and polishing diamonds, and companies like Tanishq, Kalyan Jewellers, and Malabar Gold rely on designers and gemologists to create trustworthy, beautiful jewellery that millions of Indian families buy for weddings and festivals.",
   "entry_exams_text": null,
@@ -9798,6 +9826,8 @@
   "eligible_streams": [
    "All"
   ],
+  "parent_stream": "Arts",
+  "pay_tier": "Low",
   "day_in_life": "A journalist spends their day finding stories, calling and meeting people to ask questions, verifying facts, and writing or recording reports for newspapers, TV, or websites before a deadline.",
   "impact": "Journalists at organisations like NDTV, The Hindu, and India Today inform millions of citizens about elections, floods, scams, and policy changes, helping people make informed decisions and holding powerful people accountable.",
   "entry_exams_text": "No single fixed entrance exam - many colleges admit students based on Class 12 marks or their own entrance test, though some students also take exams like the IIMC entrance test (Indian Institute of Mass Communication's own exam for its journalism courses).",
@@ -9905,6 +9935,8 @@
   "eligible_streams": [
    "All"
   ],
+  "parent_stream": "Arts",
+  "pay_tier": "Mid",
   "day_in_life": "A lawyer spends their day reading case files, researching old judgments, drafting legal documents, and either arguing cases in court or advising clients and companies on what the law allows.",
   "impact": "Lawyers at firms handling cases for companies like Reliance or Tata, or working with everyday citizens, help resolve property disputes, business contracts, and criminal cases, and some go on to become judges who decide what is fair and legal in India.",
   "entry_exams_text": "CLAT (Common Law Admission Test, a national exam that decides admission into most top law colleges in India, testing reading comprehension, reasoning, and general knowledge).",
@@ -10023,6 +10055,8 @@
   "eligible_streams": [
    "All"
   ],
+  "parent_stream": "Arts",
+  "pay_tier": "Low",
   "day_in_life": "A librarian helps people find books and information, organizes shelves, manages digital catalogues, and runs reading programs. An archivist works behind the scenes to preserve old documents, photos, and historical records so they don't get damaged or lost over time.",
   "impact": "Librarians at institutions like the National Library of India in Kolkata and university libraries such as IIT and Delhi University help students and researchers access knowledge, while archivists preserve historical records like independence-era government documents for future generations.",
   "entry_exams_text": null,
@@ -10084,6 +10118,8 @@
   "eligible_streams": [
    "Science (PCB)"
   ],
+  "parent_stream": "Science (PCB)",
+  "pay_tier": "Mid",
   "day_in_life": "A life science graduate spends their day in a lab or field studying living things - running experiments on cells, plants, or animals, recording data, and writing up results that add to scientific knowledge.",
   "impact": "Life science researchers at places like the Council of Scientific and Industrial Research (CSIR) and Serum Institute of India contribute to vaccines, better crops, and new medicines that improve health and food supply for millions.",
   "entry_exams_text": "No single fixed entrance exam for the undergraduate degree - admission is usually based on Class 12 Science marks, though some top institutes use CUET (Common University Entrance Test, a national exam for admission to many Indian universities); for research careers, students later take exams like CSIR-NET (a national exam to become a science researcher or lecturer).",
@@ -10210,6 +10246,8 @@
    "Commerce",
    "Science (PCM)"
   ],
+  "parent_stream": "Commerce",
+  "pay_tier": "High",
   "day_in_life": "A logistics or supply chain manager plans how goods move from factories to warehouses to customers, deciding the best routes, tracking shipments, and solving problems when deliveries get delayed. They spend their day coordinating with truck drivers, warehouse teams, and software systems to keep products flowing on time.",
   "impact": "This work keeps Amazon and Flipkart deliveries reaching your doorstep in one or two days, and makes sure India's food, medicines, and manufactured goods travel efficiently across the country's massive network of roads, railways, and ports.",
   "entry_exams_text": null,
@@ -10291,6 +10329,8 @@
   "eligible_streams": [
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "High",
   "day_in_life": "A person in this combined field studies a broad mix of ship-related and ocean-related engineering \u2014 some ship machinery basics plus some offshore structure and ocean technology basics \u2014 before often specializing further later. Depending on the specific job taken after graduation, they might work on ship design, port infrastructure, or offshore platforms, without being locked into only sailing or only onshore work.",
   "impact": "Graduates from this broad combined programme support India's shipping and coastal industries in flexible ways \u2014 for example contributing to both ship design work at Cochin Shipyard and offshore platform projects for ONGC \u2014 because their training spans both sailing-related and non-sailing ocean engineering topics.",
   "entry_exams_text": "JEE (Joint Entrance Exam, the main exam to get into engineering colleges including IITs) for the combined Ocean/Marine Engineering programs offered at a few institutes like IIT Madras and IIT Kharagpur.",
@@ -10420,6 +10460,8 @@
   "eligible_streams": [
    "All"
   ],
+  "parent_stream": "Commerce",
+  "pay_tier": "High",
   "day_in_life": "A marketing manager plans how a company will advertise and sell its products, decides what messages to put in ads, studies what customers like, and works with teams on social media posts, pricing, and campaigns to get people excited about a brand.",
   "impact": "Marketing managers are the people behind campaigns like Amul's witty hoardings, Flipkart's Big Billion Days sales, and Cadbury's festive ads \u2014 their decisions directly influence what products Indians buy and how much they trust a brand.",
   "entry_exams_text": null,
@@ -10502,6 +10544,8 @@
   "eligible_streams": [
    "All"
   ],
+  "parent_stream": "Science (PCB)",
+  "pay_tier": "Mid",
   "day_in_life": "A massage therapist uses their hands to press, rub, and knead a client's muscles to relieve pain, stress, or stiffness, working in places like spas, wellness centers, hospitals, or sports clubs, with each session usually lasting 30 minutes to an hour.",
   "impact": "Massage therapists help office workers with back pain, athletes recover faster after injuries, and are a core part of India's fast-growing wellness and spa industry, seen in chains like O2 Spa and Four Fountains, as well as traditional Ayurvedic centers in Kerala.",
   "entry_exams_text": null,
@@ -10563,6 +10607,8 @@
    "Commerce",
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "Mid",
   "day_in_life": "A mathematician spends their day solving abstract problems, proving logical statements, or building mathematical models that are later used in fields like finance, computer science, or engineering.",
   "impact": "Mathematicians working at places like the Indian Statistical Institute or in banks help design the algorithms behind stock trading systems, encryption that keeps online banking safe, and models used in insurance pricing.",
   "entry_exams_text": "No single fixed entrance exam for the undergraduate degree - admission is usually through CUET (Common University Entrance Test, a national exam for admission to many Indian universities) or Class 12 marks; for top research institutes, students take exams like the ISI Admission Test or CMI Entrance Test (each institute's own exam for math talent).",
@@ -10708,6 +10754,8 @@
   "eligible_streams": [
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "Mid",
   "day_in_life": "A person in this field spends their day writing code and also working through heavy math and statistics problems - for example building an algorithm for stock trading or designing secure encryption, which is more math-intensive than typical software coding.",
   "impact": "Graduates of this program work on things like the encryption that protects UPI payments, the pricing models trading firms in Mumbai use to buy and sell stocks in milliseconds, and the statistics behind recommendation systems used by companies like Flipkart.",
   "entry_exams_text": "JEE (Joint Entrance Examination, the national exam for getting into IITs and other top engineering colleges) for the BTech version of this degree; some universities also offer a BSc version admitted through Class 12 marks or CUET (Common University Entrance Test).",
@@ -10840,6 +10888,8 @@
   "eligible_streams": [
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "High",
   "day_in_life": "A person in this field designs and builds machines and mechanical systems, and in the mechatronics side specifically combines mechanical parts with electronics and computer programming \u2014 for example designing a robotic arm that a computer chip controls. Daily work involves sketching designs on computer software, testing prototypes, and troubleshooting why a machine or robot isn't behaving as expected.",
   "impact": "This work is behind everyday machines like the engines in Tata Motors' cars and the automated robotic arms used in factories making electronics for companies like Foxconn, combining physical mechanics with smart electronic control.",
   "entry_exams_text": "JEE (Joint Entrance Exam, the main exam to get into engineering colleges including IITs) for undergraduate study; GATE (a national exam for master's or government jobs) for higher studies.",
@@ -11027,6 +11077,8 @@
   "eligible_streams": [
    "Science (PCB)"
   ],
+  "parent_stream": "Science (PCB)",
+  "pay_tier": "Mid",
   "day_in_life": "A medical lab technologist spends their day in a hospital or diagnostic lab collecting blood or tissue samples, running them through machines, and preparing accurate test reports that doctors use to diagnose patients.",
   "impact": "Lab technologists working at chains like Dr Lal PathLabs and SRL Diagnostics generate the blood tests, sugar tests, and infection reports that doctors across India rely on every single day to treat patients correctly.",
   "entry_exams_text": "No single fixed national entrance exam - most colleges admit students into a BSc or diploma in Medical Lab Technology (MLT) based on Class 12 marks in Science, though some states and universities run their own entrance tests.",
@@ -11122,6 +11174,8 @@
   "eligible_streams": [
    "Science (PCB)"
   ],
+  "parent_stream": "Science (PCB)",
+  "pay_tier": "High",
   "day_in_life": "A doctor spends their day examining patients, diagnosing illnesses, prescribing treatment, and sometimes performing procedures or surgery, in hospitals or clinics - unlike nurses or physiotherapists, doctors decide the diagnosis and treatment plan.",
   "impact": "Doctors working at hospitals like AIIMS and Apollo directly save lives every day, from treating everyday infections to performing complex heart surgeries, and are often the first and most trusted point of contact when someone falls seriously ill in India.",
   "entry_exams_text": "NEET (National Eligibility cum Entrance Test, the single national exam every student must pass to get into any medical college in India for the MBBS degree, which is the basic medical doctor's degree).",
@@ -11218,6 +11272,8 @@
   "eligible_streams": [
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "High",
   "day_in_life": "A nautical officer (also called a deck officer) navigates huge cargo ships across oceans, plans the ship's route, keeps watch on the bridge (the ship's control room), and makes sure the vessel and crew stay safe during long voyages that can last for months at sea, far from land.",
   "impact": "Nautical officers keep global trade moving \u2014 nearly 90% of everything India imports and exports, from oil to electronics, travels by sea, and these officers make sure that cargo reaches ports like Mumbai and Chennai safely and on time.",
   "entry_exams_text": null,
@@ -11266,6 +11322,8 @@
   "eligible_streams": [
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "High",
   "day_in_life": "This engineer studies metals and other materials to figure out how to make them stronger, lighter, or more heat-resistant, spending time in labs testing samples and in factories checking how metal is produced.",
   "impact": "The steel used in Tata Steel's construction beams and the lightweight alloys in Indian Railways' new coaches exist because metallurgists figured out the right mix and treatment of materials.",
   "entry_exams_text": "JEE Main and JEE Advanced (national engineering entrance exams), or state engineering entrance exams, for admission to a BTech in Metallurgical and Materials Engineering.",
@@ -11429,6 +11487,8 @@
   "eligible_streams": [
    "Science (PCB)"
   ],
+  "parent_stream": "Science (PCB)",
+  "pay_tier": "Mid",
   "day_in_life": "A midwife supports women through pregnancy, labor, and childbirth, checking on the mother's and baby's health, guiding breathing and pain management during delivery, and offering care and advice in the weeks after the baby is born.",
   "impact": "Midwives play a huge role in reducing deaths during childbirth in India, working in government hospitals and rural health centers to make sure mothers in both cities and villages get safe, supportive care while delivering their babies.",
   "entry_exams_text": null,
@@ -11501,6 +11561,8 @@
   "eligible_streams": [
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "High",
   "day_in_life": "A mining engineer plans how to safely dig out coal, iron ore, or other minerals from the earth, spending time both at mine sites checking safety and equipment, and in offices planning where and how to dig next.",
   "impact": "The coal that powers many of India's electricity plants and the iron ore that becomes steel for bridges and buildings are extracted safely because mining engineers plan and supervise the process, for companies like Coal India.",
   "entry_exams_text": "JEE Main and JEE Advanced (national engineering entrance exams), or state engineering entrance exams, for admission to a BTech in Mining Engineering.",
@@ -11674,6 +11736,8 @@
   "eligible_streams": [
    "All"
   ],
+  "parent_stream": "Arts",
+  "pay_tier": "Low",
   "day_in_life": "A musician spends their day practicing an instrument or voice, rehearsing with others, performing at concerts or recording studios, or composing new songs and scores for films or albums.",
   "impact": "Musicians and composers like those working with Bollywood studios or T-Series create the songs and background scores that entertain and move millions of people across films, weddings, and everyday playlists in India.",
   "entry_exams_text": "No single fixed entrance exam - most music schools and university departments admit students based on an audition (a live performance test) or portfolio, rather than a written exam.",
@@ -11777,6 +11841,8 @@
    "Science (PCB)",
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "Mid",
   "day_in_life": "A natural science graduate spends their day studying how the physical and living world works together - for example measuring pollution levels, testing chemical reactions, or observing plant and animal life as part of one combined science program covering physics, chemistry, and biology.",
   "impact": "Natural science graduates working with organisations like the Central Pollution Control Board or environmental research institutes help track air and water pollution and study climate change, work that shapes public health policy across Indian cities.",
   "entry_exams_text": "No single fixed entrance exam - admission is usually based on Class 12 Science marks, though some universities use CUET (Common University Entrance Test, a national exam for admission to many Indian universities).",
@@ -11895,6 +11961,8 @@
   "eligible_streams": [
    "Science (PCB)"
   ],
+  "parent_stream": "Science (PCB)",
+  "pay_tier": "Mid",
   "day_in_life": "A naturopathy doctor examines patients and treats illnesses using natural methods like diet changes, specific exercises, mud baths, water treatments, and yoga instead of chemical medicines. They spend the day consulting patients, designing personalised diet and lifestyle plans, and supervising therapies at a nature-cure clinic or wellness centre.",
   "impact": "Naturopathy doctors help people manage lifestyle diseases like diabetes, obesity, and high blood pressure through diet and lifestyle changes, which is why hospitals like Jindal Naturecure in Bangalore and government AYUSH (a ministry that covers Ayurveda, Yoga, Unani, Siddha, and Homeopathy) hospitals run full-time naturopathy departments. This field is growing as more Indians look for non-medicine ways to manage chronic health problems.",
   "entry_exams_text": "NEET (National Eligibility cum Entrance Test, the common medical entrance exam in India) is required for the BNYS degree (Bachelor of Naturopathy and Yogic Sciences, a 5.5-year medical course), since it is treated as a medical program by most state governments.",
@@ -11970,6 +12038,8 @@
   "eligible_streams": [
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "High",
   "day_in_life": "A nautical science graduate works as a deck officer on a large cargo or passenger ship, steering the vessel, planning its route across oceans, and making sure it doesn't collide with anything. On a normal day they check navigation equipment, plot the ship's position on charts, supervise loading of cargo, and keep watch on the bridge (the ship's control room).",
   "impact": "These officers physically command the ships that carry almost everything India imports and exports, from crude oil to phones to grain, since over 90% of India's trade by volume moves by sea. Companies like Shipping Corporation of India and Maersk depend entirely on trained deck officers to move goods safely across the world's oceans.",
   "entry_exams_text": "IMU-CET (Indian Maritime University Common Entrance Test, the main exam to get into merchant navy officer training) is the standard route into a B.Sc. Nautical Science degree.",
@@ -12057,6 +12127,8 @@
   "eligible_streams": [
    "Science (PCB)"
   ],
+  "parent_stream": "Science (PCB)",
+  "pay_tier": "High",
   "day_in_life": "A neurologist is a doctor who examines and treats patients with problems in the brain, spine, and nerves, such as severe headaches, memory loss, seizures, or stroke, using tests like brain scans and then prescribing treatment or medicine.",
   "impact": "Neurologists at hospitals like AIIMS and NIMHANS diagnose and treat conditions like stroke and epilepsy that affect millions of Indians, often making the difference between a patient regaining normal life or facing long-term disability.",
   "entry_exams_text": null,
@@ -12118,6 +12190,8 @@
   "eligible_streams": [
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "High",
   "day_in_life": "A nuclear engineer designs, operates, and maintains equipment used in nuclear power plants, making sure the process that generates electricity from nuclear reactions runs safely, while also monitoring radiation levels and following strict safety rules.",
   "impact": "Nuclear engineers help run power plants like Kudankulam and Tarapur that supply electricity to millions of Indian homes without producing the air pollution that coal plants do, and their work is vital to India's clean-energy future.",
   "entry_exams_text": null,
@@ -12165,6 +12239,8 @@
   "eligible_streams": [
    "Science (PCB)"
   ],
+  "parent_stream": "Science (PCB)",
+  "pay_tier": "Mid",
   "day_in_life": "A nurse looks after patients in a hospital or clinic by giving medicines, checking vital signs like blood pressure and pulse, changing bandages, and comforting worried patients and families. They work closely with doctors, follow treatment plans, and are often the person a patient sees most during a hospital stay.",
   "impact": "Nurses are the backbone of every hospital in India, from AIIMS Delhi to small district hospitals, and without them patients would not get round-the-clock care. During events like the COVID-19 pandemic, nurses were on the frontline caring for critically ill patients across the country.",
   "entry_exams_text": "NEET (National Eligibility cum Entrance Test) is increasingly required by many states for B.Sc. Nursing admission, though many colleges also admit based on Class 12 marks in Science subjects.",
@@ -12277,6 +12353,8 @@
   "eligible_streams": [
    "Science (PCB)"
   ],
+  "parent_stream": "Science (PCB)",
+  "pay_tier": "Mid",
   "day_in_life": "An occupational therapist helps people who have difficulty with everyday tasks \u2014 like getting dressed, writing, or walking \u2014 because of injury, disability, or aging, by creating exercises and using special tools to help them become more independent.",
   "impact": "Occupational therapists help stroke survivors relearn to feed themselves, children with developmental delays learn to write, and factory workers recover from injuries, working in hospitals and rehab centers across India such as Apollo and NIMHANS.",
   "entry_exams_text": null,
@@ -12338,6 +12416,8 @@
   "eligible_streams": [
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "High",
   "day_in_life": "This specialist works in a factory or lab creating and testing the formulas for products like wall paints, car paints, fabric dyes, cooking oils, and industrial coatings, making sure the colour, texture, and durability come out right every time. They spend the day mixing chemicals in controlled amounts, running quality tests, and fixing problems like paint peeling or dye fading.",
   "impact": "This work is behind everyday products like Asian Paints on your walls, Berger Paints on buildings, and the dyes that colour the fabric in your clothes, which is a massive industry in India given how much painting, textile dyeing, and packaging happens here. Better formulas from this field also mean longer-lasting paints and safer, less polluting dyes for the environment.",
   "entry_exams_text": "JEE (Joint Entrance Exam, the national engineering entrance test) followed by choosing a B.Tech in Oil, Paint and Dye Technology, or a specific college's own entrance test, since only a few institutes offer this specialised course.",
@@ -12432,6 +12512,8 @@
   "eligible_streams": [
    "Science (PCB)"
   ],
+  "parent_stream": "Science (PCB)",
+  "pay_tier": "High",
   "day_in_life": "An ophthalmologist is a doctor who diagnoses and performs surgery on eye diseases, like cataracts, while an optometrist is a specially trained professional who tests people's eyesight, prescribes glasses or contact lenses, and checks for early signs of eye problems, usually without doing surgery.",
   "impact": "Together they help millions of Indians see clearly and avoid blindness \u2014 organizations like Aravind Eye Care and LV Prasad Eye Institute perform low-cost cataract surgeries that have restored sight to huge numbers of people, especially in rural areas.",
   "entry_exams_text": null,
@@ -12502,6 +12584,8 @@
   "eligible_streams": [
    "Science (PCB)"
   ],
+  "parent_stream": "Science (PCB)",
+  "pay_tier": "High",
   "day_in_life": "An orthopedic doctor examines patients with bone, joint, and muscle problems, looks at X-rays, and treats things like fractures, back pain, and knee injuries, sometimes through surgery. A typical day includes seeing patients in a clinic, doing surgeries like joint replacements, and checking on patients recovering in the hospital.",
   "impact": "Orthopedic surgeons help accident victims walk again, treat sports injuries for athletes, and perform knee and hip replacement surgeries that let elderly people move without pain, work done every day in hospitals like AIIMS and Apollo across India.",
   "entry_exams_text": null,
@@ -12577,6 +12661,8 @@
   "eligible_streams": [
    "Science (PCB)"
   ],
+  "parent_stream": "Science (PCB)",
+  "pay_tier": "High",
   "day_in_life": "A paediatrician is a doctor who only treats children, from newborn babies to teenagers, checking their growth, giving vaccines, and treating illnesses like fever, infections, or asthma. A typical day involves examining sick children, calming worried parents, and tracking whether babies are growing properly.",
   "impact": "Paediatricians run the child immunization programs that protect Indian children from diseases like measles and polio, and they are often the first doctors who catch serious problems early, a role played daily in clinics and hospitals like Rainbow Children's Hospital and AIIMS.",
   "entry_exams_text": null,
@@ -12651,6 +12737,8 @@
   "eligible_streams": [
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "High",
   "day_in_life": "This engineer works on both ends of making books and packaging: turning wood pulp into paper at a paper mill, and then running the machines that print text, images, and designs onto that paper or onto packaging material.",
   "impact": "The exercise books children use in school, the paper cartons in which Amul packs its products, and the glossy pages of magazines all pass through processes that paper and printing engineers design and manage.",
   "entry_exams_text": "JEE Main or state engineering entrance exams for admission to a BTech in Paper and Pulp Technology or Printing and Packaging Technology; some specialised institutes also hold their own entrance tests.",
@@ -12769,6 +12857,8 @@
   "eligible_streams": [
    "Science (PCB)"
   ],
+  "parent_stream": "Science (PCB)",
+  "pay_tier": "Mid",
   "day_in_life": "A paramedical worker supports doctors by handling specific hands-on tasks in a hospital, such as assisting in emergency rooms, driving and managing ambulances, helping with operation theatre equipment, or supporting patients in specialised therapy sessions. Their day involves preparing equipment, assisting during procedures, and making sure patients are stable and comfortable before a doctor sees them.",
   "impact": "Paramedical staff are often the first trained people to reach an accident victim or an emergency patient in India, for example ambulance teams run by 108 emergency services or private hospital chains like Apollo, and their quick action can be the difference between life and death. They also fill essential support roles inside hospitals that let doctors focus on diagnosis and treatment.",
   "entry_exams_text": "No single fixed entrance exam \u2014 most colleges admit students into paramedical diploma or degree courses based on Class 12 marks in Science subjects, though some states run their own paramedical entrance tests.",
@@ -12865,6 +12955,8 @@
   "eligible_streams": [
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "High",
   "day_in_life": "A petroleum engineer figures out how to find, pump out, and safely transport crude oil and natural gas from under the ground or sea, often splitting time between office planning and visits to oil rigs or drilling sites.",
   "impact": "The petrol and diesel that fuel vehicles across India, and the cooking gas cylinders supplied by companies like ONGC and Indian Oil, exist because petroleum engineers design the drilling and extraction that brings oil and gas out of the ground.",
   "entry_exams_text": "JEE Main and JEE Advanced (national engineering entrance exams), or GATE (a national exam for postgraduate and PSU job entry) after a related BTech, for admission into Petroleum Engineering programs.",
@@ -12987,6 +13079,8 @@
    "Science (PCB)",
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "High",
   "day_in_life": "A pharmaceutical engineer designs and runs the machines and processes that make medicines in large factories, making sure every tablet or injection is produced safely, consistently, and in large quantities.",
   "impact": "The paracetamol tablets, vaccines, and antibiotics made by companies like Sun Pharma and Cipla that reach pharmacies across India and the world are manufactured using processes designed by pharmaceutical engineers.",
   "entry_exams_text": "JEE Main or state engineering entrance exams for a BTech in Pharmaceutical Engineering, or GPAT (Graduate Pharmacy Aptitude Test, for postgraduate pharmacy admission) after a BPharm degree.",
@@ -13126,6 +13220,8 @@
    "Science (PCB)",
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCB)",
+  "pay_tier": "Mid",
   "day_in_life": "A pharmacist checks prescriptions, prepares and dispenses medicines at a chemist shop or hospital, and advises patients on how and when to take their tablets or syrups safely. In a company setting, pharmacists instead work in labs developing new medicines or checking that drug batches are safe before they reach the market.",
   "impact": "Pharmacists make sure the medicines Indians buy every day, whether a simple paracetamol or a complex cancer drug from Cipla or Sun Pharma, are dispensed correctly and safely. India is called the 'pharmacy of the world' because Indian pharma companies supply a huge share of the world's affordable medicines, and pharmacists are essential to that entire chain.",
   "entry_exams_text": "No single fixed entrance exam for the basic B.Pharm degree in most states \u2014 admission is often via Class 12 marks or state-level exams like MHT-CET, though GPAT (Graduate Pharmacy Aptitude Test, needed for master's degrees and some jobs) matters later.",
@@ -13279,6 +13375,8 @@
   "eligible_streams": [
    "All"
   ],
+  "parent_stream": "Arts",
+  "pay_tier": "Low",
   "day_in_life": "A philosophy graduate spends their time reading, questioning and arguing about big ideas: what is right and wrong, what counts as knowledge, how society should be run. Most work as teachers and researchers, preparing classes and writing papers; others use the same reasoning in law, journalism, public policy or ethics roles.",
   "impact": "Philosophers shape how we think about fairness and rights. Ideas from philosophy sit behind the Indian Constitution, the ethics rules doctors follow in hospitals, and today's debates on how artificial intelligence should be used.",
   "entry_exams_text": "CUET (UG) for a BA in Philosophy at central universities such as Delhi University, BHU and JNU; UGC-NET later, to teach in colleges.",
@@ -13381,6 +13479,8 @@
   "eligible_streams": [
    "All"
   ],
+  "parent_stream": "Arts",
+  "pay_tier": "Low",
   "day_in_life": "A photographer takes pictures for weddings, magazines, products, or news events, using cameras and lighting to capture the right moment, then edits the photos on a computer afterward. A typical day might mean shooting a wedding for hours, or setting up product shots for a brand's online store.",
   "impact": "Photographers create the wedding albums families treasure for life, the product photos that make you want to buy something on Myntra or Amazon, and the news photos in publications like The Hindu that show people what's happening in the world.",
   "entry_exams_text": null,
@@ -13443,6 +13543,8 @@
   "eligible_streams": [
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "Mid",
   "day_in_life": "A physicist studies how the universe works, from tiny atoms to giant stars, by running experiments, building mathematical models, or working with data from instruments like telescopes and particle detectors. Depending on the job, a day could mean coding simulations, working in a lab with lasers and sensors, or teaching physics concepts to students.",
   "impact": "Physics research led to technologies Indians use daily, like the GPS in phones, MRI scanners in hospitals, and satellites launched by ISRO (Indian Space Research Organisation) for weather forecasting and communication. Indian physicists at institutions like TIFR and ISRO have contributed to major discoveries and to India's space and nuclear programs.",
   "entry_exams_text": "JEE (Joint Entrance Exam) or an institute's own entrance test gets you into a B.Sc./Integrated M.Sc. Physics program, and later IIT-JAM (Joint Admission Test for Masters, needed for master's programs) or CSIR-NET (a national exam for research fellowships and lecturer jobs) matters for research careers.",
@@ -13587,6 +13689,8 @@
   "eligible_streams": [
    "Science (PCB)"
   ],
+  "parent_stream": "Science (PCB)",
+  "pay_tier": "Mid",
   "day_in_life": "A physiotherapist helps patients recover movement and reduce pain after injuries, surgeries, or conditions like stroke, using exercises, stretching, massage, and equipment like ultrasound machines. Their day is spent assessing patients' movement problems, guiding them through exercises, and tracking their progress over weeks of sessions.",
   "impact": "Physiotherapists help cricketers and athletes at places like the National Cricket Academy get back on the field after injuries, and they also help everyday people, like an elderly person recovering from a hip replacement, regain independence. Without physiotherapy, many patients would remain disabled or in pain long after surgery.",
   "entry_exams_text": "No single fixed entrance exam in most states \u2014 admission to the Bachelor of Physiotherapy (BPT) degree is usually based on Class 12 marks in Science subjects, though some universities hold their own entrance tests.",
@@ -13675,6 +13779,8 @@
    "Arts",
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "Mid",
   "day_in_life": "An urban/town planner designs how cities and towns should grow, deciding where roads, parks, housing, and markets should go so a city works smoothly instead of becoming chaotic and overcrowded. Their day includes studying maps and population data, drafting development plans, and meeting government officials or citizens about local projects.",
   "impact": "Town planners shape projects like the Delhi Master Plan or Amaravati's new city design, deciding how millions of people will live, travel, and access basic services like water and electricity. Good planning prevents problems like traffic jams, flooding from bad drainage, and slums, which affect daily life for crores of Indians in cities.",
   "entry_exams_text": "CEED or the college's own entrance exam is sometimes used, but the most common route is GATE (Graduate Aptitude Test in Engineering, needed for master's programs in planning) after an undergraduate degree in architecture, engineering, or planning-related subjects.",
@@ -13813,6 +13919,8 @@
   "eligible_streams": [
    "Science (PCB)"
   ],
+  "parent_stream": "Science (PCB)",
+  "pay_tier": "Mid",
   "day_in_life": "A podiatrist (a foot and ankle care specialist) would examine and treat problems like foot pain, bunions, diabetic foot ulcers, and walking issues. In India today, this exact job barely exists as a separate profession, so people who do this kind of work are usually physiotherapists or orthopedic doctors handling foot problems as part of their broader practice.",
   "impact": "Foot care matters a lot for diabetic patients in India, since diabetes can cause serious foot ulcers, but this care is currently given mostly by orthopedic doctors, physiotherapists, or diabetic-foot clinics rather than dedicated podiatrists, unlike in the US or UK where podiatry is its own profession.",
   "entry_exams_text": null,
@@ -13859,6 +13967,8 @@
   "eligible_streams": [
    "All"
   ],
+  "parent_stream": "Arts",
+  "pay_tier": "Low",
   "day_in_life": "A political science graduate studies how governments, laws, and elections work, and uses that knowledge in jobs like government administration, journalism, policy research, or working for political parties and NGOs. A typical day could involve researching government policies, writing reports, analysing election data, or advising leaders on public issues.",
   "impact": "People with this background often become IAS (Indian Administrative Service) officers who run district administrations, or policy researchers who shape decisions like India's education policy or welfare schemes reaching millions of citizens. Political analysts on news channels and think tanks like the Observer Research Foundation also rely on this training to explain elections and government decisions to the public.",
   "entry_exams_text": "No single fixed entrance exam for the basic degree \u2014 many colleges take students based on Class 12 marks, though top colleges like Delhi University's best colleges use CUET (Common University Entrance Test, a national exam for undergraduate admission). Later, UPSC Civil Services Exam (the exam for top government administrative jobs) is a common path many political science graduates take.",
@@ -13977,6 +14087,8 @@
   "eligible_streams": [
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "High",
   "day_in_life": "A polymer technologist designs and tests plastics, rubber, and synthetic fibres, working out how to make materials stronger, more flexible, or more heat-resistant for products ranging from car parts to packaging. Their day involves running experiments in a lab, testing how materials behave under heat or stress, and troubleshooting problems on a factory production line.",
   "impact": "This work is behind everyday plastic items Indians use constantly, from PET bottles made by companies like Reliance Industries to tyres made by MRF and car parts made by Tata Motors' suppliers. Polymer technologists are also central to developing more eco-friendly, biodegradable plastics as India tries to reduce plastic pollution.",
   "entry_exams_text": "JEE (Joint Entrance Exam) followed by a B.Tech in Polymer Technology or Plastics Engineering, or GATE (Graduate Aptitude Test in Engineering) for those pursuing a master's degree in the same field.",
@@ -14098,6 +14210,8 @@
   "eligible_streams": [
    "Science (PCB)"
   ],
+  "parent_stream": "Science (PCB)",
+  "pay_tier": "Mid",
   "day_in_life": "A prosthetics and orthotics specialist designs, measures, and fits artificial limbs (prosthetics) or support devices like braces and splints (orthotics) for people who have lost a limb or have movement problems. A typical day includes taking measurements or molds of a patient's body, fitting and adjusting devices, and teaching patients how to use them.",
   "impact": "This work helps accident survivors, soldiers injured in service, and people with disabilities walk, work, and live independently again, with organizations like the Artificial Limbs Manufacturing Corporation of India (ALIMCO) and the Jaipur Foot organization fitting thousands of limbs every year for free or at low cost.",
   "entry_exams_text": null,
@@ -14158,6 +14272,8 @@
   "eligible_streams": [
    "All"
   ],
+  "parent_stream": "Arts",
+  "pay_tier": "Low",
   "day_in_life": "A psychologist spends the day talking to people one-on-one or in groups, listening to their problems, and helping them understand their thoughts and feelings. They might also design tests, study how people behave, or work with companies to improve how employees feel at work.",
   "impact": "Psychologists help students deal with exam stress, help people recover from anxiety or depression, and help companies like Tata Consultancy Services (TCS) or Infosys design better workplaces. Schools like those in the Delhi government system now have counsellors to support students' mental health.",
   "entry_exams_text": "No single fixed entrance exam for a bachelor's degree \u2014 most colleges admit based on Class 12 marks, though some like Delhi University use CUET (Common University Entrance Test, a single exam many central universities use for admission). For a master's degree, exams like CUET-PG or university-specific tests are common.",
@@ -14275,6 +14391,8 @@
   "eligible_streams": [
    "All"
   ],
+  "parent_stream": "Arts",
+  "pay_tier": "High",
   "day_in_life": "A civil servant in an administrative post, such as an IAS officer or a state civil service officer, runs a government office. The day goes in meetings with departments, reviewing schemes like roads, schools or ration distribution, hearing citizens' complaints, and visiting villages or project sites. A district officer may also handle elections, disaster relief, or law and order.",
   "impact": "Public administrators decide how government money and schemes reach people. A District Collector can speed up flood relief, get a school or hospital built, or make sure welfare schemes such as PM-KISAN reach the right families.",
   "entry_exams_text": "UPSC Civil Services Examination (a national exam for the IAS, IFS, IRS and other central services) or your state's Public Service Commission exam (for state civil services). Both need a bachelor's degree in any subject, so you take them after college.",
@@ -14352,14 +14470,14 @@
    }
   ],
   "riasec": {
-   "code": "ECS",
+   "code": "ESC",
    "scores": [
-    12.2,
-    15.9,
-    2.2,
-    46.9,
-    96.5,
-    79.5
+    9.0,
+    39.2,
+    28.3,
+    44.8,
+    75.3,
+    43.7
    ]
   }
  },
@@ -14371,6 +14489,8 @@
   "eligible_streams": [
    "All"
   ],
+  "parent_stream": "Arts",
+  "pay_tier": "Low",
   "day_in_life": "A public relations (PR) professional manages how a company or person is seen by the public, writing press releases, talking to journalists, and handling situations when something goes wrong publicly. A typical day includes drafting a press statement, pitching a story to a reporter, and briefing company leaders before a media interview.",
   "impact": "PR teams are the reason you see positive news stories about companies like Tata or Infosys, and they're the ones who manage the message when a company faces a crisis, like a product recall or public controversy, shaping what millions of people read and believe.",
   "entry_exams_text": null,
@@ -14452,6 +14572,8 @@
   "eligible_streams": [
    "All"
   ],
+  "parent_stream": "Arts",
+  "pay_tier": "Low",
   "day_in_life": "A policy analyst studies real-world problems like poverty, education, or climate, and writes research reports that help the government or organizations decide what rules or programs to create. A typical day includes reading data and reports, writing policy notes, and sometimes meeting government officials to explain findings.",
   "impact": "Policy analysts working at places like NITI Aayog (India's government policy think tank) help shape decisions like how India's education system is reformed or how welfare schemes reach poor families, directly influencing laws and programs that affect millions of citizens.",
   "entry_exams_text": null,
@@ -14541,6 +14663,8 @@
   "eligible_streams": [
    "Science (PCB)"
   ],
+  "parent_stream": "Science (PCB)",
+  "pay_tier": "Mid",
   "day_in_life": "A radiology technologist operates machines like X-ray, CT scan, or MRI machines to take pictures of the inside of a patient's body, following a doctor's instructions. They position patients correctly, run the machine safely, and hand over the images to doctors who then read and diagnose from them.",
   "impact": "When someone breaks a bone or a doctor needs to check for a tumour, it's the radiology technologist who actually operates the machine that captures the image, at hospitals like Apollo, Fortis, or AIIMS. Without them, doctors would have no way to see what's happening inside a patient's body.",
   "entry_exams_text": "No single fixed entrance exam \u2014 most students join a diploma or B.Sc. in Radiography/Medical Imaging Technology after Class 12 (with Physics, Chemistry, Biology) based on marks or a college-specific entrance test. Note: this is different from becoming a radiologist doctor, which needs MBBS plus a specialization (covered separately under Medicine).",
@@ -14626,6 +14750,8 @@
   "eligible_streams": [
    "All"
   ],
+  "parent_stream": "Commerce",
+  "pay_tier": "Mid",
   "day_in_life": "A real estate professional helps people buy, sell, or rent property, showing homes or offices to clients, negotiating prices, and handling paperwork for the deal. A typical day includes visiting properties with clients, making calls to follow up on leads, and coordinating with builders or lawyers to close a sale.",
   "impact": "Real estate professionals help families find and buy their first home, one of the biggest purchases most Indians ever make, and they work with major developers like DLF and Godrej Properties to sell apartments in growing cities across the country.",
   "entry_exams_text": null,
@@ -14707,6 +14833,8 @@
   "eligible_streams": [
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "High",
   "day_in_life": "A renewable energy professional designs, builds, or manages solar panel farms or wind turbine projects that generate electricity without burning fossil fuels. A typical day could involve visiting a solar plant site to check equipment, analyzing how much power a wind farm is producing, or planning where to install new solar panels.",
   "impact": "Renewable energy workers are building India's solar and wind power plants, like the massive solar parks in Rajasthan and Gujarat run by companies like Adani Green Energy and Tata Power, helping India get electricity without adding to pollution and climate change.",
   "entry_exams_text": null,
@@ -14807,6 +14935,8 @@
   "eligible_streams": [
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "High",
   "day_in_life": "A robotics engineer designs, builds, and programs robots or automated machines, writing code to control motors and sensors and testing the robot physically to see if it moves and reacts the way it should.",
   "impact": "The robotic arms that assemble cars at Mahindra and Maruti Suzuki factories, and drone systems used for farming and delivery in India, are built and programmed by robotics engineers.",
   "entry_exams_text": "JEE Main and JEE Advanced (national engineering entrance exams), or state entrance exams, for a BTech in Robotics Engineering or Mechatronics; some students enter via a Mechanical, Electronics, or Computer Science BTech first.",
@@ -14963,6 +15093,8 @@
   "eligible_streams": [
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "High",
   "day_in_life": "A safety engineer inspects factories, construction sites, or oil plants to spot hazards, then designs rules and equipment to prevent accidents, fires, or chemical leaks, often walking through work sites wearing safety gear.",
   "impact": "After major industrial accidents like the Bhopal gas tragedy, safety engineers are the reason companies like Reliance and L&T now have strict systems to prevent chemical leaks, fires, and worker injuries at their plants.",
   "entry_exams_text": "No single fixed entrance exam for a first degree \u2014 safety engineering is usually studied as a postgraduate diploma or master's after a BTech in any engineering branch, with admission based on the earlier degree and sometimes GATE (a national postgraduate entrance exam) scores.",
@@ -15088,6 +15220,8 @@
    "Science (PCB)",
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCB)",
+  "pay_tier": "Mid",
   "day_in_life": "A sericulture professional works with farmers to raise silkworms, manage mulberry or other host plant farms, and oversee the process of turning silkworm cocoons into raw silk thread. On a typical day, they might inspect silkworm-rearing houses, check plant health, or guide farmers on disease prevention.",
   "impact": "India is the world's second-largest silk producer, and sericulture experts help silk farmers in states like Karnataka and West Bengal earn a steady income while supplying silk for sarees and textiles sold by brands like Nalli Silks and Fabindia. Their work supports millions of rural livelihoods tied to the silk industry.",
   "entry_exams_text": "No single fixed entrance exam \u2014 students usually join a B.Sc. in Sericulture after Class 12 (Science stream) based on marks, though some agricultural universities use exams like ICAR AIEEA (a national entrance test for agriculture-related degrees).",
@@ -15173,6 +15307,8 @@
   "eligible_streams": [
    "All"
   ],
+  "parent_stream": "Arts",
+  "pay_tier": "Low",
   "day_in_life": "A social worker spends the day meeting with individuals, families, or communities facing difficulties like poverty, abuse, or addiction, and connects them to the help they need, such as government schemes, counselling, or shelters. They might visit slums, run awareness camps, or coordinate with NGOs and government offices.",
   "impact": "Social workers run programs that help rescue child labourers, support survivors of domestic violence, and help rural families access schemes like the Public Distribution System (PDS) for subsidized food. Organizations like Save the Children and CRY (Child Rights and You) rely on social workers to reach people who need help the most.",
   "entry_exams_text": "No single fixed entrance exam for a bachelor's degree \u2014 admission is usually based on Class 12 marks. For a Master's in Social Work (MSW), exams like TISS-NET (Tata Institute of Social Sciences' own entrance test) or CUET-PG are commonly used.",
@@ -15273,6 +15409,8 @@
   "eligible_streams": [
    "Science (PCB)"
   ],
+  "parent_stream": "Science (PCB)",
+  "pay_tier": "Mid",
   "day_in_life": "A speech-language pathologist (a therapist who helps with speaking, language, and swallowing problems) works with children who have trouble talking, stroke patients who lost their speech, or people who stammer, using exercises and games to help them communicate better. A typical day includes one-on-one therapy sessions, tracking each patient's progress, and talking to parents or families about how to help at home.",
   "impact": "Speech-language pathologists help children with conditions like autism or hearing loss learn to talk and connect with others, and they help stroke survivors regain the ability to speak, life-changing work done in hospitals and special schools across Indian cities.",
   "entry_exams_text": null,
@@ -15333,6 +15471,8 @@
   "eligible_streams": [
    "All"
   ],
+  "parent_stream": "Arts",
+  "pay_tier": "Low",
   "day_in_life": "A sports coach plans and runs practice sessions, teaches skills and techniques, and pushes athletes to improve while watching out for injuries. On match days, they plan strategy, motivate the team, and make quick decisions from the sidelines.",
   "impact": "Coaches like those behind India's Olympic medalists at the Sports Authority of India (SAI) centres, or academies like the Gopichand Badminton Academy, turn raw talent into champions who make the country proud on the world stage.",
   "entry_exams_text": null,
@@ -15394,6 +15534,8 @@
   "eligible_streams": [
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "High",
   "day_in_life": "A surveyor visits land or building sites with special equipment to measure exact distances, heights, and boundaries, then turns those measurements into maps and reports. This work happens both outdoors on-site and indoors using mapping software.",
   "impact": "Surveyors make sure projects like the Mumbai-Ahmedabad bullet train, new metro lines, and housing colonies are built on correctly measured land, preventing costly boundary disputes and construction errors.",
   "entry_exams_text": null,
@@ -15554,6 +15696,8 @@
   "eligible_streams": [
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "High",
   "day_in_life": "A systems engineer looks at the big picture of a complex project, like an aircraft, a satellite, or a company's entire IT network, and makes sure all the different parts (hardware, software, and people) work together smoothly. On a typical day, they might review how a new component will fit into an existing system, spot risks before they become problems, or coordinate between different engineering teams.",
   "impact": "Systems engineers at the Indian Space Research Organisation (ISRO) make sure that thousands of components in a rocket like Chandrayaan work together perfectly, and at companies like Tata Consultancy Services (TCS) they ensure banks' entire IT systems run without crashing. Their work prevents costly failures in huge, complicated projects.",
   "entry_exams_text": "JEE Main and JEE Advanced (Joint Entrance Examination, national exams to get into engineering colleges like the IITs) for a bachelor's degree, usually in a core engineering branch first; GATE (Graduate Aptitude Test in Engineering, a national exam for master's programs and government engineering jobs) for further specialization in systems engineering.",
@@ -15628,6 +15772,8 @@
   "eligible_streams": [
    "All"
   ],
+  "parent_stream": "Arts",
+  "pay_tier": "Low",
   "day_in_life": "A teacher plans lessons, explains topics to students in a classroom, checks homework, and helps students who are struggling to understand a subject. Outside class, they grade tests, prepare study materials, and sometimes meet parents to talk about a student's progress.",
   "impact": "Teachers shape the futures of millions of students in schools across India, from government schools under the Sarva Shiksha Abhiyan program to private chains like Delhi Public School (DPS), and their teaching often decides whether a child later cracks exams like JEE or simply loves learning. A good teacher can change the direction of a student's entire life.",
   "entry_exams_text": "No single fixed entrance exam for teaching itself \u2014 most people complete a Bachelor's degree followed by a B.Ed. (Bachelor of Education, a professional teaching qualification) which some colleges admit into via marks or state-level tests. To teach in government schools, exams like CTET (Central Teacher Eligibility Test, required to become a government school teacher) are needed.",
@@ -15737,6 +15883,8 @@
   "eligible_streams": [
    "All"
   ],
+  "parent_stream": "Arts",
+  "pay_tier": "Low",
   "day_in_life": "A technical or content writer researches a topic, then writes clear articles, product guides, blog posts, or instruction manuals so readers can easily understand and use them. They spend most of the day writing, editing, and coordinating with experts or designers to fact-check details.",
   "impact": "Writers create the how-to guides that help you set up a Jio SIM card, the blog posts that help Zomato or Swiggy explain new features, and the manuals that help engineers at companies like Infosys use complex software correctly.",
   "entry_exams_text": null,
@@ -15825,6 +15973,8 @@
   "eligible_streams": [
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "High",
   "day_in_life": "A textile engineer works on the machines and processes that turn raw fibres like cotton into yarn and then fabric, checking quality and improving how clothes and other fabric products are made in mills and factories.",
   "impact": "The cotton shirts and sarees sold by brands like Raymond and Arvind Mills, and the denim used in jeans across India, are produced using processes that textile engineers design and manage in mills.",
   "entry_exams_text": "JEE Main or state engineering entrance exams for a BTech in Textile Engineering or Technology; some institutes like NIFT hold their own entrance test called NIFT Entrance Exam.",
@@ -15988,6 +16138,8 @@
   "eligible_streams": [
    "Arts"
   ],
+  "parent_stream": "Arts",
+  "pay_tier": "Low",
   "day_in_life": "A translator converts written documents from one language to another, while an interpreter converts spoken words in real time during meetings, court hearings, or conferences. Both spend their day making sure meaning, tone, and cultural context are not lost between languages.",
   "impact": "Translators and interpreters help the Indian government run in 22 official languages, let companies like Netflix release Hindi and Tamil subtitles worldwide, and allow international businesses to sign contracts and negotiate deals across language barriers.",
   "entry_exams_text": null,
@@ -16076,6 +16228,8 @@
    "Arts",
    "Science (PCM)"
   ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "Mid",
   "day_in_life": "An urban planner studies how a city or town is growing and designs master plans that decide where homes, roads, parks, and offices should go. They spend their day analyzing maps and population data, meeting government officials, and presenting plans that guide how a whole city develops over decades.",
   "impact": "Urban planners shaped projects like the Delhi Master Plan, the planned city of Chandigarh, and the ongoing Smart Cities Mission, deciding how millions of Indians will live, commute, and access parks and hospitals in the future.",
   "entry_exams_text": null,
@@ -16191,6 +16345,8 @@
   "eligible_streams": [
    "Science (PCB)"
   ],
+  "parent_stream": "Science (PCB)",
+  "pay_tier": "Mid",
   "day_in_life": "A veterinarian examines sick or injured animals, gives them medicine or performs surgery, and advises pet owners or farmers on how to keep animals healthy. A typical day could involve vaccinating a farmer's cattle in the morning and treating a pet dog's broken leg in the afternoon.",
   "impact": "Veterinarians keep India's massive dairy and livestock industry healthy, which is vital since India is the world's largest milk producer, and they also treat pets for millions of urban families through clinics and chains like Wiggles.in. Their work protects both animal welfare and the farmers who depend on healthy livestock for income.",
   "entry_exams_text": "NEET (National Eligibility cum Entrance Test, the same exam used for medical college admissions) is used for admission to B.V.Sc. (Bachelor of Veterinary Science) programs in India.",
@@ -16280,6 +16436,8 @@
    "Commerce",
    "Science (PCM)"
   ],
+  "parent_stream": "Arts",
+  "pay_tier": "Mid",
   "day_in_life": "A game designer or developer creates the characters, levels, rules, and visuals of a video game, then writes code or uses game engines to bring it all to life. They spend their day sketching ideas, programming gameplay, testing for bugs, and tweaking the game until it feels fun to play.",
   "impact": "This work built hit Indian games like Krafton India's BGMI (Battlegrounds Mobile India), which has over 100 million users, and powers growing studios like Nazara Technologies that are putting India on the global gaming map.",
   "entry_exams_text": null,
@@ -16411,6 +16569,8 @@
   "eligible_streams": [
    "All"
   ],
+  "parent_stream": "Arts",
+  "pay_tier": "Mid",
   "day_in_life": "A web and UX/UI (user experience/user interface) designer decides how a website or app looks and how easy it is to use, sketching layouts and choosing colors, buttons, and menus before testing them with real users. They spend their day in design software like Figma, talking to users about what confuses them, and working closely with developers to build the final product.",
   "impact": "These designers shape the smooth, easy-to-use screens you interact with daily on apps like PhonePe, Swiggy, and Flipkart, directly affecting whether millions of Indians can pay bills, order food, or shop online without frustration.",
   "entry_exams_text": null,
@@ -16541,6 +16701,8 @@
   "eligible_streams": [
    "Science (PCB)"
   ],
+  "parent_stream": "Science (PCB)",
+  "pay_tier": "Mid",
   "day_in_life": "A zoologist studies animals and their behaviour, either out in forests and rivers observing wildlife, or in a lab analyzing animal samples and data. They might track tiger populations using camera traps, study how climate change affects birds, or write research papers on their findings.",
   "impact": "Zoologists help protect endangered species like the Bengal tiger and the Asiatic lion through projects run by the Wildlife Institute of India, and their research guides government decisions on protecting forests and national parks like Jim Corbett and Kaziranga. Their work directly shapes how India balances development with saving its wildlife.",
   "entry_exams_text": "No single fixed entrance exam for a bachelor's degree \u2014 admission is usually based on Class 12 marks in Science. For a master's or research program, exams like CUET-PG or CSIR-UGC NET (a national exam for research fellowships and lectureship eligibility) are commonly used.",

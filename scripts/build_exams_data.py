@@ -237,7 +237,8 @@ def main():
                 "law": ["Law (LLB)"], "commerce": ["Chartered Accountancy (CA)", "Commerce"],
                 "business": ["Business Administration (BBA / MBA)"],
                 "science": ["Physics", "Chemistry", "Mathematics"],
-                "defence": ["Armed Forces (Military Services)"],
+                "defence": ["Indian Army Officer", "Indian Navy Officer",
+                            "Indian Air Force Officer"],
             }
             # one career per stream first, then the rest, so a 3-stream exam
             # (COMEDK: Architecture / Engineering / Pharma) shows all three

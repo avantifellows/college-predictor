@@ -44,6 +44,10 @@ MERGED = {
     "Mechanical Engineering": "Mechanical / Mechatronics Engineering",
     "Computer Science And Engineering": "Computer Science / Information Technology",
     "Data Science": "Artificial Intelligence and Data Science",
+    # the general armed forces card, redundant beside the six service careers
+    "Armed Forces (Military Services)": "Indian Army Officer",
+    # one company's training programme, not a career
+    "HCL TechBee Program": "Computer Science / Information Technology",
 }
 
 

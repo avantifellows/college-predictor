@@ -1,602 +1,994 @@
-[
- {
-  "id": 1,
-  "question": "It's a free Saturday afternoon with no plans. What are you most likely to do?",
-  "options": [
-   {
-    "text": "Take apart an old gadget or fix something broken around the house",
+{
+ "scale": [
+  "Strongly disagree",
+  "Disagree",
+  "Neutral",
+  "Agree",
+  "Strongly agree"
+ ],
+ "statements": [
+  {
+   "id": 1,
+   "text": "I enjoy fixing things at home, like a loose cycle chain or a switch that has stopped working.",
+   "type": "R"
+  },
+  {
+   "id": 2,
+   "text": "I like figuring out why things happen, like why the sky is blue or how a phone works.",
+   "type": "I"
+  },
+  {
+   "id": 3,
+   "text": "I often daydream and make up stories, characters or magical worlds.",
+   "type": "A"
+  },
+  {
+   "id": 4,
+   "text": "I enjoy explaining things to friends or helping a younger cousin study.",
+   "type": "S"
+  },
+  {
+   "id": 5,
+   "text": "I like taking charge, like organising a class trip or a school event.",
+   "type": "E"
+  },
+  {
+   "id": 6,
+   "text": "I like keeping my things, notes and files neat and organised.",
+   "type": "C"
+  },
+  {
+   "id": 7,
+   "text": "I'd rather build or put something together with my hands than read about it.",
+   "type": "R"
+  },
+  {
+   "id": 8,
+   "text": "I enjoy tricky puzzles or maths problems, even when nobody has asked me to solve them.",
+   "type": "I"
+  },
+  {
+   "id": 9,
+   "text": "I enjoy drawing, painting, rangoli or making things look beautiful.",
+   "type": "A"
+  },
+  {
+   "id": 10,
+   "text": "Friends often come to me when they want to talk about a problem.",
+   "type": "S"
+  },
+  {
+   "id": 11,
+   "text": "I'd enjoy selling things, like running a stall at the school fair or a small online shop.",
+   "type": "E"
+  },
+  {
+   "id": 12,
+   "text": "I enjoy making timetables or to-do lists and sticking to them.",
+   "type": "C"
+  },
+  {
+   "id": 13,
+   "text": "I like being outdoors: gardening, farming, trekking or looking after animals.",
+   "type": "R"
+  },
+  {
+   "id": 14,
+   "text": "I'd enjoy doing an experiment for a science fair.",
+   "type": "I"
+  },
+  {
+   "id": 15,
+   "text": "I like performing: singing, dancing, acting or playing an instrument.",
+   "type": "A"
+  },
+  {
+   "id": 16,
+   "text": "I'd enjoy volunteering at an NGO, a hospital or in my neighbourhood.",
+   "type": "S"
+  },
+  {
+   "id": 17,
+   "text": "I enjoy convincing people to see things my way, like in a debate.",
+   "type": "E"
+  },
+  {
+   "id": 18,
+   "text": "I'd enjoy keeping track of money, like a family budget or the class fund.",
+   "type": "C"
+  },
+  {
+   "id": 19,
+   "text": "I enjoy using tools and machines, from a screwdriver to a sewing machine.",
+   "type": "R"
+  },
+  {
+   "id": 20,
+   "text": "I watch documentaries or read about science and technology for fun.",
+   "type": "I"
+  },
+  {
+   "id": 21,
+   "text": "I like making creative things like videos, reels, poems or stories.",
+   "type": "A"
+  },
+  {
+   "id": 22,
+   "text": "I enjoy working in a team more than working alone.",
+   "type": "S"
+  },
+  {
+   "id": 23,
+   "text": "I'd like to start my own business one day.",
+   "type": "E"
+  },
+  {
+   "id": 24,
+   "text": "I like work with clear rules and steps, where I know exactly what to do.",
+   "type": "C"
+  },
+  {
+   "id": 25,
+   "text": "I'd rather be active and on my feet than sit at a desk all day.",
+   "type": "R"
+  },
+  {
+   "id": 26,
+   "text": "When I hear a claim, I try to verify it myself before accepting it.",
+   "type": "I"
+  },
+  {
+   "id": 27,
+   "text": "I prefer doing things my own way rather than following a fixed method.",
+   "type": "A"
+  },
+  {
+   "id": 28,
+   "text": "I feel good when I take care of someone who is unwell or upset.",
+   "type": "S"
+  },
+  {
+   "id": 29,
+   "text": "I stay calm and make quick decisions when there's pressure.",
+   "type": "E"
+  },
+  {
+   "id": 30,
+   "text": "I notice small mistakes that others miss, like a wrong number or a spelling error.",
+   "type": "C"
+  }
+ ],
+ "tiebreakers": [
+  {
+   "id": 1,
+   "a": {
+    "text": "Build a working model of a bridge with your hands",
     "type": "R"
    },
-   {
-    "text": "Watch a documentary or read about a topic you're curious about",
+   "b": {
+    "text": "Work out why some bridges stand for centuries and others fall",
     "type": "I"
-   },
-   {
-    "text": "Draw, write, make music, or work on a creative project",
-    "type": "A"
-   },
-   {
-    "text": "Hang out with friends or volunteer for something",
-    "type": "S"
-   },
-   {
-    "text": "Plan a small side-hustle idea or organize an event",
-    "type": "E"
-   },
-   {
-    "text": "Organize your room, files, or plan out your week",
-    "type": "C"
    }
-  ]
- },
- {
-  "id": 2,
-  "question": "Your school is starting a new club and you get to pick which one to join. Which sounds most fun?",
-  "options": [
-   {
-    "text": "Robotics or automobile club",
+  },
+  {
+   "id": 2,
+   "a": {
+    "text": "Learn to play a sport really well",
     "type": "R"
    },
-   {
-    "text": "Science or math olympiad club",
-    "type": "I"
-   },
-   {
-    "text": "Drama, art, or music club",
+   "b": {
+    "text": "Learn to play a musical instrument really well",
     "type": "A"
-   },
-   {
-    "text": "Community service or peer-counselling club",
-    "type": "S"
-   },
-   {
-    "text": "Debate, Model UN, or student business club",
-    "type": "E"
-   },
-   {
-    "text": "Student council or event-planning committee",
-    "type": "C"
    }
-  ]
- },
- {
-  "id": 3,
-  "question": "A group project is assigned and you get to pick your role. Which would you choose?",
-  "options": [
-   {
-    "text": "Building the physical model or prototype",
+  },
+  {
+   "id": 3,
+   "a": {
+    "text": "Fix a classmate's broken cycle",
     "type": "R"
    },
-   {
-    "text": "Researching facts and data to back up the project",
-    "type": "I"
-   },
-   {
-    "text": "Designing the visuals, poster, or creative presentation",
-    "type": "A"
-   },
-   {
-    "text": "Coordinating the team and making sure everyone's heard",
+   "b": {
+    "text": "Help a classmate who is struggling with a subject",
     "type": "S"
-   },
-   {
-    "text": "Pitching the final idea and convincing the class",
-    "type": "E"
-   },
-   {
-    "text": "Keeping track of deadlines, tasks, and the final report",
-    "type": "C"
    }
-  ]
- },
- {
-  "id": 4,
-  "question": "Which of these school subjects do you look forward to the most?",
-  "options": [
-   {
-    "text": "Workshop, woodwork, or a hands-on lab session",
+  },
+  {
+   "id": 4,
+   "a": {
+    "text": "Build the stage for the school annual day",
     "type": "R"
    },
-   {
-    "text": "Physics, chemistry, or biology theory classes",
-    "type": "I"
-   },
-   {
-    "text": "Art, music, or creative writing",
-    "type": "A"
-   },
-   {
-    "text": "Any class with group discussions or helping classmates",
-    "type": "S"
-   },
-   {
-    "text": "Business studies, economics, or entrepreneurship",
+   "b": {
+    "text": "Find sponsors and sell tickets for the school annual day",
     "type": "E"
-   },
-   {
-    "text": "Accounts, computer applications, or anything with clear steps to follow",
-    "type": "C"
    }
-  ]
- },
- {
-  "id": 5,
-  "question": "You're given ₹5,000 and told to use it however you like this weekend. What do you do?",
-  "options": [
-   {
-    "text": "Buy tools or parts to build/fix something",
+  },
+  {
+   "id": 5,
+   "a": {
+    "text": "Set up the sound system and lights for an event",
     "type": "R"
    },
-   {
-    "text": "Buy books or a course to learn something new",
-    "type": "I"
-   },
-   {
-    "text": "Buy art supplies, an instrument, or camera gear",
-    "type": "A"
-   },
-   {
-    "text": "Spend it treating friends or donate part of it",
-    "type": "S"
-   },
-   {
-    "text": "Try to turn it into more money through a small venture",
-    "type": "E"
-   },
-   {
-    "text": "Save it carefully and track exactly where it goes",
+   "b": {
+    "text": "Keep the guest list and budget for an event",
     "type": "C"
    }
-  ]
- },
- {
-  "id": 6,
-  "question": "Which of these YouTube channels would you binge-watch the most?",
-  "options": [
-   {
-    "text": "DIY builds, car mods, or engineering marvels",
-    "type": "R"
-   },
-   {
-    "text": "Science explainers or space/tech deep-dives",
+  },
+  {
+   "id": 6,
+   "a": {
+    "text": "Find out how black holes form",
     "type": "I"
    },
-   {
-    "text": "Art tutorials, short films, or music covers",
+   "b": {
+    "text": "Write a story set on a planet near a black hole",
     "type": "A"
-   },
-   {
-    "text": "Vlogs about helping people or social causes",
-    "type": "S"
-   },
-   {
-    "text": "Startup stories, stock market, or business breakdowns",
-    "type": "E"
-   },
-   {
-    "text": "Productivity, organization, or study-technique channels",
-    "type": "C"
    }
-  ]
- },
- {
-  "id": 7,
-  "question": "When working on a group assignment, what frustrates you the most?",
-  "options": [
-   {
-    "text": "Not being allowed to actually build or test anything hands-on",
-    "type": "R"
-   },
-   {
-    "text": "Not having enough time to research properly before deciding",
+  },
+  {
+   "id": 7,
+   "a": {
+    "text": "Research why children in your area drop out of school",
     "type": "I"
    },
-   {
-    "text": "Being forced to follow a rigid format with no room for originality",
-    "type": "A"
-   },
-   {
-    "text": "Teammates who don't listen to each other",
+   "b": {
+    "text": "Spend weekends teaching children who have dropped out",
     "type": "S"
-   },
-   {
-    "text": "Nobody taking charge or making decisions",
-    "type": "E"
-   },
-   {
-    "text": "Messy planning with no clear structure or deadlines",
-    "type": "C"
    }
-  ]
- },
- {
-  "id": 8,
-  "question": "Pick the summer internship/experience you'd be most excited about:",
-  "options": [
-   {
-    "text": "Shadowing an engineer on a construction or factory site",
-    "type": "R"
-   },
-   {
-    "text": "Assisting in a science or research lab",
+  },
+  {
+   "id": 8,
+   "a": {
+    "text": "Dig into the numbers to find out which products sell best in a shop",
     "type": "I"
    },
-   {
-    "text": "Interning at a design studio, film set, or ad agency",
-    "type": "A"
-   },
-   {
-    "text": "Volunteering at a hospital, NGO, or school",
-    "type": "S"
-   },
-   {
-    "text": "Interning at a startup, learning how a business runs",
+   "b": {
+    "text": "Persuade shoppers in a shop to try a new product",
     "type": "E"
-   },
-   {
-    "text": "Working in office administration or accounts",
-    "type": "C"
    }
-  ]
- },
- {
-  "id": 9,
-  "question": "Which kind of puzzle or challenge do you enjoy the most?",
-  "options": [
-   {
-    "text": "Assembling furniture or fixing something mechanical",
-    "type": "R"
-   },
-   {
-    "text": "A tricky math or logic problem",
+  },
+  {
+   "id": 9,
+   "a": {
+    "text": "Run an experiment to test a new idea",
     "type": "I"
    },
-   {
-    "text": "A blank canvas or an open-ended creative prompt",
-    "type": "A"
-   },
-   {
-    "text": "Mediating an argument between two friends",
-    "type": "S"
-   },
-   {
-    "text": "Negotiating a better deal or convincing someone",
-    "type": "E"
-   },
-   {
-    "text": "A detailed spreadsheet or scheduling puzzle",
+   "b": {
+    "text": "Keep a lab's records and stock list perfectly accurate",
     "type": "C"
    }
-  ]
- },
- {
-  "id": 10,
-  "question": "Your friends would probably describe you as the one who...",
-  "options": [
-   {
-    "text": "Can fix or build almost anything",
-    "type": "R"
-   },
-   {
-    "text": "Always knows random facts and asks 'but why?'",
-    "type": "I"
-   },
-   {
-    "text": "Has the best ideas for anything creative",
+  },
+  {
+   "id": 10,
+   "a": {
+    "text": "Design posters for a cause you care about",
     "type": "A"
    },
-   {
-    "text": "Everyone goes to when they need to talk",
+   "b": {
+    "text": "Volunteer for a cause you care about, working directly with the people it helps",
     "type": "S"
-   },
-   {
-    "text": "Can convince anyone to do anything",
-    "type": "E"
-   },
-   {
-    "text": "Keeps the group plans organized and on schedule",
-    "type": "C"
    }
-  ]
- },
- {
-  "id": 11,
-  "question": "If you had to give a class presentation, which topic would you pick?",
-  "options": [
-   {
-    "text": "How a bridge or engine is built",
-    "type": "R"
-   },
-   {
-    "text": "A recent scientific discovery",
-    "type": "I"
-   },
-   {
-    "text": "Your favourite film, artist, or design trend",
+  },
+  {
+   "id": 11,
+   "a": {
+    "text": "Make the short film for the school festival",
     "type": "A"
    },
-   {
-    "text": "A social issue you care about",
-    "type": "S"
-   },
-   {
-    "text": "A business or brand you find impressive",
+   "b": {
+    "text": "Lead the team that runs the school festival",
     "type": "E"
-   },
-   {
-    "text": "A step-by-step guide to something (e.g. managing money)",
-    "type": "C"
    }
-  ]
- },
- {
-  "id": 12,
-  "question": "Which of these part-time jobs would you enjoy the most (ignoring pay)?",
-  "options": [
-   {
-    "text": "Working at an auto garage or electronics repair shop",
-    "type": "R"
-   },
-   {
-    "text": "Assisting a researcher or lab technician",
-    "type": "I"
-   },
-   {
-    "text": "Working at a design studio or content creation house",
+  },
+  {
+   "id": 12,
+   "a": {
+    "text": "Decorate your room in your own style",
     "type": "A"
    },
-   {
-    "text": "Being a camp counsellor or tutor for younger kids",
-    "type": "S"
-   },
-   {
-    "text": "Working in sales or helping run a small shop",
-    "type": "E"
-   },
-   {
-    "text": "Working as a receptionist or data-entry assistant",
+   "b": {
+    "text": "Organise your room so everything has its place",
     "type": "C"
    }
-  ]
- },
- {
-  "id": 13,
-  "question": "Which of these could you happily do for a whole day?",
-  "options": [
-   {
-    "text": "Repairing a cycle, motor or household appliance",
-    "type": "R"
-   },
-   {
-    "text": "Doing experiments to find out why something happens",
-    "type": "I"
-   },
-   {
-    "text": "Painting, writing, or making a short video",
-    "type": "A"
-   },
-   {
-    "text": "Teaching or helping someone learn something new",
+  },
+  {
+   "id": 13,
+   "a": {
+    "text": "Mentor the new students who join your school",
     "type": "S"
    },
-   {
-    "text": "Running a stall at a school fair and selling",
+   "b": {
+    "text": "Lead the student council",
     "type": "E"
-   },
-   {
-    "text": "Sorting out a messy cupboard or a set of records",
-    "type": "C"
    }
-  ]
- },
- {
-  "id": 14,
-  "question": "Pick the museum or exhibition you'd most want to visit:",
-  "options": [
-   {
-    "text": "A science and technology museum with machines to try",
-    "type": "R"
-   },
-   {
-    "text": "A planetarium or natural history museum",
-    "type": "I"
-   },
-   {
-    "text": "An art gallery or design exhibition",
-    "type": "A"
-   },
-   {
-    "text": "A museum about history and human stories",
+  },
+  {
+   "id": 14,
+   "a": {
+    "text": "Look after your younger cousins on a family trip",
     "type": "S"
    },
-   {
-    "text": "An expo showcasing startups and new products",
-    "type": "E"
-   },
-   {
-    "text": "An exhibition on how large systems (like cities) are organized",
+   "b": {
+    "text": "Plan a family trip: the bookings, timings and budget",
     "type": "C"
    }
-  ]
- },
- {
-  "id": 15,
-  "question": "At a family function, what are you most likely doing?",
-  "options": [
-   {
-    "text": "Helping set up the lights, tent or sound system",
-    "type": "R"
-   },
-   {
-    "text": "Asking elders how something works, or how things used to be",
-    "type": "I"
-   },
-   {
-    "text": "Decorating, doing mehendi, or taking the photos",
-    "type": "A"
-   },
-   {
-    "text": "Looking after the younger kids or the elders",
-    "type": "S"
-   },
-   {
-    "text": "Organising the games or bargaining with the caterer",
+  },
+  {
+   "id": 15,
+   "a": {
+    "text": "Pitch your idea to win a business competition",
     "type": "E"
    },
-   {
-    "text": "Keeping track of the guest list, gifts or expenses",
+   "b": {
+    "text": "Keep the accounts for your team in a business competition",
     "type": "C"
    }
-  ]
- },
- {
-  "id": 16,
-  "question": "Which of these would you most like to meet at a career day in school?",
-  "options": [
-   {
-    "text": "An engineer who builds machines, bridges or engines",
-    "type": "R"
-   },
-   {
-    "text": "A scientist or researcher",
-    "type": "I"
-   },
-   {
-    "text": "A designer, artist or filmmaker",
-    "type": "A"
-   },
-   {
-    "text": "A doctor, teacher or social worker",
-    "type": "S"
-   },
-   {
-    "text": "An entrepreneur or business leader",
-    "type": "E"
-   },
-   {
-    "text": "An accountant or administrator",
-    "type": "C"
-   }
-  ]
- },
- {
-  "id": 17,
-  "question": "Which magazine or subject would you subscribe to if you could pick only one?",
-  "options": [
-   {
-    "text": "A DIY/engineering/automobile magazine",
-    "type": "R"
-   },
-   {
-    "text": "A science and discovery magazine",
-    "type": "I"
-   },
-   {
-    "text": "An art, design, or entertainment magazine",
-    "type": "A"
-   },
-   {
-    "text": "A magazine about people, culture, and society",
-    "type": "S"
-   },
-   {
-    "text": "A business and finance magazine",
-    "type": "E"
-   },
-   {
-    "text": "A magazine about productivity, systems, and how things are organized",
-    "type": "C"
-   }
-  ]
- },
- {
-  "id": 18,
-  "question": "When solving a problem, what's your natural instinct?",
-  "options": [
-   {
-    "text": "Try it physically and see what works",
-    "type": "R"
-   },
-   {
-    "text": "Research and think it through carefully first",
-    "type": "I"
-   },
-   {
-    "text": "Look for a fresh, original way to approach it",
-    "type": "A"
-   },
-   {
-    "text": "Ask others for their input and feelings on it",
-    "type": "S"
-   },
-   {
-    "text": "Decide quickly and take charge",
-    "type": "E"
-   },
-   {
-    "text": "Make a checklist and follow it step by step",
-    "type": "C"
-   }
-  ]
- },
- {
-  "id": 19,
-  "question": "Pick the school trip you'd be most excited for:",
-  "options": [
-   {
-    "text": "A visit to a factory or engineering site",
-    "type": "R"
-   },
-   {
-    "text": "A visit to a research institute or observatory",
-    "type": "I"
-   },
-   {
-    "text": "A visit to an art/film/theatre festival",
-    "type": "A"
-   },
-   {
-    "text": "A community service trip to a village or shelter",
-    "type": "S"
-   },
-   {
-    "text": "A visit to a stock exchange or company headquarters",
-    "type": "E"
-   },
-   {
-    "text": "A visit to a government office or planning department",
-    "type": "C"
-   }
-  ]
- },
- {
-  "id": 20,
-  "question": "Ten years from now, what would make you feel most fulfilled at work?",
-  "options": [
-   {
-    "text": "Building or maintaining something tangible that works well",
-    "type": "R"
-   },
-   {
-    "text": "Discovering or understanding something new",
-    "type": "I"
-   },
-   {
-    "text": "Creating work that expresses your own ideas",
-    "type": "A"
-   },
-   {
-    "text": "Knowing you've genuinely helped people",
-    "type": "S"
-   },
-   {
-    "text": "Having built something (a business/team) from scratch",
-    "type": "E"
-   },
-   {
-    "text": "Running things so well that everything is dependable and in order",
-    "type": "C"
-   }
+  }
+ ],
+ "subjects": [
+  "Physics",
+  "Chemistry",
+  "Biology",
+  "Maths",
+  "Computer Science",
+  "History",
+  "Geography",
+  "Economics / Accountancy",
+  "Languages",
+  "Art / Drawing",
+  "Music",
+  "Drama",
+  "Sports"
+ ],
+ "careerSubjects": {
+  "Acting and Performing Arts": [
+   "Drama",
+   "Music",
+   "Languages"
+  ],
+  "Actuarial Science": [
+   "Maths",
+   "Economics / Accountancy"
+  ],
+  "Aerospace Engineering": [
+   "Physics",
+   "Maths"
+  ],
+  "Agricultural Engineering": [
+   "Physics",
+   "Biology",
+   "Maths"
+  ],
+  "Agriculture": [
+   "Biology",
+   "Chemistry",
+   "Geography"
+  ],
+  "Air Traffic Control": [
+   "Physics",
+   "Maths",
+   "Geography"
+  ],
+  "Airline Pilot": [
+   "Physics",
+   "Maths",
+   "Geography"
+  ],
+  "Anesthesiology": [
+   "Biology",
+   "Chemistry"
+  ],
+  "Anthropology and Archaeology": [
+   "History",
+   "Geography",
+   "Biology"
+  ],
+  "Architecture": [
+   "Art / Drawing",
+   "Maths",
+   "Physics"
+  ],
+  "Artificial Intelligence and Data Science": [
+   "Maths",
+   "Computer Science"
+  ],
+  "Arts": [
+   "Art / Drawing",
+   "History"
+  ],
+  "Audiology": [
+   "Biology",
+   "Physics"
+  ],
+  "Automobile Engineering": [
+   "Physics",
+   "Maths"
+  ],
+  "Aviation Engineering and Maintenance": [
+   "Physics",
+   "Maths"
+  ],
+  "Ayurveda": [
+   "Biology",
+   "Chemistry"
+  ],
+  "Biochemical Engineering": [
+   "Chemistry",
+   "Biology",
+   "Maths"
+  ],
+  "Biochemistry": [
+   "Chemistry",
+   "Biology"
+  ],
+  "Bioinformatics": [
+   "Biology",
+   "Computer Science",
+   "Maths"
+  ],
+  "Biological Engineering": [
+   "Biology",
+   "Physics",
+   "Maths"
+  ],
+  "Biology": [
+   "Biology",
+   "Chemistry"
+  ],
+  "Biomedical Engineering": [
+   "Biology",
+   "Physics",
+   "Maths"
+  ],
+  "Biostatistics": [
+   "Maths",
+   "Biology"
+  ],
+  "Biotechnology": [
+   "Biology",
+   "Chemistry"
+  ],
+  "Blockchain and Emerging Tech": [
+   "Computer Science",
+   "Maths"
+  ],
+  "Botany": [
+   "Biology",
+   "Geography"
+  ],
+  "Business Administration (BBA / MBA)": [
+   "Economics / Accountancy",
+   "Languages"
+  ],
+  "Business Intelligence and Analytics": [
+   "Maths",
+   "Computer Science",
+   "Economics / Accountancy"
+  ],
+  "Cardiology": [
+   "Biology",
+   "Chemistry"
+  ],
+  "Ceramic Engineering": [
+   "Chemistry",
+   "Physics"
+  ],
+  "Chartered Accountancy (CA)": [
+   "Economics / Accountancy",
+   "Maths"
+  ],
+  "Chemical Engineering": [
+   "Chemistry",
+   "Maths",
+   "Physics"
+  ],
+  "Chemical Science And Technology": [
+   "Chemistry",
+   "Physics"
+  ],
+  "Chemistry": [
+   "Chemistry",
+   "Maths"
+  ],
+  "Chiropractic Care": [
+   "Biology",
+   "Sports"
+  ],
+  "Cinematography and Film Editing": [
+   "Art / Drawing",
+   "Drama",
+   "Computer Science"
+  ],
+  "Civil Engineering": [
+   "Physics",
+   "Maths",
+   "Geography"
+  ],
+  "Commerce": [
+   "Economics / Accountancy",
+   "Maths"
+  ],
+  "Computer Application (BCA/MCA)": [
+   "Computer Science",
+   "Maths"
+  ],
+  "Computer Science / Information Technology": [
+   "Computer Science",
+   "Maths"
+  ],
+  "Court Reporting and Legal Transcription": [
+   "Languages",
+   "History"
+  ],
+  "Culinary Arts (Chef)": [
+   "Chemistry",
+   "Art / Drawing"
+  ],
+  "Cyber Security": [
+   "Computer Science",
+   "Maths"
+  ],
+  "Dairy Engineering": [
+   "Biology",
+   "Chemistry",
+   "Physics"
+  ],
+  "Data Engineering": [
+   "Computer Science",
+   "Maths"
+  ],
+  "Dentistry": [
+   "Biology",
+   "Chemistry"
+  ],
+  "Dermatology": [
+   "Biology",
+   "Chemistry"
+  ],
+  "Design": [
+   "Art / Drawing",
+   "Computer Science"
+  ],
+  "Dietetics and Nutrition": [
+   "Biology",
+   "Chemistry"
+  ],
+  "Economics": [
+   "Economics / Accountancy",
+   "Maths",
+   "History"
+  ],
+  "Electrical / Electronics / Communications Engineering": [
+   "Physics",
+   "Maths",
+   "Computer Science"
+  ],
+  "Emergency Medical Services": [
+   "Biology",
+   "Sports"
+  ],
+  "Energy Engineering": [
+   "Physics",
+   "Chemistry",
+   "Maths"
+  ],
+  "Engineering Design": [
+   "Art / Drawing",
+   "Physics",
+   "Maths"
+  ],
+  "Engineering Physics": [
+   "Physics",
+   "Maths"
+  ],
+  "English": [
+   "Languages",
+   "History"
+  ],
+  "Environmental Engineering": [
+   "Chemistry",
+   "Biology",
+   "Geography"
+  ],
+  "Event Management": [
+   "Economics / Accountancy",
+   "Drama",
+   "Languages"
+  ],
+  "Fashion Designing": [
+   "Art / Drawing"
+  ],
+  "Finance": [
+   "Economics / Accountancy",
+   "Maths"
+  ],
+  "Fire and Safety Services": [
+   "Chemistry",
+   "Physics",
+   "Sports"
+  ],
+  "Fishery Science": [
+   "Biology",
+   "Geography"
+  ],
+  "Food Engineering": [
+   "Chemistry",
+   "Biology"
+  ],
+  "Forensic Science": [
+   "Chemistry",
+   "Biology"
+  ],
+  "Forestry": [
+   "Biology",
+   "Geography"
+  ],
+  "General Engineering": [
+   "Physics",
+   "Maths"
+  ],
+  "Genetic Counselling and Genetics": [
+   "Biology",
+   "Chemistry"
+  ],
+  "Geographic Information Systems (GIS)": [
+   "Geography",
+   "Computer Science"
+  ],
+  "Geography": [
+   "Geography",
+   "History"
+  ],
+  "Geology / Geophysics / Geological Technology": [
+   "Geography",
+   "Physics",
+   "Chemistry"
+  ],
+  "Gynaecology and Obstetrics": [
+   "Biology",
+   "Chemistry"
+  ],
+  "History": [
+   "History",
+   "Languages",
+   "Geography"
+  ],
+  "Homeopathy": [
+   "Biology",
+   "Chemistry"
+  ],
+  "Horticulture": [
+   "Biology",
+   "Geography"
+  ],
+  "Hotel Management": [
+   "Economics / Accountancy",
+   "Languages"
+  ],
+  "Human Resources Management": [
+   "Economics / Accountancy",
+   "Languages"
+  ],
+  "Indian Air Force Airman (Agniveer Vayu)": [
+   "Sports",
+   "Physics"
+  ],
+  "Indian Air Force Officer": [
+   "Physics",
+   "Maths",
+   "Sports"
+  ],
+  "Indian Army Jawan (Soldier / Agniveer)": [
+   "Sports"
+  ],
+  "Indian Army Officer": [
+   "Sports",
+   "Geography",
+   "History"
+  ],
+  "Indian Navy Officer": [
+   "Physics",
+   "Maths",
+   "Sports"
+  ],
+  "Indian Navy Sailor (Agniveer SSR / MR)": [
+   "Sports",
+   "Physics"
+  ],
+  "Industrial / Manufacturing / Production Engineering": [
+   "Physics",
+   "Maths"
+  ],
+  "Industrial Chemistry": [
+   "Chemistry"
+  ],
+  "Instrumentation Engineering": [
+   "Physics",
+   "Maths"
+  ],
+  "Interior Design": [
+   "Art / Drawing"
+  ],
+  "Investment Banking and Fund Management": [
+   "Economics / Accountancy",
+   "Maths"
+  ],
+  "Japanese (Language & Translation)": [
+   "Languages"
+  ],
+  "Jewellery Design and Gemology": [
+   "Art / Drawing",
+   "Chemistry"
+  ],
+  "Journalism": [
+   "Languages",
+   "History"
+  ],
+  "Law (LLB)": [
+   "History",
+   "Languages",
+   "Economics / Accountancy"
+  ],
+  "Librarianship and Archival Science": [
+   "History",
+   "Languages"
+  ],
+  "Life Science": [
+   "Biology",
+   "Chemistry"
+  ],
+  "Logistics and Supply Chain Management": [
+   "Economics / Accountancy",
+   "Maths",
+   "Geography"
+  ],
+  "Marine / Ocean Engineering": [
+   "Physics",
+   "Maths",
+   "Geography"
+  ],
+  "Marketing Management": [
+   "Economics / Accountancy",
+   "Languages"
+  ],
+  "Massage and Bodywork Therapy": [
+   "Biology",
+   "Sports"
+  ],
+  "Mathematics": [
+   "Maths"
+  ],
+  "Mathematics And Computing": [
+   "Maths",
+   "Computer Science"
+  ],
+  "Mechanical / Mechatronics Engineering": [
+   "Physics",
+   "Maths",
+   "Computer Science"
+  ],
+  "Medical Lab Technology": [
+   "Biology",
+   "Chemistry"
+  ],
+  "Medicine (MBBS)": [
+   "Biology",
+   "Chemistry"
+  ],
+  "Merchant Navy (Nautical Officer)": [
+   "Physics",
+   "Geography",
+   "Maths"
+  ],
+  "Metallurgy Engineering And Material Science": [
+   "Chemistry",
+   "Physics"
+  ],
+  "Midwifery": [
+   "Biology"
+  ],
+  "Mining Engineering": [
+   "Physics",
+   "Geography",
+   "Maths"
+  ],
+  "Music": [
+   "Music"
+  ],
+  "Natural Science": [
+   "Physics",
+   "Chemistry",
+   "Biology"
+  ],
+  "Naturopathy": [
+   "Biology"
+  ],
+  "Nautical Science": [
+   "Physics",
+   "Geography",
+   "Maths"
+  ],
+  "Neurology": [
+   "Biology",
+   "Chemistry"
+  ],
+  "Nuclear Engineering": [
+   "Physics",
+   "Maths"
+  ],
+  "Nursing": [
+   "Biology"
+  ],
+  "Occupational Therapy": [
+   "Biology",
+   "Sports"
+  ],
+  "Oil, Paints, Dye Technology": [
+   "Chemistry"
+  ],
+  "Ophthalmology and Optometry": [
+   "Biology",
+   "Physics"
+  ],
+  "Orthopedics": [
+   "Biology",
+   "Sports"
+  ],
+  "Paediatrics": [
+   "Biology",
+   "Chemistry"
+  ],
+  "Paper And Printing Engineering": [
+   "Chemistry",
+   "Physics"
+  ],
+  "Paramedical": [
+   "Biology"
+  ],
+  "Petroleum Engineering": [
+   "Chemistry",
+   "Physics",
+   "Geography"
+  ],
+  "Pharmaceutical Engineering": [
+   "Chemistry",
+   "Biology"
+  ],
+  "Pharmacy": [
+   "Chemistry",
+   "Biology"
+  ],
+  "Philosophy": [
+   "History",
+   "Languages"
+  ],
+  "Photography": [
+   "Art / Drawing"
+  ],
+  "Physics": [
+   "Physics",
+   "Maths"
+  ],
+  "Physiotherapy": [
+   "Biology",
+   "Sports"
+  ],
+  "Planning": [
+   "Geography",
+   "Maths",
+   "Economics / Accountancy"
+  ],
+  "Podiatry": [
+   "Biology"
+  ],
+  "Political Science": [
+   "History",
+   "Geography",
+   "Languages"
+  ],
+  "Polymer Technology": [
+   "Chemistry"
+  ],
+  "Prosthetics and Orthotics": [
+   "Biology",
+   "Physics"
+  ],
+  "Psychology": [
+   "Biology",
+   "Languages"
+  ],
+  "Public Administration (Civil Services)": [
+   "History",
+   "Geography",
+   "Economics / Accountancy"
+  ],
+  "Public Relations and Corporate Communications": [
+   "Languages",
+   "Drama"
+  ],
+  "Public Sector and Policy Analysis": [
+   "Economics / Accountancy",
+   "History",
+   "Geography"
+  ],
+  "Radiology": [
+   "Biology",
+   "Physics"
+  ],
+  "Real Estate": [
+   "Economics / Accountancy",
+   "Geography"
+  ],
+  "Renewable Energy (Solar/Wind)": [
+   "Physics",
+   "Geography"
+  ],
+  "Robotics Engineering": [
+   "Physics",
+   "Computer Science",
+   "Maths"
+  ],
+  "Safety Engineering": [
+   "Chemistry",
+   "Physics"
+  ],
+  "Sericulture": [
+   "Biology"
+  ],
+  "Social Work": [
+   "Languages",
+   "History"
+  ],
+  "Speech-Language Pathology": [
+   "Biology",
+   "Languages"
+  ],
+  "Sports Coaching and Athletics": [
+   "Sports",
+   "Biology"
+  ],
+  "Surveying": [
+   "Geography",
+   "Maths"
+  ],
+  "Systems Engineering": [
+   "Computer Science",
+   "Maths",
+   "Physics"
+  ],
+  "Teaching": [
+   "Languages",
+   "History"
+  ],
+  "Technical/Content Writing": [
+   "Languages",
+   "Computer Science"
+  ],
+  "Textile Engineering": [
+   "Chemistry",
+   "Art / Drawing"
+  ],
+  "Translation and Interpretation": [
+   "Languages"
+  ],
+  "Urban and Town Planning": [
+   "Geography",
+   "Economics / Accountancy"
+  ],
+  "Veterinary": [
+   "Biology",
+   "Chemistry"
+  ],
+  "Video Game Design and Development": [
+   "Computer Science",
+   "Art / Drawing"
+  ],
+  "Web and UX/UI Design": [
+   "Art / Drawing",
+   "Computer Science"
+  ],
+  "Zoology": [
+   "Biology"
   ]
  }
-]
+}
