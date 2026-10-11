@@ -15,6 +15,7 @@ merged_careers.json sends the page of a career merged into another
 (import_career_sheet.MERGED) to the one that covers it.
 """
 import json
+from collections import defaultdict
 import os
 import re
 
@@ -660,6 +661,23 @@ def main():
     ids = [c["career_id"] for c in cards]
     dupes = {i for i in ids if ids.count(i) > 1}
     assert not dupes, f"duplicate career ids: {dupes}"
+
+    # "See colleges that lead here": the Colleges tab lists colleges whose
+    # programmes map to the career, plus the colleges its cutoff table and
+    # sheet name (college_ids, so careers with no programme mapping, like
+    # Dentistry or the MBBS specialties, still have a list)
+    tab = json.load(open(COLLEGES_TAB))
+    id_of = {c["display_name"]: c["college_id"] for c in tab}
+    offering = defaultdict(set)
+    for col in tab:
+        for prog in (col.get("programs") or {}).get("list") or []:
+            if prog.get("career_id"):
+                offering[prog["career_id"]].add(col["college_id"])
+    for c in cards:
+        named = {id_of[x["q"]] for x in (c["college_options"] or []) + (c["top_colleges"] or [])
+                 if x.get("q") in id_of}
+        c["college_ids"] = sorted(named) or None
+        c["has_colleges"] = bool(named or offering[c["career_id"]])
 
     os.makedirs(OUT_DIR, exist_ok=True)
     json.dump(cards, open(f"{OUT_DIR}/careers.json", "w"), indent=1)

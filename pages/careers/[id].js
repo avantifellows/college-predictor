@@ -45,7 +45,11 @@ export default function CareerPage() {
       <div className="min-h-screen px-3 py-6 sm:px-6">
         <div className="mx-auto max-w-6xl">
           <div className="mb-3">
-            <DetailBackLink list="/careers" listLabel="All careers" />
+            <DetailBackLink
+              list="/careers"
+              listLabel="All careers"
+              label="Back"
+            />
           </div>
           <div className="rounded-2xl border border-[#eee1d7] bg-white p-4 shadow-sm sm:p-8">
             {career === undefined ? (

@@ -59,7 +59,9 @@
     44.2,
     14.2
    ]
-  }
+  },
+  "college_ids": null,
+  "has_colleges": false
  },
  {
   "career_id": "actuarial-science",
@@ -122,7 +124,9 @@
     38.8,
     88.2
    ]
-  }
+  },
+  "college_ids": null,
+  "has_colleges": false
  },
  {
   "career_id": "aerospace-engineering",
@@ -293,7 +297,18 @@
     16.3,
     64.6
    ]
-  }
+  },
+  "college_ids": [
+   "U-0080",
+   "U-0306",
+   "U-0456",
+   "U-0517",
+   "kcet:m s ramaiah institute technology bangalore vidya soudha msr ",
+   "mhtcet:03146",
+   "ojee:odisha university technology research bhubaneswar",
+   "tnea:1211"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "agricultural-engineering",
@@ -482,7 +497,19 @@
     21.8,
     46.2
    ]
-  }
+  },
+  "college_ids": [
+   "U-0573",
+   "icar:anand-agricultural-university-anand",
+   "icar:punjab-agricultural-university-ludhiana",
+   "icar:tamil-nadu-agricultural-university-coimbatore",
+   "kcet:reva university rukmini knowledge park kattigenahalli yelaha",
+   "mhtcet:02113",
+   "ojee:bhubaneswar engineering college pitapally bhubaneswar",
+   "tnea:2702",
+   "wbjee:haldia institute technology haldia purba medinipur"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "agriculture",
@@ -603,7 +630,15 @@
     34.6,
     51.1
    ]
-  }
+  },
+  "college_ids": [
+   "bhu:faculty-of-agriculture-banaras-hindu-university",
+   "cusb:central-university-of-south-bihar",
+   "icar:anand-agricultural-university-anand",
+   "icar:punjab-agricultural-university-ludhiana",
+   "icar:tamil-nadu-agricultural-university-coimbatore"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "air-traffic-control",
@@ -650,7 +685,9 @@
     56.3,
     66.0
    ]
-  }
+  },
+  "college_ids": null,
+  "has_colleges": false
  },
  {
   "career_id": "airline-pilot",
@@ -713,7 +750,9 @@
     47.8,
     62.7
    ]
-  }
+  },
+  "college_ids": null,
+  "has_colleges": false
  },
  {
   "career_id": "anesthesiology",
@@ -776,7 +815,11 @@
     19.9,
     56.6
    ]
-  }
+  },
+  "college_ids": [
+   "U-0096"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "anthropology-and-archaeology",
@@ -837,7 +880,9 @@
     10.5,
     36.5
    ]
-  }
+  },
+  "college_ids": null,
+  "has_colleges": false
  },
  {
   "career_id": "architecture",
@@ -977,7 +1022,16 @@
     32.4,
     55.7
    ]
-  }
+  },
+  "college_ids": [
+   "U-0116",
+   "U-0560",
+   "gujcet:faculty technology cept university ahmedabad",
+   "mhtcet:3019",
+   "mhtcet:3247",
+   "wbjee:jadavpur university"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "artificial-intelligence-and-data-science",
@@ -1158,7 +1212,18 @@
     18.3,
     68.2
    ]
-  }
+  },
+  "college_ids": [
+   "U-0013",
+   "U-0456",
+   "U-0733",
+   "kcet:m s ramaiah institute technology bangalore vidya soudha msr ",
+   "mhtcet:16006",
+   "ojee:veer surendra sai university technology burla",
+   "tnea:2006",
+   "wbjee:heritage institute technology kolkata"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "arts",
@@ -1295,7 +1360,17 @@
     41.5,
     31.1
    ]
-  }
+  },
+  "college_ids": [
+   "U-0109",
+   "U-0548",
+   "bhu:faculty-of-social-sciences-banaras-hindu-university",
+   "cusb:central-university-of-south-bihar",
+   "du:hindu-college",
+   "du:lady-shri-ram-college-for-women-w",
+   "jmi:jamia-millia-islamia"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "audiology",
@@ -1371,7 +1446,12 @@
     13.5,
     49.5
    ]
-  }
+  },
+  "college_ids": [
+   "C-49093",
+   "U-0096"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "automobile-engineering",
@@ -1533,7 +1613,16 @@
     11.5,
     54.2
    ]
-  }
+  },
+  "college_ids": [
+   "U-0456",
+   "U-0490",
+   "kcet:dayananda sagar college engineering bangalore shavige malles",
+   "mhtcet:06004",
+   "tnea:2006",
+   "wbjee:dr sudhir chandra sur institute technology sports complex du"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "aviation-engineering-and-maintenance",
@@ -1595,7 +1684,9 @@
     7.5,
     59.2
    ]
-  }
+  },
+  "college_ids": null,
+  "has_colleges": false
  },
  {
   "career_id": "ayurveda",
@@ -1684,7 +1775,9 @@
     20.3,
     45.0
    ]
-  }
+  },
+  "college_ids": null,
+  "has_colleges": false
  },
  {
   "career_id": "biochemical-engineering",
@@ -1790,7 +1883,15 @@
     14.0,
     53.7
    ]
-  }
+  },
+  "college_ids": [
+   "U-0078",
+   "U-0100",
+   "U-0573",
+   "hbtu:harcourt butler technical university kanpur",
+   "wbjee:jadavpur university"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "biochemistry",
@@ -1891,7 +1992,15 @@
     20.1,
     56.2
    ]
-  }
+  },
+  "college_ids": [
+   "C-33555",
+   "C-43965",
+   "U-0078",
+   "U-0120",
+   "du:kirori-mal-college"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "bioinformatics",
@@ -2055,7 +2164,16 @@
     2.2,
     75.7
    ]
-  }
+  },
+  "college_ids": [
+   "U-0100",
+   "kcet:m s ramaiah institute technology bangalore vidya soudha msr ",
+   "mhtcet:06267",
+   "ojee:odisha university technology research bhubaneswar",
+   "tnea:2006",
+   "wbjee:heritage institute technology kolkata"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "biological-engineering",
@@ -2161,7 +2279,14 @@
     16.7,
     54.4
    ]
-  }
+  },
+  "college_ids": [
+   "U-0100",
+   "U-0456",
+   "U-0560",
+   "U-0573"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "biology",
@@ -2288,7 +2413,14 @@
     17.6,
     50.0
    ]
-  }
+  },
+  "college_ids": [
+   "U-0456",
+   "U-0548",
+   "bits:pilani",
+   "tnea:1450"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "biomedical-engineering",
@@ -2465,7 +2597,18 @@
     14.0,
     58.0
    ]
-  }
+  },
+  "college_ids": [
+   "U-0013",
+   "U-0306",
+   "U-0456",
+   "kcet:k l e technological univeristy belgaum campus udyambagh belg",
+   "mhtcet:03139",
+   "ojee:veer surendra sai university technology burla",
+   "tnea:1315",
+   "wbjee:jis college engineering kalyani nadia"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "biostatistics",
@@ -2515,7 +2658,9 @@
     15.0,
     70.2
    ]
-  }
+  },
+  "college_ids": null,
+  "has_colleges": false
  },
  {
   "career_id": "biotechnology",
@@ -2708,7 +2853,19 @@
     9.5,
     60.5
    ]
-  }
+  },
+  "college_ids": [
+   "U-0078",
+   "U-0100",
+   "U-0490",
+   "U-0573",
+   "kcet:m s ramaiah institute technology bangalore vidya soudha msr ",
+   "mhtcet:06267",
+   "ojee:odisha university technology research bhubaneswar",
+   "tnea:2006",
+   "wbjee:heritage institute technology kolkata"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "blockchain-and-emerging-tech",
@@ -2875,7 +3032,16 @@
     39.8,
     78.2
    ]
-  }
+  },
+  "college_ids": [
+   "U-0456",
+   "kcet:m s ramaiah institute technology bangalore vidya soudha msr ",
+   "mhtcet:16006",
+   "ojee:veer surendra sai university technology burla",
+   "tnea:1315",
+   "wbjee:jadavpur university"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "botany",
@@ -2983,7 +3149,14 @@
     11.8,
     40.2
    ]
-  }
+  },
+  "college_ids": [
+   "C-33555",
+   "U-0120",
+   "bhu:faculty-of-science-banaras-hindu-university",
+   "du:hindu-college"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "business-administration-bba-mba",
@@ -3112,7 +3285,12 @@
     73.6,
     59.2
    ]
-  }
+  },
+  "college_ids": [
+   "U-0548",
+   "du:college-of-vocational-studies"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "business-intelligence-and-analytics",
@@ -3269,7 +3447,16 @@
     60.2,
     82.0
    ]
-  }
+  },
+  "college_ids": [
+   "U-0456",
+   "kcet:m s ramaiah institute technology bangalore vidya soudha msr ",
+   "mhtcet:16006",
+   "ojee:veer surendra sai university technology burla",
+   "tnea:2006",
+   "wbjee:heritage institute technology kolkata"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "cardiology",
@@ -3346,7 +3533,11 @@
     13.2,
     55.8
    ]
-  }
+  },
+  "college_ids": [
+   "U-0096"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "ceramic-engineering",
@@ -3484,7 +3675,17 @@
     17.7,
     51.8
    ]
-  }
+  },
+  "college_ids": [
+   "U-0357",
+   "U-0439",
+   "U-0701",
+   "kcet:p d a college engineering gulbarga aiwan e shahi area statio",
+   "ojee:odisha university technology research bhubaneswar",
+   "tnea:2",
+   "wbjee:government college engineering ceramic technology kolkata"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "chartered-accountancy-ca",
@@ -3547,7 +3748,9 @@
     47.8,
     100.0
    ]
-  }
+  },
+  "college_ids": null,
+  "has_colleges": false
  },
  {
   "career_id": "chemical-engineering",
@@ -3735,7 +3938,19 @@
     9.3,
     59.2
    ]
-  }
+  },
+  "college_ids": [
+   "U-0100",
+   "U-0306",
+   "U-0456",
+   "U-0517",
+   "kcet:m s ramaiah institute technology bangalore vidya soudha msr ",
+   "mhtcet:03036",
+   "ojee:veer surendra sai university technology burla",
+   "tnea:1315",
+   "wbjee:jadavpur university"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "chemical-science-and-technology",
@@ -3824,7 +4039,14 @@
     10.1,
     60.2
    ]
-  }
+  },
+  "college_ids": [
+   "U-0053",
+   "U-0100",
+   "U-0306",
+   "hbtu:harcourt butler technical university kanpur"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "chemistry",
@@ -3962,7 +4184,15 @@
     14.1,
     54.9
    ]
-  }
+  },
+  "college_ids": [
+   "U-0306",
+   "bhu:faculty-of-science-banaras-hindu-university",
+   "bits:pilani",
+   "cusb:central-university-of-south-bihar",
+   "du:hindu-college"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "chiropractic-care",
@@ -4009,7 +4239,9 @@
     18.8,
     42.5
    ]
-  }
+  },
+  "college_ids": null,
+  "has_colleges": false
  },
  {
   "career_id": "cinematography-and-film-editing",
@@ -4071,7 +4303,9 @@
     45.2,
     44.2
    ]
-  }
+  },
+  "college_ids": null,
+  "has_colleges": false
  },
  {
   "career_id": "civil-engineering",
@@ -4259,7 +4493,19 @@
     17.7,
     65.4
    ]
-  }
+  },
+  "college_ids": [
+   "U-0098",
+   "U-0100",
+   "U-0456",
+   "U-0560",
+   "kcet:m s ramaiah institute technology bangalore vidya soudha msr ",
+   "mhtcet:16006",
+   "ojee:veer surendra sai university technology burla",
+   "tnea:1315",
+   "wbjee:jadavpur university"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "commerce",
@@ -4382,7 +4628,16 @@
     47.5,
     73.1
    ]
-  }
+  },
+  "college_ids": [
+   "C-33555",
+   "U-0548",
+   "bhu:faculty-of-commerce-banaras-hindu-university",
+   "cusb:central-university-of-south-bihar",
+   "du:hindu-college",
+   "tnea:1450"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "computer-application-bca-mca",
@@ -4477,7 +4732,13 @@
     22.6,
     75.4
    ]
-  }
+  },
+  "college_ids": [
+   "U-0099",
+   "U-0223",
+   "tnea:1450"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "computer-science-information-technology",
@@ -4670,7 +4931,18 @@
     28.1,
     84.1
    ]
-  }
+  },
+  "college_ids": [
+   "U-0100",
+   "U-0306",
+   "U-0456",
+   "kcet:m s ramaiah institute technology bangalore vidya soudha msr ",
+   "mhtcet:16006",
+   "ojee:veer surendra sai university technology burla",
+   "tnea:1315",
+   "wbjee:jadavpur university"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "court-reporting-and-legal-transcription",
@@ -4751,7 +5023,13 @@
     27.3,
     77.0
    ]
-  }
+  },
+  "college_ids": [
+   "bhu:faculty-of-law-banaras-hindu-university",
+   "clat:national law school india university bengaluru",
+   "cusb:central-university-of-south-bihar"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "culinary-arts-chef",
@@ -4826,7 +5104,11 @@
     68.8,
     55.8
    ]
-  }
+  },
+  "college_ids": [
+   "bhu:rajiv-gandhi-south-campus-banaras-hindu-university-mirzapur"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "cyber-security",
@@ -5002,7 +5284,18 @@
     25.6,
     79.6
    ]
-  }
+  },
+  "college_ids": [
+   "U-0436",
+   "U-0456",
+   "U-0517",
+   "kcet:m s ramaiah institute technology bangalore vidya soudha msr ",
+   "mhtcet:16006",
+   "ojee:veer surendra sai university technology burla",
+   "tnea:1315",
+   "wbjee:jadavpur university"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "dairy-engineering",
@@ -5144,7 +5437,14 @@
     21.2,
     58.2
    ]
-  }
+  },
+  "college_ids": [
+   "U-0271",
+   "bhu:faculty-of-agriculture-banaras-hindu-university",
+   "icar:icar-national-dairy-research-institute-karnal",
+   "icar:west-bengal-university-of-animal-fishery-sciences-kolkata"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "data-engineering",
@@ -5328,7 +5628,20 @@
     31.5,
     89.5
    ]
-  }
+  },
+  "college_ids": [
+   "U-0100",
+   "U-0237",
+   "U-0306",
+   "U-0456",
+   "U-0573",
+   "kcet:m s ramaiah institute technology bangalore vidya soudha msr ",
+   "mhtcet:16006",
+   "ojee:veer surendra sai university technology burla",
+   "tnea:2006",
+   "wbjee:heritage institute technology kolkata"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "dentistry",
@@ -5424,7 +5737,11 @@
     16.7,
     45.2
    ]
-  }
+  },
+  "college_ids": [
+   "U-0523"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "dermatology",
@@ -5499,7 +5816,11 @@
     12.8,
     47.2
    ]
-  }
+  },
+  "college_ids": [
+   "U-0096"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "design",
@@ -5665,7 +5986,16 @@
     44.9,
     42.7
    ]
-  }
+  },
+  "college_ids": [
+   "U-0100",
+   "U-0306",
+   "bhu:rajiv-gandhi-south-campus-banaras-hindu-university-mirzapur",
+   "kcet:k l s gogte institute technology belgaum jnana ganga udyamba",
+   "mhtcet:06146",
+   "tnea:5008"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "dietetics-and-nutrition",
@@ -5740,7 +6070,11 @@
     33.2,
     43.1
    ]
-  }
+  },
+  "college_ids": [
+   "icar:acharya-narendra-dev-university-of-agriculture-technology-ayodhya"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "economics",
@@ -5873,7 +6207,16 @@
     44.1,
     53.6
    ]
-  }
+  },
+  "college_ids": [
+   "U-0306",
+   "U-0574",
+   "bhu:faculty-of-social-sciences-banaras-hindu-university",
+   "bits:pilani",
+   "cusb:central-university-of-south-bihar",
+   "du:hindu-college"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "electrical-electronics-communications-engineering",
@@ -6069,7 +6412,21 @@
     22.9,
     61.4
    ]
-  }
+  },
+  "college_ids": [
+   "U-0055",
+   "U-0080",
+   "U-0098",
+   "U-0456",
+   "U-0496",
+   "jmi:jamia-millia-islamia",
+   "kcet:m s ramaiah institute technology bangalore vidya soudha msr ",
+   "mhtcet:16006",
+   "ojee:veer surendra sai university technology burla",
+   "tnea:1315",
+   "wbjee:jadavpur university"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "emergency-medical-services",
@@ -6131,7 +6488,9 @@
     21.6,
     47.0
    ]
-  }
+  },
+  "college_ids": null,
+  "has_colleges": false
  },
  {
   "career_id": "energy-engineering",
@@ -6258,7 +6617,17 @@
     34.8,
     52.7
    ]
-  }
+  },
+  "college_ids": [
+   "U-0100",
+   "U-0306",
+   "U-0357",
+   "U-0436",
+   "U-0560",
+   "kcet:sharanbasava university sharnbasveshwara institutions campus",
+   "wbjee:jadavpur university"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "engineering-design",
@@ -6374,7 +6743,16 @@
     19.9,
     56.7
    ]
-  }
+  },
+  "college_ids": [
+   "U-0013",
+   "U-0456",
+   "U-0517",
+   "U-0560",
+   "U-0946",
+   "kcet:gm university karur village kasaba hobli davangere taluk dis"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "engineering-physics",
@@ -6481,7 +6859,16 @@
     19.8,
     54.8
    ]
-  }
+  },
+  "college_ids": [
+   "U-0013",
+   "U-0100",
+   "U-0306",
+   "U-0456",
+   "U-0517",
+   "U-0701"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "english",
@@ -6583,7 +6970,13 @@
     46.2,
     47.3
    ]
-  }
+  },
+  "college_ids": [
+   "bhu:faculty-of-arts-banaras-hindu-university",
+   "cusb:central-university-of-south-bihar",
+   "du:hindu-college"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "environmental-engineering",
@@ -6738,7 +7131,19 @@
     20.8,
     61.6
    ]
-  }
+  },
+  "college_ids": [
+   "U-0025",
+   "U-0306",
+   "U-0439",
+   "U-0560",
+   "U-0573",
+   "bits:pilani",
+   "kcet:sri jayachamarajendra college engineering mysore jss technic",
+   "tnea:2768",
+   "wbjee:jadavpur university"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "event-management",
@@ -6821,7 +7226,12 @@
     100.0,
     66.0
    ]
-  }
+  },
+  "college_ids": [
+   "U-0548",
+   "du:college-of-vocational-studies"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "fashion-designing",
@@ -6954,7 +7364,15 @@
     7.5,
     52.8
    ]
-  }
+  },
+  "college_ids": [
+   "U-0100",
+   "bhu:rajiv-gandhi-south-campus-banaras-hindu-university-mirzapur",
+   "kcet:k l s gogte institute technology belgaum jnana ganga udyamba",
+   "mhtcet:06146",
+   "tnea:5008"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "finance",
@@ -7062,7 +7480,13 @@
     83.0,
     76.2
    ]
-  }
+  },
+  "college_ids": [
+   "bhu:faculty-of-commerce-banaras-hindu-university",
+   "du:ramanujan-college",
+   "du:shri-ram-college-of-commerce"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "fire-and-safety-services",
@@ -7165,7 +7589,13 @@
     36.1,
     55.4
    ]
-  }
+  },
+  "college_ids": [
+   "mhtcet:02508",
+   "ojee:veer surendra sai university technology burla",
+   "tnea:2618"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "fishery-science",
@@ -7257,7 +7687,12 @@
     20.7,
     40.8
    ]
-  }
+  },
+  "college_ids": [
+   "U-0293",
+   "icar:sher-e-kashmir-university-of-agricultural-sciences-technology-of-kashm"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "food-engineering",
@@ -7446,7 +7881,18 @@
     21.2,
     58.2
    ]
-  }
+  },
+  "college_ids": [
+   "U-0357",
+   "U-0573",
+   "hbtu:harcourt butler technical university kanpur",
+   "icar:icar-national-dairy-research-institute-karnal",
+   "icar:punjab-agricultural-university-ludhiana",
+   "mhtcet:03036",
+   "tnea:1211",
+   "wbjee:haldia institute technology haldia purba medinipur"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "forensic-science",
@@ -7512,7 +7958,11 @@
     19.2,
     75.1
    ]
-  }
+  },
+  "college_ids": [
+   "C-49799"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "forestry",
@@ -7591,7 +8041,13 @@
     31.5,
     52.5
    ]
-  }
+  },
+  "college_ids": [
+   "icar:indira-gandhi-krishi-vishwavidyalaya-raipur",
+   "icar:kerala-agricultural-university-thrissur",
+   "icar:tamil-nadu-agricultural-university-coimbatore"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "general-engineering",
@@ -7678,7 +8134,11 @@
     23.7,
     59.0
    ]
-  }
+  },
+  "college_ids": [
+   "U-0013"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "genetic-counselling-and-genetics",
@@ -7776,7 +8236,13 @@
     19.5,
     55.6
    ]
-  }
+  },
+  "college_ids": [
+   "U-0357",
+   "cusb:central-university-of-south-bihar",
+   "du:miranda-house-w"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "geographic-information-systems-gis",
@@ -7841,7 +8307,9 @@
     13.1,
     76.8
    ]
-  }
+  },
+  "college_ids": null,
+  "has_colleges": false
  },
  {
   "career_id": "geography",
@@ -7906,7 +8374,9 @@
     22.6,
     44.7
    ]
-  }
+  },
+  "college_ids": null,
+  "has_colleges": false
  },
  {
   "career_id": "geology-geophysics-geological-technology",
@@ -8018,7 +8488,16 @@
     11.4,
     60.1
    ]
-  }
+  },
+  "college_ids": [
+   "U-0120",
+   "U-0560",
+   "bhu:faculty-of-science-banaras-hindu-university",
+   "cusb:central-university-of-south-bihar",
+   "du:ram-lal-anand-college",
+   "wbjee:jadavpur university"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "gynaecology-and-obstetrics",
@@ -8081,7 +8560,11 @@
     29.0,
     45.3
    ]
-  }
+  },
+  "college_ids": [
+   "U-0096"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "history",
@@ -8177,7 +8660,15 @@
     24.6,
     52.7
    ]
-  }
+  },
+  "college_ids": [
+   "bhu:faculty-of-social-sciences-banaras-hindu-university",
+   "cusb:central-university-of-south-bihar",
+   "du:hindu-college",
+   "kcet:presidency university itgalpura rajanukunte yelahanka bengal",
+   "wbjee:jadavpur university"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "homeopathy",
@@ -8247,7 +8738,9 @@
     16.3,
     37.5
    ]
-  }
+  },
+  "college_ids": null,
+  "has_colleges": false
  },
  {
   "career_id": "horticulture",
@@ -8330,7 +8823,13 @@
     38.0,
     46.9
    ]
-  }
+  },
+  "college_ids": [
+   "U-0101",
+   "icar:kerala-agricultural-university-thrissur",
+   "icar:punjab-agricultural-university-ludhiana"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "hotel-management",
@@ -8413,7 +8912,12 @@
     86.8,
     70.3
    ]
-  }
+  },
+  "college_ids": [
+   "U-0217",
+   "bhu:rajiv-gandhi-south-campus-banaras-hindu-university-mirzapur"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "human-resources-management",
@@ -8496,7 +9000,12 @@
     88.9,
     75.5
    ]
-  }
+  },
+  "college_ids": [
+   "U-0548",
+   "du:college-of-vocational-studies"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "indian-air-force-airman-agniveer-vayu",
@@ -8554,7 +9063,9 @@
     35.0,
     88.0
    ]
-  }
+  },
+  "college_ids": null,
+  "has_colleges": false
  },
  {
   "career_id": "indian-air-force-officer",
@@ -8638,7 +9149,9 @@
     62.0,
     60.0
    ]
-  }
+  },
+  "college_ids": null,
+  "has_colleges": false
  },
  {
   "career_id": "indian-army-jawan-soldier-agniveer",
@@ -8708,7 +9221,9 @@
     40.0,
     88.0
    ]
-  }
+  },
+  "college_ids": null,
+  "has_colleges": false
  },
  {
   "career_id": "indian-army-officer",
@@ -8798,7 +9313,9 @@
     72.0,
     55.0
    ]
-  }
+  },
+  "college_ids": null,
+  "has_colleges": false
  },
  {
   "career_id": "indian-navy-officer",
@@ -8880,7 +9397,9 @@
     60.0,
     58.0
    ]
-  }
+  },
+  "college_ids": null,
+  "has_colleges": false
  },
  {
   "career_id": "indian-navy-sailor-agniveer-ssr-mr",
@@ -8939,7 +9458,9 @@
     35.0,
     88.0
    ]
-  }
+  },
+  "college_ids": null,
+  "has_colleges": false
  },
  {
   "career_id": "industrial-manufacturing-production-engineering",
@@ -9115,7 +9636,19 @@
     31.6,
     66.4
    ]
-  }
+  },
+  "college_ids": [
+   "U-0100",
+   "U-0306",
+   "U-0439",
+   "bits:pilani",
+   "kcet:m s ramaiah institute technology bangalore vidya soudha msr ",
+   "mhtcet:03012",
+   "mhtcet:16006",
+   "tnea:2006",
+   "wbjee:jadavpur university"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "industrial-chemistry",
@@ -9198,7 +9731,11 @@
     12.1,
     61.2
    ]
-  }
+  },
+  "college_ids": [
+   "U-0013"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "instrumentation-engineering",
@@ -9374,7 +9911,17 @@
     11.4,
     65.0
    ]
-  }
+  },
+  "college_ids": [
+   "U-0100",
+   "U-0573",
+   "bits:pilani",
+   "du:bhaskaracharya-college-of-applied-sciences",
+   "mhtcet:16006",
+   "tnea:2006",
+   "wbjee:university calcutta"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "interior-design",
@@ -9506,7 +10053,15 @@
     45.0,
     47.0
    ]
-  }
+  },
+  "college_ids": [
+   "U-0100",
+   "bhu:rajiv-gandhi-south-campus-banaras-hindu-university-mirzapur",
+   "kcet:k l s gogte institute technology belgaum jnana ganga udyamba",
+   "mhtcet:06146",
+   "tnea:5008"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "investment-banking-and-fund-management",
@@ -9591,7 +10146,12 @@
     91.9,
     70.7
    ]
-  }
+  },
+  "college_ids": [
+   "bhu:faculty-of-commerce-banaras-hindu-university",
+   "du:ramanujan-college"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "japanese-language-translation",
@@ -9679,7 +10239,11 @@
     15.0,
     63.2
    ]
-  }
+  },
+  "college_ids": [
+   "jmi:jamia-millia-islamia"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "jewellery-design-and-gemology",
@@ -9812,7 +10376,15 @@
     13.8,
     45.5
    ]
-  }
+  },
+  "college_ids": [
+   "U-0100",
+   "bhu:rajiv-gandhi-south-campus-banaras-hindu-university-mirzapur",
+   "kcet:k l s gogte institute technology belgaum jnana ganga udyamba",
+   "mhtcet:06146",
+   "tnea:5008"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "journalism",
@@ -9921,7 +10493,13 @@
     52.8,
     39.6
    ]
-  }
+  },
+  "college_ids": [
+   "cusb:central-university-of-south-bihar",
+   "du:lady-shri-ram-college-for-women-w",
+   "jmi:jamia-millia-islamia"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "law-llb",
@@ -10041,7 +10619,15 @@
     58.4,
     57.8
    ]
-  }
+  },
+  "college_ids": [
+   "C-19328",
+   "bhu:faculty-of-law-banaras-hindu-university",
+   "clat:nalsar university law hyderabad",
+   "clat:national law school india university bengaluru",
+   "cusb:central-university-of-south-bihar"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "librarianship-and-archival-science",
@@ -10104,7 +10690,9 @@
     21.5,
     81.7
    ]
-  }
+  },
+  "college_ids": null,
+  "has_colleges": false
  },
  {
   "career_id": "life-science",
@@ -10231,7 +10819,14 @@
     47.0,
     48.9
    ]
-  }
+  },
+  "college_ids": [
+   "U-0042",
+   "U-0357",
+   "cusb:central-university-of-south-bihar",
+   "du:miranda-house-w"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "logistics-and-supply-chain-management",
@@ -10315,7 +10910,12 @@
     76.5,
     78.8
    ]
-  }
+  },
+  "college_ids": [
+   "U-0548",
+   "du:college-of-vocational-studies"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "marine-ocean-engineering",
@@ -10446,7 +11046,15 @@
     30.6,
     52.2
    ]
-  }
+  },
+  "college_ids": [
+   "U-0253",
+   "U-0456",
+   "U-0573",
+   "kcet:srinivas institute technology mangalore srinivas campus",
+   "tnea:1219"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "marketing-management",
@@ -10530,7 +11138,12 @@
     87.7,
     61.0
    ]
-  }
+  },
+  "college_ids": [
+   "U-0548",
+   "du:college-of-vocational-studies"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "massage-and-bodywork-therapy",
@@ -10592,7 +11205,9 @@
     18.3,
     27.7
    ]
-  }
+  },
+  "college_ids": null,
+  "has_colleges": false
  },
  {
   "career_id": "mathematics",
@@ -10740,7 +11355,17 @@
     8.7,
     61.8
    ]
-  }
+  },
+  "college_ids": [
+   "U-0306",
+   "U-0548",
+   "U-0574",
+   "bhu:mahila-maha-vidyalaya-banaras-hindu-university",
+   "cusb:central-university-of-south-bihar",
+   "du:hindu-college",
+   "jmi:jamia-millia-islamia"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "mathematics-and-computing",
@@ -10874,7 +11499,16 @@
     12.8,
     67.9
    ]
-  }
+  },
+  "college_ids": [
+   "U-0098",
+   "U-0100",
+   "U-0573",
+   "U-0701",
+   "bits:pilani",
+   "kcet:m s ramaiah university applied sciences university house gna"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "mechanical-mechatronics-engineering",
@@ -11063,7 +11697,19 @@
     13.8,
     61.9
    ]
-  }
+  },
+  "college_ids": [
+   "U-0100",
+   "U-0237",
+   "U-0306",
+   "U-0456",
+   "kcet:m s ramaiah institute technology bangalore vidya soudha msr ",
+   "mhtcet:16006",
+   "ojee:veer surendra sai university technology burla",
+   "tnea:1315",
+   "wbjee:jadavpur university"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "medical-lab-technology",
@@ -11160,7 +11806,15 @@
     4.2,
     65.3
    ]
-  }
+  },
+  "college_ids": [
+   "C-49093",
+   "U-0096",
+   "U-0107",
+   "U-0234",
+   "bhu:rajiv-gandhi-south-campus-banaras-hindu-university-mirzapur"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "medicine-mbbs",
@@ -11258,7 +11912,15 @@
     20.3,
     46.5
    ]
-  }
+  },
+  "college_ids": [
+   "C-13844",
+   "C-49093",
+   "C-6414",
+   "U-0096",
+   "U-0523"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "merchant-navy-nautical-officer",
@@ -11308,7 +11970,9 @@
     23.5,
     49.3
    ]
-  }
+  },
+  "college_ids": null,
+  "has_colleges": false
  },
  {
   "career_id": "metallurgy-engineering-and-material-science",
@@ -11473,7 +12137,18 @@
     16.0,
     52.2
    ]
-  }
+  },
+  "college_ids": [
+   "U-0306",
+   "U-0357",
+   "U-0456",
+   "U-0573",
+   "mhtcet:16006",
+   "ojee:veer surendra sai university technology burla",
+   "tnea:2006",
+   "wbjee:jadavpur university"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "midwifery",
@@ -11547,7 +12222,11 @@
     30.6,
     38.8
    ]
-  }
+  },
+  "college_ids": [
+   "U-0096"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "mining-engineering",
@@ -11722,7 +12401,18 @@
     29.2,
     60.7
    ]
-  }
+  },
+  "college_ids": [
+   "U-0205",
+   "U-0357",
+   "U-0573",
+   "kcet:dr t thimmaiah institute technology kgf 00rgaum post kolar g",
+   "mhtcet:04703",
+   "ojee:government college engineering keonjhar",
+   "tnea:1",
+   "wbjee:kaji nazrul university asansol"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "music",
@@ -11826,7 +12516,12 @@
     43.1,
     27.5
    ]
-  }
+  },
+  "college_ids": [
+   "U-0548",
+   "bhu:mahila-maha-vidyalaya-banaras-hindu-university"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "natural-science",
@@ -11947,7 +12642,15 @@
     76.7,
     53.7
    ]
-  }
+  },
+  "college_ids": [
+   "C-33555",
+   "U-0548",
+   "U-0899",
+   "du:ramanujan-college",
+   "jmi:jamia-millia-islamia"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "naturopathy",
@@ -12024,7 +12727,9 @@
     16.3,
     37.5
    ]
-  }
+  },
+  "college_ids": null,
+  "has_colleges": false
  },
  {
   "career_id": "nautical-science",
@@ -12113,7 +12818,9 @@
     40.9,
     57.9
    ]
-  }
+  },
+  "college_ids": null,
+  "has_colleges": false
  },
  {
   "career_id": "neurology",
@@ -12176,7 +12883,11 @@
     23.2,
     44.8
    ]
-  }
+  },
+  "college_ids": [
+   "U-0096"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "nuclear-engineering",
@@ -12225,7 +12936,9 @@
     23.2,
     62.9
    ]
-  }
+  },
+  "college_ids": null,
+  "has_colleges": false
  },
  {
   "career_id": "nursing",
@@ -12339,7 +13052,13 @@
     18.2,
     58.7
    ]
-  }
+  },
+  "college_ids": [
+   "C-13844",
+   "C-49093",
+   "U-0096"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "occupational-therapy",
@@ -12402,7 +13121,9 @@
     8.1,
     44.4
    ]
-  }
+  },
+  "college_ids": null,
+  "has_colleges": false
  },
  {
   "career_id": "oil-paints-dye-technology",
@@ -12498,7 +13219,14 @@
     9.6,
     62.6
    ]
-  }
+  },
+  "college_ids": [
+   "hbtu:harcourt butler technical university kanpur",
+   "mhtcet:01002",
+   "mhtcet:03035",
+   "mhtcet:03036"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "ophthalmology-and-optometry",
@@ -12570,7 +13298,11 @@
     27.1,
     47.0
    ]
-  }
+  },
+  "college_ids": [
+   "U-0096"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "orthopedics",
@@ -12647,7 +13379,11 @@
     22.7,
     48.5
    ]
-  }
+  },
+  "college_ids": [
+   "U-0096"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "paediatrics",
@@ -12723,7 +13459,11 @@
     25.7,
     43.0
    ]
-  }
+  },
+  "college_ids": [
+   "U-0096"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "paper-and-printing-engineering",
@@ -12843,7 +13583,14 @@
     19.5,
     68.5
    ]
-  }
+  },
+  "college_ids": [
+   "U-0158",
+   "U-0560",
+   "mhtcet:14005",
+   "tnea:2006"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "paramedical",
@@ -12941,7 +13688,13 @@
     12.2,
     43.2
    ]
-  }
+  },
+  "college_ids": [
+   "C-49093",
+   "C-7251",
+   "U-0096"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "petroleum-engineering",
@@ -13064,7 +13817,16 @@
     34.0,
     55.3
    ]
-  }
+  },
+  "college_ids": [
+   "U-0205",
+   "U-0573",
+   "gujcet:pandit deendayal energy university gandhinagar",
+   "mhtcet:06146",
+   "tnea:2769",
+   "wbjee:aliah university new town"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "pharmaceutical-engineering",
@@ -13205,7 +13967,16 @@
     9.6,
     62.6
    ]
-  }
+  },
+  "college_ids": [
+   "C-7249",
+   "U-0078",
+   "U-0107",
+   "U-0701",
+   "bits:pilani",
+   "mhtcet:03036"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "pharmacy",
@@ -13361,7 +14132,16 @@
     33.2,
     85.3
    ]
-  }
+  },
+  "college_ids": [
+   "C-7249",
+   "U-0380",
+   "bits:hyderabad",
+   "cusb:central-university-of-south-bihar",
+   "mhtcet:03015",
+   "tnea:2"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "philosophy",
@@ -13465,7 +14245,13 @@
     29.5,
     41.3
    ]
-  }
+  },
+  "college_ids": [
+   "du:st-stephen-s-college",
+   "kcet:presidency university itgalpura rajanukunte yelahanka bengal",
+   "wbjee:jadavpur university"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "photography",
@@ -13529,7 +14315,9 @@
     21.3,
     39.2
    ]
-  }
+  },
+  "college_ids": null,
+  "has_colleges": false
  },
  {
   "career_id": "physics",
@@ -13675,7 +14463,15 @@
     17.7,
     53.7
    ]
-  }
+  },
+  "college_ids": [
+   "U-0456",
+   "bhu:faculty-of-science-banaras-hindu-university",
+   "bits:pilani",
+   "cusb:central-university-of-south-bihar",
+   "du:hindu-college"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "physiotherapy",
@@ -13764,7 +14560,12 @@
     15.0,
     40.2
    ]
-  }
+  },
+  "college_ids": [
+   "C-49093",
+   "C-6414"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "planning",
@@ -13905,7 +14706,15 @@
     46.7,
     56.9
    ]
-  }
+  },
+  "college_ids": [
+   "U-0116",
+   "U-0573",
+   "gujcet:faculty technology cept university ahmedabad",
+   "kcet:bms college architecture basavanagudi bull temple road bmsce",
+   "tnea:3"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "podiatry",
@@ -13953,7 +14762,9 @@
     19.0,
     37.8
    ]
-  }
+  },
+  "college_ids": null,
+  "has_colleges": false
  },
  {
   "career_id": "political-science",
@@ -14073,7 +14884,13 @@
     40.5,
     37.8
    ]
-  }
+  },
+  "college_ids": [
+   "bhu:faculty-of-social-sciences-banaras-hindu-university",
+   "cusb:central-university-of-south-bihar",
+   "du:hindu-college"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "polymer-technology",
@@ -14196,7 +15013,16 @@
     15.4,
     54.4
    ]
-  }
+  },
+  "college_ids": [
+   "U-0100",
+   "U-0253",
+   "du:bhaskaracharya-college-of-applied-sciences",
+   "hbtu:harcourt butler technical university kanpur",
+   "mhtcet:03036",
+   "tnea:1321"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "prosthetics-and-orthotics",
@@ -14258,7 +15084,9 @@
     9.3,
     43.0
    ]
-  }
+  },
+  "college_ids": null,
+  "has_colleges": false
  },
  {
   "career_id": "psychology",
@@ -14377,7 +15205,15 @@
     39.9,
     48.8
    ]
-  }
+  },
+  "college_ids": [
+   "U-0120",
+   "U-0744",
+   "bhu:faculty-of-social-sciences-banaras-hindu-university",
+   "cusb:central-university-of-south-bihar",
+   "du:lady-shri-ram-college-for-women-w"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "public-administration-civil-services",
@@ -14475,7 +15311,13 @@
     75.3,
     43.7
    ]
-  }
+  },
+  "college_ids": [
+   "du:hindu-college",
+   "du:lady-shri-ram-college-for-women-w",
+   "du:st-stephen-s-college"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "public-relations-and-corporate-communications",
@@ -14558,7 +15400,12 @@
     90.2,
     48.7
    ]
-  }
+  },
+  "college_ids": [
+   "cusb:central-university-of-south-bihar",
+   "du:lady-shri-ram-college-for-women-w"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "public-sector-and-policy-analysis",
@@ -14649,7 +15496,13 @@
     68.4,
     47.3
    ]
-  }
+  },
+  "college_ids": [
+   "bhu:faculty-of-social-sciences-banaras-hindu-university",
+   "cusb:central-university-of-south-bihar",
+   "du:hindu-college"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "radiology",
@@ -14736,7 +15589,13 @@
     2.3,
     66.8
    ]
-  }
+  },
+  "college_ids": [
+   "C-49093",
+   "U-0096",
+   "bhu:department-of-radiotherapy-radiation-medicine-ims-banaras-hindu-univer"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "real-estate",
@@ -14819,7 +15678,12 @@
     92.3,
     72.0
    ]
-  }
+  },
+  "college_ids": [
+   "U-0548",
+   "du:college-of-vocational-studies"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "renewable-energy-solar-wind",
@@ -14921,7 +15785,13 @@
     40.1,
     56.6
    ]
-  }
+  },
+  "college_ids": [
+   "U-0100",
+   "kcet:sharanbasava university sharnbasveshwara institutions campus",
+   "wbjee:jadavpur university"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "robotics-engineering",
@@ -15079,7 +15949,17 @@
     10.4,
     61.1
    ]
-  }
+  },
+  "college_ids": [
+   "U-0172",
+   "U-0306",
+   "U-0517",
+   "U-0573",
+   "kcet:kle technological university bvbhoomaraddi college campus vi",
+   "mhtcet:06207",
+   "tnea:2006"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "safety-engineering",
@@ -15205,7 +16085,16 @@
     28.9,
     61.5
    ]
-  }
+  },
+  "college_ids": [
+   "U-0006",
+   "U-0439",
+   "mhtcet:02508",
+   "ojee:veer surendra sai university technology burla",
+   "tnea:2006",
+   "tnea:2618"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "sericulture",
@@ -15293,7 +16182,12 @@
     16.6,
     48.7
    ]
-  }
+  },
+  "college_ids": [
+   "U-0215",
+   "icar:tamil-nadu-agricultural-university-coimbatore"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "social-work",
@@ -15395,7 +16289,13 @@
     27.5,
     37.6
    ]
-  }
+  },
+  "college_ids": [
+   "du:dr-bhim-rao-ambedkar-college",
+   "jmi:jamia-millia-islamia",
+   "tnea:1450"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "speech-language-pathology",
@@ -15457,7 +16357,9 @@
     7.3,
     50.5
    ]
-  }
+  },
+  "college_ids": null,
+  "has_colleges": false
  },
  {
   "career_id": "sports-coaching-and-athletics",
@@ -15520,7 +16422,9 @@
     49.6,
     37.1
    ]
-  }
+  },
+  "college_ids": null,
+  "has_colleges": false
  },
  {
   "career_id": "surveying",
@@ -15682,7 +16586,16 @@
     7.3,
     74.3
    ]
-  }
+  },
+  "college_ids": [
+   "U-0456",
+   "kcet:m s ramaiah institute technology bangalore vidya soudha msr ",
+   "mhtcet:16006",
+   "ojee:veer surendra sai university technology burla",
+   "tnea:1315",
+   "wbjee:jadavpur university"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "systems-engineering",
@@ -15758,7 +16671,13 @@
     36.0,
     75.9
    ]
-  }
+  },
+  "college_ids": [
+   "U-0255",
+   "U-0306",
+   "U-0456"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "teaching",
@@ -15869,7 +16788,15 @@
     28.5,
     44.2
    ]
-  }
+  },
+  "college_ids": [
+   "U-0331",
+   "bhu:mahila-maha-vidyalaya-banaras-hindu-university",
+   "cusb:central-university-of-south-bihar",
+   "du:miranda-house-w",
+   "jmi:jamia-millia-islamia"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "technical-content-writing",
@@ -15959,7 +16886,13 @@
     26.2,
     51.7
    ]
-  }
+  },
+  "college_ids": [
+   "bhu:faculty-of-arts-banaras-hindu-university",
+   "cusb:central-university-of-south-bihar",
+   "du:hindu-college"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "textile-engineering",
@@ -16124,7 +17057,16 @@
     6.3,
     55.3
    ]
-  }
+  },
+  "college_ids": [
+   "U-0100",
+   "U-0439",
+   "kcet:bapuji institute engineering technology davangere bapuji ins",
+   "mhtcet:03036",
+   "tnea:2006",
+   "wbjee:university calcutta"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "translation-and-interpretation",
@@ -16213,7 +17155,13 @@
     15.0,
     63.2
    ]
-  }
+  },
+  "college_ids": [
+   "bhu:faculty-of-arts-banaras-hindu-university",
+   "cusb:central-university-of-south-bihar",
+   "du:hindu-college"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "urban-and-town-planning",
@@ -16331,7 +17279,13 @@
     57.7,
     49.3
    ]
-  }
+  },
+  "college_ids": [
+   "U-0116",
+   "kcet:bms college architecture basavanagudi bull temple road bmsce",
+   "tnea:3"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "veterinary",
@@ -16420,7 +17374,12 @@
     11.7,
     41.2
    ]
-  }
+  },
+  "college_ids": [
+   "icar:guru-angad-dev-veterinary-and-animal-sciences-university-ludhiana",
+   "icar:icar-national-dairy-research-institute-karnal"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "video-game-design-and-development",
@@ -16555,7 +17514,15 @@
     48.7,
     47.5
    ]
-  }
+  },
+  "college_ids": [
+   "U-0100",
+   "bhu:rajiv-gandhi-south-campus-banaras-hindu-university-mirzapur",
+   "kcet:k l s gogte institute technology belgaum jnana ganga udyamba",
+   "mhtcet:06146",
+   "tnea:5008"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "web-and-ux-ui-design",
@@ -16687,7 +17654,15 @@
     35.5,
     56.7
    ]
-  }
+  },
+  "college_ids": [
+   "U-0100",
+   "bhu:rajiv-gandhi-south-campus-banaras-hindu-university-mirzapur",
+   "kcet:k l s gogte institute technology belgaum jnana ganga udyamba",
+   "mhtcet:06146",
+   "tnea:5008"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "zoology",
@@ -16787,6 +17762,15 @@
     22.2,
     45.0
    ]
-  }
+  },
+  "college_ids": [
+   "C-33555",
+   "C-43965",
+   "U-0120",
+   "bhu:faculty-of-science-banaras-hindu-university",
+   "du:hindu-college",
+   "wbjee:university calcutta"
+  ],
+  "has_colleges": true
  }
 ]
