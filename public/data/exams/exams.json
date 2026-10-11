@@ -2549,10 +2549,6 @@
    {
     "label": "Law (LLB)",
     "slug": "law-llb"
-   },
-   {
-    "label": "Cyber Security",
-    "slug": "cyber-security"
    }
   ],
   "colleges_link": "/colleges?exam=CLAT"
@@ -5456,12 +5452,12 @@
   "open_data_id": "keam",
   "careers": [
    {
-    "label": "Electrical / Electronics / Communications Engineering",
-    "slug": "electrical-electronics-communications-engineering"
-   },
-   {
     "label": "Computer Science / Information Technology",
     "slug": "computer-science-information-technology"
+   },
+   {
+    "label": "Electrical / Electronics / Communications Engineering",
+    "slug": "electrical-electronics-communications-engineering"
    },
    {
     "label": "Artificial Intelligence and Data Science",

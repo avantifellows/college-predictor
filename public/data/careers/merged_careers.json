@@ -1,0 +1,16 @@
+{
+ "biological-science-and-engineering": "biology",
+ "earth-science-and-engineering": "geology-geophysics-geological-technology",
+ "engineering-science": "general-engineering",
+ "printing-engineering": "paper-and-printing-engineering",
+ "space-engineering": "aerospace-engineering",
+ "structural-engineering": "civil-engineering",
+ "electrical-engineering": "electrical-electronics-communications-engineering",
+ "electrical-and-electronics-engineering": "electrical-electronics-communications-engineering",
+ "electronics-and-communications-engineering": "electrical-electronics-communications-engineering",
+ "marine-engineering": "marine-ocean-engineering",
+ "ocean-engineering": "marine-ocean-engineering",
+ "mechanical-engineering": "mechanical-mechatronics-engineering",
+ "computer-science-and-engineering": "computer-science-information-technology",
+ "data-science": "artificial-intelligence-and-data-science"
+}

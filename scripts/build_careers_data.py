@@ -11,12 +11,16 @@ whose cutoff tables offer that branch, via data-sources/exam_branch_mapping.csv.
 
 branch_to_career.json is the reverse map (parent branch_id -> career slug)
 so the colleges tab can link a branch chip to its career page.
+merged_careers.json sends the page of a career merged into another
+(import_career_sheet.MERGED) to the one that covers it.
 """
 import json
 import os
 import re
 
 import pandas as pd
+
+from import_career_sheet import MERGED
 
 SRC = "data-sources/career_streams.csv"
 TAXONOMY = "data-sources/branch_taxonomy.csv"
@@ -34,22 +38,17 @@ BRANCH_CAREER_FALLBACK = {
 }
 CAREER_BRANCH = {
     "Artificial Intelligence and Data Science": "AIML",
-    "Business Administration (BBA / MBA)": "ADMIN",
+    "Business Administration (BBA / MBA)": "MBA",
     "Public Administration (Civil Services)": "PUBADMIN",
-    "Philosophy": "PHILOSOPHY",
+    "Philosophy": "PHILO",
     "Computer Application (BCA/MCA)": "BCA",
-    "Computer Science And Engineering": "CSIT",
     "Data Engineering": "AIML",
-    "Electrical And Electronics Engineering": "ELEC",
-    "Electrical Engineering": "ELEC",
-    "Electronics And Communications Engineering": "ELEC",
     "Law (LLB)": "LLB",
-    "Marine Engineering": "MARINE",
-    "Mechanical Engineering": "MECHENG",
     "Medicine (MBBS)": "MBBS",
     "Dentistry": "DENTAL",
-    "Ocean Engineering": "MARINE",
-    "Structural Engineering": "CIVILENG",
+    # the Branch sheet folded these parents into another (Oct 2026)
+    "Cyber Security": "CSIT",
+    "Natural Science": "GENSCI",
     # the Oct 2026 sheet's 64 new careers (and Armed Forces), reviewed in
     # futures-data/branches/careers-oct2026/career_branch_mapping.csv
     "Acting and Performing Arts": "PERFARTS",
@@ -68,7 +67,6 @@ CAREER_BRANCH = {
     "Cinematography and Film Editing": "FILM",
     "Court Reporting and Legal Transcription": "LLB",
     "Culinary Arts (Chef)": "HOTELMGT",
-    "Data Science": "AIML",
     "Dermatology": "MBBS",
     "Dietetics and Nutrition": "NUTRITION",
     "Emergency Medical Services": "PARAMED",
@@ -599,6 +597,8 @@ def main():
             "Commerce": "Commerce & Management", "Management": "Commerce & Management",
             "Humanities": "Arts & Humanities", "Education": "Arts & Humanities",
             "Architecture": "Architecture & Design", "Design": "Architecture & Design",
+            # the Branch sheet's "Defence" vertical is "Armed Forces" on the site
+            "Defence": "Armed Forces",
         }
         vertical = DOMAIN_FOLD.get(vertical, vertical)
         # the armed forces are their own domain on the Careers menu;
@@ -649,6 +649,9 @@ def main():
     for bid, cid in BRANCH_CAREER_FALLBACK.items():
         branch_to_career.setdefault(bid, cid)
     json.dump(branch_to_career, open(f"{OUT_DIR}/branch_to_career.json", "w"), indent=1)
+    merged = {slug(o): slug(n) for o, n in MERGED.items()}
+    assert set(merged.values()) <= set(ids), "a merged career points at no page"
+    json.dump(merged, open(f"{OUT_DIR}/merged_careers.json", "w"), indent=1)
     with_exams = sum(1 for c in cards if c["exams"])
     print(f"{len(cards)} careers -> {OUT_DIR}/careers.json "
           f"({with_exams} with exam chips, {len(branch_to_career)} branch links)")

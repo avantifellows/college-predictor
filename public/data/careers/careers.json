@@ -2219,110 +2219,6 @@
   }
  },
  {
-  "career_id": "biological-science-and-engineering",
-  "name": "Biological Science And Engineering",
-  "branch_id": "BIOSCI",
-  "domain": "Engineering",
-  "eligible_streams": [
-   "Science (PCB)",
-   "Science (PCM)"
-  ],
-  "day_in_life": "A person in this broader field mixes biology with core engineering skills, spending the day studying living systems in a lab alongside math and engineering coursework, then applying that mix to projects like designing lab instruments, studying genetics, or building models of how diseases spread.",
-  "impact": "This broad training feeds into India's growing biotech and pharma research sector, supports drug discovery at companies like Dr. Reddy's, and helps researchers combine biology and technology to solve problems in health, food, and environment.",
-  "entry_exams_text": "JEE (Joint Entrance Examination, the national exam to get into engineering colleges) Main and Advanced (for IITs offering this specific BTech branch), or state-level engineering entrance exams.",
-  "exams": [
-   {
-    "label": "JEE Main",
-    "href": "/exams?q=JEE Main"
-   },
-   {
-    "label": "JEE Advanced",
-    "href": "/exams?q=JEE Advanced"
-   }
-  ],
-  "top_colleges": [
-   {
-    "name": "IIT Delhi (Biological Sciences and Bioengineering)",
-    "q": "Indian Institute of Technology Delhi"
-   },
-   {
-    "name": "IIT Kanpur",
-    "q": "Indian Institute of Technology Kanpur"
-   },
-   {
-    "name": "IIT Guwahati",
-    "q": null
-   },
-   {
-    "name": "IIT Gandhinagar",
-    "q": "Indian Institute of Technology Gandhinagar"
-   },
-   {
-    "name": "IIT Jodhpur",
-    "q": "Indian Institute of Technology Jodhpur"
-   },
-   {
-    "name": "IIT Mandi",
-    "q": "Indian Institute of Technology Mandi"
-   }
-  ],
-  "pay": {
-   "start": "\u20b94-7 LPA",
-   "mid": "\u20b99-15 LPA",
-   "senior": "\u20b918-30 LPA"
-  },
-  "recruiters": [
-   "Pharmaceutical companies like Dr. Reddy's and Biocon",
-   "research institutes (CSIR labs)",
-   "biotech startups",
-   "higher education and research (PhD paths)",
-   "consulting firms",
-   "healthcare analytics companies"
-  ],
-  "stability": "Medium",
-  "automation_risk": "Low",
-  "where_work": "Metro cities mainly",
-  "college_options": [
-   {
-    "college": "Indian Institute of Technology Madras",
-    "branch": "Biological Science",
-    "exam": "JEE Advanced",
-    "closing": "10,009",
-    "q": "Indian Institute of Technology Madras"
-   }
-  ],
-  "notable_people": [
-   "Shubha Tole: neuroscientist at TIFR",
-   "Gagandeep Kang: leading Indian biologist and vaccine researcher"
-  ],
-  "sources": "NIRF rankings, AmbitionBox, Glassdoor India, industry placement reports",
-  "specializations": [
-   {
-    "name": "Genomics and Genetics",
-    "blurb": "Studies genes and DNA to understand diseases and traits."
-   },
-   {
-    "name": "Computational Biology",
-    "blurb": "Uses computer models and data to understand biological systems."
-   },
-   {
-    "name": "Neuroscience Engineering",
-    "blurb": "Combines biology and engineering to study how the brain and nervous system work."
-   }
-  ],
-  "riasec": {
-   "code": "IRC",
-   "scores": [
-    58.4,
-    92.4,
-    26.7,
-    46.2,
-    20.2,
-    53.2
-   ]
-  }
- },
- {
   "career_id": "biology",
   "name": "Biology",
   "branch_id": "BIO",
@@ -2341,6 +2237,14 @@
    {
     "label": "BITSAT",
     "href": "/predictor?exam=BITSAT"
+   },
+   {
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE Advanced"
    }
   ],
   "top_colleges": [
@@ -2385,6 +2289,13 @@
   "automation_risk": "Low",
   "where_work": "Tier-2 cities, and fieldwork-based biology roles often require working in rural or forested areas",
   "college_options": [
+   {
+    "college": "Indian Institute of Technology Madras",
+    "branch": "Biological Science",
+    "exam": "JEE Advanced",
+    "closing": "10,009",
+    "q": "Indian Institute of Technology Madras"
+   },
    {
     "college": "University of Allahabad, Prayagraj",
     "branch": "B.Sc.",
@@ -3120,7 +3031,7 @@
  {
   "career_id": "business-administration-bba-mba",
   "name": "Business Administration (BBA / MBA)",
-  "branch_id": "ADMIN",
+  "branch_id": "MBA",
   "domain": "Commerce & Management",
   "eligible_streams": [
    "All"
@@ -3205,11 +3116,11 @@
     "q": "College of Vocational Studies"
    },
    {
-    "college": "Rajiv Gandhi South Campus, Banaras Hindu University, Mirzapur",
-    "branch": "Bachelor of Vocation in Modern Office Management",
-    "exam": "CUET (BHU)",
-    "closing": "209.34 / 500 CUET",
-    "q": "Rajiv Gandhi South Campus, Banaras Hindu University, Mirzapur"
+    "college": "University of Allahabad, Prayagraj",
+    "branch": "BBA-MBA",
+    "exam": "CUET (Allahabad)",
+    "closing": "434.38 / 750 CUET",
+    "q": "University of Allahabad, Prayagraj"
    }
   ],
   "notable_people": [
@@ -4777,200 +4688,6 @@
   }
  },
  {
-  "career_id": "computer-science-and-engineering",
-  "name": "Computer Science And Engineering",
-  "branch_id": "CSIT",
-  "domain": "Engineering",
-  "eligible_streams": [
-   "Science (PCM)"
-  ],
-  "day_in_life": "A computer science engineer writes code to build apps, websites, or software systems, and spends time fixing bugs, testing their work, and discussing ideas with teammates. Some days are spent designing how a system should work before any code is even written.",
-  "impact": "The engineers behind apps like Paytm, Swiggy, and Zomato, or the systems that run Indian Railways' ticket booking on IRCTC, are computer science engineers. Nearly every digital service you use daily in India was built and is maintained by people in this field.",
-  "entry_exams_text": "JEE Main and JEE Advanced (national engineering entrance exams for top government colleges), BITSAT (entrance exam for BITS Pilani and its campuses), or state-level exams like MHT-CET and KCET for other engineering colleges.",
-  "exams": [
-   {
-    "label": "CUET (central universities)",
-    "href": "/predictor?exam=CUET"
-   },
-   {
-    "label": "AP EAPCET",
-    "href": "/exams?q=AP-EAPCET"
-   },
-   {
-    "label": "BITSAT",
-    "href": "/predictor?exam=BITSAT"
-   },
-   {
-    "label": "GUJCET",
-    "href": "/exams?q=GUJCET"
-   },
-   {
-    "label": "JAC Chandigarh",
-    "href": "/predictor?exam=JAC Chandigarh"
-   },
-   {
-    "label": "JEE Main",
-    "href": "/exams?q=JEE Main"
-   },
-   {
-    "label": "JEE Advanced",
-    "href": "/exams?q=JEE Advanced"
-   },
-   {
-    "label": "KCET",
-    "href": "/exams?q=KCET"
-   },
-   {
-    "label": "KEAM",
-    "href": "/exams?q=KEAM"
-   },
-   {
-    "label": "MHT-CET",
-    "href": "/exams?q=MHT CET"
-   },
-   {
-    "label": "OJEE",
-    "href": "/exams?q=OJEE"
-   },
-   {
-    "label": "TG EAPCET",
-    "href": "/exams?q=TG-EAPCET"
-   },
-   {
-    "label": "TNEA counselling",
-    "href": "/predictor?exam=TNEA"
-   },
-   {
-    "label": "UPTAC",
-    "href": "/predictor?exam=UPTAC"
-   },
-   {
-    "label": "WBJEE",
-    "href": "/exams?q=WBJEE"
-   },
-   {
-    "label": "KEA-CET",
-    "href": "/exams?q=KEA-CET"
-   }
-  ],
-  "top_colleges": [
-   {
-    "name": "IIT Bombay",
-    "q": "Indian Institute of Technology Bombay"
-   },
-   {
-    "name": "IIT Delhi",
-    "q": "Indian Institute of Technology Delhi"
-   },
-   {
-    "name": "IIT Madras",
-    "q": "Indian Institute of Technology Madras"
-   },
-   {
-    "name": "BITS Pilani",
-    "q": null
-   },
-   {
-    "name": "IIIT Hyderabad",
-    "q": null
-   },
-   {
-    "name": "NIT Trichy",
-    "q": null
-   }
-  ],
-  "pay": {
-   "start": "\u20b94-10 LPA",
-   "mid": "\u20b912-25 LPA",
-   "senior": "\u20b928-60 LPA"
-  },
-  "recruiters": [
-   "TCS",
-   "Infosys",
-   "Google India",
-   "Microsoft India",
-   "Amazon India",
-   "Flipkart"
-  ],
-  "stability": "High",
-  "automation_risk": "Medium",
-  "where_work": "Works from anywhere",
-  "college_options": [
-   {
-    "college": "Indian Institute of Technology Madras",
-    "branch": "Computer Science and Engineering",
-    "exam": "JEE Advanced",
-    "closing": "171",
-    "q": "Indian Institute of Technology Madras"
-   },
-   {
-    "college": "M S Ramaiah Institute of Technology, Bangalore(AUTONOMOUS) VIDYA SOUDHA,MSR NAGAR,MSRIT POST,BANGALORE - 560054.",
-    "branch": "COMPUTER SCIENCE AND ENGINEERING",
-    "exam": "KCET",
-    "closing": "2,076",
-    "q": "M S Ramaiah Institute of Technology, Bangalore(AUTONOMOUS) VIDYA SOUDHA,MSR NAGAR,MSRIT POST,BANGALORE - 560054."
-   },
-   {
-    "college": "Jadavpur University",
-    "branch": "Computer Science & Engineering",
-    "exam": "WBJEE",
-    "closing": "17",
-    "q": "Jadavpur University"
-   },
-   {
-    "college": "COEP Technological University",
-    "branch": "Computer Science and Engineering",
-    "exam": "MHT-CET",
-    "closing": "451",
-    "q": "COEP Technological University"
-   },
-   {
-    "college": "Veer Surendra Sai University of Technology, Burla",
-    "branch": "Computer Science and Engineering - TFW",
-    "exam": "OJEE",
-    "closing": "68,760 (JEE Main rank)",
-    "q": "Veer Surendra Sai University of Technology, Burla"
-   },
-   {
-    "college": "Sri Sivasubramaniya Nadar College of Engineering (Autonomous), Rajiv Gandhi Salai (OMR), Kalavakkam,Kanchipuram District-603110.",
-    "branch": "COMPUTER SCIENCE AND ENGINEERING",
-    "exam": "TNEA",
-    "closing": "199/200 marks",
-    "q": "Sri Sivasubramaniya Nadar College of Engineering (Autonomous), Rajiv Gandhi Salai (OMR), Kalavakkam,Kanchipuram District-603110."
-   }
-  ],
-  "notable_people": [
-   "Sundar Pichai (CEO of Google)",
-   "Nandan Nilekani (co-founder of Infosys, built Aadhaar's tech)"
-  ],
-  "sources": "NIRF rankings, AmbitionBox, Glassdoor India, industry placement reports",
-  "specializations": [
-   {
-    "name": "Software Development",
-    "blurb": "Building the apps and websites people use every day."
-   },
-   {
-    "name": "Artificial Intelligence and Machine Learning",
-    "blurb": "Teaching computers to spot patterns and make predictions from data."
-   },
-   {
-    "name": "Cybersecurity",
-    "blurb": "Protecting computer systems and data from hackers and online attacks."
-   }
-  ],
-  "riasec": {
-   "code": "ICR",
-   "scores": [
-    58.5,
-    83.4,
-    20.3,
-    16.2,
-    25.0,
-    71.8
-   ]
-  }
- },
- {
   "career_id": "court-reporting-and-legal-transcription",
   "name": "Court Reporting and Legal Transcription",
   "branch_id": "LLB",
@@ -5125,7 +4842,7 @@
  {
   "career_id": "cyber-security",
   "name": "Cyber Security",
-  "branch_id": "CYBERSEC",
+  "branch_id": "CSIT",
   "domain": "Engineering",
   "eligible_streams": [
    "Science (PCM)"
@@ -5135,16 +4852,24 @@
   "entry_exams_text": "JEE (Joint Entrance Exam, for engineering admission) for a BTech in Computer Science or a related field, followed by specialized certifications like CEH (Certified Ethical Hacker) or CompTIA Security+ that are industry-recognized proof of cyber security skills, not government exams.",
   "exams": [
    {
+    "label": "CUET (central universities)",
+    "href": "/predictor?exam=CUET"
+   },
+   {
     "label": "AP EAPCET",
     "href": "/exams?q=AP-EAPCET"
    },
    {
-    "label": "CLAT",
-    "href": "/exams?q=CLAT"
+    "label": "BITSAT",
+    "href": "/predictor?exam=BITSAT"
    },
    {
     "label": "GUJCET",
     "href": "/exams?q=GUJCET"
+   },
+   {
+    "label": "JAC Chandigarh",
+    "href": "/predictor?exam=JAC Chandigarh"
    },
    {
     "label": "JEE Main",
@@ -5227,46 +4952,46 @@
   "where_work": "Works from anywhere for many roles, though government and bank security teams are metro-city based",
   "college_options": [
    {
-    "college": "National Institute of Electronics and Information Technology, Ajmer (Rajasthan)",
+    "college": "Indian Institute of Technology Madras",
     "branch": "Computer Science and Engineering",
-    "exam": "JEE Main",
-    "closing": "57,217",
-    "q": "National Institute of Electronics and Information Technology, Ajmer (Rajasthan)"
+    "exam": "JEE Advanced",
+    "closing": "171",
+    "q": "Indian Institute of Technology Madras"
    },
    {
     "college": "M S Ramaiah Institute of Technology, Bangalore(AUTONOMOUS) VIDYA SOUDHA,MSR NAGAR,MSRIT POST,BANGALORE - 560054.",
-    "branch": "COMPUTER SCIENCE AND ENGINEERING(CYBER SECURITY)",
+    "branch": "COMPUTER SCIENCE AND ENGINEERING",
     "exam": "KCET",
-    "closing": "4,208",
+    "closing": "2,076",
     "q": "M S Ramaiah Institute of Technology, Bangalore(AUTONOMOUS) VIDYA SOUDHA,MSR NAGAR,MSRIT POST,BANGALORE - 560054."
    },
    {
-    "college": "Heritage Institute of Technology, Kolkata",
+    "college": "Jadavpur University",
     "branch": "Computer Science & Engineering",
     "exam": "WBJEE",
-    "closing": "4,502",
-    "q": "Heritage Institute of Technology, Kolkata"
+    "closing": "17",
+    "q": "Jadavpur University"
    },
    {
-    "college": "Bansilal Ramnath Agarawal Charitable Trust's Vishwakarma Institute of Technology, Bibwewadi, Pune",
+    "college": "COEP Technological University",
     "branch": "Computer Science and Engineering",
     "exam": "MHT-CET",
-    "closing": "7,071",
-    "q": "Bansilal Ramnath Agarawal Charitable Trust's Vishwakarma Institute of Technology, Bibwewadi, Pune"
+    "closing": "451",
+    "q": "COEP Technological University"
    },
    {
-    "college": "Sambalpur University Institute of Information Technology, Jyoti Vihar, Burla",
-    "branch": "Computer Science Engineering with specialization in Information and Cyber Security",
+    "college": "Veer Surendra Sai University of Technology, Burla",
+    "branch": "Computer Science and Engineering - TFW",
     "exam": "OJEE",
-    "closing": "220,588 (JEE Main rank)",
-    "q": "Sambalpur University Institute of Information Technology, Jyoti Vihar, Burla"
+    "closing": "68,760 (JEE Main rank)",
+    "q": "Veer Surendra Sai University of Technology, Burla"
    },
    {
-    "college": "The National Law Institute University (NLIU), Bhopal",
-    "branch": "B.Sc. LL.B. (Hons.) Cyber Security",
-    "exam": "CLAT",
-    "closing": "698",
-    "q": "The National Law Institute University (NLIU), Bhopal"
+    "college": "Sri Sivasubramaniya Nadar College of Engineering (Autonomous), Rajiv Gandhi Salai (OMR), Kalavakkam,Kanchipuram District-603110.",
+    "branch": "COMPUTER SCIENCE AND ENGINEERING",
+    "exam": "TNEA",
+    "closing": "199/200 marks",
+    "q": "Sri Sivasubramaniya Nadar College of Engineering (Autonomous), Rajiv Gandhi Salai (OMR), Kalavakkam,Kanchipuram District-603110."
    }
   ],
   "notable_people": [
@@ -5607,160 +5332,6 @@
     17.9,
     31.5,
     89.5
-   ]
-  }
- },
- {
-  "career_id": "data-science",
-  "name": "Data Science",
-  "branch_id": "AIML",
-  "domain": "Engineering",
-  "eligible_streams": [
-   "Commerce",
-   "Science (PCM)"
-  ],
-  "day_in_life": "A data scientist studies large amounts of numbers and patterns to build models that can predict or recommend things, like which product a customer might buy next. A typical day involves writing code (mostly in a language called Python), testing models on data, and explaining findings to non-technical teams in simple terms.",
-  "impact": "When Amazon recommends a product you might like, or when a bank decides who gets a loan quickly and who needs more checks, data scientists built the statistical models making those predictions behind the scenes.",
-  "entry_exams_text": null,
-  "exams": [
-   {
-    "label": "AP EAPCET",
-    "href": "/exams?q=AP-EAPCET"
-   },
-   {
-    "label": "GUJCET",
-    "href": "/exams?q=GUJCET"
-   },
-   {
-    "label": "JEE Main",
-    "href": "/exams?q=JEE Main"
-   },
-   {
-    "label": "JEE Advanced",
-    "href": "/exams?q=JEE Advanced"
-   },
-   {
-    "label": "KCET",
-    "href": "/exams?q=KCET"
-   },
-   {
-    "label": "KEAM",
-    "href": "/exams?q=KEAM"
-   },
-   {
-    "label": "MHT-CET",
-    "href": "/exams?q=MHT CET"
-   },
-   {
-    "label": "OJEE",
-    "href": "/exams?q=OJEE"
-   },
-   {
-    "label": "TG EAPCET",
-    "href": "/exams?q=TG-EAPCET"
-   },
-   {
-    "label": "TNEA counselling",
-    "href": "/predictor?exam=TNEA"
-   },
-   {
-    "label": "UPTAC",
-    "href": "/predictor?exam=UPTAC"
-   },
-   {
-    "label": "WBJEE",
-    "href": "/exams?q=WBJEE"
-   }
-  ],
-  "top_colleges": [],
-  "pay": {
-   "start": "\u20b96-12 LPA",
-   "mid": "\u20b915-35 LPA",
-   "senior": "\u20b940-80 LPA"
-  },
-  "recruiters": [
-   "Amazon",
-   "Flipkart",
-   "Myntra",
-   "ICICI Bank",
-   "Swiggy",
-   "Ola"
-  ],
-  "stability": "High",
-  "automation_risk": "Medium",
-  "where_work": "Works from anywhere",
-  "college_options": [
-   {
-    "college": "Indian Institute of Technology Madras",
-    "branch": "Artificial Intelligence and Data Analytics",
-    "exam": "JEE Advanced",
-    "closing": "292",
-    "q": "Indian Institute of Technology Madras"
-   },
-   {
-    "college": "M S Ramaiah Institute of Technology, Bangalore(AUTONOMOUS) VIDYA SOUDHA,MSR NAGAR,MSRIT POST,BANGALORE - 560054.",
-    "branch": "COMPUTER SCIENCE AND ENGINEERING(ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING)",
-    "exam": "KCET",
-    "closing": "2,791",
-    "q": "M S Ramaiah Institute of Technology, Bangalore(AUTONOMOUS) VIDYA SOUDHA,MSR NAGAR,MSRIT POST,BANGALORE - 560054."
-   },
-   {
-    "college": "Heritage Institute of Technology, Kolkata",
-    "branch": "Computer Science & Engineering",
-    "exam": "WBJEE",
-    "closing": "3,417",
-    "q": "Heritage Institute of Technology, Kolkata"
-   },
-   {
-    "college": "COEP Technological University",
-    "branch": "Artificial Intelligence and Machine Learning",
-    "exam": "MHT-CET",
-    "closing": "469",
-    "q": "COEP Technological University"
-   },
-   {
-    "college": "Veer Surendra Sai University of Technology, Burla",
-    "branch": "Computer Science Engineering with specialization in Artificial Intelligence and Machine Learning",
-    "exam": "OJEE",
-    "closing": "71,541 (JEE Main rank)",
-    "q": "Veer Surendra Sai University of Technology, Burla"
-   },
-   {
-    "college": "PSG College of Technology (Autonomous) Peelamedu Coimbatore District 641004",
-    "branch": "Computer Science and Engineering",
-    "exam": "TNEA",
-    "closing": "198.5/200 marks",
-    "q": "PSG College of Technology (Autonomous) Peelamedu Coimbatore District 641004"
-   }
-  ],
-  "notable_people": [
-   "D. J. Patil: Indian-American",
-   "coined the term 'data scientist' | Kirti Sharma: data science leader in Indian fintech"
-  ],
-  "sources": "AmbitionBox, Glassdoor India, LinkedIn salary data, tech industry placement reports",
-  "specializations": [
-   {
-    "name": "Machine Learning Modeler",
-    "blurb": "builds statistical models that learn patterns from data to make predictions"
-   },
-   {
-    "name": "Data Analyst",
-    "blurb": "focuses on finding trends and insights in existing data for business decisions"
-   },
-   {
-    "name": "Applied Statistician",
-    "blurb": "uses formal statistical methods to test business hypotheses, like whether a new feature actually increases sales"
-   }
-  ],
-  "riasec": {
-   "code": "ICA",
-   "scores": [
-    19.5,
-    99.7,
-    26.8,
-    11.0,
-    11.8,
-    73.2
    ]
   }
  },
@@ -6169,109 +5740,6 @@
   }
  },
  {
-  "career_id": "earth-science-and-engineering",
-  "name": "Earth Science And Engineering",
-  "branch_id": "EARTHSCI",
-  "domain": "Engineering",
-  "eligible_streams": [
-   "Science (PCM)"
-  ],
-  "day_in_life": "An earth science and engineering graduate studies rocks, soil, and underground resources to help find minerals, oil, groundwater, or to plan safe construction and mining. Work involves both fieldwork like collecting rock and soil samples, and lab or office work analysing what those samples mean.",
-  "impact": "The engineers who help ONGC find oil and gas reserves under the sea, or who help Coal India Limited plan safe coal mines, come from this field. They also help cities like Chennai and Bengaluru plan how to find and protect groundwater during water shortages.",
-  "entry_exams_text": "JEE Main and JEE Advanced (national engineering entrance exams for top government colleges) for a degree in Geology, Mining, or Petroleum Engineering, or state-level engineering entrance exams.",
-  "exams": [
-   {
-    "label": "JEE Main",
-    "href": "/exams?q=JEE Main"
-   },
-   {
-    "label": "JEE Advanced",
-    "href": "/exams?q=JEE Advanced"
-   }
-  ],
-  "top_colleges": [
-   {
-    "name": "IIT (ISM) Dhanbad",
-    "q": "Indian Institute of Technology (ISM) Dhanbad"
-   },
-   {
-    "name": "IIT Bombay",
-    "q": "Indian Institute of Technology Bombay"
-   },
-   {
-    "name": "IIT Kharagpur",
-    "q": "Indian Institute of Technology Kharagpur"
-   },
-   {
-    "name": "IIT Roorkee",
-    "q": "Indian Institute of Technology Roorkee"
-   },
-   {
-    "name": "University of Petroleum and Energy Studies Dehradun",
-    "q": null
-   },
-   {
-    "name": "Anna University",
-    "q": "Anna University"
-   }
-  ],
-  "pay": {
-   "start": "\u20b94-8 LPA",
-   "mid": "\u20b910-18 LPA",
-   "senior": "\u20b920-40 LPA"
-  },
-  "recruiters": [
-   "ONGC",
-   "Coal India Limited",
-   "Vedanta",
-   "Reliance Industries",
-   "GAIL",
-   "Geological Survey of India"
-  ],
-  "stability": "Medium",
-  "automation_risk": "Low",
-  "where_work": "Tier-2 cities",
-  "college_options": [
-   {
-    "college": "Indian Institute of Technology Kanpur",
-    "branch": "Earth Sciences",
-    "exam": "JEE Advanced",
-    "closing": "9,700",
-    "q": "Indian Institute of Technology Kanpur"
-   }
-  ],
-  "notable_people": [
-   "M. S. Srinivasan (former Coal Secretary, mining expert)",
-   "D. N. Wadia (pioneering Indian geologist)"
-  ],
-  "sources": "NIRF rankings, AmbitionBox, Glassdoor India, industry placement reports",
-  "specializations": [
-   {
-    "name": "Petroleum Engineering",
-    "blurb": "Finding and safely extracting oil and natural gas from underground."
-   },
-   {
-    "name": "Mining Engineering",
-    "blurb": "Planning how to dig out minerals and coal from the earth safely."
-   },
-   {
-    "name": "Geotechnical Engineering",
-    "blurb": "Studying soil and rock to make sure buildings and dams are built on safe ground."
-   }
-  ],
-  "riasec": {
-   "code": "RIC",
-   "scores": [
-    87.1,
-    73.5,
-    13.4,
-    12.8,
-    17.2,
-    52.6
-   ]
-  }
- },
- {
   "career_id": "economics",
   "name": "Economics",
   "branch_id": "ECON",
@@ -6593,588 +6061,6 @@
     14.6,
     22.9,
     61.4
-   ]
-  }
- },
- {
-  "career_id": "electrical-and-electronics-engineering",
-  "name": "Electrical And Electronics Engineering",
-  "branch_id": "ELEC",
-  "domain": "Engineering",
-  "eligible_streams": [
-   "Science (PCM)"
-  ],
-  "day_in_life": "An electrical and electronics engineer, often called EEE, works at the overlap of power systems and electronic circuits, for example designing the electronic controllers that manage motors, inverters, or power supplies. A typical day might mix working on power equipment like transformers with designing the electronic circuits that control them, which is more hands-on with both hardware types than a pure EE or ECE role.",
-  "impact": "The engineers who design the electronic control units inside a Tata or Mahindra electric car's battery and motor system, or who build the inverters used in Indian solar power setups, are typically EEE graduates. Their unique skill is bridging heavy electrical equipment with the smaller electronic circuits that control it, which pure power engineers or pure chip designers don't cover alone.",
-  "entry_exams_text": "JEE Main and JEE Advanced (national engineering entrance exams for top government colleges), or state-level engineering entrance exams like MHT-CET, KCET, or WBJEE for other colleges.",
-  "exams": [
-   {
-    "label": "AP EAPCET",
-    "href": "/exams?q=AP-EAPCET"
-   },
-   {
-    "label": "BITSAT",
-    "href": "/predictor?exam=BITSAT"
-   },
-   {
-    "label": "CUET (central universities)",
-    "href": "/predictor?exam=CUET"
-   },
-   {
-    "label": "GUJCET",
-    "href": "/exams?q=GUJCET"
-   },
-   {
-    "label": "JAC Chandigarh",
-    "href": "/predictor?exam=JAC Chandigarh"
-   },
-   {
-    "label": "JEE Main",
-    "href": "/exams?q=JEE Main"
-   },
-   {
-    "label": "JEE Advanced",
-    "href": "/exams?q=JEE Advanced"
-   },
-   {
-    "label": "KCET",
-    "href": "/exams?q=KCET"
-   },
-   {
-    "label": "KEAM",
-    "href": "/exams?q=KEAM"
-   },
-   {
-    "label": "MHT-CET",
-    "href": "/exams?q=MHT CET"
-   },
-   {
-    "label": "OJEE",
-    "href": "/exams?q=OJEE"
-   },
-   {
-    "label": "TG EAPCET",
-    "href": "/exams?q=TG-EAPCET"
-   },
-   {
-    "label": "TNEA counselling",
-    "href": "/predictor?exam=TNEA"
-   },
-   {
-    "label": "UPTAC",
-    "href": "/predictor?exam=UPTAC"
-   },
-   {
-    "label": "WBJEE",
-    "href": "/exams?q=WBJEE"
-   },
-   {
-    "label": "KEA-CET",
-    "href": "/exams?q=KEA-CET"
-   }
-  ],
-  "top_colleges": [
-   {
-    "name": "NIT Trichy",
-    "q": null
-   },
-   {
-    "name": "NIT Warangal",
-    "q": "National Institute of Technology, Warangal"
-   },
-   {
-    "name": "VIT Vellore",
-    "q": null
-   },
-   {
-    "name": "SASTRA University",
-    "q": null
-   },
-   {
-    "name": "Anna University",
-    "q": "Anna University"
-   },
-   {
-    "name": "Manipal Institute of Technology",
-    "q": null
-   }
-  ],
-  "pay": {
-   "start": "\u20b93.5-7 LPA",
-   "mid": "\u20b99-16 LPA",
-   "senior": "\u20b918-30 LPA"
-  },
-  "recruiters": [
-   "Bosch India",
-   "Siemens",
-   "ABB India",
-   "Tata Motors",
-   "Larsen & Toubro",
-   "Schneider Electric"
-  ],
-  "stability": "High",
-  "automation_risk": "Low",
-  "where_work": "Tier-2 cities",
-  "college_options": [
-   {
-    "college": "Indian Institute of Technology Madras",
-    "branch": "Electrical Engineering",
-    "exam": "JEE Advanced",
-    "closing": "808",
-    "q": "Indian Institute of Technology Madras"
-   },
-   {
-    "college": "M S Ramaiah Institute of Technology, Bangalore(AUTONOMOUS) VIDYA SOUDHA,MSR NAGAR,MSRIT POST,BANGALORE - 560054.",
-    "branch": "ELECTRONICS AND COMMUNICATION ENGINEERING",
-    "exam": "KCET",
-    "closing": "4,080",
-    "q": "M S Ramaiah Institute of Technology, Bangalore(AUTONOMOUS) VIDYA SOUDHA,MSR NAGAR,MSRIT POST,BANGALORE - 560054."
-   },
-   {
-    "college": "Jadavpur University",
-    "branch": "Electronics & Tele-Communication Engineering",
-    "exam": "WBJEE",
-    "closing": "138",
-    "q": "Jadavpur University"
-   },
-   {
-    "college": "COEP Technological University",
-    "branch": "Electronics and Telecommunication Engg",
-    "exam": "MHT-CET",
-    "closing": "1,332",
-    "q": "COEP Technological University"
-   },
-   {
-    "college": "Veer Surendra Sai University of Technology, Burla",
-    "branch": "Electrical and Electronics Engineering - TFW",
-    "exam": "OJEE",
-    "closing": "102,837 (JEE Main rank)",
-    "q": "Veer Surendra Sai University of Technology, Burla"
-   },
-   {
-    "college": "Sri Sivasubramaniya Nadar College of Engineering (Autonomous), Rajiv Gandhi Salai (OMR), Kalavakkam,Kanchipuram District-603110.",
-    "branch": "ELECTRONICS AND COMMUNICATION ENGINEERING",
-    "exam": "TNEA",
-    "closing": "198/200 marks",
-    "q": "Sri Sivasubramaniya Nadar College of Engineering (Autonomous), Rajiv Gandhi Salai (OMR), Kalavakkam,Kanchipuram District-603110."
-   }
-  ],
-  "notable_people": [
-   "M. Visvesvaraya (pioneering Indian engineer)",
-   "Narinder Singh Kapany (father of fibre optics, electronics innovator)"
-  ],
-  "sources": "NIRF rankings, AmbitionBox, Glassdoor India, industry placement reports",
-  "specializations": [
-   {
-    "name": "Power Electronics",
-    "blurb": "Designing the electronic circuits that control motors, inverters, and battery systems."
-   },
-   {
-    "name": "Instrumentation and Control",
-    "blurb": "Building sensors and control circuits used in factories and power plants."
-   },
-   {
-    "name": "Electric Vehicle Systems",
-    "blurb": "Working on the combined electrical and electronic systems inside electric vehicles."
-   }
-  ],
-  "riasec": {
-   "code": "RIC",
-   "scores": [
-    85.5,
-    77.2,
-    17.9,
-    10.9,
-    17.2,
-    59.2
-   ]
-  }
- },
- {
-  "career_id": "electrical-engineering",
-  "name": "Electrical Engineering",
-  "branch_id": "ELEC",
-  "domain": "Engineering",
-  "eligible_streams": [
-   "Science (PCM)"
-  ],
-  "day_in_life": "An electrical engineer, often called EE, works on the big systems that generate, carry, and control electric power, such as power plants, transmission lines, motors, and the electrical grid. A typical day could involve designing power distribution systems, inspecting substations, or working on how large motors and generators run efficiently.",
-  "impact": "The engineers who keep electricity flowing from power plants to your home through the grid run by Power Grid Corporation of India, or who design the motors used in Indian Railways' electric trains, are electrical engineers. Unlike electronics-focused fields, their work is about moving large amounts of power safely, not about small chips or signal processing.",
-  "entry_exams_text": "JEE Main and JEE Advanced (national engineering entrance exams for top government colleges), or state-level engineering entrance exams like MHT-CET, KCET, or WBJEE for other colleges.",
-  "exams": [
-   {
-    "label": "AP EAPCET",
-    "href": "/exams?q=AP-EAPCET"
-   },
-   {
-    "label": "BITSAT",
-    "href": "/predictor?exam=BITSAT"
-   },
-   {
-    "label": "CUET (central universities)",
-    "href": "/predictor?exam=CUET"
-   },
-   {
-    "label": "GUJCET",
-    "href": "/exams?q=GUJCET"
-   },
-   {
-    "label": "JAC Chandigarh",
-    "href": "/predictor?exam=JAC Chandigarh"
-   },
-   {
-    "label": "JEE Main",
-    "href": "/exams?q=JEE Main"
-   },
-   {
-    "label": "JEE Advanced",
-    "href": "/exams?q=JEE Advanced"
-   },
-   {
-    "label": "KCET",
-    "href": "/exams?q=KCET"
-   },
-   {
-    "label": "KEAM",
-    "href": "/exams?q=KEAM"
-   },
-   {
-    "label": "MHT-CET",
-    "href": "/exams?q=MHT CET"
-   },
-   {
-    "label": "OJEE",
-    "href": "/exams?q=OJEE"
-   },
-   {
-    "label": "TG EAPCET",
-    "href": "/exams?q=TG-EAPCET"
-   },
-   {
-    "label": "TNEA counselling",
-    "href": "/predictor?exam=TNEA"
-   },
-   {
-    "label": "UPTAC",
-    "href": "/predictor?exam=UPTAC"
-   },
-   {
-    "label": "WBJEE",
-    "href": "/exams?q=WBJEE"
-   },
-   {
-    "label": "KEA-CET",
-    "href": "/exams?q=KEA-CET"
-   }
-  ],
-  "top_colleges": [
-   {
-    "name": "IIT Bombay",
-    "q": "Indian Institute of Technology Bombay"
-   },
-   {
-    "name": "IIT Delhi",
-    "q": "Indian Institute of Technology Delhi"
-   },
-   {
-    "name": "IIT Kanpur",
-    "q": "Indian Institute of Technology Kanpur"
-   },
-   {
-    "name": "NIT Trichy",
-    "q": null
-   },
-   {
-    "name": "Delhi Technological University",
-    "q": "Delhi Technological University"
-   },
-   {
-    "name": "VJTI Mumbai",
-    "q": "Veermata Jijabai Technological Institute(VJTI), Matunga, Mumbai"
-   }
-  ],
-  "pay": {
-   "start": "\u20b93.5-7 LPA",
-   "mid": "\u20b99-16 LPA",
-   "senior": "\u20b918-32 LPA"
-  },
-  "recruiters": [
-   "Power Grid Corporation of India",
-   "NTPC",
-   "Bharat Heavy Electricals Limited (BHEL)",
-   "Siemens",
-   "Tata Power",
-   "ABB India"
-  ],
-  "stability": "High",
-  "automation_risk": "Low",
-  "where_work": "Tier-2 cities",
-  "college_options": [
-   {
-    "college": "Indian Institute of Technology Madras",
-    "branch": "Electrical Engineering",
-    "exam": "JEE Advanced",
-    "closing": "808",
-    "q": "Indian Institute of Technology Madras"
-   },
-   {
-    "college": "M S Ramaiah Institute of Technology, Bangalore(AUTONOMOUS) VIDYA SOUDHA,MSR NAGAR,MSRIT POST,BANGALORE - 560054.",
-    "branch": "ELECTRONICS AND COMMUNICATION ENGINEERING",
-    "exam": "KCET",
-    "closing": "4,080",
-    "q": "M S Ramaiah Institute of Technology, Bangalore(AUTONOMOUS) VIDYA SOUDHA,MSR NAGAR,MSRIT POST,BANGALORE - 560054."
-   },
-   {
-    "college": "Jadavpur University",
-    "branch": "Electronics & Tele-Communication Engineering",
-    "exam": "WBJEE",
-    "closing": "138",
-    "q": "Jadavpur University"
-   },
-   {
-    "college": "COEP Technological University",
-    "branch": "Electronics and Telecommunication Engg",
-    "exam": "MHT-CET",
-    "closing": "1,332",
-    "q": "COEP Technological University"
-   },
-   {
-    "college": "Veer Surendra Sai University of Technology, Burla",
-    "branch": "Electrical and Electronics Engineering - TFW",
-    "exam": "OJEE",
-    "closing": "102,837 (JEE Main rank)",
-    "q": "Veer Surendra Sai University of Technology, Burla"
-   },
-   {
-    "college": "Sri Sivasubramaniya Nadar College of Engineering (Autonomous), Rajiv Gandhi Salai (OMR), Kalavakkam,Kanchipuram District-603110.",
-    "branch": "ELECTRONICS AND COMMUNICATION ENGINEERING",
-    "exam": "TNEA",
-    "closing": "198/200 marks",
-    "q": "Sri Sivasubramaniya Nadar College of Engineering (Autonomous), Rajiv Gandhi Salai (OMR), Kalavakkam,Kanchipuram District-603110."
-   }
-  ],
-  "notable_people": [
-   "M. Visvesvaraya (legendary Indian engineer, dam and power systems)",
-   "Nikola Tesla (pioneer of modern electric power systems)"
-  ],
-  "sources": "NIRF rankings, AmbitionBox, Glassdoor India, industry placement reports",
-  "specializations": [
-   {
-    "name": "Power Systems Engineering",
-    "blurb": "Designing and running the grid that carries electricity across cities and states."
-   },
-   {
-    "name": "Control Systems",
-    "blurb": "Building systems that automatically manage machines like motors and industrial equipment."
-   },
-   {
-    "name": "Renewable Energy Systems",
-    "blurb": "Working on electrical systems for solar and wind power plants."
-   }
-  ],
-  "riasec": {
-   "code": "RIC",
-   "scores": [
-    85.7,
-    72.1,
-    15.7,
-    12.5,
-    14.6,
-    61.9
-   ]
-  }
- },
- {
-  "career_id": "electronics-and-communications-engineering",
-  "name": "Electronics And Communications Engineering",
-  "branch_id": "ELEC",
-  "domain": "Engineering",
-  "eligible_streams": [
-   "Science (PCM)"
-  ],
-  "day_in_life": "An electronics and communications engineer, often called ECE, designs the tiny chips, circuits, and signal-processing systems inside phones, TVs, and networks that let devices talk to each other and to the internet. A typical day might involve designing circuits on a computer, testing chips in a lab, or working on how mobile signals are transmitted and received.",
-  "impact": "The engineers who design the chips inside your smartphone, or who build the network equipment that lets Jio and Airtel give you 4G and 5G internet, are ECE engineers. Companies like Qualcomm's India teams design mobile phone chips that get used worldwide, largely staffed by ECE graduates.",
-  "entry_exams_text": "JEE Main and JEE Advanced (national engineering entrance exams for top government colleges), or state-level engineering entrance exams like MHT-CET, KCET, or WBJEE for other colleges.",
-  "exams": [
-   {
-    "label": "AP EAPCET",
-    "href": "/exams?q=AP-EAPCET"
-   },
-   {
-    "label": "BITSAT",
-    "href": "/predictor?exam=BITSAT"
-   },
-   {
-    "label": "CUET (central universities)",
-    "href": "/predictor?exam=CUET"
-   },
-   {
-    "label": "GUJCET",
-    "href": "/exams?q=GUJCET"
-   },
-   {
-    "label": "JAC Chandigarh",
-    "href": "/predictor?exam=JAC Chandigarh"
-   },
-   {
-    "label": "JEE Main",
-    "href": "/exams?q=JEE Main"
-   },
-   {
-    "label": "JEE Advanced",
-    "href": "/exams?q=JEE Advanced"
-   },
-   {
-    "label": "KCET",
-    "href": "/exams?q=KCET"
-   },
-   {
-    "label": "KEAM",
-    "href": "/exams?q=KEAM"
-   },
-   {
-    "label": "MHT-CET",
-    "href": "/exams?q=MHT CET"
-   },
-   {
-    "label": "OJEE",
-    "href": "/exams?q=OJEE"
-   },
-   {
-    "label": "TG EAPCET",
-    "href": "/exams?q=TG-EAPCET"
-   },
-   {
-    "label": "TNEA counselling",
-    "href": "/predictor?exam=TNEA"
-   },
-   {
-    "label": "UPTAC",
-    "href": "/predictor?exam=UPTAC"
-   },
-   {
-    "label": "WBJEE",
-    "href": "/exams?q=WBJEE"
-   },
-   {
-    "label": "KEA-CET",
-    "href": "/exams?q=KEA-CET"
-   }
-  ],
-  "top_colleges": [
-   {
-    "name": "IIT Delhi",
-    "q": "Indian Institute of Technology Delhi"
-   },
-   {
-    "name": "IIT Kharagpur",
-    "q": "Indian Institute of Technology Kharagpur"
-   },
-   {
-    "name": "IIIT Hyderabad",
-    "q": null
-   },
-   {
-    "name": "NIT Warangal",
-    "q": "National Institute of Technology, Warangal"
-   },
-   {
-    "name": "BITS Pilani",
-    "q": null
-   },
-   {
-    "name": "VIT Vellore",
-    "q": null
-   }
-  ],
-  "pay": {
-   "start": "\u20b94-9 LPA",
-   "mid": "\u20b910-20 LPA",
-   "senior": "\u20b922-45 LPA"
-  },
-  "recruiters": [
-   "Qualcomm India",
-   "Intel India",
-   "Samsung R&D India",
-   "Bharti Airtel",
-   "Nokia",
-   "Texas Instruments India"
-  ],
-  "stability": "High",
-  "automation_risk": "Low",
-  "where_work": "Metro cities mainly",
-  "college_options": [
-   {
-    "college": "Indian Institute of Technology Madras",
-    "branch": "Electrical Engineering",
-    "exam": "JEE Advanced",
-    "closing": "808",
-    "q": "Indian Institute of Technology Madras"
-   },
-   {
-    "college": "M S Ramaiah Institute of Technology, Bangalore(AUTONOMOUS) VIDYA SOUDHA,MSR NAGAR,MSRIT POST,BANGALORE - 560054.",
-    "branch": "ELECTRONICS AND COMMUNICATION ENGINEERING",
-    "exam": "KCET",
-    "closing": "4,080",
-    "q": "M S Ramaiah Institute of Technology, Bangalore(AUTONOMOUS) VIDYA SOUDHA,MSR NAGAR,MSRIT POST,BANGALORE - 560054."
-   },
-   {
-    "college": "Jadavpur University",
-    "branch": "Electronics & Tele-Communication Engineering",
-    "exam": "WBJEE",
-    "closing": "138",
-    "q": "Jadavpur University"
-   },
-   {
-    "college": "COEP Technological University",
-    "branch": "Electronics and Telecommunication Engg",
-    "exam": "MHT-CET",
-    "closing": "1,332",
-    "q": "COEP Technological University"
-   },
-   {
-    "college": "Veer Surendra Sai University of Technology, Burla",
-    "branch": "Electrical and Electronics Engineering - TFW",
-    "exam": "OJEE",
-    "closing": "102,837 (JEE Main rank)",
-    "q": "Veer Surendra Sai University of Technology, Burla"
-   },
-   {
-    "college": "Sri Sivasubramaniya Nadar College of Engineering (Autonomous), Rajiv Gandhi Salai (OMR), Kalavakkam,Kanchipuram District-603110.",
-    "branch": "ELECTRONICS AND COMMUNICATION ENGINEERING",
-    "exam": "TNEA",
-    "closing": "198/200 marks",
-    "q": "Sri Sivasubramaniya Nadar College of Engineering (Autonomous), Rajiv Gandhi Salai (OMR), Kalavakkam,Kanchipuram District-603110."
-   }
-  ],
-  "notable_people": [
-   "Sam Pitroda (built India's telecom exchange systems)",
-   "Arogyaswami Paulraj (invented MIMO wireless technology)"
-  ],
-  "sources": "NIRF rankings, AmbitionBox, Glassdoor India, industry placement reports",
-  "specializations": [
-   {
-    "name": "VLSI and Chip Design",
-    "blurb": "Designing the tiny electronic circuits packed onto computer chips."
-   },
-   {
-    "name": "Telecommunications",
-    "blurb": "Building the networks and equipment behind mobile and internet signals."
-   },
-   {
-    "name": "Signal Processing",
-    "blurb": "Working on how sound, images, and data are cleaned up and transmitted digitally."
-   }
-  ],
-  "riasec": {
-   "code": "RIC",
-   "scores": [
-    73.2,
-    67.5,
-    16.1,
-    15.8,
-    22.4,
-    63.6
    ]
   }
  },
@@ -7583,93 +6469,6 @@
   }
  },
  {
-  "career_id": "engineering-science",
-  "name": "Engineering Science",
-  "branch_id": "ENGSCI",
-  "domain": "Engineering",
-  "eligible_streams": [
-   "Science (PCM)"
-  ],
-  "day_in_life": "A person in this field studies a mix of subjects across many engineering branches instead of picking just one, and later decides their specific focus (like robotics, materials, or data) based on interest. Day-to-day work in college involves broad projects that combine mechanical, electrical, and computer topics together, and after graduation the work depends entirely on which specific area they eventually choose.",
-  "impact": "Because this degree keeps options open, graduates end up working on very different real things \u2014 from designing parts of an electric scooter at Ather Energy to writing code for a robotics startup \u2014 giving companies flexible engineers who can adapt across departments.",
-  "entry_exams_text": "JEE (Joint Entrance Exam, the main exam to get into engineering colleges including IITs) \u2014 Engineering Science is offered as a flexible branch at a few institutes like IIT Kanpur and IISER-style programs.",
-  "exams": [
-   {
-    "label": "JEE Main",
-    "href": "/exams?q=JEE Main"
-   },
-   {
-    "label": "JEE Advanced",
-    "href": "/exams?q=JEE Advanced"
-   }
-  ],
-  "top_colleges": [
-   {
-    "name": "IIT Kanpur (Engineering Science programme)",
-    "q": "Indian Institute of Technology Kanpur"
-   },
-   {
-    "name": "IISER Pune",
-    "q": null
-   },
-   {
-    "name": "IISER Bhopal",
-    "q": null
-   },
-   {
-    "name": "BITS Pilani (interdisciplinary tracks)",
-    "q": null
-   },
-   {
-    "name": "IIT Gandhinagar",
-    "q": "Indian Institute of Technology Gandhinagar"
-   }
-  ],
-  "pay": {
-   "start": "\u20b96-10 LPA",
-   "mid": "\u20b914-22 LPA",
-   "senior": "\u20b925-45 LPA"
-  },
-  "recruiters": [
-   "Tata Consultancy Services",
-   "Larsen & Toubro",
-   "Reliance Industries",
-   "various startups",
-   "consulting firms",
-   "higher-education institutes"
-  ],
-  "stability": "Medium",
-  "automation_risk": "Low",
-  "where_work": "Works from anywhere",
-  "college_options": [
-   {
-    "college": "Indian Institute of Technology Hyderabad",
-    "branch": "Engineering Science",
-    "exam": "JEE Advanced",
-    "closing": "3,258",
-    "q": "Indian Institute of Technology Hyderabad"
-   }
-  ],
-  "notable_people": [
-   "Elon Musk (broad engineering background, entrepreneur)",
-   "Sundar Pichai (engineer, Google CEO)",
-   "Raghunath Mashelkar (scientist, broad engineering research)"
-  ],
-  "sources": "NIRF rankings, AmbitionBox, Glassdoor India, industry placement reports",
-  "specializations": [],
-  "riasec": {
-   "code": "RIC",
-   "scores": [
-    73.3,
-    69.4,
-    20.9,
-    29.8,
-    23.7,
-    59.0
-   ]
-  }
- },
- {
   "career_id": "english",
   "name": "English",
   "branch_id": "ENGLISH",
@@ -7958,11 +6757,11 @@
   "where_work": "Metro cities mainly",
   "college_options": [
    {
-    "college": "Shaheed Sukhdev College Business Studies",
-    "branch": "Bachelor of Management Studies",
+    "college": "College of Vocational Studies",
+    "branch": "B.A.",
     "exam": "CUET (DU)",
-    "closing": "555 / 750 CUET",
-    "q": "Shaheed Sukhdev College Business Studies"
+    "closing": "681 / 1000 CUET",
+    "q": "College of Vocational Studies"
    },
    {
     "college": "University of Allahabad, Prayagraj",
@@ -8345,7 +7144,7 @@
   "career_id": "fishery-science",
   "name": "Fishery Science",
   "branch_id": "FISH",
-  "domain": "Science",
+  "domain": "Agriculture",
   "eligible_streams": [
    "Science (PCB)",
    "Science (PCM)"
@@ -8686,7 +7485,7 @@
   "career_id": "forestry",
   "name": "Forestry",
   "branch_id": "FOREST",
-  "domain": "Science",
+  "domain": "Agriculture",
   "eligible_streams": [
    "Science (PCB)",
    "Science (PCM)"
@@ -8819,11 +7618,11 @@
   "where_work": "Tier-2 cities",
   "college_options": [
    {
-    "college": "Indian Institute of Technology Mandi",
-    "branch": "B.Tech in General Engineering",
+    "college": "Indian Institute of Technology Hyderabad",
+    "branch": "Engineering Science",
     "exam": "JEE Advanced",
-    "closing": "10,184",
-    "q": "Indian Institute of Technology Mandi"
+    "closing": "3,258",
+    "q": "Indian Institute of Technology Hyderabad"
    }
   ],
   "notable_people": [
@@ -9652,11 +8451,11 @@
   "where_work": "Metro cities mainly",
   "college_options": [
    {
-    "college": "Shaheed Sukhdev College Business Studies",
-    "branch": "Bachelor of Management Studies",
+    "college": "College of Vocational Studies",
+    "branch": "B.A.",
     "exam": "CUET (DU)",
-    "closing": "555 / 750 CUET",
-    "q": "Shaheed Sukhdev College Business Studies"
+    "closing": "681 / 1000 CUET",
+    "q": "College of Vocational Studies"
    },
    {
     "college": "University of Allahabad, Prayagraj",
@@ -11439,11 +10238,11 @@
   "where_work": "Tier-2 cities work well",
   "college_options": [
    {
-    "college": "Shaheed Sukhdev College Business Studies",
-    "branch": "Bachelor of Management Studies",
+    "college": "College of Vocational Studies",
+    "branch": "B.A.",
     "exam": "CUET (DU)",
-    "closing": "555 / 750 CUET",
-    "q": "Shaheed Sukhdev College Business Studies"
+    "closing": "681 / 1000 CUET",
+    "q": "College of Vocational Studies"
    },
    {
     "college": "University of Allahabad, Prayagraj",
@@ -11614,139 +10413,6 @@
   }
  },
  {
-  "career_id": "marine-engineering",
-  "name": "Marine Engineering",
-  "branch_id": "MARINE",
-  "domain": "Engineering",
-  "eligible_streams": [
-   "Science (PCM)"
-  ],
-  "day_in_life": "A person in this field is trained specifically to operate, maintain, and repair the engines and machinery that power large ships, and most graduates go on to actually sail on ships as a ship's engineer, living onboard for months at a time. Day-to-day work at sea involves monitoring engine rooms, fixing mechanical or electrical faults, and keeping the ship's power and cooling systems running safely.",
-  "impact": "Marine engineers keep cargo ships moving that carry most of India's international trade \u2014 including goods for companies like Shipping Corporation of India and Maersk \u2014 since a ship with a broken engine cannot deliver anything, anywhere.",
-  "entry_exams_text": "IMU CET (Indian Maritime University Common Entrance Test, the main exam to get into marine engineering and sail on ships) \u2014 this is the primary and most direct path into this field.",
-  "exams": [
-   {
-    "label": "GUJCET",
-    "href": "/exams?q=GUJCET"
-   },
-   {
-    "label": "JEE Main",
-    "href": "/exams?q=JEE Main"
-   },
-   {
-    "label": "JEE Advanced",
-    "href": "/exams?q=JEE Advanced"
-   },
-   {
-    "label": "KCET",
-    "href": "/exams?q=KCET"
-   },
-   {
-    "label": "KEAM",
-    "href": "/exams?q=KEAM"
-   },
-   {
-    "label": "TNEA counselling",
-    "href": "/predictor?exam=TNEA"
-   },
-   {
-    "label": "WBJEE",
-    "href": "/exams?q=WBJEE"
-   },
-   {
-    "label": "CET",
-    "href": "/exams?q=CET"
-   }
-  ],
-  "top_colleges": [
-   {
-    "name": "Indian Maritime University (Chennai and other campuses)",
-    "q": null
-   },
-   {
-    "name": "Marine Engineering and Research Institute (MERI) Kolkata/Mumbai",
-    "q": null
-   },
-   {
-    "name": "Tolani Maritime Institute",
-    "q": null
-   },
-   {
-    "name": "Sri Ramaswamy Memorial (SRM) maritime programs",
-    "q": null
-   }
-  ],
-  "pay": {
-   "start": "\u20b98-15 LPA",
-   "mid": "\u20b920-35 LPA",
-   "senior": "\u20b940-70 LPA"
-  },
-  "recruiters": [
-   "Shipping Corporation of India",
-   "Maersk",
-   "Anglo-Eastern Ship Management",
-   "V.Ships",
-   "MSC",
-   "Fleet Management Limited"
-  ],
-  "stability": "High",
-  "automation_risk": "Low",
-  "where_work": "Works from anywhere (though long stretches are spent at sea, away from any fixed city)",
-  "college_options": [
-   {
-    "college": "Indian Institute of Technology Madras",
-    "branch": "Naval Architecture and Ocean Engineering",
-    "exam": "JEE Advanced",
-    "closing": "6,993",
-    "q": "Indian Institute of Technology Madras"
-   },
-   {
-    "college": "Srinivas Institute of Technology, Mangalore SRINIVAS CAMPUS",
-    "branch": "MARINE ENGINEERING",
-    "exam": "KCET",
-    "closing": "231,286",
-    "q": "Srinivas Institute of Technology, Mangalore SRINIVAS CAMPUS"
-   },
-   {
-    "college": "Sri Venkateswara College of Engineering (Autonomous), Post Bag No.3, Pennalur, Sriperumbudur, Kanchipuram-602105.",
-    "branch": "MARINE ENGINEERING",
-    "exam": "TNEA",
-    "closing": "108.5/200 marks",
-    "q": "Sri Venkateswara College of Engineering (Autonomous), Post Bag No.3, Pennalur, Sriperumbudur, Kanchipuram-602105."
-   }
-  ],
-  "notable_people": [
-   "Captain and Chief Engineer graduates from Indian Maritime University widely employed on global shipping fleets",
-   "senior marine engineers featured in Directorate General of Shipping recognitions"
-  ],
-  "sources": "NIRF rankings, AmbitionBox, Glassdoor India, industry placement reports",
-  "specializations": [
-   {
-    "name": "Ship's Engine Room Operations",
-    "blurb": "Running and monitoring the engines and machinery that power the ship day to day."
-   },
-   {
-    "name": "Marine Machinery Maintenance",
-    "blurb": "Repairing and servicing mechanical and electrical equipment onboard."
-   },
-   {
-    "name": "Marine Surveying",
-    "blurb": "Inspecting ships onshore later in one's career to check they meet safety standards."
-   }
-  ],
-  "riasec": {
-   "code": "RIC",
-   "scores": [
-    84.8,
-    60.4,
-    13.5,
-    8.6,
-    41.6,
-    60.2
-   ]
-  }
- },
- {
   "career_id": "marketing-management",
   "name": "Marketing Management",
   "branch_id": "MBA",
@@ -11782,11 +10448,11 @@
   "where_work": "Metro cities mainly",
   "college_options": [
    {
-    "college": "Shaheed Sukhdev College Business Studies",
-    "branch": "Bachelor of Management Studies",
+    "college": "College of Vocational Studies",
+    "branch": "B.A.",
     "exam": "CUET (DU)",
-    "closing": "555 / 750 CUET",
-    "q": "Shaheed Sukhdev College Business Studies"
+    "closing": "681 / 1000 CUET",
+    "q": "College of Vocational Studies"
    },
    {
     "college": "University of Allahabad, Prayagraj",
@@ -12350,195 +11016,6 @@
     7.2,
     13.8,
     61.9
-   ]
-  }
- },
- {
-  "career_id": "mechanical-engineering",
-  "name": "Mechanical Engineering",
-  "branch_id": "MECHENG",
-  "domain": "Engineering",
-  "eligible_streams": [
-   "Science (PCM)"
-  ],
-  "day_in_life": "A mechanical engineer designs, builds, or tests machines and moving parts, like engines, robots, or factory equipment, often using computer design software before checking how the parts work in real life.",
-  "impact": "The engines in Tata trucks, the air conditioners made by Voltas, and the machines that assemble Maruti Suzuki cars are all designed and kept running by mechanical engineers.",
-  "entry_exams_text": "JEE Main and JEE Advanced (national engineering entrance exams for admission to top government colleges), or state-level engineering entrance exams like MHT-CET or KCET for admission to a BTech (a 4-year engineering degree) in Mechanical Engineering.",
-  "exams": [
-   {
-    "label": "AP EAPCET",
-    "href": "/exams?q=AP-EAPCET"
-   },
-   {
-    "label": "BITSAT",
-    "href": "/predictor?exam=BITSAT"
-   },
-   {
-    "label": "GUJCET",
-    "href": "/exams?q=GUJCET"
-   },
-   {
-    "label": "JAC Chandigarh",
-    "href": "/predictor?exam=JAC Chandigarh"
-   },
-   {
-    "label": "JEE Main",
-    "href": "/exams?q=JEE Main"
-   },
-   {
-    "label": "JEE Advanced",
-    "href": "/exams?q=JEE Advanced"
-   },
-   {
-    "label": "KCET",
-    "href": "/exams?q=KCET"
-   },
-   {
-    "label": "KEAM",
-    "href": "/exams?q=KEAM"
-   },
-   {
-    "label": "MHT-CET",
-    "href": "/exams?q=MHT CET"
-   },
-   {
-    "label": "OJEE",
-    "href": "/exams?q=OJEE"
-   },
-   {
-    "label": "TG EAPCET",
-    "href": "/exams?q=TG-EAPCET"
-   },
-   {
-    "label": "TNEA counselling",
-    "href": "/predictor?exam=TNEA"
-   },
-   {
-    "label": "UPTAC",
-    "href": "/predictor?exam=UPTAC"
-   },
-   {
-    "label": "WBJEE",
-    "href": "/exams?q=WBJEE"
-   },
-   {
-    "label": "KEA-CET",
-    "href": "/exams?q=KEA-CET"
-   }
-  ],
-  "top_colleges": [
-   {
-    "name": "IIT Bombay",
-    "q": "Indian Institute of Technology Bombay"
-   },
-   {
-    "name": "IIT Delhi",
-    "q": "Indian Institute of Technology Delhi"
-   },
-   {
-    "name": "IIT Madras",
-    "q": "Indian Institute of Technology Madras"
-   },
-   {
-    "name": "IIT Kanpur",
-    "q": "Indian Institute of Technology Kanpur"
-   },
-   {
-    "name": "BITS Pilani",
-    "q": null
-   },
-   {
-    "name": "VIT Vellore",
-    "q": null
-   }
-  ],
-  "pay": {
-   "start": "\u20b94-8 LPA",
-   "mid": "\u20b910-18 LPA",
-   "senior": "\u20b920-40 LPA"
-  },
-  "recruiters": [
-   "Tata Motors",
-   "Mahindra & Mahindra",
-   "L&T",
-   "Bosch",
-   "Maruti Suzuki",
-   "Bharat Forge"
-  ],
-  "stability": "High",
-  "automation_risk": "Medium",
-  "where_work": "Tier-2 cities",
-  "college_options": [
-   {
-    "college": "Indian Institute of Technology Madras",
-    "branch": "Mechanical Engineering",
-    "exam": "JEE Advanced",
-    "closing": "2,363",
-    "q": "Indian Institute of Technology Madras"
-   },
-   {
-    "college": "M S Ramaiah Institute of Technology, Bangalore(AUTONOMOUS) VIDYA SOUDHA,MSR NAGAR,MSRIT POST,BANGALORE - 560054.",
-    "branch": "MECHANICAL ENGINEERING",
-    "exam": "KCET",
-    "closing": "20,751",
-    "q": "M S Ramaiah Institute of Technology, Bangalore(AUTONOMOUS) VIDYA SOUDHA,MSR NAGAR,MSRIT POST,BANGALORE - 560054."
-   },
-   {
-    "college": "Jadavpur University",
-    "branch": "Mechanical Engineering",
-    "exam": "WBJEE",
-    "closing": "537",
-    "q": "Jadavpur University"
-   },
-   {
-    "college": "COEP Technological University",
-    "branch": "Mechanical Engineering",
-    "exam": "MHT-CET",
-    "closing": "2,281",
-    "q": "COEP Technological University"
-   },
-   {
-    "college": "Veer Surendra Sai University of Technology, Burla",
-    "branch": "Mechanical Engineering - TFW",
-    "exam": "OJEE",
-    "closing": "210,593 (JEE Main rank)",
-    "q": "Veer Surendra Sai University of Technology, Burla"
-   },
-   {
-    "college": "Sri Sivasubramaniya Nadar College of Engineering (Autonomous), Rajiv Gandhi Salai (OMR), Kalavakkam,Kanchipuram District-603110.",
-    "branch": "MECHANICAL ENGINEERING",
-    "exam": "TNEA",
-    "closing": "194/200 marks",
-    "q": "Sri Sivasubramaniya Nadar College of Engineering (Autonomous), Rajiv Gandhi Salai (OMR), Kalavakkam,Kanchipuram District-603110."
-   }
-  ],
-  "notable_people": [
-   "Sundar Pichai: mechanical engineering graduate turned tech CEO | Ratan Tata: led Tata Motors' car engineering vision"
-  ],
-  "sources": "NIRF rankings, AmbitionBox, Glassdoor India, industry placement reports",
-  "specializations": [
-   {
-    "name": "Automobile Engineering",
-    "blurb": "focuses on designing and improving cars, bikes, and trucks"
-   },
-   {
-    "name": "Thermal Engineering",
-    "blurb": "works on engines, heating, and cooling systems"
-   },
-   {
-    "name": "Manufacturing Engineering",
-    "blurb": "designs the factory processes that make products at scale"
-   }
-  ],
-  "riasec": {
-   "code": "RIC",
-   "scores": [
-    89.8,
-    68.7,
-    17.0,
-    3.7,
-    16.2,
-    63.8
    ]
   }
  },
@@ -13294,7 +11771,7 @@
  {
   "career_id": "natural-science",
   "name": "Natural Science",
-  "branch_id": "NATSCI",
+  "branch_id": "GENSCI",
   "domain": "Science",
   "eligible_streams": [
    "Science (PCB)",
@@ -13304,6 +11781,18 @@
   "impact": "Natural science graduates working with organisations like the Central Pollution Control Board or environmental research institutes help track air and water pollution and study climate change, work that shapes public health policy across Indian cities.",
   "entry_exams_text": "No single fixed entrance exam - admission is usually based on Class 12 Science marks, though some universities use CUET (Common University Entrance Test, a national exam for admission to many Indian universities).",
   "exams": [
+   {
+    "label": "CUET (central universities)",
+    "href": "/predictor?exam=CUET"
+   },
+   {
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
+   },
+   {
+    "label": "JEE Advanced",
+    "href": "/exams?q=JEE Advanced"
+   },
    {
     "label": "CUET (UG)",
     "href": "/exams?q=CUET (UG)"
@@ -13350,7 +11839,36 @@
   "stability": "Medium",
   "automation_risk": "Low",
   "where_work": "Tier-2 cities",
-  "college_options": [],
+  "college_options": [
+   {
+    "college": "Indian Institute of Technology Dharwad",
+    "branch": "Interdisciplinary Sciences",
+    "exam": "JEE Advanced",
+    "closing": "16,740",
+    "q": "Indian Institute of Technology Dharwad"
+   },
+   {
+    "college": "Ramanujan College",
+    "branch": "B.Sc (Hons.) Environmental Sciences",
+    "exam": "CUET (DU)",
+    "closing": "452.22 / 750 CUET",
+    "q": "Ramanujan College"
+   },
+   {
+    "college": "University of Allahabad, Prayagraj",
+    "branch": "Disaster Management and Environmental Studies",
+    "exam": "CUET (Allahabad)",
+    "closing": "364 / 750 CUET",
+    "q": "University of Allahabad, Prayagraj"
+   },
+   {
+    "college": "Jamia Millia Islamia, New Delhi",
+    "branch": "B.Sc.",
+    "exam": "CUET (Jamia)",
+    "closing": "112.13 / 250 CUET",
+    "q": "Jamia Millia Islamia, New Delhi"
+   }
+  ],
   "notable_people": [
    "Dr Anil Kakodkar (nuclear scientist)",
    "Sunita Narain (environmentalist, Centre for Science and Environment)"
@@ -13813,135 +12331,6 @@
   }
  },
  {
-  "career_id": "ocean-engineering",
-  "name": "Ocean Engineering",
-  "branch_id": "MARINE",
-  "domain": "Engineering",
-  "eligible_streams": [
-   "Science (PCM)"
-  ],
-  "day_in_life": "A person in this field designs and studies structures and technology used out at sea that are NOT about ship engines or sailing \u2014 things like offshore oil platforms, underwater cables, ports, and equipment that explores the seabed. Work usually happens onshore in design offices or research labs, using computer models to test how structures will hold up against waves and ocean currents, with occasional site visits to ports or offshore platforms.",
-  "impact": "This work is behind the offshore oil platforms that companies like ONGC operate in the Arabian Sea and the underwater cables that carry India's internet traffic across oceans, none of which involve sailing a ship but require deep knowledge of ocean forces.",
-  "entry_exams_text": "JEE (Joint Entrance Exam, the main exam to get into engineering colleges including IITs) for the Ocean Engineering programs at IIT Madras and similar institutes.",
-  "exams": [
-   {
-    "label": "GUJCET",
-    "href": "/exams?q=GUJCET"
-   },
-   {
-    "label": "JEE Main",
-    "href": "/exams?q=JEE Main"
-   },
-   {
-    "label": "JEE Advanced",
-    "href": "/exams?q=JEE Advanced"
-   },
-   {
-    "label": "KCET",
-    "href": "/exams?q=KCET"
-   },
-   {
-    "label": "KEAM",
-    "href": "/exams?q=KEAM"
-   },
-   {
-    "label": "TNEA counselling",
-    "href": "/predictor?exam=TNEA"
-   },
-   {
-    "label": "WBJEE",
-    "href": "/exams?q=WBJEE"
-   }
-  ],
-  "top_colleges": [
-   {
-    "name": "IIT Madras (Department of Ocean Engineering)",
-    "q": "Indian Institute of Technology Madras"
-   },
-   {
-    "name": "IIT Kharagpur",
-    "q": "Indian Institute of Technology Kharagpur"
-   },
-   {
-    "name": "National Institute of Ocean Technology (NIOT) Chennai",
-    "q": null
-   },
-   {
-    "name": "Cochin University of Science and Technology",
-    "q": "Cochin University of Science and Technology"
-   }
-  ],
-  "pay": {
-   "start": "\u20b95-9 LPA",
-   "mid": "\u20b911-18 LPA",
-   "senior": "\u20b922-38 LPA"
-  },
-  "recruiters": [
-   "ONGC",
-   "National Institute of Ocean Technology",
-   "L&T offshore division",
-   "offshore engineering consultancies",
-   "port trusts (like Jawaharlal Nehru Port)",
-   "submarine cable companies"
-  ],
-  "stability": "Medium",
-  "automation_risk": "Low",
-  "where_work": "Metro cities mainly",
-  "college_options": [
-   {
-    "college": "Indian Institute of Technology Madras",
-    "branch": "Naval Architecture and Ocean Engineering",
-    "exam": "JEE Advanced",
-    "closing": "6,993",
-    "q": "Indian Institute of Technology Madras"
-   },
-   {
-    "college": "Srinivas Institute of Technology, Mangalore SRINIVAS CAMPUS",
-    "branch": "MARINE ENGINEERING",
-    "exam": "KCET",
-    "closing": "231,286",
-    "q": "Srinivas Institute of Technology, Mangalore SRINIVAS CAMPUS"
-   },
-   {
-    "college": "Sri Venkateswara College of Engineering (Autonomous), Post Bag No.3, Pennalur, Sriperumbudur, Kanchipuram-602105.",
-    "branch": "MARINE ENGINEERING",
-    "exam": "TNEA",
-    "closing": "108.5/200 marks",
-    "q": "Sri Venkateswara College of Engineering (Autonomous), Post Bag No.3, Pennalur, Sriperumbudur, Kanchipuram-602105."
-   }
-  ],
-  "notable_people": [
-   "Scientists at National Institute of Ocean Technology known for deep-sea mining and underwater vehicle research",
-   "professors leading IIT Madras's ocean engineering research on coastal structures"
-  ],
-  "sources": "NIRF rankings, AmbitionBox, Glassdoor India, industry placement reports",
-  "specializations": [
-   {
-    "name": "Offshore Structures",
-    "blurb": "Designing platforms and rigs that stand safely in the middle of the ocean."
-   },
-   {
-    "name": "Port and Harbour Engineering",
-    "blurb": "Planning how ports handle ships, cargo, and coastal waves."
-   },
-   {
-    "name": "Underwater Technology",
-    "blurb": "Building equipment like underwater robots and cables used to explore or use the seabed."
-   }
-  ],
-  "riasec": {
-   "code": "RIC",
-   "scores": [
-    79.0,
-    78.5,
-    27.0,
-    4.5,
-    37.7,
-    55.2
-   ]
-  }
- },
- {
   "career_id": "oil-paints-dye-technology",
   "name": "Oil, Paints, Dye Technology",
   "branch_id": "OILPAINTTECH",
@@ -14267,12 +12656,20 @@
   "entry_exams_text": "JEE Main or state engineering entrance exams for admission to a BTech in Paper and Pulp Technology or Printing and Packaging Technology; some specialised institutes also hold their own entrance tests.",
   "exams": [
    {
-    "label": "MHT-CET",
-    "href": "/exams?q=MHT CET"
+    "label": "JEE Main",
+    "href": "/exams?q=JEE Main"
    },
    {
     "label": "JEE Advanced",
     "href": "/exams?q=JEE Advanced"
+   },
+   {
+    "label": "MHT-CET",
+    "href": "/exams?q=MHT CET"
+   },
+   {
+    "label": "WBJEE",
+    "href": "/exams?q=WBJEE"
    }
   ],
   "top_colleges": [
@@ -14318,6 +12715,13 @@
   "automation_risk": "Medium",
   "where_work": "Tier-2 cities",
   "college_options": [
+   {
+    "college": "Central University of Haryana",
+    "branch": "Printing and Packaging Technology",
+    "exam": "JEE Main",
+    "closing": "96,367",
+    "q": "Central University of Haryana"
+   },
    {
     "college": "Laxminarayan Innovation Technological University, Nagpur",
     "branch": "Paper and Pulp Technology",
@@ -14870,7 +13274,7 @@
  {
   "career_id": "philosophy",
   "name": "Philosophy",
-  "branch_id": "PHILOSOPHY",
+  "branch_id": "PHILO",
   "domain": "Arts & Humanities",
   "eligible_streams": [
    "All"
@@ -15687,99 +14091,6 @@
   }
  },
  {
-  "career_id": "printing-engineering",
-  "name": "Printing Engineering",
-  "branch_id": "PRINTENG",
-  "domain": "Engineering",
-  "eligible_streams": [
-   "Science (PCM)"
-  ],
-  "day_in_life": "A printing engineer designs, operates, and maintains the machines that print text, pictures, and packaging designs onto paper, plastic, or fabric, often troubleshooting printing presses to keep quality high and speed fast.",
-  "impact": "The newspapers delivered every morning by groups like Times of India, the colourful snack packets on supermarket shelves, and textbook printing for lakhs of students all depend on printing engineers keeping presses running accurately.",
-  "entry_exams_text": "JEE Main or state engineering entrance exams for a BTech or diploma in Printing Technology; some specialised institutes hold their own entrance tests.",
-  "exams": [
-   {
-    "label": "JEE Main",
-    "href": "/exams?q=JEE Main"
-   },
-   {
-    "label": "JEE Advanced",
-    "href": "/exams?q=JEE Advanced"
-   },
-   {
-    "label": "WBJEE",
-    "href": "/exams?q=WBJEE"
-   }
-  ],
-  "top_colleges": [
-   {
-    "name": "Indian Institute of Printing Technology",
-    "q": null
-   },
-   {
-    "name": "Government College of Engineering and Ceramic Technology Kolkata",
-    "q": null
-   },
-   {
-    "name": "PSG Polytechnic College",
-    "q": null
-   },
-   {
-    "name": "Bharatiya Vidya Bhavan's Printing Institute",
-    "q": null
-   },
-   {
-    "name": "Guru Nanak Dev Engineering College",
-    "q": null
-   },
-   {
-    "name": "College of Engineering Pune",
-    "q": null
-   }
-  ],
-  "pay": {
-   "start": "\u20b93-5 LPA",
-   "mid": "\u20b96-11 LPA",
-   "senior": "\u20b913-22 LPA"
-  },
-  "recruiters": [
-   "Times of India Group",
-   "Manipal Technologies",
-   "ITC Packaging",
-   "HT Media",
-   "Living Media Group",
-   "Repro India"
-  ],
-  "stability": "Medium",
-  "automation_risk": "High",
-  "where_work": "Metro cities mainly",
-  "college_options": [
-   {
-    "college": "Central University of Haryana",
-    "branch": "Printing and Packaging Technology",
-    "exam": "JEE Main",
-    "closing": "96,367",
-    "q": "Central University of Haryana"
-   }
-  ],
-  "notable_people": [
-   "Ashok Chandra: veteran figure in Indian print and publishing technology | R.K. Jain: known contributor to printing technology education in India"
-  ],
-  "sources": "NIRF rankings, AmbitionBox, Glassdoor India, industry placement reports",
-  "specializations": [],
-  "riasec": {
-   "code": "CRA",
-   "scores": [
-    68.7,
-    3.2,
-    14.9,
-    9.8,
-    8.3,
-    74.3
-   ]
-  }
- },
- {
   "career_id": "prosthetics-and-orthotics",
   "name": "Prosthetics and Orthotics",
   "branch_id": "PARAMED",
@@ -15960,7 +14271,7 @@
   "career_id": "public-administration-civil-services",
   "name": "Public Administration (Civil Services)",
   "branch_id": "PUBADMIN",
-  "domain": "Public Services",
+  "domain": "Arts & Humanities",
   "eligible_streams": [
    "All"
   ],
@@ -16343,11 +14654,11 @@
   "where_work": "Metro cities mainly, though growing in tier-2 cities too",
   "college_options": [
    {
-    "college": "Shaheed Sukhdev College Business Studies",
-    "branch": "Bachelor of Management Studies",
+    "college": "College of Vocational Studies",
+    "branch": "B.A.",
     "exam": "CUET (DU)",
-    "closing": "555 / 750 CUET",
-    "q": "Shaheed Sukhdev College Business Studies"
+    "closing": "681 / 1000 CUET",
+    "q": "College of Vocational Studies"
    },
    {
     "college": "University of Allahabad, Prayagraj",
@@ -16955,109 +15266,6 @@
   }
  },
  {
-  "career_id": "space-engineering",
-  "name": "Space Engineering",
-  "branch_id": "SPACEENG",
-  "domain": "Engineering",
-  "eligible_streams": [
-   "Science (PCM)"
-  ],
-  "day_in_life": "A space engineer designs and tests parts of satellites or rockets, like the systems that let a satellite communicate or the engines that launch a rocket into orbit, working through detailed calculations and running tests to make sure everything survives the extreme conditions of space.",
-  "impact": "The Chandrayaan Moon missions and the satellites that give India its GPS-like navigation system and weather forecasts exist because space engineers at ISRO design the rockets and satellites that make it all work.",
-  "entry_exams_text": "JEE Main and JEE Advanced (national engineering entrance exams) for a BTech in Aerospace or Space Engineering, with further entry into ISRO often through IIST admissions or ISRO's own recruitment exam called ICRB.",
-  "exams": [
-   {
-    "label": "JEE Main",
-    "href": "/exams?q=JEE Main"
-   },
-   {
-    "label": "JEE Advanced",
-    "href": "/exams?q=JEE Advanced"
-   }
-  ],
-  "top_colleges": [
-   {
-    "name": "Indian Institute of Space Science and Technology (IIST)",
-    "q": "Indian Institute of Space Science and Technology"
-   },
-   {
-    "name": "IIT Bombay",
-    "q": "Indian Institute of Technology Bombay"
-   },
-   {
-    "name": "IIT Kharagpur",
-    "q": "Indian Institute of Technology Kharagpur"
-   },
-   {
-    "name": "IIT Kanpur",
-    "q": "Indian Institute of Technology Kanpur"
-   },
-   {
-    "name": "IISc Bangalore",
-    "q": null
-   },
-   {
-    "name": "Manipal Institute of Technology",
-    "q": null
-   }
-  ],
-  "pay": {
-   "start": "\u20b96-10 LPA",
-   "mid": "\u20b912-20 LPA",
-   "senior": "\u20b922-40 LPA"
-  },
-  "recruiters": [
-   "ISRO (Indian Space Research Organisation)",
-   "Skyroot Aerospace",
-   "Agnikul Cosmos",
-   "Hindustan Aeronautics Limited",
-   "Bharat Dynamics",
-   "Antrix Corporation"
-  ],
-  "stability": "High",
-  "automation_risk": "Low",
-  "where_work": "Metro cities mainly",
-  "college_options": [
-   {
-    "college": "Indian Institute of Technology Indore",
-    "branch": "Space Science and Engineering",
-    "exam": "JEE Advanced",
-    "closing": "6,996",
-    "q": "Indian Institute of Technology Indore"
-   }
-  ],
-  "notable_people": [
-   "S. Somanath: Chairman of ISRO",
-   "led Chandrayaan-3 mission | K. Sivan: former ISRO Chairman during Chandrayaan-2"
-  ],
-  "sources": "NIRF rankings, AmbitionBox, Glassdoor India, industry placement reports",
-  "specializations": [
-   {
-    "name": "Satellite Systems Engineering",
-    "blurb": "designs the equipment inside satellites that lets them orbit and communicate"
-   },
-   {
-    "name": "Launch Vehicle Engineering",
-    "blurb": "designs the rockets that carry satellites into space"
-   },
-   {
-    "name": "Propulsion Engineering",
-    "blurb": "designs the engines and fuel systems that power rockets"
-   }
-  ],
-  "riasec": {
-   "code": "IRC",
-   "scores": [
-    70.2,
-    85.9,
-    25.6,
-    14.5,
-    26.7,
-    57.4
-   ]
-  }
- },
- {
   "career_id": "speech-language-pathology",
   "name": "Speech-Language Pathology",
   "branch_id": "AUDI",
@@ -17175,196 +15383,6 @@
     68.7,
     49.6,
     37.1
-   ]
-  }
- },
- {
-  "career_id": "structural-engineering",
-  "name": "Structural Engineering",
-  "branch_id": "CIVILENG",
-  "domain": "Engineering",
-  "eligible_streams": [
-   "Science (PCM)"
-  ],
-  "day_in_life": "A structural engineer figures out how strong a building, bridge, or flyover needs to be so it does not fall down, by doing calculations and checking drawings with architects and site teams. They also visit construction sites to check if steel and concrete are being used the way the design says.",
-  "impact": "The people who made sure the Bandra-Worli Sea Link in Mumbai or the Delhi Metro bridges can carry traffic safely without collapsing are structural engineers. Every tall building you see in cities like Bengaluru or Hyderabad needed one to check it will not crack or tip over.",
-  "entry_exams_text": "JEE Main and JEE Advanced (national engineering entrance exams to get into top government colleges) for a Civil Engineering degree with a later specialization in structures, or state-level engineering entrance exams like MHT-CET or KCET for other colleges.",
-  "exams": [
-   {
-    "label": "AP EAPCET",
-    "href": "/exams?q=AP-EAPCET"
-   },
-   {
-    "label": "BITSAT",
-    "href": "/predictor?exam=BITSAT"
-   },
-   {
-    "label": "GUJCET",
-    "href": "/exams?q=GUJCET"
-   },
-   {
-    "label": "JAC Chandigarh",
-    "href": "/predictor?exam=JAC Chandigarh"
-   },
-   {
-    "label": "JEE Main",
-    "href": "/exams?q=JEE Main"
-   },
-   {
-    "label": "JEE Advanced",
-    "href": "/exams?q=JEE Advanced"
-   },
-   {
-    "label": "KCET",
-    "href": "/exams?q=KCET"
-   },
-   {
-    "label": "KEAM",
-    "href": "/exams?q=KEAM"
-   },
-   {
-    "label": "MHT-CET",
-    "href": "/exams?q=MHT CET"
-   },
-   {
-    "label": "OJEE",
-    "href": "/exams?q=OJEE"
-   },
-   {
-    "label": "TG EAPCET",
-    "href": "/exams?q=TG-EAPCET"
-   },
-   {
-    "label": "TNEA counselling",
-    "href": "/predictor?exam=TNEA"
-   },
-   {
-    "label": "UPTAC",
-    "href": "/predictor?exam=UPTAC"
-   },
-   {
-    "label": "WBJEE",
-    "href": "/exams?q=WBJEE"
-   },
-   {
-    "label": "KEA-CET",
-    "href": "/exams?q=KEA-CET"
-   }
-  ],
-  "top_colleges": [
-   {
-    "name": "IIT Delhi",
-    "q": "Indian Institute of Technology Delhi"
-   },
-   {
-    "name": "IIT Bombay",
-    "q": "Indian Institute of Technology Bombay"
-   },
-   {
-    "name": "IIT Madras",
-    "q": "Indian Institute of Technology Madras"
-   },
-   {
-    "name": "IIT Roorkee",
-    "q": "Indian Institute of Technology Roorkee"
-   },
-   {
-    "name": "NIT Trichy",
-    "q": null
-   },
-   {
-    "name": "VNIT Nagpur",
-    "q": null
-   }
-  ],
-  "pay": {
-   "start": "\u20b93.5-6 LPA",
-   "mid": "\u20b98-15 LPA",
-   "senior": "\u20b918-35 LPA"
-  },
-  "recruiters": [
-   "L&T Construction",
-   "Tata Projects",
-   "DLF",
-   "AECOM",
-   "Shapoorji Pallonji",
-   "Jacobs Engineering"
-  ],
-  "stability": "High",
-  "automation_risk": "Low",
-  "where_work": "Metro cities mainly",
-  "college_options": [
-   {
-    "college": "Indian Institute of Technology Madras",
-    "branch": "Civil Engineering",
-    "exam": "JEE Advanced",
-    "closing": "5,639",
-    "q": "Indian Institute of Technology Madras"
-   },
-   {
-    "college": "M S Ramaiah Institute of Technology, Bangalore(AUTONOMOUS) VIDYA SOUDHA,MSR NAGAR,MSRIT POST,BANGALORE - 560054.",
-    "branch": "CIVIL ENGINEERING",
-    "exam": "KCET",
-    "closing": "30,510",
-    "q": "M S Ramaiah Institute of Technology, Bangalore(AUTONOMOUS) VIDYA SOUDHA,MSR NAGAR,MSRIT POST,BANGALORE - 560054."
-   },
-   {
-    "college": "Jadavpur University",
-    "branch": "Civil Engineering",
-    "exam": "WBJEE",
-    "closing": "741",
-    "q": "Jadavpur University"
-   },
-   {
-    "college": "COEP Technological University",
-    "branch": "Civil Engineering",
-    "exam": "MHT-CET",
-    "closing": "4,694",
-    "q": "COEP Technological University"
-   },
-   {
-    "college": "Veer Surendra Sai University of Technology, Burla",
-    "branch": "Civil Engineering(SSC) - TFW",
-    "exam": "OJEE",
-    "closing": "225,556 (JEE Main rank)",
-    "q": "Veer Surendra Sai University of Technology, Burla"
-   },
-   {
-    "college": "Sri Sivasubramaniya Nadar College of Engineering (Autonomous), Rajiv Gandhi Salai (OMR), Kalavakkam,Kanchipuram District-603110.",
-    "branch": "CIVIL ENGINEERING",
-    "exam": "TNEA",
-    "closing": "192.5/200 marks",
-    "q": "Sri Sivasubramaniya Nadar College of Engineering (Autonomous), Rajiv Gandhi Salai (OMR), Kalavakkam,Kanchipuram District-603110."
-   }
-  ],
-  "notable_people": [
-   "E. Sreedharan (built Delhi Metro)",
-   "Fazlur Rahman Khan (designed Burj Khalifa's structure)"
-  ],
-  "sources": "NIRF rankings, AmbitionBox, Glassdoor India, industry placement reports",
-  "specializations": [
-   {
-    "name": "Bridge Engineering",
-    "blurb": "Designing bridges and flyovers that can safely carry vehicles and withstand weather and earthquakes."
-   },
-   {
-    "name": "Earthquake-Resistant Design",
-    "blurb": "Making buildings strong enough to survive shaking during earthquakes."
-   },
-   {
-    "name": "High-Rise Building Design",
-    "blurb": "Working out how very tall buildings stay stable against wind and their own weight."
-   }
-  ],
-  "riasec": {
-   "code": "IRE",
-   "scores": [
-    61.8,
-    64.2,
-    23.7,
-    22.0,
-    58.8,
-    58.7
    ]
   }
  },

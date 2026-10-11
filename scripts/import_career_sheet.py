@@ -24,6 +24,27 @@ RENAMES = {
     "Business Administration (MBA)": "Business Administration (BBA / MBA)",
     "Airline Pilot Training": "Airline Pilot",
 }
+# careers removed from the sheet on purpose (old name -> the career that
+# covers them). Oct 2026: the Branch sheet merged their branches into
+# another parent, so each was a duplicate of the career on that parent.
+MERGED = {
+    "Biological Science And Engineering": "Biology",
+    "Earth Science And Engineering": "Geology / Geophysics / Geological Technology",
+    "Engineering Science": "General Engineering",
+    "Printing Engineering": "Paper And Printing Engineering",
+    "Space Engineering": "Aerospace Engineering",
+    "Structural Engineering": "Civil Engineering",
+    # the Branch sheet gives each parent one name, so careers named after
+    # one of a branch's old alternative names fold into its main career
+    "Electrical Engineering": "Electrical / Electronics / Communications Engineering",
+    "Electrical And Electronics Engineering": "Electrical / Electronics / Communications Engineering",
+    "Electronics And Communications Engineering": "Electrical / Electronics / Communications Engineering",
+    "Marine Engineering": "Marine / Ocean Engineering",
+    "Ocean Engineering": "Marine / Ocean Engineering",
+    "Mechanical Engineering": "Mechanical / Mechatronics Engineering",
+    "Computer Science And Engineering": "Computer Science / Information Technology",
+    "Data Science": "Artificial Intelligence and Data Science",
+}
 
 
 def main(xlsx):
@@ -34,6 +55,7 @@ def main(xlsx):
 
     old = pd.read_csv(OUT)
     old["Career Name"] = old["Career Name"].str.strip().replace(RENAMES)
+    old = old[~old["Career Name"].isin(MERGED)]
     gone = set(old["Career Name"]) - set(sheet["Career Name"])
     assert not gone, f"careers dropped from the sheet: {sorted(gone)}"
 

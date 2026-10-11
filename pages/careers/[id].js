@@ -14,9 +14,20 @@ export default function CareerPage() {
     if (!router.isReady) return;
     window.scrollTo({ top: 0 });
     loadCareers()
-      .then((all) =>
-        setCareer(all.find((c) => c.career_id === router.query.id) || null)
-      )
+      .then(async (all) => {
+        const found = all.find((c) => c.career_id === router.query.id);
+        if (found) return setCareer(found);
+        // a career merged into another (Electrical Engineering ->
+        // Electrical / Electronics / Communications Engineering): go there
+        const merged = await fetch("/data/careers/merged_careers.json")
+          .then((r) => r.json())
+          .catch(() => ({}));
+        if (merged[router.query.id]) {
+          router.replace(`/careers/${merged[router.query.id]}`);
+          return;
+        }
+        setCareer(null);
+      })
       .catch(() => setCareer(null));
   }, [router.isReady, router.query.id]);
 
