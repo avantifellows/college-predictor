@@ -43089,8 +43089,8 @@
  {
   "college_id": "U-0763",
   "aishe_code": "U-0763",
-  "name": "Parul University",
-  "display_name": "Parul University",
+  "name": "PARUL UNIVERSITY",
+  "display_name": "PARUL UNIVERSITY",
   "state": "Gujarat",
   "state_is_inferred": false,
   "district": "Vadodara",
@@ -43098,6 +43098,8 @@
   "management": null,
   "ownership": "Private",
   "disciplines": [
+   "Engineering",
+   "Medicine",
    "Pharmacy"
   ],
   "year_established": 2015,
@@ -43142,7 +43144,19 @@
   },
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 960000,
+   "percentage_placed": 53.7,
+   "percentage_with_outcome": 81.0,
+   "students_placed": 79,
+   "higher_studies_selected": 40,
+   "first_year_intake": 150,
+   "includes_dual_degree": false,
+   "academic_year": "2023-24",
+   "ranking_year": 2026,
+   "source": "NIRF Medical, MBBS (UG 5-year)",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -43153,7 +43167,7 @@
    "identity": "AISHE 2024-25",
    "programs": null,
    "ranking": "NIRF 2025",
-   "placement": null,
+   "placement": "NIRF 2026 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -76011,6 +76025,7 @@
   "management": null,
   "ownership": "Private",
   "disciplines": [
+   "Engineering",
    "Pharmacy"
   ],
   "year_established": 1982,
@@ -76045,7 +76060,19 @@
   },
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 228200,
+   "percentage_placed": 74.3,
+   "percentage_with_outcome": 84.7,
+   "students_placed": 277,
+   "higher_studies_selected": 39,
+   "first_year_intake": 1080,
+   "includes_dual_degree": false,
+   "academic_year": "2022-23",
+   "ranking_year": 2024,
+   "source": "NIRF Engineering, UG 4-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -76056,7 +76083,7 @@
    "identity": "AISHE 2024-25",
    "programs": null,
    "ranking": "NIRF 2025",
-   "placement": null,
+   "placement": "NIRF 2024 (AY 2022-23)",
    "accreditation": null
   }
  },
@@ -96636,7 +96663,19 @@
   "nirf": null,
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 360000,
+   "percentage_placed": 48.1,
+   "percentage_with_outcome": 62.0,
+   "students_placed": 156,
+   "higher_studies_selected": 45,
+   "first_year_intake": 450,
+   "includes_dual_degree": false,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF Engineering, UG 4-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -96647,7 +96686,7 @@
    "identity": "ACPC 2025",
    "programs": "ACPC 2025",
    "ranking": null,
-   "placement": null,
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -97432,6 +97471,62 @@
    "programs": "TG-EAPCET 2025",
    "ranking": null,
    "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "C-64165",
+  "aishe_code": "C-64165",
+  "name": "AARIHANT HOMOEOPATHIC MEDICAL COLLEGE AND RESEARCH INSTITUTE",
+  "display_name": "AARIHANT HOMOEOPATHIC MEDICAL COLLEGE AND RESEARCH INSTITUTE",
+  "state": "Gujarat",
+  "state_is_inferred": false,
+  "district": "Gandhinagar",
+  "kind": "Constituent / University College",
+  "management": "University",
+  "ownership": null,
+  "disciplines": [
+   "Medicine"
+  ],
+  "year_established": 2017,
+  "website": "http://aarihanthomeopathic.org",
+  "university": null,
+  "entrance_exams": [],
+  "counselling": null,
+  "programs": {
+   "count": 0,
+   "degrees": [],
+   "list": [],
+   "source": null,
+   "rank_note": null
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": {
+   "median_salary": 300000,
+   "percentage_placed": 78.7,
+   "percentage_with_outcome": 95.5,
+   "students_placed": 70,
+   "higher_studies_selected": 15,
+   "first_year_intake": 100,
+   "includes_dual_degree": false,
+   "academic_year": "2023-24",
+   "ranking_year": 2026,
+   "source": "NIRF Medical, MBBS (UG 5-year)",
+   "is_branch_specific": false
+  },
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "AISHE 2024-25",
+   "programs": null,
+   "ranking": null,
+   "placement": "NIRF 2026 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -117069,7 +117164,19 @@
   "nirf": null,
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 50000,
+   "percentage_placed": 18.8,
+   "percentage_with_outcome": 100.0,
+   "students_placed": 15,
+   "higher_studies_selected": 65,
+   "first_year_intake": 380,
+   "includes_dual_degree": false,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF Engineering, UG 4-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -117080,7 +117187,7 @@
    "identity": "TNEA 2025",
    "programs": "TNEA 2025",
    "ranking": null,
-   "placement": null,
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -143390,6 +143497,62 @@
   }
  },
  {
+  "college_id": "C-42740",
+  "aishe_code": "C-42740",
+  "name": "College of Food and Dairy Technology",
+  "display_name": "College of Food and Dairy Technology",
+  "state": "Tamil Nadu",
+  "state_is_inferred": false,
+  "district": "Thiruvallur",
+  "kind": "Constituent / University College",
+  "management": "State Government",
+  "ownership": "Public",
+  "disciplines": [
+   "Engineering"
+  ],
+  "year_established": 1992,
+  "website": "https://www.tanuvas.ac.in",
+  "university": null,
+  "entrance_exams": [],
+  "counselling": null,
+  "programs": {
+   "count": 0,
+   "degrees": [],
+   "list": [],
+   "source": null,
+   "rank_note": null
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": {
+   "median_salary": 360000,
+   "percentage_placed": 75.9,
+   "percentage_with_outcome": 96.6,
+   "students_placed": 44,
+   "higher_studies_selected": 12,
+   "first_year_intake": 60,
+   "includes_dual_degree": false,
+   "academic_year": "2024-25",
+   "ranking_year": 2026,
+   "source": "NIRF Engineering, UG 4-year",
+   "is_branch_specific": false
+  },
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "AISHE 2024-25",
+   "programs": null,
+   "ranking": null,
+   "placement": "NIRF 2026 (AY 2024-25)",
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "nmc:college-of-medicine-and-jnm-hospital-kalyani-nadia",
   "aishe_code": null,
   "name": "College of Medicine and JNM Hospital, Kalyani, Nadia",
@@ -145827,6 +145990,62 @@
    "programs": "WBJEE 2026",
    "ranking": null,
    "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "U-1149",
+  "aishe_code": "U-1149",
+  "name": "DARSHAN UNIVERSITY",
+  "display_name": "DARSHAN UNIVERSITY",
+  "state": "Gujarat",
+  "state_is_inferred": false,
+  "district": "Rajkot",
+  "kind": "State Private University",
+  "management": null,
+  "ownership": "Private",
+  "disciplines": [
+   "Engineering"
+  ],
+  "year_established": 2021,
+  "website": "www.darshan.ac.in",
+  "university": null,
+  "entrance_exams": [],
+  "counselling": null,
+  "programs": {
+   "count": 0,
+   "degrees": [],
+   "list": [],
+   "source": null,
+   "rank_note": null
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": {
+   "median_salary": 300000,
+   "percentage_placed": 69.9,
+   "percentage_with_outcome": 74.2,
+   "students_placed": 165,
+   "higher_studies_selected": 10,
+   "first_year_intake": 255,
+   "includes_dual_degree": false,
+   "academic_year": "2024-25",
+   "ranking_year": 2026,
+   "source": "NIRF Engineering, UG 4-year",
+   "is_branch_specific": false
+  },
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "AISHE 2024-25",
+   "programs": null,
+   "ranking": null,
+   "placement": "NIRF 2026 (AY 2024-25)",
    "accreditation": null
   }
  },
@@ -169120,6 +169339,62 @@
   }
  },
  {
+  "college_id": "U-0962",
+  "aishe_code": "U-0962",
+  "name": "GOKUL GLOBAL UNIVERSITY",
+  "display_name": "GOKUL GLOBAL UNIVERSITY",
+  "state": "Gujarat",
+  "state_is_inferred": false,
+  "district": "Patan",
+  "kind": "State Private University",
+  "management": null,
+  "ownership": "Private",
+  "disciplines": [
+   "Engineering"
+  ],
+  "year_established": 2018,
+  "website": "www.gokuluniversity.ac.in",
+  "university": null,
+  "entrance_exams": [],
+  "counselling": null,
+  "programs": {
+   "count": 0,
+   "degrees": [],
+   "list": [],
+   "source": null,
+   "rank_note": null
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": {
+   "median_salary": 290000,
+   "percentage_placed": 94.9,
+   "percentage_with_outcome": 100.0,
+   "students_placed": 279,
+   "higher_studies_selected": 15,
+   "first_year_intake": 360,
+   "includes_dual_degree": false,
+   "academic_year": "2024-25",
+   "ranking_year": 2026,
+   "source": "NIRF Engineering, UG 4-year",
+   "is_branch_specific": false
+  },
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "AISHE 2024-25",
+   "programs": null,
+   "ranking": null,
+   "placement": "NIRF 2026 (AY 2024-25)",
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "ap-eapcet:GGIB",
   "aishe_code": "C-17978",
   "name": "GOKUL GROUP OF INSTITUTIONS",
@@ -175762,7 +176037,7 @@
  },
  {
   "college_id": "tnea:2603",
-  "aishe_code": null,
+  "aishe_code": "C-37003",
   "name": "Government College of Engineering (Autonomous) Bargur Krishnagiri District 635104",
   "display_name": "Government College of Engineering (Autonomous) Bargur Krishnagiri District 635104",
   "state": "Tamil Nadu",
@@ -175774,8 +176049,8 @@
   "disciplines": [
    "Engineering"
   ],
-  "year_established": null,
-  "website": null,
+  "year_established": 1994,
+  "website": "www.gcebargur.ac.in",
   "university": null,
   "entrance_exams": [
    "TNEA"
@@ -175834,24 +176109,36 @@
   "nirf": null,
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 720000,
+   "percentage_placed": 32.7,
+   "percentage_with_outcome": 33.2,
+   "students_placed": 72,
+   "higher_studies_selected": 1,
+   "first_year_intake": 240,
+   "includes_dual_degree": false,
+   "academic_year": "2024-25",
+   "ranking_year": 2026,
+   "source": "NIRF Engineering, UG 4-year",
+   "is_branch_specific": false
+  },
   "naac": {
-   "grade": null,
-   "cgpa": null,
-   "cycle": null,
+   "grade": "B",
+   "cgpa": 2.3,
+   "cycle": 1,
    "not_applicable_reason": null
   },
   "data_sources": {
    "identity": "TNEA 2025",
    "programs": "TNEA 2025",
    "ranking": null,
-   "placement": null,
-   "accreditation": null
+   "placement": "NIRF 2026 (AY 2024-25)",
+   "accreditation": "NAAC"
   }
  },
  {
   "college_id": "tnea:2615",
-  "aishe_code": null,
+  "aishe_code": "C-36980",
   "name": "Government College of Engineering (Autonomous) Karuppur Salem District 636011",
   "display_name": "Government College of Engineering (Autonomous) Karuppur Salem District 636011",
   "state": "Tamil Nadu",
@@ -175863,8 +176150,8 @@
   "disciplines": [
    "Engineering"
   ],
-  "year_established": null,
-  "website": null,
+  "year_established": 1966,
+  "website": "www.gcesalem.edu.in",
   "university": null,
   "entrance_exams": [
    "TNEA"
@@ -175939,24 +176226,36 @@
   "nirf": null,
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 360000,
+   "percentage_placed": 63.1,
+   "percentage_with_outcome": 65.7,
+   "students_placed": 287,
+   "higher_studies_selected": 12,
+   "first_year_intake": 480,
+   "includes_dual_degree": false,
+   "academic_year": "2024-25",
+   "ranking_year": 2026,
+   "source": "NIRF Engineering, UG 4-year",
+   "is_branch_specific": false
+  },
   "naac": {
-   "grade": null,
-   "cgpa": null,
-   "cycle": null,
+   "grade": "A+",
+   "cgpa": 3.43,
+   "cycle": 2,
    "not_applicable_reason": null
   },
   "data_sources": {
    "identity": "TNEA 2025",
    "programs": "TNEA 2025",
    "ranking": null,
-   "placement": null,
-   "accreditation": null
+   "placement": "NIRF 2026 (AY 2024-25)",
+   "accreditation": "NAAC"
   }
  },
  {
   "college_id": "tnea:2709",
-  "aishe_code": null,
+  "aishe_code": "C-36974",
   "name": "Government College of Engineering (Formerly Institute of Road and Transport Technology) Vasavi College Post Erode District 638316",
   "display_name": "Government College of Engineering (Formerly Institute of Road and Transport Technology) Vasavi College Post Erode District 638316",
   "state": "Tamil Nadu",
@@ -175968,8 +176267,8 @@
   "disciplines": [
    "Engineering"
   ],
-  "year_established": null,
-  "website": null,
+  "year_established": 1984,
+  "website": "www.gcee.ac.in",
   "university": null,
   "entrance_exams": [
    "TNEA"
@@ -176052,7 +176351,19 @@
   "nirf": null,
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 140000,
+   "percentage_placed": 24.8,
+   "percentage_with_outcome": 28.4,
+   "students_placed": 77,
+   "higher_studies_selected": 11,
+   "first_year_intake": 462,
+   "includes_dual_degree": false,
+   "academic_year": "2022-23",
+   "ranking_year": 2024,
+   "source": "NIRF Engineering, UG 4-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -176063,13 +176374,13 @@
    "identity": "TNEA 2025",
    "programs": "TNEA 2025",
    "ranking": null,
-   "placement": null,
+   "placement": "NIRF 2024 (AY 2022-23)",
    "accreditation": null
   }
  },
  {
   "college_id": "tnea:2369",
-  "aishe_code": null,
+  "aishe_code": "C-49133",
   "name": "Government College of Engineering Chettikkarai Post Dharmapuri District 635704",
   "display_name": "Government College of Engineering Chettikkarai Post Dharmapuri District 635704",
   "state": "Tamil Nadu",
@@ -176149,7 +176460,19 @@
   "nirf": null,
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 321000,
+   "percentage_placed": 75.2,
+   "percentage_with_outcome": 79.4,
+   "students_placed": 161,
+   "higher_studies_selected": 9,
+   "first_year_intake": 300,
+   "includes_dual_degree": false,
+   "academic_year": "2024-25",
+   "ranking_year": 2026,
+   "source": "NIRF Engineering, UG 4-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -176160,13 +176483,13 @@
    "identity": "TNEA 2025",
    "programs": "TNEA 2025",
    "ranking": null,
-   "placement": null,
+   "placement": "NIRF 2026 (AY 2024-25)",
    "accreditation": null
   }
  },
  {
   "college_id": "tnea:3464",
-  "aishe_code": null,
+  "aishe_code": "C-49141",
   "name": "Government College of Engineering Gandarvakottai Road Sengipatti Thanjavur District 613402",
   "display_name": "Government College of Engineering Gandarvakottai Road Sengipatti Thanjavur District 613402",
   "state": "Tamil Nadu",
@@ -176246,7 +176569,19 @@
   "nirf": null,
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 300000,
+   "percentage_placed": 79.2,
+   "percentage_with_outcome": 83.1,
+   "students_placed": 183,
+   "higher_studies_selected": 9,
+   "first_year_intake": 300,
+   "includes_dual_degree": false,
+   "academic_year": "2024-25",
+   "ranking_year": 2026,
+   "source": "NIRF Engineering, UG 4-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -176257,13 +176592,13 @@
    "identity": "TNEA 2025",
    "programs": "TNEA 2025",
    "ranking": null,
-   "placement": null,
+   "placement": "NIRF 2026 (AY 2024-25)",
    "accreditation": null
   }
  },
  {
   "college_id": "tnea:5009",
-  "aishe_code": null,
+  "aishe_code": "C-51677",
   "name": "Government College of Engineering Melachokkanathapuram Bodinayakkanur Theni District 625582",
   "display_name": "Government College of Engineering Melachokkanathapuram Bodinayakkanur Theni District 625582",
   "state": "Tamil Nadu",
@@ -176275,8 +176610,8 @@
   "disciplines": [
    "Engineering"
   ],
-  "year_established": null,
-  "website": null,
+  "year_established": 2012,
+  "website": "www.gcebodi.ac.in",
   "university": null,
   "entrance_exams": [
    "TNEA"
@@ -176343,7 +176678,19 @@
   "nirf": null,
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 233067,
+   "percentage_placed": 67.9,
+   "percentage_with_outcome": 69.8,
+   "students_placed": 146,
+   "higher_studies_selected": 4,
+   "first_year_intake": 300,
+   "includes_dual_degree": false,
+   "academic_year": "2024-25",
+   "ranking_year": 2026,
+   "source": "NIRF Engineering, UG 4-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -176354,7 +176701,7 @@
    "identity": "TNEA 2025",
    "programs": "TNEA 2025",
    "ranking": null,
-   "placement": null,
+   "placement": "NIRF 2026 (AY 2024-25)",
    "accreditation": null
   }
  },
@@ -176457,7 +176804,7 @@
  },
  {
   "college_id": "tnea:4974",
-  "aishe_code": null,
+  "aishe_code": "C-27034",
   "name": "Government College of Engineering Tirunelveli District 627007",
   "display_name": "Government College of Engineering Tirunelveli District 627007",
   "state": "Tamil Nadu",
@@ -176545,7 +176892,19 @@
   "nirf": null,
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 340000,
+   "percentage_placed": 51.2,
+   "percentage_with_outcome": 55.6,
+   "students_placed": 212,
+   "higher_studies_selected": 18,
+   "first_year_intake": 420,
+   "includes_dual_degree": false,
+   "academic_year": "2024-25",
+   "ranking_year": 2026,
+   "source": "NIRF Engineering, UG 4-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -176556,7 +176915,7 @@
    "identity": "TNEA 2025",
    "programs": "TNEA 2025",
    "ranking": null,
-   "placement": null,
+   "placement": "NIRF 2026 (AY 2024-25)",
    "accreditation": null
   }
  },
@@ -178653,7 +179012,19 @@
   "nirf": null,
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 231000,
+   "percentage_placed": 17.5,
+   "percentage_with_outcome": 18.7,
+   "students_placed": 29,
+   "higher_studies_selected": 2,
+   "first_year_intake": 270,
+   "includes_dual_degree": false,
+   "academic_year": "2024-25",
+   "ranking_year": 2026,
+   "source": "NIRF Engineering, UG 4-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -178664,7 +179035,7 @@
    "identity": "ACPC 2025",
    "programs": "ACPC 2025",
    "ranking": null,
-   "placement": null,
+   "placement": "NIRF 2026 (AY 2024-25)",
    "accreditation": null
   }
  },
@@ -179406,7 +179777,19 @@
   "nirf": null,
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 257000,
+   "percentage_placed": 43.3,
+   "percentage_with_outcome": 52.8,
+   "students_placed": 278,
+   "higher_studies_selected": 61,
+   "first_year_intake": 630,
+   "includes_dual_degree": false,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF Engineering, UG 4-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -179417,7 +179800,7 @@
    "identity": "ACPC 2025",
    "programs": "ACPC 2025",
    "ranking": null,
-   "placement": null,
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -180166,7 +180549,19 @@
   "nirf": null,
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 339215,
+   "percentage_placed": 36.7,
+   "percentage_with_outcome": 43.2,
+   "students_placed": 204,
+   "higher_studies_selected": 36,
+   "first_year_intake": 570,
+   "includes_dual_degree": false,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF Engineering, UG 4-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -180177,7 +180572,7 @@
    "identity": "ACPC 2025",
    "programs": "ACPC 2025",
    "ranking": null,
-   "placement": null,
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -180336,7 +180731,19 @@
   "nirf": null,
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 264000,
+   "percentage_placed": 26.1,
+   "percentage_with_outcome": 39.9,
+   "students_placed": 112,
+   "higher_studies_selected": 59,
+   "first_year_intake": 420,
+   "includes_dual_degree": false,
+   "academic_year": "2024-25",
+   "ranking_year": 2026,
+   "source": "NIRF Engineering, UG 4-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -180347,7 +180754,7 @@
    "identity": "ACPC 2025",
    "programs": "ACPC 2025",
    "ranking": null,
-   "placement": null,
+   "placement": "NIRF 2026 (AY 2024-25)",
    "accreditation": null
   }
  },
@@ -231144,7 +231551,19 @@
   "nirf": null,
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 500000,
+   "percentage_placed": 73.5,
+   "percentage_with_outcome": 77.4,
+   "students_placed": 1057,
+   "higher_studies_selected": 57,
+   "first_year_intake": 1140,
+   "includes_dual_degree": false,
+   "academic_year": "2024-25",
+   "ranking_year": 2026,
+   "source": "NIRF Engineering, UG 4-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -231155,7 +231574,7 @@
    "identity": "ACPC 2025",
    "programs": "ACPC 2025",
    "ranking": null,
-   "placement": null,
+   "placement": "NIRF 2026 (AY 2024-25)",
    "accreditation": null
   }
  },
@@ -235554,7 +235973,19 @@
   "nirf": null,
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 380000,
+   "percentage_placed": 86.1,
+   "percentage_with_outcome": 88.9,
+   "students_placed": 155,
+   "higher_studies_selected": 5,
+   "first_year_intake": 300,
+   "includes_dual_degree": false,
+   "academic_year": "2024-25",
+   "ranking_year": 2026,
+   "source": "NIRF Engineering, UG 4-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": "A",
    "cgpa": 3.11,
@@ -235565,7 +235996,7 @@
    "identity": "TNEA 2025",
    "programs": "TNEA 2025",
    "ranking": null,
-   "placement": null,
+   "placement": "NIRF 2026 (AY 2024-25)",
    "accreditation": "NAAC"
   }
  },
@@ -243929,7 +244360,19 @@
   "nirf": null,
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 420000,
+   "percentage_placed": 20.0,
+   "percentage_with_outcome": 68.1,
+   "students_placed": 57,
+   "higher_studies_selected": 137,
+   "first_year_intake": 240,
+   "includes_dual_degree": false,
+   "academic_year": "2023-24",
+   "ranking_year": 2025,
+   "source": "NIRF Engineering, UG 4-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -243940,7 +244383,7 @@
    "identity": "ACPC 2025",
    "programs": "ACPC 2025",
    "ranking": null,
-   "placement": null,
+   "placement": "NIRF 2025 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -271284,6 +271727,62 @@
    "programs": "ACPC 2025",
    "ranking": null,
    "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "U-0873",
+  "aishe_code": "U-0873",
+  "name": "P.P. Savani University",
+  "display_name": "P.P. Savani University",
+  "state": "Gujarat",
+  "state_is_inferred": false,
+  "district": "Surat",
+  "kind": "State Private University",
+  "management": null,
+  "ownership": "Private",
+  "disciplines": [
+   "Engineering"
+  ],
+  "year_established": 2015,
+  "website": "www.ppsu.ac.in",
+  "university": null,
+  "entrance_exams": [],
+  "counselling": null,
+  "programs": {
+   "count": 0,
+   "degrees": [],
+   "list": [],
+   "source": null,
+   "rank_note": null
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": {
+   "median_salary": 550000,
+   "percentage_placed": 88.5,
+   "percentage_with_outcome": 100.0,
+   "students_placed": 300,
+   "higher_studies_selected": 39,
+   "first_year_intake": 578,
+   "includes_dual_degree": false,
+   "academic_year": "2024-25",
+   "ranking_year": 2026,
+   "source": "NIRF Engineering, UG 4-year",
+   "is_branch_specific": false
+  },
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "AISHE 2024-25",
+   "programs": null,
+   "ranking": null,
+   "placement": "NIRF 2026 (AY 2024-25)",
    "accreditation": null
   }
  },
@@ -309091,6 +309590,60 @@
   }
  },
  {
+  "college_id": "C-71911",
+  "aishe_code": "C-71911",
+  "name": "SWARRNIM SCIENCE COLLEGE",
+  "display_name": "SWARRNIM SCIENCE COLLEGE",
+  "state": "Gujarat",
+  "state_is_inferred": false,
+  "district": "Gandhinagar",
+  "kind": "Constituent / University College",
+  "management": "University",
+  "ownership": null,
+  "disciplines": [],
+  "year_established": null,
+  "website": "https://www.swarrnim.edu.in",
+  "university": null,
+  "entrance_exams": [],
+  "counselling": null,
+  "programs": {
+   "count": 0,
+   "degrees": [],
+   "list": [],
+   "source": null,
+   "rank_note": null
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": {
+   "median_salary": 485000,
+   "percentage_placed": 35.7,
+   "percentage_with_outcome": 100.0,
+   "students_placed": 15,
+   "higher_studies_selected": 27,
+   "first_year_intake": 45,
+   "includes_dual_degree": false,
+   "academic_year": "2024-25",
+   "ranking_year": 2026,
+   "source": "NIRF College, UG 3-year",
+   "is_branch_specific": false
+  },
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "AISHE 2024-25",
+   "programs": null,
+   "ranking": null,
+   "placement": "NIRF 2026 (AY 2024-25)",
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "uptac:sagar institute technology management barabanki",
   "aishe_code": "S-23921",
   "name": "Sagar Institute of Technology & Management, Barabanki",
@@ -312658,7 +313211,19 @@
   "nirf": null,
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 240000,
+   "percentage_placed": 63.2,
+   "percentage_with_outcome": 81.6,
+   "students_placed": 110,
+   "higher_studies_selected": 32,
+   "first_year_intake": 660,
+   "includes_dual_degree": false,
+   "academic_year": "2024-25",
+   "ranking_year": 2026,
+   "source": "NIRF Engineering, UG 4-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -312669,7 +313234,7 @@
    "identity": "ACPC 2025",
    "programs": "ACPC 2025",
    "ranking": null,
-   "placement": null,
+   "placement": "NIRF 2026 (AY 2024-25)",
    "accreditation": null
   }
  },
@@ -346482,7 +347047,19 @@
   "nirf": null,
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 850000,
+   "percentage_placed": 97.7,
+   "percentage_with_outcome": 100.0,
+   "students_placed": 129,
+   "higher_studies_selected": 3,
+   "first_year_intake": 390,
+   "includes_dual_degree": false,
+   "academic_year": "2024-25",
+   "ranking_year": 2026,
+   "source": "NIRF Engineering, UG 4-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -346493,7 +347070,7 @@
    "identity": "ACPC 2025",
    "programs": "ACPC 2025",
    "ranking": null,
-   "placement": null,
+   "placement": "NIRF 2026 (AY 2024-25)",
    "accreditation": null
   }
  },
@@ -357275,7 +357852,7 @@
  },
  {
   "college_id": "tnea:4023",
-  "aishe_code": null,
+  "aishe_code": "C-27035",
   "name": "University College of Engineering Nagercoil Nagercoil Industrial Estate Konam Kanyakumari District 629004",
   "display_name": "University College of Engineering Nagercoil Nagercoil Industrial Estate Konam Kanyakumari District 629004",
   "state": "Tamil Nadu",
@@ -357371,7 +357948,19 @@
   "nirf": null,
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 644166,
+   "percentage_placed": 58.1,
+   "percentage_with_outcome": 90.1,
+   "students_placed": 216,
+   "higher_studies_selected": 119,
+   "first_year_intake": 540,
+   "includes_dual_degree": false,
+   "academic_year": "2024-25",
+   "ranking_year": 2026,
+   "source": "NIRF Engineering, UG 4-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -357382,7 +357971,7 @@
    "identity": "TNEA 2025",
    "programs": "TNEA 2025",
    "ranking": null,
-   "placement": null,
+   "placement": "NIRF 2026 (AY 2024-25)",
    "accreditation": null
   }
  },
@@ -357937,7 +358526,7 @@
  },
  {
   "college_id": "tnea:3011",
-  "aishe_code": null,
+  "aishe_code": "C-59033",
   "name": "University College of Engineering Tiruchirappalli (Bharathidasan Institute of Technology) Tiruchirappalli District 620024",
   "display_name": "University College of Engineering Tiruchirappalli (Bharathidasan Institute of Technology) Tiruchirappalli District 620024",
   "state": "Tamil Nadu",
@@ -357950,8 +358539,8 @@
    "Engineering",
    "Pharmacy"
   ],
-  "year_established": null,
-  "website": null,
+  "year_established": 1999,
+  "website": "www.aubit.edu.in",
   "university": null,
   "entrance_exams": [
    "TNEA"
@@ -358115,7 +358704,19 @@
   "nirf": null,
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 700000,
+   "percentage_placed": 88.0,
+   "percentage_with_outcome": 96.8,
+   "students_placed": 711,
+   "higher_studies_selected": 71,
+   "first_year_intake": 1080,
+   "includes_dual_degree": false,
+   "academic_year": "2024-25",
+   "ranking_year": 2026,
+   "source": "NIRF Engineering, UG 4-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -358126,7 +358727,7 @@
    "identity": "TNEA 2025",
    "programs": "TNEA 2025",
    "ranking": null,
-   "placement": null,
+   "placement": "NIRF 2026 (AY 2024-25)",
    "accreditation": null
   }
  },
@@ -361934,6 +362535,62 @@
    "programs": "AP-EAPCET 2025",
    "ranking": null,
    "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "C-53278",
+  "aishe_code": "C-53278",
+  "name": "VENUS INSTITUTE OF PHYSIOTHERAPY",
+  "display_name": "VENUS INSTITUTE OF PHYSIOTHERAPY",
+  "state": "Gujarat",
+  "state_is_inferred": false,
+  "district": "Gandhinagar",
+  "kind": "Constituent / University College",
+  "management": "University",
+  "ownership": null,
+  "disciplines": [
+   "Medicine"
+  ],
+  "year_established": 2015,
+  "website": "https://www.swarrnim.edu.in",
+  "university": null,
+  "entrance_exams": [],
+  "counselling": null,
+  "programs": {
+   "count": 0,
+   "degrees": [],
+   "list": [],
+   "source": null,
+   "rank_note": null
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": {
+   "median_salary": 180000,
+   "percentage_placed": 77.8,
+   "percentage_with_outcome": 77.8,
+   "students_placed": 21,
+   "higher_studies_selected": 0,
+   "first_year_intake": 50,
+   "includes_dual_degree": false,
+   "academic_year": "2023-24",
+   "ranking_year": 2026,
+   "source": "NIRF Medical, MBBS (UG 5-year)",
+   "is_branch_specific": false
+  },
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "AISHE 2024-25",
+   "programs": null,
+   "ranking": null,
+   "placement": "NIRF 2026 (AY 2023-24)",
    "accreditation": null
   }
  },
@@ -374191,7 +374848,19 @@
   "nirf": null,
   "ug_gender": null,
   "fees": null,
-  "placement": null,
+  "placement": {
+   "median_salary": 485444,
+   "percentage_placed": 53.0,
+   "percentage_with_outcome": 56.2,
+   "students_placed": 445,
+   "higher_studies_selected": 27,
+   "first_year_intake": 720,
+   "includes_dual_degree": false,
+   "academic_year": "2024-25",
+   "ranking_year": 2026,
+   "source": "NIRF Engineering, UG 4-year",
+   "is_branch_specific": false
+  },
   "naac": {
    "grade": null,
    "cgpa": null,
@@ -374202,7 +374871,7 @@
    "identity": "ACPC 2025",
    "programs": "ACPC 2025",
    "ranking": null,
-   "placement": null,
+   "placement": "NIRF 2026 (AY 2024-25)",
    "accreditation": null
   }
  },

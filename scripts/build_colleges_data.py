@@ -1149,6 +1149,13 @@ AISHE_ID_PINS = {
     "mhtcet:02553": "C-57752",     # Latur College of Pharmacy, Hasegaon
     "mhtcet:02539": None,          # Rajesh Bhaiyya Tope College of Pharmacy: AISHE has only the B.Pharmacy one
     "uptac:rajkiya engineering college sonebhadra": "C-61983",
+    # TNEA's long names miss the matcher; codes from each college's own NIRF
+    # filing (website DCS PDF), else a duplicate NIRF-only card appears
+    "tnea:2615": "C-36980",        # GCE Salem (Karuppur)
+    "tnea:2603": "C-37003",        # GCE Bargur, Krishnagiri
+    "tnea:5009": "C-51677",        # GCE Bodinayakkanur, Theni
+    "tnea:2709": "C-36974",        # GCE Erode, formerly IRTT
+    "tnea:3011": "C-59033",        # UCE Tiruchirappalli (BIT Campus)
 }
 
 
