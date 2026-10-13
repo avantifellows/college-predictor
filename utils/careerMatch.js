@@ -8,10 +8,9 @@
 // 2. tie-breaker picks nudge close types apart
 // 3. match %: cosine similarity between the whole six-type profile and each
 //    career's scores (tested best for students who answer sincerely)
-// 4. strong fits (within STRONG_GAP points of the student's best match, and
-//    at least STRONG_MIN) are ordered by favourite subjects first: a career
-//    using the 1st-choice subject leads, then the 2nd, ... and match % after
-// 5. everything else follows by match %
+// 4. favourite subjects add a bonus (SUBJECT_BONUS points per subject
+//    score unit, at most +10): the list is in one order, interests first
+//    with subjects pulling their careers up
 
 export const RIASEC = ["R", "I", "A", "S", "E", "C"];
 
@@ -37,10 +36,10 @@ export const RIASEC_TYPES = {
 export const TIE_GAP = 10;
 // a tie-breaker pick nudges the chosen type ahead by this much
 const TIE_NUDGE = 3;
-// match % is compressed (most careers land between 80 and 100) and how much
-// depends on the student, so "strong" is relative to their own best match
-export const STRONG_GAP = 10;
-export const STRONG_MIN = 80;
+// match % is compressed (most careers land between 80 and 100), so a few
+// points move a career a long way: a career on the 1st-choice subject gains
+// 6, one using all three up to 10
+const SUBJECT_BONUS = 2;
 const RANK_WEIGHT = [3, 2, 1];
 const TAG_WEIGHT = [1, 0.75, 0.5];
 
@@ -130,28 +129,13 @@ export const matchCareers = ({
   n = 10,
 }) => {
   const mine = RIASEC.map((k) => profile[k]);
-  const scored = careers
+  return careers
     .filter((c) => c.riasec?.scores)
     .map((c) => {
-      const tags = careerSubjects[c.name] || [];
-      return {
-        career: c,
-        match: cosine(mine, c.riasec.scores) * 100,
-        subject: subjectScore(subjects, tags),
-        subjects: subjects.filter((x) => tags.includes(x)),
-      };
-    });
-  const best = Math.max(0, ...scored.map((m) => m.match));
-  const cutoff = Math.max(STRONG_MIN, best - STRONG_GAP);
-  scored.forEach((m) => {
-    m.strong = m.match >= cutoff;
-  });
-  scored.sort(
-    (x, y) =>
-      y.strong - x.strong ||
-      (x.strong ? y.subject - x.subject : 0) ||
-      y.match - x.match ||
-      y.subject - x.subject
-  );
-  return { cutoff, matches: scored.slice(0, n) };
+      const match = cosine(mine, c.riasec.scores) * 100;
+      const subject = subjectScore(subjects, careerSubjects[c.name] || []);
+      return { career: c, score: match + SUBJECT_BONUS * subject };
+    })
+    .sort((x, y) => y.score - x.score)
+    .slice(0, n);
 };
