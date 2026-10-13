@@ -39,7 +39,7 @@ def main() -> int:
 
     for c in rows:
         nirf, place, prog = c["nirf"], c["placement"], c["programs"]
-        medical = c["counselling"].startswith("MCC")
+        medical = (c["counselling"] or "").startswith("MCC")
         mhtcet = not medical and c["counselling"] != "JoSAA"  # every state spine + CLAT
 
         # identity
