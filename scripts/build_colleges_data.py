@@ -1533,7 +1533,10 @@ def add_nirf_only_cards(client, rows):
       SELECT REGEXP_EXTRACT(institute_id, r'-([UCS]-[0-9]+)$'), institute_id, institute_name, discipline, edition_year
       FROM `{D}.nirf_fact_dcs_placements`)
     SELECT aishe, ARRAY_AGG(DISTINCT list) AS lists, MAX(yr) AS last_year,
-           ARRAY_AGG(STRUCT(institute_id, institute_name) ORDER BY yr DESC LIMIT 1)[OFFSET(0)] AS latest
+           -- the latest filing that prints a name: MITS Madanapalle's 2026
+           -- copy leaves "Institute Name:" blank
+           ARRAY_AGG(IF(institute_name IS NULL, NULL, STRUCT(institute_id, institute_name))
+                     IGNORE NULLS ORDER BY yr DESC LIMIT 1)[SAFE_OFFSET(0)] AS latest
     FROM ids WHERE aishe IS NOT NULL GROUP BY aishe""").to_dataframe()
     a = client.query(f"""
     SELECT aishe_code, name, state, district, website, year_of_establishment AS est,
@@ -1547,6 +1550,7 @@ def add_nirf_only_cards(client, rows):
     ids = {x["college_id"] for x in rows}
     todo = r[~r.aishe.isin(have) & r.aishe.isin(a.index)].copy()
     todo["state"] = todo.aishe.map(a.state)
+    todo = todo[todo.latest.notna()]
     todo["institute_id"] = todo.latest.map(lambda v: v["institute_id"])
     todo["institute_name"] = todo.latest.map(lambda v: v["institute_name"])
 
