@@ -1,7 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
-import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import {
   ArrowDown,
@@ -17,6 +16,7 @@ import {
   RIASEC,
   RIASEC_TYPES,
   adjustedProfile,
+  fitBand,
   isFlat,
   matchCareers,
   ordered,
@@ -35,14 +35,20 @@ import {
 // scores, with a small boost for careers that use the picked subjects
 // (utils/careerMatch.js).
 
-const Dropdown = dynamic(() => import("../components/dropdown"), {
-  ssr: false,
-});
-
 const STORE = "futures:careerQuiz2";
 // the Careers page's class-12 streams; each career belongs to one (its
 // parent stream, careers.json parent_stream)
-const STREAMS = ["All", "Science (PCM)", "Science (PCB)", "Commerce", "Arts"];
+const STREAMS = ["Science (PCM)", "Science (PCB)", "Commerce", "Arts"];
+// the results open on the stream of the 1st-choice subject
+const SUBJECT_STREAM = {
+  Physics: "Science (PCM)",
+  Chemistry: "Science (PCM)",
+  Maths: "Science (PCM)",
+  "Computer Science": "Science (PCM)",
+  Biology: "Science (PCB)",
+  "Economics / Accountancy": "Commerce",
+};
+const streamOf = (subject) => SUBJECT_STREAM[subject] || "Arts";
 const PER_PAGE = 6;
 const TYPE_COLOUR = {
   R: "#a24b3f",
@@ -95,6 +101,25 @@ const PayTier = ({ tier }) => {
           ₹
         </span>
       ))}
+    </span>
+  );
+};
+
+// match % as a band (utils/careerMatch.js FIT_BANDS), strongest darkest
+const FIT_STYLE = {
+  great: "bg-[#B52326] text-white",
+  good: "bg-[#f6d9d4] text-[#8f2e31]",
+  fair: "bg-[#f3efed] text-[#7a635d]",
+};
+const FitBadge = ({ match }) => {
+  const b = fitBand(match);
+  return (
+    <span
+      className={`inline-block whitespace-nowrap rounded-full px-2.5 py-1 text-xs font-bold ${
+        FIT_STYLE[b.tone]
+      }`}
+    >
+      {b.label}
     </span>
   );
 };
@@ -188,23 +213,37 @@ export default function CareerQuiz() {
     [rawProfile, tiePicks]
   );
   const router = useRouter();
-  // the results table's stream filter: careers whose parent stream it is
-  const [stream, setStream] = useState("All");
-  const result = useMemo(
+  // results: one top 10 per stream (careers whose parent stream it is),
+  // shown one stream at a time in a carousel
+  const results = useMemo(
     () =>
       screen === "results" && careers && profile
-        ? matchCareers({
-            profile,
-            subjects: ranked,
-            careers:
-              stream === "All"
-                ? careers
-                : careers.filter((c) => c.parent_stream === stream),
-            careerSubjects: quiz.careerSubjects,
-          })
+        ? STREAMS.map((st) =>
+            matchCareers({
+              profile,
+              subjects: ranked,
+              careers: careers.filter((c) => c.parent_stream === st),
+              careerSubjects: quiz.careerSubjects,
+            })
+          )
         : null,
-    [screen, careers, profile, ranked, quiz, stream]
+    [screen, careers, profile, ranked, quiz]
   );
+  // the stream on show: the 1st-choice subject's until the student moves
+  const [streamPick, setStreamPick] = useState(null);
+  useEffect(() => setStreamPick(null), [ranked]);
+  const streamIdx =
+    streamPick ?? Math.max(0, STREAMS.indexOf(streamOf(ranked[0])));
+  const showStream = (i) =>
+    setStreamPick(Math.max(0, Math.min(STREAMS.length - 1, i)));
+  const touch = useRef(null);
+  const slides = useRef([]);
+  // off-screen slides can't take focus or clicks
+  useEffect(() => {
+    slides.current.forEach((el, i) => {
+      if (el) el.inert = i !== streamIdx;
+    });
+  }, [streamIdx, results]);
 
   const start = () => setState({ ...EMPTY, screen: "quiz" });
   const goBack = () =>
@@ -666,7 +705,7 @@ export default function CareerQuiz() {
   );
 
   const renderResults = () => {
-    if (!result) return null;
+    if (!results) return null;
     const order = ordered(profile);
     return (
       <div className="mx-auto max-w-3xl space-y-5">
@@ -743,103 +782,162 @@ export default function CareerQuiz() {
         </div>
 
         <div className={card}>
-          <h2 className="text-2xl font-black text-[#2f2320]">
-            Careers that fit you
-          </h2>
-          <p className="mt-1 text-sm leading-relaxed text-[#6d5550]">
-            Match is how closely a career fits your interests. Among your
-            closest matches, careers that use your favourite subjects come
-            first. Pay is a rough guide: ₹₹₹ high, ₹₹ mid, ₹ lower. Open a
-            career to see the work, pay and the exams that lead there.
-          </p>
-          <label className="mt-5 block max-w-xs">
-            <span className="mb-1.5 block text-xs font-semibold uppercase tracking-wide text-[#7a635d]">
-              Stream
-            </span>
-            <Dropdown
-              options={STREAMS.map((st) => ({
-                value: st,
-                label: st === "All" ? "All streams" : st,
-              }))}
-              selectedValue={stream}
-              onChange={(o) => setStream(o.value)}
-              isSearchable={false}
-            />
-          </label>
-          {result.matches.length === 0 ? (
-            <p className="mt-5 text-sm text-[#6d5550]">
-              No careers for this stream.
-            </p>
-          ) : (
-            <div className="mt-4 overflow-hidden rounded-xl border border-[#eaded8]">
-              <table className="w-full text-left text-sm">
-                <thead className="bg-[#fbeeec] text-xs font-bold uppercase tracking-[0.04em] text-[#7a635d]">
-                  <tr>
-                    <th scope="col" className="w-8 py-2.5 pl-3 pr-1 sm:pl-4">
-                      #
-                    </th>
-                    <th scope="col" className="px-2 py-2.5">
-                      Career
-                    </th>
-                    <th
-                      scope="col"
-                      className="hidden px-2 py-2.5 sm:table-cell"
-                    >
-                      Stream
-                    </th>
-                    <th scope="col" className="px-2 py-2.5">
-                      Pay
-                    </th>
-                    <th
-                      scope="col"
-                      className="py-2.5 pl-2 pr-3 text-right sm:pr-4"
-                    >
-                      Match
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {result.matches.map((m, i) => {
-                    const c = m.career;
-                    const href = `/careers/${c.career_id}`;
-                    return (
-                      <tr
-                        key={c.career_id}
-                        onClick={() => router.push(href)}
-                        className="cursor-pointer border-t border-[#f1e6e0] align-top transition hover:bg-[#fffaf6]"
-                      >
-                        <td className="py-3 pl-3 pr-1 font-bold tabular-nums text-[#b9a39c] sm:pl-4">
-                          {i + 1}
-                        </td>
-                        <td className="px-2 py-3">
-                          <Link
-                            href={href}
-                            onClick={(e) => e.stopPropagation()}
-                            className="font-bold text-[#2f2320] hover:text-[#B52326] hover:underline"
-                          >
-                            {c.name}
-                          </Link>
-                          {/* phones: the stream sits under the name */}
-                          <div className="mt-0.5 text-xs text-[#7a635d] sm:hidden">
-                            {c.parent_stream}
-                          </div>
-                        </td>
-                        <td className="hidden whitespace-nowrap px-2 py-3 text-[#5c4b46] sm:table-cell">
-                          {c.parent_stream}
-                        </td>
-                        <td className="whitespace-nowrap px-2 py-3">
-                          <PayTier tier={c.pay_tier} />
-                        </td>
-                        <td className="whitespace-nowrap py-3 pl-2 pr-3 text-right font-bold tabular-nums text-[#B52326] sm:pr-4">
-                          {Math.round(m.match)}%
-                        </td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
+          <section
+            aria-roledescription="carousel"
+            aria-label="Your top 10 career matches by stream"
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === "ArrowLeft") showStream(streamIdx - 1);
+              if (e.key === "ArrowRight") showStream(streamIdx + 1);
+            }}
+            onTouchStart={(e) => {
+              const t = e.touches[0];
+              touch.current = { x: t.clientX, y: t.clientY };
+            }}
+            onTouchEnd={(e) => {
+              if (!touch.current) return;
+              const t = e.changedTouches[0];
+              const dx = t.clientX - touch.current.x;
+              const dy = t.clientY - touch.current.y;
+              touch.current = null;
+              // a sideways swipe, not a scroll
+              if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy))
+                showStream(streamIdx + (dx < 0 ? 1 : -1));
+            }}
+            className="rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-[#B52326]/40"
+          >
+            <div className="flex items-center justify-between gap-2">
+              <button
+                type="button"
+                onClick={() => showStream(streamIdx - 1)}
+                disabled={streamIdx === 0}
+                aria-label="Previous stream"
+                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-[#B52326] transition hover:bg-[#fbeeec] disabled:opacity-25 disabled:hover:bg-transparent"
+              >
+                <ArrowLeft size={20} />
+              </button>
+              <div className="min-w-0 text-center" aria-live="polite">
+                <p className="text-sm font-semibold text-[#7a635d]">
+                  Your top 10 career matches in
+                </p>
+                <h2 className="text-2xl font-black text-[#2f2320]">
+                  {STREAMS[streamIdx]}
+                </h2>
+              </div>
+              <button
+                type="button"
+                onClick={() => showStream(streamIdx + 1)}
+                disabled={streamIdx === STREAMS.length - 1}
+                aria-label="Next stream"
+                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-[#B52326] transition hover:bg-[#fbeeec] disabled:opacity-25 disabled:hover:bg-transparent"
+              >
+                <ArrowRight size={20} />
+              </button>
             </div>
-          )}
+            <div className="mt-2 flex justify-center gap-1.5">
+              {STREAMS.map((st, i) => (
+                <button
+                  key={st}
+                  type="button"
+                  onClick={() => showStream(i)}
+                  aria-label={st}
+                  aria-current={i === streamIdx}
+                  className="flex h-6 w-6 items-center justify-center"
+                >
+                  <span
+                    className={`block h-2 rounded-full transition-all ${
+                      i === streamIdx ? "w-5 bg-[#B52326]" : "w-2 bg-[#e3d4ce]"
+                    }`}
+                  />
+                </button>
+              ))}
+            </div>
+            <p className="mt-2 text-center text-sm text-[#6d5550]">
+              Pay ranges are indicative. Click on a career to know more.
+            </p>
+            <div className="mt-3 overflow-hidden">
+              <div
+                className="flex transition-transform duration-300 ease-out"
+                style={{ transform: `translateX(-${streamIdx * 100}%)` }}
+              >
+                {STREAMS.map((st, si) => (
+                  <div
+                    key={st}
+                    ref={(el) => {
+                      slides.current[si] = el;
+                    }}
+                    aria-hidden={si !== streamIdx}
+                    className="w-full shrink-0"
+                  >
+                    {results[si].matches.length === 0 ? (
+                      <p className="py-6 text-center text-sm text-[#6d5550]">
+                        No careers for this stream.
+                      </p>
+                    ) : (
+                      <div className="overflow-hidden rounded-xl border border-[#eaded8]">
+                        <table className="w-full text-left text-sm">
+                          <thead className="bg-[#fbeeec] text-xs font-bold uppercase tracking-[0.04em] text-[#7a635d]">
+                            <tr>
+                              <th
+                                scope="col"
+                                className="w-8 py-2.5 pl-3 pr-1 sm:pl-4"
+                              >
+                                #
+                              </th>
+                              <th scope="col" className="px-2 py-2.5">
+                                Career
+                              </th>
+                              <th scope="col" className="px-2 py-2.5">
+                                Pay
+                              </th>
+                              <th
+                                scope="col"
+                                className="py-2.5 pl-2 pr-3 text-right sm:pr-4"
+                              >
+                                Fit
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {results[si].matches.map((m, i) => {
+                              const c = m.career;
+                              const href = `/careers/${c.career_id}`;
+                              return (
+                                <tr
+                                  key={c.career_id}
+                                  onClick={() => router.push(href)}
+                                  className="cursor-pointer border-t border-[#f1e6e0] align-top transition hover:bg-[#fffaf6]"
+                                >
+                                  <td className="py-3 pl-3 pr-1 font-bold tabular-nums text-[#b9a39c] sm:pl-4">
+                                    {i + 1}
+                                  </td>
+                                  <td className="px-2 py-3">
+                                    <Link
+                                      href={href}
+                                      onClick={(e) => e.stopPropagation()}
+                                      className="font-bold text-[#2f2320] hover:text-[#B52326] hover:underline"
+                                    >
+                                      {c.name}
+                                    </Link>
+                                  </td>
+                                  <td className="whitespace-nowrap px-2 py-3">
+                                    <PayTier tier={c.pay_tier} />
+                                  </td>
+                                  <td className="py-3 pl-2 pr-3 text-right sm:pr-4">
+                                    <FitBadge match={m.match} />
+                                  </td>
+                                </tr>
+                              );
+                            })}
+                          </tbody>
+                        </table>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
           <div className="mt-6 flex flex-wrap gap-3">
             <button
               type="button"

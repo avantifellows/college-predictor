@@ -155,3 +155,14 @@ export const matchCareers = ({
   );
   return { cutoff, matches: scored.slice(0, n) };
 };
+
+// The results show a band, not the raw %: match % is compressed (most
+// careers land between 80 and 100), so a number invites over-reading
+// 93 vs 91. `min` is exclusive: above 85 is a great fit.
+export const FIT_BANDS = [
+  { min: 85, label: "Great fit", tone: "great" },
+  { min: 70, label: "Good fit", tone: "good" },
+  { min: -Infinity, label: "Average fit", tone: "fair" },
+];
+
+export const fitBand = (match) => FIT_BANDS.find((b) => match > b.min);
