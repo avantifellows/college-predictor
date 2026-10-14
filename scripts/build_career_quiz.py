@@ -1,6 +1,6 @@
 """
-Build public/data/careers/quiz.json, the Career Quiz, from Amogh's
-riasec_quiz.xlsx, kept in data-sources as four CSVs:
+Build public/data/careers/quiz.json, the Career Quiz, from the quiz sheet
+(riasec_quiz.xlsx), kept in data-sources as four CSVs:
 
   career_quiz_statements.csv   "Self Rating": 30 statements, 5 per RIASEC
                                type, rated Strongly disagree .. Strongly agree

@@ -210,28 +210,46 @@ export default function CareerQuiz() {
   const goBack = () =>
     step === 0 ? set({ screen: "intro" }) : set({ step: step - 1 });
 
-  // leaving the statements: settle which tie-breakers to ask, from the
-  // ratings as they now stand (an answer changed later asks afresh)
-  const finishRatings = () => {
+  // which tie-breakers to ask, from the ratings as they now stand (an
+  // answer changed later asks afresh)
+  const settleTies = () => {
     const ids = tiebreakersFor(rawProfile, quiz.tiebreakers).map((t) => t.id);
-    set({
-      step: step + 1,
+    return {
       tieIds: ids,
       tiePicks: Object.fromEntries(
         Object.entries(tiePicks).filter(([id]) => ids.includes(Number(id)))
       ),
-    });
+    };
   };
+  const finishRatings = () => set({ step: step + 1, ...settleTies() });
+  // to the results, unless a changed answer raised a new tie-breaker
+  const toResults = () => {
+    const ties = settleTies();
+    const open = ties.tieIds.findIndex((id) => !(id in ties.tiePicks));
+    set(
+      open >= 0
+        ? { ...ties, step: ratePages + open }
+        : { ...ties, screen: "results" }
+    );
+  };
+  // everything answered (as after "Change my answers"): any screen can
+  // jump straight back to the results
+  const complete =
+    statements.length > 0 &&
+    statements.every((x) => ratings[x.id]) &&
+    ranked.length === 3;
 
   const rate = (s, v, pageItems) => {
     setState((st) => ({ ...st, ratings: { ...st.ratings, [s.id]: v } }));
-    // bring the next unanswered statement on this screen into view
-    const nextItem = pageItems.find((x) => x.id !== s.id && !ratings[x.id]);
+    // bring the next unanswered statement below this one into view, only
+    // if it is off the bottom of the screen: never scroll back up
+    const after = pageItems.slice(pageItems.indexOf(s) + 1);
+    const nextItem = after.find((x) => !ratings[x.id]);
     if (nextItem) {
       setTimeout(() => {
-        document
-          .getElementById(`st-${nextItem.id}`)
-          ?.scrollIntoView({ behavior: "smooth", block: "center" });
+        const el = document.getElementById(`st-${nextItem.id}`);
+        if (el && el.getBoundingClientRect().bottom > window.innerHeight)
+          el.scrollIntoView({ behavior: "smooth", block: "center" });
       }, 120);
     }
   };
@@ -348,25 +366,30 @@ export default function CareerQuiz() {
           Find careers that fit what you enjoy
         </h1>
         <p className="mt-3 text-[15px] leading-relaxed text-[#5c4b46]">
-          Tell us how much you agree with {quiz?.statements.length || 30} short
-          statements about what you like doing, then pick your favourite
-          subjects. There are no right answers: be honest, not ambitious. We
-          match you to {careers?.length || "150+"} careers.
+          No right answers: be honest, not ambitious. About 6 minutes.
         </p>
-        <ul className="mt-5 grid gap-2 text-sm text-[#5c4b46] sm:grid-cols-3">
-          <li className="rounded-xl bg-[#fbeeec] px-4 py-3">
-            <b className="block text-[#2f2320]">About 6 minutes</b>
-            Six statements a screen
+        <ol className="mt-5 flex flex-col gap-2 text-sm sm:flex-row sm:items-stretch">
+          {[
+            [`${quiz?.statements.length || 30} statements`, "What you enjoy"],
+            ["3 favourite subjects", "In order"],
+          ].map(([title, sub]) => (
+            <React.Fragment key={title}>
+              <li className="flex-1 rounded-xl bg-[#fbeeec] px-4 py-3 text-[#5c4b46]">
+                <b className="block text-[#2f2320]">{title}</b>
+                {sub}
+              </li>
+              <ArrowRight
+                size={18}
+                aria-hidden="true"
+                className="shrink-0 rotate-90 self-center text-[#B52326] sm:rotate-0"
+              />
+            </React.Fragment>
+          ))}
+          <li className="flex-1 rounded-xl bg-[#B52326] px-4 py-3 text-white">
+            <b className="block">Your top 10 careers</b>
+            Matched from {careers?.length || "150+"}
           </li>
-          <li className="rounded-xl bg-[#fbeeec] px-4 py-3">
-            <b className="block text-[#2f2320]">Your 3 favourite subjects</b>
-            Picked, then put in order
-          </li>
-          <li className="rounded-xl bg-[#fbeeec] px-4 py-3">
-            <b className="block text-[#2f2320]">Your top 10 careers</b>
-            With why each one fits
-          </li>
-        </ul>
+        </ol>
         <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-3">
           <button
             type="button"
@@ -390,6 +413,16 @@ export default function CareerQuiz() {
       </div>
     );
   };
+
+  const jump = complete && (
+    <button
+      type="button"
+      onClick={toResults}
+      className="text-sm font-bold text-[#B52326] underline underline-offset-2"
+    >
+      See my careers
+    </button>
+  );
 
   const renderRatings = (page) => {
     const items = statements.slice(page * PER_PAGE, (page + 1) * PER_PAGE);
@@ -449,6 +482,7 @@ export default function CareerQuiz() {
             <ArrowLeft size={16} /> Back
           </button>
           <div className="flex items-center gap-3">
+            {jump}
             {!done && (
               <span className="hidden text-xs text-[#7a635d] sm:inline">
                 Answer all {items.length} to continue
@@ -505,10 +539,11 @@ export default function CareerQuiz() {
             );
           })}
         </div>
-        <div className="mt-6">
+        <div className="mt-6 flex items-center justify-between gap-3">
           <button type="button" onClick={goBack} className={backBtn}>
             <ArrowLeft size={16} /> Back
           </button>
+          {tiePicks[pair.id] && jump}
         </div>
       </div>
     );
@@ -560,6 +595,7 @@ export default function CareerQuiz() {
           <ArrowLeft size={16} /> Back
         </button>
         <div className="flex items-center gap-3">
+          {picked.length === 3 && jump}
           <span className="text-sm font-semibold tabular-nums text-[#7a635d]">
             {picked.length} of 3
           </span>
@@ -622,11 +658,7 @@ export default function CareerQuiz() {
         <button type="button" onClick={goBack} className={backBtn}>
           <ArrowLeft size={16} /> Back
         </button>
-        <button
-          type="button"
-          onClick={() => set({ screen: "results" })}
-          className={primaryBtn}
-        >
+        <button type="button" onClick={toResults} className={primaryBtn}>
           See my careers <ArrowRight size={18} />
         </button>
       </div>
@@ -682,11 +714,7 @@ export default function CareerQuiz() {
               </div>
             ))}
           </div>
-          <p className="mt-4 text-sm text-[#5c4b46]">
-            <b className="text-[#2f2320]">Favourite subjects:</b>{" "}
-            {ranked.join(", ")}
-          </p>
-          <details className="mt-3 text-sm text-[#5c4b46]">
+          <details className="mt-4 text-sm text-[#5c4b46]">
             <summary className="cursor-pointer font-semibold text-[#B52326]">
               What the six types mean
             </summary>
@@ -698,6 +726,19 @@ export default function CareerQuiz() {
                 </li>
               ))}
             </ul>
+            <p className="mt-2">
+              These are Holland&apos;s RIASEC types; each career&apos;s scores
+              come from{" "}
+              <a
+                href="https://www.onetonline.org/find/descriptor/browse/1.B.1"
+                target="_blank"
+                rel="noreferrer"
+                className="font-semibold text-[#B52326] underline underline-offset-2"
+              >
+                O*NET
+              </a>
+              .
+            </p>
           </details>
         </div>
 
@@ -802,17 +843,17 @@ export default function CareerQuiz() {
           <div className="mt-6 flex flex-wrap gap-3">
             <button
               type="button"
+              onClick={() => set({ screen: "quiz", step: 0 })}
+              className="inline-flex min-h-[44px] items-center gap-2 rounded-[10px] px-3 text-sm font-bold text-[#7a635d] hover:text-[#2f2320]"
+            >
+              <ArrowLeft size={16} /> Change my answers
+            </button>
+            <button
+              type="button"
               onClick={start}
               className="inline-flex min-h-[44px] items-center gap-2 rounded-[10px] border-[1.5px] border-[#B52326] px-5 text-sm font-bold text-[#B52326] hover:bg-[#fbeeec]"
             >
               <RotateCcw size={16} /> Take the quiz again
-            </button>
-            <button
-              type="button"
-              onClick={() => set({ screen: "quiz" })}
-              className="inline-flex min-h-[44px] items-center gap-2 rounded-[10px] px-3 text-sm font-bold text-[#7a635d] hover:text-[#2f2320]"
-            >
-              <ArrowLeft size={16} /> Change my answers
             </button>
             <Link
               href="/careers"

@@ -1,4 +1,3 @@
-import React from "react";
 import Link from "next/link";
 
 // The career page's building blocks (shared by /careers/<id>).
@@ -93,9 +92,9 @@ export const CareerDetail = ({ c }) => (
           {c.domain} · {streamsLine(c)}
         </p>
       </div>
-      {c.exams?.length || c.entry_exams_text || c.has_colleges ? (
+      {c.exam_ids?.length || c.entry_exams_text || c.has_colleges ? (
         <div className="flex flex-wrap gap-2.5 md:shrink-0 md:justify-end md:pt-1">
-          {c.exams?.length || c.entry_exams_text ? (
+          {c.exam_ids?.length || c.entry_exams_text ? (
             <Link
               href={`/exams?career=${encodeURIComponent(c.career_id)}`}
               className="inline-flex min-h-[44px] items-center rounded-[10px] bg-[#B52326] px-4 text-sm font-bold text-white transition hover:bg-[#9E1F22]"

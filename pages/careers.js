@@ -18,7 +18,7 @@ const Dropdown = dynamic(() => import("../components/dropdown"), {
 
 // The Careers list: one row per career (name, domain; pay is on its page, as
 // the long pay text crowded the row on phones); each
-// opens its own page, /careers/<id>. Content is Amogh's career sheet.
+// opens its own page, /careers/<id>. Content is the career sheet.
 
 export default function Careers() {
   const router = useRouter();

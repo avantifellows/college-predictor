@@ -1,5 +1,5 @@
 """
-Import Amogh's career sheet (careers.xlsx, Sheet1) into
+Import the career sheet (careers.xlsx, Sheet1) into
 data-sources/career_streams.csv, the file build_careers_data.py reads.
 
 The Oct 2026 sheet (171 careers) adds RIASEC columns and 64 careers,

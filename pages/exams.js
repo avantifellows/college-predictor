@@ -11,7 +11,6 @@ import { markForward } from "../utils/navHistory";
 import { matchesQuery, plainText } from "../utils/search";
 import useUrlParams from "../utils/useUrlParams";
 import { loadCareers } from "../components/careerShared";
-import { examIdsForCareer } from "../utils/careerExams";
 
 // The shared searchable dropdown — same component as every other page.
 const Dropdown = dynamic(() => import("../components/dropdown"), {
@@ -43,7 +42,7 @@ const ExamRow = ({ e, index, onOpen }) => (
       >
         {e.name}
       </Link>
-      {/* on phones the scope moves to its own column (Amogh) */}
+      {/* on phones the scope moves to its own column */}
       <div className="mt-0.5 hidden text-[11px] text-[#6d5550] sm:block">
         {e.scope_state && e.scope_type === "University"
           ? `${e.scope} · ${e.scope_state}`
@@ -163,9 +162,10 @@ export default function Exams() {
       )
       .catch(() => setCareerInfo(null));
   }, [career]);
+  // the exam cards the career's chips name (careers.json exam_ids)
   const careerExams = useMemo(
-    () => (careerInfo && all.length ? examIdsForCareer(careerInfo, all) : null),
-    [careerInfo, all]
+    () => (careerInfo ? new Set(careerInfo.exam_ids || []) : null),
+    [careerInfo]
   );
 
   useEffect(() => {

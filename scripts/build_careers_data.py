@@ -1,5 +1,5 @@
 """
-Build public/data/careers/careers.json from Amogh's career sheet
+Build public/data/careers/careers.json from the career sheet
 (data-sources/career_streams.csv, 171 careers; scripts/import_career_sheet.py
 brings a new sheet in).
 
@@ -18,6 +18,7 @@ import json
 from collections import defaultdict
 import os
 import re
+import urllib.parse
 
 import pandas as pd
 
@@ -411,7 +412,7 @@ def college_options(branch_id, em, tab_link, per_exam=1, total=6):
                 best[key] = (v, r)
         # which college represents this route: the best NIRF-ranked one we
         # can link, then the toughest cutoff. Toughest-number-only surfaced
-        # colleges students had never heard of (Amogh: "random colleges"),
+        # colleges students had never heard of ("random colleges"),
         # and OJEE's JEE-Main ranks in the lakhs read as noise.
         # only a NIRF list that matches the branch counts: a Pharmacy #56
         # must not outrank an Engineering #75 for aerospace engineering
@@ -507,6 +508,74 @@ def college_linker():
     return link
 
 
+def split_people(text):
+    """Notable People cells list one person per "|" (or per ";" when each
+    entry reads "Name: what they did"); the description itself may hold
+    commas ("Kalam: former President, rocket scientist"), so those cells
+    must not split on commas. Plain name lists still do."""
+    if text is None or (isinstance(text, float) and text != text):
+        return []
+    text = str(text)
+    if "|" in text:
+        return [t.strip() for t in text.split("|") if t.strip()]
+    if ":" in text:
+        # ";" ends a person, and so does a comma straight before the next
+        # "Name:" (no comma between it and its colon)
+        parts = re.split(r";|\n|,\s*(?=[^,:;\n]{2,60}:)", text)
+        return [t.strip() for t in parts if t.strip()]
+    return split_list(text)
+
+
+def plain_text(x):
+    """utils/search.js plainText: lower case, apostrophes dropped, & -> and,
+    other punctuation to spaces."""
+    x = re.sub(r"['’`]", "", str(x or "").lower()).replace("&", " and ")
+    return re.sub(r"[^a-z0-9]+", " ", x).strip()
+
+
+def exam_ids_for(chips, exam_cards):
+    """The exam cards a career's chips point at, for the Exams tab's
+    ?career= filter. A chip names an exam by page (/exams/<id>), by search
+    (/exams?q=JEE Main) or by predictor (/predictor?exam=TNEA); a search
+    resolves the way the tab's own search does (every word present, short
+    words at a word start), preferring an exact acronym / alias, and among
+    several hits the paper the predictor uses (JEE Main -> Paper 1)."""
+    ids = []
+
+    def matches(card, q):
+        hay = " " + plain_text(" ".join([card["name"], card["acronym"], card["scope"],
+                                         card.get("scope_state") or "",
+                                         *(card.get("aliases") or [])])) + " "
+        return all((" " + t) in hay if len(t) <= 4 else t in hay
+                   for t in plain_text(q).split())
+
+    def exact(card, q):
+        return plain_text(card["acronym"]) == plain_text(q) or any(
+            plain_text(a) == plain_text(q) for a in card.get("aliases") or [])
+
+    for chip in chips or []:
+        href, label = chip["href"], chip["label"]
+        page = re.match(r"^/exams/([^?#]+)", href)
+        if page:
+            hits = [c for c in exam_cards if c["exam_id"] == page.group(1)]
+        else:
+            m = re.search(r"[?&](?:q|exam)=([^&#]+)", href)
+            q = urllib.parse.unquote(m.group(1)) if m else label
+            hits = ([c for c in exam_cards if c.get("predictor_exam") == q]
+                    if href.startswith("/predictor") else [])
+            if not hits:
+                hits = [c for c in exam_cards if exact(c, q) or exact(c, label)]
+            if not hits:
+                hits = [c for c in exam_cards if matches(c, q)]
+                linked = [c for c in hits if c.get("predictor_exam")]
+                if len(hits) > 1 and linked:
+                    hits = linked
+        for c in hits:
+            if c["exam_id"] not in ids:
+                ids.append(c["exam_id"])
+    return ids
+
+
 def specializations(text):
     out = []
     if pd.isna(text):
@@ -579,7 +648,7 @@ def main():
             branch_to_career[branch_id] = cid
         elif branch_id and CAREER_BRANCH.get(name) == branch_id:
             branch_to_career.setdefault(branch_id, cid)
-        # Amogh's derived eligibility: which 11th-12th stream can reach this
+        # the sheet's derived eligibility: which 11th-12th stream can reach this
         # career. Controlled values; "All" means any stream qualifies.
         streams_raw = (str(r["Eligible Streams (After Class 12)"]).strip()
                        if pd.notna(r["Eligible Streams (After Class 12)"]) else "")
@@ -635,6 +704,8 @@ def main():
             "impact": str(r["Real-World Impact"]).strip() if pd.notna(r["Real-World Impact"]) else None,
             "entry_exams_text": str(r["Entry Exams"]).strip() if pd.notna(r["Entry Exams"]) else None,
             "exams": exams or None,
+            # the exam cards those chips name: the Exams tab's ?career= list
+            "exam_ids": exam_ids_for(exams, exam_cards) or None,
             # each college carries the tab's display name as q when it
             # exists there, so 'IIT Delhi' becomes a working link
             "top_colleges": [{"name": n, "q": tab_link(n)}
@@ -649,7 +720,7 @@ def main():
             "automation_risk": str(r["Automation Risk"]).strip() if pd.notna(r["Automation Risk"]) else None,
             "where_work": str(r["Where You Can Work"]).strip() if pd.notna(r["Where You Can Work"]) else None,
             "college_options": college_options(branch_id, em, tab_link),
-            "notable_people": split_list(r["Notable People"]),
+            "notable_people": split_people(r["Notable People"]),
             "sources": str(r["Sources"]).strip() if pd.notna(r["Sources"]) else None,
             "specializations": specializations(r["Common Specializations (Optional)"]),
             "riasec": riasec_of(r.get("RIASEC Code"), r.get("RIASEC Scores (0-100)")),
@@ -678,6 +749,9 @@ def main():
                  if x.get("q") in id_of}
         c["college_ids"] = sorted(named) or None
         c["has_colleges"] = bool(named or offering[c["career_id"]])
+        # only college_ids reaches the page; the per-college cutoff rows
+        # and sheet names were for the career page's old Cutoffs section
+        del c["college_options"], c["top_colleges"]
 
     os.makedirs(OUT_DIR, exist_ok=True)
     json.dump(cards, open(f"{OUT_DIR}/careers.json", "w"), indent=1)
