@@ -17,7 +17,8 @@ const labelFor = (prev, list, listLabel) => {
   return prev.title || "Back";
 };
 
-export default function DetailBackLink({ list, listLabel }) {
+// `label` fixes the text whatever the origin (career pages: "Back").
+export default function DetailBackLink({ list, listLabel, label }) {
   const router = useRouter();
   const [prev, setPrev] = useState(null);
 
@@ -32,7 +33,7 @@ export default function DetailBackLink({ list, listLabel }) {
   }, [router.events]);
 
   if (!prev) {
-    return <BackLink href={listBackHref(list)}>{listLabel}</BackLink>;
+    return <BackLink href={listBackHref(list)}>{label || listLabel}</BackLink>;
   }
   return (
     <button
@@ -40,7 +41,7 @@ export default function DetailBackLink({ list, listLabel }) {
       onClick={() => router.back()}
       className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#8f2e31] hover:underline"
     >
-      <ArrowLeft size={15} /> {labelFor(prev, list, listLabel)}
+      <ArrowLeft size={15} /> {label || labelFor(prev, list, listLabel)}
     </button>
   );
 }

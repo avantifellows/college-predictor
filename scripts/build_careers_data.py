@@ -1,21 +1,28 @@
 """
-Build public/data/careers/careers.json from Amogh's career sheet
-(data-sources/career_streams.csv, 107 careers).
+Build public/data/careers/careers.json from the career sheet
+(data-sources/career_streams.csv, 171 careers; scripts/import_career_sheet.py
+brings a new sheet in).
 
 Each career carries the sheet's narrative fields plus a REAL exams join:
 career name -> parent branch in the taxonomy (89/107 match by name; the
 rest are pinned in CAREER_BRANCH below; non-academic careers like CA or
-HCL TechBee map to nothing and simply show no exam chips) -> the exams
+Japanese map to nothing and simply show no exam chips) -> the exams
 whose cutoff tables offer that branch, via data-sources/exam_branch_mapping.csv.
 
 branch_to_career.json is the reverse map (parent branch_id -> career slug)
 so the colleges tab can link a branch chip to its career page.
+merged_careers.json sends the page of a career merged into another
+(import_career_sheet.MERGED) to the one that covers it.
 """
 import json
+from collections import defaultdict
 import os
 import re
+import urllib.parse
 
 import pandas as pd
+
+from import_career_sheet import MERGED
 
 SRC = "data-sources/career_streams.csv"
 TAXONOMY = "data-sources/branch_taxonomy.csv"
@@ -33,22 +40,118 @@ BRANCH_CAREER_FALLBACK = {
 }
 CAREER_BRANCH = {
     "Artificial Intelligence and Data Science": "AIML",
-    "Business Administration (MBA)": "ADMIN",
+    "Business Administration (BBA / MBA)": "MBA",
+    "Public Administration (Civil Services)": "PUBADMIN",
+    "Philosophy": "PHILO",
     "Computer Application (BCA/MCA)": "BCA",
-    "Computer Science And Engineering": "CSIT",
     "Data Engineering": "AIML",
-    "Electrical And Electronics Engineering": "ELEC",
-    "Electrical Engineering": "ELEC",
-    "Electronics And Communications Engineering": "ELEC",
     "Law (LLB)": "LLB",
-    "Marine Engineering": "MARINE",
-    "Mechanical Engineering": "MECHENG",
     "Medicine (MBBS)": "MBBS",
     "Dentistry": "DENTAL",
-    "Ocean Engineering": "MARINE",
-    "Structural Engineering": "CIVILENG",
-    # deliberately unmapped: Armed Forces, CA, HCL TechBee, Japanese
+    # the Branch sheet folded these parents into another (Oct 2026)
+    "Cyber Security": "CSIT",
+    "Natural Science": "GENSCI",
+    # the Oct 2026 sheet's 64 new careers (and Armed Forces), reviewed in
+    # futures-data/branches/careers-oct2026/career_branch_mapping.csv
+    "Acting and Performing Arts": "PERFARTS",
+    "Actuarial Science": "ACTUARIAL",
+    "Air Traffic Control": "AVIATION",
+    "Airline Pilot": "AVIATION",
+    "Anesthesiology": "MBBS",
+    "Anthropology and Archaeology": "ANTHRO",
+    "Aviation Engineering and Maintenance": "AVIATION",
+    "Bioinformatics": "BIOTECH",
+    "Biostatistics": "STATISTICS",
+    "Blockchain and Emerging Tech": "CSIT",
+    "Business Intelligence and Analytics": "AIML",
+    "Cardiology": "MBBS",
+    "Chiropractic Care": "PHYSIO",
+    "Cinematography and Film Editing": "FILM",
+    "Court Reporting and Legal Transcription": "LLB",
+    "Culinary Arts (Chef)": "HOTELMGT",
+    "Dermatology": "MBBS",
+    "Dietetics and Nutrition": "NUTRITION",
+    "Emergency Medical Services": "PARAMED",
+    "Event Management": "MBA",
+    "Fashion Designing": "DESIGN",
+    "Fire and Safety Services": "SAFETYENG",
+    "Genetic Counselling and Genetics": "LIFESCI",
+    "Geographic Information Systems (GIS)": "GEOGRAPHY",
+    "Geography": "GEOGRAPHY",
+    "Gynaecology and Obstetrics": "MBBS",
+    "Human Resources Management": "MBA",
+    "Interior Design": "DESIGN",
+    "Investment Banking and Fund Management": "FIN",
+    "Jewellery Design and Gemology": "DESIGN",
+    "Librarianship and Archival Science": "LIBSCI",
+    "Logistics and Supply Chain Management": "MBA",
+    "Marketing Management": "MBA",
+    "Massage and Bodywork Therapy": "PHYSIO",
+    "Merchant Navy (Nautical Officer)": "NAUTICALSCI",
+    "Midwifery": "NURSING",
+    "Neurology": "MBBS",
+    "Nuclear Engineering": "NUCLEARENG",
+    "Occupational Therapy": "PARAMED",
+    "Ophthalmology and Optometry": "MBBS",
+    "Orthopedics": "MBBS",
+    "Paediatrics": "MBBS",
+    "Photography": "FILM",
+    "Podiatry": "PARAMED",
+    "Prosthetics and Orthotics": "PARAMED",
+    "Public Relations and Corporate Communications": "JOURNAL",
+    "Public Sector and Policy Analysis": "POLISCI",
+    "Real Estate": "MBA",
+    "Renewable Energy (Solar/Wind)": "ENERGYENG",
+    "Speech-Language Pathology": "AUDI",
+    "Sports Coaching and Athletics": "PHYSED",
+    "Surveying": "CIVILENG",
+    "Technical/Content Writing": "ENGLISH",
+    "Translation and Interpretation": "ENGLISH",
+    "Urban and Town Planning": "PLAN",
+    "Video Game Design and Development": "DESIGN",
+    "Web and UX/UI Design": "DESIGN",
+    "Indian Army Officer": "DEFENCE",
+    "Indian Army Jawan (Soldier / Agniveer)": "DEFENCE",
+    "Indian Navy Officer": "DEFENCE",
+    "Indian Navy Sailor (Agniveer SSR / MR)": "DEFENCE",
+    "Indian Air Force Officer": "DEFENCE",
+    "Indian Air Force Airman (Agniveer Vayu)": "DEFENCE",
+    # deliberately unmapped: CA, Japanese
 }
+
+# The armed forces admit through their own exams, which no cutoff table
+# carries: each career lists its entries (Exams tab cards, by exam_id)
+CAREER_EXAMS = {
+    "Indian Army Officer": ["nda", "upsc-cds", "indian-army-tes",
+                            "indian-army-tgc-ssc-tech",
+                            "indian-army-ncc-special-entry-scheme"],
+    "Indian Army Jawan (Soldier / Agniveer)": ["agniveer-army"],
+    "Indian Navy Officer": ["nda", "upsc-cds",
+                            "indian-navy-10-2-b-tech-cadet-entry-scheme",
+                            "indian-navy-ssc-officer-entries"],
+    "Indian Navy Sailor (Agniveer SSR / MR)": ["agniveer-navy-ssr-mr"],
+    "Indian Air Force Officer": ["nda", "upsc-cds", "afcat"],
+    "Indian Air Force Airman (Agniveer Vayu)": ["agniveer-vayu"],
+    # undergraduate routes the cutoff tables don't carry
+    "Business Administration (BBA / MBA)": ["cuet-ug", "jipmat", "nmims-npat"],
+    "Philosophy": ["cuet-ug"],
+}
+
+RIASEC = ["R", "I", "A", "S", "E", "C"]
+
+
+def riasec_of(code, scores):
+    """The sheet's RIASEC code and 0-100 scores ("R:43.1 | I:15.6 | ..."),
+    for the career quiz. None when the sheet has no scores."""
+    if pd.isna(scores) or not str(scores).strip():
+        return None
+    vals = {}
+    for part in str(scores).split("|"):
+        k, v = part.split(":")
+        vals[k.strip()] = float(v)
+    assert set(vals) == set(RIASEC), f"bad RIASEC scores: {scores}"
+    return {"code": str(code).strip() if pd.notna(code) else None,
+            "scores": [vals[k] for k in RIASEC]}
 
 # how each mapping source shows up as a chip: label + where it leads.
 # Everything links into the Exams tab pre-searched, EXCEPT TNEA — Tamil
@@ -92,6 +195,21 @@ def norm(s):
     return re.sub(r"[^a-z0-9]+", " ", str(s).lower()).strip()
 
 
+PARENT_STREAMS = {"Science (PCM)", "Science (PCB)", "Commerce", "Arts"}
+
+
+def parent_stream(r, name):
+    v = str(r.get("Parent Stream", "")).strip()
+    assert v in PARENT_STREAMS, f"{name}: Parent Stream {v!r}"
+    return v
+
+
+def pay_tier(r, name):
+    v = str(r.get("Pay Tier", "")).strip()
+    assert v in {"High", "Mid", "Low"}, f"{name}: Pay Tier {v!r}"
+    return v
+
+
 def slug(s):
     return re.sub(r"[^a-z0-9]+", "-", str(s).lower()).strip("-")
 
@@ -131,6 +249,13 @@ def split_list(text, sep=","):
     return items
 
 
+# a bare mention that means the national exam, not a same-named local one
+MENTION_PREFERS = {"cuet": "cuet-ug"}
+# names too broad to pick one card by: UPSC runs the Civil Services, CDS,
+# NDA and more, so "UPSC" alone would land on whichever card comes first
+AMBIGUOUS_MENTIONS = {"upsc"}
+
+
 def exam_mentions(text, exam_cards):
     """Exams NAMED in the sheet's Entry Exams prose, validated against the
     exams tab so a chip can never dead-end. Catches the routes our cutoff
@@ -141,10 +266,16 @@ def exam_mentions(text, exam_cards):
         return out
     # first-appearance order: a set's order changes run to run (hash
     # randomisation), which reshuffled chips on every rebuild
-    tokens = dict.fromkeys(re.findall(r"\b[A-Z][A-Z-]{2,}[A-Za-z]*\b", str(text)))
+    # "CUET (UG)" is one name: read without its "(UG)" it also matched
+    # Christ University's CUET card
+    tokens = dict.fromkeys(
+        re.findall(r"\b[A-Z][A-Z-]{2,}[A-Za-z]*\b(?:\s*\(UG\))?", str(text)))
     for tok in tokens:
         k = norm(tok)
-        for card in exam_cards:
+        if k in AMBIGUOUS_MENTIONS:
+            continue
+        preferred = [c for c in exam_cards if c["exam_id"] == MENTION_PREFERS.get(k)]
+        for card in preferred + exam_cards:
             hay = [card["acronym"]] + (card.get("aliases") or [])
             if any(norm(h).startswith(k) or k == norm(h) for h in hay):
                 # search by the matched card's ACRONYM, not the raw token —
@@ -281,7 +412,7 @@ def college_options(branch_id, em, tab_link, per_exam=1, total=6):
                 best[key] = (v, r)
         # which college represents this route: the best NIRF-ranked one we
         # can link, then the toughest cutoff. Toughest-number-only surfaced
-        # colleges students had never heard of (Amogh: "random colleges"),
+        # colleges students had never heard of ("random colleges"),
         # and OJEE's JEE-Main ranks in the lakhs read as noise.
         # only a NIRF list that matches the branch counts: a Pharmacy #56
         # must not outrank an Engineering #75 for aerospace engineering
@@ -377,6 +508,74 @@ def college_linker():
     return link
 
 
+def split_people(text):
+    """Notable People cells list one person per "|" (or per ";" when each
+    entry reads "Name: what they did"); the description itself may hold
+    commas ("Kalam: former President, rocket scientist"), so those cells
+    must not split on commas. Plain name lists still do."""
+    if text is None or (isinstance(text, float) and text != text):
+        return []
+    text = str(text)
+    if "|" in text:
+        return [t.strip() for t in text.split("|") if t.strip()]
+    if ":" in text:
+        # ";" ends a person, and so does a comma straight before the next
+        # "Name:" (no comma between it and its colon)
+        parts = re.split(r";|\n|,\s*(?=[^,:;\n]{2,60}:)", text)
+        return [t.strip() for t in parts if t.strip()]
+    return split_list(text)
+
+
+def plain_text(x):
+    """utils/search.js plainText: lower case, apostrophes dropped, & -> and,
+    other punctuation to spaces."""
+    x = re.sub(r"['’`]", "", str(x or "").lower()).replace("&", " and ")
+    return re.sub(r"[^a-z0-9]+", " ", x).strip()
+
+
+def exam_ids_for(chips, exam_cards):
+    """The exam cards a career's chips point at, for the Exams tab's
+    ?career= filter. A chip names an exam by page (/exams/<id>), by search
+    (/exams?q=JEE Main) or by predictor (/predictor?exam=TNEA); a search
+    resolves the way the tab's own search does (every word present, short
+    words at a word start), preferring an exact acronym / alias, and among
+    several hits the paper the predictor uses (JEE Main -> Paper 1)."""
+    ids = []
+
+    def matches(card, q):
+        hay = " " + plain_text(" ".join([card["name"], card["acronym"], card["scope"],
+                                         card.get("scope_state") or "",
+                                         *(card.get("aliases") or [])])) + " "
+        return all((" " + t) in hay if len(t) <= 4 else t in hay
+                   for t in plain_text(q).split())
+
+    def exact(card, q):
+        return plain_text(card["acronym"]) == plain_text(q) or any(
+            plain_text(a) == plain_text(q) for a in card.get("aliases") or [])
+
+    for chip in chips or []:
+        href, label = chip["href"], chip["label"]
+        page = re.match(r"^/exams/([^?#]+)", href)
+        if page:
+            hits = [c for c in exam_cards if c["exam_id"] == page.group(1)]
+        else:
+            m = re.search(r"[?&](?:q|exam)=([^&#]+)", href)
+            q = urllib.parse.unquote(m.group(1)) if m else label
+            hits = ([c for c in exam_cards if c.get("predictor_exam") == q]
+                    if href.startswith("/predictor") else [])
+            if not hits:
+                hits = [c for c in exam_cards if exact(c, q) or exact(c, label)]
+            if not hits:
+                hits = [c for c in exam_cards if matches(c, q)]
+                linked = [c for c in hits if c.get("predictor_exam")]
+                if len(hits) > 1 and linked:
+                    hits = linked
+        for c in hits:
+            if c["exam_id"] not in ids:
+                ids.append(c["exam_id"])
+    return ids
+
+
 def specializations(text):
     out = []
     if pd.isna(text):
@@ -410,6 +609,10 @@ def main():
         cid = slug(name)
         branch_id = CAREER_BRANCH.get(name) or pmap.get(norm(name))
         exams = []
+        cards_by_id = {e["exam_id"]: e for e in exam_cards}
+        for eid in CAREER_EXAMS.get(name, []):
+            card = cards_by_id[eid]  # KeyError = an exam the tab lacks
+            exams.append({"label": card["acronym"], "href": f"/exams/{eid}"})
         if branch_id is not None and branch_id in exams_by_branch.index:
             for ex in exams_by_branch[branch_id]:
                 for label, href in EXAM_LINKS.get(ex, []):
@@ -445,7 +648,7 @@ def main():
             branch_to_career[branch_id] = cid
         elif branch_id and CAREER_BRANCH.get(name) == branch_id:
             branch_to_career.setdefault(branch_id, cid)
-        # Amogh's derived eligibility: which 11th-12th stream can reach this
+        # the sheet's derived eligibility: which 11th-12th stream can reach this
         # career. Controlled values; "All" means any stream qualifies.
         streams_raw = (str(r["Eligible Streams (After Class 12)"]).strip()
                        if pd.notna(r["Eligible Streams (After Class 12)"]) else "")
@@ -477,20 +680,32 @@ def main():
             "Commerce": "Commerce & Management", "Management": "Commerce & Management",
             "Humanities": "Arts & Humanities", "Education": "Arts & Humanities",
             "Architecture": "Architecture & Design", "Design": "Architecture & Design",
+            # the Branch sheet's "Defence" vertical is "Armed Forces" on the site
+            "Defence": "Armed Forces",
         }
         vertical = DOMAIN_FOLD.get(vertical, vertical)
+        # the armed forces are their own domain on the Careers menu;
+        # everything without one is "Others"
         if vertical == "Other":
-            vertical = "Defence & Others"
+            vertical = "Others"
         cards.append({
             "career_id": cid,
             "name": name,
             "branch_id": branch_id,
             "domain": vertical,
             "eligible_streams": eligible or None,
+            # the one class-12 stream a career belongs to (sheet's "Parent
+            # Stream"), unlike eligible_streams, which lists every way in
+            "parent_stream": parent_stream(r, name),
+            # the sheet's "Pay Tier" (High / Mid / Low), a rough guide shown
+            # as rupee symbols in the Career Quiz results
+            "pay_tier": pay_tier(r, name),
             "day_in_life": str(r["A Day in the Life"]).strip() if pd.notna(r["A Day in the Life"]) else None,
             "impact": str(r["Real-World Impact"]).strip() if pd.notna(r["Real-World Impact"]) else None,
             "entry_exams_text": str(r["Entry Exams"]).strip() if pd.notna(r["Entry Exams"]) else None,
             "exams": exams or None,
+            # the exam cards those chips name: the Exams tab's ?career= list
+            "exam_ids": exam_ids_for(exams, exam_cards) or None,
             # each college carries the tab's display name as q when it
             # exists there, so 'IIT Delhi' becomes a working link
             "top_colleges": [{"name": n, "q": tab_link(n)}
@@ -505,14 +720,38 @@ def main():
             "automation_risk": str(r["Automation Risk"]).strip() if pd.notna(r["Automation Risk"]) else None,
             "where_work": str(r["Where You Can Work"]).strip() if pd.notna(r["Where You Can Work"]) else None,
             "college_options": college_options(branch_id, em, tab_link),
-            "notable_people": split_list(r["Notable People"]),
+            "notable_people": split_people(r["Notable People"]),
             "sources": str(r["Sources"]).strip() if pd.notna(r["Sources"]) else None,
             "specializations": specializations(r["Common Specializations (Optional)"]),
+            "riasec": riasec_of(r.get("RIASEC Code"), r.get("RIASEC Scores (0-100)")),
         })
 
+    # the list reads A-Z whatever order the sheet's rows are in (renamed
+    # careers keep their old row; new ones are appended)
+    cards.sort(key=lambda c: c["name"].lower())
     ids = [c["career_id"] for c in cards]
     dupes = {i for i in ids if ids.count(i) > 1}
     assert not dupes, f"duplicate career ids: {dupes}"
+
+    # "See colleges that lead here": the Colleges tab lists colleges whose
+    # programmes map to the career, plus the colleges its cutoff table and
+    # sheet name (college_ids, so careers with no programme mapping, like
+    # Dentistry or the MBBS specialties, still have a list)
+    tab = json.load(open(COLLEGES_TAB))
+    id_of = {c["display_name"]: c["college_id"] for c in tab}
+    offering = defaultdict(set)
+    for col in tab:
+        for prog in (col.get("programs") or {}).get("list") or []:
+            if prog.get("career_id"):
+                offering[prog["career_id"]].add(col["college_id"])
+    for c in cards:
+        named = {id_of[x["q"]] for x in (c["college_options"] or []) + (c["top_colleges"] or [])
+                 if x.get("q") in id_of}
+        c["college_ids"] = sorted(named) or None
+        c["has_colleges"] = bool(named or offering[c["career_id"]])
+        # only college_ids reaches the page; the per-college cutoff rows
+        # and sheet names were for the career page's old Cutoffs section
+        del c["college_options"], c["top_colleges"]
 
     os.makedirs(OUT_DIR, exist_ok=True)
     json.dump(cards, open(f"{OUT_DIR}/careers.json", "w"), indent=1)
@@ -521,6 +760,9 @@ def main():
     for bid, cid in BRANCH_CAREER_FALLBACK.items():
         branch_to_career.setdefault(bid, cid)
     json.dump(branch_to_career, open(f"{OUT_DIR}/branch_to_career.json", "w"), indent=1)
+    merged = {slug(o): slug(n) for o, n in MERGED.items()}
+    assert set(merged.values()) <= set(ids), "a merged career points at no page"
+    json.dump(merged, open(f"{OUT_DIR}/merged_careers.json", "w"), indent=1)
     with_exams = sum(1 for c in cards if c["exams"])
     print(f"{len(cards)} careers -> {OUT_DIR}/careers.json "
           f"({with_exams} with exam chips, {len(branch_to_career)} branch links)")

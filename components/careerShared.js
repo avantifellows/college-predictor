@@ -1,4 +1,3 @@
-import React from "react";
 import Link from "next/link";
 
 // The career page's building blocks (shared by /careers/<id>).
@@ -32,7 +31,7 @@ const ProfileRow = ({ number, title, children }) => (
   </section>
 );
 
-const MetricCard = ({ label, sub, value }) => {
+const MetricCard = ({ label, sub, value, note }) => {
   if (!value) return null;
   return (
     <div className="min-w-0 rounded-lg border border-[#eaded8] bg-white p-3">
@@ -44,6 +43,11 @@ const MetricCard = ({ label, sub, value }) => {
       </div>
       {sub ? (
         <div className="mt-0.5 text-[11px] text-[#a89a94]">{sub}</div>
+      ) : null}
+      {note ? (
+        <div className="mt-1.5 text-[11px] leading-snug text-[#7a635d]">
+          {note}
+        </div>
       ) : null}
     </div>
   );
@@ -75,8 +79,12 @@ const streamsLine = (c) => {
 
 export const CareerDetail = ({ c }) => (
   <div className="min-w-0">
-    <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
-      <div>
+    {/* title with the exam / college buttons beside it, pay cards below.
+        The exam and college lists live on their own tabs, filtered to
+        this career; a button shows only when there is something there (an
+        exam note with no matching exam still explains the route) */}
+    <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+      <div className="min-w-0">
         <h2 className="break-words text-3xl font-black leading-tight text-[#2f2320] md:text-4xl">
           {c.name}
         </h2>
@@ -84,15 +92,44 @@ export const CareerDetail = ({ c }) => (
           {c.domain} · {streamsLine(c)}
         </p>
       </div>
-      <div className="grid gap-2 sm:grid-cols-3 md:min-w-[340px]">
-        <MetricCard
-          label="Starting pay"
-          sub="first 5 years"
-          value={c.pay?.start}
-        />
-        <MetricCard label="Mid-career" sub="5-15 years in" value={c.pay?.mid} />
-        <MetricCard label="Senior" sub="15+ years in" value={c.pay?.senior} />
-      </div>
+      {c.exam_ids?.length || c.entry_exams_text || c.has_colleges ? (
+        <div className="flex flex-wrap gap-2.5 md:shrink-0 md:justify-end md:pt-1">
+          {c.exam_ids?.length || c.entry_exams_text ? (
+            <Link
+              href={`/exams?career=${encodeURIComponent(c.career_id)}`}
+              className="inline-flex min-h-[44px] items-center rounded-[10px] bg-[#B52326] px-4 text-sm font-bold text-white transition hover:bg-[#9E1F22]"
+            >
+              See exams that lead here
+            </Link>
+          ) : null}
+          {c.has_colleges ? (
+            <Link
+              href={`/colleges?career=${encodeURIComponent(c.career_id)}`}
+              className="inline-flex min-h-[44px] items-center rounded-[10px] border-[1.5px] border-[#B52326] px-4 text-sm font-bold text-[#B52326] transition hover:bg-[#fbeeec]"
+            >
+              See colleges that lead here
+            </Link>
+          ) : null}
+        </div>
+      ) : null}
+    </div>
+    <div className="mt-5 grid gap-2 sm:grid-cols-3">
+      <MetricCard
+        label="Starting pay"
+        sub="first 5 years"
+        value={c.pay?.start}
+        // IIT / NIT graduates out-earn these ranges: engineering careers
+        // those institutes teach (reached through JEE), not pilots or the
+        // merchant navy
+        note={
+          c.domain === "Engineering" &&
+          c.exams?.some((e) => /^JEE (Main|Advanced)$/.test(e.label))
+            ? "This can be much higher for graduates from top colleges like the IITs and NITs."
+            : null
+        }
+      />
+      <MetricCard label="Mid-career" sub="5-15 years in" value={c.pay?.mid} />
+      <MetricCard label="Senior" sub="15+ years in" value={c.pay?.senior} />
     </div>
 
     <div className="mt-7">
@@ -138,35 +175,6 @@ export const CareerDetail = ({ c }) => (
               ))}
             </dl>,
           ],
-          (c.exams?.length || c.entry_exams_text) && [
-            "Exams that lead here",
-            <div key="e">
-              {c.exams?.length ? (
-                <div className="mb-3 flex flex-wrap gap-3">
-                  {c.exams.map((e) => (
-                    <Link
-                      key={e.label}
-                      href={e.href}
-                      className="rounded-full bg-[#f5ece8] px-3 py-1.5 text-xs font-bold text-[#8f2e31] transition hover:bg-[#f3dfd9]"
-                    >
-                      {e.label}
-                    </Link>
-                  ))}
-                </div>
-              ) : null}
-              {c.entry_exams_text ? (
-                <p className="text-sm leading-6 text-[#7d6b64]">
-                  {c.entry_exams_text}
-                </p>
-              ) : null}
-            </div>,
-          ],
-          (c.college_options?.length || c.top_colleges?.length) && [
-            c.college_options?.length ? "Cutoffs" : "Colleges known for it",
-            <div key="c">
-              <CollegeOptions c={c} />
-            </div>,
-          ],
         ]}
       />
 
@@ -177,104 +185,4 @@ export const CareerDetail = ({ c }) => (
       ) : null}
     </div>
   </div>
-);
-
-// a college that exists on the Colleges tab links there, pre-searched with
-// the tab's own display name (so "IIT Delhi" actually finds it); colleges
-// outside the tab's coverage (BITS, Jadavpur…) stay plain text
-const CollegeName = ({ name, q }) =>
-  q ? (
-    <Link
-      href={`/colleges?q=${encodeURIComponent(q)}`}
-      className="underline decoration-[#e3d1cb] underline-offset-2 transition hover:text-[#8f2e31] hover:decoration-[#8f2e31]"
-    >
-      {name}
-    </Link>
-  ) : (
-    name
-  );
-
-const CollegeOptions = ({ c }) => (
-  <>
-    {c.college_options?.length ? (
-      <>
-        <div className="hidden overflow-hidden rounded-lg border border-[#eaded8] md:block">
-          <table className="w-full text-left text-sm">
-            <thead className="bg-[#f8efec] text-xs uppercase text-[#6b5a53]">
-              <tr>
-                <th className="px-3 py-2">College</th>
-                <th className="px-3 py-2">Branch</th>
-                <th className="px-3 py-2">Exam</th>
-                <th className="px-3 py-2">Closing cutoff</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-[#eaded8]">
-              {c.college_options.map((o, i) => (
-                <tr key={i}>
-                  <td className="px-3 py-2 font-semibold text-[#2f2320]">
-                    <CollegeName name={o.college} q={o.q} />
-                  </td>
-                  <td className="px-3 py-2 text-[#5f514c]">{o.branch}</td>
-                  <td className="px-3 py-2 text-[#5f514c]">{o.exam}</td>
-                  <td className="px-3 py-2 font-bold tabular-nums text-[#2f2320]">
-                    {o.closing}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        <div className="space-y-3 md:hidden">
-          {c.college_options.map((o, i) => (
-            <div
-              key={i}
-              className="rounded-lg border border-[#eaded8] bg-[#fdf8f6] p-3"
-            >
-              <div className="break-words text-sm font-bold text-[#2f2320]">
-                <CollegeName name={o.college} q={o.q} />
-              </div>
-              <div className="mt-0.5 text-sm text-[#5f514c]">{o.branch}</div>
-              <div className="mt-1 text-sm text-[#5f514c]">
-                {o.exam} · closed at{" "}
-                <span className="font-bold text-[#2f2320]">{o.closing}</span>
-              </div>
-            </div>
-          ))}
-        </div>
-        <p className="mt-2 text-xs leading-5 text-[#9b8a82]">
-          The toughest closing cutoff we hold per college — each number is on
-          its own exam&apos;s scale, so never compare across exams. Check your
-          own chances on the{" "}
-          <Link href="/predictor" className="underline hover:text-[#8f2e31]">
-            College Predictor
-          </Link>
-          .
-        </p>
-      </>
-    ) : (
-      <>
-        <p>
-          {c.top_colleges.map((t, i) => (
-            <React.Fragment key={t.name}>
-              {i > 0 ? ", " : ""}
-              <CollegeName name={t.name} q={t.q} />
-            </React.Fragment>
-          ))}
-        </p>
-        <p className="mt-2 text-xs leading-5 text-[#9b8a82]">
-          No college admits into this field directly at UG level in the cutoff
-          data we hold — the usual route is a related branch first (see the
-          exams note above).
-        </p>
-      </>
-    )}
-    {/* honest label: /colleges is an information tab, there is no
-        comparison tool (yet) */}
-    <Link
-      href={`/colleges?career=${encodeURIComponent(c.career_id)}`}
-      className="mt-2 inline-block text-sm text-[#8f2e31] underline hover:text-[#B52326]"
-    >
-      Colleges offering this
-    </Link>
-  </>
 );

@@ -10,6 +10,7 @@ import { rememberList } from "../utils/listReturn";
 import { markForward } from "../utils/navHistory";
 import { matchesQuery, plainText } from "../utils/search";
 import useUrlParams from "../utils/useUrlParams";
+import { loadCareers } from "../components/careerShared";
 
 // The shared searchable dropdown — same component as every other page.
 const Dropdown = dynamic(() => import("../components/dropdown"), {
@@ -41,7 +42,7 @@ const ExamRow = ({ e, index, onOpen }) => (
       >
         {e.name}
       </Link>
-      {/* on phones the scope moves to its own column (Amogh) */}
+      {/* on phones the scope moves to its own column */}
       <div className="mt-0.5 hidden text-[11px] text-[#6d5550] sm:block">
         {e.scope_state && e.scope_type === "University"
           ? `${e.scope} · ${e.scope_state}`
@@ -122,8 +123,10 @@ export default function Exams() {
     where: "All",
     sort: "",
     open: "",
+    // a career page's "See exams that lead here": /exams?career=<id>
+    career: "",
   });
-  const { q, stream, where } = params;
+  const { q, stream, where, career } = params;
   const setQ = (v) => setParam("q", v);
   const setStream = (v) => setParam("stream", v);
   const setWhere = (v) => setParam("where", v);
@@ -150,6 +153,20 @@ export default function Exams() {
     if (urlReady && arrivedQ.current === null) arrivedQ.current = q;
   }, [urlReady, q]);
   const [shown, setShown] = useState(PAGE_SIZE);
+  const [careerInfo, setCareerInfo] = useState(null);
+  useEffect(() => {
+    if (!career) return setCareerInfo(null);
+    loadCareers()
+      .then((list) =>
+        setCareerInfo(list.find((c) => c.career_id === career) || null)
+      )
+      .catch(() => setCareerInfo(null));
+  }, [career]);
+  // the exam cards the career's chips name (careers.json exam_ids)
+  const careerExams = useMemo(
+    () => (careerInfo ? new Set(careerInfo.exam_ids || []) : null),
+    [careerInfo]
+  );
 
   useEffect(() => {
     loadExams()
@@ -172,6 +189,7 @@ export default function Exams() {
   const filtered = useMemo(() => {
     const raw = q.trim().toLowerCase();
     let out = all.filter((e) => {
+      if (careerExams && !careerExams.has(e.exam_id)) return false;
       if (stream !== "All" && !e.streams.includes(stream)) return false;
       // a state in the Where filter also matches university exams based
       // there (AGRICET is ANGRAU's, but it lives in Andhra Pradesh)
@@ -206,7 +224,7 @@ export default function Exams() {
       );
     }
     return out;
-  }, [all, q, stream, where, sort]);
+  }, [all, q, stream, where, sort, careerExams]);
 
   // A link that names one exam (a college's exam chip: /exams?q=JEE Advanced)
   // or an older ?open= link goes straight to that exam's page: the query
@@ -247,7 +265,7 @@ export default function Exams() {
     if (urlReady && all.length && !redirected.current) rememberList("/exams");
   }, [urlReady, router.asPath, all.length]);
 
-  useEffect(() => setShown(PAGE_SIZE), [q, stream, where, sort]);
+  useEffect(() => setShown(PAGE_SIZE), [q, stream, where, sort, career]);
 
   const th =
     "px-3 py-2.5 text-left text-xs font-semibold uppercase tracking-wide text-[#5b1f20]";
@@ -263,7 +281,14 @@ export default function Exams() {
       </Head>
       <div className="min-h-screen px-3 py-6 sm:px-6">
         <div className="mx-auto mb-3 max-w-6xl">
-          <BackLink />
+          {/* arrived from a career's "See … that lead here": back to it */}
+          {career ? (
+            <BackLink href={`/careers/${encodeURIComponent(career)}`}>
+              Back
+            </BackLink>
+          ) : (
+            <BackLink />
+          )}
         </div>
         <div className="mx-auto max-w-6xl rounded-2xl border border-[#eee1d7] bg-white p-4 shadow-sm sm:p-8">
           <h1 className="text-center text-3xl font-bold text-[#332724]">
@@ -328,6 +353,26 @@ export default function Exams() {
             </p>
           ) : (
             <>
+              {career ? (
+                <div className="mt-4">
+                  <button
+                    type="button"
+                    onClick={() => setParam("career", "")}
+                    className="inline-flex items-center gap-2 rounded-full bg-[#fbeeec] px-3 py-1 text-sm font-semibold text-[#8f2e31]"
+                  >
+                    Lead to {careerInfo?.name || career.replace(/-/g, " ")}{" "}
+                    <span aria-hidden>×</span>
+                  </button>
+                  {careerExams && careerExams.size === 0 ? (
+                    <p className="mt-3 rounded-xl border border-[#eaded8] bg-[#fffdfa] px-4 py-3 text-sm leading-6 text-[#5c4b46]">
+                      No exam in this list leads here directly.
+                      {careerInfo?.entry_exams_text
+                        ? ` How people usually get in: ${careerInfo.entry_exams_text}`
+                        : ""}
+                    </p>
+                  ) : null}
+                </div>
+              ) : null}
               <p className="mt-4 text-sm text-[#6d5550]">
                 Showing {Math.min(shown, filtered.length)} of {filtered.length}{" "}
                 exams
