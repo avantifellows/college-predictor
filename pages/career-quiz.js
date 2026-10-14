@@ -955,7 +955,7 @@ export default function CareerQuiz() {
             </button>
             <Link
               href="/careers"
-              className="inline-flex min-h-[44px] items-center gap-2 rounded-[10px] bg-[#B52326] px-5 text-sm font-bold text-white hover:bg-[#9E1F22]"
+              className="ml-auto inline-flex min-h-[44px] items-center gap-2 rounded-[10px] bg-[#B52326] px-5 text-sm font-bold text-white hover:bg-[#9E1F22]"
             >
               Explore all careers <ArrowRight size={16} />
             </Link>

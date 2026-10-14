@@ -146,8 +146,12 @@ export const matchCareers = ({
   scored.forEach((m) => {
     m.strong = m.match >= cutoff;
   });
+  // the shown band leads, so a "Good fit" never sits above a "Great fit";
+  // within a band, the order below
+  const band = (m) => FIT_BANDS.findIndex((b) => m.match > b.min);
   scored.sort(
     (x, y) =>
+      band(x) - band(y) ||
       y.strong - x.strong ||
       (x.strong ? y.subject - x.subject : 0) ||
       y.match - x.match ||
