@@ -1564,6 +1564,57 @@ const PredictedCollegesTable = ({
   // how many rows show: the combined JoSAA list picks it (25/50/100/all);
   // other exams show 30 until "Show More"
   const [pageSize, setPageSize] = useState(50);
+
+  // The table's controls (exam tab, college / branch / state filters,
+  // entries shown) for this visit to the results, kept in the session under
+  // the browser history entry: opening a college and coming back ("Your
+  // results" is the browser's Back) restores them; a new search starts clean
+  const TABLE_STATE = "futures:resultsTable";
+  const [tableRestored, setTableRestored] = useState(false);
+  useEffect(() => {
+    try {
+      const key = window.history.state?.key;
+      const saved =
+        key && JSON.parse(sessionStorage.getItem(TABLE_STATE))?.[key];
+      if (saved) {
+        setJosaaCollegeGroup(saved.group || "all");
+        setPickCollege(saved.college ?? null);
+        setPickBranch(saved.branch ?? null);
+        setPickState(saved.state ?? null);
+        setPageSize(saved.show === "all" ? Infinity : saved.show || 50);
+      }
+    } catch (e) {}
+    setTableRestored(true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  useEffect(() => {
+    if (!tableRestored) return;
+    try {
+      const key = window.history.state?.key;
+      if (!key) return;
+      const all = JSON.parse(sessionStorage.getItem(TABLE_STATE)) || {};
+      delete all[key];
+      all[key] = {
+        group: josaaCollegeGroup,
+        college: pickCollege,
+        branch: pickBranch,
+        state: pickState,
+        show: pageSize === Infinity ? "all" : pageSize,
+      };
+      // the last 20 visits are plenty
+      const keys = Object.keys(all);
+      for (const k of keys.slice(0, Math.max(0, keys.length - 20)))
+        delete all[k];
+      sessionStorage.setItem(TABLE_STATE, JSON.stringify(all));
+    } catch (e) {}
+  }, [
+    tableRestored,
+    josaaCollegeGroup,
+    pickCollege,
+    pickBranch,
+    pickState,
+    pageSize,
+  ]);
   const rowLimit = isCombinedJosaaExam
     ? pageSize
     : showAllRows
