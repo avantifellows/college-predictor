@@ -586,6 +586,27 @@ const PredictedCollegesTable = ({
     },
   ].filter(Boolean);
   const [tour, setTour] = useState(null); // { step, solo } while showing
+  // after the first "Build my list": where to switch between the custom list
+  // and the default one (once per browser)
+  const VIEW_TIP_SEEN = "futures:viewTipSeen";
+  const [viewTip, setViewTip] = useState(false);
+  const viewTarget =
+    typeof window !== "undefined" && window.innerWidth >= 640
+      ? '[data-tour="view-toggle-desktop"]'
+      : '[data-tour="view-toggle"]';
+  const viewTipSteps = [
+    {
+      targets: [viewTarget, viewTarget],
+      title: "Your custom list is on",
+      body: "Switch between it and the default list (by closing rank) here.",
+    },
+  ];
+  const closeViewTip = () => {
+    setViewTip(false);
+    try {
+      window.localStorage.setItem(VIEW_TIP_SEEN, "1");
+    } catch (e) {}
+  };
 
   // after "Build my list": the picks bar comes into view and says so
   const [justUpdated, setJustUpdated] = useState(false);
@@ -629,6 +650,9 @@ const PredictedCollegesTable = ({
     setShowAllRows(false);
     try {
       window.localStorage.setItem(CHOICES_KEY, JSON.stringify(answers));
+      // after the picks bar has scrolled into view
+      if (window.localStorage.getItem(VIEW_TIP_SEEN) !== "1")
+        setTimeout(() => setViewTip(true), 900);
     } catch (e) {}
     setJustUpdated(true);
     setTimeout(() => setJustUpdated(false), 2500);
@@ -1743,8 +1767,11 @@ const PredictedCollegesTable = ({
   );
   // View: default (closing rank) or custom (the choice builder's order;
   // with no answers yet, choosing it opens the builder)
-  const renderViewSelect = () => (
-    <label className="flex items-center gap-1.5 whitespace-nowrap font-semibold">
+  const renderViewSelect = (tourId) => (
+    <label
+      data-tour={tourId}
+      className="flex items-center gap-1.5 whitespace-nowrap font-semibold"
+    >
       View
       <div className="w-[118px]">
         <Dropdown
@@ -1773,9 +1800,9 @@ const PredictedCollegesTable = ({
       type="button"
       data-tour={tourId}
       onClick={() => setBuilderOpen(true)}
-      className="inline-flex min-h-[36px] items-center whitespace-nowrap rounded-[10px] border-[1.5px] border-[#B52326] bg-[#fbeeec] px-3 text-sm font-extrabold text-[#B52326] transition hover:bg-[#f6dcd8]"
+      className="inline-flex min-h-[32px] items-center whitespace-nowrap rounded-[10px] border-[1.5px] border-[#B52326] bg-[#fbeeec] px-2.5 text-xs font-extrabold text-[#B52326] transition hover:bg-[#f6dcd8] sm:min-h-[36px] sm:px-3 sm:text-sm"
     >
-      Help me choose
+      {choicePrefs ? "Change picks" : "Help me choose"}
     </button>
   );
   // the custom view says which answers ordered it, with a way to change them
@@ -2318,14 +2345,9 @@ const PredictedCollegesTable = ({
       )}
       {isCombinedJosaaExam && fullData.length > 0 && (
         <>
-          {/* phones: View and Help me choose on their own line */}
-          <div className="mb-2 flex items-center justify-between gap-2 text-xs text-[#2f2320] sm:hidden">
-            {renderViewSelect()}
-            {renderChoiceButton("choice-cta")}
-          </div>
-          {/* "[50] entries" left; right: View (desktop), Filter (phones) and
-              Download. Phones: stuck to the top while scrolling. */}
-          <div className="sticky top-0 z-30 -mx-1 mb-3 flex items-center justify-between gap-2 bg-white px-1 py-2 text-xs text-[#2f2320] sm:static sm:mx-0 sm:mb-4 sm:bg-transparent sm:px-0 sm:py-0 sm:text-sm">
+          {/* phones: View and Show on a line of their own */}
+          <div className="mb-1 flex items-center justify-between gap-2 text-xs text-[#2f2320] sm:hidden">
+            {renderViewSelect("view-toggle")}
             <label className="flex items-center gap-1.5 whitespace-nowrap font-semibold">
               Show
               <div className="w-[84px]">
@@ -2346,10 +2368,38 @@ const PredictedCollegesTable = ({
                 />
               </div>
             </label>
+          </div>
+          {/* Pinned to the top while the table scrolls, so Help me choose
+              stays in reach without floating over the table. Phones: Help
+              me choose, Filter, Download; desktop: Show left, the rest right */}
+          <div className="sticky top-0 z-30 -mx-1 mb-3 flex items-center justify-between gap-2 bg-white px-1 py-2 text-xs text-[#2f2320] sm:mb-4 sm:text-sm">
+            <div className="hidden sm:block">
+              <label className="flex items-center gap-1.5 whitespace-nowrap font-semibold">
+                Show
+                <div className="w-[84px]">
+                  <Dropdown
+                    compact
+                    isSearchable={false}
+                    options={[25, 50, 100, "all"].map((n) => ({
+                      value: String(n),
+                      label: String(n),
+                    }))}
+                    selectedValue={String(
+                      pageSize === Infinity ? "all" : pageSize
+                    )}
+                    onChange={(o) =>
+                      setPageSize(o.value === "all" ? Infinity : +o.value)
+                    }
+                    menuAtPageLevel
+                  />
+                </div>
+              </label>
+            </div>
+            <div className="sm:hidden">{renderChoiceButton("choice-cta")}</div>
             <div className="flex items-center gap-2 sm:gap-3">
               <div className="hidden items-center gap-3 sm:flex">
                 {renderChoiceButton("choice-cta-desktop")}
-                {renderViewSelect()}
+                {renderViewSelect("view-toggle-desktop")}
               </div>
               <button
                 type="button"
@@ -2368,10 +2418,11 @@ const PredictedCollegesTable = ({
                 <button
                   type="button"
                   onClick={downloadCsv}
-                  className="inline-flex flex-none items-center gap-1 whitespace-nowrap rounded-lg border-[1.5px] border-[#B52326] bg-[#B52326] px-2.5 py-1 text-xs font-bold text-white hover:bg-[#9E1F22] sm:gap-1.5 sm:py-1.5 sm:text-sm"
+                  aria-label="Download"
+                  className="inline-flex flex-none items-center gap-1 whitespace-nowrap rounded-lg border-[1.5px] border-[#B52326] bg-[#B52326] px-2 py-1.5 text-xs font-bold text-white hover:bg-[#9E1F22] sm:gap-1.5 sm:px-2.5 sm:text-sm"
                 >
                   <Download size={14} />
-                  Download
+                  <span className="hidden sm:inline">Download</span>
                 </button>
               )}
             </div>
@@ -2463,6 +2514,15 @@ const PredictedCollegesTable = ({
           initial={choicePrefs}
           onDone={applyChoices}
           onClose={() => setBuilderOpen(false)}
+        />
+      )}
+      {viewTip && !tour && (
+        <CoachMarks
+          steps={viewTipSteps}
+          step={0}
+          solo
+          onNext={closeViewTip}
+          onClose={closeViewTip}
         />
       )}
       {tour && (
