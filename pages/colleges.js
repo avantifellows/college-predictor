@@ -1,3 +1,5 @@
+import StarButton from "../components/StarButton";
+import { useStudentData } from "../utils/studentData";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
@@ -34,6 +36,7 @@ const PAGE_SIZE = 25;
 /** One college in the list; the whole row opens its page. */
 const CollegeListRow = ({ c, index, href, onOpen }) => {
   const pl = c.placement;
+  const { signedIn } = useStudentData();
   return (
     <tr
       onClick={onOpen}
@@ -100,8 +103,22 @@ const CollegeListRow = ({ c, index, href, onOpen }) => {
           <Dash />
         )}
       </td>
-      <td className="px-2 py-3 align-top text-[#b9a8a2]">
-        <ChevronRight size={18} />
+      <td className="px-1 py-2 align-top text-[#b9a8a2]">
+        {/* signed in: save from the list; otherwise the row's arrow */}
+        {signedIn ? (
+          <StarButton
+            compact
+            kind="college"
+            id={c.college_id}
+            label={c.display_name}
+            extra={{
+              aishe_code: c.aishe_code,
+              meta: [c.district, c.state].filter(Boolean).join(", "),
+            }}
+          />
+        ) : (
+          <ChevronRight size={18} className="mt-1" />
+        )}
       </td>
     </tr>
   );

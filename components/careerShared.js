@@ -1,3 +1,4 @@
+import StarButton from "./StarButton";
 import Link from "next/link";
 
 // The career page's building blocks (shared by /careers/<id>).
@@ -85,9 +86,18 @@ export const CareerDetail = ({ c }) => (
         exam note with no matching exam still explains the route) */}
     <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
       <div className="min-w-0">
-        <h2 className="break-words text-3xl font-black leading-tight text-[#2f2320] md:text-4xl">
-          {c.name}
-        </h2>
+        <div className="flex items-start gap-3">
+          <h2 className="break-words text-3xl font-black leading-tight text-[#2f2320] md:text-4xl">
+            {c.name}
+          </h2>
+          <StarButton
+            kind="career"
+            id={c.career_id}
+            label={c.name}
+            extra={{ meta: c.domain }}
+            className="mt-1 shrink-0"
+          />
+        </div>
         <p className="mt-2 text-[15px] text-[#7a635d]">
           {c.domain} · {streamsLine(c)}
         </p>

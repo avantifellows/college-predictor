@@ -1,3 +1,4 @@
+import StarButton from "./StarButton";
 import { CalendarDays, IndianRupee, MapPin } from "lucide-react";
 import BackLink from "./BackLink";
 import { Dash, ExamDetailBody, fmtFee } from "./examShared";
@@ -34,9 +35,18 @@ export default function ExamView({ e, back = "/exams", backSlot }) {
           <div className="text-xs font-black uppercase tracking-wide text-[#B52326]">
             Entrance exam
           </div>
-          <h1 className="mt-1 text-2xl font-black leading-tight text-[#2f2320] sm:text-3xl">
-            {e.name}
-          </h1>
+          <div className="mt-1 flex items-start justify-between gap-3">
+            <h1 className="text-2xl font-black leading-tight text-[#2f2320] sm:text-3xl">
+              {e.name}
+            </h1>
+            <StarButton
+              kind="exam"
+              id={e.exam_id}
+              label={e.name}
+              extra={{ meta: e.test_month ? `Test: ${e.test_month}` : null }}
+              className="shrink-0"
+            />
+          </div>
           {e.streams?.length ? (
             <p className="mt-1 text-sm text-[#6d5550]">
               {e.streams.join(" · ")}

@@ -1,3 +1,5 @@
+import StarButton from "../components/StarButton";
+import { useStudentData } from "../utils/studentData";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
@@ -27,7 +29,7 @@ const Dropdown = dynamic(() => import("../components/dropdown"), {
 const PAGE_SIZE = 30;
 
 /** One exam in the list; the whole row opens its page. */
-const ExamRow = ({ e, index, onOpen }) => (
+const ExamRow = ({ e, index, onOpen, signedIn }) => (
   <tr
     onClick={onOpen}
     className={`cursor-pointer border-b border-[#eaded8] text-xs transition hover:bg-[#fbeeec] sm:text-sm ${
@@ -77,8 +79,19 @@ const ExamRow = ({ e, index, onOpen }) => (
       {fmtFee(e) || <Dash />}
     </td>
     <td className="px-3 py-3 align-top">{e.test_month || <Dash />}</td>
-    <td className="px-2 py-3 align-top text-[#b9a8a2]">
-      <ChevronRight size={18} />
+    <td className="px-1 py-2 align-top text-[#b9a8a2]">
+      {/* signed in: save from the list; otherwise the row's arrow */}
+      {signedIn ? (
+        <StarButton
+          compact
+          kind="exam"
+          id={e.exam_id}
+          label={e.name}
+          extra={{ meta: e.test_month ? `Test: ${e.test_month}` : null }}
+        />
+      ) : (
+        <ChevronRight size={18} className="mt-1" />
+      )}
     </td>
   </tr>
 );
@@ -113,6 +126,7 @@ const SortTh = ({ label, col, sort, setSort, className = "" }) => {
 
 export default function Exams() {
   const router = useRouter();
+  const { signedIn } = useStudentData();
   const [all, setAll] = useState([]);
   const [error, setError] = useState(null);
   // filters, sort and the opened card live in the URL: shareable, and Back
@@ -415,6 +429,7 @@ export default function Exams() {
                         key={e.exam_id}
                         e={e}
                         index={i}
+                        signedIn={signedIn}
                         onOpen={() => router.push(`/exams/${e.exam_id}`)}
                       />
                     ))}

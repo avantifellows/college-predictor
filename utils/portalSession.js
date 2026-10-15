@@ -1,32 +1,18 @@
 import { useEffect, useState } from "react";
 
-// Futures never holds a login of its own. The Avanti portal sends a student
-// here with a short-lived launch token; we verify it once, keep the small
-// profile below in localStorage, and drop the token. Nothing here gates a page.
+// The Avanti portal sends a student here with a short-lived launch token.
+// Futures' server checks it once with portal-backend and starts its own
+// session cookie (pages/api/session.js), which is what lets a student save
+// things; the small profile below is kept in localStorage for pre-filling.
+// Nothing here gates a page.
 
 const PROFILE_KEY = "futures_student_profile";
 const CHANGE_EVENT = "futures-profile-change";
-
-export const PORTAL_BACKEND_URL = (
-  process.env.NEXT_PUBLIC_PORTAL_BACKEND_URL ||
-  "https://uza9ixusuh.execute-api.ap-south-1.amazonaws.com"
-).replace(/\/$/, "");
 
 // Avanti students sign in through the portal, which sends them back here with a launch token.
 export const PORTAL_LOGIN_URL =
   process.env.NEXT_PUBLIC_PORTAL_LOGIN_URL ||
   "https://auth.avantifellows.org/?platform=futures&authGroup=EnableStudents";
-
-const GRADE_ID_TO_CLASS = {
-  1: 9,
-  2: 10,
-  3: 11,
-  4: 12,
-  5: 13,
-  6: 6,
-  7: 7,
-  8: 8,
-};
 
 // stream stored on the student record -> the predictor exam to open first
 export const STREAM_TO_EXAM = {
@@ -115,46 +101,50 @@ export function useStudentProfile() {
   return profile;
 }
 
-/** Verify a portal launch token and store the student's profile. */
+/** Hand a portal launch token to Futures' server, which checks it with
+ * portal-backend and starts the session cookie; keep the profile for pages. */
 export async function consumeLaunchToken(token) {
-  const response = await fetch(`${PORTAL_BACKEND_URL}/auth/verify`, {
-    headers: { Authorization: `Bearer ${token}`, Accept: "application/json" },
+  const response = await fetch("/api/session", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ launchToken: token }),
   });
   if (!response.ok) return null;
-
-  const payload = await response.json();
-  const data = payload?.data || {};
-  if (data.aud !== "futures") return null;
-
-  const user = data.profile?.user || {};
-  const student = data.profile?.student || {};
-  const userId = data.user_id || payload.id;
-  if (!userId) return null;
-
-  const name = [user.first_name, user.last_name]
-    .filter((part) => part && part.trim() && part.trim() !== ".")
-    .join(" ")
-    .trim();
+  const { profile } = await response.json();
+  if (!profile) return null;
 
   // a different student signing in on a shared lab computer: drop the
   // previous student's runs before storing the new profile
   const previous = readProfile();
-  if (previous && previous.user_id !== String(userId)) clearStudentState();
+  if (previous && previous.user_id !== profile.user_id) clearStudentState();
 
-  const profile = {
-    user_id: String(userId),
-    display_id: data.display_id || null,
-    group: data.group || null,
-    name: name || null,
-    gender: user.gender || null,
-    state: user.state || null,
-    category: student.category || null,
-    stream: student.stream || null,
-    class: GRADE_ID_TO_CLASS[student.grade_id] ?? null,
-    saved_at: new Date().toISOString(),
-  };
-  saveProfile(profile);
+  saveProfile({ ...profile, saved_at: new Date().toISOString() });
   return profile;
+}
+
+/** Sign out: the session cookie and everything kept in this browser. */
+export async function signOut() {
+  clearProfile();
+  try {
+    await fetch("/api/session", { method: "DELETE" });
+  } catch {
+    // offline: the profile is gone from this browser either way
+  }
+}
+
+/** On load: a profile in this browser without a live session (signed in
+ * before saving existed, or the cookie expired) is dropped, so the site
+ * never shows a student as signed in when their saves would fail. */
+export async function syncSession() {
+  if (!readProfile()) return;
+  try {
+    const response = await fetch("/api/session");
+    if (!response.ok) return;
+    const { profile } = await response.json();
+    if (!profile) clearProfile();
+  } catch {
+    // offline: keep what we have
+  }
 }
 
 const optionLabel = (option) =>

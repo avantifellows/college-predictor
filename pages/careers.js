@@ -1,6 +1,8 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import Head from "next/head";
 import { useStudentProfile } from "../utils/portalSession";
+import { useStudentData } from "../utils/studentData";
+import StarButton from "../components/StarButton";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
@@ -39,6 +41,7 @@ export default function Careers() {
   // still switch it); engineering -> PCM, medical -> PCB, CA -> Commerce.
   // Once, and never over a stream the link already carries.
   const student = useStudentProfile();
+  const { signedIn } = useStudentData();
   const profileApplied = useRef(false);
   useEffect(() => {
     if (!urlReady || profileApplied.current || !student?.stream) return;
@@ -198,11 +201,11 @@ export default function Careers() {
                       {filtered.map((c, i) => (
                         <li
                           key={c.career_id}
-                          className="border-t border-[#f0e6e1]"
+                          className="flex items-center border-t border-[#f0e6e1] bg-white"
                         >
                           <Link
                             href={`/careers/${c.career_id}`}
-                            className="flex w-full items-center gap-4 bg-white px-4 py-3 text-left text-[15px] transition hover:bg-[#fbeeec]"
+                            className="flex min-w-0 flex-1 items-center gap-4 bg-white px-4 py-3 text-left text-[15px] transition hover:bg-[#fbeeec]"
                           >
                             <span className="w-7 shrink-0 text-xs tabular-nums text-[#a89a94]">
                               {i + 1}
@@ -215,11 +218,21 @@ export default function Careers() {
                                 {c.domain}
                               </span>
                             </span>
-                            <ChevronRight
-                              size={18}
-                              className="shrink-0 text-[#b9a8a2]"
-                            />
+                            {!signedIn && (
+                              <ChevronRight
+                                size={18}
+                                className="shrink-0 text-[#b9a8a2]"
+                              />
+                            )}
                           </Link>
+                          <StarButton
+                            compact
+                            kind="career"
+                            id={c.career_id}
+                            label={c.name}
+                            extra={{ meta: c.domain }}
+                            className="mr-2"
+                          />
                         </li>
                       ))}
                       {filtered.length === 0 ? (
