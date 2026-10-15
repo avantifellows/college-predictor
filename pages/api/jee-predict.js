@@ -42,7 +42,7 @@ const ESTIMATION_SUPPORTED_CATEGORIES = new Set([
 ]);
 const PWD_CATEGORY_SUFFIX = "(PwD)";
 const PWD_CATEGORY_ERROR =
-  "Rank estimation is currently unavailable for PwD categories. Please switch to 'No, I know my rank' and enter your rank directly.";
+  "Rank estimation is currently unavailable for PwD categories. Choose Rank and enter your rank directly.";
 
 const marksToPercentile = (marks) =>
   100 * (1 - Math.exp(-Math.pow(marks / S, k)));

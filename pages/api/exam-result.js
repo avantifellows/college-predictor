@@ -1,6 +1,7 @@
 import fs from "fs/promises";
 import examConfigs from "../../examConfig";
 import rateLimit from "express-rate-limit";
+import { withCollegeFacts } from "../../utils/collegeFacts";
 
 // Helper function to get client IP address
 const getIp = (req) => {
@@ -149,8 +150,20 @@ export default async function handler(req, res) {
     }
   }
 
+  // "See the full list of cutoffs": every cutoff for the student's profile,
+  // with no rank or score to compare. Only while none was given — a rank typed
+  // later in Edit Filters turns the prediction back on.
+  const fullList =
+    req.query.view === "full" &&
+    !req.query.rank &&
+    !req.query.mainRank &&
+    !req.query.advRank &&
+    !req.query.scores;
+  // configs read query.view to skip their rank filter
+  const filterQuery = { ...req.query, view: fullList ? "full" : undefined };
+
   // CUET: per-paper scores instead of one number (see cuetConfig)
-  if (config.scoreInput && !req.query.scores) {
+  if (config.scoreInput && !req.query.scores && !fullList) {
     return res
       .status(400)
       .json({ error: "Please enter your score in at least one paper." });
@@ -169,7 +182,7 @@ export default async function handler(req, res) {
     if (config.annotate) fullData = config.annotate(fullData, req.query);
 
     // Get filters based on the exam config and query parameters
-    const filters = config.getFilters(req.query);
+    const filters = config.getFilters(filterQuery);
 
     // Helper function to parse rank (handles 'P' suffix)
     const parseRank = (rankStr) => {
@@ -284,7 +297,7 @@ export default async function handler(req, res) {
     }
 
     // Apply rank filter if it exists
-    if (rankFilter) {
+    if (rankFilter && !fullList) {
       filteredData = filteredData.filter(rankFilter);
     }
 
@@ -356,7 +369,9 @@ export default async function handler(req, res) {
       });
     }
 
-    return res.status(200).json(filteredData);
+    // NIRF rank, median salary and placed % from the college cards, so the
+    // predictor shows what the Colleges tab and Compare show
+    return res.status(200).json(withCollegeFacts(filteredData, exam));
   } catch (error) {
     console.error("Error reading file:", error);
     res.status(500).json({

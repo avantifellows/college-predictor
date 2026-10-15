@@ -275,7 +275,9 @@ export const jacExamConfig = {
       item.Gender === "Gender-Neutral" ||
       (/female/i.test(String(query.gender || "")) &&
         item.Gender === "Female-Only"),
+    // the full list of cutoffs has no rank to compare against
     (item) =>
+      query.view === "full" ||
       parseInt(item["Closing Rank"], 10) >= 0.9 * parseInt(query.rank, 10),
   ],
   getSort: () => [["Closing Rank", "ASC"]],
@@ -722,8 +724,9 @@ export const neetUGConfig = {
       // predictor has no basis to predict, so return NOTHING (not everything).
       // This matches JoSAA (which also yields no rows without a rank); the old
       // `return true` here wrongly showed every college when the rank was blank.
+      // The one exception is a student who asked for the full list of cutoffs.
       (item) => {
-        if (!query.rank) return false;
+        if (!query.rank) return query.view === "full";
         const closingRank = parseInt(item["Closing Rank"], 10);
         const userRank = parseInt(query.rank, 10);
         if (isNaN(closingRank) || isNaN(userRank)) return false;
@@ -1387,12 +1390,16 @@ export const josaaConfig = {
     }
 
     // If no valid ranks are provided, returning empty false
-    if (examFilters.length === 0) {
-      return [...baseFilters, () => false];
-    }
-
     // State filter
     const stateFilter = (item) => matchesJosaaQuota(item, query.homeState);
+
+    // If no valid ranks are provided, returning empty false — unless the
+    // student asked for the full list of cutoffs, which needs no rank
+    if (examFilters.length === 0) {
+      return query.view === "full"
+        ? [...baseFilters, stateFilter]
+        : [...baseFilters, () => false];
+    }
 
     // Combine all filters - a row should match if it passes either rank filter
     return [
@@ -1485,6 +1492,7 @@ export const tseApertConfig = {
         // Lower rank = harder, so a seat is reachable when its closing rank is
         // at or beyond the student's rank.
         const itemRank = parseInt(item.closing_rank, 10);
+        if (query.view === "full") return !isNaN(itemRank);
         return !isNaN(itemRank) && itemRank >= userRank;
       },
     ];
@@ -2453,8 +2461,9 @@ export const cuetConfig = {
         query.university === "Both" || // links shared before Allahabad
         item.University === query.university,
       (item) =>
-        item["Your Score"] !== null &&
-        item["Your Score"] >= item["Cutoff Score"],
+        query.view === "full" ||
+        (item["Your Score"] !== null &&
+          item["Your Score"] >= item["Cutoff Score"]),
     ];
   },
   // open seats and your category's seats are two cutoffs for one course:
