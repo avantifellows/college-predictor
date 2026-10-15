@@ -945,6 +945,9 @@ export default function CareerQuiz() {
                         <table className="w-full text-left text-sm">
                           <thead className="bg-[#fbeeec] text-xs font-bold uppercase tracking-[0.04em] text-[#7a635d]">
                             <tr>
+                              {student.signedIn ? (
+                                <th scope="col" className="w-10 pl-2" />
+                              ) : null}
                               <th
                                 scope="col"
                                 className="w-8 py-2.5 pl-3 pr-1 sm:pl-4"
@@ -975,18 +978,24 @@ export default function CareerQuiz() {
                                   onClick={() => router.push(href)}
                                   className="cursor-pointer border-t border-[#f1e6e0] align-top transition hover:bg-[#fffaf6]"
                                 >
+                                  {student.signedIn ? (
+                                    <td
+                                      className="w-10 py-2 pl-2"
+                                      onClick={(e) => e.stopPropagation()}
+                                    >
+                                      <StarButton
+                                        compact
+                                        kind="career"
+                                        id={c.career_id}
+                                        label={c.name}
+                                        extra={{ meta: c.domain }}
+                                      />
+                                    </td>
+                                  ) : null}
                                   <td className="py-3 pl-3 pr-1 font-bold tabular-nums text-[#b9a39c] sm:pl-4">
                                     {i + 1}
                                   </td>
                                   <td className="px-2 py-3">
-                                    <StarButton
-                                      compact
-                                      kind="career"
-                                      id={c.career_id}
-                                      label={c.name}
-                                      extra={{ meta: c.domain }}
-                                      className="-my-1.5 -ml-2 mr-0.5 align-middle"
-                                    />
                                     <Link
                                       href={href}
                                       onClick={(e) => e.stopPropagation()}
