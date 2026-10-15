@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import PropTypes from "prop-types";
 import examConfigs from "../examConfig";
+import CoachMarks from "./CoachMarks";
 import ChoiceBuilder from "./ChoiceBuilder";
 import {
   BRANCH_FAMILIES,
@@ -559,6 +560,33 @@ const PredictedCollegesTable = ({
   const rankColumnKey = "closing_rank";
   const nirfRankColumnKey = "nirf_rank";
 
+  // Coach marks (design: futures tutorial artifact). Shown once per browser.
+  // Each tip only where its column exists:
+  // Compare on name-linked exams, sorting on JoSAA.
+  // Help me choose has a phone and a desktop button: point at the one showing
+  const choiceTarget =
+    typeof window !== "undefined" && window.innerWidth >= 640
+      ? '[data-tour="choice-cta-desktop"]'
+      : '[data-tour="choice-cta"]';
+  const tourSteps = [
+    supportsCompare && {
+      targets: ['[data-tour="compare-head"]', '[data-tour="compare-end"]'],
+      title: "Tick up to 3 colleges to compare",
+      body: "Pick colleges in this red column, then compare their fees, placements and cutoffs side by side.",
+    },
+    supportsSalarySort && {
+      targets: ['[data-tour="sort-first"]', '[data-tour="sort-last"]'],
+      title: "Tap a column name to sort",
+      body: "Sort by Median Salary to see where graduates earn most, or by NIRF Rank to see the best-ranked colleges first.",
+    },
+    isCombinedJosaaExam && {
+      targets: [choiceTarget, choiceTarget],
+      title: "Not sure what to pick?",
+      body: "Tap Help me choose. A few quick questions put this list in the order that suits you.",
+    },
+  ].filter(Boolean);
+  const [tour, setTour] = useState(null); // { step, solo } while showing
+
   // after "Build my list": the picks bar comes into view and says so
   const [justUpdated, setJustUpdated] = useState(false);
   const picksRef = useRef(null);
@@ -631,6 +659,42 @@ const PredictedCollegesTable = ({
     return [...seen.values()].sort((a, b) => a.name.localeCompare(b.name));
   }, [fullData, branchParents]);
   const tableScrollRef = useRef(null);
+  // v2: the "Help me choose" step was added, so everyone sees the tips once more
+  const TIPS_SEEN = "futures:predictorTipsSeen.v2";
+  const readSeen = () => {
+    try {
+      return window.localStorage.getItem(TIPS_SEEN) === "1";
+    } catch (e) {
+      return false;
+    }
+  };
+  const closeTour = () => {
+    setTour(null);
+    // the sort tip scrolls the table sideways to its column; put the
+    // college and program columns back in view
+    if (tableScrollRef.current)
+      tableScrollRef.current.scrollTo({ left: 0, behavior: "smooth" });
+    try {
+      window.localStorage.setItem(TIPS_SEEN, "1");
+    } catch (e) {}
+  };
+  const hasRows = data.length > 0;
+  useEffect(() => {
+    if (!hasRows || !tourSteps.length || readSeen()) return undefined;
+    const t = setTimeout(() => setTour({ step: 0, solo: false }), 600);
+    return () => clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [hasRows, tourSteps.length]);
+  // scrolling the table sideways before the tour ran: show the sort tip alone
+  const onTableScroll = (e) => {
+    if (tour || readSeen() || !supportsSalarySort) return;
+    if (e.currentTarget.scrollLeft > 40) {
+      setTour({
+        step: tourSteps.findIndex((t) => t.targets[0].includes("sort")),
+        solo: true,
+      });
+    }
+  };
 
   const fullDataExamCounts = useMemo(
     () => countJeeExamTypes(fullData),
@@ -1704,9 +1768,10 @@ const PredictedCollegesTable = ({
     </label>
   );
   // in the toolbar, not floating over the table
-  const renderChoiceButton = () => (
+  const renderChoiceButton = (tourId) => (
     <button
       type="button"
+      data-tour={tourId}
       onClick={() => setBuilderOpen(true)}
       className="inline-flex min-h-[36px] items-center whitespace-nowrap rounded-[10px] border-[1.5px] border-[#B52326] bg-[#fbeeec] px-3 text-sm font-extrabold text-[#B52326] transition hover:bg-[#f6dcd8]"
     >
@@ -1928,13 +1993,23 @@ const PredictedCollegesTable = ({
       {supportsCompare && (
         // students didn't notice Compare in the Pune review: the column
         // wears the brand red header and a rose tint, in the site's palette
-        <th className="whitespace-nowrap border-b border-[#9E1F22] bg-[#B52326] px-3 py-3 text-center text-white">
+        <th
+          data-tour="compare-head"
+          className="whitespace-nowrap border-b border-[#9E1F22] bg-[#B52326] px-3 py-3 text-center text-white"
+        >
           Compare
         </th>
       )}
       {predicted_colleges_table_column.map((column) => (
         <th
           key={column.key}
+          data-tour={
+            supportsSalarySort && column.key === rankColumnKey
+              ? "sort-first"
+              : supportsSalarySort && column.key === salaryColumnKey
+              ? "sort-last"
+              : undefined
+          }
           className="px-4 py-3 border-b border-[#decac3] whitespace-nowrap"
         >
           {supportsSalarySort && column.key === rankColumnKey ? (
@@ -2001,7 +2076,14 @@ const PredictedCollegesTable = ({
             }`}
           >
             {supportsCompare && (
-              <td className="border-r border-[#f0cfca] bg-[#fbeae8] px-3 py-3 text-center align-top">
+              <td
+                data-tour={
+                  index === Math.min(4, rowsToRender.length - 1)
+                    ? "compare-end"
+                    : undefined
+                }
+                className="border-r border-[#f0cfca] bg-[#fbeae8] px-3 py-3 text-center align-top"
+              >
                 {compareIdOf(transformedItem) ? (
                   <input
                     type="checkbox"
@@ -2239,7 +2321,7 @@ const PredictedCollegesTable = ({
           {/* phones: View and Help me choose on their own line */}
           <div className="mb-2 flex items-center justify-between gap-2 text-xs text-[#2f2320] sm:hidden">
             {renderViewSelect()}
-            {renderChoiceButton()}
+            {renderChoiceButton("choice-cta")}
           </div>
           {/* "[50] entries" left; right: View (desktop), Filter (phones) and
               Download. Phones: stuck to the top while scrolling. */}
@@ -2266,7 +2348,7 @@ const PredictedCollegesTable = ({
             </label>
             <div className="flex items-center gap-2 sm:gap-3">
               <div className="hidden items-center gap-3 sm:flex">
-                {renderChoiceButton()}
+                {renderChoiceButton("choice-cta-desktop")}
                 {renderViewSelect()}
               </div>
               <button
@@ -2383,9 +2465,20 @@ const PredictedCollegesTable = ({
           onClose={() => setBuilderOpen(false)}
         />
       )}
+      {tour && (
+        <CoachMarks
+          steps={tourSteps}
+          step={tour.step}
+          solo={tour.solo}
+          onNext={() => setTour((t) => ({ ...t, step: t.step + 1 }))}
+          onClose={closeTour}
+          clipTo={tableScrollRef}
+        />
+      )}
       {displayData.length > 0 ? (
         <div
           ref={tableScrollRef}
+          onScroll={onTableScroll}
           className="overflow-x-auto rounded-xl border border-[#eaded8] bg-white shadow-sm"
         >
           {supportsCompare && compareSel.length > 0 ? (

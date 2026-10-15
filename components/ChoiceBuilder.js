@@ -59,6 +59,11 @@ const ChoiceBuilder = ({ states, branches, initial, onDone, onClose }) => {
   const step = STEPS[stepIndex];
   const last = stepIndex === STEPS.length - 1;
   const back = () => setStepIndex((i) => Math.max(0, i - 1));
+  // each question starts at its top, not where the last one was scrolled to
+  const bodyRef = useRef(null);
+  useEffect(() => {
+    if (bodyRef.current) bodyRef.current.scrollTop = 0;
+  }, [stepIndex]);
   const next = () => setStepIndex((i) => Math.min(i + 1, STEPS.length - 1));
 
   useEffect(() => {
@@ -230,7 +235,9 @@ const ChoiceBuilder = ({ states, branches, initial, onDone, onClose }) => {
             style={{ width: `${((stepIndex + 1) / STEPS.length) * 100}%` }}
           />
         </div>
-        <div className="min-h-0 flex-1 overflow-y-auto">{body}</div>
+        <div ref={bodyRef} className="min-h-0 flex-1 overflow-y-auto">
+          {body}
+        </div>
         <div className="mt-5 flex items-center justify-between">
           <button
             type="button"
