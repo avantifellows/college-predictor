@@ -235,13 +235,17 @@ export default function StudentCorner() {
   }, [plan.career?.id, plan.colleges, colleges, collegeById]);
 
   // the predictor opens on the pathway's first exam that has one
-  const pathwayExam = plan.exams
-    .map((x) => examById[x.id]?.predictor_exam)
-    .find(Boolean);
-  const exam =
-    pathwayExam || (profile?.stream ? STREAM_TO_EXAM[profile.stream] : null);
+  const pathwayExam = plan.exams.find((x) => examById[x.id]?.predictor_exam);
+  const exam = pathwayExam
+    ? examById[pathwayExam.id].predictor_exam
+    : profile?.stream
+    ? STREAM_TO_EXAM[profile.stream]
+    : null;
   const predictorHref = exam
-    ? { pathname: "/predictor", query: { exam } }
+    ? {
+        pathname: "/predictor",
+        query: pathwayExam ? { exam, examId: pathwayExam.id } : { exam },
+      }
     : "/predictor";
 
   const [tab, setTab] = useState("college");
