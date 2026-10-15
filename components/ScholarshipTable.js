@@ -275,16 +275,16 @@ const ScholarshipTable = ({
                 }`}
               >
                 <TableCell className="font-medium">
-                  <span className="flex items-start justify-between gap-2">
-                    <span>{item["Scholarship Name"]}</span>
+                  <span className="flex items-start gap-1">
                     <StarButton
                       compact
                       kind="scholarship"
                       id={scholarshipId(item["Scholarship Name"])}
                       label={item["Scholarship Name"]}
                       extra={{ deadline: getDeadlineLabel(item) }}
-                      className="-mr-2 -mt-1"
+                      className="-ml-2 -mt-1"
                     />
+                    <span>{item["Scholarship Name"]}</span>
                   </span>
                   {getNirfNote(item) && (
                     <span className="mt-1 block text-xs font-normal text-[#8a6d3b]">

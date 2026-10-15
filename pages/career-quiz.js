@@ -979,6 +979,14 @@ export default function CareerQuiz() {
                                     {i + 1}
                                   </td>
                                   <td className="px-2 py-3">
+                                    <StarButton
+                                      compact
+                                      kind="career"
+                                      id={c.career_id}
+                                      label={c.name}
+                                      extra={{ meta: c.domain }}
+                                      className="-my-1.5 -ml-2 mr-0.5 align-middle"
+                                    />
                                     <Link
                                       href={href}
                                       onClick={(e) => e.stopPropagation()}
@@ -991,16 +999,7 @@ export default function CareerQuiz() {
                                     <PayTier tier={c.pay_tier} />
                                   </td>
                                   <td className="py-3 pl-2 pr-3 text-right sm:pr-4">
-                                    <span className="inline-flex items-center gap-1">
-                                      <FitBadge match={m.match} />
-                                      <StarButton
-                                        compact
-                                        kind="career"
-                                        id={c.career_id}
-                                        label={c.name}
-                                        extra={{ meta: c.domain }}
-                                      />
-                                    </span>
+                                    <FitBadge match={m.match} />
                                   </td>
                                 </tr>
                               );
