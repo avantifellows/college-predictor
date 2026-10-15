@@ -1,4 +1,5 @@
 import StarButton from "../components/StarButton";
+import { useStudentData } from "../utils/studentData";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
@@ -28,21 +29,22 @@ const Dropdown = dynamic(() => import("../components/dropdown"), {
 const PAGE_SIZE = 30;
 
 /** One exam in the list; the whole row opens its page. */
-const ExamRow = ({ e, index, onOpen }) => (
+const ExamRow = ({ e, index, onOpen, starCol }) => (
   <tr
     onClick={onOpen}
     className={`cursor-pointer border-b border-[#eaded8] text-xs transition hover:bg-[#fbeeec] sm:text-sm ${
       index % 2 === 0 ? "bg-[#fffdfa]" : "bg-white"
     }`}
   >
+    {starCol ? (
+      <td
+        className="w-10 py-2 pl-2 align-top"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <StarButton compact kind="exam" id={e.exam_id} label={e.name} />
+      </td>
+    ) : null}
     <td className="px-3 py-3 align-top">
-      <StarButton
-        compact
-        kind="exam"
-        id={e.exam_id}
-        label={e.name}
-        className="-my-1.5 -ml-2 mr-0.5 align-middle"
-      />
       <Link
         href={`/exams/${e.exam_id}`}
         onClick={(ev) => ev.stopPropagation()}
@@ -121,6 +123,7 @@ const SortTh = ({ label, col, sort, setSort, className = "" }) => {
 
 export default function Exams() {
   const router = useRouter();
+  const { signedIn } = useStudentData();
   const [all, setAll] = useState([]);
   const [error, setError] = useState(null);
   // filters, sort and the opened card live in the URL: shareable, and Back
@@ -390,6 +393,8 @@ export default function Exams() {
                 <table className="w-full min-w-[560px] table-fixed border-collapse sm:min-w-[640px]">
                   <thead>
                     <tr className="border-b-2 border-[#e3d1cb] bg-[#f8efec]">
+                      {/* a signed-in student's save stars */}
+                      {signedIn ? <th className={`${th} w-10`} /> : null}
                       <th className={`${th} w-[30%] sm:w-[34%] lg:w-[26%]`}>
                         Exam
                       </th>
@@ -424,6 +429,7 @@ export default function Exams() {
                         e={e}
                         index={i}
                         onOpen={() => router.push(`/exams/${e.exam_id}`)}
+                        starCol={signedIn}
                       />
                     ))}
                   </tbody>

@@ -1,5 +1,5 @@
 import StarButton from "./StarButton";
-import { scholarshipId } from "../utils/studentData";
+import { scholarshipId, useStudentData } from "../utils/studentData";
 import React from "react";
 
 const parseDeadline = (value) => {
@@ -92,9 +92,11 @@ const resolveApplicationLink = (item) => {
   return null;
 };
 
-const TableHeader = ({ headers }) => (
+const TableHeader = ({ headers, starCol }) => (
   <thead>
     <tr className="bg-[#f8efec] text-[#5b1f20] font-semibold text-left text-xs sm:text-sm">
+      {/* a signed-in student's save stars */}
+      {starCol ? <th className="w-10 border-b border-[#decac3]" /> : null}
       {headers.map((header, index) => (
         <th
           key={index}
@@ -174,7 +176,7 @@ const renderFieldContent = (value) => {
   );
 };
 
-const ExpandedRow = ({ item, expandedFields }) => {
+const ExpandedRow = ({ item, expandedFields, cols = 5 }) => {
   const compactFields = expandedFields.filter((field) =>
     compactFieldKeys.has(field.key)
   );
@@ -185,7 +187,7 @@ const ExpandedRow = ({ item, expandedFields }) => {
   return (
     <tr>
       <td
-        colSpan="5"
+        colSpan={cols}
         className="border-b border-[#eaded8] bg-[#fffdfa] px-4 py-4"
       >
         <div className="space-y-3 text-left text-sm text-[#332724]">
@@ -231,6 +233,7 @@ const ScholarshipTable = ({
   toggleRowExpansion,
   expandedRows,
 }) => {
+  const { signedIn } = useStudentData();
   const headers = ["Scholarship Name", "Status", "Last Date", "Official Link"];
   const expandedFields = [
     { key: "Stream", label: "Stream" },
@@ -258,11 +261,14 @@ const ScholarshipTable = ({
   return (
     <div className="overflow-x-auto rounded-2xl border border-[#eaded8] bg-white shadow-sm">
       <table className="w-full min-w-[760px] table-fixed border-collapse text-sm">
-        <TableHeader headers={headers} />
+        <TableHeader headers={headers} starCol={signedIn} />
         <tbody>
           {filteredData?.length === 0 && (
             <tr>
-              <td colSpan="5" className="px-4 py-6 text-center text-[#5b3a34]">
+              <td
+                colSpan={signedIn ? 6 : 5}
+                className="px-4 py-6 text-center text-[#5b3a34]"
+              >
                 No scholarships found. Please try again with different filters.
               </td>
             </tr>
@@ -274,18 +280,19 @@ const ScholarshipTable = ({
                   index % 2 === 0 ? "bg-[#fffdfa]" : "bg-white"
                 }`}
               >
-                <TableCell className="font-medium">
-                  <span className="flex items-start gap-1">
+                {signedIn ? (
+                  <td className="w-10 py-2 pl-2 align-top">
                     <StarButton
                       compact
                       kind="scholarship"
                       id={scholarshipId(item["Scholarship Name"])}
                       label={item["Scholarship Name"]}
                       extra={{ deadline: getDeadlineLabel(item) }}
-                      className="-ml-2 -mt-1"
                     />
-                    <span>{item["Scholarship Name"]}</span>
-                  </span>
+                  </td>
+                ) : null}
+                <TableCell className="font-medium">
+                  {item["Scholarship Name"]}
                   {getNirfNote(item) && (
                     <span className="mt-1 block text-xs font-normal text-[#8a6d3b]">
                       {getNirfNote(item)}
@@ -344,7 +351,11 @@ const ScholarshipTable = ({
                 </TableCell>
               </tr>
               {expandedRows[index] && (
-                <ExpandedRow item={item} expandedFields={expandedFields} />
+                <ExpandedRow
+                  item={item}
+                  expandedFields={expandedFields}
+                  cols={signedIn ? 6 : 5}
+                />
               )}
             </React.Fragment>
           ))}
