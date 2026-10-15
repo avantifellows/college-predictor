@@ -1,8 +1,8 @@
 exam,branch_raw,branch_clean,branch_id,branch_name,n_rows,n_colleges,mapped_via
 AP-EAPCET,CAD,CSE (Artificial Intelligence & Data Science),AIML,Artificial Intelligence / Machine Learning / Data Science,453,21,curated mapping (Sep 2026)
 AP-EAPCET,CSM,CSE (Artificial Intelligence And Machine Learning),AIML,Artificial Intelligence / Machine Learning / Data Science,2656,125,curated mapping (Sep 2026)
-AP-EAPCET,CIC,CSE (IoT & Cyber Security With Block Chain Tech),CYBERSEC,Cyber Security,328,14,curated mapping (Sep 2026)
-AP-EAPCET,CBC,CSE - Block Chain,CYBERSEC,Cyber Security,34,1,curated mapping (Sep 2026)
+AP-EAPCET,CIC,CSE (IoT & Cyber Security With Block Chain Tech),CSIT,Computer Science And Engineering,328,14,curated mapping (Sep 2026)
+AP-EAPCET,CBC,CSE - Block Chain,CSIT,Computer Science And Engineering,34,1,curated mapping (Sep 2026)
 AP-EAPCET,CDA,CSE - Data Analytics,AIML,Artificial Intelligence / Machine Learning / Data Science,36,1,curated mapping (Sep 2026)
 AP-EAPCET,CSED,CSE - Devops,CSIT,Computer Science / Information Technology,29,1,curated mapping (Sep 2026)
 AP-EAPCET,CCC,CSE With Specialisation In Cloud Computing,CSIT,Computer Science / Information Technology,83,3,curated mapping (Sep 2026)
@@ -11,7 +11,7 @@ AP-EAPCET,CAI,Comp. Sci. And Engg.. (Artificial Intelligence),AIML,Artificial In
 AP-EAPCET,CN,Computer Networking,CSIT,Computer Science / Information Technology,34,1,curated mapping (Sep 2026)
 AP-EAPCET,CSBS,Computer Science And Biosciences,CSIT,Computer Science / Information Technology,36,1,curated mapping (Sep 2026)
 AP-EAPCET,CSEB,Computer Science And Engg. & Business Systems,CSIT,Computer Science / Information Technology,20,1,curated mapping (Sep 2026)
-AP-EAPCET,CSC,Computer Science And Engineering (Cyber Security),CYBERSEC,Cyber Security,674,32,curated mapping (Sep 2026)
+AP-EAPCET,CSC,Computer Science And Engineering (Cyber Security),CSIT,Computer Science And Engineering,674,32,curated mapping (Sep 2026)
 AP-EAPCET,CSS,Computer Science And Systems Engineering,CSIT,Computer Science / Information Technology,19,1,curated mapping (Sep 2026)
 AP-EAPCET,CBA,Computer Science Engineering (Big Data Analytics),AIML,Artificial Intelligence / Machine Learning / Data Science,18,1,curated mapping (Sep 2026)
 AP-EAPCET,BDT,Dairy Technology,DAIRYENG,Dairy Engineering,38,1,curated mapping (Sep 2026)
@@ -44,7 +44,7 @@ CLAT,B.A. LL.B. (Hons.),B.A. LL.B. (Hons.),LLB,LLB,328,26,curated mapping (Sep 2
 CLAT,B.B.A. LL.B. (Hons.),B.B.A. LL.B. (Hons.),LLB,LLB,90,8,curated mapping (Sep 2026)
 CLAT,B.Com. LL.B. (Hons.),B.Com. LL.B. (Hons.),LLB,LLB,15,1,curated mapping (Sep 2026)
 CLAT,B.Sc. LL.B. (Hons.) Criminology and Forensic Science,B.Sc. LL.B. (Hons.) Criminology and Forensic Science,LLB,LLB,10,1,curated mapping (Sep 2026)
-CLAT,B.Sc. LL.B. (Hons.) Cyber Security,B.Sc. LL.B. (Hons.) Cyber Security,CYBERSEC,Cyber Security,11,1,curated mapping (Sep 2026)
+CLAT,B.Sc. LL.B. (Hons.) Cyber Security,B.Sc. LL.B. (Hons.) Cyber Security,LLB,LLB,11,1,curated mapping (Sep 2026)
 CollegeFees,AERO SPACE ENGINEERING,AERO SPACE ENGINEERING,AERO,Aerospace Engineering,34,3,curated mapping (Sep 2026)
 CollegeFees,B TECH IN BIO- TECHNOLOGY,B TECH IN BIO- TECHNOLOGY,BIOTECH,Biotechnology,11,1,curated mapping (Sep 2026)
 CollegeFees,B TECH IN COMPUTER SCIENCE & ENGINEERING (ARTIFICAL INTELLIGENCE & MACHINE LEARNING),B TECH IN COMPUTER SCIENCE & ENGINEERING (ARTIFICAL INTELLIGENCE & MACHINE LEARNING),AIML,Artificial Intelligence / Machine Learning / Data Science,20,1,curated mapping (Sep 2026)
@@ -55,8 +55,8 @@ CollegeFees,B TECH IN MECHANICAL ENGINEERING,B TECH IN MECHANICAL ENGINEERING,ME
 CollegeFees,COMMUNICATIO N DESIGN,COMMUNICATIO N DESIGN,DESIGN,Design,1,1,curated mapping (Sep 2026)
 CollegeFees,COMPUTER SCIENCE AND ENGG (ARTIFICIAL INTELLIGENCE),COMPUTER SCIENCE AND ENGG (ARTIFICIAL INTELLIGENCE),AIML,Artificial Intelligence / Machine Learning / Data Science,11,1,curated mapping (Sep 2026)
 CollegeFees,COMPUTER SCIENCE AND ENGG(ARTIFICIA L INTELLIGENCE AND MACHINE LEARNING),COMPUTER SCIENCE AND ENGG(ARTIFICIA L INTELLIGENCE AND MACHINE LEARNING),AIML,Artificial Intelligence / Machine Learning / Data Science,101,10,curated mapping (Sep 2026)
-CollegeFees,COMPUTER SCIENCE AND ENGG(INTERNE T OF THINGS & CYBER SECURITY INCLUDING BLOCK CHAIN TECH),COMPUTER SCIENCE AND ENGG(INTERNE T OF THINGS & CYBER SECURITY INCLUDING BLOCK CHAIN TECH),CYBERSEC,Cyber Security,54,5,curated mapping (Sep 2026)
-CollegeFees,COMPUTER SCIENCE AND ENGINEERING (CYBER SECURITY),COMPUTER SCIENCE AND ENGINEERING (CYBER SECURITY),CYBERSEC,Cyber Security,37,5,curated mapping (Sep 2026)
+CollegeFees,COMPUTER SCIENCE AND ENGG(INTERNE T OF THINGS & CYBER SECURITY INCLUDING BLOCK CHAIN TECH),COMPUTER SCIENCE AND ENGG(INTERNE T OF THINGS & CYBER SECURITY INCLUDING BLOCK CHAIN TECH),CSIT,Computer Science And Engineering,54,5,curated mapping (Sep 2026)
+CollegeFees,COMPUTER SCIENCE AND ENGINEERING (CYBER SECURITY),COMPUTER SCIENCE AND ENGINEERING (CYBER SECURITY),CSIT,Computer Science And Engineering,37,5,curated mapping (Sep 2026)
 CollegeFees,COMPUTER SCIENCE AND ENGINEERING(D ATA SCIENCE),COMPUTER SCIENCE AND ENGINEERING(D ATA SCIENCE),CSIT,Computer Science / Information Technology,96,11,curated mapping (Sep 2026)
 CollegeFees,ELECTRICAL & ELECTRONICS ENGINEERING,ELECTRICAL & ELECTRONICS ENGINEERING,ELEC,Electrical / Electronics / Communications Engineering,217,22,curated mapping (Sep 2026)
 CollegeFees,ELECTRONICS & COMPUTER ENGINEERING,ELECTRONICS & COMPUTER ENGINEERING,CSIT,Computer Science / Information Technology,11,1,curated mapping (Sep 2026)
@@ -96,11 +96,11 @@ GUJCET,COMPUTER SCIENCE & ENGINEERING (ARTIFICIAL INTELLIGENCE),COMPUTER SCIENCE
 GUJCET,COMPUTER SCIENCE & ENGINEERING (BIG DATA ANALYTICS),COMPUTER SCIENCE & ENGINEERING (BIG DATA ANALYTICS),AIML,Artificial Intelligence / Machine Learning / Data Science,4,2,curated mapping (Sep 2026)
 GUJCET,COMPUTER SCIENCE & ENGINEERING (Big Data Analytics),COMPUTER SCIENCE & ENGINEERING (Big Data Analytics),AIML,Artificial Intelligence / Machine Learning / Data Science,2,1,curated mapping (Sep 2026)
 GUJCET,COMPUTER SCIENCE & ENGINEERING (CLOUD COMPUTING),COMPUTER SCIENCE & ENGINEERING (CLOUD COMPUTING),CSIT,Computer Science / Information Technology,2,1,curated mapping (Sep 2026)
-GUJCET,COMPUTER SCIENCE & ENGINEERING (CYBER SECURITY),COMPUTER SCIENCE & ENGINEERING (CYBER SECURITY),CYBERSEC,Cyber Security,27,14,curated mapping (Sep 2026)
+GUJCET,COMPUTER SCIENCE & ENGINEERING (CYBER SECURITY),COMPUTER SCIENCE & ENGINEERING (CYBER SECURITY),CSIT,Computer Science And Engineering,27,14,curated mapping (Sep 2026)
 GUJCET,COMPUTER SCIENCE & ENGINEERING (Cloud Computing),COMPUTER SCIENCE & ENGINEERING (Cloud Computing),CSIT,Computer Science / Information Technology,1,1,curated mapping (Sep 2026)
-GUJCET,COMPUTER SCIENCE & ENGINEERING (Cyber Security),COMPUTER SCIENCE & ENGINEERING (Cyber Security),CYBERSEC,Cyber Security,2,1,curated mapping (Sep 2026)
+GUJCET,COMPUTER SCIENCE & ENGINEERING (Cyber Security),COMPUTER SCIENCE & ENGINEERING (Cyber Security),CSIT,Computer Science And Engineering,2,1,curated mapping (Sep 2026)
 GUJCET,COMPUTER SCIENCE & ENGINEERING (DATA SCIENCE),COMPUTER SCIENCE & ENGINEERING (DATA SCIENCE),AIML,Artificial Intelligence / Machine Learning / Data Science,28,9,curated mapping (Sep 2026)
-GUJCET,COMPUTER SCIENCE & ENGINEERING (INTERNET OF THINGS & CYBER SECURITY INCLUDING BLOCK CHAIN TECHNOLOGY),COMPUTER SCIENCE & ENGINEERING (INTERNET OF THINGS & CYBER SECURITY INCLUDING BLOCK CHAIN TECHNOLOGY),CYBERSEC,Cyber Security,2,2,curated mapping (Sep 2026)
+GUJCET,COMPUTER SCIENCE & ENGINEERING (INTERNET OF THINGS & CYBER SECURITY INCLUDING BLOCK CHAIN TECHNOLOGY),COMPUTER SCIENCE & ENGINEERING (INTERNET OF THINGS & CYBER SECURITY INCLUDING BLOCK CHAIN TECHNOLOGY),CSIT,Computer Science And Engineering,2,2,curated mapping (Sep 2026)
 GUJCET,COMPUTER SCIENCE & ENGINEERING (IOT),COMPUTER SCIENCE & ENGINEERING (IOT),CSIT,Computer Science / Information Technology,5,1,curated mapping (Sep 2026)
 GUJCET,COMPUTER SCIENCE & ENGINEERING - M.TECH INTEGRATED,COMPUTER SCIENCE & ENGINEERING - M.TECH INTEGRATED,CSIT,Computer Science / Information Technology,2,1,curated mapping (Sep 2026)
 GUJCET,COMPUTER SCIENCE & TECHNOLOGY,COMPUTER SCIENCE & TECHNOLOGY,CSIT,Computer Science / Information Technology,7,2,curated mapping (Sep 2026)
@@ -145,7 +145,7 @@ JoSAA,"B. Tech. Electronics and Communication Engineering and M. Tech. Electroni
 JoSAA,"B. Tech. Electronics and Communication Engineering and M. Tech. Electronics and Communication Engineering with specialization in VLSI Design (5 Years, Bachelor and Master of Technology (Dual Degree))","B. Tech. Electronics and Communication Engineering and M. Tech. Electronics and Communication Engineering with specialization in VLSI Design (5 Years, Bachelor and Master of Technology (Dual Degree))",ELEC,Electrical / Electronics / Communications Engineering,70,1,curated mapping (Sep 2026)
 JoSAA,"B. Tech. Mechanical Engineering and M. Tech. Mechanical Engineering with specialization in Advanced Manufacturing (5 Years, Bachelor and Master of Technology (Dual Degree))","B. Tech. Mechanical Engineering and M. Tech. Mechanical Engineering with specialization in Advanced Manufacturing (5 Years, Bachelor and Master of Technology (Dual Degree))",MECHENG,Mechanical / Mechatronics Engineering ,65,1,curated mapping (Sep 2026)
 JoSAA,"B. Tech. Mechanical Engineering and M. Tech. in Mechanical Engineering with specialization in Product Design (5 Years, Bachelor and Master of Technology (Dual Degree))","B. Tech. Mechanical Engineering and M. Tech. in Mechanical Engineering with specialization in Product Design (5 Years, Bachelor and Master of Technology (Dual Degree))",MECHENG,Mechanical / Mechatronics Engineering ,78,1,curated mapping (Sep 2026)
-JoSAA,"B. Tech. and M. Tech. in Engineering and Computational Mechanics (Dual Degree) (5 Years, Bachelor and Master of Technology (Dual Degree))","B. Tech. and M. Tech. in Engineering and Computational Mechanics (Dual Degree) (5 Years, Bachelor and Master of Technology (Dual Degree))",ENGSCI,Engineering Science,96,1,curated mapping (Sep 2026)
+JoSAA,"B. Tech. and M. Tech. in Engineering and Computational Mechanics (Dual Degree) (5 Years, Bachelor and Master of Technology (Dual Degree))","B. Tech. and M. Tech. in Engineering and Computational Mechanics (Dual Degree) (5 Years, Bachelor and Master of Technology (Dual Degree))",GENENG,General Engineering,96,1,curated mapping (Sep 2026)
 JoSAA,"B.Tech (Information Technology) and MBA /M.Tech (Information Technology) (5 Years, Integrated B. Tech. and M. Tech. /MBA)","B.Tech (Information Technology) and MBA /M.Tech (Information Technology) (5 Years, Integrated B. Tech. and M. Tech. /MBA)",CSIT,Computer Science / Information Technology,37,1,curated mapping (Sep 2026)
 JoSAA,"B.Tech Mining Engineering and MBA in Logistic and Supply Chain Management (IIM Mumbai) (5 Years, Integrated B. Tech. and MBA)","B.Tech Mining Engineering and MBA in Logistic and Supply Chain Management (IIM Mumbai) (5 Years, Integrated B. Tech. and MBA)",MININGENG,Mining Engineering,60,1,curated mapping (Sep 2026)
 JoSAA,"B.Tech in CSE (AI and ML) (4 Years, Bachelor of Technology)","B.Tech in CSE (AI and ML) (4 Years, Bachelor of Technology)",AIML,Artificial Intelligence / Machine Learning / Data Science,42,1,curated mapping (Sep 2026)
@@ -176,7 +176,7 @@ JoSAA,"Computer Engineering (5 Years, Bachelor and Master of Technology (Dual De
 JoSAA,"Computer Science & Engineering (5 Years, B.Tech. + M.Tech./MS (Dual Degree))","Computer Science & Engineering (5 Years, B.Tech. + M.Tech./MS (Dual Degree))",CSIT,Computer Science / Information Technology,132,1,curated mapping (Sep 2026)
 JoSAA,"Computer Science (5 Years, Integrated Master of Technology)","Computer Science (5 Years, Integrated Master of Technology)",CSIT,Computer Science / Information Technology,184,1,curated mapping (Sep 2026)
 JoSAA,"Computer Science and Engineering (Artificial Intelligence and Machine Learning) (4 Years, Bachelor of Technology)","Computer Science and Engineering (Artificial Intelligence and Machine Learning) (4 Years, Bachelor of Technology)",AIML,Artificial Intelligence / Machine Learning / Data Science,60,1,curated mapping (Sep 2026)
-JoSAA,"Computer Science and Engineering (Internet of Things, Cyber Security including Block Chain Technology ) (4 Years, Bachelor of Technology)","Computer Science and Engineering (Internet of Things, Cyber Security including Block Chain Technology ) (4 Years, Bachelor of Technology)",CYBERSEC,Cyber Security,40,1,curated mapping (Sep 2026)
+JoSAA,"Computer Science and Engineering (Internet of Things, Cyber Security including Block Chain Technology ) (4 Years, Bachelor of Technology)","Computer Science and Engineering (Internet of Things, Cyber Security including Block Chain Technology ) (4 Years, Bachelor of Technology)",CSIT,Computer Science And Engineering,40,1,curated mapping (Sep 2026)
 JoSAA,"Computer Science and Engineering and M.Tech Computer Science (5 Years, Bachelor and Master of Technology (Dual Degree))","Computer Science and Engineering and M.Tech Computer Science (5 Years, Bachelor and Master of Technology (Dual Degree))",CSIT,Computer Science / Information Technology,36,1,curated mapping (Sep 2026)
 JoSAA,"Computer Science and Engineering and M.Tech in Information Security (5 Years, Bachelor and Master of Technology (Dual Degree))","Computer Science and Engineering and M.Tech in Information Security (5 Years, Bachelor and Master of Technology (Dual Degree))",CSIT,Computer Science / Information Technology,36,1,curated mapping (Sep 2026)
 JoSAA,"Computer Science and Engineering with minor in AI and ML (4 Years, Bachelor of Technology)","Computer Science and Engineering with minor in AI and ML (4 Years, Bachelor of Technology)",AIML,Artificial Intelligence / Machine Learning / Data Science,42,1,curated mapping (Sep 2026)
@@ -221,7 +221,7 @@ JoSAA,"Industrial Chemistry (5 Years, Integrated Master of Technology)","Industr
 JoSAA,"Industrial and Systems Engineering with M.Tech. in Industrial and Systems Engineering and Management (5 Years, Bachelor and Master of Technology (Dual Degree))","Industrial and Systems Engineering with M.Tech. in Industrial and Systems Engineering and Management (5 Years, Bachelor and Master of Technology (Dual Degree))",INDENG,Industrial / Manufacturing / Production Engineering,355,1,curated mapping (Sep 2026)
 JoSAA,"Information Technology (5 Years, Bachelor and Master of Technology (Dual Degree))","Information Technology (5 Years, Bachelor and Master of Technology (Dual Degree))",CSIT,Computer Science / Information Technology,54,1,curated mapping (Sep 2026)
 JoSAA,"Information Technology (Under Flexible Academic Program) (4 Years, Bachelor of Technology)","Information Technology (Under Flexible Academic Program) (4 Years, Bachelor of Technology)",CSIT,Computer Science / Information Technology,60,1,curated mapping (Sep 2026)
-JoSAA,"Information Technology and M.Tech (Information Technology) Spl. (Cyber Law and Information Security) (5 Years, Bachelor and Master of Technology (Dual Degree))","Information Technology and M.Tech (Information Technology) Spl. (Cyber Law and Information Security) (5 Years, Bachelor and Master of Technology (Dual Degree))",CYBERSEC,Cyber Security,39,1,curated mapping (Sep 2026)
+JoSAA,"Information Technology and M.Tech (Information Technology) Spl. (Cyber Law and Information Security) (5 Years, Bachelor and Master of Technology (Dual Degree))","Information Technology and M.Tech (Information Technology) Spl. (Cyber Law and Information Security) (5 Years, Bachelor and Master of Technology (Dual Degree))",CSIT,Computer Science And Engineering,39,1,curated mapping (Sep 2026)
 JoSAA,"Information Technology and M.Tech (Information Technology) Spl. (Human Computer Interaction) (5 Years, Bachelor and Master of Technology (Dual Degree))","Information Technology and M.Tech (Information Technology) Spl. (Human Computer Interaction) (5 Years, Bachelor and Master of Technology (Dual Degree))",CSIT,Computer Science / Information Technology,39,1,curated mapping (Sep 2026)
 JoSAA,"Information Technology and M.Tech (Information Technology) Spl. (Intellegent System) (5 Years, Bachelor and Master of Technology (Dual Degree))","Information Technology and M.Tech (Information Technology) Spl. (Intellegent System) (5 Years, Bachelor and Master of Technology (Dual Degree))",CSIT,Computer Science / Information Technology,52,1,curated mapping (Sep 2026)
 JoSAA,"Information Technology and M.Tech (Information Technology) Spl. Bio-Informatics (5 Years, Bachelor and Master of Technology (Dual Degree))","Information Technology and M.Tech (Information Technology) Spl. Bio-Informatics (5 Years, Bachelor and Master of Technology (Dual Degree))",CSIT,Computer Science / Information Technology,52,1,curated mapping (Sep 2026)
@@ -270,7 +270,7 @@ JoSAA,"Physics and Computational Engineering (4 Years, Bachelor of Technology)",
 JoSAA,"Polymer Science and Engineering (4 Years, Bachelor of Technology)","Polymer Science and Engineering (4 Years, Bachelor of Technology)",CHEMENG,Chemical Engineering,223,1,curated mapping (Sep 2026)
 JoSAA,"Quality Engineering Design and Manufacturing (5 Years, Bachelor and Master of Technology (Dual Degree))","Quality Engineering Design and Manufacturing (5 Years, Bachelor and Master of Technology (Dual Degree))",INDENG,Industrial / Manufacturing / Production Engineering,205,1,curated mapping (Sep 2026)
 JoSAA,"Robotics and AI (4 Years, Bachelor of Technology)","Robotics and AI (4 Years, Bachelor of Technology)",AIML,Artificial Intelligence / Machine Learning / Data Science,36,1,curated mapping (Sep 2026)
-JoSAA,"Space Science and Engineering (4 Years, Bachelor of Technology)","Space Science and Engineering (4 Years, Bachelor of Technology)",SPACEENG,Space Engineering,48,1,curated mapping (Sep 2026)
+JoSAA,"Space Science and Engineering (4 Years, Bachelor of Technology)","Space Science and Engineering (4 Years, Bachelor of Technology)",AERO,Aerospace Engineering,48,1,curated mapping (Sep 2026)
 KCET,AERO SPACE ENGINEERING,AERO SPACE ENGINEERING,AERO,Aerospace Engineering,54,5,curated mapping (Sep 2026)
 KCET,AGRICULTURE ENGINEERING,AGRICULTURE ENGINEERING,AGRIENG,Agricultural Engineering,5,5,curated mapping (Sep 2026)
 KCET,ARTIFICIAL INTELLIGENCE ENGINEERING,ARTIFICIAL INTELLIGENCE ENGINEERING,AIML,Artificial Intelligence / Machine Learning / Data Science,1,1,curated mapping (Sep 2026)
@@ -288,10 +288,10 @@ KCET,B TECH IN COMPUTER SCIENCE & ENGINEERING(ARTIFICAL INTELLIGENCE & MACHINE L
 KCET,B TECH IN COMPUTER SCIENCE & ENGINEERING(ARTIFICIAL INTELLIGENCE AND FUTURE TECHNOLOGIES),B TECH IN COMPUTER SCIENCE & ENGINEERING(ARTIFICIAL INTELLIGENCE AND FUTURE TECHNOLOGIES),AIML,Artificial Intelligence / Machine Learning / Data Science,19,1,curated mapping (Sep 2026)
 KCET,B TECH IN COMPUTER SCIENCE AND ENGINEERING,B TECH IN COMPUTER SCIENCE AND ENGINEERING,CSIT,Computer Science / Information Technology,419,19,curated mapping (Sep 2026)
 KCET,B TECH IN COMPUTER SCIENCE AND ENGINEERING(ARTIFICIAL INTELLIGENCE AND DATA SCIENCE),B TECH IN COMPUTER SCIENCE AND ENGINEERING(ARTIFICIAL INTELLIGENCE AND DATA SCIENCE),AIML,Artificial Intelligence / Machine Learning / Data Science,48,2,curated mapping (Sep 2026)
-KCET,B TECH IN COMPUTER SCIENCE AND ENGINEERING(BLOCK CHAIN),B TECH IN COMPUTER SCIENCE AND ENGINEERING(BLOCK CHAIN),CYBERSEC,Cyber Security,13,1,curated mapping (Sep 2026)
-KCET,B TECH IN COMPUTER SCIENCE AND ENGINEERING(CYBER SECURITY),B TECH IN COMPUTER SCIENCE AND ENGINEERING(CYBER SECURITY),CYBERSEC,Cyber Security,57,3,curated mapping (Sep 2026)
+KCET,B TECH IN COMPUTER SCIENCE AND ENGINEERING(BLOCK CHAIN),B TECH IN COMPUTER SCIENCE AND ENGINEERING(BLOCK CHAIN),CSIT,Computer Science And Engineering,13,1,curated mapping (Sep 2026)
+KCET,B TECH IN COMPUTER SCIENCE AND ENGINEERING(CYBER SECURITY),B TECH IN COMPUTER SCIENCE AND ENGINEERING(CYBER SECURITY),CSIT,Computer Science And Engineering,57,3,curated mapping (Sep 2026)
 KCET,B TECH IN COMPUTER SCIENCE AND ENGINEERING(DATA SCIENCE),B TECH IN COMPUTER SCIENCE AND ENGINEERING(DATA SCIENCE),AIML,Artificial Intelligence / Machine Learning / Data Science,61,4,curated mapping (Sep 2026)
-KCET,B TECH IN COMPUTER SCIENCE AND ENGINEERING(IOT INCLUDING BLOCK CHAIN),B TECH IN COMPUTER SCIENCE AND ENGINEERING(IOT INCLUDING BLOCK CHAIN),CYBERSEC,Cyber Security,15,1,curated mapping (Sep 2026)
+KCET,B TECH IN COMPUTER SCIENCE AND ENGINEERING(IOT INCLUDING BLOCK CHAIN),B TECH IN COMPUTER SCIENCE AND ENGINEERING(IOT INCLUDING BLOCK CHAIN),CSIT,Computer Science And Engineering,15,1,curated mapping (Sep 2026)
 KCET,B TECH IN COMPUTER SCIENCE AND ENGINEERING(IOT),B TECH IN COMPUTER SCIENCE AND ENGINEERING(IOT),CSIT,Computer Science / Information Technology,28,2,curated mapping (Sep 2026)
 KCET,B TECH IN COMPUTER SCIENCE AND INFORMATION TECHNOLOGY,B TECH IN COMPUTER SCIENCE AND INFORMATION TECHNOLOGY,CSIT,Computer Science / Information Technology,20,1,curated mapping (Sep 2026)
 KCET,B TECH IN COMPUTER SCIENCE AND TECHNOLOGY,B TECH IN COMPUTER SCIENCE AND TECHNOLOGY,CSIT,Computer Science / Information Technology,31,2,curated mapping (Sep 2026)
@@ -299,7 +299,7 @@ KCET,B TECH IN COMPUTER SCIENCE AND TECHNOLOGY(BIG DATA),B TECH IN COMPUTER SCIE
 KCET,B TECH IN COMPUTER SCIENCE AND TECHNOLOGY(DEV OPS),B TECH IN COMPUTER SCIENCE AND TECHNOLOGY(DEV OPS),CSIT,Computer Science / Information Technology,12,1,curated mapping (Sep 2026)
 KCET,B TECH IN COMPUTER SCIENCE(AI &ML),B TECH IN COMPUTER SCIENCE(AI &ML),AIML,Artificial Intelligence / Machine Learning / Data Science,38,2,curated mapping (Sep 2026)
 KCET,B TECH IN COMPUTER SCIENCE(CLOUD COMPUTING),B TECH IN COMPUTER SCIENCE(CLOUD COMPUTING),CSIT,Computer Science / Information Technology,6,1,curated mapping (Sep 2026)
-KCET,B TECH IN COMPUTER SCIENCE(CYBER SECURITY),B TECH IN COMPUTER SCIENCE(CYBER SECURITY),CYBERSEC,Cyber Security,14,1,curated mapping (Sep 2026)
+KCET,B TECH IN COMPUTER SCIENCE(CYBER SECURITY),B TECH IN COMPUTER SCIENCE(CYBER SECURITY),CSIT,Computer Science And Engineering,14,1,curated mapping (Sep 2026)
 KCET,B TECH IN COMPUTER SCIENCE(DATA SCIENCE),B TECH IN COMPUTER SCIENCE(DATA SCIENCE),AIML,Artificial Intelligence / Machine Learning / Data Science,12,1,curated mapping (Sep 2026)
 KCET,B TECH IN COMPUTER SCIENCE(INFORMATION SECURITY),B TECH IN COMPUTER SCIENCE(INFORMATION SECURITY),CSIT,Computer Science / Information Technology,1,1,curated mapping (Sep 2026)
 KCET,B TECH IN ELECTRICAL & ELECTRONICS ENGINEERING,B TECH IN ELECTRICAL & ELECTRONICS ENGINEERING,ELEC,Electrical / Electronics / Communications Engineering,77,9,curated mapping (Sep 2026)
@@ -356,8 +356,8 @@ KCET,COMPUTER SCIENCE AND ENGINEERING(AIML),COMPUTER SCIENCE AND ENGINEERING(AIM
 KCET,COMPUTER SCIENCE AND ENGINEERING(ARTIFICAL INTELLIGENCE & DATA SCIENCE),COMPUTER SCIENCE AND ENGINEERING(ARTIFICAL INTELLIGENCE & DATA SCIENCE),AIML,Artificial Intelligence / Machine Learning / Data Science,30,3,curated mapping (Sep 2026)
 KCET,COMPUTER SCIENCE AND ENGINEERING(ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING),COMPUTER SCIENCE AND ENGINEERING(ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING),AIML,Artificial Intelligence / Machine Learning / Data Science,744,63,curated mapping (Sep 2026)
 KCET,COMPUTER SCIENCE AND ENGINEERING(ARTIFICIAL INTELLIGENCE),COMPUTER SCIENCE AND ENGINEERING(ARTIFICIAL INTELLIGENCE),AIML,Artificial Intelligence / Machine Learning / Data Science,88,7,curated mapping (Sep 2026)
-KCET,COMPUTER SCIENCE AND ENGINEERING(CYBER SECURITY),COMPUTER SCIENCE AND ENGINEERING(CYBER SECURITY),CYBERSEC,Cyber Security,169,28,curated mapping (Sep 2026)
-KCET,COMPUTER SCIENCE AND ENGINEERING(INTERNET OF THINGS & CYBER SECURITY INCLUDING BLOCK CHAIN TECH),COMPUTER SCIENCE AND ENGINEERING(INTERNET OF THINGS & CYBER SECURITY INCLUDING BLOCK CHAIN TECH),CYBERSEC,Cyber Security,225,28,curated mapping (Sep 2026)
+KCET,COMPUTER SCIENCE AND ENGINEERING(CYBER SECURITY),COMPUTER SCIENCE AND ENGINEERING(CYBER SECURITY),CSIT,Computer Science And Engineering,169,28,curated mapping (Sep 2026)
+KCET,COMPUTER SCIENCE AND ENGINEERING(INTERNET OF THINGS & CYBER SECURITY INCLUDING BLOCK CHAIN TECH),COMPUTER SCIENCE AND ENGINEERING(INTERNET OF THINGS & CYBER SECURITY INCLUDING BLOCK CHAIN TECH),CSIT,Computer Science And Engineering,225,28,curated mapping (Sep 2026)
 KCET,COMPUTER SCIENCE AND ENGINEERING(INTERNET OF THINGS),COMPUTER SCIENCE AND ENGINEERING(INTERNET OF THINGS),CSIT,Computer Science / Information Technology,1,1,curated mapping (Sep 2026)
 KCET,CONSTRUCTION TECHNOLOGY AND MGMT,CONSTRUCTION TECHNOLOGY AND MGMT,CIVILENG,Civil Engineering,1,1,curated mapping (Sep 2026)
 KCET,DATA SCIENCES,DATA SCIENCES,AIML,Artificial Intelligence / Machine Learning / Data Science,3,3,curated mapping (Sep 2026)
@@ -396,13 +396,13 @@ KEAM,Computer Science & Design,Computer Science & Design,CSIT,Computer Science /
 KEAM,Computer Science & Engineering,Computer Science & Engineering,CSIT,Computer Science / Information Technology,1660,107,curated mapping (Sep 2026)
 KEAM,Computer Science & Engineering (Artificial Intelligence),Computer Science & Engineering (Artificial Intelligence),AIML,Artificial Intelligence / Machine Learning / Data Science,207,15,curated mapping (Sep 2026)
 KEAM,Computer Science & Engineering (Data Science),Computer Science & Engineering (Data Science),AIML,Artificial Intelligence / Machine Learning / Data Science,464,21,curated mapping (Sep 2026)
-KEAM,Computer Science & Engineering (Internet of Things & Cyber Security including Block Chain,Computer Science & Engineering (Internet of Things & Cyber Security including Block Chain,CYBERSEC,Cyber Security,6,1,curated mapping (Sep 2026)
-KEAM,Computer Science & Engineering (Internet of Things & Cyber Security including Block Chain),Computer Science & Engineering (Internet of Things & Cyber Security including Block Chain),CYBERSEC,Cyber Security,19,1,curated mapping (Sep 2026)
+KEAM,Computer Science & Engineering (Internet of Things & Cyber Security including Block Chain,Computer Science & Engineering (Internet of Things & Cyber Security including Block Chain,CSIT,Computer Science And Engineering,6,1,curated mapping (Sep 2026)
+KEAM,Computer Science & Engineering (Internet of Things & Cyber Security including Block Chain),Computer Science & Engineering (Internet of Things & Cyber Security including Block Chain),CSIT,Computer Science And Engineering,19,1,curated mapping (Sep 2026)
 KEAM,Computer Science & Engineering and Business Systems,Computer Science & Engineering and Business Systems,CSIT,Computer Science / Information Technology,25,1,curated mapping (Sep 2026)
 KEAM,Computer Science and Engineering (Artificial Intelligence and Machine Learning),Computer Science and Engineering (Artificial Intelligence and Machine Learning),AIML,Artificial Intelligence / Machine Learning / Data Science,357,17,curated mapping (Sep 2026)
 KEAM,Computer Science and Engineering (Artificial Intelligence),Computer Science and Engineering (Artificial Intelligence),AIML,Artificial Intelligence / Machine Learning / Data Science,386,18,curated mapping (Sep 2026)
-KEAM,Computer Science and Engineering (Cyber Security),Computer Science and Engineering (Cyber Security),CYBERSEC,Cyber Security,594,29,curated mapping (Sep 2026)
-KEAM,Cyber Physical Systems,Cyber Physical Systems,CYBERSEC,Cyber Security,76,3,curated mapping (Sep 2026)
+KEAM,Computer Science and Engineering (Cyber Security),Computer Science and Engineering (Cyber Security),CSIT,Computer Science And Engineering,594,29,curated mapping (Sep 2026)
+KEAM,Cyber Physical Systems,Cyber Physical Systems,CSIT,Computer Science And Engineering,76,3,curated mapping (Sep 2026)
 KEAM,Dairy Technology,Dairy Technology,DAIRYENG,Dairy Engineering,70,4,curated mapping (Sep 2026)
 KEAM,Dairy Technology.,Dairy Technology.,DAIRYENG,Dairy Engineering,107,4,curated mapping (Sep 2026)
 KEAM,Electronics & Biomedical Engg,Electronics & Biomedical Engg,ELEC,Electrical / Electronics / Communications Engineering,15,1,curated mapping (Sep 2026)
@@ -425,10 +425,10 @@ MHT-CET,Civil Engineering (Structural Engineering),Civil Engineering (Structural
 MHT-CET,Civil Engineering with Computer Application,Civil Engineering with Computer Application,CSIT,Computer Science / Information Technology,4,1,curated mapping (Sep 2026)
 MHT-CET,Computer Engineering (Regional Language),Computer Engineering (Regional Language),CSIT,Computer Science / Information Technology,22,1,curated mapping (Sep 2026)
 MHT-CET,Computer Science and Engineering (Artificial Intelligence),Computer Science and Engineering (Artificial Intelligence),AIML,Artificial Intelligence / Machine Learning / Data Science,64,5,curated mapping (Sep 2026)
-MHT-CET,Computer Science and Engineering (Cyber Security),Computer Science and Engineering (Cyber Security),CYBERSEC,Cyber Security,79,6,curated mapping (Sep 2026)
-MHT-CET,Computer Science and Engineering (Internet of Things and Cyber Security Including Block Chain,Computer Science and Engineering (Internet of Things and Cyber Security Including Block Chain,CYBERSEC,Cyber Security,178,12,curated mapping (Sep 2026)
+MHT-CET,Computer Science and Engineering (Cyber Security),Computer Science and Engineering (Cyber Security),CSIT,Computer Science And Engineering,79,6,curated mapping (Sep 2026)
+MHT-CET,Computer Science and Engineering (Internet of Things and Cyber Security Including Block Chain,Computer Science and Engineering (Internet of Things and Cyber Security Including Block Chain,CSIT,Computer Science And Engineering,178,12,curated mapping (Sep 2026)
 MHT-CET,Computer Science and Engineering(Artificial Intelligence and Machine Learning),Computer Science and Engineering(Artificial Intelligence and Machine Learning),AIML,Artificial Intelligence / Machine Learning / Data Science,1107,51,curated mapping (Sep 2026)
-MHT-CET,Computer Science and Engineering(Cyber Security),Computer Science and Engineering(Cyber Security),CYBERSEC,Cyber Security,73,4,curated mapping (Sep 2026)
+MHT-CET,Computer Science and Engineering(Cyber Security),Computer Science and Engineering(Cyber Security),CSIT,Computer Science And Engineering,73,4,curated mapping (Sep 2026)
 MHT-CET,ELECTRONICS AND COMMUNICATION ENGINEERING (BIO-MEDICAL ENGINEERING),ELECTRONICS AND COMMUNICATION ENGINEERING (BIO-MEDICAL ENGINEERING),ELEC,Electrical / Electronics / Communications Engineering,19,1,curated mapping (Sep 2026)
 MHT-CET,"Electrical, Electronics and Power","Electrical, Electronics and Power",ELEC,Electrical / Electronics / Communications Engineering,26,1,curated mapping (Sep 2026)
 MHT-CET,Electronics & Telecommunication Engineering,Electronics & Telecommunication Engineering,ELEC,Electrical / Electronics / Communications Engineering,22,1,curated mapping (Sep 2026)
@@ -471,10 +471,10 @@ OJEE,Computer Science & Engineering (Artificail Inteligence) - TFW,Computer Scie
 OJEE,Computer Science Engineering (Artificial Inteligence and Machine Learning),Computer Science Engineering (Artificial Inteligence and Machine Learning),AIML,Artificial Intelligence / Machine Learning / Data Science,30,10,curated mapping (Sep 2026)
 OJEE,Computer Science Engineering (Artificial Inteligence and Machine Learning) - TFW,Computer Science Engineering (Artificial Inteligence and Machine Learning),AIML,Artificial Intelligence / Machine Learning / Data Science,7,7,curated mapping (Sep 2026)
 OJEE,Computer Science Engineering with specialization in Artificial Intelligence and Machine Learning,Computer Science Engineering with specialization in Artificial Intelligence and Machine Learning,AIML,Artificial Intelligence / Machine Learning / Data Science,26,3,curated mapping (Sep 2026)
-OJEE,Computer Science Engineering with specialization in Information and Cyber Security (SSC) - TFW,Computer Science Engineering with specialization in Information and Cyber Security,CYBERSEC,Cyber Security,1,1,curated mapping (Sep 2026)
-OJEE,Computer Science Engineering with specialization in Information and Cyber Security (SSC),Computer Science Engineering with specialization in Information and Cyber Security,CYBERSEC,Cyber Security,7,1,curated mapping (Sep 2026)
-OJEE,Computer Science and Engineering(Cyber Security) - TFW,Computer Science and Engineering(Cyber Security),CYBERSEC,Cyber Security,3,3,curated mapping (Sep 2026)
-OJEE,Computer Science and Engineering(Cyber Security),Computer Science and Engineering(Cyber Security),CYBERSEC,Cyber Security,6,3,curated mapping (Sep 2026)
+OJEE,Computer Science Engineering with specialization in Information and Cyber Security (SSC) - TFW,Computer Science Engineering with specialization in Information and Cyber Security,CSIT,Computer Science And Engineering,1,1,curated mapping (Sep 2026)
+OJEE,Computer Science Engineering with specialization in Information and Cyber Security (SSC),Computer Science Engineering with specialization in Information and Cyber Security,CSIT,Computer Science And Engineering,7,1,curated mapping (Sep 2026)
+OJEE,Computer Science and Engineering(Cyber Security) - TFW,Computer Science and Engineering(Cyber Security),CSIT,Computer Science And Engineering,3,3,curated mapping (Sep 2026)
+OJEE,Computer Science and Engineering(Cyber Security),Computer Science and Engineering(Cyber Security),CSIT,Computer Science And Engineering,6,3,curated mapping (Sep 2026)
 OJEE,Computer science & Engineering (Data Science),Computer science & Engineering (Data Science),AIML,Artificial Intelligence / Machine Learning / Data Science,26,10,curated mapping (Sep 2026)
 OJEE,Computer science & Engineering (Data Science) - TFW,Computer science & Engineering (Data Science),AIML,Artificial Intelligence / Machine Learning / Data Science,7,7,curated mapping (Sep 2026)
 OJEE,Electronics & Communication Engineering,Electronics & Communication Engineering,ELEC,Electrical / Electronics / Communications Engineering,62,23,curated mapping (Sep 2026)
@@ -516,8 +516,8 @@ TG-EAPCET,COMPUTER SCIENCE & ENGINEERING (NETWORKS),COMPUTER SCIENCE & ENGINEERI
 TG-EAPCET,COMPUTER SCIENCE AND BUSINESS SYSTEM,COMPUTER SCIENCE AND BUSINESS SYSTEM,CSIT,Computer Science / Information Technology,154,7,curated mapping (Sep 2026)
 TG-EAPCET,COMPUTER SCIENCE AND ENGG (ARTIFICIAL INTELLIGENCE),COMPUTER SCIENCE AND ENGG (ARTIFICIAL INTELLIGENCE),AIML,Artificial Intelligence / Machine Learning / Data Science,66,3,curated mapping (Sep 2026)
 TG-EAPCET,COMPUTER SCIENCE AND ENGINEERING (ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING),COMPUTER SCIENCE AND ENGINEERING (ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING),AIML,Artificial Intelligence / Machine Learning / Data Science,2541,122,curated mapping (Sep 2026)
-TG-EAPCET,COMPUTER SCIENCE AND ENGINEERING (CYBER SECURITY),COMPUTER SCIENCE AND ENGINEERING (CYBER SECURITY),CYBERSEC,Cyber Security,594,28,curated mapping (Sep 2026)
-TG-EAPCET,CSE (IoT AND CYBER SECURITY INCLUDING BLOCK CHAIN TECHNOLOGY),CSE (IoT AND CYBER SECURITY INCLUDING BLOCK CHAIN TECHNOLOGY),CYBERSEC,Cyber Security,44,2,curated mapping (Sep 2026)
+TG-EAPCET,COMPUTER SCIENCE AND ENGINEERING (CYBER SECURITY),COMPUTER SCIENCE AND ENGINEERING (CYBER SECURITY),CSIT,Computer Science And Engineering,594,28,curated mapping (Sep 2026)
+TG-EAPCET,CSE (IoT AND CYBER SECURITY INCLUDING BLOCK CHAIN TECHNOLOGY),CSE (IoT AND CYBER SECURITY INCLUDING BLOCK CHAIN TECHNOLOGY),CSIT,Computer Science And Engineering,44,2,curated mapping (Sep 2026)
 TG-EAPCET,DAIRYING,DAIRYING,DAIRYENG,Dairy Engineering,22,1,curated mapping (Sep 2026)
 TG-EAPCET,DIGITAL TECHNIQUES FOR DESIGN AND PLANNING,DIGITAL TECHNIQUES FOR DESIGN AND PLANNING,PLAN,Planning,22,1,curated mapping (Sep 2026)
 TG-EAPCET,ELECTRONICS AND COMMUNICATION ENGINEERING,ELECTRONICS AND COMMUNICATION ENGINEERING,ELEC,Electrical / Electronics / Communications Engineering,2882,138,curated mapping (Sep 2026)
@@ -546,8 +546,8 @@ TNEA,COMPUTER SCIENCE AND ENGINEERING(ARTIFICIAL INTELLIGENCE),COMPUTER SCIENCE 
 TNEA,Civil Engineering (Environmental Engineering),Civil Engineering (Environmental Engineering),CIVILENG,Civil Engineering,6,1,curated mapping (Sep 2026)
 TNEA,Computer Science and Business System (SS),Computer Science and Business System,CSIT,Computer Science / Information Technology,6,1,curated mapping (Sep 2026)
 TNEA,Computer Science and Engineering (Artificial Intelligence and Machine Learning) (SS),Computer Science and Engineering (Artificial Intelligence and Machine Learning),AIML,Artificial Intelligence / Machine Learning / Data Science,13,2,curated mapping (Sep 2026)
-TNEA,Computer Science and Engineering (Cyber Security),Computer Science and Engineering (Cyber Security),CYBERSEC,Cyber Security,619,132,curated mapping (Sep 2026)
-TNEA,Computer Science and Engineering (Internet of Things and Cyber Security including Block Chain Technology),Computer Science and Engineering (Internet of Things and Cyber Security including Block Chain Technology),CYBERSEC,Cyber Security,6,1,curated mapping (Sep 2026)
+TNEA,Computer Science and Engineering (Cyber Security),Computer Science and Engineering (Cyber Security),CSIT,Computer Science And Engineering,619,132,curated mapping (Sep 2026)
+TNEA,Computer Science and Engineering (Internet of Things and Cyber Security including Block Chain Technology),Computer Science and Engineering (Internet of Things and Cyber Security including Block Chain Technology),CSIT,Computer Science And Engineering,6,1,curated mapping (Sep 2026)
 TNEA,Computer Science and Engineering (Internet of Things),Computer Science and Engineering (Internet of Things),CSIT,Computer Science / Information Technology,48,9,curated mapping (Sep 2026)
 TNEA,ELECTRONICS AND COMMUNICATION ENGINEERING,ELECTRONICS AND COMMUNICATION ENGINEERING,ELEC,Electrical / Electronics / Communications Engineering,1801,392,curated mapping (Sep 2026)
 TNEA,ELECTRONICS AND COMMUNICATION ENGINEERING (SS),ELECTRONICS AND COMMUNICATION ENGINEERING,ELEC,Electrical / Electronics / Communications Engineering,32,5,curated mapping (Sep 2026)
@@ -649,14 +649,14 @@ WBJEE,Computer Science & Engineering (Artificial Intelligence And Machine Learni
 WBJEE,Computer Science & Engineering (Artificial Intelligence And Machine Learning) (TFW),Computer Science & Engineering (Artificial Intelligence And Machine Learning),AIML,Artificial Intelligence / Machine Learning / Data Science,261,42,curated mapping (Sep 2026)
 WBJEE,Computer Science & Engineering (Artificial Intelligence),Computer Science & Engineering (Artificial Intelligence),AIML,Artificial Intelligence / Machine Learning / Data Science,51,6,curated mapping (Sep 2026)
 WBJEE,Computer Science & Engineering (Artificial Intelligence) (TFW),Computer Science & Engineering (Artificial Intelligence),AIML,Artificial Intelligence / Machine Learning / Data Science,26,6,curated mapping (Sep 2026)
-WBJEE,Computer Science & Engineering (Cyber Security),Computer Science & Engineering (Cyber Security),CYBERSEC,Cyber Security,224,17,curated mapping (Sep 2026)
-WBJEE,Computer Science & Engineering (Cyber Security) (TFW),Computer Science & Engineering (Cyber Security),CYBERSEC,Cyber Security,89,14,curated mapping (Sep 2026)
+WBJEE,Computer Science & Engineering (Cyber Security),Computer Science & Engineering (Cyber Security),CSIT,Computer Science And Engineering,224,17,curated mapping (Sep 2026)
+WBJEE,Computer Science & Engineering (Cyber Security) (TFW),Computer Science & Engineering (Cyber Security),CSIT,Computer Science And Engineering,89,14,curated mapping (Sep 2026)
 WBJEE,Computer Science & Engineering (Data Science),Computer Science & Engineering (Data Science),AIML,Artificial Intelligence / Machine Learning / Data Science,467,28,curated mapping (Sep 2026)
 WBJEE,Computer Science & Engineering (Data Science) (TFW),Computer Science & Engineering (Data Science),AIML,Artificial Intelligence / Machine Learning / Data Science,140,23,curated mapping (Sep 2026)
 WBJEE,Computer Science & Engineering (IOT),Computer Science & Engineering (IOT),CSIT,Computer Science / Information Technology,56,9,curated mapping (Sep 2026)
 WBJEE,Computer Science & Engineering (IOT) - TFW,Computer Science & Engineering (IOT),CSIT,Computer Science / Information Technology,33,9,curated mapping (Sep 2026)
-WBJEE,Computer Science & Engineering (Internet Of Things And Cyber Security Including Block Chain Technology),Computer Science & Engineering (Internet Of Things And Cyber Security Including Block Chain Technology),CYBERSEC,Cyber Security,112,10,curated mapping (Sep 2026)
-WBJEE,Computer Science & Engineering (Internet Of Things And Cyber Security Including Block Chain Technology) (TFW),Computer Science & Engineering (Internet Of Things And Cyber Security Including Block Chain Technology),CYBERSEC,Cyber Security,35,9,curated mapping (Sep 2026)
+WBJEE,Computer Science & Engineering (Internet Of Things And Cyber Security Including Block Chain Technology),Computer Science & Engineering (Internet Of Things And Cyber Security Including Block Chain Technology),CSIT,Computer Science And Engineering,112,10,curated mapping (Sep 2026)
+WBJEE,Computer Science & Engineering (Internet Of Things And Cyber Security Including Block Chain Technology) (TFW),Computer Science & Engineering (Internet Of Things And Cyber Security Including Block Chain Technology),CSIT,Computer Science And Engineering,35,9,curated mapping (Sep 2026)
 WBJEE,Computer Science & Technology,Computer Science & Technology,CSIT,Computer Science / Information Technology,77,5,curated mapping (Sep 2026)
 WBJEE,Computer Science & Technology - TFW,Computer Science & Technology,CSIT,Computer Science / Information Technology,29,5,curated mapping (Sep 2026)
 WBJEE,Computer Science And Business System,Computer Science And Business System,CSIT,Computer Science / Information Technology,226,13,curated mapping (Sep 2026)
@@ -738,7 +738,7 @@ AP-EAPCET,CSD,Computer Science And Engineering (Data Science),CSIT,Computer Scie
 AP-EAPCET,CSO,Computer Science And Engineering (IoT),CSIT,Computer Science / Information Technology,117,6,taxonomy alias row
 AP-EAPCET,CIT,Computer Science And Information Technology,CSIT,Computer Science / Information Technology,160,8,taxonomy alias row
 AP-EAPCET,CST,Computer Science And Technology,CSIT,Computer Science / Information Technology,42,2,taxonomy alias row
-AP-EAPCET,CS,Cyber Security,CYBERSEC,Cyber Security,93,5,taxonomy alias row
+AP-EAPCET,CS,Cyber Security,CSIT,Computer Science And Engineering,93,5,taxonomy alias row
 AP-EAPCET,DS,Data Science,AIML,Artificial Intelligence / Machine Learning / Data Science,31,2,taxonomy alias row
 AP-EAPCET,EEE,Electrical And Electronics Engineering,ELEC,Electrical / Electronics / Communications Engineering,2602,149,taxonomy alias row
 AP-EAPCET,ECM,Electronics And Computer Engineering,ELEC,Electrical / Electronics / Communications Engineering,69,3,taxonomy alias row
@@ -746,7 +746,7 @@ AP-EAPCET,ENV,Environmental Engineering,ENVENG,Environmental Engineering,20,1,ta
 AP-EAPCET,FDE,Food Engineering,FOODENG,Food Engineering,20,1,taxonomy alias row
 AP-EAPCET,FDT,Food Technology,FOODENG,Food Engineering,60,3,taxonomy alias row
 AP-EAPCET,INF,Information Technology,CSIT,Computer Science / Information Technology,960,49,taxonomy alias row
-AP-EAPCET,IOT,Internet Of Things (IoT),INDENG,Industrial / Manufacturing / Production Engineering,20,1,taxonomy alias row
+AP-EAPCET,IOT,Internet Of Things (IoT),CSIT,Computer Science / Information Technology,20,1,taxonomy alias row
 AP-EAPCET,MEC,Mechanical Engineering,MECHENG,Mechanical / Mechatronics Engineering ,2715,145,taxonomy alias row
 AP-EAPCET,MMT,Metallurgy And Material Technology,MEMS,Metallurgy Engineering And Material Science,18,1,taxonomy alias row
 AP-EAPCET,MIN,Mining Engineering,MININGENG,Mining Engineering,75,3,taxonomy alias row
@@ -806,7 +806,7 @@ CollegeFees,"B.Tech. in Electronics and Communication Engineering and M.Tech. in
 CollegeFees,"B.Tech. in Electronics and Communication Engineering and M.Tech. in VLSI Design (5 Years, Bachelor and Master of Technology (Dual Degree))","B.Tech. in Electronics and Communication Engineering and M.Tech. in VLSI Design (5 Years, Bachelor and Master of Technology (Dual Degree))",ELEC,Electrical / Electronics / Communications Engineering,10,1,taxonomy alias row
 CollegeFees,BIO- TECHNOLOGY,BIO- TECHNOLOGY,BIOTECH,Biotechnology,64,6,taxonomy alias row
 CollegeFees,BIO-MEDICAL ENGINEERING,BIO-MEDICAL ENGINEERING,BIOMEDENG,Biomedical Engineering,4,1,taxonomy alias row
-CollegeFees,"BS in Chemical Sciences (4 Years, Bachelor of Science)","BS in Chemical Sciences (4 Years, Bachelor of Science)",CHEMSCI,Chemical Science And Technology,8,1,taxonomy alias row
+CollegeFees,"BS in Chemical Sciences (4 Years, Bachelor of Science)","BS in Chemical Sciences (4 Years, Bachelor of Science)",CHEM,Chemistry,8,1,taxonomy alias row
 CollegeFees,"BS in Economics with MBA (IIM Bodh Gaya) (5 Years, Bachelor of Science and MBA (Dual Degree))","BS in Economics with MBA (IIM Bodh Gaya) (5 Years, Bachelor of Science and MBA (Dual Degree))",ECON,Economics,5,1,taxonomy alias row
 CollegeFees,"BS in Mathematics (4 Years, Bachelor of Science)","BS in Mathematics (4 Years, Bachelor of Science)",MATH,Mathematics,10,1,taxonomy alias row
 CollegeFees,"Bachelor of Design (4 Years, Bachelor of Design)","Bachelor of Design (4 Years, Bachelor of Design)",DESIGN,Design,3,1,taxonomy alias row
@@ -816,7 +816,7 @@ CollegeFees,"Bio Technology (4 Years, Bachelor of Technology)","Bio Technology (
 CollegeFees,"Biochemical Engineering with M.Tech. in Biochemical Engineering and Biotechnology (5 Years, Bachelor and Master of Technology (Dual Degree))","Biochemical Engineering with M.Tech. in Biochemical Engineering and Biotechnology (5 Years, Bachelor and Master of Technology (Dual Degree))",BIOCHEMENG,Biochemical Engineering,7,1,taxonomy alias row
 CollegeFees,"Bioengineering with M.Tech in Biomedical Technology (5 Years, Bachelor and Master of Technology (Dual Degree))","Bioengineering with M.Tech in Biomedical Technology (5 Years, Bachelor and Master of Technology (Dual Degree))",BIOENG,Biological Engineering,8,1,taxonomy alias row
 CollegeFees,"Biological Engineering (4 Years, Bachelor of Technology)","Biological Engineering (4 Years, Bachelor of Technology)",BIOENG,Biological Engineering,10,1,taxonomy alias row
-CollegeFees,"Biological Science (4 Years, Bachelor of Science)","Biological Science (4 Years, Bachelor of Science)",BIOSCI,Biological Science And Engineering,10,1,taxonomy alias row
+CollegeFees,"Biological Science (4 Years, Bachelor of Science)","Biological Science (4 Years, Bachelor of Science)",BIO,Biology,10,1,taxonomy alias row
 CollegeFees,"Biological Sciences and Bioengineering (4 Years, Bachelor of Technology)","Biological Sciences and Bioengineering (4 Years, Bachelor of Technology)",BIOENG,Biological Engineering,10,1,taxonomy alias row
 CollegeFees,"Biomedical Engineering (4 Years, Bachelor of Technology)","Biomedical Engineering (4 Years, Bachelor of Technology)",BIOMEDENG,Biomedical Engineering,13,2,taxonomy alias row
 CollegeFees,"Biosciences and Bioengineering (4 Years, Bachelor of Technology)","Biosciences and Bioengineering (4 Years, Bachelor of Technology)",BIOENG,Biological Engineering,20,2,taxonomy alias row
@@ -837,7 +837,7 @@ CollegeFees,"Chemical Engineering (4 Years, Bachelor of Technology)","Chemical E
 CollegeFees,"Chemical Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))","Chemical Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))",CHEMENG,Chemical Engineering,21,3,taxonomy alias row
 CollegeFees,"Chemical Engineering (5 Years, Integrated Masters in Technology)","Chemical Engineering (5 Years, Integrated Masters in Technology)",CHEMENG,Chemical Engineering,6,1,taxonomy alias row
 CollegeFees,"Chemical Science and Technology (4 Years, Bachelor of Technology)","Chemical Science and Technology (4 Years, Bachelor of Technology)",CHEMSCI,Chemical Science And Technology,20,2,taxonomy alias row
-CollegeFees,"Chemical Sciences (5 Years, Bachelor of Science and Master of Science (Dual Degree))","Chemical Sciences (5 Years, Bachelor of Science and Master of Science (Dual Degree))",CHEMSCI,Chemical Science And Technology,9,1,taxonomy alias row
+CollegeFees,"Chemical Sciences (5 Years, Bachelor of Science and Master of Science (Dual Degree))","Chemical Sciences (5 Years, Bachelor of Science and Master of Science (Dual Degree))",CHEM,Chemistry,9,1,taxonomy alias row
 CollegeFees,"Chemical Technology (5 Years, Bachelor and Master of Technology (Dual Degree))","Chemical Technology (5 Years, Bachelor and Master of Technology (Dual Degree))",CHEMENG,Chemical Engineering,6,1,taxonomy alias row
 CollegeFees,"Chemical and Biochemical Engineering (4 Years, Bachelor of Technology)","Chemical and Biochemical Engineering (4 Years, Bachelor of Technology)",CHEMENG,Chemical Engineering,8,1,taxonomy alias row
 CollegeFees,"Chemistry (4 Years, Bachelor of Science)","Chemistry (4 Years, Bachelor of Science)",CHEM,Chemistry,31,3,taxonomy alias row
@@ -877,7 +877,7 @@ CollegeFees,"Computer Science and Engineering with specialization in Cyber Secur
 CollegeFees,"Dairy Engineering (4 Years, Bachelor of Technology)","Dairy Engineering (4 Years, Bachelor of Technology)",DAIRYENG,Dairy Engineering,5,1,taxonomy alias row
 CollegeFees,"Data Science and Artificial Intelligence (4 Years, Bachelor of Technology)","Data Science and Artificial Intelligence (4 Years, Bachelor of Technology)",AIML,Artificial Intelligence / Machine Learning / Data Science,50,5,taxonomy alias row
 CollegeFees,"Data Science and Engineering (4 Years, Bachelor of Technology)","Data Science and Engineering (4 Years, Bachelor of Technology)",AIML,Artificial Intelligence / Machine Learning / Data Science,32,3,taxonomy alias row
-CollegeFees,"Earth Sciences (4 Years, Bachelor of Science)","Earth Sciences (4 Years, Bachelor of Science)",EARTHSCI,Earth Science And Engineering,10,1,taxonomy alias row
+CollegeFees,"Earth Sciences (4 Years, Bachelor of Science)","Earth Sciences (4 Years, Bachelor of Science)",GEO,Geology / Geophysics / Geological Technology,10,1,taxonomy alias row
 CollegeFees,"Economics (4 Years, Bachelor of Science)","Economics (4 Years, Bachelor of Science)",ECON,Economics,41,4,taxonomy alias row
 CollegeFees,"Economics (5 Years, Bachelor of Science and Master of Science (Dual Degree))","Economics (5 Years, Bachelor of Science and Master of Science (Dual Degree))",ECON,Economics,9,1,taxonomy alias row
 CollegeFees,"Electrical Engineering (4 Years, Bachelor of Technology)","Electrical Engineering (4 Years, Bachelor of Technology)",ELEC,Electrical / Electronics / Communications Engineering,504,50,taxonomy alias row
@@ -908,7 +908,7 @@ CollegeFees,"Energy Engineering (4 Years, Bachelor of Technology)","Energy Engin
 CollegeFees,"Engineering Design (5 Years, Bachelor and Master of Technology (Dual Degree))","Engineering Design (5 Years, Bachelor and Master of Technology (Dual Degree))",ENGDES,Engineering Design,11,1,taxonomy alias row
 CollegeFees,"Engineering Physics (4 Years, Bachelor of Technology)","Engineering Physics (4 Years, Bachelor of Technology)",ENGPHY,Engineering Physics,163,17,taxonomy alias row
 CollegeFees,"Engineering Physics (5 Years, Bachelor and Master of Technology (Dual Degree))","Engineering Physics (5 Years, Bachelor and Master of Technology (Dual Degree))",ENGPHY,Engineering Physics,14,2,taxonomy alias row
-CollegeFees,"Engineering Science (4 Years, Bachelor of Technology)","Engineering Science (4 Years, Bachelor of Technology)",ENGSCI,Engineering Science,10,1,taxonomy alias row
+CollegeFees,"Engineering Science (4 Years, Bachelor of Technology)","Engineering Science (4 Years, Bachelor of Technology)",GENENG,General Engineering,10,1,taxonomy alias row
 CollegeFees,"Engineering and Computational Mechanics (4 Years, Bachelor of Technology)","Engineering and Computational Mechanics (4 Years, Bachelor of Technology)",MECHENG,Mechanical / Mechatronics Engineering ,21,2,taxonomy alias row
 CollegeFees,"Environmental Engineering (4 Years, Bachelor of Technology)","Environmental Engineering (4 Years, Bachelor of Technology)",ENVENG,Environmental Engineering,10,1,taxonomy alias row
 CollegeFees,"Environmental Science and Engineering (4 Years, Bachelor of Technology)","Environmental Science and Engineering (4 Years, Bachelor of Technology)",ENVENG,Environmental Engineering,11,1,taxonomy alias row
@@ -988,7 +988,7 @@ CollegeFees,"Physics (5 Years, Bachelor of Science and Master of Science (Dual D
 CollegeFees,"Physics (5 Years, Integrated Master of Science)","Physics (5 Years, Integrated Master of Science)",PHYSICS,Physics,32,5,taxonomy alias row
 CollegeFees,"Physics with Specialization (4 Years, Bachelor of Science)","Physics with Specialization (4 Years, Bachelor of Science)",PHYSICS,Physics,8,1,taxonomy alias row
 CollegeFees,"Planning (4 Years, Bachelor of Planning)","Planning (4 Years, Bachelor of Planning)",PLAN,Planning,8,1,taxonomy alias row
-CollegeFees,"Printing and Packaging Technology (4 Years, Bachelor of Technology)","Printing and Packaging Technology (4 Years, Bachelor of Technology)",PRINTENG,Printing Engineering,5,1,taxonomy alias row
+CollegeFees,"Printing and Packaging Technology (4 Years, Bachelor of Technology)","Printing and Packaging Technology (4 Years, Bachelor of Technology)",PAPERENG,Paper And Printing Engineering,5,1,taxonomy alias row
 CollegeFees,"Production Engineering (4 Years, Bachelor of Technology)","Production Engineering (4 Years, Bachelor of Technology)",INDENG,Industrial / Manufacturing / Production Engineering,37,3,taxonomy alias row
 CollegeFees,"Production and Industrial Engineering (4 Years, Bachelor of Technology)","Production and Industrial Engineering (4 Years, Bachelor of Technology)",INDENG,Industrial / Manufacturing / Production Engineering,63,7,taxonomy alias row
 CollegeFees,"Quantitative Economics & Data Science (5 Years, Integrated Master of Science)","Quantitative Economics & Data Science (5 Years, Integrated Master of Science)",ECON,Economics,6,1,taxonomy alias row
@@ -996,7 +996,7 @@ CollegeFees,"ROBOTICS & AUTOMATION (4 Years, Bachelor of Technology)","ROBOTICS 
 CollegeFees,ROBOTICS AND ARTIFICIAL INTELLIGENCE,ROBOTICS AND ARTIFICIAL INTELLIGENCE,AIML,Artificial Intelligence / Machine Learning / Data Science,45,5,taxonomy alias row
 CollegeFees,"SUSTAINABLE ENERGY TECHNOLOGIES (4 Years, Bachelor of Technology)","SUSTAINABLE ENERGY TECHNOLOGIES (4 Years, Bachelor of Technology)",ENERGYENG,Energy Engineering,10,1,taxonomy alias row
 CollegeFees,"Smart Manufacturing (4 Years, Bachelor of Technology)","Smart Manufacturing (4 Years, Bachelor of Technology)",INDENG,Industrial / Manufacturing / Production Engineering,23,2,taxonomy alias row
-CollegeFees,"Space Sciences and Engineering (4 Years, Bachelor of Technology)","Space Sciences and Engineering (4 Years, Bachelor of Technology)",SPACEENG,Space Engineering,8,1,taxonomy alias row
+CollegeFees,"Space Sciences and Engineering (4 Years, Bachelor of Technology)","Space Sciences and Engineering (4 Years, Bachelor of Technology)",AERO,Aerospace Engineering,8,1,taxonomy alias row
 CollegeFees,"Statistics and Data Science (4 Years, Bachelor of Science)","Statistics and Data Science (4 Years, Bachelor of Science)",AIML,Artificial Intelligence / Machine Learning / Data Science,10,1,taxonomy alias row
 CollegeFees,"Textile Technology (4 Years, Bachelor of Technology)","Textile Technology (4 Years, Bachelor of Technology)",TEXTILE,Textile Engineering,20,2,taxonomy alias row
 CollegeFees,"VLSI Design and Technology (4 Years, Bachelor of Technology)","VLSI Design and Technology (4 Years, Bachelor of Technology)",ELEC,Electrical / Electronics / Communications Engineering,10,1,taxonomy alias row
@@ -1012,7 +1012,7 @@ GUJCET,CIVIL ENGINEERING,CIVIL ENGINEERING,CIVILENG,Civil Engineering,161,69,tax
 GUJCET,COMPUTER ENGINEERING,COMPUTER ENGINEERING,CSIT,Computer Science / Information Technology,265,87,taxonomy alias row
 GUJCET,COMPUTER ENGINEERING (SOFTWARE ENGINEERING),COMPUTER ENGINEERING (SOFTWARE ENGINEERING),CSIT,Computer Science / Information Technology,2,1,taxonomy alias row
 GUJCET,COMPUTER SCIENCE & INFORMATION TECHNOLOGY,COMPUTER SCIENCE & INFORMATION TECHNOLOGY,CSIT,Computer Science / Information Technology,7,2,taxonomy alias row
-GUJCET,CYBER SECURITY,CYBER SECURITY,CYBERSEC,Cyber Security,7,5,taxonomy alias row
+GUJCET,CYBER SECURITY,CYBER SECURITY,CSIT,Computer Science And Engineering,7,5,taxonomy alias row
 GUJCET,ELECTRICAL AND ELECTRONICS ENGINEERING,ELECTRICAL AND ELECTRONICS ENGINEERING,ELEC,Electrical / Electronics / Communications Engineering,7,2,taxonomy alias row
 GUJCET,ELECTRICAL ENGINEERING,ELECTRICAL ENGINEERING,ELEC,Electrical / Electronics / Communications Engineering,135,53,taxonomy alias row
 GUJCET,ELECTRONICS ENGINEERING,ELECTRONICS ENGINEERING,ELEC,Electrical / Electronics / Communications Engineering,13,2,taxonomy alias row
@@ -1082,7 +1082,7 @@ JoSAA,"B.Tech in Mechanical Engineering and M.Tech in AI and Robotics (5 Years, 
 JoSAA,"B.Tech in Microelectronics & VLSI (4 Years, Bachelor of Technology)","B.Tech in Microelectronics & VLSI (4 Years, Bachelor of Technology)",ELEC,Electrical / Electronics / Communications Engineering,159,1,taxonomy alias row
 JoSAA,"B.Tech. in Electronics and Communication Engineering and M.Tech. in Communication Systems (5 Years, Bachelor and Master of Technology (Dual Degree))","B.Tech. in Electronics and Communication Engineering and M.Tech. in Communication Systems (5 Years, Bachelor and Master of Technology (Dual Degree))",ELEC,Electrical / Electronics / Communications Engineering,248,2,taxonomy alias row
 JoSAA,"B.Tech. in Electronics and Communication Engineering and M.Tech. in VLSI Design (5 Years, Bachelor and Master of Technology (Dual Degree))","B.Tech. in Electronics and Communication Engineering and M.Tech. in VLSI Design (5 Years, Bachelor and Master of Technology (Dual Degree))",ELEC,Electrical / Electronics / Communications Engineering,86,1,taxonomy alias row
-JoSAA,"BS in Chemical Sciences (4 Years, Bachelor of Science)","BS in Chemical Sciences (4 Years, Bachelor of Science)",CHEMSCI,Chemical Science And Technology,143,1,taxonomy alias row
+JoSAA,"BS in Chemical Sciences (4 Years, Bachelor of Science)","BS in Chemical Sciences (4 Years, Bachelor of Science)",CHEM,Chemistry,143,1,taxonomy alias row
 JoSAA,"BS in Economics with MBA (IIM Bodh Gaya) (5 Years, Bachelor of Science and MBA (Dual Degree))","BS in Economics with MBA (IIM Bodh Gaya) (5 Years, Bachelor of Science and MBA (Dual Degree))",ECON,Economics,55,1,taxonomy alias row
 JoSAA,"BS in Mathematics (4 Years, Bachelor of Science)","BS in Mathematics (4 Years, Bachelor of Science)",MATH,Mathematics,380,1,taxonomy alias row
 JoSAA,"Bachelor of Design (4 Years, Bachelor of Design)","Bachelor of Design (4 Years, Bachelor of Design)",DESIGN,Design,27,1,taxonomy alias row
@@ -1092,7 +1092,7 @@ JoSAA,"Bio Technology (4 Years, Bachelor of Technology)","Bio Technology (4 Year
 JoSAA,"Biochemical Engineering with M.Tech. in Biochemical Engineering and Biotechnology (5 Years, Bachelor and Master of Technology (Dual Degree))","Biochemical Engineering with M.Tech. in Biochemical Engineering and Biotechnology (5 Years, Bachelor and Master of Technology (Dual Degree))",BIOCHEMENG,Biochemical Engineering,375,1,taxonomy alias row
 JoSAA,"Bioengineering with M.Tech in Biomedical Technology (5 Years, Bachelor and Master of Technology (Dual Degree))","Bioengineering with M.Tech in Biomedical Technology (5 Years, Bachelor and Master of Technology (Dual Degree))",BIOENG,Biological Engineering,383,1,taxonomy alias row
 JoSAA,"Biological Engineering (4 Years, Bachelor of Technology)","Biological Engineering (4 Years, Bachelor of Technology)",BIOENG,Biological Engineering,170,1,taxonomy alias row
-JoSAA,"Biological Science (4 Years, Bachelor of Science)","Biological Science (4 Years, Bachelor of Science)",BIOSCI,Biological Science And Engineering,170,1,taxonomy alias row
+JoSAA,"Biological Science (4 Years, Bachelor of Science)","Biological Science (4 Years, Bachelor of Science)",BIO,Biology,170,1,taxonomy alias row
 JoSAA,"Biological Sciences and Bioengineering (4 Years, Bachelor of Technology)","Biological Sciences and Bioengineering (4 Years, Bachelor of Technology)",BIOENG,Biological Engineering,534,1,taxonomy alias row
 JoSAA,"Biomedical Engineering (4 Years, Bachelor of Technology)","Biomedical Engineering (4 Years, Bachelor of Technology)",BIOMEDENG,Biomedical Engineering,445,3,taxonomy alias row
 JoSAA,"Biosciences and Bioengineering (4 Years, Bachelor of Technology)","Biosciences and Bioengineering (4 Years, Bachelor of Technology)",BIOENG,Biological Engineering,704,3,taxonomy alias row
@@ -1108,7 +1108,7 @@ JoSAA,"Chemical Engineering (4 Years, Bachelor of Technology)","Chemical Enginee
 JoSAA,"Chemical Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))","Chemical Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))",CHEMENG,Chemical Engineering,1957,6,taxonomy alias row
 JoSAA,"Chemical Engineering (5 Years, Integrated Masters in Technology)","Chemical Engineering (5 Years, Integrated Masters in Technology)",CHEMENG,Chemical Engineering,312,1,taxonomy alias row
 JoSAA,"Chemical Science and Technology (4 Years, Bachelor of Technology)","Chemical Science and Technology (4 Years, Bachelor of Technology)",CHEMSCI,Chemical Science And Technology,733,3,taxonomy alias row
-JoSAA,"Chemical Sciences (5 Years, Bachelor of Science and Master of Science (Dual Degree))","Chemical Sciences (5 Years, Bachelor of Science and Master of Science (Dual Degree))",CHEMSCI,Chemical Science And Technology,261,1,taxonomy alias row
+JoSAA,"Chemical Sciences (5 Years, Bachelor of Science and Master of Science (Dual Degree))","Chemical Sciences (5 Years, Bachelor of Science and Master of Science (Dual Degree))",CHEM,Chemistry,261,1,taxonomy alias row
 JoSAA,"Chemical Technology (5 Years, Bachelor and Master of Technology (Dual Degree))","Chemical Technology (5 Years, Bachelor and Master of Technology (Dual Degree))",CHEMENG,Chemical Engineering,165,1,taxonomy alias row
 JoSAA,"Chemical and Biochemical Engineering (4 Years, Bachelor of Technology)","Chemical and Biochemical Engineering (4 Years, Bachelor of Technology)",CHEMENG,Chemical Engineering,187,1,taxonomy alias row
 JoSAA,"Chemistry (4 Years, Bachelor of Science)","Chemistry (4 Years, Bachelor of Science)",CHEM,Chemistry,1411,4,taxonomy alias row
@@ -1148,7 +1148,7 @@ JoSAA,"Computer Science and Engineering with specialization in Cyber Security  (
 JoSAA,"Dairy Engineering (4 Years, Bachelor of Technology)","Dairy Engineering (4 Years, Bachelor of Technology)",DAIRYENG,Dairy Engineering,85,1,taxonomy alias row
 JoSAA,"Data Science and Artificial Intelligence (4 Years, Bachelor of Technology)","Data Science and Artificial Intelligence (4 Years, Bachelor of Technology)",AIML,Artificial Intelligence / Machine Learning / Data Science,1483,6,taxonomy alias row
 JoSAA,"Data Science and Engineering (4 Years, Bachelor of Technology)","Data Science and Engineering (4 Years, Bachelor of Technology)",AIML,Artificial Intelligence / Machine Learning / Data Science,961,3,taxonomy alias row
-JoSAA,"Earth Sciences (4 Years, Bachelor of Science)","Earth Sciences (4 Years, Bachelor of Science)",EARTHSCI,Earth Science And Engineering,520,1,taxonomy alias row
+JoSAA,"Earth Sciences (4 Years, Bachelor of Science)","Earth Sciences (4 Years, Bachelor of Science)",GEO,Geology / Geophysics / Geological Technology,520,1,taxonomy alias row
 JoSAA,"Economics (4 Years, Bachelor of Science)","Economics (4 Years, Bachelor of Science)",ECON,Economics,1482,4,taxonomy alias row
 JoSAA,"Economics (5 Years, Bachelor of Science and Master of Science (Dual Degree))","Economics (5 Years, Bachelor of Science and Master of Science (Dual Degree))",ECON,Economics,267,1,taxonomy alias row
 JoSAA,"Electrical Engineering (4 Years, Bachelor of Technology)","Electrical Engineering (4 Years, Bachelor of Technology)",ELEC,Electrical / Electronics / Communications Engineering,36405,56,taxonomy alias row
@@ -1179,7 +1179,7 @@ JoSAA,"Energy Engineering (4 Years, Bachelor of Technology)","Energy Engineering
 JoSAA,"Engineering Design (5 Years, Bachelor and Master of Technology (Dual Degree))","Engineering Design (5 Years, Bachelor and Master of Technology (Dual Degree))",ENGDES,Engineering Design,584,1,taxonomy alias row
 JoSAA,"Engineering Physics (4 Years, Bachelor of Technology)","Engineering Physics (4 Years, Bachelor of Technology)",ENGPHY,Engineering Physics,6969,21,taxonomy alias row
 JoSAA,"Engineering Physics (5 Years, Bachelor and Master of Technology (Dual Degree))","Engineering Physics (5 Years, Bachelor and Master of Technology (Dual Degree))",ENGPHY,Engineering Physics,868,2,taxonomy alias row
-JoSAA,"Engineering Science (4 Years, Bachelor of Technology)","Engineering Science (4 Years, Bachelor of Technology)",ENGSCI,Engineering Science,521,1,taxonomy alias row
+JoSAA,"Engineering Science (4 Years, Bachelor of Technology)","Engineering Science (4 Years, Bachelor of Technology)",GENENG,General Engineering,521,1,taxonomy alias row
 JoSAA,"Engineering and Computational Mechanics (4 Years, Bachelor of Technology)","Engineering and Computational Mechanics (4 Years, Bachelor of Technology)",MECHENG,Mechanical / Mechatronics Engineering ,1066,3,taxonomy alias row
 JoSAA,"Environmental Engineering (4 Years, Bachelor of Technology)","Environmental Engineering (4 Years, Bachelor of Technology)",ENVENG,Environmental Engineering,518,2,taxonomy alias row
 JoSAA,"Environmental Science and Engineering (4 Years, Bachelor of Technology)","Environmental Science and Engineering (4 Years, Bachelor of Technology)",ENVENG,Environmental Engineering,182,1,taxonomy alias row
@@ -1256,14 +1256,14 @@ JoSAA,"Physics (5 Years, Bachelor of Science and Master of Science (Dual Degree)
 JoSAA,"Physics (5 Years, Integrated Master of Science)","Physics (5 Years, Integrated Master of Science)",PHYSICS,Physics,2604,8,taxonomy alias row
 JoSAA,"Physics with Specialization (4 Years, Bachelor of Science)","Physics with Specialization (4 Years, Bachelor of Science)",PHYSICS,Physics,187,1,taxonomy alias row
 JoSAA,"Planning (4 Years, Bachelor of Planning)","Planning (4 Years, Bachelor of Planning)",PLAN,Planning,1904,4,taxonomy alias row
-JoSAA,"Printing and Packaging Technology (4 Years, Bachelor of Technology)","Printing and Packaging Technology (4 Years, Bachelor of Technology)",PRINTENG,Printing Engineering,86,1,taxonomy alias row
+JoSAA,"Printing and Packaging Technology (4 Years, Bachelor of Technology)","Printing and Packaging Technology (4 Years, Bachelor of Technology)",PAPERENG,Paper And Printing Engineering,86,1,taxonomy alias row
 JoSAA,"Production Engineering (4 Years, Bachelor of Technology)","Production Engineering (4 Years, Bachelor of Technology)",INDENG,Industrial / Manufacturing / Production Engineering,3360,4,taxonomy alias row
 JoSAA,"Production and Industrial Engineering (4 Years, Bachelor of Technology)","Production and Industrial Engineering (4 Years, Bachelor of Technology)",INDENG,Industrial / Manufacturing / Production Engineering,4958,8,taxonomy alias row
 JoSAA,"Quantitative Economics & Data Science (5 Years, Integrated Master of Science)","Quantitative Economics & Data Science (5 Years, Integrated Master of Science)",ECON,Economics,274,1,taxonomy alias row
 JoSAA,"ROBOTICS & AUTOMATION (4 Years, Bachelor of Technology)","ROBOTICS & AUTOMATION (4 Years, Bachelor of Technology)",ROBOENG,Robotics Engineering,205,1,taxonomy alias row
 JoSAA,"SUSTAINABLE ENERGY TECHNOLOGIES (4 Years, Bachelor of Technology)","SUSTAINABLE ENERGY TECHNOLOGIES (4 Years, Bachelor of Technology)",ENERGYENG,Energy Engineering,194,1,taxonomy alias row
 JoSAA,"Smart Manufacturing (4 Years, Bachelor of Technology)","Smart Manufacturing (4 Years, Bachelor of Technology)",INDENG,Industrial / Manufacturing / Production Engineering,775,2,taxonomy alias row
-JoSAA,"Space Sciences and Engineering (4 Years, Bachelor of Technology)","Space Sciences and Engineering (4 Years, Bachelor of Technology)",SPACEENG,Space Engineering,88,1,taxonomy alias row
+JoSAA,"Space Sciences and Engineering (4 Years, Bachelor of Technology)","Space Sciences and Engineering (4 Years, Bachelor of Technology)",AERO,Aerospace Engineering,88,1,taxonomy alias row
 JoSAA,"Statistics and Data Science (4 Years, Bachelor of Science)","Statistics and Data Science (4 Years, Bachelor of Science)",AIML,Artificial Intelligence / Machine Learning / Data Science,284,1,taxonomy alias row
 JoSAA,"Textile Technology (4 Years, Bachelor of Technology)","Textile Technology (4 Years, Bachelor of Technology)",TEXTILE,Textile Engineering,1534,2,taxonomy alias row
 JoSAA,"VLSI Design and Technology (4 Years, Bachelor of Technology)","VLSI Design and Technology (4 Years, Bachelor of Technology)",ELEC,Electrical / Electronics / Communications Engineering,154,1,taxonomy alias row
@@ -1282,7 +1282,7 @@ KCET,COMPUTER SCIENCE AND BUSINESS SYSTEMS,COMPUTER SCIENCE AND BUSINESS SYSTEMS
 KCET,COMPUTER SCIENCE AND DESIGN,COMPUTER SCIENCE AND DESIGN,CSIT,Computer Science / Information Technology,109,17,taxonomy alias row
 KCET,COMPUTER SCIENCE AND ENGINEERING,COMPUTER SCIENCE AND ENGINEERING,CSIT,Computer Science / Information Technology,2934,192,taxonomy alias row
 KCET,COMPUTER SCIENCE AND ENGINEERING(DATA SCIENCE),COMPUTER SCIENCE AND ENGINEERING(DATA SCIENCE),CSIT,Computer Science / Information Technology,563,54,taxonomy alias row
-KCET,CYBER SECURITY,CYBER SECURITY,CYBERSEC,Cyber Security,2,2,taxonomy alias row
+KCET,CYBER SECURITY,CYBER SECURITY,CSIT,Computer Science And Engineering,2,2,taxonomy alias row
 KCET,DESIGN,DESIGN,DESIGN,Design,2,2,taxonomy alias row
 KCET,ENGINEERING DESIGN,ENGINEERING DESIGN,ENGDES,Engineering Design,1,1,taxonomy alias row
 KCET,ENVIRONMENTAL ENGINEERING,ENVIRONMENTAL ENGINEERING,ENVENG,Environmental Engineering,12,1,taxonomy alias row
@@ -1310,13 +1310,13 @@ KEAM,Computer Science and Design,Computer Science and Design,CSIT,Computer Scien
 KEAM,Computer Science and Engineering,Computer Science and Engineering,CSIT,Computer Science / Information Technology,2267,112,taxonomy alias row
 KEAM,Computer Science and Engineering (Artificial Intelligence and Data Science),Computer Science and Engineering (Artificial Intelligence and Data Science),CSIT,Computer Science / Information Technology,16,1,taxonomy alias row
 KEAM,Electrical & Electronics,Electrical & Electronics,ELEC,Electrical / Electronics / Communications Engineering,714,81,taxonomy alias row
-KEAM,Electrical and Computer Engineering,Electrical and Computer Engineering,CSIT,Computer Science / Information Technology,264,14,taxonomy alias row
+KEAM,Electrical and Computer Engineering,Electrical and Computer Engineering,ELEC,Electrical / Electronics / Communications Engineering,264,14,taxonomy alias row
 KEAM,Electrical and Electronics Engineering,Electrical and Electronics Engineering,ELEC,Electrical / Electronics / Communications Engineering,1152,84,taxonomy alias row
 KEAM,Electronics and Computer Engineering,Electronics and Computer Engineering,ELEC,Electrical / Electronics / Communications Engineering,150,11,taxonomy alias row
 KEAM,Food Technology,Food Technology,FOODENG,Food Engineering,342,10,taxonomy alias row
 KEAM,Industrial Engineering,Industrial Engineering,INDENG,Industrial / Manufacturing / Production Engineering,71,2,taxonomy alias row
 KEAM,Information Technology,Information Technology,CSIT,Computer Science / Information Technology,352,8,taxonomy alias row
-KEAM,Internet of Things,Internet of Things,INDENG,Industrial / Manufacturing / Production Engineering,4,1,taxonomy alias row
+KEAM,Internet of Things,Internet of Things,CSIT,Computer Science / Information Technology,4,1,taxonomy alias row
 KEAM,Mechanical Engineering,Mechanical Engineering,MECHENG,Mechanical / Mechatronics Engineering ,2319,98,taxonomy alias row
 KEAM,Mechatronics Engineering,Mechatronics Engineering,MECHENG,Mechanical / Mechatronics Engineering ,83,6,taxonomy alias row
 KEAM,Production Engineering,Production Engineering,INDENG,Industrial / Manufacturing / Production Engineering,42,2,taxonomy alias row
@@ -1350,18 +1350,18 @@ MHT-CET,Computer Science and Engineering(Data Science),Computer Science and Engi
 MHT-CET,Computer Science and Information Technology,Computer Science and Information Technology,CSIT,Computer Science / Information Technology,107,4,taxonomy alias row
 MHT-CET,Computer Science and Technology,Computer Science and Technology,CSIT,Computer Science / Information Technology,32,1,taxonomy alias row
 MHT-CET,Computer Technology,Computer Technology,CSIT,Computer Science / Information Technology,64,4,taxonomy alias row
-MHT-CET,Cyber Security,Cyber Security,CYBERSEC,Cyber Security,51,4,taxonomy alias row
+MHT-CET,Cyber Security,Cyber Security,CSIT,Computer Science And Engineering,51,4,taxonomy alias row
 MHT-CET,Data Science,Data Science,AIML,Artificial Intelligence / Machine Learning / Data Science,71,6,taxonomy alias row
 MHT-CET,Design,Design,DESIGN,Design,19,3,taxonomy alias row
 MHT-CET,Dyestuff Technology,Dyestuff Technology,OILPAINTTECH,"Oil, Paints, Dye Technology",11,1,taxonomy alias row
 MHT-CET,Electrical Engg[Electronics and Power],Electrical Engg[Electronics and Power],ELEC,Electrical / Electronics / Communications Engineering,204,8,taxonomy alias row
 MHT-CET,Electrical Engineering,Electrical Engineering,ELEC,Electrical / Electronics / Communications Engineering,3688,194,taxonomy alias row
-MHT-CET,Electrical and Computer Engineering,Electrical and Computer Engineering,CSIT,Computer Science / Information Technology,91,6,taxonomy alias row
+MHT-CET,Electrical and Computer Engineering,Electrical and Computer Engineering,ELEC,Electrical / Electronics / Communications Engineering,91,6,taxonomy alias row
 MHT-CET,Electrical and Electronics Engineering,Electrical and Electronics Engineering,ELEC,Electrical / Electronics / Communications Engineering,55,4,taxonomy alias row
 MHT-CET,Electronics Engineering,Electronics Engineering,ELEC,Electrical / Electronics / Communications Engineering,164,7,taxonomy alias row
 MHT-CET,Electronics and Biomedical Engineering,Electronics and Biomedical Engineering,ELEC,Electrical / Electronics / Communications Engineering,27,1,taxonomy alias row
 MHT-CET,Electronics and Computer Engineering,Electronics and Computer Engineering,ELEC,Electrical / Electronics / Communications Engineering,1007,45,taxonomy alias row
-MHT-CET,Electronics and Computer Science,Electronics and Computer Science,CSIT,Computer Science / Information Technology,277,24,taxonomy alias row
+MHT-CET,Electronics and Computer Science,Electronics and Computer Science,ELEC,Electrical / Electronics / Communications Engineering,277,24,taxonomy alias row
 MHT-CET,Electronics and Telecommunication Engg,Electronics and Telecommunication Engg,ELEC,Electrical / Electronics / Communications Engineering,5261,238,taxonomy alias row
 MHT-CET,Fibres and Textile Processing Technology,Fibres and Textile Processing Technology,TEXTILE,Textile Engineering,14,1,taxonomy alias row
 MHT-CET,Food Engineering,Food Engineering,FOODENG,Food Engineering,9,1,taxonomy alias row
@@ -1372,7 +1372,7 @@ MHT-CET,Industrial IoT,Industrial IoT,INDENG,Industrial / Manufacturing / Produc
 MHT-CET,Information Technology,Information Technology,CSIT,Computer Science / Information Technology,3524,158,taxonomy alias row
 MHT-CET,Instrumentation Engineering,Instrumentation Engineering,INSTRENG,Instrumentation Engineering,180,10,taxonomy alias row
 MHT-CET,Instrumentation and Control Engineering,Instrumentation and Control Engineering,INSTRENG,Instrumentation Engineering,142,6,taxonomy alias row
-MHT-CET,Internet of Things (IoT),Internet of Things (IoT),INDENG,Industrial / Manufacturing / Production Engineering,6,1,taxonomy alias row
+MHT-CET,Internet of Things (IoT),Internet of Things (IoT),CSIT,Computer Science / Information Technology,6,1,taxonomy alias row
 MHT-CET,Man Made Textile Technology,Man Made Textile Technology,TEXTILE,Textile Engineering,13,1,taxonomy alias row
 MHT-CET,Manufacturing Science and Engineering,Manufacturing Science and Engineering,INDENG,Industrial / Manufacturing / Production Engineering,24,1,taxonomy alias row
 MHT-CET,Mechanical & Automation Engineering,Mechanical & Automation Engineering,MECHENG,Mechanical / Mechatronics Engineering ,62,4,taxonomy alias row
@@ -1433,8 +1433,8 @@ OJEE,Computer Science and Information Technology,Computer Science and Informatio
 OJEE,Computer Science and Information Technology - TFW,Computer Science and Information Technology,CSIT,Computer Science / Information Technology,2,2,taxonomy alias row
 OJEE,Electrical Engineering,Electrical Engineering,ELEC,Electrical / Electronics / Communications Engineering,148,66,taxonomy alias row
 OJEE,Electrical Engineering - TFW,Electrical Engineering,ELEC,Electrical / Electronics / Communications Engineering,13,13,taxonomy alias row
-OJEE,Electrical and Computer Engineering,Electrical and Computer Engineering,CSIT,Computer Science / Information Technology,8,4,taxonomy alias row
-OJEE,Electrical and Computer Engineering - TFW,Electrical and Computer Engineering,CSIT,Computer Science / Information Technology,2,2,taxonomy alias row
+OJEE,Electrical and Computer Engineering,Electrical and Computer Engineering,ELEC,Electrical / Electronics / Communications Engineering,8,4,taxonomy alias row
+OJEE,Electrical and Computer Engineering - TFW,Electrical and Computer Engineering,ELEC,Electrical / Electronics / Communications Engineering,2,2,taxonomy alias row
 OJEE,Electrical and Electronics Engineering(SSC),Electrical and Electronics Engineering,ELEC,Electrical / Electronics / Communications Engineering,10,2,taxonomy alias row
 OJEE,Electrical and Electronics Engineering(SSC) - TFW,Electrical and Electronics Engineering,ELEC,Electrical / Electronics / Communications Engineering,2,2,taxonomy alias row
 OJEE,Electrical and Electronics Engineering,Electrical and Electronics Engineering,ELEC,Electrical / Electronics / Communications Engineering,64,35,taxonomy alias row
@@ -1502,11 +1502,11 @@ TNEA,COMPUTER SCIENCE AND ENGINEERING (SS),COMPUTER SCIENCE AND ENGINEERING,CSIT
 TNEA,COMPUTER SCIENCE AND ENGINEERING,COMPUTER SCIENCE AND ENGINEERING,CSIT,Computer Science / Information Technology,2080,405,taxonomy alias row
 TNEA,COMPUTER SCIENCE AND ENGINEERING (DATA SCIENCE),COMPUTER SCIENCE AND ENGINEERING (DATA SCIENCE),CSIT,Computer Science / Information Technology,32,6,taxonomy alias row
 TNEA,Computer Science and Technology,Computer Science and Technology,CSIT,Computer Science / Information Technology,6,1,taxonomy alias row
-TNEA,Cyber Security,Cyber Security,CYBERSEC,Cyber Security,18,3,taxonomy alias row
+TNEA,Cyber Security,Cyber Security,CSIT,Computer Science And Engineering,18,3,taxonomy alias row
 TNEA,ELECTRICAL AND ELECTRONICS ENGINEERING,ELECTRICAL AND ELECTRONICS ENGINEERING,ELEC,Electrical / Electronics / Communications Engineering,1272,326,taxonomy alias row
 TNEA,ELECTRICAL AND ELECTRONICS ENGINEERING (SS),ELECTRICAL AND ELECTRONICS ENGINEERING,ELEC,Electrical / Electronics / Communications Engineering,17,3,taxonomy alias row
 TNEA,ENVIRONMENTAL ENGINEERING,ENVIRONMENTAL ENGINEERING,ENVENG,Environmental Engineering,4,1,taxonomy alias row
-TNEA,Electrical and Computer Engineering,Electrical and Computer Engineering,CSIT,Computer Science / Information Technology,26,5,taxonomy alias row
+TNEA,Electrical and Computer Engineering,Electrical and Computer Engineering,ELEC,Electrical / Electronics / Communications Engineering,26,5,taxonomy alias row
 TNEA,Electronics and Computer Engineering,Electronics and Computer Engineering,ELEC,Electrical / Electronics / Communications Engineering,16,3,taxonomy alias row
 TNEA,FOOD TECHNOLOGY (SS),FOOD TECHNOLOGY,FOODENG,Food Engineering,6,1,taxonomy alias row
 TNEA,FOOD TECHNOLOGY,FOOD TECHNOLOGY,FOODENG,Food Engineering,91,18,taxonomy alias row
@@ -1555,7 +1555,7 @@ WBJEE,COMPUTER SCIENCE AND DESIGN,COMPUTER SCIENCE AND DESIGN,CSIT,Computer Scie
 WBJEE,COMPUTER SCIENCE AND DESIGN - TFW,COMPUTER SCIENCE AND DESIGN,CSIT,Computer Science / Information Technology,3,1,taxonomy alias row
 WBJEE,COMPUTER SCIENCE AND INFORMATION TECHNOLOGY,COMPUTER SCIENCE AND INFORMATION TECHNOLOGY,CSIT,Computer Science / Information Technology,43,6,taxonomy alias row
 WBJEE,COMPUTER SCIENCE AND INFORMATION TECHNOLOGY-TFW,COMPUTER SCIENCE AND INFORMATION TECHNOLOGY,CSIT,Computer Science / Information Technology,14,6,taxonomy alias row
-WBJEE,CYBER SECURITY,CYBER SECURITY,CYBERSEC,Cyber Security,5,1,taxonomy alias row
+WBJEE,CYBER SECURITY,CYBER SECURITY,CSIT,Computer Science And Engineering,5,1,taxonomy alias row
 WBJEE,Chemical Engineering,Chemical Engineering,CHEMENG,Chemical Engineering,342,5,taxonomy alias row
 WBJEE,Chemical Engineering (TFW),Chemical Engineering,CHEMENG,Chemical Engineering,49,4,taxonomy alias row
 WBJEE,Civil And Environmental Engineering,Civil And Environmental Engineering,CIVILENG,Civil Engineering,75,2,taxonomy alias row
@@ -1584,10 +1584,10 @@ WBJEE,Mechanical Engineering (TFW),Mechanical Engineering,MECHENG,Mechanical / M
 WBJEE,Mechatronics Engineering,Mechatronics Engineering,MECHENG,Mechanical / Mechatronics Engineering ,2,1,taxonomy alias row
 WBJEE,Mechatronics Engineering (TFW),Mechatronics Engineering,MECHENG,Mechanical / Mechatronics Engineering ,2,1,taxonomy alias row
 WBJEE,Mining Engineering,Mining Engineering,MININGENG,Mining Engineering,75,1,taxonomy alias row
-WBJEE,PRINTING ENGINEERING,PRINTING ENGINEERING,PRINTENG,Printing Engineering,53,1,taxonomy alias row
-WBJEE,PRINTING ENGINEERING-TFW,PRINTING ENGINEERING,PRINTENG,Printing Engineering,7,1,taxonomy alias row
-WBJEE,Printing Technology,Printing Technology,PRINTENG,Printing Engineering,14,1,taxonomy alias row
-WBJEE,Printing Technology (TFW),Printing Technology,PRINTENG,Printing Engineering,2,1,taxonomy alias row
+WBJEE,PRINTING ENGINEERING,PRINTING ENGINEERING,PAPERENG,Paper And Printing Engineering,53,1,taxonomy alias row
+WBJEE,PRINTING ENGINEERING-TFW,PRINTING ENGINEERING,PAPERENG,Paper And Printing Engineering,7,1,taxonomy alias row
+WBJEE,Printing Technology,Printing Technology,PAPERENG,Paper And Printing Engineering,14,1,taxonomy alias row
+WBJEE,Printing Technology (TFW),Printing Technology,PAPERENG,Paper And Printing Engineering,2,1,taxonomy alias row
 WBJEE,Production Engineering,Production Engineering,INDENG,Industrial / Manufacturing / Production Engineering,106,1,taxonomy alias row
 WBJEE,Production Engineering (TFW),Production Engineering,INDENG,Industrial / Manufacturing / Production Engineering,12,1,taxonomy alias row
 WBJEE,Robotics,Robotics,ROBOENG,Robotics Engineering,3,1,taxonomy alias row
@@ -1636,7 +1636,7 @@ UPTAC,Automobile Engineering,Automobile Engineering,AUTOENG,Automobile Engineeri
 UPTAC,Bio Medical Engineering,Bio Medical Engineering,BIOMEDENG,Biomedical Engineering,17,1,same string as another exam
 UPTAC,Bioinformatics,Bioinformatics,BIOTECH,Biotechnology,14,1,same string as another exam
 UPTAC,Biotechnology,Biotechnology,BIOTECH,Biotechnology,502,25,same string as another exam
-UPTAC,CYBER SECURITY,CYBER SECURITY,CYBERSEC,Cyber Security,19,1,same string as another exam
+UPTAC,CYBER SECURITY,CYBER SECURITY,CSIT,Computer Science And Engineering,19,1,same string as another exam
 UPTAC,Carpet & Textile Technology,Carpet & Textile Technology,TEXTILE,Textile Engineering,28,1,taxonomy alias row
 UPTAC,Chemical Engineering,Chemical Engineering,CHEMENG,Chemical Engineering,230,8,same string as another exam
 UPTAC,Civil Engineering,Civil Engineering,CIVILENG,Civil Engineering,2325,131,same string as another exam
@@ -1654,13 +1654,13 @@ UPTAC,Computer Science and Business System,Computer Science and Business System,
 UPTAC,Computer Science and Engineering,Computer Science and Engineering,CSIT,Computer Science / Information Technology,5468,195,same string as another exam
 UPTAC,Computer Science and Engineering (Artificial Intelligence & Machine Learning),Computer Science and Engineering (Artificial Intelligence & Machine Learning),AIML,Artificial Intelligence / Machine Learning / Data Science,2580,94,same string as another exam
 UPTAC,Computer Science and Engineering (Artificial Intelligence),Computer Science and Engineering (Artificial Intelligence),AIML,Artificial Intelligence / Machine Learning / Data Science,979,35,same string as another exam
-UPTAC,Computer Science and Engineering (Cyber Security),Computer Science and Engineering (Cyber Security),CYBERSEC,Cyber Security,293,13,same string as another exam
+UPTAC,Computer Science and Engineering (Cyber Security),Computer Science and Engineering (Cyber Security),CSIT,Computer Science And Engineering,293,13,same string as another exam
 UPTAC,Computer Science and Engineering (Data Science),Computer Science and Engineering (Data Science),CSIT,Computer Science / Information Technology,1309,58,same string as another exam
 UPTAC,Computer Science and Engineering (Hindi),Computer Science and Engineering (Hindi),CSIT,Computer Science / Information Technology,37,1,same string as another exam
 UPTAC,Computer Science and Engineering (Internet of Things),Computer Science and Engineering (Internet of Things),CSIT,Computer Science / Information Technology,79,3,same string as another exam
 UPTAC,Computer Science and Engineering(Integrated M.Tech),Computer Science and Engineering(Integrated M.Tech),CSIT,Computer Science / Information Technology,22,1,same string as another exam
 UPTAC,DATA SCIENCE,DATA SCIENCE,AIML,Artificial Intelligence / Machine Learning / Data Science,58,3,same string as another exam
-UPTAC,Electrical & Computer Engg.,Electrical & Computer Engg.,CSIT,Computer Science / Information Technology,98,4,taxonomy alias row
+UPTAC,Electrical & Computer Engg.,Electrical & Computer Engg.,ELEC,Electrical / Electronics / Communications Engineering,98,4,taxonomy alias row
 UPTAC,Electrical & Electronics Engineering,Electrical & Electronics Engineering,ELEC,Electrical / Electronics / Communications Engineering,719,46,same string as another exam
 UPTAC,Electrical Engineering,Electrical Engineering,ELEC,Electrical / Electronics / Communications Engineering,1810,87,same string as another exam
 UPTAC,Electrical Engineering(Integrated M.Tech),Electrical Engineering(Integrated M.Tech),ELEC,Electrical / Electronics / Communications Engineering,11,1,same string as another exam
@@ -2027,7 +2027,7 @@ BHU-CUET,Bachelor of Vocation in Fashion Technology & Apparel Design,Bachelor of
 BHU-CUET,Bachelor of Vocation in Food Processing & Management,Bachelor of Vocation in Food Processing & Management,FOODENG,Food Engineering,13,1,"nearest parent, needs review"
 BHU-CUET,Bachelor of Vocation in Hospitality & Tourism Management,Bachelor of Vocation in Hospitality & Tourism Management,HOTELMGT,Hotel Management,12,1,"nearest parent, needs review"
 BHU-CUET,Bachelor of Vocation in Medical Lab Technology,Bachelor of Vocation in Medical Lab Technology,LABTECH,Medical Lab Technology,14,1,"nearest parent, needs review"
-BHU-CUET,Bachelor of Vocation in Modern Office Management,Bachelor of Vocation in Modern Office Management,ADMIN,Administration,10,1,"nearest parent, needs review"
+BHU-CUET,Bachelor of Vocation in Modern Office Management,Bachelor of Vocation in Modern Office Management,OFFICEADMIN,Office Administration,10,1,"nearest parent, needs review"
 BHU-CUET,Bachelor of Vocation in Retail & Logistics Management,Bachelor of Vocation in Retail & Logistics Management,COMMERCE,Commerce,11,1,"nearest parent, needs review"
 BHU-CUET,Shastri (Honours) in Bauddha Darshan with Sahitya,Shastri (Honours) in Bauddha Darshan with Sahitya,ARTS,Arts,2,1,"nearest parent, needs review"
 BHU-CUET,Shastri (Honours) in Bauddha Darshan with Vedanta,Shastri (Honours) in Bauddha Darshan with Vedanta,ARTS,Arts,2,1,"nearest parent, needs review"
@@ -2279,13 +2279,13 @@ DU-CUET,B.A. (Hons.) Social Work,B.A. (Hons.) Social Work,SOCIALWORK,Social Work
 DU-CUET,B.A. (Hons.) Sociology,B.A. (Hons.) Sociology,ARTS,Arts,58,11,"nearest parent, needs review"
 DU-CUET,B.A. (Hons.) Spanish,B.A. (Hons.) Spanish,ARTS,Arts,6,1,"nearest parent, needs review"
 DU-CUET,B.A. (Hons.) Urdu,B.A. (Hons.) Urdu,ARTS,Arts,24,5,"nearest parent, needs review"
-DU-CUET,B.A. (Vocational Studies) Human Resource Management,B.A. (Vocational Studies) Human Resource Management,ADMIN,Administration,6,1,"nearest parent, needs review"
-DU-CUET,B.A. (Vocational Studies) Management and Marketing of Insurance,B.A. (Vocational Studies) Management and Marketing of Insurance,ADMIN,Administration,5,1,"nearest parent, needs review"
-DU-CUET,B.A. (Vocational Studies) Marketing Management and Retail Business,B.A. (Vocational Studies) Marketing Management and Retail Business,ADMIN,Administration,6,1,"nearest parent, needs review"
-DU-CUET,B.A. (Vocational Studies) Material Management,B.A. (Vocational Studies) Material Management,ADMIN,Administration,5,1,"nearest parent, needs review"
-DU-CUET,B.A. (Vocational Studies) Office Management and Secretarial Practice,B.A. (Vocational Studies) Office Management and Secretarial Practice,ADMIN,Administration,6,1,"nearest parent, needs review"
-DU-CUET,B.A. (Vocational Studies) Small and Medium Enterprises,B.A. (Vocational Studies) Small and Medium Enterprises,ADMIN,Administration,6,1,"nearest parent, needs review"
-DU-CUET,B.A. (Vocational Studies) Tourism Management,B.A. (Vocational Studies) Tourism Management,ADMIN,Administration,6,1,"nearest parent, needs review"
+DU-CUET,B.A. (Vocational Studies) Human Resource Management,B.A. (Vocational Studies) Human Resource Management,MBA,MBA,6,1,"nearest parent, needs review"
+DU-CUET,B.A. (Vocational Studies) Management and Marketing of Insurance,B.A. (Vocational Studies) Management and Marketing of Insurance,MBA,MBA,5,1,"nearest parent, needs review"
+DU-CUET,B.A. (Vocational Studies) Marketing Management and Retail Business,B.A. (Vocational Studies) Marketing Management and Retail Business,MBA,MBA,6,1,"nearest parent, needs review"
+DU-CUET,B.A. (Vocational Studies) Material Management,B.A. (Vocational Studies) Material Management,MBA,MBA,5,1,"nearest parent, needs review"
+DU-CUET,B.A. (Vocational Studies) Office Management and Secretarial Practice,B.A. (Vocational Studies) Office Management and Secretarial Practice,OFFICEADMIN,Office Administration,6,1,"nearest parent, needs review"
+DU-CUET,B.A. (Vocational Studies) Small and Medium Enterprises,B.A. (Vocational Studies) Small and Medium Enterprises,MBA,MBA,6,1,"nearest parent, needs review"
+DU-CUET,B.A. (Vocational Studies) Tourism Management,B.A. (Vocational Studies) Tourism Management,MBA,MBA,6,1,"nearest parent, needs review"
 DU-CUET,B.A. Program (Any two discipline out of these (Economics/English/History/Political Science/Philosophy)),B.A. Program (Any two discipline out of these (Economics/English/History/Political Science/Philosophy)),ARTS,Arts,3,1,"nearest parent, needs review"
 DU-CUET,B.A. Program (Arabic + History/Political Science),B.A. Program (Arabic + History/Political Science),ARTS,Arts,3,1,"nearest parent, needs review"
 DU-CUET,B.A. Program (Bengali + History/Political Science),B.A. Program (Bengali + History/Political Science),ARTS,Arts,1,1,"nearest parent, needs review"
@@ -2391,7 +2391,7 @@ DU-CUET,B.Sc (Prog.) Physical Science with Computer Science/ Informatics Practic
 DU-CUET,B.Sc (Prog.) Physical Science with Electronics,B.Sc (Prog.) Physical Science with Electronics,ELEC,Electrical / Electronics / Communications Engineering,29,6,"nearest parent, needs review"
 DU-CUET,B.Sc Applied Physical Sciences with Analytical Methods in Chemistry & Biochemistry,B.Sc Applied Physical Sciences with Analytical Methods in Chemistry & Biochemistry,BIOCHEM,Biochemistry,5,1,"nearest parent, needs review"
 DU-CUET,B.Tech. Information Technology and Mathematical Innovations (IT & MI),B.Tech. Information Technology and Mathematical Innovations (IT & MI),CSIT,Computer Science / Information Technology,6,1,"nearest parent, needs review"
-DU-CUET,B.Voc Health Care Management,B.Voc Health Care Management,ADMIN,Administration,1,1,"nearest parent, needs review"
+DU-CUET,B.Voc Health Care Management,B.Voc Health Care Management,MBA,MBA,1,1,"nearest parent, needs review"
 DU-CUET,B.Voc Retail Management and IT,B.Voc Retail Management and IT,COMMERCE,Commerce,1,1,"nearest parent, needs review"
 DU-CUET,B.Voc Software Development,B.Voc Software Development,CSIT,Computer Science / Information Technology,6,1,"nearest parent, needs review"
 DU-CUET,"B.Voc. Banking, Financial Services and Insurance","B.Voc. Banking, Financial Services and Insurance",FIN,Finance,6,1,"nearest parent, needs review"

@@ -14,6 +14,7 @@ import {
   nirfSortRank,
 } from "../components/collegeShared";
 import { loadColleges, slugMap, slugify } from "../utils/collegesData";
+import { loadCareers } from "../components/careerShared";
 import { rememberList } from "../utils/listReturn";
 import { markForward } from "../utils/navHistory";
 
@@ -161,6 +162,22 @@ const Colleges = () => {
   const setExam = (v) => setParam("exam", v);
   const setStream = (v) => setParam("stream", v);
   const setCareer = (v) => setParam("career", v || "");
+  // ?career=: colleges with a programme mapped to it, plus the colleges the
+  // career itself names (careers.json college_ids), which is all some
+  // careers have (Dentistry, the MBBS specialties)
+  const [careerInfo, setCareerInfo] = useState(null);
+  useEffect(() => {
+    if (!career) return setCareerInfo(null);
+    loadCareers()
+      .then((all) =>
+        setCareerInfo(all.find((c) => c.career_id === career) || null)
+      )
+      .catch(() => setCareerInfo(null));
+  }, [career]);
+  const careerNamed = useMemo(
+    () => new Set(careerInfo?.college_ids || []),
+    [careerInfo]
+  );
   // public vs private, public first; government-aided counts with public
   // (government-set fees on its aided seats) and the label says so.
   // ?type=private / ?type=all; public is the default and stays off the URL.
@@ -246,7 +263,11 @@ const Colleges = () => {
       )
         return false;
       if (type === "private" && c.ownership !== "Private") return false;
-      if (career && !c.programs.list.some((p) => p.career_id === career))
+      if (
+        career &&
+        !c.programs.list.some((p) => p.career_id === career) &&
+        !careerNamed.has(c.college_id)
+      )
         return false;
       if (!raw) return true;
       // Search the branch list too: "who teaches Aerospace" is a real question,
@@ -287,7 +308,7 @@ const Colleges = () => {
       if (byName.length) return byName.sort(SORTS[sortKey].fn);
     }
     return out.sort(SORTS[sortKey].fn);
-  }, [all, q, state, exam, stream, type, career, sortKey]);
+  }, [all, q, state, exam, stream, type, career, careerNamed, sortKey]);
 
   // A link that names one college (a predictor result, a career's college,
   // a compare header: /colleges?q=IIT Delhi) or an older ?college= link goes
@@ -340,7 +361,14 @@ const Colleges = () => {
 
       <div className="mx-auto w-full max-w-6xl px-3 py-6 sm:px-4">
         <div className="mb-3">
-          <BackLink />
+          {/* arrived from a career's "See … that lead here": back to it */}
+          {career ? (
+            <BackLink href={`/careers/${encodeURIComponent(career)}`}>
+              Back
+            </BackLink>
+          ) : (
+            <BackLink />
+          )}
         </div>
         <div className="rounded-2xl border border-[#eaded8] bg-white p-4 shadow-sm sm:p-6">
           <h1 className="text-center text-2xl font-bold text-[#332724] sm:text-3xl">
@@ -406,7 +434,8 @@ const Colleges = () => {
                 }}
                 className="inline-flex items-center gap-2 rounded-full bg-[#fbeeec] px-3 py-1 text-sm font-semibold text-[#8f2e31]"
               >
-                Offering {career.replace(/-/g, " ")} <span aria-hidden>×</span>
+                Lead to {careerInfo?.name || career.replace(/-/g, " ")}{" "}
+                <span aria-hidden>×</span>
               </button>
             </div>
           ) : null}

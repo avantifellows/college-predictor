@@ -1,6 +1,6 @@
 """
 Build public/data/exams/exams.json from the cleaned exams sheet
-(data-sources/exams_cleaned.csv — Amogh's "List of entrance exams in India",
+(data-sources/exams_cleaned.csv — the "List of entrance exams in India" sheet,
 cleaned per exams_cleaning_notes.md).
 
 One JSON object per EXAM (the sheet is one row per exam x course-stream;
@@ -129,6 +129,7 @@ def _k2(s):
 
 def main():
     careers_by_family, career_by_name = careers_index()
+    from build_careers_data import CAREER_EXAMS
     fmt = {}
     if os.path.exists(PATTERNS):
         fmt = json.load(open(PATTERNS))
@@ -234,9 +235,10 @@ def main():
                 "pharma": ["Pharmacy"], "medical": ["Medicine (MBBS)"],
                 "dental": ["Dentistry"], "nursing": ["Nursing"],
                 "law": ["Law (LLB)"], "commerce": ["Chartered Accountancy (CA)", "Commerce"],
-                "business": ["Business Administration (MBA)"],
+                "business": ["Business Administration (BBA / MBA)"],
                 "science": ["Physics", "Chemistry", "Mathematics"],
-                "defence": ["Armed Forces (Military Services)"],
+                "defence": ["Indian Army Officer", "Indian Navy Officer",
+                            "Indian Air Force Officer"],
             }
             # one career per stream first, then the rest, so a 3-stream exam
             # (COMEDK: Architecture / Engineering / Pharma) shows all three
@@ -249,6 +251,14 @@ def main():
                 if not any(c["label"] == nm for c in careers):
                     careers.append({"label": nm, "slug": career_by_name[_k2(nm)]})
             careers = careers[:5]
+        # careers that name this exam as their entry (the armed forces: NDA
+        # leads to the officer careers, Agniveer Vayu to Airman) come first
+        named = [{"label": nm, "slug": career_by_name[_k2(nm)]}
+                 for nm, ids in CAREER_EXAMS.items()
+                 if card["exam_id"] in ids and _k2(nm) in career_by_name]
+        if named:
+            careers = (named + [c for c in careers
+                                if c["label"] not in {n["label"] for n in named}])[:5]
         card["careers"] = careers or None
         # families whose colleges live on the Colleges tab: JoSAA (128
         # engineering) and NEET (780 NMC medical colleges)

@@ -1,5 +1,4 @@
 branch_id,branch_name,primary_branch_id,primary_branch_name,specialization_name,vertical
-ADMIN,Administration,,,,Management
 AERO,Aerospace Engineering,,,,Engineering
 AERO001,"Aerospace Engineering (4 Years, Bachelor of Technology)",AERO,Aerospace Engineering,,Engineering
 AERO002,"Aerospace Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))",AERO,Aerospace Engineering,,Engineering
@@ -21,37 +20,33 @@ Engineering",AGRIENG,Agricultural Engineering,,Engineering
 AGRIENG004,Agricultural Engineering,AGRIENG,Agricultural Engineering,,Engineering
 AIML,Artificial Intelligence / Machine Learning / Data Science,,,,Engineering
 AIML001,Data Science,AIML,Artificial Intelligence / Machine Learning / Data Science,,Engineering
-AIML002,"Artificial Intelligence (4 Years, Bachelor of Technology)",AIML,Artificial Intelligence,,Engineering
-AIML003,"Statistics and Data Science (4 Years, Bachelor of Science)",AIML,Data Science,,Engineering
-AIML004,"Artificial Intelligence and Data Analytics (4 Years, Bachelor of Technology)",AIML,Artificial Intelligence,,Engineering
-AIML005,"Data Science and Engineering (4 Years, Bachelor of Technology)",AIML,Data Science,,Engineering
-AIML006,"Data Science and Artificial Intelligence (4 Years, Bachelor of Technology)",AIML,Artificial Intelligence,,Engineering
-AIML007,"Computational and Data Science (4 Years, Bachelor of Technology)",AIML,Data Science,,Engineering
-AIML008,"Artificial Intelligence and Data Engineering (4 Years, Bachelor of Technology)",AIML,Artificial Intelligence,,Engineering
-AIML009,"Mathematics and Data Science (5 Years, Bachelor and Master of Technology (Dual Degree))",AIML,Data Science,,Engineering
-AIML010,"Artificial Intelligence and Data Science (4 Years, Bachelor of Technology)",AIML,Artificial Intelligence,,Engineering
-AIML011,Data Science,AIML,Data Science,,Engineering
-AIML012,"B.Tech (Artificial Intelligence and Data Science) - MBA in Digital Business Management (IIM Bodh Gaya) (5 Years, Bachelor of Technology and MBA (Dual Degree))",AIML,Artificial Intelligence,MBA,Engineering
-AIML013,Data Engineering,AIML,Data Science,,Engineering
-AIML014,"Artificial Intelligence and Machine Learning (4 Years, Bachelor of Technology)",AIML,Artificial Intelligence,,Engineering
-AIML015,Statistics,AIML,Data Science,,Engineering
-AIML016,"Artificial Intelligence (5 Years, Integrated B. Tech. and M. Tech.)",AIML,Artificial Intelligence,,Engineering
-AIML017,"B.Tech in Artificial Intelligenece and Data Science (Transportation and Logistics) (4 Years, Bachelor of Technology)",AIML,Artificial Intelligence,Transportation Engineering,Engineering
+AIML002,"Artificial Intelligence (4 Years, Bachelor of Technology)",AIML,Artificial Intelligence / Machine Learning / Data Science,,Engineering
+AIML003,"Statistics and Data Science (4 Years, Bachelor of Science)",AIML,Artificial Intelligence / Machine Learning / Data Science,,Engineering
+AIML004,"Artificial Intelligence and Data Analytics (4 Years, Bachelor of Technology)",AIML,Artificial Intelligence / Machine Learning / Data Science,,Engineering
+AIML005,"Data Science and Engineering (4 Years, Bachelor of Technology)",AIML,Artificial Intelligence / Machine Learning / Data Science,,Engineering
+AIML006,"Data Science and Artificial Intelligence (4 Years, Bachelor of Technology)",AIML,Artificial Intelligence / Machine Learning / Data Science,,Engineering
+AIML007,"Computational and Data Science (4 Years, Bachelor of Technology)",AIML,Artificial Intelligence / Machine Learning / Data Science,,Engineering
+AIML008,"Artificial Intelligence and Data Engineering (4 Years, Bachelor of Technology)",AIML,Artificial Intelligence / Machine Learning / Data Science,,Engineering
+AIML009,"Mathematics and Data Science (5 Years, Bachelor and Master of Technology (Dual Degree))",AIML,Artificial Intelligence / Machine Learning / Data Science,,Engineering
+AIML010,"Artificial Intelligence and Data Science (4 Years, Bachelor of Technology)",AIML,Artificial Intelligence / Machine Learning / Data Science,,Engineering
+AIML012,"B.Tech (Artificial Intelligence and Data Science) - MBA in Digital Business Management (IIM Bodh Gaya) (5 Years, Bachelor of Technology and MBA (Dual Degree))",AIML,Artificial Intelligence / Machine Learning / Data Science,MBA,Engineering
+AIML013,Data Engineering,AIML,Artificial Intelligence / Machine Learning / Data Science,,Engineering
+AIML014,"Artificial Intelligence and Machine Learning (4 Years, Bachelor of Technology)",AIML,Artificial Intelligence / Machine Learning / Data Science,,Engineering
+AIML016,"Artificial Intelligence (5 Years, Integrated B. Tech. and M. Tech.)",AIML,Artificial Intelligence / Machine Learning / Data Science,,Engineering
+AIML017,"B.Tech in Artificial Intelligenece and Data Science (Transportation and Logistics) (4 Years, Bachelor of Technology)",AIML,Artificial Intelligence / Machine Learning / Data Science,Transportation Engineering,Engineering
 AIML018,"AI Artificial
-Intelligence",AIML,Artificial Intelligence,,Engineering
+Intelligence",AIML,Artificial Intelligence / Machine Learning / Data Science,,Engineering
 AIML019,"AD Artificial
-Intel, Data Sc",AIML,Artificial Intelligence,,Engineering
-AIML020,RI Robotics and AI,AIML,Artificial Intelligence,Robotics Engineering,Engineering
+Intel, Data Sc",AIML,Artificial Intelligence / Machine Learning / Data Science,,Engineering
+AIML020,RI Robotics and AI,AIML,Artificial Intelligence / Machine Learning / Data Science,Robotics Engineering,Engineering
 AIML021,"Artificial Intelligence (AI)
-and Data Science",AIML,Artificial Intelligence,,Engineering
-AIML022,"Artificial Intelligence and
-Data Science",AIML,Artificial Intelligence,,Engineering
+and Data Science",AIML,Artificial Intelligence / Machine Learning / Data Science,,Engineering
 AIML023,"Artificial Intelligence and
-Machine Learning",AIML,Artificial Intelligence,,Engineering
-AIML024,Artificial Intelligence,AIML,Artificial Intelligence,,Engineering
+Machine Learning",AIML,Artificial Intelligence / Machine Learning / Data Science,,Engineering
+AIML024,Artificial Intelligence,AIML,Artificial Intelligence / Machine Learning / Data Science,,Engineering
 AIML025,"Robotics and Artificial
-Intelligence",AIML,Artificial Intelligence,,Engineering
-AIML026,AI/ML/Data Science,AIML,Artificial Intelligence,,Engineering
+Intelligence",AIML,Artificial Intelligence / Machine Learning / Data Science,,Engineering
+AIML026,AI/ML/Data Science,AIML,Artificial Intelligence / Machine Learning / Data Science,,Engineering
 ARCH,Architecture,,,,Architecture
 ARCH001,"Architecture (5 Years, Bachelor of Architecture)",ARCH,Architecture,,Architecture
 ARCH002,"Architecture and Planning (5 Years, Bachelor of Architecture)",ARCH,Architecture,,Architecture
@@ -59,8 +54,7 @@ ARCH003,AR Architecture,ARCH,Architecture,,Architecture
 ARCH004,Architecture,ARCH,Architecture,,Architecture
 ARTS,Arts,,,,Humanities
 ARTS001,Arts,ARTS,Arts,,Humanities
-ARTS002,Fine Arts,ARTS,Fine Arts,,Humanities
-ARTS003,Fine Arts,ARTS,Arts,,Humanities
+ARTS002,Fine Arts,ARTS,Arts,,Humanities
 AUDI,Audiology,,,,Medical Allied
 AUTOENG,Automobile Engineering,,,,Engineering
 AUTOENG001,AU Automobile,AUTOENG,Automobile Engineering,,Engineering
@@ -68,7 +62,6 @@ AUTOENG002,"AT Automotive
 Engg.",AUTOENG,Automobile Engineering,,Engineering
 AUTOENG003,Automobile Engineering,AUTOENG,Automobile Engineering,,Engineering
 AUTOENG004,Automobile,AUTOENG,Automobile Engineering,,Engineering
-AUTOENG005,Automobile,AUTOENG,Automobile Engineering,,Engineering
 AYUR,Ayurveda,,,,Ayurveda
 BCA,Computer Application,,,,Science
 BCA001,BCA,BCA,Computer Application,,Science
@@ -86,7 +79,7 @@ BIOENG001,"Biological Engineering (4 Years, Bachelor of Technology)",BIOENG,Biol
 BIOENG002,"Biological Sciences and Bioengineering (4 Years, Bachelor of Technology)",BIOENG,Biological Engineering,,Engineering
 BIOENG003,"Biosciences and Bioengineering (4 Years, Bachelor of Technology)",BIOENG,Biological Engineering,,Engineering
 BIOENG004,"Bio Engineering (4 Years, Bachelor of Technology)",BIOENG,Biological Engineering,,Engineering
-BIOENG005,"Bioengineering with M.Tech in Biomedical Technology (5 Years, Bachelor and Master of Technology (Dual Degree))",BIOENG,Biological Engineering,Biotechnology,Engineering
+BIOENG005,"Bioengineering with M.Tech in Biomedical Technology (5 Years, Bachelor and Master of Technology (Dual Degree))",BIOENG,Biological Engineering,Biomedical Engineering,Engineering
 BIOMEDENG,Biomedical Engineering,,,,Engineering
 BIOMEDENG001,"Biomedical Engineering (4 Years, Bachelor of Technology)",BIOMEDENG,Biomedical Engineering,,Engineering
 BIOMEDENG002,"Bio Medical Engineering (4 Years, Bachelor of Technology)",BIOMEDENG,Biomedical Engineering,,Engineering
@@ -95,9 +88,6 @@ BIOMEDENG004,"BR BioMed. and
 Robotic Engg",BIOMEDENG,Biomedical Engineering,,Engineering
 BIOMEDENG005,Bio Medical Engineering,BIOMEDENG,Biomedical Engineering,,Engineering
 BIOMEDENG006,Biomedical,BIOMEDENG,Biomedical Engineering,,Engineering
-BIOMEDENG007,Biomedical,BIOMEDENG,Biomedical Engineering,,Engineering
-BIOSCI,Biological Science And Engineering,,,,Engineering
-BIOSCI001,"Biological Science (4 Years, Bachelor of Science)",BIOSCI,Biological Science And Engineering,,Engineering
 BIOTECH,Biotechnology,,,,Science
 BIOTECH001,"Biotechnology and Biochemical Engineering (4 Years, Bachelor of Technology)",BIOTECH,Biotechnology,,Science
 BIOTECH002,"Biotechnology and Bioinformatics (4 Years, Bachelor of Technology)",BIOTECH,Biotechnology,,Science
@@ -110,7 +100,7 @@ BIOTECH008,"Biotechnology, Biomedical",BIOTECH,Biotechnology,,Science
 BIOTECH009,"Biotechnology, Biochemistry",BIOTECH,Biotechnology,,Science
 BIOTECH010,Bioinformatics,BIOTECH,Biotechnology,,Science
 BOT,Botany,,,,Science
-BOT001,Botany/Zoology,BOT,"Botany, Zoology",,Science
+BOT001,Botany/Zoology,BOT,Botany,,Science
 BOT002,"Botany/Zoology, Chemistry, Biology",BOT,Botany,,Science
 CA,CA,,,,Commerce
 CERAMIC,Ceramic Engineering,,,,Engineering
@@ -124,10 +114,10 @@ CHEM001,"Chemistry (4 Years, Bachelor of Science)",CHEM,Chemistry,,Science
 CHEM002,"Chemistry with Specialization (4 Years, Bachelor of Science)",CHEM,Chemistry,,Science
 CHEM003,"Chemistry (5 Years, Integrated Master of Science)",CHEM,Chemistry,,Science
 CHEM004,"Chemistry (5 Years, Bachelor of Science and Master of Science (Dual Degree))",CHEM,Chemistry,,Science
-CHEM005,"Chemistry, Botany/Zoology",CHEM,"Chemistry, Botany",,Science
+CHEM005,"Chemistry, Botany/Zoology",CHEM,Chemistry,,Science
 CHEM006,Chemistry,CHEM,Chemistry,,Science
 CHEM007,"Chemistry, Biology, Botany/Zoology",CHEM,Chemistry,,Science
-CHEM008,"Botany/Zoology, Chemistry",CHEM,"Chemistry, Botany",,Science
+CHEM008,"Botany/Zoology, Chemistry",CHEM,Chemistry,,Science
 CHEM009,"Chemical, Botany/Zoology",CHEM,Chemistry,,Science
 CHEM010,"Chemistry, Botany",CHEM,Chemistry,,Science
 CHEMENG,Chemical Engineering,,,,Engineering
@@ -144,15 +134,12 @@ CHEMENG010,Petro Chemical Technology,CHEMENG,Chemical Engineering,,Engineering
 CHEMENG011,Chemical,CHEMENG,Chemical Engineering,,Engineering
 CHEMSCI,Chemical Science And Technology,,,,Science
 CHEMSCI001,"Chemical Science and Technology (4 Years, Bachelor of Technology)",CHEMSCI,Chemical Science And Technology,,Science
-CHEMSCI002,"Chemical Sciences (5 Years, Bachelor of Science and Master of Science (Dual Degree))",CHEMSCI,Chemical Science,,Science
-CHEMSCI003,"BS in Chemical Sciences (4 Years, Bachelor of Science)",CHEMSCI,Chemical Science,,Science
-CHEMSCI004,"B.Tech (Chemical Science and Technology) - MBA in Hospital and Health Care Management (IIM Bodh Gaya) (5 Years, Bachelor of Technology and MBA (Dual Degree))",CHEMSCI,Chemical Science,,Science
-CHEMSCI005,Chemical Science,CHEMSCI,Chemical Science And Technology,,Science
+CHEMSCI004,"B.Tech (Chemical Science and Technology) - MBA in Hospital and Health Care Management (IIM Bodh Gaya) (5 Years, Bachelor of Technology and MBA (Dual Degree))",CHEMSCI,Chemical Science And Technology,,Science
 CIVILENG,Civil Engineering,,,,Engineering
 CIVILENG001,"Civil Engineering (4 Years, Bachelor of Technology)",CIVILENG,Civil Engineering,,Engineering
 CIVILENG002,"Civil Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))",CIVILENG,Civil Engineering,,Engineering
 CIVILENG003,"Civil and Infrastructure Engineering (4 Years, Bachelor of Technology)",CIVILENG,Civil Engineering,,Engineering
-CIVILENG004,"B. Tech in CE. - M. Tech. in Geotechnical Engineering (5 Years, B.Tech. + M.Tech./MS (Dual Degree))",CIVILENG,Civil Engineering,Geological Technology,Engineering
+CIVILENG004,"B. Tech in CE. - M. Tech. in Geotechnical Engineering (5 Years, B.Tech. + M.Tech./MS (Dual Degree))",CIVILENG,Civil Engineering,,Engineering
 CIVILENG005,"B.Tech (Civil Engineering) - MBA (IIM Bodh Gaya) (5 Years, Bachelor of Technology and MBA (Dual Degree))",CIVILENG,Civil Engineering,MBA,Engineering
 CIVILENG006,"B. Tech in CE. - M. Tech. in Structural Engineering (5 Years, B.Tech. + M.Tech./MS (Dual Degree))",CIVILENG,Civil Engineering,Structural Engineering,Engineering
 CIVILENG007,"Civil Engineering with Specialization in Construction Technology and Management (5 Years, Bachelor and Master of Technology (Dual Degree))",CIVILENG,Civil Engineering,Construction Technology,Engineering
@@ -172,12 +159,10 @@ Engineering",CIVILENG,Civil Engineering,,Engineering
 CIVILENG018,Civil,CIVILENG,Civil Engineering,,Engineering
 CIVILENG019,"Civil, Electrical/Electronics",CIVILENG,Civil Engineering,,Engineering
 CIVILENG020,Transportation Engineering,CIVILENG,Civil Engineering,,Engineering
-CIVILENG025,Structural Engineering,CIVILENG,Civil Engineering,,Engineering
 CIVILENG021,Construction Technology,CIVILENG,Civil Engineering,,Engineering
 CIVILENG022,Structural Engineering,CIVILENG,Civil Engineering,,Engineering
-CIVILENG023,Structural Engineering,CIVILENG,Structural Engineering,,Engineering
 CIVILENG024,"CT Const. Tech.
-Mgmt.",CIVILENG,Construction Technology,,Engineering
+Mgmt.",CIVILENG,Civil Engineering,,Engineering
 COMMERCE,Commerce,,,,Commerce
 COMMERCE001,BCom,COMMERCE,Commerce,,Commerce
 CSIT,Computer Science / Information Technology,,,,Engineering
@@ -185,113 +170,105 @@ CSIT001,Information Technology,CSIT,Computer Science / Information Technology,,E
 CSIT002,Computer Science,CSIT,Computer Science / Information Technology,,Engineering
 CSIT003,Business Informatics,CSIT,Computer Science / Information Technology,,Engineering
 CSIT004,Human Computer Interface,CSIT,Computer Science / Information Technology,,Engineering
-CSIT005,"Information Technology (4 Years, Bachelor of Technology)",CSIT,Information Technology,,Engineering
-CSIT006,"Integrated B. Tech.(IT) and MBA (5 Years, Integrated B. Tech. and MBA)",CSIT,Information Technology,MBA,Engineering
-CSIT007,"Information Technology-Business Informatics (4 Years, Bachelor of Technology)",CSIT,Information Technology,Business Informatics,Engineering
-CSIT008,"Integrated B. Tech.(IT) and M. Tech (IT) (5 Years, Integrated B. Tech. and M. Tech.)",CSIT,Information Technology,,Engineering
-CSIT009,IE Info.Science,CSIT,Information Technology,,Engineering
+CSIT005,"Information Technology (4 Years, Bachelor of Technology)",CSIT,Computer Science / Information Technology,,Engineering
+CSIT006,"Integrated B. Tech.(IT) and MBA (5 Years, Integrated B. Tech. and MBA)",CSIT,Computer Science / Information Technology,MBA,Engineering
+CSIT007,"Information Technology-Business Informatics (4 Years, Bachelor of Technology)",CSIT,Computer Science / Information Technology,Business Informatics,Engineering
+CSIT008,"Integrated B. Tech.(IT) and M. Tech (IT) (5 Years, Integrated B. Tech. and M. Tech.)",CSIT,Computer Science / Information Technology,,Engineering
+CSIT009,IE Info.Science,CSIT,Computer Science / Information Technology,,Engineering
 CSIT010,"IG Information
-Technology",CSIT,Information Technology,,Engineering
+Technology",CSIT,Computer Science / Information Technology,,Engineering
 CSIT011,"IS Information Sc.
-and Tech.",CSIT,Information Technology,,Engineering
-CSIT012,Information Technology,CSIT,Information Technology,,Engineering
-CSIT013,"Computer Science and Engineering (4 Years, Bachelor of Technology)",CSIT,Computer Science And Engineering,,Engineering
-CSIT014,"Computer Science and Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))",CSIT,Computer Science And Engineering,,Engineering
-CSIT015,"Computational Engineering (4 Years, Bachelor of Technology)",CSIT,Computer Science And Engineering,,Engineering
-CSIT016,"B.Tech (Computer Science and Engineering) - MBA in Digital Business Management (IIM Bodh Gaya) (5 Years, Bachelor of Technology and MBA (Dual Degree))",CSIT,Computer Science And Engineering,MBA,Engineering
-CSIT017,"B. Tech. (CSE) and M.Tech in CSE (5 Years, B.Tech. + M.Tech./MS (Dual Degree))",CSIT,Computer Science And Engineering,,Engineering
-CSIT018,"Computer Science and Engineering ( Artificial Intelligence & Data Science) (4 Years, Bachelor of Technology)",CSIT,Computer Science And Engineering,Artificial Intelligence,Engineering
-CSIT019,"Computer Science and Engineering with Specialization in Data Science (5 Years, Bachelor and Master of Technology (Dual Degree))",CSIT,Computer Science And Engineering,Data Science,Engineering
-CSIT020,"Computer Science and Engineering with Specialization in Cyber Security (5 Years, Bachelor and Master of Technology (Dual Degree))",CSIT,Computer Science And Engineering,Cyber Security,Engineering
-CSIT021,"Computer Science Engineering (Artificial Intelligence) (4 Years, B. Tech / B. Tech (Hons.))",CSIT,Computer Science And Engineering,Artificial Intelligence,Engineering
-CSIT022,"Computer Science Engineering (Data Science) (4 Years, B. Tech / B. Tech (Hons.))",CSIT,Computer Science And Engineering,Data Science,Engineering
-CSIT023,"Computer Science and Artificial Intelligence (4 Years, Bachelor of Technology)",CSIT,Computer Science And Engineering,Artificial Intelligence,Engineering
-CSIT024,"Computer Science and Engineering (Artificial Intelligence) (4 Years, Bachelor of Technology)",CSIT,Computer Science And Engineering,Artificial Intelligence,Engineering
-CSIT025,"Computer Science and Engineering with Major in Artificial Intelligence (4 Years, Bachelor of Technology)",CSIT,Computer Science And Engineering,Artificial Intelligence,Engineering
-CSIT026,"Computer Science (4 Years, Bachelor of Technology)",CSIT,Computer Science And Engineering,,Engineering
-CSIT027,"Computer Science and Business (4 Years, Bachelor of Technology)",CSIT,Computer Science And Engineering,,Engineering
-CSIT028,"Computer Science and Engineering (Cyber Security) (4 Years, Bachelor of Technology)",CSIT,Computer Science And Engineering,,Engineering
-CSIT029,"Computer Science and Engineering with specialization in Artificial Intelligence and Data Science (4 Years, Bachelor of Technology)",CSIT,Computer Science And Engineering,Artificial Intelligence,Engineering
-CSIT030,"Computer Science Engineering (Artificial lntelligence and Machine Learning) (4 Years, Bachelor of Technology)",CSIT,Computer Science And Engineering,Artificial Intelligence,Engineering
-CSIT031,"Computer Science Engineering (Data Science and Analytics) (4 Years, Bachelor of Technology)",CSIT,Computer Science And Engineering,Data Science,Engineering
-CSIT032,"Computer Science and Engineering (Data Science) (4 Years, Bachelor of Technology)",CSIT,Computer Science And Engineering,Data Science,Engineering
-CSIT033,"Computer Science and Engineering with specialization in Cyber Security (4 Years, Bachelor of Technology)",CSIT,Computer Science And Engineering,Cyber Security,Engineering
-CSIT034,"Computer Science Engineering (Human Computer lnteraction and Gaming Technology) (4 Years, Bachelor of Technology)",CSIT,Computer Science And Engineering,Human Computer Interface,Engineering
-CSIT035,"Computer Engineering (4 Years, Bachelor of Technology)",CSIT,Computer Science And Engineering,,Engineering
-CSIT036,"CSE ( Data Science & Analytics) (4 Years, Bachelor of Technology)",CSIT,Computer Science And Engineering,Data Science,Engineering
-CSIT037,"Computer Science and Engineering (with Specialization of Data Science and Artificial Intelligence) (4 Years, B. Tech / B. Tech (Hons.))",CSIT,Computer Science And Engineering,,Engineering
-CSIT038,"Computer Science and Engineering (Cyber Physical System) (4 Years, Bachelor of Technology)",CSIT,Computer Science And Engineering,Cyber Security,Engineering
-CSIT039,"Integrated B. Tech. - M. Tech in Computer Science & Engineering (5 Years, Integrated B. Tech. and M. Tech.)",CSIT,Computer Science And Engineering,,Engineering
-CSIT040,CS Computers,CSIT,Computer Science And Engineering,,Engineering
+and Tech.",CSIT,Computer Science / Information Technology,,Engineering
+CSIT013,"Computer Science and Engineering (4 Years, Bachelor of Technology)",CSIT,Computer Science / Information Technology,,Engineering
+CSIT014,"Computer Science and Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))",CSIT,Computer Science / Information Technology,,Engineering
+CSIT015,"Computational Engineering (4 Years, Bachelor of Technology)",CSIT,Computer Science / Information Technology,,Engineering
+CSIT016,"B.Tech (Computer Science and Engineering) - MBA in Digital Business Management (IIM Bodh Gaya) (5 Years, Bachelor of Technology and MBA (Dual Degree))",CSIT,Computer Science / Information Technology,MBA,Engineering
+CSIT017,"B. Tech. (CSE) and M.Tech in CSE (5 Years, B.Tech. + M.Tech./MS (Dual Degree))",CSIT,Computer Science / Information Technology,,Engineering
+CSIT018,"Computer Science and Engineering ( Artificial Intelligence & Data Science) (4 Years, Bachelor of Technology)",CSIT,Computer Science / Information Technology,Artificial Intelligence,Engineering
+CSIT019,"Computer Science and Engineering with Specialization in Data Science (5 Years, Bachelor and Master of Technology (Dual Degree))",CSIT,Computer Science / Information Technology,Data Science,Engineering
+CSIT020,"Computer Science and Engineering with Specialization in Cyber Security (5 Years, Bachelor and Master of Technology (Dual Degree))",CSIT,Computer Science / Information Technology,Cyber Security,Engineering
+CSIT021,"Computer Science Engineering (Artificial Intelligence) (4 Years, B. Tech / B. Tech (Hons.))",CSIT,Computer Science / Information Technology,Artificial Intelligence,Engineering
+CSIT022,"Computer Science Engineering (Data Science) (4 Years, B. Tech / B. Tech (Hons.))",CSIT,Computer Science / Information Technology,Data Science,Engineering
+CSIT023,"Computer Science and Artificial Intelligence (4 Years, Bachelor of Technology)",CSIT,Computer Science / Information Technology,Artificial Intelligence,Engineering
+CSIT024,"Computer Science and Engineering (Artificial Intelligence) (4 Years, Bachelor of Technology)",CSIT,Computer Science / Information Technology,Artificial Intelligence,Engineering
+CSIT025,"Computer Science and Engineering with Major in Artificial Intelligence (4 Years, Bachelor of Technology)",CSIT,Computer Science / Information Technology,Artificial Intelligence,Engineering
+CSIT026,"Computer Science (4 Years, Bachelor of Technology)",CSIT,Computer Science / Information Technology,,Engineering
+CSIT027,"Computer Science and Business (4 Years, Bachelor of Technology)",CSIT,Computer Science / Information Technology,Business Informatics,Engineering
+CSIT028,"Computer Science and Engineering (Cyber Security) (4 Years, Bachelor of Technology)",CSIT,Computer Science / Information Technology,Cyber Security,Engineering
+CSIT029,"Computer Science and Engineering with specialization in Artificial Intelligence and Data Science (4 Years, Bachelor of Technology)",CSIT,Computer Science / Information Technology,Artificial Intelligence,Engineering
+CSIT030,"Computer Science Engineering (Artificial lntelligence and Machine Learning) (4 Years, Bachelor of Technology)",CSIT,Computer Science / Information Technology,Artificial Intelligence,Engineering
+CSIT031,"Computer Science Engineering (Data Science and Analytics) (4 Years, Bachelor of Technology)",CSIT,Computer Science / Information Technology,Data Science,Engineering
+CSIT032,"Computer Science and Engineering (Data Science) (4 Years, Bachelor of Technology)",CSIT,Computer Science / Information Technology,Data Science,Engineering
+CSIT033,"Computer Science and Engineering with specialization in Cyber Security (4 Years, Bachelor of Technology)",CSIT,Computer Science / Information Technology,Cyber Security,Engineering
+CSIT034,"Computer Science Engineering (Human Computer lnteraction and Gaming Technology) (4 Years, Bachelor of Technology)",CSIT,Computer Science / Information Technology,Human Computer Interface,Engineering
+CSIT035,"Computer Engineering (4 Years, Bachelor of Technology)",CSIT,Computer Science / Information Technology,,Engineering
+CSIT036,"CSE ( Data Science & Analytics) (4 Years, Bachelor of Technology)",CSIT,Computer Science / Information Technology,Data Science,Engineering
+CSIT037,"Computer Science and Engineering (with Specialization of Data Science and Artificial Intelligence) (4 Years, B. Tech / B. Tech (Hons.))",CSIT,Computer Science / Information Technology,,Engineering
+CSIT038,"Computer Science and Engineering (Cyber Physical System) (4 Years, Bachelor of Technology)",CSIT,Computer Science / Information Technology,,Engineering
+CSIT039,"Integrated B. Tech. - M. Tech in Computer Science & Engineering (5 Years, Integrated B. Tech. and M. Tech.)",CSIT,Computer Science / Information Technology,,Engineering
+CSIT040,CS Computers,CSIT,Computer Science / Information Technology,,Engineering
 CSIT041,"CA CS (AI, Machine
-Learning)",CSIT,Computer Science And Engineering,Artificial Intelligence,Engineering
+Learning)",CSIT,Computer Science / Information Technology,Artificial Intelligence,Engineering
 CSIT042,"CY CS- Cyber
-Security",CSIT,Computer Science And Engineering,Cyber Security,Engineering
+Security",CSIT,Computer Science / Information Technology,Cyber Security,Engineering
 CSIT043,"CD Computer Sc.
-and Design",CSIT,Computer Science And Engineering,Design,Engineering
+and Design",CSIT,Computer Science / Information Technology,Design,Engineering
 CSIT044,"DS Comp. Sc. Engg-
-Data Sc.",CSIT,Computer Science And Engineering,Data Science,Engineering
+Data Sc.",CSIT,Computer Science / Information Technology,Data Science,Engineering
 CSIT045,"CC Computer and
-Comm. Engg.",CSIT,Computer Science And Engineering,,Engineering
-CSIT046,"CB Comp. Sc. and
-Bus Sys.",CSIT,Computer Science And Engineering,,Engineering
+Comm. Engg.",CSIT,Computer Science / Information Technology,,Engineering
+CSIT046,CB Comp. Sc. and Bus Sys.,CSIT,Computer Science / Information Technology,Business Informatics,Engineering
 CSIT047,"CO Computer
-Engineering",CSIT,Computer Science And Engineering,,Engineering
+Engineering",CSIT,Computer Science / Information Technology,,Engineering
 CSIT048,"CF CS(Artificial
-Intel.)",CSIT,Computer Science And Engineering,Artificial Intelligence,Engineering
+Intel.)",CSIT,Computer Science / Information Technology,Artificial Intelligence,Engineering
 CSIT049,"IC CS-IoT, Cyber
-Security",CSIT,Computer Science And Engineering,Internet Of Things,Engineering
+Security",CSIT,Computer Science / Information Technology,Internet Of Things,Engineering
 CSIT050,"CI Computer and
-Information",CSIT,Computer Science And Engineering,,Engineering
+Information",CSIT,Computer Science / Information Technology,,Engineering
 CSIT051,"SS CS and System
-Engg",CSIT,Computer Science And Engineering,Systems Engineering,Engineering
-CSIT052,BD CS- Big Data,CSIT,Computer Science And Engineering,Data Science,Engineering
+Engg",CSIT,Computer Science / Information Technology,Systems Engineering,Engineering
+CSIT052,BD CS- Big Data,CSIT,Computer Science / Information Technology,Data Science,Engineering
 CSIT053,"CG Computer
-Science and Tech",CSIT,Computer Science And Engineering,,Engineering
+Science and Tech",CSIT,Computer Science / Information Technology,,Engineering
 CSIT054,"IO CS- Internet of
-Things",CSIT,Computer Science And Engineering,Internet Of Things,Engineering
-CSIT055,LC CS- Block Chain,CSIT,Computer Science And Engineering,,Engineering
+Things",CSIT,Computer Science / Information Technology,Internet Of Things,Engineering
+CSIT055,LC CS- Block Chain,CSIT,Computer Science / Information Technology,,Engineering
 CSIT056,"OP Comp. Sc. Engg-
-Dev Ops",CSIT,Computer Science And Engineering,,Engineering
+Dev Ops",CSIT,Computer Science / Information Technology,,Engineering
 CSIT057,"Computer Science and
-Engineering",CSIT,Computer Science And Engineering,,Engineering
-CSIT058,Computer Engineering,CSIT,Computer Science And Engineering,,Engineering
+Engineering",CSIT,Computer Science / Information Technology,,Engineering
+CSIT058,Computer Engineering,CSIT,Computer Science / Information Technology,,Engineering
 CSIT059,"Computer Science and
-Engineering(Data Science)",CSIT,Computer Science And Engineering,Data Science,Engineering
+Engineering(Data Science)",CSIT,Computer Science / Information Technology,Data Science,Engineering
 CSIT060,"Computer Science and
-Engineering(Artificial",CSIT,Computer Science And Engineering,Artificial Intelligence,Engineering
+Engineering(Artificial",CSIT,Computer Science / Information Technology,Artificial Intelligence,Engineering
 CSIT061,"Computer Science and
-Design",CSIT,Computer Science And Engineering,Design,Engineering
-CSIT062,"Electronics and Computer
-Science",CSIT,Computer Science And Engineering,,Engineering
-CSIT063,Computer Science and Technology,CSIT,Computer Science And Engineering,,Engineering
+Design",CSIT,Computer Science / Information Technology,Design,Engineering
+CSIT063,Computer Science and Technology,CSIT,Computer Science / Information Technology,,Engineering
 CSIT064,"Computer Science and
-Engineering (Internet of",CSIT,Computer Science And Engineering,Internet Of Things,Engineering
-CSIT065,Cyber Security,CSIT,Computer Science And Engineering,Cyber Security,Engineering
+Engineering (Internet of",CSIT,Computer Science / Information Technology,Internet Of Things,Engineering
+CSIT065,Cyber Security,CSIT,Computer Science / Information Technology,Cyber Security,Engineering
 CSIT066,"Computer Science and
-Engineering(Cyber",CSIT,Computer Science And Engineering,Cyber Security,Engineering
-CSIT067,Computer Science,CSIT,Computer Science And Engineering,,Engineering
-CSIT068,"Electrical and Computer
-Engineering",CSIT,Computer Science And Engineering,,Engineering
-CSIT069,Computer Technology,CSIT,Computer Science And Engineering,,Engineering
+Engineering(Cyber",CSIT,Computer Science / Information Technology,Cyber Security,Engineering
+CSIT069,Computer Technology,CSIT,Computer Science / Information Technology,,Engineering
 CSIT070,"Computer Science and
-Engineering (Cyber",CSIT,Computer Science And Engineering,Cyber Security,Engineering
+Engineering (Cyber",CSIT,Computer Science / Information Technology,Cyber Security,Engineering
 CSIT071,"Computer Science and
-Engineering (IoT)",CSIT,Computer Science And Engineering,Internet Of Things,Engineering
+Engineering (IoT)",CSIT,Computer Science / Information Technology,Internet Of Things,Engineering
 CSIT072,"Computer Science and
-Engineering (Artificial",CSIT,Computer Science And Engineering,Artificial Intelligence,Engineering
+Engineering (Artificial",CSIT,Computer Science / Information Technology,Artificial Intelligence,Engineering
 CSIT073,"Computer Science and
-Business Systems",CSIT,Computer Science And Engineering,Business Informatics,Engineering
+Business Systems",CSIT,Computer Science / Information Technology,Business Informatics,Engineering
 CSIT074,"Computer Engineering
-(Software Engineering)",CSIT,Computer Science And Engineering,,Engineering
+(Software Engineering)",CSIT,Computer Science / Information Technology,,Engineering
 CSIT075,"Computer Science and
-Information Technology",CSIT,Computer Science And Engineering,,Engineering
-CSIT076,Computer Science and Engineering (Artificial Intelligence and Data Science),CSIT,Computer Science And Engineering,Artificial Intelligence,Engineering
-CSIT077,CS/IT,CSIT,Computer Science And Engineering,,Engineering
-CSIT078,"CS/IT, Physics/Chemistry/Mathematics",CSIT,Computer Science,,Engineering
-CSIT079,"CS/IT, Physics/Chemistry/Mathematics, Geology",CSIT,Computer Science,,Engineering
-CSIT080,"CS/IT, Design",CSIT,Computer Science,,Engineering
-CYBERSEC,Cyber Security,,,,Engineering
+Information Technology",CSIT,Computer Science / Information Technology,,Engineering
+CSIT076,Computer Science and Engineering (Artificial Intelligence and Data Science),CSIT,Computer Science / Information Technology,Artificial Intelligence,Engineering
+CSIT077,CS/IT,CSIT,Computer Science / Information Technology,,Engineering
+CSIT078,"CS/IT, Physics/Chemistry/Mathematics",CSIT,Computer Science / Information Technology,,Engineering
+CSIT079,"CS/IT, Physics/Chemistry/Mathematics, Geology",CSIT,Computer Science / Information Technology,,Engineering
+CSIT080,"CS/IT, Design",CSIT,Computer Science / Information Technology,,Engineering
 DAIRYENG,Dairy Engineering,,,,Engineering
 DAIRYENG001,"Dairy Engineering (4 Years, Bachelor of Technology)",DAIRYENG,Dairy Engineering,,Engineering
 DEFENCE,Military,,,,Defence
@@ -301,8 +278,6 @@ DESIGN,Design,,,,Design
 DESIGN001,"Bachelor of Design (4 Years, Bachelor of Design)",DESIGN,Design,,Design
 DESIGN002,Design,DESIGN,Design,,Design
 DESIGN003,"Other, Design",DESIGN,Design,,Design
-EARTHSCI,Earth Science And Engineering,,,,Engineering
-EARTHSCI001,"Earth Sciences (4 Years, Bachelor of Science)",EARTHSCI,Earth Science And Engineering,,Engineering
 ECON,Economics,,,,Commerce
 ECON001,"Economics (4 Years, Bachelor of Science)",ECON,Economics,,Commerce
 ECON002,"Economics (5 Years, Bachelor of Science and Master of Science (Dual Degree))",ECON,Economics,,Commerce
@@ -316,85 +291,80 @@ ELEC002,Electrical And Electronics Engineering,ELEC,Electrical / Electronics / C
 ELEC003,VLSI,ELEC,Electrical / Electronics / Communications Engineering,,Engineering
 ELEC004,5G,ELEC,Electrical / Electronics / Communications Engineering,,Engineering
 ELEC005,Power Systems Engineering,ELEC,Electrical / Electronics / Communications Engineering,,Engineering
-ELEC006,"Electronics and Electrical Communication Engineering (4 Years, Bachelor of Technology)",ELEC,Electronics And Communications Engineering,,Engineering
-ELEC007,"Electrical Engineering (4 Years, Bachelor of Technology)",ELEC,Electrical Engineering,,Engineering
-ELEC008,"Electrical Engineering (Power and Automation) (4 Years, Bachelor of Technology)",ELEC,Electrical Engineering,,Engineering
-ELEC009,"Electronics and Communication Engineering (4 Years, Bachelor of Technology)",ELEC,Electronics And Communications Engineering,,Engineering
-ELEC010,"Electrical Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))",ELEC,Electrical Engineering,,Engineering
-ELEC011,"Electronics and Electrical Engineering (4 Years, Bachelor of Technology)",ELEC,Electrical And Electronics Engineering,,Engineering
-ELEC012,"Electronics Engineering (4 Years, Bachelor of Technology)",ELEC,Electrical Engineering,,Engineering
-ELEC013,"Electrical Engineering (IC Design and Technology) (4 Years, Bachelor of Technology)",ELEC,Electrical Engineering,,Engineering
-ELEC014,"Electrical Engineering with M.Tech. in Power Electronics (5 Years, Bachelor and Master of Technology (Dual Degree))",ELEC,Electrical Engineering,Power Systems Engineering,Engineering
-ELEC015,"Integrated Circuit Design & Technology (4 Years, Bachelor of Technology)",ELEC,Electrical Engineering,,Engineering
-ELEC016,"Electrical and Electronics Engineering (4 Years, Bachelor of Technology)",ELEC,Electrical And Electronics Engineering,,Engineering
-ELEC017,"B.Tech. in Electronics and Communication Engineering and M.Tech. in Communication Systems (5 Years, Bachelor and Master of Technology (Dual Degree))",ELEC,Electronics And Communications Engineering,VLSI,Engineering
-ELEC018,"B. Tech. (ECE) -M. Tech. in VLSI (5 Years, B.Tech. + M.Tech./MS (Dual Degree))",ELEC,Electronics And Communications Engineering,VLSI,Engineering
-ELEC019,"B.Tech in Microelectronics & VLSI (4 Years, Bachelor of Technology)",ELEC,Electronics And Communications Engineering,VLSI,Engineering
-ELEC020,"B.Tech (Electronics and Communication Engineering) - MBA in Hospital and Healthcare Management (IIM Bodh Gaya) (5 Years, Bachelor of Technology and MBA (Dual Degree))",ELEC,Electronics And Communications Engineering,MBA,Engineering
-ELEC021,"B. Tech. (EEE)-M. Tech. in (Power &. Control) (5 Years, B.Tech. + M.Tech./MS (Dual Degree))",ELEC,Electrical And Electronics Engineering,Power Systems Engineering,Engineering
-ELEC022,"B.Tech (Electrical and Electronics Engineering) - MBA (IIM Bodh Gaya) (5 Years, Bachelor of Technology and MBA (Dual Degree))",ELEC,Electrical And Electronics Engineering,MBA,Engineering
-ELEC023,"Electronics and Communication Engineering (VLSI Design and Technology) (4 Years, Bachelor of Technology)",ELEC,Electronics And Communications Engineering,VLSI,Engineering
-ELEC024,"Electronics and Instrumentation Engineering (4 Years, Bachelor of Technology)",ELEC,Electrical And Electronics Engineering,,Engineering
-ELEC025,"VLSI Design and Technology (4 Years, Bachelor of Technology)",ELEC,Electronics And Communications Engineering,,Engineering
-ELEC026,"Electronics and Communication Engineering with Specialization in Microelectronics and VLSI System Design (5 Years, Bachelor and Master of Technology (Dual Degree))",ELEC,Electronics And Communications Engineering,VLSI,Engineering
-ELEC027,"Electrical Engineering with Specialization In Power System Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))",ELEC,Electrical Engineering,Power Systems Engineering,Engineering
-ELEC028,"Electronics and VLSI Engineering (4 Years, Bachelor of Technology)",ELEC,Electrical And Electronics Engineering,,Engineering
-ELEC029,"Microelectronics & VLSI Engineering (4 Years, Bachelor of Technology)",ELEC,Electronics And Communications Engineering,,Engineering
-ELEC030,"Electronics and Communication Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))",ELEC,Electronics And Communications Engineering,,Engineering
-ELEC031,"Electronics Engineering (VLSI Design and Technology) (4 Years, Bachelor of Technology)",ELEC,Electrical Engineering,VLSI,Engineering
-ELEC032,"Electronics and Telecommunication Engineering (4 Years, Bachelor of Technology)",ELEC,Electronics And Communications Engineering,,Engineering
-ELEC033,"Electronics and Communication Engineering with specialization in Design and Manufacturing (4 Years, Bachelor of Technology)",ELEC,Electronics And Communications Engineering,Design,Engineering
-ELEC034,"Electronics and Communication Engineering (Internet of Things) (4 Years, Bachelor of Technology)",ELEC,Electronics And Communications Engineering,,Engineering
-ELEC035,"Electronics and Communication Engineering (with Specialization of Embedded Systems and Internet of Things) (4 Years, B. Tech / B. Tech (Hons.))",ELEC,Electronics And Communications Engineering,,Engineering
-ELEC036,"B.Tech. in Electronics and Communication Engineering and M.Tech. in VLSI Design (5 Years, Bachelor and Master of Technology (Dual Degree))",ELEC,Electronics And Communications Engineering,VLSI,Engineering
-ELEC037,"Electronics and Communication Engineering with specialization in VLSI and Embedded Systems (4 Years, Bachelor of Technology)",ELEC,Electronics And Communications Engineering,VLSI,Engineering
-ELEC038,"Electronic Engineering (4 Years, Bachelor of Technology)",ELEC,Electrical Engineering,,Engineering
-ELEC039,"Integrated B. Tech. - M. Tech in Electrical Engineering (5 Years, Integrated B. Tech. and M. Tech.)",ELEC,Electrical Engineering,,Engineering
-ELEC040,"B.Tech in Electrical Engineering ( Rail Engineering) (4 Years, Bachelor of Technology)",ELEC,Electrical Engineering,Rail Engineering,Engineering
-ELEC041,"B.Tech in Electronics & Communication Engineering (Rail Engineering) (4 Years, Bachelor of Technology)",ELEC,Electronics And Communications Engineering,Rail Engineering,Engineering
-ELEC042,"Electronics and Communication Engineering (Avionics) (4 Years, Bachelor of Technology)",ELEC,Electronics And Communications Engineering,Avionics Engineering,Engineering
-ELEC043,EC Electronics,ELEC,Electronics And Communications Engineering,,Engineering
-ELEC044,EE Electrical,ELEC,Electrical Engineering,,Engineering
+ELEC006,"Electronics and Electrical Communication Engineering (4 Years, Bachelor of Technology)",ELEC,Electrical / Electronics / Communications Engineering,,Engineering
+ELEC007,"Electrical Engineering (4 Years, Bachelor of Technology)",ELEC,Electrical / Electronics / Communications Engineering,,Engineering
+ELEC008,"Electrical Engineering (Power and Automation) (4 Years, Bachelor of Technology)",ELEC,Electrical / Electronics / Communications Engineering,,Engineering
+ELEC009,"Electronics and Communication Engineering (4 Years, Bachelor of Technology)",ELEC,Electrical / Electronics / Communications Engineering,,Engineering
+ELEC010,"Electrical Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))",ELEC,Electrical / Electronics / Communications Engineering,,Engineering
+ELEC011,"Electronics and Electrical Engineering (4 Years, Bachelor of Technology)",ELEC,Electrical / Electronics / Communications Engineering,,Engineering
+ELEC012,"Electronics Engineering (4 Years, Bachelor of Technology)",ELEC,Electrical / Electronics / Communications Engineering,,Engineering
+ELEC013,"Electrical Engineering (IC Design and Technology) (4 Years, Bachelor of Technology)",ELEC,Electrical / Electronics / Communications Engineering,,Engineering
+ELEC014,"Electrical Engineering with M.Tech. in Power Electronics (5 Years, Bachelor and Master of Technology (Dual Degree))",ELEC,Electrical / Electronics / Communications Engineering,Power Systems Engineering,Engineering
+ELEC015,"Integrated Circuit Design & Technology (4 Years, Bachelor of Technology)",ELEC,Electrical / Electronics / Communications Engineering,,Engineering
+ELEC016,"Electrical and Electronics Engineering (4 Years, Bachelor of Technology)",ELEC,Electrical / Electronics / Communications Engineering,,Engineering
+ELEC017,"B.Tech. in Electronics and Communication Engineering and M.Tech. in Communication Systems (5 Years, Bachelor and Master of Technology (Dual Degree))",ELEC,Electrical / Electronics / Communications Engineering,,Engineering
+ELEC018,"B. Tech. (ECE) -M. Tech. in VLSI (5 Years, B.Tech. + M.Tech./MS (Dual Degree))",ELEC,Electrical / Electronics / Communications Engineering,VLSI,Engineering
+ELEC019,"B.Tech in Microelectronics & VLSI (4 Years, Bachelor of Technology)",ELEC,Electrical / Electronics / Communications Engineering,VLSI,Engineering
+ELEC020,"B.Tech (Electronics and Communication Engineering) - MBA in Hospital and Healthcare Management (IIM Bodh Gaya) (5 Years, Bachelor of Technology and MBA (Dual Degree))",ELEC,Electrical / Electronics / Communications Engineering,MBA,Engineering
+ELEC021,"B. Tech. (EEE)-M. Tech. in (Power &. Control) (5 Years, B.Tech. + M.Tech./MS (Dual Degree))",ELEC,Electrical / Electronics / Communications Engineering,Power Systems Engineering,Engineering
+ELEC022,"B.Tech (Electrical and Electronics Engineering) - MBA (IIM Bodh Gaya) (5 Years, Bachelor of Technology and MBA (Dual Degree))",ELEC,Electrical / Electronics / Communications Engineering,MBA,Engineering
+ELEC023,"Electronics and Communication Engineering (VLSI Design and Technology) (4 Years, Bachelor of Technology)",ELEC,Electrical / Electronics / Communications Engineering,VLSI,Engineering
+ELEC024,"Electronics and Instrumentation Engineering (4 Years, Bachelor of Technology)",ELEC,Electrical / Electronics / Communications Engineering,,Engineering
+ELEC025,"VLSI Design and Technology (4 Years, Bachelor of Technology)",ELEC,Electrical / Electronics / Communications Engineering,VLSI,Engineering
+ELEC026,"Electronics and Communication Engineering with Specialization in Microelectronics and VLSI System Design (5 Years, Bachelor and Master of Technology (Dual Degree))",ELEC,Electrical / Electronics / Communications Engineering,VLSI,Engineering
+ELEC027,"Electrical Engineering with Specialization In Power System Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))",ELEC,Electrical / Electronics / Communications Engineering,Power Systems Engineering,Engineering
+ELEC028,"Electronics and VLSI Engineering (4 Years, Bachelor of Technology)",ELEC,Electrical / Electronics / Communications Engineering,VLSI,Engineering
+ELEC029,"Microelectronics & VLSI Engineering (4 Years, Bachelor of Technology)",ELEC,Electrical / Electronics / Communications Engineering,VLSI,Engineering
+ELEC030,"Electronics and Communication Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))",ELEC,Electrical / Electronics / Communications Engineering,,Engineering
+ELEC031,"Electronics Engineering (VLSI Design and Technology) (4 Years, Bachelor of Technology)",ELEC,Electrical / Electronics / Communications Engineering,VLSI,Engineering
+ELEC032,"Electronics and Telecommunication Engineering (4 Years, Bachelor of Technology)",ELEC,Electrical / Electronics / Communications Engineering,,Engineering
+ELEC033,"Electronics and Communication Engineering with specialization in Design and Manufacturing (4 Years, Bachelor of Technology)",ELEC,Electrical / Electronics / Communications Engineering,Design,Engineering
+ELEC034,"Electronics and Communication Engineering (Internet of Things) (4 Years, Bachelor of Technology)",ELEC,Electrical / Electronics / Communications Engineering,Internet Of Things,Engineering
+ELEC035,"Electronics and Communication Engineering (with Specialization of Embedded Systems and Internet of Things) (4 Years, B. Tech / B. Tech (Hons.))",ELEC,Electrical / Electronics / Communications Engineering,Internet Of Things,Engineering
+ELEC036,"B.Tech. in Electronics and Communication Engineering and M.Tech. in VLSI Design (5 Years, Bachelor and Master of Technology (Dual Degree))",ELEC,Electrical / Electronics / Communications Engineering,VLSI,Engineering
+ELEC037,"Electronics and Communication Engineering with specialization in VLSI and Embedded Systems (4 Years, Bachelor of Technology)",ELEC,Electrical / Electronics / Communications Engineering,VLSI,Engineering
+ELEC038,"Electronic Engineering (4 Years, Bachelor of Technology)",ELEC,Electrical / Electronics / Communications Engineering,,Engineering
+ELEC039,"Integrated B. Tech. - M. Tech in Electrical Engineering (5 Years, Integrated B. Tech. and M. Tech.)",ELEC,Electrical / Electronics / Communications Engineering,,Engineering
+ELEC040,"B.Tech in Electrical Engineering ( Rail Engineering) (4 Years, Bachelor of Technology)",ELEC,Electrical / Electronics / Communications Engineering,Rail Engineering,Engineering
+ELEC041,"B.Tech in Electronics & Communication Engineering (Rail Engineering) (4 Years, Bachelor of Technology)",ELEC,Electrical / Electronics / Communications Engineering,Rail Engineering,Engineering
+ELEC042,"Electronics and Communication Engineering (Avionics) (4 Years, Bachelor of Technology)",ELEC,Electrical / Electronics / Communications Engineering,Avionics Engineering,Engineering
+ELEC043,EC Electronics,ELEC,Electrical / Electronics / Communications Engineering,,Engineering
+ELEC044,EE Electrical,ELEC,Electrical / Electronics / Communications Engineering,,Engineering
 ELEC045,"EI Elec. Inst.
-Engg",ELEC,Electrical Engineering,Instrumentation Engineering,Engineering
+Engg",ELEC,Electrical / Electronics / Communications Engineering,Instrumentation Engineering,Engineering
 ELEC046,"ET Elec.
-Telecommn. Engg.",ELEC,Electronics And Communications Engineering,,Engineering
-ELEC047,MD Med.Elect.,ELEC,Electrical Engineering,Biomedical Engineering,Engineering
-ELEC048,TC Telecommn.,ELEC,Electronics And Communications Engineering,,Engineering
+Telecommn. Engg.",ELEC,Electrical / Electronics / Communications Engineering,,Engineering
+ELEC047,MD Med.Elect.,ELEC,Electrical / Electronics / Communications Engineering,Biomedical Engineering,Engineering
+ELEC048,TC Telecommn.,ELEC,Electrical / Electronics / Communications Engineering,,Engineering
 ELEC049,"EL Electronics,
-Instr. Tech.",ELEC,Electrical Engineering,Instrumentation Engineering,Engineering
-ELEC050,"BE Bio-Electronics
-Engg.",ELEC,Electronics And Communications Engineering,Biotechnology,Engineering
+Instr. Tech.",ELEC,Electrical / Electronics / Communications Engineering,Instrumentation Engineering,Engineering
+ELEC050,BE Bio-Electronics Engg.,ELEC,Electrical / Electronics / Communications Engineering,Biomedical Engineering,Engineering
 ELEC051,"ER Electrical and
-Computer",ELEC,Electrical Engineering,Computer Science And Engineering,Engineering
+Computer",ELEC,Electrical / Electronics / Communications Engineering,Computer Science And Engineering,Engineering
 ELEC052,"ES Electronics and
-Computer",ELEC,Electronics And Communications Engineering,Computer Science And Engineering,Engineering
+Computer",ELEC,Electrical / Electronics / Communications Engineering,Computer Science And Engineering,Engineering
 ELEC053,"II EC -Industrial
-Integrated",ELEC,Electronics And Communications Engineering,,Engineering
-ELEC054,Electrical Engineering,ELEC,Electrical Engineering,,Engineering
+Integrated",ELEC,Electrical / Electronics / Communications Engineering,,Engineering
 ELEC055,"Electronics and
-Telecommunication Engg",ELEC,Electronics And Communications Engineering,,Engineering
+Telecommunication Engg",ELEC,Electrical / Electronics / Communications Engineering,,Engineering
 ELEC056,"Electrical Engg[Electronics
-and Power]",ELEC,Electrical Engineering,Power Systems Engineering,Engineering
+and Power]",ELEC,Electrical / Electronics / Communications Engineering,Power Systems Engineering,Engineering
 ELEC057,"Electronics and Computer
-Engineering",ELEC,Electronics And Communications Engineering,,Engineering
-ELEC058,5G,ELEC,Electronics And Communications Engineering,,Engineering
-ELEC059,Electrical Engg [Electrical and Power],ELEC,Electronics And Communications Engineering,,Engineering
-ELEC060,Electronics Engineering,ELEC,Electronics And Communications Engineering,,Engineering
+Engineering",ELEC,Electrical / Electronics / Communications Engineering,,Engineering
+ELEC059,Electrical Engg [Electrical and Power],ELEC,Electrical / Electronics / Communications Engineering,Power Systems Engineering,Engineering
+ELEC060,Electronics Engineering,ELEC,Electrical / Electronics / Communications Engineering,,Engineering
 ELEC061,"Electronics Engineering (
-VLSI Design and",ELEC,Electronics And Communications Engineering,VLSI,Engineering
-ELEC062,"Electrical and Electronics
-Engineering",ELEC,Electrical And Electronics Engineering,,Engineering
+VLSI Design and",ELEC,Electrical / Electronics / Communications Engineering,VLSI,Engineering
 ELEC063,"Electronics and
-Communication(Advanced",ELEC,Electronics And Communications Engineering,,Engineering
-ELEC064,Electronics and Communications Engineering,ELEC,Electronics And Communications Engineering,,Engineering
+Communication(Advanced",ELEC,Electrical / Electronics / Communications Engineering,,Engineering
+ELEC064,Electronics and Communications Engineering,ELEC,Electrical / Electronics / Communications Engineering,,Engineering
 ELEC065,"Electronics and
-Biomedical Engineering",ELEC,Electronics And Communications Engineering,Biomedical Engineering,Engineering
+Biomedical Engineering",ELEC,Electrical / Electronics / Communications Engineering,Biomedical Engineering,Engineering
 ELEC066,"Electronics and
-Communication",ELEC,Electronics And Communications Engineering,,Engineering
-ELEC067,Electronics and Communications (ECE),ELEC,Electronics And Communications Engineering,,Engineering
-ELEC068,Electrical and Electronics (EEE),ELEC,Electrical And Electronics Engineering,,Engineering
-ELEC069,Electrical/Electronics,ELEC,Electrical Engineering,,Engineering
+Communication",ELEC,Electrical / Electronics / Communications Engineering,,Engineering
+ELEC067,Electronics and Communications (ECE),ELEC,Electrical / Electronics / Communications Engineering,,Engineering
+ELEC068,Electrical and Electronics (EEE),ELEC,Electrical / Electronics / Communications Engineering,,Engineering
+ELEC069,Electrical/Electronics,ELEC,Electrical / Electronics / Communications Engineering,,Engineering
 ENERGYENG,Energy Engineering,,,,Engineering
 ENERGYENG001,"Energy Engineering (4 Years, Bachelor of Technology)",ENERGYENG,Energy Engineering,,Engineering
 ENERGYENG002,"SUSTAINABLE ENERGY TECHNOLOGIES (4 Years, Bachelor of Technology)",ENERGYENG,Energy Engineering,,Engineering
@@ -413,8 +383,6 @@ ENGPHY001,"Engineering Physics (4 Years, Bachelor of Technology)",ENGPHY,Enginee
 ENGPHY002,"Engineering Physics (5 Years, Bachelor and Master of Technology (Dual Degree))",ENGPHY,Engineering Physics,,Engineering
 ENGPHY003,"B.Tech (Engineering Physics) - MBA (IIM Bodh Gaya) (5 Years, Bachelor of Technology and MBA (Dual Degree))",ENGPHY,Engineering Physics,MBA,Engineering
 ENGPHY004,Engineering Physics,ENGPHY,Engineering Physics,,Engineering
-ENGSCI,Engineering Science,,,,Engineering
-ENGSCI001,"Engineering Science (4 Years, Bachelor of Technology)",ENGSCI,Engineering Science,,Engineering
 ENVENG,Environmental Engineering,,,,Engineering
 ENVENG001,"Environmental Science and Engineering (4 Years, Bachelor of Technology)",ENVENG,Environmental Engineering,,Engineering
 ENVENG002,"Environmental Engineering (4 Years, Bachelor of Technology)",ENVENG,Environmental Engineering,,Engineering
@@ -423,8 +391,8 @@ ENVENG004,Environmental,ENVENG,Environmental Engineering,,Engineering
 ENVENG005,Environmental Science and Engineering,ENVENG,Environmental Engineering,,Engineering
 FIN,Finance,,,,Commerce
 FIN001,Finance,FIN,Finance,,Commerce
-FISH,Fishery Science,,,,Science
-FISH001,Fishery,FISH,Fishery Science,,Science
+FISH,Fishery Science,,,,Agriculture
+FISH001,Fishery,FISH,Fishery Science,,Agriculture
 FOODENG,Food Engineering,,,,Engineering
 FOODENG001,"Food Process Engineering (4 Years, Bachelor of Technology)",FOODENG,Food Engineering,,Engineering
 FOODENG002,"Food Engineering and Technology (4 Years, Bachelor of Technology)",FOODENG,Food Engineering,,Engineering
@@ -437,23 +405,22 @@ FOODENG007,Food Technology and Management,FOODENG,Food Engineering,,Engineering
 FOODENG008,Food Tech,FOODENG,Food Engineering,,Engineering
 FORENSIC,Forensic Science,,,,Science
 FORENSIC001,Forensic Science,FORENSIC,Forensic Science,,Science
-FOREST,Forestry,,,,Science
+FOREST,Forestry,,,,Agriculture
 GENENG,General Engineering,,,,Engineering
 GENENG001,"B.Tech in General Engineering (4 Years, Bachelor of Technology)",GENENG,General Engineering,,Engineering
 GENSCI,Science,,,,Science
 GENSCI001,General Science,GENSCI,Science,,Science
-GENSCI002,BS B.Sc (Honours),GENSCI,General Science,,Science
+GENSCI002,BS B.Sc (Honours),GENSCI,Science,,Science
 GENSCI003,"Interdisciplinary Sciences (5 Years, Bachelor of Science and Master of Science (Dual Degree))",GENSCI,Science,,Science
 GEO,Geology / Geophysics / Geological Technology,,,,Science
 GEO001,Geology,GEO,Geology / Geophysics / Geological Technology,,Science
 GEO002,Geophysics,GEO,Geology / Geophysics / Geological Technology,,Science
-GEO003,"Geological Technology (5 Years, Integrated Master of Technology)",GEO,Geological Technology,,Science
-GEO004,"Geophysical Technology (5 Years, Integrated Master of Technology)",GEO,Geological Technology,,Science
-GEO005,"Applied Geology (4 Years, Bachelor of Science)",GEO,Geology,,Science
-GEO006,"Exploration Geophysics (4 Years, Bachelor of Science)",GEO,Geophysics,,Science
-GEO007,"Applied Geophysics (5 Years, Integrated Master of Technology)",GEO,Geophysics,,Science
-GEO008,"Applied Geology (5 Years, Integrated Master of Technology)",GEO,Geology,,Science
-GEO009,Geology,GEO,Geology,,Science
+GEO003,"Geological Technology (5 Years, Integrated Master of Technology)",GEO,Geology / Geophysics / Geological Technology,,Science
+GEO004,"Geophysical Technology (5 Years, Integrated Master of Technology)",GEO,Geology / Geophysics / Geological Technology,,Science
+GEO005,"Applied Geology (4 Years, Bachelor of Science)",GEO,Geology / Geophysics / Geological Technology,,Science
+GEO006,"Exploration Geophysics (4 Years, Bachelor of Science)",GEO,Geology / Geophysics / Geological Technology,,Science
+GEO007,"Applied Geophysics (5 Years, Integrated Master of Technology)",GEO,Geology / Geophysics / Geological Technology,,Science
+GEO008,"Applied Geology (5 Years, Integrated Master of Technology)",GEO,Geology / Geophysics / Geological Technology,,Science
 HCL,HCL Techbee,,,,Engineering
 HIST,History,,,,Humanities
 HIST001,"History, Economics, Public Administration",HIST,History,,Humanities
@@ -472,7 +439,6 @@ INDCHEM002,"Industrial Chemistry (5 Years, Bachelor and Master of Technology (Du
 INDENG,Industrial / Manufacturing / Production Engineering,,,,Engineering
 INDENG001,Industrial Internet Of Things,INDENG,Industrial / Manufacturing / Production Engineering,,Engineering
 INDENG002,Industrial Design,INDENG,Industrial / Manufacturing / Production Engineering,,Engineering
-INDENG003,Internet Of Things,INDENG,Industrial / Manufacturing / Production Engineering,,Engineering
 INDENG004,"Industrial Engineering and Operations Research (4 Years, Bachelor of Technology)",INDENG,Industrial / Manufacturing / Production Engineering,,Engineering
 INDENG005,"Industrial and Systems Engineering (4 Years, Bachelor of Technology)",INDENG,Industrial / Manufacturing / Production Engineering,,Engineering
 INDENG006,"Production and Industrial Engineering (4 Years, Bachelor of Technology)",INDENG,Industrial / Manufacturing / Production Engineering,,Engineering
@@ -485,7 +451,6 @@ Mgmt.",INDENG,Industrial / Manufacturing / Production Engineering,,Engineering
 INDENG012,OT Industrial IOT,INDENG,Industrial / Manufacturing / Production Engineering,,Engineering
 INDENG013,IP Ind.Prodn.,INDENG,Industrial / Manufacturing / Production Engineering,,Engineering
 INDENG014,Industrial IoT,INDENG,Industrial / Manufacturing / Production Engineering,,Engineering
-INDENG015,Internet of Things (IOT),INDENG,Industrial / Manufacturing / Production Engineering,,Engineering
 INDENG016,"Manufacturing Science
 and Engineering",INDENG,Industrial / Manufacturing / Production Engineering,,Engineering
 INDENG017,Industrial Engineering,INDENG,Industrial / Manufacturing / Production Engineering,,Engineering
@@ -500,9 +465,7 @@ INSTRENG003,"Instrumentation
 Engineering",INSTRENG,Instrumentation Engineering,,Engineering
 INSTRENG004,"Instrumentation and
 Control Engineering",INSTRENG,Instrumentation Engineering,,Engineering
-INSTRENG005,Instrumentation and Control Engineering,INSTRENG,Instrumentation Engineering,,Engineering
 INSTRENG006,Instrumentation,INSTRENG,Instrumentation Engineering,,Engineering
-INSTRENG007,Instrumentation and Control Engineering,INSTRENG,Instrumentation Engineering,,Engineering
 JAPANESE,Japanese,,,,Humanities
 JAPANESE001,Japanese,JAPANESE,Japanese,,Humanities
 JOURNAL,Journalism,,,,Humanities
@@ -517,12 +480,10 @@ LLB,LLB,,,,Law
 LLB001,Law,LLB,LLB,,Law
 MARINE,Marine / Ocean Engineering,,,,Engineering
 MARINE001,Marine Engineering,MARINE,Marine / Ocean Engineering,,Engineering
-MARINE002,Marine Engineering,MARINE,Marine / Ocean Engineering,,Engineering
 MARINE003,"MR Marine
-Engineering",MARINE,Marine Engineering,,Engineering
-MARINE004,Marine Engineering,MARINE,Marine Engineering,,Engineering
-MARINE005,"Naval Architecture and Ocean Engineering (4 Years, Bachelor of Technology)",MARINE,Ocean Engineering,,Engineering
-MARINE006,"Ocean Engineering and Naval Architecture (4 Years, Bachelor of Technology)",MARINE,Ocean Engineering,,Engineering
+Engineering",MARINE,Marine / Ocean Engineering,,Engineering
+MARINE005,"Naval Architecture and Ocean Engineering (4 Years, Bachelor of Technology)",MARINE,Marine / Ocean Engineering,,Engineering
+MARINE006,"Ocean Engineering and Naval Architecture (4 Years, Bachelor of Technology)",MARINE,Marine / Ocean Engineering,,Engineering
 MATH,Mathematics,,,,Science
 MATH001,"BS in Mathematics (4 Years, Bachelor of Science)",MATH,Mathematics,,Science
 MATH002,"Mathematics (5 Years, Integrated Master of Science)",MATH,Mathematics,,Science
@@ -531,35 +492,33 @@ MBA,MBA,,,,Management
 MBA001,Management,MBA,MBA,,Management
 MBBS,MBBS,,,,Medicine
 MECHENG,Mechanical / Mechatronics Engineering ,,,,Engineering
-MECHENG001,Mechatronics Engineering,MECHENG,Mechanical / Mechatronics Engineering ,,Engineering
+MECHENG001,Mechatronics Engineering,MECHENG,Mechanical / Mechatronics Engineering ,Mechatronics Engineering,Engineering
 MECHENG002,Rail Engineering,MECHENG,Mechanical / Mechatronics Engineering ,,Engineering
-MECHENG003,"Mechanical Engineering (4 Years, Bachelor of Technology)",MECHENG,Mechanical Engineering ,,Engineering
-MECHENG004,"Engineering and Computational Mechanics (4 Years, Bachelor of Technology)",MECHENG,Mechanical Engineering ,,Engineering
-MECHENG005,"Mechanical Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))",MECHENG,Mechanical Engineering ,,Engineering
-MECHENG006,"B.Tech (Mechanical Engineering) - MBA (IIM Mumbai) (5 Years, Bachelor of Technology and MBA (Dual Degree))",MECHENG,Mechanical Engineering ,MBA,Engineering
-MECHENG007,"B. Tech. (ME) - M. Tech. in Mechatronics (5 Years, B.Tech. + M.Tech./MS (Dual Degree))",MECHENG,Mechanical Engineering ,Mechatronics Engineering,Engineering
-MECHENG008,"Mechanical Engineering with Specialization in Manufacturing and Industrial Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))",MECHENG,Mechanical Engineering ,Industrial Engineering,Engineering
-MECHENG009,"Mechatronics and Automation Engineering (4 Years, Bachelor of Technology)",MECHENG,Mechanical Engineering ,,Engineering
-MECHENG010,"Mechatronics Engineering (4 Years, Bachelor of Technology)",MECHENG,Mechanical Engineering ,,Engineering
-MECHENG011,"B.Tech in Mechanical Engineering and M.Tech in AI and Robotics (5 Years, B.Tech. + M.Tech./MS (Dual Degree))",MECHENG,Mechanical Engineering ,Artificial Intelligence,Engineering
-MECHENG012,"Mechanical Engineering with specialization in Design and Manufacturing (4 Years, Bachelor of Technology)",MECHENG,Mechanical Engineering ,Design,Engineering
-MECHENG013,"B.Tech in Mechanical Engineering ( Rail Engineering) (4 Years, Bachelor of Technology)",MECHENG,Mechanical Engineering ,Rail Engineering,Engineering
-MECHENG014,ME Mechanical,MECHENG,Mechanical Engineering ,,Engineering
-MECHENG015,MT Mechatronics,MECHENG,Mechanical Engineering ,Mechatronics Engineering,Engineering
+MECHENG003,"Mechanical Engineering (4 Years, Bachelor of Technology)",MECHENG,Mechanical / Mechatronics Engineering ,,Engineering
+MECHENG004,"Engineering and Computational Mechanics (4 Years, Bachelor of Technology)",MECHENG,Mechanical / Mechatronics Engineering ,,Engineering
+MECHENG005,"Mechanical Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))",MECHENG,Mechanical / Mechatronics Engineering ,,Engineering
+MECHENG006,"B.Tech (Mechanical Engineering) - MBA (IIM Mumbai) (5 Years, Bachelor of Technology and MBA (Dual Degree))",MECHENG,Mechanical / Mechatronics Engineering ,MBA,Engineering
+MECHENG007,"B. Tech. (ME) - M. Tech. in Mechatronics (5 Years, B.Tech. + M.Tech./MS (Dual Degree))",MECHENG,Mechanical / Mechatronics Engineering ,Mechatronics Engineering,Engineering
+MECHENG008,"Mechanical Engineering with Specialization in Manufacturing and Industrial Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))",MECHENG,Mechanical / Mechatronics Engineering ,Industrial Engineering,Engineering
+MECHENG009,"Mechatronics and Automation Engineering (4 Years, Bachelor of Technology)",MECHENG,Mechanical / Mechatronics Engineering ,Mechatronics Engineering,Engineering
+MECHENG010,"Mechatronics Engineering (4 Years, Bachelor of Technology)",MECHENG,Mechanical / Mechatronics Engineering ,Mechatronics Engineering,Engineering
+MECHENG011,"B.Tech in Mechanical Engineering and M.Tech in AI and Robotics (5 Years, B.Tech. + M.Tech./MS (Dual Degree))",MECHENG,Mechanical / Mechatronics Engineering ,Artificial Intelligence,Engineering
+MECHENG012,"Mechanical Engineering with specialization in Design and Manufacturing (4 Years, Bachelor of Technology)",MECHENG,Mechanical / Mechatronics Engineering ,Design,Engineering
+MECHENG013,"B.Tech in Mechanical Engineering ( Rail Engineering) (4 Years, Bachelor of Technology)",MECHENG,Mechanical / Mechatronics Engineering ,Rail Engineering,Engineering
+MECHENG014,ME Mechanical,MECHENG,Mechanical / Mechatronics Engineering ,,Engineering
+MECHENG015,MT Mechatronics,MECHENG,Mechanical / Mechatronics Engineering ,Mechatronics Engineering,Engineering
 MECHENG016,"MM Mechanical,
-Smart Manf.",MECHENG,Mechanical Engineering ,Smart Manufacturing,Engineering
+Smart Manf.",MECHENG,Mechanical / Mechatronics Engineering ,Smart Manufacturing,Engineering
 MECHENG017,"MK Mechanical Engg
-(Kannada)",MECHENG,Mechanical Engineering ,,Engineering
-MECHENG018,Mechanical Engineering,MECHENG,Mechanical Engineering ,,Engineering
+(Kannada)",MECHENG,Mechanical / Mechatronics Engineering ,,Engineering
+MECHENG018,Mechanical Engineering,MECHENG,Mechanical / Mechatronics Engineering ,,Engineering
 MECHENG019,"Mechanical & Automation
-Engineering",MECHENG,Mechanical Engineering ,,Engineering
-MECHENG020,Mechatronics Engineering,MECHENG,Mechanical Engineering ,Mechatronics Engineering,Engineering
+Engineering",MECHENG,Mechanical / Mechatronics Engineering ,,Engineering
 MECHENG021,"Mechanical and
-Mechatronics Engineering",MECHENG,Mechanical Engineering ,Mechatronics Engineering,Engineering
+Mechatronics Engineering",MECHENG,Mechanical / Mechatronics Engineering ,Mechatronics Engineering,Engineering
 MECHENG022,"Mechanical
-Engineering[Sandwich]",MECHENG,Mechanical Engineering ,,Engineering
-MECHENG023,Mechanical,MECHENG,Mechanical Engineering ,,Engineering
-MECHENG024,Mechanical,MECHENG,Mechanical Engineering ,,Engineering
+Engineering[Sandwich]",MECHENG,Mechanical / Mechatronics Engineering ,,Engineering
+MECHENG023,Mechanical,MECHENG,Mechanical / Mechatronics Engineering ,,Engineering
 MEMS,Metallurgy Engineering And Material Science,,,,Engineering
 MEMS001,"Metallurgical Engineering and Materials Science (4 Years, Bachelor of Technology)",MEMS,Metallurgy Engineering And Material Science,,Engineering
 MEMS002,"Metallurgical and Materials Engineering (4 Years, Bachelor of Technology)",MEMS,Metallurgy Engineering And Material Science,,Engineering
@@ -606,9 +565,6 @@ MNC013,"MC Mathamatics and
 Computing",MNC,Mathematics And Computing,,Science
 MNC014,Mathematics and Computing,MNC,Mathematics And Computing,,Science
 MUSIC,Music,,,,Humanities
-NATSCI,Natural Science,,,,Science
-NATSCI001,Natural Science,NATSCI,Natural Science,,Science
-NATSCI002,Natural Sciences,NATSCI,Natural Science,,Science
 NATURO,Naturopathy,,,,Naturopathy
 NAUTICALSCI,Nautical Science,,,,Engineering
 NAUTICALSCI001,Nautical Science,NAUTICALSCI,Nautical Science,,Engineering
@@ -627,7 +583,6 @@ OTHER001,Ms/Bs,OTHER,Other,,Other
 OTHER002,Other-Science,OTHER,Other,,Other
 OTHER003,Other-Medical,OTHER,Other,,Other
 OTHER004,Other-Engineering,OTHER,Other,,Other
-OTHER005,Other - Medical,OTHER,Other,,Other
 OTHER006,Other,OTHER,Other,,Other
 OTHER007,"Other - Medical, Pathology",OTHER,Other,,Other
 PAPERENG,Paper And Printing Engineering,,,,Engineering
@@ -650,14 +605,11 @@ PHYSICS002,"Physics (4 Years, Bachelor of Science)",PHYSICS,Physics,,Science
 PHYSICS003,"Physics (5 Years, Bachelor of Science and Master of Science (Dual Degree))",PHYSICS,Physics,,Science
 PHYSICS004,"Physics with Specialization (4 Years, Bachelor of Science)",PHYSICS,Physics,,Science
 PHYSICS005,"Physics (5 Years, Integrated Master of Science)",PHYSICS,Physics,,Science
-PHYSICS006,Physics/Chemistry/Mathematics,PHYSICS,"Physics, Chemistry, Mathematics",,Science
-PHYSICS007,"Physics, Chemistry, Mathematics",PHYSICS,"Physics, Chemistry, Mathematics",,Science
 PHYSICS008,"Physics/Chemistry/Mathematics, Biology, Geology",PHYSICS,Physics,,Science
 PHYSICS009,Physics,PHYSICS,Physics,,Science
 PHYSIO,Physiotherapy,,,,Medical Allied
 PHYSIO001,Physiotherapy/ BOT,PHYSIO,Physiotherapy,,Medical Allied
 PHYSIO002,Physiotherapy,PHYSIO,Physiotherapy,,Medical Allied
-PHYSIO003,Bachelor in occupational therapy,PHYSIO,Physiotherapy,,Medical Allied
 PLAN,Planning,,,,Architecture
 PLAN001,"Planning (4 Years, Bachelor of Planning)",PLAN,Planning,,Architecture
 PLAN002,UP Planning,PLAN,Planning,,Architecture
@@ -673,9 +625,6 @@ POLYMERTECH003,"Polymer Engineering and
 Technology",POLYMERTECH,Polymer Technology,,Engineering
 POLYMERTECH004,Plastic and Polymer Technology,POLYMERTECH,Polymer Technology,,Engineering
 POLYMERTECH005,Plastic Technology,POLYMERTECH,Polymer Technology,,Engineering
-PRINTENG,Printing Engineering,,,,Engineering
-PRINTENG001,"Printing and Packaging Technology (4 Years, Bachelor of Technology)",PRINTENG,Printing Engineering,,Engineering
-PRINTENG002,Printing Technology,PRINTENG,Printing Engineering,,Engineering
 INDENG022,Production Engineering,INDENG,Industrial / Manufacturing / Production Engineering,,Engineering
 INDENG023,Production Engineering[Sandwich],INDENG,Industrial / Manufacturing / Production Engineering,,Engineering
 PSYCH,Psychology,,,,Humanities
@@ -690,13 +639,10 @@ ROBOENG004,RB Robotics,ROBOENG,Robotics Engineering,,Engineering
 ROBOENG005,Automation and Robotics,ROBOENG,Robotics Engineering,,Engineering
 ROBOENG006,Robotics and Automation,ROBOENG,Robotics Engineering,,Engineering
 ROBOENG007,Robotics,ROBOENG,Robotics Engineering,,Engineering
-ROBOENG008,Robotics,ROBOENG,Robotics Engineering,,Engineering
 SAFETYENG,Safety Engineering,,,,Engineering
 SAFETYENG001,Safety and Fire Engineering,SAFETYENG,Safety Engineering,,Engineering
 SERI,Sericulture,,,,Agriculture
 SOCIALWORK,Social Work,,,,Humanities
-SPACEENG,Space Engineering,,,,Engineering
-SPACEENG001,"Space Sciences and Engineering (4 Years, Bachelor of Technology)",SPACEENG,Space Engineering,,Engineering
 SYSENG,Systems Engineering,,,,Engineering
 TEACH,Teaching,,,,Education
 TEACH001,BEd,TEACH,Teaching,,Education
@@ -722,3 +668,39 @@ COMMUNITYSCI,Community Science,,,,Science
 COMMUNITYSCI001,B.Sc. (Hons.) Community Science,COMMUNITYSCI,Community Science,,Science
 NUTRITION,Food Nutrition and Dietetics,,,,Science
 NUTRITION001,B.Sc. (Hons.) Food Nutrition and Dietetics,NUTRITION,Food Nutrition and Dietetics,,Science
+PERFARTS,Performing Arts,,,,Humanities
+FILM,Film and Photography,,,,Humanities
+GEOGRAPHY,Geography,,,,Humanities
+ANTHRO,Anthropology and Archaeology,,,,Humanities
+LIBSCI,Library and Information Science,,,,Humanities
+ACTUARIAL,Actuarial Science,,,,Commerce
+STATISTICS,Statistics,,,,Science
+AVIATION,Aviation,,,,Engineering
+NUCLEARENG,Nuclear Engineering,,,,Engineering
+PHYSED,Physical Education,,,,Education
+AERO011,"Space Sciences and Engineering (4 Years, Bachelor of Technology)",AERO,Aerospace Engineering,,Engineering
+AERO012,Space Engineering,AERO,Aerospace Engineering,,Engineering
+BIO004,"Biological Science (4 Years, Bachelor of Science)",BIO,Biology,,Science
+BIO005,Biological Science And Engineering,BIO,Biology,,Science
+CHEM011,"Chemical Sciences (5 Years, Bachelor of Science and Master of Science (Dual Degree))",CHEM,Chemistry,,Science
+CHEM012,"BS in Chemical Sciences (4 Years, Bachelor of Science)",CHEM,Chemistry,,Science
+CHEM013,Chemical Science,CHEM,Chemistry,,Science
+CSIT081,Internet Of Things,CSIT,Computer Science / Information Technology,Internet Of Things,Engineering
+CSIT082,Internet of Things (IOT),CSIT,Computer Science / Information Technology,Internet Of Things,Engineering
+ELEC070,Electronics and Computer Science,ELEC,Electrical / Electronics / Communications Engineering,Computer Science And Engineering,Engineering
+ELEC071,Electrical and Computer Engineering,ELEC,Electrical / Electronics / Communications Engineering,Computer Science And Engineering,Engineering
+GENENG002,"Engineering Science (4 Years, Bachelor of Technology)",GENENG,General Engineering,,Engineering
+GENENG003,Engineering Science,GENENG,General Engineering,,Engineering
+GENSCI004,Natural Science,GENSCI,Science,,Science
+GENSCI005,Natural Sciences,GENSCI,Science,,Science
+GEO010,"Earth Sciences (4 Years, Bachelor of Science)",GEO,Geology / Geophysics / Geological Technology,,Science
+GEO011,Earth Science And Engineering,GEO,Geology / Geophysics / Geological Technology,,Science
+PAPERENG002,"Printing and Packaging Technology (4 Years, Bachelor of Technology)",PAPERENG,Paper And Printing Engineering,,Engineering
+PAPERENG003,Printing Technology,PAPERENG,Paper And Printing Engineering,,Engineering
+PAPERENG004,Printing Engineering,PAPERENG,Paper And Printing Engineering,,Engineering
+PARAMED001,Bachelor in occupational therapy,PARAMED,Paramedical,,Medical Allied
+STATISTICS001,Statistics,STATISTICS,Statistics,,Science
+MBA002,Business Administration,MBA,MBA,,Management
+OFFICEADMIN,Office Administration,,,,Management
+PHILO,Philosophy,,,,Humanities
+PUBADMIN,Public Administration,,,,Humanities

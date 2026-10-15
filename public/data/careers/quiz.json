@@ -1,0 +1,994 @@
+{
+ "scale": [
+  "Strongly disagree",
+  "Disagree",
+  "Neutral",
+  "Agree",
+  "Strongly agree"
+ ],
+ "statements": [
+  {
+   "id": 1,
+   "text": "I enjoy fixing things at home, like a loose cycle chain or a switch that has stopped working.",
+   "type": "R"
+  },
+  {
+   "id": 2,
+   "text": "I like figuring out why things happen, like why the sky is blue or how a phone works.",
+   "type": "I"
+  },
+  {
+   "id": 3,
+   "text": "I often daydream and make up stories, characters or magical worlds.",
+   "type": "A"
+  },
+  {
+   "id": 4,
+   "text": "I enjoy explaining things to friends or helping a younger cousin study.",
+   "type": "S"
+  },
+  {
+   "id": 5,
+   "text": "I like taking charge, like organising a class trip or a school event.",
+   "type": "E"
+  },
+  {
+   "id": 6,
+   "text": "I like keeping my things, notes and files neat and organised.",
+   "type": "C"
+  },
+  {
+   "id": 7,
+   "text": "I'd rather build or put something together with my hands than read about it.",
+   "type": "R"
+  },
+  {
+   "id": 8,
+   "text": "I enjoy tricky puzzles or maths problems, even when nobody has asked me to solve them.",
+   "type": "I"
+  },
+  {
+   "id": 9,
+   "text": "I enjoy drawing, painting, rangoli or making things look beautiful.",
+   "type": "A"
+  },
+  {
+   "id": 10,
+   "text": "Friends often come to me when they want to talk about a problem.",
+   "type": "S"
+  },
+  {
+   "id": 11,
+   "text": "I'd enjoy selling things, like running a stall at the school fair or a small online shop.",
+   "type": "E"
+  },
+  {
+   "id": 12,
+   "text": "I enjoy making timetables or to-do lists and sticking to them.",
+   "type": "C"
+  },
+  {
+   "id": 13,
+   "text": "I like being outdoors: gardening, farming, trekking or looking after animals.",
+   "type": "R"
+  },
+  {
+   "id": 14,
+   "text": "I'd enjoy doing an experiment for a science fair.",
+   "type": "I"
+  },
+  {
+   "id": 15,
+   "text": "I like performing: singing, dancing, acting or playing an instrument.",
+   "type": "A"
+  },
+  {
+   "id": 16,
+   "text": "I'd enjoy volunteering at an NGO, a hospital or in my neighbourhood.",
+   "type": "S"
+  },
+  {
+   "id": 17,
+   "text": "I enjoy convincing people to see things my way, like in a debate.",
+   "type": "E"
+  },
+  {
+   "id": 18,
+   "text": "I'd enjoy keeping track of money, like a family budget or the class fund.",
+   "type": "C"
+  },
+  {
+   "id": 19,
+   "text": "I enjoy using tools and machines, from a screwdriver to a sewing machine.",
+   "type": "R"
+  },
+  {
+   "id": 20,
+   "text": "I watch documentaries or read about science and technology for fun.",
+   "type": "I"
+  },
+  {
+   "id": 21,
+   "text": "I like making creative things like videos, reels, poems or stories.",
+   "type": "A"
+  },
+  {
+   "id": 22,
+   "text": "I enjoy working in a team more than working alone.",
+   "type": "S"
+  },
+  {
+   "id": 23,
+   "text": "I'd like to start my own business one day.",
+   "type": "E"
+  },
+  {
+   "id": 24,
+   "text": "I like work with clear rules and steps, where I know exactly what to do.",
+   "type": "C"
+  },
+  {
+   "id": 25,
+   "text": "I'd rather be active and on my feet than sit at a desk all day.",
+   "type": "R"
+  },
+  {
+   "id": 26,
+   "text": "When I hear a claim, I try to verify it myself before accepting it.",
+   "type": "I"
+  },
+  {
+   "id": 27,
+   "text": "I prefer doing things my own way rather than following a fixed method.",
+   "type": "A"
+  },
+  {
+   "id": 28,
+   "text": "I feel good when I take care of someone who is unwell or upset.",
+   "type": "S"
+  },
+  {
+   "id": 29,
+   "text": "I stay calm and make quick decisions when there's pressure.",
+   "type": "E"
+  },
+  {
+   "id": 30,
+   "text": "I notice small mistakes that others miss, like a wrong number or a spelling error.",
+   "type": "C"
+  }
+ ],
+ "tiebreakers": [
+  {
+   "id": 1,
+   "a": {
+    "text": "Build a working model of a bridge with your hands",
+    "type": "R"
+   },
+   "b": {
+    "text": "Work out why some bridges stand for centuries and others fall",
+    "type": "I"
+   }
+  },
+  {
+   "id": 2,
+   "a": {
+    "text": "Learn to play a sport really well",
+    "type": "R"
+   },
+   "b": {
+    "text": "Learn to play a musical instrument really well",
+    "type": "A"
+   }
+  },
+  {
+   "id": 3,
+   "a": {
+    "text": "Fix a classmate's broken cycle",
+    "type": "R"
+   },
+   "b": {
+    "text": "Help a classmate who is struggling with a subject",
+    "type": "S"
+   }
+  },
+  {
+   "id": 4,
+   "a": {
+    "text": "Build the stage for the school annual day",
+    "type": "R"
+   },
+   "b": {
+    "text": "Find sponsors and sell tickets for the school annual day",
+    "type": "E"
+   }
+  },
+  {
+   "id": 5,
+   "a": {
+    "text": "Set up the sound system and lights for an event",
+    "type": "R"
+   },
+   "b": {
+    "text": "Keep the guest list and budget for an event",
+    "type": "C"
+   }
+  },
+  {
+   "id": 6,
+   "a": {
+    "text": "Find out how black holes form",
+    "type": "I"
+   },
+   "b": {
+    "text": "Write a story set on a planet near a black hole",
+    "type": "A"
+   }
+  },
+  {
+   "id": 7,
+   "a": {
+    "text": "Research why children in your area drop out of school",
+    "type": "I"
+   },
+   "b": {
+    "text": "Spend weekends teaching children who have dropped out",
+    "type": "S"
+   }
+  },
+  {
+   "id": 8,
+   "a": {
+    "text": "Dig into the numbers to find out which products sell best in a shop",
+    "type": "I"
+   },
+   "b": {
+    "text": "Persuade shoppers in a shop to try a new product",
+    "type": "E"
+   }
+  },
+  {
+   "id": 9,
+   "a": {
+    "text": "Run an experiment to test a new idea",
+    "type": "I"
+   },
+   "b": {
+    "text": "Keep a lab's records and stock list perfectly accurate",
+    "type": "C"
+   }
+  },
+  {
+   "id": 10,
+   "a": {
+    "text": "Design posters for a cause you care about",
+    "type": "A"
+   },
+   "b": {
+    "text": "Volunteer for a cause you care about, working directly with the people it helps",
+    "type": "S"
+   }
+  },
+  {
+   "id": 11,
+   "a": {
+    "text": "Make the short film for the school festival",
+    "type": "A"
+   },
+   "b": {
+    "text": "Lead the team that runs the school festival",
+    "type": "E"
+   }
+  },
+  {
+   "id": 12,
+   "a": {
+    "text": "Decorate your room in your own style",
+    "type": "A"
+   },
+   "b": {
+    "text": "Organise your room so everything has its place",
+    "type": "C"
+   }
+  },
+  {
+   "id": 13,
+   "a": {
+    "text": "Mentor the new students who join your school",
+    "type": "S"
+   },
+   "b": {
+    "text": "Lead the student council",
+    "type": "E"
+   }
+  },
+  {
+   "id": 14,
+   "a": {
+    "text": "Look after your younger cousins on a family trip",
+    "type": "S"
+   },
+   "b": {
+    "text": "Plan a family trip: the bookings, timings and budget",
+    "type": "C"
+   }
+  },
+  {
+   "id": 15,
+   "a": {
+    "text": "Pitch your idea to win a business competition",
+    "type": "E"
+   },
+   "b": {
+    "text": "Keep the accounts for your team in a business competition",
+    "type": "C"
+   }
+  }
+ ],
+ "subjects": [
+  "Physics",
+  "Chemistry",
+  "Biology",
+  "Maths",
+  "Computer Science",
+  "History",
+  "Geography",
+  "Economics / Accountancy",
+  "Languages",
+  "Art / Drawing",
+  "Music",
+  "Drama",
+  "Sports"
+ ],
+ "careerSubjects": {
+  "Acting and Performing Arts": [
+   "Drama",
+   "Music",
+   "Languages"
+  ],
+  "Actuarial Science": [
+   "Maths",
+   "Economics / Accountancy"
+  ],
+  "Aerospace Engineering": [
+   "Physics",
+   "Maths"
+  ],
+  "Agricultural Engineering": [
+   "Physics",
+   "Biology",
+   "Maths"
+  ],
+  "Agriculture": [
+   "Biology",
+   "Chemistry",
+   "Geography"
+  ],
+  "Air Traffic Control": [
+   "Physics",
+   "Maths",
+   "Geography"
+  ],
+  "Airline Pilot": [
+   "Physics",
+   "Maths",
+   "Geography"
+  ],
+  "Anesthesiology": [
+   "Biology",
+   "Chemistry"
+  ],
+  "Anthropology and Archaeology": [
+   "History",
+   "Geography",
+   "Biology"
+  ],
+  "Architecture": [
+   "Art / Drawing",
+   "Maths",
+   "Physics"
+  ],
+  "Artificial Intelligence and Data Science": [
+   "Maths",
+   "Computer Science"
+  ],
+  "Arts": [
+   "Art / Drawing",
+   "History"
+  ],
+  "Audiology": [
+   "Biology",
+   "Physics"
+  ],
+  "Automobile Engineering": [
+   "Physics",
+   "Maths"
+  ],
+  "Aviation Engineering and Maintenance": [
+   "Physics",
+   "Maths"
+  ],
+  "Ayurveda": [
+   "Biology",
+   "Chemistry"
+  ],
+  "Biochemical Engineering": [
+   "Chemistry",
+   "Biology",
+   "Maths"
+  ],
+  "Biochemistry": [
+   "Chemistry",
+   "Biology"
+  ],
+  "Bioinformatics": [
+   "Biology",
+   "Computer Science",
+   "Maths"
+  ],
+  "Biological Engineering": [
+   "Biology",
+   "Physics",
+   "Maths"
+  ],
+  "Biology": [
+   "Biology",
+   "Chemistry"
+  ],
+  "Biomedical Engineering": [
+   "Biology",
+   "Physics",
+   "Maths"
+  ],
+  "Biostatistics": [
+   "Maths",
+   "Biology"
+  ],
+  "Biotechnology": [
+   "Biology",
+   "Chemistry"
+  ],
+  "Blockchain and Emerging Tech": [
+   "Computer Science",
+   "Maths"
+  ],
+  "Botany": [
+   "Biology",
+   "Geography"
+  ],
+  "Business Administration (BBA / MBA)": [
+   "Economics / Accountancy",
+   "Languages"
+  ],
+  "Business Intelligence and Analytics": [
+   "Maths",
+   "Computer Science",
+   "Economics / Accountancy"
+  ],
+  "Cardiology": [
+   "Biology",
+   "Chemistry"
+  ],
+  "Ceramic Engineering": [
+   "Chemistry",
+   "Physics"
+  ],
+  "Chartered Accountancy (CA)": [
+   "Economics / Accountancy",
+   "Maths"
+  ],
+  "Chemical Engineering": [
+   "Chemistry",
+   "Maths",
+   "Physics"
+  ],
+  "Chemical Science And Technology": [
+   "Chemistry",
+   "Physics"
+  ],
+  "Chemistry": [
+   "Chemistry",
+   "Maths"
+  ],
+  "Chiropractic Care": [
+   "Biology",
+   "Sports"
+  ],
+  "Cinematography and Film Editing": [
+   "Art / Drawing",
+   "Drama",
+   "Computer Science"
+  ],
+  "Civil Engineering": [
+   "Physics",
+   "Maths",
+   "Geography"
+  ],
+  "Commerce": [
+   "Economics / Accountancy",
+   "Maths"
+  ],
+  "Computer Application (BCA/MCA)": [
+   "Computer Science",
+   "Maths"
+  ],
+  "Computer Science / Information Technology": [
+   "Computer Science",
+   "Maths"
+  ],
+  "Court Reporting and Legal Transcription": [
+   "Languages",
+   "History"
+  ],
+  "Culinary Arts (Chef)": [
+   "Chemistry",
+   "Art / Drawing"
+  ],
+  "Cyber Security": [
+   "Computer Science",
+   "Maths"
+  ],
+  "Dairy Engineering": [
+   "Biology",
+   "Chemistry",
+   "Physics"
+  ],
+  "Data Engineering": [
+   "Computer Science",
+   "Maths"
+  ],
+  "Dentistry": [
+   "Biology",
+   "Chemistry"
+  ],
+  "Dermatology": [
+   "Biology",
+   "Chemistry"
+  ],
+  "Design": [
+   "Art / Drawing",
+   "Computer Science"
+  ],
+  "Dietetics and Nutrition": [
+   "Biology",
+   "Chemistry"
+  ],
+  "Economics": [
+   "Economics / Accountancy",
+   "Maths",
+   "History"
+  ],
+  "Electrical / Electronics / Communications Engineering": [
+   "Physics",
+   "Maths",
+   "Computer Science"
+  ],
+  "Emergency Medical Services": [
+   "Biology",
+   "Sports"
+  ],
+  "Energy Engineering": [
+   "Physics",
+   "Chemistry",
+   "Maths"
+  ],
+  "Engineering Design": [
+   "Art / Drawing",
+   "Physics",
+   "Maths"
+  ],
+  "Engineering Physics": [
+   "Physics",
+   "Maths"
+  ],
+  "English": [
+   "Languages",
+   "History"
+  ],
+  "Environmental Engineering": [
+   "Chemistry",
+   "Biology",
+   "Geography"
+  ],
+  "Event Management": [
+   "Economics / Accountancy",
+   "Drama",
+   "Languages"
+  ],
+  "Fashion Designing": [
+   "Art / Drawing"
+  ],
+  "Finance": [
+   "Economics / Accountancy",
+   "Maths"
+  ],
+  "Fire and Safety Services": [
+   "Chemistry",
+   "Physics",
+   "Sports"
+  ],
+  "Fishery Science": [
+   "Biology",
+   "Geography"
+  ],
+  "Food Engineering": [
+   "Chemistry",
+   "Biology"
+  ],
+  "Forensic Science": [
+   "Chemistry",
+   "Biology"
+  ],
+  "Forestry": [
+   "Biology",
+   "Geography"
+  ],
+  "General Engineering": [
+   "Physics",
+   "Maths"
+  ],
+  "Genetic Counselling and Genetics": [
+   "Biology",
+   "Chemistry"
+  ],
+  "Geographic Information Systems (GIS)": [
+   "Geography",
+   "Computer Science"
+  ],
+  "Geography": [
+   "Geography",
+   "History"
+  ],
+  "Geology / Geophysics / Geological Technology": [
+   "Geography",
+   "Physics",
+   "Chemistry"
+  ],
+  "Gynaecology and Obstetrics": [
+   "Biology",
+   "Chemistry"
+  ],
+  "History": [
+   "History",
+   "Languages",
+   "Geography"
+  ],
+  "Homeopathy": [
+   "Biology",
+   "Chemistry"
+  ],
+  "Horticulture": [
+   "Biology",
+   "Geography"
+  ],
+  "Hotel Management": [
+   "Economics / Accountancy",
+   "Languages"
+  ],
+  "Human Resources Management": [
+   "Economics / Accountancy",
+   "Languages"
+  ],
+  "Indian Air Force Airman (Agniveer Vayu)": [
+   "Sports",
+   "Physics"
+  ],
+  "Indian Air Force Officer": [
+   "Physics",
+   "Maths",
+   "Sports"
+  ],
+  "Indian Army Jawan (Soldier / Agniveer)": [
+   "Sports"
+  ],
+  "Indian Army Officer": [
+   "Sports",
+   "Geography",
+   "History"
+  ],
+  "Indian Navy Officer": [
+   "Physics",
+   "Maths",
+   "Sports"
+  ],
+  "Indian Navy Sailor (Agniveer SSR / MR)": [
+   "Sports",
+   "Physics"
+  ],
+  "Industrial / Manufacturing / Production Engineering": [
+   "Physics",
+   "Maths"
+  ],
+  "Industrial Chemistry": [
+   "Chemistry"
+  ],
+  "Instrumentation Engineering": [
+   "Physics",
+   "Maths"
+  ],
+  "Interior Design": [
+   "Art / Drawing"
+  ],
+  "Investment Banking and Fund Management": [
+   "Economics / Accountancy",
+   "Maths"
+  ],
+  "Japanese (Language & Translation)": [
+   "Languages"
+  ],
+  "Jewellery Design and Gemology": [
+   "Art / Drawing",
+   "Chemistry"
+  ],
+  "Journalism": [
+   "Languages",
+   "History"
+  ],
+  "Law (LLB)": [
+   "History",
+   "Languages",
+   "Economics / Accountancy"
+  ],
+  "Librarianship and Archival Science": [
+   "History",
+   "Languages"
+  ],
+  "Life Science": [
+   "Biology",
+   "Chemistry"
+  ],
+  "Logistics and Supply Chain Management": [
+   "Economics / Accountancy",
+   "Maths",
+   "Geography"
+  ],
+  "Marine / Ocean Engineering": [
+   "Physics",
+   "Maths",
+   "Geography"
+  ],
+  "Marketing Management": [
+   "Economics / Accountancy",
+   "Languages"
+  ],
+  "Massage and Bodywork Therapy": [
+   "Biology",
+   "Sports"
+  ],
+  "Mathematics": [
+   "Maths"
+  ],
+  "Mathematics And Computing": [
+   "Maths",
+   "Computer Science"
+  ],
+  "Mechanical / Mechatronics Engineering": [
+   "Physics",
+   "Maths",
+   "Computer Science"
+  ],
+  "Medical Lab Technology": [
+   "Biology",
+   "Chemistry"
+  ],
+  "Medicine (MBBS)": [
+   "Biology",
+   "Chemistry"
+  ],
+  "Merchant Navy (Nautical Officer)": [
+   "Physics",
+   "Geography",
+   "Maths"
+  ],
+  "Metallurgy Engineering And Material Science": [
+   "Chemistry",
+   "Physics"
+  ],
+  "Midwifery": [
+   "Biology"
+  ],
+  "Mining Engineering": [
+   "Physics",
+   "Geography",
+   "Maths"
+  ],
+  "Music": [
+   "Music"
+  ],
+  "Natural Science": [
+   "Physics",
+   "Chemistry",
+   "Biology"
+  ],
+  "Naturopathy": [
+   "Biology"
+  ],
+  "Nautical Science": [
+   "Physics",
+   "Geography",
+   "Maths"
+  ],
+  "Neurology": [
+   "Biology",
+   "Chemistry"
+  ],
+  "Nuclear Engineering": [
+   "Physics",
+   "Maths"
+  ],
+  "Nursing": [
+   "Biology"
+  ],
+  "Occupational Therapy": [
+   "Biology",
+   "Sports"
+  ],
+  "Oil, Paints, Dye Technology": [
+   "Chemistry"
+  ],
+  "Ophthalmology and Optometry": [
+   "Biology",
+   "Physics"
+  ],
+  "Orthopedics": [
+   "Biology",
+   "Sports"
+  ],
+  "Paediatrics": [
+   "Biology",
+   "Chemistry"
+  ],
+  "Paper And Printing Engineering": [
+   "Chemistry",
+   "Physics"
+  ],
+  "Paramedical": [
+   "Biology"
+  ],
+  "Petroleum Engineering": [
+   "Chemistry",
+   "Physics",
+   "Geography"
+  ],
+  "Pharmaceutical Engineering": [
+   "Chemistry",
+   "Biology"
+  ],
+  "Pharmacy": [
+   "Chemistry",
+   "Biology"
+  ],
+  "Philosophy": [
+   "History",
+   "Languages"
+  ],
+  "Photography": [
+   "Art / Drawing"
+  ],
+  "Physics": [
+   "Physics",
+   "Maths"
+  ],
+  "Physiotherapy": [
+   "Biology",
+   "Sports"
+  ],
+  "Planning": [
+   "Geography",
+   "Maths",
+   "Economics / Accountancy"
+  ],
+  "Podiatry": [
+   "Biology"
+  ],
+  "Political Science": [
+   "History",
+   "Geography",
+   "Languages"
+  ],
+  "Polymer Technology": [
+   "Chemistry"
+  ],
+  "Prosthetics and Orthotics": [
+   "Biology",
+   "Physics"
+  ],
+  "Psychology": [
+   "Biology",
+   "Languages"
+  ],
+  "Public Administration (Civil Services)": [
+   "History",
+   "Geography",
+   "Economics / Accountancy"
+  ],
+  "Public Relations and Corporate Communications": [
+   "Languages",
+   "Drama"
+  ],
+  "Public Sector and Policy Analysis": [
+   "Economics / Accountancy",
+   "History",
+   "Geography"
+  ],
+  "Radiology": [
+   "Biology",
+   "Physics"
+  ],
+  "Real Estate": [
+   "Economics / Accountancy",
+   "Geography"
+  ],
+  "Renewable Energy (Solar/Wind)": [
+   "Physics",
+   "Geography"
+  ],
+  "Robotics Engineering": [
+   "Physics",
+   "Computer Science",
+   "Maths"
+  ],
+  "Safety Engineering": [
+   "Chemistry",
+   "Physics"
+  ],
+  "Sericulture": [
+   "Biology"
+  ],
+  "Social Work": [
+   "Languages",
+   "History"
+  ],
+  "Speech-Language Pathology": [
+   "Biology",
+   "Languages"
+  ],
+  "Sports Coaching and Athletics": [
+   "Sports",
+   "Biology"
+  ],
+  "Surveying": [
+   "Geography",
+   "Maths"
+  ],
+  "Systems Engineering": [
+   "Computer Science",
+   "Maths",
+   "Physics"
+  ],
+  "Teaching": [
+   "Languages",
+   "History"
+  ],
+  "Technical/Content Writing": [
+   "Languages",
+   "Computer Science"
+  ],
+  "Textile Engineering": [
+   "Chemistry",
+   "Art / Drawing"
+  ],
+  "Translation and Interpretation": [
+   "Languages"
+  ],
+  "Urban and Town Planning": [
+   "Geography",
+   "Economics / Accountancy"
+  ],
+  "Veterinary": [
+   "Biology",
+   "Chemistry"
+  ],
+  "Video Game Design and Development": [
+   "Computer Science",
+   "Art / Drawing"
+  ],
+  "Web and UX/UI Design": [
+   "Art / Drawing",
+   "Computer Science"
+  ],
+  "Zoology": [
+   "Biology"
+  ]
+ }
+}
