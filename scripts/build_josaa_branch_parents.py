@@ -18,6 +18,7 @@ Usage: python3 scripts/build_josaa_branch_parents.py
 import csv
 import glob
 import json
+import re
 from pathlib import Path
 
 MISSING_FROM_MAPPING = {
@@ -28,6 +29,13 @@ MISSING_FROM_MAPPING = {
     "Electronics and Communication Engineering (with Specialization of Embedded "
     "Systems and Internet of Things) (4 Years, B. Tech / B. Tech (Hons.))": "ELEC",
 }
+
+# B.Tech / BS + MBA dual degrees (IIT Patna with IIM Bodh Gaya, ISM with IIM
+# Mumbai, ...) are their own parent, not the engineering branch in their
+# name: a student who wants CS doesn't mean a 5-year CS + MBA, so these
+# don't count as CS (or any branch) in the choice builder
+MBA_DUAL = re.compile(r"\bMBA\b")
+MBA_DUAL_PARENT = {"id": "MBADUAL", "name": "Dual degree with MBA"}
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -62,7 +70,8 @@ def main():
 
     out, unmapped = {}, []
     for programme in sorted(programmes):
-        p = parent(mapping.get(programme))
+        p = (MBA_DUAL_PARENT if MBA_DUAL.search(programme)
+             else parent(mapping.get(programme)))
         if p:
             out[programme] = p
         else:

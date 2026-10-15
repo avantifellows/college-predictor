@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Link from "next/link";
 import getConstants from "../constants";
 import examConfigs from "../examConfig";
 import { useRouter } from "next/router";
@@ -17,6 +16,7 @@ import {
   examsInStream,
   routeForKey,
 } from "../utils/predictorRoutes";
+import { ADV_MAX_MARKS } from "../utils/jeeAdvMarks";
 
 // Dynamically import Dropdown with SSR disabled
 const Dropdown = dynamic(() => import("../components/dropdown"), {
@@ -660,9 +660,9 @@ const ExamForm = () => {
     const n = Number(value);
     setAdvMarksInput(value);
     setAdvMarksError(
-      value === "" || (Number.isInteger(n) && n >= 0 && n <= 360)
+      value === "" || (Number.isInteger(n) && n >= 0 && n <= ADV_MAX_MARKS)
         ? ""
-        : "Please enter marks between 0 and 360."
+        : `Please enter marks between 0 and ${ADV_MAX_MARKS}.`
     );
     setEstimatedAdvRank(null);
     setEstimateError("");
@@ -991,12 +991,12 @@ const ExamForm = () => {
               )
             : renderFormCard(
                 "advMarks",
-                `Enter your JEE Advanced marks (out of 360). ${mockTestNote}`,
+                `Enter your JEE Advanced marks (out of ${ADV_MAX_MARKS}). ${mockTestNote}`,
                 <input
                   type="number"
                   step="1"
                   min="0"
-                  max="360"
+                  max={ADV_MAX_MARKS}
                   value={advMarksInput}
                   onChange={handleAdvScoreChange}
                   onKeyDown={blockNumberKeys(false)}
@@ -1157,7 +1157,6 @@ const ExamForm = () => {
     ? counsellingsIn(routeExam, stream).map((c) => ({
         value: c.label,
         label: counsellingLabel(c),
-        soon: !c.key,
       }))
     : [];
 
@@ -1224,47 +1223,10 @@ const ExamForm = () => {
                         )
                       }
                       selectedValue={counselling?.label}
-                      formatOptionLabel={(option, { context }) =>
-                        option.soon && context === "menu" ? (
-                          <span>
-                            {option.label}{" "}
-                            <span className="text-xs text-[#9b8a82]">
-                              · cutoffs coming soon
-                            </span>
-                          </span>
-                        ) : (
-                          option.label
-                        )
-                      }
                       className="w-full"
                     />
                   )}
               </div>
-
-              {counselling && !counselling.key && (
-                <div className="rounded-[20px] border border-[#eaded8] bg-[#fffdfa] px-5 py-4 text-left">
-                  <div className="font-['Lato',sans-serif] text-xl font-black text-[#2f2320]">
-                    {counselling.label} cutoffs are coming soon
-                  </div>
-                  <p className="mt-1.5 text-sm leading-relaxed text-[#6d5550]">
-                    Futures doesn&apos;t have {counselling.label} cutoffs yet,
-                    so we can&apos;t predict colleges for it. Pick another
-                    counselling above
-                    {routeExam?.examIds?.length ? (
-                      <>
-                        , or see{" "}
-                        <Link
-                          href={`/exams/${routeExam.examIds[0]}`}
-                          className="font-semibold text-[#B52326] underline underline-offset-2"
-                        >
-                          {routeExam.label} dates and eligibility
-                        </Link>
-                      </>
-                    ) : null}
-                    .
-                  </p>
-                </div>
-              )}
 
               {selectedExam && (
                 <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">

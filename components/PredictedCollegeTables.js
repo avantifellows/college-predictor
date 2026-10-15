@@ -333,7 +333,7 @@ const SALARY_HELP_TEXT =
   "Reported to NIRF for the whole college, not for individual branches";
 
 // New ExpandedRow component
-const ExpandedRowComponent = ({ item, fields, exam, colSpan }) => {
+const ExpandedRowComponent = ({ item, fields, exam, colSpan, asCard }) => {
   const getFieldValue = (item, field) => {
     const { key, format } = field;
     if (key in item) {
@@ -353,6 +353,29 @@ const ExpandedRowComponent = ({ item, fields, exam, colSpan }) => {
   // Get the appropriate fields based on the exam type
   const fieldsToShow = fields[exam] || fields.DEFAULT;
 
+  const list = (
+    // w-0 min-w-full: long values wrap instead of widening columns
+    <dl
+      className={`grid gap-x-6 gap-y-2.5 text-sm ${
+        asCard
+          ? "grid-cols-2"
+          : "w-0 min-w-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+      }`}
+    >
+      {fieldsToShow.map((field, idx) => (
+        <div key={idx}>
+          <dt className="text-[11px] font-bold uppercase tracking-[0.05em] text-[#8f6f68]">
+            {field.label}
+          </dt>
+          <dd className="text-[#332724]">{getFieldValue(item, field)}</dd>
+        </div>
+      ))}
+    </dl>
+  );
+  if (asCard)
+    return (
+      <div className="mt-3 rounded-lg bg-[#fdf6f3] px-3 py-2.5">{list}</div>
+    );
   // colSpan is the columns the table actually draws: a span wider than that
   // made the browser add a phantom column, and the table jumped sideways
   return (
@@ -361,17 +384,7 @@ const ExpandedRowComponent = ({ item, fields, exam, colSpan }) => {
         colSpan={colSpan}
         className="border-b border-[#eaded8] bg-[#fdf6f3] px-4 py-3"
       >
-        {/* w-0 min-w-full: long values wrap instead of widening columns */}
-        <dl className="grid w-0 min-w-full grid-cols-1 gap-x-6 gap-y-2.5 text-sm sm:grid-cols-2 lg:grid-cols-3">
-          {fieldsToShow.map((field, idx) => (
-            <div key={idx}>
-              <dt className="text-[11px] font-bold uppercase tracking-[0.05em] text-[#8f6f68]">
-                {field.label}
-              </dt>
-              <dd className="text-[#332724]">{getFieldValue(item, field)}</dd>
-            </div>
-          ))}
-        </dl>
+        {list}
       </td>
     </tr>
   );
@@ -568,15 +581,22 @@ const PredictedCollegesTable = ({
     typeof window !== "undefined" && window.innerWidth >= 640
       ? '[data-tour="choice-cta-desktop"]'
       : '[data-tour="choice-cta"]';
+  const onPhone = typeof window !== "undefined" && window.innerWidth < 640;
   const tourSteps = [
     supportsCompare && {
-      targets: ['[data-tour="compare-head"]', '[data-tour="compare-end"]'],
+      targets: onPhone
+        ? ['[data-tour="compare-card"]', '[data-tour="compare-card"]']
+        : ['[data-tour="compare-head"]', '[data-tour="compare-end"]'],
       title: "Tick up to 3 colleges to compare",
-      body: "Pick colleges in this red column, then compare their fees, placements and cutoffs side by side.",
+      body: onPhone
+        ? "Tick Compare on a college, then compare their fees, placements and cutoffs side by side."
+        : "Pick colleges in this red column, then compare their fees, placements and cutoffs side by side.",
     },
     supportsSalarySort && {
-      targets: ['[data-tour="sort-first"]', '[data-tour="sort-last"]'],
-      title: "Tap a column name to sort",
+      targets: onPhone
+        ? ['[data-tour="sort-phone"]', '[data-tour="sort-phone"]']
+        : ['[data-tour="sort-first"]', '[data-tour="sort-last"]'],
+      title: onPhone ? "Sort the list" : "Tap a column name to sort",
       body: "Sort by Median Salary to see where graduates earn most, or by NIRF Rank to see the best-ranked colleges first.",
     },
     isCombinedJosaaExam && {
@@ -2088,6 +2108,169 @@ const PredictedCollegesTable = ({
     </tr>
   );
 
+  // a cell's content: the institute links to its college card
+  const renderCellValue = (column, transformedItem) =>
+    INSTITUTE_KEYS.has(column.key) &&
+    ((isJosaaExam && transformedItem["College ID"]) ||
+      (NAME_LINK_EXAMS.has(exam) && canLinkRow(transformedItem))) ? (
+      <Link
+        href={`/colleges?q=${encodeURIComponent(linkNameOf(transformedItem))}`}
+        className="underline decoration-[#e3d1cb] underline-offset-2 transition hover:text-[#8f2e31] hover:decoration-[#8f2e31]"
+      >
+        {getDisplayValue(column, transformedItem)}
+      </Link>
+    ) : column.key === "Category" &&
+      transformedItem["Category Label"] &&
+      transformedItem["Category Label"] !== transformedItem["Category"] ? (
+      <span
+        title={transformedItem["Category Label"]}
+        className="cursor-help underline decoration-dotted decoration-[#d8c7c1] underline-offset-2"
+      >
+        {getDisplayValue(column, transformedItem)}
+      </span>
+    ) : (
+      getDisplayValue(column, transformedItem)
+    );
+  const renderCompareBox = (transformedItem) =>
+    compareIdOf(transformedItem) ? (
+      <input
+        type="checkbox"
+        aria-label={`Compare ${transformedItem.institute}`}
+        checked={compareSel.some(
+          (x) => x.key === compareKeyOf(transformedItem)
+        )}
+        disabled={
+          compareSel.length >= 3 &&
+          !compareSel.some((x) => x.key === compareKeyOf(transformedItem))
+        }
+        title={
+          compareSel.length >= 3 &&
+          !compareSel.some((x) => x.key === compareKeyOf(transformedItem))
+            ? "3 picked already — untick one first"
+            : "Pick to compare"
+        }
+        onChange={() => toggleCompare(transformedItem)}
+        className="h-5 w-5 cursor-pointer accent-[#B52326] disabled:cursor-not-allowed disabled:opacity-30"
+      />
+    ) : null;
+
+  // Phones: one card per row instead of a table too wide for the screen.
+  // The institute heads the card, the programme under it, the other columns
+  // as a two-column grid; the compare box sits top right.
+  const isProgramColumn = (c) =>
+    /program|course|branch/i.test(c.label) && !INSTITUTE_KEYS.has(c.key);
+  const renderCards = () => {
+    const rowsToRender = displayData.slice(0, rowLimit);
+    const titleCol = predicted_colleges_table_column.find((c) =>
+      INSTITUTE_KEYS.has(c.key)
+    );
+    const programCol = predicted_colleges_table_column.find(isProgramColumn);
+    const rest = predicted_colleges_table_column.filter(
+      (c) => c !== titleCol && c !== programCol
+    );
+    return rowsToRender.map((item, index) => {
+      const t = transformData(item);
+      const rowKey = getRowKey(t, index);
+      return (
+        <div
+          key={rowKey}
+          className="rounded-xl border border-[#eaded8] bg-white px-3.5 py-3 shadow-sm"
+        >
+          <div className="flex items-start gap-3">
+            <div className="min-w-0 flex-1">
+              {titleCol && (
+                <div className="text-[15px] font-bold leading-snug text-[#2f2320]">
+                  {renderCellValue(titleCol, t)}
+                </div>
+              )}
+              {programCol && (
+                <div className="mt-0.5 text-sm leading-snug text-[#5b3a34]">
+                  {getDisplayValue(programCol, t)}
+                </div>
+              )}
+            </div>
+            {supportsCompare && (
+              <label
+                data-tour={index === 0 ? "compare-card" : undefined}
+                className="flex flex-none flex-col items-center gap-0.5 rounded-lg bg-[#fbeae8] px-2 py-1.5 text-[10px] font-bold text-[#8f2e31]"
+              >
+                {renderCompareBox(t)}
+                Compare
+              </label>
+            )}
+          </div>
+          <dl className="mt-2.5 grid grid-cols-3 gap-x-3 gap-y-1.5 text-[13px]">
+            {rest.map((c) => (
+              <div key={c.key} className="min-w-0">
+                <dt className="text-[10px] font-bold uppercase leading-tight tracking-[0.04em] text-[#8f6f68]">
+                  {c.label}
+                </dt>
+                <dd className="text-[#332724]">{renderCellValue(c, t)}</dd>
+              </div>
+            ))}
+          </dl>
+          {supportsExpandedView && (
+            <>
+              <button
+                type="button"
+                aria-expanded={!!expandedRows[rowKey]}
+                onClick={() => toggleRowExpansion(rowKey)}
+                className="mt-2.5 inline-flex items-center gap-1 text-sm font-bold text-[#8f2e31]"
+              >
+                {expandedRows[rowKey] ? "Less" : "More"}
+                <ChevronDown
+                  size={15}
+                  className={`transition-transform ${
+                    expandedRows[rowKey] ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+              {expandedRows[rowKey] && (
+                <ExpandedRowComponent
+                  item={t}
+                  fields={expandedFields}
+                  exam={exam}
+                  asCard
+                />
+              )}
+            </>
+          )}
+        </div>
+      );
+    });
+  };
+  // phones have no column headers to tap: sort from a dropdown (JoSAA)
+  const PHONE_SORTS = [
+    { value: "choice", label: "Custom order" },
+    { value: rankColumnKey, label: "Closing rank", order: "asc" },
+    { value: nirfRankColumnKey, label: "NIRF rank", order: "asc" },
+    { value: salaryColumnKey, label: "Median salary", order: "desc" },
+  ];
+  const renderPhoneSort = () => (
+    <label
+      data-tour="sort-phone"
+      className="mb-2 flex items-center justify-end gap-1.5 text-xs font-semibold text-[#2f2320]"
+    >
+      Sort by
+      <select
+        value={sortConfig?.key || rankColumnKey}
+        onChange={(e) => {
+          const o = PHONE_SORTS.find((x) => x.value === e.target.value);
+          setSortConfig({ key: o.value, order: o.order || "asc" });
+        }}
+        className="rounded-lg border border-[#d8c7c1] bg-white px-1.5 py-1 text-xs font-bold text-[#2f2320] focus:border-[#B52326] focus:outline-none"
+      >
+        {PHONE_SORTS.filter(
+          (o) => o.value !== "choice" || (choicePrefs && isCombinedJosaaExam)
+        ).map((o) => (
+          <option key={o.value} value={o.value}>
+            {o.label}
+          </option>
+        ))}
+      </select>
+    </label>
+  );
+
   const renderTableBody = () => {
     const rowsToRender = displayData.slice(0, rowLimit);
 
@@ -2111,60 +2294,12 @@ const PredictedCollegesTable = ({
                 }
                 className="border-r border-[#f0cfca] bg-[#fbeae8] px-3 py-3 text-center align-top"
               >
-                {compareIdOf(transformedItem) ? (
-                  <input
-                    type="checkbox"
-                    aria-label={`Compare ${transformedItem.institute}`}
-                    checked={compareSel.some(
-                      (x) => x.key === compareKeyOf(transformedItem)
-                    )}
-                    disabled={
-                      compareSel.length >= 3 &&
-                      !compareSel.some(
-                        (x) => x.key === compareKeyOf(transformedItem)
-                      )
-                    }
-                    title={
-                      compareSel.length >= 3 &&
-                      !compareSel.some(
-                        (x) => x.key === compareKeyOf(transformedItem)
-                      )
-                        ? "3 picked already — untick one first"
-                        : "Pick to compare"
-                    }
-                    onChange={() => toggleCompare(transformedItem)}
-                    className="h-5 w-5 cursor-pointer accent-[#B52326] disabled:cursor-not-allowed disabled:opacity-30"
-                  />
-                ) : null}
+                {renderCompareBox(transformedItem)}
               </td>
             )}
             {predicted_colleges_table_column.map((column) => (
               <td key={column.key} className="px-4 py-3 align-top">
-                {INSTITUTE_KEYS.has(column.key) &&
-                ((isJosaaExam && transformedItem["College ID"]) ||
-                  (NAME_LINK_EXAMS.has(exam) &&
-                    canLinkRow(transformedItem))) ? (
-                  <Link
-                    href={`/colleges?q=${encodeURIComponent(
-                      linkNameOf(transformedItem)
-                    )}`}
-                    className="underline decoration-[#e3d1cb] underline-offset-2 transition hover:text-[#8f2e31] hover:decoration-[#8f2e31]"
-                  >
-                    {getDisplayValue(column, transformedItem)}
-                  </Link>
-                ) : column.key === "Category" &&
-                  transformedItem["Category Label"] &&
-                  transformedItem["Category Label"] !==
-                    transformedItem["Category"] ? (
-                  <span
-                    title={transformedItem["Category Label"]}
-                    className="cursor-help underline decoration-dotted decoration-[#d8c7c1] underline-offset-2"
-                  >
-                    {getDisplayValue(column, transformedItem)}
-                  </span>
-                ) : (
-                  getDisplayValue(column, transformedItem)
-                )}
+                {renderCellValue(column, transformedItem)}
               </td>
             ))}
             {supportsExpandedView && (
@@ -2536,11 +2671,7 @@ const PredictedCollegesTable = ({
         />
       )}
       {displayData.length > 0 ? (
-        <div
-          ref={tableScrollRef}
-          onScroll={onTableScroll}
-          className="overflow-x-auto rounded-xl border border-[#eaded8] bg-white shadow-sm"
-        >
+        <div>
           {supportsCompare && compareSel.length > 0 ? (
             <div className="fixed bottom-5 left-1/2 z-40 flex w-max max-w-[95vw] -translate-x-1/2 items-center gap-4 rounded-full border border-[#eaded8] bg-white px-6 py-3.5 text-base shadow-lg">
               <span className="whitespace-nowrap font-semibold text-[#5b3a34]">
@@ -2579,10 +2710,20 @@ const PredictedCollegesTable = ({
               </button>
             </div>
           ) : null}
-          <table className={commonTableClass}>
-            <thead>{renderTableHeader()}</thead>
-            <tbody>{renderTableBody()}</tbody>
-          </table>
+          <div
+            ref={tableScrollRef}
+            onScroll={onTableScroll}
+            className="hidden overflow-x-auto rounded-xl border border-[#eaded8] bg-white shadow-sm sm:block"
+          >
+            <table className={commonTableClass}>
+              <thead>{renderTableHeader()}</thead>
+              <tbody>{renderTableBody()}</tbody>
+            </table>
+          </div>
+          <div className="sm:hidden">
+            {supportsSalarySort && renderPhoneSort()}
+            <div className="space-y-2.5">{renderCards()}</div>
+          </div>
         </div>
       ) : fullData.length > 0 ? (
         <div className="text-center py-10">

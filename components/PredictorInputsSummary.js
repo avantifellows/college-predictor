@@ -3,6 +3,7 @@ import Link from "next/link";
 import PropTypes from "prop-types";
 import examConfigs from "../examConfig";
 import { PAPER_LABEL, parseScores } from "../utils/cuetRules";
+import { ADV_MAX_MARKS } from "../utils/jeeAdvMarks";
 
 // What the student entered, kept in view above their results, in one line
 // styled like the choice builder's "Your picks" bar: each rank or score in
@@ -51,7 +52,9 @@ const PredictorInputsSummary = ({ query }) => {
         key: "adv",
         label: "JEE Advanced rank",
         value: fmt(query.advRank),
-        from: query.advMarks ? `from ${query.advMarks}/360 marks` : null,
+        from: query.advMarks
+          ? `from ${query.advMarks}/${ADV_MAX_MARKS} marks`
+          : null,
       });
   } else if (config.scoreInput === "cuet") {
     const parsed = Object.entries(parseScores(query.scores || ""));

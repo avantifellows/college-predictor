@@ -9,7 +9,7 @@
 // (2024 left out: its curve was an outlier). Marks past the published
 // tables, and PwD categories (CRL-PwD has 3-4 points; category-PwD lists
 // aren't published), get no estimate — the student enters the rank.
-import table from "../../public/data/JEE/jee_adv_marks_at_rank.json";
+import { ADV_MAX_MARKS, advYearsOnScale } from "../../utils/jeeAdvMarks";
 
 // the JoSAA form's category label -> the report's rank list
 const LIST = {
@@ -33,7 +33,7 @@ const rangeFor = (points, marks) => {
 export const estimateAdvRank = (marks, category) => {
   const list = LIST[category];
   if (!list) return { error: "pwd" };
-  const ranges = Object.values(table.years)
+  const ranges = advYearsOnScale
     .map((y) => rangeFor(y.lists[list] || [], marks))
     .filter(Boolean);
   if (!ranges.length) return { error: "beyond" };
@@ -55,10 +55,10 @@ export default function handler(req, res) {
   }
   const marks = Number(req.body?.marks);
   const category = String(req.body?.category || "");
-  if (!Number.isInteger(marks) || marks < 0 || marks > 360) {
-    return res
-      .status(400)
-      .json({ error: "Enter your JEE Advanced marks out of 360." });
+  if (!Number.isInteger(marks) || marks < 0 || marks > ADV_MAX_MARKS) {
+    return res.status(400).json({
+      error: `Enter your JEE Advanced marks out of ${ADV_MAX_MARKS}.`,
+    });
   }
   const out = estimateAdvRank(marks, category);
   if (out.error === "pwd") {

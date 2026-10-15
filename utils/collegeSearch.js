@@ -1,59 +1,10 @@
 // Forgiving search over college names, for the results table's college
-// filter: "IIT" finds Indian Institute of Technology, "Trichy" finds
-// Tiruchirappalli, and a letter or two off ("Tiruchirapalli") still matches.
-
-// what students type -> how JoSAA spells it (whole words only)
-const ABBREVIATIONS = {
-  iit: "indian institute of technology",
-  iits: "indian institute of technology",
-  nit: "national institute of technology",
-  nits: "national institute of technology",
-  iiit: "institute of information technology",
-  iiits: "institute of information technology",
-  iiitdm: "information technology design and",
-  iiitm: "information technology and management",
-  iiest: "indian institute of engineering science and technology",
-  spa: "school of planning and architecture",
-  bit: "birla institute of technology",
-  nitk: "national institute of technology karnataka",
-  mnnit: "motilal nehru national institute of technology",
-  mnit: "malaviya national institute of technology",
-  manit: "maulana azad national institute of technology",
-  vnit: "visvesvaraya national institute of technology",
-  svnit: "sardar vallabhbhai national institute of technology",
-  nielit: "national institute of electronics and information technology",
-  niftem: "national institute of food technology entrepreneurship",
-  pec: "punjab engineering college",
-  dtu: "delhi technological university",
-  nsut: "netaji subhas university of technology",
-  igdtuw: "indira gandhi delhi technical university",
-  ism: "dhanbad",
-  bhu: "varanasi",
-  kgp: "kharagpur",
-};
-
-// other names for the same place
-const PLACES = {
-  trichy: "tiruchirappalli",
-  tiruchi: "tiruchirappalli",
-  kozhikode: "calicut",
-  prayagraj: "allahabad",
-  mumbai: "bombay",
-  chennai: "madras",
-  banaras: "varanasi",
-  benares: "varanasi",
-  bbsr: "bhubaneswar",
-  gurgaon: "gurugram",
-  bengaluru: "bangalore",
-  pondicherry: "puducherry",
-};
-
-const normalize = (s) =>
-  String(s || "")
-    .toLowerCase()
-    .replace(/&/g, " and ")
-    .replace(/[^a-z0-9]+/g, " ")
-    .trim();
+// filter. Built on the site search (utils/search.js: its aliases turn "IIT"
+// into Indian Institute of Technology and "Trichy" into Tiruchirappalli),
+// with two more allowances for a search box students type into: a letter or
+// two off ("Tiruchirapalli") still matches, and a half-typed last word can
+// be the start of an alias ("nit tri" -> NIT Trichy).
+import { ALIASES, plainText, queryTerms, termHits } from "./search";
 
 // edit distance, stopping early past `max`
 const within = (a, b, max) => {
@@ -76,13 +27,16 @@ const within = (a, b, max) => {
   return prev[b.length] <= max;
 };
 
-// a typed word against the words of a name: a prefix, or a near miss
+// a typed word against the words of a name: a prefix, or a near miss. Near
+// misses only for real words (6+ letters): acronyms a letter apart are
+// different colleges (MNNIT, MNIT, MANIT)
 const wordMatches = (token, words) => {
   const slack = token.length >= 8 ? 2 : token.length >= 5 ? 1 : 0;
   return words.some(
     (w) =>
       w.startsWith(token) ||
       (slack > 0 &&
+        w.length >= 6 &&
         (within(token, w, slack) ||
           // a partly typed long word: compare like lengths
           (w.length > token.length &&
@@ -91,26 +45,20 @@ const wordMatches = (token, words) => {
 };
 
 // Does the typed text match this college name? Every typed word has to.
-// The last word may be half typed, so it also matches the start of an
-// abbreviation or place name ("tri" -> Trichy, "ii" -> IIT and IIIT).
 export const matchesCollege = (name, input) => {
-  const query = normalize(input);
-  if (!query) return true;
-  const hay = ` ${normalize(name)} `;
+  const terms = queryTerms(input);
+  if (!terms.length) return true;
+  const hay = ` ${plainText(name)} `;
   const words = hay.trim().split(" ");
-  const hasPhrase = (phrase) => hay.includes(` ${phrase} `);
-  const tokens = query.split(" ");
   const typing = !/\s$/.test(String(input));
-  return tokens.every((token, i) => {
-    if (ABBREVIATIONS[token]) return hasPhrase(ABBREVIATIONS[token]);
-    if (wordMatches(token, words)) return true;
-    if (PLACES[token] && wordMatches(PLACES[token], words)) return true;
-    if (!typing || i < tokens.length - 1) return false;
-    const starts = (table) =>
-      Object.keys(table).filter((k) => k.startsWith(token));
-    return (
-      starts(ABBREVIATIONS).some((k) => hasPhrase(ABBREVIATIONS[k])) ||
-      starts(PLACES).some((k) => wordMatches(PLACES[k], words))
+  return terms.every((alts, i) => {
+    if (alts.some((a) => termHits(hay, a))) return true;
+    const [word] = alts;
+    if (wordMatches(word, words)) return true;
+    // the last word, still being typed: the start of an alias
+    if (!typing || i < terms.length - 1) return false;
+    return Object.keys(ALIASES).some(
+      (k) => k.startsWith(word) && termHits(hay, ALIASES[k])
     );
   });
 };

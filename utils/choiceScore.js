@@ -86,8 +86,8 @@ export const BRANCH_FAMILIES = [
   {
     id: "other",
     label: "Design and other",
-    hint: "Design, General Engineering",
-    parents: ["DESIGN", "GENENG"],
+    hint: "Design, General Engineering, dual degrees with MBA",
+    parents: ["DESIGN", "GENENG", "MBADUAL"],
   },
 ];
 

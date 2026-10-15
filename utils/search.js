@@ -4,10 +4,13 @@
 // Used by the colleges tab, compare dropdowns, mock allotment, exams and
 // careers, so a query that works in one place works in all of them.
 
-const ALIASES = {
+export const ALIASES = {
   iit: "indian institute of technology",
   nit: "national institute of technology",
-  iiit: "indian institute of information technology",
+  // Indian, International (Bhubaneswar, Naya Raipur) and Indraprastha IIITs
+  iiit: "institute of information technology",
+  iiitdm: "information technology design and",
+  iiitm: "information technology and management",
   iiser: "indian institute of science education and research",
   iisc: "indian institute of science",
   aiims: "all india institute of medical sciences",
@@ -16,6 +19,17 @@ const ALIASES = {
   spa: "school of planning and architecture",
   iiest: "shibpur",
   trichy: "tiruchirappalli",
+  tiruchi: "tiruchirappalli",
+  kozhikode: "calicut",
+  bbsr: "bhubaneswar",
+  gurgaon: "gurugram",
+  pondicherry: "puducherry",
+  ism: "dhanbad",
+  nielit: "national institute of electronics and information technology",
+  niftem: "national institute of food technology",
+  dtu: "delhi technological",
+  nsut: "netaji subhas",
+  igdtuw: "indira gandhi delhi technical",
   kgp: "kharagpur",
   bhu: "banaras",
   hansraj: "hans raj",
@@ -92,6 +106,11 @@ export function queryTerms(query) {
     });
 }
 
+// One alternative against " plain text ": short words match only at a word
+// start (so typing a prefix works): "iat" must not hit "assoc-iat-e"
+export const termHits = (hay, a) =>
+  a.length <= 4 ? hay.includes(` ${a}`) : hay.includes(a);
+
 /** Does `haystack` (a string or array of strings) match every typed word? */
 export function matchesQuery(haystack, query) {
   const terms = queryTerms(query);
@@ -99,11 +118,7 @@ export function matchesQuery(haystack, query) {
   const hay = ` ${plainText(
     Array.isArray(haystack) ? haystack.join(" ") : haystack
   )} `;
-  // short words match only at a word start (so typing a prefix works):
-  // "iat" must not hit "assoc-iat-e"
-  return terms.every((alts) =>
-    alts.some((a) => (a.length <= 4 ? hay.includes(` ${a}`) : hay.includes(a)))
-  );
+  return terms.every((alts) => alts.some((a) => termHits(hay, a)));
 }
 
 /** react-select filterOption using the same rules (for Dropdown). */

@@ -12,8 +12,9 @@
 // A counselling's own `streams` limits it to those streams (ICAR takes CUET
 // for agriculture, so it is no route for an Arts student).
 //
-// `key` is the examConfigs key for the counselling's cutoffs, or null where
-// Futures has none yet: those are listed so students know the route exists.
+// `key` is the examConfigs key for the counselling's cutoffs. Counsellings
+// Futures has no cutoffs for (CSAB, MP DTE, HSTES, IIIT Hyderabad, IISc,
+// IIST) aren't listed: add one with its key when its cutoffs are in.
 // `hint` names one or two colleges the counselling fills. `defaultStream`
 // (on an exam or a counselling) is where a deep link to it lands.
 
@@ -44,20 +45,6 @@ export const PREDICTOR_EXAMS = [
         hint: "OUTR Bhubaneswar, VSSUT Burla, etc.",
         key: "OJEE",
       },
-      {
-        label: "CSAB",
-        hint: "NIT, IIIT seats left after JoSAA",
-        key: null,
-      },
-      { label: "MP DTE", hint: "SGSITS Indore, UIT RGPV, etc.", key: null },
-      {
-        label: "HSTES Haryana",
-        hint: "DCRUST Murthal, J.C. Bose YMCA, etc.",
-        key: null,
-      },
-      { label: "IIIT Hyderabad", hint: null, key: null },
-      { label: "IISc Bangalore", hint: "BS Research", key: null },
-      { label: "IIST Thiruvananthapuram", hint: null, key: null },
     ],
   },
   {
