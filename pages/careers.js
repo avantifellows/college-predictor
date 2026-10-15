@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import Head from "next/head";
 import { useStudentProfile } from "../utils/portalSession";
+import StarButton from "../components/StarButton";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
@@ -198,11 +199,19 @@ export default function Careers() {
                       {filtered.map((c, i) => (
                         <li
                           key={c.career_id}
-                          className="border-t border-[#f0e6e1]"
+                          className="flex items-center border-t border-[#f0e6e1] bg-white"
                         >
+                          <StarButton
+                            compact
+                            kind="career"
+                            id={c.career_id}
+                            label={c.name}
+                            extra={{ meta: c.domain }}
+                            className="ml-2"
+                          />
                           <Link
                             href={`/careers/${c.career_id}`}
-                            className="flex w-full items-center gap-4 bg-white px-4 py-3 text-left text-[15px] transition hover:bg-[#fbeeec]"
+                            className="flex min-w-0 flex-1 items-center gap-4 bg-white px-4 py-3 text-left text-[15px] transition hover:bg-[#fbeeec]"
                           >
                             <span className="w-7 shrink-0 text-xs tabular-nums text-[#a89a94]">
                               {i + 1}

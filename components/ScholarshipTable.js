@@ -1,3 +1,5 @@
+import StarButton from "./StarButton";
+import { scholarshipId } from "../utils/studentData";
 import React from "react";
 
 const parseDeadline = (value) => {
@@ -273,7 +275,17 @@ const ScholarshipTable = ({
                 }`}
               >
                 <TableCell className="font-medium">
-                  {item["Scholarship Name"]}
+                  <span className="flex items-start gap-1">
+                    <StarButton
+                      compact
+                      kind="scholarship"
+                      id={scholarshipId(item["Scholarship Name"])}
+                      label={item["Scholarship Name"]}
+                      extra={{ deadline: getDeadlineLabel(item) }}
+                      className="-ml-2 -mt-1"
+                    />
+                    <span>{item["Scholarship Name"]}</span>
+                  </span>
                   {getNirfNote(item) && (
                     <span className="mt-1 block text-xs font-normal text-[#8a6d3b]">
                       {getNirfNote(item)}

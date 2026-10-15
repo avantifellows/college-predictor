@@ -1,3 +1,4 @@
+import StarButton from "./StarButton";
 import Link from "next/link";
 import {
   CalendarDays,
@@ -86,9 +87,21 @@ export default function CollegeView({ c, back = "/colleges", backSlot }) {
           <div className="text-xs font-black uppercase tracking-wide text-[#B52326]">
             College
           </div>
-          <h1 className="mt-1 text-2xl font-black leading-tight text-[#2f2320] sm:text-3xl">
-            {c.display_name}
-          </h1>
+          <div className="mt-1 flex items-start justify-between gap-3">
+            <h1 className="text-2xl font-black leading-tight text-[#2f2320] sm:text-3xl">
+              {c.display_name}
+            </h1>
+            <StarButton
+              kind="college"
+              id={c.college_id}
+              label={c.display_name}
+              extra={{
+                aishe_code: c.aishe_code,
+                meta: [c.district, c.state].filter(Boolean).join(", "),
+              }}
+              className="shrink-0"
+            />
+          </div>
           {kind ? <p className="mt-1 text-sm text-[#6d5550]">{kind}</p> : null}
           {c.disciplines?.length ? (
             <p className="mt-1 text-sm text-[#6d5550]">

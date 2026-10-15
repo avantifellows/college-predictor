@@ -10,11 +10,14 @@
     "check:pages": "node scripts/check-pages.js"
   },
   "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.1152.0",
+    "@aws-sdk/lib-dynamodb": "^3.1152.0",
     "axios": "^1.8.3",
     "exceljs": "^4.4.0",
     "express-rate-limit": "^6.7.0",
     "fs": "^0.0.1-security",
     "fuse.js": "^7.0.0",
+    "jose": "^4.15.9",
     "lodash": "^4.17.21",
     "lucide-react": "^0.395.0",
     "next": "^13.0.7",

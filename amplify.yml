@@ -1,0 +1,34 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        # Install all dependencies (some build tools need devDependencies)
+        - npm ci
+        # Amplify's environment variables reach the build but not the server
+        # (API routes) at runtime unless written out here (same pattern as
+        # school-visits / af_lms). These back Student Corner's saves: the
+        # futures-app IAM user (scoped to the futures_student_saves table) and
+        # the secret that signs the session cookie.
+        - |
+          echo "FUTURES_DDB_ACCESS_KEY=$FUTURES_DDB_ACCESS_KEY" >> .env.production
+          echo "FUTURES_DDB_SECRET_KEY=$FUTURES_DDB_SECRET_KEY" >> .env.production
+          echo "FUTURES_DDB_REGION=$FUTURES_DDB_REGION" >> .env.production
+          echo "FUTURES_SAVES_TABLE=$FUTURES_SAVES_TABLE" >> .env.production
+          echo "FUTURES_SESSION_SECRET=$FUTURES_SESSION_SECRET" >> .env.production
+    build:
+      commands:
+        - npm run build
+  artifacts:
+    baseDirectory: .next
+    files:
+      - '**/*'
+    # Exclude the cache and other bloat
+    excludePaths:
+      - '.next/cache/**/*'
+      - '**/*.map'  # Exclude source maps
+      - '.next/static/chunks/webpack-*'  # Exclude webpack artifacts if too large
+  cache:
+    paths:
+      - node_modules/**/*
+      - .next/cache/**/*  # Cache the build cache for faster builds

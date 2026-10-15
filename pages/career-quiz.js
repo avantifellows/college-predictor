@@ -11,6 +11,8 @@ import {
   RotateCcw,
 } from "lucide-react";
 import BackLink from "../components/BackLink";
+import StarButton from "../components/StarButton";
+import { useStudentData } from "../utils/studentData";
 import { loadCareers } from "../components/careerShared";
 import {
   RIASEC,
@@ -213,6 +215,27 @@ export default function CareerQuiz() {
     [rawProfile, tiePicks]
   );
   const router = useRouter();
+  const student = useStudentData();
+  const [savedNow, setQuizSaved] = useState(false);
+  useEffect(() => setQuizSaved(false), [ratings, tiePicks, ranked]);
+  // these answers are the student's saved result (just saved, or reopened)
+  const same = (a, b) =>
+    JSON.stringify(a ?? null) === JSON.stringify(b ?? null);
+  const savedAnswers = student.quiz?.answers;
+  const quizSaved =
+    savedNow ||
+    Boolean(
+      savedAnswers &&
+        same(
+          Object.entries(savedAnswers.ratings || {})
+            .map(([k, v]) => [String(k), Number(v)])
+            .sort(),
+          Object.entries(ratings || {})
+            .map(([k, v]) => [String(k), Number(v)])
+            .sort()
+        ) &&
+        same(savedAnswers.ranked, ranked)
+    );
   // results: one top 10 per stream (careers whose parent stream it is),
   // shown one stream at a time in a carousel
   const results = useMemo(
@@ -246,6 +269,31 @@ export default function CareerQuiz() {
   }, [streamIdx, results]);
 
   const start = () => setState({ ...EMPTY, screen: "quiz" });
+  // a signed-in student keeps a result only when they choose to
+  const saveResult = async () => {
+    const top = (results?.[streamIdx]?.matches || []).slice(0, 10);
+    const ok = await student.saveQuiz({
+      quiz_version: "v2",
+      answers: { ratings, tieIds, tiePicks, picked, ranked },
+      profile,
+      top_careers: top.map((m) => ({
+        id: m.career.career_id,
+        label: m.career.name,
+      })),
+    });
+    setQuizSaved(ok);
+  };
+  const openSaved = () =>
+    setState({ ...EMPTY, ...student.quiz.answers, screen: "results" });
+  // Student Corner's "See full results" (/career-quiz?saved=1)
+  const openedSaved = useRef(false);
+  useEffect(() => {
+    if (openedSaved.current || !router.isReady || !router.query.saved) return;
+    if (!student.quiz?.answers) return;
+    openedSaved.current = true;
+    openSaved();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [router.isReady, router.query.saved, student.quiz]);
   const goBack = () =>
     step === 0 ? set({ screen: "intro" }) : set({ step: step - 1 });
 
@@ -439,6 +487,15 @@ export default function CareerQuiz() {
             {quiz && careers ? "Start the quiz" : "Loading…"}
             <ArrowRight size={18} />
           </button>
+          {student.quiz?.answers && (
+            <button
+              type="button"
+              onClick={openSaved}
+              className="text-sm font-bold text-[#B52326] underline underline-offset-2"
+            >
+              See my saved results
+            </button>
+          )}
           {started && (
             <button
               type="button"
@@ -724,6 +781,16 @@ export default function CareerQuiz() {
             Your three strongest interest types. Career counsellors use these
             six types to describe what people enjoy at work.
           </p>
+          {student.signedIn && (
+            <button
+              type="button"
+              onClick={saveResult}
+              disabled={quizSaved}
+              className="mt-4 inline-flex items-center gap-1.5 rounded-full border border-[#B52326] px-4 py-1.5 text-sm font-bold text-[#B52326] transition hover:bg-[#fbeeec] disabled:border-[#eaded8] disabled:text-[#6d5550] disabled:hover:bg-transparent"
+            >
+              {quizSaved ? "Saved to Student Corner" : "Save my results"}
+            </button>
+          )}
           {isFlat(profile) && (
             <p className="mt-4 rounded-xl border border-[#eaded8] bg-[#fffdfa] px-4 py-3 text-sm leading-relaxed text-[#5c4b46]">
               Your interests are broad: no single type stands out, so your
@@ -912,6 +979,14 @@ export default function CareerQuiz() {
                                     {i + 1}
                                   </td>
                                   <td className="px-2 py-3">
+                                    <StarButton
+                                      compact
+                                      kind="career"
+                                      id={c.career_id}
+                                      label={c.name}
+                                      extra={{ meta: c.domain }}
+                                      className="-my-1.5 -ml-2 mr-0.5 align-middle"
+                                    />
                                     <Link
                                       href={href}
                                       onClick={(e) => e.stopPropagation()}

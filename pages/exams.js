@@ -1,3 +1,4 @@
+import StarButton from "../components/StarButton";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
@@ -35,6 +36,13 @@ const ExamRow = ({ e, index, onOpen }) => (
     }`}
   >
     <td className="px-3 py-3 align-top">
+      <StarButton
+        compact
+        kind="exam"
+        id={e.exam_id}
+        label={e.name}
+        className="-my-1.5 -ml-2 mr-0.5 align-middle"
+      />
       <Link
         href={`/exams/${e.exam_id}`}
         onClick={(ev) => ev.stopPropagation()}

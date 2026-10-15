@@ -1,4 +1,5 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
+import { useStudentProfile } from "../utils/portalSession";
 import Fuse from "fuse.js";
 import Dropdown from "./dropdown";
 import BackLink from "./BackLink";
@@ -149,7 +150,12 @@ const ScholarshipReferenceBrowser = () => {
   const [isLoading, setIsLoading] = useState(true);
   // search and filters live in the URL, so "open scholarships for Bihar"
   // is a link a student can share (?status=Open&state=Bihar)
-  const [params, setParam] = useUrlParams({ q: "", ...defaultFilters });
+  const [params, setParam, paramsReady] = useUrlParams({
+    q: "",
+    ...defaultFilters,
+  });
+  const student = useStudentProfile();
+  const prefilled = useRef(false);
   const searchTerm = params.q;
   const setSearchTerm = (v) => setParam("q", v);
   const [expandedRows, setExpandedRows] = useState({});
@@ -192,6 +198,25 @@ const ScholarshipReferenceBrowser = () => {
   useEffect(() => {
     setExpandedRows({});
   }, [filters, searchTerm]);
+
+  // a signed-in student arriving with no filters sees their own: home
+  // state, gender, class (only values the sheet actually has). Once per
+  // visit, so clearing them sticks.
+  useEffect(() => {
+    if (prefilled.current || !paramsReady || !student || !scholarships.length)
+      return;
+    prefilled.current = true;
+    if (Object.keys(defaultFilters).some((k) => params[k]) || params.q) return;
+    const has = (field, v) =>
+      v && scholarships.some((x) => splitValues(x[field]).includes(v));
+    if (has("State", student.state)) setParam("state", student.state);
+    const gender = /^f/i.test(student.gender || "") ? "Female" : null;
+    if (has("Gender", gender)) setParam("gender", gender);
+    const grade = { 10: "10", 11: "11", 12: "12", 13: "12_pass" }[
+      student.class
+    ];
+    if (grade) setParam("grade", grade);
+  }, [paramsReady, student, scholarships, params, setParam]);
 
   const fuseInstance = useMemo(
     () => new Fuse(scholarships, fuseOptions),
