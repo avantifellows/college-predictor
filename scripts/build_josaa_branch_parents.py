@@ -22,7 +22,7 @@ from pathlib import Path
 
 MISSING_FROM_MAPPING = {
     "Computer Science and Engineering with specialization in Cyber Security "
-    "(4 Years, Bachelor of Technology)": "CYBERSEC",
+    "(4 Years, Bachelor of Technology)": "CSIT033",
     "Computer Science and Engineering (with Specialization of Data Science and "
     "Artificial Intelligence) (4 Years, B. Tech / B. Tech (Hons.))": "AIML",
     "Electronics and Communication Engineering (with Specialization of Embedded "

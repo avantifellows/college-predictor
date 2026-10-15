@@ -1,10 +1,12 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { X } from "lucide-react";
 import { BRANCH_FAMILIES, INTERESTS, WORKPLACES } from "../utils/choiceScore";
+import Dropdown from "./dropdown";
 
 // College choice builder (JoSAA): a short quiz whose answers order the
 // predictor's combined list into a choice list (planFor in
-// utils/choiceScore.js). The answers:
+// utils/choiceScore.js). Always four questions; a one-tap answer moves on
+// by itself. The answers:
 //   states     preferred states (college location), or null for none; not
 //              part of the order: the results table can put these first
 //   families   the one branch family they want (BRANCH_FAMILIES id), or null
@@ -35,37 +37,14 @@ const Choice = ({ on, onClick, children, sub }) => (
   </button>
 );
 
-const Chips = ({ options, selected, onToggle }) => (
-  <div className="flex max-h-[44vh] flex-wrap gap-2 overflow-y-auto pr-1">
-    {options.map(({ value, label }) => {
-      const on = selected.includes(value);
-      return (
-        <button
-          key={value}
-          type="button"
-          onClick={() => onToggle(value)}
-          aria-pressed={on}
-          className={`rounded-full border px-3 py-1.5 text-sm font-semibold transition ${
-            on
-              ? "border-[#B52326] bg-[#B52326] text-white"
-              : "border-[#d8c7c1] bg-white text-[#5b3a34] hover:border-[#B52326]"
-          }`}
-        >
-          {label}
-        </button>
-      );
-    })}
-  </div>
-);
-
 const ChoiceBuilder = ({ states, branches, initial, onDone, onClose }) => {
   const [answers, setAnswers] = useState(() => ({
-    hasState: initial ? !!initial.states?.length : null,
     states: initial?.states || [],
-    hasBranch: initial ? !!initial.families?.length : null,
-    family: initial?.families?.[0] || null,
+    // null until answered: "any" (I'm open) or a BRANCH_FAMILIES id
+    family: initial ? initial.families?.[0] || "any" : null,
     interest: initial?.interest || null,
     workplace: initial?.workplace || null,
+    anywhere: initial ? !initial.states?.length : false,
   }));
   // branch families with a branch in these results
   const familyOptions = useMemo(
@@ -75,119 +54,92 @@ const ChoiceBuilder = ({ states, branches, initial, onDone, onClose }) => {
       ),
     [branches]
   );
-  const set = (patch) => setAnswers((a) => ({ ...a, ...patch }));
-  const toggleState = (value) =>
-    setAnswers((a) => ({
-      ...a,
-      states: a.states.includes(value)
-        ? a.states.filter((v) => v !== value)
-        : [...a.states, value],
-    }));
-
-  // the questions that apply, given the answers so far
-  const steps = useMemo(
-    () =>
-      [
-        "hasState",
-        answers.hasState && "states",
-        "hasBranch",
-        answers.hasBranch && "branch",
-        "interest",
-        "workplace",
-      ].filter(Boolean),
-    [answers.hasState, answers.hasBranch]
-  );
+  const STEPS = ["states", "branch", "interest", "workplace"];
   const [stepIndex, setStepIndex] = useState(0);
-  const step = steps[Math.min(stepIndex, steps.length - 1)];
+  const step = STEPS[stepIndex];
+  const last = stepIndex === STEPS.length - 1;
+  const back = () => setStepIndex((i) => Math.max(0, i - 1));
+  const next = () => setStepIndex((i) => Math.min(i + 1, STEPS.length - 1));
 
   useEffect(() => {
-    const onKey = (e) => e.key === "Escape" && onClose();
+    // an Escape the states menu used to close itself is not for us
+    const onKey = (e) => e.key === "Escape" && !e.defaultPrevented && onClose();
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [onClose]);
 
-  const answered = {
-    hasState: answers.hasState !== null,
-    states: answers.states.length > 0,
-    hasBranch: answers.hasBranch !== null,
-    branch: !!answers.family,
-    interest: !!answers.interest,
-    workplace: !!answers.workplace,
-  }[step];
-  const last = stepIndex >= steps.length - 1;
-  const next = () => setStepIndex((i) => Math.min(i + 1, steps.length - 1));
-
-  // a "No" clears what its follow-up collected
-  const finish = () =>
+  const finish = (a) =>
     onDone({
-      states: answers.hasState && answers.states.length ? answers.states : null,
-      families: answers.hasBranch && answers.family ? [answers.family] : null,
+      states: !a.anywhere && a.states.length ? a.states : null,
+      families: a.family && a.family !== "any" ? [a.family] : null,
       branches: null,
-      interest: answers.interest,
-      workplace: answers.workplace,
+      interest: a.interest,
+      workplace: a.workplace,
     });
 
+  // a one-tap answer: the pick shows for a beat, then the next question (or,
+  // on the last one, the list)
+  const advancing = useRef(false);
+  const choose = (patch) => {
+    if (advancing.current) return;
+    advancing.current = true;
+    const nextAnswers = { ...answers, ...patch };
+    setAnswers(nextAnswers);
+    setTimeout(() => {
+      advancing.current = false;
+      if (last) finish(nextAnswers);
+      else next();
+    }, 200);
+  };
+
   const body = {
-    hasState: (
-      <>
-        <h3 className="choice-q">Do you have a preferred state?</h3>
-        <p className="choice-help">For where the college is.</p>
-        <div className="grid gap-2 sm:grid-cols-2">
-          <Choice
-            on={answers.hasState === true}
-            onClick={() => set({ hasState: true })}
-          >
-            Yes
-          </Choice>
-          <Choice
-            on={answers.hasState === false}
-            onClick={() => set({ hasState: false })}
-          >
-            No, anywhere is fine
-          </Choice>
-        </div>
-      </>
-    ),
     states: (
       <>
-        <h3 className="choice-q">Which states? Select all that apply.</h3>
-        <p className="choice-help">States with a college in your list.</p>
-        <Chips
-          options={states.map((s) => ({ value: s, label: s }))}
-          selected={answers.states}
-          onToggle={toggleState}
-        />
-      </>
-    ),
-    hasBranch: (
-      <>
-        <h3 className="choice-q">Do you have a preferred branch?</h3>
-        <div className="mt-4 grid gap-2 sm:grid-cols-2">
+        <h3 className="choice-q">Where would you like to study?</h3>
+        <div className="mt-4 grid gap-2">
           <Choice
-            on={answers.hasBranch === true}
-            onClick={() => set({ hasBranch: true })}
+            on={answers.anywhere}
+            onClick={() => choose({ anywhere: true, states: [] })}
           >
-            Yes
+            Anywhere is fine
           </Choice>
-          <Choice
-            on={answers.hasBranch === false}
-            onClick={() => set({ hasBranch: false })}
-          >
-            No, I&apos;m open
-          </Choice>
+          <div className="pt-2">
+            <span className="mb-1.5 block text-xs font-bold text-[#4a3a36]">
+              Or pick states
+            </span>
+            <Dropdown
+              isMulti
+              options={states.map((st) => ({ value: st, label: st }))}
+              selectedValue={answers.states}
+              onChange={(opts) =>
+                setAnswers((a) => ({
+                  ...a,
+                  anywhere: false,
+                  states: (opts || []).map((o) => o.value),
+                }))
+              }
+              placeholder="Type a state…"
+              menuAtPageLevel
+            />
+          </div>
         </div>
       </>
     ),
     branch: (
       <>
-        <h3 className="choice-q">Which branch?</h3>
-        <p className="choice-help">Pick the one you want most.</p>
-        <div className="grid gap-2">
+        <h3 className="choice-q">Which branch do you want most?</h3>
+        <div className="mt-4 grid gap-2">
+          <Choice
+            on={answers.family === "any"}
+            onClick={() => choose({ family: "any" })}
+          >
+            I&apos;m open to any branch
+          </Choice>
           {familyOptions.map((f) => (
             <Choice
               key={f.id}
               on={answers.family === f.id}
-              onClick={() => set({ family: f.id })}
+              onClick={() => choose({ family: f.id })}
               sub={f.hint}
             >
               {f.label}
@@ -216,7 +168,7 @@ const ChoiceBuilder = ({ states, branches, initial, onDone, onClose }) => {
             <Choice
               key={i.id}
               on={answers.interest === i.id}
-              onClick={() => set({ interest: i.id })}
+              onClick={() => choose({ interest: i.id })}
               sub={i.hint}
             >
               {i.label}
@@ -235,7 +187,7 @@ const ChoiceBuilder = ({ states, branches, initial, onDone, onClose }) => {
             <Choice
               key={w.id}
               on={answers.workplace === w.id}
-              onClick={() => set({ workplace: w.id })}
+              onClick={() => choose({ workplace: w.id })}
             >
               {w.label}
             </Choice>
@@ -261,7 +213,7 @@ const ChoiceBuilder = ({ states, branches, initial, onDone, onClose }) => {
           .choice-help{margin:4px 0 14px;font-size:13px;color:#6d5550}`}</style>
         <div className="mb-4 flex items-center justify-between gap-3">
           <span className="text-xs font-extrabold uppercase tracking-[0.06em] text-[#B52326]">
-            Question {stepIndex + 1} of {steps.length}
+            Question {stepIndex + 1} of {STEPS.length}
           </span>
           <button
             type="button"
@@ -275,27 +227,29 @@ const ChoiceBuilder = ({ states, branches, initial, onDone, onClose }) => {
         <div className="mb-4 h-1.5 overflow-hidden rounded-full bg-[#f1e2dd]">
           <div
             className="h-full rounded-full bg-[#B52326] transition-all"
-            style={{ width: `${((stepIndex + 1) / steps.length) * 100}%` }}
+            style={{ width: `${((stepIndex + 1) / STEPS.length) * 100}%` }}
           />
         </div>
         <div className="min-h-0 flex-1 overflow-y-auto">{body}</div>
         <div className="mt-5 flex items-center justify-between">
           <button
             type="button"
-            onClick={() => setStepIndex((i) => Math.max(0, i - 1))}
+            onClick={back}
             disabled={stepIndex === 0}
             className="text-sm font-bold text-[#7a635d] hover:text-[#2f2320] disabled:invisible"
           >
             ← Back
           </button>
-          <button
-            type="button"
-            disabled={!answered}
-            onClick={() => (last ? finish() : next())}
-            className="rounded-[10px] bg-[#B52326] px-5 py-2.5 text-sm font-extrabold text-white hover:bg-[#9E1F22] disabled:cursor-not-allowed disabled:bg-[#e0cdc6]"
-          >
-            {last ? "Build my list" : "Next"}
-          </button>
+          {/* the one question that isn't a single tap: picked states */}
+          {step === "states" && answers.states.length > 0 && (
+            <button
+              type="button"
+              onClick={next}
+              className="rounded-[10px] bg-[#B52326] px-5 py-2.5 text-sm font-extrabold text-white hover:bg-[#9E1F22]"
+            >
+              Next
+            </button>
+          )}
         </div>
       </div>
     </div>

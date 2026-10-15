@@ -64,13 +64,13 @@ export default function handler(req, res) {
   if (out.error === "pwd") {
     return res.status(400).json({
       error:
-        "JEE Advanced rank estimation isn't available for PwD categories. Please switch to 'No, I know my rank' and enter your rank directly.",
+        "JEE Advanced rank estimation isn't available for PwD categories. Choose Rank and enter your rank directly.",
     });
   }
   if (out.error === "beyond") {
     return res.status(400).json({
       error:
-        "These marks are below the ranks published for past years. Please switch to 'No, I know my rank' and enter your JEE Advanced rank.",
+        "These marks are below the ranks published for past years. Choose Rank and enter your JEE Advanced rank.",
     });
   }
   return res.status(200).json(out);

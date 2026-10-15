@@ -49,6 +49,43 @@ const customStyles = {
     ...provided,
     color: "#7a6159",
   }),
+  multiValue: (provided) => ({
+    ...provided,
+    borderRadius: "999px",
+    backgroundColor: "#fbeeec",
+  }),
+  multiValueLabel: (provided) => ({
+    ...provided,
+    color: "#5b1f20",
+    fontWeight: 600,
+    paddingLeft: "0.6rem",
+  }),
+  multiValueRemove: (provided) => ({
+    ...provided,
+    borderRadius: "999px",
+    color: "#8f2e31",
+    "&:hover": { backgroundColor: "#f3dcd8", color: "#5b1f20" },
+  }),
+};
+
+// compact: a small control for toolbar choices (a table's View, entries)
+const compactStyles = {
+  ...customStyles,
+  control: (provided, state) => ({
+    ...customStyles.control(provided, state),
+    minHeight: "36px",
+    borderRadius: "0.6rem",
+    fontSize: "0.875rem",
+    fontWeight: 700,
+  }),
+  valueContainer: (provided) => ({ ...provided, padding: "0 0.5rem" }),
+  indicatorSeparator: () => ({ display: "none" }),
+  dropdownIndicator: (provided) => ({ ...provided, padding: "0 0.4rem" }),
+  option: (provided, state) => ({
+    ...customStyles.option(provided, state),
+    padding: "0.5rem 0.75rem",
+    fontSize: "0.875rem",
+  }),
 };
 
 const Dropdown = ({
@@ -72,6 +109,9 @@ const Dropdown = ({
   filterOption,
   // draw the menu at page level, so a scrolling box (a modal) can't clip it
   menuAtPageLevel = false,
+  // several choices: selectedValue is then an array of values
+  isMulti = false,
+  compact = false,
 }) => {
   const [isOpen, setIsOpen] = React.useState(false);
   return (
@@ -81,7 +121,9 @@ const Dropdown = ({
       isDisabled={isDisabled}
       isClearable={isClearable}
       isSearchable={isSearchable}
-      styles={customStyles}
+      styles={compact ? compactStyles : customStyles}
+      isMulti={isMulti}
+      closeMenuOnSelect={!isMulti}
       instanceId={useId()}
       className={className}
       formatOptionLabel={formatOptionLabel}
@@ -96,13 +138,18 @@ const Dropdown = ({
         hideValueWhileSearching && isOpen ? "Type to search…" : placeholder
       }
       value={
-        // grouped options ({ label, options }) hold their choices one level down
-        options
-          .flatMap((option) => option.options || [option])
-          .find(
-            (option) =>
-              option.label === selectedValue || option.value === selectedValue
-          ) ?? null
+        isMulti
+          ? options.filter((option) =>
+              (selectedValue || []).includes(option.value)
+            )
+          : // grouped options ({ label, options }) hold their choices one level down
+            options
+              .flatMap((option) => option.options || [option])
+              .find(
+                (option) =>
+                  option.label === selectedValue ||
+                  option.value === selectedValue
+              ) ?? null
       }
     />
   );

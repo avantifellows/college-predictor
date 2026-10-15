@@ -11,12 +11,15 @@
 // Branch families: the 47 parent branches JoSAA's programmes map to
 // (public/data/JEE/josaa_branch_parents.json), grouped the way students
 // think of them. An editorial grouping: change it here.
+// parent ids are data-sources/branch_taxonomy.csv parents (as of the Oct
+// 2026 branch-sheet merges); rerun scripts/build_josaa_branch_parents.py and
+// check every parent it prints sits in a family when the taxonomy changes
 export const BRANCH_FAMILIES = [
   {
     id: "cs",
     label: "Computer Science and related",
     hint: "CS, IT, AI / Data Science, Maths & Computing",
-    parents: ["CSIT", "AIML", "MNC", "CYBERSEC"],
+    parents: ["CSIT", "AIML", "MNC"],
   },
   {
     id: "elec",
@@ -28,15 +31,7 @@ export const BRANCH_FAMILIES = [
     id: "mech",
     label: "Mechanical and Production",
     hint: "Mechanical, Aerospace, Production, Robotics",
-    parents: [
-      "MECHENG",
-      "INDENG",
-      "AERO",
-      "SPACEENG",
-      "MARINE",
-      "ROBOENG",
-      "ENGDES",
-    ],
+    parents: ["MECHENG", "INDENG", "AERO", "MARINE", "ROBOENG", "ENGDES"],
   },
   {
     id: "civil",
@@ -57,7 +52,7 @@ export const BRANCH_FAMILIES = [
       "ENERGYENG",
       "CHEMSCI",
       "INDCHEM",
-      "PRINTENG",
+      "PAPERENG",
       "PHARMAENG",
     ],
   },
@@ -65,13 +60,13 @@ export const BRANCH_FAMILIES = [
     id: "earth",
     label: "Mining and Earth Sciences",
     hint: "Mining, Geology, Geophysics",
-    parents: ["MININGENG", "GEO", "EARTHSCI"],
+    parents: ["MININGENG", "GEO"],
   },
   {
     id: "sciences",
     label: "Pure and Applied Sciences",
     hint: "Physics, Chemistry, Maths, Engineering Physics, Economics",
-    parents: ["PHYSICS", "CHEM", "MATH", "ENGPHY", "ENGSCI", "GENSCI", "ECON"],
+    parents: ["PHYSICS", "CHEM", "MATH", "ENGPHY", "GENSCI", "ECON"],
   },
   {
     id: "bio",
@@ -81,7 +76,7 @@ export const BRANCH_FAMILIES = [
       "BIOTECH",
       "BIOENG",
       "BIOMEDENG",
-      "BIOSCI",
+      "BIO",
       "LIFESCI",
       "AGRIENG",
       "FOODENG",

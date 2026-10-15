@@ -13,6 +13,7 @@ import {
   PREDICTOR_EXAMS,
   allStreams,
   counsellingLabel,
+  counsellingsIn,
   examsInStream,
   routeForKey,
 } from "../utils/predictorRoutes";
@@ -100,7 +101,20 @@ const isJosaaEstimationSupportedCategory = (category) =>
   josaaEstimationSupportedCategories.has(category);
 
 const josaaPwdEstimateError =
-  "Rank estimation is currently unavailable for PwD categories. Please switch to 'No, I know my rank' and enter your rank directly.";
+  "Rank prediction isn't available for PwD categories. Choose Rank and enter your rank directly.";
+
+// A field the stream already answers (JoSAA's Program, MHT CET's own
+// Stream) is filled in from it and not asked again
+const STREAM_ALIASES = { Pharma: "Pharmacy" };
+const impliedOption = (field, stream) => {
+  if (!field || !["program", "stream"].includes(field.name)) return null;
+  const want = STREAM_ALIASES[stream] || stream;
+  return (
+    (field.options || [])
+      .map((o) => (typeof o === "string" ? { value: o, label: o } : o))
+      .find((o) => o.label === want) || null
+  );
+};
 
 const ExamForm = () => {
   const [selectedExam, setSelectedExam] = useState("");
@@ -161,7 +175,8 @@ const ExamForm = () => {
     setRouteExam(route.exam);
     selectCounselling(
       route.counselling,
-      router.query.examId === "jee-advanced" ? "Yes" : ""
+      router.query.examId === "jee-advanced" ? "Yes" : "",
+      route.stream
     );
     // "Edit inputs" on the results page links back with every answer in the
     // URL: refill them, after the counselling's own defaults
@@ -174,6 +189,9 @@ const ExamForm = () => {
       "advRank",
       "rank",
       "scores",
+      "mainMarks",
+      "mainPercentile",
+      "advMarks",
       "physicsMarks",
       "chemistryMarks",
       "mathsMarks",
@@ -184,6 +202,18 @@ const ExamForm = () => {
     if (Object.keys(restored).length) {
       setFormData((prev) => ({ ...prev, ...restored }));
     }
+    // ranks predicted from marks: the marks come back as marks
+    if (restored.mainMarks) {
+      setMainKind("marks");
+      setMarksInput(restored.mainMarks);
+    } else if (restored.mainPercentile) {
+      setMainKind("percentile");
+      setPercentileInput(restored.mainPercentile);
+    }
+    if (restored.advMarks) {
+      setAdvKind("marks");
+      setAdvMarksInput(restored.advMarks);
+    }
     if (q.view === "full") setView("full");
     else if (restored.mainRank || restored.rank || restored.scores) {
       setView("mine");
@@ -191,7 +221,7 @@ const ExamForm = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router.isReady, examsById]);
 
-  const handleExamChange = (selectedOption) => {
+  const handleExamChange = (selectedOption, streamValue = stream) => {
     setSelectedExam(selectedOption.value);
     setConfig(examConfigs[selectedOption.value]);
     setPrimaryInputError("");
@@ -240,6 +270,10 @@ const ExamForm = () => {
         examConfigs[selectedOption.value]?.fields || []
       )
     );
+    for (const field of examConfigs[selectedOption.value]?.fields || []) {
+      const implied = impliedOption(field, streamValue);
+      if (implied) baseFormData[field.name] = implied.label;
+    }
     setFormData(baseFormData);
   };
 
@@ -514,7 +548,7 @@ const ExamForm = () => {
     resetInputs();
   };
 
-  const selectCounselling = (c, qualifiedJeeAdv = "") => {
+  const selectCounselling = (c, qualifiedJeeAdv = "", streamValue = stream) => {
     setCounselling(c);
     resetInputs();
     if (!c?.key) {
@@ -523,7 +557,10 @@ const ExamForm = () => {
       setFormData({});
       return;
     }
-    handleExamChange({ value: c.key, code: examConfigs[c.key].code });
+    handleExamChange(
+      { value: c.key, code: examConfigs[c.key].code },
+      streamValue
+    );
     if (c.key === "JoSAA") {
       // the form asks for each rank (or marks) itself, so it starts from
       // "known" and only estimates what the student gives as marks
@@ -546,7 +583,8 @@ const ExamForm = () => {
     const exam = PREDICTOR_EXAMS.find((e) => e.id === option.value);
     setRouteExam(exam);
     // one counselling: nothing to choose
-    if (exam.counsellings.length === 1) selectCounselling(exam.counsellings[0]);
+    const open = counsellingsIn(exam, stream);
+    if (open.length === 1) selectCounselling(open[0]);
     else clearCounselling();
   };
 
@@ -567,7 +605,12 @@ const ExamForm = () => {
     setEstimatedRank(null);
     setEstimatedPercentile(null);
     setEstimateError("");
-    setFormData((prev) => ({ ...prev, mainRank: "" }));
+    setFormData((prev) => {
+      const next = { ...prev, mainRank: "" };
+      delete next.mainMarks;
+      delete next.mainPercentile;
+      return next;
+    });
   };
 
   const handleAdvKindChange = (kind) => {
@@ -580,6 +623,7 @@ const ExamForm = () => {
     setFormData((prev) => {
       const next = { ...prev };
       delete next.advRank;
+      delete next.advMarks;
       return next;
     });
   };
@@ -647,6 +691,11 @@ const ExamForm = () => {
       rankMode: needsMainEstimate ? "estimate" : "known",
     };
     if (!qualifiedAdv) delete next.advRank;
+    if (!needsMainEstimate) {
+      delete next.mainMarks;
+      delete next.mainPercentile;
+    }
+    if (!needsAdvEstimate) delete next.advMarks;
     if (!needsMainEstimate && !needsAdvEstimate) return next;
     if (!canEstimate) {
       setEstimateError(josaaPwdEstimateError);
@@ -671,6 +720,9 @@ const ExamForm = () => {
           return null;
         }
         next.mainRank = String(data.categoryRank);
+        // the results page shows what the rank was predicted from
+        if (mainKind === "marks") next.mainMarks = marksInput;
+        else next.mainPercentile = percentileInput;
         setEstimatedRank(data.categoryRank);
         setEstimatedPercentile(data.percentile);
       }
@@ -689,6 +741,7 @@ const ExamForm = () => {
           return null;
         }
         next.advRank = String(adv.rank);
+        next.advMarks = advMarksInput;
         setEstimatedAdvRank(adv.rank);
       }
       setFormData(next);
@@ -802,6 +855,8 @@ const ExamForm = () => {
       config.fields
         // JoSAA asks about JEE Advanced on its own, just before the inputs
         .filter((field) => field.name !== "qualifiedJeeAdv")
+        // the stream already answered it
+        .filter((field) => !impliedOption(field, stream))
         // The NEET home-state category dropdown only makes sense once a home
         // state that we actually have state-quota data for is chosen.
         .filter((field) => {
@@ -887,7 +942,7 @@ const ExamForm = () => {
             )
           : renderFormCard(
               "mainPercentile",
-              "Enter your JEE Main percentile (out of 100)",
+              "Enter your JEE Main percentile (out of 100). If you haven't taken the exam yet, use your mock test percentile.",
               <input
                 type="number"
                 step="0.01"
@@ -969,7 +1024,13 @@ const ExamForm = () => {
                 disabled={isEstimating || !mainReady || !advReady}
                 className="self-start rounded-[10px] border-[1.5px] border-[#B52326] bg-white px-4 py-2 text-sm font-bold text-[#B52326] transition hover:bg-[#fbeeec] disabled:cursor-not-allowed disabled:border-[#e0cdc6] disabled:text-[#b9a8a2]"
               >
-                {isEstimating ? "Estimating…" : "See my predicted rank"}
+                {isEstimating
+                  ? "Predicting…"
+                  : needsMainEstimate && needsAdvEstimate
+                  ? "Predict my JEE Main and Advanced ranks"
+                  : needsMainEstimate
+                  ? "Predict my JEE Main rank"
+                  : "Predict my JEE Advanced rank"}
               </button>
             )
           )}
@@ -977,34 +1038,38 @@ const ExamForm = () => {
             <p className="text-sm text-red-500">{estimateError}</p>
           )}
           {(estimatedRank || estimatedAdvRank) && (
-            <div className="rounded-xl border border-[#eaded8] bg-[#fbeeec] px-[18px] py-4 text-[15px] text-[#5f514c]">
-              {estimatedRank && (
-                <span className="block">
-                  Your predicted JEE Main {formData.category} category rank is{" "}
-                  <b className="font-['Lato',sans-serif] text-[22px] text-[#2f2320]">
-                    {Number(estimatedRank).toLocaleString("en-IN")}
-                  </b>
-                  {estimatedPercentile !== null && (
-                    <span className="block text-sm">
-                      Predicted percentile: <b>{estimatedPercentile}</b>
-                    </span>
-                  )}
-                </span>
-              )}
-              {estimatedAdvRank && (
-                <span className="mt-1 block">
-                  Your predicted JEE Advanced {formData.category} category rank
-                  is{" "}
-                  <b className="font-['Lato',sans-serif] text-[22px] text-[#2f2320]">
-                    {Number(estimatedAdvRank).toLocaleString("en-IN")}
-                  </b>
-                </span>
-              )}
-              <span className="mt-1.5 block text-[12.5px] leading-relaxed text-[#9b8a82]">
-                Indicative only. JEE Main is estimated from 10k+ students&apos;
-                results in 2024 and 2025, JEE Advanced from the official marks
-                at each rank in 2025 and 2026. Your actual rank can differ.
-              </span>
+            <div>
+              <div className="grid gap-3 sm:grid-cols-2">
+                {estimatedRank && (
+                  <div className="rounded-xl border border-[#eaded8] bg-[#fbeeec] px-4 py-3">
+                    <div className="text-xs font-bold uppercase tracking-[0.05em] text-[#8f2e31]">
+                      JEE Main {formData.category} rank
+                    </div>
+                    <div className="font-['Lato',sans-serif] text-[30px] font-black leading-tight text-[#2f2320]">
+                      {Number(estimatedRank).toLocaleString("en-IN")}
+                    </div>
+                    {estimatedPercentile !== null && (
+                      <div className="text-sm text-[#5f514c]">
+                        {Number(estimatedPercentile).toFixed(2)} percentile
+                      </div>
+                    )}
+                  </div>
+                )}
+                {estimatedAdvRank && (
+                  <div className="rounded-xl border border-[#eaded8] bg-[#fbeeec] px-4 py-3">
+                    <div className="text-xs font-bold uppercase tracking-[0.05em] text-[#8f2e31]">
+                      JEE Advanced {formData.category} rank
+                    </div>
+                    <div className="font-['Lato',sans-serif] text-[30px] font-black leading-tight text-[#2f2320]">
+                      {Number(estimatedAdvRank).toLocaleString("en-IN")}
+                    </div>
+                  </div>
+                )}
+              </div>
+              <p className="mt-2 text-xs text-[#9b8a82]">
+                Predicted from past years&apos; results. Your actual rank can
+                differ.
+              </p>
             </div>
           )}
         </div>
@@ -1089,7 +1154,7 @@ const ExamForm = () => {
         }))
       : [];
   const counsellingOptions = routeExam
-    ? routeExam.counsellings.map((c) => ({
+    ? counsellingsIn(routeExam, stream).map((c) => ({
         value: c.label,
         label: counsellingLabel(c),
         soon: !c.key,
@@ -1120,7 +1185,7 @@ const ExamForm = () => {
                 </div>
               )}
 
-              <div className="grid w-full grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-4">
+              <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {renderFormCard(
                   "stream",
                   "Select stream",
@@ -1202,7 +1267,7 @@ const ExamForm = () => {
               )}
 
               {selectedExam && (
-                <div className="grid w-full grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-4">
+                <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
                   {renderFields()}
                   {isJosaa &&
                     renderDropdownField(
@@ -1226,7 +1291,11 @@ const ExamForm = () => {
                     </button>
                     <button
                       type="button"
-                      onClick={() => setView("full")}
+                      onClick={() => {
+                        setView("full");
+                        if (!hasMissingConfiguredFields())
+                          handleFullListSubmit();
+                      }}
                       className={gateButtonClass(view === "full")}
                     >
                       See the full list of cutoffs
@@ -1236,47 +1305,39 @@ const ExamForm = () => {
               )}
 
               {showGate && view === "mine" && (
-                <div className="grid w-full grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-4">
+                <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
                   {isJosaa ? renderJosaaInputs() : renderSingleInput()}
                 </div>
               )}
 
-              {showGate && (
+              {showGate && view === "full" && hasMissingConfiguredFields() && (
+                <p className="text-left text-sm text-[#8f2e31]">
+                  Please fill all the required fields above.
+                </p>
+              )}
+
+              {showGate && view === "mine" && (
                 <div className="text-left">
                   <button
                     type="button"
                     className="inline-flex min-h-[50px] items-center justify-center gap-2 rounded-[10px] bg-[#B52326] px-[26px] py-3.5 text-base font-bold text-white shadow-[0_1px_2px_rgba(74,42,38,0.05)] transition hover:-translate-y-px hover:bg-[#9E1F22] active:translate-y-0 active:bg-[#8A1B1E] disabled:translate-y-0 disabled:cursor-not-allowed disabled:bg-[#e0cdc6] disabled:shadow-none"
-                    disabled={!view || submitDisabled}
-                    onClick={
-                      view === "full"
-                        ? handleFullListSubmit
-                        : isJosaa
-                        ? submitJosaa
-                        : onSubmitClick
-                    }
+                    disabled={submitDisabled}
+                    onClick={isJosaa ? submitJosaa : onSubmitClick}
                   >
                     {isEstimating
                       ? "Finding your colleges…"
-                      : view === "full"
-                      ? "Show full list of cutoffs"
                       : "Show matching colleges"}
                     <span aria-hidden="true">→</span>
                   </button>
-                  {view && submitDisabled && !isEstimating && (
-                    <p className="mt-2 text-sm text-[#8f2e31]">
-                      {view === "full" || (isJosaa && !josaaFieldsReady)
-                        ? "Please fill all the required fields above."
-                        : isJosaa && !mainReady
-                        ? mainKind === "rank"
-                          ? "Please enter your JEE Main rank."
-                          : `Enter your JEE Main ${mainKind} to continue.`
-                        : isJosaa && !advReady
-                        ? advKind === "rank"
-                          ? "Please enter your JEE Advanced rank."
-                          : "Enter your JEE Advanced marks to continue."
-                        : "Please fill all the required fields before submitting!"}
-                    </p>
-                  )}
+                  {submitDisabled &&
+                    !isEstimating &&
+                    (isJosaa
+                      ? !josaaFieldsReady
+                      : hasMissingConfiguredFields()) && (
+                      <p className="mt-2 text-sm text-[#8f2e31]">
+                        Please fill all the required fields above.
+                      </p>
+                    )}
                 </div>
               )}
             </div>

@@ -9,6 +9,9 @@
 // is given only for a route the Exams tab has no exam for (TNEA admits on
 // Class 12 marks).
 //
+// A counselling's own `streams` limits it to those streams (ICAR takes CUET
+// for agriculture, so it is no route for an Arts student).
+//
 // `key` is the examConfigs key for the counselling's cutoffs, or null where
 // Futures has none yet: those are listed so students know the route exists.
 // `hint` names one or two colleges the counselling fills. `defaultStream`
@@ -19,7 +22,8 @@ export const PREDICTOR_EXAMS = [
     // one entry for both papers: JoSAA takes both ranks, and the form asks
     // whether the student qualified JEE Advanced
     id: "jee",
-    examIds: ["jee-main-paper-1", "jee-advanced"],
+    // paper 2A (B.Arch) puts JoSAA's architecture seats under Architecture
+    examIds: ["jee-main-paper-1", "jee-advanced", "jee-main-paper-2a"],
     label: "JEE Main & Advanced",
     counsellings: [
       { label: "JoSAA", hint: "IITs, NITs, IIITs, etc.", key: "JoSAA" },
@@ -105,6 +109,7 @@ export const PREDICTOR_EXAMS = [
         hint: "state agricultural universities",
         key: "ICAR-UG",
         defaultStream: "Agriculture",
+        streams: ["Agriculture"],
       },
     ],
   },
@@ -217,10 +222,32 @@ export const streamsFor = (exam, examsById) =>
     new Set(exam.examIds.flatMap((id) => examsById[id]?.streams || []))
   );
 
+// most students first: the rest follow alphabetically
+const STREAM_ORDER = [
+  "Engineering",
+  "Medical",
+  "Science",
+  "Commerce",
+  "Arts",
+  "Law",
+  "Architecture",
+  "Pharma",
+  "Agriculture",
+  "Nursing",
+];
+const streamRank = (s) => {
+  const i = STREAM_ORDER.indexOf(s);
+  return i < 0 ? STREAM_ORDER.length : i;
+};
+
 export const allStreams = (examsById) =>
   Array.from(
     new Set(PREDICTOR_EXAMS.flatMap((e) => streamsFor(e, examsById)))
-  ).sort();
+  ).sort((a, b) => streamRank(a) - streamRank(b) || a.localeCompare(b));
+
+// the counsellings open to a stream
+export const counsellingsIn = (exam, stream) =>
+  exam.counsellings.filter((c) => !c.streams || c.streams.includes(stream));
 
 export const examsInStream = (stream, examsById) =>
   PREDICTOR_EXAMS.filter((e) => streamsFor(e, examsById).includes(stream));

@@ -4,6 +4,7 @@ import {
   ArrowDown,
   ArrowUp,
   ArrowUpDown,
+  ChevronDown,
   Download,
   Info,
   SlidersHorizontal,
@@ -11,9 +12,14 @@ import {
 } from "lucide-react";
 import PropTypes from "prop-types";
 import examConfigs from "../examConfig";
-import CoachMarks from "./CoachMarks";
 import ChoiceBuilder from "./ChoiceBuilder";
-import { buildOrder, compareKeys } from "../utils/choiceScore";
+import {
+  BRANCH_FAMILIES,
+  INTERESTS,
+  WORKPLACES,
+  buildOrder,
+  compareKeys,
+} from "../utils/choiceScore";
 import { collegeFilterOption, shortCollegeName } from "../utils/collegeSearch";
 import Dropdown from "./dropdown";
 import { fmtSalary } from "./collegeShared";
@@ -326,7 +332,7 @@ const SALARY_HELP_TEXT =
   "Reported to NIRF for the whole college, not for individual branches";
 
 // New ExpandedRow component
-const ExpandedRowComponent = ({ item, fields, exam, examColumnMapping }) => {
+const ExpandedRowComponent = ({ item, fields, exam, colSpan }) => {
   const getFieldValue = (item, field) => {
     const { key, format } = field;
     if (key in item) {
@@ -345,23 +351,26 @@ const ExpandedRowComponent = ({ item, fields, exam, examColumnMapping }) => {
 
   // Get the appropriate fields based on the exam type
   const fieldsToShow = fields[exam] || fields.DEFAULT;
-  const columns = examColumnMapping[exam] || examColumnMapping.DEFAULT;
 
+  // colSpan is the columns the table actually draws: a span wider than that
+  // made the browser add a phantom column, and the table jumped sideways
   return (
     <tr>
       <td
-        colSpan={columns.length + 1}
-        className="border-b border-[#eaded8] bg-[#fffdfa] p-4"
+        colSpan={colSpan}
+        className="border-b border-[#eaded8] bg-[#fdf6f3] px-4 py-3"
       >
-        <div className="grid grid-cols-2 gap-4 text-sm">
+        {/* w-0 min-w-full: long values wrap instead of widening columns */}
+        <dl className="grid w-0 min-w-full grid-cols-1 gap-x-6 gap-y-2.5 text-sm sm:grid-cols-2 lg:grid-cols-3">
           {fieldsToShow.map((field, idx) => (
             <div key={idx}>
-              <p>
-                <strong>{field.label}:</strong> {getFieldValue(item, field)}
-              </p>
+              <dt className="text-[11px] font-bold uppercase tracking-[0.05em] text-[#8f6f68]">
+                {field.label}
+              </dt>
+              <dd className="text-[#332724]">{getFieldValue(item, field)}</dd>
             </div>
           ))}
-        </div>
+        </dl>
       </td>
     </tr>
   );
@@ -550,50 +559,9 @@ const PredictedCollegesTable = ({
   const rankColumnKey = "closing_rank";
   const nirfRankColumnKey = "nirf_rank";
 
-  // Coach marks (design: futures tutorial artifact). Shown once per browser.
-  // Each tip only where its column exists:
-  // Compare on name-linked exams, sorting on JoSAA.
-  const tourSteps = [
-    supportsCompare && {
-      targets: ['[data-tour="compare-head"]', '[data-tour="compare-end"]'],
-      title: "Tick up to 3 colleges to compare",
-      body: "Pick colleges in this red column, then compare their fees, placements and cutoffs side by side.",
-    },
-    supportsSalarySort && {
-      targets: ['[data-tour="sort-first"]', '[data-tour="sort-last"]'],
-      title: "Tap a column name to sort",
-      body: "Sort by Median Salary to see where graduates earn most, or by NIRF Rank to see the best-ranked colleges first.",
-    },
-    isCombinedJosaaExam && {
-      targets: ['[data-tour="choice-cta"]', '[data-tour="choice-cta"]'],
-      title: "Not sure what to pick?",
-      body: "Tap Help me choose. A few quick questions put this list in the order that suits you.",
-    },
-  ].filter(Boolean);
-  const [tour, setTour] = useState(null); // { step, solo } while showing
-  // once a student builds a custom list: where to switch back, once per
-  // browser
-  const VIEW_TIP_SEEN = "futures:viewTipSeen";
-  const [viewTip, setViewTip] = useState(false);
-  const viewTipSteps = [
-    {
-      // the View dropdown that's showing: phones have their own
-      targets: Array(2).fill(
-        typeof window !== "undefined" && window.innerWidth >= 640
-          ? '[data-tour="view-toggle-desktop"]'
-          : '[data-tour="view-toggle"]'
-      ),
-      title: "Your custom list is on",
-      body: "Switch between it and the default list (by closing rank) here.",
-    },
-  ];
-  const closeViewTip = () => {
-    setViewTip(false);
-    try {
-      window.localStorage.setItem(VIEW_TIP_SEEN, "1");
-    } catch (e) {}
-  };
-
+  // after "Build my list": the picks bar comes into view and says so
+  const [justUpdated, setJustUpdated] = useState(false);
+  const picksRef = useRef(null);
   // College choice builder (JoSAA only): answers kept per browser
   const CHOICES_KEY = "futures:josaaChoices";
   const [choicePrefs, setChoicePrefs] = useState(null);
@@ -633,9 +601,17 @@ const PredictedCollegesTable = ({
     setShowAllRows(false);
     try {
       window.localStorage.setItem(CHOICES_KEY, JSON.stringify(answers));
-      if (window.localStorage.getItem(VIEW_TIP_SEEN) !== "1")
-        setTimeout(() => setViewTip(true), 400);
     } catch (e) {}
+    setJustUpdated(true);
+    setTimeout(() => setJustUpdated(false), 2500);
+    setTimeout(
+      () =>
+        picksRef.current?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        }),
+      60
+    );
   };
   // the quiz's options: states and parent branches present in these results
   const builderStates = useMemo(
@@ -655,42 +631,6 @@ const PredictedCollegesTable = ({
     return [...seen.values()].sort((a, b) => a.name.localeCompare(b.name));
   }, [fullData, branchParents]);
   const tableScrollRef = useRef(null);
-  // v2: the "Help me choose" step was added, so everyone sees the tips once more
-  const TIPS_SEEN = "futures:predictorTipsSeen.v2";
-  const readSeen = () => {
-    try {
-      return window.localStorage.getItem(TIPS_SEEN) === "1";
-    } catch (e) {
-      return false;
-    }
-  };
-  const closeTour = () => {
-    setTour(null);
-    // the sort tip scrolls the table sideways to its column; put the
-    // college and program columns back in view
-    if (tableScrollRef.current)
-      tableScrollRef.current.scrollTo({ left: 0, behavior: "smooth" });
-    try {
-      window.localStorage.setItem(TIPS_SEEN, "1");
-    } catch (e) {}
-  };
-  const hasRows = data.length > 0;
-  useEffect(() => {
-    if (!hasRows || !tourSteps.length || readSeen()) return undefined;
-    const t = setTimeout(() => setTour({ step: 0, solo: false }), 600);
-    return () => clearTimeout(t);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [hasRows, tourSteps.length]);
-  // scrolling the table sideways before the tour ran: show the sort tip alone
-  const onTableScroll = (e) => {
-    if (tour || readSeen() || !supportsSalarySort) return;
-    if (e.currentTarget.scrollLeft > 40) {
-      setTour({
-        step: tourSteps.findIndex((t) => t.targets[0].includes("sort")),
-        solo: true,
-      });
-    }
-  };
 
   const fullDataExamCounts = useMemo(
     () => countJeeExamTypes(fullData),
@@ -1561,6 +1501,8 @@ const PredictedCollegesTable = ({
     // column with NO value on any visible row (Maharashtra's source carries
     // no college type) is still an all-dash column and gets dropped.
     cols = cols.filter((col) => {
+      // the full list has no score of the student's to show
+      if (isFullList && col.key === "your_score") return false;
       if (col.key === "institute" || col.key === "closing_rank") return true;
       return displayData.some((row) => {
         const value = transformData(row)[col.key];
@@ -1602,6 +1544,7 @@ const PredictedCollegesTable = ({
     displayData,
     isJosaaExam,
     fullData,
+    isFullList,
   ]);
 
   // Which counselling round(s) the visible cutoffs come from. Surya asked for this to be stated
@@ -1736,27 +1679,50 @@ const PredictedCollegesTable = ({
   );
   // View: default (closing rank) or custom (the choice builder's order;
   // with no answers yet, choosing it opens the builder)
-  const renderViewSelect = (tour) => (
-    <label
-      data-tour={tour}
-      className="flex items-center gap-1.5 whitespace-nowrap font-semibold"
-    >
+  const renderViewSelect = () => (
+    <label className="flex items-center gap-1.5 whitespace-nowrap font-semibold">
       View
-      <select
-        value={sortConfig?.key === "choice" ? "custom" : "default"}
-        onChange={(e) => {
-          if (e.target.value === "default")
-            setSortConfig({ key: rankColumnKey, order: "asc" });
-          else if (choicePrefs) setSortConfig({ key: "choice", order: "asc" });
-          else setBuilderOpen(true);
-        }}
-        className="rounded-lg border border-[#d8c7c1] bg-white px-1 py-0.5 text-xs font-bold text-[#2f2320] focus:border-[#B52326] focus:outline-none sm:px-2 sm:py-1 sm:text-sm"
-      >
-        <option value="default">Default</option>
-        <option value="custom">Custom</option>
-      </select>
+      <div className="w-[118px]">
+        <Dropdown
+          compact
+          isSearchable={false}
+          options={[
+            { value: "default", label: "Default" },
+            { value: "custom", label: "Custom" },
+          ]}
+          selectedValue={sortConfig?.key === "choice" ? "custom" : "default"}
+          onChange={(o) => {
+            if (o.value === "default")
+              setSortConfig({ key: rankColumnKey, order: "asc" });
+            else if (choicePrefs)
+              setSortConfig({ key: "choice", order: "asc" });
+            else setBuilderOpen(true);
+          }}
+          menuAtPageLevel
+        />
+      </div>
     </label>
   );
+  // in the toolbar, not floating over the table
+  const renderChoiceButton = () => (
+    <button
+      type="button"
+      onClick={() => setBuilderOpen(true)}
+      className="inline-flex min-h-[36px] items-center whitespace-nowrap rounded-[10px] border-[1.5px] border-[#B52326] bg-[#fbeeec] px-3 text-sm font-extrabold text-[#B52326] transition hover:bg-[#f6dcd8]"
+    >
+      Help me choose
+    </button>
+  );
+  // the custom view says which answers ordered it, with a way to change them
+  const labelOf = (list, id) => list.find((x) => x.id === id)?.label;
+  const picks =
+    choicePrefs &&
+    [
+      choicePrefs.states?.length ? choicePrefs.states.join(", ") : null,
+      labelOf(BRANCH_FAMILIES, choicePrefs.families?.[0]),
+      labelOf(INTERESTS, choicePrefs.interest),
+      labelOf(WORKPLACES, choicePrefs.workplace),
+    ].filter(Boolean);
   // Phones: every filter (exam, college, branch, state) sits in one window
   // behind a "Filter this table" button, to keep the page short
   const [filtersOpen, setFiltersOpen] = useState(false);
@@ -1962,23 +1928,13 @@ const PredictedCollegesTable = ({
       {supportsCompare && (
         // students didn't notice Compare in the Pune review: the column
         // wears the brand red header and a rose tint, in the site's palette
-        <th
-          data-tour="compare-head"
-          className="whitespace-nowrap border-b border-[#9E1F22] bg-[#B52326] px-3 py-3 text-center text-white"
-        >
+        <th className="whitespace-nowrap border-b border-[#9E1F22] bg-[#B52326] px-3 py-3 text-center text-white">
           Compare
         </th>
       )}
       {predicted_colleges_table_column.map((column) => (
         <th
           key={column.key}
-          data-tour={
-            supportsSalarySort && column.key === rankColumnKey
-              ? "sort-first"
-              : supportsSalarySort && column.key === salaryColumnKey
-              ? "sort-last"
-              : undefined
-          }
           className="px-4 py-3 border-b border-[#decac3] whitespace-nowrap"
         >
           {supportsSalarySort && column.key === rankColumnKey ? (
@@ -2045,14 +2001,7 @@ const PredictedCollegesTable = ({
             }`}
           >
             {supportsCompare && (
-              <td
-                data-tour={
-                  index === Math.min(4, rowsToRender.length - 1)
-                    ? "compare-end"
-                    : undefined
-                }
-                className="border-r border-[#f0cfca] bg-[#fbeae8] px-3 py-3 text-center align-top"
-              >
+              <td className="border-r border-[#f0cfca] bg-[#fbeae8] px-3 py-3 text-center align-top">
                 {compareIdOf(transformedItem) ? (
                   <input
                     type="checkbox"
@@ -2113,10 +2062,18 @@ const PredictedCollegesTable = ({
               <td className="px-4 py-3">
                 <div className="flex justify-center">
                   <button
-                    className="whitespace-nowrap rounded-lg bg-[#B52326] px-4 py-2 text-white hover:bg-[#9E1F22]"
+                    type="button"
+                    aria-expanded={!!expandedRows[rowKey]}
+                    className="inline-flex items-center gap-1 whitespace-nowrap rounded-lg border-[1.5px] border-[#e0cdc6] bg-white px-3 py-1.5 text-sm font-bold text-[#8f2e31] transition hover:border-[#B52326]"
                     onClick={() => toggleRowExpansion(rowKey)}
                   >
-                    {expandedRows[rowKey] ? "Show Less" : "Show More"}
+                    {expandedRows[rowKey] ? "Less" : "More"}
+                    <ChevronDown
+                      size={15}
+                      className={`transition-transform ${
+                        expandedRows[rowKey] ? "rotate-180" : ""
+                      }`}
+                    />
                   </button>
                 </div>
               </td>
@@ -2127,7 +2084,11 @@ const PredictedCollegesTable = ({
               item={transformedItem}
               fields={expandedFields}
               exam={exam}
-              examColumnMapping={examColumnMapping}
+              colSpan={
+                predicted_colleges_table_column.length +
+                (supportsCompare ? 1 : 0) +
+                1
+              }
             />
           )}
         </React.Fragment>
@@ -2275,35 +2236,38 @@ const PredictedCollegesTable = ({
       )}
       {isCombinedJosaaExam && fullData.length > 0 && (
         <>
-          {/* phones: View on its own line, centred */}
-          <div className="mb-2 flex justify-center text-xs text-[#2f2320] sm:hidden">
-            {renderViewSelect("view-toggle")}
+          {/* phones: View and Help me choose on their own line */}
+          <div className="mb-2 flex items-center justify-between gap-2 text-xs text-[#2f2320] sm:hidden">
+            {renderViewSelect()}
+            {renderChoiceButton()}
           </div>
           {/* "[50] entries" left; right: View (desktop), Filter (phones) and
               Download. Phones: stuck to the top while scrolling. */}
           <div className="sticky top-0 z-30 -mx-1 mb-3 flex items-center justify-between gap-2 bg-white px-1 py-2 text-xs text-[#2f2320] sm:static sm:mx-0 sm:mb-4 sm:bg-transparent sm:px-0 sm:py-0 sm:text-sm">
-            <label className="flex items-center gap-1 whitespace-nowrap sm:gap-1.5">
-              <select
-                value={pageSize === Infinity ? "all" : pageSize}
-                onChange={(e) =>
-                  setPageSize(
-                    e.target.value === "all" ? Infinity : +e.target.value
-                  )
-                }
-                className="rounded-lg border border-[#d8c7c1] bg-white px-1 py-0.5 text-xs font-bold text-[#2f2320] focus:border-[#B52326] focus:outline-none sm:px-2 sm:py-1.5 sm:text-sm"
-              >
-                {[25, 50, 100].map((n) => (
-                  <option key={n} value={n}>
-                    {n}
-                  </option>
-                ))}
-                <option value="all">all</option>
-              </select>
-              entries
+            <label className="flex items-center gap-1.5 whitespace-nowrap font-semibold">
+              Show
+              <div className="w-[84px]">
+                <Dropdown
+                  compact
+                  isSearchable={false}
+                  options={[25, 50, 100, "all"].map((n) => ({
+                    value: String(n),
+                    label: String(n),
+                  }))}
+                  selectedValue={String(
+                    pageSize === Infinity ? "all" : pageSize
+                  )}
+                  onChange={(o) =>
+                    setPageSize(o.value === "all" ? Infinity : +o.value)
+                  }
+                  menuAtPageLevel
+                />
+              </div>
             </label>
             <div className="flex items-center gap-2 sm:gap-3">
-              <div className="hidden sm:block">
-                {renderViewSelect("view-toggle-desktop")}
+              <div className="hidden items-center gap-3 sm:flex">
+                {renderChoiceButton()}
+                {renderViewSelect()}
               </div>
               <button
                 type="button"
@@ -2331,6 +2295,30 @@ const PredictedCollegesTable = ({
             </div>
           </div>
         </>
+      )}
+      {isCombinedJosaaExam && sortConfig?.key === "choice" && picks && (
+        <div
+          ref={picksRef}
+          className={`mb-3 flex scroll-mt-4 flex-wrap items-center gap-x-3 gap-y-1 rounded-xl border px-4 py-2.5 text-sm transition-colors duration-700 ${
+            justUpdated
+              ? "border-[#B52326] bg-[#fbeeec]"
+              : "border-[#eaded8] bg-[#fffdfa]"
+          }`}
+        >
+          <span className="font-bold text-[#5b1f20]">
+            {justUpdated ? "List updated for your picks:" : "Your picks:"}
+          </span>
+          <span className="text-[#5b3a34]">
+            {picks.length ? picks.join(" · ") : "anywhere, any branch"}
+          </span>
+          <button
+            type="button"
+            onClick={() => setBuilderOpen(true)}
+            className="ml-auto font-bold text-[#B52326] underline underline-offset-2"
+          >
+            Change
+          </button>
+        </div>
       )}
       {filtersOpen && (
         <div
@@ -2386,23 +2374,6 @@ const PredictedCollegesTable = ({
           </div>
         </div>
       )}
-      {isCombinedJosaaExam && fullData.length > 0 && !builderOpen && (
-        // sticky CTA: lifts above the compare bar when that is showing
-        <div
-          className={`fixed right-4 z-40 sm:right-6 ${
-            compareSel.length > 0 ? "bottom-24" : "bottom-5"
-          }`}
-        >
-          <button
-            type="button"
-            data-tour="choice-cta"
-            onClick={() => setBuilderOpen(true)}
-            className="rounded-full bg-[#B52326] px-5 py-3 text-sm font-extrabold text-white shadow-[0_10px_28px_rgba(74,42,38,.25)] transition hover:-translate-y-px hover:bg-[#9E1F22] sm:text-base"
-          >
-            Help me choose a college and course
-          </button>
-        </div>
-      )}
       {builderOpen && (
         <ChoiceBuilder
           states={builderStates}
@@ -2412,29 +2383,9 @@ const PredictedCollegesTable = ({
           onClose={() => setBuilderOpen(false)}
         />
       )}
-      {viewTip && !tour && (
-        <CoachMarks
-          steps={viewTipSteps}
-          step={0}
-          solo
-          onNext={closeViewTip}
-          onClose={closeViewTip}
-        />
-      )}
-      {tour && (
-        <CoachMarks
-          steps={tourSteps}
-          step={tour.step}
-          solo={tour.solo}
-          onNext={() => setTour((t) => ({ ...t, step: t.step + 1 }))}
-          onClose={closeTour}
-          clipTo={tableScrollRef}
-        />
-      )}
       {displayData.length > 0 ? (
         <div
           ref={tableScrollRef}
-          onScroll={onTableScroll}
           className="overflow-x-auto rounded-xl border border-[#eaded8] bg-white shadow-sm"
         >
           {supportsCompare && compareSel.length > 0 ? (

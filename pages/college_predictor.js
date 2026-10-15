@@ -3,6 +3,7 @@ import React, { useEffect, useState, useCallback, useRef } from "react";
 import { useRouter } from "next/router";
 import PredictedCollegeTables from "../components/PredictedCollegeTables";
 import PredictorFaq from "../components/PredictorFaq";
+import PredictorInputsSummary from "../components/PredictorInputsSummary";
 import Head from "next/head";
 import Fuse from "fuse.js";
 import examConfigs from "../examConfig";
@@ -345,6 +346,8 @@ const CollegePredictor = () => {
               the ones within reach.
             </p>
           )}
+
+          <PredictorInputsSummary query={queryObject} />
 
           {/* TGEAPCET Disclaimer - Shows when EWS or OU is selected */}
           {showTSEAPERTDisclaimer && (
