@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 import { ChevronDown, ChevronRight, ChevronUp, Search } from "lucide-react";
 import BackLink from "../components/BackLink";
 import { Dash, fmtFee, loadExams } from "../components/examShared";
-import { rememberList } from "../utils/listReturn";
+import { rememberList, rememberTyped, wasTyped } from "../utils/listReturn";
 import { markForward } from "../utils/navHistory";
 import { matchesQuery, plainText } from "../utils/search";
 import useUrlParams from "../utils/useUrlParams";
@@ -138,7 +138,10 @@ export default function Exams() {
     career: "",
   });
   const { q, stream, where, career } = params;
-  const setQ = (v) => setParam("q", v);
+  const setQ = (v) => {
+    rememberTyped("/exams", v);
+    setParam("q", v);
+  };
   const setStream = (v) => setParam("stream", v);
   const setWhere = (v) => setParam("where", v);
   // sort=deadline / sort=-deadline
@@ -247,7 +250,12 @@ export default function Exams() {
     let pick = null;
     if (params.open) {
       pick = all.find((x) => x.exam_id === params.open) || null;
-    } else if (q && q === arrivedQ.current && filtered.length) {
+    } else if (
+      q &&
+      q === arrivedQ.current &&
+      !wasTyped("/exams", q) &&
+      filtered.length
+    ) {
       const raw = plainText(q);
       const exacts = filtered.filter(
         (e) =>
