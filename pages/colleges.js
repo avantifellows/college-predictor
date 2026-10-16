@@ -17,7 +17,7 @@ import {
 } from "../components/collegeShared";
 import { loadColleges, slugMap, slugify } from "../utils/collegesData";
 import { loadCareers } from "../components/careerShared";
-import { rememberList } from "../utils/listReturn";
+import { rememberList, rememberTyped, wasTyped } from "../utils/listReturn";
 import { markForward } from "../utils/navHistory";
 
 // The app's shared react-select wrapper — searchable, so a 30-state list can be
@@ -177,7 +177,10 @@ const Colleges = () => {
     college: "",
   });
   const { q, state, exam, stream, career } = params;
-  const setQ = (v) => setParam("q", v);
+  const setQ = (v) => {
+    rememberTyped("/colleges", v);
+    setParam("q", v);
+  };
   const setState = (v) => setParam("state", v);
   const setExam = (v) => setParam("exam", v);
   const setStream = (v) => setParam("stream", v);
@@ -343,7 +346,12 @@ const Colleges = () => {
           slugs[c.college_id] === params.college ||
           slugify(c.display_name) === params.college
       );
-    } else if (q && q === arrivedQ.current && filtered.length === 1) {
+    } else if (
+      q &&
+      q === arrivedQ.current &&
+      !wasTyped("/colleges", q) &&
+      filtered.length === 1
+    ) {
       target = filtered[0];
     }
     if (target) {

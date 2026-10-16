@@ -25,3 +25,25 @@ export function listBackHref(list) {
   }
   return list;
 }
+
+// A list's ?q= link that lands on one item (a college's exam chip:
+// /exams?q=JEE Advanced) forwards to that item's page. A search the student
+// typed is no such link: coming back to it (Back, "All exams") must show the
+// list, not bounce to the item again. The list records what was typed.
+const typedKey = (list) => `listTyped:${list}`;
+
+export function rememberTyped(list, q) {
+  try {
+    sessionStorage.setItem(typedKey(list), q);
+  } catch (e) {
+    /* storage blocked: a typed one-result search may forward on return */
+  }
+}
+
+export function wasTyped(list, q) {
+  try {
+    return sessionStorage.getItem(typedKey(list)) === q;
+  } catch (e) {
+    return false;
+  }
+}
