@@ -16,6 +16,73 @@ export function loadExams() {
   return pending;
 }
 
+// the states and UTs a student can pick as theirs (the exams build's STATES)
+export const STATES = [
+  "Andhra Pradesh",
+  "Arunachal Pradesh",
+  "Assam",
+  "Bihar",
+  "Chandigarh",
+  "Chhattisgarh",
+  "Delhi",
+  "Goa",
+  "Gujarat",
+  "Haryana",
+  "Himachal Pradesh",
+  "Jammu and Kashmir",
+  "Jharkhand",
+  "Karnataka",
+  "Kerala",
+  "Ladakh",
+  "Madhya Pradesh",
+  "Maharashtra",
+  "Manipur",
+  "Meghalaya",
+  "Mizoram",
+  "Nagaland",
+  "Odisha",
+  "Puducherry",
+  "Punjab",
+  "Rajasthan",
+  "Sikkim",
+  "Tamil Nadu",
+  "Telangana",
+  "Tripura",
+  "Uttar Pradesh",
+  "Uttarakhand",
+  "West Bengal",
+];
+
+// who can sit an exam: every state's students, or one state's. Where its
+// colleges are doesn't matter: BITSAT is All India, KCET is Karnataka's.
+export const isAllIndia = (e) => e.eligible_in === "All India";
+export const openTo = (e) =>
+  !e.eligible_in
+    ? null
+    : isAllIndia(e)
+    ? "All India"
+    : `${e.eligible_in} students`;
+
+/** Public (government, public university, statutory body) or Private (a
+ *  private university's own test, or private colleges' consortium). */
+export const RunByTag = ({ e, className = "" }) =>
+  e.run_by ? (
+    <span
+      title={
+        e.run_by === "Private"
+          ? "Run by a private university or private colleges"
+          : "Run by the government or a public university"
+      }
+      className={`inline-block whitespace-nowrap rounded-full border px-1.5 py-px align-middle text-[10px] font-bold uppercase tracking-wide ${
+        e.run_by === "Private"
+          ? "border-[#ecd3a6] bg-[#fdf3e1] text-[#87580d]"
+          : "border-[#cfdcea] bg-[#eef4fa] text-[#2e5577]"
+      } ${className}`}
+    >
+      {e.run_by}
+    </span>
+  ) : null;
+
 export const Dash = () => <span className="text-[#b9a8a2]">—</span>;
 
 export const fmtFee = (e) => {

@@ -1,7 +1,7 @@
 import StarButton from "./StarButton";
 import { CalendarDays, IndianRupee, MapPin } from "lucide-react";
 import BackLink from "./BackLink";
-import { Dash, ExamDetailBody, fmtFee } from "./examShared";
+import { Dash, ExamDetailBody, RunByTag, fmtFee, openTo } from "./examShared";
 
 // What an exam page shows (pages/exams/[id].js loads the data). Pure, so
 // scripts/check-pages can render every exam.
@@ -32,8 +32,8 @@ export default function ExamView({ e, back = "/exams", backSlot }) {
         {backSlot || <BackLink href={back}>All exams</BackLink>}
 
         <div className="mt-4 rounded-2xl border border-[#eaded8] bg-white p-4 sm:p-6">
-          <div className="text-xs font-black uppercase tracking-wide text-[#B52326]">
-            Entrance exam
+          <div className="flex items-center gap-2 text-xs font-black uppercase tracking-wide text-[#B52326]">
+            Entrance exam <RunByTag e={e} />
           </div>
           <div className="mt-1 flex items-start justify-between gap-3">
             <h1 className="text-2xl font-black leading-tight text-[#2f2320] sm:text-3xl">
@@ -52,10 +52,15 @@ export default function ExamView({ e, back = "/exams", backSlot }) {
               {e.streams.join(" · ")}
             </p>
           ) : null}
+          {/* the university or institute behind its own test (BITSAT ->
+              BITS Pilani); a state CET's scope is just its state */}
+          {e.scope_type === "University" && scope ? (
+            <p className="mt-1 text-sm text-[#6d5550]">Conducted by {scope}</p>
+          ) : null}
 
           <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-3">
-            <InfoCard icon={MapPin} label="For">
-              {scope || <Dash />}
+            <InfoCard icon={MapPin} label="Open to">
+              {openTo(e) || scope || <Dash />}
             </InfoCard>
             <InfoCard icon={CalendarDays} label="Test month">
               {e.test_month || <Dash />}

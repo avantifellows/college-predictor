@@ -7,7 +7,13 @@ import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import { ChevronDown, ChevronRight, ChevronUp, Search } from "lucide-react";
 import BackLink from "../components/BackLink";
-import { Dash, fmtFee, loadExams } from "../components/examShared";
+import {
+  Dash,
+  RunByTag,
+  STATES,
+  isAllIndia,
+  loadExams,
+} from "../components/examShared";
 import { rememberList, rememberTyped, wasTyped } from "../utils/listReturn";
 import { markForward } from "../utils/navHistory";
 import { matchesQuery, plainText } from "../utils/search";
@@ -52,24 +58,17 @@ const ExamRow = ({ e, index, onOpen, starCol }) => (
       >
         {e.name}
       </Link>
-      {/* on phones the scope moves to its own column */}
-      <div className="mt-0.5 hidden text-[11px] text-[#6d5550] sm:block">
+      <div className="mt-0.5 text-[11px] text-[#6d5550]">
         {e.scope_state && e.scope_type === "University"
           ? `${e.scope} · ${e.scope_state}`
+          : !["All India", "University"].includes(e.scope_type) && isAllIndia(e)
+          ? // open to all, though its colleges sit in one state (COMEDK)
+            `Colleges in ${e.scope}`
           : e.scope}
       </div>
     </td>
     <td className="px-3 py-3 align-top">
-      <div className="flex flex-wrap gap-1">
-        {e.streams.map((st) => (
-          <span
-            key={st}
-            className="rounded-full border border-[#e3d1cb] bg-white px-1.5 py-0.5 text-[11px] text-[#6d5550]"
-          >
-            {st}
-          </span>
-        ))}
-      </div>
+      <RunByTag e={e} />
     </td>
     <td className="hidden max-w-[16rem] px-3 py-3 align-top lg:table-cell">
       {e.eligibility ? (
@@ -78,13 +77,10 @@ const ExamRow = ({ e, index, onOpen, starCol }) => (
         <Dash />
       )}
     </td>
-    <td className="px-3 py-3 align-top text-[#5b3a34] sm:hidden">
-      {e.scope_type === "University"
-        ? e.scope_state || "University"
-        : e.scope_type}
-    </td>
     <td className="hidden px-3 py-3 align-top tabular-nums sm:table-cell">
-      {fmtFee(e) || <Dash />}
+      {/* when forms open; the sheet's own words when it names no month
+          ("After JEE-Main Paper 2 Result") */}
+      {e.apply_month || e.forms_out || <Dash />}
     </td>
     <td className="px-3 py-3 align-top">{e.test_month || <Dash />}</td>
     <td className="px-2 py-3 align-top text-[#b9a8a2]">
@@ -121,6 +117,85 @@ const SortTh = ({ label, col, sort, setSort, className = "" }) => {
   );
 };
 
+const TH =
+  "px-3 py-2.5 text-left text-xs font-semibold uppercase tracking-wide text-[#5b1f20]";
+
+/** One list of exams with its own "Show more". */
+const ExamTable = ({
+  rows,
+  sort,
+  setSort,
+  signedIn,
+  onOpen,
+  pageSize = PAGE_SIZE,
+}) => {
+  const [shown, setShown] = useState(pageSize);
+  return (
+    <>
+      <p className="mt-2 text-sm text-[#6d5550]">
+        Showing {Math.min(shown, rows.length)} of {rows.length} exams
+      </p>
+      <div className="mt-2 overflow-x-auto">
+        {/* table-fixed: expanding a row must not reflow the columns */}
+        <table className="w-full min-w-[560px] table-fixed border-collapse sm:min-w-[640px]">
+          <thead>
+            <tr className="border-b-2 border-[#e3d1cb] bg-[#f8efec]">
+              {/* a signed-in student's save stars */}
+              {signedIn ? <th className={`${TH} w-10`} /> : null}
+              <th className={`${TH} w-[40%] lg:w-[30%]`}>Exam</th>
+              {/* public: government or a public university; private: a
+                  private university's own test or private colleges' */}
+              <th className={`${TH} w-[22%] sm:w-[14%] lg:w-[12%]`}>
+                College Type
+              </th>
+              <th className={`${TH} hidden lg:table-cell lg:w-[24%]`}>
+                Eligibility
+              </th>
+              <SortTh
+                label="Application month"
+                col="apply"
+                sort={sort}
+                setSort={setSort}
+                className="hidden sm:table-cell sm:w-[18%] lg:w-[14%]"
+              />
+              <SortTh
+                label="Test month"
+                col="month"
+                sort={sort}
+                setSort={setSort}
+                className="w-[22%] sm:w-[16%] lg:w-[12%]"
+              />
+              <th className={`${TH} w-[10%] sm:w-[8%]`} />
+            </tr>
+          </thead>
+          <tbody>
+            {rows.slice(0, shown).map((e, i) => (
+              <ExamRow
+                key={e.exam_id}
+                e={e}
+                index={i}
+                onOpen={() => onOpen(e)}
+                starCol={signedIn}
+              />
+            ))}
+          </tbody>
+        </table>
+      </div>
+      {rows.length > shown ? (
+        <div className="mt-4 text-center">
+          <button
+            type="button"
+            onClick={() => setShown(shown + pageSize)}
+            className="rounded-full border border-[#e3d1cb] bg-white px-4 py-2 text-sm font-semibold text-[#8f2e31] transition hover:bg-[#f8efec]"
+          >
+            Show more
+          </button>
+        </div>
+      ) : null}
+    </>
+  );
+};
+
 export default function Exams() {
   const router = useRouter();
   const { signedIn } = useStudentData();
@@ -131,19 +206,27 @@ export default function Exams() {
   const [params, setParam, urlReady] = useUrlParams({
     q: "",
     stream: "All",
-    where: "All",
+    // the student's home state, and which of its two views is open: the
+    // exams any student can sit, or the ones only that state's can
+    where: "",
+    view: "india",
+    // who runs it: Public / Private
+    runby: "All",
     sort: "",
     open: "",
     // a career page's "See exams that lead here": /exams?career=<id>
     career: "",
   });
-  const { q, stream, where, career } = params;
+  const { q, stream, runby, career } = params;
+  const where = STATES.includes(params.where) ? params.where : "";
+  const view = where && params.view === "state" ? "state" : "india";
   const setQ = (v) => {
     rememberTyped("/exams", v);
     setParam("q", v);
   };
   const setStream = (v) => setParam("stream", v);
   const setWhere = (v) => setParam("where", v);
+  const setRunby = (v) => setParam("runby", v);
   // sort=deadline / sort=-deadline
   const sort = useMemo(
     () =>
@@ -166,7 +249,6 @@ export default function Exams() {
   useEffect(() => {
     if (urlReady && arrivedQ.current === null) arrivedQ.current = q;
   }, [urlReady, q]);
-  const [shown, setShown] = useState(PAGE_SIZE);
   const [careerInfo, setCareerInfo] = useState(null);
   useEffect(() => {
     if (!career) return setCareerInfo(null);
@@ -192,23 +274,13 @@ export default function Exams() {
     () => ["All", ...Array.from(new Set(all.flatMap((e) => e.streams))).sort()],
     [all]
   );
-  const wheres = useMemo(() => {
-    const set = new Set(all.map((e) => e.scope_type));
-    for (const e of all) if (e.scope_state) set.add(e.scope_state);
-    set.delete("All India");
-    set.delete("University");
-    return ["All", "All India", ...Array.from(set).sort(), "University"];
-  }, [all]);
 
   const filtered = useMemo(() => {
     const raw = q.trim().toLowerCase();
     let out = all.filter((e) => {
       if (careerExams && !careerExams.has(e.exam_id)) return false;
       if (stream !== "All" && !e.streams.includes(stream)) return false;
-      // a state in the Where filter also matches university exams based
-      // there (AGRICET is ANGRAU's, but it lives in Andhra Pradesh)
-      if (where !== "All" && e.scope_type !== where && e.scope_state !== where)
-        return false;
+      if (runby !== "All" && e.run_by !== runby) return false;
       if (!raw) return true;
       return matchesQuery(
         [
@@ -230,15 +302,27 @@ export default function Exams() {
     if (raw) out = [...out].sort((a, b) => exact(b) - exact(a));
     if (sort.col) {
       const key =
-        sort.col === "fee"
-          ? (e) => e.fee_number ?? Infinity
+        sort.col === "apply"
+          ? (e) => e.apply_month_n ?? Infinity
           : (e) => e.test_month_n ?? Infinity;
       out = [...out].sort((a, b) =>
         sort.dir === "asc" ? key(a) - key(b) : key(b) - key(a)
       );
     }
     return out;
-  }, [all, q, stream, where, sort, careerExams]);
+  }, [all, q, stream, runby, sort, careerExams]);
+
+  // a home state splits the list in two views: All India (any student can
+  // sit it) and that state's own. Eligibility, not where the colleges are:
+  // BITSAT (Pilani, Goa, Hyderabad) is All India. No state yet: every exam.
+  const views = useMemo(
+    () => ({
+      india: filtered.filter(isAllIndia),
+      state: filtered.filter((e) => e.eligible_in === where),
+    }),
+    [filtered, where]
+  );
+  const rows = where ? views[view] : filtered;
 
   // A link that names one exam (a college's exam chip: /exams?q=JEE Advanced)
   // or an older ?open= link goes straight to that exam's page: the query
@@ -284,10 +368,10 @@ export default function Exams() {
     if (urlReady && all.length && !redirected.current) rememberList("/exams");
   }, [urlReady, router.asPath, all.length]);
 
-  useEffect(() => setShown(PAGE_SIZE), [q, stream, where, sort, career]);
-
-  const th =
-    "px-3 py-2.5 text-left text-xs font-semibold uppercase tracking-wide text-[#5b1f20]";
+  // a new filter starts each list at its first page
+  const listKey = [q, stream, where, view, runby, params.sort, career].join(
+    "|"
+  );
 
   return (
     <>
@@ -318,8 +402,8 @@ export default function Exams() {
             the official sites.
           </p>
 
-          <div className="mt-6 grid grid-cols-1 gap-3 md:grid-cols-[1fr_13rem_13rem]">
-            <div className="relative">
+          <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-[1fr_11rem_14rem_11rem]">
+            <div className="relative sm:col-span-2 lg:col-span-1">
               <Search
                 size={16}
                 className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[#b9a8a2]"
@@ -347,19 +431,24 @@ export default function Exams() {
             </div>
             <div>
               <Dropdown
-                options={wheres.map((w) => ({
-                  value: w,
-                  label:
-                    w === "All"
-                      ? "Anywhere"
-                      : w === "University"
-                      ? "University-run"
-                      : w,
-                }))}
-                selectedValue={where}
+                options={STATES.map((w) => ({ value: w, label: w }))}
+                selectedValue={where || null}
+                placeholder="Select your home state"
                 onChange={(o) => setWhere(o.value)}
                 className="w-full"
                 hideValueWhileSearching
+              />
+            </div>
+            <div>
+              <Dropdown
+                options={[
+                  { value: "All", label: "Public & private" },
+                  { value: "Public", label: "Public only" },
+                  { value: "Private", label: "Private only" },
+                ]}
+                selectedValue={runby}
+                onChange={(o) => setRunby(o.value)}
+                className="w-full"
               />
             </div>
           </div>
@@ -392,77 +481,70 @@ export default function Exams() {
                   ) : null}
                 </div>
               ) : null}
-              <p className="mt-4 text-sm text-[#6d5550]">
-                Showing {Math.min(shown, filtered.length)} of {filtered.length}{" "}
-                exams
-              </p>
-              <div className="mt-2 overflow-x-auto">
-                {/* table-fixed: expanding a row must not reflow the columns */}
-                <table className="w-full min-w-[560px] table-fixed border-collapse sm:min-w-[640px]">
-                  <thead>
-                    <tr className="border-b-2 border-[#e3d1cb] bg-[#f8efec]">
-                      {/* a signed-in student's save stars */}
-                      {signedIn ? <th className={`${th} w-10`} /> : null}
-                      <th className={`${th} w-[30%] sm:w-[34%] lg:w-[26%]`}>
-                        Exam
-                      </th>
-                      <th className={`${th} w-[24%] sm:w-[22%] lg:w-[15%]`}>
-                        Streams
-                      </th>
-                      <th className={`${th} hidden lg:table-cell lg:w-[24%]`}>
-                        Eligibility
-                      </th>
-                      <th className={`${th} w-[16%] sm:hidden`}>Where</th>
-                      <SortTh
-                        label="Application fee"
-                        col="fee"
-                        sort={sort}
-                        setSort={setSort}
-                        className="hidden sm:table-cell sm:w-[16%] lg:w-[13%]"
-                      />
-                      <SortTh
-                        label="Test month"
-                        col="month"
-                        sort={sort}
-                        setSort={setSort}
-                        className="w-[16%] sm:w-[15%] lg:w-[12%]"
-                      />
-                      <th className={`${th} w-[14%] sm:w-[13%] lg:w-[10%]`} />
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {filtered.slice(0, shown).map((e, i) => (
-                      <ExamRow
-                        key={e.exam_id}
-                        e={e}
-                        index={i}
-                        onOpen={() => router.push(`/exams/${e.exam_id}`)}
-                        starCol={signedIn}
-                      />
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-              {filtered.length > shown ? (
-                <div className="mt-4 text-center">
-                  <button
-                    type="button"
-                    onClick={() => setShown(shown + PAGE_SIZE)}
-                    className="rounded-full border border-[#e3d1cb] bg-white px-4 py-2 text-sm font-semibold text-[#8f2e31] transition hover:bg-[#f8efec]"
-                  >
-                    Show more
-                  </button>
+              {where ? (
+                <div
+                  role="tablist"
+                  className="mt-6 inline-flex rounded-xl border border-[#e3d1cb] bg-[#f8efec] p-1"
+                >
+                  {[
+                    ["india", "All India"],
+                    ["state", `${where} Only`],
+                  ].map(([key, label]) => (
+                    <button
+                      key={key}
+                      type="button"
+                      role="tab"
+                      aria-selected={view === key}
+                      onClick={() => setParam("view", key)}
+                      className={`rounded-lg px-4 py-2 text-sm font-bold transition ${
+                        view === key
+                          ? "bg-white text-[#8f2e31] shadow-sm"
+                          : "text-[#6d5550] hover:text-[#8f2e31]"
+                      }`}
+                    >
+                      {label}{" "}
+                      <span className="font-semibold text-[#9a8580]">
+                        {views[key].length}
+                      </span>
+                    </button>
+                  ))}
                 </div>
+              ) : (
+                <p className="mt-6 text-sm text-[#6d5550]">
+                  Select your home state to see the All India exams and your
+                  state&apos;s own exams separately.
+                </p>
+              )}
+              {where ? (
+                <p className="mt-3 text-sm text-[#6d5550]">
+                  {view === "state"
+                    ? `Only for students from ${where}.`
+                    : "Open to students from every state."}
+                </p>
               ) : null}
-              {filtered.length === 0 ? (
+              {rows.length ? (
+                <ExamTable
+                  key={listKey}
+                  rows={rows}
+                  sort={sort}
+                  setSort={setSort}
+                  signedIn={signedIn}
+                  onOpen={(e) => router.push(`/exams/${e.exam_id}`)}
+                />
+              ) : null}
+              {rows.length === 0 ? (
                 <div className="py-10 text-center">
-                  <p className="text-sm text-[#6d5550]">No exams match.</p>
-                  {stream !== "All" || where !== "All" ? (
+                  <p className="text-sm text-[#6d5550]">
+                    {view === "state" && views.india.length
+                      ? `No ${where} exams match. Its colleges may admit through All India exams, or on Class 12 marks.`
+                      : "No exams match."}
+                  </p>
+                  {stream !== "All" || runby !== "All" ? (
                     <button
                       type="button"
                       onClick={() => {
                         setStream("All");
-                        setWhere("All");
+                        setRunby("All");
                       }}
                       className="mt-3 rounded-full border border-[#e3d1cb] bg-white px-4 py-2 text-sm font-semibold text-[#8f2e31] transition hover:bg-[#f8efec]"
                     >
