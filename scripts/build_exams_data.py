@@ -100,6 +100,9 @@ STATES = {
 }
 # home state of each university-run exam (null = multi-campus/national)
 UNIVERSITY_STATES = "scripts/university_states.json"
+# who can sit each exam (All India or one state's students) and whether a
+# public or a private body runs it, audited by hand per exam_id
+EXAM_ACCESS = "scripts/exam_access.json"
 
 
 def month_of(text):
@@ -107,6 +110,18 @@ def month_of(text):
         if m.lower() in str(text).lower():
             return m, i + 1
     return None, None
+
+
+def first_month(text):
+    """The month a text names FIRST ("Nov., Jan., April & May" -> November),
+    full or abbreviated: when applications open."""
+    t = str(text).lower()
+    hits = [(m.start(), i) for i, name in enumerate(MONTHS)
+            for m in [re.search(r"\b" + name[:3].lower(), t)] if m]
+    if not hits:
+        return None, None
+    i = min(hits)[1]
+    return MONTHS[i], i + 1
 
 
 def fee_number(text):
@@ -135,6 +150,8 @@ def main():
         fmt = json.load(open(PATTERNS))
     uni_states = {k: v for k, v in json.load(open(UNIVERSITY_STATES)).items()
                   if not k.startswith("_")}
+    access = {k: v for k, v in json.load(open(EXAM_ACCESS)).items()
+              if not k.startswith("_")}
     d = pd.read_csv(SRC)
     active = d[d.status == "active"]
     dead = d[d.status != "active"]
@@ -163,6 +180,7 @@ def main():
                                             str(f["scope"]).lower())[:20].strip("-")
         seen[sid] = True
         month, month_n = month_of(f["test_date"])
+        apply_month, apply_month_n = first_month(f["forms_out"])
         aliases = set(str(a) for a in g.aliases.dropna() if str(a).strip())
         def _k(x):
             return re.sub(r"[^a-z0-9]", "", x.lower())
@@ -192,6 +210,10 @@ def main():
             "scope_state": (str(f["scope"]).strip()
                             if str(f["scope"]).strip() in STATES
                             else uni_states.get(sid)),
+            # where the exam's candidates come from, not where its colleges
+            # are: BITSAT and VITEEE are All India, KCET is Karnataka's
+            "eligible_in": access.get(sid, {}).get("eligible_in"),
+            "run_by": access.get(sid, {}).get("run_by"),
             "url": f["url"] if pd.notna(f["url"]) else None,
             "eligibility": (str(f["eligibility"]).strip()
                             if pd.notna(f["eligibility"]) else None),
@@ -200,6 +222,8 @@ def main():
             "fee_number": fee_number(f["application_fee"]),
             "test_month": month,
             "test_month_n": month_n,
+            "apply_month": apply_month,
+            "apply_month_n": apply_month_n,
             "forms_out": str(f["forms_out"]) if pd.notna(f["forms_out"]) else None,
             "last_date": str(f["last_date"]) if pd.notna(f["last_date"]) else None,
             "test_date": str(f["test_date"]) if pd.notna(f["test_date"]) else None,
@@ -287,6 +311,9 @@ def main():
     dupes = {i for i in ids if ids.count(i) > 1}
     assert not dupes, f"duplicate exam_ids: {dupes}"
 
+    no_access = [c["exam_id"] for c in cards if not c["eligible_in"]]
+    assert not no_access, f"exams missing from {EXAM_ACCESS}: {no_access}"
+
     unmapped = [c["exam_id"] for c in cards
                 if c["scope_type"] == "University" and c["exam_id"] not in
                 json.load(open(UNIVERSITY_STATES))]
@@ -302,6 +329,7 @@ def main():
     print(f"{len(cards)} exam cards → {OUT}")
     print("with fee:", sum(1 for c in cards if c["fee_number"]))
     print("with month:", sum(1 for c in cards if c["test_month"]))
+    print("with application month:", sum(1 for c in cards if c["apply_month"]))
     print("predictor-linked:", sum(1 for c in cards if c["predictor_exam"]))
     print("carrying replaced-aliases:", sum(1 for c in cards if c["replaces"]))
     print("streams:", sorted({s for c in cards for s in c["streams"]}))

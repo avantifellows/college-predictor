@@ -196,11 +196,12 @@ export default function StudentCorner() {
     ...plan.colleges,
     ...stars.college.map((s) => ({ id: s.id, label: s.label })),
   ]);
+  // who can sit it, not where its colleges are (BITSAT is All India)
   const forMe = (e) =>
-    !e.scope_state ||
-    e.scope === "All India" ||
+    !e.eligible_in ||
+    e.eligible_in === "All India" ||
     (profile?.state &&
-      String(e.scope_state).toLowerCase() === profile.state.toLowerCase());
+      String(e.eligible_in).toLowerCase() === profile.state.toLowerCase());
   const careerExams = (careerById[plan.career?.id]?.exam_ids || [])
     .map((id) => examById[id])
     .filter((e) => e && forMe(e))

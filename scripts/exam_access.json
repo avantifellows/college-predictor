@@ -1,0 +1,739 @@
+{
+ "_comment": "Who can sit each exam and who runs it, keyed by exam_id. eligible_in: 'All India' when a student from any state can apply on equal terms (national tests, central institutes, every private university), else the state whose students it is for (state CETs, state universities with domicile quotas). It is NOT where the admitting colleges are: BITSAT is All India though BITS sits in Pilani, Goa and Hyderabad. run_by: 'Public' (central/state government, a public university or statutory body) or 'Private' (a private or deemed university, private institute or private colleges' consortium like COMEDK). Audited Oct 2026.",
+ "aat": {
+  "eligible_in": "All India",
+  "run_by": "Public"
+ },
+ "aat-ashoka-aptitude-test-ashoka-university": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "acet": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "afcat": {
+  "eligible_in": "All India",
+  "run_by": "Public"
+ },
+ "agricet": {
+  "eligible_in": "Andhra Pradesh",
+  "run_by": "Public"
+ },
+ "aihmct-cbt": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "aiims-ee": {
+  "eligible_in": "All India",
+  "run_by": "Public"
+ },
+ "aiish-et": {
+  "eligible_in": "All India",
+  "run_by": "Public"
+ },
+ "ail-let": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "ailet": {
+  "eligible_in": "All India",
+  "run_by": "Public"
+ },
+ "amu-aat": {
+  "eligible_in": "All India",
+  "run_by": "Public"
+ },
+ "amu-et": {
+  "eligible_in": "All India",
+  "run_by": "Public"
+ },
+ "ap-eapcet-am-category": {
+  "eligible_in": "Andhra Pradesh",
+  "run_by": "Public"
+ },
+ "ap-eapcet-e-category": {
+  "eligible_in": "Andhra Pradesh",
+  "run_by": "Public"
+ },
+ "apu-et": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "agniveer-army": {
+  "eligible_in": "All India",
+  "run_by": "Public"
+ },
+ "agniveer-navy-ssr-mr": {
+  "eligible_in": "All India",
+  "run_by": "Public"
+ },
+ "agniveer-vayu": {
+  "eligible_in": "All India",
+  "run_by": "Public"
+ },
+ "anantu-det": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "b-com-cet-146": {
+  "eligible_in": "Delhi",
+  "run_by": "Public"
+ },
+ "ba-cet-184": {
+  "eligible_in": "Delhi",
+  "run_by": "Public"
+ },
+ "ba-cet-197": {
+  "eligible_in": "Delhi",
+  "run_by": "Public"
+ },
+ "bajmc-cet-126": {
+  "eligible_in": "Delhi",
+  "run_by": "Public"
+ },
+ "bba-cet-125": {
+  "eligible_in": "Delhi",
+  "run_by": "Public"
+ },
+ "bca-cet-114": {
+  "eligible_in": "Delhi",
+  "run_by": "Public"
+ },
+ "bcece": {
+  "eligible_in": "Bihar",
+  "run_by": "Public"
+ },
+ "bhmct-cet-127": {
+  "eligible_in": "Delhi",
+  "run_by": "Public"
+ },
+ "bitsat": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "bsc-yoga-cet": {
+  "eligible_in": "Delhi",
+  "run_by": "Public"
+ },
+ "btech-bt-cet-130": {
+  "eligible_in": "Delhi",
+  "run_by": "Public"
+ },
+ "bu-mat": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "bv-abop": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "bv-abop-cet": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "bv-b-sc-nursing-cet": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "bv-btech-cet": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "bv-lawug-cet": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "bv-opi-pa": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "bv-pharm-ug-cet": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "cee-llb": {
+  "eligible_in": "Kerala",
+  "run_by": "Public"
+ },
+ "cet": {
+  "eligible_in": "All India",
+  "run_by": "Public"
+ },
+ "cetug-aau": {
+  "eligible_in": "Assam",
+  "run_by": "Public"
+ },
+ "cg-pat": {
+  "eligible_in": "Chhattisgarh",
+  "run_by": "Public"
+ },
+ "cg-pet": {
+  "eligible_in": "Chhattisgarh",
+  "run_by": "Public"
+ },
+ "clat": {
+  "eligible_in": "All India",
+  "run_by": "Public"
+ },
+ "cmi-ee": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "comedk-uget": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "cuet": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "cuet-ug": {
+  "eligible_in": "All India",
+  "run_by": "Public"
+ },
+ "dat-mains": {
+  "eligible_in": "All India",
+  "run_by": "Public"
+ },
+ "dat-prelims": {
+  "eligible_in": "All India",
+  "run_by": "Public"
+ },
+ "dt-mahe": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "design-cet-600": {
+  "eligible_in": "Delhi",
+  "run_by": "Public"
+ },
+ "eat": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "fddi-aist": {
+  "eligible_in": "All India",
+  "run_by": "Public"
+ },
+ "feat": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "gat-cat": {
+  "eligible_in": "All India",
+  "run_by": "Public"
+ },
+ "gat": {
+  "eligible_in": "All India",
+  "run_by": "Public"
+ },
+ "gbpuat-cee": {
+  "eligible_in": "Uttarakhand",
+  "run_by": "Public"
+ },
+ "gujcet": {
+  "eligible_in": "Gujarat",
+  "run_by": "Public"
+ },
+ "hau-aat": {
+  "eligible_in": "Haryana",
+  "run_by": "Public"
+ },
+ "hau-et": {
+  "eligible_in": "Haryana",
+  "run_by": "Public"
+ },
+ "hau-et-haryana-agriculture-university-community-sc-entrance-test-haryana": {
+  "eligible_in": "Haryana",
+  "run_by": "Public"
+ },
+ "iat": {
+  "eligible_in": "All India",
+  "run_by": "Public"
+ },
+ "idss-oee": {
+  "eligible_in": "All India",
+  "run_by": "Public"
+ },
+ "ihm-a": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "iicd-et": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "imat": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "ipl-at-rohtak": {
+  "eligible_in": "All India",
+  "run_by": "Public"
+ },
+ "ipm-at-indore-ranchi": {
+  "eligible_in": "All India",
+  "run_by": "Public"
+ },
+ "ipm-at-rohtak": {
+  "eligible_in": "All India",
+  "run_by": "Public"
+ },
+ "isdi-challenge": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "isi-at": {
+  "eligible_in": "All India",
+  "run_by": "Public"
+ },
+ "indian-army-ncc-special-entry-scheme": {
+  "eligible_in": "All India",
+  "run_by": "Public"
+ },
+ "indian-army-tes": {
+  "eligible_in": "All India",
+  "run_by": "Public"
+ },
+ "indian-army-tgc-ssc-tech": {
+  "eligible_in": "All India",
+  "run_by": "Public"
+ },
+ "indian-navy-10-2-b-tech-cadet-entry-scheme": {
+  "eligible_in": "All India",
+  "run_by": "Public"
+ },
+ "indian-navy-ssc-officer-entries": {
+  "eligible_in": "All India",
+  "run_by": "Public"
+ },
+ "jcat": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "jcece-nursing": {
+  "eligible_in": "Jharkhand",
+  "run_by": "Public"
+ },
+ "jcece-agriculture-allied": {
+  "eligible_in": "Jharkhand",
+  "run_by": "Public"
+ },
+ "jee-advanced": {
+  "eligible_in": "All India",
+  "run_by": "Public"
+ },
+ "jee-main-paper-1": {
+  "eligible_in": "All India",
+  "run_by": "Public"
+ },
+ "jee-main-paper-2a": {
+  "eligible_in": "All India",
+  "run_by": "Public"
+ },
+ "jee-main-paper-2b": {
+  "eligible_in": "All India",
+  "run_by": "Public"
+ },
+ "jet-de": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "jipmat": {
+  "eligible_in": "All India",
+  "run_by": "Public"
+ },
+ "jmi-et": {
+  "eligible_in": "All India",
+  "run_by": "Public"
+ },
+ "jsat": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "kalsee": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "kea-cet": {
+  "eligible_in": "Karnataka",
+  "run_by": "Public"
+ },
+ "keam": {
+  "eligible_in": "Kerala",
+  "run_by": "Public"
+ },
+ "kiit-ee": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "krea-ap": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "kuat": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "lkk-oee": {
+  "eligible_in": "All India",
+  "run_by": "Public"
+ },
+ "mah-b-design-cet": {
+  "eligible_in": "Maharashtra",
+  "run_by": "Public"
+ },
+ "mah-b-planning-cet": {
+  "eligible_in": "Maharashtra",
+  "run_by": "Public"
+ },
+ "mah-bhmct-cet": {
+  "eligible_in": "Maharashtra",
+  "run_by": "Public"
+ },
+ "mah-llb-3-yrs-cet": {
+  "eligible_in": "Maharashtra",
+  "run_by": "Public"
+ },
+ "mah-llb-5-yrs-cet": {
+  "eligible_in": "Maharashtra",
+  "run_by": "Public"
+ },
+ "met": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "mh-aac-cet": {
+  "eligible_in": "Maharashtra",
+  "run_by": "Public"
+ },
+ "mh-b-sc-nursing-cet": {
+  "eligible_in": "Maharashtra",
+  "run_by": "Public"
+ },
+ "mht-cet": {
+  "eligible_in": "Maharashtra",
+  "run_by": "Public"
+ },
+ "mitid-dat": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "mitwpu-as": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "mitwpu-cet": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "mitwpu-ug-dat": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "mp-pat": {
+  "eligible_in": "Madhya Pradesh",
+  "run_by": "Public"
+ },
+ "mp-pv-ft": {
+  "eligible_in": "Madhya Pradesh",
+  "run_by": "Public"
+ },
+ "msu-et": {
+  "eligible_in": "Gujarat",
+  "run_by": "Public"
+ },
+ "nata": {
+  "eligible_in": "All India",
+  "run_by": "Public"
+ },
+ "nchm-jee": {
+  "eligible_in": "All India",
+  "run_by": "Public"
+ },
+ "nda": {
+  "eligible_in": "All India",
+  "run_by": "Public"
+ },
+ "neet-ug": {
+  "eligible_in": "All India",
+  "run_by": "Public"
+ },
+ "nest": {
+  "eligible_in": "All India",
+  "run_by": "Public"
+ },
+ "net": {
+  "eligible_in": "All India",
+  "run_by": "Public"
+ },
+ "niift-caft": {
+  "eligible_in": "Punjab",
+  "run_by": "Public"
+ },
+ "nmims-audition": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "nmims-cet": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "nmims-dat": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "nmims-lat": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "nmims-npat": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "nsuee": {
+  "eligible_in": "All India",
+  "run_by": "Public"
+ },
+ "ojee": {
+  "eligible_in": "Odisha",
+  "run_by": "Public"
+ },
+ "ouat": {
+  "eligible_in": "Odisha",
+  "run_by": "Public"
+ },
+ "para-cet-124": {
+  "eligible_in": "Delhi",
+  "run_by": "Public"
+ },
+ "pau-cet": {
+  "eligible_in": "Punjab",
+  "run_by": "Public"
+ },
+ "pdeu-at": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "pgimer-ee": {
+  "eligible_in": "All India",
+  "run_by": "Public"
+ },
+ "pharma-cet-133": {
+  "eligible_in": "Delhi",
+  "run_by": "Public"
+ },
+ "pu-llb-cet": {
+  "eligible_in": "All India",
+  "run_by": "Public"
+ },
+ "pu-5-year-llb-et": {
+  "eligible_in": "All India",
+  "run_by": "Public"
+ },
+ "pu-cet": {
+  "eligible_in": "Punjab",
+  "run_by": "Public"
+ },
+ "pwc-et": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "rjet": {
+  "eligible_in": "Rajasthan",
+  "run_by": "Public"
+ },
+ "rulet": {
+  "eligible_in": "Rajasthan",
+  "run_by": "Public"
+ },
+ "seed": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "set-general": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "siteee": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "skuast-j-cet": {
+  "eligible_in": "Jammu and Kashmir",
+  "run_by": "Public"
+ },
+ "skuast-k-cet": {
+  "eligible_in": "Jammu and Kashmir",
+  "run_by": "Public"
+ },
+ "slat": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "smat-ug": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "smeat-ug": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "snioe-dat": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "snusat": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "snusat-apt": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "soetap-ug": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "soft-et": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "sppu-oee": {
+  "eligible_in": "All India",
+  "run_by": "Public"
+ },
+ "srmjee-l-ug": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "srmjeee-ug": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "srmjeeh-ug": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "sru-aiee": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "sru-ee-group-a": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "sssihl-ugt": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "step": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "tg-eapcet-am": {
+  "eligible_in": "Telangana",
+  "run_by": "Public"
+ },
+ "tg-eapcet-e": {
+  "eligible_in": "Telangana",
+  "run_by": "Public"
+ },
+ "tslas-ot": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "uceed": {
+  "eligible_in": "All India",
+  "run_by": "Public"
+ },
+ "ug-jet": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "ugat": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "uget": {
+  "eligible_in": "Himachal Pradesh",
+  "run_by": "Public"
+ },
+ "uid-dat": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "ulsat": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "up-catet": {
+  "eligible_in": "Uttar Pradesh",
+  "run_by": "Public"
+ },
+ "upesdat": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "upeseat-exam-test-centre-based": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "upeseat-test-online": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "upesmet-ug": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "upespat-exam-test-centre-based": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "upespat-test-online": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "upsc-cds": {
+  "eligible_in": "All India",
+  "run_by": "Public"
+ },
+ "uuhf-uet": {
+  "eligible_in": "Uttarakhand",
+  "run_by": "Public"
+ },
+ "viteee": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "vsat": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "wb-jenpas-ug": {
+  "eligible_in": "West Bengal",
+  "run_by": "Public"
+ },
+ "wbjee": {
+  "eligible_in": "West Bengal",
+  "run_by": "Public"
+ },
+ "wwi-et": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "xet": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "idat": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ },
+ "imat-iiad-management-aptitude-test-delhi": {
+  "eligible_in": "All India",
+  "run_by": "Private"
+ }
+}
