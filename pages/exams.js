@@ -18,6 +18,7 @@ import { rememberList, rememberTyped, wasTyped } from "../utils/listReturn";
 import { markForward } from "../utils/navHistory";
 import { matchesQuery, plainText } from "../utils/search";
 import useUrlParams from "../utils/useUrlParams";
+import { useStudentProfile } from "../utils/portalSession";
 import { loadCareers } from "../components/careerShared";
 
 // The shared searchable dropdown — same component as every other page.
@@ -227,6 +228,17 @@ export default function Exams() {
   const setStream = (v) => setParam("stream", v);
   const setWhere = (v) => setParam("where", v);
   const setRunby = (v) => setParam("runby", v);
+  // a signed-in student arriving with no filters starts in their home
+  // state. Once per visit, so picking "All states" sticks.
+  const student = useStudentProfile();
+  const prefilled = useRef(false);
+  useEffect(() => {
+    if (prefilled.current || !urlReady || !student) return;
+    prefilled.current = true;
+    if (Object.keys(router.query).length) return;
+    if (STATES.includes(student.state)) setWhere(student.state);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [urlReady, student]);
   // sort=deadline / sort=-deadline
   const sort = useMemo(
     () =>
@@ -301,10 +313,14 @@ export default function Exams() {
       (e.aliases || []).some((a) => plainText(a) === plainText(raw));
     if (raw) out = [...out].sort((a, b) => exact(b) - exact(a));
     if (sort.col) {
+      // months from this one on: the cycle wraps (forms open Oct-Jan, tests
+      // run Jan-Jul), so the top of the list is what comes next
+      const now = new Date().getMonth() + 1;
+      const fromNow = (n) => (n ? (n - now + 12) % 12 : Infinity);
       const key =
         sort.col === "apply"
-          ? (e) => e.apply_month_n ?? Infinity
-          : (e) => e.test_month_n ?? Infinity;
+          ? (e) => fromNow(e.apply_month_n)
+          : (e) => fromNow(e.test_month_n);
       out = [...out].sort((a, b) =>
         sort.dir === "asc" ? key(a) - key(b) : key(b) - key(a)
       );
@@ -322,7 +338,17 @@ export default function Exams() {
     }),
     [filtered, where]
   );
-  const rows = where ? views[view] : filtered;
+  // a search that matches only in the other view opens that one
+  const other = view === "state" ? "india" : "state";
+  const shownView =
+    q.trim() && !views[view].length && views[other].length ? other : view;
+  const rows = where ? views[shownView] : filtered;
+  // a search that matches only other states' exams, which a home state
+  // leaves out (MHT CET with Karnataka picked)
+  const elsewhere =
+    where && q.trim()
+      ? filtered.length - views.india.length - views.state.length
+      : 0;
 
   // A link that names one exam (a college's exam chip: /exams?q=JEE Advanced)
   // or an older ?open= link goes straight to that exam's page: the query
@@ -369,9 +395,15 @@ export default function Exams() {
   }, [urlReady, router.asPath, all.length]);
 
   // a new filter starts each list at its first page
-  const listKey = [q, stream, where, view, runby, params.sort, career].join(
-    "|"
-  );
+  const listKey = [
+    q,
+    stream,
+    where,
+    shownView,
+    runby,
+    params.sort,
+    career,
+  ].join("|");
 
   return (
     <>
@@ -431,10 +463,13 @@ export default function Exams() {
             </div>
             <div>
               <Dropdown
-                options={STATES.map((w) => ({ value: w, label: w }))}
+                options={[
+                  { value: "All", label: "All states" },
+                  ...STATES.map((w) => ({ value: w, label: w })),
+                ]}
                 selectedValue={where || null}
                 placeholder="Select your home state"
-                onChange={(o) => setWhere(o.value)}
+                onChange={(o) => setWhere(o.value === "All" ? "" : o.value)}
                 className="w-full"
                 hideValueWhileSearching
               />
@@ -494,10 +529,10 @@ export default function Exams() {
                       key={key}
                       type="button"
                       role="tab"
-                      aria-selected={view === key}
+                      aria-selected={shownView === key}
                       onClick={() => setParam("view", key)}
                       className={`rounded-lg px-4 py-2 text-sm font-bold transition ${
-                        view === key
+                        shownView === key
                           ? "bg-white text-[#8f2e31] shadow-sm"
                           : "text-[#6d5550] hover:text-[#8f2e31]"
                       }`}
@@ -517,7 +552,7 @@ export default function Exams() {
               )}
               {where ? (
                 <p className="mt-3 text-sm text-[#6d5550]">
-                  {view === "state"
+                  {shownView === "state"
                     ? `Only for students from ${where}.`
                     : "Open to students from every state."}
                 </p>
@@ -535,16 +570,29 @@ export default function Exams() {
               {rows.length === 0 ? (
                 <div className="py-10 text-center">
                   <p className="text-sm text-[#6d5550]">
-                    {view === "state" && views.india.length
+                    {elsewhere
+                      ? `${elsewhere} ${
+                          elsewhere === 1 ? "exam" : "exams"
+                        } for other states' students match.`
+                      : shownView === "state" && views.india.length
                       ? `No ${where} exams match. Its colleges may admit through All India exams, or on Class 12 marks.`
                       : "No exams match."}
                   </p>
-                  {stream !== "All" || runby !== "All" ? (
+                  {elsewhere ? (
+                    <button
+                      type="button"
+                      onClick={() => setWhere("")}
+                      className="mt-3 rounded-full border border-[#e3d1cb] bg-white px-4 py-2 text-sm font-semibold text-[#8f2e31] transition hover:bg-[#f8efec]"
+                    >
+                      Show all states
+                    </button>
+                  ) : stream !== "All" || runby !== "All" || where ? (
                     <button
                       type="button"
                       onClick={() => {
                         setStream("All");
                         setRunby("All");
+                        setWhere("");
                       }}
                       className="mt-3 rounded-full border border-[#e3d1cb] bg-white px-4 py-2 text-sm font-semibold text-[#8f2e31] transition hover:bg-[#f8efec]"
                     >
