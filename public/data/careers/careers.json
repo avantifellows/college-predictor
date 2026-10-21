@@ -434,7 +434,30 @@
    }
   ],
   "exam_ids": [
-   "cuet-ug"
+   "cuet-ug",
+   "agricet",
+   "amu-et",
+   "ap-eapcet-am-category",
+   "bcece",
+   "cetug-aau",
+   "cg-pat",
+   "cg-pet",
+   "gbpuat-cee",
+   "hau-aat",
+   "hau-et",
+   "hau-et-haryana-agriculture-university-community-sc-entrance-test-haryana",
+   "jcece-agriculture-allied",
+   "mp-pat",
+   "mp-pv-ft",
+   "ouat",
+   "pau-cet",
+   "pu-cet",
+   "rjet",
+   "skuast-j-cet",
+   "skuast-k-cet",
+   "soetap-ug",
+   "up-catet",
+   "uuhf-uet"
   ],
   "pay": {
    "start": "\u20b93-6 LPA",
@@ -784,7 +807,12 @@
    "mht-cet",
    "ojee",
    "wbjee",
-   "nata"
+   "nata",
+   "aat",
+   "amu-aat",
+   "comedk-uget",
+   "jee-main-paper-2a",
+   "kiit-ee"
   ],
   "pay": {
    "start": "\u20b93-6 LPA",
@@ -998,7 +1026,34 @@
    }
   ],
   "exam_ids": [
-   "cuet-ug"
+   "cuet-ug",
+   "aat-ashoka-aptitude-test-ashoka-university",
+   "acet",
+   "amu-et",
+   "apu-et",
+   "ba-cet-184",
+   "cuet",
+   "feat",
+   "idss-oee",
+   "jcat",
+   "jmi-et",
+   "jsat",
+   "kalsee",
+   "kiit-ee",
+   "krea-ap",
+   "kuat",
+   "mitwpu-as",
+   "msu-et",
+   "nmims-npat",
+   "pdeu-at",
+   "pwc-et",
+   "set-general",
+   "snusat",
+   "sppu-oee",
+   "sssihl-ugt",
+   "tslas-ot",
+   "ug-jet",
+   "vsat"
   ],
   "pay": {
    "start": "\u20b92.5-5 LPA",
@@ -2126,7 +2181,17 @@
    "tg-eapcet-am",
    "tg-eapcet-e",
    "wbjee",
-   "bitsat"
+   "bitsat",
+   "btech-bt-cet-130",
+   "bv-abop",
+   "bv-abop-cet",
+   "kiit-ee",
+   "met",
+   "mitwpu-cet",
+   "pu-cet",
+   "sppu-oee",
+   "srmjeee-ug",
+   "viteee"
   ],
   "pay": {
    "start": "\u20b93.5-6 LPA",
@@ -2456,7 +2521,28 @@
    "jipmat",
    "nmims-npat",
    "bba-cet-125",
-   "set-general"
+   "set-general",
+   "bu-mat",
+   "cuet",
+   "ipm-at-indore-ranchi",
+   "ipm-at-rohtak",
+   "jmi-et",
+   "jsat",
+   "kalsee",
+   "kiit-ee",
+   "krea-ap",
+   "kuat",
+   "met",
+   "mitwpu-cet",
+   "msu-et",
+   "pwc-et",
+   "snusat",
+   "sssihl-ugt",
+   "ug-jet",
+   "ugat",
+   "upesmet-ug",
+   "xet",
+   "imat-iiad-management-aptitude-test-delhi"
   ],
   "pay": {
    "start": "\u20b98-20 LPA",
@@ -2831,7 +2917,22 @@
   "impact": "Every big Indian company, from Tata to a local textile business, needs a Chartered Accountant to make sure its money records are honest and legal before they are shown to investors or the government. Without CAs, companies could hide losses or dodge taxes, so CAs act like referees for business honesty.",
   "entry_exams_text": "CA Foundation, Intermediate, and Final exams conducted by ICAI (Institute of Chartered Accountants of India, the official body that trains and licenses accountants in India). There is no college degree needed first \u2014 you can register for CA Foundation right after Class 12 and study through ICAI's own multi-year program.",
   "exams": null,
-  "exam_ids": null,
+  "exam_ids": [
+   "amu-et",
+   "b-com-cet-146",
+   "cuet",
+   "cuet-ug",
+   "jmi-et",
+   "jsat",
+   "kalsee",
+   "kuat",
+   "mitwpu-cet",
+   "nmims-npat",
+   "pwc-et",
+   "sssihl-ugt",
+   "ug-jet",
+   "ugat"
+  ],
   "pay": {
    "start": "\u20b96-9 LPA",
    "mid": "\u20b915-25 LPA",
@@ -3128,7 +3229,16 @@
    "bitsat",
    "jee-main-paper-1",
    "jee-advanced",
-   "ojee"
+   "ojee",
+   "apu-et",
+   "cmi-ee",
+   "iat",
+   "idss-oee",
+   "isi-at",
+   "nest",
+   "pu-cet",
+   "set-general",
+   "snusat"
   ],
   "pay": {
    "start": "\u20b93-6 LPA",
@@ -3369,7 +3479,17 @@
    "ojee",
    "tg-eapcet-am",
    "tg-eapcet-e",
-   "wbjee"
+   "wbjee",
+   "bv-btech-cet",
+   "cg-pet",
+   "nmims-cet",
+   "pau-cet",
+   "siteee",
+   "snusat-apt",
+   "sru-aiee",
+   "upeseat-exam-test-centre-based",
+   "upeseat-test-online",
+   "viteee"
   ],
   "pay": {
    "start": "\u20b93.5-6 LPA",
@@ -3454,7 +3574,10 @@
    }
   ],
   "exam_ids": [
-   "cuet-ug"
+   "cuet-ug",
+   "b-com-cet-146",
+   "jsat",
+   "ugat"
   ],
   "pay": {
    "start": "\u20b93-5 LPA",
@@ -3678,7 +3801,25 @@
    "ojee",
    "tg-eapcet-am",
    "tg-eapcet-e",
-   "wbjee"
+   "wbjee",
+   "amu-et",
+   "bv-btech-cet",
+   "cg-pet",
+   "comedk-uget",
+   "cuet",
+   "kalsee",
+   "met",
+   "mitwpu-cet",
+   "nmims-cet",
+   "pau-cet",
+   "siteee",
+   "snusat-apt",
+   "sppu-oee",
+   "srmjeee-ug",
+   "sru-aiee",
+   "upeseat-exam-test-centre-based",
+   "upeseat-test-online",
+   "viteee"
   ],
   "pay": {
    "start": "\u20b95-12 LPA",
@@ -4473,7 +4614,33 @@
    "mht-cet",
    "ojee",
    "uceed",
-   "dat-mains"
+   "dat-mains",
+   "anantu-det",
+   "dat-prelims",
+   "dt-mahe",
+   "design-cet-600",
+   "fddi-aist",
+   "gat-cat",
+   "iicd-et",
+   "isdi-challenge",
+   "jet-de",
+   "kiit-ee",
+   "mah-b-design-cet",
+   "mh-aac-cet",
+   "mitid-dat",
+   "mitwpu-ug-dat",
+   "msu-et",
+   "niift-caft",
+   "nmims-dat",
+   "seed",
+   "smeat-ug",
+   "snioe-dat",
+   "soft-et",
+   "ug-jet",
+   "uid-dat",
+   "upesdat",
+   "wwi-et",
+   "idat"
   ],
   "pay": {
    "start": "\u20b94-8 LPA",
@@ -4649,7 +4816,19 @@
    "bitsat",
    "jee-main-paper-1",
    "jee-advanced",
-   "isi-at"
+   "isi-at",
+   "aat-ashoka-aptitude-test-ashoka-university",
+   "apu-et",
+   "ba-cet-197",
+   "cuet",
+   "jsat",
+   "mitwpu-cet",
+   "nmims-npat",
+   "pwc-et",
+   "set-general",
+   "snusat",
+   "sssihl-ugt",
+   "ug-jet"
   ],
   "pay": {
    "start": "\u20b94-8 LPA",
@@ -4787,7 +4966,19 @@
    "ojee",
    "tg-eapcet-am",
    "tg-eapcet-e",
-   "wbjee"
+   "wbjee",
+   "bv-btech-cet",
+   "cg-pet",
+   "comedk-uget",
+   "nmims-cet",
+   "pau-cet",
+   "siteee",
+   "snusat-apt",
+   "srmjeee-ug",
+   "sru-aiee",
+   "upeseat-exam-test-centre-based",
+   "upeseat-test-online",
+   "viteee"
   ],
   "pay": {
    "start": "\u20b93.5-6.5 LPA",
@@ -6632,7 +6823,8 @@
    }
   ],
   "exam_ids": [
-   "cuet-ug"
+   "cuet-ug",
+   "uget"
   ],
   "pay": {
    "start": "\u20b93-5 LPA",
@@ -6698,7 +6890,20 @@
   ],
   "exam_ids": [
    "cuet-ug",
-   "jee-advanced"
+   "jee-advanced",
+   "aihmct-cbt",
+   "bhmct-cet-127",
+   "bu-mat",
+   "dt-mahe",
+   "eat",
+   "ihm-a",
+   "jmi-et",
+   "mah-bhmct-cet",
+   "nchm-jee",
+   "nmims-npat",
+   "sppu-oee",
+   "step",
+   "ugat"
   ],
   "pay": {
    "start": "\u20b93-5 LPA",
@@ -6906,7 +7111,15 @@
   "exam_ids": [
    "nda",
    "upsc-cds",
-   "afcat"
+   "afcat",
+   "agniveer-army",
+   "agniveer-navy-ssr-mr",
+   "agniveer-vayu",
+   "indian-army-ncc-special-entry-scheme",
+   "indian-army-tes",
+   "indian-army-tgc-ssc-tech",
+   "indian-navy-10-2-b-tech-cadet-entry-scheme",
+   "indian-navy-ssc-officer-entries"
   ],
   "pay": {
    "start": "\u20b910-14 LPA (including salary, Military Service Pay, flying allowance for pilots, and other allowances)",
@@ -7076,7 +7289,13 @@
    "upsc-cds",
    "indian-army-tes",
    "indian-army-tgc-ssc-tech",
-   "indian-army-ncc-special-entry-scheme"
+   "indian-army-ncc-special-entry-scheme",
+   "afcat",
+   "agniveer-army",
+   "agniveer-navy-ssr-mr",
+   "agniveer-vayu",
+   "indian-navy-10-2-b-tech-cadet-entry-scheme",
+   "indian-navy-ssc-officer-entries"
   ],
   "pay": {
    "start": "\u20b910-14 LPA (including salary, Military Service Pay and allowances)",
@@ -7170,7 +7389,14 @@
    "nda",
    "upsc-cds",
    "indian-navy-10-2-b-tech-cadet-entry-scheme",
-   "indian-navy-ssc-officer-entries"
+   "indian-navy-ssc-officer-entries",
+   "afcat",
+   "agniveer-army",
+   "agniveer-navy-ssr-mr",
+   "agniveer-vayu",
+   "indian-army-ncc-special-entry-scheme",
+   "indian-army-tes",
+   "indian-army-tgc-ssc-tech"
   ],
   "pay": {
    "start": "\u20b910-14 LPA (including salary, Military Service Pay and allowances, plus sea pay)",
@@ -8073,7 +8299,26 @@
   ],
   "exam_ids": [
    "cuet-ug",
-   "clat"
+   "clat",
+   "ail-let",
+   "ailet",
+   "amu-et",
+   "bv-lawug-cet",
+   "cee-llb",
+   "ipl-at-rohtak",
+   "jmi-et",
+   "kalsee",
+   "kuat",
+   "mah-llb-3-yrs-cet",
+   "mah-llb-5-yrs-cet",
+   "msu-et",
+   "nmims-lat",
+   "pu-llb-cet",
+   "pu-5-year-llb-et",
+   "rulet",
+   "slat",
+   "srmjee-l-ug",
+   "ulsat"
   ],
   "pay": {
    "start": "\u20b94-10 LPA",
@@ -8653,7 +8898,12 @@
    "jee-main-paper-1",
    "jee-advanced",
    "isi-at",
-   "cmi-ee"
+   "cmi-ee",
+   "apu-et",
+   "iat",
+   "idss-oee",
+   "nest",
+   "pu-cet"
   ],
   "pay": {
    "start": "\u20b94-8 LPA",
@@ -8889,7 +9139,20 @@
    "ojee",
    "tg-eapcet-am",
    "tg-eapcet-e",
-   "wbjee"
+   "wbjee",
+   "bv-btech-cet",
+   "cg-pet",
+   "comedk-uget",
+   "nmims-cet",
+   "pau-cet",
+   "siteee",
+   "snusat-apt",
+   "sppu-oee",
+   "srmjeee-ug",
+   "sru-aiee",
+   "upeseat-exam-test-centre-based",
+   "upeseat-test-online",
+   "viteee"
   ],
   "pay": {
    "start": "\u20b94-9 LPA",
@@ -9886,7 +10149,15 @@
   ],
   "exam_ids": [
    "aiims-ee",
-   "neet-ug"
+   "neet-ug",
+   "bv-b-sc-nursing-cet",
+   "jcece-nursing",
+   "met",
+   "mh-b-sc-nursing-cet",
+   "pgimer-ee",
+   "soetap-ug",
+   "srmjeeh-ug",
+   "wb-jenpas-ug"
   ],
   "pay": {
    "start": "\u20b92.5-4.5 LPA",
@@ -10730,7 +11001,14 @@
    "jee-main-paper-1",
    "jee-advanced",
    "mht-cet",
-   "wbjee"
+   "wbjee",
+   "bv-pharm-ug-cet",
+   "comedk-uget",
+   "met",
+   "nmims-cet",
+   "pharma-cet-133",
+   "upespat-exam-test-centre-based",
+   "upespat-test-online"
   ],
   "pay": {
    "start": "\u20b92.5-5 LPA",
@@ -10974,7 +11252,19 @@
    "bitsat",
    "jee-main-paper-1",
    "jee-advanced",
-   "ojee"
+   "ojee",
+   "apu-et",
+   "cmi-ee",
+   "iat",
+   "idss-oee",
+   "isi-at",
+   "msu-et",
+   "nest",
+   "pu-cet",
+   "pwc-et",
+   "set-general",
+   "snusat",
+   "sssihl-ugt"
   ],
   "pay": {
    "start": "\u20b94-8 LPA",
@@ -11156,7 +11446,9 @@
    "ojee",
    "tg-eapcet-am",
    "tg-eapcet-e",
-   "wbjee"
+   "wbjee",
+   "jee-main-paper-2b",
+   "mah-b-planning-cet"
   ],
   "pay": {
    "start": "\u20b94-7 LPA",
@@ -11515,7 +11807,9 @@
    }
   ],
   "exam_ids": [
-   "cuet-ug"
+   "cuet-ug",
+   "kuat",
+   "srmjeee-ug"
   ],
   "pay": {
    "start": "\u20b93-5 LPA",

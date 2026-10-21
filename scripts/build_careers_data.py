@@ -533,6 +533,13 @@ def plain_text(x):
     return re.sub(r"[^a-z0-9]+", " ", x).strip()
 
 
+def leads_here(ids, cid, exam_cards):
+    """A career's chip exams, then every exam whose own page says it leads
+    here (its "careers"), so the two directions agree."""
+    return ids + [c["exam_id"] for c in exam_cards if c["exam_id"] not in ids
+                  and any(k["slug"] == cid for k in c.get("careers") or [])]
+
+
 def exam_ids_for(chips, exam_cards):
     """The exam cards a career's chips point at, for the Exams tab's
     ?career= filter. A chip names an exam by page (/exams/<id>), by search
@@ -704,8 +711,11 @@ def main():
             "impact": str(r["Real-World Impact"]).strip() if pd.notna(r["Real-World Impact"]) else None,
             "entry_exams_text": str(r["Entry Exams"]).strip() if pd.notna(r["Entry Exams"]) else None,
             "exams": exams or None,
-            # the exam cards those chips name: the Exams tab's ?career= list
-            "exam_ids": exam_ids_for(exams, exam_cards) or None,
+            # the exam cards those chips name, plus every exam whose own
+            # page says it leads here: the Exams tab's ?career= list, so an
+            # exam's "Leads to" and the career's exam list agree
+            "exam_ids": leads_here(exam_ids_for(exams, exam_cards), cid,
+                                   exam_cards) or None,
             # each college carries the tab's display name as q when it
             # exists there, so 'IIT Delhi' becomes a working link
             "top_colleges": [{"name": n, "q": tab_link(n)}
