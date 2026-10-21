@@ -20,6 +20,10 @@ import {
   nirfListLabel,
 } from "./collegeShared";
 
+// counsellings with no exam page (TNEA admits on Class 12 marks): their chip
+// goes to the predictor instead of an empty exam search
+const EXAM_CHIP_HREF = { TNEA: "/predictor?exam=TNEA" };
+
 // What a college page shows (pages/colleges/[slug].js loads the data):
 // who it is, a row of fact cards, then exams, programmes, placements,
 // rankings and fees. Pure, so scripts/check-pages can render every college.
@@ -149,7 +153,9 @@ export default function CollegeView({ c, back = "/colleges", backSlot }) {
               {c.entrance_exams.map((e) => (
                 <Link
                   key={e}
-                  href={`/exams?q=${encodeURIComponent(e)}`}
+                  href={
+                    EXAM_CHIP_HREF[e] || `/exams?q=${encodeURIComponent(e)}`
+                  }
                   className="rounded-full border border-[#e3d1cb] bg-[#fffdfa] px-3 py-1 text-sm font-semibold text-[#5b3a34] transition hover:border-[#8f2e31] hover:text-[#8f2e31]"
                 >
                   {e}

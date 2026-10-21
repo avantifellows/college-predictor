@@ -343,6 +343,13 @@ export default function Exams() {
   const shownView =
     q.trim() && !views[view].length && views[other].length ? other : view;
   const rows = where ? views[shownView] : filtered;
+  // a career whose exams the other filters all hide (Aerospace + Private
+  // only): say so and offer them back, not a bare "No exams match"
+  const careerName = careerInfo?.name || career.replace(/-/g, " ");
+  const careerHidden =
+    career && careerExams?.size && !filtered.length ? careerExams.size : 0;
+  // a career no listed exam leads to: its note says how people get in
+  const noCareerExams = !!(careerExams && careerExams.size === 0);
   // a search that matches only other states' exams, which a home state
   // leaves out (MHT CET with Karnataka picked)
   const elsewhere =
@@ -503,8 +510,7 @@ export default function Exams() {
                     onClick={() => setParam("career", "")}
                     className="inline-flex items-center gap-2 rounded-full bg-[#fbeeec] px-3 py-1 text-sm font-semibold text-[#8f2e31]"
                   >
-                    Lead to {careerInfo?.name || career.replace(/-/g, " ")}{" "}
-                    <span aria-hidden>×</span>
+                    Lead to {careerName} <span aria-hidden>×</span>
                   </button>
                   {careerExams && careerExams.size === 0 ? (
                     <p className="mt-3 rounded-xl border border-[#eaded8] bg-[#fffdfa] px-4 py-3 text-sm leading-6 text-[#5c4b46]">
@@ -544,7 +550,7 @@ export default function Exams() {
                     </button>
                   ))}
                 </div>
-              ) : (
+              ) : noCareerExams ? null : (
                 <p className="mt-6 text-sm text-[#6d5550]">
                   Select your home state to see the All India exams and your
                   state&apos;s own exams separately.
@@ -567,10 +573,14 @@ export default function Exams() {
                   onOpen={(e) => router.push(`/exams/${e.exam_id}`)}
                 />
               ) : null}
-              {rows.length === 0 ? (
+              {rows.length === 0 && !noCareerExams ? (
                 <div className="py-10 text-center">
                   <p className="text-sm text-[#6d5550]">
-                    {elsewhere
+                    {careerHidden
+                      ? `None of the ${careerHidden} ${
+                          careerHidden === 1 ? "exam" : "exams"
+                        } that lead to ${careerName} match these filters.`
+                      : elsewhere
                       ? `${elsewhere} ${
                           elsewhere === 1 ? "exam" : "exams"
                         } for other states' students match.`
@@ -578,7 +588,20 @@ export default function Exams() {
                       ? `No ${where} exams match. Its colleges may admit through All India exams, or on Class 12 marks.`
                       : "No exams match."}
                   </p>
-                  {elsewhere ? (
+                  {careerHidden ? (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setParam("q", "");
+                        setStream("All");
+                        setRunby("All");
+                        setWhere("");
+                      }}
+                      className="mt-3 rounded-full border border-[#e3d1cb] bg-white px-4 py-2 text-sm font-semibold text-[#8f2e31] transition hover:bg-[#f8efec]"
+                    >
+                      Show all {careerHidden}
+                    </button>
+                  ) : elsewhere ? (
                     <button
                       type="button"
                       onClick={() => setWhere("")}
