@@ -348,6 +348,17 @@ export default function Exams() {
   const careerName = careerInfo?.name || career.replace(/-/g, " ");
   const careerHidden =
     career && careerExams?.size && !filtered.length ? careerExams.size : 0;
+  // name what hides them: Private only on a career whose exams are all
+  // public says so, and its button lifts just that filter
+  const careerRunBy = careerHidden
+    ? Array.from(
+        new Set(
+          all.filter((e) => careerExams.has(e.exam_id)).map((e) => e.run_by)
+        )
+      )
+    : [];
+  const hiddenByRunBy =
+    runby !== "All" && careerRunBy.length === 1 && careerRunBy[0] !== runby;
   // a career no listed exam leads to: its note says how people get in
   const noCareerExams = !!(careerExams && careerExams.size === 0);
   // a search that matches only other states' exams, which a home state
@@ -576,10 +587,16 @@ export default function Exams() {
               {rows.length === 0 && !noCareerExams ? (
                 <div className="py-10 text-center">
                   <p className="text-sm text-[#6d5550]">
-                    {careerHidden
-                      ? `None of the ${careerHidden} ${
-                          careerHidden === 1 ? "exam" : "exams"
-                        } that lead to ${careerName} match these filters.`
+                    {hiddenByRunBy
+                      ? `${
+                          careerHidden === 1
+                            ? "The 1 exam"
+                            : `All ${careerHidden} exams`
+                        } that lead to ${careerName} ${
+                          careerHidden === 1 ? "is" : "are"
+                        } ${careerRunBy[0].toLowerCase()}.`
+                      : careerHidden
+                      ? `Your filters hide all ${careerHidden} exams that lead to ${careerName}.`
                       : elsewhere
                       ? `${elsewhere} ${
                           elsewhere === 1 ? "exam" : "exams"
@@ -588,7 +605,15 @@ export default function Exams() {
                       ? `No ${where} exams match. Its colleges may admit through All India exams, or on Class 12 marks.`
                       : "No exams match."}
                   </p>
-                  {careerHidden ? (
+                  {hiddenByRunBy ? (
+                    <button
+                      type="button"
+                      onClick={() => setRunby("All")}
+                      className="mt-3 rounded-full border border-[#e3d1cb] bg-white px-4 py-2 text-sm font-semibold text-[#8f2e31] transition hover:bg-[#f8efec]"
+                    >
+                      Show {careerRunBy[0].toLowerCase()} exams
+                    </button>
+                  ) : careerHidden ? (
                     <button
                       type="button"
                       onClick={() => {
@@ -599,7 +624,7 @@ export default function Exams() {
                       }}
                       className="mt-3 rounded-full border border-[#e3d1cb] bg-white px-4 py-2 text-sm font-semibold text-[#8f2e31] transition hover:bg-[#f8efec]"
                     >
-                      Show all {careerHidden}
+                      Clear filters
                     </button>
                   ) : elsewhere ? (
                     <button
