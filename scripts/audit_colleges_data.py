@@ -40,20 +40,23 @@ def main() -> int:
     for c in rows:
         nirf, place, prog = c["nirf"], c["placement"], c["programs"]
         medical = (c["counselling"] or "").startswith("MCC")
-        mhtcet = not medical and c["counselling"] != "JoSAA"  # every state spine + CLAT
+        # Gujarat's dental / AYUSH (NEET) and nursing & allied (Class 12
+        # marks, no exam) institute lists: annual seats, no ranks
+        acpmec = c["counselling"] == "ACPMEC (Gujarat)"
+        mhtcet = not medical and not acpmec and c["counselling"] != "JoSAA"  # every state spine + CLAT
 
         # identity
         chk(c["college_id"], "missing college_id", c)
         chk(c["display_name"].strip(), "empty display_name", c)
-        chk(c["entrance_exams"], "no entrance exam", c)
+        chk(c["entrance_exams"] or acpmec, "no entrance exam", c)
         # AIIMS-EE: the AIIMS cards also carry B.Sc. (Hons.) Nursing
-        chk(all(e in (("NEET-UG", "AIIMS-EE") if medical else ("JEE Main", "JEE Advanced"))
+        chk(all(e in (("NEET-UG", "AIIMS-EE") if medical or acpmec else ("JEE Main", "JEE Advanced"))
                 for e in c["entrance_exams"]) or mhtcet,
             "unexpected entrance exam", c, str(c["entrance_exams"]))
         # a JoSAA row may lack an AISHE code (crosswalk gap) but then the
         # state, if we have one, must be flagged as inferred. Medical rows
         # carry their state from NMC itself — never inferred.
-        if c.get("state") and not c["aishe_code"] and not medical and not mhtcet:
+        if c.get("state") and not c["aishe_code"] and not medical and not mhtcet and not acpmec:
             chk(c.get("state_is_inferred"), "unflagged inferred state", c)
         chk(not (c.get("state_is_inferred") and c["aishe_code"]),
             "inferred flag on an AISHE-matched row", c)
@@ -98,11 +101,12 @@ def main() -> int:
         # a programme on its own rank scale (AIIMS nursing on an MBBS card)
         # names it in rank_label; the rules below are about the card's column
         ranks = [p["indicative_closing_rank"] for p in prog["list"] if not p.get("rank_label")]
-        if medical:
+        if medical or acpmec:
             # medical rows carry NMC seats instead of a JoSAA closing rank
             chk(all(r is None for r in ranks), "medical row with a JoSAA rank", c)
             # 0 is a real figure — NMC lists suspended-intake colleges
-            chk(any(p.get("seats") is not None for p in prog["list"]),
+            # (the Gujarat lists leave a few intake cells blank)
+            chk(any(p.get("seats") is not None for p in prog["list"]) or acpmec,
                 "medical row without seats", c)
         elif not mhtcet:
             # a few CET pharmacy colleges publish no open-category row at all

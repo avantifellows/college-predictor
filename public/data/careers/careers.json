@@ -1434,7 +1434,7 @@
    ]
   },
   "college_ids": null,
-  "has_colleges": false
+  "has_colleges": true
  },
  {
   "career_id": "biochemical-engineering",
@@ -6795,8 +6795,10 @@
     37.5
    ]
   },
-  "college_ids": null,
-  "has_colleges": false
+  "college_ids": [
+   "acpmec:jawaharlal nehru homoeopathic medical college post limda dis"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "horticulture",
@@ -9947,7 +9949,7 @@
    ]
   },
   "college_ids": null,
-  "has_colleges": false
+  "has_colleges": true
  },
  {
   "career_id": "nautical-science",
@@ -10275,7 +10277,7 @@
    ]
   },
   "college_ids": null,
-  "has_colleges": false
+  "has_colleges": true
  },
  {
   "career_id": "oil-paints-dye-technology",
@@ -11781,7 +11783,7 @@
    ]
   },
   "college_ids": null,
-  "has_colleges": false
+  "has_colleges": true
  },
  {
   "career_id": "psychology",

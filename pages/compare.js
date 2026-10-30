@@ -217,6 +217,12 @@ const matchBranchIdx = (college, programName) => {
       idx = hits[0].i;
     }
   }
+  // the predictor's spelling without the card's punctuation ("Bpharm" is
+  // the card's "B.Pharm")
+  if (idx < 0) {
+    const bare = (t) => slugify(t).replace(/-/g, "");
+    idx = list.findIndex((p) => bare(p.branch) === bare(base));
+  }
   return idx >= 0 ? String(idx) : null;
 };
 
@@ -240,9 +246,11 @@ export default function Compare() {
           // any spine whose branches carry a closing rank; medical rows
           // (NMC seats, no rank) stay out
           // DU and ICAR publish CUET scores, not ranks — nothing to line up
+          // Gujarat's ACPMEC lists carry seats, not ranks
           rows.filter(
             (c) =>
               !String(c.counselling).startsWith("MCC") &&
+              !String(c.counselling).startsWith("ACPMEC") &&
               !String(c.counselling).startsWith("DU ") &&
               !String(c.counselling).startsWith("ICAR-UG")
           )

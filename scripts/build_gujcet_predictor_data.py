@@ -152,6 +152,19 @@ def enrich_from_colleges(records: list[dict]) -> None:
             r["Avg Placement"] = pl["percentage_with_outcome"]
     print(f"  enriched {len(hit)} colleges from the Colleges tab "
           f"({sum(1 for r in records if r.get('District'))} rows with a district)")
+    # `card`: the row's name is a card's own name or one of its spellings
+    # (aka), so the results page links it (/colleges?q=<name> opens that
+    # card). Rows without one show no link rather than a dead one.
+    plain = lambda t: "".join(ch for ch in str(t).lower() if ch.isalnum())
+    names = {plain(n) for c in colleges for n in [c["display_name"], *c.get("aka", [])]}
+    for r in records:
+        r.pop("card", None)
+        if plain(r.get("College Name")) in names:
+            r["card"] = True
+    by = {}
+    for r in records:
+        by.setdefault(r["Program"], [0, 0])[0 if r.get("card") else 1] += 1
+    print("  rows that link to a card (linked, not):", by)
 
 
 def main() -> None:
