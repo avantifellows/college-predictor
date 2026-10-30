@@ -45,6 +45,8 @@ const SEARCH_ALIASES = {
   collegefees: "fees hostel mess tuition cost josaa kcet",
   nirf: "ranking rankings placement",
   nmc: "mbbs medical seats",
+  acpmec:
+    "gujarat nursing physiotherapy paramedical optometry dental bds ayurveda bams homoeopathy bhms",
   moe: "board results class 10 12 cbse",
 };
 

@@ -559,15 +559,19 @@ const PredictedCollegesTable = ({
   };
   // KCET's predictor also covers medical/dental/ayurveda seats, which live on
   // the tab under NEET, not KEA — no dead links for those rows
-  // GUJCET's medical/pharmacy rows are nursing, physiotherapy and pharmacy
-  // colleges the tab doesn't carry: its engineering rows only
+  // GUJCET rows say themselves whether a card carries their name (`card`,
+  // set by scripts/build_gujcet_predictor_data.py)
   const canLinkRow = (t) =>
     exam === "GUJCET"
-      ? String(t["Program"] || "Engineering") === "Engineering"
+      ? !!t.card
       : exam !== "KCET" ||
         /engineer|architect/i.test(String(t["Course Type"] || "Engineering"));
+  // GUJCET's medical rows link to seat-only cards, which /compare leaves out
   const compareIdOf = (t) =>
-    t["College ID"] || (canLinkRow(t) ? `n~${slugOf(linkNameOf(t))}` : null);
+    t["College ID"] ||
+    (canLinkRow(t) && !(exam === "GUJCET" && t["Program"] === "Medical")
+      ? `n~${slugOf(linkNameOf(t))}`
+      : null);
   const supportsSalarySort = isJosaaExam;
   const salaryColumnKey = "median_salary";
   const rankColumnKey = "closing_rank";

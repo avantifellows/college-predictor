@@ -837,9 +837,15 @@ STATE_SPECS = {
                    open_where="category = 'GEN' AND sub_pool = '' AND gender = 'All'",
                    label="GUJCET", counselling="ACPC (GUJCET)", map_exam="GUJCET",
                    state="Gujarat", source="ACPC {y}",
-                   # engineering colleges: Nirma's Institute of Technology must
-                   # not show the Pharmacy rank its university id also carries
-                   nirf_cats=["Engineering"],
+                   # engineering is ACPC 2025, pharmacy 2024 (the latest
+                   # closure with percentiles): a table-wide MAX(year) dropped
+                   # every pharmacy college
+                   year_by_stream=True,
+                   # each card shows its own list's rank: Nirma's Institute of
+                   # Technology must not show the Pharmacy rank its university
+                   # id also carries
+                   nirf_cats=["Engineering", "Pharmacy"],
+                   branch_labels={"Bpharm": "B.Pharm", "Dpharm": "D.Pharm"},
                    # NIRF band names ACPC spells differently (DA-IICT renamed
                    # itself Dhirubhai Ambani University in 2024)
                    band_pins={
@@ -888,6 +894,8 @@ def discipline_of_program(name, stream=None):
     st = str(stream or "").lower()
     if "law" in st or "ll.b" in n or "llb" in n:
         return "Law", "LL.B. (integrated)", 5
+    if re.match(r"d\.?\s*pharm", n):
+        return "Pharmacy", "D.Pharm", 2
     if "pharm" in n or st == "pharmacy":
         return "Pharmacy", "B.Pharm", 4
     if "arch" in n or st == "architecture":
@@ -921,6 +929,14 @@ def build_state_spines(client):
         # which have no Boys rows at all (see the fallback below)
         rank_expr = f"MAX(IF({gcol} = 'Boys', {rank}, NULL))" if gcol else f"MAX({rank})"
         girls_expr = f"MAX(IF({gcol} = 'Girls', {rank}, NULL))" if gcol else "NULL"
+        # the latest year, or each stream's own latest when streams publish
+        # on different cycles (Gujarat pharmacy trails engineering by a year)
+        if sp.get("year_by_stream"):
+            latest = (f"CONCAT({stream}, '|', CAST({sp['year']} AS STRING)) IN ("
+                      f"SELECT CONCAT({stream}, '|', CAST(MAX({sp['year']}) AS STRING)) "
+                      f"FROM {T} GROUP BY {stream})")
+        else:
+            latest = f"{sp['year']} = (SELECT MAX({sp['year']}) FROM {T})"
         q = f"""
         SELECT {sp['name']} AS college_name,
                CAST({code} AS STRING) AS college_code,
@@ -934,7 +950,7 @@ def build_state_spines(client):
                MAX({seats}) AS seats,
                MAX({sp['year']}) AS year
         FROM {T}
-        WHERE {sp['year']} = (SELECT MAX({sp['year']}) FROM {T})
+        WHERE {latest}
           AND ({sp['open_where']})
         GROUP BY 1, 2, 3, 4, 5, 6, 7
         """
@@ -947,7 +963,7 @@ def build_state_spines(client):
                ANY_VALUE(CAST({uni} AS STRING)) AS university,
                ANY_VALUE(CAST({stream} AS STRING)) AS stream,
                MAX({sp['year']}) AS year
-        FROM {T} WHERE {sp['year']} = (SELECT MAX({sp['year']}) FROM {T})
+        FROM {T} WHERE {latest}
           AND ({sp.get('all_where', 'TRUE')})
         GROUP BY 1, 2
         """
@@ -1102,7 +1118,11 @@ def _names_agree(college, aishe, district=None, state_districts=frozenset()):
     # Keeps GEC Bharuch = GEC BHARUCH and GMC Bharatpur = a bare GMC in
     # Bharatpur; rejects GEC Arasikere -> GEC Hassan, CE Thiruvananthapuram
     # -> CE Attingal, DDU's faculty -> MSU's.
-    if cc <= _GENERIC_WORDS:
+    # (a lone initial counts as generic: "B. Pharmacy College" is a degree,
+    # not a name, and AISHE has one in Rampura and one in Navalgadh; two
+    # initials are a name, "R. V. College of Engineering", "J. J. College")
+    initials = [w for w in _core_seq(college) if len(w) == 1]
+    if (cc - set(initials) if len(initials) == 1 else cc) <= _GENERIC_WORDS:
         seq = _mnorm(_clean_for_match(str(college))).split()
         first = next((w for w in seq if w not in cc and w not in _GENERIC_WORDS
                       and not w.isdigit()), None)
@@ -1145,6 +1165,9 @@ AISHE_ID_PINS = {
     "ap-eapcet:NRIA": "C-17942",   # NRI, Agiripalli (Krishna); NRIT is Perecherla (Guntur)
     "ap-eapcet:KIEK": None,        # KIET-II or KIET for Women: can't tell which
     "ap-eapcet:NRNG": None,        # Narayana Nellore or Gudur: can't tell which
+    "gujcet:b pharmacy college navalgadh": "C-432",  # AISHE: Avantika Education Trust B.Pharmacy College
+    "gujcet:sardar patel college pharmacy bakrol": "C-40",      # AISHE: "... PHARMACY COLLEGE, BAKROL 244"
+    "gujcet:smt s m shah pharmacy college amsaran kheda": "C-273",  # AISHE spells it "PHAMACY"
     "mhtcet:02538": "C-73704",     # AISHE prints the DTE code: "2538-Latur College of Pharmacy"
     "mhtcet:02553": "C-57752",     # Latur College of Pharmacy, Hasegaon
     "mhtcet:02539": None,          # Rajesh Bhaiyya Tope College of Pharmacy: AISHE has only the B.Pharmacy one
@@ -1703,6 +1726,57 @@ def merge_duplicate_cards(rows):
     print(f"  merged {len(drop)} duplicate card(s)")
 
 
+def shorten_names(rows):
+    """Last: a card whose list printed its address into the name ("AARYA
+    NURSING COLLEGE SURVEY NO. 335/1 ... ANJAR, DIST-KUTCH") shows the name
+    alone; the full text stays searchable (aka). Matching ran on the full
+    text, whose place words guard it. Two cards that would share a short
+    name keep their full ones."""
+    taken = collections.Counter((r["state"], plainname(r["display_name"])) for r in rows)
+    shorts = collections.Counter((r["state"], plainname(r["_short_name"]))
+                                 for r in rows if r.get("_short_name"))
+    n = 0
+    for r in rows:
+        s = r.pop("_short_name", None)
+        if not s:
+            continue
+        k = (r["state"], plainname(s))
+        if shorts[k] > 1 or taken[k]:
+            continue
+        r["aka"] = sorted(set(r.get("aka", [])) | {r["display_name"]})
+        r["name"] = r["display_name"] = s
+        n += 1
+    print(f"  names shown without their printed address: {n}")
+
+
+def plainname(t):
+    return re.sub(r"[^a-z0-9]", "", str(t).lower())
+
+
+def link_gujcet_mbbs(rows):
+    """The GUJCET predictor's MBBS rows print the committee's name and code
+    ("B. J. Medical College, Ahmedabad (AMED)"); the card is the NMC one
+    ("B. J. Medical College, Ahmedabad"). Matched by name among Gujarat's
+    MBBS cards, unique hits only; the predictor's name goes on the card's
+    aka so the result row's link opens it."""
+    legacy = sorted({x["College Name"] for x in json.load(open("public/data/GUJCET/GUJCET.json"))
+                     if x.get("Course") == "MBBS"})
+    base = {n: re.sub(r"\s*\([A-Z0-9-]{2,}\)", "", n).strip() for n in legacy}
+    cards = [r for r in rows if r["state"] == "Gujarat"
+             and any(p.get("degree") == "MBBS" for p in r["programs"]["list"])]
+    frame = pd.DataFrame({"institute_id": legacy, "institute_name": [base[n] for n in legacy]})
+    cand = pd.DataFrame({"college_code": [r["college_id"] for r in cards],
+                         "college_name": [r["display_name"] for r in cards]})
+    by_id = {r["college_id"]: r for r in cards}
+    hits = match_nirf_to_mhtcet(frame, cand)
+    for n, cid in sorted(hits.items()):
+        card = by_id[cid]
+        card["aka"] = sorted(set(card.get("aka", [])) | {n})
+        if os.environ.get("AISHE_LOG"):
+            print(f"    [mbbs] {n[:60]} -> {card['display_name'][:60]}")
+    print(f"  GUJCET MBBS names linked to cards: {len(hits)}/{len(legacy)}")
+
+
 def warn_shared_aishe(rows):
     """Any AISHE code still on two cards is a duplicate or a bad pin."""
     by = {}
@@ -1720,7 +1794,8 @@ _NIRF_CAT_CANON = {"Research": "Research Institutions", "Architecture": "Archite
                    "State Public University": "State Public Universities"}
 _DISC_NIRF = {"Engineering": "Engineering", "Pharmacy": "Pharmacy", "Architecture": "Architecture and Planning",
               "Planning": "Architecture and Planning", "Law": "Law", "Agriculture": "Agriculture and Allied Sectors",
-              "Fisheries": "Agriculture and Allied Sectors", "Management": "Management"}
+              "Fisheries": "Agriculture and Allied Sectors", "Management": "Management",
+              "Dental": "Dental"}
 
 
 def nirf_from_aishe(client, rows):
@@ -1863,7 +1938,11 @@ def nirf_from_aishe(client, rows):
             continue
         disc = set(row["disciplines"] or [])
         nl = set(row.get("_nirf_lists", ()))
-        want = (["Medical"] if "NEET-UG" in row["entrance_exams"] or "Medical" in nl else []) \
+        # dental, AYUSH, nursing and allied colleges file under NIRF's Medical
+        # discipline too: that filing is their own UG programme
+        medical_like = disc & {"Dental", "AYUSH", "Nursing", "Paramedical"}
+        want = (["Medical"] if "NEET-UG" in row["entrance_exams"] or "Medical" in nl
+                or medical_like else []) \
             + (["Engineering"] if "Engineering" in disc else []) \
             + (["Law"] if "Law" in disc else []) \
             + (["College"] if disc & {"Arts", "Science", "Commerce"} or "College" in nl else [])
@@ -1880,11 +1959,141 @@ def nirf_from_aishe(client, rows):
             "students_placed": placed, "higher_studies_selected": higher,
             "first_year_intake": num(x.first_year_intake), "includes_dual_degree": False,
             "academic_year": x.academic_year, "ranking_year": int(x.ranking_year),
-            "source": label[hit], "is_branch_specific": False,
+            # a homoeopathy or physiotherapy college's Medical filing is its
+            # own UG, not MBBS
+            "source": ("NIRF Medical, UG 5-year" if hit == "Medical" and medical_like
+                       and not any(p.get("degree") == "MBBS" for p in row["programs"]["list"])
+                       else label[hit]),
+            "is_branch_specific": False,
         }
         row.setdefault("data_sources", {})["placement"] = f"NIRF {int(x.ranking_year)} (AY {x.academic_year})"
         got[hit] += 1
     print(f"  placement by AISHE id: {dict(got)}")
+
+
+ACPMEC_COURSES = {
+    # course_code: (programme name, years, degree, discipline, career_id)
+    "BDS": ("Bachelor of Dental Surgery (BDS)", 5, "BDS", "Dental", "dentistry"),
+    "BAMS": ("Ayurveda (BAMS)", 5, "BAMS", "AYUSH", "ayurveda"),
+    "BHMS": ("Homoeopathy (BHMS)", 5, "BHMS", "AYUSH", "homeopathy"),
+    "BNYS": ("Naturopathy and Yoga (BNYS)", 5, "BNYS", "AYUSH", "naturopathy"),
+    "BSC_NURSING": ("B.Sc. Nursing", 4, "B.Sc.", "Nursing", "nursing"),
+    "BPT": ("Physiotherapy (BPT)", 4, "BPT", "Paramedical", "physiotherapy"),
+    "BO": ("Optometry (B.Optom)", 4, "B.Optom", "Paramedical", "ophthalmology-and-optometry"),
+    "BOT": ("Occupational Therapy (BOT)", 4, "BOT", "Paramedical", "occupational-therapy"),
+    "BOP": ("Prosthetics and Orthotics (BPO)", 4, "BPO", "Paramedical", "prosthetics-and-orthotics"),
+    "BASLP": ("Audiology and Speech-Language Pathology (BASLP)", 4, "BASLP", "Paramedical", "audiology"),
+}
+ACPMEC_OWNERSHIP = {"Government": "Public", "Government-aided": "Government-aided",
+                    "Self-financed": "Private"}
+
+
+def build_acpmec_rows(client):
+    df = client.query(f"""
+    SELECT * FROM `{D}.acpmec_dim_institutes`""").to_dataframe()
+    assert set(df.course_code) <= set(ACPMEC_COURSES), set(df.course_code) - set(ACPMEC_COURSES)
+
+    # nursing & allied names run into their address with no comma ("...
+    # INSTITUTE OF NURSING At - Rampura Tal - Vijapur Dist - Mehsana"); a
+    # comma before the first address word keeps the name a name (AISHE
+    # matching compares the part before the first comma)
+    address = re.compile(r"\s+(?=(?:at(?:\s|[-.:&])"
+                         r"|ta\.|tal\b|taluka\b|dist?\b|dis[.:]|near\b|nr\.|opp\.?\b|pin\b|po\.|p\.o\."
+                         r"|survey\s+no|plot\s+no|s\.\s*no\.|behind\b|b/h\b"
+                         r"|-?\s*\d{6}\b))", re.I)
+
+    def display(n):
+        # "Govt Akhandanand Ayurved College, Ahmedabad (Current Address: ...)"
+        n = re.sub(r"\s*\(current address[^)]*\)\s*", " ", str(n), flags=re.I)
+        n = re.sub(r"\s{2,}", " ", n).strip()
+        # "ABAD" is the lists' shorthand for Ahmedabad
+        n = re.sub(r"\babad\b", "Ahmedabad", n, flags=re.I)
+        head = n.split(",", 1)[0]
+        m = address.search(head)
+        if m and len(head[:m.start()].split()) >= 3:
+            n = head[:m.start()].rstrip(" -,") + ", " + n[m.end():].lstrip(" -,")
+        return re.sub(r"\s+,", ",", n).strip().rstrip(".-, ").strip()
+
+    def short(n):
+        """the name without the address the list printed after it (shown on
+        the card; the full text stays searchable)"""
+        head = n.split(",", 1)[0]
+        m = address.search(head)
+        return head[:m.start()].rstrip(" -,.") if m and len(head[:m.start()].split()) >= 3 else None
+
+    df["display"] = df.institute_name.map(display)
+    df["key"] = df.display.map(lambda t: _mnorm(t)[:60])
+    out = []
+    for key, g in df.groupby("key", sort=True):
+        g = g.sort_values("course_code")
+        lst, discs = [], []
+        for x in g.itertuples():
+            branch, years, degree, disc, career = ACPMEC_COURSES[x.course_code]
+            lst.append({"branch": branch, "years": years, "degree": degree,
+                        "indicative_closing_rank": None, "indicative_opening_rank": None,
+                        "seats": None if pd.isna(x.intake) else int(x.intake),
+                        "career_id": career})
+            if disc not in discs:
+                discs.append(disc)
+        first = g.iloc[0]
+        owners = {ACPMEC_OWNERSHIP[o] for o in g.ownership}
+        ug_med = (g.committee == "ug_medical").any()
+        name = first.display
+        n0 = re.sub(r"\babad\b", "Ahmedabad", re.sub(r"\s{2,}", " ", str(first.institute_name)), flags=re.I)
+        short_name = short(n0)
+        # one BDS college in Gujarat's counselling is in Daman
+        state = ("Dadra and Nagar Haveli and Daman and Diu"
+                 if re.search(r"\bDaman\b", name) else "Gujarat")
+        unis = sorted({u for u in g.affiliated_university if isinstance(u, str) and u})
+        src = f"ACPMEC {first.academic_year}"
+        out.append({
+            "college_id": f"acpmec:{key}",
+            "aishe_code": None, "name": name, "display_name": name,
+            "state": state, "state_is_inferred": False, "district": None,
+            "kind": None, "management": ", ".join(sorted(set(g.inst_type_raw))),
+            "ownership": owners.pop() if len(owners) == 1 else None,
+            "disciplines": discs[:4], "year_established": None, "website": None,
+            "university": unis[0] if len(unis) == 1 else None,
+            "entrance_exams": ["NEET-UG"] if ug_med else [],
+            "counselling": "ACPMEC (Gujarat)",
+            "programs": {"count": len(lst), "degrees": sorted({p["degree"] for p in lst}),
+                         "list": lst, "source": src,
+                         "rank_note": "Annual intake from the admission committee's list."},
+            "nirf": None, "ug_gender": None, "fees": None, "placement": None,
+            "naac": {"grade": None, "cgpa": None, "cycle": None, "not_applicable_reason": None},
+            "data_sources": {"identity": src, "programs": src, "ranking": None,
+                             "placement": None, "accreditation": None},
+        })
+        if short_name and short_name != name:
+            out[-1]["_short_name"] = short_name
+    print(f"  ACPMEC: {len(df)} course rows -> {len(out)} cards "
+          f"({sum(1 for r in out if len(r['programs']['list']) > 1)} with several courses)")
+
+    # The GUJCET predictor's medical rows print the committee's own code
+    # after the name ("Sardar Patel Institute Of Nursing, Mahisagar
+    # (SLNUR)"): that name goes on the card's aka, so a result row's link
+    # opens this card and no other
+    legacy_course = {"B.Sc. Nursing": "BSC_NURSING", "BAMS (AYURVEDIC)": "BAMS",
+                     "BHMS (HOMEOPATHY)": "BHMS", "BDS (DENTAL)": "BDS",
+                     "BPT (Physiotherapy)": "BPT", "BO (Optometry)": "BO",
+                     "BOT (Occupational Therapy)": "BOT", "BOP (Prosthetics and Orthotics)": "BOP",
+                     "BASLP (Audiology & Speech Therapy)": "BASLP", "BNYS (Naturopathy)": "BNYS"}
+    card_of = {(x.course_code, x.inst_label): f"acpmec:{x.key}" for x in df.itertuples()}
+    by_id = {r["college_id"]: r for r in out}
+    names, linked = set(), set()
+    for x in json.load(open("public/data/GUJCET/GUJCET.json")):
+        code = legacy_course.get(x.get("Course"))
+        m = re.findall(r"\(([A-Z0-9-]{2,})\)", str(x.get("College Name")))
+        if not code or not m:
+            continue
+        names.add(x["College Name"])
+        cid = card_of.get((code, m[-1]))
+        if cid:
+            card = by_id[cid]
+            card["aka"] = sorted(set(card.get("aka", [])) | {x["College Name"]})
+            linked.add(x["College Name"])
+    print(f"  ACPMEC: {len(linked)}/{len(names)} GUJCET predictor medical names linked by code")
+    return out
 
 
 def main():
@@ -2599,6 +2808,10 @@ def main():
         prog = prog.assign(college_code=[cid_of(r) for r in prog.itertuples()])
         # one code, two spellings across phases/rounds (KEAM's "TVE") — same
         # college; keep one row, the programme rows already share the code
+        # (or one name key, two spellings: GUJCET's "SHARDA SCHOOL OF PHARMACY
+        # (DIPLOMA) ,GANDHINAGAR" is the B.Pharm college's card; the other
+        # spelling stays searchable, so predictor rows printing it link here)
+        spellings = allc.groupby("college_code").college_name.agg(lambda v: sorted({str(x) for x in v}))
         allc = allc.drop_duplicates(subset=["college_code"], keep="first")
         prog_by_code = {c: g for c, g in prog.groupby("college_code")}
         careers_here = careers_by_spine[exam]
@@ -2616,7 +2829,27 @@ def main():
             places = {iid: list(dict.fromkeys(
                           str(x) for x in list(g.city) + list(g.state) if x == x))
                       for iid, g in nirf_here.groupby("institute_id")}
-        code_by_nirf = match_nirf_to_mhtcet(nirf_here, allc, places)
+        # each card's discipline (a college with no open-category row
+        # still has its stream)
+        disc_by_code = {}
+        for code_, g_ in prog_by_code.items():
+            disc_by_code[code_] = {discipline_of_program(x.branch, x.stream if sp["stream"] else None)[0]
+                                   for x in g_.itertuples()}
+        for x in allc.itertuples():
+            if not disc_by_code.get(x.college_code):
+                disc_by_code[x.college_code] = {discipline_of_program("", x.stream if sp["stream"] else None)[0]}
+        if len(sp.get("nirf_cats") or []) > 1:
+            # a list's ids go to cards of that list's discipline only:
+            # Nirma University's id is the Institute of Technology on the
+            # Engineering list and the Institute of Pharmacy on the Pharmacy one
+            code_by_nirf = {}
+            for cat in sp["nirf_cats"]:
+                discs = {d for d, c in _DISC_NIRF.items() if c == cat}
+                sub = allc[[bool(disc_by_code[c] & discs) for c in allc.college_code]]
+                code_by_nirf.update(match_nirf_to_mhtcet(
+                    nirf_here[nirf_here.ranking_category == cat], sub, places))
+        else:
+            code_by_nirf = match_nirf_to_mhtcet(nirf_here, allc, places)
         nirf_ids_by_code = {}
         for iid, code in code_by_nirf.items():
             nirf_ids_by_code.setdefault(code, set()).add(iid)
@@ -2625,7 +2858,9 @@ def main():
             bh = state_bands[state_bands.state == sp["state"]]
             band_frame = pd.DataFrame({"institute_id": ["band:" + n for n in bh.institute_name],
                                        "institute_name": bh.institute_name}).drop_duplicates()
-            for bid, code in match_nirf_to_mhtcet(band_frame, allc).items():
+            # the bands are NIRF's Engineering list: engineering cards only
+            eng = allc[["Engineering" in disc_by_code[c] for c in allc.college_code]]
+            for bid, code in match_nirf_to_mhtcet(band_frame, eng).items():
                 g_b = bh[bh.institute_name == bid[5:]]
                 bands_by_code.setdefault(code, []).extend(
                     (int(x.ranking_year), x.rank_band) for x in g_b.itertuples())
@@ -2644,10 +2879,16 @@ def main():
         for r in allc.itertuples():
             nids = nirf_ids_by_code.get(r.college_code, set())
             nirf_block = None
+            pg = prog_by_code.get(r.college_code)
+            card_discs = disc_by_code[r.college_code]
             frames = [nirf_all_by_id[n] for n in nids if n in nirf_all_by_id]
             if sp.get("nirf_cats"):
-                # only the lists this spine's colleges belong to
-                frames = [f[f.ranking_category.isin(sp["nirf_cats"])] for f in frames]
+                # only the lists this spine's colleges belong to, and of
+                # those only the card's own (a pharmacy college is ranked on
+                # the Pharmacy list, never the Engineering one)
+                cats = [c for c in sp["nirf_cats"]
+                        if len(sp["nirf_cats"]) == 1 or c in {_DISC_NIRF.get(d) for d in card_discs}]
+                frames = [f[f.ranking_category.isin(cats)] for f in frames]
                 frames = [f for f in frames if not f.empty]
             if frames:
                 top_cat, g = _latest_nirf(frames)
@@ -2666,7 +2907,9 @@ def main():
                     ],
                 }
                 n_nirf += 1
-            band_hits = bands_by_code.get(r.college_code, [])
+            # the bands are NIRF's Engineering list
+            band_hits = (bands_by_code.get(r.college_code, [])
+                         if "Engineering" in card_discs else [])
             if band_hits:
                 by, bb = max(band_hits)
                 if nirf_block is None:
@@ -2679,6 +2922,10 @@ def main():
                     nirf_block["latest_band"] = {"year": by, "band": bb}
             placement = None
             pframes = [place_all_by_id[n] for n in nids if n in place_all_by_id]
+            if len(sp.get("nirf_cats") or []) > 1:
+                # placement from the card's own discipline's filing
+                pframes = [f[f.discipline.isin(card_discs)] for f in pframes]
+                pframes = [f for f in pframes if not f.empty]
 
             if pframes:
                 pr = pd.concat(pframes).sort_values(["ranking_year", "academic_year"],
@@ -2710,7 +2957,7 @@ def main():
                 }
                 n_place += 1
 
-            g = prog_by_code.get(r.college_code)
+            g = pg
             lst, degrees, disciplines = [], set(), set()
             women_only = bool(g is not None and len(g) and g["women_only"].all())
             if g is not None:
@@ -2723,7 +2970,7 @@ def main():
                     closing = None if pd.isna(x.closing_rank) else int(x.closing_rank)
                     seats = None if pd.isna(x.seats) else int(x.seats)
                     entry = {
-                        "branch": str(x.branch),
+                        "branch": sp.get("branch_labels", {}).get(str(x.branch), str(x.branch)),
                         "years": years,
                         "degree": degree,
                         "indicative_closing_rank": closing,
@@ -2744,6 +2991,7 @@ def main():
                 "rank_note": sp.get("rank_note") or f"Indicative open-category {sp['label']} closing rank.",
             }
             display = re.sub(r"\s+,", ",", re.sub(r"\s{2,}", " ", str(r.college_name))).strip()
+            others = [n for n in spellings.get(r.college_code, []) if n != r.college_name]
             state = sp["state"]
             for part, st in sp.get("state_by_name", {}).items():
                 if part in display:
@@ -2769,7 +3017,8 @@ def main():
                 "ownership": (generic_ownership(r.college_type)
                               or sp.get("ownership_by_name", {}).get(r.college_name)
                               or sp.get("ownership")),
-                "disciplines": sorted(disciplines)[:4] or (["Law"] if exam == "CLAT" else []),
+                "disciplines": (sorted(disciplines)[:4] or (["Law"] if exam == "CLAT" else [])
+                                or (sorted(card_discs) if sp["stream"] else [])),
                 "year_established": None,
                 "website": None,
                 "university": (r.university if isinstance(r.university, str)
@@ -2792,6 +3041,8 @@ def main():
                     "accreditation": None,
                 },
             })
+            if others:
+                spine_rows[-1]["aka"] = others
         print(f"  {exam}: {len(allc)} rows, NIRF {n_nirf}, placement {n_place}")
     rows += spine_rows
 
@@ -3345,10 +3596,19 @@ def main():
         if "AIIMS-EE" not in card["entrance_exams"]:
             card["entrance_exams"] = card["entrance_exams"] + ["AIIMS-EE"]
     print(f"  AIIMS nursing programme on {len(nursing)} AIIMS cards")
+
+    # ── Gujarat dental, AYUSH, nursing & allied (ACPMEC 2026-27 lists) ──────
+    # The committees' institute lists: a card per institute name, a
+    # programme per course with its annual intake (no cutoffs: those are the
+    # predictor's). Type from the committee's own GOV / GIA / SFI column.
+    # Nursing & allied admit on Class 12 marks, so those cards name no exam.
+    rows += build_acpmec_rows(client)
     fill_from_aishe(client, rows)
     merge_duplicate_cards(rows)
     add_nirf_only_cards(client, rows)
     nirf_from_aishe(client, rows)
+    link_gujcet_mbbs(rows)
+    shorten_names(rows)
     warn_shared_aishe(rows)
     for x in rows:
         x.pop("_nirf_lists", None)
