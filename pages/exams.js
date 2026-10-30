@@ -17,6 +17,9 @@ import {
 import { rememberList, rememberTyped, wasTyped } from "../utils/listReturn";
 import { markForward } from "../utils/navHistory";
 import { matchesQuery, plainText } from "../utils/search";
+
+// "GUJCET" -> "GUJ CET", "WBJEE" -> "WB JEE"
+const splitAcronym = (t) => String(t || "").replace(/(cet|jee)\b/gi, " $1");
 import useUrlParams from "../utils/useUrlParams";
 import { useStudentProfile } from "../utils/portalSession";
 import { loadCareers } from "../components/careerShared";
@@ -303,6 +306,10 @@ export default function Exams() {
           ...(e.aliases || []),
           ...e.streams,
           ...(e.degrees || []),
+          // short words match only at a word start, so "cet" would miss
+          // GUJCET and EAPCET, "jee" WBJEE: index the split forms too
+          splitAcronym(e.acronym),
+          splitAcronym(e.name),
         ],
         raw
       );
