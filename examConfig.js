@@ -2090,8 +2090,17 @@ export const acpmecNursingConfig = {
   ),
   fields: acpmecCategoryFields,
   legend: acpmecLegend,
-  getDataPath: () =>
-    path.join(process.cwd(), "public", "data", "ACPMEC", "acpmec_nursing.json"),
+  // written out like the other exams' paths: the deploy bundles a data
+  // file only when its build-time trace sees this exact shape
+  getDataPath: () => {
+    return path.join(
+      process.cwd(),
+      "public",
+      "data",
+      "ACPMEC",
+      "acpmec_nursing.json"
+    );
+  },
   getFilters: (query) => [
     acpmecSeatFilter(query),
     (item) => {
@@ -2115,8 +2124,17 @@ export const acpmecAyushConfig = {
   ),
   fields: acpmecCategoryFields,
   legend: acpmecLegend,
-  getDataPath: () =>
-    path.join(process.cwd(), "public", "data", "ACPMEC", "acpmec_ayush.json"),
+  // written out like the other exams' paths: the deploy bundles a data
+  // file only when its build-time trace sees this exact shape
+  getDataPath: () => {
+    return path.join(
+      process.cwd(),
+      "public",
+      "data",
+      "ACPMEC",
+      "acpmec_ayush.json"
+    );
+  },
   getFilters: (query) => [
     acpmecSeatFilter(query),
     (item) => {
