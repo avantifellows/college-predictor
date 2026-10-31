@@ -37,20 +37,12 @@ const defaultPrimaryInputConfig = {
   allowDecimal: false,
 };
 
-// Mirrors pages/predictor.js: an exam may refine its primary input from the
-// current selection via `refinePrimaryInput`. GUJCET needs it because Medical
-// cutoffs are raw NEET marks (0-720) while Engineering/Pharmacy are a 0-100
-// percentile.
-const getPrimaryInputConfig = (exam, formData = null) => {
-  const base = examConfigs[exam]?.primaryInput || defaultPrimaryInputConfig;
-  const refine = examConfigs[exam]?.refinePrimaryInput;
-  if (!refine || !formData) return base;
-  return refine(base, formData) || base;
-};
+const getPrimaryInputConfig = (exam) =>
+  examConfigs[exam]?.primaryInput || defaultPrimaryInputConfig;
 
 const normalizePrimaryInputValue = (exam, value, formData = null) => {
   if (value === "") return "";
-  const inputConfig = getPrimaryInputConfig(exam, formData);
+  const inputConfig = getPrimaryInputConfig(exam);
   if (inputConfig.allowDecimal) {
     return value;
   }

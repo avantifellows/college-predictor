@@ -1764,30 +1764,6 @@ def plainname(t):
     return re.sub(r"[^a-z0-9]", "", str(t).lower())
 
 
-def link_gujcet_mbbs(rows):
-    """The GUJCET predictor's MBBS rows print the committee's name and code
-    ("B. J. Medical College, Ahmedabad (AMED)"); the card is the NMC one
-    ("B. J. Medical College, Ahmedabad"). Matched by name among Gujarat's
-    MBBS cards, unique hits only; the predictor's name goes on the card's
-    aka so the result row's link opens it."""
-    legacy = sorted({x["College Name"] for x in json.load(open("public/data/GUJCET/GUJCET.json"))
-                     if x.get("Course") == "MBBS"})
-    base = {n: re.sub(r"\s*\([A-Z0-9-]{2,}\)", "", n).strip() for n in legacy}
-    cards = [r for r in rows if r["state"] == "Gujarat"
-             and any(p.get("degree") == "MBBS" for p in r["programs"]["list"])]
-    frame = pd.DataFrame({"institute_id": legacy, "institute_name": [base[n] for n in legacy]})
-    cand = pd.DataFrame({"college_code": [r["college_id"] for r in cards],
-                         "college_name": [r["display_name"] for r in cards]})
-    by_id = {r["college_id"]: r for r in cards}
-    hits = match_nirf_to_mhtcet(frame, cand)
-    for n, cid in sorted(hits.items()):
-        card = by_id[cid]
-        card["aka"] = sorted(set(card.get("aka", [])) | {n})
-        if os.environ.get("AISHE_LOG"):
-            print(f"    [mbbs] {n[:60]} -> {card['display_name'][:60]}")
-    print(f"  GUJCET MBBS names linked to cards: {len(hits)}/{len(legacy)}")
-
-
 def warn_shared_aishe(rows):
     """Any AISHE code still on two cards is a duplicate or a bad pin."""
     by = {}
@@ -2069,6 +2045,11 @@ def build_acpmec_rows(client):
             # nursing & allied admit on Class 12 merit, no exam: the tab's
             # entrance-test filter offers that as its own choice
             "class12_merit": bool((g.committee == "nursing_allied").any()),
+            # the committee's own keys for this card's courses (nursing &
+            # allied: 4-digit code; BDS/BAMS/BHMS: label), so the ACPMEC
+            # predictor rows link to it without matching names
+            "committee_ids": sorted(f"{x.course_code}:{x.inst_code if isinstance(x.inst_code, str) else x.inst_label}"
+                                    for x in g.itertuples()),
             "counselling": "ACPMEC (Gujarat)",
             "programs": {"count": len(lst), "degrees": sorted({p["degree"] for p in lst}),
                          "list": lst, "source": src,
@@ -2083,30 +2064,6 @@ def build_acpmec_rows(client):
     print(f"  ACPMEC: {len(df)} course rows -> {len(out)} cards "
           f"({sum(1 for r in out if len(r['programs']['list']) > 1)} with several courses)")
 
-    # The GUJCET predictor's medical rows print the committee's own code
-    # after the name ("Sardar Patel Institute Of Nursing, Mahisagar
-    # (SLNUR)"): that name goes on the card's aka, so a result row's link
-    # opens this card and no other
-    legacy_course = {"B.Sc. Nursing": "BSC_NURSING", "BAMS (AYURVEDIC)": "BAMS",
-                     "BHMS (HOMEOPATHY)": "BHMS", "BDS (DENTAL)": "BDS",
-                     "BPT (Physiotherapy)": "BPT", "BO (Optometry)": "BO",
-                     "BOT (Occupational Therapy)": "BOT", "BOP (Prosthetics and Orthotics)": "BOP",
-                     "BASLP (Audiology & Speech Therapy)": "BASLP", "BNYS (Naturopathy)": "BNYS"}
-    card_of = {(x.course_code, x.inst_label): f"acpmec:{x.key}" for x in df.itertuples()}
-    by_id = {r["college_id"]: r for r in out}
-    names, linked = set(), set()
-    for x in json.load(open("public/data/GUJCET/GUJCET.json")):
-        code = legacy_course.get(x.get("Course"))
-        m = re.findall(r"\(([A-Z0-9-]{2,})\)", str(x.get("College Name")))
-        if not code or not m:
-            continue
-        names.add(x["College Name"])
-        cid = card_of.get((code, m[-1]))
-        if cid:
-            card = by_id[cid]
-            card["aka"] = sorted(set(card.get("aka", [])) | {x["College Name"]})
-            linked.add(x["College Name"])
-    print(f"  ACPMEC: {len(linked)}/{len(names)} GUJCET predictor medical names linked by code")
     return out
 
 
@@ -3625,7 +3582,6 @@ def main():
     merge_duplicate_cards(rows)
     add_nirf_only_cards(client, rows)
     nirf_from_aishe(client, rows)
-    link_gujcet_mbbs(rows)
     shorten_names(rows)
     warn_shared_aishe(rows)
     for x in rows:

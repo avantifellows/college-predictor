@@ -85,15 +85,7 @@ export default async function handler(req, res) {
     }
   }
 
-  // Apply the same `refinePrimaryInput` hook the form uses, so the accepted range
-  // is defined once. GUJCET's Medical rows are raw NEET marks (up to 690 of 720)
-  // while Engineering/Pharmacy are a 0-100 percentile; without this the server
-  // would keep enforcing 0-100 and reject the very values the form now invites.
-  const primaryInputConfig =
-    config.primaryInput && config.refinePrimaryInput
-      ? config.refinePrimaryInput(config.primaryInput, req.query) ||
-        config.primaryInput
-      : config.primaryInput;
+  const primaryInputConfig = config.primaryInput;
   const queryValue =
     exam === "JoSAA" ? req.query.mainRank || req.query.rank : req.query.rank;
 
@@ -198,23 +190,10 @@ export default async function handler(req, res) {
 
     const rankFilter = (item) => {
       if (exam === "GUJCET") {
-        // Two different quantities, so two different comparisons.
-        //
-        // Engineering/Pharmacy: the student enters their ACPC merit RANK, and a
-        // seat is reachable when its closing rank is at or beyond that rank
-        // (lower rank = harder). This replaced a comparison against
-        // closing_marks that assumed the student had already computed ACPC's
-        // 50:50 composite themselves.
-        //
-        // Medical: no rank exists in that source at all, only raw NEET scores,
-        // so it stays a score comparison.
-        if (req.query.program === "Medical") {
-          const cutoffMarks = parseFloat(item.closing_marks);
-          const userMarks = parseFloat(rank);
-          if (!Number.isFinite(cutoffMarks) || !Number.isFinite(userMarks))
-            return false;
-          return userMarks >= cutoffMarks;
-        }
+        // The student enters their ACPC merit RANK, and a seat is reachable
+        // when its closing rank is at or beyond that rank (lower rank =
+        // harder). This replaced a comparison against closing_marks that
+        // assumed the student had already computed ACPC's 50:50 composite.
         const closingRank = parseFloat(item.closing_rank);
         const userRank = parseFloat(rank);
         if (!Number.isFinite(closingRank) || !Number.isFinite(userRank))
