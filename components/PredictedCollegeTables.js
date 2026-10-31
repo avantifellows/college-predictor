@@ -546,6 +546,22 @@ const PredictedCollegesTable = ({
     "College Name",
     "institute_name",
   ]);
+  // a state counselling's colleges are that state's: a name two states
+  // share (CBIT is in Proddatur and Hyderabad) lands on the right one.
+  // JAC Chandigarh also fills a Punjab campus, so it has none.
+  const LINK_STATE = {
+    "MHT CET": "Maharashtra",
+    KCET: "Karnataka",
+    TNEA: "Tamil Nadu",
+    WBJEE: "West Bengal",
+    KEAM: "Kerala",
+    "AP EAPCET": "Andhra Pradesh",
+    TGEAPCET: "Telangana",
+    OJEE: "Odisha",
+    UPTAC: "Uttar Pradesh",
+    HBTU: "Uttar Pradesh",
+    GUJCET: "Gujarat",
+  };
   const linkNameOf = (t) => {
     const raw =
       t.institute ||
@@ -558,14 +574,16 @@ const PredictedCollegesTable = ({
       : String(raw);
   };
   // KCET's predictor also covers medical/dental/ayurveda seats, which live on
-  // the tab under NEET, not KEA — no dead links for those rows
+  // the tab under NEET, not KEA — no dead links for those rows. Its
+  // architecture rows (2021) name colleges by KEA abbreviation ("RVCA",
+  // "SPA Mysore"), which find no card or the wrong one: engineering only
   // GUJCET rows say themselves whether a card carries their name (`card`,
   // set by scripts/build_gujcet_predictor_data.py)
   const canLinkRow = (t) =>
     exam === "GUJCET"
       ? !!t.card
       : exam !== "KCET" ||
-        /engineer|architect/i.test(String(t["Course Type"] || "Engineering"));
+        /engineer/i.test(String(t["Course Type"] || "Engineering"));
   // GUJCET's medical rows link to seat-only cards, which /compare leaves out
   const compareIdOf = (t) =>
     t["College ID"] ||
@@ -2169,7 +2187,11 @@ const PredictedCollegesTable = ({
     ((isJosaaExam && transformedItem["College ID"]) ||
       (NAME_LINK_EXAMS.has(exam) && canLinkRow(transformedItem))) ? (
       <Link
-        href={`/colleges?q=${encodeURIComponent(linkNameOf(transformedItem))}`}
+        href={`/colleges?q=${encodeURIComponent(linkNameOf(transformedItem))}${
+          LINK_STATE[exam] && !transformedItem["College ID"]
+            ? `&state=${encodeURIComponent(LINK_STATE[exam])}`
+            : ""
+        }`}
         className="underline decoration-[#e3d1cb] underline-offset-2 transition hover:text-[#8f2e31] hover:decoration-[#8f2e31]"
       >
         {getDisplayValue(column, transformedItem)}

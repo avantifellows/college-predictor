@@ -758,7 +758,9 @@ STATE_SPECS = {
                   district=None, university=None, stream=None,
                   open_where="category = 'GEN' AND sub_pool = '' AND (seat_type IS NULL OR seat_type != 'JEE(Main) Seats')",
                   label="WBJEE", counselling="WBJEE Board", map_exam="WBJEE",
-                  state="West Bengal", source="WBJEE {y}"),
+                  state="West Bengal", source="WBJEE {y}",
+                  # pharmacy's last list is a year behind engineering's
+                  year_by_stream="IF(stream LIKE '%Pharm%', 'pharm', 'other')"),
     "KEAM": dict(table="keam_fact_cutoffs", year="exam_year", name="college_name",
                  code="college_code", branch="course", ctype="college_type",
                  district=None, university=None, stream=None,
@@ -931,10 +933,14 @@ def build_state_spines(client):
         girls_expr = f"MAX(IF({gcol} = 'Girls', {rank}, NULL))" if gcol else "NULL"
         # the latest year, or each stream's own latest when streams publish
         # on different cycles (Gujarat pharmacy trails engineering by a year)
+        # (a string: the SQL that groups the stream labels, for a source
+        # whose labels change between years — WBJEE's engineering label has
+        # five spellings, pharmacy one)
         if sp.get("year_by_stream"):
-            latest = (f"CONCAT({stream}, '|', CAST({sp['year']} AS STRING)) IN ("
-                      f"SELECT CONCAT({stream}, '|', CAST(MAX({sp['year']}) AS STRING)) "
-                      f"FROM {T} GROUP BY {stream})")
+            grp = sp["year_by_stream"] if isinstance(sp["year_by_stream"], str) else stream
+            latest = (f"CONCAT({grp}, '|', CAST({sp['year']} AS STRING)) IN ("
+                      f"SELECT CONCAT(g, '|', CAST(MAX(y) AS STRING)) FROM "
+                      f"(SELECT {grp} AS g, {sp['year']} AS y FROM {T}) GROUP BY g)")
         else:
             latest = f"{sp['year']} = (SELECT MAX({sp['year']}) FROM {T})"
         q = f"""
@@ -1179,6 +1185,11 @@ AISHE_ID_PINS = {
     "tnea:5009": "C-51677",        # GCE Bodinayakkanur, Theni
     "tnea:2709": "C-36974",        # GCE Erode, formerly IRTT
     "tnea:3011": "C-59033",        # UCE Tiruchirappalli (BIT Campus)
+    # the two NSHM campuses' names differ only in the city: Kolkata is the
+    # code NIRF Pharmacy filed under (now listed as Bhawanipur Global
+    # Campus, South 24 Parganas), Durgapur is Paschim Bardhaman's
+    "wbjee:nshm knowledge campus kolkata group institutions kolkata": "C-6269",
+    "wbjee:nshm knowledge campus durgapur group institutions": "C-6143",
 }
 
 
@@ -2055,6 +2066,9 @@ def build_acpmec_rows(client):
             "disciplines": discs[:4], "year_established": None, "website": None,
             "university": unis[0] if len(unis) == 1 else None,
             "entrance_exams": ["NEET-UG"] if ug_med else [],
+            # nursing & allied admit on Class 12 merit, no exam: the tab's
+            # entrance-test filter offers that as its own choice
+            "class12_merit": bool((g.committee == "nursing_allied").any()),
             "counselling": "ACPMEC (Gujarat)",
             "programs": {"count": len(lst), "degrees": sorted({p["degree"] for p in lst}),
                          "list": lst, "source": src,
@@ -2983,11 +2997,15 @@ def main():
             lst.sort(key=lambda z: (z["indicative_closing_rank"] is None,
                                     z["indicative_closing_rank"] or 0, z["branch"]))
             year = None if pd.isna(r.year) else int(r.year)
+            # a stream on its own cycle (year_by_stream) can give one card
+            # ranks from two years: name both
+            ys = sorted({int(v) for v in g["year"].dropna()}) if g is not None else []
+            y_label = " and ".join(map(str, ys)) if len(ys) > 1 else year
             programs = {
                 "count": len(lst),
                 "degrees": sorted(degrees),
                 "list": lst,
-                "source": sp["source"].format(y=year),
+                "source": sp["source"].format(y=y_label),
                 "rank_note": sp.get("rank_note") or f"Indicative open-category {sp['label']} closing rank.",
             }
             display = re.sub(r"\s+,", ",", re.sub(r"\s{2,}", " ", str(r.college_name))).strip()

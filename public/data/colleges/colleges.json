@@ -38726,6 +38726,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -39008,6 +39009,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -53801,66 +53803,42 @@
   }
  },
  {
-  "college_id": "wbjee:nshm knowledge campus durgapur group institutions",
+  "college_id": "wbjee:nshm knowledge campus kolkata group institutions kolkata",
   "aishe_code": "C-6269",
-  "name": "Nshm Knowledge Campus, Durgapur Group of Institutions",
-  "display_name": "Nshm Knowledge Campus, Durgapur Group of Institutions",
+  "name": "NSHM KNOWLEDGE CAMPUS, KOLKATA GROUP OF INSTITUTIONS, KOLKATA",
+  "display_name": "NSHM KNOWLEDGE CAMPUS, KOLKATA GROUP OF INSTITUTIONS, KOLKATA",
   "state": "West Bengal",
   "state_is_inferred": false,
-  "district": null,
+  "district": "South 24 Parganas",
   "kind": null,
   "management": "Private/SF",
   "ownership": "Private",
   "disciplines": [
-   "Engineering"
+   "Pharmacy"
   ],
-  "year_established": null,
-  "website": null,
+  "year_established": 2005,
+  "website": "www.nshm.com",
   "university": null,
   "entrance_exams": [
    "WBJEE"
   ],
   "counselling": "WBJEE Board",
   "programs": {
-   "count": 4,
+   "count": 1,
    "degrees": [
-    "B.E. / B.Tech"
+    "B.Pharm"
    ],
    "list": [
     {
-     "branch": "Computer Science & Engineering (Artificial Intelligence)",
+     "branch": "B.Pharm/Pharmaceutical Technology",
      "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 89901,
+     "degree": "B.Pharm",
+     "indicative_closing_rank": 50352,
      "indicative_opening_rank": null,
-     "career_id": "artificial-intelligence-and-data-science"
-    },
-    {
-     "branch": "Computer Science & Engineering",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 91157,
-     "indicative_opening_rank": null,
-     "career_id": "computer-science-information-technology"
-    },
-    {
-     "branch": "Electronics & Communication Engineering",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 91181,
-     "indicative_opening_rank": null,
-     "career_id": "electrical-electronics-communications-engineering"
-    },
-    {
-     "branch": "Computer Science & Engineering (Data Science)",
-     "years": 4,
-     "degree": "B.E. / B.Tech",
-     "indicative_closing_rank": 91953,
-     "indicative_opening_rank": null,
-     "career_id": "artificial-intelligence-and-data-science"
+     "career_id": "pharmacy"
     }
    ],
-   "source": "WBJEE 2026",
+   "source": "WBJEE 2025",
    "rank_note": "Indicative open-category WBJEE closing rank."
   },
   "nirf": {
@@ -53885,17 +53863,17 @@
   "fees": null,
   "placement": null,
   "naac": {
-   "grade": null,
-   "cgpa": null,
-   "cycle": null,
+   "grade": "A+",
+   "cgpa": 3.33,
+   "cycle": 2,
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "WBJEE 2026",
-   "programs": "WBJEE 2026",
+   "identity": "WBJEE 2025",
+   "programs": "WBJEE 2025",
    "ranking": "NIRF 2020",
    "placement": null,
-   "accreditation": null
+   "accreditation": "NAAC"
   }
  },
  {
@@ -64070,30 +64048,43 @@
   }
  },
  {
-  "college_id": "S-10906",
-  "aishe_code": "S-10906",
-  "name": "Guru Nanak Institute of Pharmaceutical Science and Technology",
-  "display_name": "Guru Nanak Institute of Pharmaceutical Science and Technology",
+  "college_id": "wbjee:guru nanak institute pharmaceutical science technology sodep",
+  "aishe_code": "C-6323",
+  "name": "GURU NANAK INSTITUTE OF PHARMACEUTICAL SCIENCE AND TECHNOLOGY, SODEPUR",
+  "display_name": "GURU NANAK INSTITUTE OF PHARMACEUTICAL SCIENCE AND TECHNOLOGY, SODEPUR",
   "state": "West Bengal",
   "state_is_inferred": false,
   "district": "North 24 Parganas",
-  "kind": "Technical/Polytechnic",
-  "management": "Private Un-Aided",
+  "kind": null,
+  "management": "Private/SF",
   "ownership": "Private",
   "disciplines": [
    "Pharmacy"
   ],
-  "year_established": 2010,
+  "year_established": 2005,
   "website": "www.gnipst.ac.in",
   "university": null,
-  "entrance_exams": [],
-  "counselling": null,
+  "entrance_exams": [
+   "WBJEE"
+  ],
+  "counselling": "WBJEE Board",
   "programs": {
-   "count": 0,
-   "degrees": [],
-   "list": [],
-   "source": null,
-   "rank_note": null
+   "count": 1,
+   "degrees": [
+    "B.Pharm"
+   ],
+   "list": [
+    {
+     "branch": "B.Pharm/Pharmaceutical Technology",
+     "years": 4,
+     "degree": "B.Pharm",
+     "indicative_closing_rank": 22661,
+     "indicative_opening_rank": null,
+     "career_id": "pharmacy"
+    }
+   ],
+   "source": "WBJEE 2025",
+   "rank_note": "Indicative open-category WBJEE closing rank."
   },
   "nirf": {
    "category": "Pharmacy",
@@ -64143,8 +64134,8 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "AISHE 2024-25",
-   "programs": null,
+   "identity": "WBJEE 2025",
+   "programs": "WBJEE 2025",
    "ranking": "NIRF 2025",
    "placement": null,
    "accreditation": null
@@ -74112,7 +74103,8 @@
   "management": "Private/Deemed",
   "ownership": "Private",
   "disciplines": [
-   "Engineering"
+   "Engineering",
+   "Pharmacy"
   ],
   "year_established": 2015,
   "website": "www.jisuniversity.ac.in",
@@ -74122,9 +74114,10 @@
   ],
   "counselling": "WBJEE Board",
   "programs": {
-   "count": 4,
+   "count": 5,
    "degrees": [
-    "B.E. / B.Tech"
+    "B.E. / B.Tech",
+    "B.Pharm"
    ],
    "list": [
     {
@@ -74158,9 +74151,17 @@
      "indicative_closing_rank": 92725,
      "indicative_opening_rank": null,
      "career_id": "computer-science-information-technology"
+    },
+    {
+     "branch": "B.Pharm/Pharmaceutical Technology",
+     "years": 4,
+     "degree": "B.Pharm",
+     "indicative_closing_rank": 98807,
+     "indicative_opening_rank": null,
+     "career_id": "pharmacy"
     }
    ],
-   "source": "WBJEE 2026",
+   "source": "WBJEE 2025 and 2026",
    "rank_note": "Indicative open-category WBJEE closing rank."
   },
   "nirf": {
@@ -74186,8 +74187,8 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "WBJEE 2026",
-   "programs": "WBJEE 2026",
+   "identity": "WBJEE 2025 and 2026",
+   "programs": "WBJEE 2025 and 2026",
    "ranking": "NIRF 2025",
    "placement": null,
    "accreditation": null
@@ -97137,6 +97138,7 @@
   "website": "www.akpatelschoolofnursing.org",
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -97562,6 +97564,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -98425,6 +98428,7 @@
   "website": "www.aaryacampus.in",
   "university": "KSKV Kachchh University Bhuj",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -100203,6 +100207,7 @@
   "website": null,
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -100262,6 +100267,7 @@
   "website": null,
   "university": "Parul University Vadodara",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -100378,6 +100384,7 @@
   "website": null,
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -100612,6 +100619,7 @@
   "website": null,
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -100728,6 +100736,7 @@
   "website": "akshtamphysiotherapy.com",
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -101038,6 +101047,7 @@
   "website": null,
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -101219,6 +101229,7 @@
   "website": "www.amcmetnursingcollege.edu.in",
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -101544,6 +101555,7 @@
   "website": null,
   "university": "Bhakta Kavi Narsinh Mehta University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -101577,6 +101589,63 @@
   "data_sources": {
    "identity": "ACPMEC 2026-27",
    "programs": "ACPMEC 2026-27",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "wbjee:anand college education debra paschim medinipur",
+  "aishe_code": "C-58140",
+  "name": "ANAND COLLEGE OF EDUCATION, DEBRA, PASCHIM MEDINIPUR",
+  "display_name": "ANAND COLLEGE OF EDUCATION, DEBRA, PASCHIM MEDINIPUR",
+  "state": "West Bengal",
+  "state_is_inferred": false,
+  "district": "Paschim Medinipur",
+  "kind": null,
+  "management": "Private/SF",
+  "ownership": "Private",
+  "disciplines": [
+   "Pharmacy"
+  ],
+  "year_established": 2016,
+  "website": "www.collegeanand.net AND www.anandpharmacy.in",
+  "university": null,
+  "entrance_exams": [
+   "WBJEE"
+  ],
+  "counselling": "WBJEE Board",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "B.Pharm"
+   ],
+   "list": [
+    {
+     "branch": "B.Pharm/Pharmaceutical Technology",
+     "years": 4,
+     "degree": "B.Pharm",
+     "indicative_closing_rank": 96895,
+     "indicative_opening_rank": null,
+     "career_id": "pharmacy"
+    }
+   ],
+   "source": "WBJEE 2025",
+   "rank_note": "Indicative open-category WBJEE closing rank."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "WBJEE 2025",
+   "programs": "WBJEE 2025",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -101657,6 +101726,7 @@
   "website": null,
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -101821,6 +101891,7 @@
   "website": "www.ananyacollegeofphysiotherapy.com",
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -101880,6 +101951,7 @@
   "website": "www.kirc.ac.in",
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -103265,6 +103337,7 @@
   "website": null,
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -103405,6 +103478,7 @@
   "website": "www.aipt.edu.in",
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -103780,6 +103854,7 @@
   "website": null,
   "university": "Swarnim Startup And Innovation University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -104135,6 +104210,7 @@
   "website": null,
   "university": "Saurashtra University Rajkot",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -104194,6 +104270,7 @@
   "website": "www.arushphysiotherapycollege.com",
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -104253,6 +104330,7 @@
   "website": "www.charusat.ac.in",
   "university": "Charotar University Of Science And Tech",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -104312,6 +104390,7 @@
   "website": null,
   "university": "S.P. University Vallabh Vidhyanagar",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -106104,6 +106183,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -106165,6 +106245,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -106352,6 +106433,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -107191,7 +107273,8 @@
   "management": "Private/Deemed",
   "ownership": "Private",
   "disciplines": [
-   "Engineering"
+   "Engineering",
+   "Pharmacy"
   ],
   "year_established": 2014,
   "website": "www.adamasuniversity.ac.in",
@@ -107201,9 +107284,10 @@
   ],
   "counselling": "WBJEE Board",
   "programs": {
-   "count": 7,
+   "count": 8,
    "degrees": [
-    "B.E. / B.Tech"
+    "B.E. / B.Tech",
+    "B.Pharm"
    ],
    "list": [
     {
@@ -107261,9 +107345,17 @@
      "indicative_closing_rank": 92641,
      "indicative_opening_rank": null,
      "career_id": "biotechnology"
+    },
+    {
+     "branch": "B.Pharm/Pharmaceutical Technology",
+     "years": 4,
+     "degree": "B.Pharm",
+     "indicative_closing_rank": 99447,
+     "indicative_opening_rank": null,
+     "career_id": "pharmacy"
     }
    ],
-   "source": "WBJEE 2026",
+   "source": "WBJEE 2025 and 2026",
    "rank_note": "Indicative open-category WBJEE closing rank."
   },
   "nirf": null,
@@ -107277,8 +107369,8 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "WBJEE 2026",
-   "programs": "WBJEE 2026",
+   "identity": "WBJEE 2025 and 2026",
+   "programs": "WBJEE 2025 and 2026",
    "ranking": null,
    "placement": null,
    "accreditation": "NAAC"
@@ -107416,6 +107508,7 @@
   "website": "www.adarshnursingcollege.com",
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -107472,6 +107565,7 @@
   "website": "www.dhaneracollege.com",
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -110768,6 +110862,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -110829,6 +110924,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -111074,6 +111170,7 @@
   "website": null,
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -111473,6 +111570,7 @@
   "website": null,
   "university": "Veer Narmad South Gujarat University Surat",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -111868,6 +111966,7 @@
   "website": null,
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -115690,6 +115789,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -116210,6 +116310,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -116618,6 +116719,7 @@
   "website": null,
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -116861,6 +116963,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -116922,6 +117025,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -119427,6 +119531,7 @@
   "website": null,
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -120298,6 +120403,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -120359,6 +120465,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -120480,6 +120587,7 @@
   "website": "www.arrdekta.org",
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -120730,6 +120838,7 @@
   "website": "www.pmect.com",
   "university": "Veer Narmad South Gujarat University Surat",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -123113,6 +123222,7 @@
   "website": "www.nursing.arytej.in",
   "university": "Saurashtra University Rajkot",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -123173,6 +123283,7 @@
   "website": null,
   "university": "Saurashtra University Rajkot",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -123539,6 +123650,7 @@
   "website": "www.asheducationtrust.org",
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -123598,6 +123710,7 @@
   "website": null,
   "university": "Veer Narmad South Gujarat University Surat",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -123775,6 +123888,7 @@
   "website": "www.ashirvadnursing.com",
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -124249,6 +124363,7 @@
   "website": "mpshaheducation.org",
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -124670,6 +124785,7 @@
   "website": null,
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -126516,6 +126632,7 @@
   "website": "www.bnpatelnursing.com",
   "university": "S.P. University Vallabh Vidhyanagar",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -126840,6 +126957,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -127183,6 +127301,7 @@
   "website": null,
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -127526,6 +127645,7 @@
   "website": "www.ssipct.org",
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -127585,6 +127705,7 @@
   "website": "www.bnpatelphysiotherapy.com",
   "university": "S.P. University Vallabh Vidhyanagar",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -127644,6 +127765,7 @@
   "website": null,
   "university": "S.P. University Vallabh Vidhyanagar",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -128286,6 +128408,7 @@
   "website": "www.balajicollegeofnursing.com",
   "university": "Saurashtra University Rajkot",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -128345,6 +128468,7 @@
   "website": null,
   "university": "Shri Govind Guru University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -128517,6 +128641,7 @@
   "website": "www.bmcri.co.in",
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -128807,6 +128932,120 @@
   }
  },
  {
+  "college_id": "wbjee:bcda college pharmacy technology campus 2",
+  "aishe_code": "S-15305",
+  "name": "BCDA COLLEGE OF PHARMACY & TECHNOLOGY, CAMPUS-2",
+  "display_name": "BCDA COLLEGE OF PHARMACY & TECHNOLOGY, CAMPUS-2",
+  "state": "West Bengal",
+  "state_is_inferred": false,
+  "district": "North 24 Parganas",
+  "kind": null,
+  "management": "Private/SF",
+  "ownership": "Private",
+  "disciplines": [
+   "Pharmacy"
+  ],
+  "year_established": 2014,
+  "website": "https://www.bcdapt.com/madhyamgram",
+  "university": null,
+  "entrance_exams": [
+   "WBJEE"
+  ],
+  "counselling": "WBJEE Board",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "B.Pharm"
+   ],
+   "list": [
+    {
+     "branch": "B.Pharm/Pharmaceutical Technology",
+     "years": 4,
+     "degree": "B.Pharm",
+     "indicative_closing_rank": 100123,
+     "indicative_opening_rank": null,
+     "career_id": "pharmacy"
+    }
+   ],
+   "source": "WBJEE 2025",
+   "rank_note": "Indicative open-category WBJEE closing rank."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "WBJEE 2025",
+   "programs": "WBJEE 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "wbjee:bcda college pharmacy technology hridaypur madhyamgram",
+  "aishe_code": "C-6251",
+  "name": "BCDA COLLEGE OF PHARMACY & TECHNOLOGY, HRIDAYPUR, MADHYAMGRAM",
+  "display_name": "BCDA COLLEGE OF PHARMACY & TECHNOLOGY, HRIDAYPUR, MADHYAMGRAM",
+  "state": "West Bengal",
+  "state_is_inferred": false,
+  "district": "North 24 Parganas",
+  "kind": null,
+  "management": "Private/SF",
+  "ownership": "Private",
+  "disciplines": [
+   "Pharmacy"
+  ],
+  "year_established": 2006,
+  "website": "www.bcdapt.com/hridaypur",
+  "university": null,
+  "entrance_exams": [
+   "WBJEE"
+  ],
+  "counselling": "WBJEE Board",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "B.Pharm"
+   ],
+   "list": [
+    {
+     "branch": "B.Pharm/Pharmaceutical Technology",
+     "years": 4,
+     "degree": "B.Pharm",
+     "indicative_closing_rank": 86499,
+     "indicative_opening_rank": null,
+     "career_id": "pharmacy"
+    }
+   ],
+   "source": "WBJEE 2025",
+   "rank_note": "Indicative open-category WBJEE closing rank."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "WBJEE 2025",
+   "programs": "WBJEE 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "ap-eapcet:BCET",
   "aishe_code": "C-73774",
   "name": "BEHARA COLLEGE OF ENGINEERING AND TECHNOLOGY",
@@ -128893,6 +129132,177 @@
    "ranking": null,
    "placement": null,
    "accreditation": null
+  }
+ },
+ {
+  "college_id": "wbjee:bengal college pharmaceutical science research durgapur",
+  "aishe_code": "C-6150",
+  "name": "BENGAL COLLEGE OF PHARMACEUTICAL SCIENCE & RESEARCH, DURGAPUR",
+  "display_name": "BENGAL COLLEGE OF PHARMACEUTICAL SCIENCE & RESEARCH, DURGAPUR",
+  "state": "West Bengal",
+  "state_is_inferred": false,
+  "district": "Purba Bardhaman",
+  "kind": null,
+  "management": "Private/SF",
+  "ownership": "Private",
+  "disciplines": [
+   "Pharmacy"
+  ],
+  "year_established": 2008,
+  "website": "www.bcpsr.ac.in",
+  "university": null,
+  "entrance_exams": [
+   "WBJEE"
+  ],
+  "counselling": "WBJEE Board",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "B.Pharm"
+   ],
+   "list": [
+    {
+     "branch": "B.Pharm/Pharmaceutical Technology",
+     "years": 4,
+     "degree": "B.Pharm",
+     "indicative_closing_rank": 100281,
+     "indicative_opening_rank": null,
+     "career_id": "pharmacy"
+    }
+   ],
+   "source": "WBJEE 2025",
+   "rank_note": "Indicative open-category WBJEE closing rank."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "WBJEE 2025",
+   "programs": "WBJEE 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "wbjee:bengal college pharmaceutical technology dubrajpur birbhum",
+  "aishe_code": "C-64936",
+  "name": "BENGAL COLLEGE OF PHARMACEUTICAL TECHNOLOGY, DUBRAJPUR, BIRBHUM",
+  "display_name": "BENGAL COLLEGE OF PHARMACEUTICAL TECHNOLOGY, DUBRAJPUR, BIRBHUM",
+  "state": "West Bengal",
+  "state_is_inferred": false,
+  "district": "Birbhum",
+  "kind": null,
+  "management": "Private/SF",
+  "ownership": "Private",
+  "disciplines": [
+   "Pharmacy"
+  ],
+  "year_established": 2019,
+  "website": "www.bcpt,in",
+  "university": null,
+  "entrance_exams": [
+   "WBJEE"
+  ],
+  "counselling": "WBJEE Board",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "B.Pharm"
+   ],
+   "list": [
+    {
+     "branch": "B.Pharm/Pharmaceutical Technology",
+     "years": 4,
+     "degree": "B.Pharm",
+     "indicative_closing_rank": 99913,
+     "indicative_opening_rank": null,
+     "career_id": "pharmacy"
+    }
+   ],
+   "source": "WBJEE 2025",
+   "rank_note": "Indicative open-category WBJEE closing rank."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "WBJEE 2025",
+   "programs": "WBJEE 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "wbjee:bengal school technology sugandha hooghly",
+  "aishe_code": "C-6179",
+  "name": "BENGAL SCHOOL OF TECHNOLOGY, SUGANDHA, HOOGHLY",
+  "display_name": "BENGAL SCHOOL OF TECHNOLOGY, SUGANDHA, HOOGHLY",
+  "state": "West Bengal",
+  "state_is_inferred": false,
+  "district": "Hooghly",
+  "kind": null,
+  "management": "Private/SF",
+  "ownership": "Private",
+  "disciplines": [
+   "Pharmacy"
+  ],
+  "year_established": 2006,
+  "website": "https://www.bstpharmacy.in",
+  "university": null,
+  "entrance_exams": [
+   "WBJEE"
+  ],
+  "counselling": "WBJEE Board",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "B.Pharm"
+   ],
+   "list": [
+    {
+     "branch": "B.Pharm/Pharmaceutical Technology",
+     "years": 4,
+     "degree": "B.Pharm",
+     "indicative_closing_rank": 80546,
+     "indicative_opening_rank": null,
+     "career_id": "pharmacy"
+    }
+   ],
+   "source": "WBJEE 2025",
+   "rank_note": "Indicative open-category WBJEE closing rank."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": "A",
+   "cgpa": 3.22,
+   "cycle": 2,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "WBJEE 2025",
+   "programs": "WBJEE 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": "NAAC"
   }
  },
  {
@@ -129182,6 +129592,7 @@
   "website": "www.bhagyalaxminursing.com",
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -129362,6 +129773,7 @@
   "website": null,
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -129461,6 +129873,63 @@
   }
  },
  {
+  "college_id": "wbjee:bharat technology uluberia howrah",
+  "aishe_code": "C-6142",
+  "name": "BHARAT TECHNOLOGY, ULUBERIA, HOWRAH",
+  "display_name": "BHARAT TECHNOLOGY, ULUBERIA, HOWRAH",
+  "state": "West Bengal",
+  "state_is_inferred": false,
+  "district": "Howrah",
+  "kind": null,
+  "management": "Private/SF",
+  "ownership": "Private",
+  "disciplines": [
+   "Pharmacy"
+  ],
+  "year_established": 2006,
+  "website": "www.bharattechnology.in",
+  "university": null,
+  "entrance_exams": [
+   "WBJEE"
+  ],
+  "counselling": "WBJEE Board",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "B.Pharm"
+   ],
+   "list": [
+    {
+     "branch": "B.Pharm/Pharmaceutical Technology",
+     "years": 4,
+     "degree": "B.Pharm",
+     "indicative_closing_rank": 100381,
+     "indicative_opening_rank": null,
+     "career_id": "pharmacy"
+    }
+   ],
+   "source": "WBJEE 2025",
+   "rank_note": "Indicative open-category WBJEE closing rank."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "WBJEE 2025",
+   "programs": "WBJEE 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "acpmec:bharatimaiya college physiotherapy surat",
   "aishe_code": null,
   "name": "BHARATIMAIYA COLLEGE OF PHYSIOTHERAPY SURAT",
@@ -129478,6 +129947,7 @@
   "website": null,
   "university": "Veer Narmad South Gujarat University Surat",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -130192,6 +130662,63 @@
   }
  },
  {
+  "college_id": "wbjee:birbhum pharmacy school hetampur birbhum",
+  "aishe_code": "C-58883",
+  "name": "BIRBHUM PHARMACY SCHOOL, HETAMPUR, BIRBHUM",
+  "display_name": "BIRBHUM PHARMACY SCHOOL, HETAMPUR, BIRBHUM",
+  "state": "West Bengal",
+  "state_is_inferred": false,
+  "district": "Birbhum",
+  "kind": null,
+  "management": "Private/SF",
+  "ownership": "Private",
+  "disciplines": [
+   "Pharmacy"
+  ],
+  "year_established": 2017,
+  "website": "www.birbhumpharmacyschool.in",
+  "university": null,
+  "entrance_exams": [
+   "WBJEE"
+  ],
+  "counselling": "WBJEE Board",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "B.Pharm"
+   ],
+   "list": [
+    {
+     "branch": "B.Pharm/Pharmaceutical Technology",
+     "years": 4,
+     "degree": "B.Pharm",
+     "indicative_closing_rank": 100501,
+     "indicative_opening_rank": null,
+     "career_id": "pharmacy"
+    }
+   ],
+   "source": "WBJEE 2025",
+   "rank_note": "Indicative open-category WBJEE closing rank."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "WBJEE 2025",
+   "programs": "WBJEE 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "kcet:bldeas vp dr p g hallakatti college engineering technology b",
   "aishe_code": null,
   "name": "BLDEA's VP. Dr.P.G. Hallakatti College of Engineering & Technology, Bijapur ASHRAM ROAD,BIJAPUR - 586103",
@@ -130322,6 +130849,7 @@
   "website": null,
   "university": "KSKV Kachchh University Bhuj",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -130632,6 +131160,7 @@
   "website": null,
   "university": "Bhakta Kavi Narsinh Mehta University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -132214,6 +132743,7 @@
   "website": null,
   "university": "Shri Govind Guru University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -133165,6 +133695,7 @@
   "website": null,
   "university": "Shri Govind Guru University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -133816,6 +134347,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -135241,6 +135773,7 @@
   "website": "www.bmusurat.ac.in",
   "university": "Bhagwan Mahavir University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -137242,6 +137775,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -137303,6 +137837,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -137533,6 +138068,7 @@
   "website": null,
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -140108,6 +140644,7 @@
   "website": null,
   "university": "Kadi Sarva Vishwavidyalaya",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -140379,6 +140916,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -140586,6 +141124,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -140871,6 +141410,7 @@
   "website": null,
   "university": "Kadi Sarva Vishwavidyalaya",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -141035,6 +141575,7 @@
   "website": "www.cuspc.org",
   "university": "Saurashtra University Rajkot",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -141151,6 +141692,7 @@
   "website": null,
   "university": "C.U.Shah University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -141245,6 +141787,63 @@
   "data_sources": {
    "identity": "ACPC 2025",
    "programs": "ACPC 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "wbjee:calcutta institute pharmaceutical tech allied health science",
+  "aishe_code": "C-6312",
+  "name": "CALCUTTA INSTITUTE OF PHARMACEUTICAL TECH. & ALLIED HEALTH SCIENCES, ULUBERIA",
+  "display_name": "CALCUTTA INSTITUTE OF PHARMACEUTICAL TECH. & ALLIED HEALTH SCIENCES, ULUBERIA",
+  "state": "West Bengal",
+  "state_is_inferred": false,
+  "district": "Howrah",
+  "kind": null,
+  "management": "Private/SF",
+  "ownership": "Private",
+  "disciplines": [
+   "Pharmacy"
+  ],
+  "year_established": 2002,
+  "website": "www.ciptulb.in",
+  "university": null,
+  "entrance_exams": [
+   "WBJEE"
+  ],
+  "counselling": "WBJEE Board",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "B.Pharm"
+   ],
+   "list": [
+    {
+     "branch": "B.Pharm/Pharmaceutical Technology",
+     "years": 4,
+     "degree": "B.Pharm",
+     "indicative_closing_rank": 100384,
+     "indicative_opening_rank": null,
+     "career_id": "pharmacy"
+    }
+   ],
+   "source": "WBJEE 2025",
+   "rank_note": "Indicative open-category WBJEE closing rank."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "WBJEE 2025",
+   "programs": "WBJEE 2025",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -142472,6 +143071,7 @@
   "website": null,
   "university": "KSKV Kachchh University Bhuj",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -142528,6 +143128,7 @@
   "website": null,
   "university": "Charotar University Of Science And Tech",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -142587,6 +143188,7 @@
   "website": "https://www.chaudharinursing.org.in",
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -142825,6 +143427,7 @@
   "website": null,
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -142884,6 +143487,7 @@
   "website": "www.chmshahnursing.in",
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -142943,6 +143547,7 @@
   "website": "https://www.christhospital.in",
   "university": "Saurashtra University Rajkot",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -143724,6 +144329,7 @@
   "website": null,
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -143783,6 +144389,7 @@
   "website": null,
   "university": "Saurashtra University Rajkot",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -143842,6 +144449,7 @@
   "website": null,
   "university": "S.P. University Vallabh Vidhyanagar",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -143958,6 +144566,7 @@
   "website": null,
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -144614,6 +145223,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -144673,6 +145283,7 @@
   "website": null,
   "university": "The Charutar Vidya Mandal(CVM) University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -145842,6 +146453,7 @@
   "website": null,
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -145898,6 +146510,7 @@
   "website": null,
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -148981,6 +149594,7 @@
   "website": "www.chitrinicollege.com",
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -149898,6 +150512,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -149959,6 +150574,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -150963,6 +151579,7 @@
   "website": null,
   "university": "Shri Govind Guru University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -151091,6 +151708,7 @@
   "website": null,
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -151417,6 +152035,7 @@
   "website": null,
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -153325,6 +153944,63 @@
   }
  },
  {
+  "college_id": "wbjee:derozio pharma institute",
+  "aishe_code": "S-21309",
+  "name": "DEROZIO PHARMA INSTITUTE",
+  "display_name": "DEROZIO PHARMA INSTITUTE",
+  "state": "West Bengal",
+  "state_is_inferred": false,
+  "district": "Purba Medinipur",
+  "kind": null,
+  "management": "Private/SF",
+  "ownership": "Private",
+  "disciplines": [
+   "Pharmacy"
+  ],
+  "year_established": null,
+  "website": "http://www.thedpi.in",
+  "university": null,
+  "entrance_exams": [
+   "WBJEE"
+  ],
+  "counselling": "WBJEE Board",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "B.Pharm"
+   ],
+   "list": [
+    {
+     "branch": "B.Pharm/Pharmaceutical Technology",
+     "years": 4,
+     "degree": "B.Pharm",
+     "indicative_closing_rank": 99587,
+     "indicative_opening_rank": null,
+     "career_id": "pharmacy"
+    }
+   ],
+   "source": "WBJEE 2025",
+   "rank_note": "Indicative open-category WBJEE closing rank."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "WBJEE 2025",
+   "programs": "WBJEE 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "ap-eapcet:DHAN",
   "aishe_code": "C-17937",
   "name": "DHANEKULA INST OF ENGG TECHNOLOGY",
@@ -153439,6 +154115,7 @@
   "website": "www.dpcn.org",
   "university": "Maganbhai adenwala mahagujarat university",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -153498,6 +154175,7 @@
   "website": null,
   "university": "UKA Tarsadia University Surat",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -154704,6 +155382,7 @@
   "website": null,
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -155144,6 +155823,7 @@
   "website": null,
   "university": "DR SUBHASH UNIVERSITY",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -155791,6 +156471,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -155850,6 +156531,7 @@
   "website": null,
   "university": "S.P. University Vallabh Vidhyanagar",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -155909,6 +156591,7 @@
   "website": "WWW.RKPATELEDU.ORG",
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -159730,6 +160413,7 @@
   "website": "https://www.dutnursingcollege.org",
   "university": "Veer Narmad South Gujarat University Surat",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -165414,6 +166098,7 @@
   "website": null,
   "university": "DR SUBHASH UNIVERSITY",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -165622,6 +166307,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -165886,6 +166572,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -166489,6 +167176,7 @@
   "website": null,
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -166701,6 +167389,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -168179,6 +168868,63 @@
   }
  },
  {
+  "college_id": "wbjee:east west education institute",
+  "aishe_code": "C-49454",
+  "name": "EAST WEST EDUCATION INSTITUTE",
+  "display_name": "EAST WEST EDUCATION INSTITUTE",
+  "state": "West Bengal",
+  "state_is_inferred": false,
+  "district": "Purba Bardhaman",
+  "kind": null,
+  "management": "Private/SF",
+  "ownership": "Private",
+  "disciplines": [
+   "Pharmacy"
+  ],
+  "year_established": 2013,
+  "website": "www.eastwestedu.org.in",
+  "university": null,
+  "entrance_exams": [
+   "WBJEE"
+  ],
+  "counselling": "WBJEE Board",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "B.Pharm"
+   ],
+   "list": [
+    {
+     "branch": "B.Pharm/Pharmaceutical Technology",
+     "years": 4,
+     "degree": "B.Pharm",
+     "indicative_closing_rank": 100169,
+     "indicative_opening_rank": null,
+     "career_id": "pharmacy"
+    }
+   ],
+   "source": "WBJEE 2025",
+   "rank_note": "Indicative open-category WBJEE closing rank."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "WBJEE 2025",
+   "programs": "WBJEE 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "acpmec:ekta nursing college at po navi matral ta khedbrahma dis sab",
   "aishe_code": null,
   "name": "EKTA NURSING COLLEGE",
@@ -168196,6 +168942,7 @@
   "website": null,
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -168435,6 +169182,63 @@
   "data_sources": {
    "identity": "AP-EAPCET 2025",
    "programs": "AP-EAPCET 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "wbjee:eminent college pharmaceutical technology barasat",
+  "aishe_code": "S-16809",
+  "name": "EMINENT COLLEGE OF PHARMACEUTICAL TECHNOLOGY, BARASAT",
+  "display_name": "EMINENT COLLEGE OF PHARMACEUTICAL TECHNOLOGY, BARASAT",
+  "state": "West Bengal",
+  "state_is_inferred": false,
+  "district": "North 24 Parganas",
+  "kind": null,
+  "management": "Private/SF",
+  "ownership": "Private",
+  "disciplines": [
+   "Pharmacy"
+  ],
+  "year_established": 2017,
+  "website": "www.ecpt.in",
+  "university": null,
+  "entrance_exams": [
+   "WBJEE"
+  ],
+  "counselling": "WBJEE Board",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "B.Pharm"
+   ],
+   "list": [
+    {
+     "branch": "B.Pharm/Pharmaceutical Technology",
+     "years": 4,
+     "degree": "B.Pharm",
+     "indicative_closing_rank": 96840,
+     "indicative_opening_rank": null,
+     "career_id": "pharmacy"
+    }
+   ],
+   "source": "WBJEE 2025",
+   "rank_note": "Indicative open-category WBJEE closing rank."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "WBJEE 2025",
+   "programs": "WBJEE 2025",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -169607,6 +170411,7 @@
   "website": "eklavyanursing.org",
   "university": "Shri Govind Guru University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -169724,6 +170529,7 @@
   "website": null,
   "university": "Veer Narmad South Gujarat University Surat",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -169780,6 +170586,7 @@
   "website": null,
   "university": "Veer Narmad South Gujarat University Surat",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -170972,6 +171779,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -171729,6 +172537,7 @@
   "website": null,
   "university": "Sigma University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -171895,6 +172704,63 @@
   "data_sources": {
    "identity": "UPTAC 2026",
    "programs": "UPTAC 2026",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "wbjee:flemming college pharmacy",
+  "aishe_code": "S-19466",
+  "name": "FLEMMING COLLEGE OF PHARMACY",
+  "display_name": "FLEMMING COLLEGE OF PHARMACY",
+  "state": "West Bengal",
+  "state_is_inferred": false,
+  "district": "South 24 Parganas",
+  "kind": null,
+  "management": "Private/SF",
+  "ownership": "Private",
+  "disciplines": [
+   "Pharmacy"
+  ],
+  "year_established": 2019,
+  "website": "www.flemmingcollegeofpharmacy.org",
+  "university": null,
+  "entrance_exams": [
+   "WBJEE"
+  ],
+  "counselling": "WBJEE Board",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "B.Pharm"
+   ],
+   "list": [
+    {
+     "branch": "B.Pharm/Pharmaceutical Technology",
+     "years": 4,
+     "degree": "B.Pharm",
+     "indicative_closing_rank": 99902,
+     "indicative_opening_rank": null,
+     "career_id": "pharmacy"
+    }
+   ],
+   "source": "WBJEE 2025",
+   "rank_note": "Indicative open-category WBJEE closing rank."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "WBJEE 2025",
+   "programs": "WBJEE 2025",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -172260,6 +173126,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -172855,6 +173722,7 @@
   "website": null,
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -174054,6 +174922,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -175239,6 +176108,7 @@
   "website": "https://www.gcsmc.org",
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -176011,6 +176881,7 @@
   "website": null,
   "university": "Shri Govind Guru University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -176105,6 +176976,63 @@
   "data_sources": {
    "identity": "State CET Cell, Maharashtra 2025",
    "programs": "MHT-CET CAP 2025, rounds 1-4",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "wbjee:gandhari college",
+  "aishe_code": "C-58498",
+  "name": "GANDHARI COLLEGE (SCHOOL OF PHARMACY)",
+  "display_name": "GANDHARI COLLEGE (SCHOOL OF PHARMACY)",
+  "state": "West Bengal",
+  "state_is_inferred": false,
+  "district": "Purba Medinipur",
+  "kind": null,
+  "management": "Private/SF",
+  "ownership": "Private",
+  "disciplines": [
+   "Pharmacy"
+  ],
+  "year_established": 2016,
+  "website": "www.gandharicollege.org",
+  "university": null,
+  "entrance_exams": [
+   "WBJEE"
+  ],
+  "counselling": "WBJEE Board",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "B.Pharm"
+   ],
+   "list": [
+    {
+     "branch": "B.Pharm/Pharmaceutical Technology",
+     "years": 4,
+     "degree": "B.Pharm",
+     "indicative_closing_rank": 100048,
+     "indicative_opening_rank": null,
+     "career_id": "pharmacy"
+    }
+   ],
+   "source": "WBJEE 2025",
+   "rank_note": "Indicative open-category WBJEE closing rank."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "WBJEE 2025",
+   "programs": "WBJEE 2025",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -176517,6 +177445,7 @@
   "website": "https://iop.guni.ac.in",
   "university": "ganpat university",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -176966,6 +177895,7 @@
   "website": null,
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -177877,6 +178807,63 @@
   }
  },
  {
+  "college_id": "wbjee:gitanjali college pharmacy lohapur birbhum",
+  "aishe_code": "C-61411",
+  "name": "GITANJALI COLLEGE OF PHARMACY, LOHAPUR, BIRBHUM",
+  "display_name": "GITANJALI COLLEGE OF PHARMACY, LOHAPUR, BIRBHUM",
+  "state": "West Bengal",
+  "state_is_inferred": false,
+  "district": "Birbhum",
+  "kind": null,
+  "management": "Private/SF",
+  "ownership": "Private",
+  "disciplines": [
+   "Pharmacy"
+  ],
+  "year_established": 2019,
+  "website": "www.gitanjalicollegegroup.org",
+  "university": null,
+  "entrance_exams": [
+   "WBJEE"
+  ],
+  "counselling": "WBJEE Board",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "B.Pharm"
+   ],
+   "list": [
+    {
+     "branch": "B.Pharm/Pharmaceutical Technology",
+     "years": 4,
+     "degree": "B.Pharm",
+     "indicative_closing_rank": 100281,
+     "indicative_opening_rank": null,
+     "career_id": "pharmacy"
+    }
+   ],
+   "source": "WBJEE 2025",
+   "rank_note": "Indicative open-category WBJEE closing rank."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "WBJEE 2025",
+   "programs": "WBJEE 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "tg-eapcet:GLOB",
   "aishe_code": "C-19722",
   "name": "GLOBAL INST OF ENGINEERING AND TECHNOLOGY (AUTONOMOUS)",
@@ -177991,6 +178978,7 @@
   "website": null,
   "university": "Shri Govind Guru University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -178224,6 +179212,7 @@
   "website": null,
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -178964,6 +179953,7 @@
   "website": null,
   "university": "Shri Govind Guru University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -179198,6 +180188,7 @@
   "website": null,
   "university": "Gokul Global University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -179315,6 +180306,7 @@
   "website": null,
   "university": "Gokul Global University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -179641,6 +180633,7 @@
   "website": null,
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -179773,6 +180766,7 @@
   "website": null,
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -179832,6 +180826,7 @@
   "website": null,
   "university": "M K Bhavnagar University Bhavnagar",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -179891,6 +180886,7 @@
   "website": null,
   "university": "Saurashtra University Rajkot",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -179950,6 +180946,7 @@
   "website": null,
   "university": "Veer Narmad South Gujarat University Surat",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -180391,6 +181388,7 @@
   "website": null,
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -180450,6 +181448,7 @@
   "website": null,
   "university": "Shri Govind Guru University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -180509,6 +181508,7 @@
   "website": "gptcjam.edu.in",
   "university": "Saurashtra University Rajkot",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -180568,6 +181568,7 @@
   "website": null,
   "university": "Veer Narmad South Gujarat University Surat",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -180627,6 +181628,7 @@
   "website": null,
   "university": "M.S. University Baroda",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -180686,6 +181688,7 @@
   "website": null,
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -180745,6 +181748,7 @@
   "website": null,
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -180918,6 +181922,7 @@
   "website": null,
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -180977,6 +181982,7 @@
   "website": null,
   "university": "M.S. University Baroda",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -181036,6 +182042,7 @@
   "website": null,
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -181216,6 +182223,7 @@
   "website": null,
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -181494,6 +182502,7 @@
   "website": null,
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -181534,6 +182543,63 @@
   "aka": [
    "Gujarat Institute Of Nursing Education And Research Ahmedabad (GINERA), Govt. College Of Nursing Ahmedabad (ANUR)"
   ]
+ },
+ {
+  "college_id": "wbjee:gupta college technological sciences asansol burdwan",
+  "aishe_code": "C-6138",
+  "name": "GUPTA COLLEGE OF TECHNOLOGICAL SCIENCES, ASANSOL, BURDWAN",
+  "display_name": "GUPTA COLLEGE OF TECHNOLOGICAL SCIENCES, ASANSOL, BURDWAN",
+  "state": "West Bengal",
+  "state_is_inferred": false,
+  "district": "Paschim Bardhaman",
+  "kind": null,
+  "management": "Private/SF",
+  "ownership": "Private",
+  "disciplines": [
+   "Pharmacy"
+  ],
+  "year_established": 2000,
+  "website": "www.gctsindia.in",
+  "university": null,
+  "entrance_exams": [
+   "WBJEE"
+  ],
+  "counselling": "WBJEE Board",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "B.Pharm"
+   ],
+   "list": [
+    {
+     "branch": "B.Pharm/Pharmaceutical Technology",
+     "years": 4,
+     "degree": "B.Pharm",
+     "indicative_closing_rank": 79836,
+     "indicative_opening_rank": null,
+     "career_id": "pharmacy"
+    }
+   ],
+   "source": "WBJEE 2025",
+   "rank_note": "Indicative open-category WBJEE closing rank."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "WBJEE 2025",
+   "programs": "WBJEE 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
  },
  {
   "college_id": "tg-eapcet:GURU",
@@ -183121,6 +184187,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -183309,6 +184376,7 @@
   "website": null,
   "university": "Other",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -183478,6 +184546,7 @@
   "website": null,
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -183534,6 +184603,7 @@
   "website": "https://kbion.guni.ac.in",
   "university": "ganpat university",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -185264,6 +186334,7 @@
   "website": "www.girnarcollegeofnursing.com",
   "university": "Bhakta Kavi Narsinh Mehta University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -185466,6 +186537,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -186322,6 +187394,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -186756,6 +187829,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -186817,6 +187891,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -187338,6 +188413,7 @@
   "website": "gmcsihor.edu.in",
   "university": "Other",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -190057,6 +191133,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -192886,6 +193963,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -202164,6 +203242,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -202225,6 +203304,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -202286,6 +203366,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -202347,6 +203428,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -203181,6 +204263,7 @@
   "website": "GRAVITYNURSINGINSTI.COM",
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -203796,6 +204879,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -203913,6 +204997,7 @@
   "website": null,
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -205340,6 +206425,7 @@
   "website": null,
   "university": "Shri Govind Guru University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -205396,6 +206482,7 @@
   "website": null,
   "university": "Veer Narmad South Gujarat University Surat",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -206275,6 +207362,63 @@
   }
  },
  {
+  "college_id": "wbjee:haldia institute pharmacy haldia",
+  "aishe_code": "C-60107",
+  "name": "Haldia Institute of Pharmacy, Haldia",
+  "display_name": "Haldia Institute of Pharmacy, Haldia",
+  "state": "West Bengal",
+  "state_is_inferred": false,
+  "district": "Purba Medinipur",
+  "kind": null,
+  "management": "Private/SF",
+  "ownership": "Private",
+  "disciplines": [
+   "Pharmacy"
+  ],
+  "year_established": 2018,
+  "website": "www.hiphaldia.org",
+  "university": null,
+  "entrance_exams": [
+   "WBJEE"
+  ],
+  "counselling": "WBJEE Board",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "B.Pharm"
+   ],
+   "list": [
+    {
+     "branch": "B.Pharm/Pharmaceutical Technology",
+     "years": 4,
+     "degree": "B.Pharm",
+     "indicative_closing_rank": 29629,
+     "indicative_opening_rank": null,
+     "career_id": "pharmacy"
+    }
+   ],
+   "source": "WBJEE 2025",
+   "rank_note": "Indicative open-category WBJEE closing rank."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "WBJEE 2025",
+   "programs": "WBJEE 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "gujcet:hansaba college engieering technology siddhpur",
   "aishe_code": "C-45059",
   "name": "Hansaba College Of Engieering And Technology, Siddhpur",
@@ -206403,6 +207547,7 @@
   "website": null,
   "university": "M K Bhavnagar University Bhavnagar",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -207318,6 +208463,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -210795,6 +211941,7 @@
   "website": null,
   "university": "S.P. University Vallabh Vidhyanagar",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -210828,6 +211975,63 @@
   "data_sources": {
    "identity": "ACPMEC 2026-27",
    "programs": "ACPMEC 2026-27",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "wbjee:iq city institute pharmaceutical sciences",
+  "aishe_code": "C-71493",
+  "name": "IQ CITY INSTITUTE OF PHARMACEUTICAL SCIENCES",
+  "display_name": "IQ CITY INSTITUTE OF PHARMACEUTICAL SCIENCES",
+  "state": "West Bengal",
+  "state_is_inferred": false,
+  "district": "Paschim Bardhaman",
+  "kind": null,
+  "management": "Private/SF",
+  "ownership": "Private",
+  "disciplines": [
+   "Pharmacy"
+  ],
+  "year_established": null,
+  "website": "https://pharmacy.iqcity.in",
+  "university": null,
+  "entrance_exams": [
+   "WBJEE"
+  ],
+  "counselling": "WBJEE Board",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "B.Pharm"
+   ],
+   "list": [
+    {
+     "branch": "B.Pharm/Pharmaceutical Technology",
+     "years": 4,
+     "degree": "B.Pharm",
+     "indicative_closing_rank": 100456,
+     "indicative_opening_rank": null,
+     "career_id": "pharmacy"
+    }
+   ],
+   "source": "WBJEE 2025",
+   "rank_note": "Indicative open-category WBJEE closing rank."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "WBJEE 2025",
+   "programs": "WBJEE 2025",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -211126,6 +212330,7 @@
   "website": "www.itmbu.ac.in",
   "university": "ITM(SLS) Baroda University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -211320,6 +212525,7 @@
   "website": null,
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -211829,6 +213035,7 @@
   "website": "Image.ac.in",
   "university": "S.P. University Vallabh Vidhyanagar",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -212836,6 +214043,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -217743,6 +218951,7 @@
   "website": null,
   "university": "Bhaikaka University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -217893,6 +219102,63 @@
   "data_sources": {
    "identity": "State CET Cell, Maharashtra 2025",
    "programs": "MHT-CET CAP 2025, rounds 1-4",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "wbjee:institute pharmacy jalpaiguri",
+  "aishe_code": "C-16406",
+  "name": "Institute of Pharmacy, Jalpaiguri",
+  "display_name": "Institute of Pharmacy, Jalpaiguri",
+  "state": "West Bengal",
+  "state_is_inferred": false,
+  "district": "Jalpaiguri",
+  "kind": null,
+  "management": "Private/SF",
+  "ownership": "Private",
+  "disciplines": [
+   "Pharmacy"
+  ],
+  "year_established": 1949,
+  "website": "iopj.wbhealth.gov.in",
+  "university": null,
+  "entrance_exams": [
+   "WBJEE"
+  ],
+  "counselling": "WBJEE Board",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "B.Pharm"
+   ],
+   "list": [
+    {
+     "branch": "B.Pharm/Pharmaceutical Technology",
+     "years": 4,
+     "degree": "B.Pharm",
+     "indicative_closing_rank": 5081,
+     "indicative_opening_rank": null,
+     "career_id": "pharmacy"
+    }
+   ],
+   "source": "WBJEE 2025",
+   "rank_note": "Indicative open-category WBJEE closing rank."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "WBJEE 2025",
+   "programs": "WBJEE 2025",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -218965,6 +220231,7 @@
   "website": "janddinstituteofnursing.co.in",
   "university": "Veer Narmad South Gujarat University Surat",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -219331,6 +220598,7 @@
   "website": null,
   "university": "Veer Narmad South Gujarat University Surat",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -219392,6 +220660,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -219508,6 +220777,7 @@
   "website": null,
   "university": "Shri Govind Guru University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -219688,6 +220958,7 @@
   "website": null,
   "university": "Shri Govind Guru University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -220116,6 +221387,63 @@
   }
  },
  {
+  "college_id": "wbjee:jakir hossain institute pharmacy",
+  "aishe_code": "S-16209",
+  "name": "JAKIR HOSSAIN INSTITUTE OF PHARMACY",
+  "display_name": "JAKIR HOSSAIN INSTITUTE OF PHARMACY",
+  "state": "West Bengal",
+  "state_is_inferred": false,
+  "district": "Murshidabad",
+  "kind": null,
+  "management": "Private/SF",
+  "ownership": "Private",
+  "disciplines": [
+   "Pharmacy"
+  ],
+  "year_established": 2015,
+  "website": "www.jhip.in",
+  "university": null,
+  "entrance_exams": [
+   "WBJEE"
+  ],
+  "counselling": "WBJEE Board",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "B.Pharm"
+   ],
+   "list": [
+    {
+     "branch": "B.Pharm/Pharmaceutical Technology",
+     "years": 4,
+     "degree": "B.Pharm",
+     "indicative_closing_rank": 100431,
+     "indicative_opening_rank": null,
+     "career_id": "pharmacy"
+    }
+   ],
+   "source": "WBJEE 2025",
+   "rank_note": "Indicative open-category WBJEE closing rank."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "WBJEE 2025",
+   "programs": "WBJEE 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "mhtcet:05239",
   "aishe_code": "C-50940",
   "name": "JAMIA INSTITUTE OF TECHNOLOGY",
@@ -220206,6 +221534,7 @@
   "website": null,
   "university": "Saurashtra University Rajkot",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -220612,6 +221941,7 @@
   "website": null,
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -220671,6 +222001,7 @@
   "website": null,
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -221273,6 +222604,7 @@
   "website": "www.jmdinstitute.com",
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -223601,6 +224933,7 @@
   "website": null,
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -226961,6 +228294,7 @@
   "website": null,
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -227475,6 +228809,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -228087,6 +229422,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -228148,6 +229484,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -230930,6 +232267,7 @@
   "website": "www.sricampus.org",
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -230992,6 +232330,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -231051,6 +232390,7 @@
   "website": null,
   "university": "Bhakta Kavi Narsinh Mehta University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -233257,6 +234597,7 @@
   "website": null,
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -233373,6 +234714,7 @@
   "website": null,
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -234176,6 +235518,7 @@
   "website": null,
   "university": "Bhaikaka University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -234844,6 +236187,7 @@
   "website": "www.krnc",
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -235276,6 +236620,7 @@
   "website": "www.kamdarnursing.org",
   "university": "Saurashtra University Rajkot",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -235554,6 +236899,7 @@
   "website": null,
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -235726,6 +237072,7 @@
   "website": null,
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -235882,6 +237229,7 @@
   "website": "https://www.kdiahs.com",
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -236598,6 +237946,7 @@
   "website": "www.kirannursingcollege.ac.in",
   "university": "Veer Narmad South Gujarat University Surat",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -238288,6 +239637,7 @@
   "website": null,
   "university": "S.P. University Vallabh Vidhyanagar",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -238777,6 +240127,7 @@
   "website": null,
   "university": "DRS. KIRAN & PALLAVI PATEL GLOBAL UNIVERSITY (KPGU) VADODARA",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -238909,6 +240260,7 @@
   "website": null,
   "university": "Saurashtra University Rajkot",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -240768,6 +242120,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -241012,6 +242365,7 @@
   "website": "kamlaamrut.nsg@gmail.com",
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -242167,6 +243521,7 @@
   "website": "https://karmnursingcollege.com",
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -246225,6 +247580,7 @@
   "website": null,
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -246381,6 +247737,7 @@
   "website": "www.krishnanursingcollege.org / www.bitseducampus.org",
   "university": "DRS. KIRAN & PALLAVI PATEL GLOBAL UNIVERSITY (KPGU) VADODARA",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -247243,6 +248600,7 @@
   "website": "www.ljku.edu.in",
   "university": "L.J.University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -247734,6 +249092,7 @@
   "website": null,
   "university": "L.J.University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -248245,6 +249604,7 @@
   "website": null,
   "university": "S.P. University Vallabh Vidhyanagar",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -249005,6 +250365,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -249544,6 +250905,7 @@
   "website": null,
   "university": "Saurashtra University Rajkot",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -250296,6 +251658,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -250460,6 +251823,7 @@
   "website": "snct.in",
   "university": "Shri Govind Guru University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -250615,6 +251979,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -250673,6 +252038,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -250732,6 +252098,7 @@
   "website": null,
   "university": "Saurashtra University Rajkot",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -251108,6 +252475,7 @@
   "website": null,
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -254476,6 +255844,7 @@
   "website": null,
   "university": "S.P. University Vallabh Vidhyanagar",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -254815,6 +256184,7 @@
   "website": "www.mbgohilphysiocollege.com",
   "university": "Veer Narmad South Gujarat University Surat",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -256306,6 +257676,7 @@
   "website": "www.mgcnjunagadh.com",
   "university": "Bhakta Kavi Narsinh Mehta University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -256502,6 +257873,7 @@
   "website": "www.mgcolleges.in",
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -256674,6 +258046,7 @@
   "website": null,
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -257477,6 +258850,7 @@
   "website": null,
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -257625,6 +258999,7 @@
   "website": null,
   "university": "UKA Tarsadia University Surat",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -257684,6 +259059,7 @@
   "website": "www.charusat.ac.in",
   "university": "Charotar University Of Science And Tech",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -257744,6 +259120,7 @@
   "website": "www.mins.org.in",
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -258063,6 +259440,7 @@
   "website": null,
   "university": "Marwadi University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -258397,6 +259775,7 @@
   "website": "www.lionshospitalmehsana.org.in",
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -258456,6 +259835,7 @@
   "website": null,
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -258572,6 +259952,7 @@
   "website": null,
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -260831,6 +262212,7 @@
   "website": null,
   "university": "Gujarat Ayurved University Jamnagar",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -261003,6 +262385,7 @@
   "website": null,
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -261442,6 +262825,7 @@
   "website": null,
   "university": "Shri Govind Guru University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -261558,6 +262942,7 @@
   "website": "www.murlidharnursinginstitute.org",
   "university": "Saurashtra University Rajkot",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -262772,6 +264157,7 @@
   "website": null,
   "university": "Other",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -268915,6 +270301,7 @@
   "website": "https://www.vidyasabha.com/maniba-gajera-institute-of-nursing",
   "university": "Saurashtra University Rajkot",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -269122,6 +270509,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -269183,6 +270571,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -270649,6 +272038,7 @@
   "website": null,
   "university": "Other",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -272642,6 +274032,7 @@
   "website": null,
   "university": "Other",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -272755,6 +274146,7 @@
   "website": null,
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -273762,6 +275154,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -273880,6 +275273,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -273996,6 +275390,7 @@
   "website": null,
   "university": "Veer Narmad South Gujarat University Surat",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -274052,6 +275447,7 @@
   "website": null,
   "university": "S.P. University Vallabh Vidhyanagar",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -275415,6 +276811,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -275476,6 +276873,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -277110,6 +278508,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -278563,6 +279962,7 @@
   "website": null,
   "university": "M K Bhavnagar University Bhavnagar",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -278622,6 +280022,7 @@
   "website": "njpatel.org.in",
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -279186,6 +280587,7 @@
   "website": "www.nagarschoolofoptometry.com",
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -279690,6 +281092,7 @@
   "website": null,
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -280097,6 +281500,7 @@
   "website": "www.nsni.in",
   "university": "Other",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -280456,6 +281860,7 @@
   "website": null,
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -280691,6 +282096,7 @@
   "website": "www.neotech.ac.in",
   "university": "Shri Govind Guru University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -280805,6 +282211,63 @@
   "data_sources": {
    "identity": "TG-EAPCET 2025",
    "programs": "TG-EAPCET 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "wbjee:netaji subhash chandra bose institute pharmacy chakdah nadia",
+  "aishe_code": "C-6157",
+  "name": "NETAJI SUBHASH CHANDRA BOSE INSTITUTE OF PHARMACY,CHAKDAH, NADIA",
+  "display_name": "NETAJI SUBHASH CHANDRA BOSE INSTITUTE OF PHARMACY,CHAKDAH, NADIA",
+  "state": "West Bengal",
+  "state_is_inferred": false,
+  "district": "Nadia",
+  "kind": null,
+  "management": "Private/SF",
+  "ownership": "Private",
+  "disciplines": [
+   "Pharmacy"
+  ],
+  "year_established": 2004,
+  "website": "www.nscbip.org",
+  "university": null,
+  "entrance_exams": [
+   "WBJEE"
+  ],
+  "counselling": "WBJEE Board",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "B.Pharm"
+   ],
+   "list": [
+    {
+     "branch": "B.Pharm/Pharmaceutical Technology",
+     "years": 4,
+     "degree": "B.Pharm",
+     "indicative_closing_rank": 100185,
+     "indicative_opening_rank": null,
+     "career_id": "pharmacy"
+    }
+   ],
+   "source": "WBJEE 2025",
+   "rank_note": "Indicative open-category WBJEE closing rank."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "WBJEE 2025",
+   "programs": "WBJEE 2025",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -281452,6 +282915,7 @@
   "website": null,
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -281954,6 +283418,7 @@
   "website": null,
   "university": "noble university",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -282102,6 +283567,7 @@
   "website": "www.nootancollegeofnursing.org",
   "university": "Sankalchand Patel University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -282161,6 +283627,7 @@
   "website": null,
   "university": "Sankalchand Patel University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -282587,6 +284054,63 @@
   "data_sources": {
    "identity": "NMC 2024-25 / AISHE 2024-25",
    "programs": "NMC 2024-25",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "wbjee:nshm institute pharmaceutical technology durgapur",
+  "aishe_code": "C-74711",
+  "name": "NSHM INSTITUTE OF PHARMACEUTICAL TECHNOLOGY, DURGAPUR",
+  "display_name": "NSHM INSTITUTE OF PHARMACEUTICAL TECHNOLOGY, DURGAPUR",
+  "state": "West Bengal",
+  "state_is_inferred": false,
+  "district": "Paschim Bardhaman",
+  "kind": null,
+  "management": "Private/SF",
+  "ownership": "Private",
+  "disciplines": [
+   "Pharmacy"
+  ],
+  "year_established": 2024,
+  "website": "www.nshm.com",
+  "university": null,
+  "entrance_exams": [
+   "WBJEE"
+  ],
+  "counselling": "WBJEE Board",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "B.Pharm"
+   ],
+   "list": [
+    {
+     "branch": "B.Pharm/Pharmaceutical Technology",
+     "years": 4,
+     "degree": "B.Pharm",
+     "indicative_closing_rank": 96457,
+     "indicative_opening_rank": null,
+     "career_id": "pharmacy"
+    }
+   ],
+   "source": "WBJEE 2025",
+   "rank_note": "Indicative open-category WBJEE closing rank."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "WBJEE 2025",
+   "programs": "WBJEE 2025",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -284333,6 +285857,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -285790,6 +287315,7 @@
   "website": null,
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -286215,6 +287741,7 @@
   "website": null,
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -286274,6 +287801,7 @@
   "website": "WWW.NAVYUGNURSINGCOLLEGE.COM",
   "university": "Saurashtra University Rajkot",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -287121,6 +288649,7 @@
   "website": "www.neotech.ac.in",
   "university": "Shri Govind Guru University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -287473,6 +289002,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -288442,6 +289972,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -288568,6 +290099,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -288629,6 +290161,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -288688,6 +290221,7 @@
   "website": null,
   "university": "Bhakta Kavi Narsinh Mehta University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -288803,6 +290337,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -288921,6 +290456,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -289245,6 +290781,87 @@
   "data_sources": {
    "identity": "NMC 2024-25 / AISHE 2024-25",
    "programs": "NMC 2024-25",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "wbjee:nshm knowledge campus durgapur group institutions",
+  "aishe_code": "C-6143",
+  "name": "Nshm Knowledge Campus, Durgapur Group of Institutions",
+  "display_name": "Nshm Knowledge Campus, Durgapur Group of Institutions",
+  "state": "West Bengal",
+  "state_is_inferred": false,
+  "district": "Paschim Bardhaman",
+  "kind": null,
+  "management": "Private/SF",
+  "ownership": "Private",
+  "disciplines": [
+   "Engineering"
+  ],
+  "year_established": 2010,
+  "website": "www.nshm.com",
+  "university": null,
+  "entrance_exams": [
+   "WBJEE"
+  ],
+  "counselling": "WBJEE Board",
+  "programs": {
+   "count": 4,
+   "degrees": [
+    "B.E. / B.Tech"
+   ],
+   "list": [
+    {
+     "branch": "Computer Science & Engineering (Artificial Intelligence)",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 89901,
+     "indicative_opening_rank": null,
+     "career_id": "artificial-intelligence-and-data-science"
+    },
+    {
+     "branch": "Computer Science & Engineering",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 91157,
+     "indicative_opening_rank": null,
+     "career_id": "computer-science-information-technology"
+    },
+    {
+     "branch": "Electronics & Communication Engineering",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 91181,
+     "indicative_opening_rank": null,
+     "career_id": "electrical-electronics-communications-engineering"
+    },
+    {
+     "branch": "Computer Science & Engineering (Data Science)",
+     "years": 4,
+     "degree": "B.E. / B.Tech",
+     "indicative_closing_rank": 91953,
+     "indicative_opening_rank": null,
+     "career_id": "artificial-intelligence-and-data-science"
+    }
+   ],
+   "source": "WBJEE 2026",
+   "rank_note": "Indicative open-category WBJEE closing rank."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "WBJEE 2026",
+   "programs": "WBJEE 2026",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -289967,6 +291584,7 @@
   "website": null,
   "university": "S.P. University Vallabh Vidhyanagar",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -290023,6 +291641,7 @@
   "website": null,
   "university": "Saurashtra University Rajkot",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -290139,6 +291758,7 @@
   "website": null,
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -291335,6 +292955,7 @@
   "website": "www.ppsu.ac.in",
   "university": "P.P.Savani University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -291397,6 +293018,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -291458,6 +293080,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -292027,6 +293650,63 @@
   }
  },
  {
+  "college_id": "wbjee:p g institute medical sciences chandrakona",
+  "aishe_code": "C-58781",
+  "name": "P.G. INSTITUTE OF MEDICAL SCIENCES, CHANDRAKONA",
+  "display_name": "P.G. INSTITUTE OF MEDICAL SCIENCES, CHANDRAKONA",
+  "state": "West Bengal",
+  "state_is_inferred": false,
+  "district": "Paschim Medinipur",
+  "kind": null,
+  "management": "Private/SF",
+  "ownership": "Private",
+  "disciplines": [
+   "Pharmacy"
+  ],
+  "year_established": 2017,
+  "website": "www.pgimsonline.org.in",
+  "university": null,
+  "entrance_exams": [
+   "WBJEE"
+  ],
+  "counselling": "WBJEE Board",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "B.Pharm"
+   ],
+   "list": [
+    {
+     "branch": "B.Pharm/Pharmaceutical Technology",
+     "years": 4,
+     "degree": "B.Pharm",
+     "indicative_closing_rank": 92031,
+     "indicative_opening_rank": null,
+     "career_id": "pharmacy"
+    }
+   ],
+   "source": "WBJEE 2025",
+   "rank_note": "Indicative open-category WBJEE closing rank."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "WBJEE 2025",
+   "programs": "WBJEE 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "du:p-g-d-a-v-college-evening",
   "aishe_code": "C-22467",
   "name": "P.G.D.A.V. College (Evening)",
@@ -292354,6 +294034,7 @@
   "website": "www.ppsu.ac.in",
   "university": "P.P.Savani University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -293860,6 +295541,7 @@
   "website": "http://panchamrutinstituteofnursing.com",
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -293900,6 +295582,63 @@
   "aka": [
    "Panchamrut Institute Of Nursing, Ahmedabad (PANNUR)"
   ]
+ },
+ {
+  "college_id": "wbjee:pandaveswar school pharmacy",
+  "aishe_code": "C-66155",
+  "name": "PANDAVESWAR SCHOOL OF PHARMACY",
+  "display_name": "PANDAVESWAR SCHOOL OF PHARMACY",
+  "state": "West Bengal",
+  "state_is_inferred": false,
+  "district": "Paschim Bardhaman",
+  "kind": null,
+  "management": "Private/SF",
+  "ownership": "Private",
+  "disciplines": [
+   "Pharmacy"
+  ],
+  "year_established": 2019,
+  "website": "www.pspharmacy.in",
+  "university": null,
+  "entrance_exams": [
+   "WBJEE"
+  ],
+  "counselling": "WBJEE Board",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "B.Pharm"
+   ],
+   "list": [
+    {
+     "branch": "B.Pharm/Pharmaceutical Technology",
+     "years": 4,
+     "degree": "B.Pharm",
+     "indicative_closing_rank": 99675,
+     "indicative_opening_rank": null,
+     "career_id": "pharmacy"
+    }
+   ],
+   "source": "WBJEE 2025",
+   "rank_note": "Indicative open-category WBJEE closing rank."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "WBJEE 2025",
+   "programs": "WBJEE 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
  },
  {
   "college_id": "gujcet:parul college pharmacy research parul university ahmedabad",
@@ -294045,6 +295784,7 @@
   "website": null,
   "university": "Parul University Vadodara",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -294231,6 +295971,7 @@
   "website": "www.paruluniversity.ac in",
   "university": "Parul University Vadodara",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -294291,6 +296032,7 @@
   "website": null,
   "university": "Parul University Vadodara",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -294948,6 +296690,7 @@
   "website": "www.ogect.org",
   "university": "Shri Govind Guru University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -295064,6 +296807,7 @@
   "website": "https://pioneercampus.ac.in/physiotherapy",
   "university": "Shri Govind Guru University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -295716,6 +297460,7 @@
   "website": null,
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -295775,6 +297520,7 @@
   "website": "prime.ac.in",
   "university": "Veer Narmad South Gujarat University Surat",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -299227,6 +300973,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -299288,6 +301035,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -299526,6 +301274,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -299642,6 +301391,7 @@
   "website": null,
   "university": "Other",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -300598,6 +302348,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -300659,6 +302410,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -302904,6 +304656,7 @@
   "website": "www.prernanursing.com",
   "university": "Shri Govind Guru University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -302963,6 +304716,7 @@
   "website": "http://pnc.shayonainstitute.edu.in",
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -305383,6 +307137,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -306028,6 +307783,7 @@
   "website": null,
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -306088,6 +307844,7 @@
   "website": null,
   "university": "Shri Govind Guru University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -306439,6 +308196,7 @@
   "website": null,
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -306556,6 +308314,7 @@
   "website": null,
   "university": "S.P. University Vallabh Vidhyanagar",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -306794,6 +308553,7 @@
   "website": null,
   "university": "R K University Rajkot",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -308328,6 +310088,7 @@
   "website": null,
   "university": "Shri Govind Guru University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -308836,6 +310597,63 @@
   }
  },
  {
+  "college_id": "wbjee:rashbehari pharmaceutical institute",
+  "aishe_code": "C-69313",
+  "name": "RASHBEHARI PHARMACEUTICAL INSTITUTE",
+  "display_name": "RASHBEHARI PHARMACEUTICAL INSTITUTE",
+  "state": "West Bengal",
+  "state_is_inferred": false,
+  "district": "Purba Medinipur",
+  "kind": null,
+  "management": "Private/SF",
+  "ownership": "Private",
+  "disciplines": [
+   "Pharmacy"
+  ],
+  "year_established": null,
+  "website": "https://rashbeharipharma.in",
+  "university": null,
+  "entrance_exams": [
+   "WBJEE"
+  ],
+  "counselling": "WBJEE Board",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "B.Pharm"
+   ],
+   "list": [
+    {
+     "branch": "B.Pharm/Pharmaceutical Technology",
+     "years": 4,
+     "degree": "B.Pharm",
+     "indicative_closing_rank": 98847,
+     "indicative_opening_rank": null,
+     "career_id": "pharmacy"
+    }
+   ],
+   "source": "WBJEE 2025",
+   "rank_note": "Indicative open-category WBJEE closing rank."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "WBJEE 2025",
+   "programs": "WBJEE 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "kcet:rathinam institute technology doddakammanahally village begu",
   "aishe_code": null,
   "name": "RATHINAM INSTITUTE OF TECHNOLOGY DODDAKAMMANAHALLY VILLAGE, BEGUR HOBLI,",
@@ -308942,6 +310760,7 @@
   "website": null,
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -309213,6 +311032,7 @@
   "website": null,
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -309504,6 +311324,7 @@
   "website": "www.cvmu.edu.in",
   "university": "Other",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -309722,6 +311543,7 @@
   "website": null,
   "university": "Shri Govind Guru University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -309781,6 +311603,7 @@
   "website": null,
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -309837,6 +311660,7 @@
   "website": null,
   "university": "Veer Narmad South Gujarat University Surat",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -309893,6 +311717,7 @@
   "website": null,
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -310185,6 +312010,7 @@
   "website": null,
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -310524,6 +312350,7 @@
   "website": "vnsgu.ac.in",
   "university": "Veer Narmad South Gujarat University Surat",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -310978,6 +312805,7 @@
   "website": null,
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -314831,6 +316659,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -316579,6 +318408,7 @@
   "website": null,
   "university": "Other",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -317176,6 +319006,7 @@
   "website": null,
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -319969,6 +321800,7 @@
   "website": null,
   "university": "Veer Narmad South Gujarat University Surat",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -320030,6 +321862,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -320091,6 +321924,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -320579,6 +322413,7 @@
   "website": null,
   "university": "Saurashtra University Rajkot",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -320638,6 +322473,7 @@
   "website": null,
   "university": "Saurashtra University Rajkot",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -321406,6 +323242,7 @@
   "website": null,
   "university": "Veer Narmad South Gujarat University Surat",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -321551,6 +323388,7 @@
   "website": null,
   "university": "Veer Narmad South Gujarat University Surat",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -322101,6 +323939,7 @@
   "website": "www.sadbhavnursing.org",
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -322161,6 +324000,7 @@
   "website": null,
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -322646,6 +324486,7 @@
   "website": null,
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -322876,6 +324717,7 @@
   "website": "www.sscnvapi.org",
   "university": "Veer Narmad South Gujarat University Surat",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -323551,6 +325393,7 @@
   "website": null,
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -323907,6 +325750,7 @@
   "website": "https://monarkuni.ac.in/faculty?facultyId=68021f3462e5bb74160690dc",
   "university": "Monark University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -324063,6 +325907,7 @@
   "website": null,
   "university": "Bhakta Kavi Narsinh Mehta University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -324122,6 +325967,7 @@
   "website": "www.pmect.com",
   "university": "Veer Narmad South Gujarat University Surat",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -324798,6 +326644,63 @@
   }
  },
  {
+  "college_id": "wbjee:school pharmacy techno india university salt lake",
+  "aishe_code": null,
+  "name": "SCHOOL OF PHARMACY, TECHNO INDIA UNIVERSITY, SALT LAKE",
+  "display_name": "SCHOOL OF PHARMACY, TECHNO INDIA UNIVERSITY, SALT LAKE",
+  "state": "West Bengal",
+  "state_is_inferred": false,
+  "district": "Kolkata",
+  "kind": null,
+  "management": "Private/Deemed",
+  "ownership": "Private",
+  "disciplines": [
+   "Pharmacy"
+  ],
+  "year_established": null,
+  "website": "www.technoindiauniversity.ac.in",
+  "university": null,
+  "entrance_exams": [
+   "WBJEE"
+  ],
+  "counselling": "WBJEE Board",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "B.Pharm"
+   ],
+   "list": [
+    {
+     "branch": "B.Pharm/Pharmaceutical Technology",
+     "years": 4,
+     "degree": "B.Pharm",
+     "indicative_closing_rank": 75950,
+     "indicative_opening_rank": null,
+     "career_id": "pharmacy"
+    }
+   ],
+   "source": "WBJEE 2025",
+   "rank_note": "Indicative open-category WBJEE closing rank."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": "B+",
+   "cgpa": 2.64,
+   "cycle": 1,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "WBJEE 2025",
+   "programs": "WBJEE 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": "NAAC"
+  }
+ },
+ {
   "college_id": "gujcet:school technology gsfc university vadodara",
   "aishe_code": null,
   "name": "SCHOOL OF TECHNOLOGY, GSFC UNIVERSITY, VADODARA",
@@ -325245,6 +327148,63 @@
   "data_sources": {
    "identity": "NMC 2024-25 / AISHE 2024-25",
    "programs": "NMC 2024-25",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "wbjee:seacom pharmacy college",
+  "aishe_code": "S-19265",
+  "name": "SEACOM PHARMACY COLLEGE",
+  "display_name": "SEACOM PHARMACY COLLEGE",
+  "state": "West Bengal",
+  "state_is_inferred": false,
+  "district": "Howrah",
+  "kind": null,
+  "management": "Private/SF",
+  "ownership": "Private",
+  "disciplines": [
+   "Pharmacy"
+  ],
+  "year_established": 2018,
+  "website": "www.seacompharmacycollege.in",
+  "university": null,
+  "entrance_exams": [
+   "WBJEE"
+  ],
+  "counselling": "WBJEE Board",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "B.Pharm"
+   ],
+   "list": [
+    {
+     "branch": "B.Pharm/Pharmaceutical Technology",
+     "years": 4,
+     "degree": "B.Pharm",
+     "indicative_closing_rank": 100361,
+     "indicative_opening_rank": null,
+     "career_id": "pharmacy"
+    }
+   ],
+   "source": "WBJEE 2025",
+   "rank_note": "Indicative open-category WBJEE closing rank."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "WBJEE 2025",
+   "programs": "WBJEE 2025",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -325778,6 +327738,7 @@
   "website": "www.gswtindia.com",
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -325837,6 +327798,7 @@
   "website": "www.bapugkv.ac.in",
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -325954,6 +327916,7 @@
   "website": "WWW.SUBHAMEDUCAMPUS.ORG",
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -326070,6 +328033,7 @@
   "website": null,
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -326129,6 +328093,7 @@
   "website": null,
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -326188,6 +328153,7 @@
   "website": "WWW.SHARDACOLLEGEOFNURSING.COM",
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -326316,6 +328282,7 @@
   "website": null,
   "university": "Kadi Sarva Vishwavidyalaya",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -326372,6 +328339,7 @@
   "website": null,
   "university": "Shri Govind Guru University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -326554,6 +328522,7 @@
   "website": "www.aryatej.co.in",
   "university": "Saurashtra University Rajkot",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -326613,6 +328582,7 @@
   "website": "SHREEATMIYANURSING.COM",
   "university": "Saurashtra University Rajkot",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -326673,6 +328643,7 @@
   "website": null,
   "university": "S.P. University Vallabh Vidhyanagar",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -326732,6 +328703,7 @@
   "website": null,
   "university": "Veer Narmad South Gujarat University Surat",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -326856,6 +328828,7 @@
   "website": null,
   "university": "Shri Govind Guru University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -326972,6 +328945,7 @@
   "website": null,
   "university": "Saurashtra University Rajkot",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -327032,6 +329006,7 @@
   "website": null,
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -327091,6 +329066,7 @@
   "website": null,
   "university": "Saurashtra University Rajkot",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -327150,6 +329126,7 @@
   "website": null,
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -327210,6 +329187,7 @@
   "website": null,
   "university": "Saurashtra University Rajkot",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -327323,6 +329301,7 @@
   "website": null,
   "university": "Veer Narmad South Gujarat University Surat",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -327512,6 +329491,7 @@
   "website": "www.sahajanandbvn.org",
   "university": "M K Bhavnagar University Bhavnagar",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -327571,6 +329551,7 @@
   "website": null,
   "university": "M K Bhavnagar University Bhavnagar",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -327687,6 +329668,7 @@
   "website": null,
   "university": "swaminarayan university",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -327901,6 +329883,7 @@
   "website": null,
   "university": "Veer Narmad South Gujarat University Surat",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -327960,6 +329943,7 @@
   "website": "www.sspcranip.com",
   "university": "swaminarayan university",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -328019,6 +330003,7 @@
   "website": null,
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -328078,6 +330063,7 @@
   "website": null,
   "university": "Saurashtra University Rajkot",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -328137,6 +330123,7 @@
   "website": "www.swaminarayannursingcollege.com",
   "university": "Bhakta Kavi Narsinh Mehta University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -328197,6 +330184,7 @@
   "website": "www.adarshvidhyasankul.com",
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -328256,6 +330244,7 @@
   "website": null,
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -328315,6 +330304,7 @@
   "website": null,
   "university": "Saurashtra University Rajkot",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -328431,6 +330421,7 @@
   "website": null,
   "university": "Saurashtra University Rajkot",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -328544,6 +330535,7 @@
   "website": null,
   "university": "Saurashtra University Rajkot",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -328604,6 +330596,7 @@
   "website": "www.vnpmc.org.in",
   "university": "Veer Narmad South Gujarat University Surat",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -328660,6 +330653,7 @@
   "website": null,
   "university": "Saurashtra University Rajkot",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -328834,6 +330828,7 @@
   "website": null,
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -328893,6 +330888,7 @@
   "website": null,
   "university": "Saurashtra University Rajkot",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -329066,6 +331062,7 @@
   "website": null,
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -329658,6 +331655,7 @@
   "website": null,
   "university": "Sigma University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -329840,6 +331838,7 @@
   "website": "www.silveroakuni.ac.in",
   "university": "silver oak university",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -330290,6 +332289,7 @@
   "website": null,
   "university": "KSKV Kachchh University Bhuj",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -330330,6 +332330,63 @@
   "aka": [
    "Shri Kutchi Leva Patel (SKLP) Nursing Institute Of Education &practice, Kutch (SKLNUR)"
   ]
+ },
+ {
+  "college_id": "wbjee:skm institute pharmaceutical sciences research",
+  "aishe_code": "S-21824",
+  "name": "SKM INSTITUTE OF PHARMACEUTICAL SCIENCES AND RESEARCH",
+  "display_name": "SKM INSTITUTE OF PHARMACEUTICAL SCIENCES AND RESEARCH",
+  "state": "West Bengal",
+  "state_is_inferred": false,
+  "district": "Birbhum",
+  "kind": null,
+  "management": "Private/SF",
+  "ownership": "Private",
+  "disciplines": [
+   "Pharmacy"
+  ],
+  "year_established": null,
+  "website": "https://skmpharma.in",
+  "university": null,
+  "entrance_exams": [
+   "WBJEE"
+  ],
+  "counselling": "WBJEE Board",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "B.Pharm"
+   ],
+   "list": [
+    {
+     "branch": "B.Pharm/Pharmaceutical Technology",
+     "years": 4,
+     "degree": "B.Pharm",
+     "indicative_closing_rank": 98171,
+     "indicative_opening_rank": null,
+     "career_id": "pharmacy"
+    }
+   ],
+   "source": "WBJEE 2025",
+   "rank_note": "Indicative open-category WBJEE closing rank."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "WBJEE 2025",
+   "programs": "WBJEE 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
  },
  {
   "college_id": "C-15745",
@@ -330649,6 +332706,7 @@
   "website": "www.mahiledusankul.org",
   "university": "Saurashtra University Rajkot",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -330823,6 +332881,7 @@
   "website": null,
   "university": "Veer Narmad South Gujarat University Surat",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -331021,6 +333080,7 @@
   "website": null,
   "university": "Bhakta Kavi Narsinh Mehta University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -331194,6 +333254,7 @@
   "website": null,
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -331542,6 +333603,7 @@
   "website": "www.sionrajkot.in",
   "university": "Saurashtra University Rajkot",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -331601,6 +333663,7 @@
   "website": null,
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -331660,6 +333723,7 @@
   "website": "www.sgmerc.org",
   "university": "Veer Narmad South Gujarat University Surat",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -335293,6 +337357,7 @@
   "website": null,
   "university": "UKA Tarsadia University Surat",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -336661,6 +338726,7 @@
   "website": null,
   "university": "Veer Narmad South Gujarat University Surat",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -337836,6 +339902,7 @@
   "website": null,
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -337895,6 +339962,7 @@
   "website": "http://svayambhunursing.in",
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -338850,6 +340918,7 @@
   "website": null,
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -338909,6 +340978,7 @@
   "website": null,
   "university": "M.K. University PATAN",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -339686,6 +341756,7 @@
   "website": null,
   "university": "Shri Govind Guru University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -341977,6 +344048,7 @@
   "website": null,
   "university": "Shri Govind Guru University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -342458,6 +344530,7 @@
   "website": null,
   "university": "Shri Govind Guru University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -342514,6 +344587,7 @@
   "website": null,
   "university": "Other",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -342792,6 +344866,7 @@
   "website": null,
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -343272,6 +345347,7 @@
   "website": "ARRDEKTA.ORG",
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -344005,6 +346081,7 @@
   "website": "www.santramnursinginstitute.org",
   "university": "S.P. University Vallabh Vidhyanagar",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -344958,6 +347035,7 @@
   "website": null,
   "university": "Veer Narmad South Gujarat University Surat",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -345131,6 +347209,7 @@
   "website": null,
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -345249,6 +347328,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -345405,6 +347485,7 @@
   "website": null,
   "university": "Shri Govind Guru University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -345521,6 +347602,7 @@
   "website": "SRDARPATELNURSING.COM",
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -345790,6 +347872,7 @@
   "website": null,
   "university": "S.P. University Vallabh Vidhyanagar",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -349261,6 +351344,7 @@
   "website": "sevashramnursingcollege.com",
   "university": "Veer Narmad South Gujarat University Surat",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -349377,6 +351461,7 @@
   "website": "aect.org.in",
   "university": "Saurashtra University Rajkot",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -351839,6 +353924,7 @@
   "website": "www.shitalinstituteofnursing.org",
   "university": "Shri Govind Guru University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -352224,6 +354310,7 @@
   "website": null,
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -352283,6 +354370,7 @@
   "website": "www.shivam.ac.in",
   "university": "S.P. University Vallabh Vidhyanagar",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -353218,6 +355306,7 @@
   "website": "http://amarapurcollege.com",
   "university": "Saurashtra University Rajkot",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -353589,6 +355678,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -353648,6 +355738,7 @@
   "website": null,
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -353815,6 +355906,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -353931,6 +356023,7 @@
   "website": null,
   "university": "Veer Narmad South Gujarat University Surat",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -354104,6 +356197,7 @@
   "website": "vnsgu.net",
   "university": "Veer Narmad South Gujarat University Surat",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -354312,6 +356406,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -354568,6 +356663,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -354734,6 +356830,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -354793,6 +356890,7 @@
   "website": "www.sshmcgodhra.in",
   "university": "Shri Govind Guru University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -354855,6 +356953,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -354968,6 +357067,7 @@
   "website": null,
   "university": "Saurashtra University Rajkot",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -355029,6 +357129,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -355090,6 +357191,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -355151,6 +357253,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -355210,6 +357313,7 @@
   "website": null,
   "university": "Veer Narmad South Gujarat University Surat",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -355269,6 +357373,7 @@
   "website": null,
   "university": "Veer Narmad South Gujarat University Surat",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -355328,6 +357433,7 @@
   "website": null,
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -355522,6 +357628,7 @@
   "website": "www.umiyanursing.org",
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -355581,6 +357688,7 @@
   "website": null,
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -356062,6 +358170,7 @@
   "website": null,
   "university": "Saurashtra University Rajkot",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -356121,6 +358230,7 @@
   "website": null,
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -356351,6 +358461,7 @@
   "website": null,
   "university": "Shreyarth University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -356640,6 +358751,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -356815,6 +358927,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -356876,6 +358989,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -357106,6 +359220,7 @@
   "website": "https://www.sbgmnursing.ac.in",
   "university": "Veer Narmad South Gujarat University Surat",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -357336,6 +359451,7 @@
   "website": null,
   "university": "Saurashtra University Rajkot",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -357566,6 +359682,7 @@
   "website": null,
   "university": "M K Bhavnagar University Bhavnagar",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -357925,6 +360042,7 @@
   "website": "www.gardividyapith.ac.in",
   "university": "Saurashtra University Rajkot",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -358065,6 +360183,7 @@
   "website": null,
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -358167,6 +360286,7 @@
   "website": "www.jrdnursing.in",
   "university": "Shri Govind Guru University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -358683,6 +360803,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -358742,6 +360863,7 @@
   "website": "WWW.NSC.AC.IN",
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -359748,6 +361870,7 @@
   "website": "vnpmc.org.in",
   "university": "Veer Narmad South Gujarat University Surat",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -360253,6 +362376,7 @@
   "website": null,
   "university": "Saurashtra University Rajkot",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -360788,6 +362912,7 @@
   "website": null,
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -360844,6 +362969,7 @@
   "website": "www.umiyavidyavihar.org",
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -360905,6 +363031,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -363065,6 +365192,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -363181,6 +365309,7 @@
   "website": "shrijiinstituteofnursing.in",
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -364837,6 +366966,7 @@
   "website": null,
   "university": "S.P. University Vallabh Vidhyanagar",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -365052,6 +367182,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -365540,6 +367671,7 @@
   "website": "www.silveroakuni.ac.in",
   "university": "silver oak university",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -367207,6 +369339,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -367268,6 +369401,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -367327,6 +369461,7 @@
   "website": "www.smtcsbdnursing.in",
   "university": "Shri Govind Guru University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -367824,6 +369959,7 @@
   "website": "www.spjinbhavnagar.org",
   "university": "M K Bhavnagar University Bhavnagar",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -367884,6 +370020,7 @@
   "website": "www.svetrust.com",
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -367943,6 +370080,7 @@
   "website": null,
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -368077,6 +370215,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -368136,6 +370275,7 @@
   "website": null,
   "university": "Shri Govind Guru University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -376921,6 +379061,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -378211,6 +380352,7 @@
   "website": "www.sunrisecollegeofnursing.com",
   "university": "Shri Govind Guru University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -379837,6 +381979,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -381587,6 +383730,7 @@
   "website": null,
   "university": "Veer Narmad South Gujarat University Surat",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -382172,6 +384316,63 @@
   }
  },
  {
+  "college_id": "wbjee:tarifa memorial institute pharmacy",
+  "aishe_code": "S-19498",
+  "name": "TARIFA MEMORIAL INSTITUTE OF PHARMACY",
+  "display_name": "TARIFA MEMORIAL INSTITUTE OF PHARMACY",
+  "state": "West Bengal",
+  "state_is_inferred": false,
+  "district": "Murshidabad",
+  "kind": null,
+  "management": "Private/SF",
+  "ownership": "Private",
+  "disciplines": [
+   "Pharmacy"
+  ],
+  "year_established": 2020,
+  "website": "www.tarifamip.org",
+  "university": null,
+  "entrance_exams": [
+   "WBJEE"
+  ],
+  "counselling": "WBJEE Board",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "B.Pharm"
+   ],
+   "list": [
+    {
+     "branch": "B.Pharm/Pharmaceutical Technology",
+     "years": 4,
+     "degree": "B.Pharm",
+     "indicative_closing_rank": 99729,
+     "indicative_opening_rank": null,
+     "career_id": "pharmacy"
+    }
+   ],
+   "source": "WBJEE 2025",
+   "rank_note": "Indicative open-category WBJEE closing rank."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "WBJEE 2025",
+   "programs": "WBJEE 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "gujcet:tathya pharmacy college chikhali course degree pharmacy",
   "aishe_code": null,
   "name": "TATHYA PHARMACY COLLEGE- CHIKHALI COURSE : DEGREE PHARMACY",
@@ -382723,6 +384924,7 @@
   "website": "www.scop.ac.in",
   "university": "Veer Narmad South Gujarat University Surat",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -384178,6 +386380,7 @@
   "website": "www.ppsavanitapi.in",
   "university": "Veer Narmad South Gujarat University Surat",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -384291,6 +386494,7 @@
   "website": null,
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -384347,6 +386551,7 @@
   "website": "www.tathyaeducationcampus.org",
   "university": "Veer Narmad South Gujarat University Surat",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -384695,6 +386900,7 @@
   "website": "WWW.TAXSHEELASCHOOLOFNURSING.COM",
   "university": "Shri Govind Guru University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -387980,6 +390186,7 @@
   "website": "www.tirupatinursing.in",
   "university": "Shri Govind Guru University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -390205,6 +392412,7 @@
   "website": null,
   "university": "Monark University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -395382,6 +397590,7 @@
   "website": null,
   "university": "Hemchandracharya North Gujarat University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -396509,6 +398718,7 @@
   "website": null,
   "university": "S.P. University Vallabh Vidhyanagar",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -397077,6 +399287,7 @@
   "website": "https://www.swarrnim.edu.in",
   "university": "Swarnim University Gandhinagar",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -397145,6 +399356,7 @@
   "website": "www.vibrantnursing.org",
   "university": "Veer Narmad South Gujarat University Surat",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -397204,6 +399416,7 @@
   "website": "www.vibrantcampus.org",
   "university": "Veer Narmad South Gujarat University Surat",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -397263,6 +399476,7 @@
   "website": "www.victoriajubileetrust.org",
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -397379,6 +399593,7 @@
   "website": "https://vion.vidhyadeepuni.ac.in",
   "university": "VIDHYADEEP UNIVERSITY",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -397505,6 +399720,7 @@
   "website": "vidhyadeepuni.ac.in",
   "university": "Vidhyadeep University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -397545,6 +399761,63 @@
   "aka": [
    "Vidhyadeep Institute Of Physiotherapy, Surat (VIDHP)"
   ]
+ },
+ {
+  "college_id": "wbjee:vidyasagar pharmaceutical college education",
+  "aishe_code": "S-21580",
+  "name": "VIDYASAGAR PHARMACEUTICAL COLLEGE OF EDUCATION",
+  "display_name": "VIDYASAGAR PHARMACEUTICAL COLLEGE OF EDUCATION",
+  "state": "West Bengal",
+  "state_is_inferred": false,
+  "district": "Nadia",
+  "kind": null,
+  "management": "Private/SF",
+  "ownership": "Private",
+  "disciplines": [
+   "Pharmacy"
+  ],
+  "year_established": null,
+  "website": "www.vidpharmacy.org",
+  "university": null,
+  "entrance_exams": [
+   "WBJEE"
+  ],
+  "counselling": "WBJEE Board",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "B.Pharm"
+   ],
+   "list": [
+    {
+     "branch": "B.Pharm/Pharmaceutical Technology",
+     "years": 4,
+     "degree": "B.Pharm",
+     "indicative_closing_rank": 97297,
+     "indicative_opening_rank": null,
+     "career_id": "pharmacy"
+    }
+   ],
+   "source": "WBJEE 2025",
+   "rank_note": "Indicative open-category WBJEE closing rank."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "WBJEE 2025",
+   "programs": "WBJEE 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
  },
  {
   "college_id": "tg-eapcet:VBIT",
@@ -398970,6 +401243,7 @@
   "website": null,
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -399029,6 +401303,7 @@
   "website": null,
   "university": "S.P. University Vallabh Vidhyanagar",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -399088,6 +401363,7 @@
   "website": null,
   "university": "S.P. University Vallabh Vidhyanagar",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -400946,6 +403222,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -401153,6 +403430,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -405021,6 +407299,7 @@
   "website": "www.vatsalyanursing.edu.in",
   "university": "Veer Narmad South Gujarat University Surat",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -405250,6 +407529,7 @@
   "website": null,
   "university": "Shri Govind Guru University",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -406750,6 +409030,7 @@
   "website": null,
   "university": "Veer Narmad South Gujarat University Surat",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -406811,6 +409092,7 @@
   "entrance_exams": [
    "NEET-UG"
   ],
+  "class12_merit": false,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -410219,6 +412501,7 @@
   "website": "www.vbgc.co.in",
   "university": "Veer Narmad South Gujarat University Surat",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -411938,6 +414221,7 @@
   "website": null,
   "university": "Gujarat University Ahmedabad",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,
@@ -412797,6 +415081,7 @@
   "website": "www.welfarenursingcollege.org",
   "university": "Veer Narmad South Gujarat University Surat",
   "entrance_exams": [],
+  "class12_merit": true,
   "counselling": "ACPMEC (Gujarat)",
   "programs": {
    "count": 1,

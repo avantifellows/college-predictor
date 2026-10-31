@@ -154,6 +154,12 @@ const SORTS = {
   },
 };
 
+// Gujarat's nursing & allied colleges admit on Class 12 merit, no exam:
+// a choice of its own, so the exam filter doesn't hide them all
+const CLASS12 = "Class 12 marks";
+const admitsOn = (c, x) =>
+  x === CLASS12 ? !!c.class12_merit : c.entrance_exams.includes(x);
+
 const Colleges = () => {
   const router = useRouter();
   const { signedIn } = useStudentData();
@@ -268,6 +274,7 @@ const Colleges = () => {
     () => [
       "All",
       ...Array.from(new Set(all.flatMap((c) => c.entrance_exams))).sort(),
+      ...(all.some((c) => c.class12_merit) ? [CLASS12] : []),
     ],
     [all]
   );
@@ -278,7 +285,7 @@ const Colleges = () => {
     const raw = q.trim();
     const out = all.filter((c) => {
       if (state !== "All" && c.state !== state) return false;
-      if (exam !== "All" && !c.entrance_exams.includes(exam)) return false;
+      if (exam !== "All" && !admitsOn(c, exam)) return false;
       if (stream !== "All" && !streamsOf(c).includes(stream)) return false;
       if (
         type === "public" &&
