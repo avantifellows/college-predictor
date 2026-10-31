@@ -31,23 +31,13 @@ const defaultPrimaryInputConfig = {
   allowDecimal: false,
 };
 
-// An exam may refine its primary input based on what has been picked so far, via
-// an optional `refinePrimaryInput(config, formData)` hook. GUJCET needs it: its
-// Engineering/Pharmacy cutoffs are a 0-100 composite percentile, but Medical
-// cutoffs are raw NEET marks out of 720. One fixed 0-100 field made the input
-// lie about what it wanted and silently capped medical students at 100, so they
-// could never reach the ~2/3 of medical rows above that.
-const getPrimaryInputConfig = (exam, formData = null) => {
-  const base = examConfigs[exam]?.primaryInput || defaultPrimaryInputConfig;
-  const refine = examConfigs[exam]?.refinePrimaryInput;
-  if (!refine || !formData) return base;
-  return refine(base, formData) || base;
-};
+const getPrimaryInputConfig = (exam) =>
+  examConfigs[exam]?.primaryInput || defaultPrimaryInputConfig;
 
 const validatePrimaryInputValue = (exam, value, formData = null) => {
   if (value === "") return "";
 
-  const inputConfig = getPrimaryInputConfig(exam, formData);
+  const inputConfig = getPrimaryInputConfig(exam);
   const numericValue = Number(value);
   const rangeMessage =
     inputConfig.max !== undefined
@@ -74,7 +64,7 @@ const validatePrimaryInputValue = (exam, value, formData = null) => {
 
 const normalizePrimaryInputValue = (exam, value, formData = null) => {
   if (value === "") return "";
-  const inputConfig = getPrimaryInputConfig(exam, formData);
+  const inputConfig = getPrimaryInputConfig(exam);
   if (inputConfig.allowDecimal) {
     return value;
   }
@@ -291,11 +281,7 @@ const ExamForm = () => {
       }
     }
 
-    // A dropdown can change what the primary input is allowed to be — GUJCET's
-    // valid range is 0-100 for Engineering/Pharmacy but 0-720 for Medical. Without
-    // this, typing 545 under Medical and then switching to Engineering left an
-    // out-of-range value sitting behind a cleared error message, and Submit
-    // enabled. Re-validate against the newly selected options.
+    // Re-validate the primary input against the newly selected options.
     const currentPrimaryValue =
       selectedExam === "JoSAA" ? newFormData.mainRank : newFormData.rank;
     if (currentPrimaryValue) {
@@ -347,9 +333,7 @@ const ExamForm = () => {
     }
   };
 
-  // Resolved once per render: for GUJCET this changes with the selected program
-  // (0-100 composite percentile vs 0-720 raw NEET marks for Medical).
-  const primaryInputConfig = getPrimaryInputConfig(selectedExam, formData);
+  const primaryInputConfig = getPrimaryInputConfig(selectedExam);
 
   const handleRankChange = (e) => {
     const enteredRank = normalizePrimaryInputValue(

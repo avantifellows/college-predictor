@@ -1512,24 +1512,13 @@ export const gujcetConfig = {
   // which silently assumed the student had already computed ACPC's 50:50
   // themselves, while the label invited them to type a Class 12 percentage.
   primaryInput: integerInput("Enter ACPC Merit Rank", "e.g., 6450"),
-  // Medical is the exception: those rows carry raw NEET scores (28..690 of 720)
-  // and NO rank at all, so it keeps a score input.
-  refinePrimaryInput: (base, formData) => {
-    if (formData?.program !== "Medical") return base;
-    return {
-      ...decimalInput("Enter NEET Score (out of 720)", "e.g., 545", "720"),
-      helperText:
-        "Gujarat's medical seats are allotted on the NEET score, not a GUJCET percentage or an ACPC rank.",
-    };
-  },
+  // Gujarat's medical, AYUSH, nursing and allied seats are not ACPC's: they
+  // are the ACPMEC routes (NEET-UG; Class 12 marks), see acpmecNursingConfig
   fields: [
     {
       name: "category",
       label: "Select Category",
-      // Engineering + Pharmacy now carry all seven ACPC categories. Medical is
-      // still the older two-category source, so a student picking SEBC/SC/EWS
-      // with Program=Medical correctly gets nothing rather than a wrong answer.
-      // SEBC is Gujarat's OBC label — a real category, not a synonym for OBC.
+      // Engineering + Pharmacy carry all seven ACPC categories. SEBC is Gujarat's OBC label — a real category, not a synonym for OBC.
       // TFWS (tuition-fee waiver) and ESM (ex-servicemen) are horizontal pools.
       //
       // Labels are bare codes on purpose: pages/index.js submits
@@ -1552,33 +1541,22 @@ export const gujcetConfig = {
       label: "Select Program",
       options: [
         { value: "Engineering", label: "Engineering" },
-        { value: "Medical", label: "Medical" },
         { value: "Pharmacy", label: "Pharmacy" },
       ],
     },
   ],
-  // A function so the notes follow the program: the ACPC merit-rank note is
-  // meaningless on Medical, which is ranked on NEET. Kept deliberately short —
-  // these render as inline chips above the table, and long sentences turn the
-  // whole strip into a wall of text.
-  legend: (row) => {
-    const shared = [
-      { key: "SEBC", value: "Gujarat's OBC category" },
-      { key: "TFWS", value: "Tuition Fee Waiver (income-based)" },
-      { key: "ESM", value: "Ex-Servicemen" },
-    ];
-    if (row?.Program === "Medical") {
-      return [...shared, { key: "Medical", value: "Ranked on NEET score" }];
-    }
-    return [
-      ...shared,
-      { key: "Merit rank", value: "From your ACPC merit card" },
-      {
-        key: "Merit score",
-        value: "50% Class 12 PCM theory + 50% GUJCET, both percentile",
-      },
-    ];
-  },
+  // Kept deliberately short — these render as inline chips above the table,
+  // and long sentences turn the whole strip into a wall of text.
+  legend: [
+    { key: "SEBC", value: "Gujarat's OBC category" },
+    { key: "TFWS", value: "Tuition Fee Waiver (income-based)" },
+    { key: "ESM", value: "Ex-Servicemen" },
+    { key: "Merit rank", value: "From your ACPC merit card" },
+    {
+      key: "Merit score",
+      value: "50% Class 12 PCM theory + 50% GUJCET, both percentile",
+    },
+  ],
 
   getDataPath: () => {
     return path.join(process.cwd(), "public/data/GUJCET/GUJCET.json");
@@ -1601,9 +1579,8 @@ export const gujcetConfig = {
   },
   // Merit rank ASC (hardest seat first) with the composite percentile DESC as
   // the tiebreaker. Ordering the results the same way the student's own input
-  // is measured keeps "how close am I?" readable down the page. Medical is the
-  // reverse case — raw NEET marks, no rank at all — so it falls through to the
-  // second key. Nulls sort last in either direction (see exam-result.js), which
+  // is measured keeps "how close am I?" readable down the page. Nulls sort
+  // last in either direction (see exam-result.js), which
   // is what keeps the 8 pharmacy ESM rows (null percentile, real rank) ordered.
   getSort: () => [
     ["closing_rank", "ASC"],
@@ -2076,6 +2053,81 @@ export const aiimsNursingConfig = {
   getSort: () => [["Closing Rank", "ASC"]],
 };
 
+// Gujarat's admission committees (ACPMEC), 2025-26 last ranks
+// (scripts/build_acpmec_predictor_data.py). Both lists use one category
+// vocabulary; a reserved-category student can also take OPEN seats, and
+// PwD seats are only for PwD students. "Vacant" rows are seats that stayed
+// empty in the final round: any eligible student could have had one, so
+// they always show, after the ranked rows.
+const acpmecCategoryFields = [
+  {
+    name: "category",
+    label: "Select Category",
+    options: ["OPEN", "SEBC", "EWS", "SC", "ST"],
+  },
+  {
+    name: "isPWD",
+    label: "Are you a PwD Student?",
+    options: ["No", "Yes"],
+  },
+];
+const acpmecSeatFilter = (query) => (item) =>
+  ["OPEN", query.category].includes(item.Category) &&
+  (query.isPWD === "Yes" || !item.PwD);
+const acpmecLegend = [
+  { key: "SEBC", value: "Gujarat's OBC category" },
+  { key: "Vacant", value: "Seats left empty in the final round" },
+];
+
+// Nursing & allied: no entrance exam. The committee ranks students on Class
+// 12 marks; the rank is on its merit list. Final round (8) last ranks.
+export const acpmecNursingConfig = {
+  name: "Gujarat nursing & allied (ACPMEC)",
+  searchKeys: ["Institute", "Course", "District"],
+  primaryInput: integerInput(
+    "Enter your ACPMEC merit rank (nursing & allied)",
+    "e.g., 5200"
+  ),
+  fields: acpmecCategoryFields,
+  legend: acpmecLegend,
+  getDataPath: () =>
+    path.join(process.cwd(), "public", "data", "ACPMEC", "acpmec_nursing.json"),
+  getFilters: (query) => [
+    acpmecSeatFilter(query),
+    (item) => {
+      if (!query.rank || item.Vacant) return true;
+      const userRank = parseInt(query.rank, 10);
+      return !isNaN(userRank) && item["Closing Rank"] >= userRank;
+    },
+  ],
+  getSort: () => [["Closing Rank", "ASC"]],
+};
+
+// BAMS / BHMS on the NEET score of the last student admitted (final list).
+// Gujarat's MBBS / BDS state quota is in the NEET predictor.
+export const acpmecAyushConfig = {
+  name: "Gujarat AYUSH (ACPMEC)",
+  searchKeys: ["Institute", "Course", "District"],
+  primaryInput: decimalInput(
+    "Enter NEET Score (out of 720)",
+    "e.g., 420",
+    "720"
+  ),
+  fields: acpmecCategoryFields,
+  legend: acpmecLegend,
+  getDataPath: () =>
+    path.join(process.cwd(), "public", "data", "ACPMEC", "acpmec_ayush.json"),
+  getFilters: (query) => [
+    acpmecSeatFilter(query),
+    (item) => {
+      if (!query.rank || item.Vacant) return true;
+      const userScore = parseFloat(query.rank);
+      return !isNaN(userScore) && item["Closing NEET Score"] <= userScore;
+    },
+  ],
+  getSort: () => [["Closing NEET Score", "DESC"]],
+};
+
 export const icarUgConfig = {
   name: "ICAR-UG (agriculture, through CUET)",
   searchKeys: ["Institute", "Academic Program Name"],
@@ -2497,6 +2549,8 @@ export const examConfigs = {
   "BITSAT": bitsatConfig,
   "ICAR-UG": icarUgConfig,
   "AIIMS Nursing": aiimsNursingConfig,
+  "ACPMEC Nursing": acpmecNursingConfig,
+  "ACPMEC AYUSH": acpmecAyushConfig,
   "JEE Main-JAC": jacExamConfig,
   "JAC Chandigarh": jacChandigarhConfig,
   "UPTAC": uptacConfig,

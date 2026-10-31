@@ -13,10 +13,13 @@ and `st`. An SC, OBC/SEBC or EWS student currently gets NO Gujarat data at all.
 The ACPC closure PDFs carry all seven (OP, SEBC, SC, ST, EWS, TFWS, ESM), so
 this replaces the Engineering and Pharmacy rows with the full set.
 
-WHAT THIS DELIBERATELY KEEPS. The existing file also holds 753 Medical rows,
-which the ACPC engineering/pharmacy closure PDFs do not cover at all. Those are
-carried through untouched — a wholesale overwrite would silently delete Gujarat
-medical cutoffs. Medical keeps its two categories until a medical source lands.
+MEDICAL IS GONE (Oct 2026). The file used to carry 753 unlabelled-year
+"Medical" rows (MBBS, BDS, AYUSH, nursing, physiotherapy...) under GUJCET,
+whose nursing & allied cutoffs were Class 12 marks shown as NEET scores.
+Gujarat's medical seats are ACPMEC's, not ACPC's: MBBS / BDS state quota is in
+the NEET predictor, BAMS / BHMS and nursing & allied are the ACPMEC routes
+(scripts/build_acpmec_predictor_data.py). Any Medical row left in the file is
+dropped.
 
 THE METRIC. The predictor asks for a percentage score and sorts on
 `closing_marks`, so the ACPC `closing_percentile` (its 0-100 composite merit
@@ -27,7 +30,6 @@ publishes first, and a student who knows their rank can use it directly.
 YEARS DIFFER BY PROGRAM, on purpose:
     Engineering  2025 (2025-26 ACPC closure)
     Pharmacy     2024 (2024-25 — the latest ACPC published in this format)
-    Medical      unlabelled legacy rows (kept as-is; no year in the old file)
 `Year` is written per row so the UI can say which cycle a number came from
 instead of implying they are all current.
 """
@@ -62,7 +64,7 @@ CATEGORY_MAP = {
 }
 
 # ACPC INST_TYPE -> the predictor's existing "Type of College" vocabulary
-# (Govt / Govt Aided / Pvt), so the column keeps working for Medical rows too.
+# (Govt / Govt Aided / Pvt).
 COLLEGE_TYPE_MAP = {
     "GOV": "Govt",
     "GOVT": "Govt",
@@ -177,7 +179,7 @@ def main() -> None:
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
 
-    existing = json.loads(OUT_PATH.read_text())
+    existing = [x for x in json.loads(OUT_PATH.read_text()) if x.get("Program") != "Medical"]
     if args.enrich_only:
         enrich_from_colleges(existing)
         if not args.dry_run:
@@ -187,20 +189,11 @@ def main() -> None:
         return
     if not args.src:
         ap.error("--src is required unless --enrich-only")
-    # Medical has no ACPC engineering/pharmacy equivalent — carry it through
-    # rather than dropping Gujarat medical cutoffs on the floor.
-    medical = [x for x in existing if x.get("Program") == "Medical"]
-    replaced = len(existing) - len(medical)
     print("Refreshing GUJCET predictor data from ACPC closure PDFs")
-    print(f"  replacing {replaced:,} Engineering+Pharmacy rows")
-    print(f"  preserving {len(medical):,} Medical rows (no ACPC medical source)")
+    print(f"  replacing {len(existing):,} Engineering+Pharmacy rows")
     print()
 
-    new_rows = build_new_rows(args.src)
-    for m in medical:
-        m.setdefault("closing_rank", None)
-        m.setdefault("Year", None)   # legacy rows: cycle genuinely unknown
-    records = new_rows + medical
+    records = build_new_rows(args.src)
     enrich_from_colleges(records)
 
     print(f"\nTOTAL {len(records):,} rows (was {len(existing):,})")

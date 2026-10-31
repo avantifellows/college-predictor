@@ -220,6 +220,18 @@ const expandedFields = {
     { key: "Round", label: "Round" },
     { key: "Opening Rank", label: "Opening Rank" },
   ],
+  // Gujarat ACPMEC (2025-26; final round / final list)
+  "ACPMEC Nursing": [
+    { key: "Year", label: "Data Year" },
+    { key: "District", label: "District" },
+    { key: "Category", label: "Category" },
+  ],
+  "ACPMEC AYUSH": [
+    { key: "Year", label: "Data Year" },
+    { key: "District", label: "District" },
+    { key: "Category", label: "Category" },
+    { key: "Closing NEET Rank", label: "Closing NEET Rank" },
+  ],
   // AP EAPCET - Andhra Pradesh (2025 consolidated)
   "AP EAPCET": [
     { key: "Year", label: "Data Year" },
@@ -521,6 +533,8 @@ const PredictedCollegesTable = ({
     "GUJCET",
     "BITSAT",
     "CUET",
+    "ACPMEC Nursing",
+    "ACPMEC AYUSH",
   ]);
   // AIIMS cards are MCC (medical) colleges, which /compare leaves out:
   // name links yes, compare boxes no
@@ -531,6 +545,9 @@ const PredictedCollegesTable = ({
     "ICAR-UG",
     "BITSAT",
     "CUET",
+    // ACPMEC cards hold seats, not ranks: /compare leaves them out
+    "ACPMEC Nursing",
+    "ACPMEC AYUSH",
   ]);
   const supportsCompare =
     (isJosaaExam || NAME_LINK_EXAMS.has(exam)) && !NO_COMPARE_EXAMS.has(exam);
@@ -561,6 +578,8 @@ const PredictedCollegesTable = ({
     UPTAC: "Uttar Pradesh",
     HBTU: "Uttar Pradesh",
     GUJCET: "Gujarat",
+    "ACPMEC Nursing": "Gujarat",
+    "ACPMEC AYUSH": "Gujarat",
   };
   const linkNameOf = (t) => {
     const raw =
@@ -584,12 +603,8 @@ const PredictedCollegesTable = ({
       ? !!t.card
       : exam !== "KCET" ||
         /engineer/i.test(String(t["Course Type"] || "Engineering"));
-  // GUJCET's medical rows link to seat-only cards, which /compare leaves out
   const compareIdOf = (t) =>
-    t["College ID"] ||
-    (canLinkRow(t) && !(exam === "GUJCET" && t["Program"] === "Medical")
-      ? `n~${slugOf(linkNameOf(t))}`
-      : null);
+    t["College ID"] || (canLinkRow(t) ? `n~${slugOf(linkNameOf(t))}` : null);
   const supportsSalarySort = isJosaaExam;
   const salaryColumnKey = "median_salary";
   const rankColumnKey = "closing_rank";
@@ -800,14 +815,6 @@ const PredictedCollegesTable = ({
     return `${numericValue.toFixed(2)}%`;
   };
 
-  // GUJCET's Medical cutoffs are raw NEET scores out of 720, not percentages —
-  // rendering 675 as "675.00%" is nonsense. Engineering/Pharmacy really are a
-  // 0-100 composite percentile, so the unit has to follow the program. Derived
-  // from the rows rather than taken as a prop: every row in a GUJCET result set
-  // shares one Program (the API filters on it), so the first row is enough.
-  const gujcetProgram = exam === "GUJCET" ? data?.[0]?.Program ?? null : null;
-  const isGujcetMedical = gujcetProgram === "Medical";
-
   // ACPC's composite merit score is a 0-100 normalised figure, not a percentage
   // of anything, so it gets no "%" suffix — that suffix invited students to read
   // it as their Class 12 percentage, which is the confusion the corrected legend
@@ -818,13 +825,6 @@ const PredictedCollegesTable = ({
     const numericValue = Number(value);
     if (!Number.isFinite(numericValue)) return "N/A";
     return numericValue.toFixed(2);
-  };
-
-  const formatNeetScore = (value) => {
-    if (value === null || value === undefined || value === "") return "N/A";
-    const numericValue = Number(value);
-    if (!Number.isFinite(numericValue)) return "N/A";
-    return `${numericValue.toFixed(0)} / 720`;
   };
 
   useEffect(() => {
@@ -926,18 +926,14 @@ const PredictedCollegesTable = ({
       { key: "College Name", label: "College Name" },
       { key: "District", label: "District" },
       { key: "Course", label: "Course" },
-      // Closing rank leads for Engineering/Pharmacy because that is now the
-      // unit the student typed in, so the comparison is direct. It is also the
-      // only cutoff for the 8 pharmacy ESM rows, whose percentile is NULL
-      // upstream. Medical has no rank at all in its source, so the column is
-      // dropped there rather than showing 444 rows of "N/A".
-      ...(isGujcetMedical
-        ? []
-        : [{ key: "closing_rank", label: "Closing Rank" }]),
+      // Closing rank leads: it is the unit the student typed in, so the
+      // comparison is direct. It is also the only cutoff for the 8 pharmacy
+      // ESM rows, whose percentile is NULL upstream.
+      { key: "closing_rank", label: "Closing Rank" },
       {
         key: "closing_marks",
-        label: isGujcetMedical ? "Cutoff NEET Score" : "Cutoff Merit Score",
-        format: isGujcetMedical ? formatNeetScore : formatMeritScore,
+        label: "Cutoff Merit Score",
+        format: formatMeritScore,
       },
     ],
     KCET: [
@@ -986,6 +982,18 @@ const PredictedCollegesTable = ({
       { key: "institute", label: "Institute" },
       { key: "seat_category", label: "Seat" },
       { key: "closing_rank", label: "Closing Rank" },
+    ],
+    "ACPMEC Nursing": [
+      { key: "institute", label: "Institute" },
+      { key: "academic_program_name", label: "Course" },
+      { key: "quota", label: "Quota" },
+      { key: "closing_rank", label: "Closing Merit Rank" },
+    ],
+    "ACPMEC AYUSH": [
+      { key: "institute", label: "Institute" },
+      { key: "academic_program_name", label: "Course" },
+      { key: "quota", label: "Quota" },
+      { key: "closing_rank", label: "Closing NEET Score" },
     ],
     "JAC Chandigarh": [
       { key: "institute", label: "Institute" },
@@ -1166,6 +1174,20 @@ const PredictedCollegesTable = ({
         academic_program_name: "B.Sc. (Hons.) Nursing",
         seat_category: item["Seat Category"],
         closing_rank: item["Closing Rank"],
+      };
+    }
+    // Gujarat ACPMEC: "Vacant" = seats left empty in the final round
+    if (exam === "ACPMEC Nursing" || exam === "ACPMEC AYUSH") {
+      const closing =
+        exam === "ACPMEC Nursing"
+          ? item["Closing Rank"]
+          : item["Closing NEET Score"];
+      return {
+        ...item,
+        institute: item["Institute"],
+        academic_program_name: item["Course"],
+        quota: item["Quota"],
+        closing_rank: item.Vacant ? "Vacant" : closing,
       };
     }
     if (exam === "JAC Chandigarh") {

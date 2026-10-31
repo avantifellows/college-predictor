@@ -6,8 +6,8 @@
 //
 // Streams come from the Exams tab (public/data/exams/exams.json, matched on
 // `examIds`), so an exam sits under the same streams there and here. `streams`
-// is given only for a route the Exams tab has no exam for (TNEA admits on
-// Class 12 marks).
+// is given only for a route the Exams tab has no exam for (TNEA and
+// Gujarat's nursing & allied courses admit on Class 12 marks).
 //
 // A counselling's own `streams` limits it to those streams (ICAR takes CUET
 // for agriculture, so it is no route for an Arts student).
@@ -65,6 +65,12 @@ export const PREDICTOR_EXAMS = [
         label: "MCC and state counselling",
         hint: "AIIMS, government medical colleges, etc.",
         key: "NEETUG",
+      },
+      // Gujarat's BAMS / BHMS (its MBBS / BDS state quota is in NEETUG)
+      {
+        label: "Gujarat AYUSH (BAMS, BHMS)",
+        hint: "Govt. Akhandanand Ayurveda College, etc.",
+        key: "ACPMEC AYUSH",
       },
     ],
   },
@@ -195,6 +201,20 @@ export const PREDICTOR_EXAMS = [
     label: "Class 12 marks (Tamil Nadu)",
     counsellings: [
       { label: "TNEA", hint: "CEG Guindy, PSG Tech, etc.", key: "TNEA" },
+    ],
+  },
+  {
+    // Gujarat admits nursing and the allied degrees on Class 12 marks
+    id: "gujarat-nursing",
+    examIds: [],
+    streams: ["Nursing", "Paramedical"],
+    label: "Class 12 marks (Gujarat)",
+    counsellings: [
+      {
+        label: "ACPMEC nursing & allied",
+        hint: "Govt. nursing and physiotherapy colleges, etc.",
+        key: "ACPMEC Nursing",
+      },
     ],
   },
 ];
