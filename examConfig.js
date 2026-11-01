@@ -104,6 +104,14 @@ export const matchesJosaaQuota = (item, homeState) => {
   return item.Quota === "OS";
 };
 
+// JoSAA fills B.Arch seats at NITs / IIITs / GFTIs on the JEE Main Paper 2A
+// rank and B.Planning seats on Paper 2B, not on Paper 1 (OPEN closings of
+// 191-4,364 vs Paper 1's lakhs). The form asks for that paper's rank.
+export const josaaPaperOf = (program) =>
+  ({ architecture: "2A (B.Arch)", planning: "2B (B.Planning)" }[
+    String(program || "").toLowerCase()
+  ] || null);
+
 export const jeeMainJosaaConfig = {
   name: "JEE Main-JOSAA",
   code: "JEE Main",
@@ -263,6 +271,8 @@ export const jacExamConfig = {
     return path.join(process.cwd(), "public", "data", "JEE", "jac_data.json");
   },
   getFilters: (query) => [
+    // IGDTUW's B.Arch closes on the JEE Main Paper 2 rank, not Paper 1's
+    (item) => !item["Academic Program Name"].includes("Paper 2"),
     // "Any" means the seat is open regardless of Delhi domicile — all 9
     // Kashmiri Minority rows are State="Any", so an exact match against the
     // Delhi / Outside Delhi dropdown made that entire category unreachable.
@@ -749,8 +759,8 @@ export const mhtCetConfig = {
     {
       // Maharashtra runs a separate CAP per stream and the merit lists are NOT
       // the same number space: engineering and pharmacy rank on MHT-CET,
-      // B.Arch on NATA/2 + Class XII % (max 200), B.Design on MAH-B.Design
-      // CET. Results must be scoped to one stream or the ranks are meaningless
+      // B.Arch on its own merit list (sorted by NATA/2 + Class XII %),
+      // B.Design on MAH-B.Design CET. Results must be scoped to one stream or the ranks are meaningless
       // side by side. See the legend for which exam governs which stream.
       //
       // NOTE handleInputChange in pages/index.js submits `selectedOption.label`,
@@ -884,12 +894,14 @@ export const mhtCetConfig = {
   ],
   // Kept deliberately short — the previous version repeated what the dropdowns
   // already say. The one thing a student cannot infer from the form is that
-  // B.Arch and B.Design are scored on a different scale from MHT-CET, so a
-  // B.Arch "163" is a merit score out of 200, not a rank.
+  // B.Arch and B.Design rank on their own merit lists, not MHT-CET's. The
+  // B.Arch number is a position on that list (30-3,528 in 2025), not the
+  // NATA ÷ 2 + Class XII % score (out of 200) the list is sorted by.
   legend: [
     {
       key: "Architecture",
-      value: "merit = NATA ÷ 2 + Class XII %, out of 200 (not an MHT-CET rank)",
+      value:
+        "rank on the B.Arch merit list (from NATA or JEE Main Paper 2 and Class 12 marks), not an MHT-CET rank",
     },
     { key: "B.Design", value: "ranked on MAH-B.Design CET, not MHT-CET" },
   ],
@@ -961,7 +973,7 @@ export const mhtCetConfig = {
 
 export const kcetConfig = {
   name: "KCET",
-  searchKeys: ["Institute", "State", "Academic Program Name"],
+  searchKeys: ["Institute", "Academic Program Name"],
   primaryInput: integerInput("Enter KCET Rank", "Enter KCET rank"),
   fields: [
     {
@@ -981,21 +993,19 @@ export const kcetConfig = {
     {
       name: "courseType",
       label: "Select Course Type",
-      options: [
-        "Medical/Dental",
-        "Agriculture",
-        "BNYS",
-        "Pharma",
-        "Engineering",
-        "Architecture",
-      ],
+      // Medical/Dental and BNYS rank on NEET (the NEET predictor has
+      // Karnataka's state quota), Architecture on NATA: not offered here
+      options: ["Engineering", "Pharma", "Agriculture"],
     },
+    // Kalyana-Karnataka (371(J)) students get reserved seats AND compete
+    // for the general ones. 2021 rows (Pharma, Agriculture) print both
+    // pools as one, so they are all "General".
     {
-      name: "homeState",
-      label: "Select Your Home State",
+      name: "kalyanaKarnataka",
+      label: "Are you from the Kalyana-Karnataka region (371J)?",
       options: [
-        { value: "All India", label: "All India" },
-        { value: "Karnataka", label: "Karnataka" },
+        { value: "No", label: "No" },
+        { value: "Yes", label: "Yes" },
       ],
     },
     // Kannada-medium and Rural are HORIZONTAL quotas KEA publishes as
@@ -1019,18 +1029,13 @@ export const kcetConfig = {
       ],
     },
   ],
-  legend: [
-    { key: "AI", value: "All India" },
-    { key: "KA", value: "Karnataka" },
-    { key: "HK", value: "Hyderabad-Karnataka Region" },
-  ],
   getDataPath: () => {
     return path.join(process.cwd(), "public", "data", "KCET", "kcet_data.json");
   },
   getFilters: (query) => [
     (item) => item.Category === query.category,
     (item) => item["Course Type"] === query.courseType,
-    (item) => item.State === query.homeState || item.State === "All India",
+    (item) => item.Pool === "General" || query.kalyanaKarnataka === "Yes",
     // eligibility-expanding: everyone sees the base rows; saying Yes ADDS
     // the Kannada / Rural quota rows rather than replacing the base ones
     (item) => item.Language === "Any" || query.kannadaMedium === "Yes",
@@ -1592,9 +1597,9 @@ export const wbjeeConfig = {
   name: "WBJEE",
   searchKeys: ["Institute", "Academic Program Name"],
   // WBJEE counsels on the General Merit Rank (GMR) — a single state-wide
-  // rank list. Not comparable to JEE Main ranks even for the "JEE(Main)
-  // Seats" rows: those seats are ALLOTTED via JEE Main scores but WBJEEB
-  // still publishes their OR/CR as GMR positions.
+  // rank list. WBJEEB also fills some seats from JEE Main: those rows'
+  // ranks are JEE Main ranks (up to 15 lakh; GMR stops near 1 lakh), so
+  // they are served under JEE Main (wbjeeJeeMainConfig), not here.
   primaryInput: integerInput(
     "Enter WBJEE General Merit Rank (GMR)",
     "Enter WBJEE GMR"
@@ -1642,16 +1647,6 @@ export const wbjeeConfig = {
       ],
     },
     {
-      name: "seatType",
-      label: "Select Seat Type",
-      // WBJEEB fills some seats from the WBJEE merit list and some from
-      // JEE(Main) applicants — two separate pools in the same colleges.
-      options: [
-        { value: "WBJEE Seats", label: "WBJEE Seats" },
-        { value: "JEE(Main) Seats", label: "JEE(Main) Seats" },
-      ],
-    },
-    {
       name: "collegeType",
       label: "Select College Type",
       options: [
@@ -1675,7 +1670,48 @@ export const wbjeeConfig = {
   getFilters: (query) => [
     (item) => item.Category === query.category,
     (item) => item.Quota === query.quota,
-    (item) => item["Seat Type"] === query.seatType,
+    (item) => item["Seat Type"] === "WBJEE Seats",
+    (item) =>
+      query.collegeType === "Any" || item["College Type"] === query.collegeType,
+    (item) => {
+      if (!query.rank) return true;
+      const closingRank = parseInt(item["Closing Rank"], 10);
+      const userRank = parseInt(query.rank, 10);
+      if (isNaN(closingRank) || isNaN(userRank)) return false;
+      if (closingRank <= 0) return false;
+      return closingRank >= userRank;
+    },
+  ],
+  getSort: () => [["Closing Rank", "ASC"]],
+};
+
+// WBJEEB's "JEE(Main) Seats": the same file, the rows ranked on JEE Main.
+// All are All India / Open (no category or quota to ask); the two B.Arch
+// rows are left out, they rank on JEE Main Paper 2.
+export const wbjeeJeeMainConfig = {
+  name: "WBJEE (JEE Main seats)",
+  searchKeys: ["Institute", "Academic Program Name"],
+  primaryInput: integerInput("Enter JEE (Main) Rank", "Enter JEE Main rank"),
+  fields: [
+    {
+      name: "collegeType",
+      label: "Select College Type",
+      options: ["Any", "Government Aided", "Private"],
+    },
+  ],
+  getDataPath: () => {
+    return path.join(
+      process.cwd(),
+      "public",
+      "data",
+      "WBJEE",
+      "wbjee_data.json"
+    );
+  },
+  getFilters: (query) => [
+    (item) =>
+      item["Seat Type"] === "JEE(Main) Seats" &&
+      !item.Stream.startsWith("B. Arch"),
     (item) =>
       query.collegeType === "Any" || item["College Type"] === query.collegeType,
     (item) => {
@@ -1765,6 +1801,15 @@ export const apEapcetConfig = {
   primaryInput: integerInput("Enter AP EAPCET Rank", "Enter AP EAPCET rank"),
   fields: [
     {
+      // B.Pharm / Pharm-D seats are filled on the same rank
+      name: "program",
+      label: "Select Program",
+      options: [
+        { value: "Engineering", label: "Engineering" },
+        { value: "Pharmacy", label: "Pharmacy" },
+      ],
+    },
+    {
       name: "category",
       label: "Select Category",
       // "CODE - description" labels; getFilters compares the code before
@@ -1833,6 +1878,7 @@ export const apEapcetConfig = {
     );
   },
   getFilters: (query) => [
+    (item) => !query.program || item.Stream === query.program,
     (item) =>
       item.Category ===
       String(query.category || "")
@@ -2582,6 +2628,7 @@ export const examConfigs = {
   "TGEAPCET": tseApertConfig,
   "TNEA": tneaConfig,
   "WBJEE": wbjeeConfig,
+  "WBJEE JEE Main": wbjeeJeeMainConfig,
 };
 
 export default examConfigs;

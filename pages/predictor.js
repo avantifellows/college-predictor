@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import getConstants from "../constants";
-import examConfigs from "../examConfig";
+import examConfigs, { josaaPaperOf } from "../examConfig";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import dynamic from "next/dynamic";
@@ -94,15 +94,25 @@ const josaaPwdEstimateError =
   "Rank prediction isn't available for PwD categories. Choose Rank and enter your rank directly.";
 
 // A field the stream already answers (JoSAA's Program, MHT CET's own
-// Stream) is filled in from it and not asked again
-const STREAM_ALIASES = { Pharma: "Pharmacy" };
+// Stream, KCET's Course Type) is filled in from it and not asked again.
+// NEET's "BSc Nursing" answers Nursing; KCET files B.V.Sc under Agriculture.
+const STREAM_ALIASES = {
+  Pharma: "Pharmacy",
+  "Veterinary Science": "Agriculture",
+};
 const impliedOption = (field, stream) => {
-  if (!field || !["program", "stream"].includes(field.name)) return null;
+  if (!field || !["program", "stream", "courseType"].includes(field.name))
+    return null;
   const want = STREAM_ALIASES[stream] || stream;
   return (
     (field.options || [])
       .map((o) => (typeof o === "string" ? { value: o, label: o } : o))
-      .find((o) => o.label === want) || null
+      .find(
+        (o) =>
+          o.label === want ||
+          o.label === stream ||
+          o.label.endsWith(` ${stream}`)
+      ) || null
   );
 };
 
@@ -665,6 +675,13 @@ const ExamForm = () => {
     setEstimateError("");
   }, [formData.category, formData.qualifiedJeeAdv]);
 
+  // Paper 2 ranks have no marks estimator: rank only
+  const josaaPaper = josaaPaperOf(formData.program);
+  useEffect(() => {
+    if (josaaPaper && mainKind !== "rank") handleMainKindChange("rank");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [josaaPaper]);
+
   // Turns whatever was given as marks into ranks (/api/jee-predict for JEE
   // Main, /api/jee-adv-estimate for JEE Advanced). Returns the form with the
   // ranks filled in, or null if an estimate failed.
@@ -877,13 +894,17 @@ const ExamForm = () => {
   const renderJosaaInputs = () => (
     <>
       <div className="col-span-full text-left">
-        <span className={fieldLabelClass}>JEE Main</span>
+        <span className={fieldLabelClass}>
+          {josaaPaper ? `JEE Main Paper ${josaaPaper}` : "JEE Main"}
+        </span>
         {renderKindToggle(
-          [
-            ["rank", "Rank"],
-            ["marks", "Marks"],
-            ["percentile", "Percentile"],
-          ],
+          josaaPaper
+            ? [["rank", "Rank"]]
+            : [
+                ["rank", "Rank"],
+                ["marks", "Marks"],
+                ["percentile", "Percentile"],
+              ],
           mainKind,
           handleMainKindChange
         )}
@@ -891,6 +912,8 @@ const ExamForm = () => {
           ? renderFormCard(
               "mainRank",
               `Enter your JEE Main ${
+                josaaPaper ? `Paper ${josaaPaper.split(" ")[0]} ` : ""
+              }${
                 formData.category ? formData.category + " " : ""
               }category rank`,
               <input

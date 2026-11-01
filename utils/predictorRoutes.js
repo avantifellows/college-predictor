@@ -4,13 +4,17 @@
 // on it. JEE Main alone feeds JoSAA, JAC Delhi, UPTAC, OJEE and more, so the
 // form asks for the exam and then the counselling.
 //
-// Streams come from the Exams tab (public/data/exams/exams.json, matched on
-// `examIds`), so an exam sits under the same streams there and here. `streams`
-// is given only for a route the Exams tab has no exam for (TNEA and
+// A counselling's `streams` are the streams its cutoffs hold: KCET's file
+// has engineering, pharmacy and agriculture seats, so KCET sits under those
+// and not under Naturopathy, which the Exams tab lists for the exam. An
+// exam's streams are its counsellings'. A counselling without `streams`
+// (CUET's central universities) takes the Exams tab's streams for the exam
+// (public/data/exams/exams.json, matched on `examIds`). An exam's own
+// `streams` is for a route the Exams tab has no exam for (TNEA and
 // Gujarat's nursing & allied courses admit on Class 12 marks).
 //
-// A counselling's own `streams` limits it to those streams (ICAR takes CUET
-// for agriculture, so it is no route for an Arts student).
+// The form's Program / Stream / Course Type question is answered by the
+// stream when one of its options names it.
 //
 // `key` is the examConfigs key for the counselling's cutoffs. Counsellings
 // Futures has no cutoffs for (CSAB, MP DTE, HSTES, IIIT Hyderabad, IISc,
@@ -27,23 +31,48 @@ export const PREDICTOR_EXAMS = [
     examIds: ["jee-main-paper-1", "jee-advanced", "jee-main-paper-2a"],
     label: "JEE Main & Advanced",
     counsellings: [
-      { label: "JoSAA", hint: "IITs, NITs, IIITs, etc.", key: "JoSAA" },
-      { label: "JAC Delhi", hint: "DTU, NSUT, etc.", key: "JEE Main-JAC" },
+      {
+        label: "JoSAA",
+        hint: "IITs, NITs, IIITs, etc.",
+        key: "JoSAA",
+        streams: ["Engineering", "Science", "Architecture", "Planning"],
+      },
+      {
+        label: "JAC Delhi",
+        hint: "DTU, NSUT, etc.",
+        key: "JEE Main-JAC",
+        streams: ["Engineering"],
+      },
       {
         label: "JAC Chandigarh",
         hint: "PEC, CCET, etc.",
         key: "JAC Chandigarh",
+        streams: ["Engineering"],
       },
       {
         label: "UPTAC",
         hint: "IET Lucknow, KNIT Sultanpur, etc.",
         key: "UPTAC",
+        streams: ["Engineering"],
       },
-      { label: "HBTU Kanpur", hint: null, key: "HBTU" },
+      {
+        label: "HBTU Kanpur",
+        hint: null,
+        key: "HBTU",
+        streams: ["Engineering"],
+      },
       {
         label: "OJEE",
         hint: "OUTR Bhubaneswar, VSSUT Burla, etc.",
         key: "OJEE",
+        streams: ["Engineering"],
+      },
+      // WBJEEB fills some private colleges' seats on JEE Main ranks
+      {
+        label: "WBJEEB (JEE Main seats)",
+        hint: "Techno Main Salt Lake, etc.",
+        key: "WBJEE JEE Main",
+        streams: ["Engineering"],
       },
     ],
   },
@@ -52,7 +81,12 @@ export const PREDICTOR_EXAMS = [
     examIds: ["bitsat"],
     label: "BITSAT",
     counsellings: [
-      { label: "BITS", hint: "Pilani, Goa, Hyderabad", key: "BITSAT" },
+      {
+        label: "BITS",
+        hint: "Pilani, Goa, Hyderabad",
+        key: "BITSAT",
+        streams: ["Engineering", "Pharma", "Science"],
+      },
     ],
   },
   {
@@ -65,12 +99,14 @@ export const PREDICTOR_EXAMS = [
         label: "MCC and state counselling",
         hint: "AIIMS, government medical colleges, etc.",
         key: "NEETUG",
+        streams: ["Medical", "Nursing"],
       },
       // Gujarat's BAMS / BHMS (its MBBS / BDS state quota is in NEETUG)
       {
         label: "Gujarat AYUSH (BAMS, BHMS)",
         hint: "Govt. Akhandanand Ayurveda College, etc.",
         key: "ACPMEC AYUSH",
+        streams: ["Medical"],
       },
     ],
   },
@@ -83,6 +119,7 @@ export const PREDICTOR_EXAMS = [
         label: "AIIMS B.Sc. (Hons.) Nursing",
         hint: "AIIMS Delhi, etc.",
         key: "AIIMS Nursing",
+        streams: ["Nursing"],
       },
     ],
   },
@@ -115,6 +152,7 @@ export const PREDICTOR_EXAMS = [
         label: "CLAT counselling",
         hint: "NLSIU Bengaluru, NALSAR, etc.",
         key: "CLAT",
+        streams: ["Law"],
       },
     ],
   },
@@ -127,6 +165,7 @@ export const PREDICTOR_EXAMS = [
         label: "AP EAPCET counselling",
         hint: "Andhra University, JNTU Kakinada, etc.",
         key: "AP EAPCET",
+        streams: ["Engineering", "Pharma"],
       },
     ],
   },
@@ -139,6 +178,7 @@ export const PREDICTOR_EXAMS = [
         label: "TG EAPCET counselling",
         hint: "JNTU Hyderabad, Osmania University, etc.",
         key: "TGEAPCET",
+        streams: ["Engineering"],
       },
     ],
   },
@@ -147,7 +187,12 @@ export const PREDICTOR_EXAMS = [
     examIds: ["gujcet"],
     label: "GUJCET",
     counsellings: [
-      { label: "ACPC Gujarat", hint: "LDCE Ahmedabad, etc.", key: "GUJCET" },
+      {
+        label: "ACPC Gujarat",
+        hint: "LDCE Ahmedabad, etc.",
+        key: "GUJCET",
+        streams: ["Engineering", "Pharma"],
+      },
     ],
   },
   {
@@ -155,7 +200,13 @@ export const PREDICTOR_EXAMS = [
     examIds: ["kea-cet"],
     label: "KCET",
     counsellings: [
-      { label: "KEA Karnataka", hint: "RVCE, BMSCE, etc.", key: "KCET" },
+      {
+        label: "KEA Karnataka",
+        hint: "RVCE, BMSCE, etc.",
+        key: "KCET",
+        // Agriculture includes B.V.Sc and fisheries
+        streams: ["Engineering", "Pharma", "Agriculture", "Veterinary Science"],
+      },
     ],
   },
   {
@@ -167,6 +218,7 @@ export const PREDICTOR_EXAMS = [
         label: "CEE Kerala",
         hint: "CET Trivandrum, TKM Kollam, etc.",
         key: "KEAM",
+        streams: ["Engineering"],
       },
     ],
   },
@@ -179,6 +231,7 @@ export const PREDICTOR_EXAMS = [
         label: "Maharashtra CET Cell",
         hint: "COEP, VJTI, etc.",
         key: "MHT CET",
+        streams: ["Engineering", "Pharma", "Architecture"],
       },
     ],
   },
@@ -191,6 +244,7 @@ export const PREDICTOR_EXAMS = [
         label: "WBJEEB",
         hint: "Jadavpur University, etc.",
         key: "WBJEE",
+        streams: ["Engineering"],
       },
     ],
   },
@@ -222,12 +276,15 @@ export const PREDICTOR_EXAMS = [
 export const counsellingLabel = (c) =>
   c.hint ? `${c.label} (${c.hint})` : c.label;
 
-// Streams per exam, from the Exams tab's records.
-export const streamsFor = (exam, examsById) =>
-  exam.streams ||
-  Array.from(
-    new Set(exam.examIds.flatMap((id) => examsById[id]?.streams || []))
+// Streams per exam: its counsellings', or the Exams tab's for one that
+// doesn't say
+export const streamsFor = (exam, examsById) => {
+  if (exam.streams) return exam.streams;
+  const tab = exam.examIds.flatMap((id) => examsById[id]?.streams || []);
+  return Array.from(
+    new Set(exam.counsellings.flatMap((c) => c.streams || tab))
   );
+};
 
 // most students first: the rest follow alphabetically
 const STREAM_ORDER = [

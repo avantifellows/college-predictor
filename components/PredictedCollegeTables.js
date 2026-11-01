@@ -151,12 +151,11 @@ const expandedFields = {
   // KCET - Karnataka Common Entrance Test
   KCET: [
     // Data Year is per-ROW because the streams have different vintages: Engineering
-    // is 2025 R3; Medical/Dental, Pharma, Agriculture, Architecture and BNYS are
-    // still CET-2021. Mixed vintages must be visible, never inferred (the GUJCET
+    // is 2025 R3; Pharma and Agriculture are still CET-2021. Mixed vintages must be visible, never inferred (the GUJCET
     // two-streams-two-years lesson).
     { key: "Year", label: "Data Year" },
     { key: "Course Type", label: "Course Type" },
-    { key: "State", label: "State" },
+    { key: "Pool", label: "Seat Pool" },
     { key: "Language", label: "Language" },
     { key: "Rural/Urban", label: "Region" },
     { key: "Closing Rank", label: "Closing Rank" },
@@ -236,6 +235,7 @@ const expandedFields = {
   "AP EAPCET": [
     { key: "Year", label: "Data Year" },
     { key: "College Code", label: "APSCHE College Code" },
+    { key: "Branch Code", label: "Branch Code" },
     { key: "District", label: "District" },
     { key: "Region", label: "Region" },
     { key: "Category", label: "Category" },
@@ -260,10 +260,16 @@ const expandedFields = {
   WBJEE: [
     { key: "Year", label: "Data Year" },
     { key: "Round", label: "Closed In" },
-    { key: "Seat Type", label: "Seat Type" },
     { key: "Quota", label: "Quota" },
     { key: "College Type", label: "College Type" },
     { key: "Opening Rank", label: "Opening Rank (GMR)" },
+  ],
+  // WBJEEB's seats filled on JEE Main ranks (all All India / Open)
+  "WBJEE JEE Main": [
+    { key: "Year", label: "Data Year" },
+    { key: "Round", label: "Closed In" },
+    { key: "College Type", label: "College Type" },
+    { key: "Opening Rank", label: "Opening Rank (JEE Main)" },
   ],
   // TNEA - Tamil Nadu Engineering Admissions
   TNEA: [
@@ -520,6 +526,7 @@ const PredictedCollegesTable = ({
     "KCET",
     "TNEA",
     "WBJEE",
+    "WBJEE JEE Main",
     "KEAM",
     "AP EAPCET",
     "TGEAPCET",
@@ -571,6 +578,7 @@ const PredictedCollegesTable = ({
     KCET: "Karnataka",
     TNEA: "Tamil Nadu",
     WBJEE: "West Bengal",
+    "WBJEE JEE Main": "West Bengal",
     KEAM: "Kerala",
     "AP EAPCET": "Andhra Pradesh",
     TGEAPCET: "Telangana",
@@ -592,10 +600,8 @@ const PredictedCollegesTable = ({
       ? String(raw).replace(/^[A-Z]\d{3}\s+/, "")
       : String(raw);
   };
-  // KCET's predictor also covers medical/dental/ayurveda seats, which live on
-  // the tab under NEET, not KEA — no dead links for those rows. Its
-  // architecture rows (2021) name colleges by KEA abbreviation ("RVCA",
-  // "SPA Mysore"), which find no card or the wrong one: engineering only
+  // KCET's 2021 Pharma / Agriculture rows name colleges as KEA printed them
+  // then, which find no card or the wrong one: engineering only
   // GUJCET rows say themselves whether a card carries their name (`card`,
   // set by scripts/build_gujcet_predictor_data.py)
   const canLinkRow = (t) =>
@@ -1002,10 +1008,9 @@ const PredictedCollegesTable = ({
     ],
     "AP EAPCET": [
       { key: "institute", label: "Institute" },
-      // Branch codes are shown verbatim (CSE, AID, CSD...) - the official
-      // PDF ships no code-to-name legend, and students know these codes
-      // from the web-options screen. A wrong expansion beats no expansion.
-      { key: "academic_program_name", label: "Branch Code" },
+      // names from the official EAPCET course list; the code is in the
+      // expanded view
+      { key: "academic_program_name", label: "Branch" },
       // Plain "Closing Rank": the page is already the AP EAPCET page, so
       // repeating the exam name in the header is noise (user feedback).
       { key: "closing_rank", label: "Closing Rank" },
@@ -1030,9 +1035,14 @@ const PredictedCollegesTable = ({
     WBJEE: [
       { key: "institute", label: "Institute" },
       { key: "academic_program_name", label: "Program" },
-      // GMR spelt out in the header: WBJEE publishes several rank lists and
-      // the JEE(Main)-seat rows would otherwise read as JEE Main ranks.
+      // GMR spelt out: WBJEEB's other rows rank on JEE Main
       { key: "closing_rank", label: "Closing Rank (GMR)" },
+      { key: "college_type", label: "College Type" },
+    ],
+    "WBJEE JEE Main": [
+      { key: "institute", label: "Institute" },
+      { key: "academic_program_name", label: "Program" },
+      { key: "closing_rank", label: "Closing Rank (JEE Main)" },
       { key: "college_type", label: "College Type" },
     ],
     "MHT CET": [
@@ -1113,7 +1123,7 @@ const PredictedCollegesTable = ({
         closing_rank: item["Closing Rank"],
         category: item["Category"],
         "Course Type": item["Course Type"],
-        "State": item["State"],
+        "Pool": item["Pool"],
         "Language": item["Language"],
         "Rural/Urban": item["Rural/Urban"],
         "Category_Key": item["Category_Key"],
@@ -1221,6 +1231,7 @@ const PredictedCollegesTable = ({
         college_type: item["College Type"],
         "Year": item["Year"],
         "College Code": item["College Code"],
+        "Branch Code": item["Branch Code"],
         "District": item["District"],
         "Region": item["Region"],
         "Category": item["Category"],
@@ -1259,7 +1270,7 @@ const PredictedCollegesTable = ({
         "Closing Rank": item["Closing Rank"],
       };
     }
-    if (exam === "WBJEE") {
+    if (exam === "WBJEE" || exam === "WBJEE JEE Main") {
       return {
         ...item,
         institute: item["Institute"],
@@ -1268,7 +1279,6 @@ const PredictedCollegesTable = ({
         college_type: item["College Type"],
         "Year": item["Year"],
         "Round": item["Round"],
-        "Seat Type": item["Seat Type"],
         "Quota": item["Quota"],
         "College Type": item["College Type"],
         "Opening Rank": item["Opening Rank"],

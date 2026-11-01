@@ -306,10 +306,12 @@ OPTION_SOURCES = {
               lambda r: r.get("Gender") == "Gender-Neutral",
               "Closing Rank", False, ""),
     "KCET": ("public/data/KCET/kcet_data.json", "Academic Program Name",
-             lambda r: r.get("Language") == "Any" and r.get("Rural/Urban") == "All",
+             lambda r: r.get("Language") == "Any" and r.get("Rural/Urban") == "All"
+             and r.get("Pool") == "General",
              "Closing Rank", False, ""),
+    # "JEE(Main) Seats" rows are JEE Main ranks, not WBJEE ranks
     "WBJEE": ("public/data/WBJEE/wbjee_data.json", "Academic Program Name",
-              lambda r: True, "Closing Rank", False, ""),
+              lambda r: r.get("Seat Type") == "WBJEE Seats", "Closing Rank", False, ""),
     "MHT-CET": ("public/data/MHTCET/mhtcet_data.json", "Academic Program Name",
                 lambda r: str(r.get("PWD")) in ("", "None", "False", "No")
                 and str(r.get("Defense")) in ("", "None", "False", "No"),
