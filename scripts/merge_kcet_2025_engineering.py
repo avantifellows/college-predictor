@@ -6,15 +6,24 @@ The app serves public/data/KCET/kcet_data.json — a mix of KCET streams
 (Medical/Dental, Pharma, Agriculture, BNYS, Architecture, Engineering). The old
 Engineering slice was CET-2021 data with NO real college names (the "Institute"
 field held a PDF header line). This replaces ONLY the Engineering rows with the
-2025 Third-Round cutoffs (real college names), leaving every other stream intact.
+2025 Third-Round cutoffs (real college names). Of the 2021 streams, Pharma and
+Agriculture stay; Medical/Dental and BNYS (ranked on NEET; the NEET predictor
+holds Karnataka's state quota) and Architecture (ranked on NATA) are dropped:
+their closing ranks are not KCET ranks.
+
+Without --src it only re-normalises the existing file (Pool, dropped streams).
 
 New source: KA_engg_2025_all_cutoffs_R3.csv (from futures-v2 parse_KA_2025.py)
   columns: college_code, college_name, course_name, domicile_pool,
            category_code, closing_rank, year, round, course_name_raw
 
-App schema (per existing rows):
-  Institute, Course Type, Academic Program Name, Category, State, Language,
-  Rural/Urban, Category_Key, Closing Rank
+App schema:
+  Institute, Course Type, Year, Academic Program Name, Category, Pool,
+  Language, Rural/Urban, Category_Key, Closing Rank
+
+Pool: "General" (any Karnataka candidate) or "Kalyana-Karnataka" (the 371(J)
+region's reserved seats; its students compete for both). 2021 rows print the
+two pools as one ("GM/GMH") and are all "General".
 
 Category-code grammar (KEA):
   vertical prefix -> Category:   1/2A/2B/3A/3B (as-is), GM->General, SC->SC, ST->ST
@@ -88,7 +97,7 @@ def build_engineering_rows(src: Path):
                 "Year": "2025",
                 "Academic Program Name": r["course_name"].strip(),
                 "Category": cat,
-                "State": "Karnataka" if hk else "All India",
+                "Pool": "Kalyana-Karnataka" if hk else "General",
                 "Language": lang,
                 "Rural/Urban": rural,
                 "Category_Key": r["category_code"].strip(),
@@ -97,24 +106,43 @@ def build_engineering_rows(src: Path):
     return rows
 
 
+# ranked on NEET (Medical/Dental, BNYS) or NATA (Architecture), not KCET
+NOT_KCET_RANK = {"Medical/Dental", "BNYS", "Architecture"}
+
+
+def normalise(r):
+    """Older files carried "State": "Karnataka" for the HK pool (2025) and
+    for the rural / Kannada rows (2021), "All India" otherwise."""
+    if "State" in r:
+        state = r.pop("State")
+        hk = r["Year"] == "2025" and state == "Karnataka"
+        r["Pool"] = "Kalyana-Karnataka" if hk else "General"
+    return r
+
+
 # Every row carries a per-row "Year": engineering rows are 2025, the untouched
 # non-engineering streams remain 2021. Stamped again in main() so re-runs keep it.
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--src", type=Path, required=True,
+    ap.add_argument("--src", type=Path,
                     help="Path to KA_engg_2025_all_cutoffs_R3.csv (from futures-v2 parse_KA_2025.py)")
     ap.add_argument("--app-json", type=Path, default=DEFAULT_APP_JSON)
     args = ap.parse_args()
 
     data = json.loads(args.app_json.read_text())
-    non_eng = [r for r in data if r.get("Course Type") != "Engineering"]
+    non_eng = [r for r in data if r.get("Course Type") != "Engineering"
+               and r.get("Course Type") not in NOT_KCET_RANK]
     for r in non_eng:                      # the untouched streams are CET-2021 vintage
         r.setdefault("Year", "2021")
-    old_eng = len(data) - len(non_eng)
+        normalise(r)
+    old_eng = sum(r.get("Course Type") == "Engineering" for r in data)
 
-    new_eng = build_engineering_rows(args.src)
+    if args.src:
+        new_eng = build_engineering_rows(args.src)
+    else:
+        new_eng = [normalise(r) for r in data if r.get("Course Type") == "Engineering"]
     merged = non_eng + new_eng
-    args.app_json.write_text(json.dumps(merged, ensure_ascii=False))
+    args.app_json.write_text(json.dumps(merged, ensure_ascii=False, indent=1))
 
     print(f"old engineering rows dropped: {old_eng:,}")
     print(f"non-engineering kept:         {len(non_eng):,}")
@@ -126,7 +154,8 @@ def main():
     print("\nnew engineering Category:", dict(Counter(r["Category"] for r in e)))
     print("Language:", dict(Counter(r["Language"] for r in e)))
     print("Rural/Urban:", dict(Counter(r["Rural/Urban"] for r in e)))
-    print("State(HK->Karnataka):", dict(Counter(r["State"] for r in e)))
+    print("Pool:", dict(Counter(r["Pool"] for r in merged)))
+    print("Course Type:", dict(Counter(r["Course Type"] for r in merged)))
 
 
 if __name__ == "__main__":

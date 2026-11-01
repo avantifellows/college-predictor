@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import PropTypes from "prop-types";
-import examConfigs from "../examConfig";
+import examConfigs, { josaaPaperOf } from "../examConfig";
 import { PAPER_LABEL, parseScores } from "../utils/cuetRules";
 import { ADV_MAX_MARKS } from "../utils/jeeAdvMarks";
 
@@ -39,7 +39,9 @@ const PredictorInputsSummary = ({ query }) => {
     if (query.mainRank)
       scores.push({
         key: "main",
-        label: "JEE Main rank",
+        label: josaaPaperOf(query.program)
+          ? `JEE Main Paper ${josaaPaperOf(query.program).split(" ")[0]} rank`
+          : "JEE Main rank",
         value: fmt(query.mainRank),
         from: query.mainMarks
           ? `from ${query.mainMarks}/300 marks`
