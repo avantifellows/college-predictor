@@ -1920,48 +1920,6 @@
   ],
   "note": "Paper-1 (Same pattern for All 3 Subjects Section I = Physics, Section II = Chemistry, Section III = Maths, Each section has 3 Parts); Paper-2 (Same Pattern as Paper-I)"
  },
- "10342410fa": {
-  "rows": [
-   [
-    "Maths",
-    "20+5 questions (100 marks)"
-   ],
-   [
-    "Physics",
-    "20+5 questions (100 marks)"
-   ],
-   [
-    "Chemistry",
-    "20+5 questions (100 marks)"
-   ],
-   [
-    "Total",
-    "90 questions (300 marks)"
-   ]
-  ],
-  "note": "20 questions will be MCQs and 5 out of 10 questions will have answers to be filled as numerical value."
- },
- "2aa7a89876": {
-  "rows": [
-   [
-    "Maths",
-    "20+5 questions (100 marks)"
-   ],
-   [
-    "Physics",
-    "20+5 questions (100 marks)"
-   ],
-   [
-    "Chemistry",
-    "20+5 questions (100 marks)"
-   ],
-   [
-    "Total",
-    "75 questions (300 marks)"
-   ]
-  ],
-  "note": "20 questions will be MCQs and 5 out of 10 questions will have answer to be filled as numerical value."
- },
  "1c713372e5": {
   "rows": [
    [
@@ -5367,5 +5325,26 @@
    ]
   ],
   "note": ""
+ },
+ "cf46552d4a": {
+  "rows": [
+   [
+    "Maths",
+    "20+5 questions (100 marks)"
+   ],
+   [
+    "Physics",
+    "20+5 questions (100 marks)"
+   ],
+   [
+    "Chemistry",
+    "20+5 questions (100 marks)"
+   ],
+   [
+    "Total",
+    "75 questions (300 marks)"
+   ]
+  ],
+  "note": "Each subject has 20 MCQs and 5 questions answered with a number, all compulsory. Wrong answers lose 1 mark in both."
  }
 }
