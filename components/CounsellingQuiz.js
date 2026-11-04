@@ -47,7 +47,9 @@ const NOTE_STYLE = {
 
 export const Quiz = ({ onExit, questions, doneHeading, doneCta, simHref }) => {
   const [at, setAt] = useState(0);
-  const [picked, setPicked] = useState(null);
+  // one answer per question, so Previous shows what was picked (and its
+  // feedback) instead of a blank question
+  const [picks, setPicks] = useState({});
   const total = questions.length;
 
   if (at >= total) {
@@ -66,10 +68,7 @@ export const Quiz = ({ onExit, questions, doneHeading, doneCta, simHref }) => {
         <div className="mt-6 flex justify-between text-sm font-bold">
           <button
             type="button"
-            onClick={() => {
-              setPicked(null);
-              setAt(total - 1);
-            }}
+            onClick={() => setAt(total - 1)}
             className="text-[#6d5550] hover:text-[#8f2e31]"
           >
             ← Back to the last question
@@ -87,12 +86,10 @@ export const Quiz = ({ onExit, questions, doneHeading, doneCta, simHref }) => {
   }
 
   const item = questions[at];
+  const picked = picks[at] ?? null;
   const answered = picked != null;
   const right = answered && picked === item.correct;
-  const go = (n) => {
-    setPicked(null);
-    setAt(n);
-  };
+  const go = (n) => setAt(n);
 
   return (
     <div className={shell}>
@@ -129,7 +126,7 @@ export const Quiz = ({ onExit, questions, doneHeading, doneCta, simHref }) => {
               key={i}
               type="button"
               disabled={answered}
-              onClick={() => setPicked(i)}
+              onClick={() => setPicks((p) => ({ ...p, [at]: i }))}
               className={`flex items-center gap-3 rounded-xl border px-4 py-3 text-left text-sm font-semibold transition sm:text-base ${
                 good
                   ? "border-[#2f7a45] bg-[#eef6ef] text-[#1f4d2c]"
