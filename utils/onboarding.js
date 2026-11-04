@@ -6,10 +6,18 @@ import { CV_URL } from "./siteMap";
 // student needs them. Every step is a page that already exists, opened
 // pre-filtered; nothing here is new data.
 //
-// answers = { cls, stream, state, exam, done: [step ids], skipped }
+// answers = { cls, stream, state, exam, used: [...], skipped }
 //   cls     "10" (Class 10 or below) | "11" | "12" | "drop" | "college" | "none"
 //   stream  "pcm" | "pcb" | "pcmb" | "commerce" | "arts" | "unsure"
 //   exam    a predictor key (JoSAA, NEETUG, KCET, ...) or "unsure"
+//   used    what the student has really done on the site, recorded by the
+//           page where it happens (useRecordUse): "predictor:<key>" (results
+//           shown), "mock:josaa" / "mock:mhtcet" (a round run), "career-quiz"
+//           (results reached), "exam:<exam id>" (its page opened)
+//
+// A plan step is done when one of its `uses` is in `used`, or (`star`) the
+// signed-in student has starred one of that kind. Opening a step is not
+// doing it.
 //
 // A guest's answers stay in this browser. A signed-in student's are saved
 // with their account (/api/me), and until they answer, their Avanti profile
@@ -72,7 +80,7 @@ const EXAM_INFO = {
     sub: "JEE Main and Advanced",
     rank: "JEE Main rank",
     page: "jee-main-paper-1",
-    mock: { href: "/josaa", name: "JoSAA" },
+    mock: { href: "/josaa", name: "JoSAA", use: "mock:josaa" },
   },
   NEETUG: { name: "NEET", sub: "NEET-UG", rank: "NEET rank", page: "neet-ug" },
   BITSAT: {
@@ -97,7 +105,7 @@ const EXAM_INFO = {
     name: "MHT CET",
     rank: "MHT CET rank",
     page: "mht-cet",
-    mock: { href: "/mhtcet", name: "MHT CET" },
+    mock: { href: "/mhtcet", name: "MHT CET", use: "mock:mhtcet" },
   },
   KCET: { name: "KCET", rank: "KCET rank", page: "kea-cet" },
   "AP EAPCET": {
@@ -246,18 +254,21 @@ const q = (params) => {
 };
 const scholarships = (grade, state) => ({
   id: "scholarships",
+  star: "scholarship",
   title: "Find scholarships",
   line: "Scholarships you can apply for",
   href: `/scholarships${q({ grade, state })}`,
 });
 const careerQuiz = {
   id: "career-quiz",
+  uses: ["career-quiz"],
   title: "Take the Career Quiz",
   line: "Careers that fit what you enjoy",
   href: "/career-quiz",
 };
 const careers = (stream) => ({
   id: "careers",
+  star: "career",
   title: "Explore careers",
   line: CAREER_STREAM[stream]
     ? `What careers after ${CAREER_STREAM[stream]} pay and need`
@@ -266,6 +277,7 @@ const careers = (stream) => ({
 });
 const exploreExams = (a) => ({
   id: "exams",
+  star: "exam",
   title: "See entrance exams",
   line: a.state
     ? `Exams open to students in ${a.state}`
@@ -275,6 +287,7 @@ const exploreExams = (a) => ({
 // JoSAA's home-state field takes the state's name as it is
 const predict = (key, state) => ({
   id: "predict",
+  uses: [`predictor:${key}`],
   title: "Predict your colleges",
   line: `Colleges you can get with your ${EXAM_INFO[key].rank}`,
   href: `/predictor${q({
@@ -316,6 +329,7 @@ function backupStep(a) {
   const names = keys.map((k) => COUNSELLING_LABEL[k] || examName(k));
   return {
     id: "backup",
+    uses: keys.map((k) => `predictor:${k}`),
     title: "Plan backup options",
     line: viaJee
       ? `${listText(names.slice(0, 2))} also take your JEE Main rank`
@@ -417,12 +431,14 @@ export function planFor(a) {
       steps: [
         {
           id: "cutoffs",
+          uses: [`predictor:${a.exam}`],
           title: "See the cutoffs",
           line: `What ${info.rank} each college closed at`,
           href: `/predictor${q({ exam: a.exam, view: "full" })}`,
         },
         info.page && {
           id: "exam",
+          uses: [`exam:${info.page}`],
           title: `Know ${info.name}`,
           line: "Dates, eligibility and paper pattern",
           href: `/exams/${info.page}`,
@@ -436,6 +452,7 @@ export function planFor(a) {
   const p = predict(a.exam, a.state);
   const mock = info.mock && {
     id: "mock",
+    uses: [info.mock.use],
     title: `Try ${info.mock.name} mock allotment`,
     line: "Practise your choice list before the real rounds",
     href: info.mock.href,
@@ -482,11 +499,20 @@ export function cleanAnswers(a) {
         : undefined,
     exam: pick(a.exam, [...Object.keys(EXAM_INFO), "unsure"]),
     skipped: a.skipped === true || undefined,
-    done: (Array.isArray(a.done) ? a.done : [])
-      .filter((d) => typeof d === "string" && /^[a-z-]{1,20}$/.test(d))
-      .slice(0, 10),
+    used: (Array.isArray(a.used) ? a.used : [])
+      .filter(
+        (u) =>
+          typeof u === "string" &&
+          /^[a-z-]{1,20}(:[A-Za-z0-9 .-]{1,40})?$/.test(u)
+      )
+      .slice(0, 30),
   };
   return Object.fromEntries(
     Object.entries(out).filter(([, v]) => v !== undefined)
   );
 }
+
+/** Is this plan step done? `stars` from useStudentData (empty for guests). */
+export const stepDone = (step, used = [], stars = {}) =>
+  (step.uses || []).some((u) => used.includes(u)) ||
+  (!!step.star && (stars[step.star] || []).length > 0);

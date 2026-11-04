@@ -32,6 +32,7 @@ import {
 } from "./mockAllotmentShared";
 import { MatchStats } from "./InstituteRankedList";
 import ListAnalyzer from "./ListAnalyzer";
+import { useRecordUse } from "../utils/useGetStarted";
 
 // Practice JoSAA choice-filling + locking + a round-by-round freeze/float mock,
 // built entirely on data already in this repo (see docs/SIMULATION_DATA.md).
@@ -144,6 +145,8 @@ const JosaaMockAllotment = ({ onChangeExam }) => {
   // did the run we loaded from storage ALREADY have a result? (as opposed to
   // one the student just finished in front of us) — see RestoredRunNotice
   const [restoredRun, setRestoredRun] = useState(false);
+  // the Get started plan: a round has been run
+  useRecordUse("mock:josaa", state.trail.length > 0);
 
   const [rows, setRows] = useState(null);
   const [collegesByName, setCollegesByName] = useState(null);

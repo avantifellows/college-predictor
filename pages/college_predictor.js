@@ -8,6 +8,7 @@ import Head from "next/head";
 import Fuse from "fuse.js";
 import examConfigs from "../examConfig";
 import { debounce } from "lodash";
+import { useRecordUse } from "../utils/useGetStarted";
 
 // Base Fuse options - keys will be added dynamically based on exam
 const baseFuseOptions = {
@@ -102,6 +103,11 @@ const CollegePredictor = () => {
   const router = useRouter();
   const [filteredData, setFilteredData] = useState([]);
   const [fullData, setFullData] = useState([]);
+  // the Get started plan: this exam's predictor has shown results
+  useRecordUse(
+    `predictor:${router.query.exam}`,
+    !!router.query.exam && fullData.length > 0
+  );
   // When a query returns nothing, which single filter caused it (if any).
   const [emptyHint, setEmptyHint] = useState(null);
   const [isLoading, setIsLoading] = useState(true);

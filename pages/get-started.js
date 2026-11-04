@@ -98,10 +98,8 @@ export default function GetStarted() {
   }, [draft, step, asked, router]);
 
   const finish = (a) => {
-    const before = answers || {};
-    // a different class or exam is a different plan: its steps start fresh
-    const same = before.cls === a.cls && before.exam === a.exam;
-    save({ ...a, skipped: undefined, done: same ? a.done || [] : [] });
+    // what the student has already done stays done (a.used)
+    save({ ...a, skipped: undefined });
     router.push("/");
   };
   const advance = (a) => {

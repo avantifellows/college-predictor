@@ -25,6 +25,7 @@ import {
   profileOf,
   tiebreakersFor,
 } from "../utils/careerMatch";
+import { useRecordUse } from "../utils/useGetStarted";
 
 // The Career Quiz (data from riasec_quiz.xlsx, built by
 // scripts/build_career_quiz.py):
@@ -149,6 +150,8 @@ export default function CareerQuiz() {
   const [error, setError] = useState(null);
   const [state, setState] = useState(EMPTY);
   const { screen, step, ratings, tieIds, tiePicks, picked, ranked } = state;
+  // the Get started plan: the quiz reached its results
+  useRecordUse("career-quiz", screen === "results");
   const set = (patch) => setState((s) => ({ ...s, ...patch }));
   // a quick double tap must not answer the next tie-breaker too
   const advancing = useRef(false);

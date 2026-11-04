@@ -25,6 +25,7 @@ import {
   RestoredRunNotice,
 } from "./mockAllotmentShared";
 import MhtcetListAnalyzer from "./MhtcetListAnalyzer";
+import { useRecordUse } from "../utils/useGetStarted";
 
 // Practice MHT-CET (Maharashtra CAP) choice-filling + locking, the MHT-CET
 // sibling of components/JosaaMockAllotment.js. Per product decision this
@@ -160,6 +161,8 @@ const Reorderable = (props) => (
 
 const MhtcetMockAllotment = ({ onChangeExam }) => {
   const [state, setState] = useState(defaultState);
+  // the Get started plan: the allotment has been run
+  useRecordUse("mock:mhtcet", state.result !== undefined);
   const [hydrated, setHydrated] = useState(false);
   // did the run we loaded from storage ALREADY have a result? (as opposed to
   // one the student just finished in front of us) — see RestoredRunNotice

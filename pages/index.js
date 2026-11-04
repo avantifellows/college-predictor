@@ -6,7 +6,7 @@ import Link from "next/link";
 import { ArrowDown, ArrowRight, Check } from "lucide-react";
 import IconTile from "../components/IconTile";
 import { HOME_TILES } from "../utils/siteMap";
-import { planFor } from "../utils/onboarding";
+import { planFor, stepDone } from "../utils/onboarding";
 import useGetStarted from "../utils/useGetStarted";
 import { useStudentData } from "../utils/studentData";
 
@@ -148,9 +148,9 @@ function Chip({ parts, name }) {
   );
 }
 
-function PlanHero({ plan, answers, markDone, name }) {
-  const done = answers.done || [];
-  const next = plan.steps.find((s) => !done.includes(s.id));
+function PlanHero({ plan, answers, stars, name }) {
+  const isDone = (s) => stepDone(s, answers.used, stars);
+  const next = plan.steps.find((s) => !isDone(s));
   const { hero } = plan;
   return (
     <section className="bg-gradient-to-b from-[#fbeeec] to-[#fdf8f6] pb-10 pt-10">
@@ -162,19 +162,11 @@ function PlanHero({ plan, answers, markDone, name }) {
           {hero.after}
         </h1>
         <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-          <Go
-            to={hero.cta}
-            className={btnPrimary}
-            onClick={() => markDone(hero.cta.id)}
-          >
+          <Go to={hero.cta} className={btnPrimary}>
             {hero.cta.label} <ArrowRight size={18} />
           </Go>
           {hero.second ? (
-            <Go
-              to={hero.second}
-              className={btnSecond}
-              onClick={() => markDone(hero.second.id)}
-            >
+            <Go to={hero.second} className={btnSecond}>
               {hero.second.label}
             </Go>
           ) : null}
@@ -185,8 +177,7 @@ function PlanHero({ plan, answers, markDone, name }) {
             {plan.title}
           </h2>
           <span className="text-sm font-bold text-[#7a635d]">
-            {plan.steps.filter((s) => done.includes(s.id)).length} of{" "}
-            {plan.steps.length} done
+            {plan.steps.filter(isDone).length} of {plan.steps.length} done
           </span>
         </div>
         <ol
@@ -195,13 +186,12 @@ function PlanHero({ plan, answers, markDone, name }) {
           } sm:grid-cols-2`}
         >
           {plan.steps.map((s, i) => {
-            const isDone = done.includes(s.id);
+            const done = isDone(s);
             const isNext = next && next.id === s.id;
             return (
               <li key={s.id}>
                 <Go
                   to={s}
-                  onClick={() => markDone(s.id)}
                   className={`flex h-full flex-col rounded-2xl bg-white p-4 transition hover:shadow-md ${
                     isNext
                       ? "border-2 border-[#B52326] shadow-[0_8px_24px_rgba(181,35,38,.12)]"
@@ -211,16 +201,16 @@ function PlanHero({ plan, answers, markDone, name }) {
                   <span className="flex items-center justify-between">
                     <span
                       className={`inline-flex h-7 w-7 items-center justify-center rounded-full text-sm font-black ${
-                        isDone
+                        done
                           ? "bg-[#e6f2e8] text-[#3d7a4a]"
                           : isNext
                           ? "bg-[#B52326] text-white"
                           : "bg-[#f6ece9] text-[#7a635d]"
                       }`}
                     >
-                      {isDone ? <Check size={15} strokeWidth={3} /> : i + 1}
+                      {done ? <Check size={15} strokeWidth={3} /> : i + 1}
                     </span>
-                    {isDone ? (
+                    {done ? (
                       <span className="text-[11px] font-extrabold uppercase tracking-[0.08em] text-[#3d7a4a]">
                         Done
                       </span>
@@ -248,7 +238,7 @@ function PlanHero({ plan, answers, markDone, name }) {
 
 export default function Home() {
   const router = useRouter();
-  const { answers, markDone } = useGetStarted();
+  const { answers } = useGetStarted();
 
   // old deep links (/?exam=KCET) predate the landing — forward them to the
   // predictor form so nothing anyone bookmarked or shared breaks
@@ -258,7 +248,7 @@ export default function Home() {
     }
   }, [router.isReady, router.query, router]);
 
-  const { signedIn, profile } = useStudentData();
+  const { signedIn, profile, stars } = useStudentData();
   // still loading a signed-in student's answers: no landing flash
   const plan = answers ? planFor(answers) : null;
   const firstName = profile?.name ? profile.name.split(" ")[0] : null;
@@ -269,12 +259,7 @@ export default function Home() {
   else if (plan.kind === "explore") hero = <Chooser />;
   else
     hero = (
-      <PlanHero
-        plan={plan}
-        answers={answers}
-        markDone={markDone}
-        name={firstName}
-      />
+      <PlanHero plan={plan} answers={answers} stars={stars} name={firstName} />
     );
 
   return (

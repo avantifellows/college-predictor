@@ -6,12 +6,15 @@ import BackLink from "../../components/BackLink";
 import ExamView from "../../components/ExamView";
 import DetailBackLink from "../../components/DetailBackLink";
 import { loadExams } from "../../components/examShared";
+import { useRecordUse } from "../../utils/useGetStarted";
 
 // One exam on its own page (/exams/<id>). This file loads the data;
 // components/ExamView.js draws it.
 export default function ExamPage() {
   const router = useRouter();
   const [exam, setExam] = useState(undefined);
+  // the Get started plan: this exam's page was read
+  useRecordUse(exam ? `exam:${exam.exam_id}` : null, !!exam);
 
   useEffect(() => {
     if (!router.isReady) return;

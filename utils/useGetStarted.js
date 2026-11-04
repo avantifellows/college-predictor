@@ -74,14 +74,25 @@ export default function useGetStarted() {
     [signedIn, saveOnboarding]
   );
 
-  // a step opened from the plan counts as done
-  const markDone = useCallback(
-    (id) => {
-      if (!answers || (answers.done || []).includes(id)) return;
-      save({ ...answers, done: [...(answers.done || []), id] });
+  // something the student really did (a plan step's `uses`), kept only
+  // for a student who has a plan
+  const record = useCallback(
+    (use) => {
+      if (!answers || !answers.cls || (answers.used || []).includes(use))
+        return;
+      save({ ...answers, used: [...(answers.used || []), use] });
     },
     [answers, save]
   );
 
-  return { answers, source, signedIn, save, markDone };
+  return { answers, source, signedIn, save, record };
+}
+
+/** On the page where it happens: record `use` once `when` is true. */
+export function useRecordUse(use, when) {
+  const { answers, record } = useGetStarted();
+  const has = !!answers && (answers.used || []).includes(use);
+  useEffect(() => {
+    if (when && use && answers && !has) record(use);
+  }, [when, use, answers, has, record]);
 }
