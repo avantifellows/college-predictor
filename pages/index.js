@@ -161,7 +161,6 @@ function PlanHero({ plan, answers, markDone, name }) {
           <span className="text-[#B52326]">{hero.em}</span>
           {hero.after}
         </h1>
-        <p className="mt-3 text-[15px] text-[#7a635d]">{hero.line}</p>
         <div className="mt-6 flex flex-col gap-3 sm:flex-row">
           <Go
             to={hero.cta}

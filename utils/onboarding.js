@@ -343,7 +343,6 @@ export function planFor(a) {
         before: "Build a professional ",
         em: "CV",
         after: " in minutes",
-        line: "You write the content, we format it.",
         cta: { id: "cv", label: "Make my CV", href: CV_URL, external: true },
       },
       steps: [
@@ -378,9 +377,6 @@ export function planFor(a) {
         before: "See which ",
         em: "careers",
         after: " match your interests",
-        line: young
-          ? "Then the stream, exams and colleges that lead there."
-          : "Then the exams that lead there, and the colleges they open.",
         cta: {
           id: "career-quiz",
           label: "Take the Career Quiz",
@@ -407,7 +403,6 @@ export function planFor(a) {
         before: "See what ",
         em: `${info.name} rank`,
         after: " each college needs",
-        line: "From past years' real cutoffs, so you know what to aim for.",
         cta: {
           id: "cutoffs",
           label: "See the cutoffs",
@@ -453,10 +448,6 @@ export function planFor(a) {
       before: "See which ",
       em: "colleges",
       after: ` you can get with your ${info.rank}`,
-      line:
-        a.exam === "JoSAA"
-          ? "No rank yet? Use your marks or a mock test percentile."
-          : "From past years' real cutoffs.",
       cta: { id: "predict", label: "Predict my colleges", href: p.href },
       second: mock && { id: "mock", label: mock.title, href: mock.href },
     },
