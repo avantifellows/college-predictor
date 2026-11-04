@@ -8,7 +8,8 @@ import React, {
 } from "react";
 import { clearProfile, useStudentProfile } from "./portalSession";
 
-// What a signed-in student has saved (stars, pathway, quiz result), loaded
+// What a signed-in student has saved (stars, pathway, quiz result, Get
+// started answers), loaded
 // once from /api/me and shared by every page. Changes show at once and are
 // rolled back if the save fails. Signed out, every helper is a no-op and
 // `signedIn` is false, so pages render exactly as before.
@@ -39,12 +40,19 @@ export function StudentDataProvider({ children }) {
     stars: EMPTY_STARS,
     pathway: null,
     quiz: null,
+    onboarding: null,
   });
   const [error, setError] = useState(null);
 
   useEffect(() => {
     if (!userId) {
-      setData({ loaded: false, stars: EMPTY_STARS, pathway: null, quiz: null });
+      setData({
+        loaded: false,
+        stars: EMPTY_STARS,
+        pathway: null,
+        quiz: null,
+        onboarding: null,
+      });
       return;
     }
     let live = true;
@@ -63,6 +71,7 @@ export function StudentDataProvider({ children }) {
           stars: { ...EMPTY_STARS, ...d.stars },
           pathway: d.pathway,
           quiz: d.quiz,
+          onboarding: d.onboarding || null,
         });
       })
       .catch(() => {});
@@ -140,11 +149,32 @@ export function StudentDataProvider({ children }) {
     [userId]
   );
 
+  // shown at once; kept even if the save fails (it is only the homepage
+  // plan), so the student is never sent back through the questions
+  const saveOnboarding = useCallback(
+    async (onboarding) => {
+      if (!userId) return;
+      setData((d) => ({ ...d, onboarding }));
+      try {
+        await post({ action: "onboarding", onboarding });
+      } catch {
+        // offline or signed out: this visit keeps the answers
+      }
+    },
+    [userId]
+  );
+
   const deleteEverything = useCallback(async () => {
     if (!userId) return;
     const r = await fetch("/api/me", { method: "DELETE" });
     if (r.ok)
-      setData({ loaded: true, stars: EMPTY_STARS, pathway: null, quiz: null });
+      setData({
+        loaded: true,
+        stars: EMPTY_STARS,
+        pathway: null,
+        quiz: null,
+        onboarding: null,
+      });
   }, [userId]);
 
   const value = useMemo(
@@ -155,11 +185,13 @@ export function StudentDataProvider({ children }) {
       stars: data.stars,
       pathway: data.pathway,
       quiz: data.quiz,
+      onboarding: data.onboarding,
       error,
       isStarred,
       toggleStar,
       savePathway,
       saveQuiz,
+      saveOnboarding,
       deleteEverything,
     }),
     [
@@ -171,6 +203,7 @@ export function StudentDataProvider({ children }) {
       toggleStar,
       savePathway,
       saveQuiz,
+      saveOnboarding,
       deleteEverything,
     ]
   );
@@ -185,10 +218,12 @@ export function useStudentData() {
       stars: EMPTY_STARS,
       pathway: null,
       quiz: null,
+      onboarding: null,
       isStarred: () => false,
       toggleStar: () => {},
       savePathway: () => {},
       saveQuiz: async () => false,
+      saveOnboarding: () => {},
       deleteEverything: () => {},
     }
   );

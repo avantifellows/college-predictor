@@ -1,11 +1,13 @@
 import { readSession } from "../../utils/server/session";
 import {
   STAR_KINDS,
+  cleanOnboarding,
   cleanPathway,
   cleanQuiz,
   deleteAll,
   isRefId,
   loadAll,
+  saveOnboarding,
   savePathway,
   saveQuiz,
   setStar,
@@ -13,10 +15,11 @@ import {
 
 // The signed-in student's saved things. The user id always comes from the
 // session cookie, never from the request.
-//   GET                                   { profile, stars, pathway, quiz }
+//   GET                                   { profile, stars, pathway, quiz, onboarding }
 //   POST { action: "star", kind, id, label, extra, on }
 //   POST { action: "pathway", pathway }
 //   POST { action: "quiz", quiz }
+//   POST { action: "onboarding", onboarding }   Get started answers
 //   DELETE                                delete everything saved
 export default async function handler(req, res) {
   res.setHeader("Cache-Control", "no-store");
@@ -56,6 +59,12 @@ export default async function handler(req, res) {
       if (!quiz) return res.status(400).json({ error: "Bad quiz result" });
       await saveQuiz(uid, quiz);
       return res.status(200).json({ quiz });
+    }
+    if (body.action === "onboarding") {
+      const onboarding = cleanOnboarding(body.onboarding);
+      if (!onboarding) return res.status(400).json({ error: "Bad answers" });
+      await saveOnboarding(uid, onboarding);
+      return res.status(200).json({ onboarding });
     }
     return res.status(400).json({ error: "Unknown action" });
   } catch (e) {

@@ -13,6 +13,7 @@ import {
 //   pk = USER#<afdb user id>
 //   sk = PATHWAY                      the plan: career, colleges, exams, rank to aim
 //        QUIZ                         latest career quiz result the student chose to save
+//        ONBOARDING                   Get started answers (class, stream, state, exam) and plan steps done
 //        STAR#<KIND>#<ref id>         a starred college / career / exam / scholarship
 //
 // Items carry only shared ids (AISHE code, career_id, exam_id) plus a label
@@ -81,8 +82,10 @@ export async function loadAll(userId) {
   const stars = Object.fromEntries(STAR_KINDS.map((k) => [k, []]));
   let pathway = null;
   let quiz = null;
+  let onboarding = null;
   for (const it of items) {
     if (it.sk === "PATHWAY") pathway = it.data;
+    else if (it.sk === "ONBOARDING") onboarding = it.data;
     else if (it.sk === "QUIZ") quiz = { ...it.data, saved_at: it.updated_at };
     else if (it.sk.startsWith("STAR#") && stars[it.kind])
       stars[it.kind].push({
@@ -94,7 +97,7 @@ export async function loadAll(userId) {
   }
   for (const k of STAR_KINDS)
     stars[k].sort((a, b) => (a.saved_at < b.saved_at ? 1 : -1));
-  return { stars, pathway, quiz };
+  return { stars, pathway, quiz, onboarding };
 }
 
 export async function setStar(userId, { kind, id, label, extra, on }) {
@@ -208,6 +211,13 @@ export function cleanQuiz(q) {
 
 export async function saveQuiz(userId, quiz) {
   await putDoc(userId, "QUIZ", quiz);
+}
+
+/** Get started: the answers that shape the homepage plan. */
+export { cleanAnswers as cleanOnboarding } from "../onboarding";
+
+export async function saveOnboarding(userId, answers) {
+  await putDoc(userId, "ONBOARDING", answers);
 }
 
 async function putDoc(userId, sk, data) {

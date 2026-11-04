@@ -62,6 +62,7 @@ export const STUDENT_STATE_KEYS = [
   "josaaMockAllotmentState_v2",
   "mhtcetMockAllotmentState_v1",
   "mockAllotmentExamChoice_v1",
+  "futures_get_started_v1", // Get started answers (utils/useGetStarted.js)
 ];
 const STUDENT_SESSION_KEYS = ["quizState2"];
 
