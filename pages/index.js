@@ -14,14 +14,14 @@ const Dropdown = dynamic(() => import("../components/dropdown"), {
   ssr: false,
 });
 
-// The homepage. A first visit gets the landing: the gradient hero with a
-// Get started button (pages/get-started.js asks class, stream and exam),
-// then four big tiles (Careers, Colleges, Exams, Scholarships). Once the
-// questions are answered, or a signed-in student's Avanti profile answers
-// them, the hero becomes that student's plan (utils/onboarding.js): the one
-// thing to do now, and the steps after it. Skipped, or not a student: the
-// "I want to …" chooser. The chooser uses the house Dropdown, never the
-// browser's native select.
+// The homepage. A first visit gets the gradient hero with the "I want to …"
+// chooser and a Get started button (pages/get-started.js asks class,
+// stream and exam), then four big tiles (Careers, Colleges, Exams,
+// Scholarships). Once the questions are answered, or a signed-in student's
+// Avanti profile answers them, the hero becomes that student's plan
+// (utils/onboarding.js): the one thing to do now, and the steps after it.
+// Skipped, or not a student: the chooser and Get started again. The chooser uses the house Dropdown, never the browser's
+// native select.
 
 // every option completes the sentence "I want to …" — keep them short.
 // kw is the one word that names the destination; it renders bold-red so a
@@ -106,28 +106,6 @@ function Go({ to, className, onClick, children }) {
     <Link href={to.href} className={className} onClick={onClick}>
       {children}
     </Link>
-  );
-}
-
-function Landing() {
-  return (
-    <section className="bg-gradient-to-b from-[#fbeeec] to-[#fdf8f6] px-4 pb-10 pt-14 text-center">
-      <h1 className="mx-auto max-w-4xl text-[clamp(28px,4.3vw,44px)] font-black leading-[1.12] tracking-[-0.02em] text-[#2f2320]">
-        One stop guide to{" "}
-        <span className="text-[#B52326]">higher education</span> and
-        professional careers in India
-      </h1>
-      <Link href="/get-started" className={`${btnPrimary} mt-9`}>
-        Get started <ArrowRight size={18} />
-      </Link>
-      <p className="mt-3 text-sm text-[#7a635d]">
-        A few quick questions, then a plan made for you
-      </p>
-      <p className="mt-8 text-[15px] text-[#7a635d]">
-        Or explore everything below
-      </p>
-      <ArrowDown size={18} className="mx-auto mt-3 text-[#B52326]/60" />
-    </section>
   );
 }
 
@@ -254,8 +232,8 @@ export default function Home() {
   const firstName = profile?.name ? profile.name.split(" ")[0] : null;
 
   let hero;
-  if (!answers) hero = signedIn ? <div className="h-[420px]" /> : <Landing />;
-  else if (!answers.cls && !answers.skipped) hero = <Landing />;
+  if (!answers) hero = signedIn ? <div className="h-[420px]" /> : <Chooser />;
+  else if (!answers.cls && !answers.skipped) hero = <Chooser />;
   else if (plan.kind === "explore") hero = <Chooser />;
   else
     hero = (
@@ -297,7 +275,8 @@ export default function Home() {
   );
 }
 
-// skipped the questions, or not a student: pick what to do
+// "I want to …" with Get started under it: on a first visit, and after Skip
+// (or not a student), so the questions are always one tap away
 function Chooser() {
   const router = useRouter();
   const [action, setAction] = useState(null);
@@ -342,15 +321,13 @@ function Chooser() {
           Go <ArrowRight size={18} />
         </button>
       </div>
-      <p className="mt-8 text-[15px] text-[#7a635d]">
-        Or{" "}
-        <Link
-          href="/get-started"
-          className="font-bold text-[#B52326] hover:underline"
-        >
-          get a plan made for you
-        </Link>
+      <Link href="/get-started" className={`${btnPrimary} mt-8`}>
+        Get started <ArrowRight size={18} />
+      </Link>
+      <p className="mt-3 text-sm text-[#7a635d]">
+        Answer a few quick questions to get your own plan
       </p>
+      <ArrowDown size={18} className="mx-auto mt-8 text-[#B52326]/60" />
     </section>
   );
 }
