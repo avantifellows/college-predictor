@@ -234,7 +234,10 @@ export default function Home() {
   let hero;
   if (!answers) hero = signedIn ? <div className="h-[420px]" /> : <Chooser />;
   else if (!answers.cls && !answers.skipped) hero = <Chooser />;
-  else if (plan.kind === "explore") hero = <Chooser />;
+  // not a student: the chooser, and a way to change that answer; skipped:
+  // the chooser and Get started, since nothing was answered
+  else if (plan.kind === "explore")
+    hero = <Chooser chip={answers.cls === "none" ? "Not a student" : null} />;
   else
     hero = (
       <PlanHero plan={plan} answers={answers} stars={stars} name={firstName} />
@@ -275,9 +278,9 @@ export default function Home() {
   );
 }
 
-// "I want to …" with Get started under it: on a first visit, and after Skip
-// (or not a student), so the questions are always one tap away
-function Chooser() {
+// "I want to …" with Get started under it (first visit, or Skip). For a
+// "Not a student" answer: the chooser under a chip that changes the answer
+function Chooser({ chip }) {
   const router = useRouter();
   const [action, setAction] = useState(null);
 
@@ -289,6 +292,11 @@ function Chooser() {
 
   return (
     <section className="bg-gradient-to-b from-[#fbeeec] to-[#fdf8f6] px-4 pb-10 pt-14 text-center">
+      {chip ? (
+        <div className="mb-5">
+          <Chip parts={[chip]} />
+        </div>
+      ) : null}
       <h1 className="mx-auto max-w-4xl text-[clamp(28px,4.3vw,44px)] font-black leading-[1.12] tracking-[-0.02em] text-[#2f2320]">
         One stop guide to{" "}
         <span className="text-[#B52326]">higher education</span> and
@@ -321,12 +329,16 @@ function Chooser() {
           Go <ArrowRight size={18} />
         </button>
       </div>
-      <Link href="/get-started" className={`${btnPrimary} mt-8`}>
-        Get started <ArrowRight size={18} />
-      </Link>
-      <p className="mt-3 text-sm text-[#7a635d]">
-        Answer a few quick questions to get your own plan
-      </p>
+      {chip ? null : (
+        <>
+          <Link href="/get-started" className={`${btnPrimary} mt-8`}>
+            Get started <ArrowRight size={18} />
+          </Link>
+          <p className="mt-3 text-sm text-[#7a635d]">
+            Answer a few quick questions to get your own plan
+          </p>
+        </>
+      )}
       <ArrowDown size={18} className="mx-auto mt-8 text-[#B52326]/60" />
     </section>
   );

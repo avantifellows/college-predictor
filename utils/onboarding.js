@@ -354,12 +354,15 @@ export function planFor(a) {
       chip: ["In college"],
       title: "Your plan",
       hero: {
-        before: "Build a professional ",
-        em: "CV",
-        after: " in minutes",
-        cta: { id: "cv", label: "Make my CV", href: CV_URL, external: true },
+        before: "See what ",
+        em: "careers",
+        after: " pay, and what they need",
+        cta: { id: "careers", label: "Explore careers", href: "/careers" },
+        second: { id: "cv", label: "Make my CV", href: CV_URL, external: true },
       },
+      // know the career first, then write the CV for it
       steps: [
+        careers(null),
         {
           id: "cv",
           title: "Make your CV",
@@ -367,7 +370,6 @@ export function planFor(a) {
           href: CV_URL,
           external: true,
         },
-        careers(null),
         scholarships("UG"),
       ],
     };
