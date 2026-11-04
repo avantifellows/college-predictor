@@ -34,7 +34,7 @@ const ACTIONS = [
   },
   {
     value: "/careers",
-    label: "explore careers and what they pay",
+    label: "explore careers that fit me",
     kw: "careers",
   },
   {

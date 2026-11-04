@@ -271,8 +271,8 @@ const careers = (stream) => ({
   star: "career",
   title: "Explore careers",
   line: CAREER_STREAM[stream]
-    ? `What careers after ${CAREER_STREAM[stream]} pay and need`
-    : "What each career pays and needs",
+    ? `Careers you can go into after ${CAREER_STREAM[stream]}`
+    : "What each career is about and how to get there",
   href: `/careers${q({ stream: CAREER_STREAM[stream] })}`,
 });
 const exploreExams = (a) => ({
@@ -354,9 +354,9 @@ export function planFor(a) {
       chip: ["In college"],
       title: "Your plan",
       hero: {
-        before: "See what ",
-        em: "careers",
-        after: " pay, and what they need",
+        before: "Find the ",
+        em: "career",
+        after: " that fits you",
         cta: { id: "careers", label: "Explore careers", href: "/careers" },
         second: { id: "cv", label: "Make my CV", href: CV_URL, external: true },
       },
