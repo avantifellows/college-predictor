@@ -22,7 +22,7 @@ export default function JoSAA() {
   return (
     <>
       <Head>
-        <title>JoSAA Mock Allotment - Futures</title>
+        <title>JoSAA counselling - Futures</title>
         <meta
           name="description"
           content="How JoSAA seat allotment works, then a mock allotment with last year's cutoffs: fill your choices, lock them, and play the rounds."
