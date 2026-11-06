@@ -2,15 +2,17 @@ import React, { useEffect, useRef, useState } from "react";
 import Head from "next/head";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Check } from "lucide-react";
 import { STATES } from "../components/examShared";
 import {
   CLASSES,
   STREAMS,
   answered,
   examOptions,
+  examsOf,
   nextStep,
   stepsFor,
+  toggleExam,
   withAnswer,
 } from "../utils/onboarding";
 import useGetStarted from "../utils/useGetStarted";
@@ -29,10 +31,15 @@ const Dropdown = dynamic(() => import("../components/dropdown"), {
 const QUESTIONS = {
   class: { tag: "About you", title: "Which class are you in?" },
   stream: { tag: "Your stream", title: "Which stream have you chosen?" },
-  exam: { tag: "Your exam", title: "Which exam are you preparing for?" },
+  exam: {
+    tag: "Your exams",
+    title: "Which exams are you preparing for?",
+    sub: "Pick all that apply",
+  },
 };
 
-function Option({ label, sub, on, onPick }) {
+// one choice; `multi` draws a tick box instead of a radio dot
+function Option({ label, sub, on, onPick, multi }) {
   return (
     <button
       type="button"
@@ -50,14 +57,27 @@ function Option({ label, sub, on, onPick }) {
           <span className="mt-0.5 block text-[13px] text-[#7a635d]">{sub}</span>
         ) : null}
       </span>
-      <span
-        aria-hidden
-        className={`h-5 w-5 shrink-0 rounded-full bg-white ${
-          on
-            ? "border-[6px] border-[#B52326]"
-            : "border-[1.5px] border-[#decac3]"
-        }`}
-      />
+      {multi ? (
+        <span
+          aria-hidden
+          className={`inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-[5px] ${
+            on
+              ? "bg-[#B52326] text-white"
+              : "border-[1.5px] border-[#decac3] bg-white"
+          }`}
+        >
+          {on ? <Check size={14} strokeWidth={3.5} /> : null}
+        </span>
+      ) : (
+        <span
+          aria-hidden
+          className={`h-5 w-5 shrink-0 rounded-full bg-white ${
+            on
+              ? "border-[6px] border-[#B52326]"
+              : "border-[1.5px] border-[#decac3]"
+          }`}
+        />
+      )}
     </button>
   );
 }
@@ -186,13 +206,16 @@ export default function GetStarted() {
       </>
     );
   } else if (draft && step === "exam") {
+    // several exams at once: tick them, then Continue
+    const picked = examsOf(draft);
     body = examOptions(draft.stream, draft.state).map((o) => (
       <Option
         key={o.id}
         label={o.label}
         sub={o.sub}
-        on={draft.exam === o.id}
-        onPick={() => pick("exam", o.id, true)}
+        multi
+        on={picked.includes(o.id)}
+        onPick={() => setDraft(toggleExam(draft, o.id))}
       />
     ));
   }
@@ -240,8 +263,11 @@ export default function GetStarted() {
           <h1 className="mt-1.5 text-[26px] font-black leading-tight text-[#2f2320]">
             {Q.title}
           </h1>
+          {Q.sub ? (
+            <p className="mt-1 text-sm text-[#7a635d]">{Q.sub}</p>
+          ) : null}
           <div className="mt-5 flex flex-col gap-2.5">{body}</div>
-          {draft && (step === "stream" || ok) ? (
+          {draft && (step === "stream" || step === "exam" || ok) ? (
             <button
               type="button"
               disabled={!ok}

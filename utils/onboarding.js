@@ -6,10 +6,12 @@ import { CV_URL } from "./siteMap";
 // student needs them. Every step is a page that already exists, opened
 // pre-filtered; nothing here is new data.
 //
-// answers = { cls, stream, state, exam, used: [...], skipped }
+// answers = { cls, stream, state, exams: [...], used: [...], skipped }
 //   cls     "10" (Class 10 or below) | "11" | "12" | "drop" | "college" | "none"
 //   stream  "pcm" | "pcb" | "pcmb" | "commerce" | "arts" | "unsure"
-//   exam    a predictor key (JoSAA, NEETUG, KCET, ...) or "unsure"
+//   exams   predictor keys (JoSAA, NEETUG, KCET, ...), main one first, or
+//           ["unsure"]. Answers saved before 6 Nov 2026 hold one `exam`
+//           instead; examsOf reads both
 //   used    what the student has really done on the site, recorded by the
 //           page where it happens (useRecordUse): "predictor:<key>" (results
 //           shown), "mock:josaa" / "mock:mhtcet" (a round run), "career-quiz"
@@ -18,6 +20,11 @@ import { CV_URL } from "./siteMap";
 // A plan step is done when one of its `uses` is in `used`, or (`star`) the
 // signed-in student has starred one of that kind. Opening a step is not
 // doing it.
+//
+// Class 12 and gap-year students get the admission plan (predict, mock,
+// backups) while results and counselling are on (15 April to 30 September)
+// and the preparation plan (cutoffs, backup exams, their cutoffs) the rest of
+// the year. Class 11 always prepares.
 //
 // A guest's answers stay in this browser. A signed-in student's are saved
 // with their account (/api/me), and until they answer, their Avanti profile
@@ -189,11 +196,36 @@ export function nextStep(step, a) {
 export function answered(step, a) {
   if (step === "class") return !!a.cls;
   if (step === "stream") return !!a.stream && !!a.state;
-  if (step === "exam")
-    return (
-      !!a.exam && examOptions(a.stream, a.state).some((o) => o.id === a.exam)
-    );
+  if (step === "exam") {
+    const ids = examOptions(a.stream, a.state).map((o) => o.id);
+    const ex = examsOf(a);
+    return ex.length > 0 && ex.every((k) => ids.includes(k));
+  }
   return false;
+}
+
+/** The exams answer: an array, from either the new or the old shape. */
+export const examsOf = (a) =>
+  Array.isArray(a?.exams) ? a.exams : a?.exam ? [a.exam] : [];
+
+/**
+ * Tick or untick one exam. "Not sure yet" stands alone; the rest keep the
+ * order they're offered in, so the main exam comes first.
+ */
+export function toggleExam(a, id) {
+  const ids = examOptions(a.stream, a.state).map((o) => o.id);
+  const cur = examsOf(a);
+  let next;
+  if (id === "unsure") next = cur.includes("unsure") ? [] : ["unsure"];
+  else {
+    const set = new Set(cur.filter((k) => k !== "unsure"));
+    if (set.has(id)) set.delete(id);
+    else set.add(id);
+    next = ids.filter((k) => set.has(k));
+  }
+  const n = { ...a, exams: next };
+  delete n.exam;
+  return n;
 }
 
 /** A new answer, dropping later answers it makes meaningless. */
@@ -201,14 +233,17 @@ export function withAnswer(a, key, value) {
   const n = { ...a, [key]: value };
   if (key === "cls" && !SCHOOL.includes(value)) {
     delete n.stream;
+    delete n.exams;
     delete n.exam;
   }
-  if (
-    (key === "stream" || key === "state") &&
-    n.exam &&
-    !examOptions(n.stream, n.state).some((o) => o.id === n.exam)
-  )
+  if (key === "stream" || key === "state") {
+    // keep only the exams this stream and state still offer
+    const ids = examOptions(n.stream, n.state).map((o) => o.id);
+    const kept = examsOf(n).filter((k) => ids.includes(k));
     delete n.exam;
+    if (kept.length) n.exams = kept;
+    else delete n.exams;
+  }
   return n;
 }
 
@@ -232,9 +267,9 @@ export function answersFromProfile(p) {
     }[p.stream];
     if (s) {
       a.stream = s[0];
-      if (s[1]) a.exam = s[1];
+      if (s[1]) a.exams = [s[1]];
     }
-    if (p.stream === "clat") a.exam = "CLAT"; // stream unknown: asked
+    if (p.stream === "clat") a.exams = ["CLAT"]; // stream unknown: asked
   }
   return a;
 }
@@ -296,18 +331,23 @@ const predict = (key, state) => ({
   })}`,
 });
 
-// other exams worth a rank for this student, as predictor keys
+// other exams worth a rank for this student, as predictor keys: the other
+// exams they picked first, then what their main exam's rank also opens
 function backupsFor(a) {
+  const [main, ...picked] = examsOf(a);
   const own = STATE_EXAM[a.state];
-  if (a.exam === "JoSAA") {
+  let more = [];
+  if (main === "JoSAA") {
     const viaJee = JEE_STATE_COUNSELLINGS[a.state] || [];
-    return [...viaJee, own, "BITSAT"].filter(Boolean);
-  }
-  if (a.exam === "NEETUG") return own && fits(own, SCIENCE_BIO) ? [own] : [];
-  if (a.exam === "BITSAT" || a.exam === own) return ["JoSAA"];
-  if (a.exam === "CUET" && a.stream === "arts") return ["CLAT"];
-  if (a.exam === "CLAT") return ["CUET"];
-  return [];
+    more = [...viaJee, own, "BITSAT"];
+  } else if (main === "NEETUG")
+    more = own && fits(own, SCIENCE_BIO) ? [own] : [];
+  else if (main === "BITSAT" || main === own) more = ["JoSAA"];
+  else if (main === "CUET" && a.stream === "arts") more = ["CLAT"];
+  else if (main === "CLAT") more = ["CUET"];
+  return [...new Set([...picked, ...more].filter(Boolean))].filter(
+    (k) => k !== main
+  );
 }
 const COUNSELLING_LABEL = {
   "JEE Main-JAC": "JAC Delhi",
@@ -325,7 +365,7 @@ const listText = (xs) =>
 function backupStep(a) {
   const keys = backupsFor(a);
   if (!keys.length) return null;
-  const viaJee = a.exam === "JoSAA" && COUNSELLING_LABEL[keys[0]];
+  const viaJee = examsOf(a)[0] === "JoSAA" && COUNSELLING_LABEL[keys[0]];
   const names = keys.map((k) => COUNSELLING_LABEL[k] || examName(k));
   return {
     id: "backup",
@@ -341,49 +381,74 @@ function backupStep(a) {
 const SCHOLARSHIP_GRADE = { 10: "10", 11: "11", 12: "12", drop: "12_pass" };
 
 /**
- * The homepage for these answers: a hero (headline, main action, a second
- * action) and the plan's steps. `kind` names the variant.
+ * Results and counselling season (15 April to 30 September): JEE Main
+ * session 2 results come mid-April, and MCC and state counselling rounds
+ * run into September. Class 12 students get the admission plan then, and
+ * the preparation plan the rest of the year.
  */
-export function planFor(a) {
+export function resultsSeason(now = new Date()) {
+  const m = now.getMonth(); // 0 = January
+  const d = now.getDate();
+  return (m === 3 && d >= 15) || (m >= 4 && m <= 8);
+}
+
+// full cutoff list for an exam (JoSAA's home-state field takes the state's
+// name as it is)
+const cutoffsHref = (key, state) =>
+  `/predictor${q({
+    exam: key,
+    view: "full",
+    homeState: key === "JoSAA" ? state : undefined,
+  })}`;
+
+/**
+ * The homepage for these answers: a hero (headline, main action, a second
+ * action) and the plan's steps. `kind` names the variant. `season` is
+ * "results" or "prep" (default: from today's date).
+ */
+export function planFor(a, season) {
   if (!a || a.skipped || !a.cls || a.cls === "none") return { kind: "explore" };
   const grade = SCHOLARSHIP_GRADE[a.cls];
 
-  if (a.cls === "college")
+  if (a.cls === "college") {
+    const cv = {
+      id: "cv",
+      title: "Build your CV",
+      line: "A clean resume in minutes",
+      href: CV_URL,
+      external: true,
+    };
     return {
       kind: "college",
       chip: ["In college"],
       title: "Your plan",
       hero: {
-        before: "Find the ",
-        em: "career",
-        after: " that fits you",
-        cta: { id: "careers", label: "Explore careers", href: "/careers" },
-        second: { id: "cv", label: "Make my CV", href: CV_URL, external: true },
-      },
-      // know the career first, then write the CV for it
-      steps: [
-        careers(null),
-        {
-          id: "cv",
-          title: "Make your CV",
-          line: "A clean resume in minutes",
-          href: CV_URL,
-          external: true,
+        before: "See which ",
+        em: "careers",
+        after: " match your interests",
+        cta: {
+          id: "career-quiz",
+          label: "Take the Career Quiz",
+          href: "/career-quiz",
         },
-        scholarships("UG"),
-      ],
+        second: { ...cv, label: "Make my CV" },
+      },
+      // know which careers fit first, then write the CV for them
+      steps: [careerQuiz, cv, scholarships("UG")],
     };
+  }
 
+  const exams = examsOf(a).filter((k) => k !== "unsure");
   const streamLabel = STREAMS.find((s) => s.id === a.stream)?.label;
   const chip = [
     CLASSES.find((c) => c.id === a.cls)?.label,
     a.stream && a.stream !== "unsure" ? streamLabel : null,
-    a.exam && a.exam !== "unsure" ? examName(a.exam) : null,
+    exams.length ? exams.map(examName).join(", ") : null,
     a.state,
   ].filter(Boolean);
 
   // younger students, or no exam in mind yet: interests first
-  if (a.cls === "10" || !a.exam || a.exam === "unsure") {
+  if (a.cls === "10" || !exams.length) {
     const young = a.cls === "10";
     return {
       kind: "discover",
@@ -408,21 +473,28 @@ export function planFor(a) {
     };
   }
 
-  const info = EXAM_INFO[a.exam];
-  // Class 11: a year to go. Know the exam, and what rank each college asks
-  if (a.cls === "11")
+  const main = exams[0];
+  const info = EXAM_INFO[main];
+  const inSeason =
+    (season || (resultsSeason() ? "results" : "prep")) === "results";
+
+  // preparing (Class 11 all year; Class 12 before results): know the rank
+  // each college asks, then the exams that back the main one up
+  if (a.cls === "11" || !inSeason) {
+    const backups = backupsFor(a);
+    const names = backups.map((k) => COUNSELLING_LABEL[k] || examName(k));
     return {
       kind: "prepare",
       chip,
-      title: `Your ${info.name} plan`,
+      title: "Your plan",
       hero: {
-        before: "See what ",
-        em: `${info.name} rank`,
-        after: " each college needs",
+        before: "See ",
+        em: `${info.name} cutoffs`,
+        after: " for your target colleges",
         cta: {
           id: "cutoffs",
-          label: "See the cutoffs",
-          href: `/predictor${q({ exam: a.exam, view: "full" })}`,
+          label: `See ${info.name} cutoffs`,
+          href: cutoffsHref(main, a.state),
         },
         second: info.page && {
           id: "exam",
@@ -433,25 +505,32 @@ export function planFor(a) {
       steps: [
         {
           id: "cutoffs",
-          uses: [`predictor:${a.exam}`],
-          title: "See the cutoffs",
-          line: `What ${info.rank} each college closed at`,
-          href: `/predictor${q({ exam: a.exam, view: "full" })}`,
+          uses: [`predictor:${main}`],
+          title: `See ${info.name} cutoffs`,
+          line: "Cutoffs for the colleges you're aiming for",
+          href: cutoffsHref(main, a.state),
         },
-        info.page && {
-          id: "exam",
-          uses: [`exam:${info.page}`],
-          title: `Know ${info.name}`,
-          line: "Dates, eligibility and paper pattern",
-          href: `/exams/${info.page}`,
+        {
+          id: "backup-exams",
+          star: "exam",
+          title: "See backup exam options",
+          line: "Other exams that can get you into a good college",
+          href: `/exams${q({ where: a.state })}`,
         },
-        careerQuiz,
+        backups.length && {
+          id: "backup-cutoffs",
+          uses: backups.map((k) => `predictor:${k}`),
+          title: "See backup exam cutoffs",
+          line: `Cutoffs for ${listText(names.slice(0, 2))}`,
+          href: cutoffsHref(backups[0], a.state),
+        },
         scholarships(grade, a.state),
       ].filter(Boolean),
     };
+  }
 
-  // Class 12 / a year to prepare: the rank is (nearly) in hand
-  const p = predict(a.exam, a.state);
+  // results are out: predict, practise, and line up backups
+  const p = predict(main, a.state);
   const mock = info.mock && {
     id: "mock",
     uses: [info.mock.use],
@@ -459,6 +538,7 @@ export function planFor(a) {
     line: "Practise your choice list before the real rounds",
     href: info.mock.href,
   };
+  const backup = backupStep(a);
   return {
     kind: "admission",
     chip,
@@ -473,10 +553,10 @@ export function planFor(a) {
     steps: [
       p,
       mock,
-      backupStep(a),
+      backup,
       // nothing else to try for this exam: the careers it leads to (NEET:
       // more than MBBS)
-      !mock && !backupStep(a) && careers(a.stream),
+      !mock && !backup && careers(a.stream),
       scholarships(grade, a.state),
     ].filter(Boolean),
   };
@@ -499,7 +579,11 @@ export function cleanAnswers(a) {
       typeof a.state === "string" && /^[A-Za-z &.-]{2,60}$/.test(a.state)
         ? a.state
         : undefined,
-    exam: pick(a.exam, [...Object.keys(EXAM_INFO), "unsure"]),
+    exams: (() => {
+      const ok = [...Object.keys(EXAM_INFO), "unsure"];
+      const xs = examsOf(a).filter((k) => ok.includes(k));
+      return xs.length ? [...new Set(xs)].slice(0, 8) : undefined;
+    })(),
     skipped: a.skipped === true || undefined,
     used: (Array.isArray(a.used) ? a.used : [])
       .filter(
