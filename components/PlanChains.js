@@ -98,14 +98,20 @@ function Picker({ label, value, options, onPick, anyLabel, findHref, find }) {
   );
 }
 
-function Arrow() {
+// one link of the chain: a dot on a line running down to the next link
+function Step({ last, children }) {
   return (
-    <span
-      aria-hidden
-      className="hidden items-center justify-center pt-6 text-[#d8c4be] md:flex"
+    <div
+      className={`relative ml-1.5 border-l-2 pl-6 ${
+        last ? "border-transparent" : "border-[#f1e2dd] pb-5"
+      }`}
     >
-      <ArrowRight size={18} />
-    </span>
+      <span
+        aria-hidden
+        className="absolute -left-[7px] top-0.5 h-3 w-3 rounded-full border-2 border-[#B52326] bg-white"
+      />
+      <div className="flex max-w-md flex-col gap-2">{children}</div>
+    </div>
   );
 }
 
@@ -279,8 +285,8 @@ export default function PlanChains({
               </div>
             </div>
 
-            <div className="mt-3 grid gap-3 md:grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr]">
-              <div className="flex flex-col gap-2">
+            <div className="mt-4 flex flex-col">
+              <Step>
                 <Picker
                   label="Career"
                   value={p.career}
@@ -306,9 +312,8 @@ export default function PlanChains({
                     </Link>
                   </>
                 ) : null}
-              </div>
-              <Arrow />
-              <div className="flex flex-col gap-2">
+              </Step>
+              <Step>
                 <Picker
                   label="Exam"
                   value={p.exam}
@@ -332,9 +337,8 @@ export default function PlanChains({
                     </Link>
                   )
                 ) : null}
-              </div>
-              <Arrow />
-              <div className="flex flex-col gap-2">
+              </Step>
+              <Step>
                 <Picker
                   label="College"
                   value={p.college}
@@ -372,9 +376,8 @@ export default function PlanChains({
                     About this college <ArrowRight size={13} />
                   </Link>
                 ) : null}
-              </div>
-              <Arrow />
-              <div className="flex flex-col gap-1.5">
+              </Step>
+              <Step last>
                 <span className="text-[11px] font-extrabold uppercase tracking-[0.08em] text-[#8a7570]">
                   Rank needed
                 </span>
@@ -411,7 +414,7 @@ export default function PlanChains({
                     <ArrowRight size={13} />
                   </Link>
                 ) : null}
-              </div>
+              </Step>
             </div>
           </section>
         );
