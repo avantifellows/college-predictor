@@ -1,15 +1,15 @@
-import Head from "next/head";
-import ScholarshipReferenceBrowser from "../components/ScholarshipReferenceBrowser";
+// The old scholarship results page. Scholarships live at /scholarships now;
+// links saved or shared before keep working, filters and all.
+export function getServerSideProps({ query }) {
+  const qs = new URLSearchParams(query).toString();
+  return {
+    redirect: {
+      destination: `/scholarships${qs ? `?${qs}` : ""}`,
+      permanent: true,
+    },
+  };
+}
 
-const ScholarshipsResultPage = () => {
-  return (
-    <>
-      <Head>
-        <title>Scholarship Finder - Futures</title>
-      </Head>
-      <ScholarshipReferenceBrowser />
-    </>
-  );
-};
-
-export default ScholarshipsResultPage;
+export default function ScholarshipsResult() {
+  return null;
+}
