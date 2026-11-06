@@ -109,9 +109,17 @@ const Step = ({ n, title, children }) => (
   </div>
 );
 
+// one entry per id, and per name (the same career saved under two ids)
 const uniqueById = (items) => {
   const seen = new Set();
-  return items.filter((x) => x && !seen.has(x.id) && seen.add(x.id));
+  return items.filter((x) => {
+    if (!x) return false;
+    const name = String(x.label || "").toLowerCase();
+    if (seen.has(x.id) || (name && seen.has(name))) return false;
+    seen.add(x.id);
+    if (name) seen.add(name);
+    return true;
+  });
 };
 
 export default function StudentCorner() {
@@ -200,7 +208,9 @@ export default function StudentCorner() {
           label: examById[id]?.acronym || examById[id]?.name || id,
         })),
     ]),
-    college: stars.college.map((x) => ({ id: x.id, label: x.label })),
+    college: uniqueById(
+      stars.college.map((x) => ({ id: x.id, label: x.label }))
+    ),
   };
   // the older single pathway, shown as it was saved
   const earlier = pathway
