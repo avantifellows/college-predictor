@@ -20,6 +20,37 @@ import {
   nirfListLabel,
 } from "./collegeShared";
 
+// the predictor, opened on the counselling this college admits through
+// (its card's `counselling` text), so the student doesn't start from the
+// stream question
+const COUNSELLING_TO_EXAM = [
+  [/^JoSAA/, "JoSAA"],
+  [/^MCC/, "NEETUG"],
+  [/^MHT-CET/, "MHT CET"],
+  [/^TNEA/, "TNEA"],
+  [/^AP-EAPCET/, "AP EAPCET"],
+  [/^TG-EAPCET/, "TGEAPCET"],
+  [/^ACPC/, "GUJCET"],
+  [/^ACPMEC/, "ACPMEC Nursing"],
+  [/^KEA/, "KCET"],
+  [/^UPTAC/, "UPTAC"],
+  [/^HBTU/, "HBTU"],
+  [/^WBJEE/, "WBJEE"],
+  [/^CEE Kerala/, "KEAM"],
+  [/^OJEE/, "OJEE"],
+  [/^ICAR-UG/, "ICAR-UG"],
+  [/\(CUET/, "CUET"],
+  [/^CLAT/, "CLAT"],
+  [/^JAC Chandigarh/, "JAC Chandigarh"],
+  [/^BITS/, "BITSAT"],
+];
+const predictorHref = (counselling) => {
+  const hit = COUNSELLING_TO_EXAM.find(([re]) =>
+    re.test(String(counselling || ""))
+  );
+  return hit ? `/predictor?exam=${encodeURIComponent(hit[1])}` : "/predictor";
+};
+
 // counsellings with no exam page (TNEA admits on Class 12 marks): their chip
 // goes to the predictor instead of an empty exam search
 const EXAM_CHIP_HREF = { TNEA: "/predictor?exam=TNEA" };
@@ -163,7 +194,7 @@ export default function CollegeView({ c, back = "/colleges", backSlot }) {
               ))}
             </div>
             <Link
-              href="/predictor"
+              href={predictorHref(c.counselling)}
               className="mt-3 inline-block text-sm font-semibold text-[#8f2e31] hover:underline"
             >
               Check your chances in the College Predictor
