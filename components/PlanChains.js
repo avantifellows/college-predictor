@@ -27,38 +27,49 @@ function Picker({ label, value, options, onPick, anyLabel, findHref, find }) {
         {label}
       </span>
       {open ? (
-        <div className="flex flex-col gap-1 rounded-xl border border-[#eaded8] bg-white p-2">
-          {options.map((o) => (
-            <button
-              key={o.id}
-              type="button"
-              onClick={() => {
-                onPick({ id: o.id, label: o.label });
-                setOpen(false);
-              }}
-              className="rounded-lg px-2 py-1.5 text-left text-sm font-semibold text-[#2f2320] hover:bg-[#fbeeec]"
-            >
-              {o.label}
-            </button>
-          ))}
-          {anyLabel ? (
-            <button
-              type="button"
-              onClick={() => {
-                onPick("any");
-                setOpen(false);
-              }}
-              className="rounded-lg px-2 py-1.5 text-left text-sm font-semibold text-[#5c4a45] hover:bg-[#fbeeec]"
-            >
-              {anyLabel}
-            </button>
-          ) : null}
-          {!options.length ? (
-            <p className="px-2 py-1 text-[13px] text-[#7a635d]">
-              Nothing bookmarked yet.
-            </p>
-          ) : null}
-          <div className="flex items-center justify-between gap-2 border-t border-[#f1e5e1] px-2 pt-1.5">
+        // the choices as a row of pills, then where to find more
+        <div className="flex flex-col gap-2">
+          <div className="flex flex-wrap gap-1.5">
+            {options.map((o) => (
+              <button
+                key={o.id}
+                type="button"
+                onClick={() => {
+                  onPick({ id: o.id, label: o.label });
+                  setOpen(false);
+                }}
+                className={`rounded-full border px-3 py-1 text-sm font-semibold transition hover:border-[#B52326] ${
+                  value && value.id === o.id
+                    ? "border-[#B52326] bg-[#fbeeec] text-[#8f2e31]"
+                    : "border-[#e6d7d2] bg-white text-[#2f2320]"
+                }`}
+              >
+                {o.label}
+              </button>
+            ))}
+            {anyLabel ? (
+              <button
+                type="button"
+                onClick={() => {
+                  onPick("any");
+                  setOpen(false);
+                }}
+                className={`rounded-full border border-dashed px-3 py-1 text-sm font-semibold transition hover:border-[#B52326] ${
+                  value === "any"
+                    ? "border-[#B52326] text-[#8f2e31]"
+                    : "border-[#d8c4be] text-[#5c4a45]"
+                }`}
+              >
+                {anyLabel}
+              </button>
+            ) : null}
+            {!options.length ? (
+              <span className="py-1 text-[13px] text-[#7a635d]">
+                Nothing bookmarked yet.
+              </span>
+            ) : null}
+          </div>
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
             <Link href={findHref} className={linkCls}>
               {find} <ArrowRight size={13} />
             </Link>
@@ -72,24 +83,23 @@ function Picker({ label, value, options, onPick, anyLabel, findHref, find }) {
           </div>
         </div>
       ) : shown ? (
-        <button
-          type="button"
-          onClick={() => setOpen(true)}
-          className="group flex items-start justify-between gap-2 rounded-xl border border-[#eaded8] bg-white px-3 py-2 text-left"
-          title="Change"
-        >
-          <span className="font-black leading-snug text-[#2f2320]">
+        <div className="flex flex-wrap items-baseline gap-x-2">
+          <span className="text-[15px] font-black leading-snug text-[#2f2320]">
             {shown}
           </span>
-          <span className="shrink-0 text-xs font-bold text-[#B52326] opacity-70 group-hover:opacity-100">
+          <button
+            type="button"
+            onClick={() => setOpen(true)}
+            className="text-xs font-bold text-[#B52326] hover:underline"
+          >
             Change
-          </span>
-        </button>
+          </button>
+        </div>
       ) : (
         <button
           type="button"
           onClick={() => setOpen(true)}
-          className="rounded-xl border-[1.5px] border-dashed border-[#e0cfc9] px-3 py-2 text-left text-sm font-bold text-[#B52326] hover:border-[#B52326]"
+          className="self-start text-sm font-bold text-[#B52326] hover:underline"
         >
           + Pick {label.toLowerCase()}
         </button>
@@ -297,7 +307,7 @@ export default function PlanChains({
                   find="Find careers"
                 />
                 {careerId ? (
-                  <>
+                  <div className="flex flex-wrap gap-x-4 gap-y-1">
                     <Link
                       href={`/colleges?career=${encodeURIComponent(careerId)}`}
                       className={linkCls}
@@ -310,7 +320,7 @@ export default function PlanChains({
                     >
                       Exams that lead here <ArrowRight size={13} />
                     </Link>
-                  </>
+                  </div>
                 ) : null}
               </Step>
               <Step>
