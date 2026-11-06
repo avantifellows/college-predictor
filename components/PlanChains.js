@@ -1,115 +1,66 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { ArrowDown, ArrowRight, ArrowUp, Plus, X } from "lucide-react";
 import { categoryCutoff } from "../utils/categoryCutoff";
 
+const Dropdown = dynamic(() => import("./dropdown"), { ssr: false });
+
 // Student Corner's plans: each a chain career → exam → college (+ branch)
 // → the rank it closed at. As many as the student wants; the first is the
-// main plan, the rest backups. Any link can be filled first, a career or a
-// branch can be "any", and every filled link points to its next step. The
-// choices are what the student bookmarked (and the career quiz's top
-// careers, and the Get started exams), so plans grow out of bookmarks.
+// main plan, the rest backups. Every link is a dropdown of everything on
+// Futures, the student's favourites first (★), so nothing has to be saved
+// beforehand. The college list follows the exam (JEE Main: NITs, IIITs,
+// GFTIs; JEE Advanced: IITs), and so does the rank. Every filled link
+// points to its next step.
 
 const MAX_PLANS = 10;
 const newId = () => Math.random().toString(36).slice(2, 10);
 const fmt = (n) => Number(n).toLocaleString("en-IN");
 
+// an exam (exams.json id) → the tag college cards carry in entrance_exams
+const COLLEGE_TAG = {
+  "jee-main-paper-1": "JEE Main",
+  "jee-advanced": "JEE Advanced",
+  "tg-eapcet-e": "TG-EAPCET",
+  "tg-eapcet-am": "TG-EAPCET",
+  "ap-eapcet-e-category": "AP EAPCET",
+  "kea-cet": "KCET",
+  "mht-cet": "MHT CET",
+  "neet-ug": "NEET-UG",
+  "cuet-ug": "CUET (UG)",
+  "aiims-ee": "AIIMS-EE",
+  bitsat: "BITSAT",
+  clat: "CLAT",
+  gujcet: "GUJCET",
+  keam: "KEAM",
+  ojee: "OJEE",
+  wbjee: "WBJEE",
+};
+// JoSAA lists both exams' seats; a plan's rank uses only its own exam's
+export const JOSAA_ROW_EXAM = {
+  "jee-main-paper-1": "JEE Main",
+  "jee-advanced": "JEE Advanced",
+};
+
 const linkCls =
   "inline-flex items-center gap-1 text-[13px] font-bold text-[#B52326] hover:underline";
+const labelCls =
+  "text-[11px] font-extrabold uppercase tracking-[0.08em] text-[#8a7570]";
 
-function Picker({ label, value, options, onPick, anyLabel, findHref, find }) {
-  const [open, setOpen] = useState(false);
-  const shown =
-    value === "any" ? anyLabel : value && value.label ? value.label : null;
-  return (
-    <div className="flex flex-col gap-1.5">
-      <span className="text-[11px] font-extrabold uppercase tracking-[0.08em] text-[#8a7570]">
-        {label}
-      </span>
-      {open ? (
-        // the choices as a row of pills, then where to find more
-        <div className="flex flex-col gap-2">
-          <div className="flex flex-wrap gap-1.5">
-            {options.map((o) => (
-              <button
-                key={o.id}
-                type="button"
-                onClick={() => {
-                  onPick({ id: o.id, label: o.label });
-                  setOpen(false);
-                }}
-                className={`rounded-full border px-3 py-1 text-sm font-semibold transition hover:border-[#B52326] ${
-                  value && value.id === o.id
-                    ? "border-[#B52326] bg-[#fbeeec] text-[#8f2e31]"
-                    : "border-[#e6d7d2] bg-white text-[#2f2320]"
-                }`}
-              >
-                {o.label}
-              </button>
-            ))}
-            {anyLabel ? (
-              <button
-                type="button"
-                onClick={() => {
-                  onPick("any");
-                  setOpen(false);
-                }}
-                className={`rounded-full border border-dashed px-3 py-1 text-sm font-semibold transition hover:border-[#B52326] ${
-                  value === "any"
-                    ? "border-[#B52326] text-[#8f2e31]"
-                    : "border-[#d8c4be] text-[#5c4a45]"
-                }`}
-              >
-                {anyLabel}
-              </button>
-            ) : null}
-            {!options.length ? (
-              <span className="py-1 text-[13px] text-[#7a635d]">
-                Nothing bookmarked yet.
-              </span>
-            ) : null}
-          </div>
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
-            <Link href={findHref} className={linkCls}>
-              {find} <ArrowRight size={13} />
-            </Link>
-            <button
-              type="button"
-              onClick={() => setOpen(false)}
-              className="text-[13px] font-semibold text-[#7a635d] hover:text-[#2f2320]"
-            >
-              Cancel
-            </button>
-          </div>
-        </div>
-      ) : shown ? (
-        <div className="flex flex-wrap items-baseline gap-x-2">
-          <span className="text-[15px] font-black leading-snug text-[#2f2320]">
-            {shown}
-          </span>
-          <button
-            type="button"
-            onClick={() => setOpen(true)}
-            className="text-xs font-bold text-[#B52326] hover:underline"
-          >
-            Change
-          </button>
-        </div>
-      ) : (
-        <button
-          type="button"
-          onClick={() => setOpen(true)}
-          className="self-start text-sm font-bold text-[#B52326] hover:underline"
-        >
-          + Pick {label.toLowerCase()}
-        </button>
-      )}
-    </div>
-  );
+// favourites first, then everything else, as dropdown groups
+function grouped(favs, rest, anyLabel) {
+  const favIds = new Set(favs.map((x) => x.value));
+  const others = rest.filter((x) => !favIds.has(x.value));
+  return [
+    ...(anyLabel ? [{ value: "any", label: anyLabel }] : []),
+    ...(favs.length ? [{ label: "★ Your favourites", options: favs }] : []),
+    ...(others.length ? [{ label: "All", options: others }] : []),
+  ];
 }
 
 // one link of the chain: a dot on a line running down to the next link
-function Step({ last, children }) {
+function Step({ label, last, children }) {
   return (
     <div
       className={`relative ml-1.5 border-l-2 pl-6 ${
@@ -120,7 +71,10 @@ function Step({ last, children }) {
         aria-hidden
         className="absolute -left-[7px] top-0.5 h-3 w-3 rounded-full border-2 border-[#B52326] bg-white"
       />
-      <div className="flex max-w-md flex-col gap-2">{children}</div>
+      <div className="flex max-w-md flex-col gap-2">
+        <span className={labelCls}>{label}</span>
+        {children}
+      </div>
     </div>
   );
 }
@@ -148,11 +102,16 @@ function programsOf(p, collegeById) {
 export default function PlanChains({
   plans,
   savePlans,
-  choices,
+  favs,
+  careers,
+  exams,
+  colleges,
+  careerById,
   collegeById,
   examById,
   slugs,
   profile,
+  firstExam,
 }) {
   const update = (i, patch) =>
     savePlans(plans.map((p, j) => (j === i ? { ...p, ...patch } : p)));
@@ -162,6 +121,19 @@ export default function PlanChains({
     savePlans(next);
   };
   const remove = (i) => savePlans(plans.filter((_, j) => j !== i));
+  // a new plan starts from the exam the student picked in Get started
+  const add = () =>
+    savePlans([
+      ...plans,
+      {
+        id: newId(),
+        career: null,
+        exam: plans.length === 0 && firstExam ? firstExam : null,
+        college: null,
+        branch: null,
+      },
+    ]);
+
   // the rank in the student's own category, per plan (when the exam allows)
   const [mine, setMine] = useState({});
   const sig = plans
@@ -173,7 +145,10 @@ export default function PlanChains({
     let live = true;
     plans.forEach((p) => {
       const exam = p.exam ? examById[p.exam.id]?.predictor_exam : null;
-      if (!exam || !p.college) return;
+      if (!exam || !p.college) {
+        setMine((m) => ({ ...m, [p.id]: null }));
+        return;
+      }
       const { picked, progs } = programsOf(p, collegeById);
       const branches =
         picked.length && picked.length < progs.length
@@ -181,6 +156,7 @@ export default function PlanChains({
           : null;
       categoryCutoff({
         exam,
+        rowExam: JOSAA_ROW_EXAM[p.exam.id],
         collegeId: p.college.id,
         branches,
         profile,
@@ -194,11 +170,49 @@ export default function PlanChains({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sig, collegeById, examById, profile]);
 
-  const add = () =>
-    savePlans([
-      ...plans,
-      { id: newId(), career: null, exam: null, college: null, branch: null },
-    ]);
+  // dropdown options, built once
+  const careerOptions = useMemo(
+    () =>
+      grouped(
+        favs.career.map((x) => ({ value: x.id, label: x.label })),
+        careers
+          .map((c) => ({ value: c.career_id, label: c.name }))
+          .sort((a, b) => a.label.localeCompare(b.label)),
+        "Any career"
+      ),
+    [favs.career, careers]
+  );
+  const examLabel = (e) => e.acronym || e.name;
+  const examOptionsFor = (careerId) => {
+    const forCareer = new Set(careerById[careerId]?.exam_ids || []);
+    const all = exams
+      .map((e) => ({ value: e.exam_id, label: examLabel(e) }))
+      .sort(
+        (a, b) =>
+          (forCareer.has(b.value) ? 1 : 0) - (forCareer.has(a.value) ? 1 : 0) ||
+          a.label.localeCompare(b.label)
+      );
+    return grouped(
+      favs.exam.map((x) => ({ value: x.id, label: x.label })),
+      all
+    );
+  };
+  const collegeOptionsFor = (examId) => {
+    const tag = COLLEGE_TAG[examId];
+    const fit = (id) =>
+      !tag || (collegeById[id]?.entrance_exams || []).includes(tag);
+    const favOpts = favs.college
+      .filter((x) => fit(x.id))
+      .map((x) => ({ value: x.id, label: x.label }));
+    const rest =
+      tag && colleges
+        ? colleges
+            .filter((c) => (c.entrance_exams || []).includes(tag))
+            .map((c) => ({ value: c.college_id, label: c.display_name }))
+            .sort((a, b) => a.label.localeCompare(b.label))
+        : [];
+    return grouped(favOpts, rest);
+  };
 
   return (
     <div className="flex flex-col gap-4">
@@ -208,35 +222,40 @@ export default function PlanChains({
             Make your first plan
           </h2>
           <p className="mt-1 text-sm text-[#7a635d]">
-            A plan joins a career, the exam for it, a college and the rank that
-            college closed at. Start from any of them. Bookmark colleges,
-            careers and exams across Futures to fill it.
+            Pick a career, the exam for it, a college, and see the rank that
+            college closed at. Start from any of them.
           </p>
         </div>
       ) : null}
 
       {plans.map((p, i) => {
-        const college = p.college ? collegeById[p.college.id] : null;
         const exam = p.exam ? examById[p.exam.id] : null;
-        const {
-          progs,
-          forCareer,
-          picked: branchProgs,
-          careerId,
-        } = programsOf(p, collegeById);
-        const own = mine[p.id];
-        const ranks = branchProgs.map((x) => x.indicative_closing_rank);
-        const lo = ranks.length ? Math.min(...ranks) : null;
-        const hi = ranks.length ? Math.max(...ranks) : null;
+        const { progs, forCareer, picked, careerId } = programsOf(
+          p,
+          collegeById
+        );
+        const own = mine[p.id] || null;
+        // a college this exam doesn't admit to (a plan saved before the
+        // list followed the exam): say so rather than show its other ranks
+        const tag = COLLEGE_TAG[p.exam?.id];
+        const misfit =
+          p.college &&
+          tag &&
+          collegeById[p.college.id] &&
+          !(collegeById[p.college.id].entrance_exams || []).includes(tag);
+        // the college card's figure: open category, on the exam the college
+        // admits through
+        const cardRanks = misfit
+          ? []
+          : picked.map((x) => x.indicative_closing_rank);
+        const lo = cardRanks.length ? Math.min(...cardRanks) : null;
+        const hi = cardRanks.length ? Math.max(...cardRanks) : null;
         const branchOptions = [
-          ...new Map(
-            [...forCareer, ...progs].map((x) => [
-              x.branch,
-              { id: x.branch, label: x.branch },
-            ])
-          ).values(),
-        ].slice(0, 12);
-
+          { value: "any", label: "Any branch" },
+          ...[...new Set([...forCareer, ...progs].map((x) => x.branch))].map(
+            (b) => ({ value: b, label: b })
+          ),
+        ];
         const predictorExam = exam?.predictor_exam;
         const cutoffsHref = predictorExam
           ? `/predictor?${new URLSearchParams({
@@ -248,6 +267,12 @@ export default function PlanChains({
                 : {}),
             })}`
           : "/predictor";
+        const pick = (key, o, extra = {}) =>
+          update(i, {
+            [key]: o.value === "any" ? "any" : { id: o.value, label: o.label },
+            ...extra,
+          });
+        const collegeOpts = collegeOptionsFor(p.exam?.id);
 
         return (
           <section
@@ -296,15 +321,15 @@ export default function PlanChains({
             </div>
 
             <div className="mt-4 flex flex-col">
-              <Step>
-                <Picker
-                  label="Career"
-                  value={p.career}
-                  options={choices.career}
-                  anyLabel="Any career"
-                  onPick={(v) => update(i, { career: v })}
-                  findHref="/careers"
-                  find="Find careers"
+              <Step label="Career">
+                <Dropdown
+                  options={careerOptions}
+                  selectedValue={
+                    p.career === "any" ? "any" : p.career?.id || null
+                  }
+                  onChange={(o) => pick("career", o)}
+                  placeholder="Pick a career"
+                  hideValueWhileSearching
                 />
                 {careerId ? (
                   <div className="flex flex-wrap gap-x-4 gap-y-1">
@@ -323,18 +348,28 @@ export default function PlanChains({
                   </div>
                 ) : null}
               </Step>
-              <Step>
-                <Picker
-                  label="Exam"
-                  value={p.exam}
-                  options={choices.exam}
-                  onPick={(v) => update(i, { exam: v })}
-                  findHref={
-                    careerId
-                      ? `/exams?career=${encodeURIComponent(careerId)}`
-                      : "/exams"
-                  }
-                  find="Find exams"
+
+              <Step label="Exam">
+                <Dropdown
+                  options={examOptionsFor(careerId)}
+                  selectedValue={p.exam?.id || null}
+                  onChange={(o) => {
+                    // a college this exam doesn't admit to goes with it
+                    const tag = COLLEGE_TAG[o.value];
+                    const keep =
+                      p.college &&
+                      (!tag ||
+                        (
+                          collegeById[p.college.id]?.entrance_exams || []
+                        ).includes(tag));
+                    pick(
+                      "exam",
+                      o,
+                      keep ? {} : { college: null, branch: null }
+                    );
+                  }}
+                  placeholder="Pick an exam"
+                  hideValueWhileSearching
                 />
                 {p.exam ? (
                   predictorExam ? (
@@ -348,34 +383,28 @@ export default function PlanChains({
                   )
                 ) : null}
               </Step>
-              <Step>
-                <Picker
-                  label="College"
-                  value={p.college}
-                  options={choices.college}
-                  onPick={(v) => update(i, { college: v, branch: null })}
-                  findHref={
-                    careerId
-                      ? `/colleges?career=${encodeURIComponent(careerId)}`
-                      : "/colleges"
+
+              <Step label="College">
+                <Dropdown
+                  options={collegeOpts}
+                  selectedValue={p.college?.id || null}
+                  onChange={(o) => pick("college", o, { branch: null })}
+                  placeholder={
+                    p.exam
+                      ? colleges
+                        ? "Pick a college"
+                        : "Loading colleges…"
+                      : "Pick an exam first, or a favourite"
                   }
-                  find="Find colleges"
+                  hideValueWhileSearching
                 />
-                {p.college && branchOptions.length ? (
-                  <Picker
-                    label="Branch"
-                    value={p.branch ? { label: p.branch } : null}
+                {p.college && progs.length ? (
+                  <Dropdown
                     options={branchOptions}
-                    anyLabel="Any branch"
-                    onPick={(v) =>
-                      update(i, { branch: v === "any" ? "any" : v.id })
-                    }
-                    findHref={
-                      slugs[p.college.id]
-                        ? `/colleges/${slugs[p.college.id]}`
-                        : "/colleges"
-                    }
-                    find="See all its branches"
+                    selectedValue={p.branch || null}
+                    onChange={(o) => update(i, { branch: o.value })}
+                    placeholder="Branch (optional)"
+                    hideValueWhileSearching
                   />
                 ) : null}
                 {p.college && slugs[p.college.id] ? (
@@ -387,11 +416,9 @@ export default function PlanChains({
                   </Link>
                 ) : null}
               </Step>
-              <Step last>
-                <span className="text-[11px] font-extrabold uppercase tracking-[0.08em] text-[#8a7570]">
-                  Rank needed
-                </span>
-                {own ? (
+
+              <Step label="Rank needed" last>
+                {own && !misfit ? (
                   <div className="rounded-xl bg-[#fdf8f6] px-3 py-2">
                     <div className="text-lg font-black tabular-nums text-[#B52326]">
                       {own.lo === own.hi
@@ -399,7 +426,8 @@ export default function PlanChains({
                         : `${fmt(own.lo)} – ${fmt(own.hi)}`}
                     </div>
                     <div className="text-xs leading-snug text-[#7a635d]">
-                      Last year, {own.category || "your category"}
+                      {exam ? `${examLabel(exam)} rank · ` : ""}last year,{" "}
+                      {own.category || "your category"}
                     </div>
                   </div>
                 ) : lo != null ? (
@@ -413,15 +441,18 @@ export default function PlanChains({
                   </div>
                 ) : (
                   <p className="text-sm text-[#7a635d]">
-                    {p.college
-                      ? "No closing rank for this college yet."
+                    {misfit
+                      ? `${p.college.label} doesn't admit through ${
+                          exam ? examLabel(exam) : "this exam"
+                        }. Pick another college.`
+                      : p.college
+                      ? "No closing rank for this college and exam yet."
                       : "Pick a college to see the rank it closed at."}
                   </p>
                 )}
                 {p.exam && predictorExam ? (
                   <Link href={cutoffsHref} className={linkCls}>
-                    {own ? "All cutoffs for you" : "For your category"}{" "}
-                    <ArrowRight size={13} />
+                    All cutoffs for you <ArrowRight size={13} />
                   </Link>
                 ) : null}
               </Step>

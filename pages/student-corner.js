@@ -153,10 +153,8 @@ export default function StudentCorner() {
       .then((e) => setExams(Array.isArray(e) ? e : e.exams || []))
       .catch(() => {});
   }, [signedIn]);
-  const wantColleges =
-    stars.college.length > 0 ||
-    (pathway?.colleges || []).length > 0 ||
-    plans.some((x) => x.college);
+  // the plans' college lists come from the full list (filtered by exam)
+  const wantColleges = true;
   useEffect(() => {
     if (signedIn && wantColleges && !colleges)
       loadColleges()
@@ -212,6 +210,15 @@ export default function StudentCorner() {
       stars.college.map((x) => ({ id: x.id, label: x.label }))
     ),
   };
+  // a first plan starts on the exam picked in Get started
+  const firstExam = (() => {
+    const id = examsOf(onboarding || {})
+      .map((k) => examIdOfKey[k])
+      .find(Boolean);
+    return id
+      ? { id, label: examById[id]?.acronym || examById[id]?.name || id }
+      : null;
+  })();
   // the older single pathway, shown as it was saved
   const earlier = pathway
     ? [
@@ -263,10 +270,15 @@ export default function StudentCorner() {
     return s.extra?.meta || null;
   };
   const TABS = [
-    { k: "college", label: "Colleges", href: "/colleges" },
-    { k: "career", label: "Careers", href: "/careers" },
-    { k: "exam", label: "Exams", href: "/exams" },
-    { k: "scholarship", label: "Scholarships", href: "/scholarships" },
+    { k: "college", label: "Colleges", one: "college", href: "/colleges" },
+    { k: "career", label: "Careers", one: "career", href: "/careers" },
+    { k: "exam", label: "Exams", one: "exam", href: "/exams" },
+    {
+      k: "scholarship",
+      label: "Scholarships",
+      one: "scholarship",
+      href: "/scholarships",
+    },
   ];
   const activeTab = TABS.find((t) => t.k === tab);
 
@@ -377,8 +389,13 @@ export default function StudentCorner() {
                   <PlanChains
                     plans={plans}
                     savePlans={savePlans}
-                    choices={choices}
+                    favs={choices}
+                    careers={careers}
+                    exams={exams}
+                    colleges={colleges}
+                    careerById={careerById}
                     collegeById={collegeById}
+                    firstExam={firstExam}
                     examById={examById}
                     slugs={slugs}
                     profile={profile}
@@ -386,6 +403,19 @@ export default function StudentCorner() {
                 </div>
               ) : (
                 <>
+                  {!quiz?.top_careers?.length ? (
+                    <Card title="My career quiz">
+                      <p className="mt-1 text-sm text-[#7a635d]">
+                        Ten minutes of questions about what you enjoy, then the
+                        careers that fit.
+                      </p>
+                      <div className="mt-3">
+                        <AddLink href="/career-quiz">
+                          Take the career quiz
+                        </AddLink>
+                      </div>
+                    </Card>
+                  ) : null}
                   {quiz?.top_careers?.length ? (
                     <Card
                       title="My career quiz"
@@ -416,7 +446,7 @@ export default function StudentCorner() {
                     </Card>
                   ) : null}
 
-                  <Card title="Bookmarked">
+                  <Card title="Your favourites">
                     <div className="mt-3 flex flex-wrap gap-2 border-b border-[#eee1d7]">
                       {TABS.map((t) => (
                         <button
@@ -437,11 +467,10 @@ export default function StudentCorner() {
                       ))}
                     </div>
                     {stars[tab].length === 0 ? (
-                      <div className="mt-4">
-                        <AddLink href={activeTab.href}>
-                          Find {activeTab.label.toLowerCase()}
-                        </AddLink>
-                      </div>
+                      <p className="mt-4 text-sm text-[#7a635d]">
+                        Nothing saved yet. Tap ★ on any {activeTab.one} to keep
+                        it here.
+                      </p>
                     ) : (
                       <ul className="mt-2 divide-y divide-[#f0e6e1]">
                         {stars[tab].map((s) => {
@@ -489,6 +518,11 @@ export default function StudentCorner() {
                         })}
                       </ul>
                     )}
+                    <div className="mt-3">
+                      <AddLink href={activeTab.href}>
+                        Find more {activeTab.label.toLowerCase()}
+                      </AddLink>
+                    </div>
                   </Card>
 
                   {earlier.length ? (

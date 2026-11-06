@@ -55,13 +55,22 @@ const num = (v) => {
  * { lo, hi, category } for one plan, or null when there's no such number
  * (unsupported exam, no category on the profile, college not in the list).
  * branches: the program names to keep (null = all the college's rows).
+ * rowExam: JoSAA's "JEE Main" / "JEE Advanced", to keep that exam's seats.
  */
-export async function categoryCutoff({ exam, collegeId, branches, profile }) {
+export async function categoryCutoff({
+  exam,
+  rowExam,
+  collegeId,
+  branches,
+  profile,
+}) {
   if (!SUPPORTED[exam] || !collegeId) return null;
   const got = await rowsFor(exam, profile);
   if (!got) return null;
   const ranks = got.rows
     .filter((r) => r["Facts Key"] === collegeId)
+    // JoSAA: only the plan's exam (JEE Main or JEE Advanced)
+    .filter((r) => !rowExam || !r.Exam || r.Exam === rowExam)
     .filter((r) => {
       if (!branches) return true;
       const prog = String(
