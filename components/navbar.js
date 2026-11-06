@@ -83,8 +83,9 @@ const Navbar = () => {
     return () => document.removeEventListener("mousedown", onDoc);
   }, []);
 
-  // Log in (which also signs up) / Student Corner: on the red bar (onRed)
-  // from tablet width up, in the white top bar on a phone
+  // Log in + Sign up free / Student Corner: on the red bar (onRed) from
+  // tablet width up; on a phone, Log in in the white top bar (the page it
+  // opens has Sign up too)
   const account = (onRed) =>
     profile ? (
       <Link
@@ -102,14 +103,25 @@ const Navbar = () => {
           {profile.name ? profile.name.split(" ")[0] : "Student Corner"}
         </span>
       </Link>
+    ) : onRed ? (
+      <span className="flex items-center gap-1">
+        <Link
+          href={PORTAL_LOGIN_URL}
+          className="rounded-full px-3 py-1.5 text-sm font-bold text-white transition hover:bg-white/10"
+        >
+          Log in
+        </Link>
+        <Link
+          href={`${PORTAL_LOGIN_URL}?new=1`}
+          className="rounded-full bg-white px-3.5 py-1.5 text-sm font-bold text-[#B52326] shadow-sm transition hover:bg-[#f8efec]"
+        >
+          Sign up free
+        </Link>
+      </span>
     ) : (
       <Link
         href={PORTAL_LOGIN_URL}
-        className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-sm font-bold shadow-sm transition ${
-          onRed
-            ? "bg-white text-[#B52326] hover:bg-[#f8efec]"
-            : "bg-[#B52326] text-white hover:bg-[#9E1F22]"
-        }`}
+        className="inline-flex items-center gap-1.5 rounded-full bg-[#B52326] px-3 py-1.5 text-sm font-bold text-white shadow-sm transition hover:bg-[#9E1F22]"
       >
         <UserRound size={15} />
         Log in
