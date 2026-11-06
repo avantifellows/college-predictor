@@ -11,7 +11,7 @@ import {
   Scale,
 } from "lucide-react";
 import IconTile from "../components/IconTile";
-import { CV_URL } from "../utils/siteMap";
+import { CV_URL, HOME_TILES } from "../utils/siteMap";
 import { planFor, stepDone } from "../utils/onboarding";
 import useGetStarted from "../utils/useGetStarted";
 import { useStudentData } from "../utils/studentData";
@@ -21,8 +21,9 @@ import { useStudentData } from "../utils/studentData";
 // and exam), what the site holds in numbers, and the tools. Once the
 // questions are answered, or a signed-in student's Avanti profile answers
 // them, the hero becomes that student's plan (utils/onboarding.js): the one
-// thing to do now, the steps after it, ticked as they get done. The numbers
-// are counted from the data files at build time, rounded down.
+// thing to do now, the steps after it, ticked as they get done, then the
+// four sections and the tools. The numbers are counted from the data files
+// at build time, rounded down.
 
 const btnPrimary =
   "inline-flex items-center justify-center gap-2 rounded-[10px] bg-[#B52326] px-6 py-3 text-base font-black text-white shadow-[0_8px_20px_rgba(181,35,38,.22)] transition hover:bg-[#9E1F22]";
@@ -194,12 +195,29 @@ export default function Home({ counts }) {
       <div className="min-h-screen bg-[#fdf8f6]">
         {hero}
         <div className="mx-auto flex max-w-[1080px] flex-col gap-12 px-4 pb-16 sm:px-6">
+          {/* a student with a plan needs a way around, not the numbers
+              that sell the site on a first visit */}
           {hasPlan ? (
-            <h2 className="-mb-8 text-lg font-black text-[#7a635d]">
-              Explore everything else
-            </h2>
-          ) : null}
-          <Numbers counts={counts} />
+            <section>
+              <h2 className="mb-2 text-lg font-black text-[#7a635d]">
+                Explore everything else
+              </h2>
+              <div className="grid grid-cols-2 gap-2 sm:gap-4 md:grid-cols-4">
+                {HOME_TILES.map(({ key, href, icon, title, line }) => (
+                  <IconTile
+                    key={key}
+                    href={href}
+                    icon={icon}
+                    title={title}
+                    line={line}
+                    big
+                  />
+                ))}
+              </div>
+            </section>
+          ) : (
+            <Numbers counts={counts} />
+          )}
           <Tools />
         </div>
       </div>
