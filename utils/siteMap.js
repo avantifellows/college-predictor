@@ -87,7 +87,7 @@ export const SECTIONS = {
       {
         href: "/josaa",
         icon: ListChecks,
-        name: "JoSAA Quiz and Simulator",
+        name: "JoSAA Mock Allotment",
         line: "How JoSAA seat allotment works",
       },
       {
