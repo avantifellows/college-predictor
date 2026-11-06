@@ -41,6 +41,7 @@ export function StudentDataProvider({ children }) {
     pathway: null,
     quiz: null,
     onboarding: null,
+    plans: [],
   });
   const [error, setError] = useState(null);
 
@@ -52,6 +53,7 @@ export function StudentDataProvider({ children }) {
         pathway: null,
         quiz: null,
         onboarding: null,
+        plans: [],
       });
       return;
     }
@@ -72,6 +74,7 @@ export function StudentDataProvider({ children }) {
           pathway: d.pathway,
           quiz: d.quiz,
           onboarding: d.onboarding || null,
+          plans: d.plans || [],
         });
       })
       .catch(() => {});
@@ -164,6 +167,25 @@ export function StudentDataProvider({ children }) {
     [userId]
   );
 
+  // the whole ordered list each time (reorder, add, remove, fill a link);
+  // shown at once, put back if the save fails
+  const savePlans = useCallback(
+    async (plans) => {
+      if (!userId) return;
+      const before = data.plans;
+      setData((d) => ({ ...d, plans }));
+      try {
+        const out = await post({ action: "plans", plans });
+        setData((d) => ({ ...d, plans: out.plans }));
+        setError(null);
+      } catch (e) {
+        setData((d) => ({ ...d, plans: before }));
+        if (e.message !== "signed-out") setError(e.message);
+      }
+    },
+    [userId, data.plans]
+  );
+
   const deleteEverything = useCallback(async () => {
     if (!userId) return;
     const r = await fetch("/api/me", { method: "DELETE" });
@@ -174,6 +196,7 @@ export function StudentDataProvider({ children }) {
         pathway: null,
         quiz: null,
         onboarding: null,
+        plans: [],
       });
   }, [userId]);
 
@@ -186,12 +209,14 @@ export function StudentDataProvider({ children }) {
       pathway: data.pathway,
       quiz: data.quiz,
       onboarding: data.onboarding,
+      plans: data.plans,
       error,
       isStarred,
       toggleStar,
       savePathway,
       saveQuiz,
       saveOnboarding,
+      savePlans,
       deleteEverything,
     }),
     [
@@ -204,6 +229,7 @@ export function StudentDataProvider({ children }) {
       savePathway,
       saveQuiz,
       saveOnboarding,
+      savePlans,
       deleteEverything,
     ]
   );
@@ -219,11 +245,13 @@ export function useStudentData() {
       pathway: null,
       quiz: null,
       onboarding: null,
+      plans: [],
       isStarred: () => false,
       toggleStar: () => {},
       savePathway: () => {},
       saveQuiz: async () => false,
       saveOnboarding: () => {},
+      savePlans: () => {},
       deleteEverything: () => {},
     }
   );

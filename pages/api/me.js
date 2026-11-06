@@ -3,23 +3,26 @@ import {
   STAR_KINDS,
   cleanOnboarding,
   cleanPathway,
+  cleanPlans,
   cleanQuiz,
   deleteAll,
   isRefId,
   loadAll,
   saveOnboarding,
   savePathway,
+  savePlans,
   saveQuiz,
   setStar,
 } from "../../utils/server/saves";
 
 // The signed-in student's saved things. The user id always comes from the
 // session cookie, never from the request.
-//   GET                                   { profile, stars, pathway, quiz, onboarding }
+//   GET                                   { profile, stars, pathway, quiz, onboarding, plans }
 //   POST { action: "star", kind, id, label, extra, on }
 //   POST { action: "pathway", pathway }
 //   POST { action: "quiz", quiz }
 //   POST { action: "onboarding", onboarding }   Get started answers
+//   POST { action: "plans", plans }       Student Corner plans, in order
 //   DELETE                                delete everything saved
 export default async function handler(req, res) {
   res.setHeader("Cache-Control", "no-store");
@@ -65,6 +68,12 @@ export default async function handler(req, res) {
       if (!onboarding) return res.status(400).json({ error: "Bad answers" });
       await saveOnboarding(uid, onboarding);
       return res.status(200).json({ onboarding });
+    }
+    if (body.action === "plans") {
+      const plans = cleanPlans(body.plans);
+      if (!plans) return res.status(400).json({ error: "Bad plans" });
+      await savePlans(uid, plans);
+      return res.status(200).json({ plans });
     }
     return res.status(400).json({ error: "Unknown action" });
   } catch (e) {
