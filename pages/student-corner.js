@@ -294,16 +294,16 @@ export default function StudentCorner() {
                 Student Corner
               </h1>
               <p className="mt-3 text-[15px] text-[#7a635d]">
-                Avanti Fellows students can sign in to plan their path and save
-                colleges, careers, exams and scholarships. Everything else on
-                Futures works without signing in.
+                Log in to plan your path and save colleges, careers, exams and
+                scholarships. Everything else on Futures works without an
+                account.
               </p>
-              <a
+              <Link
                 href={PORTAL_LOGIN_URL}
                 className="mt-6 inline-block rounded-[10px] bg-[#B52326] px-5 py-2.5 text-sm font-black text-white transition hover:bg-[#9E1F22]"
               >
-                Student login
-              </a>
+                Log in or sign up
+              </Link>
             </div>
           ) : (
             <>
