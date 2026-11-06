@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { ArrowDown, ArrowRight, ArrowUp, Plus, X } from "lucide-react";
+import { categoryCutoff } from "../utils/categoryCutoff";
 
 // Student Corner's plans: each a chain career → exam → college (+ branch)
 // → the rank it closed at. As many as the student wants; the first is the
@@ -108,6 +109,26 @@ function Arrow() {
   );
 }
 
+// the college's branches this plan is about: the picked branch, else the
+// plan career's branches, else all of them (with a closing rank)
+function programsOf(p, collegeById) {
+  const college = p.college ? collegeById[p.college.id] : null;
+  const careerId = p.career && p.career !== "any" ? p.career.id : null;
+  const progs = (college?.programs?.list || []).filter(
+    (x) => x.indicative_closing_rank
+  );
+  const forCareer = careerId
+    ? progs.filter((x) => x.career_id === careerId)
+    : [];
+  const picked =
+    p.branch && p.branch !== "any"
+      ? progs.filter((x) => x.branch === p.branch)
+      : forCareer.length
+      ? forCareer
+      : progs;
+  return { progs, forCareer, picked, careerId };
+}
+
 export default function PlanChains({
   plans,
   savePlans,
@@ -125,6 +146,38 @@ export default function PlanChains({
     savePlans(next);
   };
   const remove = (i) => savePlans(plans.filter((_, j) => j !== i));
+  // the rank in the student's own category, per plan (when the exam allows)
+  const [mine, setMine] = useState({});
+  const sig = plans
+    .map((p) =>
+      [p.id, p.exam?.id, p.college?.id, p.branch, p.career?.id].join(":")
+    )
+    .join("|");
+  useEffect(() => {
+    let live = true;
+    plans.forEach((p) => {
+      const exam = p.exam ? examById[p.exam.id]?.predictor_exam : null;
+      if (!exam || !p.college) return;
+      const { picked, progs } = programsOf(p, collegeById);
+      const branches =
+        picked.length && picked.length < progs.length
+          ? picked.map((x) => x.branch)
+          : null;
+      categoryCutoff({
+        exam,
+        collegeId: p.college.id,
+        branches,
+        profile,
+      }).then((r) => {
+        if (live) setMine((m) => ({ ...m, [p.id]: r }));
+      });
+    });
+    return () => {
+      live = false;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sig, collegeById, examById, profile]);
+
   const add = () =>
     savePlans([
       ...plans,
@@ -149,20 +202,13 @@ export default function PlanChains({
       {plans.map((p, i) => {
         const college = p.college ? collegeById[p.college.id] : null;
         const exam = p.exam ? examById[p.exam.id] : null;
-        const careerId = p.career && p.career !== "any" ? p.career.id : null;
-        // branches this college offers, the plan's career's first
-        const progs = (college?.programs?.list || []).filter(
-          (x) => x.indicative_closing_rank
-        );
-        const forCareer = careerId
-          ? progs.filter((x) => x.career_id === careerId)
-          : [];
-        const branchProgs =
-          p.branch && p.branch !== "any"
-            ? progs.filter((x) => x.branch === p.branch)
-            : forCareer.length
-            ? forCareer
-            : progs;
+        const {
+          progs,
+          forCareer,
+          picked: branchProgs,
+          careerId,
+        } = programsOf(p, collegeById);
+        const own = mine[p.id];
         const ranks = branchProgs.map((x) => x.indicative_closing_rank);
         const lo = ranks.length ? Math.min(...ranks) : null;
         const hi = ranks.length ? Math.max(...ranks) : null;
@@ -332,14 +378,24 @@ export default function PlanChains({
                 <span className="text-[11px] font-extrabold uppercase tracking-[0.08em] text-[#8a7570]">
                   Rank needed
                 </span>
-                {lo != null ? (
+                {own ? (
+                  <div className="rounded-xl bg-[#fdf8f6] px-3 py-2">
+                    <div className="text-lg font-black tabular-nums text-[#B52326]">
+                      {own.lo === own.hi
+                        ? fmt(own.lo)
+                        : `${fmt(own.lo)} – ${fmt(own.hi)}`}
+                    </div>
+                    <div className="text-xs leading-snug text-[#7a635d]">
+                      Last year, {own.category || "your category"}
+                    </div>
+                  </div>
+                ) : lo != null ? (
                   <div className="rounded-xl bg-[#fdf8f6] px-3 py-2">
                     <div className="text-lg font-black tabular-nums text-[#B52326]">
                       {lo === hi ? fmt(lo) : `${fmt(lo)} – ${fmt(hi)}`}
                     </div>
                     <div className="text-xs leading-snug text-[#7a635d]">
-                      {lo === hi ? "Closed at" : "Closed between"} last year,
-                      open category
+                      Last year, open category
                     </div>
                   </div>
                 ) : (
@@ -351,7 +407,8 @@ export default function PlanChains({
                 )}
                 {p.exam && predictorExam ? (
                   <Link href={cutoffsHref} className={linkCls}>
-                    For your category <ArrowRight size={13} />
+                    {own ? "All cutoffs for you" : "For your category"}{" "}
+                    <ArrowRight size={13} />
                   </Link>
                 ) : null}
               </div>
