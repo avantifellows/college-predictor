@@ -2,6 +2,7 @@ import React from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { ArrowRight, ChevronRight } from "lucide-react";
+import BackLink from "../components/BackLink";
 import {
   ALL_INDIA_LOGIN_URL,
   PROGRAM_GROUPS,
@@ -100,6 +101,7 @@ export default function Login() {
       </Head>
       <div className="min-h-screen bg-[#fdf8f6] px-4 pb-16 pt-10">
         <div className="mx-auto flex max-w-[520px] flex-col gap-5">
+          <BackLink />
           <h1 className="text-[28px] font-black leading-tight text-[#2f2320]">
             {isNew ? "Sign up" : "Log in"}
           </h1>
