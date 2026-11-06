@@ -19,7 +19,7 @@ export const SECTIONS = {
   careers: {
     title: "Careers",
     icon: Briefcase,
-    line: "Careers that fit you, what they pay, and a CV",
+    line: "Careers that fit you, how to get there, and a CV",
     items: [
       {
         href: "/careers",
