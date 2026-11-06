@@ -40,6 +40,20 @@ const QUESTIONS = {
   },
 };
 
+const ALL_STEPS = ["class", "stream", "exam"];
+
+// in the open list, an option's second line ("Taking a year to prepare")
+// under its name; the closed dropdown shows the name alone
+const withSub = (o, meta) =>
+  meta.context === "menu" && o.sub ? (
+    <span className="block leading-tight">
+      {o.label}
+      <span className="mt-0.5 block text-xs opacity-70">{o.sub}</span>
+    </span>
+  ) : (
+    o.label
+  );
+
 // one exam to tick (several can be)
 function Option({ label, sub, on, onPick }) {
   return (
@@ -150,7 +164,6 @@ export default function GetStarted() {
 
   const Q = QUESTIONS[step] || QUESTIONS.class;
   const ok = draft && answered(step, draft);
-  const at = steps.indexOf(step);
 
   // a labelled house dropdown (class, stream, state)
   const field = (label, options, value, key, search) => (
@@ -165,14 +178,12 @@ export default function GetStarted() {
         placeholder={`Select your ${label.toLowerCase()}`}
         isSearchable={!!search}
         hideValueWhileSearching={!!search}
+        formatOptionLabel={withSub}
       />
     </label>
   );
   const asOptions = (xs) =>
-    xs.map((x) => ({
-      value: x.id,
-      label: x.sub ? `${x.label} (${x.sub.toLowerCase()})` : x.label,
-    }));
+    xs.map((x) => ({ value: x.id, label: x.label, sub: x.sub }));
 
   let body = null;
   if (draft && step === "class") {
@@ -232,11 +243,13 @@ export default function GetStarted() {
             </button>
           </div>
           <div className="mt-4 flex gap-1.5" aria-hidden>
-            {steps.map((s, i) => (
+            {/* always the three questions, so the bar doesn't change length
+                when a class with fewer questions is picked */}
+            {ALL_STEPS.map((s, i) => (
               <span
                 key={s}
                 className={`h-1 flex-1 rounded-full ${
-                  i <= at ? "bg-[#B52326]" : "bg-[#f1e2dd]"
+                  i <= ALL_STEPS.indexOf(step) ? "bg-[#B52326]" : "bg-[#f1e2dd]"
                 }`}
               />
             ))}
