@@ -204,24 +204,6 @@ export const ExamDetailBody = ({ e }) => (
         </p>
       ) : null}
       <div className="flex flex-wrap items-center gap-3 text-sm">
-        {e.predictor_exam ? (
-          <Link
-            href={`/predictor?exam=${encodeURIComponent(
-              e.predictor_exam
-            )}&examId=${encodeURIComponent(e.exam_id)}`}
-            className="inline-flex items-center gap-1 rounded-full bg-[#B52326] px-3 py-1.5 text-xs font-semibold text-white transition hover:bg-[#8f2e31]"
-          >
-            Predict your colleges
-          </Link>
-        ) : null}
-        {e.colleges_link ? (
-          <Link
-            href={e.colleges_link}
-            className="text-xs text-[#6d5550] underline hover:text-[#8f2e31]"
-          >
-            Colleges accepting it
-          </Link>
-        ) : null}
         {e.url ? (
           <a
             href={e.url}
