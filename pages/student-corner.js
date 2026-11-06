@@ -302,7 +302,7 @@ export default function StudentCorner() {
                 href={PORTAL_LOGIN_URL}
                 className="mt-6 inline-block rounded-[10px] bg-[#B52326] px-5 py-2.5 text-sm font-black text-white transition hover:bg-[#9E1F22]"
               >
-                Log in or sign up free
+                Log in or sign up
               </Link>
             </div>
           ) : (
