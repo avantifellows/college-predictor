@@ -22,7 +22,7 @@ import { useStudentData } from "../utils/studentData";
 // questions are answered, or a signed-in student's Avanti profile answers
 // them, the hero becomes that student's plan (utils/onboarding.js): the one
 // thing to do now, the steps after it, ticked as they get done, then the
-// four sections and the tools. The numbers are counted from the data files
+// four sections. The numbers are counted from the data files
 // at build time, rounded down.
 
 const btnPrimary =
@@ -218,7 +218,8 @@ export default function Home({ counts }) {
           ) : (
             <Numbers counts={counts} />
           )}
-          <Tools />
+          {/* the plan already points at the tools that matter */}
+          {hasPlan ? null : <Tools />}
         </div>
       </div>
     </>
