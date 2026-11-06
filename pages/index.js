@@ -1,89 +1,28 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Head from "next/head";
-import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import { ArrowDown, ArrowRight, Check } from "lucide-react";
+import {
+  ArrowRight,
+  Check,
+  Compass,
+  FileText,
+  ListChecks,
+  Scale,
+} from "lucide-react";
 import IconTile from "../components/IconTile";
-import { HOME_TILES } from "../utils/siteMap";
+import { CV_URL } from "../utils/siteMap";
 import { planFor, stepDone } from "../utils/onboarding";
 import useGetStarted from "../utils/useGetStarted";
 import { useStudentData } from "../utils/studentData";
 
-const Dropdown = dynamic(() => import("../components/dropdown"), {
-  ssr: false,
-});
-
-// The homepage. A first visit gets the gradient hero with the "I want to …"
-// chooser and a Get started button (pages/get-started.js asks class,
-// stream and exam), then four big tiles (Careers, Colleges, Exams,
-// Scholarships). Once the questions are answered, or a signed-in student's
-// Avanti profile answers them, the hero becomes that student's plan
-// (utils/onboarding.js): the one thing to do now, and the steps after it.
-// Skipped, or not a student: the chooser and Get started again. The chooser uses the house Dropdown, never the browser's
-// native select.
-
-// every option completes the sentence "I want to …" — keep them short.
-// kw is the one word that names the destination; it renders bold-red so a
-// scanning eye can pick the row without reading full sentences
-const ACTIONS = [
-  {
-    value: "/predictor",
-    label: "predict my colleges from my exam rank",
-    kw: "predict",
-  },
-  {
-    value: "/careers",
-    label: "explore careers that fit me",
-    kw: "careers",
-  },
-  {
-    value: "/colleges",
-    label: "browse colleges, fees and rankings",
-    kw: "colleges",
-  },
-  { value: "/compare", label: "compare colleges and branches", kw: "compare" },
-  {
-    value: "/josaa",
-    label: "learn how JoSAA allotment works",
-    kw: "mock",
-  },
-  { value: "/exams", label: "learn about entrance exams", kw: "exams" },
-  {
-    value: "/scholarships",
-    label: "find scholarships I can apply for",
-    kw: "scholarships",
-  },
-  {
-    value: "https://cv-generator.avantifellows.org/",
-    label: "build my resume",
-    kw: "resume",
-  },
-];
-
-// bold-red keyword inside the option text; white when the row itself is
-// painted maroon (the selected row in a reopened menu)
-const actionLabel = (data, meta) => {
-  const { label, kw } = data;
-  if (!kw || !label.includes(kw)) return label;
-  const [before, after] = label.split(kw, 2);
-  const onSelectedRow =
-    meta.context === "menu" &&
-    (meta.selectValue || []).some((v) => v.value === data.value);
-  return (
-    <>
-      {before}
-      <span
-        className={`font-bold ${
-          onSelectedRow ? "text-white" : "text-[#B52326]"
-        }`}
-      >
-        {kw}
-      </span>
-      {after}
-    </>
-  );
-};
+// The homepage. A first visit (or a guest who hasn't answered) gets the
+// landing: one Get started button (pages/get-started.js asks class, stream
+// and exam), what the site holds in numbers, and the tools. Once the
+// questions are answered, or a signed-in student's Avanti profile answers
+// them, the hero becomes that student's plan (utils/onboarding.js): the one
+// thing to do now, the steps after it, ticked as they get done. The numbers
+// are counted from the data files at build time, rounded down.
 
 const btnPrimary =
   "inline-flex items-center justify-center gap-2 rounded-[10px] bg-[#B52326] px-6 py-3 text-base font-black text-white shadow-[0_8px_20px_rgba(181,35,38,.22)] transition hover:bg-[#9E1F22]";
@@ -214,7 +153,7 @@ function PlanHero({ plan, answers, stars, name }) {
   );
 }
 
-export default function Home() {
+export default function Home({ counts }) {
   const router = useRouter();
   const { answers } = useGetStarted();
 
@@ -227,21 +166,21 @@ export default function Home() {
   }, [router.isReady, router.query, router]);
 
   const { signedIn, profile, stars } = useStudentData();
-  // still loading a signed-in student's answers: no landing flash
   const plan = answers ? planFor(answers) : null;
   const firstName = profile?.name ? profile.name.split(" ")[0] : null;
+  const hasPlan = plan && plan.kind !== "explore";
 
   let hero;
-  if (!answers) hero = signedIn ? <div className="h-[420px]" /> : <Chooser />;
-  else if (!answers.cls && !answers.skipped) hero = <Chooser />;
-  // not a student: the chooser, and a way to change that answer; skipped:
-  // the chooser and Get started, since nothing was answered
-  else if (plan.kind === "explore")
-    hero = <Chooser chip={answers.cls === "none" ? "Not a student" : null} />;
-  else
+  // still loading a signed-in student's answers: no landing flash
+  if (!answers && signedIn) hero = <div className="h-[420px]" />;
+  else if (hasPlan)
     hero = (
       <PlanHero plan={plan} answers={answers} stars={stars} name={firstName} />
     );
+  // first visit, Skip, or not a student. Not a student keeps a way to
+  // change that answer instead of being asked to get started again
+  else
+    hero = <Landing chip={answers?.cls === "none" ? "Not a student" : null} />;
 
   return (
     <>
@@ -249,97 +188,178 @@ export default function Home() {
         <title>Futures - Avanti Fellows</title>
         <meta
           name="description"
-          content="One stop guide to higher education and professional careers in India: predict your colleges, explore careers, compare colleges, and understand every entrance exam."
+          content="Free guide to higher education and professional careers in India: predict your colleges, explore careers, compare colleges, and understand every entrance exam."
         />
       </Head>
       <div className="min-h-screen bg-[#fdf8f6]">
         {hero}
-        <div className="mx-auto max-w-[1080px] px-4 pb-16 sm:px-6">
-          {plan && plan.kind !== "explore" ? (
-            <h2 className="mb-2 mt-2 text-lg font-black text-[#7a635d]">
+        <div className="mx-auto flex max-w-[1080px] flex-col gap-12 px-4 pb-16 sm:px-6">
+          {hasPlan ? (
+            <h2 className="-mb-8 text-lg font-black text-[#7a635d]">
               Explore everything else
             </h2>
           ) : null}
-          <div className="grid grid-cols-2 gap-2 sm:gap-4 md:grid-cols-4">
-            {HOME_TILES.map(({ key, href, icon, title, line }) => (
-              <IconTile
-                key={key}
-                href={href}
-                icon={icon}
-                title={title}
-                line={line}
-                big
-              />
-            ))}
-          </div>
+          <Numbers counts={counts} />
+          <Tools />
         </div>
       </div>
     </>
   );
 }
 
-// "I want to …" with Get started under it (first visit, or Skip). For a
-// "Not a student" answer: the chooser under a chip that changes the answer
-function Chooser({ chip }) {
-  const router = useRouter();
-  const [action, setAction] = useState(null);
-
-  const go = () => {
-    if (!action) return;
-    if (action.startsWith("http")) window.open(action, "_blank");
-    else router.push(action);
-  };
-
+// first visit: the promise, one button, and three reasons to trust it
+function Landing({ chip }) {
   return (
-    <section className="bg-gradient-to-b from-[#fbeeec] to-[#fdf8f6] px-4 pb-10 pt-14 text-center">
+    <section className="bg-gradient-to-b from-[#fbeeec] to-[#fdf8f6] px-4 pb-12 pt-14 text-center">
       {chip ? (
         <div className="mb-5">
           <Chip parts={[chip]} />
         </div>
       ) : null}
       <h1 className="mx-auto max-w-4xl text-[clamp(28px,4.3vw,44px)] font-black leading-[1.12] tracking-[-0.02em] text-[#2f2320]">
-        One stop guide to{" "}
-        <span className="text-[#B52326]">higher education</span> and
-        professional careers in India
+        Your guide to <span className="text-[#B52326]">higher education</span>{" "}
+        and professional careers in India
       </h1>
-      <div className="mx-auto mt-9 flex max-w-3xl flex-col items-center gap-3 sm:flex-row sm:gap-4">
-        <span className="shrink-0 text-[26px] font-black text-[#B52326] sm:text-[28px]">
-          I want to
-        </span>
-        <div className="w-full min-w-0 flex-1 text-left">
-          <Dropdown
-            options={ACTIONS}
-            selectedValue={action}
-            onChange={(o) => setAction(o.value)}
-            placeholder="choose an action…"
-            isSearchable={false}
-            formatOptionLabel={actionLabel}
-          />
-        </div>
-        <button
-          type="button"
-          onClick={go}
-          disabled={!action}
-          className={`inline-flex shrink-0 items-center gap-2 rounded-[10px] px-6 py-3 text-base font-black text-white transition ${
-            action
-              ? "bg-[#B52326] hover:bg-[#9E1F22]"
-              : "cursor-not-allowed bg-[#B52326]/40"
-          }`}
-        >
-          Go <ArrowRight size={18} />
-        </button>
-      </div>
       {chip ? null : (
-        <>
-          <Link href="/get-started" className={`${btnPrimary} mt-8`}>
-            Get started <ArrowRight size={18} />
-          </Link>
-          <p className="mt-3 text-sm text-[#7a635d]">
-            Answer a few quick questions to get your own plan
-          </p>
-        </>
+        <Link href="/get-started" className={`${btnPrimary} mt-9`}>
+          Get started <ArrowRight size={18} />
+        </Link>
       )}
-      <ArrowDown size={18} className="mx-auto mt-8 text-[#B52326]/60" />
+      <ul className="mt-5 flex flex-wrap justify-center gap-x-5 gap-y-1 text-sm font-bold text-[#5c4a45]">
+        {["Completely free", "No ads", "Official data"].map((t) => (
+          <li key={t} className="inline-flex items-center gap-1.5">
+            <Check size={15} strokeWidth={3} className="text-[#3d7a4a]" />
+            {t}
+          </li>
+        ))}
+      </ul>
     </section>
   );
+}
+
+// what the site holds; each card opens its section
+const NUMBERS = [
+  {
+    key: "colleges",
+    href: "/sections/colleges",
+    label: "colleges",
+    line: "Placements, fees and cutoffs",
+  },
+  {
+    key: "careers",
+    href: "/sections/careers",
+    label: "careers",
+    line: "What they involve, how to get in",
+  },
+  {
+    key: "exams",
+    href: "/sections/exams",
+    label: "entrance exams",
+    line: "Dates, eligibility and how they work",
+  },
+  {
+    key: "scholarships",
+    href: "/scholarships",
+    label: "scholarships",
+    line: "Who can apply and how",
+  },
+];
+
+function Numbers({ counts }) {
+  return (
+    <ul className="grid grid-cols-2 overflow-hidden rounded-2xl border border-[#eaded8] bg-white md:grid-cols-4">
+      {NUMBERS.map(({ key, href, label, line }, i) => (
+        <li
+          key={key}
+          className={`border-[#eaded8] ${i % 2 ? "border-l" : ""} ${
+            i >= 2 ? "border-t md:border-t-0" : ""
+          } ${i === 2 ? "md:border-l" : ""}`}
+        >
+          <Link
+            href={href}
+            className="flex h-full flex-col items-center px-3 py-6 text-center transition hover:bg-[#fdf8f6]"
+          >
+            <span className="text-[clamp(28px,4vw,40px)] font-black leading-none text-[#B52326]">
+              {counts[key]}
+            </span>
+            <span className="mt-2 font-black text-[#2f2320]">{label}</span>
+            <span className="mt-1 text-[13px] leading-snug text-[#7a635d]">
+              {line}
+            </span>
+          </Link>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+const TOOLS = [
+  {
+    href: "/career-quiz",
+    icon: Compass,
+    title: "Career quiz",
+    line: "Careers that fit what you enjoy",
+  },
+  {
+    href: "/mock-allotment?exam=josaa",
+    icon: ListChecks,
+    title: "JoSAA mock allotment",
+    line: "Practise your choices before the real rounds",
+  },
+  {
+    href: "/compare",
+    icon: Scale,
+    title: "Compare colleges",
+    line: "Fees, placements and cutoffs side by side",
+  },
+  {
+    href: CV_URL,
+    icon: FileText,
+    title: "Resume builder",
+    line: "A clean resume in minutes",
+    external: true,
+  },
+];
+
+function Tools() {
+  return (
+    <section>
+      <h2 className="text-center text-xs font-extrabold uppercase tracking-[0.12em] text-[#B52326]">
+        Tools made for you
+      </h2>
+      <div className="mt-2 grid grid-cols-2 gap-2 sm:gap-4 md:grid-cols-4">
+        {TOOLS.map((t) => (
+          <IconTile key={t.title} {...t} />
+        ))}
+      </div>
+    </section>
+  );
+}
+
+// rounded down so the claim stays true as data moves: 4,751 → 4,700+,
+// 156 → 150+
+const atLeast = (n) => {
+  const step = n >= 1000 ? 100 : 10;
+  return `${(Math.floor(n / step) * step).toLocaleString("en-IN")}+`;
+};
+
+export async function getStaticProps() {
+  const fs = await import("fs");
+  const path = await import("path");
+  const read = (f) =>
+    JSON.parse(
+      fs.readFileSync(path.join(process.cwd(), "public/data", f), "utf8")
+    );
+  return {
+    props: {
+      counts: {
+        colleges: atLeast(read("colleges/colleges.json").length),
+        careers: atLeast(read("careers/careers.json").length),
+        exams: atLeast(read("exams/exams.json").length),
+        scholarships: atLeast(
+          read("scholarships/scholarship_data.json").length
+        ),
+      },
+    },
+  };
 }
