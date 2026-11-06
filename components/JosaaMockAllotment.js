@@ -96,6 +96,71 @@ export const ProfileChips = ({ profile }) => {
   );
 };
 
+// after locking, before Round 1: the three answers JoSAA asks after every
+// round, and when each one fits
+const SEAT_OPTIONS = [
+  {
+    name: "Freeze",
+    tag: "Take this seat. You're done.",
+    what: "You accept the seat and leave the remaining rounds. Every other choice is dropped, even ones you ranked higher.",
+    when: "it's your top choice, or a seat you're happy with and don't want to risk.",
+  },
+  {
+    name: "Float",
+    tag: "Keep it, and try for better anywhere",
+    what: "You keep the seat but stay in the running for any choice you ranked above it, at any institute. If you're moved up, the old seat is released.",
+    when: "you'd take a higher choice even at a different college.",
+  },
+  {
+    name: "Slide",
+    tag: "Keep it, and try for a better branch here",
+    what: "You keep the seat but only move up to a higher-ranked branch at the same institute. Choices at other institutes are dropped.",
+    when: "you like this college and only want a better branch in it.",
+  },
+];
+
+function OptionsStep({ count, onStart }) {
+  return (
+    <div className="mt-6">
+      <p className="text-center text-sm font-bold text-[#3d7a4a]">
+        ✓ {count} choices locked
+      </p>
+      <h2 className="mt-1 text-center text-2xl font-black text-[#2f2320]">
+        You have 3 options
+      </h2>
+      <p className="mt-1 text-center text-sm text-[#6d5550]">
+        Every time you&apos;re offered a seat, you pick one of these.
+      </p>
+      <div className="mt-5 grid gap-3 md:grid-cols-3">
+        {SEAT_OPTIONS.map((o) => (
+          <div
+            key={o.name}
+            className="flex flex-col rounded-2xl border border-[#eaded8] bg-white p-5"
+          >
+            <h3 className="text-2xl font-black text-[#2f2320]">{o.name}</h3>
+            <p className="mt-1 font-bold text-[#B52326]">{o.tag}</p>
+            <p className="mt-3 text-sm leading-relaxed text-[#4f403a]">
+              {o.what}
+            </p>
+            <p className="mt-auto rounded-xl bg-[#fdf8f6] px-3 py-2 pt-2 text-sm leading-relaxed text-[#4f403a]">
+              <b>Choose this when</b> {o.when}
+            </p>
+          </div>
+        ))}
+      </div>
+      <div className="mt-6 text-center">
+        <button
+          type="button"
+          onClick={onStart}
+          className="inline-flex items-center gap-2 rounded-[10px] bg-[#B52326] px-6 py-3 text-base font-black text-white transition hover:bg-[#9E1F22]"
+        >
+          Got it. Start Round 1 →
+        </button>
+      </div>
+    </div>
+  );
+}
+
 const defaultProfile = {
   category: "",
   gender: "",
@@ -318,7 +383,8 @@ const JosaaMockAllotment = ({ onChangeExam }) => {
       locked: true,
       trail: [],
       frozen: false,
-      step: "simulate",
+      // what freeze, float and slide mean comes first, then Round 1
+      step: "options",
     }));
   };
 
@@ -397,7 +463,7 @@ const JosaaMockAllotment = ({ onChangeExam }) => {
         </p>
       )}
 
-      {state.step !== "simulate" && (
+      {state.step !== "simulate" && state.step !== "options" && (
         <StepBar
           current={state.step}
           profileValid={profileValid}
@@ -447,13 +513,7 @@ const JosaaMockAllotment = ({ onChangeExam }) => {
           choices={state.choices}
           locked={state.locked}
           onBack={() => setStep("choices")}
-          onLock={() =>
-            runWithDelay(
-              "Locking your choices and running Round 1 allotment…",
-              1400,
-              lockChoices
-            )
-          }
+          onLock={() => runWithDelay("Locking your choices…", 900, lockChoices)}
           onProceed={() =>
             runWithDelay("Returning to your simulation…", 700, () =>
               setStep("simulate")
@@ -463,6 +523,17 @@ const JosaaMockAllotment = ({ onChangeExam }) => {
           onMoveUp={moveChoiceUp}
           onMoveDown={moveChoiceDown}
           onRemove={removeChoice}
+        />
+      )}
+
+      {!transitionLabel && state.step === "options" && (
+        <OptionsStep
+          count={state.choices.length}
+          onStart={() =>
+            runWithDelay("Running Round 1 allotment…", 1000, () =>
+              setStep("simulate")
+            )
+          }
         />
       )}
 
