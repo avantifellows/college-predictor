@@ -362,6 +362,35 @@ const listText = (xs) =>
     ? `${xs.slice(0, -1).join(", ")} and ${xs[xs.length - 1]}`
     : xs[0];
 
+/**
+ * Where a backups step goes: straight to the predictor when there's one
+ * exam, else /backups, which lists them and lets the student pick.
+ * `view` "full" opens the whole cutoff list instead of the rank form.
+ */
+export function backupHref(keys, state, view) {
+  if (keys.length === 1)
+    return view
+      ? cutoffsHref(keys[0], state)
+      : `/predictor${q({ exam: keys[0] })}`;
+  return `/backups${q({ exams: keys.join(","), state, view })}`;
+}
+
+/** One backup exam, described for the /backups page. */
+export function backupOption(key, a) {
+  const viaJee = Object.values(JEE_STATE_COUNSELLINGS).some((xs) =>
+    xs.includes(key)
+  );
+  return {
+    key,
+    name: COUNSELLING_LABEL[key] || examName(key),
+    line: viaJee
+      ? "Takes your JEE Main rank"
+      : key === STATE_EXAM[a.state]
+      ? `${a.state}'s own entrance exam`
+      : EXAM_INFO[key]?.sub || "",
+  };
+}
+
 function backupStep(a) {
   const keys = backupsFor(a);
   if (!keys.length) return null;
@@ -374,7 +403,7 @@ function backupStep(a) {
     line: viaJee
       ? `${listText(names.slice(0, 2))} also take your JEE Main rank`
       : `Colleges through ${listText(names.slice(0, 2))}`,
-    href: `/predictor${q({ exam: keys[0] })}`,
+    href: backupHref(keys, a.state),
   };
 }
 
@@ -394,7 +423,7 @@ export function resultsSeason(now = new Date()) {
 
 // full cutoff list for an exam (JoSAA's home-state field takes the state's
 // name as it is)
-const cutoffsHref = (key, state) =>
+export const cutoffsHref = (key, state) =>
   `/predictor${q({
     exam: key,
     view: "full",
@@ -522,7 +551,7 @@ export function planFor(a, season) {
           uses: backups.map((k) => `predictor:${k}`),
           title: "See backup exam cutoffs",
           line: `Cutoffs for ${listText(names.slice(0, 2))}`,
-          href: cutoffsHref(backups[0], a.state),
+          href: backupHref(backups, a.state, "full"),
         },
         scholarships(grade, a.state),
       ].filter(Boolean),
