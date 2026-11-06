@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/router";
+// compat: null where no router is mounted (the page check renders college
+// and exam views on their own), so the link falls back instead of throwing
+import { useRouter } from "next/compat/router";
 import { ArrowLeft } from "lucide-react";
 import { previousPage } from "../utils/navHistory";
 
@@ -37,7 +39,7 @@ export default function BackLink({
   const [prev, setPrev] = useState(null);
 
   useEffect(() => {
-    if (fixed) return undefined;
+    if (fixed || !router?.events) return undefined;
     const refresh = () => setPrev(previousPage());
     refresh();
     // _app files this page's origin when the navigation completes, which is
@@ -45,9 +47,9 @@ export default function BackLink({
     const onDone = () => setTimeout(refresh, 0);
     router.events.on("routeChangeComplete", onDone);
     return () => router.events.off("routeChangeComplete", onDone);
-  }, [router.events, fixed]);
+  }, [router?.events, fixed]);
 
-  if (fixed || !prev) {
+  if (fixed || !prev || !router) {
     return (
       <Link href={href} className={cls}>
         <ArrowLeft size={15} /> {label || children}
