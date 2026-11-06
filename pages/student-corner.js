@@ -406,7 +406,7 @@ export default function StudentCorner() {
                   {!quiz?.top_careers?.length ? (
                     <Card title="My career quiz">
                       <p className="mt-1 text-sm text-[#7a635d]">
-                        Ten minutes of questions about what you enjoy, then the
+                        Answer a few questions about what you enjoy, and see the
                         careers that fit.
                       </p>
                       <div className="mt-3">
