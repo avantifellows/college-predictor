@@ -13,7 +13,8 @@ import {
 //   pk = USER#<afdb user id>
 //   sk = PATHWAY                      the plan: career, colleges, exams, rank to aim
 //        QUIZ                         latest career quiz result the student chose to save
-//        ONBOARDING                   Get started answers (class, stream, state, exam) and plan steps done
+//        ONBOARDING                   Get started answers (class, stream, state, exams) and plan steps done
+//        PLANS                        Student Corner plans: chains of career → exam → college (→ branch)
 //        STAR#<KIND>#<ref id>         a starred college / career / exam / scholarship
 //
 // Items carry only shared ids (AISHE code, career_id, exam_id) plus a label
@@ -25,6 +26,7 @@ export const SCHEMA_VERSION = 1;
 export const STAR_KINDS = ["college", "career", "exam", "scholarship"];
 export const STAR_LIMIT = 50; // per kind
 export const PATHWAY_LIMITS = { colleges: 5, exams: 4 };
+export const PLAN_LIMIT = 10;
 
 const TABLE = process.env.FUTURES_SAVES_TABLE || "futures_student_saves";
 
@@ -83,9 +85,11 @@ export async function loadAll(userId) {
   let pathway = null;
   let quiz = null;
   let onboarding = null;
+  let plans = [];
   for (const it of items) {
     if (it.sk === "PATHWAY") pathway = it.data;
     else if (it.sk === "ONBOARDING") onboarding = it.data;
+    else if (it.sk === "PLANS") plans = it.data?.plans || [];
     else if (it.sk === "QUIZ") quiz = { ...it.data, saved_at: it.updated_at };
     else if (it.sk.startsWith("STAR#") && stars[it.kind])
       stars[it.kind].push({
@@ -97,7 +101,7 @@ export async function loadAll(userId) {
   }
   for (const k of STAR_KINDS)
     stars[k].sort((a, b) => (a.saved_at < b.saved_at ? 1 : -1));
-  return { stars, pathway, quiz, onboarding };
+  return { stars, pathway, quiz, onboarding, plans };
 }
 
 export async function setStar(userId, { kind, id, label, extra, on }) {
@@ -168,6 +172,32 @@ export function cleanPathway(p) {
 
 export async function savePathway(userId, pathway) {
   await putDoc(userId, "PATHWAY", pathway);
+}
+
+/**
+ * Student Corner plans, in order (the first is the main plan). Each link of
+ * a chain is a saved reference { id, label }, "any" (career or branch the
+ * student doesn't mind), or empty.
+ */
+export function cleanPlans(list) {
+  if (!Array.isArray(list)) return null;
+  const ref = (v) =>
+    v === "any"
+      ? "any"
+      : v && typeof v === "object" && isRefId(v.id)
+      ? { id: v.id, label: cleanText(v.label) }
+      : null;
+  return list.slice(0, PLAN_LIMIT).map((p) => ({
+    id: isRefId(p?.id) ? p.id : Math.random().toString(36).slice(2, 10),
+    career: ref(p?.career),
+    exam: ref(p?.exam) === "any" ? null : ref(p?.exam),
+    college: ref(p?.college) === "any" ? null : ref(p?.college),
+    branch: p?.branch === "any" ? "any" : cleanText(p?.branch, 120) || null,
+  }));
+}
+
+export async function savePlans(userId, plans) {
+  await putDoc(userId, "PLANS", { plans });
 }
 
 /** The career quiz: the answers (so the results page can be rebuilt) and the outcome. */

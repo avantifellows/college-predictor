@@ -14,11 +14,15 @@ import { useStudentData } from "../utils/studentData";
 import { loadCareers } from "../components/careerShared";
 import { loadExams } from "../components/examShared";
 import { loadColleges, slugMap } from "../utils/collegesData";
+import PlanChains from "../components/PlanChains";
+import { examsOf } from "../utils/onboarding";
 
 // Student Corner: a signed-in Avanti student's own page — their details,
-// their pathway (career -> colleges -> exams -> cutoffs), the career quiz
-// result they saved, and everything they starred around the site. Details
-// come from the Avanti portal and are not edited here.
+// then two tabs. My plans: chains of career → exam → college → rank needed
+// (components/PlanChains.js), as many as they like. Favourites: everything
+// they bookmarked around the site, their saved career quiz, and the picks
+// from the older one-pathway version (kept, read-only). Details come from
+// the Avanti portal and are not edited here.
 
 const PATHWAY_MAX = { colleges: 5, exams: 4 };
 
@@ -105,9 +109,17 @@ const Step = ({ n, title, children }) => (
   </div>
 );
 
+// one entry per id, and per name (the same career saved under two ids)
 const uniqueById = (items) => {
   const seen = new Set();
-  return items.filter((x) => x && !seen.has(x.id) && seen.add(x.id));
+  return items.filter((x) => {
+    if (!x) return false;
+    const name = String(x.label || "").toLowerCase();
+    if (seen.has(x.id) || (name && seen.has(name))) return false;
+    seen.add(x.id);
+    if (name) seen.add(name);
+    return true;
+  });
 };
 
 export default function StudentCorner() {
@@ -119,8 +131,10 @@ export default function StudentCorner() {
     stars,
     pathway,
     quiz,
+    onboarding,
+    plans,
     error,
-    savePathway,
+    savePlans,
     toggleStar,
     deleteEverything,
   } = useStudentData();
@@ -139,8 +153,8 @@ export default function StudentCorner() {
       .then((e) => setExams(Array.isArray(e) ? e : e.exams || []))
       .catch(() => {});
   }, [signedIn]);
-  const wantColleges =
-    stars.college.length > 0 || (pathway?.colleges || []).length > 0;
+  // the plans' college lists come from the full list (filtered by exam)
+  const wantColleges = true;
   useEffect(() => {
     if (signedIn && wantColleges && !colleges)
       loadColleges()
@@ -165,89 +179,71 @@ export default function StudentCorner() {
     [colleges]
   );
 
-  const p = pathway || {};
-  const plan = {
-    career: p.career || null,
-    colleges: p.colleges || [],
-    exams: p.exams || [],
+  // what a plan's links can be: the student's bookmarks, the career quiz's
+  // top careers, and the exams they picked in Get started
+  const examIdOfKey = useMemo(() => {
+    const m = {};
+    for (const e of exams)
+      if (e.predictor_exam && !m[e.predictor_exam])
+        m[e.predictor_exam] = e.exam_id;
+    return m;
+  }, [exams]);
+  const choices = {
+    career: uniqueById([
+      ...stars.career.map((x) => ({ id: x.id, label: x.label })),
+      ...(quiz?.top_careers || []).slice(0, 5),
+    ]),
+    exam: uniqueById([
+      ...stars.exam.map((x) => ({
+        id: x.id,
+        label: examById[x.id]?.acronym || x.label,
+      })),
+      ...examsOf(onboarding || {})
+        .map((k) => examIdOfKey[k])
+        .filter(Boolean)
+        .map((id) => ({
+          id,
+          label: examById[id]?.acronym || examById[id]?.name || id,
+        })),
+    ]),
+    college: uniqueById(
+      stars.college.map((x) => ({ id: x.id, label: x.label }))
+    ),
   };
-  const toggleIn = (key, item) => {
-    const list = plan[key];
-    const has = list.some((x) => x.id === item.id);
-    savePathway({
-      [key]: has
-        ? list.filter((x) => x.id !== item.id)
-        : [...list, { id: item.id, label: item.label }].slice(
-            0,
-            PATHWAY_MAX[key]
-          ),
-    });
+  // a first plan starts on the exam picked in Get started
+  const firstExam = (() => {
+    const id = examsOf(onboarding || {})
+      .map((k) => examIdOfKey[k])
+      .find(Boolean);
+    return id
+      ? { id, label: examById[id]?.acronym || examById[id]?.name || id }
+      : null;
+  })();
+  // the older single pathway, shown as it was saved
+  const earlier = pathway
+    ? [
+        ["Career", pathway.career ? [pathway.career] : []],
+        ["Colleges", pathway.colleges || []],
+        ["Exams", pathway.exams || []],
+      ].filter(([, xs]) => xs.length)
+    : [];
+  const [view, setView] = useState("plans");
+  // a bookmark starts a new plan with itself in place
+  const startPlan = (kind, x) => {
+    savePlans([
+      ...plans,
+      {
+        id: Math.random().toString(36).slice(2, 10),
+        career: null,
+        exam: null,
+        college: null,
+        branch: null,
+        [kind]: { id: x.id, label: x.label },
+      },
+    ]);
+    setView("plans");
+    window.scrollTo(0, 0);
   };
-
-  // choices for each step: what the student starred, plus what the site
-  // already knows (quiz top careers; the career's exams that are all-India
-  // or for the student's state)
-  const careerChoices = uniqueById([
-    ...(plan.career ? [plan.career] : []),
-    ...stars.career.map((s) => ({ id: s.id, label: s.label })),
-    ...(quiz?.top_careers || []).slice(0, 5),
-  ]);
-  const collegeChoices = uniqueById([
-    ...plan.colleges,
-    ...stars.college.map((s) => ({ id: s.id, label: s.label })),
-  ]);
-  // who can sit it, not where its colleges are (BITSAT is All India)
-  const forMe = (e) =>
-    !e.eligible_in ||
-    e.eligible_in === "All India" ||
-    (profile?.state &&
-      String(e.eligible_in).toLowerCase() === profile.state.toLowerCase());
-  const careerExams = (careerById[plan.career?.id]?.exam_ids || [])
-    .map((id) => examById[id])
-    .filter((e) => e && forMe(e))
-    .map((e) => ({ id: e.exam_id, label: e.acronym || e.name }));
-  const examChoices = uniqueById([
-    ...plan.exams,
-    ...stars.exam.map((s) => ({
-      id: s.id,
-      label: examById[s.id]?.acronym || s.label,
-    })),
-    ...careerExams,
-  ]);
-
-  // what the chosen colleges' programmes for the chosen career closed at
-  const cutoffs = useMemo(() => {
-    if (!plan.career || !colleges) return [];
-    const out = [];
-    for (const ref of plan.colleges) {
-      const c = collegeById[ref.id];
-      for (const prog of c?.programs?.list || []) {
-        if (prog.career_id !== plan.career.id) continue;
-        if (prog.indicative_closing_rank)
-          out.push({
-            college: c.display_name,
-            branch: prog.branch,
-            rank: prog.indicative_closing_rank,
-          });
-      }
-    }
-    return out.sort((a, b) => a.rank - b.rank).slice(0, 6);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [plan.career?.id, plan.colleges, colleges, collegeById]);
-
-  // the predictor opens on the pathway's first exam that has one
-  const pathwayExam = plan.exams.find((x) => examById[x.id]?.predictor_exam);
-  const exam = pathwayExam
-    ? examById[pathwayExam.id].predictor_exam
-    : profile?.stream
-    ? STREAM_TO_EXAM[profile.stream]
-    : null;
-  const predictorHref = exam
-    ? {
-        pathname: "/predictor",
-        query: pathwayExam ? { exam, examId: pathwayExam.id } : { exam },
-      }
-    : "/predictor";
 
   const [tab, setTab] = useState("college");
   const [confirmDelete, setConfirmDelete] = useState(false);
@@ -274,10 +270,15 @@ export default function StudentCorner() {
     return s.extra?.meta || null;
   };
   const TABS = [
-    { k: "college", label: "Colleges", href: "/colleges" },
-    { k: "career", label: "Careers", href: "/careers" },
-    { k: "exam", label: "Exams", href: "/exams" },
-    { k: "scholarship", label: "Scholarships", href: "/scholarships" },
+    { k: "college", label: "Colleges", one: "college", href: "/colleges" },
+    { k: "career", label: "Careers", one: "career", href: "/careers" },
+    { k: "exam", label: "Exams", one: "exam", href: "/exams" },
+    {
+      k: "scholarship",
+      label: "Scholarships",
+      one: "scholarship",
+      href: "/scholarships",
+    },
   ];
   const activeTab = TABS.find((t) => t.k === tab);
 
@@ -287,7 +288,7 @@ export default function StudentCorner() {
         <title>Student Corner - Futures</title>
       </Head>
       <div className="min-h-[calc(100vh-120px)] bg-[#fdf8f6] px-4 py-10">
-        <div className="mx-auto max-w-3xl">
+        <div className="mx-auto max-w-5xl">
           {!mounted ? null : !signedIn ? (
             <div className="rounded-2xl border border-[#eaded8] bg-white p-8 text-center">
               <h1 className="text-2xl font-black text-[#2f2320]">
@@ -349,208 +350,203 @@ export default function StudentCorner() {
                 />
               </div>
 
-              <Card title="My pathway">
-                {!loaded ? (
-                  <p className="mt-3 text-sm text-[#7a635d]">Loading…</p>
-                ) : (
-                  <>
-                    <Step n={1} title="Career">
-                      {careerChoices.map((c) => (
-                        <Chip
-                          key={c.id}
-                          on={plan.career?.id === c.id}
-                          onClick={() =>
-                            savePathway({
-                              career:
-                                plan.career?.id === c.id
-                                  ? null
-                                  : { id: c.id, label: c.label },
-                            })
-                          }
-                        >
-                          {c.label}
-                        </Chip>
-                      ))}
-                      {careerChoices.length === 0 ? (
-                        <>
-                          <AddLink href="/careers">Find a career</AddLink>
-                          <AddLink href="/career-quiz">Take the quiz</AddLink>
-                        </>
-                      ) : (
-                        <AddLink href="/careers">More</AddLink>
-                      )}
-                    </Step>
+              <div
+                role="tablist"
+                className="mt-8 flex gap-1 rounded-full bg-[#f3e8e4] p-1 text-sm font-bold sm:w-max"
+              >
+                {[
+                  ["plans", "My plans", plans.length],
+                  [
+                    "favourites",
+                    "Favourites",
+                    Object.values(stars).reduce((n, xs) => n + xs.length, 0),
+                  ],
+                ].map(([k, label, n]) => (
+                  <button
+                    key={k}
+                    type="button"
+                    role="tab"
+                    aria-selected={view === k}
+                    onClick={() => setView(k)}
+                    className={`flex-1 rounded-full px-4 py-2 transition sm:flex-none ${
+                      view === k
+                        ? "bg-white text-[#2f2320] shadow-sm"
+                        : "text-[#7a635d] hover:text-[#2f2320]"
+                    }`}
+                  >
+                    {label}
+                    <span className="ml-1.5 text-xs font-semibold text-[#a89a94]">
+                      {n}
+                    </span>
+                  </button>
+                ))}
+              </div>
 
-                    <Step n={2} title="Colleges">
-                      {collegeChoices.map((c) => (
-                        <Chip
-                          key={c.id}
-                          on={plan.colleges.some((x) => x.id === c.id)}
-                          disabled={
-                            plan.colleges.length >= PATHWAY_MAX.colleges
-                          }
-                          onClick={() => toggleIn("colleges", c)}
-                        >
-                          {c.label}
-                        </Chip>
-                      ))}
-                      <AddLink
-                        href={
-                          plan.career
-                            ? `/colleges?career=${encodeURIComponent(
-                                plan.career.id
-                              )}`
-                            : "/colleges"
-                        }
-                      >
-                        {collegeChoices.length ? "More" : "Find colleges"}
-                      </AddLink>
-                    </Step>
-
-                    <Step n={3} title="Exams">
-                      {examChoices.map((e) => (
-                        <Chip
-                          key={e.id}
-                          on={plan.exams.some((x) => x.id === e.id)}
-                          disabled={plan.exams.length >= PATHWAY_MAX.exams}
-                          onClick={() => toggleIn("exams", e)}
-                        >
-                          {e.label}
-                        </Chip>
-                      ))}
-                      <AddLink
-                        href={
-                          plan.career
-                            ? `/exams?career=${encodeURIComponent(
-                                plan.career.id
-                              )}`
-                            : "/exams"
-                        }
-                      >
-                        {examChoices.length ? "More" : "Find exams"}
-                      </AddLink>
-                    </Step>
-
-                    <Step n={4} title="Cutoffs">
-                      {cutoffs.length ? (
-                        <ul className="w-full space-y-1 text-sm text-[#5b3a34]">
-                          {cutoffs.map((h, i) => (
-                            <li key={i}>
-                              <b className="tabular-nums">
-                                {h.rank.toLocaleString("en-IN")}
-                              </b>{" "}
-                              {h.college} · {h.branch}
-                            </li>
-                          ))}
-                        </ul>
-                      ) : null}
-                      <Link
-                        href={predictorHref}
-                        className="inline-flex items-center gap-1 text-sm font-bold text-[#B52326] hover:underline"
-                      >
-                        Check cutoffs for your rank
-                        <ArrowRight size={14} />
-                      </Link>
-                    </Step>
-                  </>
-                )}
-              </Card>
-
-              {quiz?.top_careers?.length ? (
-                <Card
-                  title="My career quiz"
-                  right={
-                    <Link
-                      href="/career-quiz?saved=1"
-                      className="text-sm font-semibold text-[#B52326] underline underline-offset-2"
-                    >
-                      See full results
-                    </Link>
-                  }
-                >
-                  <ol className="mt-3 space-y-1.5 text-[15px]">
-                    {quiz.top_careers.slice(0, 5).map((c, i) => (
-                      <li key={c.id} className="flex gap-2">
-                        <span className="w-5 text-right tabular-nums text-[#a89a94]">
-                          {i + 1}
-                        </span>
-                        <Link
-                          href={`/careers/${c.id}`}
-                          className="font-semibold text-[#2f2320] hover:text-[#B52326]"
-                        >
-                          {c.label}
-                        </Link>
-                      </li>
-                    ))}
-                  </ol>
-                </Card>
-              ) : null}
-
-              <Card title="Saved">
-                <div className="mt-3 flex flex-wrap gap-2 border-b border-[#eee1d7]">
-                  {TABS.map((t) => (
-                    <button
-                      key={t.k}
-                      type="button"
-                      onClick={() => setTab(t.k)}
-                      className={`-mb-px border-b-[3px] px-3 py-2 text-sm font-bold transition ${
-                        tab === t.k
-                          ? "border-[#B52326] text-[#2f2320]"
-                          : "border-transparent text-[#7a635d] hover:text-[#2f2320]"
-                      }`}
-                    >
-                      {t.label}
-                      <span className="ml-1.5 text-xs font-semibold text-[#a89a94]">
-                        {stars[t.k].length}
-                      </span>
-                    </button>
-                  ))}
+              {!loaded ? (
+                <p className="mt-6 text-sm text-[#7a635d]">Loading…</p>
+              ) : view === "plans" ? (
+                <div className="mt-5">
+                  <PlanChains
+                    plans={plans}
+                    savePlans={savePlans}
+                    favs={choices}
+                    careers={careers}
+                    exams={exams}
+                    colleges={colleges}
+                    careerById={careerById}
+                    collegeById={collegeById}
+                    firstExam={firstExam}
+                    examById={examById}
+                    slugs={slugs}
+                    profile={profile}
+                  />
                 </div>
-                {stars[tab].length === 0 ? (
-                  <div className="mt-4">
-                    <AddLink href={activeTab.href}>
-                      Find {activeTab.label.toLowerCase()}
-                    </AddLink>
-                  </div>
-                ) : (
-                  <ul className="mt-2 divide-y divide-[#f0e6e1]">
-                    {stars[tab].map((s) => {
-                      const meta = metaFor(tab, s);
-                      return (
-                        <li
-                          key={s.id}
-                          className="flex items-center gap-3 py-2.5"
+              ) : (
+                <>
+                  {!quiz?.top_careers?.length ? (
+                    <Card title="My career quiz">
+                      <p className="mt-1 text-sm text-[#7a635d]">
+                        Answer a few questions about what you enjoy, and see the
+                        careers that fit.
+                      </p>
+                      <div className="mt-3">
+                        <AddLink href="/career-quiz">
+                          Take the career quiz
+                        </AddLink>
+                      </div>
+                    </Card>
+                  ) : null}
+                  {quiz?.top_careers?.length ? (
+                    <Card
+                      title="My career quiz"
+                      right={
+                        <Link
+                          href="/career-quiz?saved=1"
+                          className="text-sm font-semibold text-[#B52326] underline underline-offset-2"
                         >
-                          <Link
-                            href={hrefFor(tab, s)}
-                            className="min-w-0 flex-1"
-                          >
-                            <span className="block truncate font-semibold text-[#2f2320] hover:text-[#B52326]">
-                              {s.label || s.id}
+                          See full results
+                        </Link>
+                      }
+                    >
+                      <ol className="mt-3 space-y-1.5 text-[15px]">
+                        {quiz.top_careers.slice(0, 5).map((c, i) => (
+                          <li key={c.id} className="flex gap-2">
+                            <span className="w-5 text-right tabular-nums text-[#a89a94]">
+                              {i + 1}
                             </span>
-                            {meta ? (
-                              <span className="block text-xs text-[#7a635d]">
-                                {meta}
-                              </span>
-                            ) : null}
-                          </Link>
-                          <button
-                            type="button"
-                            onClick={() =>
-                              toggleStar(tab, s.id, s.label, s.extra)
-                            }
-                            aria-label={`Remove ${s.label || ""}`}
-                            title="Remove"
-                            className="inline-flex h-8 w-8 items-center justify-center rounded-full text-[#a08a84] transition hover:bg-[#fbeeec] hover:text-[#8f2e31]"
-                          >
-                            <X size={16} />
-                          </button>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                )}
-              </Card>
+                            <Link
+                              href={`/careers/${c.id}`}
+                              className="font-semibold text-[#2f2320] hover:text-[#B52326]"
+                            >
+                              {c.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ol>
+                    </Card>
+                  ) : null}
+
+                  <Card title="Your favourites">
+                    <div className="mt-3 flex flex-wrap gap-2 border-b border-[#eee1d7]">
+                      {TABS.map((t) => (
+                        <button
+                          key={t.k}
+                          type="button"
+                          onClick={() => setTab(t.k)}
+                          className={`-mb-px border-b-[3px] px-3 py-2 text-sm font-bold transition ${
+                            tab === t.k
+                              ? "border-[#B52326] text-[#2f2320]"
+                              : "border-transparent text-[#7a635d] hover:text-[#2f2320]"
+                          }`}
+                        >
+                          {t.label}
+                          <span className="ml-1.5 text-xs font-semibold text-[#a89a94]">
+                            {stars[t.k].length}
+                          </span>
+                        </button>
+                      ))}
+                    </div>
+                    {stars[tab].length === 0 ? (
+                      <p className="mt-4 text-sm text-[#7a635d]">
+                        Nothing saved yet. Tap ★ on any {activeTab.one} to keep
+                        it here.
+                      </p>
+                    ) : (
+                      <ul className="mt-2 divide-y divide-[#f0e6e1]">
+                        {stars[tab].map((s) => {
+                          const meta = metaFor(tab, s);
+                          return (
+                            <li
+                              key={s.id}
+                              className="flex items-center gap-3 py-2.5"
+                            >
+                              <Link
+                                href={hrefFor(tab, s)}
+                                className="min-w-0 flex-1"
+                              >
+                                <span className="block truncate font-semibold text-[#2f2320] hover:text-[#B52326]">
+                                  {s.label || s.id}
+                                </span>
+                                {meta ? (
+                                  <span className="block text-xs text-[#7a635d]">
+                                    {meta}
+                                  </span>
+                                ) : null}
+                              </Link>
+                              {tab !== "scholarship" ? (
+                                <button
+                                  type="button"
+                                  onClick={() => startPlan(tab, s)}
+                                  className="shrink-0 rounded-full border border-[#eaded8] px-2.5 py-1 text-xs font-bold text-[#B52326] transition hover:border-[#B52326]"
+                                >
+                                  Use in a plan
+                                </button>
+                              ) : null}
+                              <button
+                                type="button"
+                                onClick={() =>
+                                  toggleStar(tab, s.id, s.label, s.extra)
+                                }
+                                aria-label={`Remove ${s.label || ""}`}
+                                title="Remove"
+                                className="inline-flex h-8 w-8 items-center justify-center rounded-full text-[#a08a84] transition hover:bg-[#fbeeec] hover:text-[#8f2e31]"
+                              >
+                                <X size={16} />
+                              </button>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    )}
+                    <div className="mt-3">
+                      <AddLink href={activeTab.href}>
+                        Find more {activeTab.label.toLowerCase()}
+                      </AddLink>
+                    </div>
+                  </Card>
+
+                  {earlier.length ? (
+                    <Card title="Your earlier picks">
+                      <p className="mt-1 text-sm text-[#7a635d]">
+                        From the pathway you made before plans. Use any of them
+                        in a plan.
+                      </p>
+                      <dl className="mt-3 space-y-2 text-sm">
+                        {earlier.map(([label, xs]) => (
+                          <div key={label} className="flex gap-3">
+                            <dt className="w-20 shrink-0 font-bold text-[#7a635d]">
+                              {label}
+                            </dt>
+                            <dd className="text-[#2f2320]">
+                              {xs.map((x) => x.label || x.id).join(" · ")}
+                            </dd>
+                          </div>
+                        ))}
+                      </dl>
+                    </Card>
+                  ) : null}
+                </>
+              )}
 
               <div className="mt-10 text-center text-sm">
                 {confirmDelete ? (
