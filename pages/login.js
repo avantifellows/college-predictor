@@ -4,17 +4,17 @@ import { useRouter } from "next/router";
 import { ArrowRight, ChevronRight } from "lucide-react";
 import {
   ALL_INDIA_LOGIN_URL,
-  PROGRAMME_GROUPS,
+  PROGRAM_GROUPS,
   SIGNUP_URL,
   portalUrl,
 } from "../utils/portalSession";
 
 // Log in or sign up, through the Avanti Fellows portal. The portal asks
-// different things of each programme's students (an ID and date of birth,
-// a mobile number, …), so a student picks their programme and goes to that
-// programme's login, set to come back to Futures. Students who signed up
+// different things of each program's students (an ID and date of birth,
+// a mobile number, …), so a student picks their program and goes to that
+// program's login, set to come back to Futures. Students who signed up
 // on their own are AllIndiaStudents, the one group new students can join.
-// The header's Log in opens this page with the programmes first; Sign up
+// The header's Log in opens this page with the programs first; Sign up
 // free (?new=1) puts sign-up first.
 
 const card = "rounded-2xl border border-[#eaded8] bg-white p-5 sm:p-6";
@@ -40,14 +40,14 @@ function SignUp() {
   );
 }
 
-function Programmes() {
+function Programs() {
   const rows = [
-    ...PROGRAMME_GROUPS.map(({ group, label }) => ({
+    ...PROGRAM_GROUPS.map(({ group, label }) => ({
       label,
       href: portalUrl(group),
     })),
     {
-      label: "Not in a programme",
+      label: "Not in a program",
       sub: "I signed up on my own",
       href: ALL_INDIA_LOGIN_URL,
     },
@@ -58,8 +58,8 @@ function Programmes() {
         Log in with your Avanti Fellows account
       </h2>
       <p className="mt-1 text-sm text-[#7a635d]">
-        Pick your Avanti Fellows programme. You&apos;ll log in the same way you
-        do for classes and tests.
+        Pick your Avanti Fellows program. You&apos;ll log in the same way you do
+        for classes and tests.
       </p>
       <ul className="mt-4 flex flex-col divide-y divide-[#f1e5e1] overflow-hidden rounded-xl border border-[#eaded8]">
         {rows.map(({ label, sub, href }) => (
@@ -106,11 +106,11 @@ export default function Login() {
           {isNew ? (
             <>
               <SignUp />
-              <Programmes />
+              <Programs />
             </>
           ) : (
             <>
-              <Programmes />
+              <Programs />
               <SignUp />
             </>
           )}

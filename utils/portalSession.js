@@ -12,7 +12,7 @@ const CHANGE_EVENT = "futures-profile-change";
 // Students sign in through the Avanti portal, which sends them back here
 // with a launch token. What the portal asks for (ID, date of birth, …)
 // depends on the student's group, so Futures' own /login page asks which
-// group first. Anyone not in an Avanti programme is AllIndiaStudents, the
+// group first. Anyone not in an Avanti program is AllIndiaStudents, the
 // group that can also sign up (the portal's form 23; their mobile number
 // becomes their ID).
 export const PORTAL_LOGIN_URL = "/login";
@@ -40,9 +40,9 @@ export const SIGNUP_URL = portalUrl("AllIndiaStudents", {
 });
 export const ALL_INDIA_LOGIN_URL = portalUrl("AllIndiaStudents", ALL_INDIA);
 
-// Avanti programmes whose students log in with their own group (the same
+// Avanti programs whose students log in with their own group (the same
 // groups as Gurukul's login page, students only)
-export const PROGRAMME_GROUPS = [
+export const PROGRAM_GROUPS = [
   { group: "EnableStudents", label: "Jawahar Navodaya Vidyalaya (JNV)" },
   { group: "EMRSStudents", label: "Eklavya Model Residential School (EMRS)" },
   { group: "DelhiStudents", label: "Delhi" },
