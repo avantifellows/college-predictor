@@ -9,10 +9,49 @@ import { useEffect, useState } from "react";
 const PROFILE_KEY = "futures_student_profile";
 const CHANGE_EVENT = "futures-profile-change";
 
-// Avanti students sign in through the portal, which sends them back here with a launch token.
-export const PORTAL_LOGIN_URL =
-  process.env.NEXT_PUBLIC_PORTAL_LOGIN_URL ||
-  "https://auth.avantifellows.org/?platform=futures&authGroup=EnableStudents";
+// Students sign in through the Avanti portal, which sends them back here
+// with a launch token. What the portal asks for (ID, date of birth, …)
+// depends on the student's group, so Futures' own /login page asks which
+// group first. Anyone not in an Avanti programme is AllIndiaStudents, the
+// group that can also sign up (the portal's form 23; their mobile number
+// becomes their ID).
+export const PORTAL_LOGIN_URL = "/login";
+const PORTAL_BASE =
+  process.env.NEXT_PUBLIC_PORTAL_BASE_URL || "https://auth.avantifellows.org/";
+
+/** The portal's login for one group, sending the student back to Futures. */
+export const portalUrl = (authGroup, extra = {}) =>
+  `${PORTAL_BASE}?${new URLSearchParams({
+    platform: "futures",
+    authGroup,
+    // keeps the way back to Futures if the sign-up page reloads
+    redirection: "true",
+    ...extra,
+  })}`;
+
+const ALL_INDIA = {
+  signup_form: "true",
+  signup_form_id: "23",
+  id_generation: "true",
+};
+export const SIGNUP_URL = portalUrl("AllIndiaStudents", {
+  ...ALL_INDIA,
+  type: "sign-up",
+});
+export const ALL_INDIA_LOGIN_URL = portalUrl("AllIndiaStudents", ALL_INDIA);
+
+// Avanti programmes whose students log in with their own group (the same
+// groups as Gurukul's login page, students only)
+export const PROGRAMME_GROUPS = [
+  { group: "EnableStudents", label: "Jawahar Navodaya Vidyalaya (JNV)" },
+  { group: "EMRSStudents", label: "Eklavya Model Residential School (EMRS)" },
+  { group: "DelhiStudents", label: "Delhi" },
+  { group: "PunjabStudents", label: "Punjab" },
+  { group: "MaharashtraStudents", label: "Maharashtra" },
+  { group: "ChhattisgarhStudents", label: "Chhattisgarh" },
+  { group: "HimachalStudents", label: "Himachal Pradesh" },
+  { group: "UttarakhandStudents", label: "Uttarakhand" },
+];
 
 // stream stored on the student record -> the predictor exam to open first
 export const STREAM_TO_EXAM = {
