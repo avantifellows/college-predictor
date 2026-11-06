@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
@@ -27,6 +27,8 @@ const Dropdown = dynamic(() => import("../components/dropdown"), {
 // answers are kept only when the last question is answered (or Skip is
 // pressed); the homepage then shows the plan (utils/onboarding.js planFor).
 // A signed-in student sees their Avanti profile's answers already picked.
+// Class, stream and state are dropdowns; exams are tick boxes. Nothing
+// moves on by itself: each screen ends with Continue.
 
 const QUESTIONS = {
   class: { tag: "About you", title: "Which class are you in?" },
@@ -38,8 +40,8 @@ const QUESTIONS = {
   },
 };
 
-// one choice; `multi` draws a tick box instead of a radio dot
-function Option({ label, sub, on, onPick, multi }) {
+// one exam to tick (several can be)
+function Option({ label, sub, on, onPick }) {
   return (
     <button
       type="button"
@@ -57,27 +59,16 @@ function Option({ label, sub, on, onPick, multi }) {
           <span className="mt-0.5 block text-[13px] text-[#7a635d]">{sub}</span>
         ) : null}
       </span>
-      {multi ? (
-        <span
-          aria-hidden
-          className={`inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-[5px] ${
-            on
-              ? "bg-[#B52326] text-white"
-              : "border-[1.5px] border-[#decac3] bg-white"
-          }`}
-        >
-          {on ? <Check size={14} strokeWidth={3.5} /> : null}
-        </span>
-      ) : (
-        <span
-          aria-hidden
-          className={`h-5 w-5 shrink-0 rounded-full bg-white ${
-            on
-              ? "border-[6px] border-[#B52326]"
-              : "border-[1.5px] border-[#decac3]"
-          }`}
-        />
-      )}
+      <span
+        aria-hidden
+        className={`inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-[5px] ${
+          on
+            ? "bg-[#B52326] text-white"
+            : "border-[1.5px] border-[#decac3] bg-white"
+        }`}
+      >
+        {on ? <Check size={14} strokeWidth={3.5} /> : null}
+      </span>
     </button>
   );
 }
@@ -86,7 +77,6 @@ export default function GetStarted() {
   const router = useRouter();
   const { answers, save } = useGetStarted();
   const [draft, setDraft] = useState(null);
-  const timer = useRef(null);
 
   // start from what we already know (saved answers or the Avanti profile)
   useEffect(() => {
@@ -95,7 +85,6 @@ export default function GetStarted() {
       setDraft(rest);
     }
   }, [answers, draft]);
-  useEffect(() => () => clearTimeout(timer.current), []);
   // each question opens at the top (a shallow route change keeps the scroll)
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -131,12 +120,8 @@ export default function GetStarted() {
       });
     else finish(a);
   };
-  const pick = (key, value, auto) => {
-    const a = withAnswer(draft, key, value);
-    setDraft(a);
-    clearTimeout(timer.current);
-    if (auto) timer.current = setTimeout(() => advance(a), 180);
-  };
+  // nothing moves on by itself: every question ends with Continue
+  const pick = (key, value) => setDraft(withAnswer(draft, key, value));
 
   const back = () => {
     const i = steps.indexOf(step);
@@ -156,7 +141,6 @@ export default function GetStarted() {
   };
   const skip = () => {
     const a = draft || {};
-    clearTimeout(timer.current);
     // nothing answered: the homepage's "I want to …" chooser; otherwise a
     // plan from what was answered (no exam yet: interests first)
     if (a.cls) return finish(a);
@@ -168,41 +152,42 @@ export default function GetStarted() {
   const ok = draft && answered(step, draft);
   const at = steps.indexOf(step);
 
+  // a labelled house dropdown (class, stream, state)
+  const field = (label, options, value, key, search) => (
+    <label className="block">
+      <span className="mb-1.5 block text-sm font-bold text-[#4a3a36]">
+        {label}
+      </span>
+      <Dropdown
+        options={options}
+        selectedValue={value || null}
+        onChange={(o) => pick(key, o.value)}
+        placeholder={`Select your ${label.toLowerCase()}`}
+        isSearchable={!!search}
+        hideValueWhileSearching={!!search}
+      />
+    </label>
+  );
+  const asOptions = (xs) =>
+    xs.map((x) => ({
+      value: x.id,
+      label: x.sub ? `${x.label} (${x.sub.toLowerCase()})` : x.label,
+    }));
+
   let body = null;
   if (draft && step === "class") {
-    body = CLASSES.map((c) => (
-      <Option
-        key={c.id}
-        label={c.label}
-        sub={c.sub}
-        on={draft.cls === c.id}
-        onPick={() => pick("cls", c.id, true)}
-      />
-    ));
+    body = field("Class", asOptions(CLASSES), draft.cls, "cls");
   } else if (draft && step === "stream") {
     body = (
       <>
-        {STREAMS.map((s) => (
-          <Option
-            key={s.id}
-            label={s.label}
-            sub={s.sub}
-            on={draft.stream === s.id}
-            onPick={() => pick("stream", s.id, false)}
-          />
-        ))}
-        <label className="mt-3 block">
-          <span className="mb-1.5 block text-sm font-bold text-[#4a3a36]">
-            Your state
-          </span>
-          <Dropdown
-            options={STATES.map((s) => ({ value: s, label: s }))}
-            selectedValue={draft.state || null}
-            onChange={(o) => pick("state", o.value, false)}
-            placeholder="Select your state"
-            hideValueWhileSearching
-          />
-        </label>
+        {field("Stream", asOptions(STREAMS), draft.stream, "stream")}
+        {field(
+          "State",
+          STATES.map((x) => ({ value: x, label: x })),
+          draft.state,
+          "state",
+          true
+        )}
       </>
     );
   } else if (draft && step === "exam") {
@@ -213,7 +198,6 @@ export default function GetStarted() {
         key={o.id}
         label={o.label}
         sub={o.sub}
-        multi
         on={picked.includes(o.id)}
         onPick={() => setDraft(toggleExam(draft, o.id))}
       />
@@ -266,8 +250,8 @@ export default function GetStarted() {
           {Q.sub ? (
             <p className="mt-1 text-sm text-[#7a635d]">{Q.sub}</p>
           ) : null}
-          <div className="mt-5 flex flex-col gap-2.5">{body}</div>
-          {draft && (step === "stream" || step === "exam" || ok) ? (
+          <div className="mt-5 flex flex-col gap-3">{body}</div>
+          {draft ? (
             <button
               type="button"
               disabled={!ok}
