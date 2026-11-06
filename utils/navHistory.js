@@ -50,7 +50,9 @@ export function useNavHistory() {
     const onStart = () => {
       leaving = {
         key: entryKey(),
-        path: router.asPath.split("#")[0],
+        // the address actually shown (a server redirect, like a sign-in
+        // landing, leaves router.asPath on the URL that was asked for)
+        path: (window.location.pathname + window.location.search).split("#")[0],
         title: titleOf(document.title),
       };
     };
