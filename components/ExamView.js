@@ -1,3 +1,4 @@
+import Link from "next/link";
 import StarButton from "./StarButton";
 import { CalendarDays, IndianRupee, MapPin } from "lucide-react";
 import BackLink from "./BackLink";
@@ -56,6 +57,30 @@ export default function ExamView({ e, back = "/exams", backSlot }) {
               BITS Pilani); a state CET's scope is just its state */}
           {e.scope_type === "University" && scope ? (
             <p className="mt-1 text-sm text-[#6d5550]">Conducted by {scope}</p>
+          ) : null}
+
+          {/* the next step, up top: the colleges this exam gets you into */}
+          {e.predictor_exam || e.colleges_link ? (
+            <div className="mt-4 flex flex-wrap gap-2.5">
+              {e.predictor_exam ? (
+                <Link
+                  href={`/predictor?exam=${encodeURIComponent(
+                    e.predictor_exam
+                  )}&examId=${encodeURIComponent(e.exam_id)}`}
+                  className="inline-flex min-h-[44px] items-center rounded-[10px] bg-[#B52326] px-4 text-sm font-bold text-white transition hover:bg-[#9E1F22]"
+                >
+                  Predict your colleges
+                </Link>
+              ) : null}
+              {e.colleges_link ? (
+                <Link
+                  href={e.colleges_link}
+                  className="inline-flex min-h-[44px] items-center rounded-[10px] border-[1.5px] border-[#B52326] px-4 text-sm font-bold text-[#B52326] transition hover:bg-[#fbeeec]"
+                >
+                  Colleges accepting it
+                </Link>
+              ) : null}
+            </div>
           ) : null}
 
           <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-3">
