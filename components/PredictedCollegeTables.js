@@ -13,6 +13,7 @@ import {
 import PropTypes from "prop-types";
 import examConfigs from "../examConfig";
 import CoachMarks from "./CoachMarks";
+import StarButton from "./StarButton";
 import ChoiceBuilder from "./ChoiceBuilder";
 import {
   BRANCH_FAMILIES,
@@ -2213,8 +2214,33 @@ const PredictedCollegesTable = ({
     </tr>
   );
 
+  // the institute cell: a bookmark star (signed-in students, rows matched
+  // to a college card) before the name
+  const renderCellValue = (column, transformedItem) => {
+    const cell = renderCellBody(column, transformedItem);
+    const id = transformedItem["Facts Key"];
+    if (
+      !INSTITUTE_KEYS.has(column.key) ||
+      !id ||
+      String(id).startsWith("campus:")
+    )
+      return cell;
+    return (
+      <span className="flex items-start gap-1">
+        <StarButton
+          compact
+          kind="college"
+          id={id}
+          label={transformedItem["Card Name"]}
+          extra={{ meta: transformedItem["Card Place"] }}
+          className="-ml-1.5 -mt-1.5"
+        />
+        <span className="min-w-0">{cell}</span>
+      </span>
+    );
+  };
   // a cell's content: the institute links to its college card
-  const renderCellValue = (column, transformedItem) =>
+  const renderCellBody = (column, transformedItem) =>
     INSTITUTE_KEYS.has(column.key) &&
     ((isJosaaExam && transformedItem["College ID"]) ||
       (NAME_LINK_EXAMS.has(exam) && canLinkRow(transformedItem))) ? (

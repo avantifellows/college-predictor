@@ -6,6 +6,9 @@ import { useRouter } from "next/router";
 import { Plus, X } from "lucide-react";
 import { selectFilter } from "../utils/search";
 import BackLink from "../components/BackLink";
+import StarButton from "../components/StarButton";
+import { previousPage } from "../utils/navHistory";
+import { useStudentData } from "../utils/studentData";
 
 const Dropdown = dynamic(() => import("../components/dropdown"), {
   ssr: false,
@@ -228,6 +231,24 @@ const matchBranchIdx = (college, programName) => {
 
 export default function Compare() {
   const router = useRouter();
+  const { signedIn } = useStudentData();
+  // came from predictor results: the way back keeps the student's inputs
+  const [resultsPath, setResultsPath] = useState(null);
+  useEffect(() => {
+    // _app records where this page was opened from when the route change
+    // completes, which is after this page mounts: read it then
+    const check = () => {
+      const from = previousPage();
+      if (from && from.path.startsWith("/college_predictor"))
+        setResultsPath(from.path);
+    };
+    const t = setTimeout(check, 0);
+    router.events.on("routeChangeComplete", check);
+    return () => {
+      clearTimeout(t);
+      router.events.off("routeChangeComplete", check);
+    };
+  }, [router.events]);
   const [all, setAll] = useState([]);
   const [error, setError] = useState(null);
   const [options, setOptions] = useState([
@@ -375,7 +396,11 @@ export default function Compare() {
       </Head>
       <div className="min-h-screen px-3 py-6 sm:px-6">
         <div className="mx-auto mb-3 max-w-6xl">
-          <BackLink />
+          {resultsPath ? (
+            <BackLink href={resultsPath}>My predictor results</BackLink>
+          ) : (
+            <BackLink />
+          )}
         </div>
         <div className="mx-auto max-w-6xl rounded-2xl border border-[#eee1d7] bg-white p-4 shadow-sm sm:p-8">
           <h1 className="text-center text-3xl font-bold text-[#332724]">
@@ -502,14 +527,29 @@ export default function Compare() {
                             <td className="px-3 py-3" />
                             {picked.map((o, i) => (
                               <td key={i} className="px-3 py-3">
-                                <Link
-                                  href={`/colleges?q=${encodeURIComponent(
-                                    o.college.display_name
-                                  )}`}
-                                  className="text-xs text-[#8f2e31] underline hover:text-[#B52326]"
-                                >
-                                  Full college details
-                                </Link>
+                                <div className="flex flex-wrap items-center gap-3">
+                                  <StarButton
+                                    kind="college"
+                                    id={o.college.college_id}
+                                    label={o.college.display_name}
+                                    extra={{
+                                      meta: [
+                                        o.college.district,
+                                        o.college.state,
+                                      ]
+                                        .filter(Boolean)
+                                        .join(", "),
+                                    }}
+                                  />
+                                  <Link
+                                    href={`/colleges?q=${encodeURIComponent(
+                                      o.college.display_name
+                                    )}`}
+                                    className="text-xs text-[#8f2e31] underline hover:text-[#B52326]"
+                                  >
+                                    Full college details
+                                  </Link>
+                                </div>
                               </td>
                             ))}
                           </tr>
@@ -521,6 +561,32 @@ export default function Compare() {
                     Highlighted cells have the better number. Based on NIRF data
                     and each college&apos;s own fee circular.
                   </p>
+                  {/* what next: save the ones you like, or go back for more */}
+                  <div className="mt-6 flex flex-col gap-3 rounded-2xl border border-[#eaded8] bg-white p-4 sm:flex-row sm:items-center sm:justify-between">
+                    <p className="text-sm text-[#5c4a45]">
+                      {signedIn ? (
+                        "Liked one? Save it with the star, then look for more."
+                      ) : (
+                        <>
+                          <Link
+                            href="/login"
+                            className="font-bold text-[#8f2e31] underline"
+                          >
+                            Log in
+                          </Link>{" "}
+                          to save the ones you like, then look for more.
+                        </>
+                      )}
+                    </p>
+                    <Link
+                      href={resultsPath || "/predictor"}
+                      className="inline-flex shrink-0 items-center justify-center rounded-[10px] bg-[#B52326] px-4 py-2.5 text-sm font-black text-white transition hover:bg-[#9E1F22]"
+                    >
+                      {resultsPath
+                        ? "Back to my results"
+                        : "Find colleges for my rank"}
+                    </Link>
+                  </div>
                 </>
               ) : (
                 <p className="mt-8 text-center text-sm text-[#6d5550]">

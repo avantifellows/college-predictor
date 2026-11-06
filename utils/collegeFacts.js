@@ -87,6 +87,11 @@ export const withCollegeFacts = (rows, exam) =>
             : ""
         }`;
     if (card) {
+      // what a bookmark (star) on this row saves
+      out["Card Name"] = card.display_name;
+      out["Card Place"] = [card.district, card.state]
+        .filter(Boolean)
+        .join(", ");
       // JoSAA's rank column reads as an engineering rank: a college NIRF
       // ranks only on its University list (JNU, Assam University) shows none.
       // Architecture-list ranks stay, for the SPAs' B.Arch and B.Plan.
