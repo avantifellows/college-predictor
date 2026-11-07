@@ -8,7 +8,6 @@ import { selectFilter } from "../utils/search";
 import BackLink from "../components/BackLink";
 import StarButton from "../components/StarButton";
 import { previousPage } from "../utils/navHistory";
-import { useStudentData } from "../utils/studentData";
 
 const Dropdown = dynamic(() => import("../components/dropdown"), {
   ssr: false,
@@ -231,7 +230,6 @@ const matchBranchIdx = (college, programName) => {
 
 export default function Compare() {
   const router = useRouter();
-  const { signedIn } = useStudentData();
   // came from predictor results: the way back keeps the student's inputs
   const [resultsPath, setResultsPath] = useState(null);
   useEffect(() => {
@@ -564,19 +562,7 @@ export default function Compare() {
                   {/* what next: save the ones you like, or go back for more */}
                   <div className="mt-6 flex flex-col gap-3 rounded-2xl border border-[#eaded8] bg-white p-4 sm:flex-row sm:items-center sm:justify-between">
                     <p className="text-sm text-[#5c4a45]">
-                      {signedIn ? (
-                        "Liked one? Save it with the star, then look for more."
-                      ) : (
-                        <>
-                          <Link
-                            href="/login"
-                            className="font-bold text-[#8f2e31] underline"
-                          >
-                            Log in
-                          </Link>{" "}
-                          to save the ones you like, then look for more.
-                        </>
-                      )}
+                      Liked one? Save it with the star, then look for more.
                     </p>
                     <Link
                       href={resultsPath || "/predictor"}

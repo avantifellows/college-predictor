@@ -6,7 +6,11 @@ import React, {
   useMemo,
   useState,
 } from "react";
-import { clearProfile, useStudentProfile } from "./portalSession";
+import {
+  clearProfile,
+  takePendingStar,
+  useStudentProfile,
+} from "./portalSession";
 
 // What a signed-in student has saved (stars, pathway, quiz result, Get
 // started answers), loaded
@@ -115,6 +119,15 @@ export function StudentDataProvider({ children }) {
     },
     [userId, data.stars]
   );
+
+  // what a guest starred before signing up: saved once their saves load
+  useEffect(() => {
+    if (!data.loaded) return;
+    const star = takePendingStar();
+    if (star && !(data.stars[star.kind] || []).some((s) => s.id === star.id))
+      toggleStar(star.kind, star.id, star.label, star.extra);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [data.loaded]);
 
   const savePathway = useCallback(
     async (patch) => {

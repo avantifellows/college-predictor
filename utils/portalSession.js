@@ -40,6 +40,45 @@ export const SIGNUP_URL = portalUrl("AllIndiaStudents", {
 });
 export const ALL_INDIA_LOGIN_URL = portalUrl("AllIndiaStudents", ALL_INDIA);
 
+// The portal always sends a student back to Futures' home page. So before
+// leaving for it, remember the page they were on (and anything they starred
+// as a guest); when they come back signed in, PortalSessionBootstrap takes
+// them there and StudentDataProvider saves the star. Kept an hour at most.
+const RETURN_KEY = "futures_return_to";
+const PENDING_STAR_KEY = "futures_pending_star";
+const HOUR = 60 * 60 * 1000;
+
+const putJson = (k, v) => {
+  try {
+    if (v == null) window.localStorage.removeItem(k);
+    else
+      window.localStorage.setItem(k, JSON.stringify({ ...v, at: Date.now() }));
+  } catch {
+    // storage blocked: they land on the home page, as before
+  }
+};
+const takeJson = (k) => {
+  try {
+    const v = JSON.parse(window.localStorage.getItem(k) || "null");
+    window.localStorage.removeItem(k);
+    return v && Date.now() - v.at < HOUR ? v : null;
+  } catch {
+    return null;
+  }
+};
+
+/** Right before going to the portal: the page to come back to. */
+export const rememberReturn = (path) =>
+  path && path.startsWith("/") && !path.startsWith("/login")
+    ? putJson(RETURN_KEY, { path })
+    : putJson(RETURN_KEY, null);
+/** Once, on coming back signed in. */
+export const takeReturn = () => takeJson(RETURN_KEY)?.path || null;
+
+/** A guest's star, saved for them once they sign in (null clears it). */
+export const setPendingStar = (star) => putJson(PENDING_STAR_KEY, star);
+export const takePendingStar = () => takeJson(PENDING_STAR_KEY);
+
 // Avanti programs whose students log in with their own group (the same
 // groups as Gurukul's login page, students only)
 export const PROGRAM_GROUPS = [
