@@ -1,5 +1,5 @@
 import StarButton from "./StarButton";
-import { scholarshipId, useStudentData } from "../utils/studentData";
+import { scholarshipId } from "../utils/studentData";
 import React from "react";
 import useGetStarted from "../utils/useGetStarted";
 
@@ -234,7 +234,6 @@ const ScholarshipTable = ({
   toggleRowExpansion,
   expandedRows,
 }) => {
-  const { signedIn } = useStudentData();
   const { record } = useGetStarted();
   const headers = ["Scholarship Name", "Status", "Last Date", "Official Link"];
   const expandedFields = [
@@ -263,14 +262,11 @@ const ScholarshipTable = ({
   return (
     <div className="overflow-x-auto rounded-2xl border border-[#eaded8] bg-white shadow-sm">
       <table className="w-full min-w-[760px] table-fixed border-collapse text-sm">
-        <TableHeader headers={headers} starCol={signedIn} />
+        <TableHeader headers={headers} starCol />
         <tbody>
           {filteredData?.length === 0 && (
             <tr>
-              <td
-                colSpan={signedIn ? 6 : 5}
-                className="px-4 py-6 text-center text-[#5b3a34]"
-              >
+              <td colSpan={6} className="px-4 py-6 text-center text-[#5b3a34]">
                 No scholarships found. Please try again with different filters.
               </td>
             </tr>
@@ -282,17 +278,15 @@ const ScholarshipTable = ({
                   index % 2 === 0 ? "bg-[#fffdfa]" : "bg-white"
                 }`}
               >
-                {signedIn ? (
-                  <td className="w-10 py-2 pl-2 align-top">
-                    <StarButton
-                      compact
-                      kind="scholarship"
-                      id={scholarshipId(item["Scholarship Name"])}
-                      label={item["Scholarship Name"]}
-                      extra={{ deadline: getDeadlineLabel(item) }}
-                    />
-                  </td>
-                ) : null}
+                <td className="w-10 py-2 pl-2 align-top">
+                  <StarButton
+                    compact
+                    kind="scholarship"
+                    id={scholarshipId(item["Scholarship Name"])}
+                    label={item["Scholarship Name"]}
+                    extra={{ deadline: getDeadlineLabel(item) }}
+                  />
+                </td>
                 <TableCell className="font-medium">
                   {item["Scholarship Name"]}
                   {getNirfNote(item) && (
@@ -361,7 +355,7 @@ const ScholarshipTable = ({
                 <ExpandedRow
                   item={item}
                   expandedFields={expandedFields}
-                  cols={signedIn ? 6 : 5}
+                  cols={6}
                 />
               )}
             </React.Fragment>

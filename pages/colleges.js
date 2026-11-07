@@ -1,5 +1,4 @@
 import StarButton from "../components/StarButton";
-import { useStudentData } from "../utils/studentData";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
@@ -162,7 +161,6 @@ const admitsOn = (c, x) =>
 
 const Colleges = () => {
   const router = useRouter();
-  const { signedIn } = useStudentData();
   const [all, setAll] = useState([]);
   const [error, setError] = useState(null);
   // Filters live in the URL, so a filtered list or an opened college can be
@@ -523,8 +521,8 @@ const Colleges = () => {
                 <table className="w-full min-w-[760px] border-collapse">
                   <thead className="bg-[#f8efec]">
                     <tr>
-                      {/* a signed-in student's save stars */}
-                      {signedIn ? <th className={`${th} w-10`} /> : null}
+                      {/* save stars (a guest is asked to sign up) */}
+                      <th className={`${th} w-10`} />
                       <th className={th}>College</th>
                       <th className={th}>Location</th>
                       <th className={th}>NIRF</th>
@@ -558,7 +556,7 @@ const Colleges = () => {
                         index={i}
                         href={hrefOf(c)}
                         onOpen={() => router.push(hrefOf(c))}
-                        starCol={signedIn}
+                        starCol
                       />
                     ))}
                   </tbody>

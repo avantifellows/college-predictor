@@ -1,6 +1,10 @@
 import { useEffect } from "react";
 import { useRouter } from "next/router";
-import { consumeLaunchToken, syncSession } from "../utils/portalSession";
+import {
+  consumeLaunchToken,
+  syncSession,
+  takeReturn,
+} from "../utils/portalSession";
 
 // Runs on every page: if the portal sent us a launchToken, hand it to the
 // server (which starts the session cookie), store the profile, and remove the
@@ -21,10 +25,16 @@ const PortalSessionBootstrap = () => {
 
     consumeLaunchToken(String(token))
       .catch(() => null)
-      .finally(() => {
-        router.replace({ pathname: router.pathname, query: rest }, undefined, {
-          shallow: true,
-        });
+      .then((profile) => {
+        // signed in: back to the page they left for the portal (the portal
+        // itself always lands on the home page)
+        const back = profile ? takeReturn() : null;
+        if (back) return router.replace(back);
+        return router.replace(
+          { pathname: router.pathname, query: rest },
+          undefined,
+          { shallow: true }
+        );
       });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router.isReady, router.query.launchToken]);
