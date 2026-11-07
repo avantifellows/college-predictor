@@ -9,6 +9,7 @@ import Fuse from "fuse.js";
 import examConfigs from "../examConfig";
 import { debounce } from "lodash";
 import { useRecordUse } from "../utils/useGetStarted";
+import { markForward, previousPage } from "../utils/navHistory";
 
 // Base Fuse options - keys will be added dynamically based on exam
 const baseFuseOptions = {
@@ -324,6 +325,21 @@ const CollegePredictor = () => {
             href={`/predictor?${new URLSearchParams(
               getCleanQueryObject(router.query)
             ).toString()}`}
+            onClick={(e) => {
+              // Editing is the same step as the form, not a page on top of
+              // the results: opened from the form, go back to it (answers
+              // kept); otherwise the form takes the results' place, so its
+              // back link leads where the results were opened from
+              if (e.metaKey || e.ctrlKey || e.shiftKey) return; // new tab
+              e.preventDefault();
+              if (previousPage()?.path?.split("?")[0] === "/predictor") {
+                router.back();
+              } else {
+                const to = e.currentTarget.getAttribute("href");
+                markForward(to);
+                router.replace(to);
+              }
+            }}
             className="inline-flex items-center gap-1.5 rounded-full border border-[#d8c7c1] bg-white px-4 py-2 text-sm font-semibold text-[#7a2628] transition hover:bg-[#f8efec]"
           >
             ← Edit inputs
