@@ -31,14 +31,20 @@ const btnSecond =
   "inline-flex items-center justify-center gap-2 rounded-[10px] border-[1.5px] border-[#e0cfc9] bg-white px-5 py-3 text-base font-bold text-[#2f2320] transition hover:border-[#B52326]";
 
 // a step or button: in-site Link, or a new tab for the CV generator
+// an outside site (the CV builder) can't tell us what happened there:
+// opening it from the plan is what counts for its step
 function Go({ to, className, onClick, children }) {
+  const { record } = useGetStarted();
   return to.external ? (
     <a
       href={to.href}
       target="_blank"
       rel="noopener noreferrer"
       className={className}
-      onClick={onClick}
+      onClick={(e) => {
+        (to.uses || []).forEach(record);
+        if (onClick) onClick(e);
+      }}
     >
       {children}
     </a>

@@ -291,6 +291,8 @@ const q = (params) => {
 const scholarships = (grade, state) => ({
   id: "scholarships",
   star: "scholarship",
+  // a scholarship's details opened, or its source visited
+  uses: ["scholarship"],
   title: "Find scholarships",
   line: "Scholarships you can apply for",
   href: `/scholarships${q({ grade, state })}`,
@@ -305,6 +307,8 @@ const careerQuiz = {
 const careers = (stream) => ({
   id: "careers",
   star: "career",
+  // any career's page opened
+  uses: ["career:*"],
   title: "Explore careers",
   line: CAREER_STREAM[stream]
     ? `Careers you can go into after ${CAREER_STREAM[stream]}`
@@ -314,6 +318,8 @@ const careers = (stream) => ({
 const exploreExams = (a) => ({
   id: "exams",
   star: "exam",
+  // any exam's page opened
+  uses: ["exam:*"],
   title: "See entrance exams",
   line: a.state
     ? `Exams open to students in ${a.state}`
@@ -443,6 +449,8 @@ export function planFor(a, season) {
   if (a.cls === "college") {
     const cv = {
       id: "cv",
+      // an outside site: opening it from the plan is all we can see
+      uses: ["cv"],
       title: "Build your CV",
       line: "A clean resume in minutes",
       href: CV_URL,

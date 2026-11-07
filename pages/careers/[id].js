@@ -4,11 +4,14 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import DetailBackLink from "../../components/DetailBackLink";
 import { CareerDetail, loadCareers } from "../../components/careerShared";
+import { useRecordUse } from "../../utils/useGetStarted";
 
 // One career on its own page (/careers/<id>).
 export default function CareerPage() {
   const router = useRouter();
   const [career, setCareer] = useState(undefined);
+  // the Get started plan: a career looked at (its "Explore careers" step)
+  useRecordUse(career ? `career:${career.career_id}` : null, !!career);
 
   useEffect(() => {
     if (!router.isReady) return;

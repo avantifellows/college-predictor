@@ -1,6 +1,7 @@
 import StarButton from "./StarButton";
 import { scholarshipId, useStudentData } from "../utils/studentData";
 import React from "react";
+import useGetStarted from "../utils/useGetStarted";
 
 const parseDeadline = (value) => {
   if (!value) return null;
@@ -234,6 +235,7 @@ const ScholarshipTable = ({
   expandedRows,
 }) => {
   const { signedIn } = useStudentData();
+  const { record } = useGetStarted();
   const headers = ["Scholarship Name", "Status", "Last Date", "Official Link"];
   const expandedFields = [
     { key: "Stream", label: "Stream" },
@@ -332,6 +334,7 @@ const ScholarshipTable = ({
                         href={appLink}
                         target="_blank"
                         rel="noopener noreferrer"
+                        onClick={() => record("scholarship")}
                         className="font-medium text-[#B52326] hover:underline"
                       >
                         Visit source
@@ -344,7 +347,11 @@ const ScholarshipTable = ({
                 <TableCell>
                   <button
                     className="whitespace-nowrap rounded-lg bg-[#B52326] px-4 py-2 text-white hover:bg-[#9E1F22]"
-                    onClick={() => toggleRowExpansion(index)}
+                    onClick={() => {
+                      // the Get started plan: a scholarship looked into
+                      if (!expandedRows[index]) record("scholarship");
+                      toggleRowExpansion(index);
+                    }}
                   >
                     {expandedRows[index] ? "Show Less" : "Show More"}
                   </button>
