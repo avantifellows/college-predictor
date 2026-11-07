@@ -35,6 +35,9 @@ export default function ExamPage() {
   if (exam === null) {
     return (
       <div className="min-h-screen px-4 py-6">
+        <Head>
+          <title>Exams - Futures</title>
+        </Head>
         <div className="mx-auto max-w-5xl">
           <BackLink href="/exams">All exams</BackLink>
           <p className="mt-8 text-center text-[#6d5550]">

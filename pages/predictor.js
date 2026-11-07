@@ -163,6 +163,20 @@ const ExamForm = () => {
       .catch(() => setExamsById({}));
   }, []);
 
+  // Results open as a new page; first the form's own address takes the
+  // answers, so "Edit inputs" (the browser's Back) brings the form back
+  // filled in, with its back link still pointing where the student started.
+  const openResults = (queryString) => {
+    const answers = Object.fromEntries(new URLSearchParams(queryString));
+    router
+      .replace(
+        { pathname: "/predictor", query: { ...router.query, ...answers } },
+        undefined,
+        { shallow: true, scroll: false }
+      )
+      .finally(() => router.push(`/college_predictor?${queryString}`));
+  };
+
   // Deep links from the Exams tab (/predictor?exam=KCET&examId=kea-cet)
   // preselect stream, exam and counselling — through the same handlers a
   // click uses, so per-exam form initialisation happens.
@@ -443,7 +457,7 @@ const ExamForm = () => {
       const queryString = getCleanQueryEntries(cleanedFormData)
         .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
         .join("&");
-      router.push(`/college_predictor?${queryString}`);
+      openResults(queryString);
     } else {
       // For other exams, proceed as usual
       if (primaryInputError) {
@@ -453,7 +467,7 @@ const ExamForm = () => {
       const queryString = getCleanQueryEntries(formData)
         .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
         .join("&");
-      router.push(`/college_predictor?${queryString}`);
+      openResults(queryString);
     }
   };
 
@@ -520,7 +534,7 @@ const ExamForm = () => {
     const queryString = getCleanQueryEntries(query)
       .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
       .join("&");
-    router.push(`/college_predictor?${queryString}`);
+    openResults(queryString);
   };
 
   // ---- stream -> exam -> counselling ----------------------------------
