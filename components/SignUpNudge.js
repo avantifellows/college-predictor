@@ -56,11 +56,11 @@ export default function SignUpNudge({ label, onClose }) {
         <p className="mt-1.5 text-sm leading-6 text-[#5c4a45]">
           {label ? (
             <>
-              We&apos;ll save <b className="text-[#2f2320]">{label}</b> for you.
-              Everything you save stays in Student Corner.
+              We&apos;ll save <b className="text-[#2f2320]">{label}</b> to your
+              profile, so you can come back to it anytime.
             </>
           ) : (
-            "Everything you save stays in Student Corner."
+            "We'll save it to your profile, so you can come back to it anytime."
           )}
         </p>
         <Link
