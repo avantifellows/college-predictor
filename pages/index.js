@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 import IconTile from "../components/IconTile";
 import { CV_URL, HOME_TILES } from "../utils/siteMap";
-import { planFor, stepDone } from "../utils/onboarding";
+import { heroFor, planFor, stepDone } from "../utils/onboarding";
 import useGetStarted from "../utils/useGetStarted";
 import { useStudentData } from "../utils/studentData";
 
@@ -31,14 +31,20 @@ const btnSecond =
   "inline-flex items-center justify-center gap-2 rounded-[10px] border-[1.5px] border-[#e0cfc9] bg-white px-5 py-3 text-base font-bold text-[#2f2320] transition hover:border-[#B52326]";
 
 // a step or button: in-site Link, or a new tab for the CV generator
+// an outside site (the CV builder) can't tell us what happened there:
+// opening it from the plan is what counts for its step
 function Go({ to, className, onClick, children }) {
+  const { record } = useGetStarted();
   return to.external ? (
     <a
       href={to.href}
       target="_blank"
       rel="noopener noreferrer"
       className={className}
-      onClick={onClick}
+      onClick={(e) => {
+        (to.uses || []).forEach(record);
+        if (onClick) onClick(e);
+      }}
     >
       {children}
     </a>
@@ -66,29 +72,53 @@ function Chip({ parts, name }) {
   );
 }
 
-function PlanHero({ plan, answers, stars, name }) {
+function PlanHero({ plan, answers, stars, name, signedIn }) {
   const isDone = (s) => stepDone(s, answers.used, stars);
   const next = plan.steps.find((s) => !isDone(s));
-  const { hero } = plan;
+  // the headline moves on with the student (utils/onboarding.js heroFor)
+  const hero = heroFor(plan, isDone);
   return (
     <section className="bg-gradient-to-b from-[#fbeeec] to-[#fdf8f6] pb-10 pt-10">
       <div className="mx-auto max-w-[1080px] px-4 sm:px-6">
         <Chip parts={plan.chip} name={name} />
-        <h1 className="mt-5 max-w-3xl text-[clamp(28px,4.3vw,44px)] font-black leading-[1.12] tracking-[-0.02em] text-[#2f2320]">
-          {hero.before}
-          <span className="text-[#B52326]">{hero.em}</span>
-          {hero.after}
-        </h1>
-        <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-          <Go to={hero.cta} className={btnPrimary}>
-            {hero.cta.label} <ArrowRight size={18} />
-          </Go>
-          {hero.second ? (
-            <Go to={hero.second} className={btnSecond}>
-              {hero.second.label}
-            </Go>
-          ) : null}
-        </div>
+        {hero.done ? (
+          <>
+            <h1 className="mt-5 max-w-3xl text-[clamp(28px,4.3vw,44px)] font-black leading-[1.12] tracking-[-0.02em] text-[#2f2320]">
+              You&apos;ve done every step of{" "}
+              <span className="text-[#B52326]">your plan</span>
+            </h1>
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+              <Go
+                to={{ href: signedIn ? "/student-corner" : "/login?new=1" }}
+                className={btnPrimary}
+              >
+                {signedIn ? "Make your college plan" : "Sign up to save it"}{" "}
+                <ArrowRight size={18} />
+              </Go>
+              <Go to={{ href: "/get-started" }} className={btnSecond}>
+                Change my answers
+              </Go>
+            </div>
+          </>
+        ) : (
+          <>
+            <h1 className="mt-5 max-w-3xl text-[clamp(28px,4.3vw,44px)] font-black leading-[1.12] tracking-[-0.02em] text-[#2f2320]">
+              {hero.before}
+              <span className="text-[#B52326]">{hero.em}</span>
+              {hero.after}
+            </h1>
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+              <Go to={hero.cta} className={btnPrimary}>
+                {hero.cta.label} <ArrowRight size={18} />
+              </Go>
+              {hero.second ? (
+                <Go to={hero.second} className={btnSecond}>
+                  {hero.second.label}
+                </Go>
+              ) : null}
+            </div>
+          </>
+        )}
 
         <div className="mt-10 flex items-baseline justify-between gap-3">
           <h2 className="text-xl font-black text-[#2f2320] sm:text-2xl">
@@ -176,7 +206,13 @@ export default function Home({ counts }) {
   if (!answers && signedIn) hero = <div className="h-[420px]" />;
   else if (hasPlan)
     hero = (
-      <PlanHero plan={plan} answers={answers} stars={stars} name={firstName} />
+      <PlanHero
+        plan={plan}
+        answers={answers}
+        stars={stars}
+        name={firstName}
+        signedIn={signedIn}
+      />
     );
   // first visit, Skip, or not a student. Not a student keeps a way to
   // change that answer instead of being asked to get started again

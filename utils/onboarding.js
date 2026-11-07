@@ -17,7 +17,8 @@ import { CV_URL } from "./siteMap";
 //           shown), "mock:josaa" / "mock:mhtcet" (a round run), "career-quiz"
 //           (results reached), "exam:<exam id>" (its page opened)
 //
-// A plan step is done when one of its `uses` is in `used`, or (`star`) the
+// A plan step is done when one of its `uses` is in `used` ("exam:*": any
+// exam page but those in `usesExcept`), or (`star`) the
 // signed-in student has starred one of that kind. Opening a step is not
 // doing it.
 //
@@ -290,6 +291,8 @@ const q = (params) => {
 const scholarships = (grade, state) => ({
   id: "scholarships",
   star: "scholarship",
+  // a scholarship's details opened, or its source visited
+  uses: ["scholarship"],
   title: "Find scholarships",
   line: "Scholarships you can apply for",
   href: `/scholarships${q({ grade, state })}`,
@@ -304,6 +307,8 @@ const careerQuiz = {
 const careers = (stream) => ({
   id: "careers",
   star: "career",
+  // any career's page opened
+  uses: ["career:*"],
   title: "Explore careers",
   line: CAREER_STREAM[stream]
     ? `Careers you can go into after ${CAREER_STREAM[stream]}`
@@ -313,6 +318,8 @@ const careers = (stream) => ({
 const exploreExams = (a) => ({
   id: "exams",
   star: "exam",
+  // any exam's page opened
+  uses: ["exam:*"],
   title: "See entrance exams",
   line: a.state
     ? `Exams open to students in ${a.state}`
@@ -442,6 +449,8 @@ export function planFor(a, season) {
   if (a.cls === "college") {
     const cv = {
       id: "cv",
+      // an outside site: opening it from the plan is all we can see
+      uses: ["cv"],
       title: "Build your CV",
       line: "A clean resume in minutes",
       href: CV_URL,
@@ -542,6 +551,10 @@ export function planFor(a, season) {
         {
           id: "backup-exams",
           star: "exam",
+          // opening another exam's page counts (guests can't star); the
+          // main exam's own page doesn't
+          uses: ["exam:*"],
+          usesExcept: info.page ? [`exam:${info.page}`] : [],
           title: "See backup exam options",
           line: "Other exams that can get you into a good college",
           href: `/exams${q({ where: a.state })}`,
@@ -627,7 +640,59 @@ export function cleanAnswers(a) {
   );
 }
 
+// what the headline says when a step is the one to do next. The plan's own
+// hero covers its first step; these take over as the student moves on.
+const STEP_HERO = {
+  predict: { before: "See which ", em: "colleges", after: " you can get" },
+  mock: { before: "Practise your ", em: "choice list", after: " in a mock" },
+  backup: { before: "Line up ", em: "backup", after: " colleges" },
+  "backup-exams": {
+    before: "Check out your ",
+    em: "backup exam",
+    after: " options",
+  },
+  "backup-cutoffs": {
+    before: "See ",
+    em: "cutoffs",
+    after: " for your backup exams",
+  },
+  exam: { before: "Get to know ", em: "your exam", after: "" },
+  "career-quiz": {
+    before: "See which ",
+    em: "careers",
+    after: " match your interests",
+  },
+  careers: { before: "Explore ", em: "careers", after: " that fit you" },
+  exams: { before: "See the ", em: "entrance exams", after: " open to you" },
+  cv: { before: "Make your ", em: "CV", after: "" },
+  scholarships: {
+    before: "Find ",
+    em: "scholarships",
+    after: " you can apply for",
+  },
+};
+
+/**
+ * The hero for where the student is in the plan: the plan's own while its
+ * first step is still to do; then the next undone step's; and once every
+ * step is done, that (with `done`: true, so the page offers what's next).
+ */
+export function heroFor(plan, isDone) {
+  const next = plan.steps.find((x) => !isDone(x));
+  if (!next) return { done: true };
+  if (next.id === plan.hero.cta.id) return plan.hero;
+  const words = STEP_HERO[next.id] || { before: "", em: next.title, after: "" };
+  return { ...words, cta: { ...next, label: next.title } };
+}
+
 /** Is this plan step done? `stars` from useStudentData (empty for guests). */
 export const stepDone = (step, used = [], stars = {}) =>
-  (step.uses || []).some((u) => used.includes(u)) ||
+  (step.uses || []).some((u) =>
+    u.endsWith("*")
+      ? used.some(
+          (x) =>
+            x.startsWith(u.slice(0, -1)) && !(step.usesExcept || []).includes(x)
+        )
+      : used.includes(u)
+  ) ||
   (!!step.star && (stars[step.star] || []).length > 0);
