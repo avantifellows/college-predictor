@@ -8,10 +8,12 @@ import { useStudentData } from "./studentData";
 export const GET_STARTED_KEY = "futures_get_started_v1";
 const CHANGE = "futures-get-started-change";
 
+// cleaned on the way in too: answers saved by an older version of the site
+// (or edited by hand) must not break the pages that read them
 const readLocal = () => {
   try {
     const raw = window.localStorage.getItem(GET_STARTED_KEY);
-    return raw ? JSON.parse(raw) : null;
+    return raw ? cleanAnswers(JSON.parse(raw)) : null;
   } catch {
     return null;
   }
@@ -75,12 +77,16 @@ export default function useGetStarted() {
   );
 
   // something the student really did (a plan step's `uses`), kept only
-  // for a student who has a plan
+  // for a student who has a plan. Saved only if the cleaning keeps it: a
+  // use it would drop must not be retried, or useRecordUse records it again
+  // on every render and the page freezes (no way off it, not even Back).
   const record = useCallback(
     (use) => {
       if (!answers || !answers.cls || (answers.used || []).includes(use))
         return;
-      save({ ...answers, used: [...(answers.used || []), use] });
+      const next = { ...answers, used: [...(answers.used || []), use] };
+      if (!(cleanAnswers(next)?.used || []).includes(use)) return;
+      save(next);
     },
     [answers, save]
   );

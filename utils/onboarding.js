@@ -605,6 +605,7 @@ export function planFor(a, season) {
 }
 
 // only known values survive (the same check runs on the server)
+const USED_LIMIT = 100;
 export function cleanAnswers(a) {
   if (!a || typeof a !== "object") return null;
   const pick = (v, ids) => (ids.includes(v) ? v : undefined);
@@ -627,13 +628,18 @@ export function cleanAnswers(a) {
       return xs.length ? [...new Set(xs)].slice(0, 8) : undefined;
     })(),
     skipped: a.skipped === true || undefined,
-    used: (Array.isArray(a.used) ? a.used : [])
-      .filter(
-        (u) =>
-          typeof u === "string" &&
-          /^[a-z-]{1,20}(:[A-Za-z0-9 .-]{1,40})?$/.test(u)
-      )
-      .slice(0, 30),
+    // what the student did, newest last; past the limit the oldest go, so
+    // a new one is always kept (ids run to 72 characters:
+    // hau-et-haryana-agriculture-university-community-sc-entrance-test-haryana)
+    used: [
+      ...new Set(
+        (Array.isArray(a.used) ? a.used : []).filter(
+          (u) =>
+            typeof u === "string" &&
+            /^[a-z-]{1,20}(:[A-Za-z0-9 .-]{1,100})?$/.test(u)
+        )
+      ),
+    ].slice(-USED_LIMIT),
   };
   return Object.fromEntries(
     Object.entries(out).filter(([, v]) => v !== undefined)
