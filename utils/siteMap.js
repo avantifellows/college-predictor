@@ -24,7 +24,7 @@ export const SECTIONS = {
       {
         href: "/careers",
         icon: Search,
-        name: "Explore careers",
+        name: "Explore Careers",
         line: "What each career pays and needs",
       },
       {
@@ -50,7 +50,7 @@ export const SECTIONS = {
       {
         href: "/colleges",
         icon: Search,
-        name: "Explore colleges",
+        name: "Explore Colleges",
         line: "Rankings, placements and fees",
       },
       {
@@ -75,7 +75,7 @@ export const SECTIONS = {
       {
         href: "/exams",
         icon: Search,
-        name: "Explore exams",
+        name: "Explore Exams",
         line: "Dates, eligibility and paper pattern",
       },
       {
