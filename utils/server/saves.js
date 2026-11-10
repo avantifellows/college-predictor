@@ -61,7 +61,10 @@ const now = () => new Date().toISOString();
 // career / exam slugs. Anything else is refused, not stored.
 const ID_RE = /^[A-Za-z0-9][A-Za-z0-9:._\- ]{0,119}$/;
 export const isRefId = (v) => typeof v === "string" && ID_RE.test(v);
-const cleanText = (v, max = 160) =>
+// long enough for every real name (the longest college name is 202
+// characters); the id check (scripts/check-ids.js) fails a build that adds a
+// longer one
+const cleanText = (v, max = 300) =>
   typeof v === "string" ? v.replace(/\s+/g, " ").trim().slice(0, max) : null;
 
 /** Everything saved for a student, shaped for the site. */
@@ -192,7 +195,7 @@ export function cleanPlans(list) {
     career: ref(p?.career),
     exam: ref(p?.exam) === "any" ? null : ref(p?.exam),
     college: ref(p?.college) === "any" ? null : ref(p?.college),
-    branch: p?.branch === "any" ? "any" : cleanText(p?.branch, 120) || null,
+    branch: p?.branch === "any" ? "any" : cleanText(p?.branch, 200) || null,
   }));
 }
 

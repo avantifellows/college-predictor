@@ -132,6 +132,8 @@ const EXAM_INFO = {
     page: null,
   },
 };
+/** The exams Get started offers (for scripts/check-ids.js). */
+export const EXAM_KEYS = Object.keys(EXAM_INFO);
 export const examName = (key) => EXAM_INFO[key]?.name || key;
 
 // the streams a predictor key's cutoffs hold (utils/predictorRoutes.js)
@@ -516,9 +518,22 @@ export function planFor(a, season) {
   const inSeason =
     (season || (resultsSeason() ? "results" : "prep")) === "results";
 
-  // preparing (Class 11 all year; Class 12 before results): know the rank
-  // each college asks, then the exams that back the main one up
+  // the exam's mock allotment (JoSAA, MHT CET), where it has one
+  const mock = info.mock && {
+    id: "mock",
+    uses: [info.mock.use],
+    title: `Try ${info.mock.name} mock allotment`,
+    line: "Practise your choice list before the real rounds",
+    href: info.mock.href,
+  };
+
+  // preparing (Class 11 all year; Class 12 and gap year before results):
+  // know the rank each college asks, then the exams that back the main one
+  // up. A gap-year student has been through one cycle and knows the exams
+  // already: no exploring, but the mock allotment, so the next counselling
+  // goes better.
   if (a.cls === "11" || !inSeason) {
+    const gapYear = a.cls === "drop";
     const backups = backupsFor(a);
     const names = backups.map((k) => COUNSELLING_LABEL[k] || examName(k));
     return {
@@ -548,17 +563,21 @@ export function planFor(a, season) {
           line: "Cutoffs for the colleges you're aiming for",
           href: cutoffsHref(main, a.state),
         },
-        {
-          id: "backup-exams",
-          star: "exam",
-          // opening another exam's page counts (guests can't star); the
-          // main exam's own page doesn't
-          uses: ["exam:*"],
-          usesExcept: info.page ? [`exam:${info.page}`] : [],
-          title: "See backup exam options",
-          line: "Other exams that can get you into a good college",
-          href: `/exams${q({ where: a.state })}`,
-        },
+        gapYear
+          ? // no mock for this exam: the careers it leads to, as results
+            // season does (NEET: more than MBBS)
+            mock || careers(a.stream)
+          : {
+              id: "backup-exams",
+              star: "exam",
+              // opening another exam's page counts (guests can't star); the
+              // main exam's own page doesn't
+              uses: ["exam:*"],
+              usesExcept: info.page ? [`exam:${info.page}`] : [],
+              title: "See backup exam options",
+              line: "Other exams that can get you into a good college",
+              href: `/exams${q({ where: a.state })}`,
+            },
         backups.length && {
           id: "backup-cutoffs",
           uses: backups.map((k) => `predictor:${k}`),
@@ -573,13 +592,6 @@ export function planFor(a, season) {
 
   // results are out: predict, practise, and line up backups
   const p = predict(main, a.state);
-  const mock = info.mock && {
-    id: "mock",
-    uses: [info.mock.use],
-    title: `Try ${info.mock.name} mock allotment`,
-    line: "Practise your choice list before the real rounds",
-    href: info.mock.href,
-  };
   const backup = backupStep(a);
   return {
     kind: "admission",
