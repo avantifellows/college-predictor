@@ -100962,6 +100962,64 @@
   }
  },
  {
+  "college_id": "nmclive:ka-073-p-3",
+  "aishe_code": null,
+  "name": "ALVA'S INSTITUTE OF MEDICAL SCIENCES AND RESEARCH CENTRE",
+  "display_name": "ALVA'S INSTITUTE OF MEDICAL SCIENCES AND RESEARCH CENTRE",
+  "aka": [],
+  "state": "Karnataka",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Private",
+  "ownership": "Private",
+  "disciplines": [],
+  "year_established": 2026,
+  "website": null,
+  "university": "Rajiv Gandhi University of Health Sciences, Karnataka",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 150,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "ap-eapcet:ACEV",
   "aishe_code": null,
   "name": "ALWAR COLLEGE OF ENGINEERING",
@@ -103850,6 +103908,64 @@
   }
  },
  {
+  "college_id": "nmclive:tn-078-p-3",
+  "aishe_code": null,
+  "name": "APS MEDICAL COLLEGE HOSPITAL AND RESEARCH INSTITUTE",
+  "display_name": "APS MEDICAL COLLEGE HOSPITAL AND RESEARCH INSTITUTE",
+  "aka": [],
+  "state": "Tamil Nadu",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Private",
+  "ownership": "Private",
+  "disciplines": [],
+  "year_established": 2026,
+  "website": null,
+  "university": "The Tamilnadu Dr. MGR Medical University,Chennai",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 150,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "acpmec:arihant institute nursing gandhinagar",
   "aishe_code": null,
   "name": "ARIHANT INSTITUTE OF NURSING GANDHINAGAR",
@@ -104605,6 +104721,64 @@
   "data_sources": {
    "identity": "AP-EAPCET 2025",
    "programs": "AP-EAPCET 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "nmclive:mh-087-p-5",
+  "aishe_code": null,
+  "name": "ASPL'S CSMSS MEDICAL COLLEGE AND HOSPITAL",
+  "display_name": "ASPL'S CSMSS MEDICAL COLLEGE AND HOSPITAL",
+  "aka": [],
+  "state": "Maharashtra",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Private",
+  "ownership": "Private",
+  "disciplines": [],
+  "year_established": 2026,
+  "website": null,
+  "university": "Maharashtra University of Health Sciences, Nashik",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 50,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -118084,6 +118258,64 @@
   }
  },
  {
+  "college_id": "nmclive:ap-004-p-3",
+  "aishe_code": "C-76673",
+  "name": "Anna Gowri Medical College and Hospital",
+  "display_name": "Anna Gowri Medical College and Hospital",
+  "aka": [],
+  "state": "Andhra Pradesh",
+  "state_is_inferred": false,
+  "district": "Tirupati",
+  "kind": "Medical College",
+  "management": "Private",
+  "ownership": "Private",
+  "disciplines": [],
+  "year_established": 2025,
+  "website": "annagowrimedicalcollege.org",
+  "university": "Dr. N.T.R University of Health Sciences",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 150,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "tnea:2025",
   "aishe_code": null,
   "name": "Anna University Regional Campus - Coimbatore Maruthamalai Main Road Navavoor Bharathiyar University Post Somayampalayam Coimbatore District 641046",
@@ -122853,6 +123085,64 @@
   }
  },
  {
+  "college_id": "nmclive:rj-003-p-3",
+  "aishe_code": "C-76789",
+  "name": "Arya Medical College and Hospital",
+  "display_name": "Arya Medical College and Hospital",
+  "aka": [],
+  "state": "Rajasthan",
+  "state_is_inferred": false,
+  "district": "Jaipur",
+  "kind": "Medical College",
+  "management": "Private",
+  "ownership": "Private",
+  "disciplines": [],
+  "year_established": 2025,
+  "website": "www.amcah.in",
+  "university": "Rajasthan University of Health Sciences",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 150,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "du:aryabhatta-college",
   "aishe_code": "C-6396",
   "name": "Aryabhatta College",
@@ -126341,6 +126631,64 @@
   }
  },
  {
+  "college_id": "nmclive:up-003-g-5",
+  "aishe_code": null,
+  "name": "Autonomous state medical college Amethi",
+  "display_name": "Autonomous state medical college Amethi",
+  "aka": [],
+  "state": "Uttar Pradesh",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Government",
+  "ownership": "Public",
+  "disciplines": [],
+  "year_established": 2025,
+  "website": null,
+  "university": "Atal Bihari Vajpayee Medical University , Lucknow (U.P.)",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 100,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "uptac:axis institute technology management kanpur",
   "aishe_code": "C-46817",
   "name": "Axis Institute of Technology & Management, Kanpur",
@@ -128250,6 +128598,64 @@
   }
  },
  {
+  "college_id": "nmclive:mh-085-p-3",
+  "aishe_code": null,
+  "name": "B.S.P. Medical College and Hospital",
+  "display_name": "B.S.P. Medical College and Hospital",
+  "aka": [],
+  "state": "Maharashtra",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Private",
+  "ownership": "Private",
+  "disciplines": [],
+  "year_established": 2026,
+  "website": null,
+  "university": "Maharashtra University of Health Sciences, Nashik",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 150,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "ap-eapcet:BABA",
   "aishe_code": "C-18006",
   "name": "BABA INST OF TECH AND SCIENCES",
@@ -128422,6 +128828,64 @@
   "data_sources": {
    "identity": "OJEE 2025",
    "programs": "OJEE 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "nmclive:ka-076-g-1",
+  "aishe_code": null,
+  "name": "BAGALKOTE MEDICAL COLLEGE AND RESEARCH INSTITUTE",
+  "display_name": "BAGALKOTE MEDICAL COLLEGE AND RESEARCH INSTITUTE",
+  "aka": [],
+  "state": "Karnataka",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Government",
+  "ownership": "Public",
+  "disciplines": [],
+  "year_established": 2026,
+  "website": null,
+  "university": "Rajiv Gandhi University of Health Sciences, Karnataka",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 100,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -129976,6 +130440,64 @@
   }
  },
  {
+  "college_id": "nmclive:rj-049-p-4",
+  "aishe_code": null,
+  "name": "BHARAT VIKAS INSTITUTE OF MEDICAL SCIENCES",
+  "display_name": "BHARAT VIKAS INSTITUTE OF MEDICAL SCIENCES",
+  "aka": [],
+  "state": "Rajasthan",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Private",
+  "ownership": "Private",
+  "disciplines": [],
+  "year_established": 2026,
+  "website": null,
+  "university": "Rajasthan University of Health Science, Jaipur",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 150,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "acpmec:bharatimaiya college physiotherapy surat",
   "aishe_code": null,
   "name": "BHARATIMAIYA COLLEGE OF PHYSIOTHERAPY SURAT",
@@ -131129,6 +131651,64 @@
    "ranking": null,
    "placement": null,
    "accreditation": "NAAC"
+  }
+ },
+ {
+  "college_id": "nmclive:as-016-g-1",
+  "aishe_code": null,
+  "name": "BONGAIGAON MEDICAL COLLEGE",
+  "display_name": "BONGAIGAON MEDICAL COLLEGE",
+  "aka": [],
+  "state": "Assam",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Government",
+  "ownership": "Public",
+  "disciplines": [],
+  "year_established": 2026,
+  "website": null,
+  "university": "Srimanta Sankaradeva University of Health Sciences, Guwahati",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 100,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
   }
  },
  {
@@ -133171,6 +133751,64 @@
    "ranking": null,
    "placement": null,
    "accreditation": "NAAC"
+  }
+ },
+ {
+  "college_id": "nmclive:rj-004-p-3",
+  "aishe_code": "C-76786",
+  "name": "Balvir Singh Tomar Institute of Medical Sciences and Research",
+  "display_name": "Balvir Singh Tomar Institute of Medical Sciences and Research",
+  "aka": [],
+  "state": "Rajasthan",
+  "state_is_inferred": false,
+  "district": "Jaipur",
+  "kind": "Medical College",
+  "management": "Private",
+  "ownership": "Private",
+  "disciplines": [],
+  "year_established": 2025,
+  "website": "https://bstmedicalcollege.com",
+  "university": "NIMS University",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 250,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
   }
  },
  {
@@ -139401,6 +140039,64 @@
   }
  },
  {
+  "college_id": "nmclive:jh-011-p-3",
+  "aishe_code": null,
+  "name": "Birsa Institute of Medical Sciences and Research",
+  "display_name": "Birsa Institute of Medical Sciences and Research",
+  "aka": [],
+  "state": "Jharkhand",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Private",
+  "ownership": "Private",
+  "disciplines": [],
+  "year_established": 2026,
+  "website": null,
+  "university": "Ranchi University",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 100,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "keam:BJK",
   "aishe_code": "C-43676",
   "name": "Bishop Jerome Institute, Kollam",
@@ -140006,6 +140702,64 @@
    "ranking": null,
    "placement": null,
    "accreditation": "NAAC"
+  }
+ },
+ {
+  "college_id": "nmclive:br-025-p-3",
+  "aishe_code": null,
+  "name": "Buddha Hospital and Research Institute",
+  "display_name": "Buddha Hospital and Research Institute",
+  "aka": [],
+  "state": "Bihar",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Private",
+  "ownership": "Private",
+  "disciplines": [],
+  "year_established": 2026,
+  "website": null,
+  "university": "Bihar University of Health Sciences",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 100,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
   }
  },
  {
@@ -148985,6 +149739,64 @@
   }
  },
  {
+  "college_id": "nmclive:ka-074-p-2",
+  "aishe_code": null,
+  "name": "Chettinad Institute of Medical Education and Research",
+  "display_name": "Chettinad Institute of Medical Education and Research",
+  "aka": [],
+  "state": "Karnataka",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Private",
+  "ownership": "Private",
+  "disciplines": [],
+  "year_established": 2026,
+  "website": null,
+  "university": "Chettinad Academy of Research and Education (Deemed University), Chettinad",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 100,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "mhtcet:03477",
   "aishe_code": null,
   "name": "Chhartrapati Shivaji Maharaj Institute of Technology, Shedung, Panvel",
@@ -156518,6 +157330,64 @@
   }
  },
  {
+  "college_id": "nmclive:mh-020-p-3",
+  "aishe_code": null,
+  "name": "DY Patil University, School of Medicine",
+  "display_name": "DY Patil University, School of Medicine",
+  "aka": [],
+  "state": "Maharashtra",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Private",
+  "ownership": "Private",
+  "disciplines": [],
+  "year_established": 2025,
+  "website": null,
+  "university": "D. Y. Patil Education Society (Deemed to be University), Kolhapur",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 100,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "acpmec:dalia ayurved college hospital at post kanera ta kheda gujar",
   "aishe_code": "C-72954",
   "name": "Dalia Ayurved College and Hospital, At & Post: Kanera Ta: Kheda, Gujarat 387540",
@@ -162289,6 +163159,64 @@
    "ranking": null,
    "placement": null,
    "accreditation": "NAAC"
+  }
+ },
+ {
+  "college_id": "nmclive:rj-050-p-3",
+  "aishe_code": null,
+  "name": "Dr. B. S. Tomar Institute of Medical Sciences and Research",
+  "display_name": "Dr. B. S. Tomar Institute of Medical Sciences and Research",
+  "aka": [],
+  "state": "Rajasthan",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Private",
+  "ownership": "Private",
+  "disciplines": [],
+  "year_established": 2026,
+  "website": null,
+  "university": "Rajasthan University of Health Science, Jaipur",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 150,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
   }
  },
  {
@@ -169311,6 +170239,354 @@
   }
  },
  {
+  "college_id": "nmclive:mh-021-g-1",
+  "aishe_code": null,
+  "name": "ESIC MEDICAL COLLEGE AND HOSPITAL, ANDHERI",
+  "display_name": "ESIC MEDICAL COLLEGE AND HOSPITAL, ANDHERI",
+  "aka": [],
+  "state": "Maharashtra",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Government",
+  "ownership": "Public",
+  "disciplines": [],
+  "year_established": 2025,
+  "website": null,
+  "university": "Maharashtra University of Health Sciences, Nashik",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 50,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "nmclive:rj-008-g-1",
+  "aishe_code": null,
+  "name": "ESIC MEDICAL COLLEGE AND HOSPITAL, JAIPUR",
+  "display_name": "ESIC MEDICAL COLLEGE AND HOSPITAL, JAIPUR",
+  "aka": [],
+  "state": "Rajasthan",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Government",
+  "ownership": "Public",
+  "disciplines": [],
+  "year_established": 2025,
+  "website": null,
+  "university": "Rajasthan University of Health Sciences",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 50,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "nmclive:up-026-g-1",
+  "aishe_code": "C-76239",
+  "name": "ESIC MEDICAL COLLEGE AND HOSPITAL, NOIDA",
+  "display_name": "ESIC MEDICAL COLLEGE AND HOSPITAL, NOIDA",
+  "aka": [],
+  "state": "Uttar Pradesh",
+  "state_is_inferred": false,
+  "district": "Gautam Buddha Nagar",
+  "kind": "Medical College",
+  "management": "Government",
+  "ownership": "Public",
+  "disciplines": [],
+  "year_established": 2025,
+  "website": null,
+  "university": "Atal Bihari Vajpayee Medical University , Lucknow (U.P.)",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 50,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "nmclive:mp-004-g-1",
+  "aishe_code": "C-76468",
+  "name": "ESIC MEDICAL COLLEGE AND HOSPITAL,INDORE",
+  "display_name": "ESIC MEDICAL COLLEGE AND HOSPITAL,INDORE",
+  "aka": [],
+  "state": "Madhya Pradesh",
+  "state_is_inferred": false,
+  "district": "Indore",
+  "kind": "Medical College",
+  "management": "Government",
+  "ownership": "Public",
+  "disciplines": [],
+  "year_established": 2025,
+  "website": "https://mcindore.esic.gov.in",
+  "university": "Jabalpur Medical University",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 50,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "nmclive:gj-010-g-1",
+  "aishe_code": null,
+  "name": "ESIC MEDICAL COLLEGE NARODA BAPUNAGAR, AHMEDABAD",
+  "display_name": "ESIC MEDICAL COLLEGE NARODA BAPUNAGAR, AHMEDABAD",
+  "aka": [],
+  "state": "Gujarat",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Government",
+  "ownership": "Public",
+  "disciplines": [],
+  "year_established": 2025,
+  "website": null,
+  "university": "Gujarat University",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 50,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "nmclive:dl-003-g-1",
+  "aishe_code": null,
+  "name": "ESIC Medical College & Hospital, Basaidarapur, New Delhi",
+  "display_name": "ESIC Medical College & Hospital, Basaidarapur, New Delhi",
+  "aka": [],
+  "state": "Delhi",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Government",
+  "ownership": "Public",
+  "disciplines": [],
+  "year_established": 2025,
+  "website": null,
+  "university": "Guru Gobind Singh Indraprastha University",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 50,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "C-45507",
   "aishe_code": "C-45507",
   "name": "ESI MEDICAL COLLEGE & ESI-PGIMSR (Inst. Code - 495), CHENNAI",
@@ -169362,6 +170638,180 @@
   "data_sources": {
    "identity": "NMC 2024-25 / AISHE 2024-25",
    "programs": "NMC 2024-25",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "nmclive:pb-005-g-1",
+  "aishe_code": null,
+  "name": "ESIC Medical College Ludhiana",
+  "display_name": "ESIC Medical College Ludhiana",
+  "aka": [],
+  "state": "Punjab",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Government",
+  "ownership": "Public",
+  "disciplines": [],
+  "year_established": 2025,
+  "website": null,
+  "university": "Baba Farid University of Health Sciences,Faridkot",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 50,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "nmclive:as-004-g-1",
+  "aishe_code": null,
+  "name": "ESIC Medical College and Hospital, Beltola",
+  "display_name": "ESIC Medical College and Hospital, Beltola",
+  "aka": [],
+  "state": "Assam",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Government",
+  "ownership": "Public",
+  "disciplines": [],
+  "year_established": 2025,
+  "website": null,
+  "university": "Srimanta Sankaradeva University of Health Sciences, Guwahati",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 50,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "nmclive:up-027-g-1",
+  "aishe_code": "C-76428",
+  "name": "ESIC Medical College and Hospital, VARANASI",
+  "display_name": "ESIC Medical College and Hospital, VARANASI",
+  "aka": [],
+  "state": "Uttar Pradesh",
+  "state_is_inferred": false,
+  "district": "Varanasi",
+  "kind": "Medical College",
+  "management": "Government",
+  "ownership": "Public",
+  "disciplines": [],
+  "year_established": 2025,
+  "website": null,
+  "university": "Atal Bihari Vajpayee Medical University , Lucknow (U.P.)",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 50,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -172711,6 +174161,64 @@
   }
  },
  {
+  "college_id": "nmclive:ka-020-p-5",
+  "aishe_code": "C-76294",
+  "name": "FAROOKH ACADEMY OF MEDICAL EDUCATION HOSPITAL AND RESEARCH INSTITUTE",
+  "display_name": "FAROOKH ACADEMY OF MEDICAL EDUCATION HOSPITAL AND RESEARCH INSTITUTE",
+  "aka": [],
+  "state": "Karnataka",
+  "state_is_inferred": false,
+  "district": "Mysuru",
+  "kind": "Medical College",
+  "management": "Private",
+  "ownership": "Private",
+  "disciplines": [],
+  "year_established": 2025,
+  "website": "www.famehospital.com",
+  "university": "Rajiv Gandhi University of Health Sciences, Karnataka",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 200,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "uptac:fit engineering college meerut",
   "aishe_code": "C-46221",
   "name": "FIT Engineering College, Meerut",
@@ -172835,6 +174343,64 @@
   "data_sources": {
    "identity": "WBJEE 2025",
    "programs": "WBJEE 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "nmclive:up-087-p-3",
+  "aishe_code": null,
+  "name": "FULAN SINGH MEDICAL COLLEGE, FS UNIVERSITY",
+  "display_name": "FULAN SINGH MEDICAL COLLEGE, FS UNIVERSITY",
+  "aka": [],
+  "state": "Uttar Pradesh",
+  "state_is_inferred": false,
+  "district": "Firozabad",
+  "kind": "Medical College",
+  "management": "Private",
+  "ownership": "Private",
+  "disciplines": [],
+  "year_established": 2026,
+  "website": "fsu.edu.in",
+  "university": "FS UNIVERSITY",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 150,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -180877,6 +182443,64 @@
   }
  },
  {
+  "college_id": "nmclive:mp-007-g-1",
+  "aishe_code": null,
+  "name": "GOVERMENT MEDICAL COLLEGE, SHEOPUR",
+  "display_name": "GOVERMENT MEDICAL COLLEGE, SHEOPUR",
+  "aka": [],
+  "state": "Madhya Pradesh",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Government",
+  "ownership": "Public",
+  "disciplines": [],
+  "year_established": 2025,
+  "website": null,
+  "university": "Madhya Pradesh Medical Science University, Jabalpur",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 100,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "acpmec:government college nursing bhavnagar",
   "aishe_code": null,
   "name": "GOVERNMENT COLLEGE OF NURSING BHAVNAGAR",
@@ -181382,6 +183006,122 @@
   }
  },
  {
+  "college_id": "nmclive:od-003-g-1",
+  "aishe_code": null,
+  "name": "GOVERNMENT MEDICAL COLLEGE PHULBANI , KANDHAMAL",
+  "display_name": "GOVERNMENT MEDICAL COLLEGE PHULBANI , KANDHAMAL",
+  "aka": [],
+  "state": "Odisha",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Government",
+  "ownership": "Public",
+  "disciplines": [],
+  "year_established": 2025,
+  "website": null,
+  "university": "Odisha University of Health Sciences",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 100,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "nmclive:mp-008-g-1",
+  "aishe_code": "C-75848",
+  "name": "GOVERNMENT MEDICAL COLLEGE SINGRAULI",
+  "display_name": "GOVERNMENT MEDICAL COLLEGE SINGRAULI",
+  "aka": [],
+  "state": "Madhya Pradesh",
+  "state_is_inferred": false,
+  "district": "Singrauli",
+  "kind": "Medical College",
+  "management": "Government",
+  "ownership": "Public",
+  "disciplines": [],
+  "year_established": 2025,
+  "website": "https://gmcsingrauli.org",
+  "university": "Madhya Pradesh Medical Science University, Jabalpur",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 100,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "C-71662",
   "aishe_code": "C-71662",
   "name": "GOVERNMENT MEDICAL COLLEGE , VIKARABAD",
@@ -181433,6 +183173,64 @@
   "data_sources": {
    "identity": "NMC 2024-25 / AISHE 2024-25",
    "programs": "NMC 2024-25",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "nmclive:ts-025-g-1",
+  "aishe_code": "C-76865",
+  "name": "GOVERNMENT MEDICAL COLLEGE, KODANGAL",
+  "display_name": "GOVERNMENT MEDICAL COLLEGE, KODANGAL",
+  "aka": [],
+  "state": "Telangana",
+  "state_is_inferred": false,
+  "district": "Vikarabad",
+  "kind": "Medical College",
+  "management": "Government",
+  "ownership": "Public",
+  "disciplines": [],
+  "year_established": 2025,
+  "website": "www.gmckodangal.org",
+  "university": "Kaloji Narayana Rao University of Health Sciences, Warangal",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 50,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -185606,6 +187404,64 @@
   "data_sources": {
    "identity": "NMC 2024-25 / AISHE 2024-25",
    "programs": "NMC 2024-25",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "nmclive:rj-010-p-3",
+  "aishe_code": null,
+  "name": "Geetanjali Medical College & Hospital,Udaipur",
+  "display_name": "Geetanjali Medical College & Hospital,Udaipur",
+  "aka": [],
+  "state": "Rajasthan",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Private",
+  "ownership": "Private",
+  "disciplines": [],
+  "year_established": 2008,
+  "website": null,
+  "university": "Geetanjali University , Udaipur",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 250,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -194596,6 +196452,64 @@
   }
  },
  {
+  "college_id": "nmclive:cg-016-g-1",
+  "aishe_code": null,
+  "name": "Government Medical College Dantewada",
+  "display_name": "Government Medical College Dantewada",
+  "aka": [],
+  "state": "Chhattisgarh",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Government",
+  "ownership": "Public",
+  "disciplines": [],
+  "year_established": 2026,
+  "website": null,
+  "university": "Pt. Deendayal Upadhyay Memorial Health Sciences and Ayush University, Raipur",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 50,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "C-71481",
   "aishe_code": "C-71481",
   "name": "GOVERNMENT MEDICAL COLLEGE HANDWARA",
@@ -194647,6 +196561,122 @@
   "data_sources": {
    "identity": "NMC 2024-25 / AISHE 2024-25",
    "programs": "NMC 2024-25",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "nmclive:cg-017-g-1",
+  "aishe_code": null,
+  "name": "Government Medical College Janjgir - Champa",
+  "display_name": "Government Medical College Janjgir - Champa",
+  "aka": [],
+  "state": "Chhattisgarh",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Government",
+  "ownership": "Public",
+  "disciplines": [],
+  "year_established": 2026,
+  "website": null,
+  "university": "Pt. Deendayal Upadhyay Memorial Health Sciences and Ayush University, Raipur",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 50,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "nmclive:kl-009-g-1",
+  "aishe_code": null,
+  "name": "Government Medical College Kasaragod",
+  "display_name": "Government Medical College Kasaragod",
+  "aka": [],
+  "state": "Kerala",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Government",
+  "ownership": "Public",
+  "disciplines": [],
+  "year_established": 2025,
+  "website": null,
+  "university": "Kerala University of Health Sciences, Thrissur",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 50,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -196363,6 +198393,64 @@
   }
  },
  {
+  "college_id": "nmclive:br-030-g-1",
+  "aishe_code": null,
+  "name": "Government Medical College, Chapra, Saran",
+  "display_name": "Government Medical College, Chapra, Saran",
+  "aka": [],
+  "state": "Bihar",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Government",
+  "ownership": "Public",
+  "disciplines": [],
+  "year_established": null,
+  "website": null,
+  "university": "Bihar University of Health Sciences",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 50,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "nmc:government-medical-college-chhindwara-mp",
   "aishe_code": null,
   "name": "Government Medical College, Chhindwara, MP",
@@ -197497,6 +199585,64 @@
   "data_sources": {
    "identity": "NMC 2024-25",
    "programs": "NMC 2024-25",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "nmclive:rj-024-g-5",
+  "aishe_code": "C-76587",
+  "name": "Government Medical College, Jaisalmer",
+  "display_name": "Government Medical College, Jaisalmer",
+  "aka": [],
+  "state": "Rajasthan",
+  "state_is_inferred": false,
+  "district": "Jaisalmer",
+  "kind": "Medical College",
+  "management": "Government",
+  "ownership": "Public",
+  "disciplines": [],
+  "year_established": 2025,
+  "website": "https://department.rajasthan.gov.in/home/dptHome/1875",
+  "university": "Marwar Medical University, Jodhpur",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 50,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -200638,6 +202784,64 @@
   }
  },
  {
+  "college_id": "nmclive:ap-039-g-1",
+  "aishe_code": null,
+  "name": "Government Medical College, Piduguralla",
+  "display_name": "Government Medical College, Piduguralla",
+  "aka": [],
+  "state": "Andhra Pradesh",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Government",
+  "ownership": "Public",
+  "disciplines": [],
+  "year_established": 2026,
+  "website": null,
+  "university": "Dr. N.T.R University of Health Sciences",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 50,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "nmc:government-medical-college-porbandar",
   "aishe_code": null,
   "name": "Government Medical College, Porbandar",
@@ -202576,6 +204780,64 @@
   }
  },
  {
+  "college_id": "nmclive:kl-018-g-1",
+  "aishe_code": null,
+  "name": "Government Medical College, Wayanad",
+  "display_name": "Government Medical College, Wayanad",
+  "aka": [],
+  "state": "Kerala",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Government",
+  "ownership": "Public",
+  "disciplines": [],
+  "year_established": 2025,
+  "website": null,
+  "university": "Kerala University of Health Sciences, Thrissur",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 50,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "nmc:government-medical-college-nashik",
   "aishe_code": "C-73667",
   "name": "Government Medical College,Nashik",
@@ -203180,6 +205442,122 @@
   }
  },
  {
+  "college_id": "nmclive:cg-018-g-1",
+  "aishe_code": null,
+  "name": "Government medical college, jashpur-kunkuri",
+  "display_name": "Government medical college, jashpur-kunkuri",
+  "aka": [],
+  "state": "Chhattisgarh",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Government",
+  "ownership": "Public",
+  "disciplines": [],
+  "year_established": 2026,
+  "website": null,
+  "university": "Pt. Deendayal Upadhyay Memorial Health Sciences and Ayush University, Raipur",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 50,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "nmclive:rj-032-g-1",
+  "aishe_code": "C-76590",
+  "name": "Government medical college, tonk",
+  "display_name": "Government medical college, tonk",
+  "aka": [],
+  "state": "Rajasthan",
+  "state_is_inferred": false,
+  "district": "Tonk",
+  "kind": "Medical College",
+  "management": "Government",
+  "ownership": "Public",
+  "disciplines": [],
+  "year_established": 2025,
+  "website": "https://department.rajasthan .gov.in/home/dptHome/1874",
+  "university": "Rajasthan University of Health Sciences",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 50,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "C-74545",
   "aishe_code": "C-74545",
   "name": "GOVERNMENT MEDICAL COLLEGE VIZIANAGARAM",
@@ -203777,6 +206155,64 @@
   }
  },
  {
+  "college_id": "nmclive:cg-019-g-1",
+  "aishe_code": null,
+  "name": "Govt. Medical College Kabirdham",
+  "display_name": "Govt. Medical College Kabirdham",
+  "aka": [],
+  "state": "Chhattisgarh",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Government",
+  "ownership": "Public",
+  "disciplines": [],
+  "year_established": 2026,
+  "website": null,
+  "university": "Pt. Deendayal Upadhyay Memorial Health Sciences and Ayush University, Raipur",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 50,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "nmc:govt-medical-college-doda-kashmir",
   "aishe_code": "C-64875",
   "name": "Govt. Medical College, Doda, Kashmir",
@@ -204011,6 +206447,64 @@
   "data_sources": {
    "identity": "NMC 2024-25",
    "programs": "NMC 2024-25",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "nmclive:cg-020-g-1",
+  "aishe_code": null,
+  "name": "Govt.Medical Collage Manendragarh",
+  "display_name": "Govt.Medical Collage Manendragarh",
+  "aka": [],
+  "state": "Chhattisgarh",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Government",
+  "ownership": "Public",
+  "disciplines": [],
+  "year_established": 2026,
+  "website": null,
+  "university": "Pt. Deendayal Upadhyay Memorial Health Sciences and Ayush University, Raipur",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 50,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -210787,6 +213281,64 @@
   "data_sources": {
    "identity": "KEAM 2026",
    "programs": "KEAM 2026",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "nmclive:mh-088-p-3",
+  "aishe_code": null,
+  "name": "IDEAL INSTITUTE OF MEDICAL SCIENCE",
+  "display_name": "IDEAL INSTITUTE OF MEDICAL SCIENCE",
+  "aka": [],
+  "state": "Maharashtra",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Private",
+  "ownership": "Private",
+  "disciplines": [],
+  "year_established": 2026,
+  "website": null,
+  "university": "Maharashtra University of Health Sciences, Nashik",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 50,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -225918,6 +228470,64 @@
   }
  },
  {
+  "college_id": "nmclive:wb-017-p-3",
+  "aishe_code": null,
+  "name": "Jagannath Gupta Institute of Medical Sciences and Hospital",
+  "display_name": "Jagannath Gupta Institute of Medical Sciences and Hospital",
+  "aka": [],
+  "state": "West Bengal",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Private",
+  "ownership": "Private",
+  "disciplines": [],
+  "year_established": 2025,
+  "website": null,
+  "university": "The West Bengal University of Health Sciences",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 150,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "mhtcet:05197",
   "aishe_code": null,
   "name": "Jagdamba Education Soceity,S.N.D. College of Pharmacy Babhulgaon, Nashik",
@@ -235364,6 +237974,64 @@
   }
  },
  {
+  "college_id": "nmclive:br-027-p-4",
+  "aishe_code": null,
+  "name": "K.K . Medical College & Hospital",
+  "display_name": "K.K . Medical College & Hospital",
+  "aka": [],
+  "state": "Bihar",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Private",
+  "ownership": "Private",
+  "disciplines": [],
+  "year_established": 2026,
+  "website": null,
+  "university": "K.K. University, Nalanda, Bihar",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 100,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "tnea:5904",
   "aishe_code": null,
   "name": "K.L.N.College of Engineering (Autonomous), Madurai - Nedunkulam Road, Pottapalayam, Sivagangai District-630611.",
@@ -236583,6 +239251,64 @@
   "data_sources": {
    "identity": "ACPC 2024",
    "programs": "ACPC 2024",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "nmclive:up-089-p-4",
+  "aishe_code": null,
+  "name": "KALPANATH RAI INSTITUTE OF MEDICAL SCIENCE",
+  "display_name": "KALPANATH RAI INSTITUTE OF MEDICAL SCIENCE",
+  "aka": [],
+  "state": "Uttar Pradesh",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Private",
+  "ownership": "Private",
+  "disciplines": [],
+  "year_established": 2026,
+  "website": null,
+  "university": "Atal Bihari Vajpayee Medical University , Lucknow (U.P.)",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 50,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -245171,6 +247897,64 @@
   }
  },
  {
+  "college_id": "nmclive:kl-022-p-3",
+  "aishe_code": "C-55774",
+  "name": "Kerala Medical College, Mangode",
+  "display_name": "Kerala Medical College, Mangode",
+  "aka": [],
+  "state": "Kerala",
+  "state_is_inferred": false,
+  "district": "Palakkad",
+  "kind": "Medical College",
+  "management": "Private",
+  "ownership": "Private",
+  "disciplines": [],
+  "year_established": 2025,
+  "website": null,
+  "university": "Kerala University of Health Sciences, Thrissur",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 150,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "icar:kerala-veterinary-animal-sciences-university-pookode",
   "aishe_code": "U-0261",
   "name": "Kerala Veterinary & Animal Sciences University, Pookode",
@@ -248457,6 +251241,64 @@
   }
  },
  {
+  "college_id": "nmclive:br-028-p-3",
+  "aishe_code": null,
+  "name": "Kurma Sanskriti Medical College and Hospital",
+  "display_name": "Kurma Sanskriti Medical College and Hospital",
+  "aka": [],
+  "state": "Bihar",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Private",
+  "ownership": "Private",
+  "disciplines": [],
+  "year_established": 2026,
+  "website": null,
+  "university": "Bihar University of Health Sciences",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 50,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "C-30373",
   "aishe_code": "C-30373",
   "name": "Kurnool Medical College, Kurnool",
@@ -250737,6 +253579,64 @@
   "data_sources": {
    "identity": "State CET Cell, Maharashtra 2025",
    "programs": "MHT-CET CAP 2025, rounds 1-4",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "nmclive:uk-010-g-1",
+  "aishe_code": null,
+  "name": "Late Jagjivan Ram Goverment medical College, Pithoragarh, Uttarakhand",
+  "display_name": "Late Jagjivan Ram Goverment medical College, Pithoragarh, Uttarakhand",
+  "aka": [],
+  "state": "Uttarakhand",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Government",
+  "ownership": "Public",
+  "disciplines": [],
+  "year_established": 2026,
+  "website": null,
+  "university": "Hemwati Nandan Bahuguna Uttarakhand Medical Education University, Dehradun",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 50,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -257186,6 +260086,64 @@
   }
  },
  {
+  "college_id": "nmclive:cg-021-p-4",
+  "aishe_code": null,
+  "name": "MAA PADMAVATI INSTITUTE OF MEDICAL SCIENCES",
+  "display_name": "MAA PADMAVATI INSTITUTE OF MEDICAL SCIENCES",
+  "aka": [],
+  "state": "Chhattisgarh",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Private",
+  "ownership": "Private",
+  "disciplines": [],
+  "year_established": 2026,
+  "website": null,
+  "university": "Pt. Deendayal Upadhyay Memorial Health Sciences and Ayush University, Raipur",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 150,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "tg-eapcet:MDRK",
   "aishe_code": "C-33243",
   "name": "MADHIRA INSTITUTE OF TECHNOLOGY AND SCI",
@@ -257593,6 +260551,64 @@
   "data_sources": {
    "identity": "State CET Cell, Maharashtra 2025",
    "programs": "MHT-CET CAP 2025, rounds 1-4",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "nmclive:br-013-p-3",
+  "aishe_code": null,
+  "name": "MAHABODHI MEDICAL COLLEGE & HOSPITAL",
+  "display_name": "MAHABODHI MEDICAL COLLEGE & HOSPITAL",
+  "aka": [],
+  "state": "Bihar",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Private",
+  "ownership": "Private",
+  "disciplines": [],
+  "year_established": 2025,
+  "website": null,
+  "university": "Bihar University of Health Sciences",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 200,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -258208,6 +261224,64 @@
   "aka": [
    "MAHAVIR COLLEGE OF NURSING VATRAK, DIS. ARVALLI"
   ]
+ },
+ {
+  "college_id": "nmclive:mh-064-p-4",
+  "aishe_code": "C-76930",
+  "name": "MALATI MULTISPECIALITY HOSPITAL AND MEDICAL COLLEGE",
+  "display_name": "MALATI MULTISPECIALITY HOSPITAL AND MEDICAL COLLEGE",
+  "aka": [],
+  "state": "Maharashtra",
+  "state_is_inferred": false,
+  "district": "Akola",
+  "kind": "Medical College",
+  "management": "Private",
+  "ownership": "Private",
+  "disciplines": [],
+  "year_established": 2025,
+  "website": "www.mmcturkhed.com",
+  "university": "Maharashtra University of Health Sciences, Nashik",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 50,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
  },
  {
   "college_id": "ap-eapcet:MLEW",
@@ -258953,6 +262027,64 @@
   }
  },
  {
+  "college_id": "nmclive:br-029-p-3",
+  "aishe_code": null,
+  "name": "MAMTA MEDICAL COLLEGE & HOSPITAL",
+  "display_name": "MAMTA MEDICAL COLLEGE & HOSPITAL",
+  "aka": [],
+  "state": "Bihar",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Private",
+  "ownership": "Private",
+  "disciplines": [],
+  "year_established": 2026,
+  "website": null,
+  "university": "Bihar University of Health Sciences",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 100,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "acpmec:manav nursing college visnagar",
   "aishe_code": null,
   "name": "MANAV NURSING COLLEGE VISNAGAR",
@@ -259339,6 +262471,64 @@
   "data_sources": {
    "identity": "ACPC 2024",
    "programs": "ACPC 2024",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "nmclive:mp-023-p-4",
+  "aishe_code": null,
+  "name": "MANSAROVAR MEDICAL COLLEGE AND MGU HOSPITAL",
+  "display_name": "MANSAROVAR MEDICAL COLLEGE AND MGU HOSPITAL",
+  "aka": [],
+  "state": "Madhya Pradesh",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Private",
+  "ownership": "Private",
+  "disciplines": [],
+  "year_established": 2025,
+  "website": null,
+  "university": "MANSAROVAR GLOBAL UNIVERSITY",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 250,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -265866,6 +269056,64 @@
   }
  },
  {
+  "college_id": "nmclive:hr-009-g-1",
+  "aishe_code": "C-76887",
+  "name": "Maharishi Chyawan Medical College, Koriawas",
+  "display_name": "Maharishi Chyawan Medical College, Koriawas",
+  "aka": [],
+  "state": "Haryana",
+  "state_is_inferred": false,
+  "district": "Mahendragarh",
+  "kind": "Medical College",
+  "management": "Government",
+  "ownership": "Public",
+  "disciplines": [],
+  "year_established": 2025,
+  "website": "www.mcmckoraiwas.com",
+  "university": "PT. B.D. Sharma University of Health Sciences, Rohtak",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 100,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "C-76503",
   "aishe_code": "C-76503",
   "name": "MAHARISHI MARKANDESHWAR COLLEGE OF MEDICAL SCIENCES AND RESEARCH, SADOPUR, AMBALA",
@@ -267260,6 +270508,64 @@
   "data_sources": {
    "identity": "NMC 2024-25",
    "programs": "NMC 2024-25",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "nmclive:mh-063-p-3",
+  "aishe_code": null,
+  "name": "Mahatma Gandhi Missions Medical College, Panvel",
+  "display_name": "Mahatma Gandhi Missions Medical College, Panvel",
+  "aka": [],
+  "state": "Maharashtra",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Private",
+  "ownership": "Private",
+  "disciplines": [],
+  "year_established": 2025,
+  "website": null,
+  "university": "MGM Institute of Health Sciences (Deemed University), Navi Mumbai",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 100,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -273517,6 +276823,64 @@
   }
  },
  {
+  "college_id": "nmclive:gj-029-p-3",
+  "aishe_code": "C-75911",
+  "name": "Matushri prabhaben khodabhai boghara medical college & research centre",
+  "display_name": "Matushri prabhaben khodabhai boghara medical college & research centre",
+  "aka": [],
+  "state": "Gujarat",
+  "state_is_inferred": false,
+  "district": "Rajkot",
+  "kind": "Medical College",
+  "management": "Private",
+  "ownership": "Private",
+  "disciplines": [],
+  "year_established": 2025,
+  "website": "WWW.MPKBMEDICALCOLLEGE.COM",
+  "university": "Saurashtra University",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 150,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "mhtcet:05411",
   "aishe_code": null,
   "name": "Maulana Mukhtar Ahmad Nadvi Technical Campus, Malegaon.",
@@ -273811,6 +277175,64 @@
   "data_sources": {
    "identity": "State CET Cell, Maharashtra 2025",
    "programs": "MHT-CET CAP 2025, rounds 1-4",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "nmclive:mh-086-p-3",
+  "aishe_code": null,
+  "name": "Mauli Medical College Hospital & Research Center",
+  "display_name": "Mauli Medical College Hospital & Research Center",
+  "aka": [],
+  "state": "Maharashtra",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Private",
+  "ownership": "Private",
+  "disciplines": [],
+  "year_established": 2026,
+  "website": null,
+  "university": "Maharashtra University of Health Sciences, Nashik",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 100,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -282360,6 +285782,64 @@
   "data_sources": {
    "identity": "TG-EAPCET 2025",
    "programs": "TG-EAPCET 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "nmclive:jh-006-p-4",
+  "aishe_code": null,
+  "name": "NETAJI SUBHAS MEDICAL COLLEGE AND HOSPITAL",
+  "display_name": "NETAJI SUBHAS MEDICAL COLLEGE AND HOSPITAL",
+  "aka": [],
+  "state": "Jharkhand",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Private",
+  "ownership": "Private",
+  "disciplines": [],
+  "year_established": 2025,
+  "website": null,
+  "university": "Netaji Subhas University",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 200,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -295392,6 +298872,64 @@
   }
  },
  {
+  "college_id": "nmclive:od-014-g-1",
+  "aishe_code": "C-76529",
+  "name": "PABITRA MOHAN PRADHAN MEDICAL COLLEGE, TALCHER",
+  "display_name": "PABITRA MOHAN PRADHAN MEDICAL COLLEGE, TALCHER",
+  "aka": [],
+  "state": "Odisha",
+  "state_is_inferred": false,
+  "district": "Angul",
+  "kind": "Medical College",
+  "management": "Government",
+  "ownership": "Public",
+  "disciplines": [],
+  "year_established": 2025,
+  "website": "dean.pmpmchtal@gov.in",
+  "university": "Odisha University of Health Sciences",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 100,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "ap-eapcet:PACE",
   "aishe_code": "C-17916",
   "name": "PACE INSTITUTE OF TECHNOLOGY AND SCIENCES",
@@ -297015,6 +300553,64 @@
   "data_sources": {
    "identity": "ACPMEC 2026-27",
    "programs": "ACPMEC 2026-27",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "nmclive:wb-030-p-3",
+  "aishe_code": null,
+  "name": "PKG Medical College & Hospital",
+  "display_name": "PKG Medical College & Hospital",
+  "aka": [],
+  "state": "West Bengal",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Private",
+  "ownership": "Private",
+  "disciplines": [],
+  "year_established": 2024,
+  "website": null,
+  "university": "The West Bengal University of Health Sciences",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 100,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -298670,6 +302266,64 @@
   }
  },
  {
+  "college_id": "nmclive:hr-013-g-1",
+  "aishe_code": "C-76498",
+  "name": "PT NEKI RAM SHARMA GOVERNMENT MEDICAL COLLEGE, BHIWANI",
+  "display_name": "PT NEKI RAM SHARMA GOVERNMENT MEDICAL COLLEGE, BHIWANI",
+  "aka": [],
+  "state": "Haryana",
+  "state_is_inferred": false,
+  "district": "Bhiwani",
+  "kind": "Medical College",
+  "management": "Government",
+  "ownership": "Public",
+  "disciplines": [],
+  "year_established": 2025,
+  "website": "www.gmcbhiwani.in",
+  "university": "PT. B.D. Sharma University of Health Sciences, Rohtak",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 100,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "mhtcet:05330",
   "aishe_code": "C-51605",
   "name": "PUNE VIDYARTHI GRIHA\u2019S COLLEGE OF ENGINEERING & SHRIKRUSHNA S. DHAMANKAR INSTITUTE OF MANAGEMENT, NASHIK",
@@ -300057,6 +303711,64 @@
   "data_sources": {
    "identity": "WBJEE 2026",
    "programs": "WBJEE 2026",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "nmclive:kl-030-p-3",
+  "aishe_code": "C-73562",
+  "name": "Palakkad Institute of Medical Sciences, Palakkad",
+  "display_name": "Palakkad Institute of Medical Sciences, Palakkad",
+  "aka": [],
+  "state": "Kerala",
+  "state_is_inferred": false,
+  "district": "Palakkad",
+  "kind": "Medical College",
+  "management": "Private",
+  "ownership": "Private",
+  "disciplines": [],
+  "year_established": 2024,
+  "website": "www.pimshospital.com",
+  "university": "Kerala University of Health Sciences, Thrissur",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 150,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -303426,6 +307138,64 @@
   }
  },
  {
+  "college_id": "nmclive:as-012-g-1",
+  "aishe_code": "C-76186",
+  "name": "Pragjyotishpur Medical College",
+  "display_name": "Pragjyotishpur Medical College",
+  "aka": [],
+  "state": "Assam",
+  "state_is_inferred": false,
+  "district": "Kamrup Metro",
+  "kind": "Medical College",
+  "management": "Government",
+  "ownership": "Public",
+  "disciplines": [],
+  "year_established": 2025,
+  "website": "https://pragjyotishpur-mch.assam.gov.in",
+  "university": "Srimanta Sankaradeva University of Health Sciences, Guwahati",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 100,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "C-57150",
   "aishe_code": "C-57150",
   "name": "PRAKASH INSTITUTE OF MEDICAL SCIENCES AND RESEARCH",
@@ -303761,6 +307531,64 @@
   "data_sources": {
    "identity": "UPTAC 2026",
    "programs": "UPTAC 2026",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "nmclive:up-090-p-4",
+  "aishe_code": null,
+  "name": "Prasad Medical College & Hospital, Unnao",
+  "display_name": "Prasad Medical College & Hospital, Unnao",
+  "aka": [],
+  "state": "Uttar Pradesh",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Private",
+  "ownership": "Private",
+  "disciplines": [],
+  "year_established": 2026,
+  "website": null,
+  "university": "Atal Bihari Vajpayee Medical University , Lucknow (U.P.)",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 50,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -305066,6 +308894,64 @@
    "ranking": null,
    "placement": null,
    "accreditation": "NAAC"
+  }
+ },
+ {
+  "college_id": "nmclive:rj-051-p-4",
+  "aishe_code": null,
+  "name": "Prince Medical College & Hospital",
+  "display_name": "Prince Medical College & Hospital",
+  "aka": [],
+  "state": "Rajasthan",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Private",
+  "ownership": "Private",
+  "disciplines": [],
+  "year_established": 2026,
+  "website": null,
+  "university": "Rajasthan University of Health Science, Jaipur",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 150,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
   }
  },
  {
@@ -306990,6 +310876,64 @@
   }
  },
  {
+  "college_id": "nmclive:mh-089-g-1",
+  "aishe_code": null,
+  "name": "Punyashlok Ahilyadevi Holkar Government Medical College, Ahilyanagar",
+  "display_name": "Punyashlok Ahilyadevi Holkar Government Medical College, Ahilyanagar",
+  "aka": [],
+  "state": "Maharashtra",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Government",
+  "ownership": "Public",
+  "disciplines": [],
+  "year_established": null,
+  "website": null,
+  "university": "Maharashtra University of Health Sciences, Nashik",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 100,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "nmc:purulia-government-medical-college-hospital",
   "aishe_code": null,
   "name": "Purulia Government Medical College & Hospital",
@@ -307292,6 +311236,64 @@
   "data_sources": {
    "identity": "AP-EAPCET 2025",
    "programs": "AP-EAPCET 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "nmclive:mh-071-p-3",
+  "aishe_code": "C-73696",
+  "name": "R K Damani Medical College ShriRamchandra Institute ofMedical Sciences, Chhatrapati Sambhajinagar",
+  "display_name": "R K Damani Medical College ShriRamchandra Institute ofMedical Sciences, Chhatrapati Sambhajinagar",
+  "aka": [],
+  "state": "Maharashtra",
+  "state_is_inferred": false,
+  "district": "Chhatrapati Sambhajinagar",
+  "kind": "Medical College",
+  "management": "Private",
+  "ownership": "Private",
+  "disciplines": [],
+  "year_established": 2024,
+  "website": "www.srims.life",
+  "university": "Maharashtra University of Health Sciences, Nashik",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 150,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -309999,6 +314001,64 @@
   }
  },
  {
+  "college_id": "nmclive:ts-066-p-4",
+  "aishe_code": null,
+  "name": "RAJA RAJESHWARI INSTITUTE OF MEDICAL SCIENCES-GIRLS",
+  "display_name": "RAJA RAJESHWARI INSTITUTE OF MEDICAL SCIENCES-GIRLS",
+  "aka": [],
+  "state": "Telangana",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Private",
+  "ownership": "Private",
+  "disciplines": [],
+  "year_established": 2026,
+  "website": null,
+  "university": "Kaloji Narayana Rao University of Health Sciences, Warangal",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 150,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "ap-eapcet:RIET",
   "aishe_code": "C-18113",
   "name": "RAJAMAHENDRI INST OF ENGG AND TECHNOLOGY",
@@ -310702,6 +314762,64 @@
    "ranking": null,
    "placement": null,
    "accreditation": "NAAC"
+  }
+ },
+ {
+  "college_id": "nmclive:wb-035-p-3",
+  "aishe_code": "C-76553",
+  "name": "RANIGANJ INSTITUTE OF MEDICAL SCIENCE",
+  "display_name": "RANIGANJ INSTITUTE OF MEDICAL SCIENCE",
+  "aka": [],
+  "state": "West Bengal",
+  "state_is_inferred": false,
+  "district": "Paschim Bardhaman",
+  "kind": "Medical College",
+  "management": "Private",
+  "ownership": "Private",
+  "disciplines": [],
+  "year_established": 2025,
+  "website": "rimsdh.in",
+  "university": "The West Bengal University of Health Sciences",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 200,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
   }
  },
  {
@@ -312139,6 +316257,64 @@
   }
  },
  {
+  "college_id": "nmclive:up-092-p-4",
+  "aishe_code": null,
+  "name": "RSS MEDICAL COLLEGE & HOSPITAL",
+  "display_name": "RSS MEDICAL COLLEGE & HOSPITAL",
+  "aka": [],
+  "state": "Uttar Pradesh",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Private",
+  "ownership": "Private",
+  "disciplines": [],
+  "year_established": 2026,
+  "website": null,
+  "university": "Atal Bihari Vajpayee Medical University , Lucknow (U.P.)",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 50,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "C-51045",
   "aishe_code": "C-51045",
   "name": "RUHS College of Medical Sciences, Jaipur",
@@ -312423,6 +316599,64 @@
    "ranking": null,
    "placement": null,
    "accreditation": "NAAC"
+  }
+ },
+ {
+  "college_id": "nmclive:ap-040-p-4",
+  "aishe_code": null,
+  "name": "RVS Institute of Medical Sciences",
+  "display_name": "RVS Institute of Medical Sciences",
+  "aka": [],
+  "state": "Andhra Pradesh",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Private",
+  "ownership": "Private",
+  "disciplines": [],
+  "year_established": 2026,
+  "website": null,
+  "university": "Dr. N.T.R University of Health Sciences",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 50,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
   }
  },
  {
@@ -312820,6 +317054,64 @@
   "data_sources": {
    "identity": "NMC 2024-25 / AISHE 2024-25",
    "programs": "NMC 2024-25",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "nmclive:up-091-p-4",
+  "aishe_code": null,
+  "name": "Radha Govind Institute of Medical Sciences",
+  "display_name": "Radha Govind Institute of Medical Sciences",
+  "aka": [],
+  "state": "Uttar Pradesh",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Private",
+  "ownership": "Private",
+  "disciplines": [],
+  "year_established": 2026,
+  "website": null,
+  "university": "Atal Bihari Vajpayee Medical University , Lucknow (U.P.)",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 50,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -314064,6 +318356,64 @@
   "data_sources": {
    "identity": "KEAM 2026",
    "programs": "KEAM 2026",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "nmclive:tn-002-p-3",
+  "aishe_code": "C-56084",
+  "name": "Rajalakshmi Medical College Hospital and Research Institute",
+  "display_name": "Rajalakshmi Medical College Hospital and Research Institute",
+  "aka": [],
+  "state": "Tamil Nadu",
+  "state_is_inferred": false,
+  "district": "Kancheepuram",
+  "kind": "Medical College",
+  "management": "Private",
+  "ownership": "Private",
+  "disciplines": [],
+  "year_established": 2024,
+  "website": "https://www.rhealthcity.com",
+  "university": "The Tamilnadu Dr. MGR Medical University,Chennai",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 250,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -331308,6 +335658,64 @@
   }
  },
  {
+  "college_id": "nmclive:br-026-p-3",
+  "aishe_code": null,
+  "name": "SHRINIVAS G EDUCATIONAL & RESEARCH INSTITUTE OF MEDICAL SCIENCES",
+  "display_name": "SHRINIVAS G EDUCATIONAL & RESEARCH INSTITUTE OF MEDICAL SCIENCES",
+  "aka": [],
+  "state": "Bihar",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Private",
+  "ownership": "Private",
+  "disciplines": [],
+  "year_established": 2026,
+  "website": null,
+  "university": "Bihar University of Health Sciences",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 100,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "acpmec:shubham insti nursing science research center ahmedabad",
   "aishe_code": null,
   "name": "SHUBHAM INSTI. OF NURSING SCIENCE AND RESEARCH CENTER AHMEDABAD",
@@ -331362,6 +335770,64 @@
   "data_sources": {
    "identity": "ACPMEC 2026-27",
    "programs": "ACPMEC 2026-27",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "nmclive:br-022-p-3",
+  "aishe_code": null,
+  "name": "SHYAMLAL CHANDRASHEKHAR MEDICAL COLLEGE & S P N M HOPSITAL",
+  "display_name": "SHYAMLAL CHANDRASHEKHAR MEDICAL COLLEGE & S P N M HOPSITAL",
+  "aka": [],
+  "state": "Bihar",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Private",
+  "ownership": "Private",
+  "disciplines": [],
+  "year_established": 2025,
+  "website": null,
+  "university": "Bihar University of Health Sciences",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 100,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -332834,6 +337300,64 @@
   "data_sources": {
    "identity": "NMC 2024-25",
    "programs": "NMC 2024-25",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "nmclive:wb-041-p-3",
+  "aishe_code": null,
+  "name": "SKS MEDICAL COLLEGE , Durgapur",
+  "display_name": "SKS MEDICAL COLLEGE , Durgapur",
+  "aka": [],
+  "state": "West Bengal",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Private",
+  "ownership": "Private",
+  "disciplines": [],
+  "year_established": 2026,
+  "website": null,
+  "university": "West Bengal University of Health Sciences, Kolkata",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 150,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -345678,6 +350202,64 @@
   }
  },
  {
+  "college_id": "nmclive:hr-018-p-1",
+  "aishe_code": null,
+  "name": "Sanskaram School of Medical Sciences",
+  "display_name": "Sanskaram School of Medical Sciences",
+  "aka": [],
+  "state": "Haryana",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Private",
+  "ownership": "Private",
+  "disciplines": [],
+  "year_established": 2026,
+  "website": null,
+  "university": "SANSKARAM UNIVERSITY",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 150,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "mhtcet:06893",
   "aishe_code": null,
   "name": "Sant Dnyaneshwar Shikshan Sanstha, Annasaheb Dange College of B.Pharmacy, Ashta, Sangli",
@@ -347813,6 +352395,64 @@
   "data_sources": {
    "identity": "ACPMEC 2026-27",
    "programs": "ACPMEC 2026-27",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "nmclive:up-088-p-4",
+  "aishe_code": null,
+  "name": "Sardar Patel Institute of medical education and health sciences",
+  "display_name": "Sardar Patel Institute of medical education and health sciences",
+  "aka": [],
+  "state": "Uttar Pradesh",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Private",
+  "ownership": "Private",
+  "disciplines": [],
+  "year_established": 2026,
+  "website": null,
+  "university": "Atal Bihari Vajpayee Medical University , Lucknow (U.P.)",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 100,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -353359,6 +357999,64 @@
   }
  },
  {
+  "college_id": "nmclive:jh-002-g-1",
+  "aishe_code": "C-63482",
+  "name": "Sheikh Bhikhari Medical College & Hospital, Hazaribag",
+  "display_name": "Sheikh Bhikhari Medical College & Hospital, Hazaribag",
+  "aka": [],
+  "state": "Jharkhand",
+  "state_is_inferred": false,
+  "district": "Hazaribagh",
+  "kind": "Medical College",
+  "management": "Government",
+  "ownership": "Public",
+  "disciplines": [],
+  "year_established": 2019,
+  "website": "WWW.HAZARIBAGMEDICALCOLLEGE.ORG",
+  "university": "Vinoba Bhave University",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 100,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "mhtcet:05200",
   "aishe_code": "C-8852",
   "name": "Shellino Education Society's Arunamai College of Pharmacy, Mamurabad, Jalgaon.",
@@ -354075,6 +358773,64 @@
   "data_sources": {
    "identity": "State CET Cell, Maharashtra 2025",
    "programs": "MHT-CET CAP 2025, rounds 1-4",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "nmclive:ml-003-g-5",
+  "aishe_code": "C-76361",
+  "name": "Shillong Medical College",
+  "display_name": "Shillong Medical College",
+  "aka": [],
+  "state": "Meghalaya",
+  "state_is_inferred": false,
+  "district": "East Khasi Hills",
+  "kind": "Medical College",
+  "management": "Government",
+  "ownership": "Public",
+  "disciplines": [],
+  "year_established": 2025,
+  "website": "https://smcshillong.ac.in",
+  "university": "North Eastern Hill University, Shillong",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 50,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -367550,6 +372306,64 @@
   }
  },
  {
+  "college_id": "nmclive:jh-010-p-3",
+  "aishe_code": null,
+  "name": "Sido Kanhu Medical College and Hospital",
+  "display_name": "Sido Kanhu Medical College and Hospital",
+  "aka": [],
+  "state": "Jharkhand",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Private",
+  "ownership": "Private",
+  "disciplines": [],
+  "year_established": 2026,
+  "website": null,
+  "university": "Sidho Kanhu Murmu University",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 150,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
   "college_id": "gujcet:sigma institute engg bakrol",
   "aishe_code": "C-183",
   "name": "Sigma Institute Of Engg., Bakrol",
@@ -367641,6 +372455,64 @@
   "data_sources": {
    "identity": "ACPC 2025",
    "programs": "ACPC 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "nmclive:sk-002-g-1",
+  "aishe_code": null,
+  "name": "Sikkim Government Medical College",
+  "display_name": "Sikkim Government Medical College",
+  "aka": [],
+  "state": "Sikkim",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Government",
+  "ownership": "Public",
+  "disciplines": [],
+  "year_established": 2026,
+  "website": null,
+  "university": "Sikkim University",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 100,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -369701,6 +374573,64 @@
   "data_sources": {
    "identity": "ACPMEC 2026-27",
    "programs": "ACPMEC 2026-27",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "nmclive:mh-077-p-3",
+  "aishe_code": "C-76478",
+  "name": "Smt Sakhubai Narayanrao Katkade Medical College and Research Center",
+  "display_name": "Smt Sakhubai Narayanrao Katkade Medical College and Research Center",
+  "aka": [],
+  "state": "Maharashtra",
+  "state_is_inferred": false,
+  "district": "Ahilyanagar",
+  "kind": "Medical College",
+  "management": "Private",
+  "ownership": "Private",
+  "disciplines": [],
+  "year_established": 2025,
+  "website": "www.ssnk.rjsgi.com",
+  "university": "Maharashtra University of Health Sciences, Nashik",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 150,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -376874,6 +381804,64 @@
   "data_sources": {
    "identity": "TNEA 2025",
    "programs": "TNEA 2025",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "nmclive:br-031-g-1",
+  "aishe_code": null,
+  "name": "Sri ram janki medical college samastipur",
+  "display_name": "Sri ram janki medical college samastipur",
+  "aka": [],
+  "state": "Bihar",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Government",
+  "ownership": "Public",
+  "disciplines": [],
+  "year_established": 2026,
+  "website": null,
+  "university": "Bihar University of Health Sciences",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 50,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
    "accreditation": null
@@ -384565,6 +389553,64 @@
    "ranking": null,
    "placement": null,
    "accreditation": "NAAC"
+  }
+ },
+ {
+  "college_id": "nmclive:tn-068-p-5",
+  "aishe_code": null,
+  "name": "TAKSHASHILA MEDICAL COLLEGE",
+  "display_name": "TAKSHASHILA MEDICAL COLLEGE",
+  "aka": [],
+  "state": "Tamil Nadu",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Private",
+  "ownership": "Private",
+  "disciplines": [],
+  "year_established": 2025,
+  "website": null,
+  "university": "TAKSHASHILA UNIVERSITY",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 200,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
   }
  },
  {
@@ -401741,6 +406787,64 @@
   "data_sources": {
    "identity": "ACPMEC 2026-27",
    "programs": "ACPMEC 2026-27",
+   "ranking": null,
+   "placement": null,
+   "accreditation": null
+  }
+ },
+ {
+  "college_id": "nmclive:br-024-p-5",
+  "aishe_code": null,
+  "name": "VIRAAT RAMAYAN INSTITUTE OF MEDICAL SCIENCES",
+  "display_name": "VIRAAT RAMAYAN INSTITUTE OF MEDICAL SCIENCES",
+  "aka": [],
+  "state": "Bihar",
+  "state_is_inferred": false,
+  "district": null,
+  "kind": "Medical College",
+  "management": "Private",
+  "ownership": "Private",
+  "disciplines": [],
+  "year_established": 2025,
+  "website": null,
+  "university": "Bihar University of Health Sciences",
+  "entrance_exams": [
+   "NEET-UG"
+  ],
+  "counselling": "MCC / state NEET counselling",
+  "programs": {
+   "count": 1,
+   "degrees": [
+    "MBBS"
+   ],
+   "list": [
+    {
+     "branch": "MBBS",
+     "years": 5.5,
+     "degree": "MBBS",
+     "seats": 150,
+     "indicative_closing_rank": null,
+     "indicative_opening_rank": null,
+     "career_id": "anesthesiology"
+    }
+   ],
+   "source": "NMC college list (2026-11-17)",
+   "rank_note": null,
+   "seats_note": "Annual MBBS intake approved by NMC."
+  },
+  "nirf": null,
+  "ug_gender": null,
+  "fees": null,
+  "placement": null,
+  "naac": {
+   "grade": null,
+   "cgpa": null,
+   "cycle": null,
+   "not_applicable_reason": null
+  },
+  "data_sources": {
+   "identity": "NMC college list (2026-11-17)",
+   "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
    "accreditation": null

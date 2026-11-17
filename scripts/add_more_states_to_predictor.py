@@ -140,11 +140,13 @@ for r in csv.DictReader(open(DBX / "UP_closing_ranks_state_govt_2025.csv")):
                  num(r["closing_AIR"]), gender_of(r.get("seat_gender"))))
 ADDS.append(("Uttar Pradesh", "up_2025_r1r2r3_cutoffs", "R1+R2+R3 (cumulative)", rows))
 
-# ---------------- Uttarakhand (AIR-native) ----------------
+# ---------------- Uttarakhand (AIR-native, women's seats apart) ----------------
+# `sub` is HNBUMU's horizontal split: F = the women's seats, M = the open ones. Dropping it left two
+# rows per college and category that differed only in their closing rank.
 rows = []
 for r in csv.DictReader(open(DBX / "UK_closing_ranks_state_govt_2025.csv")):
     rows.append((r["allotted_college"].strip(), r["program"], r["vert"].strip(),
-                 num(r["closing_AIR"]), None))
+                 num(r["closing_AIR"]), gender_of(r.get("sub"))))
 ADDS.append(("Uttarakhand", "uttarakhand_2025_r3_cutoffs", "Round 3 (broadsheet)", rows))
 
 # ---------------- Tamil Nadu (MARKS -> AIR via our model) ----------------

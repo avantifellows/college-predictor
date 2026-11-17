@@ -1,0 +1,758 @@
+{
+  "about": "Decisions on predictor college names the matcher left open (scripts/build_college_name_links.js). Move an entry from `open` to `decisions` as {\"college_id\": \"...\"} or {\"college_id\": null} (no card), then re-run.",
+  "decisions": {
+    "andhra-pradesh|college-of-food-science-and-technology": {
+      "college_id": null,
+      "name": "COLLEGE OF FOOD SCIENCE AND TECHNOLOGY"
+    },
+    "andhra-pradesh|dr-pinnamaneni-siddhartha-institute-of-medical-sciences-gannavaram": {
+      "college_id": null,
+      "name": "Dr. Pinnamaneni Siddhartha Institute of Medical Sciences, Gannavaram"
+    },
+    "andhra-pradesh|gitam-institue-of-med-sce-and-res-visakhapatnam": {
+      "college_id": "C-69453",
+      "name": "GITAM Institue of Med. Sce. and Res., Visakhapatnam",
+      "card": "GITAM Institute of Medical Sciences and Research, Visakhapatnam"
+    },
+    "andhra-pradesh|gmc-rajamahendravaram": {
+      "college_id": "nmc:government-medical-college-rajamahendravaram",
+      "name": "GMC, Rajamahendravaram",
+      "card": "Government Medical College, Rajamahendravaram"
+    },
+    "andhra-pradesh|government-medical-college": {
+      "college_id": null,
+      "name": "Government medical College"
+    },
+    "andhra-pradesh|government-medical-college-kadapa": {
+      "college_id": "nmc:rajiv-gandhi-institute-of-medical-sciences-kadapa",
+      "name": "Government Medical College, Kadapa",
+      "card": "Rajiv Gandhi Institute of Medical Sciences, Kadapa"
+    },
+    "andhra-pradesh|government-medical-college-ongole": {
+      "college_id": "nmc:rajiv-gandhi-institute-of-medical-sciences-ongole",
+      "name": "Government Medical College, Ongole",
+      "card": "Rajiv Gandhi Institute of Medical Sciences, Ongole"
+    },
+    "andhra-pradesh|government-medical-college-srikakulam": {
+      "college_id": "nmc:rajiv-gandhi-institute-of-medical-sciences-srikakulam",
+      "name": "Government Medical College, Srikakulam",
+      "card": "Rajiv Gandhi Institute of Medical Sciences, Srikakulam"
+    },
+    "andhra-pradesh|gsl-medical-college-rajamahendravaram": {
+      "college_id": "C-30524",
+      "name": "GSL Medical College, Rajamahendravaram",
+      "card": "GSL Medical College, Rajahmundry"
+    },
+    "andhra-pradesh|kakinada-institute-of-engg-and-technology": {
+      "college_id": null,
+      "name": "KAKINADA INSTITUTE OF ENGG. AND TECHNOLOGY"
+    },
+    "andhra-pradesh|narayana-engineering-college": {
+      "college_id": null,
+      "name": "NARAYANA ENGINEERING COLLEGE"
+    },
+    "andhra-pradesh|nimra-institute-of-medical-sciences-vijayawada": {
+      "college_id": "C-57010",
+      "name": "Nimra Institute of Medical Sciences, Vijayawada",
+      "card": "Nimra Institute of Medical Sciences, Krishna Dist."
+    },
+    "andhra-pradesh|nri-medical-college-chinnakakani": {
+      "college_id": "C-67797",
+      "name": "NRI Medical College, Chinnakakani",
+      "card": "NRI Medical College, Guntur"
+    },
+    "andhra-pradesh|sri-balaji-medical-college-hospital-and-research-institute-renigunta": {
+      "college_id": "C-72414",
+      "name": "Sri Balaji Medical College Hospital and Research Institute, Renigunta",
+      "card": "Sri Balaji Medical College, Hospital and Research Instiutute, Chittoor"
+    },
+    "assam|assam-medical-college-dibrugarh": {
+      "college_id": "nmc:assam-medial-college-dibrugarh",
+      "name": "ASSAM MEDICAL COLLEGE, DIBRUGARH",
+      "card": "Assam Medial College, Dibrugarh"
+    },
+    "assam|guwahati-medical-college-guwahati": {
+      "college_id": "C-17298",
+      "name": "GUWAHATI MEDICAL COLLEGE, GUWAHATI",
+      "card": "Gauhati Medical College, Guwahati"
+    },
+    "chhattisgarh|bharatratna-late-shri-atal-bihari-vajpayee-mgmc-rajnandgaon": {
+      "college_id": "nmc:government-medical-college-bharat-ratna-shri-atal-bihari-vaj-fe8dda",
+      "name": "Bharatratna Late shri Atal Bihari Vajpayee MGMC Rajnandgaon",
+      "card": "Government Medical College (Bharat Ratna Shri Atal Bihari Vajpyee Memorial Med. Col.), Rajnandgaon"
+    },
+    "chhattisgarh|chhattisgarh-institute-of-medical-sciences-bilasp": {
+      "college_id": "C-33014",
+      "name": "CHHATTISGARH INSTITUTE OF MEDICAL SCIENCES, BILASP",
+      "card": "Chhattisgarh Institute of Medical Sciences, Bilaspur"
+    },
+    "chhattisgarh|late-baliram-kashyap-smriti-sh-medical-college-jagdalpur": {
+      "college_id": "nmc:late-shri-baliram-kashyap-memorial-ndmc-govt-medical-college-78aa42",
+      "name": "LATE BALIRAM KASHYAP SMRITI SH. MEDICAL COLLEGE, JAGDALPUR",
+      "card": "Late Shri Baliram Kashyap Memorial NDMC Govt. Medical College, Jagdalpur"
+    },
+    "chhattisgarh|late-shri-lakhiram-agrawal-memorial-medical-college-raigarh": {
+      "college_id": "nmc:late-shri-lakhi-ram-agrawal-memorial-govt-medical-college-ra-3b5191",
+      "name": "LATE SHRI LAKHIRAM AGRAWAL MEMORIAL MEDICAL COLLEGE, RAIGARH",
+      "card": "Late Shri Lakhi Ram Agrawal Memorial Govt. Medical College, Raigarh"
+    },
+    "chhattisgarh|lt-l-a-m-govt-medical-college-raigarh": {
+      "college_id": "nmc:late-shri-lakhi-ram-agrawal-memorial-govt-medical-college-ra-3b5191",
+      "name": "Lt. L A M Govt. Medical College, Raigarh",
+      "card": "Late Shri Lakhi Ram Agrawal Memorial Govt. Medical College, Raigarh"
+    },
+    "delhi-nct|university-college-of-medical-sciences-new-delhi": {
+      "college_id": "C-6430",
+      "name": "University College of Medical Sciences, New Delhi",
+      "card": "University College of Medical Sciences & GTB Hospital, New Delhi"
+    },
+    "delhi|delhi-technological-university-dtu": {
+      "college_id": "U-0098",
+      "name": "Delhi Technological University (DTU)",
+      "card": "Delhi Technological University"
+    },
+    "gujarat|ananya-colege-of-medicine-and-research": {
+      "college_id": "C-70391",
+      "name": "Ananya Colege of Medicine and Research",
+      "card": "Ananya College of Medicine & Research, Kalol"
+    },
+    "gujarat|bhagyoday-medical-college-station-road-kadi-district-mehsana": {
+      "college_id": "C-72991",
+      "name": "Bhagyoday Medical College Station Road Kadi District Mehsana",
+      "card": "Bhagyoday Medical College"
+    },
+    "gujarat|gmers-medical-college-godhra": {
+      "college_id": "nmc:government-medical-college-panchmahal-godhra",
+      "name": "GMERS Medical College Godhra",
+      "card": "Government Medical College, Panchmahal Godhra"
+    },
+    "gujarat|nootan-medical-college-research-centre-visnagar": {
+      "college_id": "C-61599",
+      "name": "Nootan Medical College & Research Centre Visnagar",
+      "card": "Nootan Medical College and Research Centre, Mehsana"
+    },
+    "gujarat|parul-institute-of-medical-sciences-research-post-limda-dist": {
+      "college_id": "C-55827",
+      "name": "Parul Institute Of Medical Sciences & Research Post. Limda Dist.",
+      "card": "Parul Institute of Medical Sciences & Research, Vadodara"
+    },
+    "gujarat|shri-m-p-shah-government-medical-college-jamnagar": {
+      "college_id": "nmc:mp-shah-medical-college-jamnagar",
+      "name": "Shri M.P.Shah Government Medical College Jamnagar",
+      "card": "MP Shah Medical College, Jamnagar"
+    },
+    "haryana|nc-medical-college-hospital-israna-panipat": {
+      "college_id": "nmc:n-c-medical-college-hospital-panipat",
+      "name": "NC Medical College & Hospital, Israna, Panipat",
+      "card": "N.C. Medical College & Hospital, Panipat"
+    },
+    "haryana|sh-atal-bihari-vajpayee-government-medical-college-chhainsa-faridabad": {
+      "college_id": "C-68110",
+      "name": "Sh. Atal Bihari Vajpayee Government Medical College, Chhainsa, Faridabad",
+      "card": "Shri Atal Bihari Vajpayee Government Medical College, Faridabad"
+    },
+    "himachal-pradesh|dr-yashwant-parmar-govt-medical-college-nahan-sirmour": {
+      "college_id": "nmc:government-medical-college-nahan-sirmour-h-p",
+      "name": "Dr Yashwant Parmar Govt Medical College Nahan Sirmour",
+      "card": "Government Medical College, Nahan, Sirmour H.P."
+    },
+    "himachal-pradesh|dr-ys-parmar-govt-medical-college-nahan": {
+      "college_id": "nmc:government-medical-college-nahan-sirmour-h-p",
+      "name": "Dr. YS Parmar Govt. Medical College, Nahan",
+      "card": "Government Medical College, Nahan, Sirmour H.P."
+    },
+    "karnataka|bgs-medical-college-and-hospital-bgs-mch-nagarur-dasanapura-hobli-banglore-north": {
+      "college_id": "C-75088",
+      "name": "BGS Medical College and Hospital(BGS MCH) Nagarur Dasanapura Hobli Banglore North",
+      "card": "BGS Medical College and Hospital Bengaluru, Karnataka"
+    },
+    "karnataka|esi-mc-pgims-r-banglore": {
+      "college_id": "nmc:employees-state-insurance-corporation-medical-college-bangal-be9b7d",
+      "name": "ESI-MC&PGIMS&R, Banglore",
+      "card": "Employees State Insurance Corporation Medical College, Bangalore"
+    },
+    "karnataka|esi-medical-college": {
+      "college_id": null,
+      "name": "ESI Medical College"
+    },
+    "karnataka|father-muller-institute-of-med-education-research": {
+      "college_id": "C-40208",
+      "name": "Father Muller Institute of Med. Education & Research",
+      "card": "Father Mullers Medical College, Mangalore"
+    },
+    "karnataka|kasturba-medical-college": {
+      "college_id": null,
+      "name": "Kasturba Medical College"
+    },
+    "karnataka|pes-university-institute-of-medical-sceinces-and-research": {
+      "college_id": "nmc:pes-university-institute-of-medical-sciences-and-research-ba-0a1a5e",
+      "name": "PES University Institute of Medical Sceinces and Research",
+      "card": "PES University Institute of Medical Sciences and Research Bangalore"
+    },
+    "karnataka|s-nijalingappa-medical-college-and-research-centre": {
+      "college_id": "nmc:s-nijalingappa-medical-college-hsk-hospital-research-centre-9259a3",
+      "name": "S. Nijalingappa Medical College and Research Centre",
+      "card": "S. Nijalingappa Medical College & HSK Hospital & Research Centre, Bagalkot"
+    },
+    "karnataka|sri-basaveshwara-medical-college-and-hospital": {
+      "college_id": "C-40477",
+      "name": "Sri Basaveshwara Medical College and Hospital",
+      "card": "Basaveswara Medical College and Hospital, Chitradurga"
+    },
+    "karnataka|sri-siddhartha-academy-t-begur": {
+      "college_id": "C-62731",
+      "name": "Sri Siddhartha Academy T Begur",
+      "card": "Sri siddhartha Institute of Medical Sciences & Research Centre, Bangalore"
+    },
+    "karnataka|srinivasa-institute-of-medical-research-center-srinivas-nagar-mangalore": {
+      "college_id": "nmc:srinivas-institute-of-medical-research-centre-srinivasnagar-31e731",
+      "name": "Srinivasa Institute of Medical Research Center Srinivas Nagar Mangalore",
+      "card": "Srinivas Institute of Medical Research Centre, Srinivasnagar, Mangalore"
+    },
+    "karnataka|st-john-medical-college": {
+      "college_id": "C-40453",
+      "name": "St John Medical College",
+      "card": "St. Johns Medical College, Bangalore"
+    },
+    "kerala|azc-azeezia-institute-of-medi-science-meyyannoor": {
+      "college_id": "C-48104",
+      "name": "AZC- Azeezia Institute of Medi Science, Meyyannoor",
+      "card": "Azeezia Instt of Medical Science,Meeyannoor, Kollam"
+    },
+    "kerala|emc-mes-medical-college-perinthalmanna": {
+      "college_id": "C-8089",
+      "name": "EMC- MES Medical College, Perinthalmanna",
+      "card": "M E S Medical College , Perintalmanna Malappuram Distt.Kerala"
+    },
+    "kerala|gmc-manjeri": {
+      "college_id": "nmc:government-medical-college-manjeri-malapuram-dist",
+      "name": "GMC, Manjeri",
+      "card": "Government Medical College, Manjeri, Malapuram Dist."
+    },
+    "kerala|gmc-sree-gokulam-medical-college-venjaramoodu": {
+      "college_id": "C-48136",
+      "name": "GMC- Sree Gokulam Medical College, Venjaramoodu",
+      "card": "Sree Gokulam Medical College Trust & Research Foundation, Trivandrum"
+    },
+    "kerala|govt-medical-college-kannur": {
+      "college_id": "nmc:govt-medical-college-pariyaram-kannur-prev-known-as-academy-dbac05",
+      "name": "Govt Medical College Kannur",
+      "card": "Govt. Medical College,Pariyaram, Kannur (Prev. Known as Academy of Medical Sciences)"
+    },
+    "kerala|kcm-kmct-medical-college-mukkom": {
+      "college_id": "C-8250",
+      "name": "KCM- KMCT Medical College, Mukkom",
+      "card": "KMCT Medical College, Kozhikode, Calicut"
+    },
+    "kerala|kdm-p-k-das-institute-of-medical-sciences-ottapalam": {
+      "college_id": "C-55177",
+      "name": "KDM- P K Das Institute of Medical Sciences, Ottapalam",
+      "card": "P K Das Institute of Medical Sciences, Palakkad, Kerala"
+    },
+    "kerala|kem-kerala-medical-college-palakkad": {
+      "college_id": "nmclive:kl-022-p-3",
+      "name": "KEM- Kerala Medical College, Palakkad",
+      "card": "Kerala Medical College, Mangode"
+    },
+    "kerala|kmm-karuna-medical-college-vilayodi": {
+      "college_id": "C-43276",
+      "name": "KMM- Karuna Medical College, Vilayodi",
+      "card": "Karuna Medical College, Palakkad"
+    },
+    "kerala|knm-government-medical-college-kannur": {
+      "college_id": "nmc:govt-medical-college-pariyaram-kannur-prev-known-as-academy-dbac05",
+      "name": "KNM- Government Medical College Kannur",
+      "card": "Govt. Medical College,Pariyaram, Kannur (Prev. Known as Academy of Medical Sciences)"
+    },
+    "kerala|mlp-govt-medical-college-manjeri": {
+      "college_id": "nmc:government-medical-college-manjeri-malapuram-dist",
+      "name": "MLP- Govt. Medical College, Manjeri",
+      "card": "Government Medical College, Manjeri, Malapuram Dist."
+    },
+    "kerala|trm-travancore-medical-college-umayanalloor": {
+      "college_id": "C-48108",
+      "name": "TRM- Travancore Medical College, Umayanalloor",
+      "card": "Travancore Medical College, Kollam"
+    },
+    "madhya-pradesh|rd-gardi-medical-college-ujjain": {
+      "college_id": "C-31670",
+      "name": "RD GARDI MEDICAL COLLEGE UJJAIN",
+      "card": "Ruxmaniben Deepchand Gardi Medical College, Ujjain"
+    },
+    "madhya-pradesh|sundarlal-patwa-govt-medical-college-mandsaur-dean-office": {
+      "college_id": "C-73713",
+      "name": "Sundarlal patwa Govt medical College mandsaur, Dean Office",
+      "card": "Sundarlal Patwa Govt. Medical College"
+    },
+    "maharashtra|ab-vajpayee-mc-pune": {
+      "college_id": "C-68192",
+      "name": "AB VAJPAYEE MC PUNE",
+      "card": "Bharatratna Atal Bihari Vajpayee Medical College, Pune"
+    },
+    "maharashtra|b-hire-mc-dhule": {
+      "college_id": "nmc:sri-bhausaheb-hire-government-medical-college-dhule",
+      "name": "B HIRE MC DHULE",
+      "card": "Sri Bhausaheb Hire Government Medical College, Dhule"
+    },
+    "maharashtra|bharati-vidyapeeth-du-medical-college-dhankawadi": {
+      "college_id": "nmc:bharati-vidyapeeth-university-medical-college-pune",
+      "name": "Bharati Vidyapeeth DU Medical College, Dhankawadi",
+      "card": "Bharati Vidyapeeth University Medical College, Pune"
+    },
+    "maharashtra|datta-meghe-medical-college-wanadongri-hingna-nagpur": {
+      "college_id": "nmc:datta-meghe-medical-college-nagpur",
+      "name": "DATTA MEGHE MEDICAL COLLEGE WANADONGRI HINGNA NAGPUR",
+      "card": "Datta Meghe Medical College, Nagpur"
+    },
+    "maharashtra|dny-tasgaonkar-mc-karjat": {
+      "college_id": "C-68191",
+      "name": "DNY TASGAONKAR MC KARJAT",
+      "card": "Dr. N Y Tasgaonkar Institute of Medical Science"
+    },
+    "maharashtra|dr-r-gode-mc-amaravati": {
+      "college_id": "C-70850",
+      "name": "DR R GODE MC AMARAVATI",
+      "card": "Dr. Rajendra Gode Medical College, Amravati"
+    },
+    "maharashtra|dr-s-c-gmc-nanded": {
+      "college_id": "nmc:dr-shankarrao-chavan-govt-medical-college-nanded",
+      "name": "DR.S.C.GMC NANDED",
+      "card": "Dr. Shankarrao Chavan Govt. Medical College, Nanded"
+    },
+    "maharashtra|dr-s-c-govt-medical-college": {
+      "college_id": "nmc:dr-shankarrao-chavan-govt-medical-college-nanded",
+      "name": "DR.S.C.GOVT MEDICAL COLLEGE",
+      "card": "Dr. Shankarrao Chavan Govt. Medical College, Nanded"
+    },
+    "maharashtra|gmc-kolhapur": {
+      "college_id": "C-14015",
+      "name": "GMC KOLHAPUR",
+      "card": "Rajashree Chatrapati Shahu Maharaj Government Medical College, Kolhapur"
+    },
+    "maharashtra|gmc-mumbai": {
+      "college_id": null,
+      "name": "GMC MUMBAI"
+    },
+    "maharashtra|gmc-parbhani": {
+      "college_id": "C-76603",
+      "name": "GMC PARBHANI",
+      "card": "Government Medical College, Parbhani"
+    },
+    "maharashtra|government-medical-college": {
+      "college_id": null,
+      "name": "Government Medical College"
+    },
+    "maharashtra|government-medical-college-mumbai": {
+      "college_id": null,
+      "name": "Government Medical College, Mumbai"
+    },
+    "maharashtra|hinduhridayasamrat-balasaheb-thackeray-medical-college-and-dr-r-n-cooper-municipal-general-hospital-maharashtra": {
+      "college_id": "nmc:h-b-t-medical-college-dr-r-n-cooper-municipal-general-hospit-e42fa6",
+      "name": "Hinduhridayasamrat Balasaheb Thackeray Medical College and Dr. R. N. Cooper Municipal General Hospital, Maharashtra",
+      "card": "H.B.T. Medical College & Dr. R.N. Cooper Municipal General Hospital, Juhu, Mumbai"
+    },
+    "maharashtra|krishna-inst-of-med-scie-karad": {
+      "college_id": "C-23033",
+      "name": "Krishna Inst. of Med. Scie., Karad",
+      "card": "Krishna Institute of Medical Sciences, Karad"
+    },
+    "maharashtra|mahatma-gandhi-mission-medical-college-nerul": {
+      "college_id": "nmc:mahatma-gandhi-missions-medical-college-navi-mumbai",
+      "name": "Mahatma Gandhi Mission Medical College, Nerul",
+      "card": "Mahatma Gandhi Missions Medical College, Navi Mumbai"
+    },
+    "maharashtra|mg-inst-of-medical-sciences-sevagram-wardha": {
+      "college_id": "C-14034",
+      "name": "MG Inst. of Medical Sciences, Sevagram Wardha",
+      "card": "Mahatma Gandhi Institute of Medical Sciences, Sevagram, Wardha"
+    },
+    "maharashtra|mgims-mc-sevagram-wardha": {
+      "college_id": "C-14034",
+      "name": "MGIMS MC SEVAGRAM,WARDHA",
+      "card": "Mahatma Gandhi Institute of Medical Sciences, Sevagram, Wardha"
+    },
+    "maharashtra|mgm-medical-college-navi-mumbai": {
+      "college_id": "nmc:mahatma-gandhi-missions-medical-college-navi-mumbai",
+      "name": "MGM Medical College, Navi Mumbai",
+      "card": "Mahatma Gandhi Missions Medical College, Navi Mumbai"
+    },
+    "maharashtra|mimer-mc-talegaon-pune": {
+      "college_id": "nmc:maharashtra-institute-of-medical-education-research-talegaon-1165e0",
+      "name": "MIMER MC TALEGAON PUNE",
+      "card": "Maharashtra Institute of Medical Education & Research, Talegaon, Pune"
+    },
+    "maharashtra|rajarshee-chhatrapati-shahu-maharaj-government-medical-college-kolhapur": {
+      "college_id": "C-14015",
+      "name": "Rajarshee Chhatrapati Shahu Maharaj Government Medical College Kolhapur",
+      "card": "Rajashree Chatrapati Shahu Maharaj Government Medical College, Kolhapur"
+    },
+    "maharashtra|ramchandra-inst-mc": {
+      "college_id": "nmc:shri-ramchandra-institute-of-medical-sciences",
+      "name": "RAMCHANDRA INST MC",
+      "card": "Shri Ramchandra Institute of Medical Sciences"
+    },
+    "maharashtra|rural-medical-college-and-pims-loni": {
+      "college_id": "nmc:rural-medical-college-loni",
+      "name": "Rural Medical College and PIMS, Loni",
+      "card": "Rural Medical College, Loni"
+    },
+    "maharashtra|tilak-mc-mumbai": {
+      "college_id": "nmc:lokmanya-tilak-municipal-medical-college-sion-mumbai",
+      "name": "Tilak MC MUMBAI",
+      "card": "Lokmanya Tilak Municipal Medical College, Sion, Mumbai"
+    },
+    "maharashtra|walawalkar-mc-ratnagiri": {
+      "college_id": "nmc:b-k-l-walawalkar-rural-medical-college-ratnagiri",
+      "name": "WALAWALKAR MC RATNAGIRI",
+      "card": "B.K.L. Walawalkar Rural Medical College, Ratnagiri"
+    },
+    "mizoram|zoram-medical-college-falkawn-academic-block": {
+      "college_id": "C-60907",
+      "name": "ZORAM MEDICAL COLLEGE Falkawn, Academic Block",
+      "card": "Zoram Medical College, Mizoram"
+    },
+    "mizoram|zoram-medical-college-zmch-falkawn": {
+      "college_id": "C-60907",
+      "name": "Zoram Medical College (ZMCH), Falkawn",
+      "card": "Zoram Medical College, Mizoram"
+    },
+    "nagaland|nagaland-institute-of-medical-science-and-research-phirebagie": {
+      "college_id": "C-73048",
+      "name": "NAGALAND INSTITUTE OF MEDICAL SCIENCE AND RESEARCH PHIREBAGIE",
+      "card": "Nagaland Institute of Medical Sciences & Research"
+    },
+    "odisha|gmch-sundergarh": {
+      "college_id": "nmc:government-medical-college-sundargarh",
+      "name": "GMCH, SUNDERGARH",
+      "card": "Government Medical College, Sundargarh"
+    },
+    "odisha|institute-of-medical-sciences-and-sum-host-bhubaneswar": {
+      "college_id": "nmc:institute-of-medical-sciences-sum-hospital-bhubaneswar",
+      "name": "Institute of Medical Sciences and SUM Host., Bhubaneswar",
+      "card": "Institute of Medical Sciences & SUM Hospital, Bhubaneswar"
+    },
+    "odisha|institute-of-medical-sciences-sum-hospital-campus-ii": {
+      "college_id": "nmc:institute-of-medical-sciences-sum-hospital-campus-bhubaneswa-5e63ba",
+      "name": "Institute of Medical Sciences & SUM Hospital, Campus II",
+      "card": "Institute of Medical Sciences & SUM Hospital, Campus, Bhubaneswar, Odisha"
+    },
+    "odisha|saheed-rendo-majhi-medical-college-hospital-bhawanipatna": {
+      "college_id": "nmc:government-medical-college-bhawanipatna",
+      "name": "Saheed Rendo Majhi Medical College & Hospital, Bhawanipatna",
+      "card": "Government Medical College, Bhawanipatna"
+    },
+    "punjab|rimt-medical-college-and-hospital-mandi-gobindgarh": {
+      "college_id": "nmc:rimt-medical-college-and-hospital",
+      "name": "RIMT Medical College and Hospital, Mandi Gobindgarh",
+      "card": "RIMT Medical College and Hospital"
+    },
+    "rajasthan|dr-ss-tantia-medical-college-hospital-and-research-center-sriganganagar": {
+      "college_id": "nmc:dr-s-s-tantia-medical-college-hospital-research-centre",
+      "name": "Dr.SS Tantia Medical College, Hospital and Research Center, Sriganganagar",
+      "card": "Dr S S Tantia Medical College Hospital & Research Centre"
+    },
+    "rajasthan|geetanjali-mc-udaipur-gen-seat-court-order": {
+      "college_id": "nmclive:rj-010-p-3",
+      "name": "Geetanjali MC, Udaipur (Gen. Seat) - Court Order",
+      "card": "Geetanjali Medical College & Hospital,Udaipur"
+    },
+    "rajasthan|geetanjali-mc-udaipur-mgmt-seat-court-order": {
+      "college_id": "nmclive:rj-010-p-3",
+      "name": "Geetanjali MC, Udaipur (Mgmt. Seat) - Court Order",
+      "card": "Geetanjali Medical College & Hospital,Udaipur"
+    },
+    "rajasthan|gmc-sriganganagar": {
+      "college_id": "C-69401",
+      "name": "GMC, Sriganganagar",
+      "card": "Government Medical College, Sri Ganganagar"
+    },
+    "rajasthan|govt-medical-college": {
+      "college_id": null,
+      "name": "Govt Medical College"
+    },
+    "rajasthan|jawahar-lal-nehru-medical-ajmer": {
+      "college_id": "nmc:jawaharlal-nehru-medical-college-ajmer",
+      "name": "JAWAHAR LAL NEHRU MEDICAL, AJMER",
+      "card": "Jawaharlal Nehru Medical College, Ajmer"
+    },
+    "rajasthan|pacific-insti-of-ms-udaipur": {
+      "college_id": "nmc:pacific-institute-of-medical-sciences-umarda-udaipur",
+      "name": "Pacific Insti. of MS, Udaipur",
+      "card": "Pacific Institute of Medical Sciences, Umarda, Udaipur"
+    },
+    "rajasthan|ruhs-cms-jaipur": {
+      "college_id": "C-51045",
+      "name": "RUHS CMS, Jaipur",
+      "card": "RUHS College of Medical Sciences, Jaipur"
+    },
+    "tamil-nadu|govt-thiruvallur-medical-college-hospital": {
+      "college_id": "C-67208",
+      "name": "GOVT. THIRUVALLUR MEDICAL COLLEGE HOSPITAL,",
+      "card": "Government Medical College, Thiruvallur"
+    },
+    "tamil-nadu|j-r-medical-college-and-hospital-tamil-nadu": {
+      "college_id": "nmc:j-r-medical-college-and-hospital-villupuram-district-tamilna-96d53e",
+      "name": "J R MEDICAL COLLEGE AND HOSPITAL, TAMIL NADU",
+      "card": "J R Medical College and Hospital Villupuram District, Tamilnadu"
+    },
+    "tamil-nadu|shri-sathya-sai-medical-college-and-research-institute-chennai": {
+      "college_id": null,
+      "name": "Shri Sathya Sai Medical College and Research Institute, Chennai"
+    },
+    "tamil-nadu|sri-lalithambigai-medical-college-hospital": {
+      "college_id": "C-68272",
+      "name": "SRI LALITHAMBIGAI MEDICAL COLLEGE & HOSPITAL",
+      "card": "Faculty of Medicine , Sri Lalithambigai Medical College and Hospital"
+    },
+    "tamil-nadu|srm-medical-college-and-hospital": {
+      "college_id": "nmc:srm-medical-college-hospital-research-centre-kancheepuram",
+      "name": "SRM Medical College and Hospital",
+      "card": "SRM Medical College Hospital & Research Centre, Kancheepuram"
+    },
+    "telangana|apollo-institute-of-medical-sciences-and-research-hyd": {
+      "college_id": "C-60509",
+      "name": "APOLLO INSTITUTE OF MEDICAL SCIENCES AND RESEARCH, HYD",
+      "card": "Apollo Institute of Medical Sciences and Research, Hyderabad"
+    },
+    "telangana|arundathi-institute-of-medical-sciences-dundigal": {
+      "college_id": "C-72669",
+      "name": "ARUNDATHI INSTITUTE OF MEDICAL SCIENCES, DUNDIGAL",
+      "card": "Arundathi Institute of Medical Sciences, Medchal"
+    },
+    "telangana|bhaskar-medical-college-moinabad-rr": {
+      "college_id": "C-30562",
+      "name": "BHASKAR MEDICAL COLLEGE, MOINABAD, RR",
+      "card": "Bhaskar Medical College, Yenkapally"
+    },
+    "telangana|cmr-institute-of-medical-sciences-kandalkoya-medchal": {
+      "college_id": "C-71657",
+      "name": "CMR INSTITUTE OF MEDICAL SCIENCES, KANDALKOYA, MEDCHAL",
+      "card": "CMR Institute of Medical Science"
+    },
+    "telangana|esi-medical-college-sanathnagar-hyd": {
+      "college_id": "nmc:employees-state-insurance-coporation-medical-college-sanath-65fcf0",
+      "name": "ESI MEDICAL COLLEGE, SANATHNAGAR, HYD",
+      "card": "Employees State Insurance Coporation Medical College, Sanath Nagar, Hyderabad"
+    },
+    "telangana|gandhi-medical-college-musheerabad-secunderabad-musheerabad": {
+      "college_id": "C-30606",
+      "name": "Gandhi Medical College Musheerabad Secunderabad, MUSHEERABAD",
+      "card": "Gandhi Medical College, Secunderabad"
+    },
+    "telangana|govt-medical-college": {
+      "college_id": null,
+      "name": "Govt. Medical College"
+    },
+    "telangana|govt-medical-college-jogulamba": {
+      "college_id": "nmc:government-medical-college-jogulumba-gadwal",
+      "name": "Govt Medical College, Jogulamba",
+      "card": "Government Medical College, Jogulumba Gadwal"
+    },
+    "telangana|kakatiya-medical-college-warangal-svp-road": {
+      "college_id": "C-30626",
+      "name": "Kakatiya Medical College Warangal, SVP Road",
+      "card": "Kakatiya Medical College, Warangal"
+    },
+    "telangana|kamineni-academy-of-medical-sci-and-research-hyd": {
+      "college_id": "C-54806",
+      "name": "KAMINENI ACADEMY OF MEDICAL SCI AND RESEARCH, HYD",
+      "card": "Kamineni Academy of Medical Sciences & Research Center, Hyderabad"
+    },
+    "telangana|maheshwara-medical-college-patancheru-medak": {
+      "college_id": "C-60507",
+      "name": "MAHESHWARA MEDICAL COLLEGE, PATANCHERU, MEDAK",
+      "card": "Maheshwara Medical College, Chitkul, Patancheru, Medak"
+    },
+    "telangana|malla-reddy-medical-college-for-women-hyderabad": {
+      "college_id": "C-48681",
+      "name": "Malla Reddy Medical College for Women, Hyderabad",
+      "card": "Mallareddy Medical College for Women, Hyderabad"
+    },
+    "telangana|nova-institute-of-medical-sciecnes-hayathnagar-rr": {
+      "college_id": "C-76568",
+      "name": "NOVA INSTITUTE OF MEDICAL SCIECNES, HAYATHNAGAR, RR",
+      "card": "Nova Institute of Medical Sciences and Research Centre"
+    },
+    "telangana|osmania-medical-college-koti-hyderabad": {
+      "college_id": "C-30588",
+      "name": "Osmania Medical College Koti, HYDERABAD",
+      "card": "Osmania Medical College, Hyderabad"
+    },
+    "telangana|rajiv-gandhi-institute-medical-sce-of-adilabad-main-road": {
+      "college_id": "C-30515",
+      "name": "Rajiv Gandhi Institute Medical Sce of Adilabad, MAIN ROAD",
+      "card": "Rajiv Gandhi Institute of Medical Sciences, adilabad"
+    },
+    "telangana|trr-institute-of-medical-sciences-inole-patancheru": {
+      "college_id": "C-67091",
+      "name": "TRR INSTITUTE OF MEDICAL SCIENCES, INOLE, PATANCHERU",
+      "card": "TRR Institute of Medical Sciences, patancheru"
+    },
+    "uttar-pradesh|autonomous-state-medical-college-bahraich": {
+      "college_id": "nmc:rajkiya-allopathic-medical-college-bahraich-up",
+      "name": "AUTONOMOUS STATE MEDICAL COLLEGE, BAHRAICH",
+      "card": "Rajkiya Allopathic Medical College, Bahraich, UP"
+    },
+    "uttar-pradesh|autonomous-state-medical-college-bijnor": {
+      "college_id": "C-72846",
+      "name": "AUTONOMOUS STATE MEDICAL COLLEGE, BIJNOR",
+      "card": "Mahatma Vidur Autonomous State Medical College"
+    },
+    "uttar-pradesh|autonomous-state-medical-college-bulandshahr": {
+      "college_id": "C-73066",
+      "name": "AUTONOMOUS STATE MEDICAL COLLEGE, BULANDSHAHR",
+      "card": "Kalyan Singh Government Medical College"
+    },
+    "uttar-pradesh|autonomous-state-medical-college-chandauli": {
+      "college_id": "nmc:baba-kina-ram-autonomous-state-medical-college-and-hospital-819749",
+      "name": "AUTONOMOUS STATE MEDICAL COLLEGE, CHANDAULI",
+      "card": "Baba Kina Ram Autonomous State Medical College and Hospital Chandauli"
+    },
+    "uttar-pradesh|autonomous-state-medical-college-deoria": {
+      "college_id": "C-70719",
+      "name": "AUTONOMOUS STATE MEDICAL COLLEGE, DEORIA",
+      "card": "Maharshi Devraha Baba Autonomous State Medical College, Deoria"
+    },
+    "uttar-pradesh|autonomous-state-medical-college-jaunpur": {
+      "college_id": "C-69775",
+      "name": "AUTONOMOUS STATE MEDICAL COLLEGE, JAUNPUR",
+      "card": "Uma Nath Singh Autonomous State Medical College Society Jaunpur"
+    },
+    "uttar-pradesh|autonomous-state-medical-college-kanpur-dehat": {
+      "college_id": "nmc:autonomous-state-medical-college-akbarpur-kanpur",
+      "name": "Autonomous State Medical College, Kanpur Dehat",
+      "card": "Autonomous State Medical College, Akbarpur, Kanpur"
+    },
+    "uttar-pradesh|autonomous-state-medical-college-lakhimpur-khiri": {
+      "college_id": "nmc:autonomous-state-medical-college-and-hospital-lakhimpuri-khe-2cdd7a",
+      "name": "AUTONOMOUS STATE MEDICAL COLLEGE, LAKHIMPUR KHIRI",
+      "card": "Autonomous State Medical College and Hospital Lakhimpuri kheri"
+    },
+    "uttar-pradesh|baba-kinaram-autonomous-state-medical-college-chandauli": {
+      "college_id": "nmc:baba-kina-ram-autonomous-state-medical-college-and-hospital-819749",
+      "name": "Baba Kinaram Autonomous State Medical College, Chandauli",
+      "card": "Baba Kina Ram Autonomous State Medical College and Hospital Chandauli"
+    },
+    "uttar-pradesh|gmc-bahraich": {
+      "college_id": "nmc:rajkiya-allopathic-medical-college-bahraich-up",
+      "name": "Gmc, Bahraich",
+      "card": "Rajkiya Allopathic Medical College, Bahraich, UP"
+    },
+    "uttar-pradesh|gmc-shahjhanpur": {
+      "college_id": "nmc:government-medical-college-shahjahanpur-up",
+      "name": "GMC, Shahjhanpur",
+      "card": "Government Medical College, Shahjahanpur, UP"
+    },
+    "uttar-pradesh|government-institute-of-medical-sciences-greater-noida": {
+      "college_id": "C-61792",
+      "name": "GOVERNMENT INSTITUTE OF MEDICAL SCIENCES, GREATER NOIDA",
+      "card": "Government Institute of Medical Sciences, Kasna, Greater Noida"
+    },
+    "uttar-pradesh|government-medical-college-ambedkar-nagar": {
+      "college_id": "C-71448",
+      "name": "GOVERNMENT MEDICAL COLLEGE, AMBEDKAR NAGAR",
+      "card": "Mahamaya Rajkiya Allopathic Medical College, Ambedkarnagar"
+    },
+    "uttar-pradesh|government-medical-college-azamgarh": {
+      "college_id": "nmc:government-medical-college-super-facility-hospital-azamgarh",
+      "name": "GOVERNMENT MEDICAL COLLEGE, AZAMGARH",
+      "card": "Government Medical College & Super facility Hospital, Azamgarh"
+    },
+    "uttar-pradesh|government-medical-college-banda": {
+      "college_id": "nmc:government-allopathic-medical-college-banda-up",
+      "name": "GOVERNMENT MEDICAL COLLEGE, BANDA",
+      "card": "Government Allopathic Medical College, Banda, UP"
+    },
+    "uttar-pradesh|government-medical-college-jalaun": {
+      "college_id": "nmc:rajkiya-medical-college-jalaun-orai-uttar-pradesh",
+      "name": "GOVERNMENT MEDICAL COLLEGE, JALAUN",
+      "card": "Rajkiya Medical College Jalaun, Orai, Uttar Pradesh"
+    },
+    "uttar-pradesh|government-medical-college-saharanpur": {
+      "college_id": "nmc:shaikh-ul-hind-maulana-mahmood-hasan-medical-college-saharan-fe1522",
+      "name": "GOVERNMENT MEDICAL COLLEGE, SAHARANPUR",
+      "card": "Shaikh-UL-Hind Maulana Mahmood Hasan Medical College, Saharanpur"
+    },
+    "uttar-pradesh|govt-institute-of-medcial-sciences-greater-noida": {
+      "college_id": "C-61792",
+      "name": "Govt institute of Medcial Sciences, GREATER NOIDA",
+      "card": "Government Institute of Medical Sciences, Kasna, Greater Noida"
+    },
+    "uttar-pradesh|jawaharlal-nehru-medical-college-amu": {
+      "college_id": "C-42485",
+      "name": "Jawaharlal Nehru Medical College, AMU",
+      "card": "Jawaharlal Nehru Medical College, Aligarh"
+    },
+    "uttar-pradesh|maharani-laxmibai-medical-college-jhansi": {
+      "college_id": "C-52206",
+      "name": "MAHARANI LAXMIBAI MEDICAL COLLEGE, JHANSI",
+      "card": "Maharani Laxmi Bai Medical College, Jhansi"
+    },
+    "uttar-pradesh|uttar-pradesh-university-of-medical-sciences-saifai": {
+      "college_id": "U-0882",
+      "name": "Uttar Pradesh University of Medical Sciences, Saifai",
+      "card": "Uttar Pradesh University of Medical Sciences, (Prev. UP Rural Inst.of Med.Sc&R) Etawah"
+    },
+    "uttarakhand|government-doon-medcial-college-dehradun": {
+      "college_id": "C-24544",
+      "name": "Government Doon Medcial College, Dehradun",
+      "card": "Doon Medical College, Dehradun, Uttarakhand"
+    },
+    "uttarakhand|veer-chandra-singh-garhwali-govt-institute-of-medical-science-research-badrinath-marg": {
+      "college_id": "C-56564",
+      "name": "Veer Chandra Singh Garhwali Govt. Institute of Medical Science & Research, BADRINATH MARG",
+      "card": "Veer Chandra Singh Garhwali Govt. Medical Sc. & Research Instt, Srinagar, Pauri Garhwal"
+    },
+    "west-bengal|diamond-harbour-govt-medical-college-new-town": {
+      "college_id": "C-61428",
+      "name": "Diamond Harbour Govt Medical College, New Town",
+      "card": "Diamond Harbour Government Medical College and Hospital, West Bengal"
+    },
+    "west-bengal|icare-institute-of-medical-science-and-research-and-dr-b-c-roy-hospital-haldia": {
+      "college_id": "C-57119",
+      "name": "ICARE INSTITUTE OF MEDICAL SCIENCE AND RESEARCH AND DR B C ROY HOSPITAL HALDIA",
+      "card": "ICARE Institute of Medical Sciences & Research, Haldia, Purba Midanpore"
+    },
+    "west-bengal|inst-of-pg-med-edu-research-kolkata": {
+      "college_id": "C-16428",
+      "name": "INST OF PG MED EDU & RESEARCH, KOLKATA",
+      "card": "Institute of Postgraduate Medical Education & Research, Kolkata"
+    },
+    "west-bengal|institute-of-pg-medical-education-and-research-kolkata": {
+      "college_id": "C-16428",
+      "name": "INSTITUTE OF PG MEDICAL EDUCATION AND RESEARCH, KOLKATA",
+      "card": "Institute of Postgraduate Medical Education & Research, Kolkata"
+    },
+    "west-bengal|jagannath-gupta-institute-of-medical-sciences-and-hospital": {
+      "college_id": "nmclive:wb-017-p-3",
+      "name": "JAGANNATH GUPTA INSTITUTE OF MEDICAL SCIENCES AND HOSPITAL",
+      "card": "Jagannath Gupta Institute of Medical Sciences and Hospital"
+    },
+    "west-bengal|krishnanagar-institute-of-medical-science-private-limited": {
+      "college_id": "nmc:krishnanagar-institute-of-medical-sciences-pvt-ltd-krishnana-2bf1bf",
+      "name": "KRISHNANAGAR INSTITUTE OF MEDICAL SCIENCE PRIVATE LIMITED",
+      "card": "Krishnanagar Institute of Medical Sciences Pvt. Ltd Krishnanagar, Nadia (WB)"
+    },
+    "west-bengal|medical-college-kolkata": {
+      "college_id": "nmc:govt-medical-college-kolkata",
+      "name": "MEDICAL COLLEGE, KOLKATA",
+      "card": "Govt. Medical College, Kolkata"
+    },
+    "west-bengal|north-bengal-med-coll-darjeeling": {
+      "college_id": "C-16414",
+      "name": "NORTH BENGAL MED.COLL, DARJEELING",
+      "card": "North Bengal Medical College, Darjeeling"
+    },
+    "west-bengal|north-bengal-medical-college-and-hospital-darjeeling": {
+      "college_id": "C-16414",
+      "name": "NORTH BENGAL MEDICAL COLLEGE AND HOSPITAL, DARJEELING",
+      "card": "North Bengal Medical College, Darjeeling"
+    },
+    "west-bengal|sagar-dutta-medical-college-hospital-kolkata": {
+      "college_id": "C-16379",
+      "name": "Sagar Dutta Medical College & Hospital, Kolkata",
+      "card": "College of Medicine and Sagore Dutta Hospital, Kolkata"
+    }
+  },
+  "open": {}
+}

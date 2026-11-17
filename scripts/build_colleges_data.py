@@ -512,7 +512,88 @@ def build_medical(client):
     GROUP BY institute_id, edition_year
     """).to_dataframe()
 
-    return nmc, xwalk, nirf_med, place, gender
+    # NMC's live list: the colleges opened since the 2024-25 seat matrix
+    live = client.query("""
+    SELECT fetched_on, college_code, college, state, university,
+           management_type, year_of_inception, approved_seats
+    FROM `avantifellows.external_data_sources.nmc_fact_mbbs_colleges`
+    """).to_dataframe()
+
+    return nmc, xwalk, nirf_med, place, gender, live
+
+
+def nmc_live_new_rows(live, mbbs_career, used_ids):
+    """Cards for the colleges on NMC's live list that no 2024-25 card is.
+
+    scripts/nmc_live_crosswalk.json (scripts/build_nmc_live_crosswalk.py, hand-
+    reviewed) says which live college is which card, or "new". Only "new" ones
+    get a card here, keyed on NMC's college code so the id never changes as NMC
+    edits the name. A live college the crosswalk doesn't know stops the build:
+    re-run the crosswalk and review it first.
+    """
+    xw = json.load(open(Path(__file__).resolve().parent / "nmc_live_crosswalk.json"))
+    decided = {**xw.get("auto", {}), **xw.get("decisions", {})}
+    unknown = sorted(set(live.college_code) - set(decided))
+    if unknown:
+        raise SystemExit(f"{len(unknown)} live NMC colleges not in nmc_live_crosswalk.json "
+                         f"(e.g. {unknown[:3]}): run scripts/build_nmc_live_crosswalk.py")
+    out = []
+    for r in live.sort_values("college_code").itertuples():
+        if decided[r.college_code]["college_id"] != "new":
+            continue
+        display = clean_nmc_name(r.college)
+        # NMC writes a rename into the name: the card shows the new name
+        display = re.sub(r"\s*[\(,]?\s*(?:previously|formerly|erstwhile|since-)[^)]*\)?",
+                         "", display, flags=re.I).strip(" ,")
+        cid = "nmclive:" + re.sub(r"[^a-z0-9]+", "-", r.college_code.lower()).strip("-")
+        assert cid not in used_ids, cid
+        used_ids.add(cid)
+        seats = None if pd.isna(r.approved_seats) else int(r.approved_seats)
+        year = None if pd.isna(r.year_of_inception) else int(r.year_of_inception)
+        govt = r.management_type == "Government"
+        src = f"NMC college list ({r.fetched_on})"
+        out.append({
+            "college_id": cid,
+            "aishe_code": None,
+            "name": r.college,
+            "display_name": display,
+            "aka": [r.college] if r.college != display else [],
+            "state": r.state,
+            "state_is_inferred": False,
+            # the live list has no district column
+            "district": None,
+            "kind": "Medical College",
+            "management": "Government" if govt else r.management_type,
+            "ownership": "Public" if govt else "Private",
+            "disciplines": [],
+            "year_established": year,
+            "website": None,
+            "university": r.university if isinstance(r.university, str) and r.university else None,
+            "entrance_exams": ["NEET-UG"],
+            "counselling": "MCC / state NEET counselling",
+            "programs": {
+                "count": 1,
+                "degrees": ["MBBS"],
+                "list": [{
+                    "branch": "MBBS", "years": 5.5, "degree": "MBBS", "seats": seats,
+                    "indicative_closing_rank": None, "indicative_opening_rank": None,
+                    "career_id": mbbs_career,
+                }],
+                "source": src,
+                "rank_note": None,
+                "seats_note": "Annual MBBS intake approved by NMC.",
+            },
+            "nirf": None,
+            "ug_gender": None,
+            "fees": None,
+            "placement": None,
+            "naac": {"grade": None, "cgpa": None, "cycle": None, "not_applicable_reason": None},
+            "data_sources": {
+                "identity": src, "programs": src, "ranking": None,
+                "placement": None, "accreditation": None,
+            },
+        })
+    return out
 
 
 # ── MHT-CET: State CET Cell spine (Maharashtra) ─────────────────────────────
@@ -1375,6 +1456,7 @@ def fill_from_aishe(client, rows):
     todo = [r for r in rows if r.get("state") and missing(r)]
     if not todo:
         return
+    held_codes = {r["aishe_code"] for r in rows if r.get("aishe_code")}
     D = "avantifellows.external_data_sources"
     aishe = client.query(f"""
     SELECT aishe_code AS institute_id, name AS institute_name, state, district,
@@ -1455,6 +1537,12 @@ def fill_from_aishe(client, rows):
                     print(f"    [{how}] {r['display_name'][:60]} -> "
                           f"{x.institute_name[:55]} ({x.district})")
             parent = how == "parent"
+            # a college NMC's live list added is, by the reviewed crosswalk
+            # (scripts/nmc_live_crosswalk.json), none of the existing cards:
+            # an AISHE record a card already holds is that card's, not its
+            if (x is not None and r["college_id"].startswith("nmclive:")
+                    and x.name in held_codes):
+                x = None
             if x is not None:
                 n["matched"] += 1
                 # a parent link is the university's record, not this unit's
@@ -2387,7 +2475,7 @@ def main():
         })
 
     # ── medical rows: NMC spine ──────────────────────────────────────────────
-    nmc, xwalk, nirf_med, mplace, mgender = build_medical(client)
+    nmc, xwalk, nirf_med, mplace, mgender, nmc_live = build_medical(client)
     print(f"  nmc {len(nmc)}  crosswalked {len(xwalk)}  nirf-medical rows {len(nirf_med)}  "
           f"placement {len(mplace)}  gender {len(mgender)}")
 
@@ -2581,6 +2669,10 @@ def main():
                 "accreditation": "NAAC" if naac_block["grade"] else None,
             },
         })
+
+    live_rows = nmc_live_new_rows(nmc_live, mbbs_career, used_ids)
+    print(f"  nmc live list {len(nmc_live)}  new cards {len(live_rows)}")
+    med_rows += live_rows
 
     # ── MHT-CET rows: State CET Cell spine ──────────────────────────────────
     mh_colleges, mh_programs, nirf_mh, mh_place = build_mhtcet(client)
