@@ -15,8 +15,9 @@
       "card": "GITAM Institute of Medical Sciences and Research, Visakhapatnam"
     },
     "andhra-pradesh|gmc-rajamahendravaram": {
-      "college_id": null,
-      "name": "GMC, Rajamahendravaram"
+      "college_id": "nmc:government-medical-college-rajamahendravaram",
+      "name": "GMC, Rajamahendravaram",
+      "card": "Government Medical College, Rajamahendravaram"
     },
     "andhra-pradesh|government-medical-college": {
       "college_id": null,
@@ -121,8 +122,9 @@
       "card": "Bhagyoday Medical College"
     },
     "gujarat|gmers-medical-college-godhra": {
-      "college_id": null,
-      "name": "GMERS Medical College Godhra"
+      "college_id": "nmc:government-medical-college-panchmahal-godhra",
+      "name": "GMERS Medical College Godhra",
+      "card": "Government Medical College, Panchmahal Godhra"
     },
     "gujarat|nootan-medical-college-research-centre-visnagar": {
       "college_id": "C-61599",
@@ -248,8 +250,9 @@
       "card": "P K Das Institute of Medical Sciences, Palakkad, Kerala"
     },
     "kerala|kem-kerala-medical-college-palakkad": {
-      "college_id": null,
-      "name": "KEM- Kerala Medical College, Palakkad"
+      "college_id": "nmclive:kl-022-p-3",
+      "name": "KEM- Kerala Medical College, Palakkad",
+      "card": "Kerala Medical College, Mangode"
     },
     "kerala|kmm-karuna-medical-college-vilayodi": {
       "college_id": "C-43276",
@@ -433,10 +436,6 @@
       "name": "Institute of Medical Sciences & SUM Hospital, Campus II",
       "card": "Institute of Medical Sciences & SUM Hospital, Campus, Bhubaneswar, Odisha"
     },
-    "odisha|pabitra-mohan-pradhan-medical-college-talcher": {
-      "college_id": null,
-      "name": "PABITRA MOHAN PRADHAN MEDICAL COLLEGE, TALCHER"
-    },
     "odisha|saheed-rendo-majhi-medical-college-hospital-bhawanipatna": {
       "college_id": "nmc:government-medical-college-bhawanipatna",
       "name": "Saheed Rendo Majhi Medical College & Hospital, Bhawanipatna",
@@ -453,18 +452,19 @@
       "card": "Dr S S Tantia Medical College Hospital & Research Centre"
     },
     "rajasthan|geetanjali-mc-udaipur-gen-seat-court-order": {
-      "college_id": "C-76403",
+      "college_id": "nmclive:rj-010-p-3",
       "name": "Geetanjali MC, Udaipur (Gen. Seat) - Court Order",
-      "card": "Geetanjali Institute of Medical Sciences, Udaipur"
+      "card": "Geetanjali Medical College & Hospital,Udaipur"
     },
     "rajasthan|geetanjali-mc-udaipur-mgmt-seat-court-order": {
-      "college_id": "C-76403",
+      "college_id": "nmclive:rj-010-p-3",
       "name": "Geetanjali MC, Udaipur (Mgmt. Seat) - Court Order",
-      "card": "Geetanjali Institute of Medical Sciences, Udaipur"
+      "card": "Geetanjali Medical College & Hospital,Udaipur"
     },
     "rajasthan|gmc-sriganganagar": {
-      "college_id": null,
-      "name": "GMC, Sriganganagar"
+      "college_id": "C-69401",
+      "name": "GMC, Sriganganagar",
+      "card": "Government Medical College, Sri Ganganagar"
     },
     "rajasthan|govt-medical-college": {
       "college_id": null,
@@ -722,6 +722,11 @@
       "college_id": "C-16428",
       "name": "INSTITUTE OF PG MEDICAL EDUCATION AND RESEARCH, KOLKATA",
       "card": "Institute of Postgraduate Medical Education & Research, Kolkata"
+    },
+    "west-bengal|jagannath-gupta-institute-of-medical-sciences-and-hospital": {
+      "college_id": "nmclive:wb-017-p-3",
+      "name": "JAGANNATH GUPTA INSTITUTE OF MEDICAL SCIENCES AND HOSPITAL",
+      "card": "Jagannath Gupta Institute of Medical Sciences and Hospital"
     },
     "west-bengal|krishnanagar-institute-of-medical-science-private-limited": {
       "college_id": "nmc:krishnanagar-institute-of-medical-sciences-pvt-ltd-krishnana-2bf1bf",
