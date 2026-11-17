@@ -29,4 +29,7 @@ jobs:
       - run: npm ci
       - run: npm run check:pages
       - run: npm run check:ids
+      # predictor names linked to college cards (stars, NIRF, salary):
+      # stale after a colleges.json or cutoff-data change
+      - run: npm run check:name-links
       - run: npm run build

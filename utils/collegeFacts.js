@@ -39,9 +39,25 @@ const loadIndex = () => {
       bySlug.set(s, bySlug.has(s) && bySlug.get(s) !== c ? null : c);
     }
   }
-  index = { byId, bySlug };
+  // names a counselling spells differently from the card ("Govt. Doon
+  // Medical College" for "Doon Medical College, Dehradun"), matched within
+  // the state by scripts/build_college_name_links.js
+  const linksFile = path.join(
+    process.cwd(),
+    "public",
+    "data",
+    "colleges",
+    "name_links.json"
+  );
+  const links = fs.existsSync(linksFile)
+    ? new Map(Object.entries(JSON.parse(fs.readFileSync(linksFile, "utf8"))))
+    : new Map();
+  index = { byId, bySlug, links };
   return index;
 };
+
+// the key name_links.json files a predictor name under: its state and name
+export const linkKeyOf = (name, state) => `${slugOf(state)}|${slugOf(name)}`;
 
 // KEA prefixes each college with its code ("E001 University ...")
 const nameOf = (row, exam) => {
@@ -54,11 +70,17 @@ const nameOf = (row, exam) => {
   return exam === "KCET" ? String(raw).replace(/^[A-Z]\d{3}\s+/, "") : raw;
 };
 
-export const cardFor = (row, exam) => {
-  const { byId, bySlug } = loadIndex();
-  return (
-    byId.get(row["College ID"]) || bySlug.get(slugOf(nameOf(row, exam))) || null
+// `links: false` is the exact match alone (what the link builder starts from)
+export const cardFor = (row, exam, { links = true } = {}) => {
+  const idx = loadIndex();
+  const exact =
+    idx.byId.get(row["College ID"]) ||
+    idx.bySlug.get(slugOf(nameOf(row, exam)));
+  if (exact || !links) return exact || null;
+  const id = idx.links.get(
+    linkKeyOf(nameOf(row, exam), row.State || row.state || "")
   );
+  return (id && idx.byId.get(id)) || null;
 };
 
 // Adds "NIRF Rank", "NIRF List", "Median Salary", "Placed %" and "Students
