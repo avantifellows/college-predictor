@@ -519,10 +519,26 @@ def build_medical(client):
     FROM `avantifellows.external_data_sources.nmc_fact_mbbs_colleges`
     """).to_dataframe()
 
+    # their AISHE records, through the crosswalk's live-list codes
+    live_aishe = client.query("""
+    WITH aishe AS (
+      SELECT aishe_code, name, website FROM `avantifellows.external_data_sources.aishe_dim_colleges`
+      UNION ALL
+      SELECT aishe_code, name, website FROM `avantifellows.external_data_sources.aishe_dim_universities`
+      UNION ALL
+      SELECT aishe_code, name, website FROM `avantifellows.external_data_sources.aishe_dim_standalone_institutions`
+    )
+    SELECT code AS college_code, m.aishe_code, a.name AS aishe_name, a.website
+    FROM `avantifellows.external_data_sources.overall_college_mapping` AS m,
+         UNNEST(m.nmc_college_codes) AS code
+    LEFT JOIN aishe AS a ON a.aishe_code = m.aishe_code
+    """).to_dataframe()
+    live = live.merge(live_aishe, on="college_code", how="left")
+
     return nmc, xwalk, nirf_med, place, gender, live
 
 
-def nmc_live_new_rows(live, mbbs_career, used_ids):
+def nmc_live_new_rows(live, mbbs_career, used_ids, prior_rows):
     """Cards for the colleges on NMC's live list that no 2024-25 card is.
 
     scripts/nmc_live_crosswalk.json (scripts/build_nmc_live_crosswalk.py, hand-
@@ -537,10 +553,15 @@ def nmc_live_new_rows(live, mbbs_career, used_ids):
     if unknown:
         raise SystemExit(f"{len(unknown)} live NMC colleges not in nmc_live_crosswalk.json "
                          f"(e.g. {unknown[:3]}): run scripts/build_nmc_live_crosswalk.py")
+    # an AISHE code another card holds is that card's (the 2024-25 crosswalk
+    # put a few on the wrong college; changing them would change card ids)
+    held = {r["aishe_code"] for r in prior_rows if r.get("aishe_code")}
     out = []
     for r in live.sort_values("college_code").itertuples():
         if decided[r.college_code]["college_id"] != "new":
             continue
+        aishe_code = (r.aishe_code if isinstance(r.aishe_code, str) and r.aishe_code
+                      and r.aishe_code not in held else None)
         display = clean_nmc_name(r.college)
         # NMC writes a rename into the name: the card shows the new name
         display = re.sub(r"\s*[\(,]?\s*(?:previously|formerly|erstwhile|since-)[^)]*\)?",
@@ -554,8 +575,8 @@ def nmc_live_new_rows(live, mbbs_career, used_ids):
         src = f"NMC college list ({r.fetched_on})"
         out.append({
             "college_id": cid,
-            "aishe_code": None,
-            "name": r.college,
+            "aishe_code": aishe_code,
+            "name": r.aishe_name if aishe_code and isinstance(r.aishe_name, str) else r.college,
             "display_name": display,
             "aka": [r.college] if r.college != display else [],
             "state": r.state,
@@ -567,7 +588,8 @@ def nmc_live_new_rows(live, mbbs_career, used_ids):
             "ownership": "Public" if govt else "Private",
             "disciplines": [],
             "year_established": year,
-            "website": None,
+            "website": (r.website if aishe_code and isinstance(r.website, str)
+                        and r.website.strip() not in ("", "-", "NA", "None") else None),
             "university": r.university if isinstance(r.university, str) and r.university else None,
             "entrance_exams": ["NEET-UG"],
             "counselling": "MCC / state NEET counselling",
@@ -589,7 +611,7 @@ def nmc_live_new_rows(live, mbbs_career, used_ids):
             "placement": None,
             "naac": {"grade": None, "cgpa": None, "cycle": None, "not_applicable_reason": None},
             "data_sources": {
-                "identity": src, "programs": src, "ranking": None,
+                "identity": src + (" / AISHE 2024-25" if aishe_code else ""), "programs": src, "ranking": None,
                 "placement": None, "accreditation": None,
             },
         })
@@ -1541,7 +1563,7 @@ def fill_from_aishe(client, rows):
             # (scripts/nmc_live_crosswalk.json), none of the existing cards:
             # an AISHE record a card already holds is that card's, not its
             if (x is not None and r["college_id"].startswith("nmclive:")
-                    and x.name in held_codes):
+                    and x.name in held_codes and x.name != r.get("aishe_code")):
                 x = None
             if x is not None:
                 n["matched"] += 1
@@ -2670,7 +2692,7 @@ def main():
             },
         })
 
-    live_rows = nmc_live_new_rows(nmc_live, mbbs_career, used_ids)
+    live_rows = nmc_live_new_rows(nmc_live, mbbs_career, used_ids, rows + med_rows)
     print(f"  nmc live list {len(nmc_live)}  new cards {len(live_rows)}")
     med_rows += live_rows
 
