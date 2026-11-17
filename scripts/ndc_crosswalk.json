@@ -1,0 +1,1367 @@
+{
+ "about": "NDC dental college -> existing card or 'new'. See scripts/build_ndc_crosswalk.py.",
+ "decisions": {
+  "/bejfOFnhIV4lDNbOIdFVA==": {
+   "college_id": "new",
+   "name": "D.J. College of Dental Sciences & Research, Modi Nagar"
+  },
+  "0gl5ynTt2pZVicW7HmRVZg==": {
+   "college_id": "new",
+   "name": "The Oxford Dental College, Bangalore"
+  },
+  "16g84g30s7rPU+UuR6/8WA==": {
+   "college_id": "new",
+   "name": "Dayanand Sagar College of Dental Sciences, Bangalore"
+  },
+  "2Z1t4GO/4wyggHiiYYFepw==": {
+   "college_id": "acpmec:faculty dental science nadiad",
+   "name": "Faculty of Dental Science, Dharmsinh Desai University, Nadiad",
+   "card": "Faculty of Dental Science, Nadiad"
+  },
+  "3OAORZ0JNU8r47FnkVPT8g==": {
+   "college_id": "acpmec:college dental science hospital amargadh dist bhavnagar",
+   "name": "College of Dental Sciences, Amargadh",
+   "card": "College of Dental Science and Hospital, Amargadh, Dist. Bhavnagar"
+  },
+  "42uzQx+Z954Tl2IsicgJAg==": {
+   "college_id": "new",
+   "name": "Bharati Vidyapeeth Dental College & Hospital, Sangli"
+  },
+  "4XiPFLkiv5nOXIMRT7tn1w==": {
+   "college_id": "new",
+   "name": "Sathyabama University Dental College and Hospital, Chennai"
+  },
+  "4eLEkc50I5Nw7YchJ9qxpQ==": {
+   "college_id": "new",
+   "name": "Yerala Medical Trust & Research Centre’s Dental College & Hospital, Navi Mumbai"
+  },
+  "5RvQ0z8OZhbm0J6IIxMh9A==": {
+   "college_id": "acpmec:goenka research institute dental science piplaj dist gandhin",
+   "name": "Goenka Research Institute of Dental Sciences, Gandhinagar",
+   "card": "Goenka Research Institute of Dental Science, Piplaj, Dist. Gandhinagar"
+  },
+  "6aoiuFpokpRgaDE8UP4pKA==": {
+   "college_id": "new",
+   "name": "M.S. Ramaiah Dental College, Bangalore"
+  },
+  "8rpnrEUP9M/X9mwKEaE/tA==": {
+   "college_id": "new",
+   "name": "Bangalore Institute of Dental Sciences & Hospital, Bangalore"
+  },
+  "A012Y5cEa5tPpj9+a0JS8Q==": {
+   "college_id": "new",
+   "name": "D.A. Pandu Memorial R.V. Dental College, Bangalore"
+  },
+  "AMcgsflFc40xOUr1oqAbmA==": {
+   "college_id": "new",
+   "name": "Sri Rajiv Gandhi College of Dental Sciences & Hospital, Bangalore"
+  },
+  "BbG4adGf8jA42MvBXiDP+Q==": {
+   "college_id": "acpmec:ahmedabad dental college hospital bhadaj ahmedabad",
+   "name": "Ahmedabad Dental College & Hospital, Gandhinagar",
+   "card": "Ahmedabad Dental College and Hospital, Bhadaj, Ahmedabad"
+  },
+  "DGjR6OooKqQkAPc9S4eZ8A==": {
+   "college_id": "new",
+   "name": "M.R. Ambedkar Dental College & Hospital, Bangalore"
+  },
+  "DRrJz3RIAt36NXDRuQ4faA==": {
+   "college_id": "new",
+   "name": "Rajarajeswari Dental College & Hospital, Bangalore"
+  },
+  "FA6VOMR9ZUT7G6LcCLA5kA==": {
+   "college_id": "C-40342",
+   "name": "KLE Society’s Institute of Dental Sciences,Bangalore",
+   "card": "K L E Society's Institute of Dental Sciences"
+  },
+  "FnLfQxXKYOI/1Bl96/rLIw==": {
+   "college_id": "new",
+   "name": "A.J. Institute of Dental Sciences, Mangalore"
+  },
+  "FpWzdwDwj2709gVw388OCw==": {
+   "college_id": "new",
+   "name": "Tagore Dental College & Hospital, Chennai"
+  },
+  "LfYgHG0UpOUbCiCdeKuv2w==": {
+   "college_id": "new",
+   "name": "Krishnadevaraya College of Dental Sciences & Hospital, Bangalore"
+  },
+  "NxxvCAVPLTqpVACajD4b1A==": {
+   "college_id": "new",
+   "name": "Bharati Vidyapeeth Dental College & Hospital, Navi Mumbai"
+  },
+  "Oxk7PjcmecfIEQxBKM6LCw==": {
+   "college_id": "new",
+   "name": "Saveetha Dental College & Hospital, Chennai"
+  },
+  "Qmv5fmx026FE5HbMK7MCZA==": {
+   "college_id": "new",
+   "name": "Dr. Syamala Reddy Dental College, Hospital & Research Centre, Bangalore"
+  },
+  "RFIy5ln8JqwVwnR2mxszvw==": {
+   "college_id": "C-8121",
+   "name": "Govt. Dental College, Kozhikode",
+   "card": "Government Dental College, Kozhikode"
+  },
+  "Rnahq5NoDFE8wesJfvBPAA==": {
+   "college_id": "new",
+   "name": "Terna Dental College & Hospital, Navi Mumbai"
+  },
+  "T7ymfqozFCrYe1HrAAld1A==": {
+   "college_id": "new",
+   "name": "Padmashree Dr. D.Y. Patil Dental College & Hospital, Navi Mumbai"
+  },
+  "TB1b22oUk6rJab8WkZERFA==": {
+   "college_id": "C-14033",
+   "name": "Govt. Dental College & Hospital, Nagpur",
+   "card": "Govt. Dental College, Nagpur"
+  },
+  "TrIWest5M8My4A+TkExXHA==": {
+   "college_id": "C-14022",
+   "name": "Mahatma Gandhi Missions Dental College & Hospital, Kamothe, Navi Mumbai",
+   "card": "MGM Dental College and Hospital, Navi Mumbai"
+  },
+  "Tv22CAroqzPSeBEig77mQQ==": {
+   "college_id": "new",
+   "name": "Sri Venkateshwara Dental College & Hospital, Bangalore"
+  },
+  "VdCUAOimRqdyMWF5rAiE4Q==": {
+   "college_id": "new",
+   "name": "Nair Hospital Dental College, Mumbai"
+  },
+  "VgXRXlNYt7v+MNvsd0YdOw==": {
+   "college_id": "acpmec:college dental sciences research centre bopal manipur ahmeda",
+   "name": "College of Dental Sciences and Research Centre, Ahmedabad",
+   "card": "College of Dental Sciences & Research Centre, Bopal, Manipur, Ahmedabad"
+  },
+  "dqQEdf4QevrM9MGnkavQ1A==": {
+   "college_id": "acpmec:government dental college hospital ahmedabad",
+   "name": "Govt. Dental College & Hospital, Ahmedabad",
+   "card": "Government Dental College and Hospital, Ahmedabad"
+  },
+  "e+aBgYj+B7qA6Wc42CkgMw==": {
+   "college_id": "new",
+   "name": "Vydehi Institute of Dental Sciences & Research, Bangalore"
+  },
+  "hlsgZsdg/pQcdDer2rod9Q==": {
+   "college_id": "C-30570",
+   "name": "Vishnu Dental College, Bhimavaram",
+   "card": "Vishnu Dental College, Bheemavaram"
+  },
+  "mFTBWbKmu9ho0oUTQEqqtg==": {
+   "college_id": "C-30756",
+   "name": "Post Graduate Institute of Dental Sciences, Rohtak",
+   "card": "Postgraduate Institute of Dental Sciences"
+  },
+  "mtrT+QBTE2sibbBFQwvdqA==": {
+   "college_id": "new",
+   "name": "BGS Global Institute of Dental Sciences and Hospital, Bangalore"
+  },
+  "nkC6Bd1tw9N5DRTmqBPXRw==": {
+   "college_id": "C-7254",
+   "name": "Manipal College of Dental Sciences, Manipal",
+   "card": "Manipal College of Dental Sciences, Mangalore, Udupi"
+  },
+  "pEwfkUyTNmfwqZDmP1sl+w==": {
+   "college_id": "acpmec:a m c dental college hospital ahmedabad",
+   "name": "AMC Dental College, Ahmedabad",
+   "card": "A.M.C Dental College and Hospital, Ahmedabad"
+  },
+  "r6lOvfzOYkGHDQWHmznYLw==": {
+   "college_id": "C-13829",
+   "name": "Govt. Dental College & Hospital, Mumbai",
+   "card": "Govt. Dental College, Mumbai"
+  },
+  "svkHsEXLMwmODtQOQEpo0Q==": {
+   "college_id": "C-40178",
+   "name": "Govt. Dental College, Bangalore",
+   "card": "Government Dental College, Bangalore"
+  },
+  "tA/Cl7JPyJKrL4QNIbMfkg==": {
+   "college_id": "new",
+   "name": "V.S. Dental College, Bangalore"
+  },
+  "tdumb43VIuVv0S/kZS5qWw==": {
+   "college_id": "C-14028",
+   "name": "Mahatma Gandhi Vidya Mandir’s Dental College & Hospital, Nashik",
+   "card": "MGV's Karmaveer Bhausaheb Hiray Dental College, Nashik"
+  },
+  "thg7+VUSFupCV+9xZ9vM9w==": {
+   "college_id": "new",
+   "name": "S.R.M. Dental College, Ramapuram, Chennai"
+  },
+  "ttFtPWD1M1+wXHEuVdEb9A==": {
+   "college_id": "acpmec:government dental college hospital jamnagar",
+   "name": "Govt. Dental College Hospital, Jamnagar",
+   "card": "Government Dental College and Hospital, Jamnagar"
+  },
+  "uQRMgzdiy2/Bb763FxjbXQ==": {
+   "college_id": "C-7240",
+   "name": "Manipal College of Dental Sciences, Mangalore",
+   "card": "Manipal College of Dental Sciences, Mangalore, Dakshina Kannada"
+  },
+  "ykz9pZ4MhYJR4G0L94FM4Q==": {
+   "college_id": "new",
+   "name": "Nanded Rural Dental College & Research Center, Nanded"
+  },
+  "GzlcGq/5cuvDS8Vc5ZaVvQ==": {
+   "college_id": "C-40192",
+   "name": "College of Dental Sciences, Davangere",
+   "card": "College of Dental Sciences, Davanagere"
+  },
+  "V9HFJh+DjhfCAj5nyCCkBQ==": {
+   "college_id": "C-48122",
+   "name": "Govt. Dental College, Trivandrum",
+   "card": "Government Dental College, Thiruvananthapuram"
+  },
+  "ELgEo6elljhPeqOTZSkO3w==": {
+   "college_id": "C-45597",
+   "name": "Adhiparasakthi Dental College & Hospital, Melmaruvathur",
+   "card": "Adhiparasakthi Dental College and Hospital, Kancheepuram"
+  }
+ },
+ "auto": {
+  "3qRaAgfRUxwUchQ5fR/YJw==": {
+   "college_id": "new",
+   "name": "Anil Neerukonda Institute of Dental Sciences, Visakhapatnam"
+  },
+  "PoWzo785SujUpoMXkpjafg==": {
+   "college_id": "new",
+   "name": "C.K.S. Teja Institute of Dental Sciences & Research, Tirupati"
+  },
+  "R3wC3CZb1Gccy/kHIUVnfQ==": {
+   "college_id": "new",
+   "name": "Care Dental College, Guntur"
+  },
+  "aDGeM0kZeDGmCPgs8XdCHQ==": {
+   "college_id": "new",
+   "name": "Drs. Sudha & Nageswara Rao Siddhartha Institute of Dental Sciences, Gannavaram Mandalam"
+  },
+  "KDujx+Bu6PHJFVO6M0cq4A==": {
+   "college_id": "new",
+   "name": "G. Pulla Reddy Dental College & Hospital, Kurnool"
+  },
+  "A/a0xGqnqYomvGiF2PgUkQ==": {
+   "college_id": "new",
+   "name": "Gitam Dental College & Hospital, Vishakhapatnam"
+  },
+  "tjjp6Qda/Hm7awnaPrl50w==": {
+   "college_id": "new",
+   "name": "Govt. Dental College & Hospital, Vijayawada"
+  },
+  "FiGuEHC/79rFXP7Ok1xXKg==": {
+   "college_id": "new",
+   "name": "Govt. Dental College, RIMS, Kadapa"
+  },
+  "yUBS7cg+mMyEzHifIdiCzg==": {
+   "college_id": "new",
+   "name": "GSL Dental College & Hospital, Rajahmundry"
+  },
+  "uvz49IxGxjYJ6n7kt2fBHA==": {
+   "college_id": "new",
+   "name": "KIMS Dental College, Amalapuram"
+  },
+  "9nIJtCVT5Me/WOJITQiVCw==": {
+   "college_id": "new",
+   "name": "Lenora Institute of Dental Sciences, Rajahmundry"
+  },
+  "NEl4qCf9yz4KdveXwuoAyA==": {
+   "college_id": "new",
+   "name": "Narayana Dental College & Hospital, Nellore"
+  },
+  "FtzFlnYguoDs4JjzTr5g1Q==": {
+   "college_id": "new",
+   "name": "Nimra Institute of Dental Sciences"
+  },
+  "sTypwkMP+HypBbrKcSAH2A==": {
+   "college_id": "new",
+   "name": "Sibar Institute of Dental Sciences, Guntur"
+  },
+  "XllZLYt9JRF4rAKZZ72fCg==": {
+   "college_id": "new",
+   "name": "Sree Sai Dental College & Research Institute, Srikakulam"
+  },
+  "zUPBz8RhkEAaf/4i9k4qNA==": {
+   "college_id": "new",
+   "name": "St. Joseph Dental College, Duggirala"
+  },
+  "2OrsMqmd1rsn+QeoyMm/dw==": {
+   "college_id": "new",
+   "name": "Govt. Dental College, Dibrugarh, Assam"
+  },
+  "DBRkjVcL2QHLEStddrcCaw==": {
+   "college_id": "new",
+   "name": "Govt. Dental College, Silchar, Assam"
+  },
+  "oJWyKXKNkzUF62IE9nND2g==": {
+   "college_id": "new",
+   "name": "Regional Dental College, Guwahati"
+  },
+  "YLg7l3pP7vTGiX6X7JZ4Dw==": {
+   "college_id": "new",
+   "name": "Buddha Institute of Dental Sciences & Hospital, Kankarbagh, Patna"
+  },
+  "nFj9XoIWg8FNWwBptujfrQ==": {
+   "college_id": "new",
+   "name": "Government Dental College & Hospital, Nalanda"
+  },
+  "VtsWa0Nb6lEFN1QuoRa43w==": {
+   "college_id": "new",
+   "name": "Mithila Minority Dental College & Hospital, Darbhanga"
+  },
+  "k0puFDe75Nz53w3Xb/6xfg==": {
+   "college_id": "new",
+   "name": "Patna Dental College & Hospital, Patna"
+  },
+  "FSD4idZf6jHAABE3prNTog==": {
+   "college_id": "new",
+   "name": "Sarjug Dental College, Darbhanga"
+  },
+  "NFmJx5JaRGUsdfx6xotvPw==": {
+   "college_id": "new",
+   "name": "Dr. Harvansh Singh Judge Institute of Dental Sciences & Hospital, Chandigarh"
+  },
+  "gqV2HCEv4EgdJKXFMGpp7A==": {
+   "college_id": "new",
+   "name": "Chattisgarh Dental College & Research Institute, Rajnandgaon"
+  },
+  "6gOnUsjQiNZ3WSU6bzBSUA==": {
+   "college_id": "new",
+   "name": "Govt. Dental College, Raipur, Chhattisgarh"
+  },
+  "dR62WZorDkBtpNzrEX5lLA==": {
+   "college_id": "new",
+   "name": "Maitri College of Dentistry and Research Centre, Durg"
+  },
+  "JxG08EIIpPVhbSHeihBcbg==": {
+   "college_id": "new",
+   "name": "New Horizon Dental College & Research Instiute, Bilaspur"
+  },
+  "GP/ka/uuAwQ5myWRCtql5g==": {
+   "college_id": "new",
+   "name": "Rungta College of Dental Sciences & Research, Bhilai"
+  },
+  "zNe6Vf3a0eZFPHxyxVwl1Q==": {
+   "college_id": "new",
+   "name": "Shri Balaji Institute of Dental Sciences, Raipur"
+  },
+  "cPUd5s46380X9IaCUOreNg==": {
+   "college_id": "new",
+   "name": "Triveni Institute of Dental Sciences, Hosptial & Research Centre, Bilaspur"
+  },
+  "mKN4++UYLKGYk5BjpuySug==": {
+   "college_id": "new",
+   "name": "Vaidik Dental College and Research Centre,"
+  },
+  "bRAN0+EDNldazcHcweVE+w==": {
+   "college_id": "new",
+   "name": "Army Hospital (Research and Referral) Delhi Cantt, Delhi"
+  },
+  "xXM2LNaPMbTM/B81Cz/Zaw==": {
+   "college_id": "new",
+   "name": "ESIC Dental College, Rohini, New Delhi"
+  },
+  "KE+skTmTBchOxt+cbmjS5Q==": {
+   "college_id": "new",
+   "name": "Faculty of Dentistry, Jamia Millia Islamia, New Delhi"
+  },
+  "DOuMs/Y3ESNKkYqApRlKBQ==": {
+   "college_id": "new",
+   "name": "Lady Hardinge Medical College & Smt. Sucheta Kriplani Hospital New Delhi"
+  },
+  "+U8ermzphE8nFt/7HuVLjw==": {
+   "college_id": "C-28507",
+   "name": "Maulana Azad Dental College & Hospital, New Delhi",
+   "card": "Maulana Azad Institute of Dental Sciences"
+  },
+  "g4JprclbftZXdQMyqe/j3Q==": {
+   "college_id": "new",
+   "name": "University College of Medical Sciences, Dilshad Garden"
+  },
+  "XgbTwyXIimWmcS9e7fJuug==": {
+   "college_id": "new",
+   "name": "Goa Dental College & Hospital, Goa"
+  },
+  "Ps2YBaEs6Bb5bA5YonNjUg==": {
+   "college_id": "new",
+   "name": "K.M. Shah Dental College & Hospital, Vadodara"
+  },
+  "Ro6tCyeSManV0vT6pIXeSA==": {
+   "college_id": "acpmec:karnavati school dentistry uvarsad gandhinagar",
+   "name": "Karnavati School of Dentistry, Gandhinagar",
+   "card": "Karnavati School of Dentistry, Uvarsad, Gandhinagar"
+  },
+  "RPzGbeYaDdpM6k1y17SbDg==": {
+   "college_id": "acpmec:manubhai patel dental college hospital vadodara",
+   "name": "Manubhai Patel Dental College & Dental Hospital & SSR General Hospital, Vadodara",
+   "card": "Manubhai Patel Dental College & Hospital, Vadodara"
+  },
+  "1AqnE0T9gru9RsORA+ImkQ==": {
+   "college_id": "acpmec:narsinhbhai patel dental college hospital visnagar",
+   "name": "Narsinhbhai Patel Dental College & Hospital, Visnagar",
+   "card": "Narsinhbhai Patel Dental College & Hospital, Visnagar"
+  },
+  "kXI5w+AmrudRT2qonv/mhA==": {
+   "college_id": "new",
+   "name": "Siddhpur Dental College, Patan"
+  },
+  "19tYRH6wKdyYSZ8FLPC1rQ==": {
+   "college_id": "new",
+   "name": "D.A.V. Centenary Dental College, Yamuna nagar"
+  },
+  "cvrme3sr2txYaLi26KoMBg==": {
+   "college_id": "new",
+   "name": "Jan Nayak Ch. Devi Lal Dental College, Sirsa"
+  },
+  "ae+S+de+0QSNf5RJBul4Og==": {
+   "college_id": "new",
+   "name": "Maharishi Markandeshwar College of Dental Sciences & Research, Mullana"
+  },
+  "QRbnAm8oPKI2LZGg7sBjrQ==": {
+   "college_id": "new",
+   "name": "Manav Rachana Dental College, Faridabad"
+  },
+  "0brY53jtTcbrekrQwjX5RA==": {
+   "college_id": "new",
+   "name": "PDM Dental College & Research Institute, Jhajjar"
+  },
+  "7eN/L1fgUlpa6TRDqnzr4Q==": {
+   "college_id": "new",
+   "name": "Sri Govind Tricentenary Dental College, Hospital & Research Institute"
+  },
+  "ZQaN78AU+brYueCd7c0fZQ==": {
+   "college_id": "new",
+   "name": "Sudha Rustagi College of Dental Sciences & Research,Faridabad"
+  },
+  "z2Ozy0yjcL9DNd+oTwGtNQ==": {
+   "college_id": "new",
+   "name": "Swami Devi Dyal Hospital & Dental College, Panchkula"
+  },
+  "0Q7LUGn+YxxQHYN4aWRquA==": {
+   "college_id": "new",
+   "name": "Yamuna Institute of Dental Sciences & Research, Yamuna Nagar"
+  },
+  "KQlNtiFAEtrLK2Cp8cOAjg==": {
+   "college_id": "new",
+   "name": "Bhojia Dental College & Hospital, Nalagarh"
+  },
+  "xCBfl4a2xt0y1IeziwKFgw==": {
+   "college_id": "new",
+   "name": "H.P. Govt. Dental College & Hospital, Shimla"
+  },
+  "AqeWeHvGumY3iecDZokKAg==": {
+   "college_id": "new",
+   "name": "Himachal Dental College, Sunder Nagar"
+  },
+  "LQvm0c+7NCYy6P/1yHeQ8A==": {
+   "college_id": "new",
+   "name": "Himachal Institute of Dental Sciences, Poanta Sahib"
+  },
+  "Uyv301/lVF3vJCOH2tN8sg==": {
+   "college_id": "new",
+   "name": "Govt. Dental College, Srinagar"
+  },
+  "73b02oSXmU4Pgku3C3jJPQ==": {
+   "college_id": "new",
+   "name": "Indira Gandhi Government Dental College, Jammu"
+  },
+  "VpS48x/gAPHmXIrS4cet7Q==": {
+   "college_id": "new",
+   "name": "Institute of Dental Sciences, Sehora"
+  },
+  "Pf43pKzqNklc4iJXshD90w==": {
+   "college_id": "new",
+   "name": "Awadh Dental College & Hospital, Jamshedpur"
+  },
+  "uEeKqycVaUxdvT28PeqbiQ==": {
+   "college_id": "new",
+   "name": "Dental Institute Rajendra Institute of Medical Sciences, Ranchi"
+  },
+  "wzrxGlfcR2My9kjMprmBcQ==": {
+   "college_id": "new",
+   "name": "Hazaribag College of Dental Sciences and Hospital, Hazaribag"
+  },
+  "gpUIA6tBbh78gQId48pBpA==": {
+   "college_id": "new",
+   "name": "Vananchal Dental College & Hospital, Garhwa"
+  },
+  "uvllUWT7FgWjoIZ897MYnA==": {
+   "college_id": "C-19320",
+   "name": "A.B. Shetty Memorial Institute of Dental Sciences, Mangalore",
+   "card": "A.B.Shetty Memorial Institute of Dental Sciences"
+  },
+  "Q4XTMN0a9lOYNyJfINvWSA==": {
+   "college_id": "new",
+   "name": "Al Ameen Dental College & Hospital, Bijapur"
+  },
+  "bES0JQAMBwmrAMGvlw/7NQ==": {
+   "college_id": "new",
+   "name": "Al-Badar Rural Dental College & Hospital, Gulbarga"
+  },
+  "jyz5tov7lrkCMIuXV4woAA==": {
+   "college_id": "new",
+   "name": "AME’s Dental College & Hospital, Raichur"
+  },
+  "aUz5cTdPuTeZWwj0SYzEPw==": {
+   "college_id": "C-40193",
+   "name": "Bapuji Dental College & Hospital, Davangere",
+   "card": "Bapuji Dental College and Hospital"
+  },
+  "ff2oOSNTxDWgXm9cCwBOyQ==": {
+   "college_id": "C-40175",
+   "name": "Coorg Institute of Dental Sciences, Virajpat",
+   "card": "Coorg Institute of Dental Sciences"
+  },
+  "Fpcmx4QnSAHTjr3F53PUNg==": {
+   "college_id": "new",
+   "name": "ESIC Dental College, Gulbarga"
+  },
+  "VNbpzPzI5DuC3QUuo6R3RA==": {
+   "college_id": "new",
+   "name": "Farooqia Dental College & Hospital, Mysore"
+  },
+  "l98cKM41GCSbnyFaf0Y/1g==": {
+   "college_id": "new",
+   "name": "Govt. Dental College & Research Institute, Bellary"
+  },
+  "3/ewX62Q7xYX9z5inEVdoQ==": {
+   "college_id": "new",
+   "name": "H.K.D.E.Ts Dental College, Hospital & Research Institute, Humnabad"
+  },
+  "+/HQnYun3jwh8C2fNKd3ew==": {
+   "college_id": "new",
+   "name": "H.K.E. Society's, S. Nijalingappa Institute of Dental Sciences & Research"
+  },
+  "cEytb2ax2Btz/j3hIlqZAw==": {
+   "college_id": "C-35008",
+   "name": "JSS Dental College & Hospital, Mysore",
+   "card": "JSS Dental College and Hospital"
+  },
+  "DOnSdHwmJKOFl8DQCJKT/Q==": {
+   "college_id": "new",
+   "name": "K.G.F. College of Dental Sciences & Hospital, KGF"
+  },
+  "3paInxEG+zso/Ib1jMcxlg==": {
+   "college_id": "new",
+   "name": "K.V.G. Dental College & Hospital, Sullia"
+  },
+  "69cTbhBeVoLzyyrH9uWtkA==": {
+   "college_id": "C-24504",
+   "name": "KLE Vishwanath Katti Institute of Dental Sciences, Belgaum",
+   "card": "KLE Vishwanath Katti Institute of Dental Sciences"
+  },
+  "x7oRXmNVoUIezjytMoz+sw==": {
+   "college_id": "new",
+   "name": "Maratha Mandal’s Dental College & Research Centre, Belgaum"
+  },
+  "HNN2OUiwja89ZX9CGjApuQ==": {
+   "college_id": "new",
+   "name": "Navodaya Dental College, Raichur"
+  },
+  "1gknniqWfD6BrpKnGKYm1Q==": {
+   "college_id": "new",
+   "name": "P.M.N.M. Dental College & Hospital, Bagalkot"
+  },
+  "lZVos38eJupyTedkprE7Pg==": {
+   "college_id": "new",
+   "name": "S.B. Patil Dental College & Hospital, Bidar"
+  },
+  "h0YmF7Dslv5x+H05USdvAQ==": {
+   "college_id": "new",
+   "name": "S.J.M. Dental College & Hospital, Chitradurga"
+  },
+  "AUB6djNAgNiNqrT9ZvufcA==": {
+   "college_id": "new",
+   "name": "SDM College of Dental Sciences & Hospital, Dharwad"
+  },
+  "+cU8lW0VSTi3xPKDekPEkA==": {
+   "college_id": "new",
+   "name": "Sharavathi Dental College & Hospital, Shimoga"
+  },
+  "fXhPdXb9g2AtRwZwp0j0Vw==": {
+   "college_id": "new",
+   "name": "Sri Hasanamba Dental College & Hospital, Hassan"
+  },
+  "8ZoPPh5ieEeSD9Nwn5V6tw==": {
+   "college_id": "new",
+   "name": "Sri Siddhartha Dental College, Tumkur"
+  },
+  "xm9jMl7B8RIsjheB1cQowg==": {
+   "college_id": "new",
+   "name": "Srinivas Institute of Dental Sciences, Mangalore"
+  },
+  "zvdBmQGepf2KQvK9C+PsDw==": {
+   "college_id": "new",
+   "name": "Subbaiah Institute of Dental Sciences, Purale, Shimoga"
+  },
+  "qGy8rr9MnYAtNVw+JYdiIw==": {
+   "college_id": "C-8528",
+   "name": "Yenepoya Dental College & Hospital, Mangalore",
+   "card": "Yenepoya Dental College"
+  },
+  "J6ylN0uk/lOxsfiweYpRig==": {
+   "college_id": "new",
+   "name": "Al-Azhar Dental College, Kerala"
+  },
+  "orpk2aCDp6vJnGMe42Tckw==": {
+   "college_id": "new",
+   "name": "Amrita School of Dentistry, Kochi"
+  },
+  "3XmKn5/hR8x5FCPn5i2KIw==": {
+   "college_id": "new",
+   "name": "Annoor Dental College & Hospital, Ernakulam"
+  },
+  "kNVwhGxC/SPXn5orjsSPXg==": {
+   "college_id": "new",
+   "name": "Azeezia College of Dental Sciences & Research, Kollam"
+  },
+  "yzI7TzVvhKFQ8LI79VlsPg==": {
+   "college_id": "new",
+   "name": "Educare Institute of Dental Sciences, Malappuram"
+  },
+  "hyZjH/F8Dc/kks2XlDp4og==": {
+   "college_id": "new",
+   "name": "Govt. Dental College, Alappuzha"
+  },
+  "8vIxU+QVK54nH8nLveQlCw==": {
+   "college_id": "new",
+   "name": "Govt. Dental College, Kottayam"
+  },
+  "PzxjD12a1usLbU9V68Ht6g==": {
+   "college_id": "new",
+   "name": "Govt. Dental College, Thrissur"
+  },
+  "cc6bEi2XqWqUEpSunMrC9w==": {
+   "college_id": "new",
+   "name": "Indira Gandhi Institute of Dental Sciences, Kothamangalam"
+  },
+  "26uLfmkpxjHymuk/nKp+eQ==": {
+   "college_id": "new",
+   "name": "Kannur Dental College, kannur"
+  },
+  "Q2RngQGT98bNOw7NSuSUXA==": {
+   "college_id": "new",
+   "name": "KMCT Dental College, Calicut"
+  },
+  "COX4tW1whQhb4q7kHMOLEQ==": {
+   "college_id": "new",
+   "name": "Malabar Dental College & Research Centre, Malappuram"
+  },
+  "0/D/wBLxqEpPRxQYhPVrIg==": {
+   "college_id": "new",
+   "name": "Mar Baselios Dental College, Kothamangalam"
+  },
+  "ShnX7gK2Jy1eiP2nC9kYKw==": {
+   "college_id": "new",
+   "name": "MES Dental College, Malappuram"
+  },
+  "lMrYh/nLbbNwwBZLZeGOeA==": {
+   "college_id": "new",
+   "name": "Noorul Islam College of Dental Sciences, Trivandrum"
+  },
+  "U5KTdl1vxLOpXMYQ4ALmyQ==": {
+   "college_id": "new",
+   "name": "Pariyaram Dental College, Academy of Medical Sciences, Kannur"
+  },
+  "fKIYOcYI3DYRSfKTGL/KpA==": {
+   "college_id": "new",
+   "name": "PMS College of Dental Science & Research, Thiruvananthpuram"
+  },
+  "GHjSPJvw2n4x+wCuCjMjVA==": {
+   "college_id": "new",
+   "name": "PSM College of Dental Sciences & Research, Trichur"
+  },
+  "8u9o1VhX11GaLMd6XKTWbg==": {
+   "college_id": "new",
+   "name": "Pushpagiri College of Dental Sciences, Tiruvalla"
+  },
+  "hGFHlm+a8QkTitBa7ZCEFw==": {
+   "college_id": "new",
+   "name": "Royal Dental College, kerala"
+  },
+  "nzo+4GY5Sz7HkjiOiqY+qQ==": {
+   "college_id": "new",
+   "name": "Sree Anjaneya Medical Trust, Calicut"
+  },
+  "t0EUMYwfBdWuhA+VNUKKwA==": {
+   "college_id": "new",
+   "name": "Sri Sankara Dental College, Thiruvananthapuram"
+  },
+  "A87P1OpsgvD62eCTu/NNEA==": {
+   "college_id": "new",
+   "name": "St. Gregorios Dental College, Ernakulam"
+  },
+  "qDN1T0pJESO22b3BSIDgpA==": {
+   "college_id": "new",
+   "name": "Travancore Dental College"
+  },
+  "YBtVsUtkFhW9Wog29vMv4w==": {
+   "college_id": "new",
+   "name": "Bhabha College of Dental Sciences, Bhopal"
+  },
+  "pPjG9h1RgMM8YMzjb/7EKA==": {
+   "college_id": "new",
+   "name": "College of Dental Sciences & Hospital, Indore"
+  },
+  "Z1BPTxDryIq0ptZUbuT8Qw==": {
+   "college_id": "new",
+   "name": "College of Dentistry- Indore"
+  },
+  "fh6eYafd7LUr8P6Ek2WtMQ==": {
+   "college_id": "new",
+   "name": "Guru Gobind Singh College of Dental Science & Research Centre, Burhanpur"
+  },
+  "qIJwHsC9+Qt4pmTqkdocNw==": {
+   "college_id": "new",
+   "name": "Hitkarini Dental College & Hospital, Jabalpur"
+  },
+  "j2lbrDcPtfHJwC2qSHDiNw==": {
+   "college_id": "new",
+   "name": "Index Institute of Dental Sciences, Indore"
+  },
+  "RxPqnEl001GIW3+QkGUC1g==": {
+   "college_id": "new",
+   "name": "Maharana Pratap College of Dentistry & Research Centre, Gwalior"
+  },
+  "BnYG+OMftzP90MhkkMQh9g==": {
+   "college_id": "new",
+   "name": "Mansarover Dental College, Bhopal"
+  },
+  "3g62ixSeUd7mGIF3MTAtpA==": {
+   "college_id": "new",
+   "name": "Modern Dental College & Research Centre, Indore"
+  },
+  "ZPdoc4eExS5zsbiOLR00BQ==": {
+   "college_id": "new",
+   "name": "People’s Dental Academy, Bhopal"
+  },
+  "WSrzHBWfBc9RZN4mXIt+nQ==": {
+   "college_id": "new",
+   "name": "Peoples College of Dental Sciences & Research Centre, Bhopal"
+  },
+  "12OPwGWf1308j8iUuBMirQ==": {
+   "college_id": "new",
+   "name": "Rishiraj College of Dental Sciences & Research Centre, Bhopal"
+  },
+  "ck7Nn4ucuHAzgyBO1mWKLw==": {
+   "college_id": "new",
+   "name": "RKDF Dental College & Research Centre, Bhopal"
+  },
+  "aMFTVT0Lpvs63ZNslMew2w==": {
+   "college_id": "new",
+   "name": "Sri Aurobindo College of Dentistry, Indore"
+  },
+  "2ezbbBl+ruE9D8/J8hb/0Q==": {
+   "college_id": "new",
+   "name": "Aditya Dental College, Beed"
+  },
+  "I2mhS8vuH/UWnhgtyv0dxg==": {
+   "college_id": "new",
+   "name": "Annasaheb Chudaman Patil Memorial Dental College, Dhule"
+  },
+  "/Hg4XvOluNXpAH5ckF2j4Q==": {
+   "college_id": "new",
+   "name": "Armed Forces Medical College, Pune-1"
+  },
+  "Xo4Eehn7r1gH7jKeSBU3lw==": {
+   "college_id": "C-35422",
+   "name": "Bharati Vidyapeeth Dental College & Hospital, Pune",
+   "card": "Bharati Vidyapeeth (Deemed to be University) Dental College and Hospital, Pune"
+  },
+  "Nx9IyouElMlMCg8zaX7kqg==": {
+   "college_id": "new",
+   "name": "Chatrapati Shahu Maharaj Shikshan Sanstha’s Dental College & Hospital, Aurangabad"
+  },
+  "kCNk48HgQdP2PFaPGV/kYw==": {
+   "college_id": "new",
+   "name": "D.Y. Patil Dental School, Pune"
+  },
+  "bwh9TrUDsaXydbLdLGxZoQ==": {
+   "college_id": "new",
+   "name": "Datta Meghe Dental College, Hospital and Research Center, Nagpur"
+  },
+  "VG8FEVTKf62PXB8lpOHUgQ==": {
+   "college_id": "new",
+   "name": "Dr. D.Y. Patil Dental College & Hospital, Pune"
+  },
+  "ZO5qHM7MZJg9NOZVA+/jXQ==": {
+   "college_id": "new",
+   "name": "Dr. Hedgewar Smruti Rugna Seva Mandals Dental College & Hospital, Hingoli"
+  },
+  "l83h1ku4Dr2tQCq6HFlC/g==": {
+   "college_id": "new",
+   "name": "Dr. Rajesh Ramdasji Kambe Dental College & Hospital, Akola"
+  },
+  "5naZLr6ONPhv6DLASH8RJg==": {
+   "college_id": "new",
+   "name": "Govt. Dental College & Hospital, Aurangabad"
+  },
+  "vhj3V+s8FXTe+1wtYVsOOQ==": {
+   "college_id": "new",
+   "name": "Govt. Dental College & Hospital, Jalgaon"
+  },
+  "dff0I9LnW+vtwCLwH4xnKA==": {
+   "college_id": "new",
+   "name": "Late Shri Yashwantrao Chavan Memorial Medical & Rural Development Foundation's Dental College & Hospital, Ahmednagar"
+  },
+  "wvPL+RCVFTZ683wMsLyn+w==": {
+   "college_id": "new",
+   "name": "M.A. Rangoonwala College of Dental Sciences & Research Centre, Pune"
+  },
+  "gw0oq2oEWGWiaOZoKqNNMg==": {
+   "college_id": "new",
+   "name": "Maharashtra Institute of Dental Sciences & Research (Dental College)"
+  },
+  "U3IotkJjC6WC4pp5ov2M7w==": {
+   "college_id": "new",
+   "name": "Pandit Deendayal Upadhyay Dental College, Solapur"
+  },
+  "gCbxRTmh5H7Iag4F+piowA==": {
+   "college_id": "new",
+   "name": "Ranjeet Deshmukh Dental College and Research Centre, Nagpur"
+  },
+  "BfeA+P8+GLBbqgtbafEQoA==": {
+   "college_id": "new",
+   "name": "Rural Dental College, Loni"
+  },
+  "0QlqnZWpTnHvgBT0FxdUKw==": {
+   "college_id": "new",
+   "name": "S.M.B.T. Dental College & Hospital, Amrutnagar"
+  },
+  "Mto4m+r1F1XbTUnnypIzKw==": {
+   "college_id": "new",
+   "name": "Saraswati Danwantri Dental College & Hospital, Parbhani"
+  },
+  "73s2DvVXFYbW0SIm2fPaSg==": {
+   "college_id": "new",
+   "name": "School of Dental Sciences, Krishna Institute of Medical Sciences, Karad"
+  },
+  "IKYDGSSwl24qmXsFKer9dw==": {
+   "college_id": "new",
+   "name": "Sharad Pawar Dental College & Hospital, Wardha"
+  },
+  "NfGqWV3mmOAhnUM6yoKHgA==": {
+   "college_id": "new",
+   "name": "Sinhgad Dental College & Hospital, Pune"
+  },
+  "9MuFX6+0nrcJVLCwV0G+GA==": {
+   "college_id": "new",
+   "name": "SMBT Institute of Dental Sciences and Research, Nandihills, Nashik"
+  },
+  "k0iyiIokN2pFN7Fwr0wiRA==": {
+   "college_id": "new",
+   "name": "Swargiya Dadasaheb Kalmegh Smruti Dental College & Hospital, Nagpur"
+  },
+  "p1CBkxaZSBcNrTx5eWiUfw==": {
+   "college_id": "new",
+   "name": "Tatyasaheb Kore Dental College & Research Centre, New Pargaon"
+  },
+  "VEFrY0wLbWhC/NsiT9lBBw==": {
+   "college_id": "new",
+   "name": "Vasantdada Patil Dental College and Hospital, Sangli"
+  },
+  "xGLFZxJpDgBI7NnFhZsXhA==": {
+   "college_id": "new",
+   "name": "Vidarbha Youth Welfare Society’s Dental College & Hospital, Amravati"
+  },
+  "jw5afn8bxvTLCdSfgfCBeg==": {
+   "college_id": "new",
+   "name": "Yogita Dental College & Hospital, Ratnagiri"
+  },
+  "jklkzV/rDll6X5yTSbfTXQ==": {
+   "college_id": "new",
+   "name": "Dental College, Jawaharlal Nehru Institute of Medical Sciences"
+  },
+  "7Pt856E+K5ExtEgpy8KUHg==": {
+   "college_id": "new",
+   "name": "Dental College, RIMS, Imphal"
+  },
+  "gqdEvoTgQREGBF0GvOm5Hg==": {
+   "college_id": "new",
+   "name": "Hi-Tech Dental College & hospital, Bhubaneswar"
+  },
+  "hsbKu4endCLsoGO7KIFPNg==": {
+   "college_id": "new",
+   "name": "Institute of Dental Sciences, Bhubaneswar"
+  },
+  "mWsQ9v8WKqN2leYJTwGbSA==": {
+   "college_id": "new",
+   "name": "Kalinga Institute of Dental Sciences, Bhubaneswar"
+  },
+  "13yBqSSRCQmIDX5XoHp7Qw==": {
+   "college_id": "new",
+   "name": "S.C.B. Dental College & Hospital, Cuttack"
+  },
+  "nEjshnVwFdu6YmKlKqmbPg==": {
+   "college_id": "new",
+   "name": "Indira Gandhi Institute of Dental Sciences, Pondicherry"
+  },
+  "9SE6i3F3bJeTfmXtM2U89w==": {
+   "college_id": "C-6548",
+   "name": "Mahatma Gandhi Post Graduate Institute of Dental Sciences, Puducherry",
+   "card": "Mahatma Gandhi P.G. Institute of Dental Sciences"
+  },
+  "ieuNAgP93mMtNTrpnVyrtw==": {
+   "college_id": "new",
+   "name": "Mahe Institute of Dental Sciences & Hospital, Mahe"
+  },
+  "x/UyTiguzch91jVjw//6vA==": {
+   "college_id": "new",
+   "name": "Sri Venkateshwaraa Dental College, Puducherry"
+  },
+  "IG3BIqaGsOhD0eJvB3ACwQ==": {
+   "college_id": "new",
+   "name": "Adesh Institute of Dental Sciences & Research, Bathinda"
+  },
+  "AU3EtQn8h0Lcvi5qE0gp0Q==": {
+   "college_id": "new",
+   "name": "Baba Jaswant Singh Dental College Hospital & Research Institute, Ludhiana"
+  },
+  "a4Lytw+WLJJMw1GGMXNsSQ==": {
+   "college_id": "C-29150",
+   "name": "Christian Dental College, Ludhiana",
+   "card": "Christian Dental College"
+  },
+  "MjKId8ABh3cSByDJvUQ9Fg==": {
+   "college_id": "new",
+   "name": "Dasmesh Institute of Research & Dental Sciences, Faridkot"
+  },
+  "sNk2TyO3/sRP/4GgJsPL8w==": {
+   "college_id": "new",
+   "name": "Desh Bhagat Dental College & Hospital, Mandi Gobindgarh"
+  },
+  "5mFt+qTQ7INMfhsbu91kFA==": {
+   "college_id": "new",
+   "name": "Genesis Institute of Dental Sciences & Research, Ferozepur"
+  },
+  "o2QaeqRZj5EUfWqFi+KkOw==": {
+   "college_id": "new",
+   "name": "Gian Sagar Dental College & Hospital"
+  },
+  "peVls0wfeS2zBIo09qazuA==": {
+   "college_id": "new",
+   "name": "Govt. Dental College & Hospital, Patiala"
+  },
+  "VJqHXA5JRBiF0/7N8bo+/w==": {
+   "college_id": "new",
+   "name": "Guru Nanak Dev Dental College & Research Institute, Sunam"
+  },
+  "tYr+4vaKWCqHil1hxbCRfg==": {
+   "college_id": "new",
+   "name": "Luxmi Bai Institute of Dental Sciences & Hospital, Patiala"
+  },
+  "/NCvOpGdeaEASEFZIN01kg==": {
+   "college_id": "new",
+   "name": "National Dental College & Hospital, Gulabgarh"
+  },
+  "0GyOaUFsQYN1xI8BqPaFUA==": {
+   "college_id": "new",
+   "name": "Pb. Govt. Dental College & Hospital, Amritsar"
+  },
+  "W3Pnndlm4Og9pBpnzAnqNw==": {
+   "college_id": "new",
+   "name": "Rayat Bahra Dental College, Mohali"
+  },
+  "u0GVTVNe4LRTCcWfOU7CMQ==": {
+   "college_id": "new",
+   "name": "RIMT Dental College, Mandi Gobindgarh"
+  },
+  "xXScNmOEWxI4DO/TtG6j4Q==": {
+   "college_id": "new",
+   "name": "Shaheed Kartar Singh Sarabha Dental College & Hospital, Ludhiana"
+  },
+  "HckabyCbDQuEO9kLITxTYw==": {
+   "college_id": "new",
+   "name": "Sri Guru Ram Das Institute of Dental Sciences & Research, Amritsar"
+  },
+  "+J2gSdO8mTZg/wZ5sW7K0w==": {
+   "college_id": "new",
+   "name": "Sukhmani Dental College & Hospital, Derabassi"
+  },
+  "HuYhGUsIXLn+3B9CMv2cLw==": {
+   "college_id": "new",
+   "name": "Darshan Dental College & Hospital, Udaipur"
+  },
+  "mIm3GjDlfLPk6UUszse0+w==": {
+   "college_id": "new",
+   "name": "Daswani Dental College & Research Centre, Kota"
+  },
+  "Tet9Ayl4ZctpuuYGd/JwSg==": {
+   "college_id": "new",
+   "name": "Dr. S. S. Tantia Dental College Hospital and Research Centre"
+  },
+  "1Vutj8MJbuIxUzWyWRkgpw==": {
+   "college_id": "new",
+   "name": "Eklavya Dental College & Hospital, Kotputli"
+  },
+  "TGrldn5Dav6BTd67PbQsLQ==": {
+   "college_id": "new",
+   "name": "Geetanjali Dental & Research Institute, Udaipur"
+  },
+  "o9sUlfRB7NkwDPyE7p0vSA==": {
+   "college_id": "new",
+   "name": "Government Dental College, Jodhpur"
+  },
+  "WcnKdqLFNrXbwrsYMRWZqg==": {
+   "college_id": "new",
+   "name": "Govt. Dental College & Hospital, Jaipur"
+  },
+  "hCz01w/oiJSysckUfbF2PQ==": {
+   "college_id": "new",
+   "name": "Jaipur Dental College, Jaipur"
+  },
+  "aUUH1sb2VmngMv0lRMDA/Q==": {
+   "college_id": "new",
+   "name": "Jodhpur Dental College General Hospital, Jodhpur"
+  },
+  "nw7/itFralcN4uBq7kMSZQ==": {
+   "college_id": "new",
+   "name": "Maharaja Ganga Singh Dental College & Research Centre, Sri Ganganagar"
+  },
+  "0TDI7NXVhhmlnIyZeWoEBA==": {
+   "college_id": "new",
+   "name": "Mahatma Gandhi Dental College & Hospital, Sitapura, Jaipur"
+  },
+  "dvueX9qbqlNxvEEfCXT7Rg==": {
+   "college_id": "new",
+   "name": "NIMS Dental College, Jaipur"
+  },
+  "ZoZi13tq7+Mv1CVty+E4yQ==": {
+   "college_id": "new",
+   "name": "Pacific Dental College & Research Centre"
+  },
+  "a2J1flz0EoCZpW5VW3o8Eg==": {
+   "college_id": "new",
+   "name": "Pacific Dental College, udaipur"
+  },
+  "ylTly7yYtCPAjLX3Wp4ENw==": {
+   "college_id": "new",
+   "name": "R.R. Dental College & Hospital, Udaipur"
+  },
+  "4kCdufz/MsXTUMpvA897NQ==": {
+   "college_id": "new",
+   "name": "Rajasthan Dental College & Hospital, Jaipur"
+  },
+  "Mie5Q3J5zdwWQvHT23XAow==": {
+   "college_id": "new",
+   "name": "Surendera Dental College & Research Institute, Sri Ganganagar"
+  },
+  "fROprSw+wUoG1/OXZli3Og==": {
+   "college_id": "new",
+   "name": "Vyas Dental College & Hospital, Jodhpur"
+  },
+  "iomvkIHqSoxwzJy+wBVtng==": {
+   "college_id": "new",
+   "name": "Asan Memorial Dental College & Hospital, Kancheepuram"
+  },
+  "uG2GA47us/4yUaEoOpeL0Q==": {
+   "college_id": "new",
+   "name": "Best Dental Science College, Madurai"
+  },
+  "IMAkkwka1VM7msw5Yh/1Jw==": {
+   "college_id": "C-45605",
+   "name": "Chettinad Dental College & Research Institute, Kancheepuram",
+   "card": "Chettinad Dental College and Research Institute"
+  },
+  "vH1rOcRZo2AJ3eNwNrCuag==": {
+   "college_id": "new",
+   "name": "CSI College of Dental Sciences & Research, Madurai"
+  },
+  "PxD05eziL/f7RDS9xfu2Dw==": {
+   "college_id": "new",
+   "name": "Dhanalakshmi Srinivasan Dental College"
+  },
+  "YxpGENTydneuzFRIbRcCwA==": {
+   "college_id": "new",
+   "name": "Government Dental College, Pudukkottai"
+  },
+  "U2xPHYv+uyo7yFExXtpNwQ==": {
+   "college_id": "new",
+   "name": "Govt. Dental College & Hospital, Cuddalore"
+  },
+  "jvCSh3iCdBoE33q1kUkpRw==": {
+   "college_id": "new",
+   "name": "JKK Natrajah Dental College & Hospital, Komarapalayam"
+  },
+  "pRKAKHDRP6cfSpKiWCQsvw==": {
+   "college_id": "new",
+   "name": "K.S.R. Institute of Dental Science & Research, Tiruchengode"
+  },
+  "85Jd2DV9xZDX4VIQJfi/Ew==": {
+   "college_id": "new",
+   "name": "Karpaga Vinayaga Institute of Dental Sciences, Kanchipuram"
+  },
+  "5PVxrcMIyXq6CMn6O0nORg==": {
+   "college_id": "new",
+   "name": "Madha Dental College & Hospital, Kundrathur"
+  },
+  "jNAQqhgSUKwbgtnBU0x1Tw==": {
+   "college_id": "new",
+   "name": "Meenakshi Ammal Dental College & Hospital, Chennai"
+  },
+  "U5oCxmHKUyncS/6AaMZ3Kg==": {
+   "college_id": "new",
+   "name": "Nandha Dental College and Hospital"
+  },
+  "dfqO5CPl6Xvz1Yndc39jBA==": {
+   "college_id": "new",
+   "name": "Priyadarshini Dental College & Hospital, Pandur"
+  },
+  "Ocalp7wpZK1FtYYZ3endiA==": {
+   "college_id": "new",
+   "name": "R.V.S. Dental College & Hospital, Sulur"
+  },
+  "gpMfazCo/D4Og6QyscwTBA==": {
+   "college_id": "C-45413",
+   "name": "Ragas Dental College & Hospital, Chennai",
+   "card": "Ragas Dental College and Hospital, Chennai"
+  },
+  "4MxCGsm8LTNOxp8j6yCazQ==": {
+   "college_id": "new",
+   "name": "Rajas Dental College & Hospital, Kavalkinaru Jn"
+  },
+  "3BLX4Y8yM17fkT0ArqaT6Q==": {
+   "college_id": "new",
+   "name": "Sree Balaji Dental College & Hospital, Narayanpuram"
+  },
+  "6sqRijiuThVOgYwwtkxNLw==": {
+   "college_id": "new",
+   "name": "Sree Mookambika Institute of Dental Sciences, Kulasekharam"
+  },
+  "ybiaPtxbiuRKfcrvNoiJ3w==": {
+   "college_id": "new",
+   "name": "Sri Ramachandra Dental College & Hospital, Porur"
+  },
+  "wGwb0mgHhVOMNbNsrcrrjg==": {
+   "college_id": "new",
+   "name": "Sri Ramakrishna Dental College & Hospital, Coimbatore"
+  },
+  "eklqTuuLsI2ALFMEBS3b6Q==": {
+   "college_id": "new",
+   "name": "Sri Venkateswara Dental College & Hospital, Kancheepuram"
+  },
+  "5JWwq3rkcz1NWLm7VF8C4w==": {
+   "college_id": "new",
+   "name": "SRM Kattankulathur Dental College & Hospital, Kanchipuram"
+  },
+  "GvTxZRj3gXV5eilXOxMIyQ==": {
+   "college_id": "new",
+   "name": "Tamil Nadu Government Dental College & Hospital, Chennai"
+  },
+  "HbwkKKx68RN1TbT7LdF6Ow==": {
+   "college_id": "new",
+   "name": "Thai Moogambigai Dental College & Hospital, Chennai"
+  },
+  "4Ui9OH1XBR7GlQyfD7UgFQ==": {
+   "college_id": "new",
+   "name": "Vinayaka Mission’s Sankarachariyar Dental College, Salem"
+  },
+  "t3kpK/8Nu84kjSXtTMjfkg==": {
+   "college_id": "new",
+   "name": "Vivekanandha Dental College for Women, Elayampalayam"
+  },
+  "f8A3pZpjfn99XZTUlagRIA==": {
+   "college_id": "new",
+   "name": "Army College of Dental Sciences, Secunderabad"
+  },
+  "Bsmks6/7IgqDXtlQ9ijIdw==": {
+   "college_id": "new",
+   "name": "Government Dental College and Hospital, Hyderabad"
+  },
+  "vMnwcFGz7fOQahaYQV0cAw==": {
+   "college_id": "new",
+   "name": "Kamineni Institute of Dental Sciences, Nalgonda"
+  },
+  "r0adFV6RGlYvT6oOAUflPA==": {
+   "college_id": "new",
+   "name": "Malla Reddy Dental College for Women, Hyderabad"
+  },
+  "RsqbDLad2MiDaoI6u3Dh2g==": {
+   "college_id": "new",
+   "name": "Malla Reddy Institute of Dental Sciences,Hyderabad"
+  },
+  "d3SRpj+Skbq4Y+8CVbNhLg==": {
+   "college_id": "new",
+   "name": "Mamata Dental College, Khamam"
+  },
+  "0cHUfoBFRZQFF1f3Ko44Pg==": {
+   "college_id": "new",
+   "name": "Mamata Institute of Dental Sciences"
+  },
+  "y17bFlJsJOdwXVMQVfg1SQ==": {
+   "college_id": "new",
+   "name": "Meghna Institute of Dental Sciences, Nizamabad"
+  },
+  "pomNbpAgTO1nxqqxo2Otzw==": {
+   "college_id": "new",
+   "name": "MNR DENTAL COLLEGE & HOSPITAL , MEDAK"
+  },
+  "oaaOfq8sfanLrx+N4lrrMQ==": {
+   "college_id": "new",
+   "name": "Panineeya Mahavidyalaya Institute of Dental Sciences & Research Centre, Hyderabad"
+  },
+  "dDIfzh0K1QLNGK1q0TjCuw==": {
+   "college_id": "new",
+   "name": "Sri Balaji Dental College, Hyderabad"
+  },
+  "R6g/cXzDCu8e3itgrlky0A==": {
+   "college_id": "new",
+   "name": "Sri Sai College of Dental Surgery, Vikarabad"
+  },
+  "0VXQToB/556XeQ/xLWCyAA==": {
+   "college_id": "new",
+   "name": "Sri Venkata Sai Institute of Dental Sciences, Hyderabad"
+  },
+  "nFMX4g8pE9LGxhqF1HAUiQ==": {
+   "college_id": "new",
+   "name": "Tirumala Institute of Dental Sciences & Research Centre"
+  },
+  "Mb6I7VNO1bxto5eb30Vc1A==": {
+   "college_id": "new",
+   "name": "Agartala Government Dental College and IGM Hospital"
+  },
+  "paIAATEzBABKbchccxSzgA==": {
+   "college_id": "new",
+   "name": "Babu Banarasi Das College of Dental Sciences, Lucknow"
+  },
+  "PNqE5P30/yJtXsM9emEYpg==": {
+   "college_id": "new",
+   "name": "Career Institute of Dental Sciences & Hospital, Lucknow"
+  },
+  "WI0RvLKFSvoek9gnEHvClg==": {
+   "college_id": "new",
+   "name": "Chandra Dental College & Hospital, safedabad"
+  },
+  "OYdxv4FCHXjzz7dL/NtSwg==": {
+   "college_id": "new",
+   "name": "Dental College Azamgarh"
+  },
+  "n+b0iLyf0Q0UDmJXWtXDJQ==": {
+   "college_id": "new",
+   "name": "Dr. Ziauddin Ahmad Dental College, Aligarh"
+  },
+  "nJJ5QnjSa9SmSsGlkOy7uw==": {
+   "college_id": "new",
+   "name": "Faculty of Dental Sciences, Banaras Hindu University, Varanasi"
+  },
+  "Ir5pb8WfwvNcY5S4EA54ag==": {
+   "college_id": "new",
+   "name": "Faculty of Dental Sciences, Lucknow"
+  },
+  "2YAajXK3SbJwLv5shGF8ZA==": {
+   "college_id": "new",
+   "name": "I.T.S. Centre for Dental Studies & Research, Ghaziabad"
+  },
+  "a2ByjPKonHQYyocjVMG0Pg==": {
+   "college_id": "new",
+   "name": "I.T.S. Dental College, Hospital & Research Centre, Gr. Noida"
+  },
+  "GvG0xegH5zNKepJl7eiYfg==": {
+   "college_id": "new",
+   "name": "Inderprastha Dental College & Hospital, Ghaziabad"
+  },
+  "rj1IS7jfj6PyNtRJ8j4KHg==": {
+   "college_id": "new",
+   "name": "Institute of Dental Sciences, Bareilly"
+  },
+  "g6NVh3FQKGrUcaTD4a25SQ==": {
+   "college_id": "new",
+   "name": "Institute of Dental Studies & Technology, Modinagar"
+  },
+  "tz03S6xESE3ZIOmYkpUD1w==": {
+   "college_id": "new",
+   "name": "K.D. Dental College, Mathura"
+  },
+  "j4fiJXxNa5+Iwxswm7yogw==": {
+   "college_id": "new",
+   "name": "Kalka Dental College & Hospital, Meerut"
+  },
+  "4tVnLtAMm1z1BuB3wyRgHw==": {
+   "college_id": "new",
+   "name": "Kothiwal Dental College & Research Centre, Moradabad"
+  },
+  "BWIiW76VOTdcS+ohwiB9Yw==": {
+   "college_id": "new",
+   "name": "Maharana Pratap Dental College & Hospital, Kanpur"
+  },
+  "mJs42xY6VvDnbyfqC/4Lbg==": {
+   "college_id": "new",
+   "name": "Purvanchal Institute of Dental Sciences, Gorakhpur"
+  },
+  "AhIDdYIjKGadeXIeMIOWiw==": {
+   "college_id": "new",
+   "name": "Rama Dental College, Hospital & Research Centre, Kanpur"
+  },
+  "oKrA9F2/+LczApf5MKUZ6w==": {
+   "college_id": "new",
+   "name": "Santosh Dental College & Hospital, Ghaziabad"
+  },
+  "cSMShdk9BwRW2su84Trizg==": {
+   "college_id": "C-49744",
+   "name": "Saraswati Dental College, Lucknow",
+   "card": "Saraswati Dental College and Hospital"
+  },
+  "3oGyb0NQJtVopjUbPOCUuQ==": {
+   "college_id": "new",
+   "name": "Sardar Patel Post Graduate Institute of Dental & Medical Sciences, Lucknow"
+  },
+  "ZKGOGUFUTQ2ndRTpXWZZhQ==": {
+   "college_id": "new",
+   "name": "School of Dental Sciences, Greater Noida"
+  },
+  "C8ws5mSoQat/xDSheLLuXA==": {
+   "college_id": "new",
+   "name": "Shree Bankey Bihari Dental College & Research Centre, Masuri"
+  },
+  "kko7Xid/fIX9K/AN1DWmOw==": {
+   "college_id": "new",
+   "name": "Subharati Dental College, Meerut"
+  },
+  "tKNMilp6eh0M1YbiQNo9gg==": {
+   "college_id": "new",
+   "name": "Teerthanker Mahaveer Dental College & Research Centre, Moradabad"
+  },
+  "ObReSKmUiQeckOf9ptKfKQ==": {
+   "college_id": "new",
+   "name": "U.P. Rural Institute of Medical Sciences & Research, Saifai"
+  },
+  "HlczXZqJYLHUGaPq9ETYGw==": {
+   "college_id": "new",
+   "name": "Seema Dental College & Hospital, Rishikesh"
+  },
+  "3S8+L3myK5O8SqXTIyrakQ==": {
+   "college_id": "new",
+   "name": "Uttaranchal Dental College & Medical Research Institute, Dehradun"
+  },
+  "c1epDuWLwzmDbwGLpx2TIw==": {
+   "college_id": "new",
+   "name": "Burdwan Dental College, Rajbati"
+  },
+  "0BlUhw5fvcKHytuO4zd4Pg==": {
+   "college_id": "new",
+   "name": "Dr. R. Ahmed Dental College & Hospital, Calcutta"
+  },
+  "qCUEdMWAd6radwGa9MRC5A==": {
+   "college_id": "C-16436",
+   "name": "Gurunanak Institute of Dental Science & Research, Kolkatta",
+   "card": "Guru nanak Institute of Dental Sciences and Research"
+  },
+  "rVBaRSr61AaUM7I32gUoxQ==": {
+   "college_id": "new",
+   "name": "Haldia Institute of Dental Sciences and Research, Banbishnupur"
+  },
+  "5o//J0wXQvqOVn0Zn6LNXw==": {
+   "college_id": "new",
+   "name": "Kusum Devi Sunderlal Dugar Jain Dental College & Hospital, Kolkata"
+  },
+  "9obe3nJaBU/FjjR4VNfUkg==": {
+   "college_id": "new",
+   "name": "Sanaka Institute of Dental Sciences, Durgapur"
+  },
+  "lnFLhWSp8XY3UmparJt7lg==": {
+   "college_id": "new",
+   "name": "The North Bengal Dental College, Sushratangar"
+  }
+ },
+ "open": {}
+}
