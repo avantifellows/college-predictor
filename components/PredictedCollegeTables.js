@@ -220,6 +220,12 @@ const expandedFields = {
     { key: "Round", label: "Round" },
     { key: "Opening Rank", label: "Opening Rank" },
   ],
+  // IISER (2025; IAT overall ranks, loosest of 9 rounds)
+  IAT: [
+    { key: "Year", label: "Data Year" },
+    { key: "Category", label: "Category" },
+    { key: "Round", label: "Round" },
+  ],
   // Gujarat ACPMEC (2025-26; final round / final list)
   "ACPMEC Nursing": [
     { key: "Year", label: "Data Year" },
@@ -536,6 +542,7 @@ const PredictedCollegesTable = ({
     "UPTAC",
     "HBTU",
     "AIIMS Nursing",
+    "IAT",
     "ICAR-UG",
     "CLAT",
     "GUJCET",
@@ -550,6 +557,8 @@ const PredictedCollegesTable = ({
   // CUET and BITSAT are scores too
   const NO_COMPARE_EXAMS = new Set([
     "AIIMS Nursing",
+    // IISERs aren't JoSAA colleges: /compare leaves them out
+    "IAT",
     "ICAR-UG",
     "BITSAT",
     "CUET",
@@ -990,6 +999,11 @@ const PredictedCollegesTable = ({
       { key: "seat_category", label: "Seat" },
       { key: "closing_rank", label: "Closing Rank" },
     ],
+    IAT: [
+      { key: "institute", label: "Institute" },
+      { key: "academic_program_name", label: "Programme" },
+      { key: "closing_rank", label: "Closing IAT Rank" },
+    ],
     "ACPMEC Nursing": [
       { key: "institute", label: "Institute" },
       { key: "academic_program_name", label: "Course" },
@@ -1184,6 +1198,14 @@ const PredictedCollegesTable = ({
         institute: item["Institute"],
         academic_program_name: "B.Sc. (Hons.) Nursing",
         seat_category: item["Seat Category"],
+        closing_rank: item["Closing Rank"],
+      };
+    }
+    if (exam === "IAT") {
+      return {
+        ...item,
+        institute: item["Institute"],
+        academic_program_name: item["Academic Program Name"],
         closing_rank: item["Closing Rank"],
       };
     }

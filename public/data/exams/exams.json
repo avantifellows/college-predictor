@@ -3959,7 +3959,7 @@
   "remarks": null,
   "replaces": null,
   "aliases": null,
-  "predictor_exam": null,
+  "predictor_exam": "IAT",
   "open_data_id": "iiser",
   "careers": [
    {
