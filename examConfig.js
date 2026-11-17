@@ -2099,6 +2099,49 @@ export const aiimsNursingConfig = {
   getSort: () => [["Closing Rank", "ASC"]],
 };
 
+// IISER Aptitude Test: the seven IISERs' BS-MS / BS / B.Tech seats, 2025
+// (scripts/build_iat_2025.py from iiser_fact_cutoffs). IISER publishes every
+// category's closing as an IAT OVERALL rank, so the student's overall rank
+// compares directly. UR seats are open to every category; PwD seats only to
+// PwD candidates.
+export const iatConfig = {
+  name: "IISER (IAT)",
+  searchKeys: ["Institute", "Academic Program Name"],
+  primaryInput: integerInput("Enter IAT Rank", "Enter your IAT overall rank"),
+  fields: [
+    {
+      name: "category",
+      label: "Select Category",
+      options: ["UR", "EWS", "OBC-NCL", "SC", "ST"],
+    },
+    {
+      name: "isPWD",
+      label: "Are you a PwD Student?",
+      options: ["No", "Yes"],
+    },
+  ],
+  getDataPath: () => {
+    return path.join(process.cwd(), "public", "data", "IAT", "iat_data.json");
+  },
+  getFilters: (query) => [
+    (item) => {
+      const seats = ["UR", query.category];
+      if (query.isPWD === "Yes") {
+        seats.push("UR-PwD", `${query.category}-PwD`);
+      }
+      return seats.includes(item.Category);
+    },
+    (item) => {
+      if (!query.rank) return true;
+      const closingRank = parseInt(item["Closing Rank"], 10);
+      const userRank = parseInt(query.rank, 10);
+      if (isNaN(closingRank) || isNaN(userRank)) return false;
+      return closingRank >= userRank;
+    },
+  ],
+  getSort: () => [["Closing Rank", "ASC"]],
+};
+
 // Gujarat's admission committees (ACPMEC), 2025-26 last ranks
 // (scripts/build_acpmec_predictor_data.py). Both lists use one category
 // vocabulary; a reserved-category student can also take OPEN seats, and
@@ -2613,6 +2656,7 @@ export const examConfigs = {
   "BITSAT": bitsatConfig,
   "ICAR-UG": icarUgConfig,
   "AIIMS Nursing": aiimsNursingConfig,
+  "IAT": iatConfig,
   "ACPMEC Nursing": acpmecNursingConfig,
   "ACPMEC AYUSH": acpmecAyushConfig,
   "JEE Main-JAC": jacExamConfig,

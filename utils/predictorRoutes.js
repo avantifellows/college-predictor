@@ -119,7 +119,21 @@ export const PREDICTOR_EXAMS = [
         label: "AIIMS B.Sc. (Hons.) Nursing",
         hint: "AIIMS Delhi, etc.",
         key: "AIIMS Nursing",
-        streams: ["Nursing"],
+        // a NEET student looking under Medical should find it too
+        streams: ["Nursing", "Medical"],
+      },
+    ],
+  },
+  {
+    id: "iat",
+    examIds: ["iat"],
+    label: "IAT (IISER Aptitude Test)",
+    counsellings: [
+      {
+        label: "IISER admissions",
+        hint: "IISER Pune, IISER Kolkata, etc.",
+        key: "IAT",
+        streams: ["Science"],
       },
     ],
   },

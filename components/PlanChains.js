@@ -30,6 +30,7 @@ const COLLEGE_TAG = {
   "neet-ug": "NEET-UG",
   "cuet-ug": "CUET (UG)",
   "aiims-ee": "AIIMS-EE",
+  iat: "IAT",
   bitsat: "BITSAT",
   clat: "CLAT",
   gujcet: "GUJCET",
