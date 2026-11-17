@@ -114390,7 +114390,12 @@
    "seats_note": "Annual MBBS intake approved by NMC."
   },
   "nirf": null,
-  "ug_gender": null,
+  "ug_gender": {
+   "female_pct": 27.4,
+   "female": 171,
+   "male": 454,
+   "edition_year": 2026
+  },
   "fees": null,
   "placement": {
    "median_salary": 1547544,
@@ -118260,7 +118265,7 @@
  {
   "college_id": "nmclive:ap-004-p-3",
   "aishe_code": "C-76673",
-  "name": "Anna Gowri Medical College and Hospital",
+  "name": "ANNA GOWRI MEDICAL COLLEGE AND HOSPITAL",
   "display_name": "Anna Gowri Medical College and Hospital",
   "aka": [],
   "state": "Andhra Pradesh",
@@ -118308,7 +118313,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC college list (2026-11-17)",
+   "identity": "NMC college list (2026-11-17) / AISHE 2024-25",
    "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
@@ -123087,7 +123092,7 @@
  {
   "college_id": "nmclive:rj-003-p-3",
   "aishe_code": "C-76789",
-  "name": "Arya Medical College and Hospital",
+  "name": "ARYA MEDICAL COLLEGE AND HOSPITAL",
   "display_name": "Arya Medical College and Hospital",
   "aka": [],
   "state": "Rajasthan",
@@ -123135,7 +123140,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC college list (2026-11-17)",
+   "identity": "NMC college list (2026-11-17) / AISHE 2024-25",
    "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
@@ -126632,8 +126637,8 @@
  },
  {
   "college_id": "nmclive:up-003-g-5",
-  "aishe_code": null,
-  "name": "Autonomous state medical college Amethi",
+  "aishe_code": "C-76002",
+  "name": "AUTONOMOUS STATE MEDICAL COLLEGE TILOI AMETHI",
   "display_name": "Autonomous state medical college Amethi",
   "aka": [],
   "state": "Uttar Pradesh",
@@ -126644,7 +126649,7 @@
   "ownership": "Public",
   "disciplines": [],
   "year_established": 2025,
-  "website": null,
+  "website": "www.asmcamethi.in",
   "university": "Atal Bihari Vajpayee Medical University , Lucknow (U.P.)",
   "entrance_exams": [
    "NEET-UG"
@@ -126681,7 +126686,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC college list (2026-11-17)",
+   "identity": "NMC college list (2026-11-17) / AISHE 2024-25",
    "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
@@ -170357,7 +170362,7 @@
  {
   "college_id": "nmclive:up-026-g-1",
   "aishe_code": "C-76239",
-  "name": "ESIC MEDICAL COLLEGE AND HOSPITAL, NOIDA",
+  "name": "ESIC MEDICAL COLLEGE AND HOSPITAL NOIDA",
   "display_name": "ESIC MEDICAL COLLEGE AND HOSPITAL, NOIDA",
   "aka": [],
   "state": "Uttar Pradesh",
@@ -170405,7 +170410,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC college list (2026-11-17)",
+   "identity": "NMC college list (2026-11-17) / AISHE 2024-25",
    "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
@@ -170415,7 +170420,7 @@
  {
   "college_id": "nmclive:mp-004-g-1",
   "aishe_code": "C-76468",
-  "name": "ESIC MEDICAL COLLEGE AND HOSPITAL,INDORE",
+  "name": "ESIC MEDICAL COLLEGE AND HOSPITAL",
   "display_name": "ESIC MEDICAL COLLEGE AND HOSPITAL,INDORE",
   "aka": [],
   "state": "Madhya Pradesh",
@@ -170463,7 +170468,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC college list (2026-11-17)",
+   "identity": "NMC college list (2026-11-17) / AISHE 2024-25",
    "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
@@ -170762,7 +170767,7 @@
  {
   "college_id": "nmclive:up-027-g-1",
   "aishe_code": "C-76428",
-  "name": "ESIC Medical College and Hospital, VARANASI",
+  "name": "ESIC MEDICAL COLLEGE AND HOSPITAL VARANASI",
   "display_name": "ESIC Medical College and Hospital, VARANASI",
   "aka": [],
   "state": "Uttar Pradesh",
@@ -170810,7 +170815,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC college list (2026-11-17)",
+   "identity": "NMC college list (2026-11-17) / AISHE 2024-25",
    "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
@@ -174211,7 +174216,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC college list (2026-11-17)",
+   "identity": "NMC college list (2026-11-17) / AISHE 2024-25",
    "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
@@ -183007,8 +183012,8 @@
  },
  {
   "college_id": "nmclive:od-003-g-1",
-  "aishe_code": null,
-  "name": "GOVERNMENT MEDICAL COLLEGE PHULBANI , KANDHAMAL",
+  "aishe_code": "C-76526",
+  "name": "GOVERNMENT MEDICAL COLLEGE AND HOSPITAL PHULBANI",
   "display_name": "GOVERNMENT MEDICAL COLLEGE PHULBANI , KANDHAMAL",
   "aka": [],
   "state": "Odisha",
@@ -183019,7 +183024,7 @@
   "ownership": "Public",
   "disciplines": [],
   "year_established": 2025,
-  "website": null,
+  "website": "http://gmchphulbani.odisha.gov.in",
   "university": "Odisha University of Health Sciences",
   "entrance_exams": [
    "NEET-UG"
@@ -183056,7 +183061,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC college list (2026-11-17)",
+   "identity": "NMC college list (2026-11-17) / AISHE 2024-25",
    "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
@@ -183077,7 +183082,7 @@
   "ownership": "Public",
   "disciplines": [],
   "year_established": 2025,
-  "website": "https://gmcsingrauli.org",
+  "website": "https://gmcsingrauli.org/",
   "university": "Madhya Pradesh Medical Science University, Jabalpur",
   "entrance_exams": [
    "NEET-UG"
@@ -183114,7 +183119,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC college list (2026-11-17)",
+   "identity": "NMC college list (2026-11-17) / AISHE 2024-25",
    "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
@@ -183181,7 +183186,7 @@
  {
   "college_id": "nmclive:ts-025-g-1",
   "aishe_code": "C-76865",
-  "name": "GOVERNMENT MEDICAL COLLEGE, KODANGAL",
+  "name": "GOVERNMENT MEDICAL COLLEGE KODANGAL",
   "display_name": "GOVERNMENT MEDICAL COLLEGE, KODANGAL",
   "aka": [],
   "state": "Telangana",
@@ -183229,7 +183234,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC college list (2026-11-17)",
+   "identity": "NMC college list (2026-11-17) / AISHE 2024-25",
    "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
@@ -196626,8 +196631,8 @@
  },
  {
   "college_id": "nmclive:kl-009-g-1",
-  "aishe_code": null,
-  "name": "Government Medical College Kasaragod",
+  "aishe_code": "C-76499",
+  "name": "GOERNMENT MEDICAL COLLEGE KASARAGOD",
   "display_name": "Government Medical College Kasaragod",
   "aka": [],
   "state": "Kerala",
@@ -196638,7 +196643,7 @@
   "ownership": "Public",
   "disciplines": [],
   "year_established": 2025,
-  "website": null,
+  "website": "http://gmcksd.in/",
   "university": "Kerala University of Health Sciences, Thrissur",
   "entrance_exams": [
    "NEET-UG"
@@ -196675,7 +196680,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC college list (2026-11-17)",
+   "identity": "NMC college list (2026-11-17) / AISHE 2024-25",
    "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
@@ -205502,7 +205507,7 @@
  {
   "college_id": "nmclive:rj-032-g-1",
   "aishe_code": "C-76590",
-  "name": "Government medical college, tonk",
+  "name": "GOVERNMENT MEDICAL COLLEGE, TONK",
   "display_name": "Government medical college, tonk",
   "aka": [],
   "state": "Rajasthan",
@@ -205550,7 +205555,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC college list (2026-11-17)",
+   "identity": "NMC college list (2026-11-17) / AISHE 2024-25",
    "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
@@ -218193,7 +218198,12 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
-  "ug_gender": null,
+  "ug_gender": {
+   "female_pct": 4.5,
+   "female": 24,
+   "male": 510,
+   "edition_year": 2025
+  },
   "fees": {
    "annual_fee": 186500,
    "annual_fee_waived": null,
@@ -247899,7 +247909,7 @@
  {
   "college_id": "nmclive:kl-022-p-3",
   "aishe_code": "C-55774",
-  "name": "Kerala Medical College, Mangode",
+  "name": "KERALA MEDICAL COLLEGE",
   "display_name": "Kerala Medical College, Mangode",
   "aka": [],
   "state": "Kerala",
@@ -247947,7 +247957,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC college list (2026-11-17)",
+   "identity": "NMC college list (2026-11-17) / AISHE 2024-25",
    "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
@@ -261276,7 +261286,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC college list (2026-11-17)",
+   "identity": "NMC college list (2026-11-17) / AISHE 2024-25",
    "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
@@ -269058,7 +269068,7 @@
  {
   "college_id": "nmclive:hr-009-g-1",
   "aishe_code": "C-76887",
-  "name": "Maharishi Chyawan Medical College, Koriawas",
+  "name": "MAHARISHI CHYAWAN MEDICAL COLLEGE, KORIAWAS, MAHENDERGARH, HARYANA",
   "display_name": "Maharishi Chyawan Medical College, Koriawas",
   "aka": [],
   "state": "Haryana",
@@ -269106,7 +269116,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC college list (2026-11-17)",
+   "identity": "NMC college list (2026-11-17) / AISHE 2024-25",
    "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
@@ -276825,7 +276835,7 @@
  {
   "college_id": "nmclive:gj-029-p-3",
   "aishe_code": "C-75911",
-  "name": "Matushri prabhaben khodabhai boghara medical college & research centre",
+  "name": "MATUSHRI PRABHABEN KHODABHAI BOGHARA MEDICAL COLLEGE AND RESEARCH CENTRE",
   "display_name": "Matushri prabhaben khodabhai boghara medical college & research centre",
   "aka": [],
   "state": "Gujarat",
@@ -276873,7 +276883,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC college list (2026-11-17)",
+   "identity": "NMC college list (2026-11-17) / AISHE 2024-25",
    "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
@@ -290550,7 +290560,12 @@
    "rank_note": "Indicative open-category closing rank."
   },
   "nirf": null,
-  "ug_gender": null,
+  "ug_gender": {
+   "female_pct": 23.8,
+   "female": 536,
+   "male": 1717,
+   "edition_year": 2026
+  },
   "fees": {
    "annual_fee": 130800,
    "annual_fee_waived": 5800,
@@ -298922,7 +298937,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC college list (2026-11-17)",
+   "identity": "NMC college list (2026-11-17) / AISHE 2024-25",
    "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
@@ -300560,8 +300575,8 @@
  },
  {
   "college_id": "nmclive:wb-030-p-3",
-  "aishe_code": null,
-  "name": "PKG Medical College & Hospital",
+  "aishe_code": "C-74922",
+  "name": "PKG MEDICAL COLLEGE",
   "display_name": "PKG Medical College & Hospital",
   "aka": [],
   "state": "West Bengal",
@@ -300572,7 +300587,7 @@
   "ownership": "Private",
   "disciplines": [],
   "year_established": 2024,
-  "website": null,
+  "website": "pkgmedicalcollege.in",
   "university": "The West Bengal University of Health Sciences",
   "entrance_exams": [
    "NEET-UG"
@@ -300609,7 +300624,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC college list (2026-11-17)",
+   "identity": "NMC college list (2026-11-17) / AISHE 2024-25",
    "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
@@ -302268,7 +302283,7 @@
  {
   "college_id": "nmclive:hr-013-g-1",
   "aishe_code": "C-76498",
-  "name": "PT NEKI RAM SHARMA GOVERNMENT MEDICAL COLLEGE, BHIWANI",
+  "name": "PANDIT NEKI RAM SHARMA GOVERNMENT MEDICAL COLLEGE, BHIWANI",
   "display_name": "PT NEKI RAM SHARMA GOVERNMENT MEDICAL COLLEGE, BHIWANI",
   "aka": [],
   "state": "Haryana",
@@ -302316,7 +302331,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC college list (2026-11-17)",
+   "identity": "NMC college list (2026-11-17) / AISHE 2024-25",
    "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
@@ -303719,7 +303734,7 @@
  {
   "college_id": "nmclive:kl-030-p-3",
   "aishe_code": "C-73562",
-  "name": "Palakkad Institute of Medical Sciences, Palakkad",
+  "name": "PALAKKAD INSTITUTE OF MEDICAL SCIENCES, WALAYAR",
   "display_name": "Palakkad Institute of Medical Sciences, Palakkad",
   "aka": [],
   "state": "Kerala",
@@ -303767,7 +303782,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC college list (2026-11-17)",
+   "identity": "NMC college list (2026-11-17) / AISHE 2024-25",
    "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
@@ -307140,7 +307155,7 @@
  {
   "college_id": "nmclive:as-012-g-1",
   "aishe_code": "C-76186",
-  "name": "Pragjyotishpur Medical College",
+  "name": "PRAGJYOTISHPUR MEDICAL COLLEGE",
   "display_name": "Pragjyotishpur Medical College",
   "aka": [],
   "state": "Assam",
@@ -307151,7 +307166,7 @@
   "ownership": "Public",
   "disciplines": [],
   "year_established": 2025,
-  "website": "https://pragjyotishpur-mch.assam.gov.in",
+  "website": "https://pragjyotishpur-mch.assam.gov.in/",
   "university": "Srimanta Sankaradeva University of Health Sciences, Guwahati",
   "entrance_exams": [
    "NEET-UG"
@@ -307188,7 +307203,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC college list (2026-11-17)",
+   "identity": "NMC college list (2026-11-17) / AISHE 2024-25",
    "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
@@ -311244,7 +311259,7 @@
  {
   "college_id": "nmclive:mh-071-p-3",
   "aishe_code": "C-73696",
-  "name": "R K Damani Medical College ShriRamchandra Institute ofMedical Sciences, Chhatrapati Sambhajinagar",
+  "name": "R K DAMANI MEDICAL COLLEGE SHRIRAMCHANDRA INSTITUTE OF MEDICAL SCIENCES",
   "display_name": "R K Damani Medical College ShriRamchandra Institute ofMedical Sciences, Chhatrapati Sambhajinagar",
   "aka": [],
   "state": "Maharashtra",
@@ -311292,7 +311307,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC college list (2026-11-17)",
+   "identity": "NMC college list (2026-11-17) / AISHE 2024-25",
    "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
@@ -314815,7 +314830,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC college list (2026-11-17)",
+   "identity": "NMC college list (2026-11-17) / AISHE 2024-25",
    "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
@@ -318375,7 +318390,7 @@
   "ownership": "Private",
   "disciplines": [],
   "year_established": 2024,
-  "website": "https://www.rhealthcity.com",
+  "website": "https://www.rhealthcity.com/",
   "university": "The Tamilnadu Dr. MGR Medical University,Chennai",
   "entrance_exams": [
    "NEET-UG"
@@ -318412,7 +318427,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC college list (2026-11-17)",
+   "identity": "NMC college list (2026-11-17) / AISHE 2024-25",
    "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
@@ -358049,7 +358064,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC college list (2026-11-17)",
+   "identity": "NMC college list (2026-11-17) / AISHE 2024-25",
    "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
@@ -358781,7 +358796,7 @@
  {
   "college_id": "nmclive:ml-003-g-5",
   "aishe_code": "C-76361",
-  "name": "Shillong Medical College",
+  "name": "SHILLONG MEDICAL COLLEGE",
   "display_name": "Shillong Medical College",
   "aka": [],
   "state": "Meghalaya",
@@ -358829,7 +358844,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC college list (2026-11-17)",
+   "identity": "NMC college list (2026-11-17) / AISHE 2024-25",
    "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
@@ -374581,7 +374596,7 @@
  {
   "college_id": "nmclive:mh-077-p-3",
   "aishe_code": "C-76478",
-  "name": "Smt Sakhubai Narayanrao Katkade Medical College and Research Center",
+  "name": "SMT SAKHUBAI NARAYANRAO KATKADE MEDICAL COLLEGE AND RESEARCH CENTRE",
   "display_name": "Smt Sakhubai Narayanrao Katkade Medical College and Research Center",
   "aka": [],
   "state": "Maharashtra",
@@ -374629,7 +374644,7 @@
    "not_applicable_reason": null
   },
   "data_sources": {
-   "identity": "NMC college list (2026-11-17)",
+   "identity": "NMC college list (2026-11-17) / AISHE 2024-25",
    "programs": "NMC college list (2026-11-17)",
    "ranking": null,
    "placement": null,
