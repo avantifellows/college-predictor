@@ -618,6 +618,107 @@ def nmc_live_new_rows(live, mbbs_career, used_ids, prior_rows):
     return out
 
 
+def build_dental(client):
+    """The National Dental Commission's BDS colleges (external_data_sources
+    ndc/) and their 2026-27 seats by course x speciality."""
+    print("Querying BigQuery (dental)…")
+    ndc = client.query("""
+    SELECT * FROM `avantifellows.external_data_sources.ndc_dim_dental_colleges`
+    """).to_dataframe()
+    seats = client.query("""
+    SELECT ndc_id, course, speciality, academic_year, permitted_seats
+    FROM `avantifellows.external_data_sources.ndc_fact_dental_seats`
+    """).to_dataframe()
+    return ndc, seats
+
+
+def ndc_new_rows(ndc, seats, dental_career, used_ids, prior_rows):
+    """Cards for the dental colleges no existing card is.
+
+    scripts/ndc_crosswalk.json (scripts/build_ndc_crosswalk.py, hand-reviewed)
+    says which NDC college is which card, or "new". The card shows BDS seats
+    (2026-27, else the list's 2025-26) and the MDS specialities. A college the
+    crosswalk doesn't know stops the build.
+    """
+    xw = json.load(open(Path(__file__).resolve().parent / "ndc_crosswalk.json"))
+    decided = {**xw.get("auto", {}), **xw.get("decisions", {})}
+    unknown = sorted(set(ndc.ndc_id) - set(decided))
+    if unknown:
+        raise SystemExit(f"{len(unknown)} NDC colleges not in ndc_crosswalk.json: "
+                         f"run scripts/build_ndc_crosswalk.py")
+    by_college = {k: g for k, g in seats.groupby("ndc_id")}
+    out = []
+    for r in ndc.sort_values("list_sl_no").itertuples():
+        if decided[r.ndc_id]["college_id"] != "new":
+            continue
+        display = re.sub(r"\s+", " ", r.college).strip()
+        full_slug = re.sub(r"[^a-z0-9]+", "-", display.lower()).strip("-")
+        slug = full_slug[:60].rstrip("-")
+        if len(full_slug) > 60:
+            slug += "-" + hashlib.sha1(full_slug.encode()).hexdigest()[:6]
+        cid = f"ndc:{slug}"
+        assert cid not in used_ids, cid
+        used_ids.add(cid)
+
+        g = by_college.get(r.ndc_id)
+        prog = []
+        bds = None
+        if g is not None:
+            b = g[(g.course == "BDS") & g.permitted_seats.notna()]
+            bds = int(b.permitted_seats.sum()) if len(b) else None
+        if bds is None and not pd.isna(r.bds_permitted_seats_2025_26):
+            bds = int(r.bds_permitted_seats_2025_26)
+        if bds is not None:
+            prog.append({"branch": "BDS", "years": 5, "degree": "BDS", "seats": bds,
+                         "indicative_closing_rank": None, "indicative_opening_rank": None,
+                         "career_id": dental_career})
+        if g is not None:
+            for x in g[(g.course != "BDS") & (g.permitted_seats > 0)].sort_values("speciality").itertuples():
+                prog.append({"branch": x.speciality or x.course, "years": 3, "degree": x.course,
+                             "seats": int(x.permitted_seats),
+                             "indicative_closing_rank": None, "indicative_opening_rank": None,
+                             "career_id": dental_career})
+        govt = r.college_type == "Govt."
+        src = f"National Dental Commission ({r.fetched_on})"
+        web = r.website if isinstance(r.website, str) and r.website.strip() not in ("", "-") else None
+        out.append({
+            "college_id": cid,
+            "aishe_code": None,
+            "name": r.college_short if isinstance(r.college_short, str) else display,
+            "display_name": display,
+            "aka": ([r.college_short] if isinstance(r.college_short, str)
+                    and r.college_short.lower() != display.lower() else []),
+            "state": r.state,
+            "state_is_inferred": False,
+            "district": r.city if isinstance(r.city, str) else None,
+            "kind": "Dental College",
+            "management": r.admin_authority if isinstance(r.admin_authority, str) else None,
+            "ownership": "Public" if govt else ("Private" if r.college_type == "Private" else None),
+            "disciplines": [],
+            "year_established": None if pd.isna(r.year_established) else int(r.year_established),
+            "website": web,
+            "university": None,
+            "entrance_exams": ["NEET-UG"],
+            "counselling": "MCC / state NEET counselling",
+            "programs": {
+                "count": len(prog),
+                "degrees": sorted({p["degree"] for p in prog}),
+                "list": prog,
+                "source": src,
+                "rank_note": None,
+                "seats_note": "Seats permitted by the National Dental Commission (2026-27).",
+            },
+            "nirf": None,
+            "ug_gender": None,
+            "fees": None,
+            "placement": None,
+            "naac": {"grade": None, "cgpa": None, "cycle": None, "not_applicable_reason": None},
+            "data_sources": {"identity": src, "programs": src, "ranking": None,
+                             "placement": None, "accreditation": None},
+        })
+    return out
+
+
 # ── MHT-CET: State CET Cell spine (Maharashtra) ─────────────────────────────
 
 MH_DISTRICTS = {
@@ -1475,7 +1576,11 @@ def fill_from_aishe(client, rows):
         return (not r.get("ownership") or not r.get("aishe_code")
                 or not r.get("year_established") or not r.get("website")
                 or not r.get("district"))
-    todo = [r for r in rows if r.get("state") and missing(r)]
+    # dental cards: the reviewed crosswalk (scripts/ndc_crosswalk.json) already
+    # decided which college each is; a name match against AISHE would hand
+    # them codes that belong to other cards (NIRF's own dental cards come later)
+    todo = [r for r in rows if r.get("state") and missing(r)
+            and not r["college_id"].startswith("ndc:")]
     if not todo:
         return
     held_codes = {r["aishe_code"] for r in rows if r.get("aishe_code")}
@@ -1562,7 +1667,7 @@ def fill_from_aishe(client, rows):
             # a college NMC's live list added is, by the reviewed crosswalk
             # (scripts/nmc_live_crosswalk.json), none of the existing cards:
             # an AISHE record a card already holds is that card's, not its
-            if (x is not None and r["college_id"].startswith("nmclive:")
+            if (x is not None and r["college_id"].startswith(("nmclive:", "ndc:"))
                     and x.name in held_codes and x.name != r.get("aishe_code")):
                 x = None
             if x is not None:
@@ -1702,7 +1807,8 @@ def add_nirf_only_cards(client, rows):
     linked = 0
     for st, g in todo.groupby("state"):
         cards = [x for x in rows if (x.get("state") or "").lower() == str(st).lower()
-                 and not x.get("aishe_code") and "(Evening)" not in x["name"]]
+                 and not x.get("aishe_code") and "(Evening)" not in x["name"]
+                 and not x["college_id"].startswith("ndc:")]
         if not cards:
             continue
         frame = pd.DataFrame({"college_code": [x["college_id"] for x in cards],
@@ -1729,6 +1835,8 @@ def add_nirf_only_cards(client, rows):
     from difflib import SequenceMatcher
     by_state = {}
     for x in rows:
+        if x["college_id"].startswith("ndc:"):   # see fill_from_aishe
+            continue
         by_state.setdefault((x.get("state") or "").lower(), []).append(
             (_name_key(x["display_name"], x.get("district")), x))
     new, relinked, skipped = [], 0, 0
@@ -2695,6 +2803,14 @@ def main():
     live_rows = nmc_live_new_rows(nmc_live, mbbs_career, used_ids, rows + med_rows)
     print(f"  nmc live list {len(nmc_live)}  new cards {len(live_rows)}")
     med_rows += live_rows
+
+    # dental colleges: the National Dental Commission's list
+    ndc, ndc_seats = build_dental(client)
+    dental_career = next((c["career_id"] for c in careers_file
+                          if c.get("branch_id") == "DENTAL"), None)
+    dental_rows = ndc_new_rows(ndc, ndc_seats, dental_career, used_ids, rows + med_rows)
+    print(f"  ndc dental colleges {len(ndc)}  new cards {len(dental_rows)}")
+    med_rows += dental_rows
 
     # ── MHT-CET rows: State CET Cell spine ──────────────────────────────────
     mh_colleges, mh_programs, nirf_mh, mh_place = build_mhtcet(client)
