@@ -6,12 +6,14 @@ The app serves public/data/KCET/kcet_data.json — a mix of KCET streams
 (Medical/Dental, Pharma, Agriculture, BNYS, Architecture, Engineering). The old
 Engineering slice was CET-2021 data with NO real college names (the "Institute"
 field held a PDF header line). This replaces ONLY the Engineering rows with the
-2025 Third-Round cutoffs (real college names). Of the 2021 streams, Pharma and
-Agriculture stay; Medical/Dental and BNYS (ranked on NEET; the NEET predictor
-holds Karnataka's state quota) and Architecture (ranked on NATA) are dropped:
-their closing ranks are not KCET ranks.
+2025 Third-Round cutoffs (real college names). With --streams-src, Pharma and
+Agriculture are replaced by their 2025 Third-Round cutoffs too (the 2021 rows
+printed the two seat pools as one, "GM/GMH", so each showed twice with two
+ranks). Medical/Dental and BNYS (ranked on NEET; the NEET predictor holds
+Karnataka's state quota) and Architecture (ranked on NATA) are dropped: their
+closing ranks are not KCET ranks.
 
-Without --src it only re-normalises the existing file (Pool, dropped streams).
+Without --src / --streams-src it only re-normalises the existing file.
 
 New source: KA_engg_2025_all_cutoffs_R3.csv (from futures-v2 parse_KA_2025.py)
   columns: college_code, college_name, course_name, domicile_pool,
@@ -22,8 +24,7 @@ App schema:
   Language, Rural/Urban, Category_Key, Closing Rank
 
 Pool: "General" (any Karnataka candidate) or "Kalyana-Karnataka" (the 371(J)
-region's reserved seats; its students compete for both). 2021 rows print the
-two pools as one ("GM/GMH") and are all "General".
+region's reserved seats; its students compete for both).
 
 Category-code grammar (KEA):
   vertical prefix -> Category:   1/2A/2B/3A/3B (as-is), GM->General, SC->SC, ST->ST
@@ -78,6 +79,36 @@ def decode_category(code: str):
     return category, lang, rural, hk
 
 
+# KEA columns that are not a student's category (NRI / open / other seats,
+# GMP): always empty in 2025, and never a row of their own if they fill
+NOT_A_CATEGORY = ("GMP", "NRI", "OPN", "OTH")
+
+
+def build_stream_rows(src: Path):
+    """Pharma and Agriculture, 2025 Third Round (external_data_sources kcet/
+    scripts/parse_streams_2025.py): replace the 2021 rows, whose two seat
+    pools were printed as one ("GM/GMH") and couldn't be told apart."""
+    rows = []
+    with src.open() as f:
+        for r in csv.DictReader(f):
+            if r["category_code"].startswith(NOT_A_CATEGORY):
+                continue
+            cat, lang, rural, hk = decode_category(r["category_code"])
+            rows.append({
+                "Institute": f"{r['college_code']}  {r['college_name']}".strip(),
+                "Course Type": r["stream"],
+                "Year": "2025",
+                "Academic Program Name": r["course_name"].strip(),
+                "Category": cat,
+                "Pool": "Kalyana-Karnataka" if hk else "General",
+                "Language": lang,
+                "Rural/Urban": rural,
+                "Category_Key": r["category_code"].strip(),
+                "Closing Rank": str(int(float(r["closing_rank"]))),
+            })
+    return rows
+
+
 def build_engineering_rows(src: Path):
     rows = []
     with src.open() as f:
@@ -89,6 +120,8 @@ def build_engineering_rows(src: Path):
             try:
                 rank_int = int(float(rank))
             except ValueError:
+                continue
+            if r["category_code"].startswith(NOT_A_CATEGORY):
                 continue
             cat, lang, rural, hk = decode_category(r["category_code"])
             rows.append({
@@ -126,6 +159,9 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--src", type=Path,
                     help="Path to KA_engg_2025_all_cutoffs_R3.csv (from futures-v2 parse_KA_2025.py)")
+    ap.add_argument("--streams-src", type=Path,
+                    help="KA_streams_2025_cutoffs_R3.csv (external_data_sources kcet/): "
+                         "replaces the 2021 Pharma and Agriculture rows")
     ap.add_argument("--app-json", type=Path, default=DEFAULT_APP_JSON)
     args = ap.parse_args()
 
@@ -141,6 +177,12 @@ def main():
         new_eng = build_engineering_rows(args.src)
     else:
         new_eng = [normalise(r) for r in data if r.get("Course Type") == "Engineering"]
+    if args.streams_src:
+        streams = build_stream_rows(args.streams_src)
+        replaced = {r["Course Type"] for r in streams}
+        dropped = sum(r["Course Type"] in replaced for r in non_eng)
+        non_eng = [r for r in non_eng if r["Course Type"] not in replaced] + streams
+        print(f"2021 {sorted(replaced)} rows dropped: {dropped:,}; 2025 rows added: {len(streams):,}")
     merged = non_eng + new_eng
     args.app_json.write_text(json.dumps(merged, ensure_ascii=False, indent=1))
 
