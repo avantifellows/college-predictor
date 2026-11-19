@@ -151,8 +151,8 @@ const expandedFields = {
   ],
   // KCET - Karnataka Common Entrance Test
   KCET: [
-    // Data Year is per-ROW because the streams have different vintages: Engineering
-    // is 2025 R3; Pharma and Agriculture are still CET-2021. Mixed vintages must be visible, never inferred (the GUJCET
+    // Data Year is per-ROW: every stream is 2025 Third Round now, but a stream
+    // left on an older year must show it, never be inferred (the GUJCET
     // two-streams-two-years lesson).
     { key: "Year", label: "Data Year" },
     { key: "Course Type", label: "Course Type" },
@@ -610,8 +610,8 @@ const PredictedCollegesTable = ({
       ? String(raw).replace(/^[A-Z]\d{3}\s+/, "")
       : String(raw);
   };
-  // KCET's 2021 Pharma / Agriculture rows name colleges as KEA printed them
-  // then, which find no card or the wrong one: engineering only
+  // KCET's Pharma / Agriculture colleges have no cards of their own yet
+  // (the Colleges tab's KCET list is engineering): engineering only
   // GUJCET rows say themselves whether a card carries their name (`card`,
   // set by scripts/build_gujcet_predictor_data.py)
   const canLinkRow = (t) =>
@@ -1143,6 +1143,16 @@ const PredictedCollegesTable = ({
         "Rural/Urban": item["Rural/Urban"],
         "Category_Key": item["Category_Key"],
         "Closing Rank": item["Closing Rank"],
+        // the seat quota a row is for, beside its rank: a Kannada-medium,
+        // rural or Kalyana-Karnataka row of the same college and branch
+        // otherwise looks like a repeat of the general one
+        quota: [
+          item["Language"] === "Kannada" && "Kannada medium",
+          item["Rural/Urban"] === "Rural" && "Rural",
+          item["Pool"] === "Kalyana-Karnataka" && "Kalyana-Karnataka",
+        ]
+          .filter(Boolean)
+          .join(" · "),
       };
     }
     if (exam === "HBTU") {
@@ -2284,6 +2294,15 @@ const PredictedCollegesTable = ({
         className="cursor-help underline decoration-dotted decoration-[#d8c7c1] underline-offset-2"
       >
         {getDisplayValue(column, transformedItem)}
+      </span>
+    ) : exam === "KCET" &&
+      column.key === "closing_rank" &&
+      transformedItem.quota ? (
+      <span>
+        {getDisplayValue(column, transformedItem)}
+        <span className="ml-1.5 whitespace-nowrap text-xs text-[#7a6a65]">
+          {transformedItem.quota}
+        </span>
       </span>
     ) : (
       getDisplayValue(column, transformedItem)
