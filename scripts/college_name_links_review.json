@@ -23,6 +23,11 @@
       "college_id": null,
       "name": "Government medical College"
     },
+    "andhra-pradesh|government-medical-college-anantapur": {
+      "college_id": "nmc:government-medical-college-ananthapuram",
+      "name": "Government Medical College, Anantapur",
+      "card": "Government Medical College, Ananthapuram"
+    },
     "andhra-pradesh|government-medical-college-kadapa": {
       "college_id": "nmc:rajiv-gandhi-institute-of-medical-sciences-kadapa",
       "name": "Government Medical College, Kadapa",
@@ -47,6 +52,11 @@
       "college_id": null,
       "name": "KAKINADA INSTITUTE OF ENGG. AND TECHNOLOGY"
     },
+    "andhra-pradesh|maharaja-institute-of-medical-sciences-vizianagaram": {
+      "college_id": "nmc:maharajah-institute-of-medical-sciences-vizianagaram",
+      "name": "Maharaja Institute of Medical Sciences, Vizianagaram",
+      "card": "Maharajah Institute of Medical Sciences, Vizianagaram"
+    },
     "andhra-pradesh|narayana-engineering-college": {
       "college_id": null,
       "name": "NARAYANA ENGINEERING COLLEGE"
@@ -61,20 +71,75 @@
       "name": "NRI Medical College, Chinnakakani",
       "card": "NRI Medical College, Guntur"
     },
+    "andhra-pradesh|siddartha-medical-college-vijayawada": {
+      "college_id": "nmc:government-siddhartha-medical-college-vijaywada",
+      "name": "Siddartha Medical College, Vijayawada",
+      "card": "Government Siddhartha Medical College, Vijaywada"
+    },
     "andhra-pradesh|sri-balaji-medical-college-hospital-and-research-institute-renigunta": {
       "college_id": "C-72414",
       "name": "Sri Balaji Medical College Hospital and Research Institute, Renigunta",
       "card": "Sri Balaji Medical College, Hospital and Research Instiutute, Chittoor"
+    },
+    "andhra-pradesh|sri-venkateswara-medical-college-tirupati": {
+      "college_id": "nmc:s-v-medical-college-tirupati",
+      "name": "Sri Venkateswara Medical College, Tirupati",
+      "card": "S V Medical College, Tirupati"
     },
     "assam|assam-medical-college-dibrugarh": {
       "college_id": "nmc:assam-medial-college-dibrugarh",
       "name": "ASSAM MEDICAL COLLEGE, DIBRUGARH",
       "card": "Assam Medial College, Dibrugarh"
     },
+    "assam|government-dental-college-dibrugarh-i-lane": {
+      "college_id": "ndc:govt-dental-college-dibrugarh-assam",
+      "name": "Government Dental College Dibrugarh, I Lane",
+      "card": "Govt. Dental College, Dibrugarh, Assam"
+    },
     "assam|guwahati-medical-college-guwahati": {
       "college_id": "C-17298",
       "name": "GUWAHATI MEDICAL COLLEGE, GUWAHATI",
       "card": "Gauhati Medical College, Guwahati"
+    },
+    "assam|kokrajhar-medical-college-hospital-rangalikhata-rangalikhata-pt-1": {
+      "college_id": "C-71187",
+      "name": "Kokrajhar Medical College & Hospital Rangalikhata, Rangalikhata Pt.-1",
+      "card": "Kokrajhar Medical College"
+    },
+    "assam|nagaon-medical-college-dipholu": {
+      "college_id": "C-71232",
+      "name": "Nagaon Medical college, Dipholu",
+      "card": "Nagaon Medical College"
+    },
+    "assam|nalbari-medical-college-hospital-dakhingaon-nalbari": {
+      "college_id": "C-71175",
+      "name": "Nalbari Medical College & Hospital Dakhingaon, Nalbari",
+      "card": "Nalbari Medical College, Nalbari"
+    },
+    "bihar|b-m-i-m-s-pawapuri-nalanda": {
+      "college_id": "nmc:vardhman-institute-of-medical-sciences-pawapuri-nalanda",
+      "name": "B.M.I.M.S,PAWAPURI, NALANDA",
+      "card": "Vardhman Institute of Medical Sciences, Pawapuri, Nalanda"
+    },
+    "bihar|g-d-c-rahui-nalanda": {
+      "college_id": "ndc:government-dental-college-hospital-nalanda",
+      "name": "G.D.C. RAHUI NALANDA",
+      "card": "Government Dental College & Hospital, Nalanda"
+    },
+    "bihar|government-dentalcollege-and-hospital-paithna-bhaganbigha-rahui-nalanda": {
+      "college_id": "ndc:government-dental-college-hospital-nalanda",
+      "name": "Government DentalCollege and Hospital Paithna Bhaganbigha Rahui Nalanda",
+      "card": "Government Dental College & Hospital, Nalanda"
+    },
+    "bihar|j-l-n-m-c-bhagalpur": {
+      "college_id": "nmc:jawaharlal-nehru-medical-college-bhagalpur",
+      "name": "J.L.N.M.C. BHAGALPUR",
+      "card": "Jawaharlal Nehru Medical College, Bhagalpur"
+    },
+    "chandigarh|government-medical-college-hospital-sector-32-chandigarh": {
+      "college_id": "C-29442",
+      "name": "Government Medical College & Hospital, Sector 32, Chandigarh",
+      "card": "Govt. Medical College & Hospital, Chandigarh"
     },
     "chhattisgarh|bharatratna-late-shri-atal-bihari-vajpayee-mgmc-rajnandgaon": {
       "college_id": "nmc:government-medical-college-bharat-ratna-shri-atal-bihari-vaj-fe8dda",
@@ -96,10 +161,54 @@
       "name": "LATE SHRI LAKHIRAM AGRAWAL MEMORIAL MEDICAL COLLEGE, RAIGARH",
       "card": "Late Shri Lakhi Ram Agrawal Memorial Govt. Medical College, Raigarh"
     },
+    "chhattisgarh|lt-b-r-k-government-medical-college-jagdalpur": {
+      "college_id": "nmc:late-shri-baliram-kashyap-memorial-ndmc-govt-medical-college-78aa42",
+      "name": "Lt. B R K Government Medical College, Jagdalpur",
+      "card": "Late Shri Baliram Kashyap Memorial NDMC Govt. Medical College, Jagdalpur"
+    },
     "chhattisgarh|lt-l-a-m-govt-medical-college-raigarh": {
       "college_id": "nmc:late-shri-lakhi-ram-agrawal-memorial-govt-medical-college-ra-3b5191",
       "name": "Lt. L A M Govt. Medical College, Raigarh",
       "card": "Late Shri Lakhi Ram Agrawal Memorial Govt. Medical College, Raigarh"
+    },
+    "chhattisgarh|pt-jawahar-lal-nehru-memorial-medical-college-raipur": {
+      "college_id": "C-32980",
+      "name": "PT.JAWAHAR LAL NEHRU MEMORIAL MEDICAL COLLEGE, RAIPUR",
+      "card": "Pt. J N M Medical College, Raipur"
+    },
+    "chhattisgarh|rajmata-shrimati-devendra-kumari-singhdeo-government-medical-college-ambikapur": {
+      "college_id": "nmc:government-medical-college-ambikapur-surguja-chhattisgarh",
+      "name": "Rajmata shrimati devendra kumari singhdeo government medical college, ambikapur",
+      "card": "Government Medical College, Ambikapur (Surguja), Chhattisgarh"
+    },
+    "delhi-nct|college-of-nursing-ahilya-bai-college-of-nursing": {
+      "college_id": null,
+      "name": "College of Nursing Ahilya Bai College of Nursing"
+    },
+    "delhi-nct|college-of-nursing-dr-rml-hospital-new-delhi": {
+      "college_id": null,
+      "name": "College of Nursing Dr. RML Hospital, New Delhi"
+    },
+    "delhi-nct|college-of-nursing-florence-nightingale-con-new-delhi": {
+      "college_id": null,
+      "name": "College of Nursing Florence Nightingale CON, New Delhi"
+    },
+    "delhi-nct|college-of-nursing-lhmc-new-delhi": {
+      "college_id": null,
+      "name": "College of Nursing LHMC, New Delhi"
+    },
+    "delhi-nct|college-of-nursing-rak-con-new-delhi": {
+      "college_id": null,
+      "name": "College of Nursing RAK CON, New Delhi"
+    },
+    "delhi-nct|college-of-nursing-safdarjung-hospital-new-delhi": {
+      "college_id": null,
+      "name": "College of Nursing Safdarjung Hospital, New Delhi"
+    },
+    "delhi-nct|maulana-azad-institute-of-dental-sciences-new-delhi": {
+      "college_id": "C-28507",
+      "name": "Maulana Azad Institute of Dental Sciences, New Delhi",
+      "card": "Maulana Azad Institute of Dental Sciences"
     },
     "delhi-nct|university-college-of-medical-sciences-new-delhi": {
       "college_id": "C-6430",
@@ -121,15 +230,50 @@
       "name": "Bhagyoday Medical College Station Road Kadi District Mehsana",
       "card": "Bhagyoday Medical College"
     },
+    "gujarat|c-u-shah-medical-college-surendranagar": {
+      "college_id": "nmc:cu-shah-medical-college-surendra-nagar",
+      "name": "C. U. Shah Medical College Surendranagar",
+      "card": "CU Shah Medical College, Surendra Nagar"
+    },
+    "gujarat|dharamsinh-desai-institute-of-dental-sciences-nadiad": {
+      "college_id": "acpmec:faculty dental science nadiad",
+      "name": "Dharamsinh Desai Institute of Dental Sciences Nadiad",
+      "card": "Faculty of Dental Science, Nadiad"
+    },
     "gujarat|gmers-medical-college-godhra": {
       "college_id": "nmc:government-medical-college-panchmahal-godhra",
       "name": "GMERS Medical College Godhra",
       "card": "Government Medical College, Panchmahal Godhra"
     },
+    "gujarat|gmers-medical-college-morbi": {
+      "college_id": "nmc:government-medical-college-morbi",
+      "name": "GMERS Medical College Morbi",
+      "card": "Government Medical College, Morbi"
+    },
+    "gujarat|gmers-medical-college-navsari": {
+      "college_id": "nmc:government-medical-college-navsari",
+      "name": "GMERS Medical College Navsari",
+      "card": "Government Medical College, Navsari"
+    },
+    "gujarat|gmers-medical-college-panchmahal-godhra": {
+      "college_id": "nmc:government-medical-college-panchmahal-godhra",
+      "name": "GMERS Medical College, Panchmahal Godhra",
+      "card": "Government Medical College, Panchmahal Godhra"
+    },
+    "gujarat|gmers-medical-college-porbandar": {
+      "college_id": "nmc:government-medical-college-porbandar",
+      "name": "GMERS Medical College Porbandar",
+      "card": "Government Medical College, Porbandar"
+    },
     "gujarat|k-m-shah-dental-collegel": {
       "college_id": "ndc:k-m-shah-dental-college-hospital-vadodara",
       "name": "K M Shah Dental Collegel",
       "card": "K.M. Shah Dental College & Hospital, Vadodara"
+    },
+    "gujarat|narendra-modi-medical-college-ahmedabad": {
+      "college_id": "nmc:ahmedabad-municipal-coporation-medical-education-trust-medic-7dc5b5",
+      "name": "Narendra Modi Medical College Ahmedabad",
+      "card": "Ahmedabad Municipal Coporation Medical Education Trust Medical College, Ahmedabad"
     },
     "gujarat|nootan-medical-college-research-centre-visnagar": {
       "college_id": "C-61599",
@@ -141,20 +285,53 @@
       "name": "Parul Institute Of Medical Sciences & Research Post. Limda Dist.",
       "card": "Parul Institute of Medical Sciences & Research, Vadodara"
     },
+    "gujarat|pt-d-d-u-medical-college-rajkot": {
+      "college_id": "nmc:pandit-deendayal-upadhyay-medical-college-rajkot",
+      "name": "Pt. D.D.U MEDICAL COLLEGE, RAJKOT",
+      "card": "Pandit Deendayal Upadhyay Medical College, Rajkot"
+    },
     "gujarat|shri-m-p-shah-government-medical-college-jamnagar": {
       "college_id": "nmc:mp-shah-medical-college-jamnagar",
       "name": "Shri M.P.Shah Government Medical College Jamnagar",
       "card": "MP Shah Medical College, Jamnagar"
+    },
+    "gunera-wazidpur-ujhani-road-badaun-u-p-243601|govt-medical-college-badaun": {
+      "college_id": null,
+      "name": "Govt Medical College Badaun"
+    },
+    "haryana|bhagat-phool-singh-govt-medical-college-for-women-khanpur-kalan-sonepat": {
+      "college_id": "nmc:bps-government-medical-college-for-women-sonepat",
+      "name": "Bhagat Phool Singh Govt. Medical College For Women, Khanpur Kalan, Sonepat",
+      "card": "BPS Government Medical College for Women, Sonepat"
+    },
+    "haryana|gdc": {
+      "college_id": null,
+      "name": "GDC"
     },
     "haryana|maharishi-markendeshwar-college-of-medical-sciences-and-research-maharishi-markendeshwar-university-sadhopur-ambala": {
       "college_id": "C-76503",
       "name": "Maharishi Markendeshwar College of Medical Sciences and Research (Maharishi Markendeshwar University) Sadhopur, Ambala",
       "card": "Maharishi Markandeshwar College of Medical Sciences & Research, Sadopur"
     },
+    "haryana|mm-inst-med-and-research-mullana": {
+      "college_id": "nmc:maharishi-markandeshwar-institute-of-medical-sciences-resear-6aa9dd",
+      "name": "MM Inst. Med. and Research, Mullana",
+      "card": "Maharishi Markandeshwar Institute Of Medical Sciences & Research, Mullana, Ambala"
+    },
     "haryana|nc-medical-college-hospital-israna-panipat": {
       "college_id": "nmc:n-c-medical-college-hospital-panipat",
       "name": "NC Medical College & Hospital, Israna, Panipat",
       "card": "N.C. Medical College & Hospital, Panipat"
+    },
+    "haryana|pandit-bhagwat-dayal-sharma-pgims-rohtak": {
+      "college_id": "nmc:pt-b-d-sharma-postgraduate-institute-of-medical-sciences-roh-3cadc7",
+      "name": "Pandit Bhagwat Dayal Sharma PGIMS, Rohtak",
+      "card": "Pt. B D Sharma Postgraduate Institute of Medical Sciences, Rohtak (Haryana)"
+    },
+    "haryana|pgids-rohtak": {
+      "college_id": "C-30756",
+      "name": "PGIDS, Rohtak",
+      "card": "Postgraduate Institute of Dental Sciences"
     },
     "haryana|sgt-dental-college-sgt-university-gurugram": {
       "college_id": "ndc:sri-govind-tricentenary-dental-college-hospital-research-ins-a5882e",
@@ -181,6 +358,50 @@
       "name": "Dr. YS Parmar Govt. Medical College, Nahan",
       "card": "Government Medical College, Nahan, Sirmour H.P."
     },
+    "jammu-kashmir|gdc-jammu": {
+      "college_id": "ndc:indira-gandhi-government-dental-college-jammu",
+      "name": "GDC-JAMMU",
+      "card": "Indira Gandhi Government Dental College, Jammu"
+    },
+    "jammu-kashmir|gdc-srinagar": {
+      "college_id": "ndc:govt-dental-college-srinagar",
+      "name": "GDC-SRINAGAR",
+      "card": "Govt. Dental College, Srinagar"
+    },
+    "jammu-kashmir|skimsmc-srinagar": {
+      "college_id": null,
+      "name": "SKIMSMC-SRINAGAR"
+    },
+    "jharkhand|dental-institue-rims": {
+      "college_id": "ndc:dental-institute-rajendra-institute-of-medical-sciences-ranc-f6db57",
+      "name": "Dental Institue, RIMS",
+      "card": "Dental Institute Rajendra Institute of Medical Sciences, Ranchi"
+    },
+    "jharkhand|medinirai-medical-college-previously-known-as-palamu-medical-college-palamu": {
+      "college_id": "nmc:palamu-medical-college-palamu",
+      "name": "Medinirai Medical College (previously Known as Palamu Medical College), Palamu",
+      "card": "Palamu Medical College, Palamu"
+    },
+    "jharkhand|phulo-jhano-medical-college-dumka": {
+      "college_id": "nmc:dumka-medical-college-dighi-dumka",
+      "name": "Phulo Jhano Medical College, Dumka",
+      "card": "Dumka Medical College, Dighi Dumka"
+    },
+    "karnataka|ab-shetty-memorial-inst-of-dental-sce-mangaluru": {
+      "college_id": "C-19320",
+      "name": "AB Shetty Memorial Inst. of Dental Sce., Mangaluru",
+      "card": "A.B.Shetty Memorial Institute of Dental Sciences"
+    },
+    "karnataka|academy-of-medical-education-dental-college": {
+      "college_id": "ndc:ame-s-dental-college-hospital-raichur",
+      "name": "Academy of Medical Education Dental College",
+      "card": "AME’s Dental College & Hospital, Raichur"
+    },
+    "karnataka|b-l-d-e-university-bijapur": {
+      "college_id": "nmc:shri-b-m-patil-medical-college-hospital-research-centre-vija-122772",
+      "name": "B.L.D.E University, Bijapur",
+      "card": "Shri B M Patil Medical College, Hospital & Research Centre, Vijayapura (Bijapur"
+    },
     "karnataka|bgs-medical-college-and-hospital-bgs-mch-nagarur-dasanapura-hobli-banglore-north": {
       "college_id": "C-75088",
       "name": "BGS Medical College and Hospital(BGS MCH) Nagarur Dasanapura Hobli Banglore North",
@@ -199,10 +420,28 @@
       "college_id": null,
       "name": "ESI Medical College"
     },
+    "karnataka|esic-college-of-nursing-gulbarga": {
+      "college_id": null,
+      "name": "ESIC College of Nursing, Gulbarga"
+    },
+    "karnataka|esic-college-of-nursing-indiranagar": {
+      "college_id": null,
+      "name": "ESIC College of Nursing, Indiranagar"
+    },
     "karnataka|father-muller-institute-of-med-education-research": {
       "college_id": "C-40208",
       "name": "Father Muller Institute of Med. Education & Research",
       "card": "Father Mullers Medical College, Mangalore"
+    },
+    "karnataka|govt-d-c-research-inst-bangalore": {
+      "college_id": "C-40178",
+      "name": "GOVT. D.C. & RESEARCH INST, BANGALORE",
+      "card": "Government Dental College, Bangalore"
+    },
+    "karnataka|govt-dc-research-inst-bellary": {
+      "college_id": "ndc:govt-dental-college-research-institute-bellary",
+      "name": "GOVT. DC & RESEARCH INSt., BELLARY",
+      "card": "Govt. Dental College & Research Institute, Bellary"
     },
     "karnataka|hkdet-s-dental-college-hospital": {
       "college_id": "ndc:h-k-d-e-ts-dental-college-hospital-research-institute-humnab-7d7aa7",
@@ -214,9 +453,58 @@
       "name": "Hyderabad Karnataka Education Societies Dental College",
       "card": "H.K.E. Society's, S. Nijalingappa Institute of Dental Sciences & Research"
     },
+    "karnataka|jagadguru-sri-shivarathreeswara-medical-college": {
+      "college_id": "C-35009",
+      "name": "Jagadguru Sri Shivarathreeswara Medical College",
+      "card": "JSS Medical College, Mysore"
+    },
+    "karnataka|jaya-jagadguru-murugharajendra-medical-college": {
+      "college_id": "C-40474",
+      "name": "Jaya Jagadguru Murugharajendra Medical College",
+      "card": "JJM Medical College, Davangere"
+    },
+    "karnataka|jss-dental-college-mysuru": {
+      "college_id": "C-35008",
+      "name": "JSS Dental College, Mysuru",
+      "card": "JSS Dental College and Hospital"
+    },
+    "karnataka|k-l-e-s-institute-of-dental-sciences": {
+      "college_id": "C-40342",
+      "name": "K L E S Institute of Dental Sciences",
+      "card": "K L E Society's Institute of Dental Sciences"
+    },
+    "karnataka|k-venkataramana-gowda-dental-college-hospital-and-research-centre": {
+      "college_id": "ndc:k-v-g-dental-college-hospital-sullia",
+      "name": "K.Venkataramana Gowda Dental College Hospital and Research Centre",
+      "card": "K.V.G. Dental College & Hospital, Sullia"
+    },
+    "karnataka|k-venkataramana-gowda-medical-college-and-hospital": {
+      "college_id": "nmc:k-v-g-medical-college-sullia",
+      "name": "K.Venkataramana Gowda Medical College and Hospital",
+      "card": "K V G Medical College, Sullia"
+    },
     "karnataka|kasturba-medical-college": {
       "college_id": null,
       "name": "Kasturba Medical College"
+    },
+    "karnataka|khaja-bande-navaz-institute-of-medical-sciences": {
+      "college_id": "nmc:khaja-bandanawaz-university-faculty-of-medical-sciences-gulb-bccae7",
+      "name": "Khaja Bande Navaz Institute Of Medical Sciences",
+      "card": "Khaja Bandanawaz University - Faculty of Medical Sciences, Gulbarga"
+    },
+    "karnataka|kle-vk-inst-of-dental-scie-belagavi": {
+      "college_id": "C-24504",
+      "name": "KLE VK Inst. of Dental Scie. Belagavi",
+      "card": "KLE Vishwanath Katti Institute of Dental Sciences"
+    },
+    "karnataka|m-s-ramaiah-univerisity-of-applied-sciences": {
+      "college_id": null,
+      "name": "M.S.Ramaiah Univerisity of Applied Sciences"
+    },
+    "karnataka|manipal-college-of-dental-sce-manipal": {
+      "college_id": "C-7254",
+      "name": "Manipal College of Dental Sce., Manipal",
+      "card": "Manipal College of Dental Sciences, Mangalore, Udupi"
     },
     "karnataka|manipal-college-of-dental-science-mangalore": {
       "college_id": "C-7240",
@@ -228,15 +516,45 @@
       "name": "PES University Institute of Medical Sceinces and Research",
       "card": "PES University Institute of Medical Sciences and Research Bangalore"
     },
+    "karnataka|pm-nadagowda-memorial-dental-college-and-hospital": {
+      "college_id": "ndc:p-m-n-m-dental-college-hospital-bagalkot",
+      "name": "PM Nadagowda Memorial Dental College and Hospital",
+      "card": "P.M.N.M. Dental College & Hospital, Bagalkot"
+    },
+    "karnataka|raja-rajeshwari-dental-college-and-hospital": {
+      "college_id": "ndc:rajarajeswari-dental-college-hospital-bangalore",
+      "name": "Raja Rajeshwari Dental College and Hospital",
+      "card": "Rajarajeswari Dental College & Hospital, Bangalore"
+    },
+    "karnataka|rashtreeya-vidyalaya-dental-college": {
+      "college_id": "ndc:d-a-pandu-memorial-r-v-dental-college-bangalore",
+      "name": "Rashtreeya Vidyalaya Dental College",
+      "card": "D.A. Pandu Memorial R.V. Dental College, Bangalore"
+    },
     "karnataka|s-nijalingappa-medical-college-and-research-centre": {
       "college_id": "nmc:s-nijalingappa-medical-college-hsk-hospital-research-centre-9259a3",
       "name": "S. Nijalingappa Medical College and Research Centre",
       "card": "S. Nijalingappa Medical College & HSK Hospital & Research Centre, Bagalkot"
     },
+    "karnataka|shymanuru-shivashankarappa-institute-of-medical-sciences": {
+      "college_id": "C-40117",
+      "name": "Shymanuru Shivashankarappa Institute Of Medical Sciences",
+      "card": "S S Institute of Medical Sciences& Research Centre, Davangere"
+    },
     "karnataka|sri-basaveshwara-medical-college-and-hospital": {
       "college_id": "C-40477",
       "name": "Sri Basaveshwara Medical College and Hospital",
       "card": "Basaveswara Medical College and Hospital, Chitradurga"
+    },
+    "karnataka|sri-dharmasthala-manjunatheswara-dental-college": {
+      "college_id": "ndc:sdm-college-of-dental-sciences-hospital-dharwad",
+      "name": "Sri Dharmasthala Manjunatheswara Dental College",
+      "card": "SDM College of Dental Sciences & Hospital, Dharwad"
+    },
+    "karnataka|sri-jagadguru-murugharajendra-dental-college-hospital": {
+      "college_id": "ndc:s-j-m-dental-college-hospital-chitradurga",
+      "name": "Sri Jagadguru Murugharajendra Dental College & Hospital",
+      "card": "S.J.M. Dental College & Hospital, Chitradurga"
     },
     "karnataka|sri-siddhartha-academy-t-begur": {
       "college_id": "C-62731",
@@ -263,6 +581,11 @@
       "name": "Vokkaligara Sangha Dental College and Hospital",
       "card": "V.S. Dental College, Bangalore"
     },
+    "karnataka|yenepoya-dental-college-yenepoya": {
+      "college_id": "C-8528",
+      "name": "Yenepoya Dental College, Yenepoya",
+      "card": "Yenepoya Dental College"
+    },
     "kerala|adc-annoor-dental-college-puthuppady": {
       "college_id": "ndc:annoor-dental-college-hospital-ernakulam",
       "name": "ADC- Annoor Dental College, Puthuppady",
@@ -283,6 +606,11 @@
       "name": "AZD- Azeezia College of Dental Science, Meyyannoor",
       "card": "Azeezia College of Dental Sciences & Research, Kollam"
     },
+    "kerala|dmm-dr-moopens-medical-college-meppadi": {
+      "college_id": "C-76436",
+      "name": "DMM- Dr. Moopens Medical College, Meppadi",
+      "card": "DM Wayanad Institute of Medical Sciences, Wayanad, Kerala"
+    },
     "kerala|emc-mes-medical-college-perinthalmanna": {
       "college_id": "C-8089",
       "name": "EMC- MES Medical College, Perinthalmanna",
@@ -297,6 +625,21 @@
       "college_id": "C-48136",
       "name": "GMC- Sree Gokulam Medical College, Venjaramoodu",
       "card": "Sree Gokulam Medical College Trust & Research Foundation, Trivandrum"
+    },
+    "kerala|government-medical-college-esic": {
+      "college_id": "nmc:government-medical-college-parippally-kollam",
+      "name": "Government Medical College, ESIC",
+      "card": "Government Medical College, Parippally, Kollam"
+    },
+    "kerala|govt-dental-college-kozikode": {
+      "college_id": "C-8121",
+      "name": "GOVT. DENTAL COLLEGE, KOZIKODE",
+      "card": "Government Dental College, Kozhikode"
+    },
+    "kerala|govt-dental-college-trivandrum": {
+      "college_id": "C-48122",
+      "name": "GOVT. DENTAL COLLEGE, TRIVANDRUM",
+      "card": "Government Dental College, Thiruvananthapuram"
     },
     "kerala|govt-medical-college-kannur": {
       "college_id": "nmc:govt-medical-college-pariyaram-kannur-prev-known-as-academy-dbac05",
@@ -322,6 +665,11 @@
       "college_id": "nmclive:kl-022-p-3",
       "name": "KEM- Kerala Medical College, Palakkad",
       "card": "Kerala Medical College, Mangode"
+    },
+    "kerala|kkd-govt-dental-college-kozhikkode": {
+      "college_id": "C-8121",
+      "name": "KKD- Govt. Dental College, Kozhikkode",
+      "card": "Government Dental College, Kozhikode"
     },
     "kerala|kmd-kmct-dental-college-mambatta": {
       "college_id": "ndc:kmct-dental-college-calicut",
@@ -368,6 +716,46 @@
       "name": "TRM- Travancore Medical College, Umayanalloor",
       "card": "Travancore Medical College, Kollam"
     },
+    "kerala|tvd-govt-dental-college-thiruvananthapuram": {
+      "college_id": "C-48122",
+      "name": "TVD- Govt. Dental College, Thiruvananthapuram",
+      "card": "Government Dental College, Thiruvananthapuram"
+    },
+    "madhya-pradesh|atal-bihari-vajpayee-government-medical-college-vidisha": {
+      "college_id": "nmc:government-medical-college-vidisha-mp",
+      "name": "ATAL BIHARI VAJPAYEE GOVERNMENT MEDICAL COLLEGE VIDISHA",
+      "card": "Government Medical College, Vidisha, MP"
+    },
+    "madhya-pradesh|birsa-munda-government-medical-college-shahdol": {
+      "college_id": "nmc:government-medical-college-shahdol-mp",
+      "name": "BIRSA MUNDA GOVERNMENT MEDICAL COLLEGE SHAHDOL",
+      "card": "Government Medical College, Shahdol, MP"
+    },
+    "madhya-pradesh|chhindwara-institute-of-medical-sciences-teachers-colony": {
+      "college_id": "nmc:government-medical-college-chhindwara-mp",
+      "name": "Chhindwara Institute of Medical Sciences, Teachers Colony",
+      "card": "Government Medical College, Chhindwara, MP"
+    },
+    "madhya-pradesh|college-of-dental-sciences-and-hospital-rau-indore": {
+      "college_id": "ndc:college-of-dental-sciences-hospital-indore",
+      "name": "COLLEGE OF DENTAL SCIENCES AND HOSPITAL RAU INDORE",
+      "card": "College of Dental Sciences & Hospital, Indore"
+    },
+    "madhya-pradesh|govt-medical-college-ratlam-gram-banjali": {
+      "college_id": "C-63133",
+      "name": "Govt Medical College Ratlam, Gram Banjali",
+      "card": "Government Medical College, Ratlam"
+    },
+    "madhya-pradesh|mahatma-gandhi-memorial-medical-college-indore": {
+      "college_id": "C-67183",
+      "name": "MAHATMA GANDHI MEMORIAL MEDICAL COLLEGE INDORE",
+      "card": "M G M Medical College, Indore"
+    },
+    "madhya-pradesh|nandkumar-singh-chouhan-government-medical-college-khandwa": {
+      "college_id": "nmc:government-medical-college-khandwa-mp",
+      "name": "NANDKUMAR SINGH CHOUHAN GOVERNMENT MEDICAL COLLEGE KHANDWA",
+      "card": "Government Medical College, Khandwa, MP"
+    },
     "madhya-pradesh|peoples-dental-acadamy-bhopal": {
       "college_id": "ndc:people-s-dental-academy-bhopal",
       "name": "PEOPLES DENTAL ACADAMY BHOPAL",
@@ -377,6 +765,11 @@
       "college_id": "C-31670",
       "name": "RD GARDI MEDICAL COLLEGE UJJAIN",
       "card": "Ruxmaniben Deepchand Gardi Medical College, Ujjain"
+    },
+    "madhya-pradesh|shrimant-rajmata-vijayaraje-scindia-medical-college-shivpuri": {
+      "college_id": "nmc:government-medical-college-shivpuri-mp",
+      "name": "SHRIMANT RAJMATA VIJAYARAJE SCINDIA MEDICAL COLLEGE SHIVPURI",
+      "card": "Government Medical College, Shivpuri, MP"
     },
     "madhya-pradesh|sundarlal-patwa-govt-medical-college-mandsaur-dean-office": {
       "college_id": "C-73713",
@@ -388,15 +781,49 @@
       "name": "AB VAJPAYEE MC PUNE",
       "card": "Bharatratna Atal Bihari Vajpayee Medical College, Pune"
     },
+    "maharashtra|acpm-dc-dhule": {
+      "college_id": "ndc:annasaheb-chudaman-patil-memorial-dental-college-dhule",
+      "name": "ACPM DC DHULE",
+      "card": "Annasaheb Chudaman Patil Memorial Dental College, Dhule"
+    },
+    "maharashtra|aditya-dc-beed": {
+      "college_id": "ndc:aditya-dental-college-beed",
+      "name": "ADITYA DC BEED",
+      "card": "Aditya Dental College, Beed"
+    },
     "maharashtra|b-hire-mc-dhule": {
       "college_id": "nmc:sri-bhausaheb-hire-government-medical-college-dhule",
       "name": "B HIRE MC DHULE",
       "card": "Sri Bhausaheb Hire Government Medical College, Dhule"
     },
+    "maharashtra|bharati-vidyapeeth-du-dental-college-and-hospt-pune": {
+      "college_id": "C-35422",
+      "name": "Bharati Vidyapeeth DU Dental College and Hospt., Pune",
+      "card": "Bharati Vidyapeeth (Deemed to be University) Dental College and Hospital, Pune"
+    },
     "maharashtra|bharati-vidyapeeth-du-medical-college-dhankawadi": {
       "college_id": "nmc:bharati-vidyapeeth-university-medical-college-pune",
       "name": "Bharati Vidyapeeth DU Medical College, Dhankawadi",
       "card": "Bharati Vidyapeeth University Medical College, Pune"
+    },
+    "maharashtra|bv-deemed-uni-med-college-and-hos-sangli": {
+      "college_id": "nmc:bharati-vidyapeeth-deemed-university-medical-college-hospita-6b7ee4",
+      "name": "BV Deemed Uni. Med. College and Hos., Sangli",
+      "card": "Bharati Vidyapeeth Deemed University Medical College & Hospital, Sangli"
+    },
+    "maharashtra|bvdu-dental-college-and-hospital-navi-mumbai": {
+      "college_id": "ndc:bharati-vidyapeeth-dental-college-hospital-navi-mumbai",
+      "name": "BVDU Dental College and Hospital, Navi Mumbai",
+      "card": "Bharati Vidyapeeth Dental College & Hospital, Navi Mumbai"
+    },
+    "maharashtra|csmss-dc-ch-sambhajinagar": {
+      "college_id": null,
+      "name": "CSMSS DC CH. SAMBHAJINAGAR"
+    },
+    "maharashtra|d-y-patil-dc-lohgaon-pune": {
+      "college_id": "ndc:d-y-patil-dental-school-pune",
+      "name": "D Y PATIL DC LOHGAON, PUNE",
+      "card": "D.Y. Patil Dental School, Pune"
     },
     "maharashtra|datta-meghe-medical-college-wanadongri-hingna-nagpur": {
       "college_id": "nmc:datta-meghe-medical-college-nagpur",
@@ -428,6 +855,51 @@
       "name": "DR.S.C.GOVT MEDICAL COLLEGE",
       "card": "Dr. Shankarrao Chavan Govt. Medical College, Nanded"
     },
+    "maharashtra|esic-mc-andheri-mumbai": {
+      "college_id": "nmclive:mh-021-g-1",
+      "name": "ESIC MC ANDHERI MUMBAI",
+      "card": "ESIC MEDICAL COLLEGE AND HOSPITAL, ANDHERI"
+    },
+    "maharashtra|gdc-ch-sambhajinagar": {
+      "college_id": "ndc:govt-dental-college-hospital-aurangabad",
+      "name": "GDC CH. SAMBHAJINAGAR",
+      "card": "Govt. Dental College & Hospital, Aurangabad"
+    },
+    "maharashtra|gdc-jalgaon": {
+      "college_id": "ndc:govt-dental-college-hospital-jalgaon",
+      "name": "GDC JALGAON",
+      "card": "Govt. Dental College & Hospital, Jalgaon"
+    },
+    "maharashtra|gdc-mumbai": {
+      "college_id": "C-13829",
+      "name": "GDC MUMBAI",
+      "card": "Govt. Dental College, Mumbai"
+    },
+    "maharashtra|gdc-nagpur": {
+      "college_id": "C-14033",
+      "name": "GDC NAGPUR",
+      "card": "Govt. Dental College, Nagpur"
+    },
+    "maharashtra|ggmc-gondia": {
+      "college_id": "nmc:government-medical-college-gondia",
+      "name": "GGMC GONDIA",
+      "card": "Government Medical College, Gondia"
+    },
+    "maharashtra|gmc-ch-sambhajinagar": {
+      "college_id": "nmc:government-medical-college-aurangabad",
+      "name": "GMC CH. SAMBHAJINAGAR",
+      "card": "Government Medical College, Aurangabad"
+    },
+    "maharashtra|gmc-dharashiv": {
+      "college_id": "C-69673",
+      "name": "GMC DHARASHIV",
+      "card": "Government Medical College, Osmanabad"
+    },
+    "maharashtra|gmc-gt-hosp-mumbai": {
+      "college_id": "nmc:government-medical-college-l-t-marg-near-l-t-marg-police-sta-17f4d4",
+      "name": "GMC & GT HOSP MUMBAI",
+      "card": "Government Medical College L.T. Marg, Near L.T. Marg Police Station, Mumbai - 400001"
+    },
     "maharashtra|gmc-kolhapur": {
       "college_id": "C-14015",
       "name": "GMC KOLHAPUR",
@@ -442,6 +914,11 @@
       "name": "GMC PARBHANI",
       "card": "Government Medical College, Parbhani"
     },
+    "maharashtra|goverment-medical-college-nandurbar-mahararastra": {
+      "college_id": "C-66894",
+      "name": "GOVERMENT MEDICAL COLLEGE NANDURBAR MAHARARASTRA",
+      "card": "Government Medical College, Nandurbar"
+    },
     "maharashtra|government-medical-college": {
       "college_id": null,
       "name": "Government Medical College"
@@ -455,10 +932,35 @@
       "name": "GOVT. DENTAL COLLEGE & HOSP., MUMBAI",
       "card": "Govt. Dental College, Mumbai"
     },
+    "maharashtra|govt-dental-college-hosp-nagpur": {
+      "college_id": "C-14033",
+      "name": "GOVT. DENTAL COLLEGE & HOSP., NAGPUR",
+      "card": "Govt. Dental College, Nagpur"
+    },
+    "maharashtra|hedgewar-dc-hingoli": {
+      "college_id": "ndc:dr-hedgewar-smruti-rugna-seva-mandals-dental-college-hospita-df7abe",
+      "name": "HEDGEWAR DC HINGOLI",
+      "card": "Dr. Hedgewar Smruti Rugna Seva Mandals Dental College & Hospital, Hingoli"
+    },
     "maharashtra|hinduhridayasamrat-balasaheb-thackeray-medical-college-and-dr-r-n-cooper-municipal-general-hospital-maharashtra": {
       "college_id": "nmc:h-b-t-medical-college-dr-r-n-cooper-municipal-general-hospit-e42fa6",
       "name": "Hinduhridayasamrat Balasaheb Thackeray Medical College and Dr. R. N. Cooper Municipal General Hospital, Maharashtra",
       "card": "H.B.T. Medical College & Dr. R.N. Cooper Municipal General Hospital, Juhu, Mumbai"
+    },
+    "maharashtra|jln-medical-college-datta-meghe": {
+      "college_id": "nmc:jawaharlal-nehru-medical-college-sawangi-meghe-wardha",
+      "name": "JLN Medical College, Datta Meghe",
+      "card": "Jawaharlal Nehru Medical College, Sawangi (Meghe), Wardha"
+    },
+    "maharashtra|kambe-dc-akola": {
+      "college_id": "ndc:dr-rajesh-ramdasji-kambe-dental-college-hospital-akola",
+      "name": "KAMBE DC AKOLA",
+      "card": "Dr. Rajesh Ramdasji Kambe Dental College & Hospital, Akola"
+    },
+    "maharashtra|kore-dc-kolhapur": {
+      "college_id": "ndc:tatyasaheb-kore-dental-college-research-centre-new-pargaon",
+      "name": "KORE DC KOLHAPUR",
+      "card": "Tatyasaheb Kore Dental College & Research Centre, New Pargaon"
     },
     "maharashtra|krishna-inst-of-med-scie-karad": {
       "college_id": "C-23033",
@@ -470,6 +972,11 @@
       "name": "Mahatma Gandhi Mission Medical College, Nerul",
       "card": "Mahatma Gandhi Missions Medical College, Navi Mumbai"
     },
+    "maharashtra|mar-dc-pune": {
+      "college_id": "ndc:m-a-rangoonwala-college-of-dental-sciences-research-centre-p-8f723a",
+      "name": "MAR DC PUNE",
+      "card": "M.A. Rangoonwala College of Dental Sciences & Research Centre, Pune"
+    },
     "maharashtra|mg-inst-of-medical-sciences-sevagram-wardha": {
       "college_id": "C-14034",
       "name": "MG Inst. of Medical Sciences, Sevagram Wardha",
@@ -480,15 +987,55 @@
       "name": "MGIMS MC SEVAGRAM,WARDHA",
       "card": "Mahatma Gandhi Institute of Medical Sciences, Sevagram, Wardha"
     },
+    "maharashtra|mgm-dc-new-mumbai": {
+      "college_id": "C-14022",
+      "name": "MGM DC NEW MUMBAI",
+      "card": "MGM Dental College and Hospital, Navi Mumbai"
+    },
     "maharashtra|mgm-medical-college-navi-mumbai": {
       "college_id": "nmc:mahatma-gandhi-missions-medical-college-navi-mumbai",
       "name": "MGM Medical College, Navi Mumbai",
       "card": "Mahatma Gandhi Missions Medical College, Navi Mumbai"
     },
+    "maharashtra|mgvm-dc-nasik": {
+      "college_id": "mhtcet:05154",
+      "name": "MGVM DC NASIK",
+      "card": "Mahatma Gandhi Vidya Mandir's Pharmacy College, Panchavati, Nashik"
+    },
+    "maharashtra|midsr-dc-latur": {
+      "college_id": "ndc:maharashtra-institute-of-dental-sciences-research-dental-col-be22a9",
+      "name": "MIDSR DC LATUR",
+      "card": "Maharashtra Institute of Dental Sciences & Research (Dental College)"
+    },
     "maharashtra|mimer-mc-talegaon-pune": {
       "college_id": "nmc:maharashtra-institute-of-medical-education-research-talegaon-1165e0",
       "name": "MIMER MC TALEGAON PUNE",
       "card": "Maharashtra Institute of Medical Education & Research, Talegaon, Pune"
+    },
+    "maharashtra|ms-kannamwar-gmc-chandrapur": {
+      "college_id": "C-52455",
+      "name": "MS KANNAMWAR GMC CHANDRAPUR",
+      "card": "Government Medical College, Chandrapur"
+    },
+    "maharashtra|nair-dc-mumbai": {
+      "college_id": "ndc:nair-hospital-dental-college-mumbai",
+      "name": "Nair DC MUMBAI",
+      "card": "Nair Hospital Dental College, Mumbai"
+    },
+    "maharashtra|nair-mc-mumbai": {
+      "college_id": "C-13881",
+      "name": "Nair MC MUMBAI",
+      "card": "Topiwala National Medical College, Mumbai"
+    },
+    "maharashtra|nanded-rural-dc": {
+      "college_id": "ndc:nanded-rural-dental-college-research-center-nanded",
+      "name": "NANDED RURAL DC",
+      "card": "Nanded Rural Dental College & Research Center, Nanded"
+    },
+    "maharashtra|pdu-dc-solapur": {
+      "college_id": "ndc:pandit-deendayal-upadhyay-dental-college-solapur",
+      "name": "PDU DC SOLAPUR",
+      "card": "Pandit Deendayal Upadhyay Dental College, Solapur"
     },
     "maharashtra|rajarshee-chhatrapati-shahu-maharaj-government-medical-college-kolhapur": {
       "college_id": "C-14015",
@@ -500,20 +1047,129 @@
       "name": "RAMCHANDRA INST MC",
       "card": "Shri Ramchandra Institute of Medical Sciences"
     },
+    "maharashtra|ranjeet-deshmukh-dc-hingana": {
+      "college_id": "ndc:ranjeet-deshmukh-dental-college-and-research-centre-nagpur",
+      "name": "RANJEET DESHMUKH DC HINGANA",
+      "card": "Ranjeet Deshmukh Dental College and Research Centre, Nagpur"
+    },
+    "maharashtra|ranjeet-deshmukh-dc-hingana-nagpur": {
+      "college_id": "ndc:ranjeet-deshmukh-dental-college-and-research-centre-nagpur",
+      "name": "RANJEET DESHMUKH DC HINGANA NAGPUR",
+      "card": "Ranjeet Deshmukh Dental College and Research Centre, Nagpur"
+    },
     "maharashtra|rural-medical-college-and-pims-loni": {
       "college_id": "nmc:rural-medical-college-loni",
       "name": "Rural Medical College and PIMS, Loni",
       "card": "Rural Medical College, Loni"
+    },
+    "maharashtra|school-of-dental-sciences-and-kimsdu-karad": {
+      "college_id": "ndc:school-of-dental-sciences-krishna-institute-of-medical-scien-657fc5",
+      "name": "School of Dental Sciences and KIMSDU, Karad",
+      "card": "School of Dental Sciences, Krishna Institute of Medical Sciences, Karad"
+    },
+    "maharashtra|sd-dc-parbhani": {
+      "college_id": "ndc:saraswati-danwantri-dental-college-hospital-parbhani",
+      "name": "SD DC PARBHANI",
+      "card": "Saraswati Danwantri Dental College & Hospital, Parbhani"
+    },
+    "maharashtra|sdks-dc-nagpur": {
+      "college_id": "ndc:swargiya-dadasaheb-kalmegh-smruti-dental-college-hospital-na-44344d",
+      "name": "SDKS DC NAGPUR",
+      "card": "Swargiya Dadasaheb Kalmegh Smruti Dental College & Hospital, Nagpur"
+    },
+    "maharashtra|sinhagad-dc-pune": {
+      "college_id": "ndc:sinhgad-dental-college-hospital-pune",
+      "name": "SINHAGAD DC PUNE",
+      "card": "Sinhgad Dental College & Hospital, Pune"
+    },
+    "maharashtra|smbt-dc-nasik": {
+      "college_id": "ndc:smbt-institute-of-dental-sciences-and-research-nandihills-na-b1466f",
+      "name": "SMBT DC NASIK",
+      "card": "SMBT Institute of Dental Sciences and Research, Nandihills, Nashik"
+    },
+    "maharashtra|smbt-dc-sangamner": {
+      "college_id": "ndc:s-m-b-t-dental-college-hospital-amrutnagar",
+      "name": "SMBT DC SANGAMNER",
+      "card": "S.M.B.T. Dental College & Hospital, Amrutnagar"
+    },
+    "maharashtra|sspm-mc-kudal-sindhudurg": {
+      "college_id": "nmc:sindhudurg-shikshan-prasarak-mandal-sspm-medical-college-lif-fb0725",
+      "name": "SSPM MC KUDAL SINDHUDURG",
+      "card": "Sindhudurg Shikshan Prasarak Mandal (SSPM) Medical College & Lifetime Hospital, Padave, Sindhudurg"
+    },
+    "maharashtra|swami-ramanand-tirth-rural-m-c-ambajogai": {
+      "college_id": "nmc:srtr-medical-college-ambajogai",
+      "name": "SWAMI RAMANAND TiRTH RURAL M.C, AMBAJOGAI",
+      "card": "SRTR Medical College, Ambajogai"
+    },
+    "maharashtra|terna-dc-new-mumbai": {
+      "college_id": "ndc:terna-dental-college-hospital-navi-mumbai",
+      "name": "TERNA DC NEW MUMBAI",
+      "card": "Terna Dental College & Hospital, Navi Mumbai"
     },
     "maharashtra|tilak-mc-mumbai": {
       "college_id": "nmc:lokmanya-tilak-municipal-medical-college-sion-mumbai",
       "name": "Tilak MC MUMBAI",
       "card": "Lokmanya Tilak Municipal Medical College, Sion, Mumbai"
     },
+    "maharashtra|v-d-gmc-latur": {
+      "college_id": "nmc:government-medical-college-latur",
+      "name": "V.D. GMC LATUR",
+      "card": "Government Medical College, Latur"
+    },
+    "maharashtra|v-m-mc-solapur": {
+      "college_id": "C-14018",
+      "name": "V M MC SOLAPUR",
+      "card": "Dr Vaishampayan Memorial Medical College, Solapur"
+    },
+    "maharashtra|v-patil-dc-sangli": {
+      "college_id": "ndc:vasantdada-patil-dental-college-and-hospital-sangli",
+      "name": "V Patil DC SANGLI",
+      "card": "Vasantdada Patil Dental College and Hospital, Sangli"
+    },
+    "maharashtra|vyws-dc-amravati": {
+      "college_id": "ndc:vidarbha-youth-welfare-society-s-dental-college-hospital-amr-37a581",
+      "name": "VYWS DC AMRAVATI",
+      "card": "Vidarbha Youth Welfare Society’s Dental College & Hospital, Amravati"
+    },
     "maharashtra|walawalkar-mc-ratnagiri": {
       "college_id": "nmc:b-k-l-walawalkar-rural-medical-college-ratnagiri",
       "name": "WALAWALKAR MC RATNAGIRI",
       "card": "B.K.L. Walawalkar Rural Medical College, Ratnagiri"
+    },
+    "maharashtra|ycm-dc-ahilyanagar": {
+      "college_id": "ndc:late-shri-yashwantrao-chavan-memorial-medical-rural-developm-302289",
+      "name": "YCM DC AHILYANAGAR",
+      "card": "Late Shri Yashwantrao Chavan Memorial Medical & Rural Development Foundation's Dental College & Hospital, Ahmednagar"
+    },
+    "maharashtra|ycm-dc-ahilyanagar-a-nagar": {
+      "college_id": "ndc:late-shri-yashwantrao-chavan-memorial-medical-rural-developm-302289",
+      "name": "YCM DC AHILYANAGAR(A'NAGAR)",
+      "card": "Late Shri Yashwantrao Chavan Memorial Medical & Rural Development Foundation's Dental College & Hospital, Ahmednagar"
+    },
+    "maharashtra|ymt-dc-new-mumbai": {
+      "college_id": "ndc:yerala-medical-trust-research-centre-s-dental-college-hospit-6c19c1",
+      "name": "YMT DC NEW MUMBAI",
+      "card": "Yerala Medical Trust & Research Centre’s Dental College & Hospital, Navi Mumbai"
+    },
+    "maharashtra|yogita-dc-khed-ratnagiri": {
+      "college_id": "ndc:yogita-dental-college-hospital-ratnagiri",
+      "name": "YOGITA DC KHED, RATNAGIRI",
+      "card": "Yogita Dental College & Hospital, Ratnagiri"
+    },
+    "manipur|cmc": {
+      "college_id": null,
+      "name": "CMC"
+    },
+    "manipur|dc-rims": {
+      "college_id": "ndc:dental-college-rims-imphal",
+      "name": "DC, RIMS",
+      "card": "Dental College, RIMS, Imphal"
+    },
+    "manipur|jln-ims-imphal": {
+      "college_id": "C-9403",
+      "name": "JLN IMS, IMPHAL",
+      "card": "Jawaharlal Nehru Institute of Medical Sciences, Porompet, Imphal"
     },
     "mizoram|zoram-medical-college-falkawn-academic-block": {
       "college_id": "C-60907",
@@ -530,10 +1186,39 @@
       "name": "NAGALAND INSTITUTE OF MEDICAL SCIENCE AND RESEARCH PHIREBAGIE",
       "card": "Nagaland Institute of Medical Sciences & Research"
     },
+    "odisha|bb-mch-balangir": {
+      "college_id": "nmc:government-medical-college-hospital-renamed-as-bhima-bhoi-me-2522ca",
+      "name": "BB MCH, BALANGIR",
+      "card": "Government Medical College & Hospital (Renamed as Bhima Bhoi Medical College & Hospital), Balangir"
+    },
+    "odisha|fm-mch-balasore": {
+      "college_id": "nmc:government-medical-college-hospital-renamed-as-fakir-mohan-m-a93bbf",
+      "name": "FM MCH, BALASORE",
+      "card": "Government Medical College & Hospital (Renamed as Fakir Mohan Medical College & Hospital), Balasore"
+    },
+    "odisha|gmch-keonjhar": {
+      "college_id": "nmc:government-medical-college-keonjhar",
+      "name": "GMCH, KEONJHAR",
+      "card": "Government Medical College, Keonjhar"
+    },
     "odisha|gmch-sundergarh": {
       "college_id": "nmc:government-medical-college-sundargarh",
       "name": "GMCH, SUNDERGARH",
       "card": "Government Medical College, Sundargarh"
+    },
+    "odisha|hitech-dental-college-bhubaneswar": {
+      "college_id": null,
+      "name": "HITECH DENTAL COLLEGE, BHUBANESWAR"
+    },
+    "odisha|hitech-mch-bhubaneswar": {
+      "college_id": "nmc:hi-tech-medical-college-hospital-bhubaneswar",
+      "name": "HITECH MCH, BHUBANESWAR",
+      "card": "Hi-Tech Medical College & Hospital, Bhubaneswar"
+    },
+    "odisha|hitech-mch-rourkela": {
+      "college_id": "nmc:hi-tech-medical-college-hospital-rourkela",
+      "name": "HITECH MCH, ROURKELA",
+      "card": "Hi-Tech Medical College & Hospital, Rourkela"
     },
     "odisha|institute-of-medical-sciences-and-sum-host-bhubaneswar": {
       "college_id": "nmc:institute-of-medical-sciences-sum-hospital-bhubaneswar",
@@ -545,15 +1230,54 @@
       "name": "Institute of Medical Sciences & SUM Hospital, Campus II",
       "card": "Institute of Medical Sciences & SUM Hospital, Campus, Bhubaneswar, Odisha"
     },
+    "odisha|jkmch-jajpur": {
+      "college_id": "nmc:government-medical-college-and-hospital-jajpur-odisha",
+      "name": "JKMCH, Jajpur",
+      "card": "Government Medical College and Hospital, Jajpur Odisha"
+    },
+    "odisha|maharaja-k-c-gajapati-m-c-brahmapur": {
+      "college_id": "C-39378",
+      "name": "MAHARAJA K.C. GAJAPATI M.C., BRAHMAPUR",
+      "card": "MKCG Medical College, Berhampur"
+    },
     "odisha|saheed-rendo-majhi-medical-college-hospital-bhawanipatna": {
       "college_id": "nmc:government-medical-college-bhawanipatna",
       "name": "Saheed Rendo Majhi Medical College & Hospital, Bhawanipatna",
       "card": "Government Medical College, Bhawanipatna"
     },
+    "odisha|vimsar-burla": {
+      "college_id": "U-1296",
+      "name": "VIMSAR, BURLA",
+      "card": "Veer Surendra Sai Institute of Medical Sciences and Research, Burla"
+    },
+    "puducherry|jipmer-karaikal": {
+      "college_id": null,
+      "name": "JIPMER KARAIKAL"
+    },
+    "puducherry|m-g-d-c-hospital-puducherry": {
+      "college_id": "C-6548",
+      "name": "M.G.D.C. & HOSPITAL, PUDUCHERRY",
+      "card": "Mahatma Gandhi P.G. Institute of Dental Sciences"
+    },
+    "punjab|christian-dental-college-ludhiana": {
+      "college_id": "C-29150",
+      "name": "Christian Dental College, Ludhiana",
+      "card": "Christian Dental College"
+    },
+    "punjab|esic-medical-college-bharat-nagar": {
+      "college_id": "nmclive:pb-005-g-1",
+      "name": "ESIC Medical College, Bharat Nagar",
+      "card": "ESIC Medical College Ludhiana"
+    },
     "punjab|gian-sagar-dental-college-hospital-banur": {
       "college_id": "ndc:gian-sagar-dental-college-hospital",
       "name": "Gian Sagar Dental College & Hospital, Banur",
       "card": "Gian Sagar Dental College & Hospital"
+    },
+    "punjab|govt-den-coll-dental-wing-patiala": {
+      "college_id": "ndc:govt-dental-college-hospital-patiala",
+      "name": "GOVT DEN COLL DENTAL WING PATIALA",
+      "card": "Govt. Dental College & Hospital, Patiala"
     },
     "punjab|rayat-bahra-dental-college-hospital-sahauran": {
       "college_id": "ndc:rayat-bahra-dental-college-mohali",
@@ -569,6 +1293,11 @@
       "college_id": "ndc:shaheed-kartar-singh-sarabha-dental-college-hospital-ludhian-183fac",
       "name": "Shaheed Kartar Singh Sarabha Dental College, Sarabha(Ldh)",
       "card": "Shaheed Kartar Singh Sarabha Dental College & Hospital, Ludhiana"
+    },
+    "rajasthan|american-int-inst-of-med-sc-udaipur": {
+      "college_id": "C-65215",
+      "name": "American Int. Inst. of Med. Sc., Udaipur",
+      "card": "American International Institute of Medical Sciences, Bedwas"
     },
     "rajasthan|dr-ss-tantia-dental-college-hospital-and-research-center-sriganganagar": {
       "college_id": "ndc:dr-s-s-tantia-dental-college-hospital-and-research-centre",
@@ -595,14 +1324,44 @@
       "name": "GMC, Sriganganagar",
       "card": "Government Medical College, Sri Ganganagar"
     },
+    "rajasthan|government-medical-college-sriganganagar": {
+      "college_id": "C-69401",
+      "name": "GOVERNMENT MEDICAL COLLEGE, SRIGANGANAGAR",
+      "card": "Government Medical College, Sri Ganganagar"
+    },
     "rajasthan|govt-medical-college": {
       "college_id": null,
       "name": "Govt Medical College"
+    },
+    "rajasthan|govt-medical-college-barmer-rajasthan-nh-15": {
+      "college_id": "C-61650",
+      "name": "Govt Medical College Barmer Rajasthan, NH-15",
+      "card": "Government Medical College, Barmer"
     },
     "rajasthan|jawahar-lal-nehru-medical-ajmer": {
       "college_id": "nmc:jawaharlal-nehru-medical-college-ajmer",
       "name": "JAWAHAR LAL NEHRU MEDICAL, AJMER",
       "card": "Jawaharlal Nehru Medical College, Ajmer"
+    },
+    "rajasthan|jln-mc-ajmer": {
+      "college_id": "nmc:jawaharlal-nehru-medical-college-ajmer",
+      "name": "JLN MC, Ajmer",
+      "card": "Jawaharlal Nehru Medical College, Ajmer"
+    },
+    "rajasthan|maharaja-gangasingh-dc-ganganagar": {
+      "college_id": "ndc:maharaja-ganga-singh-dental-college-research-centre-sri-gang-a3e5b7",
+      "name": "Maharaja Gangasingh DC, Ganganagar",
+      "card": "Maharaja Ganga Singh Dental College & Research Centre, Sri Ganganagar"
+    },
+    "rajasthan|mg-dental-college-jaipur": {
+      "college_id": "ndc:mahatma-gandhi-dental-college-hospital-sitapura-jaipur",
+      "name": "MG Dental College, Jaipur",
+      "card": "Mahatma Gandhi Dental College & Hospital, Sitapura, Jaipur"
+    },
+    "rajasthan|mg-mc-jaipur": {
+      "college_id": "C-49500",
+      "name": "MG MC, Jaipur",
+      "card": "Mahatma Gandhi Medical College and Hospital, Sitapur, Jaipur"
     },
     "rajasthan|pacific-dental-college-hospital-udaipur": {
       "college_id": "ndc:pacific-dental-college-udaipur",
@@ -624,10 +1383,40 @@
       "name": "RUHS CMS, Jaipur",
       "card": "RUHS College of Medical Sciences, Jaipur"
     },
+    "rajasthan|sjp-medical-college-bharatpur": {
+      "college_id": "nmc:government-medical-college-bharatpur-rajasthan",
+      "name": "SJP Medical College, Bharatpur",
+      "card": "Government Medical College, Bharatpur, Rajasthan"
+    },
+    "rajasthan|sp-mc-bikaner": {
+      "college_id": "nmc:sardar-patel-medical-college-bikaner",
+      "name": "SP MC, Bikaner",
+      "card": "Sardar Patel Medical College, Bikaner"
+    },
+    "tamil-nadu|government-medical-college-and-hospital-cuddalore": {
+      "college_id": "nmc:rajah-muthiah-medical-college-annamalainagar",
+      "name": "GOVERNMENT MEDICAL COLLEGE AND HOSPITAL, CUDDALORE",
+      "card": "Rajah Muthiah Medical College, Annamalainagar"
+    },
+    "tamil-nadu|govt-pudukkottai-medical-college-hopt-pudukkott": {
+      "college_id": "nmc:government-medical-college-pudukottai-tamil-nadu",
+      "name": "Govt. Pudukkottai Medical College Hopt., Pudukkott",
+      "card": "Government Medical College, Pudukottai, Tamil Nadu"
+    },
     "tamil-nadu|govt-thiruvallur-medical-college-hospital": {
       "college_id": "C-67208",
       "name": "GOVT. THIRUVALLUR MEDICAL COLLEGE HOSPITAL,",
       "card": "Government Medical College, Thiruvallur"
+    },
+    "tamil-nadu|gtmc-thiruvarur": {
+      "college_id": "nmc:thiruvarur-govt-medical-college-thiruvarur",
+      "name": "GTMC, THIRUVARUR",
+      "card": "Thiruvarur Govt. Medical College, Thiruvarur"
+    },
+    "tamil-nadu|irt-perundurai-medical-college-perundurai": {
+      "college_id": "nmc:government-erode-medical-college-hospital-perundurai",
+      "name": "IRT Perundurai Medical College, Perundurai",
+      "card": "Government Erode Medical College & Hospital, Perundurai"
     },
     "tamil-nadu|j-r-medical-college-and-hospital-tamil-nadu": {
       "college_id": "nmc:j-r-medical-college-and-hospital-villupuram-district-tamilna-96d53e",
@@ -639,9 +1428,20 @@
       "name": "Meenakshi Ammal Dental College and Host., Chennai1",
       "card": "Meenakshi Ammal Dental College & Hospital, Chennai"
     },
+    "tamil-nadu|rajah-muthiah-dental-college-and-hos-annamalai": {
+      "college_id": "ndc:govt-dental-college-hospital-cuddalore",
+      "name": "Rajah Muthiah Dental College and Hos., Annamalai",
+      "card": "Govt. Dental College & Hospital, Cuddalore"
+    },
+    "tamil-nadu|saveetha-medical-college-chennai": {
+      "college_id": "nmc:saveetha-medical-college-and-hospital-kanchipuram",
+      "name": "Saveetha Medical College, Chennai",
+      "card": "Saveetha Medical College and Hospital, Kanchipuram"
+    },
     "tamil-nadu|shri-sathya-sai-medical-college-and-research-institute-chennai": {
-      "college_id": null,
-      "name": "Shri Sathya Sai Medical College and Research Institute, Chennai"
+      "college_id": "C-47765",
+      "name": "Shri Sathya Sai Medical College and Research Institute, Chennai",
+      "card": "Shri Sathya Sai Medical College and Research Institute, Kancheepuram"
     },
     "tamil-nadu|sri-lalithambigai-medical-college-hospital": {
       "college_id": "C-68272",
@@ -652,6 +1452,26 @@
       "college_id": "nmc:srm-medical-college-hospital-research-centre-kancheepuram",
       "name": "SRM Medical College and Hospital",
       "card": "SRM Medical College Hospital & Research Centre, Kancheepuram"
+    },
+    "tamil-nadu|tamilnadu-govt-d-c-hosp-chennai": {
+      "college_id": "ndc:tamil-nadu-government-dental-college-hospital-chennai",
+      "name": "TAMILNADU GOVT D.C. & HOSP, CHENNAI",
+      "card": "Tamil Nadu Government Dental College & Hospital, Chennai"
+    },
+    "tamil-nadu|thaimoogambigai-dental-college-and-hsopt-chennai": {
+      "college_id": "ndc:thai-moogambigai-dental-college-hospital-chennai",
+      "name": "Thaimoogambigai Dental College and Hsopt. Chennai",
+      "card": "Thai Moogambigai Dental College & Hospital, Chennai"
+    },
+    "tamil-nadu|theni-govt-medical-college-theni": {
+      "college_id": "C-51900",
+      "name": "THENI GOVT. MEDICAL COLLEGE, THENI",
+      "card": "Theni Government Medical College, Theni"
+    },
+    "telangana|aiims-bibi-nagar": {
+      "college_id": "U-1108",
+      "name": "AIIMS, Bibi Nagar",
+      "card": "All India Institute of Medical Sciences, Bibinagar"
     },
     "telangana|apollo-institute-of-medical-sciences-and-research-hyd": {
       "college_id": "C-60509",
@@ -683,9 +1503,19 @@
       "name": "Gandhi Medical College Musheerabad Secunderabad, MUSHEERABAD",
       "card": "Gandhi Medical College, Secunderabad"
     },
+    "telangana|government-medical-college-suryapet-amaravadi-nagar": {
+      "college_id": "nmc:government-medical-college-suryapet",
+      "name": "Government Medical College Suryapet, AMARAVADI NAGAR",
+      "card": "Government Medical College, Suryapet"
+    },
     "telangana|govt-medical-college": {
       "college_id": null,
       "name": "Govt. Medical College"
+    },
+    "telangana|govt-medical-college-jagityal": {
+      "college_id": "nmc:government-medical-college-jagtial",
+      "name": "GOVT MEDICAL COLLEGE, JAGITYAL",
+      "card": "Government Medical College, Jagtial"
     },
     "telangana|govt-medical-college-jogulamba": {
       "college_id": "nmc:government-medical-college-jogulumba-gadwal",
@@ -727,6 +1557,16 @@
       "name": "Rajiv Gandhi Institute Medical Sce of Adilabad, MAIN ROAD",
       "card": "Rajiv Gandhi Institute of Medical Sciences, adilabad"
     },
+    "telangana|rvm-medical-college-mulugu": {
+      "college_id": "C-60508",
+      "name": "RVM MEDICAL COLLEGE, MULUGU",
+      "card": "R.V.M. Institute of Medical Sciences and Research Centre, Siddipet"
+    },
+    "telangana|singareni-institute-of-medical-sceinces-ramagundam": {
+      "college_id": "C-71661",
+      "name": "SINGARENI INSTITUTE OF MEDICAL SCEINCES, RAMAGUNDAM",
+      "card": "Government Medical College, Ramagundam"
+    },
     "telangana|trr-institute-of-medical-sciences-inole-patancheru": {
       "college_id": "C-67091",
       "name": "TRR INSTITUTE OF MEDICAL SCIENCES, INOLE, PATANCHERU",
@@ -736,6 +1576,14 @@
       "college_id": "ndc:agartala-government-dental-college-and-igm-hospital",
       "name": "AGARTALA GOVT. DENTAL COLLEGE, AGARTAL",
       "card": "Agartala Government Dental College and IGM Hospital"
+    },
+    "tripura|rims-imphal": {
+      "college_id": null,
+      "name": "RIMS Imphal"
+    },
+    "uttar-pradesh|autonomous-state-medical-college-ayodhya": {
+      "college_id": null,
+      "name": "AUTONOMOUS STATE MEDICAL COLLEGE, AYODHYA"
     },
     "uttar-pradesh|autonomous-state-medical-college-bahraich": {
       "college_id": "nmc:rajkiya-allopathic-medical-college-bahraich-up",
@@ -777,15 +1625,47 @@
       "name": "AUTONOMOUS STATE MEDICAL COLLEGE, LAKHIMPUR KHIRI",
       "card": "Autonomous State Medical College and Hospital Lakhimpuri kheri"
     },
+    "uttar-pradesh|autonomous-state-medical-college-sehud": {
+      "college_id": null,
+      "name": "Autonomous state Medical College, Sehud"
+    },
+    "uttar-pradesh|autonomous-state-medical-college-siddharth-nagar": {
+      "college_id": "nmc:autonomous-state-medical-college-siddharthnagar",
+      "name": "AUTONOMOUS STATE MEDICAL COLLEGE, SIDDHARTH NAGAR",
+      "card": "Autonomous State Medical College, Siddharthnagar"
+    },
+    "uttar-pradesh|autonomous-state-medical-college-society-hardoi-gaura-danda": {
+      "college_id": "nmc:autonomous-state-medical-college-society-hardoi",
+      "name": "Autonomous State Medical college Society Hardoi, Gaura Danda",
+      "card": "Autonomous State Medical College Society, Hardoi"
+    },
     "uttar-pradesh|baba-kinaram-autonomous-state-medical-college-chandauli": {
       "college_id": "nmc:baba-kina-ram-autonomous-state-medical-college-and-hospital-819749",
       "name": "Baba Kinaram Autonomous State Medical College, Chandauli",
       "card": "Baba Kina Ram Autonomous State Medical College and Hospital Chandauli"
     },
+    "uttar-pradesh|baba-raghavdas-medical-college-gorakhpur": {
+      "college_id": "nmc:brd-medical-college-gorakhpur",
+      "name": "BABA RAGHAVDAS MEDICAL COLLEGE, GORAKHPUR",
+      "card": "BRD Medical College, Gorakhpur"
+    },
+    "uttar-pradesh|college-of-nursing-bhu-varanasi": {
+      "college_id": null,
+      "name": "College of Nursing BHU, VARANASI"
+    },
     "uttar-pradesh|dr-ziauddin-ahmed-dental-college-and-hospital-aligarh": {
       "college_id": "ndc:dr-ziauddin-ahmad-dental-college-aligarh",
       "name": "Dr. Ziauddin Ahmed Dental College and Hospital, ALIGARH",
       "card": "Dr. Ziauddin Ahmad Dental College, Aligarh"
+    },
+    "uttar-pradesh|faculty-of-den-sci": {
+      "college_id": null,
+      "name": "FACULTY OF DEN SCI"
+    },
+    "uttar-pradesh|ganesh-shanker-vidharthi-memorial-medical-college-kanpur": {
+      "college_id": "C-12290",
+      "name": "GANESH SHANKER VIDHARTHI MEMORIAL MEDICAL COLLEGE, KANPUR",
+      "card": "GSVM Medical College, Kanpur"
     },
     "uttar-pradesh|gmc-bahraich": {
       "college_id": "nmc:rajkiya-allopathic-medical-college-bahraich-up",
@@ -842,10 +1722,25 @@
       "name": "Jawaharlal Nehru Medical College, AMU",
       "card": "Jawaharlal Nehru Medical College, Aligarh"
     },
+    "uttar-pradesh|lala-lajpat-rai-memorial-medical-college-meerut": {
+      "college_id": "nmc:llrm-medical-college-meerut",
+      "name": "LALA LAJPAT RAI MEMORIAL MEDICAL COLLEGE, MEERUT",
+      "card": "LLRM Medical College, Meerut"
+    },
     "uttar-pradesh|maharani-laxmibai-medical-college-jhansi": {
       "college_id": "C-52206",
       "name": "MAHARANI LAXMIBAI MEDICAL COLLEGE, JHANSI",
       "card": "Maharani Laxmi Bai Medical College, Jhansi"
+    },
+    "uttar-pradesh|rani-durgavati-medical-college-banda": {
+      "college_id": "nmc:government-allopathic-medical-college-banda-up",
+      "name": "Rani Durgavati Medical College, Banda",
+      "card": "Government Allopathic Medical College, Banda, UP"
+    },
+    "uttar-pradesh|sarojini-naidu-medical-college-agra": {
+      "college_id": "C-15097",
+      "name": "SAROJINI NAIDU MEDICAL COLLEGE, AGRA",
+      "card": "S N Medical College, Agra"
     },
     "uttar-pradesh|uttar-pradesh-university-of-medical-sciences-saifai": {
       "college_id": "U-0882",
@@ -857,15 +1752,35 @@
       "name": "Government Doon Medcial College, Dehradun",
       "card": "Doon Medical College, Dehradun, Uttarakhand"
     },
+    "uttarakhand|uttaranchal-f-hosp-trust-mc-haldwani": {
+      "college_id": "nmc:government-medical-college-prev-uttarakhand-forest-hospital-e262c9",
+      "name": "UTTARANCHAL F HOSP TRUST MC, HALDWANI",
+      "card": "Government Medical College (Prev.Uttarakhand Forest Hospital Trust Med.Col.), Haldwani"
+    },
     "uttarakhand|veer-chandra-singh-garhwali-govt-institute-of-medical-science-research-badrinath-marg": {
       "college_id": "C-56564",
       "name": "Veer Chandra Singh Garhwali Govt. Institute of Medical Science & Research, BADRINATH MARG",
       "card": "Veer Chandra Singh Garhwali Govt. Medical Sc. & Research Instt, Srinagar, Pauri Garhwal"
     },
+    "west-bengal|deben-mahata-government-medical-college-and-hospital": {
+      "college_id": "nmc:purulia-government-medical-college-hospital",
+      "name": "DEBEN MAHATA GOVERNMENT MEDICAL COLLEGE AND HOSPITAL",
+      "card": "Purulia Government Medical College & Hospital"
+    },
+    "west-bengal|deben-mahata-government-medical-college-hospital": {
+      "college_id": "nmc:purulia-government-medical-college-hospital",
+      "name": "Deben Mahata Government Medical College & Hospital",
+      "card": "Purulia Government Medical College & Hospital"
+    },
     "west-bengal|diamond-harbour-govt-medical-college-new-town": {
       "college_id": "C-61428",
       "name": "Diamond Harbour Govt Medical College, New Town",
       "card": "Diamond Harbour Government Medical College and Hospital, West Bengal"
+    },
+    "west-bengal|dr-r-ahmed-dent-coll-hosp-kolkata": {
+      "college_id": "ndc:dr-r-ahmed-dental-college-hospital-calcutta",
+      "name": "DR. R. AHMED DENT.COLL & HOSP, KOLKATA",
+      "card": "Dr. R. Ahmed Dental College & Hospital, Calcutta"
     },
     "west-bengal|icare-institute-of-medical-science-and-research-and-dr-b-c-roy-hospital-haldia": {
       "college_id": "C-57119",
@@ -892,10 +1807,30 @@
       "name": "KRISHNANAGAR INSTITUTE OF MEDICAL SCIENCE PRIVATE LIMITED",
       "card": "Krishnanagar Institute of Medical Sciences Pvt. Ltd Krishnanagar, Nadia (WB)"
     },
+    "west-bengal|maharaja-jitendra-narayan-medical-college-and-hospital-coochbehar": {
+      "college_id": "C-61545",
+      "name": "MAHARAJA JITENDRA NARAYAN MEDICAL COLLEGE AND HOSPITAL, COOCHBEHAR",
+      "card": "Coochbehar Government Medical College & Hospital, Coochbehar, WB"
+    },
+    "west-bengal|maharaja-jitendra-narayan-medical-college-and-hospital-coochbehar-vivekananda-street": {
+      "college_id": "C-61545",
+      "name": "Maharaja Jitendra Narayan Medical College and Hospital Coochbehar, Vivekananda Street",
+      "card": "Coochbehar Government Medical College & Hospital, Coochbehar, WB"
+    },
     "west-bengal|medical-college-kolkata": {
       "college_id": "nmc:govt-medical-college-kolkata",
       "name": "MEDICAL COLLEGE, KOLKATA",
       "card": "Govt. Medical College, Kolkata"
+    },
+    "west-bengal|midnapore-medical-college-midnapur": {
+      "college_id": "C-16404",
+      "name": "MIDNAPORE MEDICAL COLLEGE, MIDNAPUR",
+      "card": "Midnapore Medical College, Midnapore"
+    },
+    "west-bengal|north-bengal-dent-coll": {
+      "college_id": "ndc:the-north-bengal-dental-college-sushratangar",
+      "name": "NORTH BENGAL DENT.COLL",
+      "card": "The North Bengal Dental College, Sushratangar"
     },
     "west-bengal|north-bengal-med-coll-darjeeling": {
       "college_id": "C-16414",
@@ -906,6 +1841,11 @@
       "college_id": "C-16414",
       "name": "NORTH BENGAL MEDICAL COLLEGE AND HOSPITAL, DARJEELING",
       "card": "North Bengal Medical College, Darjeeling"
+    },
+    "west-bengal|raiganj-government-medical-college-abdulghata-campus": {
+      "college_id": "C-61429",
+      "name": "Raiganj Government Medical College, ABDULGHATA CAMPUS",
+      "card": "Raiganj Government Medical College & Hospital, Raiganj"
     },
     "west-bengal|sagar-dutta-medical-college-hospital-kolkata": {
       "college_id": "C-16379",
