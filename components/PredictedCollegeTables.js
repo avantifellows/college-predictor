@@ -610,15 +610,10 @@ const PredictedCollegesTable = ({
       ? String(raw).replace(/^[A-Z]\d{3}\s+/, "")
       : String(raw);
   };
-  // KCET's Pharma / Agriculture colleges have no cards of their own yet
-  // (the Colleges tab's KCET list is engineering): engineering only
   // GUJCET rows say themselves whether a card carries their name (`card`,
-  // set by scripts/build_gujcet_predictor_data.py)
-  const canLinkRow = (t) =>
-    exam === "GUJCET"
-      ? !!t.card
-      : exam !== "KCET" ||
-        /engineer/i.test(String(t["Course Type"] || "Engineering"));
+  // set by scripts/build_gujcet_predictor_data.py). KCET's pharmacy and
+  // agriculture colleges have cards too (KEA's own lists, Nov 2026).
+  const canLinkRow = (t) => (exam === "GUJCET" ? !!t.card : true);
   const compareIdOf = (t) =>
     t["College ID"] || (canLinkRow(t) ? `n~${slugOf(linkNameOf(t))}` : null);
   const supportsSalarySort = isJosaaExam;
@@ -1828,6 +1823,11 @@ const PredictedCollegesTable = ({
   }, [isNeet, neetSeatTab, neetSeatCounts.home]);
 
   const getDisplayValue = (column, transformedItem) => {
+    // a row matched to a college card goes by the card's name, so the
+    // predictor and the Colleges tab call a college the same thing
+    // ("Govt. Doon Medical College" is "Doon Medical College, Dehradun")
+    if (INSTITUTE_KEYS.has(column.key) && transformedItem["Card Name"])
+      return transformedItem["Card Name"];
     const rawValue = transformedItem[column.key];
     if (column.format) {
       return column.format(rawValue);
@@ -2275,9 +2275,12 @@ const PredictedCollegesTable = ({
   const renderCellBody = (column, transformedItem) =>
     INSTITUTE_KEYS.has(column.key) &&
     ((isJosaaExam && transformedItem["College ID"]) ||
-      (NAME_LINK_EXAMS.has(exam) && canLinkRow(transformedItem))) ? (
+      (NAME_LINK_EXAMS.has(exam) && canLinkRow(transformedItem)) ||
+      transformedItem["Card Name"]) ? (
       <Link
-        href={`/colleges?q=${encodeURIComponent(linkNameOf(transformedItem))}${
+        href={`/colleges?q=${encodeURIComponent(
+          transformedItem["Card Name"] || linkNameOf(transformedItem)
+        )}${
           LINK_STATE[exam] && !transformedItem["College ID"]
             ? `&state=${encodeURIComponent(LINK_STATE[exam])}`
             : ""

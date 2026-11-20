@@ -42,7 +42,9 @@
     "slug": "architecture"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "aat-ashoka-aptitude-test-ashoka-university",
@@ -109,7 +111,9 @@
     "slug": "economics"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "acet",
@@ -154,7 +158,9 @@
     "slug": "arts"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "afcat",
@@ -207,7 +213,9 @@
     "slug": "indian-navy-officer"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "agricet",
@@ -252,7 +260,9 @@
     "slug": "agriculture"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "aihmct-cbt",
@@ -322,7 +332,9 @@
     "slug": "hotel-management"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "aiims-ee",
@@ -393,7 +405,9 @@
     "slug": "paramedical"
    }
   ],
-  "colleges_link": "/colleges?exam=AIIMS-EE"
+  "colleges_link": "/colleges?exam=AIIMS-EE",
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "aiish-et",
@@ -433,7 +447,9 @@
   "predictor_exam": null,
   "open_data_id": null,
   "careers": null,
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "ail-let",
@@ -499,7 +515,9 @@
     "slug": "law-llb"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "ailet",
@@ -569,7 +587,9 @@
     "slug": "law-llb"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "amu-aat",
@@ -614,7 +634,9 @@
     "slug": "architecture"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "amu-et",
@@ -720,7 +742,9 @@
     "slug": "law-llb"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "ap-eapcet-am-category",
@@ -788,7 +812,13 @@
     "slug": "agriculture"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": {
+   "count": 79231,
+   "year": 2026,
+   "source": "https://news.careers360.com/ap-eamcet-2026-result-out-at-cets-apsche-ap-gov-in-engineering-agriculture-pharmacy-admissions-scorecard-counselling"
+  },
+  "acceptance": null
  },
  {
   "exam_id": "ap-eapcet-e-category",
@@ -812,13 +842,13 @@
   "eligibility": "10+2 with PCM",
   "fee_display": "Rs. 600/-",
   "fee_number": 600,
-  "test_month": "April",
-  "test_month_n": 4,
-  "apply_month": "March",
-  "apply_month_n": 3,
-  "forms_out": "2nd week of March",
-  "last_date": "Mid April",
-  "test_date": "3rd week of April",
+  "test_month": "May",
+  "test_month_n": 5,
+  "apply_month": "February",
+  "apply_month_n": 2,
+  "forms_out": "1st week of February",
+  "last_date": "4th week of March",
+  "test_date": "Mid May",
   "mode": "Computer Based",
   "duration": "180 Minutes",
   "marking": "+1/-0",
@@ -865,7 +895,17 @@
     "slug": "mechanical-mechatronics-engineering"
    }
   ],
-  "colleges_link": "/colleges?exam=AP EAPCET"
+  "colleges_link": "/colleges?exam=AP EAPCET",
+  "applicants": {
+   "count": 276572,
+   "year": 2026,
+   "source": "https://news.careers360.com/ap-eamcet-2026-result-out-at-cets-apsche-ap-gov-in-engineering-agriculture-pharmacy-admissions-scorecard-counselling"
+  },
+  "acceptance": {
+   "pct": 54.99,
+   "basis": "2026 convener-quota engineering seats / 2026 AP EAPCET engineering registrants",
+   "source": "https://www.deccanchronicle.com/amp/southern-states/andhra-pradesh/final-ap-eapcet-phase-fills-3141-fresh-seats-1989068"
+  }
  },
  {
   "exam_id": "apu-et",
@@ -942,7 +982,9 @@
     "slug": "mathematics"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "agniveer-army",
@@ -999,7 +1041,9 @@
     "slug": "indian-air-force-officer"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "agniveer-navy-ssr-mr",
@@ -1056,7 +1100,9 @@
     "slug": "indian-air-force-officer"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "agniveer-vayu",
@@ -1113,7 +1159,9 @@
     "slug": "indian-air-force-officer"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "anantu-det",
@@ -1158,7 +1206,9 @@
     "slug": "design"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "b-com-cet-146",
@@ -1228,7 +1278,9 @@
     "slug": "commerce"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "ba-cet-184",
@@ -1290,7 +1342,9 @@
     "slug": "arts"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "ba-cet-197",
@@ -1352,7 +1406,9 @@
     "slug": "economics"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "bajmc-cet-126",
@@ -1413,7 +1469,9 @@
   "predictor_exam": null,
   "open_data_id": null,
   "careers": null,
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "bba-cet-125",
@@ -1479,7 +1537,9 @@
     "slug": "business-administration-bba-mba"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "bca-cet-114",
@@ -1540,7 +1600,9 @@
   "predictor_exam": null,
   "open_data_id": null,
   "careers": null,
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "bcece",
@@ -1587,7 +1649,9 @@
     "slug": "agriculture"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "bhmct-cet-127",
@@ -1653,7 +1717,9 @@
     "slug": "hotel-management"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "bitsat",
@@ -1678,13 +1744,13 @@
   "eligibility": "10+2 with PCM",
   "fee_display": "Rs. 3400/-",
   "fee_number": 3400,
-  "test_month": "May",
-  "test_month_n": 5,
-  "apply_month": "January",
-  "apply_month_n": 1,
-  "forms_out": "Last week of January",
-  "last_date": "April & June",
-  "test_date": "4th week of May & 3rd week of June",
+  "test_month": "April",
+  "test_month_n": 4,
+  "apply_month": "December",
+  "apply_month_n": 12,
+  "forms_out": "3rd week of December",
+  "last_date": "3rd week of March (Session 1) & 1st week of May (Session 2)",
+  "test_date": "3rd week of April & 4th week of May",
   "mode": "Online",
   "duration": "180 Minutes 2 Slots on each day",
   "marking": "+3/-1",
@@ -1743,7 +1809,17 @@
     "slug": "electrical-electronics-communications-engineering"
    }
   ],
-  "colleges_link": "/colleges?exam=BITSAT"
+  "colleges_link": "/colleges?exam=BITSAT",
+  "applicants": {
+   "count": 160000,
+   "year": 2026,
+   "source": "https://news.careers360.com/bits-pilani-admissions-2026-admits-3181-students-full-scholarship-top-bitsat-rankers-up-625-cut-offs-bpharm-be-pcm-pcb-courses"
+  },
+  "acceptance": {
+   "pct": 1.99,
+   "basis": "2026 BITSAT admits / 2026 unique applications (>1.60 lakh, official statement)",
+   "source": "https://news.careers360.com/bits-pilani-admissions-2026-admits-3181-students-full-scholarship-top-bitsat-rankers-up-625-cut-offs-bpharm-be-pcm-pcb-courses"
+  }
  },
  {
   "exam_id": "bsc-yoga-cet",
@@ -1812,7 +1888,9 @@
   "predictor_exam": null,
   "open_data_id": null,
   "careers": null,
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "btech-bt-cet-130",
@@ -1878,7 +1956,9 @@
     "slug": "biotechnology"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "bu-mat",
@@ -1952,7 +2032,9 @@
     "slug": "hotel-management"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "bv-abop",
@@ -2014,7 +2096,9 @@
     "slug": "biotechnology"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "bv-abop-cet",
@@ -2079,7 +2163,9 @@
     "slug": "biotechnology"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "bv-b-sc-nursing-cet",
@@ -2149,7 +2235,9 @@
     "slug": "nursing"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "bv-btech-cet",
@@ -2223,7 +2311,9 @@
     "slug": "civil-engineering"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "bv-lawug-cet",
@@ -2289,7 +2379,9 @@
     "slug": "law-llb"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "bv-opi-pa",
@@ -2329,7 +2421,9 @@
   "predictor_exam": null,
   "open_data_id": null,
   "careers": null,
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "bv-pharm-ug-cet",
@@ -2391,7 +2485,9 @@
     "slug": "pharmacy"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "cee-llb",
@@ -2457,7 +2553,9 @@
     "slug": "law-llb"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "cet",
@@ -2518,7 +2616,9 @@
   "predictor_exam": null,
   "open_data_id": null,
   "careers": null,
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "cetug-aau",
@@ -2565,7 +2665,9 @@
     "slug": "agriculture"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "cg-pat",
@@ -2629,7 +2731,9 @@
     "slug": "agriculture"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "cg-pet",
@@ -2708,7 +2812,13 @@
     "slug": "civil-engineering"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": {
+   "count": 12276,
+   "year": 2025,
+   "source": "https://engineering.careers360.com/articles/cg-pet-2026"
+  },
+  "acceptance": null
  },
  {
   "exam_id": "clat",
@@ -2733,11 +2843,11 @@
   "test_month_n": 12,
   "apply_month": "August",
   "apply_month_n": 8,
-  "forms_out": "2nd week of August",
-  "last_date": "3rd week of November",
-  "test_date": "3rd week of December",
+  "forms_out": "1st week of August",
+  "last_date": "Last week of October",
+  "test_date": "1st week of December",
   "mode": "Offline",
-  "duration": null,
+  "duration": "120 Minutes",
   "marking": "+1/-0.25",
   "pattern": "English CA including GK Legal Reasoning Logical Reasoning Quantitative Techniques Total",
   "pattern_rows": null,
@@ -2755,7 +2865,9 @@
     "slug": "law-llb"
    }
   ],
-  "colleges_link": "/colleges?exam=CLAT"
+  "colleges_link": "/colleges?exam=CLAT",
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "cmi-ee",
@@ -2821,7 +2933,9 @@
     "slug": "mathematics"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "comedk-uget",
@@ -2886,7 +3000,17 @@
     "slug": "electrical-electronics-communications-engineering"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": {
+   "count": 130620,
+   "year": 2026,
+   "source": "https://news.kollegeapply.com/news/comedk-uget-2026-records-85-attendance-answer-key-on-may-13"
+  },
+  "acceptance": {
+   "pct": 18.81,
+   "basis": "2026 COMEDK engineering seats / 2026 COMEDK UGET registrants",
+   "source": "https://news.careers360.com/comedk-counselling-2026-mock-choice-filling-begins-from-july-11-comedk-org-revised-seat-matrix-engineering-general-merit-category"
+  }
  },
  {
   "exam_id": "cuet",
@@ -2989,7 +3113,9 @@
     "slug": "computer-science-information-technology"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "cuet-ug",
@@ -3021,22 +3147,22 @@
   "run_by": "Public",
   "url": "https://cuet.samarth.ac.in/",
   "eligibility": "Eligibility and test syllabus may vary for same course from University to University.",
-  "fee_display": "Rs. 650 onward/-",
-  "fee_number": 650,
+  "fee_display": "Rs. 1000/- (up to 3 subjects, Rs. 400/- each extra)",
+  "fee_number": 1000,
   "test_month": "May",
   "test_month_n": 5,
-  "apply_month": "February",
-  "apply_month_n": 2,
-  "forms_out": "2nd week of February",
-  "last_date": "Last week of March",
-  "test_date": "3rd week of May and June",
+  "apply_month": "January",
+  "apply_month_n": 1,
+  "forms_out": "1st week of January",
+  "last_date": "Last week of January",
+  "test_date": "Multiple dates in May",
   "mode": "Online",
-  "duration": "Based on admit card",
+  "duration": "60 Minutes per subject",
   "marking": "+5/-1",
-  "pattern": "Section IA: Choose any 1 of 13 Languages Section IB: Choose any 1 of 20 Languages other than IA Section II: Choose Maximum 6 of 27 Domain Specific Subjects as desired for particular course by applicable University Section III: General Aptitude Test",
+  "pattern": "Choose up to 5 subjects in all, from 13 Languages, 23 Domain Subjects and the General Aptitude Test",
   "pattern_rows": null,
   "pattern_note": null,
-  "remarks": "Any 1 or all 5 Domains can be opted for Section 2.",
+  "remarks": "Up to 5 subjects in total, including languages and the General Aptitude Test.",
   "replaces": [
    "AMU-ET (Aligarh Muslim Univ. Entrance Test)",
    "AU-ET (Assam University Entrance Test)",
@@ -3087,7 +3213,13 @@
     "slug": "chartered-accountancy-ca"
    }
   ],
-  "colleges_link": "/colleges?exam=CUET (UG)"
+  "colleges_link": "/colleges?exam=CUET (UG)",
+  "applicants": {
+   "count": 1568867,
+   "year": 2026,
+   "source": "https://ianslive.in/cuet-ug-2026-results-announced-for-over-116-lakh-students--20260623151337"
+  },
+  "acceptance": null
  },
  {
   "exam_id": "dat-mains",
@@ -3132,7 +3264,9 @@
     "slug": "design"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "dat-prelims",
@@ -3177,7 +3311,9 @@
     "slug": "design"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "dt-mahe",
@@ -3228,7 +3364,9 @@
     "slug": "hotel-management"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "design-cet-600",
@@ -3273,7 +3411,9 @@
     "slug": "design"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "eat",
@@ -3318,7 +3458,9 @@
     "slug": "hotel-management"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "fddi-aist",
@@ -3392,7 +3534,9 @@
     "slug": "design"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "feat",
@@ -3458,7 +3602,9 @@
     "slug": "arts"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "gat-cat",
@@ -3503,7 +3649,9 @@
     "slug": "design"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "gat",
@@ -3568,7 +3716,9 @@
   "predictor_exam": null,
   "open_data_id": null,
   "careers": null,
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "gbpuat-cee",
@@ -3636,7 +3786,9 @@
     "slug": "agriculture"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "gujcet",
@@ -3721,7 +3873,13 @@
     "slug": "mechanical-mechatronics-engineering"
    }
   ],
-  "colleges_link": "/colleges?exam=GUJCET"
+  "colleges_link": "/colleges?exam=GUJCET",
+  "applicants": {
+   "count": 136071,
+   "year": 2026,
+   "source": "https://www.freepressjournal.in/education/gujcet-2026-result-out-1459-students-score-above-99-percentile-rank"
+  },
+  "acceptance": null
  },
  {
   "exam_id": "hau-aat",
@@ -3779,7 +3937,9 @@
     "slug": "agriculture"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "hau-et",
@@ -3843,7 +4003,9 @@
     "slug": "agriculture"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "hau-et-haryana-agriculture-university-community-sc-entrance-test-haryana",
@@ -3901,7 +4063,9 @@
     "slug": "agriculture"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "iat",
@@ -3924,11 +4088,11 @@
   "fee_number": 2000,
   "test_month": "June",
   "test_month_n": 6,
-  "apply_month": "April",
-  "apply_month_n": 4,
-  "forms_out": "2nd week of April",
-  "last_date": "4th week of May",
-  "test_date": "3rd week of June",
+  "apply_month": "March",
+  "apply_month_n": 3,
+  "forms_out": "1st week of March",
+  "last_date": "2nd week of April",
+  "test_date": "1st week of June",
   "mode": "Online",
   "duration": "180 Minutes",
   "marking": "+4 & -1",
@@ -3975,7 +4139,17 @@
     "slug": "mathematics"
    }
   ],
-  "colleges_link": "/colleges?exam=IAT"
+  "colleges_link": "/colleges?exam=IAT",
+  "applicants": {
+   "count": 186000,
+   "year": 2026,
+   "source": "https://www.orissapost.com/over-1-86-lakh-appear-for-iiser-aptitude-test/"
+  },
+  "acceptance": {
+   "pct": 1.26,
+   "basis": "2026 IISER BS-MS seats / ~1.86 lakh 2026 candidates (appeared per PTI)",
+   "source": "https://news.careers360.com/iiser-iat-over-1-86-lakh-candidates-appear-for-2026-bs-ms-admissions-2343-seats-736-centres"
+  }
  },
  {
   "exam_id": "idss-oee",
@@ -4047,7 +4221,9 @@
     "slug": "mathematics"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "ihm-a",
@@ -4109,7 +4285,9 @@
     "slug": "hotel-management"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "iicd-et",
@@ -4167,7 +4345,9 @@
     "slug": "design"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "imat",
@@ -4208,7 +4388,9 @@
   "predictor_exam": null,
   "open_data_id": null,
   "careers": null,
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "ipl-at-rohtak",
@@ -4274,7 +4456,9 @@
     "slug": "law-llb"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "ipm-at-indore-ranchi",
@@ -4336,7 +4520,9 @@
     "slug": "business-administration-bba-mba"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "ipm-at-rohtak",
@@ -4398,7 +4584,9 @@
     "slug": "business-administration-bba-mba"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "isdi-challenge",
@@ -4472,7 +4660,9 @@
     "slug": "design"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "isi-at",
@@ -4525,7 +4715,9 @@
     "slug": "mathematics"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "indian-army-ncc-special-entry-scheme",
@@ -4578,7 +4770,9 @@
     "slug": "indian-air-force-officer"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "indian-army-tes",
@@ -4633,7 +4827,9 @@
     "slug": "indian-air-force-officer"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "indian-army-tgc-ssc-tech",
@@ -4686,7 +4882,9 @@
     "slug": "indian-air-force-officer"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "indian-navy-10-2-b-tech-cadet-entry-scheme",
@@ -4739,7 +4937,9 @@
     "slug": "indian-air-force-officer"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "indian-navy-ssc-officer-entries",
@@ -4792,7 +4992,9 @@
     "slug": "indian-air-force-officer"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "jcat",
@@ -4862,7 +5064,9 @@
     "slug": "arts"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "jcece-nursing",
@@ -4924,7 +5128,9 @@
     "slug": "nursing"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "jcece-agriculture-allied",
@@ -4988,7 +5194,9 @@
     "slug": "agriculture"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "jee-advanced",
@@ -5008,55 +5216,35 @@
   "eligible_in": "All India",
   "run_by": "Public",
   "url": "https://www.jeeadv.ac.in/",
-  "eligibility": "Candidates should be among the top 2,50,000 (including all categories) in B.E./B.Tech. paper of JEE (Main) 2023.",
-  "fee_display": "Rs. 2900/-",
-  "fee_number": 2900,
-  "test_month": "June",
-  "test_month_n": 6,
+  "eligibility": "Candidates should be among the top 2,50,000 (including all categories) in B.E./B.Tech. paper of JEE (Main) of the same year.",
+  "fee_display": "Rs. 3200/-",
+  "fee_number": 3200,
+  "test_month": "May",
+  "test_month_n": 5,
   "apply_month": "April",
   "apply_month_n": 4,
   "forms_out": "Last week of April",
   "last_date": "1st week of May",
-  "test_date": "1st week of June",
+  "test_date": "4th week of May",
   "mode": "Online",
   "duration": "180 + 180 Minutes",
   "marking": "Variable Negative",
-  "pattern": "Maths Physics Chemistry Paper-1 (Same pattern for All 3 Subjects Section I = Physics, Section II = Chemistry, Section III = Maths, Each section has 3 Parts) Part I, Part II, Part III Paper-2 (Same Pattern as Paper-I) Gross Total",
+  "pattern": "Paper 1 Paper 2 Total",
   "pattern_rows": [
    [
-    "Maths",
-    "18 questions (60 marks)"
+    "Paper 1",
+    "Physics, Chemistry, Maths (180 marks)"
    ],
    [
-    "Physics",
-    "18 questions (60 marks)"
+    "Paper 2",
+    "Physics, Chemistry, Maths (180 marks)"
    ],
    [
-    "Chemistry",
-    "18 questions (60 marks)"
-   ],
-   [
-    "Paper-1 \u2014 Part I",
-    "6 questions (24 marks)"
-   ],
-   [
-    "Paper-1 \u2014 Part II",
-    "8 questions (24 marks)"
-   ],
-   [
-    "Paper-1 \u2014 Part III",
-    "4 questions (12 marks)"
-   ],
-   [
-    "Paper-2",
-    "18 questions (60x3=180 marks)"
-   ],
-   [
-    "Gross Total",
-    "108 questions (60 marks)"
+    "Total",
+    "360 marks"
    ]
   ],
-  "pattern_note": "Paper-1 (Same pattern for All 3 Subjects Section I = Physics, Section II = Chemistry, Section III = Maths, Each section has 3 Parts); Paper-2 (Same Pattern as Paper-I)",
+  "pattern_note": null,
   "remarks": null,
   "replaces": null,
   "aliases": null,
@@ -5080,7 +5268,17 @@
     "slug": "civil-engineering"
    }
   ],
-  "colleges_link": "/colleges?exam=JEE Advanced"
+  "colleges_link": "/colleges?exam=JEE Advanced",
+  "applicants": {
+   "count": 187389,
+   "year": 2026,
+   "source": "https://jeeadv.ac.in/documents/Result2026PressRelease.pdf"
+  },
+  "acceptance": {
+   "pct": 10.11,
+   "basis": "2026 IIT seats in JoSAA / 2026 JEE Advanced registrants",
+   "source": "https://news.careers360.com/josaa-seat-matrix-2026-counselling-begins-67323-engineering-female-seats-rise-iits-nits-iiits-gftis-csab-dasa-btech-admission"
+  }
  },
  {
   "exam_id": "jee-main-paper-1",
@@ -5162,7 +5360,17 @@
     "slug": "civil-engineering"
    }
   ],
-  "colleges_link": "/colleges?exam=JEE Main"
+  "colleges_link": "/colleges?exam=JEE Main",
+  "applicants": {
+   "count": 1604854,
+   "year": 2026,
+   "source": "https://www.pw.live/news/nta-jee-main-2026-data-out-how-many-students-appeared"
+  },
+  "acceptance": {
+   "pct": 3.01,
+   "basis": "2026 JoSAA NIT+IIIT+GFTI seats / 2026 unique JEE Main registrants (both sessions)",
+   "source": "https://news.careers360.com/josaa-seat-matrix-2026-counselling-begins-67323-engineering-female-seats-rise-iits-nits-iiits-gftis-csab-dasa-btech-admission"
+  }
  },
  {
   "exam_id": "jee-main-paper-2a",
@@ -5181,8 +5389,8 @@
   "run_by": "Public",
   "url": "https://jeemain.nta.nic.in/",
   "eligibility": "10+2 with Physics, Mathematics and Chemistry",
-  "fee_display": null,
-  "fee_number": null,
+  "fee_display": "Rs. 1000/-",
+  "fee_number": 1000,
   "test_month": "January",
   "test_month_n": 1,
   "apply_month": "October",
@@ -5228,7 +5436,9 @@
     "slug": "architecture"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "jee-main-paper-2b",
@@ -5247,8 +5457,8 @@
   "run_by": "Public",
   "url": "https://jeemain.nta.nic.in/",
   "eligibility": "10+2 with PCM.",
-  "fee_display": null,
-  "fee_number": null,
+  "fee_display": "Rs. 1000/-",
+  "fee_number": 1000,
   "test_month": "January",
   "test_month_n": 1,
   "apply_month": "October",
@@ -5294,7 +5504,9 @@
     "slug": "planning"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "jet-de",
@@ -5364,7 +5576,9 @@
     "slug": "design"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "jipmat",
@@ -5383,15 +5597,15 @@
   "run_by": "Public",
   "url": "https://jipmat.nta.ac.in/",
   "eligibility": "10+2 any Stream",
-  "fee_display": "Rs. 2000/-",
-  "fee_number": 2000,
-  "test_month": "May",
-  "test_month_n": 5,
+  "fee_display": "Rs. 2200/-",
+  "fee_number": 2200,
+  "test_month": "June",
+  "test_month_n": 6,
   "apply_month": "April",
   "apply_month_n": 4,
-  "forms_out": "1st week of April",
-  "last_date": "Last week of April",
-  "test_date": "Last week of May",
+  "forms_out": "3rd week of April",
+  "last_date": "2nd week of May",
+  "test_date": "1st week of June",
   "mode": "Online",
   "duration": "150 Minutes",
   "marking": "+4/-1",
@@ -5426,7 +5640,9 @@
     "slug": "business-administration-bba-mba"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "jmi-et",
@@ -5522,7 +5738,9 @@
     "slug": "law-llb"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "jsat",
@@ -5607,7 +5825,9 @@
     "slug": "commerce"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "kalsee",
@@ -5705,7 +5925,9 @@
     "slug": "law-llb"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "kea-cet",
@@ -5733,13 +5955,13 @@
   "eligibility": "10+2 with PCM for Engineering and PCM/B for B.Sc. Courses",
   "fee_display": "Rs. 650/-",
   "fee_number": 650,
-  "test_month": "May",
-  "test_month_n": 5,
-  "apply_month": "March",
-  "apply_month_n": 3,
-  "forms_out": "1st week of March",
+  "test_month": "April",
+  "test_month_n": 4,
+  "apply_month": "January",
+  "apply_month_n": 1,
+  "forms_out": "3rd week of January",
   "last_date": "1st week of April",
-  "test_date": "3rd week of May",
+  "test_date": "4th week of April",
   "mode": "Offline",
   "duration": "240 Minutes, 80 Minutes for Each",
   "marking": "+1/-0",
@@ -5788,7 +6010,17 @@
     "slug": "mechanical-mechatronics-engineering"
    }
   ],
-  "colleges_link": "/colleges?exam=KCET"
+  "colleges_link": "/colleges?exam=KCET",
+  "applicants": {
+   "count": 330646,
+   "year": 2026,
+   "source": "https://www.freepressjournal.in/education/kcet-ugcet-result-2026-out-female-candidates-outnumber-male-students-by-over-41000"
+  },
+  "acceptance": {
+   "pct": 27.74,
+   "basis": "2026 KEA Round-1 engineering seats / 2026 KCET registrants (all streams)",
+   "source": "https://www.freepressjournal.in/education/kcet-2026-round-1-final-seat-allotment-result-out-at-cetonlinekarnatakagovin-check-allotment-status-here"
+  }
  },
  {
   "exam_id": "keam",
@@ -5813,35 +6045,35 @@
   "run_by": "Public",
   "url": "https://cee.kerala.gov.in/",
   "eligibility": "10+2 with PCB for B.Sc. and B.Tech (Biotech.) PCM for B.Tech. (Dairy Tech., Food Tech. & Agr. Engg.)",
-  "fee_display": "Rs. 700/-",
-  "fee_number": 700,
-  "test_month": "May",
-  "test_month_n": 5,
-  "apply_month": "March",
-  "apply_month_n": 3,
-  "forms_out": "3rd week of March",
-  "last_date": "2nd week of April",
-  "test_date": "3rd week of May",
-  "mode": "Offline",
-  "duration": "150 Minutes for each paper",
+  "fee_display": "Rs. 925/-",
+  "fee_number": 925,
+  "test_month": "April",
+  "test_month_n": 4,
+  "apply_month": "January",
+  "apply_month_n": 1,
+  "forms_out": "1st week of January",
+  "last_date": "Last week of January",
+  "test_date": "3rd week of April",
+  "mode": "Computer Based",
+  "duration": "180 Minutes",
   "marking": "+4/-1",
-  "pattern": "Paper 1 Physics Chemistry Paper 2 Mathematics Total",
+  "pattern": "Mathematics Physics Chemistry Total",
   "pattern_rows": [
    [
-    "Paper 1 \u2014 Physics",
-    "72 questions (288 marks)"
+    "Mathematics",
+    "75 questions (300 marks)"
    ],
    [
-    "Paper 1 \u2014 Chemistry",
-    "48 questions (192 marks)"
+    "Physics",
+    "45 questions (180 marks)"
    ],
    [
-    "Paper 2 \u2014 Mathematics",
-    "120 questions (480 marks)"
+    "Chemistry",
+    "30 questions (120 marks)"
    ],
    [
     "Total",
-    "240 questions (960 marks)"
+    "150 questions (600 marks)"
    ]
   ],
   "pattern_note": null,
@@ -5868,7 +6100,17 @@
     "slug": "mechanical-mechatronics-engineering"
    }
   ],
-  "colleges_link": "/colleges?exam=KEAM"
+  "colleges_link": "/colleges?exam=KEAM",
+  "applicants": {
+   "count": 148146,
+   "year": 2026,
+   "source": "https://engineering.careers360.com/articles/how-many-students-appeared-for-keam-2026"
+  },
+  "acceptance": {
+   "pct": 25.92,
+   "basis": "2026 CEE round-2 engineering allotments / 2026 KEAM engineering applicants (108409)",
+   "source": "https://news.careers360.com/keam-2026-round-2-seat-allotment-result-out-donwload-cee-kerala-gov-in-btech-admission-counselling"
+  }
  },
  {
   "exam_id": "kiit-ee",
@@ -5963,7 +6205,9 @@
     "slug": "design"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "krea-ap",
@@ -6014,7 +6258,9 @@
     "slug": "business-administration-bba-mba"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "kuat",
@@ -6110,7 +6356,9 @@
     "slug": "psychology"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "lkk-oee",
@@ -6163,7 +6411,9 @@
   "predictor_exam": null,
   "open_data_id": null,
   "careers": null,
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "mah-b-design-cet",
@@ -6237,7 +6487,9 @@
     "slug": "design"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "mah-b-planning-cet",
@@ -6299,7 +6551,9 @@
     "slug": "planning"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "mah-bhmct-cet",
@@ -6361,7 +6615,9 @@
     "slug": "hotel-management"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "mah-llb-3-yrs-cet",
@@ -6427,7 +6683,9 @@
     "slug": "law-llb"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "mah-llb-5-yrs-cet",
@@ -6497,7 +6755,9 @@
     "slug": "law-llb"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "met",
@@ -6605,7 +6865,9 @@
     "slug": "pharmacy"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "mh-aac-cet",
@@ -6671,7 +6933,9 @@
     "slug": "design"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "mh-b-sc-nursing-cet",
@@ -6741,7 +7005,9 @@
     "slug": "nursing"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "mht-cet",
@@ -6766,15 +7032,15 @@
   "run_by": "Public",
   "url": "http://cetcell.mahacet.org",
   "eligibility": "50% in 12th with Physics, Biology/Mathematics and Chemistry",
-  "fee_display": "Rs. 800/-",
-  "fee_number": 800,
-  "test_month": "May",
-  "test_month_n": 5,
-  "apply_month": "March",
-  "apply_month_n": 3,
-  "forms_out": "2nd week of March",
-  "last_date": "1st week of April",
-  "test_date": "Multiple dates in May",
+  "fee_display": "Rs. 1300/- (Rs. 2600/- for both attempts)",
+  "fee_number": 1300,
+  "test_month": "April",
+  "test_month_n": 4,
+  "apply_month": "January",
+  "apply_month_n": 1,
+  "forms_out": "2nd week of January",
+  "last_date": "2nd week of February",
+  "test_date": "April (1st attempt) & May (2nd attempt)",
   "mode": "Computer Based",
   "duration": "180 Minutes (2 shifts)",
   "marking": "+1/-0",
@@ -6806,7 +7072,7 @@
    ]
   ],
   "pattern_note": null,
-  "remarks": "Candidates have to choose to appear between Maths or Biology.",
+  "remarks": "Held twice a year. 1st attempt is compulsory, 2nd is optional; the better score counts. Candidates have to choose to appear between Maths or Biology.",
   "replaces": null,
   "aliases": null,
   "predictor_exam": "MHT CET",
@@ -6829,7 +7095,17 @@
     "slug": "mechanical-mechatronics-engineering"
    }
   ],
-  "colleges_link": "/colleges?exam=MHT CET"
+  "colleges_link": "/colleges?exam=MHT CET",
+  "applicants": {
+   "count": 763395,
+   "year": 2026,
+   "source": "https://news.careers360.com/maharashtra-cet-2026-records-highest-ever-participation-with-16-29-lakh-mat-pcm-pcb-mba-mms-20-entrance-exam-statistics"
+  },
+  "acceptance": {
+   "pct": 42.41,
+   "basis": "2026 engineering CAP seats / 2026 PCM-group 1st-attempt registrants (479332)",
+   "source": "https://news.careers360.com/mht-cet-counselling-2026-1-52-lakh-students-admitted-after-cap-round-4-engineering-admissions-50000-seats-vacant-maharashtra"
+  }
  },
  {
   "exam_id": "mitid-dat",
@@ -6874,7 +7150,9 @@
     "slug": "design"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "mitwpu-as",
@@ -6919,7 +7197,9 @@
     "slug": "arts"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "mitwpu-cet",
@@ -7016,7 +7296,9 @@
     "slug": "computer-science-information-technology"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "mitwpu-ug-dat",
@@ -7094,7 +7376,9 @@
     "slug": "design"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "mp-pat",
@@ -7156,7 +7440,9 @@
     "slug": "agriculture"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "mp-pv-ft",
@@ -7219,7 +7505,9 @@
     "slug": "agriculture"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "msu-et",
@@ -7293,7 +7581,9 @@
     "slug": "physics"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "nata",
@@ -7338,7 +7628,9 @@
     "slug": "architecture"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "nchm-jee",
@@ -7359,41 +7651,41 @@
   "eligibility": "10+2 any stream",
   "fee_display": "Rs. 1000/-",
   "fee_number": 1000,
-  "test_month": "May",
-  "test_month_n": 5,
-  "apply_month": "February",
-  "apply_month_n": 2,
-  "forms_out": "2nd week of February",
-  "last_date": "Last week of April",
-  "test_date": "Mid May",
-  "mode": null,
-  "duration": null,
+  "test_month": "April",
+  "test_month_n": 4,
+  "apply_month": "December",
+  "apply_month_n": 12,
+  "forms_out": "Last week of December",
+  "last_date": "Last week of January",
+  "test_date": "Last week of April",
+  "mode": "Online",
+  "duration": "120 Minutes",
   "marking": "+4/-1",
   "pattern": "Numerical Ability and Analytical Aptitude Reasoning and Logical Deduction GK & CA English Language Aptitude for Service Sector Total",
   "pattern_rows": [
    [
     "Numerical Ability and Analytical Aptitude",
-    "30 questions (120 marks)"
+    "15 questions (60 marks)"
    ],
    [
     "Reasoning and Logical Deduction",
-    "30 questions (120 marks)"
+    "15 questions (60 marks)"
    ],
    [
     "GK & CA",
-    "30 questions (120 marks)"
+    "15 questions (60 marks)"
    ],
    [
     "English Language",
-    "60 questions (240 marks)"
+    "45 questions (180 marks)"
    ],
    [
     "Aptitude for Service Sector",
-    "50 questions (200 marks)"
+    "30 questions (120 marks)"
    ],
    [
     "Total",
-    "200 questions (800 marks)"
+    "120 questions (480 marks)"
    ]
   ],
   "pattern_note": null,
@@ -7408,7 +7700,9 @@
     "slug": "hotel-management"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "nda",
@@ -7484,7 +7778,9 @@
     "slug": "indian-air-force-officer"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "neet-ug",
@@ -7513,51 +7809,31 @@
   "fee_number": 1700,
   "test_month": "May",
   "test_month_n": 5,
-  "apply_month": "March",
-  "apply_month_n": 3,
-  "forms_out": "1st week of March",
-  "last_date": "Mid April",
+  "apply_month": "February",
+  "apply_month_n": 2,
+  "forms_out": "2nd week of February",
+  "last_date": "2nd week of March",
   "test_date": "1st week of May",
   "mode": "Pen & Paper Based",
   "duration": "180 Minutes",
   "marking": "+4/-1",
-  "pattern": "Physics Section A Section B Chemistry Section A Section B Botany Section A Section B Zoology Section A Section B Total",
+  "pattern": "Physics Chemistry Biology (Botany & Zoology) Total",
   "pattern_rows": [
    [
-    "Physics \u2014 Section A",
-    "35 questions (140 marks)"
+    "Physics",
+    "45 questions (180 marks)"
    ],
    [
-    "Physics \u2014 Section B",
-    "15 questions (40 marks)"
+    "Chemistry",
+    "45 questions (180 marks)"
    ],
    [
-    "Chemistry \u2014 Section A",
-    "35 questions (140 marks)"
-   ],
-   [
-    "Chemistry \u2014 Section B",
-    "15 questions (40 marks)"
-   ],
-   [
-    "Botany \u2014 Section A",
-    "35 questions (140 marks)"
-   ],
-   [
-    "Botany \u2014 Section B",
-    "15 questions (40 marks)"
-   ],
-   [
-    "Zoology \u2014 Section A",
-    "35 questions (140 marks)"
-   ],
-   [
-    "Zoology \u2014 Section B",
-    "15 questions (40 marks)"
+    "Biology (Botany & Zoology)",
+    "90 questions (360 marks)"
    ],
    [
     "Total",
-    "200 questions (720 marks)"
+    "180 questions (720 marks)"
    ]
   ],
   "pattern_note": null,
@@ -7592,7 +7868,17 @@
     "slug": "nursing"
    }
   ],
-  "colleges_link": "/colleges?exam=NEET-UG"
+  "colleges_link": "/colleges?exam=NEET-UG",
+  "applicants": {
+   "count": 2279743,
+   "year": 2026,
+   "source": "https://www.businesstoday.in/amp/education/exams/story/neet-ug-2026-results-out-11-21-lakh-qualify-punjab-and-haryana-students-top-with-715-out-of-720-543498-2026-07-17"
+  },
+  "acceptance": {
+   "pct": 9.71,
+   "basis": "MBBS+BDS+AYUSH seats / 2026 NEET-UG registrants",
+   "source": "https://medicaldialogues.in/amp/news/education/140664-mbbs-seats-across-839-medical-colleges-for-2026-27-127028-renewed-13186-increased-nmc-updates-seat-matrix-179737"
+  }
  },
  {
   "exam_id": "nest",
@@ -7666,7 +7952,9 @@
     "slug": "mathematics"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "net",
@@ -7727,7 +8015,9 @@
   "predictor_exam": null,
   "open_data_id": null,
   "careers": null,
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "niift-caft",
@@ -7772,7 +8062,9 @@
     "slug": "design"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "nmims-audition",
@@ -7812,7 +8104,9 @@
   "predictor_exam": null,
   "open_data_id": null,
   "careers": null,
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "nmims-cet",
@@ -7900,7 +8194,9 @@
     "slug": "civil-engineering"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "nmims-dat",
@@ -7945,7 +8241,9 @@
     "slug": "design"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "nmims-lat",
@@ -8015,7 +8313,9 @@
     "slug": "law-llb"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "nmims-npat",
@@ -8100,7 +8400,9 @@
     "slug": "hotel-management"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "nsuee",
@@ -8140,7 +8442,9 @@
   "predictor_exam": null,
   "open_data_id": null,
   "careers": null,
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "ojee",
@@ -8165,11 +8469,11 @@
   "fee_number": 1000,
   "test_month": "May",
   "test_month_n": 5,
-  "apply_month": "February",
-  "apply_month_n": 2,
-  "forms_out": "2nd week of February",
-  "last_date": "3rd week of March",
-  "test_date": "Mid May",
+  "apply_month": "January",
+  "apply_month_n": 1,
+  "forms_out": "Last week of January",
+  "last_date": "4th week of March",
+  "test_date": "1st week of May",
   "mode": "Online",
   "duration": "60 Minutes",
   "marking": "+4/-1",
@@ -8220,7 +8524,13 @@
     "slug": "civil-engineering"
    }
   ],
-  "colleges_link": "/colleges?exam=OJEE"
+  "colleges_link": "/colleges?exam=OJEE",
+  "applicants": {
+   "count": 103434,
+   "year": 2026,
+   "source": "https://inpr.odisha.gov.in/sites/default/files/2026-06/News_OJEE_08062026EEEE.pdf"
+  },
+  "acceptance": null
  },
  {
   "exam_id": "ouat",
@@ -8284,7 +8594,9 @@
     "slug": "agriculture"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "para-cet-124",
@@ -8342,7 +8654,9 @@
   "predictor_exam": null,
   "open_data_id": null,
   "careers": null,
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "pau-cet",
@@ -8426,7 +8740,9 @@
     "slug": "civil-engineering"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "pdeu-at",
@@ -8471,7 +8787,9 @@
     "slug": "arts"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "pgimer-ee",
@@ -8518,7 +8836,9 @@
     "slug": "nursing"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "pharma-cet-133",
@@ -8584,7 +8904,9 @@
     "slug": "pharmacy"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "pu-llb-cet",
@@ -8646,7 +8968,9 @@
     "slug": "law-llb"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "pu-5-year-llb-et",
@@ -8712,7 +9036,9 @@
     "slug": "law-llb"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "pu-cet",
@@ -8793,7 +9119,9 @@
     "slug": "mathematics"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "pwc-et",
@@ -8877,7 +9205,9 @@
     "slug": "physics"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "rjet",
@@ -8949,7 +9279,9 @@
     "slug": "agriculture"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "rulet",
@@ -8994,7 +9326,9 @@
     "slug": "law-llb"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "seed",
@@ -9039,7 +9373,9 @@
     "slug": "design"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "set-general",
@@ -9129,7 +9465,9 @@
     "slug": "chemistry"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "siteee",
@@ -9203,7 +9541,9 @@
     "slug": "civil-engineering"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "skuast-j-cet",
@@ -9267,7 +9607,9 @@
     "slug": "agriculture"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "skuast-k-cet",
@@ -9331,7 +9673,9 @@
     "slug": "agriculture"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "slat",
@@ -9401,7 +9745,9 @@
     "slug": "law-llb"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "smat-ug",
@@ -9464,7 +9810,9 @@
   "predictor_exam": null,
   "open_data_id": null,
   "careers": null,
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "smeat-ug",
@@ -9509,7 +9857,9 @@
     "slug": "design"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "snioe-dat",
@@ -9571,7 +9921,9 @@
     "slug": "design"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "snusat",
@@ -9637,7 +9989,9 @@
     "slug": "chemistry"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "snusat-apt",
@@ -9694,7 +10048,9 @@
     "slug": "civil-engineering"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "soetap-ug",
@@ -9744,7 +10100,9 @@
     "slug": "nursing"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "soft-et",
@@ -9810,7 +10168,9 @@
     "slug": "design"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "sppu-oee",
@@ -9891,7 +10251,9 @@
     "slug": "mechanical-mechatronics-engineering"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "srmjee-l-ug",
@@ -9961,7 +10323,9 @@
     "slug": "law-llb"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "srmjeee-ug",
@@ -10050,7 +10414,9 @@
     "slug": "electrical-electronics-communications-engineering"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "srmjeeh-ug",
@@ -10120,7 +10486,9 @@
     "slug": "nursing"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "sru-aiee",
@@ -10198,7 +10566,9 @@
     "slug": "civil-engineering"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "sru-ee-group-a",
@@ -10238,7 +10608,9 @@
   "predictor_exam": null,
   "open_data_id": null,
   "careers": null,
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "sssihl-ugt",
@@ -10329,7 +10701,9 @@
     "slug": "physics"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "step",
@@ -10374,7 +10748,9 @@
     "slug": "hotel-management"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "tg-eapcet-am",
@@ -10397,15 +10773,15 @@
   "run_by": "Public",
   "url": "https://eamcet.tsche.ac.in/",
   "eligibility": "10+2 in Science",
-  "fee_display": "Rs. 800/-",
-  "fee_number": 800,
+  "fee_display": "Rs. 900/-",
+  "fee_number": 900,
   "test_month": "May",
   "test_month_n": 5,
-  "apply_month": "March",
-  "apply_month_n": 3,
-  "forms_out": "1st week of March",
-  "last_date": "2nd week of April",
-  "test_date": "2nd week of May",
+  "apply_month": "February",
+  "apply_month_n": 2,
+  "forms_out": "3rd week of February",
+  "last_date": "1st week of April",
+  "test_date": "1st week of May",
   "mode": "Computer Based",
   "duration": "180 Minutes",
   "marking": "+1/-0",
@@ -10458,7 +10834,13 @@
     "slug": "civil-engineering"
    }
   ],
-  "colleges_link": "/colleges?exam=TG-EAPCET"
+  "colleges_link": "/colleges?exam=TG-EAPCET",
+  "applicants": {
+   "count": 90977,
+   "year": 2026,
+   "source": "https://www.freepressjournal.in/education/tg-eapcet-2026-results-out-over-3-lakh-candidates-can-check-rank-cards-online"
+  },
+  "acceptance": null
  },
  {
   "exam_id": "tg-eapcet-e",
@@ -10480,14 +10862,14 @@
   "run_by": "Public",
   "url": "https://eamcet.tsche.ac.in/",
   "eligibility": "10+2 in Science",
-  "fee_display": "Rs. 800/-",
-  "fee_number": 800,
+  "fee_display": "Rs. 900/-",
+  "fee_number": 900,
   "test_month": "May",
   "test_month_n": 5,
-  "apply_month": "March",
-  "apply_month_n": 3,
-  "forms_out": "1st week of March",
-  "last_date": "2nd week of April",
+  "apply_month": "February",
+  "apply_month_n": 2,
+  "forms_out": "3rd week of February",
+  "last_date": "1st week of April",
   "test_date": "2nd week of May",
   "mode": "Computer Based",
   "duration": "180 Minutes",
@@ -10537,7 +10919,17 @@
     "slug": "civil-engineering"
    }
   ],
-  "colleges_link": "/colleges?exam=TG-EAPCET"
+  "colleges_link": "/colleges?exam=TG-EAPCET",
+  "applicants": {
+   "count": 210766,
+   "year": 2026,
+   "source": "https://www.freepressjournal.in/education/tg-eapcet-2026-results-out-over-3-lakh-candidates-can-check-rank-cards-online"
+  },
+  "acceptance": {
+   "pct": 41.78,
+   "basis": "2026 Phase-1 convener engineering seats / 2026 TG EAPCET engineering registrants",
+   "source": "https://www.deccanchronicle.com/southern-states/telangana/79313-seats-allotted-in-eapcet-mock-round-1968483"
+  }
  },
  {
   "exam_id": "tslas-ot",
@@ -10582,7 +10974,9 @@
     "slug": "arts"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "uceed",
@@ -10648,7 +11042,9 @@
     "slug": "design"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "ug-jet",
@@ -10747,7 +11143,9 @@
     "slug": "economics"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "ugat",
@@ -10779,8 +11177,8 @@
   "apply_month": "February",
   "apply_month_n": 2,
   "forms_out": "1st week of February",
-  "last_date": "3rd week of June",
-  "test_date": "Last week of June",
+  "last_date": "1st week of June",
+  "test_date": "2nd week of June",
   "mode": "Offline",
   "duration": "120 Minutes",
   "marking": "+1/-0.25",
@@ -10831,7 +11229,9 @@
     "slug": "commerce"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "uget",
@@ -10897,7 +11297,9 @@
     "slug": "horticulture"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "uid-dat",
@@ -10975,7 +11377,9 @@
     "slug": "design"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "ulsat",
@@ -11045,7 +11449,9 @@
     "slug": "law-llb"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "up-catet",
@@ -11157,7 +11563,13 @@
     "slug": "agriculture"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": {
+   "count": 18827,
+   "year": 2026,
+   "source": "https://news.careers360.com/upcatet-result-2026-out-toppers-kavya-masih-ug-shivam-yadav-pg-aman-singh-phd-banda-agricultural-university"
+  },
+  "acceptance": null
  },
  {
   "exam_id": "upesdat",
@@ -11211,7 +11623,9 @@
     "slug": "design"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "upeseat-exam-test-centre-based",
@@ -11293,7 +11707,9 @@
     "slug": "civil-engineering"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "upeseat-test-online",
@@ -11371,7 +11787,9 @@
     "slug": "civil-engineering"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "upesmet-ug",
@@ -11416,7 +11834,9 @@
     "slug": "business-administration-bba-mba"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "upespat-exam-test-centre-based",
@@ -11486,7 +11906,9 @@
     "slug": "pharmacy"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "upespat-test-online",
@@ -11552,7 +11974,9 @@
     "slug": "pharmacy"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "upsc-cds",
@@ -11607,7 +12031,9 @@
     "slug": "indian-air-force-officer"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "uuhf-uet",
@@ -11669,7 +12095,9 @@
     "slug": "agriculture"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "viteee",
@@ -11756,7 +12184,9 @@
     "slug": "civil-engineering"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "vsat",
@@ -11810,7 +12240,9 @@
     "slug": "arts"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "wb-jenpas-ug",
@@ -11878,7 +12310,9 @@
     "slug": "nursing"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "wbjee",
@@ -11902,16 +12336,16 @@
   "eligibility": "10+2 with PCM",
   "fee_display": "Rs. 500/-",
   "fee_number": 500,
-  "test_month": "April",
-  "test_month_n": 4,
-  "apply_month": "December",
-  "apply_month_n": 12,
-  "forms_out": "3rd week of December",
-  "last_date": "3rd week of January",
-  "test_date": "Last week of April",
+  "test_month": "May",
+  "test_month_n": 5,
+  "apply_month": "March",
+  "apply_month_n": 3,
+  "forms_out": "2nd week of March",
+  "last_date": "2nd week of April",
+  "test_date": "4th week of May",
   "mode": "Offline",
   "duration": "120 + 120 Minutes",
-  "marking": "C1 +1/-0.2, C2 +2/-0.25, For C3\u2013 one or more options may be correct so +2 shall be given only if both the options are marked correct. For partial correct answer, marks given shall be 2 x (no. of correct answers marked + total no. of correct options.)",
+  "marking": "Category 1: +1/-0.25, Category 2: +2/-0.5, Category 3: +2, no negative (one or more options correct; part marks if only some correct options marked). Pharmacy Merit Rank is based on Paper 2 only.",
   "pattern": "Paper 1 - Maths Category 1 Category 2 Category 3 Paper 2 - Physics Category 1 Category 2 Category 3 Paper 2 -Chemistry Category 1 Category 2 Category 3 Total",
   "pattern_rows": [
    [
@@ -11979,7 +12413,17 @@
     "slug": "mechanical-mechatronics-engineering"
    }
   ],
-  "colleges_link": "/colleges?exam=WBJEE"
+  "colleges_link": "/colleges?exam=WBJEE",
+  "applicants": {
+   "count": 120856,
+   "year": 2026,
+   "source": "https://news.careers360.com/wbjee-toppers-list-2026-merit-list-out-wbjeeb-nic-in-shaswat-banerjee-tops-exam-btech-engineering-admissions-counselling"
+  },
+  "acceptance": {
+   "pct": 28.01,
+   "basis": "2026 WBJEEB engineering counselling seats / 2026 WBJEE registrants",
+   "source": "https://www.pw.live/wbbse/exams/wbjee-2026-decentralised-counselling-seat-matrix-registration-choice-filling"
+  }
  },
  {
   "exam_id": "wwi-et",
@@ -12044,7 +12488,9 @@
     "slug": "design"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "xet",
@@ -12112,7 +12558,9 @@
     "slug": "business-administration-bba-mba"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "idat",
@@ -12157,7 +12605,9 @@
     "slug": "design"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  },
  {
   "exam_id": "imat-iiad-management-aptitude-test-delhi",
@@ -12202,6 +12652,8 @@
     "slug": "business-administration-bba-mba"
    }
   ],
-  "colleges_link": null
+  "colleges_link": null,
+  "applicants": null,
+  "acceptance": null
  }
 ]

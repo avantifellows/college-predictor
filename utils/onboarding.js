@@ -1,5 +1,6 @@
 import { PREDICTOR_EXAMS } from "./predictorRoutes";
 import { CV_URL } from "./siteMap";
+import { finderStream } from "./backupFinder";
 
 // "Get started": a few questions (class, stream + state, exam), then the
 // homepage becomes a short plan of the site's own tools in the order that
@@ -24,7 +25,8 @@ import { CV_URL } from "./siteMap";
 //
 // Class 12 and gap-year students get the admission plan (predict, mock,
 // backups) while results and counselling are on (15 April to 30 September)
-// and the preparation plan (cutoffs, backup exams, their cutoffs) the rest of
+// and the preparation plan (cutoffs, then backup exams with their cutoffs:
+// one finder step for science streams, utils/backupFinder.js) the rest of
 // the year. Class 11 always prepares.
 //
 // A guest's answers stay in this browser. A signed-in student's are saved
@@ -534,6 +536,7 @@ export function planFor(a, season) {
   // goes better.
   if (a.cls === "11" || !inSeason) {
     const gapYear = a.cls === "drop";
+    const finder = finderStream(a.stream);
     const backups = backupsFor(a);
     const names = backups.map((k) => COUNSELLING_LABEL[k] || examName(k));
     return {
@@ -567,6 +570,8 @@ export function planFor(a, season) {
           ? // no mock for this exam: the careers it leads to, as results
             // season does (NEET: more than MBBS)
             mock || careers(a.stream)
+          : finder
+          ? null
           : {
               id: "backup-exams",
               star: "exam",
@@ -578,13 +583,23 @@ export function planFor(a, season) {
               line: "Other exams that can get you into a good college",
               href: `/exams${q({ where: a.state })}`,
             },
-        backups.length && {
-          id: "backup-cutoffs",
-          uses: backups.map((k) => `predictor:${k}`),
-          title: "See backup exam cutoffs",
-          line: `Cutoffs for ${listText(names.slice(0, 2))}`,
-          href: backupHref(backups, a.state, "full"),
+        // science streams: one step, a few questions, then the backup
+        // exams that fit with their cutoffs (/backup-exams)
+        finder && {
+          id: "backup-finder",
+          uses: ["backup-finder"],
+          title: "Find backup exams",
+          line: "Answer 3 questions, see the exams to take",
+          href: `/backup-exams${q({ stream: a.stream, state: a.state })}`,
         },
+        !finder &&
+          backups.length && {
+            id: "backup-cutoffs",
+            uses: backups.map((k) => `predictor:${k}`),
+            title: "See backup exam cutoffs",
+            line: `Cutoffs for ${listText(names.slice(0, 2))}`,
+            href: backupHref(backups, a.state, "full"),
+          },
         scholarships(grade, a.state),
       ].filter(Boolean),
     };
@@ -669,6 +684,7 @@ const STEP_HERO = {
     em: "backup exam",
     after: " options",
   },
+  "backup-finder": { before: "Find your ", em: "backup exams", after: "" },
   "backup-cutoffs": {
     before: "See ",
     em: "cutoffs",

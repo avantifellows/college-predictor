@@ -865,6 +865,11 @@
   "Photography": [
    "Art / Drawing"
   ],
+  "Physical Education Teaching": [
+   "Sports",
+   "Biology",
+   "Languages"
+  ],
   "Physics": [
    "Physics",
    "Maths"
@@ -888,6 +893,9 @@
   ],
   "Polymer Technology": [
    "Chemistry"
+  ],
+  "Professional Athlete (Sports Quota and Khelo India)": [
+   "Sports"
   ],
   "Prosthetics and Orthotics": [
    "Biology",
@@ -943,9 +951,33 @@
    "Biology",
    "Languages"
   ],
+  "Sports Analytics and Performance Analysis": [
+   "Maths",
+   "Sports",
+   "Computer Science"
+  ],
   "Sports Coaching and Athletics": [
    "Sports",
    "Biology"
+  ],
+  "Sports Journalism and Broadcasting": [
+   "Sports",
+   "Languages"
+  ],
+  "Sports Management": [
+   "Sports",
+   "Economics / Accountancy",
+   "Languages"
+  ],
+  "Sports Psychology": [
+   "Sports",
+   "Biology",
+   "Languages"
+  ],
+  "Sports Science and Exercise Physiology": [
+   "Sports",
+   "Biology",
+   "Chemistry"
   ],
   "Surveying": [
    "Geography",

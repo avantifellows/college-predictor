@@ -5346,5 +5346,93 @@
    ]
   ],
   "note": "Each subject has 20 MCQs and 5 questions answered with a number, all compulsory. Wrong answers lose 1 mark in both."
+ },
+ "24dec2e229": {
+  "rows": [
+   [
+    "Paper 1",
+    "Physics, Chemistry, Maths (180 marks)"
+   ],
+   [
+    "Paper 2",
+    "Physics, Chemistry, Maths (180 marks)"
+   ],
+   [
+    "Total",
+    "360 marks"
+   ]
+  ],
+  "note": ""
+ },
+ "eee99d1dca": {
+  "rows": [
+   [
+    "Mathematics",
+    "75 questions (300 marks)"
+   ],
+   [
+    "Physics",
+    "45 questions (180 marks)"
+   ],
+   [
+    "Chemistry",
+    "30 questions (120 marks)"
+   ],
+   [
+    "Total",
+    "150 questions (600 marks)"
+   ]
+  ],
+  "note": ""
+ },
+ "6ff21812d3": {
+  "rows": [
+   [
+    "Numerical Ability and Analytical Aptitude",
+    "15 questions (60 marks)"
+   ],
+   [
+    "Reasoning and Logical Deduction",
+    "15 questions (60 marks)"
+   ],
+   [
+    "GK & CA",
+    "15 questions (60 marks)"
+   ],
+   [
+    "English Language",
+    "45 questions (180 marks)"
+   ],
+   [
+    "Aptitude for Service Sector",
+    "30 questions (120 marks)"
+   ],
+   [
+    "Total",
+    "120 questions (480 marks)"
+   ]
+  ],
+  "note": ""
+ },
+ "cd6a0ca568": {
+  "rows": [
+   [
+    "Physics",
+    "45 questions (180 marks)"
+   ],
+   [
+    "Chemistry",
+    "45 questions (180 marks)"
+   ],
+   [
+    "Biology (Botany & Zoology)",
+    "90 questions (360 marks)"
+   ],
+   [
+    "Total",
+    "180 questions (720 marks)"
+   ]
+  ],
+  "note": ""
  }
 }

@@ -22,6 +22,7 @@ from collections import defaultdict
 import pandas as pd
 
 SRC = "data-sources/exams_cleaned.csv"
+APPLICANTS = "data-sources/exam_applicants.csv"
 OUT = "public/data/exams/exams.json"
 # careers this exam leads to: predictor key -> exam_branch_mapping family ->
 # branches -> the career named after each branch (career_streams.csv), the
@@ -305,6 +306,30 @@ def main():
             card["colleges_link"] = f"/colleges?exam={acro}"
         else:
             card["colleges_link"] = None
+
+    # how many apply, and what share of them get a seat (sourced, one row
+    # per exam: data-sources/exam_applicants.csv). The homepage's backup-exam
+    # finder ranks exams by `applicants`, most first.
+    app = pd.read_csv(APPLICANTS, dtype={"exam_id": "string"})
+    by_id = {c["exam_id"]: c for c in cards}
+    unknown = sorted(set(app.exam_id.dropna()) - set(by_id))
+    assert not unknown, f"{APPLICANTS}: exam ids with no card: {unknown}"
+    for c in cards:
+        c["applicants"] = None
+        c["acceptance"] = None
+    for r in app.itertuples():
+        c = by_id.get(r.exam_id)
+        n = r.applicants_registered if r.applicants_registered == r.applicants_registered \
+            else r.applicants_appeared
+        if c is None or n != n:
+            continue
+        c["applicants"] = {"count": int(n), "year": int(r.applicants_year),
+                           "source": r.source_applicants_url}
+        if r.acceptance_rate_pct == r.acceptance_rate_pct:
+            c["acceptance"] = {"pct": float(r.acceptance_rate_pct), "basis": r.acceptance_basis,
+                               "source": r.source_seats_url}
+    print("with applicants:", sum(1 for c in cards if c["applicants"]),
+          " with acceptance rate:", sum(1 for c in cards if c["acceptance"]))
 
     # exam_id is the React key and the expand toggle — a duplicate breaks both
     ids = [c["exam_id"] for c in cards]
