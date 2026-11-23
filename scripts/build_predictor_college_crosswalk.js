@@ -69,16 +69,24 @@ for (const key of new Set(
   if (!cfg?.getDataPath) continue;
   const cats = (cfg.fields || []).find((f) => f.name === "category")?.options;
   const files = new Set();
+  // JoSAA's files are named by the label ("OBC-NCL (PwD).json"), not the
+  // value ("obc_ncl_pwd"); try both. A Mac finds "open.json" as OPEN.json,
+  // Linux (CI) does not, so the value alone gave a different file there
   for (const o of cats?.length ? cats : [undefined]) {
-    try {
-      files.add(cfg.getDataPath(o && typeof o === "object" ? o.value : o));
-    } catch {
-      /* a category with no file */
+    for (const v of o && typeof o === "object" ? [o.value, o.label] : [o]) {
+      try {
+        files.add(cfg.getDataPath(v));
+      } catch {
+        /* a category with no file */
+      }
     }
   }
   const seen = new Set();
   for (const f of files) {
-    if (!fs.existsSync(f)) continue;
+    // exact name only: a Mac's disk ignores case, CI's does not
+    const dir = path.dirname(f);
+    if (!fs.existsSync(dir) || !fs.readdirSync(dir).includes(path.basename(f)))
+      continue;
     const rows = JSON.parse(fs.readFileSync(f, "utf8"));
     if (!Array.isArray(rows)) continue;
     for (const r of rows) {
