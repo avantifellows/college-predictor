@@ -73,7 +73,7 @@ const STATE_EXAM = {
   "Tamil Nadu": "TNEA",
 };
 // state counsellings that take a JEE Main rank, by the student's state
-const JEE_STATE_COUNSELLINGS = {
+export const JEE_STATE_COUNSELLINGS = {
   Delhi: ["JEE Main-JAC"],
   Chandigarh: ["JAC Chandigarh"],
   Punjab: ["JAC Chandigarh"],
@@ -360,7 +360,7 @@ function backupsFor(a) {
     (k) => k !== main
   );
 }
-const COUNSELLING_LABEL = {
+export const COUNSELLING_LABEL = {
   "JEE Main-JAC": "JAC Delhi",
   "JAC Chandigarh": "JAC Chandigarh",
   UPTAC: "UPTAC",
@@ -434,9 +434,10 @@ export function resultsSeason(now = new Date()) {
 
 // full cutoff list for an exam (JoSAA's home-state field takes the state's
 // name as it is)
-export const cutoffsHref = (key, state) =>
+export const cutoffsHref = (key, state, stream) =>
   `/predictor${q({
     exam: key,
+    stream,
     view: "full",
     homeState: key === "JoSAA" ? state : undefined,
   })}`;
@@ -587,7 +588,15 @@ export function planFor(a, season) {
         // exams that fit with their cutoffs (/backup-exams)
         finder && {
           id: "backup-finder",
-          uses: ["backup-finder"],
+          // the old steps' ways of finishing still count: another exam's
+          // page, a backup's cutoffs, a starred exam
+          uses: [
+            "backup-finder",
+            "exam:*",
+            ...backups.map((k) => `predictor:${k}`),
+          ],
+          usesExcept: info.page ? [`exam:${info.page}`] : [],
+          star: "exam",
           title: "Find backup exams",
           line: "Answer 3 questions, see the exams to take",
           href: `/backup-exams${q({ stream: a.stream, state: a.state })}`,

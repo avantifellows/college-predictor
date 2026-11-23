@@ -6,20 +6,28 @@ import { ArrowRight } from "lucide-react";
 import BackLink from "../components/BackLink";
 import { RunByTag, loadExams } from "../components/examShared";
 import useGetStarted, { useRecordUse } from "../utils/useGetStarted";
-import { cutoffsHref, examsOf } from "../utils/onboarding";
+import {
+  COUNSELLING_LABEL,
+  JEE_STATE_COUNSELLINGS,
+  cutoffsHref,
+  examsOf,
+} from "../utils/onboarding";
+import { keyStreams } from "../utils/predictorRoutes";
 import {
   COLLEGE_PREFS,
   PLACE_PREFS,
   backupExams,
-  chanceText,
   fieldOptions,
+  fieldStream,
   finderStream,
   peopleCount,
 } from "../utils/backupFinder";
 
 // The plan's backup step: three quick questions, then the five exams that
 // fit, most applicants first, each with its page and (where Futures has
-// them) its cutoffs. Stream, state and main exams come from Get started;
+// them) its cutoffs for that stream. Where JEE Main itself fills the
+// state's seats (UPTAC, JAC Delhi), engineering says so first. Stream, state
+// and main exams come from Get started;
 // /backup-exams?stream=pcm&state=Bihar works without them.
 
 function Chip({ o, on, onPick }) {
@@ -93,16 +101,42 @@ export default function BackupExams() {
 
   // the exams the student already takes are never their backup
   const mainKeys = examsOf(answers).filter((k) => k !== "unsure");
-  const results = useMemo(() => {
+  const found = useMemo(() => {
     if (!exams) return null;
     const mainIds = exams
       .filter((e) => e.predictor_exam && mainKeys.includes(e.predictor_exam))
       .map((e) => e.exam_id);
-    return backupExams(exams, { ...pick, state }, mainIds);
+    return backupExams(exams, { ...pick, state, stream }, mainIds);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [exams, pick.college, pick.place, pick.field, state, mainKeys.join()]);
+  }, [
+    exams,
+    pick.college,
+    pick.place,
+    pick.field,
+    state,
+    stream,
+    mainKeys.join(),
+  ]);
+  const results = found?.exams;
   const ready = !!(pick.college && pick.place && pick.field);
   useRecordUse("backup-finder", ready && !!results?.length);
+  const examsById = useMemo(
+    () => Object.fromEntries((exams || []).map((e) => [e.exam_id, e])),
+    [exams]
+  );
+  const want = fieldStream(pick.field);
+  // cutoffs only where the predictor has this stream's
+  const cutoffsFor = (key) =>
+    key && keyStreams(key, examsById).includes(want)
+      ? cutoffsHref(key, state, want)
+      : null;
+  // JEE Main ranks that fill this state's own engineering seats
+  const viaJee =
+    pick.field === "eng" && pick.place !== "national"
+      ? (JEE_STATE_COUNSELLINGS[state] || []).filter(
+          (k) => pick.college !== "private" || k === "WBJEE JEE Main"
+        )
+      : [];
 
   return (
     <>
@@ -154,6 +188,28 @@ export default function BackupExams() {
               <h2 className="text-lg font-black text-[#2f2320]">
                 Exams to consider
               </h2>
+              {viaJee.length ? (
+                <p className="mt-2 rounded-xl bg-[#fdf1ef] px-4 py-3 text-sm text-[#2f2320]">
+                  Your JEE Main rank also gets you into{" "}
+                  {viaJee.map((k, i) => (
+                    <React.Fragment key={k}>
+                      {i ? " and " : ""}
+                      <Link
+                        href={cutoffsHref(k, state, want)}
+                        className="font-bold text-[#B52326]"
+                      >
+                        {COUNSELLING_LABEL[k] || k}
+                      </Link>
+                    </React.Fragment>
+                  ))}
+                  .
+                </p>
+              ) : null}
+              {found?.relaxed && results?.length ? (
+                <p className="mt-2 text-sm text-[#7a635d]">
+                  None match all three answers. The closest:
+                </p>
+              ) : null}
               {failed ? (
                 <p className="mt-2 text-sm text-[#7a635d]">
                   Couldn&apos;t load the exams. Try again in a moment.
@@ -162,21 +218,17 @@ export default function BackupExams() {
                 <p className="mt-2 text-sm text-[#7a635d]">Loading…</p>
               ) : !results.length ? (
                 <p className="mt-2 text-sm text-[#7a635d]">
-                  No exams match. Try &ldquo;Either&rdquo; or &ldquo;No
-                  preference&rdquo;.
+                  No exams found for this stream.
                 </p>
               ) : (
-                <ol className="mt-3 flex flex-col gap-2.5">
-                  {results.map((e, i) => (
+                <ul className="mt-3 flex flex-col gap-2.5">
+                  {results.map((e) => (
                     <li
                       key={e.exam_id}
                       className="rounded-xl border-[1.5px] border-[#eaded8] bg-white px-4 py-3"
                     >
-                      <div className="flex items-start gap-3">
-                        <span className="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#f6ece9] text-xs font-black text-[#7a635d]">
-                          {i + 1}
-                        </span>
-                        <div className="min-w-0 flex-1">
+                      <div>
+                        <div className="min-w-0">
                           <Link
                             href={`/exams/${e.exam_id}`}
                             className="font-black text-[#2f2320] hover:text-[#B52326]"
@@ -188,11 +240,6 @@ export default function BackupExams() {
                             <p className="mt-0.5 text-[13px] text-[#7a635d]">
                               {peopleCount(e.applicants.count)} applied in{" "}
                               {e.applicants.year}
-                              {chanceText(e.acceptance?.pct)
-                                ? ` · ${chanceText(
-                                    e.acceptance.pct
-                                  )} got a seat`
-                                : ""}
                             </p>
                           ) : null}
                           <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm font-bold">
@@ -202,9 +249,9 @@ export default function BackupExams() {
                             >
                               About the exam <ArrowRight size={14} />
                             </Link>
-                            {e.predictor_exam ? (
+                            {cutoffsFor(e.predictor_exam) ? (
                               <Link
-                                href={cutoffsHref(e.predictor_exam, state)}
+                                href={cutoffsFor(e.predictor_exam)}
                                 className="inline-flex items-center gap-1 text-[#B52326]"
                               >
                                 See cutoffs <ArrowRight size={14} />
@@ -215,7 +262,7 @@ export default function BackupExams() {
                       </div>
                     </li>
                   ))}
-                </ol>
+                </ul>
               )}
             </section>
           ) : null}

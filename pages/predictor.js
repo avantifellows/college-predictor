@@ -183,7 +183,12 @@ const ExamForm = () => {
   useEffect(() => {
     const key = router.isReady && router.query.exam;
     if (!key || !examConfigs[key] || !examsById || counselling) return;
-    const route = routeForKey(String(key), examsById, router.query.examId);
+    const route = routeForKey(
+      String(key),
+      examsById,
+      router.query.examId,
+      router.query.stream
+    );
     if (!route) return;
     setStream(route.stream);
     setRouteExam(route.exam);
