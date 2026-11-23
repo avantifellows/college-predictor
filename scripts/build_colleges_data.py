@@ -1526,6 +1526,11 @@ AISHE_ID_PINS = {
     # KEA's engineering list prints DSU with its address; its pharmacy card
     # (merged in) matched AISHE by name
     "kcet:dayananda sagar university devarakaggalahalli village haroha": "U-0856",
+    # AISHE spells it Dhanwantari (Chikkabanavara, Bengaluru Urban) and
+    # files Aland's under its trust's name; the town check rightly drops
+    # the Belagavi namesake but can't match these by name
+    "kcet:dhanvantri college pharmacy bengaluru": "C-72656",
+    "kcet:dhanvantri college pharmacy kalaburagi": "C-66642",
     "ap-eapcet:AVEV": "C-17993",   # Avanthi, Bhogapuram (Vizianagaram); AVEN is Narsipatnam
     "ap-eapcet:KISR": "C-17973",   # Kakinada Inst. of Technological Sciences, Ramachandrapuram
     "ap-eapcet:KTSP": "C-18020",   # Kakinada Inst. of Technology & Science, Peddapuram

@@ -170323,7 +170323,7 @@
  },
  {
   "college_id": "kcet:dhanvantri college pharmacy bengaluru",
-  "aishe_code": null,
+  "aishe_code": "C-72656",
   "name": "Dhanvantri College of Pharmacy, Bengaluru",
   "display_name": "Dhanvantri College of Pharmacy, Bengaluru",
   "state": "Karnataka",
@@ -170331,12 +170331,12 @@
   "district": "Bengaluru Urban",
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Pharmacy"
   ],
-  "year_established": null,
-  "website": null,
+  "year_established": 2023,
+  "website": "www.Dhanwantariinstitutions.com",
   "university": null,
   "entrance_exams": [
    "KCET"
@@ -170383,7 +170383,7 @@
  },
  {
   "college_id": "kcet:dhanvantri college pharmacy kalaburagi",
-  "aishe_code": null,
+  "aishe_code": "C-66642",
   "name": "Dhanvantri College of Pharmacy, Kalaburagi",
   "display_name": "Dhanvantri College of Pharmacy, Kalaburagi",
   "state": "Karnataka",
@@ -170391,12 +170391,12 @@
   "district": "Kalaburagi",
   "kind": null,
   "management": null,
-  "ownership": null,
+  "ownership": "Private",
   "disciplines": [
    "Pharmacy"
   ],
-  "year_established": null,
-  "website": null,
+  "year_established": 2016,
+  "website": "samatakalaburgi.in",
   "university": null,
   "entrance_exams": [
    "KCET"
