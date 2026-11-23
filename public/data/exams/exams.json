@@ -14,6 +14,8 @@
   "scope_state": null,
   "eligible_in": "All India",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://www.jeeadv.ac.in/",
   "eligibility": "10+2 with PCM and JEE-Main and ADVANCED Cleared",
   "fee_display": "Rs. 2600/-",
@@ -43,8 +45,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "aat-ashoka-aptitude-test-ashoka-university",
@@ -62,6 +63,8 @@
   "scope_state": "Haryana",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://www.ashoka.edu.in/",
   "eligibility": "10+2 any Stream",
   "fee_display": "No exam fee.",
@@ -112,8 +115,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "acet",
@@ -130,6 +132,8 @@
   "scope_state": "Maharashtra",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://adypu.edu.in/",
   "eligibility": "10+2 any stream",
   "fee_display": "Rs. 2000/-",
@@ -159,8 +163,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "afcat",
@@ -175,6 +178,8 @@
   "scope_state": null,
   "eligible_in": "All India",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://afcat.cdac.in/",
   "eligibility": "Flying: graduate/BE/BTech with Physics & Maths in Class 12, age 20-24. Ground Duty Technical: BE/BTech in notified branches, age 20-26. Ground Duty Non-Technical (Administration, Logistics, Accounts, Education): graduation with prescribed marks, age 20-26. Meteorology: postgraduate in notified science subjects.",
   "fee_display": "Rs. 550/- + GST (no fee for NCC Special Entry)",
@@ -214,8 +219,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "agricet",
@@ -232,6 +236,10 @@
   "scope_state": "Andhra Pradesh",
   "eligible_in": "Andhra Pradesh",
   "run_by": "Public",
+  "subjects": {
+   "_": "none"
+  },
+  "fills_private": false,
   "url": "https://angrau.ac.in/",
   "eligibility": "Two year Diploma in Agriculture/Seed Technology/Organic Farming from ANGRAU/PJTSAU.",
   "fee_display": "Rs. 1200/-",
@@ -261,8 +269,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "aihmct-cbt",
@@ -279,6 +286,8 @@
   "scope_state": "Karnataka",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "http://www.aihmctbangalore.edu.in/",
   "eligibility": "10+2 any stream",
   "fee_display": "Rs. 1000/-",
@@ -333,8 +342,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "aiims-ee",
@@ -352,6 +360,10 @@
   "scope_state": null,
   "eligible_in": "All India",
   "run_by": "Public",
+  "subjects": {
+   "_": "pcb"
+  },
+  "fills_private": false,
   "url": "https://aiimsexams.ac.in/",
   "eligibility": "10+2 with PCB",
   "fee_display": "Rs. 1500/-",
@@ -406,8 +418,7 @@
    }
   ],
   "colleges_link": "/colleges?exam=AIIMS-EE",
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "aiish-et",
@@ -424,6 +435,8 @@
   "scope_state": "Karnataka",
   "eligible_in": "All India",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://www.aiishmysore.in/",
   "eligibility": null,
   "fee_display": null,
@@ -448,8 +461,7 @@
   "open_data_id": null,
   "careers": null,
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "ail-let",
@@ -466,6 +478,8 @@
   "scope_state": "Punjab",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://www.ail.ac.in/",
   "eligibility": "10+2 any Stream",
   "fee_display": "Rs. 3000/-",
@@ -516,8 +530,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "ailet",
@@ -534,6 +547,8 @@
   "scope_state": "Delhi",
   "eligible_in": "All India",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://nationallawuniversitydelhi.in/",
   "eligibility": "10+2 any Stream",
   "fee_display": "Rs. 3500/-",
@@ -588,8 +603,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "amu-aat",
@@ -606,6 +620,8 @@
   "scope_state": "Uttar Pradesh",
   "eligible_in": "All India",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://www.amu.ac.in/",
   "eligibility": "10+2 with PCM",
   "fee_display": "Rs. 900/-",
@@ -635,8 +651,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "amu-et",
@@ -669,6 +684,8 @@
   "scope_state": "Uttar Pradesh",
   "eligible_in": "All India",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://www.amu.ac.in/",
   "eligibility": "10+2 with PCM/B",
   "fee_display": "Rs. 450/-",
@@ -743,8 +760,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "ap-eapcet-am-category",
@@ -763,6 +779,10 @@
   "scope_state": "Andhra Pradesh",
   "eligible_in": "Andhra Pradesh",
   "run_by": "Public",
+  "subjects": {
+   "_": "pcb"
+  },
+  "fills_private": true,
   "url": "https://sche.ap.gov.in/EAPCET",
   "eligibility": "10+2 in Science",
   "fee_display": "Rs. 600/-",
@@ -817,8 +837,7 @@
    "count": 79231,
    "year": 2026,
    "source": "https://news.careers360.com/ap-eamcet-2026-result-out-at-cets-apsche-ap-gov-in-engineering-agriculture-pharmacy-admissions-scorecard-counselling"
-  },
-  "acceptance": null
+  }
  },
  {
   "exam_id": "ap-eapcet-e-category",
@@ -838,6 +857,10 @@
   "scope_state": "Andhra Pradesh",
   "eligible_in": "Andhra Pradesh",
   "run_by": "Public",
+  "subjects": {
+   "_": "pcm"
+  },
+  "fills_private": true,
   "url": "https://sche.ap.gov.in/EAPCET",
   "eligibility": "10+2 with PCM",
   "fee_display": "Rs. 600/-",
@@ -900,11 +923,6 @@
    "count": 276572,
    "year": 2026,
    "source": "https://news.careers360.com/ap-eamcet-2026-result-out-at-cets-apsche-ap-gov-in-engineering-agriculture-pharmacy-admissions-scorecard-counselling"
-  },
-  "acceptance": {
-   "pct": 54.99,
-   "basis": "2026 convener-quota engineering seats / 2026 AP EAPCET engineering registrants",
-   "source": "https://www.deccanchronicle.com/amp/southern-states/andhra-pradesh/final-ap-eapcet-phase-fills-3141-fresh-seats-1989068"
   }
  },
  {
@@ -925,6 +943,8 @@
   "scope_state": "Karnataka",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://azimpremjiuniversity.edu.in/",
   "eligibility": "10+2 with English",
   "fee_display": "Rs. 500/-",
@@ -983,8 +1003,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "agniveer-army",
@@ -999,6 +1018,8 @@
   "scope_state": null,
   "eligible_in": "All India",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://joinindianarmy.nic.in/",
   "eligibility": "Age 17.5-21 years. GD: Class 10 with 45% marks. Technical: Class 12 PCM with 50% marks. Clerk/Store Keeper Technical: Class 12 with 60% marks. Tradesman: Class 8 or Class 10 depending on trade.",
   "fee_display": "Rs. 250/-",
@@ -1042,8 +1063,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "agniveer-navy-ssr-mr",
@@ -1058,6 +1078,8 @@
   "scope_state": null,
   "eligible_in": "All India",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://www.joinindiannavy.gov.in/",
   "eligibility": "Age about 17.5-21 years. SSR: Class 12 with Maths & Physics plus one of Chemistry/Biology/Computer Science. MR: Class 10 pass.",
   "fee_display": "Rs. 550/- (as per recent notifications)",
@@ -1101,8 +1123,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "agniveer-vayu",
@@ -1117,6 +1138,8 @@
   "scope_state": null,
   "eligible_in": "All India",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://agnipathvayu.cdac.in/",
   "eligibility": "Age 17.5-21 years. Science stream: Class 12 with Physics, Maths & English, 50% aggregate and 50% in English, or a 3-year diploma/vocational course. Other than Science: Class 12 any stream with 50% aggregate and 50% in English.",
   "fee_display": "Rs. 550/- + GST (as per recent notifications)",
@@ -1160,8 +1183,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "anantu-det",
@@ -1178,6 +1200,8 @@
   "scope_state": "Gujarat",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://anu.edu.in/",
   "eligibility": "10+2 any Stream",
   "fee_display": "Rs. 750/-",
@@ -1207,8 +1231,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "b-com-cet-146",
@@ -1225,6 +1248,8 @@
   "scope_state": "Delhi",
   "eligible_in": "Delhi",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "http://www.ipu.ac.in/",
   "eligibility": "10+2 any stream",
   "fee_display": "Rs. 1500/-",
@@ -1279,8 +1304,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "ba-cet-184",
@@ -1297,6 +1321,8 @@
   "scope_state": "Delhi",
   "eligible_in": "Delhi",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "http://www.ipu.ac.in/",
   "eligibility": "10+2 any stream with English",
   "fee_display": "Rs. 1200/-",
@@ -1343,8 +1369,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "ba-cet-197",
@@ -1361,6 +1386,8 @@
   "scope_state": "Delhi",
   "eligible_in": "Delhi",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "http://www.ipu.ac.in/",
   "eligibility": "10+2 any stream with Maths",
   "fee_display": "Rs. 1500/-",
@@ -1407,8 +1434,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "bajmc-cet-126",
@@ -1425,6 +1451,8 @@
   "scope_state": "Delhi",
   "eligible_in": "Delhi",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "http://www.ipu.ac.in/",
   "eligibility": "10+2 any stream with English",
   "fee_display": "Rs. 1500/-",
@@ -1470,8 +1498,7 @@
   "open_data_id": null,
   "careers": null,
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "bba-cet-125",
@@ -1488,6 +1515,8 @@
   "scope_state": "Delhi",
   "eligible_in": "Delhi",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "http://www.ipu.ac.in/",
   "eligibility": "10+2 any stream",
   "fee_display": "Rs. 1500/-",
@@ -1538,8 +1567,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "bca-cet-114",
@@ -1556,6 +1584,8 @@
   "scope_state": "Delhi",
   "eligible_in": "Delhi",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "http://www.ipu.ac.in/",
   "eligibility": "10+2 any stream",
   "fee_display": "Rs. 1500/-",
@@ -1601,8 +1631,7 @@
   "open_data_id": null,
   "careers": null,
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "bcece",
@@ -1621,6 +1650,8 @@
   "scope_state": "Bihar",
   "eligible_in": "Bihar",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://bceceboard.bihar.gov.in/",
   "eligibility": "10+2 in Science",
   "fee_display": "Rs. 1000/-",
@@ -1650,8 +1681,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "bhmct-cet-127",
@@ -1668,6 +1698,8 @@
   "scope_state": "Delhi",
   "eligible_in": "Delhi",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "http://www.ipu.ac.in/",
   "eligibility": "10+2 any stream",
   "fee_display": "Rs. 1500/-",
@@ -1718,8 +1750,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "bitsat",
@@ -1740,10 +1771,15 @@
   "scope_state": null,
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": {
+   "_": "pcm",
+   "Pharma": "any"
+  },
+  "fills_private": false,
   "url": "https://www.bitsadmission.com/",
   "eligibility": "10+2 with PCM",
-  "fee_display": "Rs. 3400/-",
-  "fee_number": 3400,
+  "fee_display": "Rs. 3600/- (female Rs. 3100/-; both sessions Rs. 5600/-)",
+  "fee_number": 3600,
   "test_month": "April",
   "test_month_n": 4,
   "apply_month": "December",
@@ -1814,11 +1850,6 @@
    "count": 160000,
    "year": 2026,
    "source": "https://news.careers360.com/bits-pilani-admissions-2026-admits-3181-students-full-scholarship-top-bitsat-rankers-up-625-cut-offs-bpharm-be-pcm-pcb-courses"
-  },
-  "acceptance": {
-   "pct": 1.99,
-   "basis": "2026 BITSAT admits / 2026 unique applications (>1.60 lakh, official statement)",
-   "source": "https://news.careers360.com/bits-pilani-admissions-2026-admits-3181-students-full-scholarship-top-bitsat-rankers-up-625-cut-offs-bpharm-be-pcm-pcb-courses"
   }
  },
  {
@@ -1836,6 +1867,8 @@
   "scope_state": "Delhi",
   "eligible_in": "Delhi",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "http://www.ipu.ac.in/",
   "eligibility": "10+2 any stream",
   "fee_display": "Rs. 1500/-",
@@ -1889,8 +1922,7 @@
   "open_data_id": null,
   "careers": null,
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "btech-bt-cet-130",
@@ -1907,6 +1939,8 @@
   "scope_state": "Delhi",
   "eligible_in": "Delhi",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "http://www.ipu.ac.in/",
   "eligibility": "10+2 with PCM",
   "fee_display": "Rs. 1500/-",
@@ -1957,8 +1991,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "bu-mat",
@@ -1979,6 +2012,8 @@
   "scope_state": "Maharashtra",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://bvuniversity.edu.in/",
   "eligibility": "10+2 any Stream",
   "fee_display": "Rs. 1500/-",
@@ -2033,8 +2068,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "bv-abop",
@@ -2051,6 +2085,8 @@
   "scope_state": "Maharashtra",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://bvuniversity.edu.in/",
   "eligibility": "10+2 in Science",
   "fee_display": "Rs. 1500/-",
@@ -2097,8 +2133,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "bv-abop-cet",
@@ -2118,6 +2153,8 @@
   "scope_state": "Maharashtra",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://bvuniversity.edu.in/",
   "eligibility": "10+2 with PCB.",
   "fee_display": "Rs. 1500/-",
@@ -2164,8 +2201,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "bv-b-sc-nursing-cet",
@@ -2182,6 +2218,10 @@
   "scope_state": "Maharashtra",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": {
+   "_": "pcb"
+  },
+  "fills_private": false,
   "url": "https://bvuniversity.edu.in/",
   "eligibility": "10+2 with PCB",
   "fee_display": "Rs. 1500/-",
@@ -2236,8 +2276,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "bv-btech-cet",
@@ -2254,6 +2293,8 @@
   "scope_state": "Maharashtra",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://bvuniversity.edu.in/",
   "eligibility": "10+2 with PCM",
   "fee_display": "Rs. 2000/-",
@@ -2312,8 +2353,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "bv-lawug-cet",
@@ -2330,6 +2370,8 @@
   "scope_state": "Maharashtra",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://bvuniversity.edu.in/",
   "eligibility": "10+2 any Stream",
   "fee_display": "Rs. 1500/-",
@@ -2380,8 +2422,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "bv-opi-pa",
@@ -2398,6 +2439,8 @@
   "scope_state": "Maharashtra",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://bvuniversity.edu.in/",
   "eligibility": "10+2 any stream",
   "fee_display": "Rs. 1000/-",
@@ -2422,8 +2465,7 @@
   "open_data_id": null,
   "careers": null,
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "bv-pharm-ug-cet",
@@ -2440,6 +2482,8 @@
   "scope_state": "Maharashtra",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://bvuniversity.edu.in/",
   "eligibility": "10+2 with PCM/B",
   "fee_display": "Rs. 1700/-",
@@ -2486,8 +2530,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "cee-llb",
@@ -2504,6 +2547,8 @@
   "scope_state": "Kerala",
   "eligible_in": "Kerala",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://cee-kerala.org/",
   "eligibility": "10+2 any Stream",
   "fee_display": "Rs. 685/-",
@@ -2554,8 +2599,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "cet",
@@ -2572,6 +2616,8 @@
   "scope_state": "Delhi",
   "eligible_in": "All India",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://niepmd.tn.nic.in/",
   "eligibility": "10+2 with PCM/B",
   "fee_display": "Rs.800/-",
@@ -2617,8 +2663,7 @@
   "open_data_id": null,
   "careers": null,
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "cetug-aau",
@@ -2637,6 +2682,8 @@
   "scope_state": "Assam",
   "eligible_in": "Assam",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "http://www.aau.ac.in/",
   "eligibility": "10+2 with Science",
   "fee_display": "Rs. 800/-",
@@ -2666,8 +2713,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "cg-pat",
@@ -2686,6 +2732,8 @@
   "scope_state": "Chhattisgarh",
   "eligible_in": "Chhattisgarh",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://cgkv.ac.in/",
   "eligibility": "10+2 in Science",
   "fee_display": "Rs. 200/-",
@@ -2732,8 +2780,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "cg-pet",
@@ -2751,6 +2798,10 @@
   "scope_state": "Chhattisgarh",
   "eligible_in": "Chhattisgarh",
   "run_by": "Public",
+  "subjects": {
+   "_": "pcm"
+  },
+  "fills_private": false,
   "url": "https://vyapam.cgstate.gov.in/",
   "eligibility": "10+2 with PCM",
   "fee_display": "Rs. 200/-",
@@ -2817,8 +2868,7 @@
    "count": 12276,
    "year": 2025,
    "source": "https://engineering.careers360.com/articles/cg-pet-2026"
-  },
-  "acceptance": null
+  }
  },
  {
   "exam_id": "clat",
@@ -2835,6 +2885,8 @@
   "scope_state": null,
   "eligible_in": "All India",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://consortiumofnlus.ac.in/",
   "eligibility": "10+2 any Stream",
   "fee_display": "Rs. 4000/-",
@@ -2866,8 +2918,7 @@
    }
   ],
   "colleges_link": "/colleges?exam=CLAT",
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "cmi-ee",
@@ -2884,6 +2935,10 @@
   "scope_state": "Tamil Nadu",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": {
+   "_": "pcm"
+  },
+  "fills_private": false,
   "url": "https://www.cmi.ac.in/",
   "eligibility": "10+2 with Mathematics and English.",
   "fee_display": "Rs. 750/-",
@@ -2934,62 +2989,70 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "comedk-uget",
   "name": "COMEDK UGET (Consortium of Medical, Engineering and Dental Colleges of Karnataka Undergraduate Entrance Test)",
   "acronym": "COMEDK UGET",
   "streams": [
-   "Architecture",
-   "Engineering",
-   "Pharma"
+   "Engineering"
   ],
   "degrees": [
-   "BArch",
-   "BE",
-   "BPharm"
+   "BE"
   ],
   "scope": "Karnataka",
   "scope_type": "Karnataka",
   "scope_state": "Karnataka",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": {
+   "_": "pcm"
+  },
+  "fills_private": false,
   "url": "https://www.comedk.org/",
-  "eligibility": "10+2 with PCM, min. 45% aggregate (40% for reserved categories); valid NATA score required",
-  "fee_display": "Rs. 1000/-",
-  "fee_number": 1000,
-  "test_month": "April",
-  "test_month_n": 4,
+  "eligibility": "10+2 with Physics, Mathematics and English, plus Chemistry/Biotechnology/Biology/Computer Science/Electronics; 45% in PCM (40% for SC/ST/OBC of Karnataka)",
+  "fee_display": "Rs. 1950/-",
+  "fee_number": 1950,
+  "test_month": "May",
+  "test_month_n": 5,
   "apply_month": "February",
   "apply_month_n": 2,
   "forms_out": "1st week of February",
-  "last_date": "2nd week of April",
-  "test_date": "3rd week of April",
-  "mode": "Pen & Paper Based",
+  "last_date": "4th week of March",
+  "test_date": "2nd week of May",
+  "mode": "Computer Based",
   "duration": "180 Minutes",
   "marking": "+1/-0",
-  "pattern": "Drawing Aptitude Test (as per NATA/CoA norms)",
-  "pattern_rows": null,
+  "pattern": "Physics Chemistry Mathematics Total",
+  "pattern_rows": [
+   [
+    "Physics",
+    "60 questions (60 marks)"
+   ],
+   [
+    "Chemistry",
+    "60 questions (60 marks)"
+   ],
+   [
+    "Mathematics",
+    "60 questions (60 marks)"
+   ],
+   [
+    "Total",
+    "180 questions (180 marks)"
+   ]
+  ],
   "pattern_note": null,
-  "remarks": "Admission to private architecture colleges in Karnataka via valid NATA score; counselling based on COMEDK rank.",
+  "remarks": "Admission to private engineering colleges in Karnataka; counselling based on COMEDK rank.",
   "replaces": null,
   "aliases": null,
   "predictor_exam": null,
   "open_data_id": null,
   "careers": [
    {
-    "label": "Architecture",
-    "slug": "architecture"
-   },
-   {
     "label": "Computer Science / Information Technology",
     "slug": "computer-science-information-technology"
-   },
-   {
-    "label": "Pharmacy",
-    "slug": "pharmacy"
    },
    {
     "label": "Mechanical / Mechatronics Engineering",
@@ -2998,6 +3061,10 @@
    {
     "label": "Electrical / Electronics / Communications Engineering",
     "slug": "electrical-electronics-communications-engineering"
+   },
+   {
+    "label": "Civil Engineering",
+    "slug": "civil-engineering"
    }
   ],
   "colleges_link": null,
@@ -3005,117 +3072,7 @@
    "count": 130620,
    "year": 2026,
    "source": "https://news.kollegeapply.com/news/comedk-uget-2026-records-85-attendance-answer-key-on-may-13"
-  },
-  "acceptance": {
-   "pct": 18.81,
-   "basis": "2026 COMEDK engineering seats / 2026 COMEDK UGET registrants",
-   "source": "https://news.careers360.com/comedk-counselling-2026-mock-choice-filling-begins-from-july-11-comedk-org-revised-seat-matrix-engineering-general-merit-category"
   }
- },
- {
-  "exam_id": "cuet",
-  "name": "CUET (Christ University Entrance Test)",
-  "acronym": "CUET",
-  "streams": [
-   "Arts",
-   "Business",
-   "Commerce",
-   "Computer Science",
-   "Economics",
-   "Engineering",
-   "Hotel Management",
-   "Journalism & Media",
-   "Law",
-   "Performing Arts",
-   "Psychology"
-  ],
-  "degrees": [
-   "BA",
-   "BA, LLB",
-   "BBA",
-   "BCom",
-   "BHM",
-   "BMS, BBA",
-   "BSc",
-   "BTech"
-  ],
-  "scope": "Christ University",
-  "scope_type": "University",
-  "scope_state": "Karnataka",
-  "eligible_in": "All India",
-  "run_by": "Private",
-  "url": "https://christuniversity.in/",
-  "eligibility": "10+2 any Stream",
-  "fee_display": "Rs. 5000/-",
-  "fee_number": 5000,
-  "test_month": "February",
-  "test_month_n": 2,
-  "apply_month": "January",
-  "apply_month_n": 1,
-  "forms_out": "3rd week of January",
-  "last_date": "Multiple cycles from February to June",
-  "test_date": "Multiple cycles from February to June",
-  "mode": "Online",
-  "duration": "90 Minutes",
-  "marking": "+1/-0.25",
-  "pattern": "English General Knowledge Current Affairs Reasoning Subject Related Total",
-  "pattern_rows": [
-   [
-    "English",
-    "40 questions (40 marks)"
-   ],
-   [
-    "General Knowledge",
-    "20 questions (20 marks)"
-   ],
-   [
-    "Current Affairs",
-    "10 questions (10 marks)"
-   ],
-   [
-    "Reasoning",
-    "20 questions (20 marks)"
-   ],
-   [
-    "Subject Related",
-    "30 questions (30 marks)"
-   ],
-   [
-    "Total",
-    "120 questions (120 marks)"
-   ]
-  ],
-  "pattern_note": null,
-  "remarks": "Micro Presentation and Personal Interview to follow after test. Academic performance to be taken in consideration.",
-  "replaces": null,
-  "aliases": null,
-  "predictor_exam": null,
-  "open_data_id": null,
-  "careers": [
-   {
-    "label": "Arts",
-    "slug": "arts"
-   },
-   {
-    "label": "Business Administration (BBA / MBA)",
-    "slug": "business-administration-bba-mba"
-   },
-   {
-    "label": "Chartered Accountancy (CA)",
-    "slug": "chartered-accountancy-ca"
-   },
-   {
-    "label": "Economics",
-    "slug": "economics"
-   },
-   {
-    "label": "Computer Science / Information Technology",
-    "slug": "computer-science-information-technology"
-   }
-  ],
-  "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
  },
  {
   "exam_id": "cuet-ug",
@@ -3145,6 +3102,8 @@
   "scope_state": null,
   "eligible_in": "All India",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://cuet.samarth.ac.in/",
   "eligibility": "Eligibility and test syllabus may vary for same course from University to University.",
   "fee_display": "Rs. 1000/- (up to 3 subjects, Rs. 400/- each extra)",
@@ -3218,8 +3177,113 @@
    "count": 1568867,
    "year": 2026,
    "source": "https://ianslive.in/cuet-ug-2026-results-announced-for-over-116-lakh-students--20260623151337"
-  },
-  "acceptance": null
+  }
+ },
+ {
+  "exam_id": "christ-cuet",
+  "name": "Christ CUET (Christ University Entrance Test)",
+  "acronym": "Christ CUET",
+  "streams": [
+   "Arts",
+   "Business",
+   "Commerce",
+   "Computer Science",
+   "Economics",
+   "Engineering",
+   "Hotel Management",
+   "Journalism & Media",
+   "Law",
+   "Performing Arts",
+   "Psychology"
+  ],
+  "degrees": [
+   "BA",
+   "BA, LLB",
+   "BBA",
+   "BCom",
+   "BHM",
+   "BMS, BBA",
+   "BSc",
+   "BTech"
+  ],
+  "scope": "Christ University",
+  "scope_type": "University",
+  "scope_state": "Karnataka",
+  "eligible_in": "All India",
+  "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
+  "url": "https://christuniversity.in/",
+  "eligibility": "10+2 any Stream",
+  "fee_display": "Rs. 5000/-",
+  "fee_number": 5000,
+  "test_month": "February",
+  "test_month_n": 2,
+  "apply_month": "January",
+  "apply_month_n": 1,
+  "forms_out": "3rd week of January",
+  "last_date": "Multiple cycles from February to June",
+  "test_date": "Multiple cycles from February to June",
+  "mode": "Online",
+  "duration": "90 Minutes",
+  "marking": "+1/-0.25",
+  "pattern": "English General Knowledge Current Affairs Reasoning Subject Related Total",
+  "pattern_rows": [
+   [
+    "English",
+    "40 questions (40 marks)"
+   ],
+   [
+    "General Knowledge",
+    "20 questions (20 marks)"
+   ],
+   [
+    "Current Affairs",
+    "10 questions (10 marks)"
+   ],
+   [
+    "Reasoning",
+    "20 questions (20 marks)"
+   ],
+   [
+    "Subject Related",
+    "30 questions (30 marks)"
+   ],
+   [
+    "Total",
+    "120 questions (120 marks)"
+   ]
+  ],
+  "pattern_note": null,
+  "remarks": "Micro Presentation and Personal Interview to follow after test. Academic performance to be taken in consideration.",
+  "replaces": null,
+  "aliases": null,
+  "predictor_exam": null,
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Arts",
+    "slug": "arts"
+   },
+   {
+    "label": "Business Administration (BBA / MBA)",
+    "slug": "business-administration-bba-mba"
+   },
+   {
+    "label": "Chartered Accountancy (CA)",
+    "slug": "chartered-accountancy-ca"
+   },
+   {
+    "label": "Economics",
+    "slug": "economics"
+   },
+   {
+    "label": "Computer Science / Information Technology",
+    "slug": "computer-science-information-technology"
+   }
+  ],
+  "colleges_link": null,
+  "applicants": null
  },
  {
   "exam_id": "dat-mains",
@@ -3236,6 +3300,8 @@
   "scope_state": null,
   "eligible_in": "All India",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://www.nid.edu/",
   "eligibility": null,
   "fee_display": null,
@@ -3265,8 +3331,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "dat-prelims",
@@ -3283,6 +3348,8 @@
   "scope_state": null,
   "eligible_in": "All India",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://www.nid.edu/",
   "eligibility": null,
   "fee_display": null,
@@ -3312,8 +3379,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "dt-mahe",
@@ -3332,6 +3398,8 @@
   "scope_state": "Karnataka",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://manipal.edu/",
   "eligibility": "10+2 any stream",
   "fee_display": "Rs. Rs. 600/- + Rs. 1400/-",
@@ -3365,8 +3433,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "design-cet-600",
@@ -3383,6 +3450,8 @@
   "scope_state": "Delhi",
   "eligible_in": "Delhi",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "http://www.ipu.ac.in/",
   "eligibility": "10+2 any stream",
   "fee_display": "Rs. 1500/-",
@@ -3412,8 +3481,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "eat",
@@ -3430,6 +3498,8 @@
   "scope_state": "Maharashtra",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://www.ssca.edu.in/",
   "eligibility": "10+2 any Stream",
   "fee_display": "Rs. 1250",
@@ -3459,8 +3529,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "fddi-aist",
@@ -3477,6 +3546,8 @@
   "scope_state": null,
   "eligible_in": "All India",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://www.fddiindia.com/",
   "eligibility": null,
   "fee_display": null,
@@ -3535,8 +3606,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "feat",
@@ -3553,6 +3623,8 @@
   "scope_state": "Maharashtra",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://www.flame.edu.in/",
   "eligibility": "10+2 any Stream",
   "fee_display": "Rs. 2000/-",
@@ -3603,8 +3675,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "gat-cat",
@@ -3621,6 +3692,8 @@
   "scope_state": null,
   "eligible_in": "All India",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://nift.ac.in/",
   "eligibility": null,
   "fee_display": null,
@@ -3650,8 +3723,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "gat",
@@ -3668,6 +3740,8 @@
   "scope_state": null,
   "eligible_in": "All India",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://nift.ac.in/",
   "eligibility": "10+2 with PCM",
   "fee_display": "Rs. 3000/-",
@@ -3717,8 +3791,7 @@
   "open_data_id": null,
   "careers": null,
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "gbpuat-cee",
@@ -3737,6 +3810,8 @@
   "scope_state": "Uttarakhand",
   "eligible_in": "Uttarakhand",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://gbpuat.ac.in/",
   "eligibility": "10+2 in Science",
   "fee_display": "Rs. 1200/-",
@@ -3787,8 +3862,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "gujcet",
@@ -3812,6 +3886,10 @@
   "scope_state": "Gujarat",
   "eligible_in": "Gujarat",
   "run_by": "Public",
+  "subjects": {
+   "Agriculture": "pcb"
+  },
+  "fills_private": true,
   "url": "https://www.gseb.org/",
   "eligibility": "10+2 in Science",
   "fee_display": "Rs. 350/-",
@@ -3878,8 +3956,7 @@
    "count": 136071,
    "year": 2026,
    "source": "https://www.freepressjournal.in/education/gujcet-2026-result-out-1459-students-score-above-99-percentile-rank"
-  },
-  "acceptance": null
+  }
  },
  {
   "exam_id": "hau-aat",
@@ -3896,6 +3973,10 @@
   "scope_state": "Haryana",
   "eligible_in": "Haryana",
   "run_by": "Public",
+  "subjects": {
+   "_": "none"
+  },
+  "fills_private": false,
   "url": "http://www.hau.ac.in/",
   "eligibility": "10th Pass with 60% Marks",
   "fee_display": "Rs. 1500/-",
@@ -3938,8 +4019,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "hau-et",
@@ -3958,6 +4038,8 @@
   "scope_state": "Haryana",
   "eligible_in": "Haryana",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "http://www.hau.ac.in/",
   "eligibility": "10+2 in Science",
   "fee_display": "Rs. 1500/-",
@@ -4004,8 +4086,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "hau-et-haryana-agriculture-university-community-sc-entrance-test-haryana",
@@ -4022,6 +4103,8 @@
   "scope_state": "Haryana",
   "eligible_in": "Haryana",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "http://www.hau.ac.in/",
   "eligibility": "10+2 in Science/Home Science",
   "fee_display": "Rs. 1500/-",
@@ -4064,8 +4147,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "iat",
@@ -4082,6 +4164,8 @@
   "scope_state": null,
   "eligible_in": "All India",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://www.iiseradmission.in/",
   "eligibility": "Aggregate 60% in Maths and science in in 12th grade",
   "fee_display": "Rs. 2000/-",
@@ -4144,11 +4228,6 @@
    "count": 186000,
    "year": 2026,
    "source": "https://www.orissapost.com/over-1-86-lakh-appear-for-iiser-aptitude-test/"
-  },
-  "acceptance": {
-   "pct": 1.26,
-   "basis": "2026 IISER BS-MS seats / ~1.86 lakh 2026 candidates (appeared per PTI)",
-   "source": "https://news.careers360.com/iiser-iat-over-1-86-lakh-candidates-appear-for-2026-bs-ms-admissions-2343-seats-736-centres"
   }
  },
  {
@@ -4168,6 +4247,8 @@
   "scope_state": "Maharashtra",
   "eligible_in": "All India",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "http://www.unipune.ac.in/",
   "eligibility": "10+2 any Stream",
   "fee_display": null,
@@ -4222,8 +4303,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "ihm-a",
@@ -4240,6 +4320,8 @@
   "scope_state": "Maharashtra",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://ihmaurangabad.ac.in/",
   "eligibility": "10+2 any stream",
   "fee_display": "Rs. 1500/-",
@@ -4286,8 +4368,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "iicd-et",
@@ -4304,6 +4385,8 @@
   "scope_state": "Rajasthan",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "http://www.iicd.ac.in/",
   "eligibility": "10+2 any Stream",
   "fee_display": "Rs. 1750/-",
@@ -4346,8 +4429,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "imat",
@@ -4365,6 +4447,8 @@
   "scope_state": null,
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://www.ihsindia.org/",
   "eligibility": "10+2 with Physics, Chemistry & Biology.",
   "fee_display": "Rs.2000/-",
@@ -4389,8 +4473,7 @@
   "open_data_id": null,
   "careers": null,
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "ipl-at-rohtak",
@@ -4407,6 +4490,8 @@
   "scope_state": "Haryana",
   "eligible_in": "All India",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://www.iimrohtak.ac.in/",
   "eligibility": "10+2 any Stream",
   "fee_display": "Rs. 4175/-",
@@ -4457,8 +4542,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "ipm-at-indore-ranchi",
@@ -4475,6 +4559,8 @@
   "scope_state": null,
   "eligible_in": "All India",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://www.iimidr.ac.in/",
   "eligibility": "10+2 any Stream",
   "fee_display": "Rs. 4130/-",
@@ -4521,8 +4607,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "ipm-at-rohtak",
@@ -4539,6 +4624,8 @@
   "scope_state": "Haryana",
   "eligible_in": "All India",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://www.iimrohtak.ac.in/",
   "eligibility": "10+2 any Stream",
   "fee_display": "Rs. 4175/-",
@@ -4585,8 +4672,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "isdi-challenge",
@@ -4603,6 +4689,8 @@
   "scope_state": "Maharashtra",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://www.isdi.in/",
   "eligibility": "10+2 any stream",
   "fee_display": "Rs. 3500/-",
@@ -4661,8 +4749,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "isi-at",
@@ -4679,6 +4766,10 @@
   "scope_state": null,
   "eligible_in": "All India",
   "run_by": "Public",
+  "subjects": {
+   "_": "pcm"
+  },
+  "fills_private": false,
   "url": "https://www.isical.ac.in/",
   "eligibility": "10+2 with Mathematics and English. Application Fee: Rs. 1500/-",
   "fee_display": null,
@@ -4716,8 +4807,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "indian-army-ncc-special-entry-scheme",
@@ -4734,6 +4824,8 @@
   "scope_state": null,
   "eligible_in": "All India",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://joinindianarmy.nic.in/",
   "eligibility": "Graduate with at least 50% marks; NCC Senior Division/Wing for at least 3 years with NCC C certificate (minimum B grade); age about 19-25 years.",
   "fee_display": "No fee",
@@ -4771,8 +4863,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "indian-army-tes",
@@ -4789,6 +4880,8 @@
   "scope_state": null,
   "eligible_in": "All India",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://joinindianarmy.nic.in/",
   "eligibility": "Class 12 with Physics, Chemistry & Maths; minimum 60% aggregate; valid JEE (Main) score; age about 16.5-19.5 years; unmarried male candidates.",
   "fee_display": "No fee",
@@ -4828,8 +4921,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "indian-army-tgc-ssc-tech",
@@ -4846,6 +4938,8 @@
   "scope_state": null,
   "eligible_in": "All India",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://joinindianarmy.nic.in/",
   "eligibility": "BE/BTech in notified disciplines (final-year students may apply); age about 20-27 years. TGC: men; SSC (Tech): men and women.",
   "fee_display": "No fee",
@@ -4883,8 +4977,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "indian-navy-10-2-b-tech-cadet-entry-scheme",
@@ -4901,6 +4994,8 @@
   "scope_state": null,
   "eligible_in": "All India",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://www.joinindiannavy.gov.in/",
   "eligibility": "Class 12 with Physics, Chemistry & Maths; minimum 70% in PCM and 50% in English; valid JEE (Main) rank; age about 16.5-19.5 years; unmarried.",
   "fee_display": "No fee",
@@ -4938,8 +5033,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "indian-navy-ssc-officer-entries",
@@ -4956,6 +5050,8 @@
   "scope_state": null,
   "eligible_in": "All India",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://www.joinindiannavy.gov.in/",
   "eligibility": "BE/BTech for Executive, Technical, Electrical and Pilot/Observer branches; postgraduate or engineering degree for Education; BE/BTech/MBA/PG for Logistics; age about 19.5-25 years.",
   "fee_display": "No fee",
@@ -4993,8 +5089,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "jcat",
@@ -5011,6 +5106,8 @@
   "scope_state": "Haryana",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://jgu.edu.in/",
   "eligibility": "10+2 any stream",
   "fee_display": "Rs. 3000/-",
@@ -5065,8 +5162,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "jcece-nursing",
@@ -5083,6 +5179,10 @@
   "scope_state": "Jharkhand",
   "eligible_in": "Jharkhand",
   "run_by": "Public",
+  "subjects": {
+   "_": "pcb"
+  },
+  "fills_private": false,
   "url": "https://jceceb.jharkhand.gov.in/",
   "eligibility": "10+2 with PCB",
   "fee_display": "Rs.900/-",
@@ -5129,8 +5229,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "jcece-agriculture-allied",
@@ -5149,6 +5248,8 @@
   "scope_state": "Jharkhand",
   "eligible_in": "Jharkhand",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://jceceb.jharkhand.gov.in/",
   "eligibility": "10+2 in science",
   "fee_display": "Rs. 1000/-",
@@ -5195,8 +5296,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "jee-advanced",
@@ -5215,6 +5315,10 @@
   "scope_state": null,
   "eligible_in": "All India",
   "run_by": "Public",
+  "subjects": {
+   "_": "pcm"
+  },
+  "fills_private": false,
   "url": "https://www.jeeadv.ac.in/",
   "eligibility": "Candidates should be among the top 2,50,000 (including all categories) in B.E./B.Tech. paper of JEE (Main) of the same year.",
   "fee_display": "Rs. 3200/-",
@@ -5225,7 +5329,7 @@
   "apply_month_n": 4,
   "forms_out": "Last week of April",
   "last_date": "1st week of May",
-  "test_date": "4th week of May",
+  "test_date": "3rd week of May",
   "mode": "Online",
   "duration": "180 + 180 Minutes",
   "marking": "Variable Negative",
@@ -5273,11 +5377,6 @@
    "count": 187389,
    "year": 2026,
    "source": "https://jeeadv.ac.in/documents/Result2026PressRelease.pdf"
-  },
-  "acceptance": {
-   "pct": 10.11,
-   "basis": "2026 IIT seats in JoSAA / 2026 JEE Advanced registrants",
-   "source": "https://news.careers360.com/josaa-seat-matrix-2026-counselling-begins-67323-engineering-female-seats-rise-iits-nits-iiits-gftis-csab-dasa-btech-admission"
   }
  },
  {
@@ -5299,6 +5398,10 @@
   "scope_state": null,
   "eligible_in": "All India",
   "run_by": "Public",
+  "subjects": {
+   "_": "pcm"
+  },
+  "fills_private": false,
   "url": "https://jeemain.nta.nic.in/",
   "eligibility": "Physics and Mathematics as compulsory subjects along with one of the Chemistry/ Biotechnology/Biology/ Technical Vocational subject.",
   "fee_display": "Rs. 1000/-",
@@ -5365,11 +5468,6 @@
    "count": 1604854,
    "year": 2026,
    "source": "https://www.pw.live/news/nta-jee-main-2026-data-out-how-many-students-appeared"
-  },
-  "acceptance": {
-   "pct": 3.01,
-   "basis": "2026 JoSAA NIT+IIIT+GFTI seats / 2026 unique JEE Main registrants (both sessions)",
-   "source": "https://news.careers360.com/josaa-seat-matrix-2026-counselling-begins-67323-engineering-female-seats-rise-iits-nits-iiits-gftis-csab-dasa-btech-admission"
   }
  },
  {
@@ -5387,6 +5485,8 @@
   "scope_state": null,
   "eligible_in": "All India",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://jeemain.nta.nic.in/",
   "eligibility": "10+2 with Physics, Mathematics and Chemistry",
   "fee_display": "Rs. 1000/-",
@@ -5437,8 +5537,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "jee-main-paper-2b",
@@ -5455,6 +5554,8 @@
   "scope_state": null,
   "eligible_in": "All India",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://jeemain.nta.nic.in/",
   "eligibility": "10+2 with PCM.",
   "fee_display": "Rs. 1000/-",
@@ -5505,8 +5606,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "jet-de",
@@ -5523,6 +5623,8 @@
   "scope_state": "Karnataka",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://www.jainuniversity.ac.in/",
   "eligibility": "10+2 any Stream",
   "fee_display": "Rs. 550/-",
@@ -5577,8 +5679,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "jipmat",
@@ -5595,6 +5696,8 @@
   "scope_state": null,
   "eligible_in": "All India",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://jipmat.nta.ac.in/",
   "eligibility": "10+2 any Stream",
   "fee_display": "Rs. 2200/-",
@@ -5641,8 +5744,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "jmi-et",
@@ -5673,6 +5775,8 @@
   "scope_state": "Delhi",
   "eligible_in": "All India",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://www.jmi.ac.in/",
   "eligibility": "10+2 with English",
   "fee_display": "Rs. 700/-",
@@ -5739,8 +5843,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "jsat",
@@ -5764,6 +5867,8 @@
   "scope_state": "Haryana",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://jgu.edu.in/",
   "eligibility": "10+2 any stream",
   "fee_display": "Rs. 3000/-",
@@ -5826,8 +5931,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "kalsee",
@@ -5860,6 +5964,8 @@
   "scope_state": "Chhattisgarh",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://kalingauniversity.ac.in/",
   "eligibility": "10+2 any stream",
   "fee_display": "Rs. 1000/-",
@@ -5926,8 +6032,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "kea-cet",
@@ -5951,16 +6056,20 @@
   "scope_state": "Karnataka",
   "eligible_in": "Karnataka",
   "run_by": "Public",
+  "subjects": {
+   "Agriculture": "pcb"
+  },
+  "fills_private": true,
   "url": "https://cetonline.karnataka.gov.in/kea/",
   "eligibility": "10+2 with PCM for Engineering and PCM/B for B.Sc. Courses",
-  "fee_display": "Rs. 650/-",
-  "fee_number": 650,
+  "fee_display": "Rs. 500/-",
+  "fee_number": 500,
   "test_month": "April",
   "test_month_n": 4,
   "apply_month": "January",
   "apply_month_n": 1,
   "forms_out": "3rd week of January",
-  "last_date": "1st week of April",
+  "last_date": "4th week of February",
   "test_date": "4th week of April",
   "mode": "Offline",
   "duration": "240 Minutes, 80 Minutes for Each",
@@ -6012,14 +6121,9 @@
   ],
   "colleges_link": "/colleges?exam=KCET",
   "applicants": {
-   "count": 330646,
+   "count": 330479,
    "year": 2026,
-   "source": "https://www.freepressjournal.in/education/kcet-ugcet-result-2026-out-female-candidates-outnumber-male-students-by-over-41000"
-  },
-  "acceptance": {
-   "pct": 27.74,
-   "basis": "2026 KEA Round-1 engineering seats / 2026 KCET registrants (all streams)",
-   "source": "https://www.freepressjournal.in/education/kcet-2026-round-1-final-seat-allotment-result-out-at-cetonlinekarnatakagovin-check-allotment-status-here"
+   "source": "https://collegedunia.com/articles/e-61-how-many-students-appeared-for-kcet-2026"
   }
  },
  {
@@ -6043,8 +6147,12 @@
   "scope_state": "Kerala",
   "eligible_in": "Kerala",
   "run_by": "Public",
+  "subjects": {
+   "Agriculture": "pcb"
+  },
+  "fills_private": true,
   "url": "https://cee.kerala.gov.in/",
-  "eligibility": "10+2 with PCB for B.Sc. and B.Tech (Biotech.) PCM for B.Tech. (Dairy Tech., Food Tech. & Agr. Engg.)",
+  "eligibility": "10+2 with PCM for B.Tech. (Dairy Tech., Food Tech. & Agr. Engg.), through the KEAM engineering exam; B.Sc. courses admit on the NEET-UG score",
   "fee_display": "Rs. 925/-",
   "fee_number": 925,
   "test_month": "April",
@@ -6077,7 +6185,7 @@
    ]
   ],
   "pattern_note": null,
-  "remarks": null,
+  "remarks": "Admission on the NEET-UG score (CEE Kerala rank list)",
   "replaces": null,
   "aliases": null,
   "predictor_exam": "KEAM",
@@ -6105,11 +6213,6 @@
    "count": 148146,
    "year": 2026,
    "source": "https://engineering.careers360.com/articles/how-many-students-appeared-for-keam-2026"
-  },
-  "acceptance": {
-   "pct": 25.92,
-   "basis": "2026 CEE round-2 engineering allotments / 2026 KEAM engineering applicants (108409)",
-   "source": "https://news.careers360.com/keam-2026-round-2-seat-allotment-result-out-donwload-cee-kerala-gov-in-btech-admission-counselling"
   }
  },
  {
@@ -6144,6 +6247,8 @@
   "scope_state": "Odisha",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://kiit.ac.in/",
   "eligibility": "10+2 with PCM",
   "fee_display": "No Application/Examination Fees",
@@ -6206,8 +6311,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "krea-ap",
@@ -6226,6 +6330,8 @@
   "scope_state": "Andhra Pradesh",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://krea.edu.in/",
   "eligibility": "10+2 any Stream",
   "fee_display": "Rs. 100/-",
@@ -6259,8 +6365,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "kuat",
@@ -6287,6 +6392,8 @@
   "scope_state": "Gujarat",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://karnavatiuniversity.edu.in/",
   "eligibility": "10+2 any Stream",
   "fee_display": "Rs. 1000/-",
@@ -6357,8 +6464,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "lkk-oee",
@@ -6375,6 +6481,8 @@
   "scope_state": "Maharashtra",
   "eligible_in": "All India",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "http://www.unipune.ac.in/",
   "eligibility": "10+2 any Stream",
   "fee_display": null,
@@ -6412,8 +6520,7 @@
   "open_data_id": null,
   "careers": null,
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "mah-b-design-cet",
@@ -6430,6 +6537,8 @@
   "scope_state": "Maharashtra",
   "eligible_in": "Maharashtra",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "http://cetcell.mahacet.org/",
   "eligibility": "10+2 any stream",
   "fee_display": "Rs. 1700/-",
@@ -6488,8 +6597,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "mah-b-planning-cet",
@@ -6506,6 +6614,8 @@
   "scope_state": "Maharashtra",
   "eligible_in": "Maharashtra",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "http://cetcell.mahacet.org",
   "eligibility": "10+2 with Maths",
   "fee_display": "Rs. 800/-",
@@ -6552,8 +6662,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "mah-bhmct-cet",
@@ -6570,6 +6679,8 @@
   "scope_state": "Maharashtra",
   "eligible_in": "Maharashtra",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "http://cetcell.mahacet.org/",
   "eligibility": "10+2 any Stream",
   "fee_display": "Rs. 800/-",
@@ -6616,8 +6727,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "mah-llb-3-yrs-cet",
@@ -6634,6 +6744,8 @@
   "scope_state": "Maharashtra",
   "eligible_in": "Maharashtra",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "http://cetcell.mahacet.org/",
   "eligibility": "Graduation",
   "fee_display": "Rs. 800/-",
@@ -6684,8 +6796,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "mah-llb-5-yrs-cet",
@@ -6702,6 +6813,8 @@
   "scope_state": "Maharashtra",
   "eligible_in": "Maharashtra",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "http://cetcell.mahacet.org/",
   "eligibility": "10+2 any Stream",
   "fee_display": "Rs. 800/-",
@@ -6756,8 +6869,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "met",
@@ -6788,6 +6900,8 @@
   "scope_state": "Karnataka",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://manipal.edu/",
   "eligibility": "10+2 with PCB",
   "fee_display": "Rs. Rs. 600/- + Rs. 1400/-",
@@ -6866,8 +6980,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "mh-aac-cet",
@@ -6884,6 +6997,8 @@
   "scope_state": "Maharashtra",
   "eligible_in": "Maharashtra",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "http://cetcell.mahacet.org/",
   "eligibility": "10+2 any Stream",
   "fee_display": "Rs. 1700/-",
@@ -6934,8 +7049,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "mh-b-sc-nursing-cet",
@@ -6952,6 +7066,10 @@
   "scope_state": "Maharashtra",
   "eligible_in": "Maharashtra",
   "run_by": "Public",
+  "subjects": {
+   "_": "pcb"
+  },
+  "fills_private": false,
   "url": "http://cetcell.mahacet.org",
   "eligibility": "10+2 with PCB",
   "fee_display": "Rs. 800/-",
@@ -7006,8 +7124,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "mht-cet",
@@ -7030,6 +7147,8 @@
   "scope_state": "Maharashtra",
   "eligible_in": "Maharashtra",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": true,
   "url": "http://cetcell.mahacet.org",
   "eligibility": "50% in 12th with Physics, Biology/Mathematics and Chemistry",
   "fee_display": "Rs. 1300/- (Rs. 2600/- for both attempts)",
@@ -7100,11 +7219,6 @@
    "count": 763395,
    "year": 2026,
    "source": "https://news.careers360.com/maharashtra-cet-2026-records-highest-ever-participation-with-16-29-lakh-mat-pcm-pcb-mba-mms-20-entrance-exam-statistics"
-  },
-  "acceptance": {
-   "pct": 42.41,
-   "basis": "2026 engineering CAP seats / 2026 PCM-group 1st-attempt registrants (479332)",
-   "source": "https://news.careers360.com/mht-cet-counselling-2026-1-52-lakh-students-admitted-after-cap-round-4-engineering-admissions-50000-seats-vacant-maharashtra"
   }
  },
  {
@@ -7122,6 +7236,8 @@
   "scope_state": "Maharashtra",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://mitid.edu.in/",
   "eligibility": "10+2 any Stream",
   "fee_display": "Rs. 3000/-",
@@ -7151,8 +7267,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "mitwpu-as",
@@ -7169,6 +7284,8 @@
   "scope_state": "Maharashtra",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://mitwpu.edu.in/",
   "eligibility": "10+2 any stream",
   "fee_display": "Rs. 1000/-",
@@ -7198,8 +7315,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "mitwpu-cet",
@@ -7227,6 +7343,8 @@
   "scope_state": "Maharashtra",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://mitwpu.edu.in/",
   "eligibility": "10+2 any stream",
   "fee_display": "Rs. 1000/-",
@@ -7297,8 +7415,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "mitwpu-ug-dat",
@@ -7315,6 +7432,8 @@
   "scope_state": "Maharashtra",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://mitwpu.edu.in/",
   "eligibility": "10+2 any stream",
   "fee_display": "Rs. 1000/-",
@@ -7377,8 +7496,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "mp-pat",
@@ -7395,6 +7513,8 @@
   "scope_state": "Madhya Pradesh",
   "eligible_in": "Madhya Pradesh",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "http://www.peb.mp.gov.in/",
   "eligibility": "10+2 PCM for B.Tech and Science for others",
   "fee_display": "Rs. 500/-",
@@ -7441,8 +7561,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "mp-pv-ft",
@@ -7460,6 +7579,10 @@
   "scope_state": "Madhya Pradesh",
   "eligible_in": "Madhya Pradesh",
   "run_by": "Public",
+  "subjects": {
+   "_": "pcb"
+  },
+  "fills_private": false,
   "url": "https://esb.mp.gov.in/",
   "eligibility": "10+2 with PCB",
   "fee_display": "Rs. 400/-",
@@ -7506,8 +7629,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "msu-et",
@@ -7537,6 +7659,8 @@
   "scope_state": "Gujarat",
   "eligible_in": "Gujarat",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://admission.msubaroda.ac.in/",
   "eligibility": "10+2 any Stream",
   "fee_display": "Rs. 600/-",
@@ -7582,8 +7706,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "nata",
@@ -7600,6 +7723,8 @@
   "scope_state": null,
   "eligible_in": "All India",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://www.nata.in/",
   "eligibility": "10+2 with 50% aggregate marks in Physics, Chemistry & Mathematics and also at least 50% marks in aggregate of the 10+2 level examination or passed 10+3 Diploma Examination with Mathematics as compulsory subject with at least 50% marks in aggregate.",
   "fee_display": "Rs. 2000/-",
@@ -7629,8 +7754,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "nchm-jee",
@@ -7647,6 +7771,8 @@
   "scope_state": null,
   "eligible_in": "All India",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://nchmjee.nta.nic.in/",
   "eligibility": "10+2 any stream",
   "fee_display": "Rs. 1000/-",
@@ -7701,8 +7827,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "nda",
@@ -7717,6 +7842,8 @@
   "scope_state": null,
   "eligible_in": "All India",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://www.upsc.gov.in/",
   "eligibility": "10+2 any Stream for Indian Army and 10+2 with Physics and Mathematics for Indian Air Force and Indian Navy",
   "fee_display": null,
@@ -7779,8 +7906,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "neet-ug",
@@ -7803,6 +7929,10 @@
   "scope_state": null,
   "eligible_in": "All India",
   "run_by": "Public",
+  "subjects": {
+   "_": "pcb"
+  },
+  "fills_private": false,
   "url": "https://neet.nta.nic.in/",
   "eligibility": "50% aggregate Marks in with Physics Chemistry and Biology.",
   "fee_display": "Rs. 1700/-",
@@ -7873,11 +8003,6 @@
    "count": 2279743,
    "year": 2026,
    "source": "https://www.businesstoday.in/amp/education/exams/story/neet-ug-2026-results-out-11-21-lakh-qualify-punjab-and-haryana-students-top-with-715-out-of-720-543498-2026-07-17"
-  },
-  "acceptance": {
-   "pct": 9.71,
-   "basis": "MBBS+BDS+AYUSH seats / 2026 NEET-UG registrants",
-   "source": "https://medicaldialogues.in/amp/news/education/140664-mbbs-seats-across-839-medical-colleges-for-2026-27-127028-renewed-13186-increased-nmc-updates-seat-matrix-179737"
   }
  },
  {
@@ -7895,6 +8020,8 @@
   "scope_state": null,
   "eligible_in": "All India",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://www.nestexam.in/",
   "eligibility": "10+2 with PCM/B.",
   "fee_display": "Rs. 1200/-",
@@ -7953,8 +8080,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "net",
@@ -7971,6 +8097,8 @@
   "scope_state": "Odisha",
   "eligible_in": "All India",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "http://www.svnirtar.nic.in/",
   "eligibility": null,
   "fee_display": null,
@@ -8016,8 +8144,7 @@
   "open_data_id": null,
   "careers": null,
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "niift-caft",
@@ -8034,6 +8161,8 @@
   "scope_state": "Punjab",
   "eligible_in": "Punjab",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "http://www.niiftindia.com/",
   "eligibility": null,
   "fee_display": "Rs. 1750/-",
@@ -8063,8 +8192,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "nmims-audition",
@@ -8081,6 +8209,8 @@
   "scope_state": "Maharashtra",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "http://performingarts.nmims.edu/",
   "eligibility": "10+2 any stream",
   "fee_display": "From Rs. 2000/-",
@@ -8105,8 +8235,7 @@
   "open_data_id": null,
   "careers": null,
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "nmims-cet",
@@ -8125,6 +8254,8 @@
   "scope_state": "Maharashtra",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://nmimscet.in/",
   "eligibility": "10+2 PCM",
   "fee_display": "From Rs. 2000/-",
@@ -8195,8 +8326,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "nmims-dat",
@@ -8213,6 +8343,8 @@
   "scope_state": "Maharashtra",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://nmimsdat.in/",
   "eligibility": "10+2 any stream",
   "fee_display": "From Rs. 2000/-",
@@ -8242,8 +8374,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "nmims-lat",
@@ -8260,6 +8391,8 @@
   "scope_state": "Maharashtra",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://nmimscet.in/",
   "eligibility": "10+2 any stream",
   "fee_display": "From Rs. 2000/-",
@@ -8314,8 +8447,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "nmims-npat",
@@ -8339,6 +8471,8 @@
   "scope_state": "Maharashtra",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://nmimsnpat.in/",
   "eligibility": "10+2 any stream",
   "fee_display": "Starting from Rs. 2000/-",
@@ -8401,8 +8535,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "nsuee",
@@ -8419,6 +8552,8 @@
   "scope_state": "Manipur",
   "eligible_in": "All India",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://nsu.nta.ac.in/",
   "eligibility": "10+2 any stream",
   "fee_display": "Rs. 1000/-",
@@ -8443,8 +8578,7 @@
   "open_data_id": null,
   "careers": null,
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "ojee",
@@ -8463,6 +8597,8 @@
   "scope_state": "Odisha",
   "eligible_in": "Odisha",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://ojee.nic.in/",
   "eligibility": "10+2 any stream",
   "fee_display": "Rs. 1000/-",
@@ -8529,8 +8665,7 @@
    "count": 103434,
    "year": 2026,
    "source": "https://inpr.odisha.gov.in/sites/default/files/2026-06/News_OJEE_08062026EEEE.pdf"
-  },
-  "acceptance": null
+  }
  },
  {
   "exam_id": "ouat",
@@ -8549,6 +8684,8 @@
   "scope_state": "Odisha",
   "eligible_in": "Odisha",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "http://ouat.nic.in/",
   "eligibility": "10+2 in science",
   "fee_display": "Rs. 1500/-",
@@ -8595,8 +8732,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "para-cet-124",
@@ -8614,6 +8750,8 @@
   "scope_state": "Delhi",
   "eligible_in": "Delhi",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "http://www.ipu.ac.in/",
   "eligibility": "10+2 with PCB",
   "fee_display": "Rs. 1500/-",
@@ -8655,8 +8793,7 @@
   "open_data_id": null,
   "careers": null,
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "pau-cet",
@@ -8675,6 +8812,8 @@
   "scope_state": "Punjab",
   "eligible_in": "Punjab",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://www.pau-apms.in/",
   "eligibility": "10+2 with PCM/B",
   "fee_display": "Rs. 3000/-",
@@ -8741,8 +8880,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "pdeu-at",
@@ -8759,6 +8897,8 @@
   "scope_state": "Gujarat",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "http://sls.pdpu.ac.in/",
   "eligibility": "10+2 any stream",
   "fee_display": "Rs.1500/-",
@@ -8788,8 +8928,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "pgimer-ee",
@@ -8808,6 +8947,8 @@
   "scope_state": "Chandigarh",
   "eligible_in": "All India",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://pgimer.edu.in/",
   "eligibility": "10+2 with PCM/B",
   "fee_display": "Rs. 1500/-",
@@ -8837,8 +8978,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "pharma-cet-133",
@@ -8855,6 +8995,8 @@
   "scope_state": "Delhi",
   "eligible_in": "Delhi",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "http://www.ipu.ac.in/",
   "eligibility": "10+2 with PCM/B",
   "fee_display": "Rs. 1500/-",
@@ -8905,8 +9047,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "pu-llb-cet",
@@ -8923,6 +9064,8 @@
   "scope_state": "Punjab",
   "eligible_in": "All India",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://www.uglaw.puchd.ac.in/",
   "eligibility": "Graduation",
   "fee_display": "Rs. 2175/-",
@@ -8969,8 +9112,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "pu-5-year-llb-et",
@@ -8987,6 +9129,8 @@
   "scope_state": "Punjab",
   "eligible_in": "All India",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://www.uglaw.puchd.ac.in/",
   "eligibility": "10+2 any Stream",
   "fee_display": "Rs. 2175/-",
@@ -9037,8 +9181,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "pu-cet",
@@ -9058,6 +9201,8 @@
   "scope_state": "Punjab",
   "eligible_in": "Punjab",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://cetug.puchd.ac.in/",
   "eligibility": "10+2 in Science",
   "fee_display": "Rs. 2395/-",
@@ -9120,8 +9265,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "pwc-et",
@@ -9148,6 +9292,8 @@
   "scope_state": "Bihar",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://patnawomenscollege.in/",
   "eligibility": "10+2 any stream",
   "fee_display": "Rs. 1000/-",
@@ -9206,8 +9352,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "rjet",
@@ -9226,6 +9371,8 @@
   "scope_state": "Rajasthan",
   "eligible_in": "Rajasthan",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://www.jetauj2023.com/",
   "eligibility": "10+2 in Science",
   "fee_display": "Rs. 1400/-",
@@ -9280,8 +9427,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "rulet",
@@ -9298,6 +9444,8 @@
   "scope_state": "Rajasthan",
   "eligible_in": "Rajasthan",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://www.uniraj.ac.in/",
   "eligibility": "10+2 any Stream",
   "fee_display": "Rs. 2000/-",
@@ -9327,8 +9475,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "seed",
@@ -9345,6 +9492,8 @@
   "scope_state": "Maharashtra",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://www.set-test.org/",
   "eligibility": "10+2 any Stream",
   "fee_display": "Rs. 1950+1000/-",
@@ -9374,8 +9523,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "set-general",
@@ -9400,6 +9548,8 @@
   "scope_state": "Maharashtra",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://www.set-test.org/",
   "eligibility": "10+2 any Stream",
   "fee_display": "Rs. 1950+1000/-",
@@ -9466,8 +9616,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "siteee",
@@ -9484,6 +9633,8 @@
   "scope_state": "Maharashtra",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://www.set-test.org/",
   "eligibility": "10+2 with PCM",
   "fee_display": "Rs. 1950+1000/-",
@@ -9542,8 +9693,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "skuast-j-cet",
@@ -9562,6 +9712,8 @@
   "scope_state": "Jammu and Kashmir",
   "eligible_in": "Jammu and Kashmir",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://skuast.org/",
   "eligibility": "10+2 in Science",
   "fee_display": "Rs. 1800/-",
@@ -9608,8 +9760,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "skuast-k-cet",
@@ -9628,6 +9779,8 @@
   "scope_state": "Jammu and Kashmir",
   "eligible_in": "Jammu and Kashmir",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://skuastkashmir.ac.in/",
   "eligibility": "10+2 in PCM (PCM for B.Tech. Agri. Engg. only)",
   "fee_display": "Rs. 1500/-",
@@ -9674,8 +9827,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "slat",
@@ -9692,6 +9844,8 @@
   "scope_state": "Maharashtra",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://www.set-test.org/",
   "eligibility": "10+2 any Stream",
   "fee_display": "Rs. 1950+1000/-",
@@ -9746,8 +9900,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "smat-ug",
@@ -9762,6 +9915,8 @@
   "scope_state": "Maharashtra",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://www.iismworld.com/",
   "eligibility": "10+2 any stream",
   "fee_display": "Rs. 1200/-",
@@ -9811,8 +9966,7 @@
   "open_data_id": null,
   "careers": null,
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "smeat-ug",
@@ -9829,6 +9983,8 @@
   "scope_state": "Karnataka",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "http://srishtimanipalinstitute.in/",
   "eligibility": "10+2 any Stream",
   "fee_display": "Rs. 3000/-",
@@ -9858,8 +10014,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "snioe-dat",
@@ -9876,6 +10031,8 @@
   "scope_state": "Uttar Pradesh",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://home.pearsonvue.com/snu",
   "eligibility": "10+2 with English",
   "fee_display": "Rs. 2500/-",
@@ -9922,8 +10079,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "snusat",
@@ -9945,6 +10101,8 @@
   "scope_state": "Uttar Pradesh",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://home.pearsonvue.com/snu",
   "eligibility": "10+2 with English",
   "fee_display": "Rs. 2500/-",
@@ -9990,8 +10148,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "snusat-apt",
@@ -10008,6 +10165,8 @@
   "scope_state": "Uttar Pradesh",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://home.pearsonvue.com/snu",
   "eligibility": "10+2 with PCM",
   "fee_display": "Rs. 2500/-",
@@ -10049,8 +10208,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "soetap-ug",
@@ -10068,6 +10226,8 @@
   "scope_state": "Uttar Pradesh",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://shuats.edu.in/",
   "eligibility": "10+2 in Science",
   "fee_display": "Rs. 2000/-",
@@ -10101,8 +10261,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "soft-et",
@@ -10119,6 +10278,8 @@
   "scope_state": "Maharashtra",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://soft.ac.in/",
   "eligibility": "10+2 any Stream",
   "fee_display": "Rs. 3000/-",
@@ -10169,8 +10330,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "sppu-oee",
@@ -10194,6 +10354,8 @@
   "scope_state": "Maharashtra",
   "eligible_in": "All India",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "http://www.unipune.ac.in/",
   "eligibility": "10+2 any stream",
   "fee_display": null,
@@ -10252,8 +10414,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "srmjee-l-ug",
@@ -10270,6 +10431,8 @@
   "scope_state": "Tamil Nadu",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://www.srmist.edu.in/",
   "eligibility": "10+2 any stream",
   "fee_display": "Rs. 1200/-",
@@ -10324,8 +10487,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "srmjeee-ug",
@@ -10345,6 +10507,8 @@
   "scope_state": "Tamil Nadu",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://www.srmist.edu.in/",
   "eligibility": "10+2 with PCM/B",
   "fee_display": "Rs. 1200/-",
@@ -10415,8 +10579,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "srmjeeh-ug",
@@ -10433,6 +10596,8 @@
   "scope_state": "Tamil Nadu",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://www.srmist.edu.in/",
   "eligibility": "10+2 with PCM/B",
   "fee_display": "Rs. 1200/-",
@@ -10487,8 +10652,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "sru-aiee",
@@ -10505,6 +10669,8 @@
   "scope_state": "Tamil Nadu",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://www.sriramachandra.edu.in/",
   "eligibility": "10+2 with PCM",
   "fee_display": "Rs. 1000/-",
@@ -10567,8 +10733,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "sru-ee-group-a",
@@ -10585,6 +10750,8 @@
   "scope_state": "Tamil Nadu",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://www.sriramachandra.edu.in/",
   "eligibility": null,
   "fee_display": null,
@@ -10609,8 +10776,7 @@
   "open_data_id": null,
   "careers": null,
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "sssihl-ugt",
@@ -10636,6 +10802,8 @@
   "scope_state": "Andhra Pradesh",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://www.sssihl.edu.in/",
   "eligibility": "10+2 with English",
   "fee_display": "Rs. 100/-",
@@ -10702,8 +10870,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "step",
@@ -10720,6 +10887,8 @@
   "scope_state": null,
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://www.oberoigroup.com/",
   "eligibility": "10+2 any Stream",
   "fee_display": "No registration charges",
@@ -10749,8 +10918,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "tg-eapcet-am",
@@ -10771,6 +10939,10 @@
   "scope_state": "Telangana",
   "eligible_in": "Telangana",
   "run_by": "Public",
+  "subjects": {
+   "_": "pcb"
+  },
+  "fills_private": true,
   "url": "https://eamcet.tsche.ac.in/",
   "eligibility": "10+2 in Science",
   "fee_display": "Rs. 900/-",
@@ -10839,8 +11011,7 @@
    "count": 90977,
    "year": 2026,
    "source": "https://www.freepressjournal.in/education/tg-eapcet-2026-results-out-over-3-lakh-candidates-can-check-rank-cards-online"
-  },
-  "acceptance": null
+  }
  },
  {
   "exam_id": "tg-eapcet-e",
@@ -10860,6 +11031,10 @@
   "scope_state": "Telangana",
   "eligible_in": "Telangana",
   "run_by": "Public",
+  "subjects": {
+   "_": "pcm"
+  },
+  "fills_private": true,
   "url": "https://eamcet.tsche.ac.in/",
   "eligibility": "10+2 in Science",
   "fee_display": "Rs. 900/-",
@@ -10924,11 +11099,6 @@
    "count": 210766,
    "year": 2026,
    "source": "https://www.freepressjournal.in/education/tg-eapcet-2026-results-out-over-3-lakh-candidates-can-check-rank-cards-online"
-  },
-  "acceptance": {
-   "pct": 41.78,
-   "basis": "2026 Phase-1 convener engineering seats / 2026 TG EAPCET engineering registrants",
-   "source": "https://www.deccanchronicle.com/southern-states/telangana/79313-seats-allotted-in-eapcet-mock-round-1968483"
   }
  },
  {
@@ -10946,6 +11116,8 @@
   "scope_state": "Punjab",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://admission.thapar.edu/",
   "eligibility": "10+2 any stream",
   "fee_display": "Rs. 1500/-",
@@ -10975,8 +11147,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "uceed",
@@ -10993,6 +11164,8 @@
   "scope_state": null,
   "eligible_in": "All India",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "http://www.uceed.iitb.ac.in/",
   "eligibility": null,
   "fee_display": null,
@@ -11043,8 +11216,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "ug-jet",
@@ -11078,6 +11250,8 @@
   "scope_state": "Karnataka",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://www.jainuniversity.ac.in/",
   "eligibility": "10+2 any Stream",
   "fee_display": "Rs. 550/-",
@@ -11144,8 +11318,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "ugat",
@@ -11168,6 +11341,8 @@
   "scope_state": null,
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://www.aima.in/",
   "eligibility": "10+2 any Stream",
   "fee_display": "Rs. 750/-",
@@ -11230,8 +11405,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "uget",
@@ -11248,6 +11422,8 @@
   "scope_state": "Himachal Pradesh",
   "eligible_in": "Himachal Pradesh",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://www.yspuniversity.ac.in/",
   "eligibility": "10+2 in Science",
   "fee_display": "Rs. 1500/-",
@@ -11298,8 +11474,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "uid-dat",
@@ -11316,6 +11491,8 @@
   "scope_state": "Gujarat",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://karnavatiuniversity.edu.in/",
   "eligibility": "10+2 any Stream",
   "fee_display": "Rs. 2000/-",
@@ -11378,8 +11555,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "ulsat",
@@ -11396,6 +11572,8 @@
   "scope_state": "Uttarakhand",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://www.upes.ac.in/",
   "eligibility": "10+2 any stream",
   "fee_display": "Rs. 1350/-",
@@ -11450,8 +11628,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "up-catet",
@@ -11470,6 +11647,8 @@
   "scope_state": "Uttar Pradesh",
   "eligible_in": "Uttar Pradesh",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://upcatetexam.net/",
   "eligibility": "10+2 in Science",
   "fee_display": "Rs. 1250/-",
@@ -11568,8 +11747,7 @@
    "count": 18827,
    "year": 2026,
    "source": "https://news.careers360.com/upcatet-result-2026-out-toppers-kavya-masih-ug-shivam-yadav-pg-aman-singh-phd-banda-agricultural-university"
-  },
-  "acceptance": null
+  }
  },
  {
   "exam_id": "upesdat",
@@ -11586,6 +11764,8 @@
   "scope_state": "Uttarakhand",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://www.upes.ac.in/",
   "eligibility": "10+2 any stream",
   "fee_display": "Rs. 1850/-",
@@ -11624,8 +11804,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "upeseat-exam-test-centre-based",
@@ -11642,6 +11821,8 @@
   "scope_state": "Uttarakhand",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://www.upes.ac.in/",
   "eligibility": "10+2 with PCM",
   "fee_display": "Rs. 1350/-",
@@ -11708,8 +11889,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "upeseat-test-online",
@@ -11726,6 +11906,8 @@
   "scope_state": "Uttarakhand",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://www.upes.ac.in/",
   "eligibility": "10+2 with PCM",
   "fee_display": "Rs. 1350/-",
@@ -11788,8 +11970,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "upesmet-ug",
@@ -11806,6 +11987,8 @@
   "scope_state": "Uttarakhand",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://www.upes.ac.in/",
   "eligibility": "10+2 any stream",
   "fee_display": "Rs. 1350/-",
@@ -11835,8 +12018,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "upespat-exam-test-centre-based",
@@ -11853,6 +12035,8 @@
   "scope_state": "Uttarakhand",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://www.upes.ac.in/",
   "eligibility": "10+2 any stream",
   "fee_display": "Rs. 1350/-",
@@ -11907,8 +12091,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "upespat-test-online",
@@ -11925,6 +12108,8 @@
   "scope_state": "Uttarakhand",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://www.upes.ac.in/",
   "eligibility": "10+2 any stream",
   "fee_display": "Rs. 1350/-",
@@ -11975,8 +12160,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "upsc-cds",
@@ -11993,6 +12177,8 @@
   "scope_state": null,
   "eligible_in": "All India",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://www.upsc.gov.in/",
   "eligibility": "IMA (Army): any graduate. INA (Navy): BE/BTech. AFA (Air Force): graduate with Physics & Maths in Class 12, or BE/BTech. OTA (Army SSC, men and women): any graduate. Age roughly 19-25 depending on academy; IMA/INA/AFA men unmarried only.",
   "fee_display": "Rs. 200/- (exempt for women/SC/ST)",
@@ -12032,8 +12218,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "uuhf-uet",
@@ -12050,6 +12235,8 @@
   "scope_state": "Uttarakhand",
   "eligible_in": "Uttarakhand",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://www.uuhf.ac.in/",
   "eligibility": "10+2 in Science",
   "fee_display": "Rs. 1400/-",
@@ -12096,8 +12283,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "viteee",
@@ -12115,6 +12301,8 @@
   "scope_state": "Tamil Nadu",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://viteee.vit.ac.in",
   "eligibility": "10+2 with PCM/B",
   "fee_display": "Rs. 1150/-",
@@ -12185,8 +12373,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "vsat",
@@ -12203,6 +12390,8 @@
   "scope_state": "Maharashtra",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://vijaybhoomi.edu.in/",
   "eligibility": "10+2 any stream",
   "fee_display": "Rs. 2000/-",
@@ -12241,8 +12430,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "wb-jenpas-ug",
@@ -12261,6 +12449,8 @@
   "scope_state": "West Bengal",
   "eligible_in": "West Bengal",
   "run_by": "Public",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://wbjeeb.nic.in/",
   "eligibility": null,
   "fee_display": null,
@@ -12311,8 +12501,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "wbjee",
@@ -12332,6 +12521,11 @@
   "scope_state": "West Bengal",
   "eligible_in": "West Bengal",
   "run_by": "Public",
+  "subjects": {
+   "_": "pcm",
+   "Pharma": "any"
+  },
+  "fills_private": true,
   "url": "https://wbjeeb.in/",
   "eligibility": "10+2 with PCM",
   "fee_display": "Rs. 500/-",
@@ -12418,11 +12612,6 @@
    "count": 120856,
    "year": 2026,
    "source": "https://news.careers360.com/wbjee-toppers-list-2026-merit-list-out-wbjeeb-nic-in-shaswat-banerjee-tops-exam-btech-engineering-admissions-counselling"
-  },
-  "acceptance": {
-   "pct": 28.01,
-   "basis": "2026 WBJEEB engineering counselling seats / 2026 WBJEE registrants",
-   "source": "https://www.pw.live/wbbse/exams/wbjee-2026-decentralised-counselling-seat-matrix-registration-choice-filling"
   }
  },
  {
@@ -12443,6 +12632,8 @@
   "scope_state": "Maharashtra",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://www.whistlingwoods.net/",
   "eligibility": "10+2 any Stream",
   "fee_display": "Rs. 3000/-",
@@ -12489,8 +12680,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "xet",
@@ -12509,6 +12699,8 @@
   "scope_state": "Maharashtra",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://xaviers.edu/",
   "eligibility": "10+2 any Stream",
   "fee_display": "Rs. 3000/-",
@@ -12559,8 +12751,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "idat",
@@ -12577,6 +12768,8 @@
   "scope_state": "Delhi",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://www.iiad.edu.in/",
   "eligibility": "10+2 any Stream",
   "fee_display": "Rs. 2000/-",
@@ -12606,8 +12799,7 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  },
  {
   "exam_id": "imat-iiad-management-aptitude-test-delhi",
@@ -12624,6 +12816,8 @@
   "scope_state": "Delhi",
   "eligible_in": "All India",
   "run_by": "Private",
+  "subjects": null,
+  "fills_private": false,
   "url": "https://www.iiad.edu.in/",
   "eligibility": "10+2 any Stream",
   "fee_display": "Rs. 2000/-",
@@ -12653,7 +12847,6 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null,
-  "acceptance": null
+  "applicants": null
  }
 ]
