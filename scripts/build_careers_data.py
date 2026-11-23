@@ -104,6 +104,16 @@ CAREER_BRANCH = {
     "Renewable Energy (Solar/Wind)": "ENERGYENG",
     "Speech-Language Pathology": "AUDI",
     "Sports Coaching and Athletics": "PHYSED",
+    # sports careers (Nov 2026): Sports Coaching and Athletics keeps the
+    # PHYSED branch link (first in the sheet); the rest pin to the branch
+    # whose degree leads there
+    "Sports Science and Exercise Physiology": "PHYSED",
+    "Physical Education Teaching": "PHYSED",
+    "Professional Athlete (Sports Quota and Khelo India)": "PHYSED",
+    "Sports Management": "MBA",
+    "Sports Journalism and Broadcasting": "JOURNAL",
+    "Sports Psychology": "PSYCH",
+    "Sports Analytics and Performance Analysis": "STATISTICS",
     "Surveying": "CIVILENG",
     "Technical/Content Writing": "ENGLISH",
     "Translation and Interpretation": "ENGLISH",
@@ -476,7 +486,7 @@ ACRONYMS = {
 }
 
 
-SUBUNIT = re.compile(r"^(Faculty of Agricultural|Institute of Agricultural Sciences|Palli Siksha)", re.I)
+SUBUNIT = re.compile(r"^(Faculty of Agricultural|Institute of Agricultural Sciences|Palli Siksha|Faculty of Dent)", re.I)
 
 
 def college_linker():
@@ -505,6 +515,11 @@ def college_linker():
         # "Aligarh Muslim University" on an EEE page must not land there
         hits = [d for d, dt in dtokens if toks <= dt
                 and not (SUBUNIT.match(d) and not toks & {"faculty", "institute", "palli"})]
+        # the same college listed twice (the dental council's "Armed Forces
+        # Medical College, Pune-1" beside the tab's own card): the card
+        # whose name is exactly the sheet's wins
+        if len(hits) > 1:
+            hits = [d for d, dt in dtokens if d in hits and dt == toks] or hits
         return hits[0] if len(hits) == 1 else None
 
     return link

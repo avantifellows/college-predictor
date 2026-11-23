@@ -531,7 +531,7 @@
   "exams": null,
   "exam_ids": null,
   "pay": {
-   "start": "\u20b96-10 LPA",
+   "start": "\u20b912-14 LPA",
    "mid": "\u20b912-25 LPA",
    "senior": "\u20b928-45 LPA"
   },
@@ -579,7 +579,7 @@
   "exams": null,
   "exam_ids": null,
   "pay": {
-   "start": "\u20b98-15 LPA",
+   "start": "\u20b915-30 LPA",
    "mid": "\u20b925-60 LPA",
    "senior": "\u20b970 LPA-1.5 Crore"
   },
@@ -810,7 +810,6 @@
    "nata",
    "aat",
    "amu-aat",
-   "comedk-uget",
    "jee-main-paper-2a",
    "kiit-ee"
   ],
@@ -995,6 +994,7 @@
    ]
   },
   "college_ids": [
+   "C-7252",
    "U-0013",
    "U-0456",
    "U-0733",
@@ -1032,7 +1032,7 @@
    "amu-et",
    "apu-et",
    "ba-cet-184",
-   "cuet",
+   "christ-cuet",
    "feat",
    "idss-oee",
    "jcat",
@@ -1138,7 +1138,7 @@
   "pay": {
    "start": "\u20b93-5 LPA",
    "mid": "\u20b96-10 LPA",
-   "senior": "\u20b912-20 LPA"
+   "senior": "\u20b97-12 LPA"
   },
   "recruiters": [
    "AIIMS and other government hospitals",
@@ -1319,7 +1319,7 @@
   "pay": {
    "start": "\u20b94-8 LPA",
    "mid": "\u20b910-22 LPA",
-   "senior": "\u20b925-45 LPA"
+   "senior": "\u20b915-35 LPA"
   },
   "recruiters": [
    "Air India",
@@ -1685,7 +1685,7 @@
   "pay": {
    "start": "\u20b94-8 LPA",
    "mid": "\u20b910-25 LPA",
-   "senior": "\u20b928-50 LPA"
+   "senior": "\u20b912-25 LPA"
   },
   "recruiters": [
    "Biocon",
@@ -1813,6 +1813,7 @@
    ]
   },
   "college_ids": [
+   "U-0053",
    "U-0100",
    "U-0456",
    "U-0560",
@@ -1985,8 +1986,8 @@
   ],
   "pay": {
    "start": "\u20b93.5-6.5 LPA",
-   "mid": "\u20b98-14 LPA",
-   "senior": "\u20b916-28 LPA"
+   "mid": "\u20b94-9 LPA",
+   "senior": "\u20b98-16 LPA"
   },
   "recruiters": [
    "Skanray Technologies",
@@ -2030,6 +2031,7 @@
    ]
   },
   "college_ids": [
+   "C-7252",
    "U-0013",
    "U-0306",
    "U-0456",
@@ -2059,8 +2061,8 @@
   "exam_ids": null,
   "pay": {
    "start": "\u20b95-9 LPA",
-   "mid": "\u20b912-28 LPA",
-   "senior": "\u20b930-55 LPA"
+   "mid": "\u20b97-15 LPA",
+   "senior": "\u20b915-30 LPA"
   },
   "recruiters": [
    "Indian Council of Medical Research (ICMR)",
@@ -2196,7 +2198,7 @@
   "pay": {
    "start": "\u20b93.5-6 LPA",
    "mid": "\u20b98-15 LPA",
-   "senior": "\u20b918-35 LPA"
+   "senior": "\u20b910-20 LPA"
   },
   "recruiters": [
    "Serum Institute of India",
@@ -2523,7 +2525,7 @@
    "bba-cet-125",
    "set-general",
    "bu-mat",
-   "cuet",
+   "christ-cuet",
    "ipm-at-indore-ranchi",
    "ipm-at-rohtak",
    "jmi-et",
@@ -2920,8 +2922,8 @@
   "exam_ids": [
    "amu-et",
    "b-com-cet-146",
-   "cuet",
    "cuet-ug",
+   "christ-cuet",
    "jmi-et",
    "jsat",
    "kalsee",
@@ -2934,7 +2936,7 @@
    "ugat"
   ],
   "pay": {
-   "start": "\u20b96-9 LPA",
+   "start": "\u20b97-13 LPA",
    "mid": "\u20b915-25 LPA",
    "senior": "\u20b935-60+ LPA"
   },
@@ -3058,8 +3060,8 @@
   ],
   "pay": {
    "start": "\u20b95-9 LPA",
-   "mid": "\u20b912-20 LPA",
-   "senior": "\u20b922-40 LPA"
+   "mid": "\u20b95-12 LPA",
+   "senior": "\u20b910-22 LPA"
   },
   "recruiters": [
    "Reliance Industries",
@@ -3145,8 +3147,8 @@
   ],
   "pay": {
    "start": "\u20b94-8 LPA",
-   "mid": "\u20b910-18 LPA",
-   "senior": "\u20b920-35 LPA"
+   "mid": "\u20b95-12 LPA",
+   "senior": "\u20b910-22 LPA"
   },
   "recruiters": [
    "Reliance Industries",
@@ -3241,7 +3243,7 @@
    "snusat"
   ],
   "pay": {
-   "start": "\u20b93-6 LPA",
+   "start": "\u20b92-4.5 LPA",
    "mid": "\u20b97-14 LPA",
    "senior": "\u20b918-30 LPA"
   },
@@ -3349,8 +3351,8 @@
   "exam_ids": null,
   "pay": {
    "start": "\u20b93-6 LPA",
-   "mid": "\u20b98-25 LPA",
-   "senior": "\u20b930 LPA-1 Crore+ (project-based, varies hugely by film budget)"
+   "mid": "\u20b94-12 LPA",
+   "senior": "\u20b98-25 LPA"
   },
   "recruiters": [
    "Yash Raj Films",
@@ -3482,6 +3484,7 @@
    "wbjee",
    "bv-btech-cet",
    "cg-pet",
+   "comedk-uget",
    "nmims-cet",
    "pau-cet",
    "siteee",
@@ -3494,7 +3497,7 @@
   "pay": {
    "start": "\u20b93.5-6 LPA",
    "mid": "\u20b98-14 LPA",
-   "senior": "\u20b916-28 LPA"
+   "senior": "\u20b910-20 LPA"
   },
   "recruiters": [
    "Larsen & Toubro",
@@ -3580,7 +3583,7 @@
    "ugat"
   ],
   "pay": {
-   "start": "\u20b93-5 LPA",
+   "start": "\u20b92-4 LPA",
    "mid": "\u20b96-12 LPA",
    "senior": "\u20b915-25 LPA"
   },
@@ -3806,7 +3809,7 @@
    "bv-btech-cet",
    "cg-pet",
    "comedk-uget",
-   "cuet",
+   "christ-cuet",
    "kalsee",
    "met",
    "mitwpu-cet",
@@ -3911,7 +3914,7 @@
   "pay": {
    "start": "\u20b92-4 LPA",
    "mid": "\u20b94-8 LPA",
-   "senior": "\u20b98-14 LPA"
+   "senior": "\u20b94-8 LPA"
   },
   "recruiters": [
    "Legal process outsourcing (LPO) firms",
@@ -4260,7 +4263,8 @@
    "U-0271",
    "bhu:faculty-of-agriculture-banaras-hindu-university",
    "icar:icar-national-dairy-research-institute-karnal",
-   "icar:west-bengal-university-of-animal-fishery-sciences-kolkata"
+   "icar:west-bengal-university-of-animal-fishery-sciences-kolkata",
+   "kcet:dairy science college bengaluru"
   ],
   "has_colleges": true
  },
@@ -4723,8 +4727,8 @@
   ],
   "pay": {
    "start": "\u20b93-6 LPA",
-   "mid": "\u20b97-15 LPA",
-   "senior": "\u20b918-35 LPA (top private consultants can earn more)"
+   "mid": "\u20b93.5-7 LPA",
+   "senior": "\u20b95-10 LPA"
   },
   "recruiters": [
    "Apollo Hospitals",
@@ -4820,7 +4824,7 @@
    "aat-ashoka-aptitude-test-ashoka-university",
    "apu-et",
    "ba-cet-197",
-   "cuet",
+   "christ-cuet",
    "jsat",
    "mitwpu-cet",
    "nmims-npat",
@@ -5058,8 +5062,8 @@
   "exam_ids": null,
   "pay": {
    "start": "\u20b92.5-5 LPA",
-   "mid": "\u20b95-10 LPA",
-   "senior": "\u20b910-18 LPA"
+   "mid": "\u20b94-7 LPA",
+   "senior": "\u20b95-8 LPA"
   },
   "recruiters": [
    "108 Ambulance Service",
@@ -5234,7 +5238,7 @@
   "pay": {
    "start": "\u20b94-8 LPA",
    "mid": "\u20b99-18 LPA",
-   "senior": "\u20b920-35 LPA"
+   "senior": "\u20b912-25 LPA"
   },
   "recruiters": [
    "Tata Motors",
@@ -5279,6 +5283,7 @@
   },
   "college_ids": [
    "U-0013",
+   "U-0053",
    "U-0456",
    "U-0517",
    "U-0560",
@@ -5401,7 +5406,7 @@
   "pay": {
    "start": "\u20b92.5-5 LPA",
    "mid": "\u20b96-12 LPA",
-   "senior": "\u20b915-25+ LPA"
+   "senior": "\u20b98-18 LPA"
   },
   "recruiters": [
    "Penguin Random House India",
@@ -5501,7 +5506,7 @@
   ],
   "pay": {
    "start": "\u20b94-8 LPA",
-   "mid": "\u20b99-16 LPA",
+   "mid": "\u20b95-10 LPA",
    "senior": "\u20b918-30 LPA"
   },
   "recruiters": [
@@ -5583,7 +5588,7 @@
   "pay": {
    "start": "\u20b92.5-5 LPA",
    "mid": "\u20b96-15 LPA",
-   "senior": "\u20b918-40 LPA"
+   "senior": "\u20b98-20 LPA"
   },
   "recruiters": [
    "Wizcraft",
@@ -5690,8 +5695,8 @@
   ],
   "pay": {
    "start": "\u20b93-6 LPA",
-   "mid": "\u20b97-18 LPA",
-   "senior": "\u20b920-60 LPA"
+   "mid": "\u20b95-12 LPA",
+   "senior": "\u20b98-25 LPA"
   },
   "recruiters": [
    "FabIndia",
@@ -5986,7 +5991,8 @@
   },
   "college_ids": [
    "U-0293",
-   "icar:sher-e-kashmir-university-of-agricultural-sciences-technology-of-kashm"
+   "icar:sher-e-kashmir-university-of-agricultural-sciences-technology-of-kashm",
+   "kcet:college fisheries mangaluru"
   ],
   "has_colleges": true
  },
@@ -6360,7 +6366,7 @@
   ],
   "pay": {
    "start": "\u20b94-7 LPA",
-   "mid": "\u20b98-16 LPA",
+   "mid": "\u20b95-10 LPA",
    "senior": "\u20b918-35 LPA"
   },
   "recruiters": [
@@ -7043,7 +7049,7 @@
    "agniveer-vayu"
   ],
   "pay": {
-   "start": "\u20b94.8-6 LPA (Agniveer package of \u20b930,000-40,000 per month over four years, with a Seva Nidhi corpus of about \u20b910-12 lakh at the end)",
+   "start": "\u20b93.6-4.8 LPA (Agniveer package of \u20b930,000-40,000 per month over four years, with a Seva Nidhi corpus of about \u20b910-12 lakh at the end)",
    "mid": "\u20b94-7 LPA (for the roughly 25% of Agniveers retained as airmen)",
    "senior": "\u20b98-12 LPA (Junior Warrant Officer to Master Warrant Officer ranks)"
   },
@@ -7203,7 +7209,7 @@
    "agniveer-army"
   ],
   "pay": {
-   "start": "\u20b94.8-6 LPA (Agniveer package of \u20b930,000-40,000 per month over four years, with a Seva Nidhi corpus of about \u20b910-12 lakh at the end)",
+   "start": "\u20b93.6-4.8 LPA (Agniveer package of \u20b930,000-40,000 per month over four years, with a Seva Nidhi corpus of about \u20b910-12 lakh at the end)",
    "mid": "\u20b94-7 LPA (for the roughly 25% of Agniveers retained as Sepoy / Naik / Havildar)",
    "senior": "\u20b98-12 LPA (Junior Commissioned Officer ranks like Subedar and Subedar Major)"
   },
@@ -7476,7 +7482,7 @@
    "agniveer-navy-ssr-mr"
   ],
   "pay": {
-   "start": "\u20b94.8-6 LPA (Agniveer package of \u20b930,000-40,000 per month over four years, with a Seva Nidhi corpus of about \u20b910-12 lakh at the end)",
+   "start": "\u20b93.6-4.8 LPA (Agniveer package of \u20b930,000-40,000 per month over four years, with a Seva Nidhi corpus of about \u20b910-12 lakh at the end)",
    "mid": "\u20b94-7 LPA (for the roughly 25% of Agniveers retained as sailors)",
    "senior": "\u20b98-12 LPA (Chief Petty Officer and Master Chief Petty Officer ranks)"
   },
@@ -7672,9 +7678,9 @@
    "jee-advanced"
   ],
   "pay": {
-   "start": "\u20b94-8 LPA",
-   "mid": "\u20b910-18 LPA",
-   "senior": "\u20b920-35 LPA"
+   "start": "\u20b92.5-5 LPA",
+   "mid": "\u20b94-9 LPA",
+   "senior": "\u20b98-15 LPA"
   },
   "recruiters": [
    "Tata Chemicals",
@@ -7704,7 +7710,8 @@
    ]
   },
   "college_ids": [
-   "U-0013"
+   "U-0013",
+   "U-0220"
   ],
   "has_colleges": true
  },
@@ -7825,6 +7832,7 @@
    ]
   },
   "college_ids": [
+   "C-7252",
    "U-0100",
    "U-0573",
    "bits:pilani",
@@ -7894,7 +7902,7 @@
   "pay": {
    "start": "\u20b93-6 LPA",
    "mid": "\u20b97-16 LPA",
-   "senior": "\u20b918-45 LPA"
+   "senior": "\u20b910-25 LPA"
   },
   "recruiters": [
    "DLF",
@@ -8040,7 +8048,7 @@
   "pay": {
    "start": "\u20b93-6 LPA",
    "mid": "\u20b97-14 LPA",
-   "senior": "\u20b915-25 LPA"
+   "senior": "\u20b98-18 LPA"
   },
   "recruiters": [
    "Maruti Suzuki",
@@ -8225,7 +8233,7 @@
   "pay": {
    "start": "\u20b92.5-5 LPA",
    "mid": "\u20b96-12 LPA",
-   "senior": "\u20b915-30 LPA"
+   "senior": "\u20b98-20 LPA"
   },
   "recruiters": [
    "NDTV",
@@ -8325,7 +8333,7 @@
   "pay": {
    "start": "\u20b94-10 LPA",
    "mid": "\u20b912-25 LPA",
-   "senior": "\u20b930-80+ LPA"
+   "senior": "\u20b915-40+ LPA"
   },
   "recruiters": [
    "AZB & Partners",
@@ -8396,7 +8404,7 @@
   "pay": {
    "start": "\u20b92.5-4.5 LPA",
    "mid": "\u20b95-9 LPA",
-   "senior": "\u20b910-18 LPA"
+   "senior": "\u20b95-10 LPA"
   },
   "recruiters": [
    "National Library of India",
@@ -8805,7 +8813,7 @@
   "exam_ids": null,
   "pay": {
    "start": "\u20b91.8-3.5 LPA",
-   "mid": "\u20b94-8 LPA",
+   "mid": "\u20b92.5-4 LPA",
    "senior": "\u20b99-15 LPA"
   },
   "recruiters": [
@@ -9049,6 +9057,7 @@
    ]
   },
   "college_ids": [
+   "U-0053",
    "U-0098",
    "U-0100",
    "U-0573",
@@ -9159,7 +9168,7 @@
   "pay": {
    "start": "\u20b94-9 LPA",
    "mid": "\u20b910-20 LPA",
-   "senior": "\u20b922-40 LPA"
+   "senior": "\u20b914-30 LPA"
   },
   "recruiters": [
    "Tata Motors",
@@ -9240,8 +9249,8 @@
   ],
   "pay": {
    "start": "\u20b92-4 LPA",
-   "mid": "\u20b94.5-8 LPA",
-   "senior": "\u20b99-15 LPA"
+   "mid": "\u20b93-5 LPA",
+   "senior": "\u20b94-7 LPA"
   },
   "recruiters": [
    "Dr Lal PathLabs",
@@ -9684,7 +9693,7 @@
   ],
   "pay": {
    "start": "\u20b95-9 LPA",
-   "mid": "\u20b910-18 LPA",
+   "mid": "\u20b96-12 LPA",
    "senior": "\u20b920-35 LPA"
   },
   "recruiters": [
@@ -9764,8 +9773,8 @@
   ],
   "pay": {
    "start": "\u20b92-5 LPA",
-   "mid": "\u20b96-15 LPA",
-   "senior": "\u20b920-100+ LPA"
+   "mid": "\u20b93-8 LPA",
+   "senior": "\u20b96-15 LPA"
   },
   "recruiters": [
    "T-Series",
@@ -10233,8 +10242,8 @@
   "exam_ids": null,
   "pay": {
    "start": "\u20b93-5.5 LPA",
-   "mid": "\u20b96-12 LPA",
-   "senior": "\u20b913-22 LPA"
+   "mid": "\u20b94-8 LPA",
+   "senior": "\u20b96-10 LPA"
   },
   "recruiters": [
    "Apollo Hospitals",
@@ -10685,7 +10694,7 @@
   "pay": {
    "start": "\u20b92-4 LPA",
    "mid": "\u20b94.5-8 LPA",
-   "senior": "\u20b99-15 LPA"
+   "senior": "\u20b95-8 LPA"
   },
   "recruiters": [
    "Apollo Hospitals",
@@ -11005,7 +11014,6 @@
    "mht-cet",
    "wbjee",
    "bv-pharm-ug-cet",
-   "comedk-uget",
    "met",
    "nmims-cet",
    "pharma-cet-133",
@@ -11014,8 +11022,8 @@
   ],
   "pay": {
    "start": "\u20b92.5-5 LPA",
-   "mid": "\u20b96-12 LPA",
-   "senior": "\u20b914-25 LPA"
+   "mid": "\u20b93-6 LPA",
+   "senior": "\u20b94-8 LPA"
   },
   "recruiters": [
    "Cipla",
@@ -11064,7 +11072,7 @@
    "U-0380",
    "bits:hyderabad",
    "cusb:central-university-of-south-bihar",
-   "mhtcet:03015",
+   "mhtcet:06652",
    "tnea:2"
   ],
   "has_colleges": true
@@ -11167,7 +11175,7 @@
   "pay": {
    "start": "\u20b92.5-5 LPA",
    "mid": "\u20b96-15 LPA",
-   "senior": "\u20b918-40+ LPA"
+   "senior": "\u20b98-20 LPA"
   },
   "recruiters": [
    "Wedding photography studios",
@@ -11213,6 +11221,79 @@
   },
   "college_ids": null,
   "has_colleges": false
+ },
+ {
+  "career_id": "physical-education-teaching",
+  "name": "Physical Education Teaching",
+  "branch_id": "PHYSED",
+  "domain": "Arts & Humanities",
+  "eligible_streams": [
+   "All"
+  ],
+  "parent_stream": "Arts",
+  "pay_tier": "Low",
+  "day_in_life": "A physical education (PE) teacher runs games and fitness periods for students of different classes, teaches the rules and skills of sports, and picks and trains school teams for inter-school and district competitions. They also teach health and fitness theory in class, organise the school sports day, and keep records of students' fitness.",
+  "impact": "For most Indian children the PE teacher is their first coach: many national players, from hockey to kabaddi, were first spotted by a school PE teacher in a Kendriya Vidyalaya or a government school. Schemes like Fit India and Khelo India depend on PE teachers to get millions of students playing.",
+  "entry_exams_text": "No single fixed entrance exam. After Class 12, a BPES (Bachelor of Physical Education and Sports, 3 years) or another degree, admitted through a physical fitness test, sports achievement certificates and the college's own written test or CUET (UG). Then a B.P.Ed. (2 years after a degree), which PE teacher posts such as Kendriya Vidyalaya need. To teach in government schools, a teacher eligibility test and state or central recruitment exams are also needed.",
+  "exams": [
+   {
+    "label": "CUET (UG)",
+    "href": "/exams?q=CUET (UG)"
+   }
+  ],
+  "exam_ids": [
+   "cuet-ug"
+  ],
+  "pay": {
+   "start": "\u20b92-5 LPA",
+   "mid": "\u20b95-10 LPA",
+   "senior": "\u20b910-18 LPA"
+  },
+  "recruiters": [
+   "Kendriya Vidyalaya Sangathan",
+   "Navodaya Vidyalaya Samiti",
+   "state government schools",
+   "private school chains like Delhi Public School (DPS)",
+   "colleges and universities",
+   "Sports Authority of India (SAI)"
+  ],
+  "stability": "High",
+  "automation_risk": "Low",
+  "where_work": "Tier-2 cities work well",
+  "notable_people": [
+   "Syed Abdul Rahim: school teacher with a physical education diploma who became India's greatest football coach",
+   "Milkha Singh: Olympic sprinter who later served as Director of Sports in Punjab's education department"
+  ],
+  "sources": "https://ambitionbox.com/profile/physical-education-teacher-salary, https://ambitionbox.com/profile/tgt-physical-education-salary, https://cdnbbsr.s3waas.gov.in/s3kv05f1483f8442952b1775ff35db616b/uploads/2025/03/2025032287.pdf (Kendriya Vidyalaya TGT (P&HE) recruitment rules, Pay Level 7)",
+  "specializations": [
+   {
+    "name": "School PE Teacher",
+    "blurb": "teaches games and fitness to school students and trains school teams."
+   },
+   {
+    "name": "College Director of Physical Education",
+    "blurb": "runs a college's sports teams, grounds and competitions."
+   },
+   {
+    "name": "Adapted Physical Education",
+    "blurb": "designs sports and fitness activities for children with disabilities."
+   }
+  ],
+  "riasec": {
+   "code": "SRE",
+   "scores": [
+    62.0,
+    22.4,
+    25.3,
+    92.5,
+    48.1,
+    35.6
+   ]
+  },
+  "college_ids": [
+   "U-0383"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "physics",
@@ -11455,7 +11536,7 @@
   "pay": {
    "start": "\u20b94-7 LPA",
    "mid": "\u20b98-16 LPA",
-   "senior": "\u20b918-35 LPA"
+   "senior": "\u20b98-20 LPA"
   },
   "recruiters": [
    "Town and country planning departments of state governments",
@@ -11586,7 +11667,7 @@
   "pay": {
    "start": "\u20b93-6 LPA",
    "mid": "\u20b97-14 LPA",
-   "senior": "\u20b915-30 LPA"
+   "senior": "\u20b910-20 LPA"
   },
   "recruiters": [
    "Indian Administrative Service (via UPSC)",
@@ -11723,6 +11804,72 @@
   "has_colleges": true
  },
  {
+  "career_id": "professional-athlete-sports-quota-and-khelo-india",
+  "name": "Professional Athlete (Sports Quota and Khelo India)",
+  "branch_id": "PHYSED",
+  "domain": "Arts & Humanities",
+  "eligible_streams": [
+   "All"
+  ],
+  "parent_stream": "Arts",
+  "pay_tier": "Low",
+  "day_in_life": "A professional athlete trains twice a day, works with coaches, physios and fitness trainers, and travels for state, national and international competitions. Many also hold a sports-quota job in the Railways, the Army or a public sector company, which pays a salary while they keep competing.",
+  "impact": "Athletes like Neeraj Chopra and Mirabai Chanu, who trained in government programmes, have won Olympic medals and inspired lakhs of children in small towns to take up sport. Every medal also brings more money and attention to Indian sport.",
+  "entry_exams_text": "No written exam - selection is through sports trials and results: Sports Authority of India (SAI) and Khelo India trials, state and national championships, and sports-quota recruitment in the Railways, the Armed Forces and central police forces, which go by medals and rankings.",
+  "exams": null,
+  "exam_ids": null,
+  "pay": {
+   "start": "\u20b91.2-5 LPA (Khelo India allowance or a sports-quota job)",
+   "mid": "\u20b95-15 LPA (plus prize money and sponsorships)",
+   "senior": "\u20b915 LPA and above (top stars earn crores from leagues and endorsements)"
+  },
+  "recruiters": [
+   "Indian Railways",
+   "Indian Army and other armed forces",
+   "central police forces",
+   "public sector companies like ONGC and Indian Oil",
+   "state police and sports departments",
+   "professional leagues like IPL",
+   "ISL and Pro Kabaddi"
+  ],
+  "stability": "Low",
+  "automation_risk": "Low",
+  "where_work": "Postings and training centres across India, with lots of travel for competitions",
+  "notable_people": [
+   "Neeraj Chopra: Olympic javelin champion who joined the Indian Army through sports",
+   "Mirabai Chanu: Olympic weightlifting medallist who started in a Railways sports-quota job",
+   "Hima Das: sprinter and world junior champion now a DSP in Assam Police"
+  ],
+  "sources": "https://pib.gov.in/PressReleasePage.aspx?PRID=2041702, https://rrcnr.org/rrcnr_pdf/notification_sports_quota_2024_gr_D_2.pdf, https://www.rrcmas.in/downloads/sports-notification-2024-25-01.pdf",
+  "specializations": [
+   {
+    "name": "Individual Sports",
+    "blurb": "athletics, boxing, wrestling, shooting, badminton and other sports where you compete alone."
+   },
+   {
+    "name": "Team Sports",
+    "blurb": "cricket, hockey, football, kabaddi and volleyball, often with league contracts."
+   },
+   {
+    "name": "Para Sports",
+    "blurb": "sports for athletes with disabilities, where India now wins many Paralympic medals."
+   }
+  ],
+  "riasec": {
+   "code": "RES",
+   "scores": [
+    88.4,
+    20.3,
+    22.6,
+    45.2,
+    60.7,
+    25.4
+   ]
+  },
+  "college_ids": null,
+  "has_colleges": false
+ },
+ {
   "career_id": "prosthetics-and-orthotics",
   "name": "Prosthetics and Orthotics",
   "branch_id": "PARAMED",
@@ -11816,7 +11963,7 @@
   "pay": {
    "start": "\u20b93-5 LPA",
    "mid": "\u20b96-10 LPA",
-   "senior": "\u20b912-25 LPA"
+   "senior": "\u20b96-12 LPA"
   },
   "recruiters": [
    "Hospitals and mental health clinics",
@@ -11886,7 +12033,7 @@
   "pay": {
    "start": "\u20b97-14 LPA (state civil services to IAS, including allowances)",
    "mid": "\u20b915-25 LPA",
-   "senior": "\u20b925-35 LPA (up to the Cabinet Secretary's \u20b92.5 lakh a month, plus official housing, car and staff)"
+   "senior": "\u20b925-47 LPA (up to the Cabinet Secretary's \u20b92.5 lakh a month, plus official housing, car and staff)"
   },
   "recruiters": [
    "Government of India (IAS, IFS, IRS and other central services)",
@@ -12427,6 +12574,7 @@
    ]
   },
   "college_ids": [
+   "C-7252",
    "U-0172",
    "U-0306",
    "U-0517",
@@ -12474,9 +12622,9 @@
    "ojee"
   ],
   "pay": {
-   "start": "\u20b94-7 LPA",
+   "start": "\u20b92.5-5 LPA",
    "mid": "\u20b99-16 LPA",
-   "senior": "\u20b918-30 LPA"
+   "senior": "\u20b910-20 LPA"
   },
   "recruiters": [
    "Reliance Industries",
@@ -12558,7 +12706,7 @@
   ],
   "pay": {
    "start": "\u20b92.5-4 LPA",
-   "mid": "\u20b94-7 LPA",
+   "mid": "\u20b96-10 LPA",
    "senior": "\u20b98-12 LPA"
   },
   "recruiters": [
@@ -12687,8 +12835,8 @@
   "exam_ids": null,
   "pay": {
    "start": "\u20b93-6 LPA",
-   "mid": "\u20b97-15 LPA",
-   "senior": "\u20b916-30 LPA"
+   "mid": "\u20b95-9 LPA",
+   "senior": "\u20b98-12 LPA"
   },
   "recruiters": [
    "AIIMS",
@@ -12734,6 +12882,88 @@
   "has_colleges": false
  },
  {
+  "career_id": "sports-analytics-and-performance-analysis",
+  "name": "Sports Analytics and Performance Analysis",
+  "branch_id": "STATISTICS",
+  "domain": "Science",
+  "eligible_streams": [
+   "Commerce",
+   "Science (PCM)"
+  ],
+  "parent_stream": "Science (PCM)",
+  "pay_tier": "Mid",
+  "day_in_life": "A performance analyst records and tags match videos, tracks numbers like run rates, passes or sprint distances, and turns them into reports that help coaches pick teams and plan tactics. Others work for media and fantasy sports companies, building statistics and predictions for fans.",
+  "impact": "Analysts working with IPL franchises and the Indian cricket team study every ball bowled against a batter to plan field settings and bowling changes. Data from analysts also powers the live stats and graphics that crores of fans see on TV and apps.",
+  "entry_exams_text": "No single fixed entrance exam - most start with a B.Sc. in Statistics, Mathematics, Data Science or Sports Science, admitted on Class 12 marks or CUET (UG). The Indian Statistical Institute admits to its B.Stat through the ISI Admission Test.",
+  "exams": [
+   {
+    "label": "CUET (UG)",
+    "href": "/exams?q=CUET (UG)"
+   },
+   {
+    "label": "ISI-AT",
+    "href": "/exams?q=ISI-AT"
+   }
+  ],
+  "exam_ids": [
+   "cuet-ug",
+   "isi-at"
+  ],
+  "pay": {
+   "start": "\u20b92-4.5 LPA",
+   "mid": "\u20b95-10 LPA",
+   "senior": "\u20b910-20 LPA"
+  },
+  "recruiters": [
+   "Stats Perform",
+   "Nielsen Sports",
+   "IPL and ISL franchises",
+   "Dream Sports (Dream11)",
+   "ESPNcricinfo",
+   "Sports Authority of India (SAI)",
+   "Hudl"
+  ],
+  "stability": "Medium",
+  "automation_risk": "Medium",
+  "where_work": "Metro cities mainly",
+  "notable_people": [
+   "Hari Prasad Mohan: video analyst for the Indian cricket team",
+   "Prasanna Agoram: performance analyst for the South African cricket team"
+  ],
+  "sources": "https://ambitionbox.com/salaries/stats-perform-salaries/sports-analyst, https://ambitionbox.com/salaries/nielsen-sports-salaries/sports-analyst, https://ambitionbox.com/salaries/decathlon-salaries/sports-analyst, https://sportsauthorityofindia.nic.in/sai_new/public/assets/uploads/jobs/1659704670_FINAL ADVT HPA 5.8.2022.pdf",
+  "specializations": [
+   {
+    "name": "Video Performance Analyst",
+    "blurb": "records and tags match footage so coaches can see what worked."
+   },
+   {
+    "name": "Sports Data Scientist",
+    "blurb": "builds models to predict results, pick players or value transfers."
+   },
+   {
+    "name": "Media and Fantasy Analyst",
+    "blurb": "creates statistics and insights for TV, websites and fantasy sports apps."
+   }
+  ],
+  "riasec": {
+   "code": "ICE",
+   "scores": [
+    30.5,
+    85.2,
+    28.1,
+    35.4,
+    38.6,
+    68.3
+   ]
+  },
+  "college_ids": [
+   "U-0120",
+   "U-0456",
+   "U-0574"
+  ],
+  "has_colleges": true
+ },
+ {
   "career_id": "sports-coaching-and-athletics",
   "name": "Sports Coaching and Athletics",
   "branch_id": "PHYSED",
@@ -12751,7 +12981,7 @@
   "pay": {
    "start": "\u20b92-5 LPA",
    "mid": "\u20b95-12 LPA",
-   "senior": "\u20b912-30 LPA"
+   "senior": "\u20b96-15 LPA"
   },
   "recruiters": [
    "Sports Authority of India (SAI)",
@@ -12796,6 +13026,330 @@
   },
   "college_ids": null,
   "has_colleges": false
+ },
+ {
+  "career_id": "sports-journalism-and-broadcasting",
+  "name": "Sports Journalism and Broadcasting",
+  "branch_id": "JOURNAL",
+  "domain": "Arts & Humanities",
+  "eligible_streams": [
+   "All"
+  ],
+  "parent_stream": "Arts",
+  "pay_tier": "Low",
+  "day_in_life": "A sports journalist watches matches live, interviews players and coaches, and writes match reports, analysis or social media updates before a deadline. Broadcasters present shows, commentate or report from the ground for TV, radio and streaming apps.",
+  "impact": "Sports journalists and commentators on channels like Star Sports and Doordarshan bring cricket, hockey, kabaddi and the Olympics to crores of Indians, and their stories turn players from small towns into household names.",
+  "entry_exams_text": "No single fixed entrance exam - most colleges admit on Class 12 marks or their own entrance test, and central universities like Jamia Millia Islamia use CUET (UG). For a postgraduate diploma, the Indian Institute of Mass Communication holds its own entrance test.",
+  "exams": [
+   {
+    "label": "CUET (central universities)",
+    "href": "/predictor?exam=CUET"
+   },
+   {
+    "label": "CUET (UG)",
+    "href": "/exams?q=CUET (UG)"
+   }
+  ],
+  "exam_ids": [
+   "cuet-ug"
+  ],
+  "pay": {
+   "start": "\u20b92-4.5 LPA",
+   "mid": "\u20b94.5-10 LPA",
+   "senior": "\u20b910-25 LPA (star commentators earn much more)"
+  },
+  "recruiters": [
+   "JioStar (Star Sports)",
+   "Sony Sports Network",
+   "Prasar Bharati (DD Sports)",
+   "ESPNcricinfo",
+   "Sportstar (The Hindu Group)",
+   "Sportskeeda",
+   "The Times of India"
+  ],
+  "stability": "Medium",
+  "automation_risk": "Medium",
+  "where_work": "Metro cities mainly",
+  "notable_people": [
+   "Harsha Bhogle: cricket commentator and broadcaster",
+   "Ayaz Memon: senior sports journalist",
+   "Sharda Ugra: sports journalist and writer"
+  ],
+  "sources": "https://www.payscale.com/research/IN/Job=Sports_Journalist/Salary, https://ambitionbox.com/profile/sports-writer-salary, https://ambitionbox.com/profile/sports-editor-salary/internet-industry",
+  "specializations": [
+   {
+    "name": "Sports Reporter",
+    "blurb": "covers matches and players for newspapers and websites."
+   },
+   {
+    "name": "Commentator and Presenter",
+    "blurb": "describes matches live or hosts sports shows on TV, radio or streaming apps."
+   },
+   {
+    "name": "Sports Content Creator",
+    "blurb": "makes videos, podcasts and social media posts about sport for digital platforms."
+   }
+  ],
+  "riasec": {
+   "code": "AES",
+   "scores": [
+    12.4,
+    38.2,
+    76.5,
+    44.1,
+    58.3,
+    35.0
+   ]
+  },
+  "college_ids": [
+   "cusb:central-university-of-south-bihar",
+   "du:lady-shri-ram-college-for-women-w",
+   "jmi:jamia-millia-islamia"
+  ],
+  "has_colleges": true
+ },
+ {
+  "career_id": "sports-management",
+  "name": "Sports Management",
+  "branch_id": "MBA",
+  "domain": "Commerce & Management",
+  "eligible_streams": [
+   "All"
+  ],
+  "parent_stream": "Commerce",
+  "pay_tier": "Mid",
+  "day_in_life": "A sports manager handles the business side of sport: finding sponsors, selling tickets and media rights, managing a team's travel and contracts, or running a tournament from start to finish. On match days they make sure the stadium, the broadcast and the players are all ready on time.",
+  "impact": "Sports managers at IPL franchises, the Pro Kabaddi League and JSW Sports built the leagues that now pay Indian players well and fill stadiums across the country. Their work brings in the money that pays for academies, coaches and new talent.",
+  "entry_exams_text": "No single fixed entrance exam - a bachelor's degree in sports management after Class 12 is admitted through college tests like SMAT-UG (Sports Management Admission Test) at the International Institute of Sports Management Mumbai or SET (Symbiosis Entrance Test). An MBA in sports management comes after graduation, through MBA entrance exams or university tests.",
+  "exams": [
+   {
+    "label": "CUET (central universities)",
+    "href": "/predictor?exam=CUET"
+   },
+   {
+    "label": "SMAT- UG",
+    "href": "/exams?q=SMAT- UG"
+   },
+   {
+    "label": "SET-GENERAL",
+    "href": "/exams?q=SET-GENERAL"
+   }
+  ],
+  "exam_ids": [
+   "cuet-ug",
+   "smat-ug",
+   "set-general"
+  ],
+  "pay": {
+   "start": "\u20b93-6 LPA",
+   "mid": "\u20b96-15 LPA",
+   "senior": "\u20b915-30 LPA"
+  },
+  "recruiters": [
+   "IPL and ISL franchises",
+   "JSW Sports",
+   "RISE Worldwide (Reliance)",
+   "Dream Sports",
+   "BCCI and state sports associations",
+   "Pro Kabaddi League teams",
+   "Decathlon"
+  ],
+  "stability": "Medium",
+  "automation_risk": "Low",
+  "where_work": "Metro cities mainly",
+  "notable_people": [
+   "Joy Bhattacharjya: sports manager and former team director of Kolkata Knight Riders",
+   "Mustafa Ghouse: CEO of JSW Sports and former tennis player"
+  ],
+  "sources": "https://ambitionbox.com/profile/sports-manager-salary, https://ambitionbox.com/profile/sports-manager-salary/mumbai-location",
+  "specializations": [
+   {
+    "name": "Team and League Operations",
+    "blurb": "runs a club's or league's day-to-day work, from travel to player contracts."
+   },
+   {
+    "name": "Sports Marketing and Sponsorship",
+    "blurb": "brings in sponsors and promotes teams, players and events."
+   },
+   {
+    "name": "Athlete Management",
+    "blurb": "manages a player's contracts, endorsements and schedule."
+   }
+  ],
+  "riasec": {
+   "code": "ECS",
+   "scores": [
+    20.5,
+    30.2,
+    22.8,
+    58.4,
+    88.6,
+    62.1
+   ]
+  },
+  "college_ids": [
+   "U-0548",
+   "du:college-of-vocational-studies"
+  ],
+  "has_colleges": true
+ },
+ {
+  "career_id": "sports-psychology",
+  "name": "Sports Psychology",
+  "branch_id": "PSYCH",
+  "domain": "Arts & Humanities",
+  "eligible_streams": [
+   "All"
+  ],
+  "parent_stream": "Arts",
+  "pay_tier": "Mid",
+  "day_in_life": "A sports psychologist meets athletes one-on-one or in teams to help them handle pressure, stay focused, build confidence and bounce back from losses or injuries. They teach routines like breathing and visualisation, and travel with teams to camps and competitions.",
+  "impact": "Mental training is now part of India's Olympic preparation: the Indian hockey teams and shooters have worked with mental conditioning coaches, and SAI hires sports psychologists at its national centres so athletes can perform at their best when it matters most.",
+  "entry_exams_text": "No single fixed entrance exam for a bachelor's degree in Psychology - most colleges admit on Class 12 marks, and central universities like Delhi University use CUET (UG). A master's in sports psychology then comes through university tests, such as at National Sports University Manipur.",
+  "exams": [
+   {
+    "label": "CUET (central universities)",
+    "href": "/predictor?exam=CUET"
+   },
+   {
+    "label": "CUET (UG)",
+    "href": "/exams?q=CUET (UG)"
+   }
+  ],
+  "exam_ids": [
+   "cuet-ug"
+  ],
+  "pay": {
+   "start": "\u20b93-6 LPA",
+   "mid": "\u20b97-13 LPA",
+   "senior": "\u20b912-25 LPA"
+  },
+  "recruiters": [
+   "Sports Authority of India (SAI)",
+   "Inspire Institute of Sport (JSW)",
+   "Olympic Gold Quest",
+   "IPL and ISL franchises",
+   "national sports federations",
+   "sports academies and private practice"
+  ],
+  "stability": "Medium",
+  "automation_risk": "Low",
+  "where_work": "Metro cities mainly",
+  "notable_people": [
+   "Paddy Upton: mental conditioning coach for India's 2011 World Cup cricket team and the Indian men's hockey team",
+   "Mugdha Bavare: sports psychologist who has worked with Indian Olympic athletes"
+  ],
+  "sources": "https://sportsauthorityofindia.gov.in/sai_new/public/assets/uploads/news/1630999170_Psychologist Advertisement _SAI Bangalore.pdf, https://sportsauthorityofindia.nic.in/sai_new/public/assets/uploads/jobs/1659704670_FINAL ADVT HPA 5.8.2022.pdf, https://www.nsu.ac.in/sites/default/files/Experienced%20Sports%20Psychologist%20Recruitment.pdf",
+  "specializations": [
+   {
+    "name": "Performance Psychology",
+    "blurb": "helps athletes stay calm and focused under pressure in big matches."
+   },
+   {
+    "name": "Injury and Rehabilitation Psychology",
+    "blurb": "supports athletes mentally while they recover from long injuries."
+   },
+   {
+    "name": "Youth Sport Psychology",
+    "blurb": "works with young players and parents on motivation and handling competition."
+   }
+  ],
+  "riasec": {
+   "code": "SIE",
+   "scores": [
+    30.2,
+    70.4,
+    35.1,
+    84.6,
+    40.3,
+    30.8
+   ]
+  },
+  "college_ids": [
+   "U-0120",
+   "bhu:faculty-of-social-sciences-banaras-hindu-university",
+   "cusb:central-university-of-south-bihar",
+   "du:lady-shri-ram-college-for-women-w"
+  ],
+  "has_colleges": true
+ },
+ {
+  "career_id": "sports-science-and-exercise-physiology",
+  "name": "Sports Science and Exercise Physiology",
+  "branch_id": "PHYSED",
+  "domain": "Arts & Humanities",
+  "eligible_streams": [
+   "Science (PCB)",
+   "Science (PCM)"
+  ],
+  "parent_stream": "Science (PCB)",
+  "pay_tier": "Mid",
+  "day_in_life": "A sports scientist tests athletes' fitness, heart rate, strength and recovery in a lab or on the field, then uses the results to plan training loads with the coach. Some days are spent running fitness tests and reading data from wearable trackers, others checking how an athlete is recovering from a heavy week.",
+  "impact": "Sports scientists at the Sports Authority of India (SAI) centres and the Inspire Institute of Sport help athletes like India's boxers, wrestlers and javelin throwers peak at the right time and avoid injuries before the Olympics. Their work is a big reason Indian athletes now train with the same science as the world's best.",
+  "entry_exams_text": "No single fixed entrance exam - B.Sc. Sports Science or Exercise Physiology is usually admitted on Class 12 marks in Science, sometimes with a fitness test. National Sports University Manipur uses its own NSUEE (NSU Entrance Exam), and some central universities use CUET (UG).",
+  "exams": [
+   {
+    "label": "NSUEE",
+    "href": "/exams?q=NSUEE"
+   },
+   {
+    "label": "CUET (UG)",
+    "href": "/exams?q=CUET (UG)"
+   }
+  ],
+  "exam_ids": [
+   "nsuee",
+   "cuet-ug"
+  ],
+  "pay": {
+   "start": "\u20b92.5-5 LPA",
+   "mid": "\u20b96-12 LPA",
+   "senior": "\u20b912-25 LPA"
+  },
+  "recruiters": [
+   "Sports Authority of India (SAI) and its National Centre of Sports Science and Research",
+   "Inspire Institute of Sport (JSW)",
+   "IPL and ISL franchises",
+   "Olympic Gold Quest",
+   "sports hospitals and fitness chains like Cult.fit"
+  ],
+  "stability": "Medium",
+  "automation_risk": "Low",
+  "where_work": "Metro cities mainly",
+  "notable_people": [
+   "Ramji Srinivasan: strength and conditioning coach of India's 2011 World Cup winning cricket team",
+   "Shanker Basu: former strength and conditioning coach of the Indian cricket team"
+  ],
+  "sources": "https://ambitionbox.com/profile/exercise-physiologist-salary, https://ambitionbox.com/profile/sports-officer-salary, https://sportsauthorityofindia.nic.in/sai_new/public/assets/uploads/jobs/1659704670_FINAL ADVT HPA 5.8.2022.pdf, https://sportsauthorityofindia.nic.in/sai_new/public/assets/uploads/jobs/1694668349_Drfat ADVT HPA 10.09.2023 (1).pdf",
+  "specializations": [
+   {
+    "name": "Exercise Physiologist",
+    "blurb": "measures how the heart, lungs and muscles respond to training and plans workloads."
+   },
+   {
+    "name": "Strength and Conditioning Coach",
+    "blurb": "builds an athlete's power, speed and stamina in the gym and on the field."
+   },
+   {
+    "name": "Biomechanist",
+    "blurb": "films and studies an athlete's movement to improve technique and prevent injury."
+   }
+  ],
+  "riasec": {
+   "code": "ISR",
+   "scores": [
+    55.2,
+    78.4,
+    12.6,
+    66.3,
+    30.5,
+    38.7
+   ]
+  },
+  "college_ids": [
+   "U-0234"
+  ],
+  "has_colleges": true
  },
  {
   "career_id": "surveying",
@@ -12885,7 +13439,7 @@
   "pay": {
    "start": "\u20b92.5-5 LPA",
    "mid": "\u20b95-10 LPA",
-   "senior": "\u20b910-20 LPA"
+   "senior": "\u20b95-12 LPA"
   },
   "recruiters": [
    "Survey of India",
@@ -13298,7 +13852,7 @@
   "pay": {
    "start": "\u20b92.5-5 LPA",
    "mid": "\u20b95-11 LPA",
-   "senior": "\u20b911-20 LPA"
+   "senior": "\u20b96-14 LPA"
   },
   "recruiters": [
    "Ministry of External Affairs",
@@ -13408,7 +13962,7 @@
   "pay": {
    "start": "\u20b94-7 LPA",
    "mid": "\u20b97-16 LPA",
-   "senior": "\u20b916-30 LPA"
+   "senior": "\u20b98-20 LPA"
   },
   "recruiters": [
    "Delhi Development Authority (DDA)",
@@ -13480,7 +14034,7 @@
    "neet-ug"
   ],
   "pay": {
-   "start": "\u20b93-5 LPA",
+   "start": "\u20b95-8 LPA",
    "mid": "\u20b96-10 LPA",
    "senior": "\u20b912-20 LPA"
   },

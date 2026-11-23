@@ -32,4 +32,7 @@ jobs:
       # predictor names linked to college cards (stars, NIRF, salary):
       # stale after a colleges.json or cutoff-data change
       - run: npm run check:name-links
+      # every predictor name with its college card and AISHE code
+      # (data-sources/predictor_college_crosswalk.csv): stale likewise
+      - run: npm run check:crosswalk
       - run: npm run build

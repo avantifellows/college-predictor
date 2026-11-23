@@ -9,7 +9,8 @@
     "verify:local": "node scripts/verify-local-routes.mjs",
     "check:pages": "node scripts/check-pages.js",
     "check:ids": "node scripts/check-ids.js",
-    "check:name-links": "node scripts/build_college_name_links.js --check"
+    "check:name-links": "node scripts/build_college_name_links.js --check",
+    "check:crosswalk": "node scripts/build_predictor_college_crosswalk.js --check"
   },
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.1152.0",

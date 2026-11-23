@@ -331,8 +331,9 @@ export const examsInStream = (stream, examsById) =>
   PREDICTOR_EXAMS.filter((e) => streamsFor(e, examsById).includes(stream));
 
 // A deep link names a predictor key (?exam=JoSAA), optionally with the Exams
-// tab's exam (&examId=jee-advanced). Find the route that leads to it.
-export const routeForKey = (key, examsById, examId = null) => {
+// tab's exam (&examId=jee-advanced) and a stream (&stream=Pharma). Find the
+// route that leads to it.
+export const routeForKey = (key, examsById, examId = null, want = null) => {
   const exams = PREDICTOR_EXAMS.filter((e) =>
     e.counsellings.some((c) => c.key === key)
   );
@@ -341,9 +342,22 @@ export const routeForKey = (key, examsById, examId = null) => {
   const counselling = exam.counsellings.find((c) => c.key === key);
   const streams = streamsFor(exam, examsById);
   const preferred = [
+    (counselling.streams || streams).includes(want) ? want : null,
     counselling.defaultStream,
     exam.defaultStream,
     "Engineering",
   ].find((s) => s && streams.includes(s));
   return { stream: preferred || streams[0], exam, counselling };
 };
+
+/** The streams a counselling's cutoffs cover (its own, else its exam's). */
+export const keyStreams = (key, examsById) =>
+  Array.from(
+    new Set(
+      PREDICTOR_EXAMS.flatMap((e) =>
+        e.counsellings
+          .filter((c) => c.key === key)
+          .flatMap((c) => c.streams || streamsFor(e, examsById))
+      )
+    )
+  );

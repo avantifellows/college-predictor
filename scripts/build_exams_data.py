@@ -22,6 +22,10 @@ from collections import defaultdict
 import pandas as pd
 
 SRC = "data-sources/exams_cleaned.csv"
+# exam ids that changed: new id -> the old ones. Nov 2026: Christ
+# University's test is "Christ CUET" now, not "CUET" (id cuet)
+FORMER_EXAM_IDS = {"christ-cuet": ["cuet"]}
+APPLICANTS = "data-sources/exam_applicants.csv"
 OUT = "public/data/exams/exams.json"
 # careers this exam leads to: predictor key -> exam_branch_mapping family ->
 # branches -> the career named after each branch (career_streams.csv), the
@@ -214,6 +218,9 @@ def main():
             # are: BITSAT and VITEEE are All India, KCET is Karnataka's
             "eligible_in": access.get(sid, {}).get("eligible_in"),
             "run_by": access.get(sid, {}).get("run_by"),
+            # the backup-exam finder's subject check and private-seat CETs
+            "subjects": access.get(sid, {}).get("subjects"),
+            "fills_private": bool(access.get(sid, {}).get("fills_private")),
             "url": f["url"] if pd.notna(f["url"]) else None,
             "eligibility": (str(f["eligibility"]).strip()
                             if pd.notna(f["eligibility"]) else None),
@@ -306,10 +313,41 @@ def main():
         else:
             card["colleges_link"] = None
 
+    # how many apply (sourced, one row per exam:
+    # data-sources/exam_applicants.csv). The homepage's backup-exam finder
+    # ranks exams by `applicants`, most first. The CSV's seat and acceptance
+    # columns are research notes: not shown until they're from official
+    # numbers with one definition.
+    app = pd.read_csv(APPLICANTS, dtype={"exam_id": "string"})
+    by_id = {c["exam_id"]: c for c in cards}
+    unknown = sorted(set(app.exam_id.dropna()) - set(by_id))
+    assert not unknown, f"{APPLICANTS}: exam ids with no card: {unknown}"
+    for c in cards:
+        c["applicants"] = None
+    for r in app.itertuples():
+        c = by_id.get(r.exam_id)
+        n = r.applicants_registered if r.applicants_registered == r.applicants_registered \
+            else r.applicants_appeared
+        if c is None or n != n:
+            continue
+        c["applicants"] = {"count": int(n), "year": int(r.applicants_year),
+                           "source": r.source_applicants_url}
+    print("with applicants:", sum(1 for c in cards if c["applicants"]))
+
     # exam_id is the React key and the expand toggle — a duplicate breaks both
     ids = [c["exam_id"] for c in cards]
     dupes = {i for i in ids if ids.count(i) > 1}
     assert not dupes, f"duplicate exam_ids: {dupes}"
+
+    # an exam whose id changed keeps the old one, so links and stars saved on
+    # it still open its page (pages/exams/[id].js)
+    for c in cards:
+        if c["exam_id"] in FORMER_EXAM_IDS:
+            c["former_ids"] = FORMER_EXAM_IDS[c["exam_id"]]
+    lost = set(FORMER_EXAM_IDS) - set(ids)
+    assert not lost, f"FORMER_EXAM_IDS names exams that are gone: {lost}"
+    clash = {o for v in FORMER_EXAM_IDS.values() for o in v} & set(ids)
+    assert not clash, f"former exam ids that are live ids again: {clash}"
 
     no_access = [c["exam_id"] for c in cards if not c["eligible_in"]]
     assert not no_access, f"exams missing from {EXAM_ACCESS}: {no_access}"

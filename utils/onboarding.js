@@ -1,5 +1,6 @@
 import { PREDICTOR_EXAMS } from "./predictorRoutes";
 import { CV_URL } from "./siteMap";
+import { finderStream } from "./backupFinder";
 
 // "Get started": a few questions (class, stream + state, exam), then the
 // homepage becomes a short plan of the site's own tools in the order that
@@ -24,7 +25,8 @@ import { CV_URL } from "./siteMap";
 //
 // Class 12 and gap-year students get the admission plan (predict, mock,
 // backups) while results and counselling are on (15 April to 30 September)
-// and the preparation plan (cutoffs, backup exams, their cutoffs) the rest of
+// and the preparation plan (cutoffs, then backup exams with their cutoffs:
+// one finder step for science streams, utils/backupFinder.js) the rest of
 // the year. Class 11 always prepares.
 //
 // A guest's answers stay in this browser. A signed-in student's are saved
@@ -71,7 +73,7 @@ const STATE_EXAM = {
   "Tamil Nadu": "TNEA",
 };
 // state counsellings that take a JEE Main rank, by the student's state
-const JEE_STATE_COUNSELLINGS = {
+export const JEE_STATE_COUNSELLINGS = {
   Delhi: ["JEE Main-JAC"],
   Chandigarh: ["JAC Chandigarh"],
   Punjab: ["JAC Chandigarh"],
@@ -358,7 +360,7 @@ function backupsFor(a) {
     (k) => k !== main
   );
 }
-const COUNSELLING_LABEL = {
+export const COUNSELLING_LABEL = {
   "JEE Main-JAC": "JAC Delhi",
   "JAC Chandigarh": "JAC Chandigarh",
   UPTAC: "UPTAC",
@@ -432,9 +434,10 @@ export function resultsSeason(now = new Date()) {
 
 // full cutoff list for an exam (JoSAA's home-state field takes the state's
 // name as it is)
-export const cutoffsHref = (key, state) =>
+export const cutoffsHref = (key, state, stream) =>
   `/predictor${q({
     exam: key,
+    stream,
     view: "full",
     homeState: key === "JoSAA" ? state : undefined,
   })}`;
@@ -534,6 +537,7 @@ export function planFor(a, season) {
   // goes better.
   if (a.cls === "11" || !inSeason) {
     const gapYear = a.cls === "drop";
+    const finder = finderStream(a.stream);
     const backups = backupsFor(a);
     const names = backups.map((k) => COUNSELLING_LABEL[k] || examName(k));
     return {
@@ -567,6 +571,8 @@ export function planFor(a, season) {
           ? // no mock for this exam: the careers it leads to, as results
             // season does (NEET: more than MBBS)
             mock || careers(a.stream)
+          : finder
+          ? null
           : {
               id: "backup-exams",
               star: "exam",
@@ -578,13 +584,31 @@ export function planFor(a, season) {
               line: "Other exams that can get you into a good college",
               href: `/exams${q({ where: a.state })}`,
             },
-        backups.length && {
-          id: "backup-cutoffs",
-          uses: backups.map((k) => `predictor:${k}`),
-          title: "See backup exam cutoffs",
-          line: `Cutoffs for ${listText(names.slice(0, 2))}`,
-          href: backupHref(backups, a.state, "full"),
+        // science streams: one step, a few questions, then the backup
+        // exams that fit with their cutoffs (/backup-exams)
+        finder && {
+          id: "backup-finder",
+          // the old steps' ways of finishing still count: another exam's
+          // page, a backup's cutoffs, a starred exam
+          uses: [
+            "backup-finder",
+            "exam:*",
+            ...backups.map((k) => `predictor:${k}`),
+          ],
+          usesExcept: info.page ? [`exam:${info.page}`] : [],
+          star: "exam",
+          title: "Find backup exams",
+          line: "Answer 3 questions, see the exams to take",
+          href: `/backup-exams${q({ stream: a.stream, state: a.state })}`,
         },
+        !finder &&
+          backups.length && {
+            id: "backup-cutoffs",
+            uses: backups.map((k) => `predictor:${k}`),
+            title: "See backup exam cutoffs",
+            line: `Cutoffs for ${listText(names.slice(0, 2))}`,
+            href: backupHref(backups, a.state, "full"),
+          },
         scholarships(grade, a.state),
       ].filter(Boolean),
     };
@@ -669,6 +693,7 @@ const STEP_HERO = {
     em: "backup exam",
     after: " options",
   },
+  "backup-finder": { before: "Find your ", em: "backup exams", after: "" },
   "backup-cutoffs": {
     before: "See ",
     em: "cutoffs",

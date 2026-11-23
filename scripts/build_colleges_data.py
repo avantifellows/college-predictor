@@ -1082,6 +1082,147 @@ NLU_CITY_STATE = {
 AP_BRANCH_LEGEND = Path(__file__).resolve().parent.parent.parent / "external_data_sources" / "apeapcet" / "branch_codes.csv"
 
 
+# Karnataka towns KEA's pharmacy and agriculture lists print, each spelling
+# -> (the town as a card shows it, its district as AISHE spells it). A
+# name's town is the LAST of these in its address; a name with none gets no
+# town. Bengaluru's localities are Bengaluru.
+_KA_TOWNS = {}
+for _shown, _district, _spellings in [
+    ("Bengaluru", "Bengaluru Urban", "bangalore bengaluru bengalore banglore bangaluru kengeri kumbalgodu"),
+    ("Bidadi", "Ramanagara", "bidadi"),
+    ("Ramanagara", "Ramanagara", "ramanagara ramanagar"),
+    ("Channapatna", "Ramanagara", "channapatna"),
+    ("Bagalkote", "Bagalkot", "bagalkot bagalkote"),
+    ("Ballari", "Ballari", "bellary ballari"),
+    ("Belagavi", "Belagavi", "belagavi belgaum belagum belghavi"),
+    ("Nippani", "Belagavi", "nippani"),
+    ("Bidar", "Bidar", "bidar"),
+    ("Chamarajanagar", "Chamarajanagar", "chamarajanagar chamaraj nagar chamarajnagar"),
+    ("Chikkaballapura", "Chikkaballapura", "chikkaballapura chikkaballapur chickballapur chickaballapura"),
+    ("Chintamani", "Chikkaballapura", "chintamani"),
+    ("Chitradurga", "Chitradurga", "chitradurga"),
+    ("Hiriyur", "Chitradurga", "hiriyur"),
+    ("Davanagere", "Davangere", "davangere davanagere"),
+    ("Harapanahalli", "Vijayanagara", "harapanahalli"),
+    ("Dharwad", "Dharwad", "dharwad"),
+    ("Hubballi", "Dharwad", "hubli hubballi"),
+    ("Gadag", "Gadag", "gadag gadaga"),
+    ("Kalaburagi", "Kalaburagi", "kalaburagi kalburagi kalburgi kalburghi kulburgi gulbarga gulberga"),
+    ("Hassan", "Hassan", "hassan"),
+    ("Haveri", "Haveri", "haveri"),
+    ("Kodagu", "Kodagu", "kodagu"),
+    ("Kolar", "Kolar", "kolar"),
+    ("Koppal", "Koppal", "koppal"),
+    ("Yelburga", "Koppal", "yelburga"),
+    ("Mandya", "Mandya", "mandya"),
+    ("Mangaluru", "Dakshina Kannada", "mangalore mangaluru"),
+    ("Moodbidri", "Dakshina Kannada", "moodabidri moodbidri"),
+    ("Puttur", "Dakshina Kannada", "puttur"),
+    ("Belthangady", "Dakshina Kannada", "belthangadi belthangady"),
+    ("Mysuru", "Mysuru", "mysore mysuru"),
+    ("Mudigere", "Chikkamagaluru", "mudigere"),
+    ("Raichur", "Raichur", "raichur"),
+    ("Lingasugur", "Raichur", "lingasuguru lingasugur"),
+    ("Shivamogga", "Shivamogga", "shimoga shivamogga"),
+    ("Tumakuru", "Tumakuru", "tumkur tumakuru"),
+    ("Tiptur", "Tumakuru", "tiptur"),
+    ("Uttara Kannada", "Uttara Kannada", "uttarakannada uttara kannada utttara kannada"),
+    ("Vijayapura", "Vijayapura", "vijayapura vijayapur vijapur bijapur"),
+    ("Almel", "Vijayapura", "almela almel"),
+    ("Hosapete", "Vijayanagara", "hospete hosapete"),
+    ("Kudligi", "Vijayanagara", "kudligi"),
+    ("Yadgir", "Yadgir", "yadgiri yadgir"),
+]:
+    # two-word spellings ("chamaraj nagar") stay whole
+    for _sp in re.findall(r"[a-z]+(?: (?:nagar|kannada))?", _spellings):
+        _KA_TOWNS[_sp] = (_shown, _district)
+_KA_TOWN_RE = re.compile(r"\b(" + "|".join(sorted(map(re.escape, _KA_TOWNS), key=len, reverse=True)) + r")\b")
+
+
+# Karnataka's farm, veterinary and fisheries colleges are the state
+# agricultural, horticultural and veterinary universities' own (UAS, UHS,
+# KVAFSU), and the Government College of Pharmacy is the state's: KEA's
+# lists carry no college type for them
+_KA_STATE_FARM_COLLEGE = re.compile(
+    r"^(college of (agricultur|horticultur|forestry|fisheries|community science|sericulture)"
+    r"|veterinary college|dairy science college"
+    r"|sericulture college|government college)", re.I)
+
+
+def _ka_towns_in(text):
+    """The Karnataka towns named in `text`, in order."""
+    t = re.sub(r"[^a-z]+", " ", str(text).lower())
+    return [_KA_TOWNS[m.group(1)] for m in _KA_TOWN_RE.finditer(t)]
+
+
+# districts AISHE still files under the one they were split from
+# (Ramanagara is now Bengaluru South; Vijayanagara was Ballari's)
+_KA_DISTRICT_GROUPS = [{"bengaluru", "bengalururural", "bengaluruurban", "ramanagara",
+                        "bengalurusouth"}, {"ballari", "vijayanagara"}]
+
+
+def _ka_same_district(a, b):
+    from difflib import SequenceMatcher
+    ka, kb = _town_key(a), _town_key(b)
+    if not ka or not kb:
+        return False
+    if ka == kb or ka.startswith(kb) or kb.startswith(ka) \
+            or SequenceMatcher(None, ka, kb).ratio() >= 0.85:
+        return True
+    return any(ka in g and kb in g for g in _KA_DISTRICT_GROUPS)
+
+
+def _kcet_town(name):
+    """(town, district) of a KEA college name: the last known town in its
+    address, else the first in the name itself; (None, None) if none."""
+    parts = [p.strip() for p in str(name).split(",") if p.strip()]
+    found = _ka_towns_in(" ".join(parts[1:])) if len(parts) > 1 else []
+    if found:
+        return found[-1]
+    found = _ka_towns_in(parts[0] if parts else "")
+    return found[0] if found else (None, None)
+
+
+def _kcet_name(name, stream):
+    """KEA pharmacy / agriculture name: the part before the address, then its
+    town from a list of known towns (nothing when none is clean), then a
+    campus named after the town ("College of Agriculture, Shivamogga, Navile
+    Campus": Shivamogga has two)."""
+    if stream == "engineering":
+        return name
+    parts = [p.strip() for p in str(name).split(",") if p.strip()]
+    head = re.sub(r"\s+", " ", parts[0]).strip()
+    # an address run into the name without a comma ("... Sy No:99 Bidapur
+    # Colony High Court Road")
+    head = re.split(r"\s(?:sy\.?\s*no|survey\s*no|p\.?\s*b\.?\s*no|#\s*\d)", head, flags=re.I)[0].strip()
+    town, _ = _kcet_town(name)
+    if town and len(parts) > 1 and _town_key(town) not in _town_key(head):
+        head = f"{head}, {town}"
+    if len(parts) > 2:
+        last = parts[-1]
+        if re.search(r"\bcampus\b", last, re.I) and not re.search(r"\d", last) \
+                and _ka_towns_in(" ".join(parts[1:-1])):
+            campus = re.sub(r"\s+", " ", last).title()
+            head = f"{head}, {campus}"
+    return head
+
+
+# old and new spellings of Karnataka towns, so NIRF's "Belgaum" is a card's
+# "Belagavi"
+_TOWN_ALIASES = {"bangalore": "bengaluru", "mysore": "mysuru", "mangalore": "mangaluru",
+                 "belgaum": "belagavi", "gulbarga": "kalaburagi", "tumkur": "tumakuru",
+                 "hubli": "hubballi", "bijapur": "vijayapura", "shimoga": "shivamogga",
+                 "bellary": "ballari", "gadag": "gadaga", "bagalkot": "bagalkote",
+                 "chikmagalur": "chikkamagaluru", "hospet": "hosapete"}
+
+
+def _town_key(t):
+    t = str(t).lower()
+    for old, new in _TOWN_ALIASES.items():
+        t = re.sub(rf"\b{old}\b", new, t)
+    return re.sub(r"[^a-z]", "", t)
+
+
 def generic_ownership(ctype):
     t = str(ctype or "")
     if not t or t == "Unknown":
@@ -1100,6 +1241,19 @@ def discipline_of_program(name, stream=None):
     st = str(stream or "").lower()
     if "law" in st or "ll.b" in n or "llb" in n:
         return "Law", "LL.B. (integrated)", 5
+    # KCET's agriculture-university lists (stream "agriculture"): B.Sc. (Hons.)
+    # farm sciences, veterinary, fisheries, and the B.Tech courses those
+    # universities teach (agricultural engineering, food technology)
+    if st == "agriculture":
+        if "v.sc" in n:
+            return "Agriculture", "B.V.Sc. & A.H.", 5.5
+        if "fisheries" in n:
+            return "Agriculture", "B.F.Sc.", 4
+        if "b.tech" in n or "engineering" in n:
+            return "Agriculture", "B.Tech", 4
+        return "Agriculture", "B.Sc. (Hons.)", 4
+    if re.match(r"pharm\.?\s*-?\s*d\b|pharma-d", n):
+        return "Pharmacy", "Pharm.D", 6
     if re.match(r"d\.?\s*pharm", n):
         return "Pharmacy", "D.Pharm", 2
     if "pharm" in n or st == "pharmacy":
@@ -1369,6 +1523,9 @@ AISHE_NAME_PINS = {
 # AISHE code, so each card names its own. Districts from the counselling
 # data; None = AISHE has no entry we can tell apart, leave it blank.
 AISHE_ID_PINS = {
+    # KEA's engineering list prints DSU with its address; its pharmacy card
+    # (merged in) matched AISHE by name
+    "kcet:dayananda sagar university devarakaggalahalli village haroha": "U-0856",
     "ap-eapcet:AVEV": "C-17993",   # Avanthi, Bhogapuram (Vizianagaram); AVEN is Narsipatnam
     "ap-eapcet:KISR": "C-17973",   # Kakinada Inst. of Technological Sciences, Ramachandrapuram
     "ap-eapcet:KTSP": "C-18020",   # Kakinada Inst. of Technology & Science, Peddapuram
@@ -1663,6 +1820,16 @@ def fill_from_aishe(client, rows):
                 if how != "name" and os.environ.get("AISHE_LOG"):
                     print(f"    [{how}] {r['display_name'][:60]} -> "
                           f"{x.institute_name[:55]} ({x.district})")
+            # a KCET card knows its town (_ka_district): an AISHE record in
+            # another district is a namesake ("Dhanvantri College of
+            # Pharmacy" is Belagavi's and Bengaluru's and Kalaburagi's)
+            # (pharmacy and farm cards: the engineering list's matches stand)
+            if (x is not None and how != "pin" and r.get("_ka_district")
+                    and r.get("disciplines") != ["Engineering"]
+                    and not _ka_same_district(r["_ka_district"], x.district)):
+                if os.environ.get("AISHE_LOG"):
+                    print(f"    [town] {r['display_name'][:60]} -/-> {x.name} ({x.district})")
+                x, how = None, None
             parent = how == "parent"
             # a college NMC's live list added is, by the reviewed crosswalk
             # (scripts/nmc_live_crosswalk.json), none of the existing cards:
@@ -1761,6 +1928,35 @@ def _name_key(name, district=None):
     return "".join(w for w in words if w not in ("the", "autonomous"))
 
 
+def _lead_word(name):
+    """The first word of a name's core that isn't a shared word ("jss" in
+    "JSS College of Pharmacy"); None for a name of shared words only."""
+    core = re.sub(r"[`'’.]", "", str(name).split(",")[0].lower())
+    words = [w for w in re.findall(r"[a-z]+", core)
+             if w not in _GENERIC_NAME_WORDS and w not in ("the", "of", "and", "sri", "shri")]
+    return words[0] if words else None
+
+
+_TRUST_PART = re.compile(r"\b(society|societys|trust|trusts|sanstha|sanstha's|mandal|mandals|samiti|"
+                         r"sangh|sangha|foundation|prasarak|shikshan)\b", re.I)
+
+
+def _drop_trust(name):
+    """A name without a leading "<trust or society>," part."""
+    parts = [p.strip() for p in str(name).split(",")]
+    if len(parts) > 1 and _TRUST_PART.search(parts[0]) and not re.search(
+            r"\b(college|institute|university|school)\b", parts[0], re.I):
+        return ", ".join(parts[1:])
+    return name
+
+
+def _leads_agree(a, b):
+    from difflib import SequenceMatcher
+    # "Prin." / "Principal": a short form that begins the long one agrees
+    return (a is None or b is None or SequenceMatcher(None, a, b).ratio() >= 0.8
+            or (min(len(a), len(b)) >= 3 and (a.startswith(b) or b.startswith(a))))
+
+
 def add_nirf_only_cards(client, rows):
     """A college with NIRF data gets a card even when no exam on Futures
     leads to it (private colleges admitting on board marks, state colleges
@@ -1837,8 +2033,15 @@ def add_nirf_only_cards(client, rows):
     for x in rows:
         if x["college_id"].startswith("ndc:"):   # see fill_from_aishe
             continue
-        by_state.setdefault((x.get("state") or "").lower(), []).append(
-            (_name_key(x["display_name"], x.get("district")), x))
+        # MHT CET's names often begin with the trust that runs the college
+        # ("Maitraya Education Society, Nagarjuna Institute ..."): the name
+        # without it is compared too, with and without the district
+        names = [x["display_name"]]
+        bare = _drop_trust(x["display_name"])
+        if bare != x["display_name"]:
+            names.append(bare)
+        ks = [(_name_key(nm, d), nm) for nm in names for d in (x.get("district"), None)]
+        by_state.setdefault((x.get("state") or "").lower(), []).append((ks, x))
     new, relinked, skipped = [], 0, 0
     for t in todo[~todo.aishe.isin(have)].itertuples():
         lists = set(t.lists)
@@ -1847,8 +2050,13 @@ def add_nirf_only_cards(client, rows):
         info = a.loc[t.aishe]
         name = re.sub(r"\s+", " ", str(t.institute_name).replace('"', "")).strip()
         key = _name_key(name, info.district)
-        same = [x for k, x in by_state.get(str(info.state).lower(), [])
-                if k and key and SequenceMatcher(None, k, key).ratio() >= 0.9]
+        # the spelling must be close AND the leading distinctive word too:
+        # on short acronym names 0.9 alone calls "JSS College of Pharmacy"
+        # "YSS College of Pharmacy" and KLE's Bangalore college PES's
+        lead = _lead_word(name)
+        same = [x for ks, x in by_state.get(str(info.state).lower(), [])
+                if key and any(k and SequenceMatcher(None, k, key).ratio() >= 0.9
+                               and _leads_agree(lead, _lead_word(nm)) for k, nm in ks)]
         if same:
             if len(same) == 1 and not same[0].get("aishe_code") and not _SUBUNIT.search(same[0]["name"]):
                 same[0]["aishe_code"] = t.aishe
@@ -1935,24 +2143,83 @@ def merge_duplicate_cards(rows):
                 if p.get("indicative_closing_rank") is not None and not p.get("rank_label"):
                     p["rank_label"] = lab
         for r in rest:
-            # the other source's spelling stays searchable: its predictor rows
-            # link by name ("Acharya Narendra Deva ..., Kumarganj")
-            keep["aka"] = sorted(set(keep.get("aka", [])) | {r["display_name"]} - {keep["display_name"]})
-            keep["programs"]["list"] += r["programs"]["list"]
-            keep["programs"]["degrees"] = sorted(set(keep["programs"]["degrees"]) | set(r["programs"]["degrees"]))
-            src = r["programs"].get("source")
-            if src and src not in (keep["programs"].get("source") or ""):
-                keep["programs"]["source"] = "; ".join(x for x in (keep["programs"].get("source"), src) if x)
-            keep["entrance_exams"] = sorted(set(keep["entrance_exams"]) | set(r["entrance_exams"]))
-            keep["disciplines"] = (keep["disciplines"] + [d for d in r["disciplines"] if d not in keep["disciplines"]])[:4]
-            for f in ("nirf", "placement", "fees", "ug_gender", "year_established", "website", "district"):
-                if not keep.get(f) and r.get(f):
-                    keep[f] = r[f]
+            _absorb(keep, r)
             drop.add(r["college_id"])
             print(f"    merged {r['college_id']} into {keep['college_id']} ({keep['name'][:50]})")
-        keep["programs"]["count"] = len(keep["programs"]["list"])
     rows[:] = [r for r in rows if r["college_id"] not in drop]
     print(f"  merged {len(drop)} duplicate card(s)")
+
+
+def _absorb(keep, r):
+    """Card `r` is `keep`'s college: its programmes, exams and any facts
+    `keep` lacks move over."""
+    # the other source's spelling stays searchable: its predictor rows
+    # link by name ("Acharya Narendra Deva ..., Kumarganj")
+    keep["aka"] = sorted((set(keep.get("aka") or []) | set(r.get("aka") or [])
+                          | {r["display_name"]}) - {keep["display_name"]})
+    keep["programs"]["list"] += r["programs"]["list"]
+    keep["programs"]["degrees"] = sorted(set(keep["programs"]["degrees"]) | set(r["programs"]["degrees"]))
+    src = r["programs"].get("source")
+    if src and src not in (keep["programs"].get("source") or ""):
+        keep["programs"]["source"] = "; ".join(x for x in (keep["programs"].get("source"), src) if x)
+    keep["entrance_exams"] = sorted(set(keep["entrance_exams"]) | set(r["entrance_exams"]))
+    keep["disciplines"] = (keep["disciplines"] + [d for d in r["disciplines"] if d not in keep["disciplines"]])[:4]
+    for f in ("nirf", "placement", "fees", "ug_gender", "year_established", "website", "district",
+              "aishe_code", "ownership", "_ka_district"):
+        if not keep.get(f) and r.get(f):
+            keep[f] = r[f]
+    keep["programs"]["count"] = len(keep["programs"]["list"])
+
+
+# words every Karnataka farm or pharmacy college shares: a name made of these
+# alone ("College of Agriculture") says nothing about which college it is
+_KA_FIELD_WORDS = {"agriculture", "agricultural", "horticulture", "veterinary", "fisheries",
+                   "forestry", "sericulture", "dairy", "community", "pharmaceutical",
+                   "pharmacy", "pharmacology", "food"}
+
+
+def merge_kcet_same_college(rows):
+    """KEA lists a university or college once per stream (engineering,
+    pharmacy, farm science), each spelling its own way: "M.S. Ramaiah
+    Univerisity of Applied Sciences, Nagar Bangalore" is the Ramaiah card
+    that has NIRF Pharmacy #56. Two KCET cards are one college when one
+    name's core begins the other's, their towns don't differ,
+    and the shared name says which college it is."""
+    kc = [r for r in rows if r["college_id"].startswith("kcet:")]
+    def core(r):
+        return re.sub(r"[^a-z]", "", re.sub(r"\buniverisity\b", "university",
+                      r["display_name"].split(",")[0].lower()))
+    def stream_card(r):
+        return any(d != "Engineering" for d in r["disciplines"]) or not r["disciplines"]
+    drop = set()
+    for i, a in enumerate(kc):
+        for b in kc[i + 1:]:
+            if a["college_id"] in drop or b["college_id"] in drop:
+                continue
+            if not (stream_card(a) or stream_card(b)):
+                continue   # engineering pairs are campuses (NIE North / South)
+            # one name's core begins the other's exactly ("Dayananda Sagar
+            # University" / "... DEVARAKAGGALAHALLI VILLAGE"): a close
+            # spelling alone joins "MES" and "MMU", "K R" and "R R"
+            ca, cb = core(a), core(b)
+            short, long_ = sorted((ca, cb), key=len)
+            if len(short) < 12 or not long_.startswith(short):
+                continue
+            # ... and that name says which college: "College of Agriculture,
+            # Shivamogga" is two campuses
+            lead = _lead_word(a["display_name"])
+            if lead is None or lead in _KA_FIELD_WORDS:
+                continue
+            da, db = a.get("_ka_district"), b.get("_ka_district")
+            if da and db and not _ka_same_district(da, db):
+                continue
+            # the card with a rank, else with more programmes, stays
+            keep, r = sorted((a, b), key=lambda x: (x.get("nirf") is None, -x["programs"]["count"]))
+            _absorb(keep, r)
+            drop.add(r["college_id"])
+            print(f"    merged {r['college_id']} into {keep['college_id']}")
+    rows[:] = [r for r in rows if r["college_id"] not in drop]
+    print(f"  KCET: merged {len(drop)} card(s) of a college KEA lists once per stream")
 
 
 def shorten_names(rows):
@@ -1978,6 +2245,55 @@ def shorten_names(rows):
     print(f"  names shown without their printed address: {n}")
 
 
+# a rank older than this is a different college's standing; the card shows
+# no year beside it, so it reads as current
+NIRF_OLDEST_YEAR = 2018
+
+
+def drop_old_nirf_ranks(rows):
+    n = 0
+    for r in rows:
+        nb = r.get("nirf")
+        if nb and nb.get("ranking_year") and nb["ranking_year"] < NIRF_OLDEST_YEAR \
+                and not nb.get("latest_band"):
+            r["nirf"] = None
+            n += 1
+    print(f"  NIRF ranks older than {NIRF_OLDEST_YEAR} dropped: {n}")
+
+
+# cards that replaced a card with another id: links and stars saved on the
+# old one still find it (utils/collegesData.js). Nov 2026: three NIRF-only
+# pharmacy cards became KCET cards when KEA's pharmacy list came in.
+FORMER_CARDS = {
+    "C-40235": "Krupanidhi College of Pharmacy",
+    "C-40354": "Acharya and B M Reddy College of Pharmacy-Bengaluru",
+    "C-40080": "Sri Adichunchanagiri College of Pharmacy",
+}
+
+
+# cards whose name, and so page address, changed: college id -> the old
+# address. Nov 2026: IIIT Delhi's card name now ends in "Delhi"
+FORMER_SLUGS = {
+    "U-0105": "indraprastha-institute-of-information-technology",
+}
+
+
+def keep_former_ids(rows):
+    ids = {r["college_id"] for r in rows}
+    for r in rows:
+        if r["college_id"] in FORMER_SLUGS:
+            r["former_slugs"] = [FORMER_SLUGS[r["college_id"]]]
+    for r in rows:
+        old = r.get("aishe_code")
+        if old in FORMER_CARDS and old not in ids:
+            r["former_ids"] = [old]
+            r["former_slugs"] = [re.sub(r"^-+|-+$", "", re.sub(
+                r"[^a-z0-9]+", "-", re.sub(r"['’`]", "", FORMER_CARDS[old].lower())))]
+    missing = set(FORMER_CARDS) - ids - {r.get("aishe_code") for r in rows}
+    if missing:
+        print(f"  ! former cards with no successor: {sorted(missing)}")
+
+
 def plainname(t):
     return re.sub(r"[^a-z0-9]", "", str(t).lower())
 
@@ -2001,6 +2317,11 @@ _DISC_NIRF = {"Engineering": "Engineering", "Pharmacy": "Pharmacy", "Architectur
               "Planning": "Architecture and Planning", "Law": "Law", "Agriculture": "Agriculture and Allied Sectors",
               "Fisheries": "Agriculture and Allied Sectors", "Management": "Management",
               "Dental": "Dental"}
+
+
+# NIRF files a few universities under an older AISHE code: NSUT (U-1056)
+# under the code of NSIT, the college it grew out of (C-6379)
+NIRF_CODE_ALIASES = {"U-1056": "C-6379"}
 
 
 def nirf_from_aishe(client, rows):
@@ -2049,10 +2370,11 @@ def nirf_from_aishe(client, rows):
                                  if r.get("aishe_code") and "(Evening)" not in r["name"])
 
     def same_place(row):
-        x = names.get(row["aishe_code"])
+        x = names.get(NIRF_CODE_ALIASES.get(row["aishe_code"], row["aishe_code"]))
         if x is None:
             return False
-        if x.state and row["state"] and x.state.lower() != row["state"].lower():
+        # NIRF prints no state for some (NSUT): no state, no disagreement
+        if isinstance(x.state, str) and x.state and row["state"] and x.state.lower() != row["state"].lower():
             return False
         card = squash(row["name"]).replace(" ", "")
         # a campus or centre of a ranked institute (ICT's Jalna campus, VTU's
@@ -2074,7 +2396,7 @@ def nirf_from_aishe(client, rows):
     sc = lambda v: round(float(v), 2) if v == v else None
     filled, refreshed = [], []
     for row in rows:
-        g = by_aishe.get(row["aishe_code"])
+        g = by_aishe.get(NIRF_CODE_ALIASES.get(row["aishe_code"], row["aishe_code"]))
         if g is None or "(Evening)" in row["name"] or not same_place(row):
             continue
         n = row["nirf"]
@@ -2151,10 +2473,11 @@ def nirf_from_aishe(client, rows):
             + (["Engineering"] if "Engineering" in disc else []) \
             + (["Law"] if "Law" in disc else []) \
             + (["College"] if disc & {"Arts", "Science", "Commerce"} or "College" in nl else [])
-        hit = next((d for d in want if (row["aishe_code"], d) in pl_by), None)
+        code = NIRF_CODE_ALIASES.get(row["aishe_code"], row["aishe_code"])
+        hit = next((d for d in want if (code, d) in pl_by), None)
         if hit is None or not same_place(row):
             continue
-        x = pl_by[(row["aishe_code"], hit)].iloc[0]
+        x = pl_by[(code, hit)].iloc[0]
         grad, placed, higher = int(x.graduated_on_time), num(x.students_placed), num(x.higher_studies_selected)
         row["placement"] = {
             "median_salary": int(x.median_salary),
@@ -2191,6 +2514,98 @@ ACPMEC_COURSES = {
 }
 ACPMEC_OWNERSHIP = {"Government": "Public", "Government-aided": "Government-aided",
                     "Self-financed": "Private"}
+
+
+# ── JAC Delhi (DTU, NSUT, IIIT Delhi, IGDTUW) ─────────────────────────────
+# JAC Delhi fills the four Delhi state universities' B.Tech seats on the JEE
+# Main rank. The predictor's table (public/data/JEE/jac_data.json) splits
+# seats into a Delhi and an Outside Delhi quota; a card shows the Outside
+# Delhi number, the one open to a student from any state (IIIT Delhi and
+# IGDTUW publish some branches for Delhi only: those show the Delhi rank).
+# Each university is keyed by its AISHE code, so the predictor's rows
+# ("College ID" in jac_data.json) and the card are the same college.
+JAC_DELHI = "public/data/JEE/jac_data.json"
+JAC_DELHI_AISHE = {
+    "Delhi Technological University (DTU)": "U-0098",
+    "Netaji Subhas University of Technology (NSUT)": "U-1056",
+    "Indraprastha Institute of Information Technology Delhi (IIIT Delhi)": "U-0105",
+    "Indira Gandhi Delhi Technical University for Women (IGDTUW)": "U-0685",
+}
+
+
+def build_jacdelhi_rows(client, careers_by_branch):
+    rows_in = json.load(open(JAC_DELHI))
+    codes = sorted(set(JAC_DELHI_AISHE.values()))
+    from google.cloud import bigquery
+    a = client.query(f"""
+    SELECT aishe_code, name, district, website, year_of_establishment AS est,
+           university_type AS kind
+    FROM `{D}.aishe_dim_universities`
+    WHERE aishe_code IN UNNEST(@codes)""", job_config=bigquery.QueryJobConfig(
+        query_parameters=[bigquery.ArrayQueryParameter("codes", "STRING", codes)])).to_dataframe()
+    info = {r.aishe_code: r for r in a.itertuples()}
+    out = []
+    for inst, code in JAC_DELHI_AISHE.items():
+        open_rows = [r for r in rows_in if r["Institute"] == inst and r["Category"] == "General"
+                     and r["Gender"] == "Gender-Neutral" and r["Defense"] == "No" and r["PWD"] == "No"]
+        # one quota throughout: Outside Delhi, the seats any state's student
+        # competes for. A programme with no Outside-Delhi row in JAC's list
+        # (IIIT-Delhi's CSE and CSAI in 2024) is listed without a rank,
+        # not with a Delhi-quota one.
+        best = {}
+        for r in open_rows:
+            prog = r["Academic Program Name"]
+            best.setdefault(prog, None)
+            if r["State"] != "Outside Delhi":
+                continue
+            rank, prep = parse_rank(r["Closing Rank"])
+            if rank is None or prep:
+                continue
+            best[prog] = rank
+        lst = []
+        for prog, rank in best.items():
+            base = re.sub(r"\s*\([A-Z][A-Za-z/. -]*\)$", "", prog).strip()
+            arch = "B.Arch" in prog
+            lst.append({
+                "branch": base if not arch else "Architecture (B.Arch)",
+                "years": 5 if arch or "integrated MBA" in prog else 4,
+                "degree": "B.Arch" if arch else "B.Tech",
+                "indicative_closing_rank": rank,
+                "indicative_opening_rank": None,
+                "career_id": careers_by_branch.get(base),
+            })
+        lst.sort(key=lambda z: (z["indicative_closing_rank"] is None,
+                                z["indicative_closing_rank"] or 0, z["branch"]))
+        i = info.get(code)
+        name = re.sub(r"\s*\([^)]*\)$", "", inst).strip()
+        try:
+            est = int(float(i.est)) if i is not None else None
+        except (TypeError, ValueError):
+            est = None
+        src = "JAC Delhi 2024"
+        out.append({
+            "college_id": code, "aishe_code": code, "name": name, "display_name": name,
+            "state": "Delhi", "state_is_inferred": False,
+            "district": (str(i.district).strip().title() if i is not None and i.district else None),
+            "kind": (i.kind if i is not None else None) or "State Public University",
+            "management": "Government", "ownership": "Public",
+            "disciplines": ["Architecture", "Engineering"] if any(p["degree"] == "B.Arch" for p in lst) else ["Engineering"],
+            "year_established": est if est and 1800 <= est <= 2026 else None,
+            "website": (str(i.website).strip().rstrip("/") if i is not None and i.website
+                        and str(i.website).strip() not in ("-", "NA") else None),
+            "university": None, "entrance_exams": ["JEE Main"], "counselling": "JAC Delhi",
+            "programs": {"count": len(lst), "degrees": sorted({p["degree"] for p in lst}),
+                         "list": lst, "source": src,
+                         "rank_note": ("Indicative open-category JEE Main closing rank, "
+                                       "Outside Delhi quota (B.Arch: Paper 2 rank).")},
+            "nirf": None, "ug_gender": None, "fees": None, "placement": None,
+            "naac": {"grade": None, "cgpa": None, "cycle": None, "not_applicable_reason": None},
+            "data_sources": {"identity": "AISHE 2024-25", "programs": src, "ranking": None,
+                             "placement": None, "accreditation": None},
+            "aka": [inst],
+        })
+    print(f"  JAC Delhi: {len(out)} colleges, {sum(x['programs']['count'] for x in out)} programmes")
+    return out
 
 
 def build_acpmec_rows(client):
@@ -3005,6 +3420,15 @@ def main():
             if sp.get("key_by_name") or not (isinstance(c, str) and c and c != "None"):
                 return _mnorm(row.college_name)[:60]
             return c
+        if exam == "KCET":
+            # KEA's pharmacy and agriculture lists print the postal address
+            # after the name ("Mallige College of Pharmacy,#71, silvepura,
+            # chikkabanavara, Bangalore"): the card keeps the name and its
+            # town; the printed name stays searchable (aka), so predictor
+            # rows still find the card
+            allc = allc.assign(raw_name=allc.college_name,
+                               college_name=[_kcet_name(n, st) for n, st in zip(allc.college_name, allc.stream)])
+            prog = prog.assign(college_name=[_kcet_name(n, st) for n, st in zip(prog.college_name, prog.stream)])
         allc = allc.assign(college_code=[cid_of(r) for r in allc.itertuples()])
         prog = prog.assign(college_code=[cid_of(r) for r in prog.itertuples()])
         # one code, two spellings across phases/rounds (KEAM's "TVE") — same
@@ -3013,6 +3437,9 @@ def main():
         # (DIPLOMA) ,GANDHINAGAR" is the B.Pharm college's card; the other
         # spelling stays searchable, so predictor rows printing it link here)
         spellings = allc.groupby("college_code").college_name.agg(lambda v: sorted({str(x) for x in v}))
+        if "raw_name" in allc:
+            raw_sp = allc.groupby("college_code").raw_name.agg(lambda v: {str(x) for x in v})
+            spellings = pd.Series({c: sorted(set(v) | raw_sp.get(c, set())) for c, v in spellings.items()})
         allc = allc.drop_duplicates(subset=["college_code"], keep="first")
         prog_by_code = {c: g for c, g in prog.groupby("college_code")}
         careers_here = careers_by_spine[exam]
@@ -3051,6 +3478,20 @@ def main():
                     nirf_here[nirf_here.ranking_category == cat], sub, places))
         else:
             code_by_nirf = match_nirf_to_mhtcet(nirf_here, allc, places)
+        if exam == "KCET":
+            # a pharmacy / agriculture college takes a NIRF rank by name only
+            # when NIRF's town is in its name: "KLE College of Pharmacy" is
+            # Belagavi's, not Gadag's; "College of Pharmacy-Bangalore" is not
+            # PES's. Engineering matches are left as they were.
+            city_of = {iid: {str(x) for x in g.city if x == x}
+                       for iid, g in nirf_here.groupby("institute_id")}
+            for iid, code in list(code_by_nirf.items()):
+                if "Engineering" in disc_by_code[code]:
+                    continue
+                hay = _town_key(" ".join(spellings.get(code, [])))
+                cities = city_of.get(iid) or set()
+                if not cities or not any(_town_key(c) and _town_key(c) in hay for c in cities):
+                    del code_by_nirf[iid]
         nirf_ids_by_code = {}
         for iid, code in code_by_nirf.items():
             nirf_ids_by_code.setdefault(code, set()).add(iid)
@@ -3203,7 +3644,12 @@ def main():
                     state = st
             if exam == "CLAT":
                 state = next((st for city, st in NLU_CITY_STATE.items() if city in display), None)
+            ka_district = (_kcet_town(getattr(r, "raw_name", r.college_name))[1]
+                           if exam == "KCET" else None)
             spine_rows.append({
+                # the town's district, for the AISHE match's place check
+                # (dropped before the file is written)
+                "_ka_district": ka_district,
                 "college_id": f"{sp['map_exam'].lower()}:{r.college_code}",
                 "aishe_code": None,
                 "name": display,
@@ -3213,7 +3659,8 @@ def main():
                 # a guess — no "inferred" star
                 "state_is_inferred": False,
                 "district": (r.district if isinstance(r.district, str) and r.district
-                             and r.district != "None" else None),
+                             and r.district != "None"
+                             else ka_district),
                 "kind": "Women's college" if women_only else None,
                 "management": (r.college_type if isinstance(r.college_type, str)
                                and r.college_type not in ("None", "Unknown") else None),
@@ -3221,7 +3668,9 @@ def main():
                 # college in it is (the NLUs, Chandigarh's institutes, HBTU)
                 "ownership": (generic_ownership(r.college_type)
                               or sp.get("ownership_by_name", {}).get(r.college_name)
-                              or sp.get("ownership")),
+                              or sp.get("ownership")
+                              or ("Public" if exam == "KCET"
+                                  and _KA_STATE_FARM_COLLEGE.match(display) else None)),
                 "disciplines": (sorted(disciplines)[:4] or (["Law"] if exam == "CLAT" else [])
                                 or (sorted(card_discs) if sp["stream"] else [])),
                 "year_established": None,
@@ -3808,12 +4257,18 @@ def main():
     # predictor's). Type from the committee's own GOV / GIA / SFI column.
     # Nursing & allied admit on Class 12 marks, so those cards name no exam.
     rows += build_acpmec_rows(client)
+    rows += build_jacdelhi_rows(client, careers_by_branch)
+    merge_kcet_same_college(rows)
     fill_from_aishe(client, rows)
     merge_duplicate_cards(rows)
     add_nirf_only_cards(client, rows)
     nirf_from_aishe(client, rows)
     shorten_names(rows)
     warn_shared_aishe(rows)
+    drop_old_nirf_ranks(rows)
+    keep_former_ids(rows)
+    for x in rows:
+        x.pop("_ka_district", None)
     for x in rows:
         x.pop("_nirf_lists", None)
 
@@ -3838,7 +4293,18 @@ def main():
         return
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
-    OUT.write_text(json.dumps(rows, indent=1))
+    # a missing value is null, never NaN (newer pandas hands back NaN for
+    # BigQuery NULLs, and NaN is not JSON: the page would fail to parse it)
+    def _nan_to_none(v):
+        if isinstance(v, float) and v != v:
+            return None
+        if isinstance(v, dict):
+            return {k: _nan_to_none(x) for k, x in v.items()}
+        if isinstance(v, list):
+            return [_nan_to_none(x) for x in v]
+        return v
+    rows = _nan_to_none(rows)
+    OUT.write_text(json.dumps(rows, indent=1, allow_nan=False))
     print(f"\nWrote {OUT}")
 
 

@@ -18,10 +18,18 @@ export default function ExamPage() {
 
   useEffect(() => {
     if (!router.isReady) return;
+    const id = router.query.id;
     loadExams()
-      .then((all) =>
-        setExam(all.find((e) => e.exam_id === router.query.id) || null)
-      )
+      .then((all) => {
+        const e =
+          all.find((x) => x.exam_id === id) ||
+          all.find((x) => (x.former_ids || []).includes(id)) ||
+          null;
+        // an old link (the exam's id changed) lands on its current address
+        if (e && e.exam_id !== id)
+          router.replace(`/exams/${e.exam_id}`, undefined, { shallow: true });
+        setExam(e);
+      })
       .catch(() => setExam(null));
   }, [router.isReady, router.query.id]);
 

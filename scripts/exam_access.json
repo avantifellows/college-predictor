@@ -1,5 +1,5 @@
 {
- "_comment": "Who can sit each exam and who runs it, keyed by exam_id. eligible_in: 'All India' when a student from any state can apply on equal terms (national tests, central institutes, every private university), else the state whose students it is for (state CETs, state universities with domicile quotas). It is NOT where the admitting colleges are: BITSAT is All India though BITS sits in Pilani, Goa and Hyderabad. run_by: 'Public' (central/state government, a public university or statutory body) or 'Private' (a private or deemed university, private institute or private colleges' consortium like COMEDK). Audited Oct 2026.",
+ "_comment": "Who can sit each exam and who runs it, keyed by exam_id. eligible_in: 'All India' when a student from any state can apply on equal terms (national tests, central institutes, every private university), else the state whose students it is for (state CETs, state universities with domicile quotas). It is NOT where the admitting colleges are: BITSAT is All India though BITS sits in Pilani, Goa and Hyderabad. run_by: 'Public' (central/state government, a public university or statutory body) or 'Private' (a private or deemed university, private institute or private colleges' consortium like COMEDK). Audited Oct 2026. subjects: which Class 12 subject group can sit the exam for a stream, read by the backup-exam finder: 'pcm', 'pcb' or 'any', keyed by stream ('_' for every stream). Unset streams default to pcm for Engineering, pcb for Nursing and Medical, any otherwise; 'none' leaves the exam out (it admits after a diploma or Class 10). fills_private: a state CET whose counselling also fills private colleges' seats (Nov 2026).",
  "aat": {
   "eligible_in": "All India",
   "run_by": "Public"
@@ -18,7 +18,10 @@
  },
  "agricet": {
   "eligible_in": "Andhra Pradesh",
-  "run_by": "Public"
+  "run_by": "Public",
+  "subjects": {
+   "_": "none"
+  }
  },
  "aihmct-cbt": {
   "eligible_in": "All India",
@@ -26,7 +29,10 @@
  },
  "aiims-ee": {
   "eligible_in": "All India",
-  "run_by": "Public"
+  "run_by": "Public",
+  "subjects": {
+   "_": "pcb"
+  }
  },
  "aiish-et": {
   "eligible_in": "All India",
@@ -50,11 +56,19 @@
  },
  "ap-eapcet-am-category": {
   "eligible_in": "Andhra Pradesh",
-  "run_by": "Public"
+  "run_by": "Public",
+  "subjects": {
+   "_": "pcb"
+  },
+  "fills_private": true
  },
  "ap-eapcet-e-category": {
   "eligible_in": "Andhra Pradesh",
-  "run_by": "Public"
+  "run_by": "Public",
+  "subjects": {
+   "_": "pcm"
+  },
+  "fills_private": true
  },
  "apu-et": {
   "eligible_in": "All India",
@@ -110,7 +124,11 @@
  },
  "bitsat": {
   "eligible_in": "All India",
-  "run_by": "Private"
+  "run_by": "Private",
+  "subjects": {
+   "_": "pcm",
+   "Pharma": "any"
+  }
  },
  "bsc-yoga-cet": {
   "eligible_in": "Delhi",
@@ -134,7 +152,10 @@
  },
  "bv-b-sc-nursing-cet": {
   "eligible_in": "All India",
-  "run_by": "Private"
+  "run_by": "Private",
+  "subjects": {
+   "_": "pcb"
+  }
  },
  "bv-btech-cet": {
   "eligible_in": "All India",
@@ -170,7 +191,10 @@
  },
  "cg-pet": {
   "eligible_in": "Chhattisgarh",
-  "run_by": "Public"
+  "run_by": "Public",
+  "subjects": {
+   "_": "pcm"
+  }
  },
  "clat": {
   "eligible_in": "All India",
@@ -178,13 +202,19 @@
  },
  "cmi-ee": {
   "eligible_in": "All India",
-  "run_by": "Private"
+  "run_by": "Private",
+  "subjects": {
+   "_": "pcm"
+  }
  },
  "comedk-uget": {
   "eligible_in": "All India",
-  "run_by": "Private"
+  "run_by": "Private",
+  "subjects": {
+   "_": "pcm"
+  }
  },
- "cuet": {
+ "christ-cuet": {
   "eligible_in": "All India",
   "run_by": "Private"
  },
@@ -234,11 +264,18 @@
  },
  "gujcet": {
   "eligible_in": "Gujarat",
-  "run_by": "Public"
+  "run_by": "Public",
+  "subjects": {
+   "Agriculture": "pcb"
+  },
+  "fills_private": true
  },
  "hau-aat": {
   "eligible_in": "Haryana",
-  "run_by": "Public"
+  "run_by": "Public",
+  "subjects": {
+   "_": "none"
+  }
  },
  "hau-et": {
   "eligible_in": "Haryana",
@@ -286,7 +323,10 @@
  },
  "isi-at": {
   "eligible_in": "All India",
-  "run_by": "Public"
+  "run_by": "Public",
+  "subjects": {
+   "_": "pcm"
+  }
  },
  "indian-army-ncc-special-entry-scheme": {
   "eligible_in": "All India",
@@ -314,7 +354,10 @@
  },
  "jcece-nursing": {
   "eligible_in": "Jharkhand",
-  "run_by": "Public"
+  "run_by": "Public",
+  "subjects": {
+   "_": "pcb"
+  }
  },
  "jcece-agriculture-allied": {
   "eligible_in": "Jharkhand",
@@ -322,11 +365,17 @@
  },
  "jee-advanced": {
   "eligible_in": "All India",
-  "run_by": "Public"
+  "run_by": "Public",
+  "subjects": {
+   "_": "pcm"
+  }
  },
  "jee-main-paper-1": {
   "eligible_in": "All India",
-  "run_by": "Public"
+  "run_by": "Public",
+  "subjects": {
+   "_": "pcm"
+  }
  },
  "jee-main-paper-2a": {
   "eligible_in": "All India",
@@ -358,11 +407,19 @@
  },
  "kea-cet": {
   "eligible_in": "Karnataka",
-  "run_by": "Public"
+  "run_by": "Public",
+  "subjects": {
+   "Agriculture": "pcb"
+  },
+  "fills_private": true
  },
  "keam": {
   "eligible_in": "Kerala",
-  "run_by": "Public"
+  "run_by": "Public",
+  "subjects": {
+   "Agriculture": "pcb"
+  },
+  "fills_private": true
  },
  "kiit-ee": {
   "eligible_in": "All India",
@@ -410,11 +467,15 @@
  },
  "mh-b-sc-nursing-cet": {
   "eligible_in": "Maharashtra",
-  "run_by": "Public"
+  "run_by": "Public",
+  "subjects": {
+   "_": "pcb"
+  }
  },
  "mht-cet": {
   "eligible_in": "Maharashtra",
-  "run_by": "Public"
+  "run_by": "Public",
+  "fills_private": true
  },
  "mitid-dat": {
   "eligible_in": "All India",
@@ -438,7 +499,10 @@
  },
  "mp-pv-ft": {
   "eligible_in": "Madhya Pradesh",
-  "run_by": "Public"
+  "run_by": "Public",
+  "subjects": {
+   "_": "pcb"
+  }
  },
  "msu-et": {
   "eligible_in": "Gujarat",
@@ -458,7 +522,10 @@
  },
  "neet-ug": {
   "eligible_in": "All India",
-  "run_by": "Public"
+  "run_by": "Public",
+  "subjects": {
+   "_": "pcb"
+  }
  },
  "nest": {
   "eligible_in": "All India",
@@ -634,11 +701,19 @@
  },
  "tg-eapcet-am": {
   "eligible_in": "Telangana",
-  "run_by": "Public"
+  "run_by": "Public",
+  "subjects": {
+   "_": "pcb"
+  },
+  "fills_private": true
  },
  "tg-eapcet-e": {
   "eligible_in": "Telangana",
-  "run_by": "Public"
+  "run_by": "Public",
+  "subjects": {
+   "_": "pcm"
+  },
+  "fills_private": true
  },
  "tslas-ot": {
   "eligible_in": "All India",
@@ -718,7 +793,12 @@
  },
  "wbjee": {
   "eligible_in": "West Bengal",
-  "run_by": "Public"
+  "run_by": "Public",
+  "subjects": {
+   "_": "pcm",
+   "Pharma": "any"
+  },
+  "fills_private": true
  },
  "wwi-et": {
   "eligible_in": "All India",

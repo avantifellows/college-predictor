@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { peopleCount } from "../utils/backupFinder";
 import { ExternalLink } from "lucide-react";
 
 // Pieces shared by the exams list and the exam page.
@@ -119,6 +120,26 @@ export const ExamDetailBody = ({ e }) => (
           ) : null}
         </dl>
       </div>
+      {e.applicants ? (
+        <div>
+          <h4 className="mb-1.5 text-[13px] font-semibold uppercase tracking-wide text-[#8f2e31]">
+            How many apply
+          </h4>
+          <dl className="space-y-1 text-sm text-[#5b3a34]">
+            <DetailRow label="Applied">
+              <a
+                href={e.applicants.source}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="tabular-nums underline decoration-[#e3d1cb] underline-offset-2"
+              >
+                {peopleCount(e.applicants.count)}
+              </a>{" "}
+              in {e.applicants.year}
+            </DetailRow>
+          </dl>
+        </div>
+      ) : null}
       <div>
         <h4 className="mb-1.5 text-[13px] font-semibold uppercase tracking-wide text-[#8f2e31]">
           Test format
