@@ -314,6 +314,8 @@ const CollegePredictor = () => {
     <>
       <Head>
         <title>College Predictor Results - Futures</title>
+        {/* results are one student's answers, not a page to search for */}
+        <meta name="robots" content="noindex" />
       </Head>
       <div
         // pb-28: room under the last row for JoSAA's sticky choice button
