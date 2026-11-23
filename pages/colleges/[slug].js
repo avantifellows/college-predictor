@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import BackLink from "../../components/BackLink";
 import CollegeView from "../../components/CollegeView";
 import DetailBackLink from "../../components/DetailBackLink";
-import { loadColleges, slugMap } from "../../utils/collegesData";
+import { collegeAtSlug, loadColleges, slugMap } from "../../utils/collegesData";
 
 // One college, on its own page (/colleges/<name>). This file loads the data;
 // components/CollegeView.js draws it.
@@ -17,10 +17,12 @@ export default function CollegePage() {
     if (!router.isReady) return;
     loadColleges()
       .then((all) => {
-        const slugs = slugMap(all);
-        setCollege(
-          all.find((c) => slugs[c.college_id] === router.query.slug) || null
-        );
+        const c = collegeAtSlug(all, router.query.slug);
+        // an old link lands on the card's current address
+        const now = c && slugMap(all)[c.college_id];
+        if (now && now !== router.query.slug)
+          router.replace(`/colleges/${now}`, undefined, { shallow: true });
+        setCollege(c);
       })
       .catch(() => setCollege(null));
   }, [router.isReady, router.query.slug]);

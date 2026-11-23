@@ -4,13 +4,14 @@
 //
 //   node scripts/build_predictor_college_crosswalk.js            # all exams
 //   node scripts/build_predictor_college_crosswalk.js NEETUG     # one exam
+//   node scripts/build_predictor_college_crosswalk.js --check    # fails if stale
 //
 // One row per (exam, state, name as the counselling prints it). `method`
 // says how the card was found: "college id" (the row carries it), "exact
 // name", "name match" (scripts/build_college_name_links.js's matcher),
 // "reviewed" (a decision in college_name_links_review.json) or "none" (no
 // card: a gap between the predictor and the Colleges tab). Re-run after
-// colleges.json, name_links.json or predictor data change.
+// colleges.json, name_links.json or predictor data change; CI runs --check.
 const fs = require("fs");
 const path = require("path");
 const { addHook } = require("sucrase/dist/register");
@@ -32,7 +33,8 @@ const review = JSON.parse(
   fs.readFileSync(path.join(__dirname, "college_name_links_review.json"))
 ).decisions;
 
-const only = process.argv[2];
+const check = process.argv.includes("--check");
+const only = process.argv.slice(2).find((a) => !a.startsWith("--"));
 const nameOf = (r, exam) => {
   const raw =
     r["Institute"] ||
@@ -110,7 +112,22 @@ for (const key of new Set(
     }
   }
 }
-fs.writeFileSync(OUT, out.map((r) => r.map(csv).join(",")).join("\n") + "\n");
+const body = out.map((r) => r.map(csv).join(",")).join("\n") + "\n";
+if (check) {
+  const cur = fs.existsSync(OUT) ? fs.readFileSync(OUT, "utf8") : "";
+  if (cur !== body) {
+    console.error(
+      `${path.relative(
+        ROOT,
+        OUT
+      )} is stale: run node scripts/build_predictor_college_crosswalk.js`
+    );
+    process.exit(1);
+  }
+  console.log(`crosswalk up to date (${out.length - 1} names)`);
+  process.exit(0);
+}
+fs.writeFileSync(OUT, body);
 for (const [k, c] of Object.entries(counts))
   console.log(
     k.padEnd(16),

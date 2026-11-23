@@ -37,6 +37,9 @@ export function slugMap(all) {
     const k = slugify(c.display_name);
     out[c.college_id] =
       count[k] > 1 ? `${k}-${slugify(c.state || c.college_id)}` : k;
+    // a card that took over another's (a NIRF-only card replaced by the
+    // counselling's): saved stars on the old id still find it
+    for (const old of c.former_ids || []) out[old] = out[c.college_id];
   }
   slugCache.set(all, out);
   return out;
@@ -44,3 +47,14 @@ export function slugMap(all) {
 
 export const collegeHref = (all, c) =>
   `/colleges/${slugMap(all)[c.college_id]}`;
+
+/** The card at a page slug, or at one of its former slugs (links shared
+ * before a card was renamed or replaced). */
+export function collegeAtSlug(all, slug) {
+  const slugs = slugMap(all);
+  return (
+    all.find((c) => slugs[c.college_id] === slug) ||
+    all.find((c) => (c.former_slugs || []).includes(slug)) ||
+    null
+  );
+}

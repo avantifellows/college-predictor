@@ -349,7 +349,8 @@ const Colleges = () => {
       target = all.find(
         (c) =>
           slugs[c.college_id] === params.college ||
-          slugify(c.display_name) === params.college
+          slugify(c.display_name) === params.college ||
+          (c.former_slugs || []).includes(params.college)
       );
     } else if (
       q &&
