@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { chanceText, peopleCount } from "../utils/backupFinder";
+import { peopleCount } from "../utils/backupFinder";
 import { ExternalLink } from "lucide-react";
 
 // Pieces shared by the exams list and the exam page.
@@ -137,11 +137,6 @@ export const ExamDetailBody = ({ e }) => (
               </a>{" "}
               in {e.applicants.year}
             </DetailRow>
-            {e.acceptance ? (
-              <DetailRow label="Got a seat">
-                {chanceText(e.acceptance.pct)}
-              </DetailRow>
-            ) : null}
           </dl>
         </div>
       ) : null}

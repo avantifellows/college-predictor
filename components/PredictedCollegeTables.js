@@ -1823,11 +1823,8 @@ const PredictedCollegesTable = ({
   }, [isNeet, neetSeatTab, neetSeatCounts.home]);
 
   const getDisplayValue = (column, transformedItem) => {
-    // a row matched to a college card goes by the card's name, so the
-    // predictor and the Colleges tab call a college the same thing
-    // ("Govt. Doon Medical College" is "Doon Medical College, Dehradun")
-    if (INSTITUTE_KEYS.has(column.key) && transformedItem["Card Name"])
-      return transformedItem["Card Name"];
+    // rows keep the counselling's own name (students type it into the MCC
+    // or state portal); the link below goes to the matched college card
     const rawValue = transformedItem[column.key];
     if (column.format) {
       return column.format(rawValue);
