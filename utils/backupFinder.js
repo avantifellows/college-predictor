@@ -122,6 +122,28 @@ export function backupExams(exams, answers, mainIds) {
   return { exams: [] };
 }
 
+/**
+ * What the list says when it had to drop an answer (`relaxed`), so the
+ * student sees which: "No private nursing exam in Assam. These fit your
+ * other answers:"
+ */
+export function relaxedNote(relaxed, { college, place, field, state }) {
+  if (!relaxed || !FIELDS[field]) return null;
+  const what = FIELDS[field].label.toLowerCase();
+  const kind = college === "any" ? "" : `${college} `;
+  const where =
+    place === "state" && state
+      ? ` in ${state}`
+      : place === "national"
+      ? " at national level"
+      : "";
+  return `No ${kind}${what} exam${where}. ${
+    relaxed === "place"
+      ? "These fit your other answers:"
+      : `Other ${what} exams:`
+  }`;
+}
+
 /** 1480000 -> "14.8 lakh", 62000 -> "62,000" */
 export function peopleCount(n) {
   if (!n) return null;

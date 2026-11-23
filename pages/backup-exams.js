@@ -21,6 +21,7 @@ import {
   fieldStream,
   finderStream,
   peopleCount,
+  relaxedNote,
 } from "../utils/backupFinder";
 
 // The plan's backup step: three quick questions, then the five exams that
@@ -207,7 +208,7 @@ export default function BackupExams() {
               ) : null}
               {found?.relaxed && results?.length ? (
                 <p className="mt-2 text-sm text-[#7a635d]">
-                  None match all three answers. The closest:
+                  {relaxedNote(found.relaxed, { ...pick, state })}
                 </p>
               ) : null}
               {failed ? (
