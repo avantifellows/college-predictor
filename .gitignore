@@ -160,3 +160,6 @@ scripts/*_out/
 
 .claude
 *.pptx
+
+# Written by scripts/build_sitemap.js before every build
+public/sitemap.xml
