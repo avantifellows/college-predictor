@@ -2271,8 +2271,18 @@ FORMER_CARDS = {
 }
 
 
+# cards whose name, and so page address, changed: college id -> the old
+# address. Nov 2026: IIIT Delhi's card name now ends in "Delhi"
+FORMER_SLUGS = {
+    "U-0105": "indraprastha-institute-of-information-technology",
+}
+
+
 def keep_former_ids(rows):
     ids = {r["college_id"] for r in rows}
+    for r in rows:
+        if r["college_id"] in FORMER_SLUGS:
+            r["former_slugs"] = [FORMER_SLUGS[r["college_id"]]]
     for r in rows:
         old = r.get("aishe_code")
         if old in FORMER_CARDS and old not in ids:

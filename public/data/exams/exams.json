@@ -3283,7 +3283,10 @@
    }
   ],
   "colleges_link": null,
-  "applicants": null
+  "applicants": null,
+  "former_ids": [
+   "cuet"
+  ]
  },
  {
   "exam_id": "dat-mains",

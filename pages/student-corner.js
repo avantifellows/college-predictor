@@ -166,8 +166,14 @@ export default function StudentCorner() {
     () => Object.fromEntries(careers.map((c) => [c.career_id, c])),
     [careers]
   );
+  // a star saved on an exam's old id (former_ids) still finds the exam
   const examById = useMemo(
-    () => Object.fromEntries(exams.map((e) => [e.exam_id, e])),
+    () =>
+      Object.fromEntries(
+        exams.flatMap((e) =>
+          [e.exam_id, ...(e.former_ids || [])].map((id) => [id, e])
+        )
+      ),
     [exams]
   );
   const slugs = useMemo(() => (colleges ? slugMap(colleges) : {}), [colleges]);

@@ -22,6 +22,9 @@ from collections import defaultdict
 import pandas as pd
 
 SRC = "data-sources/exams_cleaned.csv"
+# exam ids that changed: new id -> the old ones. Nov 2026: Christ
+# University's test is "Christ CUET" now, not "CUET" (id cuet)
+FORMER_EXAM_IDS = {"christ-cuet": ["cuet"]}
 APPLICANTS = "data-sources/exam_applicants.csv"
 OUT = "public/data/exams/exams.json"
 # careers this exam leads to: predictor key -> exam_branch_mapping family ->
@@ -335,6 +338,16 @@ def main():
     ids = [c["exam_id"] for c in cards]
     dupes = {i for i in ids if ids.count(i) > 1}
     assert not dupes, f"duplicate exam_ids: {dupes}"
+
+    # an exam whose id changed keeps the old one, so links and stars saved on
+    # it still open its page (pages/exams/[id].js)
+    for c in cards:
+        if c["exam_id"] in FORMER_EXAM_IDS:
+            c["former_ids"] = FORMER_EXAM_IDS[c["exam_id"]]
+    lost = set(FORMER_EXAM_IDS) - set(ids)
+    assert not lost, f"FORMER_EXAM_IDS names exams that are gone: {lost}"
+    clash = {o for v in FORMER_EXAM_IDS.values() for o in v} & set(ids)
+    assert not clash, f"former exam ids that are live ids again: {clash}"
 
     no_access = [c["exam_id"] for c in cards if not c["eligible_in"]]
     assert not no_access, f"exams missing from {EXAM_ACCESS}: {no_access}"

@@ -4263,7 +4263,8 @@
    "U-0271",
    "bhu:faculty-of-agriculture-banaras-hindu-university",
    "icar:icar-national-dairy-research-institute-karnal",
-   "icar:west-bengal-university-of-animal-fishery-sciences-kolkata"
+   "icar:west-bengal-university-of-animal-fishery-sciences-kolkata",
+   "kcet:dairy science college bengaluru"
   ],
   "has_colleges": true
  },
@@ -5991,7 +5992,7 @@
   "college_ids": [
    "U-0293",
    "icar:sher-e-kashmir-university-of-agricultural-sciences-technology-of-kashm",
-   "kcet:college fisheries mangalore"
+   "kcet:college fisheries mangaluru"
   ],
   "has_colleges": true
  },
@@ -11071,7 +11072,7 @@
    "U-0380",
    "bits:hyderabad",
    "cusb:central-university-of-south-bihar",
-   "mhtcet:03015",
+   "mhtcet:06652",
    "tnea:2"
   ],
   "has_colleges": true
