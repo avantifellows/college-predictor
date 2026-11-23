@@ -23,20 +23,28 @@ export const slugify = (t) =>
     .replace(/^-+|-+$/g, "");
 
 // college_id -> page slug. The name, readable in a link
-// (/colleges/iit-bombay...); a name shared across states carries the state.
+// (/colleges/iit-bombay...); a name shared across states carries the state,
+// one shared within a state the district too (Women's Christian College in
+// Chennai and in Kanniyakumari), and past that the college id.
+const slugParts = (c) => [
+  slugify(c.display_name),
+  slugify(c.state || c.college_id),
+  slugify(c.district || c.college_id),
+  slugify(c.college_id),
+];
+const slugAt = (c, n) => slugParts(c).slice(0, n).join("-");
 const slugCache = new WeakMap();
 export function slugMap(all) {
   if (slugCache.has(all)) return slugCache.get(all);
-  const count = {};
-  for (const c of all) {
-    const k = slugify(c.display_name);
-    count[k] = (count[k] || 0) + 1;
-  }
+  const count = [1, 2, 3].map((n) => {
+    const m = {};
+    for (const c of all) m[slugAt(c, n)] = (m[slugAt(c, n)] || 0) + 1;
+    return m;
+  });
   const out = {};
   for (const c of all) {
-    const k = slugify(c.display_name);
-    out[c.college_id] =
-      count[k] > 1 ? `${k}-${slugify(c.state || c.college_id)}` : k;
+    const n = [1, 2, 3].find((n) => count[n - 1][slugAt(c, n)] === 1) || 4;
+    out[c.college_id] = slugAt(c, n);
     // a card that took over another's (a NIRF-only card replaced by the
     // counselling's): saved stars on the old id still find it
     for (const old of c.former_ids || []) out[old] = out[c.college_id];
@@ -55,6 +63,9 @@ export function collegeAtSlug(all, slug) {
   return (
     all.find((c) => slugs[c.college_id] === slug) ||
     all.find((c) => (c.former_slugs || []).includes(slug)) ||
+    // name and state only: the address two same-named colleges in one
+    // state shared before the district told them apart (it opened the first)
+    all.find((c) => slugAt(c, 2) === slug) ||
     null
   );
 }
