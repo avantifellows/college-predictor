@@ -64,8 +64,8 @@ export const openTo = (e) =>
   !e.eligible_in
     ? null
     : isAllIndia(e)
-      ? "All India"
-      : `${e.eligible_in} students`;
+    ? "All India"
+    : `${e.eligible_in} students`;
 
 /** Public (government, public university, statutory body) or Private (a
  *  private university's own test, or private colleges' consortium). */

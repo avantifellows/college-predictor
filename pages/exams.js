@@ -67,9 +67,9 @@ const ExamRow = ({ e, index, onOpen, starCol }) => (
         {e.scope_state && e.scope_type === "University"
           ? `${e.scope} · ${e.scope_state}`
           : !["All India", "University"].includes(e.scope_type) && isAllIndia(e)
-            ? // open to all, though its colleges sit in one state (COMEDK)
-              `Colleges in ${e.scope}`
-            : e.scope}
+          ? // open to all, though its colleges sit in one state (COMEDK)
+            `Colleges in ${e.scope}`
+          : e.scope}
       </div>
     </td>
     <td className="px-3 py-3 align-top">
@@ -405,8 +405,8 @@ export default function Exams() {
         filtered.length === 1
           ? filtered[0]
           : exacts.length === 1
-            ? exacts[0]
-            : null;
+          ? exacts[0]
+          : null;
     }
     if (pick) {
       redirected.current = true;
@@ -618,14 +618,14 @@ export default function Exams() {
                           careerHidden === 1 ? "is" : "are"
                         } ${careerRunBy[0].toLowerCase()}.`
                       : careerHidden
-                        ? `Your filters hide all ${careerHidden} exams that lead to ${careerName}.`
-                        : elsewhere
-                          ? `${elsewhere} ${
-                              elsewhere === 1 ? "exam" : "exams"
-                            } for other states' students match.`
-                          : shownView === "state" && views.india.length
-                            ? `No ${where} exams match. Its colleges may admit through All India exams, or on Class 12 marks.`
-                            : "No exams match."}
+                      ? `Your filters hide all ${careerHidden} exams that lead to ${careerName}.`
+                      : elsewhere
+                      ? `${elsewhere} ${
+                          elsewhere === 1 ? "exam" : "exams"
+                        } for other states' students match.`
+                      : shownView === "state" && views.india.length
+                      ? `No ${where} exams match. Its colleges may admit through All India exams, or on Class 12 marks.`
+                      : "No exams match."}
                   </p>
                   {hiddenByRunBy ? (
                     <button
