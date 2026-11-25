@@ -27,6 +27,11 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci
+      # the hand-kept CSVs: every change bumps a version, and no row or
+      # column main has goes missing without docs/audits/data_changelog.csv
+      # naming it
+      - run: git fetch --depth=1 origin main
+      - run: npm run check:data-versions -- --base FETCH_HEAD
       - run: npm run check:pages
       - run: npm run check:ids
       # predictor names linked to college cards (stars, NIRF, salary):

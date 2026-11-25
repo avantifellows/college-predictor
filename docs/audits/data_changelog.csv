@@ -1,0 +1,15 @@
+file,version,date,rows,added,changed,removed,columns_added,columns_removed,note
+data-sources/exams_cleaned.csv,1,2026-11-25,443,,,,,,"Baseline: main after PR #385. Adds row_id (stable row key), stage and selection_process."
+data-sources/exam_applicants.csv,1,2026-11-25,21,,,,,,"Baseline: main after PR #385. Adds vacancies_year, vacancies, vacancies_what, source_vacancies_url."
+data-sources/career_streams.csv,1,2026-11-25,614,,,,,,Baseline: main after PR #385.
+data-sources/career_subjects.csv,1,2026-11-25,163,,,,,,Baseline: main after PR #385.
+data-sources/branch_taxonomy.csv,1,2026-11-25,705,,,,,,Baseline: main after PR #385.
+data-sources/exam_branch_mapping.csv,1,2026-11-25,2472,,,,,,Baseline: main after PR #385.
+data-sources/career_quiz_statements.csv,1,2026-11-25,30,,,,,,Baseline: main after PR #385.
+data-sources/career_quiz_subjects.csv,1,2026-11-25,13,,,,,,Baseline: main after PR #385.
+data-sources/career_quiz_tiebreakers.csv,1,2026-11-25,15,,,,,,Baseline: main after PR #385.
+docs/audits/exams_audit.csv,1,2026-11-25,106,,,,,,Baseline: main after PR #385.
+docs/audits/career_pay_sources.csv,1,2026-11-25,468,,,,,,Baseline: main after PR #385.
+data-sources/exams_cleaned.csv,2,2026-11-25,508,65,11,,stage; selection_process; row_id,,"Nov 2026 audit: 65 new rows (UPSC CSE, SSC, RRB, IBPS/SBI, 30 state PSCs, 11 state police, Indian Coast Guard x4, CA Foundation/Inter, UP CPET, IAT Engineering for IISER Bhopal B.Tech); stage and selection_process filled for the armed forces. Sources per exam in docs/audits/exams_audit.csv."
+data-sources/exam_applicants.csv,2,2026-11-25,88,67,0,,vacancies_year; vacancies; vacancies_what; source_vacancies_url,,"Nov 2026 audit: applicants and notified vacancies for the armed forces, Coast Guard, CA and the new government exams; estimated, rounded or unattributed figures left out (kept in exams_audit notes)."
+docs/audits/exams_audit.csv,2,2026-11-25,183,77,0,,,,"Nov 2026 audit: one row per new exam and per changed field, with sources"
