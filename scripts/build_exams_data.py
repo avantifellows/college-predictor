@@ -242,6 +242,13 @@ def main():
             "pattern_rows": pat.get("rows"),
             "pattern_note": pat.get("note") or None,
             "remarks": str(f["remarks"]) if pd.notna(f["remarks"]) else None,
+            # who can sit it: after Class 10, after Class 12 (every college
+            # entrance exam, the default) or after graduation (CDS, UPSC CSE)
+            "stage": (str(f["stage"]).strip() if pd.notna(f["stage"])
+                      else "After Class 12"),
+            # recruitment exams' stages in order, "Prelims → Mains → ..."
+            "selection_process": (str(f["selection_process"]).strip()
+                                  if pd.notna(f["selection_process"]) else None),
             "replaces": sorted(replaced_here) or None,
             "aliases": sorted(aliases) or None,
             "predictor_exam": (str(f["avanti_predictor"]).strip()
@@ -290,6 +297,15 @@ def main():
         if named:
             careers = (named + [c for c in careers
                                 if c["label"] not in {n["label"] for n in named}])[:5]
+        # an exam whose stream says too little (PAU-CET's "Engineering" is
+        # agricultural and food engineering, not electrical) names its
+        # careers in exam_access.json; [] means none
+        if "careers" in access.get(sid, {}):
+            names = access[sid]["careers"]
+            bad = [nm for nm in names if _k2(nm) not in career_by_name]
+            assert not bad, f"{EXAM_ACCESS} {sid}: no such career {bad}"
+            careers = [{"label": nm, "slug": career_by_name[_k2(nm)]}
+                       for nm in names]
         card["careers"] = careers or None
         # families whose colleges live on the Colleges tab: JoSAA (128
         # engineering) and NEET (780 NMC medical colleges)
@@ -324,8 +340,17 @@ def main():
     assert not unknown, f"{APPLICANTS}: exam ids with no card: {unknown}"
     for c in cards:
         c["applicants"] = None
+        c["vacancies"] = None
     for r in app.itertuples():
         c = by_id.get(r.exam_id)
+        # recruitment exams: the posts notified in a cycle
+        if c is not None and r.vacancies == r.vacancies:
+            c["vacancies"] = {"count": int(r.vacancies),
+                              "year": int(r.vacancies_year),
+                              "what": (r.vacancies_what
+                                       if r.vacancies_what == r.vacancies_what
+                                       else None),
+                              "source": r.source_vacancies_url}
         n = r.applicants_registered if r.applicants_registered == r.applicants_registered \
             else r.applicants_appeared
         if c is None or n != n:
@@ -333,6 +358,10 @@ def main():
         c["applicants"] = {"count": int(n), "year": int(r.applicants_year),
                            "source": r.source_applicants_url}
     print("with applicants:", sum(1 for c in cards if c["applicants"]))
+    print("with vacancies:", sum(1 for c in cards if c["vacancies"]))
+    stages = {"After Class 10", "After Class 12", "After graduation"}
+    odd = {c["exam_id"]: c["stage"] for c in cards if c["stage"] not in stages}
+    assert not odd, f"stage must be one of {stages}: {odd}"
 
     # exam_id is the React key and the expand toggle — a duplicate breaks both
     ids = [c["exam_id"] for c in cards]

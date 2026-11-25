@@ -287,7 +287,16 @@
  },
  "iat": {
   "eligible_in": "All India",
-  "run_by": "Public"
+  "run_by": "Public",
+  "careers": [
+   "Physics",
+   "Chemistry",
+   "Mathematics",
+   "Chemical Engineering",
+   "Artificial Intelligence and Data Science",
+   "Electrical / Electronics / Communications Engineering",
+   "Computer Science / Information Technology"
+  ]
  },
  "idss-oee": {
   "eligible_in": "All India",
@@ -577,7 +586,14 @@
  },
  "pau-cet": {
   "eligible_in": "Punjab",
-  "run_by": "Public"
+  "run_by": "Public",
+  "careers": [
+   "Agriculture",
+   "Agricultural Engineering",
+   "Food Engineering",
+   "Biotechnology",
+   "Horticulture"
+  ]
  },
  "pdeu-at": {
   "eligible_in": "All India",
@@ -815,5 +831,396 @@
  "imat-iiad-management-aptitude-test-delhi": {
   "eligible_in": "All India",
   "run_by": "Private"
+ },
+ "icg-navik-gd": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": []
+ },
+ "icg-navik-db": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": []
+ },
+ "icg-yantrik": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": []
+ },
+ "icg-ac": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": []
+ },
+ "ca-foundation": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": [
+   "Chartered Accountancy (CA)"
+  ]
+ },
+ "ca-inter": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": [
+   "Chartered Accountancy (CA)"
+  ]
+ },
+ "up-cpet": {
+  "eligible_in": "Uttar Pradesh",
+  "run_by": "Public",
+  "careers": [
+   "Paramedical",
+   "Medical Lab Technology",
+   "Physiotherapy",
+   "Radiology",
+   "Ophthalmology and Optometry",
+   "Occupational Therapy"
+  ]
+ },
+ "upsc-cse": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ]
+ },
+ "ssc-cgl": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": []
+ },
+ "ssc-chsl": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": []
+ },
+ "ssc-mts": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": []
+ },
+ "ssc-gd": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": []
+ },
+ "ssc-cpo": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": []
+ },
+ "delhi-police-constable": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": []
+ },
+ "rrb-ntpc-ug": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": []
+ },
+ "rrb-ntpc-graduate": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": []
+ },
+ "rrb-group-d": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": []
+ },
+ "rrb-alp": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": []
+ },
+ "ibps-po": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": []
+ },
+ "ibps-clerk": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": []
+ },
+ "sbi-po": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": []
+ },
+ "sbi-clerk": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": []
+ },
+ "appsc-group-1": {
+  "eligible_in": "Andhra Pradesh",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ]
+ },
+ "appsc-cce": {
+  "eligible_in": "Arunachal Pradesh",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ]
+ },
+ "apsc-cce": {
+  "eligible_in": "Assam",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ]
+ },
+ "bpsc-cce": {
+  "eligible_in": "Bihar",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ]
+ },
+ "cgpsc-sse": {
+  "eligible_in": "Chhattisgarh",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ]
+ },
+ "goa-psc-jso": {
+  "eligible_in": "Goa",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ]
+ },
+ "gpsc-class-1-2": {
+  "eligible_in": "Gujarat",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ]
+ },
+ "hpsc-hcs": {
+  "eligible_in": "Haryana",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ]
+ },
+ "hppsc-hpas": {
+  "eligible_in": "Himachal Pradesh",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ]
+ },
+ "jkpsc-cce": {
+  "eligible_in": "Jammu and Kashmir",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ]
+ },
+ "jpsc-cce": {
+  "eligible_in": "Jharkhand",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ]
+ },
+ "kpsc-kas": {
+  "eligible_in": "Karnataka",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ]
+ },
+ "kerala-psc-kas": {
+  "eligible_in": "Kerala",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ]
+ },
+ "mppsc-sse": {
+  "eligible_in": "Madhya Pradesh",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ]
+ },
+ "mpsc-rajyaseva": {
+  "eligible_in": "Maharashtra",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ]
+ },
+ "manipur-psc-cce": {
+  "eligible_in": "Manipur",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ]
+ },
+ "meghalaya-psc-cce": {
+  "eligible_in": "Meghalaya",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ]
+ },
+ "mizoram-psc-cce": {
+  "eligible_in": "Mizoram",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ]
+ },
+ "npsc-cce": {
+  "eligible_in": "Nagaland",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ]
+ },
+ "opsc-ocs": {
+  "eligible_in": "Odisha",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ]
+ },
+ "ppsc-pcs": {
+  "eligible_in": "Punjab",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ]
+ },
+ "rpsc-ras": {
+  "eligible_in": "Rajasthan",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ]
+ },
+ "spsc-cce": {
+  "eligible_in": "Sikkim",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ]
+ },
+ "tnpsc-group-1": {
+  "eligible_in": "Tamil Nadu",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ]
+ },
+ "tnpsc-group-4": {
+  "eligible_in": "Tamil Nadu",
+  "run_by": "Public",
+  "careers": []
+ },
+ "tgpsc-group-1": {
+  "eligible_in": "Telangana",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ]
+ },
+ "tpsc-tcs-tps": {
+  "eligible_in": "Tripura",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ]
+ },
+ "uppsc-pcs": {
+  "eligible_in": "Uttar Pradesh",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ]
+ },
+ "ukpsc-pcs": {
+  "eligible_in": "Uttarakhand",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ]
+ },
+ "wbcs": {
+  "eligible_in": "West Bengal",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ]
+ },
+ "upsssc-pet": {
+  "eligible_in": "Uttar Pradesh",
+  "run_by": "Public",
+  "careers": []
+ },
+ "up-police-constable": {
+  "eligible_in": "Uttar Pradesh",
+  "run_by": "Public",
+  "careers": []
+ },
+ "up-police-si": {
+  "eligible_in": "Uttar Pradesh",
+  "run_by": "Public",
+  "careers": []
+ },
+ "bihar-police-constable": {
+  "eligible_in": "Bihar",
+  "run_by": "Public",
+  "careers": []
+ },
+ "bihar-police-si": {
+  "eligible_in": "Bihar",
+  "run_by": "Public",
+  "careers": []
+ },
+ "maharashtra-police-bharti": {
+  "eligible_in": "Maharashtra",
+  "run_by": "Public",
+  "careers": []
+ },
+ "rajasthan-police-constable": {
+  "eligible_in": "Rajasthan",
+  "run_by": "Public",
+  "careers": []
+ },
+ "mp-police-constable": {
+  "eligible_in": "Madhya Pradesh",
+  "run_by": "Public",
+  "careers": []
+ },
+ "wb-police-constable": {
+  "eligible_in": "West Bengal",
+  "run_by": "Public",
+  "careers": []
+ },
+ "tn-police-constable": {
+  "eligible_in": "Tamil Nadu",
+  "run_by": "Public",
+  "careers": []
+ },
+ "karnataka-police-constable": {
+  "eligible_in": "Karnataka",
+  "run_by": "Public",
+  "careers": []
+ },
+ "gujarat-lokrakshak": {
+  "eligible_in": "Gujarat",
+  "run_by": "Public",
+  "careers": []
  }
 }

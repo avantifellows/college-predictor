@@ -10,6 +10,7 @@ import BackLink from "../components/BackLink";
 import {
   Dash,
   RunByTag,
+  STAGES,
   STATES,
   isAllIndia,
   loadExams,
@@ -66,9 +67,9 @@ const ExamRow = ({ e, index, onOpen, starCol }) => (
         {e.scope_state && e.scope_type === "University"
           ? `${e.scope} · ${e.scope_state}`
           : !["All India", "University"].includes(e.scope_type) && isAllIndia(e)
-          ? // open to all, though its colleges sit in one state (COMEDK)
-            `Colleges in ${e.scope}`
-          : e.scope}
+            ? // open to all, though its colleges sit in one state (COMEDK)
+              `Colleges in ${e.scope}`
+            : e.scope}
       </div>
     </td>
     <td className="px-3 py-3 align-top">
@@ -216,12 +217,14 @@ export default function Exams() {
     view: "india",
     // who runs it: Public / Private
     runby: "All",
+    // who can sit it: After Class 10 / 12 / graduation
+    stage: "All",
     sort: "",
     open: "",
     // a career page's "See exams that lead here": /exams?career=<id>
     career: "",
   });
-  const { q, stream, runby, career } = params;
+  const { q, stream, runby, stage, career } = params;
   const where = STATES.includes(params.where) ? params.where : "";
   const view = where && params.view === "state" ? "state" : "india";
   const setQ = (v) => {
@@ -296,6 +299,7 @@ export default function Exams() {
       if (careerExams && !careerExams.has(e.exam_id)) return false;
       if (stream !== "All" && !e.streams.includes(stream)) return false;
       if (runby !== "All" && e.run_by !== runby) return false;
+      if (stage !== "All" && e.stage !== stage) return false;
       if (!raw) return true;
       return matchesQuery(
         [
@@ -333,7 +337,7 @@ export default function Exams() {
       );
     }
     return out;
-  }, [all, q, stream, runby, sort, careerExams]);
+  }, [all, q, stream, runby, stage, sort, careerExams]);
 
   // a home state splits the list in two views: All India (any student can
   // sit it) and that state's own. Eligibility, not where the colleges are:
@@ -401,8 +405,8 @@ export default function Exams() {
         filtered.length === 1
           ? filtered[0]
           : exacts.length === 1
-          ? exacts[0]
-          : null;
+            ? exacts[0]
+            : null;
     }
     if (pick) {
       redirected.current = true;
@@ -459,7 +463,7 @@ export default function Exams() {
             the official sites.
           </p>
 
-          <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-[1fr_11rem_14rem_11rem]">
+          <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-[1fr_11rem_13rem_10rem_11rem]">
             <div className="relative sm:col-span-2 lg:col-span-1">
               <Search
                 size={16}
@@ -508,6 +512,17 @@ export default function Exams() {
                 ]}
                 selectedValue={runby}
                 onChange={(o) => setRunby(o.value)}
+                className="w-full"
+              />
+            </div>
+            <div>
+              <Dropdown
+                options={[
+                  { value: "All", label: "Any stage" },
+                  ...STAGES.map((v) => ({ value: v, label: v })),
+                ]}
+                selectedValue={stage}
+                onChange={(o) => setParam("stage", o.value)}
                 className="w-full"
               />
             </div>
@@ -603,14 +618,14 @@ export default function Exams() {
                           careerHidden === 1 ? "is" : "are"
                         } ${careerRunBy[0].toLowerCase()}.`
                       : careerHidden
-                      ? `Your filters hide all ${careerHidden} exams that lead to ${careerName}.`
-                      : elsewhere
-                      ? `${elsewhere} ${
-                          elsewhere === 1 ? "exam" : "exams"
-                        } for other states' students match.`
-                      : shownView === "state" && views.india.length
-                      ? `No ${where} exams match. Its colleges may admit through All India exams, or on Class 12 marks.`
-                      : "No exams match."}
+                        ? `Your filters hide all ${careerHidden} exams that lead to ${careerName}.`
+                        : elsewhere
+                          ? `${elsewhere} ${
+                              elsewhere === 1 ? "exam" : "exams"
+                            } for other states' students match.`
+                          : shownView === "state" && views.india.length
+                            ? `No ${where} exams match. Its colleges may admit through All India exams, or on Class 12 marks.`
+                            : "No exams match."}
                   </p>
                   {hiddenByRunBy ? (
                     <button
@@ -641,12 +656,16 @@ export default function Exams() {
                     >
                       Show all states
                     </button>
-                  ) : stream !== "All" || runby !== "All" || where ? (
+                  ) : stream !== "All" ||
+                    runby !== "All" ||
+                    stage !== "All" ||
+                    where ? (
                     <button
                       type="button"
                       onClick={() => {
                         setStream("All");
                         setRunby("All");
+                        setParam("stage", "All");
                         setWhere("");
                       }}
                       className="mt-3 rounded-full border border-[#e3d1cb] bg-white px-4 py-2 text-sm font-semibold text-[#8f2e31] transition hover:bg-[#f8efec]"

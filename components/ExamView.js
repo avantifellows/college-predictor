@@ -34,7 +34,10 @@ export default function ExamView({ e, back = "/exams", backSlot }) {
 
         <div className="mt-4 rounded-2xl border border-[#eaded8] bg-white p-4 sm:p-6">
           <div className="flex items-center gap-2 text-xs font-black uppercase tracking-wide text-[#B52326]">
-            Entrance exam <RunByTag e={e} />
+            {e.streams?.includes("Government Jobs")
+              ? "Recruitment exam"
+              : "Entrance exam"}{" "}
+            <RunByTag e={e} />
           </div>
           <div className="mt-1 flex items-start justify-between gap-3">
             <h1 className="text-2xl font-black leading-tight text-[#2f2320] sm:text-3xl">

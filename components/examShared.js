@@ -57,12 +57,15 @@ export const STATES = [
 // who can sit an exam: every state's students, or one state's. Where its
 // colleges are doesn't matter: BITSAT is All India, KCET is Karnataka's.
 export const isAllIndia = (e) => e.eligible_in === "All India";
+/** Who can sit an exam, by schooling: the Exams tab's stage filter. */
+export const STAGES = ["After Class 10", "After Class 12", "After graduation"];
+
 export const openTo = (e) =>
   !e.eligible_in
     ? null
     : isAllIndia(e)
-    ? "All India"
-    : `${e.eligible_in} students`;
+      ? "All India"
+      : `${e.eligible_in} students`;
 
 /** Public (government, public university, statutory body) or Private (a
  *  private university's own test, or private colleges' consortium). */
@@ -120,23 +123,38 @@ export const ExamDetailBody = ({ e }) => (
           ) : null}
         </dl>
       </div>
-      {e.applicants ? (
+      {e.applicants || e.vacancies ? (
         <div>
           <h4 className="mb-1.5 text-[13px] font-semibold uppercase tracking-wide text-[#8f2e31]">
             How many apply
           </h4>
           <dl className="space-y-1 text-sm text-[#5b3a34]">
-            <DetailRow label="Applied">
-              <a
-                href={e.applicants.source}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="tabular-nums underline decoration-[#e3d1cb] underline-offset-2"
-              >
-                {peopleCount(e.applicants.count)}
-              </a>{" "}
-              in {e.applicants.year}
-            </DetailRow>
+            {e.applicants ? (
+              <DetailRow label="Applied">
+                <a
+                  href={e.applicants.source}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="tabular-nums underline decoration-[#e3d1cb] underline-offset-2"
+                >
+                  {peopleCount(e.applicants.count)}
+                </a>{" "}
+                in {e.applicants.year}
+              </DetailRow>
+            ) : null}
+            {e.vacancies ? (
+              <DetailRow label="Vacancies">
+                <a
+                  href={e.vacancies.source}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="tabular-nums underline decoration-[#e3d1cb] underline-offset-2"
+                >
+                  {e.vacancies.count.toLocaleString("en-IN")}
+                </a>{" "}
+                in {e.vacancies.year}
+              </DetailRow>
+            ) : null}
           </dl>
         </div>
       ) : null}
@@ -166,7 +184,20 @@ export const ExamDetailBody = ({ e }) => (
           <h4 className="mb-1.5 text-[13px] font-semibold uppercase tracking-wide text-[#8f2e31]">
             Eligibility
           </h4>
+          <p className="text-sm font-semibold text-[#5b3a34]">{e.stage}</p>
           <p className="text-sm leading-6 text-[#5b3a34]">{e.eligibility}</p>
+        </div>
+      ) : null}
+      {e.selection_process ? (
+        <div>
+          <h4 className="mb-1.5 text-[13px] font-semibold uppercase tracking-wide text-[#8f2e31]">
+            Selection process
+          </h4>
+          <ol className="list-decimal space-y-0.5 pl-5 text-sm leading-6 text-[#5b3a34]">
+            {e.selection_process.split(" → ").map((step, i) => (
+              <li key={i}>{step}</li>
+            ))}
+          </ol>
         </div>
       ) : null}
       {e.pattern_rows?.length || e.pattern ? (
