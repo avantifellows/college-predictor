@@ -4,18 +4,27 @@ Versions for the hand-kept CSVs in data-sources/ and docs/audits/.
 
 The CSVs are the master copy; the Google sheets they started from are
 copies that fall behind. data-sources/VERSIONS.json records, per file, its
-version, row count and checksum, and the last version copied back to the
-sheet. docs/audits/data_changelog.csv has one row per version: what was
-added, which rows and columns were removed, and why.
+version, record count, checksum and git blob (the exact content of that
+version), and the last version copied back to the sheet.
+docs/audits/data_changelog.csv has one row per version: rows added and
+changed, rows and columns removed (as JSON lists of keys), and why.
 
   python3 scripts/data_versions.py status                 # what changed vs main
   python3 scripts/data_versions.py bump FILE... -m "why"  # record a new version
-  python3 scripts/data_versions.py check --base origin/main   # CI
+  python3 scripts/data_versions.py check --base REF       # CI
   python3 scripts/data_versions.py synced FILE            # sheet now has it
 
-`check` fails when a file changed without a bump, a row key is empty or
-repeated, or a row or column that main has is gone without the changelog
-naming it. Removing rows on purpose is fine: bump lists them.
+`bump` compares the file with its last recorded version (the blob in the
+manifest), so it is right whether or not that version was committed, and
+however many times you bump before committing.
+
+`check` fails when:
+  - a file changed without a bump, or a key is blank (any part) or repeated;
+  - the base ref doesn't resolve, or a file the base tracks is untracked now;
+  - a version between the base's and the current one has no changelog row,
+    or one version has two;
+  - a row or column the base has is gone and no changelog row for a version
+    after the base's names it.
 
 Edit these CSVs with Python's csv module (lineterminator="\\n"), not
 pandas, so untouched rows stay byte-for-byte the same.
@@ -29,6 +38,7 @@ import json
 import os
 import subprocess
 import sys
+from collections import Counter
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MANIFEST = "data-sources/VERSIONS.json"
@@ -41,6 +51,11 @@ def _p(rel):
     return os.path.join(ROOT, rel)
 
 
+def git(*args, data=None):
+    return subprocess.run(["git", *args], cwd=ROOT, input=data,
+                          capture_output=True, check=True).stdout
+
+
 def load_manifest():
     return json.load(open(_p(MANIFEST)))
 
@@ -51,8 +66,43 @@ def save_manifest(m):
         fh.write("\n")
 
 
+def read(rel):
+    # bytes, decoded here: text mode would turn CRLF into LF
+    # (branch_taxonomy.csv), so an unchanged file would differ
+    return open(_p(rel), "rb").read().decode("utf-8")
+
+
 def sha(text):
     return hashlib.sha256(text.encode()).hexdigest()
+
+
+def store_blob(text):
+    """Write the content into git's object store; its id is the version's
+    exact content, readable later with `git cat-file blob`."""
+    return git("hash-object", "-w", "--no-filters", "--stdin",
+               data=text.encode()).decode().strip()
+
+
+def blob_text(blob):
+    try:
+        return git("cat-file", "blob", blob).decode("utf-8")
+    except subprocess.CalledProcessError:
+        return None
+
+
+def resolves(ref):
+    try:
+        git("rev-parse", "--verify", "--quiet", f"{ref}^{{commit}}")
+        return True
+    except subprocess.CalledProcessError:
+        return False
+
+
+def at_ref(ref, rel):
+    try:
+        return git("show", f"{ref}:{rel}").decode("utf-8")
+    except subprocess.CalledProcessError:
+        return None
 
 
 def parse(text):
@@ -60,8 +110,13 @@ def parse(text):
     return (rows[0], rows[1:]) if rows else ([], [])
 
 
+def records(text):
+    return len(parse(text)[1])
+
+
 def keyed(text, key):
-    """{key tuple: row tuple} and the header. Raises on empty/duplicate keys."""
+    """{key tuple: row dict}, the header, and problems (blank or repeated
+    keys). Every part of a key must be filled in."""
     head, rows = parse(text)
     missing = [k for k in key if k not in head]
     if missing:
@@ -71,44 +126,43 @@ def keyed(text, key):
     for n, r in enumerate(rows, start=2):
         r = r + [""] * (len(head) - len(r))
         k = tuple(r[i] for i in idx)
-        if not any(k) or k in out:
-            bad.append(f"line {n}: {'empty' if not any(k) else 'repeated'} key {k}")
+        if not all(x.strip() for x in k):
+            bad.append(f"record {n - 1}: blank key part {list(k)}")
+        elif k in out:
+            bad.append(f"record {n - 1}: repeated key {list(k)}")
         out[k] = dict(zip(head, r))
     return out, head, bad
 
 
-def at_ref(ref, rel):
-    try:
-        # bytes, decoded here: text=True would turn CRLF into LF
-        # (branch_taxonomy.csv), so an unchanged file would differ
-        return subprocess.run(["git", "show", f"{ref}:{rel}"], cwd=ROOT,
-                              capture_output=True, check=True).stdout.decode("utf-8")
-    except subprocess.CalledProcessError:
-        return None
-
-
 def diff(old_text, new_text, key):
-    if old_text and not all(k in parse(old_text)[0] for k in key):
-        # the base predates the key column (row_id): rows can't be matched,
-        # so only the columns are compared
-        oh, nh = parse(old_text)[0], parse(new_text)[0]
-        return {"added": [], "removed": [], "changed": [],
-                "columns_added": [c for c in nh if c not in oh],
-                "columns_removed": [c for c in oh if c not in nh]}
-    old, oh, _ = keyed(old_text, key) if old_text else ({}, [], [])
-    new, nh, _ = keyed(new_text, key)
-    added = [k for k in new if k not in old]
-    removed = [k for k in old if k not in new]
-    shared = [c for c in nh if c in oh]
-    changed = [k for k in new if k in old
-               and any(new[k][c] != old[k][c] for c in shared)]
-    return {"added": added, "removed": removed, "changed": changed,
-            "columns_added": [c for c in nh if c not in oh],
+    """Rows added / removed / changed by key, and columns added / removed.
+    If the old text predates the key column (row_id, audit_id), rows are
+    compared whole on the shared columns: a base row not found unchanged
+    counts as removed (an edited row looks removed), `keyless` says so."""
+    oh = parse(old_text)[0] if old_text else []
+    nh = parse(new_text)[0]
+    cols = {"columns_added": [c for c in nh if c not in oh],
             "columns_removed": [c for c in oh if c not in nh]}
-
-
-def fmt_key(k):
-    return " | ".join(k)
+    if old_text and not all(k in oh for k in key):
+        shared = [c for c in oh if c in nh]
+        proj = lambda h, rows: [tuple((r + [""] * len(h))[h.index(c)] for c in shared)
+                                for r in rows]
+        have = Counter(proj(nh, parse(new_text)[1]))
+        gone = []
+        for t in proj(oh, parse(old_text)[1]):
+            if have[t]:
+                have[t] -= 1
+            else:
+                gone.append(t)
+        return {"added": [], "removed": gone, "changed": [], "keyless": True, **cols}
+    old, _, _ = keyed(old_text, key) if old_text else ({}, [], [])
+    new, _, _ = keyed(new_text, key)
+    shared = [c for c in nh if c in oh]
+    return {"added": [k for k in new if k not in old],
+            "removed": [k for k in old if k not in new],
+            "changed": [k for k in new if k in old
+                        and any(new[k][c] != old[k][c] for c in shared)],
+            "keyless": False, **cols}
 
 
 def read_log():
@@ -117,11 +171,24 @@ def read_log():
     return list(csv.DictReader(open(_p(LOG), newline="")))
 
 
+def json_list(cell):
+    return json.loads(cell) if cell.strip() else []
+
+
+def rel_of(path, m):
+    rel = os.path.relpath(os.path.abspath(path), ROOT)
+    if rel not in m["files"]:
+        sys.exit(f"{rel} is not tracked in {MANIFEST} (tracked: "
+                 + ", ".join(m["files"]) + ")")
+    return rel
+
+
 def cmd_status(args, m):
+    ok = resolves(args.base)
+    if not ok:
+        print(f"({args.base} doesn't resolve: only checksums are compared)")
     for rel, f in m["files"].items():
-        text = open(_p(rel), newline="").read()
-        base = at_ref(args.base, rel)
-        d = diff(base, text, f["key"]) if base is not None else None
+        text = read(rel)
         state = "ok" if sha(text) == f["sha256"] else "CHANGED, not bumped"
         sheet = f.get("sheet_synced_version")
         behind = ("" if f.get("sheet") is None else
@@ -129,44 +196,60 @@ def cmd_status(args, m):
                   f"  sheet has v{sheet}" if sheet == f["version"] else
                   f"  sheet BEHIND (has v{sheet})")
         line = f"{rel}: v{f['version']} {state}{behind}"
-        if d and (d["added"] or d["removed"] or d["changed"]
-                  or d["columns_added"] or d["columns_removed"]):
-            line += (f"\n    vs {args.base}: +{len(d['added'])} rows, "
-                     f"-{len(d['removed'])}, ~{len(d['changed'])}"
-                     + (f", new columns {d['columns_added']}" if d["columns_added"] else "")
-                     + (f", dropped columns {d['columns_removed']}" if d["columns_removed"] else ""))
+        base = at_ref(args.base, rel) if ok else None
+        if base is not None and base != text:
+            d = diff(base, text, f["key"])
+            if d["keyless"]:
+                line += (f"\n    vs {args.base}: rows can't be matched ({args.base} has no "
+                         f"{'/'.join(f['key'])} column); {len(d['removed'])} of its rows "
+                         "not found unchanged")
+            else:
+                line += (f"\n    vs {args.base}: +{len(d['added'])} rows, "
+                         f"-{len(d['removed'])}, ~{len(d['changed'])}")
+            if d["columns_added"]:
+                line += f", new columns {d['columns_added']}"
+            if d["columns_removed"]:
+                line += f", dropped columns {d['columns_removed']}"
         print(line)
 
 
 def cmd_bump(args, m):
     today = datetime.date.today().isoformat()
     log = read_log()
-    for rel in args.files:
-        rel = os.path.relpath(os.path.abspath(rel), ROOT)
-        if rel not in m["files"]:
-            sys.exit(f"{rel} is not in {MANIFEST}: add it with its key first")
+    for path in args.files:
+        rel = rel_of(path, m)
         f = m["files"][rel]
-        text = open(_p(rel), newline="").read()
+        text = read(rel)
         _, _, bad = keyed(text, f["key"])
         if bad:
             sys.exit(f"{rel}: " + "; ".join(bad[:5]))
         if sha(text) == f["sha256"]:
             print(f"{rel}: unchanged, still v{f['version']}")
             continue
-        d = diff(at_ref(args.base, rel), text, f["key"])
+        # compare with the last recorded version's exact content
+        if args.base:
+            prev, against = at_ref(args.base, rel), args.base
+        else:
+            prev, against = blob_text(f.get("blob", "")), f"v{f['version']}"
+        if prev is None:
+            sys.exit(f"{rel}: the content of v{f['version']} isn't in this "
+                     "clone's git objects; pass --base REF (a commit that has it)")
+        d = diff(prev, text, f["key"])
         f["version"] += 1
-        f.update(updated=today, rows=text.count("\n") - 1, sha256=sha(text))
+        f.update(updated=today, rows=records(text), sha256=sha(text),
+                 blob=store_blob(text))
         log.append({
             "file": rel, "version": f["version"], "date": today,
             "rows": f["rows"], "added": len(d["added"]),
             "changed": len(d["changed"]),
-            "removed": "; ".join(fmt_key(k) for k in d["removed"]),
-            "columns_added": "; ".join(d["columns_added"]),
-            "columns_removed": "; ".join(d["columns_removed"]),
+            "removed": json.dumps([list(k) for k in d["removed"]],
+                                  ensure_ascii=False) if d["removed"] else "",
+            "columns_added": json.dumps(d["columns_added"]) if d["columns_added"] else "",
+            "columns_removed": json.dumps(d["columns_removed"]) if d["columns_removed"] else "",
             "note": args.m,
         })
         print(f"{rel}: v{f['version']} (+{len(d['added'])} -{len(d['removed'])} "
-              f"~{len(d['changed'])} vs {args.base})")
+              f"~{len(d['changed'])} vs {against})")
     save_manifest(m)
     with open(_p(LOG), "w", newline="") as fh:
         w = csv.DictWriter(fh, LOG_COLS, lineterminator="\n")
@@ -177,49 +260,73 @@ def cmd_bump(args, m):
 def cmd_check(args, m):
     errors = []
     log = read_log()
+    dupes = [k for k, n in Counter((r["file"], int(r["version"])) for r in log).items()
+             if n > 1]
+    errors += [f"{LOG}: two rows for {rel} v{v}" for rel, v in dupes]
     base_m = None
     if args.base:
+        if not resolves(args.base):
+            sys.exit(f"--base {args.base} doesn't resolve to a commit")
         bt = at_ref(args.base, MANIFEST)
         base_m = json.loads(bt) if bt else {"files": {}}
+        for rel in set(base_m["files"]) - set(m["files"]):
+            errors.append(f"{rel}: tracked in {args.base} but not in {MANIFEST}")
     for rel, f in m["files"].items():
         if not os.path.exists(_p(rel)):
             errors.append(f"{rel}: missing")
             continue
-        text = open(_p(rel), newline="").read()
+        text = read(rel)
         _, _, bad = keyed(text, f["key"])
         errors += [f"{rel}: {b}" for b in bad[:5]]
         if sha(text) != f["sha256"]:
             errors.append(f"{rel}: changed since v{f['version']}. Run "
                           f"python3 scripts/data_versions.py bump {rel} -m '...'")
+        if f.get("rows") != records(text):
+            errors.append(f"{rel}: {MANIFEST} says {f.get('rows')} records, "
+                          f"the file has {records(text)}")
+        bv = base_m["files"].get(rel, {}).get("version", 0) if base_m else 0
+        versions = {int(r["version"]) for r in log if r["file"] == rel}
+        gaps = sorted(set(range(bv + 1, f["version"] + 1)) - versions)
+        if gaps:
+            errors.append(f"{rel}: no {LOG} row for version(s) {gaps}")
         if base_m is None:
             continue
         base_text = at_ref(args.base, rel)
         if base_text is None:
             continue
-        bv = base_m["files"].get(rel, {}).get("version", 0)
         if base_text != text and f["version"] <= bv:
             errors.append(f"{rel}: differs from {args.base} but is still v{f['version']}")
         d = diff(base_text, text, f["key"])
-        mine = [r for r in log if r["file"] == rel and int(r["version"]) > bv]
-        logged_rows = {x.strip() for r in mine for x in r["removed"].split(";")}
-        logged_cols = {x.strip() for r in mine for x in r["columns_removed"].split(";")}
-        lost = [fmt_key(k) for k in d["removed"] if fmt_key(k) not in logged_rows]
-        lost_cols = [c for c in d["columns_removed"] if c not in logged_cols]
-        if lost:
+        # removals count only in rows for versions after the base's, up to
+        # the current one
+        mine = [r for r in log if r["file"] == rel
+                and bv < int(r["version"]) <= f["version"]]
+        logged = {tuple(k) for r in mine for k in json_list(r["removed"])}
+        logged_cols = {c for r in mine for c in json_list(r["columns_removed"])}
+        lost = [list(k) for k in d["removed"] if tuple(k) not in logged]
+        if lost and d["keyless"]:
+            errors.append(f"{rel}: {len(lost)} rows of {args.base} aren't here unchanged "
+                          f"({args.base} has no {'/'.join(f['key'])} column, so an edited "
+                          f"row looks removed): {lost[:3]}")
+        elif lost:
             errors.append(f"{rel}: {len(lost)} rows in {args.base} are gone and not "
                           f"in {LOG}: {lost[:5]}")
+        lost_cols = [c for c in d["columns_removed"] if c not in logged_cols]
         if lost_cols:
             errors.append(f"{rel}: columns gone and not in {LOG}: {lost_cols}")
     if errors:
         print("\n".join(errors), file=sys.stderr)
         sys.exit(1)
-    print(f"data versions ok ({len(m['files'])} files)")
+    print(f"data versions ok ({len(m['files'])} files"
+          + (f", against {args.base})" if args.base else ")"))
 
 
 def cmd_synced(args, m):
-    for rel in args.files:
-        rel = os.path.relpath(os.path.abspath(rel), ROOT)
+    for path in args.files:
+        rel = rel_of(path, m)
         f = m["files"][rel]
+        if not f.get("sheet"):
+            sys.exit(f"{rel} has no Google sheet in {MANIFEST}")
         f["sheet_synced_version"] = f["version"]
         print(f"{rel}: sheet marked as having v{f['version']}")
     save_manifest(m)
@@ -249,9 +356,10 @@ def main():
     b = sub.add_parser("bump")
     b.add_argument("files", nargs="+")
     b.add_argument("-m", required=True, help="why: what changed and its source")
-    b.add_argument("--base", default="HEAD")
+    b.add_argument("--base", help="compare with this commit's copy instead of "
+                                  "the last recorded version")
     c = sub.add_parser("check")
-    c.add_argument("--base")
+    c.add_argument("--base", help="the commit to compare with (CI: the PR's base)")
     y = sub.add_parser("synced")
     y.add_argument("files", nargs="+")
     args = ap.parse_args()

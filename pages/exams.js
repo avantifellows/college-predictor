@@ -11,6 +11,7 @@ import {
   Dash,
   RunByTag,
   STAGES,
+  STAGE_PASSED,
   STATES,
   isAllIndia,
   loadExams,
@@ -66,7 +67,9 @@ const ExamRow = ({ e, index, onOpen, starCol }) => (
       <div className="mt-0.5 text-[11px] text-[#6d5550]">
         {e.scope_state && e.scope_type === "University"
           ? `${e.scope} · ${e.scope_state}`
-          : !["All India", "University"].includes(e.scope_type) && isAllIndia(e)
+          : !["All India", "University"].includes(e.scope_type) &&
+            isAllIndia(e) &&
+            !e.reserved_for
           ? // open to all, though its colleges sit in one state (COMEDK)
             `Colleges in ${e.scope}`
           : e.scope}
@@ -150,9 +153,7 @@ const ExamTable = ({
               <th className={`${TH} w-[40%] lg:w-[30%]`}>Exam</th>
               {/* public: government or a public university; private: a
                   private university's own test or private colleges' */}
-              <th className={`${TH} w-[22%] sm:w-[14%] lg:w-[12%]`}>
-                College Type
-              </th>
+              <th className={`${TH} w-[22%] sm:w-[14%] lg:w-[12%]`}>Run by</th>
               <th className={`${TH} hidden lg:table-cell lg:w-[24%]`}>
                 Eligibility
               </th>
@@ -224,7 +225,11 @@ export default function Exams() {
     // a career page's "See exams that lead here": /exams?career=<id>
     career: "",
   });
-  const { q, stream, runby, stage, career } = params;
+  const { q, stream, runby, career } = params;
+  // the student's highest qualification: every exam open at that stage or
+  // below (a Class 12 pass can sit SSC GD, open after Class 10). An unknown
+  // value in the URL is ignored.
+  const stage = STAGES.includes(params.stage) ? params.stage : "All";
   const where = STATES.includes(params.where) ? params.where : "";
   const view = where && params.view === "state" ? "state" : "india";
   const setQ = (v) => {
@@ -299,7 +304,8 @@ export default function Exams() {
       if (careerExams && !careerExams.has(e.exam_id)) return false;
       if (stream !== "All" && !e.streams.includes(stream)) return false;
       if (runby !== "All" && e.run_by !== runby) return false;
-      if (stage !== "All" && e.stage !== stage) return false;
+      if (stage !== "All" && STAGES.indexOf(e.stage) > STAGES.indexOf(stage))
+        return false;
       if (!raw) return true;
       return matchesQuery(
         [
@@ -345,7 +351,11 @@ export default function Exams() {
   const views = useMemo(
     () => ({
       india: filtered.filter(isAllIndia),
-      state: filtered.filter((e) => e.eligible_in === where),
+      // that state's own exams, and state exams open to all with
+      // reservation for its residents (BPSC for Bihar), also in All India
+      state: filtered.filter(
+        (e) => e.eligible_in === where || e.reserved_for === where
+      ),
     }),
     [filtered, where]
   );
@@ -368,8 +378,22 @@ export default function Exams() {
         )
       )
     : [];
+  // only when run-by alone hides them: with a stage or stream also set,
+  // "Clear filters" below lifts them all
   const hiddenByRunBy =
-    runby !== "All" && careerRunBy.length === 1 && careerRunBy[0] !== runby;
+    runby !== "All" &&
+    stage === "All" &&
+    stream === "All" &&
+    !q.trim() &&
+    careerRunBy.length === 1 &&
+    careerRunBy[0] !== runby;
+  // the filters that are set, named in the "hide all" message
+  const setFilters = [
+    q.trim() && "search",
+    stream !== "All" && "stream",
+    stage !== "All" && "qualification",
+    runby !== "All" && "public/private",
+  ].filter(Boolean);
   // a career no listed exam leads to: its note says how people get in
   const noCareerExams = !!(careerExams && careerExams.size === 0);
   // a search that matches only other states' exams, which a home state
@@ -430,6 +454,7 @@ export default function Exams() {
     where,
     shownView,
     runby,
+    stage,
     params.sort,
     career,
   ].join("|");
@@ -437,7 +462,7 @@ export default function Exams() {
   return (
     <>
       <Head>
-        <title>Entrance Exams - Futures</title>
+        <title>Exams - Futures</title>
         <meta
           name="description"
           content="Every undergraduate entrance exam in India: streams, eligibility, application fee, and typical timeline."
@@ -456,7 +481,7 @@ export default function Exams() {
         </div>
         <div className="mx-auto max-w-6xl rounded-2xl border border-[#eee1d7] bg-white p-4 shadow-sm sm:p-8">
           <h1 className="text-center text-3xl font-bold text-[#332724]">
-            Entrance Exams
+            Exams
           </h1>
           <p className="mt-2 text-center text-sm text-[#6d5550]">
             Dates are the typical cycle, not this year&apos;s. Always confirm on
@@ -497,7 +522,7 @@ export default function Exams() {
                   ...STATES.map((w) => ({ value: w, label: w })),
                 ]}
                 selectedValue={where || null}
-                placeholder="Select your home state"
+                placeholder="Your home state"
                 onChange={(o) => setWhere(o.value === "All" ? "" : o.value)}
                 className="w-full"
                 hideValueWhileSearching
@@ -518,8 +543,8 @@ export default function Exams() {
             <div>
               <Dropdown
                 options={[
-                  { value: "All", label: "Any stage" },
-                  ...STAGES.map((v) => ({ value: v, label: v })),
+                  { value: "All", label: "Any qualification" },
+                  ...STAGES.map((v) => ({ value: v, label: STAGE_PASSED[v] })),
                 ]}
                 selectedValue={stage}
                 onChange={(o) => setParam("stage", o.value)}
@@ -618,7 +643,9 @@ export default function Exams() {
                           careerHidden === 1 ? "is" : "are"
                         } ${careerRunBy[0].toLowerCase()}.`
                       : careerHidden
-                      ? `Your filters hide all ${careerHidden} exams that lead to ${careerName}.`
+                      ? `Your filters (${setFilters.join(
+                          ", "
+                        )}) hide all ${careerHidden} exams that lead to ${careerName}.`
                       : elsewhere
                       ? `${elsewhere} ${
                           elsewhere === 1 ? "exam" : "exams"
@@ -642,6 +669,7 @@ export default function Exams() {
                         setParam("q", "");
                         setStream("All");
                         setRunby("All");
+                        setParam("stage", "All");
                         setWhere("");
                       }}
                       className="mt-3 rounded-full border border-[#e3d1cb] bg-white px-4 py-2 text-sm font-semibold text-[#8f2e31] transition hover:bg-[#f8efec]"

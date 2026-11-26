@@ -57,12 +57,20 @@ export const STATES = [
 // who can sit an exam: every state's students, or one state's. Where its
 // colleges are doesn't matter: BITSAT is All India, KCET is Karnataka's.
 export const isAllIndia = (e) => e.eligible_in === "All India";
-/** Who can sit an exam, by schooling: the Exams tab's stage filter. */
+/** The lowest schooling an exam takes, lowest first. The Exams tab's filter
+ *  is cumulative: a Class 12 pass sees everything open after Class 10 too. */
 export const STAGES = ["After Class 10", "After Class 12", "After graduation"];
+export const STAGE_PASSED = {
+  "After Class 10": "Class 10 pass",
+  "After Class 12": "Class 12 pass",
+  "After graduation": "Graduate",
+};
 
 export const openTo = (e) =>
   !e.eligible_in
     ? null
+    : e.reserved_for
+    ? `All India (reservation for ${e.reserved_for} residents)`
     : isAllIndia(e)
     ? "All India"
     : `${e.eligible_in} students`;
@@ -125,12 +133,18 @@ export const ExamDetailBody = ({ e }) => (
       </div>
       {e.applicants || e.vacancies ? (
         <div>
+          {/* "How many apply" only when there is an applicant count: a
+              vacancy count alone is posts, not people */}
           <h4 className="mb-1.5 text-[13px] font-semibold uppercase tracking-wide text-[#8f2e31]">
-            How many apply
+            {e.applicants ? "How many apply" : "Vacancies"}
           </h4>
           <dl className="space-y-1 text-sm text-[#5b3a34]">
             {e.applicants ? (
-              <DetailRow label="Applied">
+              <DetailRow
+                label={
+                  e.applicants.basis === "appeared" ? "Appeared" : "Applied"
+                }
+              >
                 <a
                   href={e.applicants.source}
                   target="_blank"
@@ -143,7 +157,7 @@ export const ExamDetailBody = ({ e }) => (
               </DetailRow>
             ) : null}
             {e.vacancies ? (
-              <DetailRow label="Vacancies">
+              <DetailRow label={e.applicants ? "Vacancies" : "Notified"}>
                 <a
                   href={e.vacancies.source}
                   target="_blank"
@@ -153,9 +167,21 @@ export const ExamDetailBody = ({ e }) => (
                   {e.vacancies.count.toLocaleString("en-IN")}
                 </a>{" "}
                 in {e.vacancies.year}
+                {e.vacancies.what ? (
+                  <span className="block text-xs text-[#6d5550]">
+                    {e.vacancies.what}
+                  </span>
+                ) : null}
               </DetailRow>
             ) : null}
           </dl>
+          {e.applicants &&
+          e.vacancies &&
+          e.applicants.year !== e.vacancies.year ? (
+            <p className="mt-1.5 text-xs leading-5 text-[#6d5550]">
+              The two counts are from different years.
+            </p>
+          ) : null}
         </div>
       ) : null}
       <div>
@@ -179,15 +205,15 @@ export const ExamDetailBody = ({ e }) => (
       </div>
     </div>
     <div className="space-y-5 md:col-span-3">
-      {e.eligibility ? (
-        <div>
-          <h4 className="mb-1.5 text-[13px] font-semibold uppercase tracking-wide text-[#8f2e31]">
-            Eligibility
-          </h4>
-          <p className="text-sm font-semibold text-[#5b3a34]">{e.stage}</p>
+      <div>
+        <h4 className="mb-1.5 text-[13px] font-semibold uppercase tracking-wide text-[#8f2e31]">
+          Eligibility
+        </h4>
+        <p className="text-sm font-semibold text-[#5b3a34]">{e.stage}</p>
+        {e.eligibility ? (
           <p className="text-sm leading-6 text-[#5b3a34]">{e.eligibility}</p>
-        </div>
-      ) : null}
+        ) : null}
+      </div>
       {e.selection_process ? (
         <div>
           <h4 className="mb-1.5 text-[13px] font-semibold uppercase tracking-wide text-[#8f2e31]">

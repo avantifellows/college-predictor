@@ -1,27 +1,29 @@
 {
-  "_doc": "Versions of the hand-kept CSVs: scripts/data_versions.py. The CSV in this repo is the master copy; `sheet` names the Google sheet it is copied to and sheet_synced_version the last version that sheet has (0: older than v1). Log: docs/audits/data_changelog.csv.",
+  "_doc": "Versions of the hand-kept CSVs: scripts/data_versions.py. The CSV in this repo is the master copy; `sheet` names the Google sheet it is copied to and sheet_synced_version the last version that sheet has (0: older than v1). blob is the git object holding that version's exact content (what `bump` compares with). Log: docs/audits/data_changelog.csv.",
   "files": {
     "data-sources/exams_cleaned.csv": {
       "key": [
         "row_id"
       ],
       "sheet": "Google sheet: List of entrance exams in India",
-      "version": 3,
+      "version": 4,
       "updated": "2026-11-26",
       "rows": 508,
-      "sha256": "6185272e989ad4b876ef53bd5486db03dc3dc031e5f4311b55930bb1c65a77ca",
-      "sheet_synced_version": 0
+      "sha256": "97a3ef51fa9a8f80358c304bba4ab75a534128608ccac1a1da92d914d1a9fcbf",
+      "sheet_synced_version": 0,
+      "blob": "f8e8fd35efc1759bd87bcc4aae43d41acd62f96f"
     },
     "data-sources/exam_applicants.csv": {
       "key": [
         "exam_id"
       ],
       "sheet": null,
-      "version": 3,
+      "version": 4,
       "updated": "2026-11-26",
       "rows": 88,
-      "sha256": "30f1d77d20a7cee1a2ec84c5e9106bd5b9ed172cdb62f77347ba81effbcdf100",
-      "sheet_synced_version": null
+      "sha256": "686ec2b752d37ee5cd48cfccc8c31860ed52635c506eb0f84057a2d90c7d5f61",
+      "sheet_synced_version": null,
+      "blob": "f53e46c0493d9797bf781ebae4ef83d72f747b34"
     },
     "data-sources/career_streams.csv": {
       "key": [
@@ -30,9 +32,10 @@
       "sheet": "Google sheet: careers.xlsx Sheet1 (scripts/import_career_sheet.py)",
       "version": 1,
       "updated": "2026-11-25",
-      "rows": 614,
+      "rows": 163,
       "sha256": "840f32565b641a2da263d960d7ad4fb898ff3da69a812d521c15749bec5611b8",
-      "sheet_synced_version": 0
+      "sheet_synced_version": 0,
+      "blob": "2878bfb5a01770b79be65b3f62582a99a796284d"
     },
     "data-sources/career_subjects.csv": {
       "key": [
@@ -43,7 +46,8 @@
       "updated": "2026-11-25",
       "rows": 163,
       "sha256": "c969cb6c957a2b4ccd5d04f49d4eb31486dd0341a566ee87ff94b5fc12466346",
-      "sheet_synced_version": null
+      "sheet_synced_version": null,
+      "blob": "16f76e45b460c5079b397493bbeaa6a322d311f6"
     },
     "data-sources/branch_taxonomy.csv": {
       "key": [
@@ -52,9 +56,10 @@
       "sheet": "Google sheet: Branch sheet",
       "version": 1,
       "updated": "2026-11-25",
-      "rows": 705,
+      "rows": 629,
       "sha256": "a27a32371d0a78f78d89e65134dacf48980a4008409e92d1e170ea8a4675229e",
-      "sheet_synced_version": null
+      "sheet_synced_version": null,
+      "blob": "ec3caaead72c3b0a3353187432f94d8b1f88c354"
     },
     "data-sources/exam_branch_mapping.csv": {
       "key": [
@@ -66,7 +71,8 @@
       "updated": "2026-11-25",
       "rows": 2472,
       "sha256": "2c130b9ce21077d4f22fa66ec9a7e3c215da68c3cbedbf5c793c397c63c10778",
-      "sheet_synced_version": null
+      "sheet_synced_version": null,
+      "blob": "b2a3e5033d4dce9800f59713b9f6f583e4594f90"
     },
     "data-sources/career_quiz_statements.csv": {
       "key": [
@@ -77,7 +83,8 @@
       "updated": "2026-11-25",
       "rows": 30,
       "sha256": "5a2f23cb4c54472da4409f876524320a975754874918f79f4bc21a9379738e59",
-      "sheet_synced_version": null
+      "sheet_synced_version": null,
+      "blob": "13b8ac4dd57e450c053df548f953a379b606b0d8"
     },
     "data-sources/career_quiz_subjects.csv": {
       "key": [
@@ -88,7 +95,8 @@
       "updated": "2026-11-25",
       "rows": 13,
       "sha256": "b796fb194276b1f7a01bc4259f0ef80dc6a9a944fd250c73832b5e0657bf20d3",
-      "sheet_synced_version": null
+      "sheet_synced_version": null,
+      "blob": "966546a0485f032d660892a89a210bc9f738f223"
     },
     "data-sources/career_quiz_tiebreakers.csv": {
       "key": [
@@ -99,22 +107,20 @@
       "updated": "2026-11-25",
       "rows": 15,
       "sha256": "e8d844078dbec74d7429ceab10120095d1314f4ac345a7aba7debcd6e9937d35",
-      "sheet_synced_version": null
+      "sheet_synced_version": null,
+      "blob": "33a0389bb13c83f8ff5c09d1a484bc31e60f10ff"
     },
     "docs/audits/exams_audit.csv": {
       "key": [
-        "exam_id",
-        "exam_name",
-        "csv_column",
-        "old_value",
-        "new_value"
+        "audit_id"
       ],
       "sheet": null,
-      "version": 3,
+      "version": 4,
       "updated": "2026-11-26",
       "rows": 185,
-      "sha256": "fa0107941633841e288ca0b760da38e028b675016a674dd9c6ac784c0f9bb1ce",
-      "sheet_synced_version": null
+      "sha256": "e1327db996270cdc8147f3532957b31db755ae23dbf94d2db7c810f869d02075",
+      "sheet_synced_version": null,
+      "blob": "19428df045afec29eb5e8bf2a5473ed8fc859ee0"
     },
     "docs/audits/career_pay_sources.csv": {
       "key": [
@@ -127,7 +133,8 @@
       "updated": "2026-11-25",
       "rows": 468,
       "sha256": "efaa9d6f90115b3d2c6b0f38273c648083ab5b225dad9b2699a7b8ac2c231ec1",
-      "sheet_synced_version": null
+      "sheet_synced_version": null,
+      "blob": "e279ff1dbc6fac8d1f50035e9e5e5f5ae1b521ff"
     }
   }
 }

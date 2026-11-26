@@ -85,4 +85,11 @@ def main(xlsx, force=False):
 
 
 if __name__ == "__main__":
-    main(sys.argv[1], "--force" in sys.argv)
+    import argparse
+    ap = argparse.ArgumentParser(description=__doc__,
+                                 formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("xlsx", help="the career sheet (careers.xlsx)")
+    ap.add_argument("--force", action="store_true",
+                    help="import even though the sheet is behind the CSV")
+    a = ap.parse_args()
+    main(a.xlsx, a.force)
