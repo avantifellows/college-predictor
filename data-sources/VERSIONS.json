@@ -6,12 +6,12 @@
         "row_id"
       ],
       "sheet": "Google sheet: List of entrance exams in India",
-      "version": 4,
+      "version": 5,
       "updated": "2026-11-26",
       "rows": 508,
-      "sha256": "97a3ef51fa9a8f80358c304bba4ab75a534128608ccac1a1da92d914d1a9fcbf",
+      "sha256": "48179f2de221877e91f0201e7ebd804881ef7360f59fde22c3064932a7d65aa8",
       "sheet_synced_version": 0,
-      "blob": "f8e8fd35efc1759bd87bcc4aae43d41acd62f96f"
+      "blob": "4627fc7fa5bfeb565781eb4d28b6c777e4f4e106"
     },
     "data-sources/exam_applicants.csv": {
       "key": [

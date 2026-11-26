@@ -161,6 +161,15 @@ def main():
               if not k.startswith("_")}
     d = pd.read_csv(SRC)
     active = d[d.status == "active"]
+    # every active row states its stage, and one exam's rows agree: the
+    # card keeps the first, so a blank or different one on a later row
+    # would otherwise pass unseen
+    stages = {"After Class 10", "After Class 12", "After graduation"}
+    bad = active[~active["stage"].isin(stages)]
+    assert bad.empty, (f"{SRC}: stage must be one of {sorted(stages)}: "
+                       + ", ".join(f"{r.row_id} {r.stage!r}" for r in bad.itertuples()))
+    mixed = active.groupby("exam_name")["stage"].nunique()
+    assert (mixed == 1).all(), f"{SRC}: exams with two stages: {list(mixed[mixed > 1].index)}"
     dead = d[d.status != "active"]
 
     succ_aliases = defaultdict(set)

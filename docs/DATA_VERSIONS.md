@@ -35,10 +35,18 @@ version of both files, then bump your files again.
 
 CI runs `npm run check:data-versions -- --base <ref>`: the PR's target
 branch, or on a push the commit before it. It fails when a file changed
-without a bump, a key is blank (any part) or repeated, the base doesn't
-resolve or tracks a file this branch doesn't, a version has no changelog
-row (or two), or a row or column the base has is gone and no changelog row
-after the base's version names it.
+without a bump, a key is blank (any part) or repeated, the manifest's
+record count or blob doesn't match the file, a version is below the base's,
+any version from 1 up has no changelog row (or two), the base doesn't
+resolve or tracks a file this branch doesn't, or a row or column the base
+has is gone and no changelog row after the base's version names it.
+
+CI also rebuilds `exams.json` and `careers.json` from the CSVs and fails if
+they differ from what's committed, so rebuild after editing a CSV:
+
+```bash
+python3 scripts/build_exams_data.py && python3 scripts/build_careers_data.py
+```
 
 ## The Google sheets
 

@@ -72,6 +72,9 @@ const ExamRow = ({ e, index, onOpen, starCol }) => (
             !e.reserved_for
           ? // open to all, though its colleges sit in one state (COMEDK)
             `Colleges in ${e.scope}`
+          : e.reserved_for
+          ? // a state exam any Indian can sit (BPSC, UP Police)
+            `${e.scope} · reservation for residents`
           : e.scope}
       </div>
     </td>
@@ -587,7 +590,7 @@ export default function Exams() {
                 >
                   {[
                     ["india", "All India"],
-                    ["state", `${where} Only`],
+                    ["state", `${where} exams`],
                   ].map(([key, label]) => (
                     <button
                       key={key}
@@ -617,7 +620,7 @@ export default function Exams() {
               {where ? (
                 <p className="mt-3 text-sm text-[#6d5550]">
                   {shownView === "state"
-                    ? `Only for students from ${where}.`
+                    ? `Exams run for ${where}. Those marked "reservation for residents" are open to students from every state too.`
                     : "Open to students from every state."}
                 </p>
               ) : null}

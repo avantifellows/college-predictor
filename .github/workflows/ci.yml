@@ -47,6 +47,18 @@ jobs:
             BASE="$BEFORE"
           fi
           npm run check:data-versions -- ${BASE:+--base "$BASE"}
+      # exams.json and careers.json are rebuilt from the CSVs: a CSV edit
+      # committed without a rebuild fails here (last_updated.json carries
+      # the build date, so it's left out)
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install pandas==2.0.3 numpy==1.24.4
+      - name: Exams and careers data match the CSVs
+        run: |
+          python3 scripts/build_exams_data.py
+          python3 scripts/build_careers_data.py
+          git diff --exit-code --stat -- public/data ':!public/data/last_updated.json'
       - run: npm run check:pages
       - run: npm run check:ids
       # predictor names linked to college cards (stars, NIRF, salary):

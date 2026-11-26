@@ -20,9 +20,10 @@ however many times you bump before committing.
 
 `check` fails when:
   - a file changed without a bump, or a key is blank (any part) or repeated;
+  - the manifest's record count or blob doesn't match the file;
+  - a version is below the base's, or any version from 1 up has no
+    changelog row (or two);
   - the base ref doesn't resolve, or a file the base tracks is untracked now;
-  - a version between the base's and the current one has no changelog row,
-    or one version has two;
   - a row or column the base has is gone and no changelog row for a version
     after the base's names it.
 
@@ -80,6 +81,11 @@ def store_blob(text):
     """Write the content into git's object store; its id is the version's
     exact content, readable later with `git cat-file blob`."""
     return git("hash-object", "-w", "--no-filters", "--stdin",
+               data=text.encode()).decode().strip()
+
+
+def blob_of(text):
+    return git("hash-object", "--no-filters", "--stdin",
                data=text.encode()).decode().strip()
 
 
@@ -281,12 +287,21 @@ def cmd_check(args, m):
         if sha(text) != f["sha256"]:
             errors.append(f"{rel}: changed since v{f['version']}. Run "
                           f"python3 scripts/data_versions.py bump {rel} -m '...'")
+        elif f.get("blob") != blob_of(text):
+            # bump diffs against this blob: a wrong one gives wrong counts
+            errors.append(f"{rel}: blob in {MANIFEST} isn't this version's content "
+                          f"(expected {blob_of(text)})")
         if f.get("rows") != records(text):
             errors.append(f"{rel}: {MANIFEST} says {f.get('rows')} records, "
                           f"the file has {records(text)}")
         bv = base_m["files"].get(rel, {}).get("version", 0) if base_m else 0
+        if f["version"] < bv:
+            errors.append(f"{rel}: v{f['version']} is below {args.base}'s v{bv}")
+        if f["version"] < 1:
+            errors.append(f"{rel}: version must be 1 or more")
+        # the whole history: a row for every version from 1 up
         versions = {int(r["version"]) for r in log if r["file"] == rel}
-        gaps = sorted(set(range(bv + 1, f["version"] + 1)) - versions)
+        gaps = sorted(set(range(1, f["version"] + 1)) - versions)
         if gaps:
             errors.append(f"{rel}: no {LOG} row for version(s) {gaps}")
         if base_m is None:
