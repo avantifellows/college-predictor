@@ -1,0 +1,257 @@
+{
+ "new": [
+  {
+   "exam_name": "CA Foundation (Chartered Accountancy Foundation Examination)",
+   "aliases": "CA Foundation; ICAI Foundation; Chartered Accountant Foundation; CA entrance",
+   "course": "Commerce",
+   "degrees": "",
+   "scope": "All India",
+   "url": "https://www.icai.org",
+   "stage": "After Class 12",
+   "duration": "180 minutes (Papers 1-2); 120 minutes (Papers 3-4)",
+   "mode": "Pen & Paper Based",
+   "forms_out": "About 2 months before each exam (e.g. early July for September)",
+   "last_date": "About 2 months before each exam (e.g. mid/late July for September)",
+   "test_date": "January, May and September (three times a year)",
+   "marking": "Papers 3 & 4 (objective): -0.25 per wrong answer; Papers 1 & 2 descriptive",
+   "eligibility": "You can register for the Foundation Course after passing Class 10, but you can sit the exam only after appearing in the Class 12 board exam (any recognised board). Registration must be done at least four months before the exam month (by 1 Sept for January, 1 Jan for May, 1 May for September). Registration is valid for 4 years from the first eligible attempt. No age limit. Commerce graduates with 55% or other graduates with 60% (and ICSI/ICMAI Intermediate passes) are exempt from Foundation and can go straight to Intermediate.",
+   "application_fee": "Rs. 9,000/- one-time Foundation Course registration (includes study material); exam fee Rs. 1,500/- per attempt (India centres), late fee Rs. 600/-",
+   "paper_pattern": "Four papers of 100 marks each (400 total): Paper 1 Accounting and Paper 2 Business Laws (descriptive, 3 hours each); Paper 3 Quantitative Aptitude (Business Mathematics, Logical Reasoning, Statistics) and Paper 4 Business Economics (objective MCQ on OMR, 2 hours each, 0.25 negative marking). English or Hindi medium.",
+   "selection_process": "Foundation exam (4 papers) \u2192 Intermediate (2 groups, 6 papers) \u2192 ICITSS (4 weeks) \u2192 Articleship / practical training (2 years) \u2192 Advanced ICITSS + Self-Paced Online Modules \u2192 Final exam (2 groups, 6 papers)",
+   "remarks": "Pass needs 40% in each paper and 50% aggregate in one sitting; there is no paper-wise exemption at Foundation. CA is a professional course run by ICAI, not a college degree.",
+   "applicants": {
+    "year": 2026,
+    "registered": null,
+    "appeared": 104240,
+    "source_url": "https://icai.org/post/prc-ca-result-foundation-sep2026",
+    "source_type": "official",
+    "note": "September 2026 Foundation exam (ICAI press release, 6 Nov 2026): 104,240 appeared, 19,736 passed, pass % 18.93. The release text also says 1,17,458 candidates appeared, which does not match its own table total; table figure used. Earlier: Sept 2025 98,827 appeared, 14.78% pass."
+   },
+   "vacancies": null,
+   "sources": [
+    "https://icai-call-sahayata.icai.org/assets/pdf/FAQs_on_CA_Course.pdf",
+    "https://resource.cdn.icai.org/92555exam-aps5333-sn2026-fee.pdf",
+    "https://resource.cdn.icai.org/92556exam-aps5333-sn2026-imp-date.pdf",
+    "https://resource.cdn.icai.org/92907exam-aps5675-fnd-guide-sep2026.pdf",
+    "https://www.icai.org/post/exam-sep-nov-2026",
+    "https://icai.org/post/prc-ca-result-foundation-sep2026",
+    "https://icai.org/post/icai-sep-ca-exam-result-declared-03110205"
+   ],
+   "notes": "Fees and dates from the September & November 2026 ICAI fee chart / important dates (form fee nil; exam fee Rs. 1,500/- India, Rs. 2,200/- Kathmandu, US$325 Bahrain/Dubai). Sept 2026 forms: 6 July to 19 July 2026 (22 July with late fee); exams 2, 5, 7, 9 Sept 2026, 2 PM IST. Course fee Rs. 9,000/- from ICAI FAQ last updated 29 July 2026. Pass % for each session is in applicants.note. Registered (applied) count is not published."
+  },
+  {
+   "exam_name": "CA Inter (Chartered Accountancy Intermediate Examination)",
+   "aliases": "CA Intermediate; CA Inter; ICAI Intermediate; CA IPCC (old name)",
+   "course": "Commerce",
+   "degrees": "",
+   "scope": "All India",
+   "url": "https://www.icai.org",
+   "stage": "After Class 12",
+   "duration": "180 minutes per paper",
+   "mode": "Pen & Paper Based",
+   "forms_out": "About 2 months before each exam (e.g. early July for September)",
+   "last_date": "About 2 months before each exam (e.g. mid/late July for September)",
+   "test_date": "January, May and September (three times a year)",
+   "marking": "30 marks of MCQs per paper, no negative marking; 70 marks descriptive",
+   "eligibility": "Two routes. (1) Foundation route: pass CA Foundation (taken after Class 12), then register for Intermediate. (2) Direct entry route: commerce graduates/post-graduates with at least 55%, other graduates/post-graduates with at least 60%, or those who passed ICSI/ICMAI Intermediate; final-year graduates can register provisionally. Either way you must complete 8 months of study after registering before the exam (register by 1 Jan for September, 1 May of the previous year for January, 1 Sept of the previous year for May). Registration is valid 5 years. No age limit.",
+   "application_fee": "Rs. 18,000/- one-time Intermediate Course registration (both groups); exam fee Rs. 1,500/- for one group or Rs. 2,700/- for both groups (India centres), late fee Rs. 600/-",
+   "paper_pattern": "Six papers of 100 marks each in two groups. Group I: Advanced Accounting; Corporate and Other Laws; Taxation (Income-tax 50 + GST 50). Group II: Cost and Management Accounting; Auditing and Ethics; Financial Management and Strategic Management (50 + 50). Each paper 3 hours, 30% case-based MCQs and 70% descriptive.",
+   "selection_process": "Foundation exam (4 papers) \u2192 Intermediate (2 groups, 6 papers) \u2192 ICITSS (4 weeks) \u2192 Articleship / practical training (2 years) \u2192 Advanced ICITSS + Self-Paced Online Modules \u2192 Final exam (2 groups, 6 papers)",
+   "remarks": "You can take one group or both groups in a sitting. To pass a group you need 40% in each paper and 50% aggregate; 60% in a paper gives an exemption for the next three attempts. Passing both groups (plus ICITSS) lets you start the 2-year articleship.",
+   "applicants": {
+    "year": 2026,
+    "registered": null,
+    "appeared": null,
+    "source_url": "https://www.icai.org/post/prc-ca-result-intermediate-sep2026",
+    "source_type": "official",
+    "note": "September 2026 Intermediate exam (ICAI press release dated 22 Oct 2026): Group I 100,301 appeared / 23,210 passed (23.14%); Group II 68,400 / 12,938 (18.92%); both groups 38,339 / 5,066 (13.21%). ICAI gives no single overall total, so appeared is left null. The second row is labelled 'Group- I' on the page, but it is clearly Group II. Sept 2025: Group I 93,074 (9.43%), Group II 69,768 (27.14%), both 36,398 (10.06%)."
+   },
+   "vacancies": null,
+   "sources": [
+    "https://icai-call-sahayata.icai.org/assets/pdf/FAQs_on_CA_Course.pdf",
+    "https://resource.cdn.icai.org/92555exam-aps5333-sn2026-fee.pdf",
+    "https://resource.cdn.icai.org/92556exam-aps5333-sn2026-imp-date.pdf",
+    "https://resource.cdn.icai.org/93054exam-aps5675-int-guide-sep2026.pdf",
+    "https://www.icai.org/post/exam-sep-nov-2026",
+    "https://www.icai.org/post/prc-ca-result-intermediate-sep2026",
+    "https://icai.org/post/icai-sep-ca-exam-result-declared-03110205"
+   ],
+   "notes": "Sept 2026 Intermediate exams: Group I 1, 3, 6 Sept; Group II 8, 10, 12 Sept 2026, 2-5 PM IST. Course fee Rs. 18,000/- is from the ICAI FAQ (last updated 29 July 2026); one news source quoted Rs. 15,000/-, which was not used. Stage is 'After Class 12' because the Foundation route opens after Class 12; graduates can also enter directly."
+  },
+  {
+   "exam_name": "UP CPET (Common Paramedical Entrance Test)",
+   "aliases": "CPET; ABVMU CPET; UP Paramedical Entrance; CAHET; Common Allied & Healthcare Admission; UP CAHET",
+   "course": "Paramedical",
+   "degrees": "B.MLS; B.Optom; B.AOTT; B.MRIT; B.ASLP; BPT; BOT; B.RTT",
+   "scope": "Uttar Pradesh",
+   "url": "https://www.abvmuup.edu.in/cpet.php",
+   "stage": "After Class 12",
+   "duration": "140 minutes (2025 test)",
+   "mode": "No UG entrance test in 2026: admission on Class 12 Physics, Chemistry and Biology marks (2025: pen & paper test)",
+   "forms_out": "May",
+   "last_date": "Early June",
+   "test_date": "No UG test in 2026 (2025: 18 June)",
+   "marking": "+1/0",
+   "eligibility": "Class 12 with Physics, Chemistry and Biology plus a pass in English (PCM accepted for Optometry and Audiology & Speech Language Pathology; PC with Computer Science/Statistics/Electronics/Psychology for Audiology). Minimum 17 years by 31 December of the admission year. For 2026 the minimum was 50% in the science subjects (40% for SC/ST/OBC-NCL and PwD). For 2025, news reports gave 45%. Indian citizens only. UP domicile (or Class 10 and 12 both passed in UP) is needed for government colleges. Admission is subject to medical fitness.",
+   "application_fee": "2026 (CAHET merit registration): Rs. 750/- (UR/OBC), Rs. 500/- (SC/ST/PwD). 2025 CPET: Rs. 3,000/- (General/OBC), Rs. 2,000/- (SC/ST/PwD), per news reports",
+   "paper_pattern": "CPET 2025: 120 MCQs, 1 mark each, 120 marks, no negative marking, English and Hindi. Four sections of 30 questions: A Biology (or Maths/Computer Science/Electronics/Statistics/Psychology as chosen), B Chemistry, C Physics, D English & General Knowledge. Class 12 level.",
+   "selection_process": "Online registration \u2192 Merit list (2025: CPET score; 2026: Class 12 PCB marks, normalised across boards) \u2192 Online counselling & college allotment \u2192 Document verification & medical fitness",
+   "remarks": "For 2026-27 ABVMU replaced CPET with 'Common Allied & Healthcare Admission (CAHET)'. Bachelor's seats were filled on Class 12 PCB merit with no entrance test; only the master's courses had a written test. Check abvmuup.edu.in each year to see whether a UG test is held.",
+   "applicants": null,
+   "vacancies": null,
+   "sources": [
+    "https://www.abvmuup.edu.in/cpet.php",
+    "https://www.abvmuup.edu.in/",
+    "https://www.abvmuup.edu.in/admission-paramedical.php",
+    "https://www.abvmucet26.co.in/",
+    "https://cet26.blr1.cdn.digitaloceanspaces.com/docs/English%20CAHET%20Bachelor%20Information%20Bulletin.pdf",
+    "https://hindinews.careers360.com/abvmu-common-paramedical-entrance-test-cpet-2025-registration-deadline-extended-till-june-4-apply-at-abvmuup-edu-in",
+    "https://news.careers360.com/up-cpet-2025-admit-card-out-on-abvmucet25-co-in-for-paramedical-courses-exam-on-june-18/amp",
+    "https://medicine.careers360.com/articles/up-cpet-2025",
+    "https://www.sarkariresult.com/2026/up-cahet-2026/"
+   ],
+   "notes": "Conducted by Atal Bihari Vajpayee Medical University (ABVMU), Lucknow. It covers government and private allied/paramedical colleges affiliated to ABVMU, plus SGPGIMS Lucknow, KGMU Lucknow and UPUMS Saifai. The full name is 'Common Paramedical Entrance Test', not 'Combined'. The official ABVMU CPET page confirms CPET-2025, with the form deadline extended to 4 June 2025. The 2025 portal (abvmucet25.co.in) refused connections and the 2025 bulletin could not be opened. The 2025 exam date (18 June 2025), pattern, duration and fee therefore come from Careers360 news reports, not the bulletin. Some aggregators gave a 200-question pattern instead; not used. The 2026 details are from the official CAHET Bachelor Information Bulletin 2026: registration 2 May to 5 June 2026, merit on Class 12 PCB, the 8 courses listed in degrees, and fee Rs. 750/500. An aggregator gave a 14 June last date; the bulletin says 5 June. B.Pharm and B.Sc. Nursing are NOT covered: nursing goes through ABVMU's separate CNET. UPUMS Saifai's 'CPNET' (Combined Paramedical & Nursing Entrance Test, B.Pharm/GNM/ANM) is a different exam whose 2026 status is unclear (aggregators conflict). The record is kept under the name CPET because students search for it, but the 2026 cycle had no UG entrance test. No applicant counts were found."
+  }
+ ],
+ "iiser": {
+  "summary": "Only IISER Bhopal offers engineering undergraduate degrees, and they are B.Tech. (not BS): Chemical Engineering; Data Science and Engineering; Electrical Engineering and Computer Science (with ECE and CSE options). All are 4-year, with an optional extra year for a B.Tech.-M.Tech. dual degree. Admission to IISER Bhopal BS-MS, BS and B.Tech. is 'exclusively through the IISER Aptitude Test' (IAT) and IISER joint counselling. JEE Advanced/JoSAA is not a route. IISERs are not in JoSAA, and the old JEE Advanced/KVPY channels were dropped from about 2024. No other IISER lists a B.Tech. or BS engineering programme in 2026.",
+  "programmes": [
+   {
+    "iiser": "IISER Bhopal",
+    "programme": "B.Tech. Chemical Engineering",
+    "degree": "BTech",
+    "duration": "4 years (+1 optional for B.Tech.-M.Tech.)",
+    "route": "IAT",
+    "eligibility": "10+2 with Physics, Chemistry and Mathematics, 60% (55% SC/ST/PwD)",
+    "seats_2026": "40 (aggregator)"
+   },
+   {
+    "iiser": "IISER Bhopal",
+    "programme": "B.Tech. Data Science and Engineering",
+    "degree": "BTech",
+    "duration": "4 years (+1 optional)",
+    "route": "IAT",
+    "eligibility": "10+2 with PCM, 60% (55% SC/ST/PwD)",
+    "seats_2026": "80 (aggregator)"
+   },
+   {
+    "iiser": "IISER Bhopal",
+    "programme": "B.Tech. Electrical Engineering and Computer Science (options: Electronics & Communication Engg., Computer Science & Engg.)",
+    "degree": "BTech",
+    "duration": "4 years (+1 optional)",
+    "route": "IAT",
+    "eligibility": "10+2 with PCM, 60% (55% SC/ST/PwD)",
+    "seats_2026": "75 (aggregator)"
+   },
+   {
+    "iiser": "IISER Bhopal",
+    "programme": "BS Economic Sciences",
+    "degree": "BS",
+    "duration": "4 years (+1 optional for BS-MS)",
+    "route": "IAT",
+    "eligibility": "10+2 with PCM (Mathematics required), 60% (55% SC/ST/PwD)",
+    "seats_2026": "55 (aggregator)"
+   },
+   {
+    "iiser": "IISER Bhopal",
+    "programme": "BS-MS (Biological Sciences, Chemistry, Earth & Environmental Sciences, Mathematics, Physics)",
+    "degree": "BS-MS",
+    "duration": "5 years",
+    "route": "IAT",
+    "eligibility": "10+2 with at least three of Biology, Chemistry, Mathematics, Physics, 60% (55% SC/ST/PwD)",
+    "seats_2026": "300 (aggregator)"
+   },
+   {
+    "iiser": "IISER Tirupati",
+    "programme": "BS Economic and Statistical Sciences (per Careers360)",
+    "degree": "BS",
+    "duration": "4 years",
+    "route": "IAT",
+    "eligibility": "",
+    "seats_2026": ""
+   },
+   {
+    "iiser": "IISER Kolkata, Mohali, Pune, Thiruvananthapuram, Berhampur, Tirupati",
+    "programme": "BS-MS only (Kolkata also BS-MS Computational & Data Sciences; Mohali also BS-MS Geology, Environmental Sciences). No B.Tech./engineering",
+    "degree": "BS-MS",
+    "duration": "5 years",
+    "route": "IAT",
+    "eligibility": "",
+    "seats_2026": ""
+   }
+  ],
+  "notes": "IISER Bhopal's official pages (iiserb.ac.in/doaa/programmes and /doaa/admission) confirm the degree names, durations, eligibility and the 'exclusively through the IISER Aptitude Test' wording. The seat figures (B.Tech. total 195, of which ChE 40, DSE 80, EECS 75; BS Eco 55; BS-MS 300) come from a search summary of aggregator data and are not official. iiseradmission.in, dair.iiserb.ac.in and the IISER Bhopal department sites failed TLS certificate checks, so the 2026 IAT brochure could not be opened. The list of programmes at other IISERs comes from Careers360 coverage of IAT 2026, not the brochure. A June 2026 Careers360 interview with the director says engineering moved to a 5-year B.Tech.-M.Tech.; the official page shows a 4-year B.Tech. with an optional fifth year. IAT 2026 was held on 7 June 2026: computer-based, 60 questions (15 each in Biology, Chemistry, Maths, Physics), 240 marks, 180 minutes.",
+  "sources": [
+   "https://www.iiserb.ac.in/doaa/programmes",
+   "https://www.iiserb.ac.in/doaa/admission",
+   "https://www.iiserb.ac.in/doaa/notices",
+   "https://www.iiserb.ac.in/",
+   "https://news.careers360.com/iiser-iat-2026-june-7-registration-march-5-april-13-bs-ms-btech-admissions-seven-iisers-pune-bhopal-mohali-kolkata-aptitude-test",
+   "https://news.careers360.com/iiser-bhopal-bs-ms-course-btech-mtech-engineering-placement-job-iat-2026-admission-physics-chemistry-bio-maths-ai-data-science-phd",
+   "https://news.careers360.com/iiser-admission-2024-major-changes-in-eligibility-criteria-only-iat-scores-be-considered/amp"
+  ]
+ },
+ "pau": {
+  "summary": "PAU-CET (Common Entrance Test, Punjab Agricultural University, Ludhiana) admits to 9 UG programme groups. The only engineering degrees are B.Tech. (Agricultural Engineering), B.Tech. (Food Technology) and B.Tech. (Biotechnology). PAU has NO UG B.Tech. in Electrical, Civil, Mechanical or Computer Science Engineering. Departments with those names exist in the College of Agricultural Engineering & Technology, but they teach within B.Tech. (Agricultural Engineering) and run M.Tech./MCA/Ph.D. programmes; the college's only UG degree is B.Tech. (Agricultural Engineering). PAU-CET should therefore be linked to agricultural engineering, food technology and biotechnology careers, not to Electrical/Civil/Mechanical/CS engineering.",
+  "cet_programmes_2026_27": [
+   {
+    "programme": "B.Sc. (Hons) Agriculture 4-year",
+    "seats": "80 + 20 ICAR-nominated = 100",
+    "eligibility": "10+2 with Physics, Chemistry and Maths/Biology/Agriculture (or 2-yr Diploma in Agriculture), 50% aggregate"
+   },
+   {
+    "programme": "B.Sc. (Hons) Horticulture 4-year",
+    "seats": "60 + 15 = 75",
+    "eligibility": "10+2 PC + Maths/Biology/Agriculture, 50%"
+   },
+   {
+    "programme": "B.Tech. (Biotechnology) 4-year (self-supporting)",
+    "seats": "60 + 15 = 75",
+    "eligibility": "10+2 PC + Maths/Biology/Agriculture, 50%"
+   },
+   {
+    "programme": "B.Tech. (Food Technology) 4-year (self-supporting)",
+    "seats": "60 + 15 = 75",
+    "eligibility": "10+2 PC + Maths/Biology/Agriculture (or SLIET food processing certificate), 50%"
+   },
+   {
+    "programme": "B.Tech. (Agricultural Engineering) 4-year",
+    "seats": "70 + 17 = 87",
+    "eligibility": "10+2 non-medical (PCM), 50%"
+   },
+   {
+    "programme": "B.Sc. (Hons) Agribusiness Management 4-year (self-supporting)",
+    "seats": "40",
+    "eligibility": "10+2 PC + Maths/Biology/Agriculture, 50%"
+   },
+   {
+    "programme": "5-year Integrated M.Sc. (Hons) in Biochemistry (20), Botany (10), Chemistry (20), Microbiology (20), Physics (10), Zoology (10) (self-supporting)",
+    "seats": "90 total",
+    "eligibility": "10+2 PC + Maths/Biology/Agriculture, 50%"
+   },
+   {
+    "programme": "B.Sc. (Hons) Community Science 4-year",
+    "seats": "46 + 11 = 57",
+    "eligibility": "10+2 PC + Maths/Biology/Agriculture/Home Science, 50%"
+   },
+   {
+    "programme": "B.Sc. (Hons) Food Nutrition & Dietetics 4-year (self-supporting)",
+    "seats": "58 + 13 = 71",
+    "eligibility": "10+2 PC + Maths/Biology/Agriculture/Home Science, 50%"
+   }
+  ],
+  "other_pau_ug_tests": [
+   "DAT (Design Aptitude Test): B.Sc. (Hons) Fashion Designing",
+   "BSET (Ballowal Saunkhri Entrance Test): B.Sc. (Hons) Agriculture at College of Agriculture, Ballowal Saunkhri",
+   "AAT (Agriculture Aptitude Test, after Class 10): B.Sc. (Hons) Agriculture 2+4 year at Institutes of Agriculture, Bathinda and Gurdaspur"
+  ],
+  "cet_facts": "2026: CET on 14 June 2026, 10 AM-1 PM; last date to apply 8 May 2026 (15 May with late fee). Pen-and-paper, 3 hours, English only. Physics 66 Q and Chemistry 66 Q (compulsory), plus one optional section: Biology, Agriculture or Home Science (68 Q x 1 mark) or Mathematics (34 Q x 2 marks). -1/4 mark per wrong answer, doubled for Maths. Syllabus is PSEB Classes 11-12. Only residents of Punjab or Chandigarh are eligible for UG seats; vacant seats after the CET list may be offered on an all-India basis on Class 12 merit.",
+  "notes": "Source is the official PAU Prospectus 2026-27 (pau-apms.in), sections 'Entrance Test' and 'CET (Common Entrance Test)', plus the college tables. Some aggregators claim B.Tech. Agricultural Engineering admission is via JEE Main or IKGPTU counselling; the 2026-27 prospectus lists it under CET only. The PAU 2025 vacant-seats notice (CET & BSET 2025) lists the same UG programmes. The application fee was not checked in the prospectus (an aggregator says Rs. 3,500/- + Rs. 1,500/- test fee, unverified).",
+  "sources": [
+   "https://www.pau-apms.in/prospectus/Prospectus2026.pdf",
+   "https://www.pau-apms.in/instruction.php",
+   "https://www.pau-apms.in/",
+   "https://www.pau.edu/content/banner/Vacant-Seats_CET&BSET_2025.pdf"
+  ]
+ }
+}
