@@ -9,6 +9,7 @@ that had them; every other column comes from the sheet.
 
 Usage:
   python3 scripts/import_career_sheet.py ~/careers/careers.xlsx
+  (refuses while the sheet is behind the CSV: scripts/data_versions.py)
 """
 import sys
 
@@ -51,7 +52,10 @@ MERGED = {
 }
 
 
-def main(xlsx):
+def main(xlsx, force=False):
+    # the CSV is the master: refuse a sheet that lacks its later versions
+    from data_versions import sheet_guard
+    sheet_guard(OUT, force)
     sheet = pd.read_excel(xlsx, sheet_name="Sheet1")
     sheet = sheet[sheet["Career Name"].notna()].copy()
     sheet["Career Name"] = sheet["Career Name"].str.strip()
@@ -81,4 +85,11 @@ def main(xlsx):
 
 
 if __name__ == "__main__":
-    main(sys.argv[1])
+    import argparse
+    ap = argparse.ArgumentParser(description=__doc__,
+                                 formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("xlsx", help="the career sheet (careers.xlsx)")
+    ap.add_argument("--force", action="store_true",
+                    help="import even though the sheet is behind the CSV")
+    a = ap.parse_args()
+    main(a.xlsx, a.force)

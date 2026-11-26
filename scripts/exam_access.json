@@ -14,7 +14,8 @@
  },
  "afcat": {
   "eligible_in": "All India",
-  "run_by": "Public"
+  "run_by": "Public",
+  "recruitment": true
  },
  "agricet": {
   "eligible_in": "Andhra Pradesh",
@@ -76,15 +77,18 @@
  },
  "agniveer-army": {
   "eligible_in": "All India",
-  "run_by": "Public"
+  "run_by": "Public",
+  "recruitment": true
  },
  "agniveer-navy-ssr-mr": {
   "eligible_in": "All India",
-  "run_by": "Public"
+  "run_by": "Public",
+  "recruitment": true
  },
  "agniveer-vayu": {
   "eligible_in": "All India",
-  "run_by": "Public"
+  "run_by": "Public",
+  "recruitment": true
  },
  "anantu-det": {
   "eligible_in": "All India",
@@ -287,7 +291,16 @@
  },
  "iat": {
   "eligible_in": "All India",
-  "run_by": "Public"
+  "run_by": "Public",
+  "careers": [
+   "Physics",
+   "Chemistry",
+   "Mathematics",
+   "Chemical Engineering",
+   "Artificial Intelligence and Data Science",
+   "Electrical / Electronics / Communications Engineering",
+   "Computer Science / Information Technology"
+  ]
  },
  "idss-oee": {
   "eligible_in": "All India",
@@ -330,7 +343,8 @@
  },
  "indian-army-ncc-special-entry-scheme": {
   "eligible_in": "All India",
-  "run_by": "Public"
+  "run_by": "Public",
+  "recruitment": true
  },
  "indian-army-tes": {
   "eligible_in": "All India",
@@ -338,7 +352,8 @@
  },
  "indian-army-tgc-ssc-tech": {
   "eligible_in": "All India",
-  "run_by": "Public"
+  "run_by": "Public",
+  "recruitment": true
  },
  "indian-navy-10-2-b-tech-cadet-entry-scheme": {
   "eligible_in": "All India",
@@ -346,7 +361,8 @@
  },
  "indian-navy-ssc-officer-entries": {
   "eligible_in": "All India",
-  "run_by": "Public"
+  "run_by": "Public",
+  "recruitment": true
  },
  "jcat": {
   "eligible_in": "All India",
@@ -577,7 +593,14 @@
  },
  "pau-cet": {
   "eligible_in": "Punjab",
-  "run_by": "Public"
+  "run_by": "Public",
+  "careers": [
+   "Agriculture",
+   "Agricultural Engineering",
+   "Food Engineering",
+   "Biotechnology",
+   "Horticulture"
+  ]
  },
  "pdeu-at": {
   "eligible_in": "All India",
@@ -669,7 +692,14 @@
  },
  "sppu-oee": {
   "eligible_in": "All India",
-  "run_by": "Public"
+  "run_by": "Public",
+  "careers": [
+   "Artificial Intelligence and Data Science",
+   "Aviation Engineering and Maintenance",
+   "Biotechnology",
+   "Computer Science / Information Technology",
+   "Hotel Management"
+  ]
  },
  "srmjee-l-ug": {
   "eligible_in": "All India",
@@ -815,5 +845,448 @@
  "imat-iiad-management-aptitude-test-delhi": {
   "eligible_in": "All India",
   "run_by": "Private"
+ },
+ "icg-navik-gd": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": [],
+  "recruitment": true
+ },
+ "icg-navik-db": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": [],
+  "recruitment": true
+ },
+ "icg-yantrik": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": [],
+  "recruitment": true
+ },
+ "icg-ac": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": [],
+  "recruitment": true
+ },
+ "ca-foundation": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": [
+   "Chartered Accountancy (CA)"
+  ]
+ },
+ "ca-inter": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": [
+   "Chartered Accountancy (CA)"
+  ]
+ },
+ "up-cpet": {
+  "eligible_in": "Uttar Pradesh",
+  "run_by": "Public",
+  "careers": [
+   "Paramedical",
+   "Medical Lab Technology",
+   "Physiotherapy",
+   "Radiology",
+   "Ophthalmology and Optometry",
+   "Occupational Therapy"
+  ]
+ },
+ "upsc-cse": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ]
+ },
+ "ssc-cgl": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": []
+ },
+ "ssc-chsl": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": []
+ },
+ "ssc-mts": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": []
+ },
+ "ssc-gd": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": []
+ },
+ "ssc-cpo": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": []
+ },
+ "delhi-police-constable": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": []
+ },
+ "rrb-ntpc-ug": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": []
+ },
+ "rrb-ntpc-graduate": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": []
+ },
+ "rrb-group-d": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": []
+ },
+ "rrb-alp": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": []
+ },
+ "ibps-po": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": []
+ },
+ "ibps-clerk": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": []
+ },
+ "sbi-po": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": []
+ },
+ "sbi-clerk": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": []
+ },
+ "appsc-group-1": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ],
+  "reserved_for": "Andhra Pradesh"
+ },
+ "appsc-cce": {
+  "eligible_in": "Arunachal Pradesh",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ]
+ },
+ "apsc-cce": {
+  "eligible_in": "Assam",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ]
+ },
+ "bpsc-cce": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ],
+  "reserved_for": "Bihar"
+ },
+ "cgpsc-sse": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ],
+  "reserved_for": "Chhattisgarh"
+ },
+ "goa-psc-jso": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ],
+  "reserved_for": "Goa"
+ },
+ "gpsc-class-1-2": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ],
+  "reserved_for": "Gujarat"
+ },
+ "hpsc-hcs": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ],
+  "reserved_for": "Haryana"
+ },
+ "hppsc-hpas": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ],
+  "reserved_for": "Himachal Pradesh"
+ },
+ "jkpsc-cce": {
+  "eligible_in": "Jammu and Kashmir",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ]
+ },
+ "jpsc-cce": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ],
+  "reserved_for": "Jharkhand"
+ },
+ "kpsc-kas": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ],
+  "reserved_for": "Karnataka"
+ },
+ "kerala-psc-kas": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ],
+  "reserved_for": "Kerala"
+ },
+ "mppsc-sse": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ],
+  "reserved_for": "Madhya Pradesh"
+ },
+ "mpsc-rajyaseva": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ],
+  "reserved_for": "Maharashtra"
+ },
+ "manipur-psc-cce": {
+  "eligible_in": "Manipur",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ]
+ },
+ "meghalaya-psc-cce": {
+  "eligible_in": "Meghalaya",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ]
+ },
+ "mizoram-psc-cce": {
+  "eligible_in": "Mizoram",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ]
+ },
+ "npsc-cce": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ],
+  "reserved_for": "Nagaland"
+ },
+ "opsc-ocs": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ],
+  "reserved_for": "Odisha"
+ },
+ "ppsc-pcs": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ],
+  "reserved_for": "Punjab"
+ },
+ "rpsc-ras": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ],
+  "reserved_for": "Rajasthan"
+ },
+ "spsc-cce": {
+  "eligible_in": "Sikkim",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ]
+ },
+ "tnpsc-group-1": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ],
+  "reserved_for": "Tamil Nadu"
+ },
+ "tnpsc-group-4": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": [],
+  "reserved_for": "Tamil Nadu"
+ },
+ "tgpsc-group-1": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ],
+  "reserved_for": "Telangana"
+ },
+ "tpsc-tcs-tps": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ],
+  "reserved_for": "Tripura"
+ },
+ "uppsc-pcs": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ],
+  "reserved_for": "Uttar Pradesh"
+ },
+ "ukpsc-pcs": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ],
+  "reserved_for": "Uttarakhand"
+ },
+ "wbcs": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": [
+   "Public Administration (Civil Services)"
+  ],
+  "reserved_for": "West Bengal"
+ },
+ "upsssc-pet": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": [],
+  "reserved_for": "Uttar Pradesh"
+ },
+ "up-police-constable": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": [],
+  "reserved_for": "Uttar Pradesh"
+ },
+ "up-police-si": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": [],
+  "reserved_for": "Uttar Pradesh"
+ },
+ "bihar-police-constable": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": [],
+  "reserved_for": "Bihar"
+ },
+ "bihar-police-si": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": [],
+  "reserved_for": "Bihar"
+ },
+ "maharashtra-police-bharti": {
+  "eligible_in": "Maharashtra",
+  "run_by": "Public",
+  "careers": []
+ },
+ "rajasthan-police-constable": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": [],
+  "reserved_for": "Rajasthan"
+ },
+ "mp-police-constable": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": [],
+  "reserved_for": "Madhya Pradesh"
+ },
+ "wb-police-constable": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": [],
+  "reserved_for": "West Bengal"
+ },
+ "tn-police-constable": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": [],
+  "reserved_for": "Tamil Nadu"
+ },
+ "karnataka-police-constable": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": [],
+  "reserved_for": "Karnataka"
+ },
+ "gujarat-lokrakshak": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": [],
+  "reserved_for": "Gujarat"
+ },
+ "_comment_reserved_for": "reserved_for: a state exam any Indian can sit, with reservation (and usually fee and age concessions) for that state's residents. Shown in the All India list and in that state's list.",
+ "_comment_recruitment": "recruitment: an armed forces entry that recruits into a job (Agniveer, Coast Guard, commissions through AFCAT, TGC/SSC Tech, Navy SSC, NCC entry), labelled 'Recruitment exam'. NDA, CDS, Army TES and the Navy 10+2 B.Tech entry admit to an academy and stay 'Entrance exam'. Every Government Jobs exam is a recruitment.",
+ "imu-cet": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": [
+   "Marine / Ocean Engineering",
+   "Merchant Navy (Nautical Officer)",
+   "Nautical Science"
+  ],
+  "subjects": {
+   "_": "pcm"
+  }
  }
 }

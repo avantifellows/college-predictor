@@ -1,0 +1,24 @@
+file,version,date,rows,added,changed,removed,columns_added,columns_removed,note
+data-sources/exams_cleaned.csv,1,2026-11-25,443,,,,,,"Baseline: main after PR #385. Adds row_id (stable row key), stage and selection_process."
+data-sources/exam_applicants.csv,1,2026-11-25,21,,,,,,"Baseline: main after PR #385. Adds vacancies_year, vacancies, vacancies_what, source_vacancies_url."
+data-sources/career_streams.csv,1,2026-11-25,163,,,,,,Baseline: main after PR #385.
+data-sources/career_subjects.csv,1,2026-11-25,163,,,,,,Baseline: main after PR #385.
+data-sources/branch_taxonomy.csv,1,2026-11-25,629,,,,,,Baseline: main after PR #385.
+data-sources/exam_branch_mapping.csv,1,2026-11-25,2472,,,,,,Baseline: main after PR #385.
+data-sources/career_quiz_statements.csv,1,2026-11-25,30,,,,,,Baseline: main after PR #385.
+data-sources/career_quiz_subjects.csv,1,2026-11-25,13,,,,,,Baseline: main after PR #385.
+data-sources/career_quiz_tiebreakers.csv,1,2026-11-25,15,,,,,,Baseline: main after PR #385.
+docs/audits/exams_audit.csv,1,2026-11-25,106,,,,,,Baseline: main after PR #385.
+docs/audits/career_pay_sources.csv,1,2026-11-25,468,,,,,,Baseline: main after PR #385.
+data-sources/exams_cleaned.csv,2,2026-11-25,508,65,11,,"[""stage"", ""selection_process"", ""row_id""]",,"Nov 2026 audit: 65 new rows (UPSC CSE, SSC, RRB, IBPS/SBI, 30 state PSCs, 11 state police, Indian Coast Guard x4, CA Foundation/Inter, UP CPET, IAT Engineering for IISER Bhopal B.Tech); stage and selection_process filled for the armed forces. Sources per exam in docs/audits/exams_audit.csv."
+data-sources/exam_applicants.csv,2,2026-11-25,88,67,0,,"[""vacancies_year"", ""vacancies"", ""vacancies_what"", ""source_vacancies_url""]",,"Nov 2026 audit: applicants and notified vacancies for the armed forces, Coast Guard, CA and the new government exams; estimated, rounded or unattributed figures left out (kept in exams_audit notes)."
+docs/audits/exams_audit.csv,2,2026-11-25,183,77,0,,,,"Nov 2026 audit: one row per new exam and per changed field, with sources"
+data-sources/exams_cleaned.csv,3,2026-11-26,508,0,1,,,,"Review fix: UP CPET fee text leads with the amount (site showed Rs. 2,026)"
+data-sources/exam_applicants.csv,3,2026-11-26,88,0,1,,,,"Review fix: SSC CPO vacancies 1,871, not 2,018 (CAPF 1,320 already includes the 147 women)"
+docs/audits/exams_audit.csv,3,2026-11-26,185,2,0,,,,Review fixes for SSC CPO vacancies and UP CPET fee
+data-sources/exams_cleaned.csv,4,2026-11-26,508,0,407,,,,"Review round 2: stage stated on every row (the build no longer defaults; MAH-LLB 3 Yrs and PU LLB-CET after graduation, HAU-AAT and AGRICET after Class 10); UP CPET has no 2026 test date; SSC CPO SI (Fire) eligibility from para 7.2 of the notice; source names taken out of student-facing text"
+data-sources/exam_applicants.csv,4,2026-11-26,88,0,9,,,,"Review round 2: UPSC CSE vacancies 1,016 (UPSC press note 18 Jun 2026); what TN/UP Police and SSC CPO vacancy counts cover; applicant counts left off for Agniveer Army (and its vacancies), SSC GD, Delhi Police, JPSC and OPSC (reasons in notes); UP Police applicants year 2025"
+docs/audits/exams_audit.csv,4,2026-11-26,185,0,33,,"[""audit_id""]",,"Review round 2: audit_id key column; source_type on this PR's rows from the link (official, official copy on a third-party site, news, aggregator). No rows removed: v3 had no audit_id, so bump saw the 33 relabelled rows as removed; corrected by hand."
+data-sources/exams_cleaned.csv,5,2026-11-26,508,0,11,,,,"Review round 3: figures that were only reported (APPSC Group 1 and UP Police marking, JKPSC/KPSC/MPSC fees, KPSC ages and last date, Meghalaya and UPPSC test dates, Rajasthan/TN/Maharashtra Police age, height, residence and TN pattern, UP CPET 2025 fee) now point to the notification instead of stating them"
+data-sources/exams_cleaned.csv,6,2026-11-26,511,3,22,,,,"Add IMU CET (Indian Maritime University; programmes and timeline from imu.edu.in, other figures point to the prospectus); CUET (UG) lists Engineering with a remark naming the central universities that admit to B.Tech through it (NTA 2026 programme mappings); AMU-ET aliases AMUEEE and its B.Tech facts (AMU Guide to Admissions 2026-27); SPPU OEE's two B.Tech programmes (OEE 2026-27 notification)"
+docs/audits/exams_audit.csv,5,2026-11-26,189,4,0,,,,"Rows for IMU CET, CUET (UG) Engineering, AMU-ET and SPPU OEE"

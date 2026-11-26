@@ -344,7 +344,8 @@
    "ojee",
    "tg-eapcet-am",
    "tg-eapcet-e",
-   "wbjee"
+   "wbjee",
+   "pau-cet"
   ],
   "pay": {
    "start": "\u20b93-6 LPA",
@@ -944,7 +945,9 @@
    "ojee",
    "tg-eapcet-am",
    "tg-eapcet-e",
-   "wbjee"
+   "wbjee",
+   "iat",
+   "sppu-oee"
   ],
   "pay": {
    "start": "\u20b95-10 LPA",
@@ -1049,7 +1052,6 @@
    "pwc-et",
    "set-general",
    "snusat",
-   "sppu-oee",
    "sssihl-ugt",
    "tslas-ot",
    "ug-jet",
@@ -1315,7 +1317,9 @@
   "impact": "Engineers working with Air India, IndiGo, and Hindustan Aeronautics Limited (HAL) keep aircraft airworthy and safe, which is why flights carrying millions of Indian passengers each year land safely.",
   "entry_exams_text": null,
   "exams": null,
-  "exam_ids": null,
+  "exam_ids": [
+   "sppu-oee"
+  ],
   "pay": {
    "start": "\u20b94-8 LPA",
    "mid": "\u20b910-22 LPA",
@@ -2190,6 +2194,7 @@
    "kiit-ee",
    "met",
    "mitwpu-cet",
+   "pau-cet",
    "pu-cet",
    "sppu-oee",
    "srmjeee-ug",
@@ -2918,8 +2923,19 @@
   "day_in_life": "A Chartered Accountant checks company accounts for errors, prepares tax filings, and advises businesses on how to save money and follow financial rules. On a typical day they might review a company's expense sheets, sign off on its yearly financial report, or meet a client to plan how much tax they owe.",
   "impact": "Every big Indian company, from Tata to a local textile business, needs a Chartered Accountant to make sure its money records are honest and legal before they are shown to investors or the government. Without CAs, companies could hide losses or dodge taxes, so CAs act like referees for business honesty.",
   "entry_exams_text": "CA Foundation, Intermediate, and Final exams conducted by ICAI (Institute of Chartered Accountants of India, the official body that trains and licenses accountants in India). There is no college degree needed first \u2014 you can register for CA Foundation right after Class 12 and study through ICAI's own multi-year program.",
-  "exams": null,
+  "exams": [
+   {
+    "label": "CA Foundation",
+    "href": "/exams/ca-foundation"
+   },
+   {
+    "label": "CA Inter",
+    "href": "/exams/ca-inter"
+   }
+  ],
   "exam_ids": [
+   "ca-foundation",
+   "ca-inter",
    "amu-et",
    "b-com-cet-146",
    "cuet-ug",
@@ -3056,7 +3072,8 @@
    "ojee",
    "tg-eapcet-am",
    "tg-eapcet-e",
-   "wbjee"
+   "wbjee",
+   "iat"
   ],
   "pay": {
    "start": "\u20b95-9 LPA",
@@ -3486,7 +3503,6 @@
    "cg-pet",
    "comedk-uget",
    "nmims-cet",
-   "pau-cet",
    "siteee",
    "snusat-apt",
    "sru-aiee",
@@ -3810,11 +3826,11 @@
    "cg-pet",
    "comedk-uget",
    "christ-cuet",
+   "iat",
    "kalsee",
    "met",
    "mitwpu-cet",
    "nmims-cet",
-   "pau-cet",
    "siteee",
    "snusat-apt",
    "sppu-oee",
@@ -4974,8 +4990,8 @@
    "bv-btech-cet",
    "cg-pet",
    "comedk-uget",
+   "iat",
    "nmims-cet",
-   "pau-cet",
    "siteee",
    "snusat-apt",
    "srmjeee-ug",
@@ -6083,7 +6099,8 @@
    "ojee",
    "tg-eapcet-am",
    "tg-eapcet-e",
-   "wbjee"
+   "wbjee",
+   "pau-cet"
   ],
   "pay": {
    "start": "\u20b94-7 LPA",
@@ -6832,6 +6849,7 @@
   ],
   "exam_ids": [
    "cuet-ug",
+   "pau-cet",
    "uget"
   ],
   "pay": {
@@ -8664,7 +8682,8 @@
    "jee-advanced",
    "kea-cet",
    "keam",
-   "wbjee"
+   "wbjee",
+   "imu-cet"
   ],
   "pay": {
    "start": "\u20b95-9 LPA",
@@ -9155,10 +9174,8 @@
    "cg-pet",
    "comedk-uget",
    "nmims-cet",
-   "pau-cet",
    "siteee",
    "snusat-apt",
-   "sppu-oee",
    "srmjeee-ug",
    "sru-aiee",
    "upeseat-exam-test-centre-based",
@@ -9245,7 +9262,8 @@
    }
   ],
   "exam_ids": [
-   "cuet-ug"
+   "cuet-ug",
+   "up-cpet"
   ],
   "pay": {
    "start": "\u20b92-4 LPA",
@@ -9394,7 +9412,9 @@
   "impact": "Nautical officers keep global trade moving \u2014 nearly 90% of everything India imports and exports, from oil to electronics, travels by sea, and these officers make sure that cargo reaches ports like Mumbai and Chennai safely and on time.",
   "entry_exams_text": null,
   "exams": null,
-  "exam_ids": null,
+  "exam_ids": [
+   "imu-cet"
+  ],
   "pay": {
    "start": "\u20b96-12 LPA",
    "mid": "\u20b915-35 LPA",
@@ -9973,8 +9993,15 @@
   "day_in_life": "A nautical science graduate works as a deck officer on a large cargo or passenger ship, steering the vessel, planning its route across oceans, and making sure it doesn't collide with anything. On a normal day they check navigation equipment, plot the ship's position on charts, supervise loading of cargo, and keep watch on the bridge (the ship's control room).",
   "impact": "These officers physically command the ships that carry almost everything India imports and exports, from crude oil to phones to grain, since over 90% of India's trade by volume moves by sea. Companies like Shipping Corporation of India and Maersk depend entirely on trained deck officers to move goods safely across the world's oceans.",
   "entry_exams_text": "IMU-CET (Indian Maritime University Common Entrance Test, the main exam to get into merchant navy officer training) is the standard route into a B.Sc. Nautical Science degree.",
-  "exams": null,
-  "exam_ids": null,
+  "exams": [
+   {
+    "label": "IMU CET",
+    "href": "/exams?q=IMU CET"
+   }
+  ],
+  "exam_ids": [
+   "imu-cet"
+  ],
   "pay": {
    "start": "\u20b96-12 LPA",
    "mid": "\u20b915-30 LPA",
@@ -10239,7 +10266,9 @@
   "impact": "Occupational therapists help stroke survivors relearn to feed themselves, children with developmental delays learn to write, and factory workers recover from injuries, working in hospitals and rehab centers across India such as Apollo and NIMHANS.",
   "entry_exams_text": null,
   "exams": null,
-  "exam_ids": null,
+  "exam_ids": [
+   "up-cpet"
+  ],
   "pay": {
    "start": "\u20b93-5.5 LPA",
    "mid": "\u20b94-8 LPA",
@@ -10377,7 +10406,8 @@
    }
   ],
   "exam_ids": [
-   "neet-ug"
+   "neet-ug",
+   "up-cpet"
   ],
   "pay": {
    "start": "\u20b94-9 LPA",
@@ -10689,7 +10719,8 @@
   ],
   "exam_ids": [
    "aiims-ee",
-   "neet-ug"
+   "neet-ug",
+   "up-cpet"
   ],
   "pay": {
    "start": "\u20b92-4 LPA",
@@ -11226,7 +11257,7 @@
   "career_id": "physical-education-teaching",
   "name": "Physical Education Teaching",
   "branch_id": "PHYSED",
-  "domain": "Arts & Humanities",
+  "domain": "Sports",
   "eligible_streams": [
    "All"
   ],
@@ -11419,7 +11450,9 @@
   "impact": "Physiotherapists help cricketers and athletes at places like the National Cricket Academy get back on the field after injuries, and they also help everyday people, like an elderly person recovering from a hip replacement, regain independence. Without physiotherapy, many patients would remain disabled or in pain long after surgery.",
   "entry_exams_text": "No single fixed entrance exam in most states \u2014 admission to the Bachelor of Physiotherapy (BPT) degree is usually based on Class 12 marks in Science subjects, though some universities hold their own entrance tests.",
   "exams": null,
-  "exam_ids": null,
+  "exam_ids": [
+   "up-cpet"
+  ],
   "pay": {
    "start": "\u20b92.5-4.5 LPA",
    "mid": "\u20b95-9 LPA",
@@ -11807,7 +11840,7 @@
   "career_id": "professional-athlete-sports-quota-and-khelo-india",
   "name": "Professional Athlete (Sports Quota and Khelo India)",
   "branch_id": "PHYSED",
-  "domain": "Arts & Humanities",
+  "domain": "Sports",
   "eligible_streams": [
    "All"
   ],
@@ -12028,8 +12061,44 @@
   "day_in_life": "A civil servant in an administrative post, such as an IAS officer or a state civil service officer, runs a government office. The day goes in meetings with departments, reviewing schemes like roads, schools or ration distribution, hearing citizens' complaints, and visiting villages or project sites. A district officer may also handle elections, disaster relief, or law and order.",
   "impact": "Public administrators decide how government money and schemes reach people. A District Collector can speed up flood relief, get a school or hospital built, or make sure welfare schemes such as PM-KISAN reach the right families.",
   "entry_exams_text": "UPSC Civil Services Examination (a national exam for the IAS, IFS, IRS and other central services) or your state's Public Service Commission exam (for state civil services). Both need a bachelor's degree in any subject, so you take them after college.",
-  "exams": null,
-  "exam_ids": null,
+  "exams": [
+   {
+    "label": "UPSC CSE",
+    "href": "/exams/upsc-cse"
+   }
+  ],
+  "exam_ids": [
+   "upsc-cse",
+   "appsc-cce",
+   "appsc-group-1",
+   "apsc-cce",
+   "bpsc-cce",
+   "cgpsc-sse",
+   "gpsc-class-1-2",
+   "goa-psc-jso",
+   "hppsc-hpas",
+   "hpsc-hcs",
+   "jkpsc-cce",
+   "jpsc-cce",
+   "kpsc-kas",
+   "kerala-psc-kas",
+   "mppsc-sse",
+   "mpsc-rajyaseva",
+   "manipur-psc-cce",
+   "meghalaya-psc-cce",
+   "mizoram-psc-cce",
+   "npsc-cce",
+   "opsc-ocs",
+   "ppsc-pcs",
+   "rpsc-ras",
+   "spsc-cce",
+   "tgpsc-group-1",
+   "tnpsc-group-1",
+   "tpsc-tcs-tps",
+   "ukpsc-pcs",
+   "uppsc-pcs",
+   "wbcs"
+  ],
   "pay": {
    "start": "\u20b97-14 LPA (state civil services to IAS, including allowances)",
    "mid": "\u20b915-25 LPA",
@@ -12257,7 +12326,8 @@
    }
   ],
   "exam_ids": [
-   "cuet-ug"
+   "cuet-ug",
+   "up-cpet"
   ],
   "pay": {
    "start": "\u20b92-4 LPA",
@@ -12885,7 +12955,7 @@
   "career_id": "sports-analytics-and-performance-analysis",
   "name": "Sports Analytics and Performance Analysis",
   "branch_id": "STATISTICS",
-  "domain": "Science",
+  "domain": "Sports",
   "eligible_streams": [
    "Commerce",
    "Science (PCM)"
@@ -12967,7 +13037,7 @@
   "career_id": "sports-coaching-and-athletics",
   "name": "Sports Coaching and Athletics",
   "branch_id": "PHYSED",
-  "domain": "Arts & Humanities",
+  "domain": "Sports",
   "eligible_streams": [
    "All"
   ],
@@ -13031,7 +13101,7 @@
   "career_id": "sports-journalism-and-broadcasting",
   "name": "Sports Journalism and Broadcasting",
   "branch_id": "JOURNAL",
-  "domain": "Arts & Humanities",
+  "domain": "Sports",
   "eligible_streams": [
    "All"
   ],
@@ -13112,7 +13182,7 @@
   "career_id": "sports-management",
   "name": "Sports Management",
   "branch_id": "MBA",
-  "domain": "Commerce & Management",
+  "domain": "Sports",
   "eligible_streams": [
    "All"
   ],
@@ -13197,7 +13267,7 @@
   "career_id": "sports-psychology",
   "name": "Sports Psychology",
   "branch_id": "PSYCH",
-  "domain": "Arts & Humanities",
+  "domain": "Sports",
   "eligible_streams": [
    "All"
   ],
@@ -13277,7 +13347,7 @@
   "career_id": "sports-science-and-exercise-physiology",
   "name": "Sports Science and Exercise Physiology",
   "branch_id": "PHYSED",
-  "domain": "Arts & Humanities",
+  "domain": "Sports",
   "eligible_streams": [
    "Science (PCB)",
    "Science (PCM)"

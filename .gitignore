@@ -13,6 +13,8 @@ lerna-debug.log*
 # ...except the build inputs the data scripts read — these ship with the
 # repo so anyone can rebuild public/data from a bare clone
 !data-sources/*.csv
+# and the audit trail and change log (scripts/data_versions.py)
+!docs/audits/*.csv
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json

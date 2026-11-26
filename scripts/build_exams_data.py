@@ -129,7 +129,10 @@ def first_month(text):
 
 
 def fee_number(text):
-    m = re.search(r"(\d[\d,]*)", str(text).replace(",", ""))
+    """The fee in rupees: the first amount after "Rs." / "₹", else the first
+    number. Not a leading year ("2026 (CAHET ...): Rs. 750/-" is 750)."""
+    t = str(text).replace(",", "")
+    m = re.search(r"(?:Rs\.?|₹|INR)\s*(\d+)", t) or re.search(r"(\d+)", t)
     return int(m.group(1)) if m else None
 
 
@@ -158,6 +161,15 @@ def main():
               if not k.startswith("_")}
     d = pd.read_csv(SRC)
     active = d[d.status == "active"]
+    # every active row states its stage, and one exam's rows agree: the
+    # card keeps the first, so a blank or different one on a later row
+    # would otherwise pass unseen
+    stages = {"After Class 10", "After Class 12", "After graduation"}
+    bad = active[~active["stage"].isin(stages)]
+    assert bad.empty, (f"{SRC}: stage must be one of {sorted(stages)}: "
+                       + ", ".join(f"{r.row_id} {r.stage!r}" for r in bad.itertuples()))
+    mixed = active.groupby("exam_name")["stage"].nunique()
+    assert (mixed == 1).all(), f"{SRC}: exams with two stages: {list(mixed[mixed > 1].index)}"
     dead = d[d.status != "active"]
 
     succ_aliases = defaultdict(set)
@@ -183,7 +195,10 @@ def main():
             sid = slug(name) + "-" + re.sub(r"[^a-z0-9]+", "-",
                                             str(f["scope"]).lower())[:20].strip("-")
         seen[sid] = True
-        month, month_n = month_of(f["test_date"])
+        # "No UG entrance test in 2026" has no test month, whatever it says
+        month, month_n = ((None, None)
+                          if str(f["test_date"]).strip().lower().startswith("no ")
+                          else month_of(f["test_date"]))
         apply_month, apply_month_n = first_month(f["forms_out"])
         aliases = set(str(a) for a in g.aliases.dropna() if str(a).strip())
         def _k(x):
@@ -221,6 +236,14 @@ def main():
             # the backup-exam finder's subject check and private-seat CETs
             "subjects": access.get(sid, {}).get("subjects"),
             "fills_private": bool(access.get(sid, {}).get("fills_private")),
+            # a state exam any Indian can sit, with reservation for that
+            # state's residents (state PSCs, most state police boards)
+            "reserved_for": access.get(sid, {}).get("reserved_for"),
+            # a job recruitment ("Recruitment exam") rather than admission
+            # to a course: every Government Jobs exam, and the armed forces
+            # entries exam_access.json marks (Agniveer, Coast Guard, AFCAT)
+            "recruitment": bool(access.get(sid, {}).get("recruitment"))
+                           or "Government Jobs" in streams,
             "url": f["url"] if pd.notna(f["url"]) else None,
             "eligibility": (str(f["eligibility"]).strip()
                             if pd.notna(f["eligibility"]) else None),
@@ -242,6 +265,13 @@ def main():
             "pattern_rows": pat.get("rows"),
             "pattern_note": pat.get("note") or None,
             "remarks": str(f["remarks"]) if pd.notna(f["remarks"]) else None,
+            # who can sit it: after Class 10, after Class 12 (every college
+            # entrance exam, the default) or after graduation (CDS, UPSC CSE)
+            "stage": (str(f["stage"]).strip() if pd.notna(f["stage"])
+                      else None),
+            # recruitment exams' stages in order, "Prelims → Mains → ..."
+            "selection_process": (str(f["selection_process"]).strip()
+                                  if pd.notna(f["selection_process"]) else None),
             "replaces": sorted(replaced_here) or None,
             "aliases": sorted(aliases) or None,
             "predictor_exam": (str(f["avanti_predictor"]).strip()
@@ -290,6 +320,17 @@ def main():
         if named:
             careers = (named + [c for c in careers
                                 if c["label"] not in {n["label"] for n in named}])[:5]
+        # an exam whose stream says too little (PAU-CET's "Engineering" is
+        # agricultural and food engineering, not electrical) names its
+        # careers in exam_access.json; [] means none. The list is used as
+        # given, so it may pass the usual five (IAT: sciences and Bhopal's
+        # three B.Tech branches)
+        if "careers" in access.get(sid, {}):
+            names = access[sid]["careers"]
+            bad = [nm for nm in names if _k2(nm) not in career_by_name]
+            assert not bad, f"{EXAM_ACCESS} {sid}: no such career {bad}"
+            careers = [{"label": nm, "slug": career_by_name[_k2(nm)]}
+                       for nm in names]
         card["careers"] = careers or None
         # families whose colleges live on the Colleges tab: JoSAA (128
         # engineering) and NEET (780 NMC medical colleges)
@@ -324,15 +365,44 @@ def main():
     assert not unknown, f"{APPLICANTS}: exam ids with no card: {unknown}"
     for c in cards:
         c["applicants"] = None
+        c["vacancies"] = None
+    def whole(v, what):
+        assert v == v and float(v) == int(v) and int(v) > 0, \
+            f"{APPLICANTS} {r.exam_id}: {what} must be a whole number, got {v!r}"
+        return int(v)
+
+    def given(v):
+        return v == v and str(v).strip() != ""
+
     for r in app.itertuples():
         c = by_id.get(r.exam_id)
-        n = r.applicants_registered if r.applicants_registered == r.applicants_registered \
-            else r.applicants_appeared
-        if c is None or n != n:
+        # recruitment exams: the posts notified in a cycle
+        if given(r.vacancies):
+            assert given(r.source_vacancies_url), f"{r.exam_id}: vacancies with no source"
+            what = r.vacancies_what if given(r.vacancies_what) else None
+            c["vacancies"] = {"count": whole(r.vacancies, "vacancies"),
+                              "year": whole(r.vacancies_year, "vacancies_year"),
+                              # which posts the count covers, when it's
+                              # more than one (TN: constable, warder, fireman)
+                              "what": None if what == "Posts notified" else what,
+                              "source": r.source_vacancies_url}
+        # registered (applied) when known, else appeared; the card labels
+        # which ("Applied" / "Appeared")
+        basis = ("registered" if given(r.applicants_registered)
+                 else "appeared" if given(r.applicants_appeared) else None)
+        if basis is None:
             continue
-        c["applicants"] = {"count": int(n), "year": int(r.applicants_year),
+        assert given(r.source_applicants_url), f"{r.exam_id}: applicants with no source"
+        c["applicants"] = {"count": whole(getattr(r, f"applicants_{basis}"),
+                                          f"applicants_{basis}"),
+                           "basis": basis,
+                           "year": whole(r.applicants_year, "applicants_year"),
                            "source": r.source_applicants_url}
     print("with applicants:", sum(1 for c in cards if c["applicants"]))
+    print("with vacancies:", sum(1 for c in cards if c["vacancies"]))
+    stages = {"After Class 10", "After Class 12", "After graduation"}
+    odd = {c["exam_id"]: c["stage"] for c in cards if c["stage"] not in stages}
+    assert not odd, f"stage must be one of {stages} on every active row of {SRC}: {odd}"
 
     # exam_id is the React key and the expand toggle — a duplicate breaks both
     ids = [c["exam_id"] for c in cards]
@@ -363,7 +433,8 @@ def main():
     json.dump({"date": datetime.date.today().strftime("%-d %B %Y")},
               open("public/data/last_updated.json", "w"))
     with open(OUT, "w") as fh:
-        json.dump(cards, fh, indent=1)
+        # allow_nan=False: a NaN would make exams.json unreadable to JSON.parse
+        json.dump(cards, fh, indent=1, allow_nan=False)
     print(f"{len(cards)} exam cards → {OUT}")
     print("with fee:", sum(1 for c in cards if c["fee_number"]))
     print("with month:", sum(1 for c in cards if c["test_month"]))

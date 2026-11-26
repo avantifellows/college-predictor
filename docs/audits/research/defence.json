@@ -1,0 +1,353 @@
+{
+  "existing": [
+    {
+      "exam_id": "nda",
+      "stage": "After Class 12",
+      "selection_process": "Written exam (Maths 300 + General Ability Test 600, objective) → SSB test/interview (900 marks) → Medical exam → Final merit list",
+      "applicants": {
+        "year": 2023,
+        "registered": 764227,
+        "appeared": 526384,
+        "source_url": "https://www.upsc.gov.in/uploads/2026/06/74th-Annual-Report.pdf",
+        "source_type": "official",
+        "note": "UPSC 74th Annual Report (2023-24), Appendix: NDA & NA (I) 2023: 420,774 applied, 292,632 appeared; NDA & NA (II) 2023: 343,453 applied, 233,752 appeared. Summed for calendar year 2023. Latest UPSC annual report published; no official 2025/2026 counts found."
+      },
+      "vacancies": {
+        "year": 2026,
+        "count": 788,
+        "source_url": "https://www.upsc.gov.in/uploads/2026/06/Notif-NDA-II-2026-Engl-200526-1.pdf",
+        "source_type": "official",
+        "note": "NDA & NA (I) 2026: 394 (Notice 3/2026-NDA-I) + NDA & NA (II) 2026: 394 (Notice 10/2026-NDA-II; 370 men, 24 women). Approximate and provisional per UPSC."
+      },
+      "sources": [
+        "https://www.upsc.gov.in/uploads/2026/06/74th-Annual-Report.pdf",
+        "https://www.upsc.gov.in/uploads/2026/05/National-Defence-Academy-and-Naval-Academy-Examination-I-2026-Notice-E.pdf",
+        "https://www.upsc.gov.in/uploads/2026/06/Notif-NDA-II-2026-Engl-200526-1.pdf",
+        "https://www.upsc.gov.in/annual-reports/"
+      ],
+      "notes": "Applicants are from the 2023 cycle (latest UPSC annual report); vacancies are from the 2026 notifications. Both are official. Each sitting alone: 2026 vacancies 394 per sitting."
+    },
+    {
+      "exam_id": "upsc-cds",
+      "stage": "After graduation",
+      "selection_process": "Written exam (English, GK, Maths for IMA/INA/AFA; English and GK for OTA) → SSB test/interview → Medical exam → Final merit list",
+      "applicants": {
+        "year": 2023,
+        "registered": 410149,
+        "appeared": 221241,
+        "source_url": "https://www.upsc.gov.in/uploads/2026/06/74th-Annual-Report.pdf",
+        "source_type": "official",
+        "note": "UPSC 74th Annual Report (2023-24), Appendix: CDS (I) 2023: 230,796 applied, 125,356 appeared; CDS (II) 2023: 179,353 applied, 95,885 appeared. Summed for 2023."
+      },
+      "vacancies": {
+        "year": 2026,
+        "count": 902,
+        "source_url": "https://www.upsc.gov.in/uploads/2026/06/Notif-CDS-II-2026-Engl-200526-1.pdf",
+        "source_type": "official",
+        "note": "CDS (I) 2026: 451 + CDS (II) 2026: 451 (Notice 11/2026-CDS-II: IMA 100, INA 26, AFA 32, OTA SSC Men 275, OTA SSC Women 18). Tentative per UPSC."
+      },
+      "sources": [
+        "https://www.upsc.gov.in/uploads/2026/06/74th-Annual-Report.pdf",
+        "https://www.upsc.gov.in/uploads/2026/05/Combined-Defence-Services-Examination-I-2026-Notice-E.pdf",
+        "https://www.upsc.gov.in/uploads/2026/06/Notif-CDS-II-2026-Engl-200526-1.pdf"
+      ],
+      "notes": "Applicants from the 2023 cycle (latest UPSC annual report); vacancies from 2026 notifications. All official."
+    },
+    {
+      "exam_id": "afcat",
+      "stage": "After graduation",
+      "selection_process": "Online AFCAT (plus EKT for Ground Duty Technical) → AFSB testing (Stage I: officer intelligence rating, picture perception & discussion; Stage II: psychological tests, group tests, interview; CPSS for Flying) → Medical exam → All-India merit list",
+      "applicants": null,
+      "vacancies": {
+        "year": 2026,
+        "count": 719,
+        "source_url": "https://afcat.edcil.co.in/assets/images/news/AFCAT_02_2026/Notification%20for%20AFCAT%20Cycle%2002-2026.pdf",
+        "source_type": "official",
+        "note": "AFCAT 01/2026: 340 (Flying 38, Ground Duty Tech 188, Ground Duty Non-Tech 114) + AFCAT 02/2026: 379 (Flying 35, GD Tech 211, GD Non-Tech 107, GATE score entry 26). Summed from the official notification tables; NCC Special Entry seats (10% of CDSE/AFCAT seats) not counted. Tentative."
+      },
+      "sources": [
+        "https://afcat.edcil.co.in/assets/images/news/AFCAT_02_2025/Notification_AFCAT_01-2026.pdf",
+        "https://afcat.edcil.co.in/assets/images/news/AFCAT_02_2026/Notification%20for%20AFCAT%20Cycle%2002-2026.pdf",
+        "https://afcat.edcil.co.in/",
+        "https://competition.careers360.com/articles/how-many-candidates-apply-for-afcat-every-year"
+      ],
+      "notes": "Applicant counts not published by IAF. One coaching site says 1.5-2 lakh apply each year but names no source, so not used. Vacancy totals summed by hand from the 2026 notifications on afcat.edcil.co.in."
+    },
+    {
+      "exam_id": "agniveer-army",
+      "stage": "After Class 10",
+      "selection_process": "Online Common Entrance Exam (CEE) → Recruitment rally (physical fitness test, physical measurement, adaptability test) → Document verification & medical exam → Merit list & enrolment",
+      "applicants": {
+        "year": 2024,
+        "registered": 1280000,
+        "appeared": null,
+        "source_url": "https://theprint.in/defence/agniveer-applicants-in-army-up-nearly-10-compared-to-last-year/2046980",
+        "source_type": "news",
+        "note": "ThePrint (19 Apr 2024), citing sources in the defence establishment: about 12.8 lakh applied for the 2024-25 Army Agniveer recruitment (11.3 lakh in 2023). Rounded figure; no official or 2025/2026 count found."
+      },
+      "vacancies": {
+        "year": 2026,
+        "count": 25000,
+        "source_url": "https://www.newsx.com/education/join-indian-army-agniveer-recruitment-2026-over-25000-vacancies-announced-under-agnipath-scheme-apply-online-check-age-limit-salary-physical-test-details-and-last-date-166077",
+        "source_type": "news",
+        "note": "News report (Feb 2026) says 'over 25,000' vacancies for the 2026-27 cycle, attributed to the Army notification. Approximate. The Army issues notifications per recruiting office, with no all-India total on the open site."
+      },
+      "sources": [
+        "https://theprint.in/defence/agniveer-applicants-in-army-up-nearly-10-compared-to-last-year/2046980",
+        "https://www.newsx.com/education/join-indian-army-agniveer-recruitment-2026-over-25000-vacancies-announced-under-agnipath-scheme-apply-online-check-age-limit-salary-physical-test-details-and-last-date-166077",
+        "https://www.pw.live/defence/exams/indian-army-agniveer-selection-process"
+      ],
+      "notes": "joinindianarmy.nic.in is behind a CAPTCHA, so official notices could not be opened. Selection process from aggregator pages. Stage is After Class 10 (Agniveer GD needs Class 10; some tradesman posts take Class 8/10; clerk/technical need Class 12). Applicants (2024) and vacancies (2026) are from different cycles."
+    },
+    {
+      "exam_id": "agniveer-navy-ssr-mr",
+      "stage": "After Class 10",
+      "selection_process": "Stage I: computer-based Indian Navy Entrance Test (INET) → Stage II: physical fitness test, written exam & recruitment medical → Final medical at INS Chilka → Enrolment",
+      "applicants": null,
+      "vacancies": null,
+      "sources": [
+        "https://www.joinindiannavy.gov.in/en/page/agniveer-ssr.html",
+        "https://www.joinindiannavy.gov.in/en/page/agniveer-mr.html",
+        "https://www.joinindiannavy.gov.in/en/page/selection-procedure-agniveer-ssr-and-agniveer-mr.html",
+        "https://www.pw.live/news/indian-navy-agniveer-application-form-2026-for-agniveer-ssr-mr-ssr-med"
+      ],
+      "notes": "Stage After Class 10 because Agniveer MR needs Class 10 (50%); Agniveer SSR needs Class 12 with Maths & Physics (50%) or an engineering diploma. The official pages mention Stage I online exam and Stage II written exam; the rest of the stage order is from aggregator pages. Navy does not publish an all-India vacancy count or applicant count for SSR/MR; none found in news."
+    },
+    {
+      "exam_id": "agniveer-vayu",
+      "stage": "After Class 12",
+      "selection_process": "Phase I: online test → Phase II: physical fitness test (1.6 km run, push-ups, sit-ups, squats) & Adaptability Tests I and II → Phase III: medical exam → State-wise provisional select list",
+      "applicants": null,
+      "vacancies": null,
+      "sources": [
+        "https://meghalaya.gov.in/sites/default/files/announcement/Advt_Agniveervayu_01_of_27.pdf"
+      ],
+      "notes": "Selection process from the official Agniveervayu Intake 01/2027 advertisement (hosted on meghalaya.gov.in). The advertisement gives no vacancy count; vacancies are allocated state-wise. No official or attributed applicant count found. Diploma (3-year engg) and 2-year vocational holders also eligible."
+    },
+    {
+      "exam_id": "indian-army-tes",
+      "stage": "After Class 12",
+      "selection_process": "Shortlisting by JEE Main rank and Class 12 PCM marks → SSB interview (5 days) → Medical exam → Final merit list",
+      "applicants": null,
+      "vacancies": {
+        "year": 2026,
+        "count": 90,
+        "source_url": "https://ssbcrackexams.com/tes-56-notification-2026-indian-army-opens-technical-entry-scheme-for-102-pcm-candidates/",
+        "source_type": "aggregator",
+        "note": "10+2 TES-56 (course Jan 2027), applications 13 May-12 Jun 2026: 90 provisional vacancies, as reported from the Army notification. TES-55 (Jul 2026 course, notified Oct 2025) also had 90."
+      },
+      "sources": [
+        "https://ssbcrackexams.com/tes-56-notification-2026-indian-army-opens-technical-entry-scheme-for-102-pcm-candidates/",
+        "https://www.sarkarijobs.com/indian-army-tes-recruitment"
+      ],
+      "notes": "joinindianarmy.nic.in is behind a CAPTCHA; figures from aggregator pages that report the official notification. Army does not publish applicant counts."
+    },
+    {
+      "exam_id": "indian-navy-10-2-b-tech-cadet-entry-scheme",
+      "stage": "After Class 12",
+      "selection_process": "Shortlisting by JEE Main CRL rank → SSB interview → Medical exam → Merit list (SSB marks and medical fitness)",
+      "applicants": null,
+      "vacancies": {
+        "year": 2026,
+        "count": 60,
+        "source_url": "https://www.joinindiannavy.gov.in/files/Advertisement_10+2_B.Tech_Jan_27.pdf",
+        "source_type": "official",
+        "note": "10+2 (B.Tech) Cadet Entry, course Jan 2027 (applications 29 May-18 Jun 2026): Mechanical 30 + Electronics & Communication 30; max 8 for women. Tentative."
+      },
+      "sources": [
+        "https://www.joinindiannavy.gov.in/files/Advertisement_10+2_B.Tech_Jan_27.pdf"
+      ],
+      "notes": "Navy does not publish applicant counts."
+    },
+    {
+      "exam_id": "indian-army-tgc-ssc-tech",
+      "stage": "After graduation",
+      "selection_process": "Shortlisting by engineering degree marks (no written exam) → SSB interview → Medical exam → Final merit list",
+      "applicants": null,
+      "vacancies": {
+        "year": 2026,
+        "count": 411,
+        "source_url": "https://ssbcrackexams.com/indian-army-tgc-145-notification-2026/",
+        "source_type": "aggregator",
+        "note": "TGC-145 (Jul 2027 course, applications 30 Sep-29 Oct 2026): 30 + SSC (Tech)-68 Men / SSCW (Tech)-39 Women (Apr 2027 course, applications Jul-Aug 2026): 381 (350 men, 31 women). Sum of the two entries. Tentative."
+      },
+      "sources": [
+        "https://ssbcrackexams.com/indian-army-tgc-145-notification-2026/",
+        "https://ssbcrackexams.com/indian-army-ssc-tech-68th-men-entry-april-2027-notification-released/",
+        "https://testbook.com/news/indian-army-ssc-tech-68th-recruitment-notifcation-2026-out/"
+      ],
+      "notes": "Figures from aggregator/news pages reporting the Army notifications; joinindianarmy.nic.in is behind a CAPTCHA. One source lists SSCW Tech as 29 + 2 for defence widows (still 31). Applicant counts not published."
+    },
+    {
+      "exam_id": "indian-navy-ssc-officer-entries",
+      "stage": "After graduation",
+      "selection_process": "Shortlisting by normalised degree marks → SSB interview (plus CPSS/aviation medical for Pilot and Observer) → Medical exam → Merit list",
+      "applicants": null,
+      "vacancies": {
+        "year": 2026,
+        "count": 275,
+        "source_url": "https://www.joinindiannavy.gov.in/files/SSC_Notification_for_ADV_Jun_27.pdf",
+        "source_type": "official",
+        "note": "SSC various entries, Jun 2027 (AT 27) course, applications 25 Jun-27 Jul 2026 (later extended to 3 Aug 2026): sum of 13 branch rows (Executive GS(X)/Hydro 90, Pilot 25, Observer 18, ATC 15, Logistics 10, NAIC 14, Education 5+8, Engineering 24, Submarine Tech Engg 8, Electrical 32, Submarine Tech Elec 8, Naval Constructor 18). Tentative."
+      },
+      "sources": [
+        "https://www.joinindiannavy.gov.in/files/SSC_Notification_for_ADV_Jun_27.pdf",
+        "https://www.joinindiannavy.gov.in/files/Advertisement_SSC_Jan_2027.pdf"
+      ],
+      "notes": "Total summed by hand from the official table. A separate Jan 2027 course advertisement also exists (not summed). Navy does not publish applicant counts."
+    },
+    {
+      "exam_id": "indian-army-ncc-special-entry-scheme",
+      "stage": "After graduation",
+      "selection_process": "Shortlisting by degree marks and NCC 'C' certificate (no written exam) → SSB interview → Medical exam → Document verification & final merit list",
+      "applicants": null,
+      "vacancies": {
+        "year": 2026,
+        "count": 70,
+        "source_url": "https://www.pw.live/defence/exams/ncc-special-entry-scheme-125th-course-apr-2027-for-men",
+        "source_type": "aggregator",
+        "note": "NCC Special Entry 125th course (Apr 2027), notified 10 Jul 2026: men only, 63 general + 7 wards of battle casualties. Women's vacancies not found, so not included."
+      },
+      "sources": [
+        "https://www.pw.live/defence/exams/ncc-special-entry-scheme-125th-course-apr-2027-for-men",
+        "https://ssbcrackexams.com/indian-army-invites-applications-for-125th-ncc-special-entry-scheme-april-2027-course/"
+      ],
+      "notes": "joinindianarmy.nic.in is behind a CAPTCHA; figures from aggregator pages. Count is men only. Applicant counts not published."
+    }
+  ],
+  "new": [
+    {
+      "exam_name": "ICG Navik GD (Indian Coast Guard Navik General Duty)",
+      "aliases": "Coast Guard Navik GD; CGEPT Navik GD; ICG Sailor GD; Coast Guard Enrolled Personnel Test",
+      "course": "Defence",
+      "degrees": "",
+      "scope": "All India",
+      "url": "https://joinindiancoastguard.cdac.in",
+      "stage": "After Class 12",
+      "duration": "60 minutes",
+      "mode": "Computer Based",
+      "forms_out": "October (2026 cycle, for batches 01/2027 & 02/2027)",
+      "last_date": "3rd week of October (21 Oct in 2026 cycle)",
+      "test_date": "November (Stage I held 17-18 Nov 2026)",
+      "marking": "+1/0",
+      "eligibility": "Class 12 passed with Maths and Physics from a board recognised by COBSE. Age: born between 01 Nov 2005 and 01 May 2009 for the 01/27 and 02/27 batches; relaxation of 3 years for OBC and 5 years for SC/ST. Open to men and women. Must meet ICG medical and physical standards.",
+      "application_fee": "Rs. 550/- (no fee for SC/ST)",
+      "paper_pattern": "Stage I is one computer based test of 100 objective questions, 1 mark each, in Hindi and English, 1 hour, no negative marking. Passing marks: 40 (UR/EWS/OBC), 35 (SC/ST). Section-wise syllabus is on the recruitment portal, not in the advertisement.",
+      "selection_process": "Stage I: computer based test → Stage II: physical fitness test, assessment & adaptability test, document verification, recruitment medical → Stage III: document check & pre-enrolment medical at INS Chilka → Stage IV: verification of original documents with boards",
+      "remarks": "Final merit is based on Stage I marks; Stage II is qualifying only. Male Navik GD vacancies are split across five zones with separate merit lists; female vacancies are all-India.",
+      "applicants": null,
+      "vacancies": {
+        "year": 2026,
+        "count": 260,
+        "source_url": "https://ssc.gov.in/api/attachment/uploads/masterData/NoticeBoards/advertisement_06102026.pdf",
+        "source_type": "official",
+        "note": "CGEPT 01/2027 (130: 117 male, 13 female) + CGEPT 02/2027 (130: 117 male, 13 female), both notified 06 Oct 2026. Tentative."
+      },
+      "sources": [
+        "https://ssc.gov.in/api/attachment/uploads/masterData/NoticeBoards/advertisement_06102026.pdf",
+        "https://ssc.gov.in/api/attachment/uploads/masterData/NoticeBoards/English_notice_06112026.pdf",
+        "https://joinindiancoastguard.cdac.in/cgept/careerOpportunity/navik/gd"
+      ],
+      "notes": "All figures from the official CGEPT 01/2027 & 02/2027 advertisement, hosted on ssc.gov.in; SSC handled applications this cycle. The joinindiancoastguard.cdac.in PDFs returned 403. No official or attributed applicant count was found. Exam dates are from the SSC notice dated 06 Nov 2026. A 1-hour test is stated; no minimum percentage in Class 12 is stated in the advertisement."
+    },
+    {
+      "exam_name": "ICG Navik DB (Indian Coast Guard Navik Domestic Branch)",
+      "aliases": "Coast Guard Navik DB; CGEPT Navik Domestic Branch; ICG Cook Steward",
+      "course": "Defence",
+      "degrees": "",
+      "scope": "All India",
+      "url": "https://joinindiancoastguard.cdac.in",
+      "stage": "After Class 10",
+      "duration": "60 minutes",
+      "mode": "Computer Based",
+      "forms_out": "October (2026 cycle, batch 02/2027)",
+      "last_date": "3rd week of October (21 Oct in 2026 cycle)",
+      "test_date": "November (Stage I held 17-18 Nov 2026)",
+      "marking": "+1/0",
+      "eligibility": "Class 10 passed from a board recognised by COBSE. Age: born between 01 Nov 2005 and 01 Oct 2009 for the 02/27 batch; relaxation of 3 years for OBC and 5 years for SC/ST. Men only. Must meet ICG medical and physical standards.",
+      "application_fee": "Rs. 550/- (no fee for SC/ST)",
+      "paper_pattern": "Stage I is one computer based test of 100 objective questions, 1 mark each, in Hindi and English, 1 hour, no negative marking. Passing marks: 40 (UR/EWS/OBC), 35 (SC/ST). Section-wise syllabus is on the recruitment portal, not in the advertisement.",
+      "selection_process": "Stage I: computer based test → Stage II: physical fitness test, assessment & adaptability test, document verification, recruitment medical → Stage III: document check & pre-enrolment medical at INS Chilka → Stage IV: verification of original documents with boards",
+      "remarks": "Navik DB is recruited only in the 02 batch each cycle and only men can apply. Recruitment is on an all-India basis.",
+      "applicants": null,
+      "vacancies": {
+        "year": 2026,
+        "count": 25,
+        "source_url": "https://ssc.gov.in/api/attachment/uploads/masterData/NoticeBoards/advertisement_06102026.pdf",
+        "source_type": "official",
+        "note": "CGEPT 02/2027 batch (UR 11, EWS 2, OBC 7, SC 5, ST 0), notified 06 Oct 2026. Tentative."
+      },
+      "sources": [
+        "https://ssc.gov.in/api/attachment/uploads/masterData/NoticeBoards/advertisement_06102026.pdf",
+        "https://ssc.gov.in/api/attachment/uploads/masterData/NoticeBoards/English_notice_06112026.pdf"
+      ],
+      "notes": "Same CGEPT test as Navik GD, but a separate record because eligibility (Class 10) and stage differ. No official or attributed applicant count found. The same advertisement also lists 20 Hygienist-I posts (02/2027), which are not included here."
+    },
+    {
+      "exam_name": "ICG Yantrik (Indian Coast Guard Yantrik)",
+      "aliases": "Coast Guard Yantrik; CGEPT Yantrik; ICG Technical Sailor; Yantrik Mechanical/Electrical/Electronics",
+      "course": "Defence",
+      "degrees": "",
+      "scope": "All India",
+      "url": "https://joinindiancoastguard.cdac.in",
+      "stage": "After Class 10",
+      "duration": "60 minutes",
+      "mode": "Computer Based",
+      "forms_out": "October (2026 cycle, batch 01/2027)",
+      "last_date": "3rd week of October (21 Oct in 2026 cycle)",
+      "test_date": "November (Stage I held 17-18 Nov 2026)",
+      "marking": "+1/0",
+      "eligibility": "Class 10 from a COBSE-recognised board plus an AICTE-approved diploma (3 or 4 years) in Electrical, Mechanical or Electronics/Telecommunication (Radio/Power) Engineering; or Class 10 and 12 plus such a diploma of 2 or 3 years. Age: born between 01 May 2005 and 01 May 2009 for the 01/27 batch; relaxation of 3 years for OBC and 5 years for SC/ST. Men only.",
+      "application_fee": "Rs. 550/- (no fee for SC/ST)",
+      "paper_pattern": "Stage I is one computer based test of 100 objective questions, 1 mark each, in Hindi and English, 1 hour, no negative marking. Passing marks: 40 (UR/EWS/OBC), 35 (SC/ST). Section-wise syllabus is on the recruitment portal, not in the advertisement.",
+      "selection_process": "Stage I: computer based test → Stage II: physical fitness test, assessment & adaptability test, document verification, recruitment medical → Stage III: document check & pre-enrolment medical at INS Chilka → Stage IV: verification of original documents with boards",
+      "remarks": "Yantrik is recruited only in the 01 batch each cycle. Starting basic pay is Rs. 29,200/- (Pay Level 5) plus Yantrik pay of Rs. 6,200/-.",
+      "applicants": null,
+      "vacancies": {
+        "year": 2026,
+        "count": 60,
+        "source_url": "https://ssc.gov.in/api/attachment/uploads/masterData/NoticeBoards/advertisement_06102026.pdf",
+        "source_type": "official",
+        "note": "CGEPT 01/2027 batch: Mechanical 28, Electrical 23, Electronics 9; notified 06 Oct 2026. Tentative."
+      },
+      "sources": [
+        "https://ssc.gov.in/api/attachment/uploads/masterData/NoticeBoards/advertisement_06102026.pdf",
+        "https://ssc.gov.in/api/attachment/uploads/masterData/NoticeBoards/English_notice_06112026.pdf"
+      ],
+      "notes": "Stage set to After Class 10 because the lowest route is Class 10 + engineering diploma. No official or attributed applicant count found. The advertisement says candidates without the original diploma may bring a provisional certificate at Stage II but must show the original at Stage III."
+    },
+    {
+      "exam_name": "ICG AC (Indian Coast Guard Assistant Commandant)",
+      "aliases": "Coast Guard Assistant Commandant; CGCAT; Coast Guard Common Admission Test; ICG Officer GD; ICG Officer Technical",
+      "course": "Defence",
+      "degrees": "",
+      "scope": "All India",
+      "url": "https://joinindiancoastguard.cdac.in",
+      "stage": "After graduation",
+      "duration": "120 minutes",
+      "mode": "Computer Based",
+      "forms_out": "June-July and January-February (two batches a year, as per notification)",
+      "last_date": "As per notification (27 Jul 2025 for the 2027 batch)",
+      "test_date": "As per notification",
+      "marking": "+4/-1",
+      "eligibility": "General Duty: a graduate degree, with Maths and Physics up to Class 12 (or a diploma with Maths and Physics). Technical: an engineering degree in specified mechanical or electrical/electronics branches (or AMIE), with Maths and Physics up to Class 12. Final-year students can apply. Age 21-25 years (for the 2027 batch, born 01 Jul 2001 to 30 Jun 2005); relaxation of 5 years for SC/ST and 3 years for OBC where posts are reserved. Men only for this batch.",
+      "application_fee": "Rs. 300/- (no fee for SC/ST)",
+      "paper_pattern": "CGCAT (Stage I) has 100 objective questions in English over 2 hours: English 25, Reasoning & Numerical Ability 25, General Science & Mathematical Aptitude 25, General Knowledge 25. Each correct answer gets 4 marks; 1 mark is deducted for each wrong answer.",
+      "selection_process": "Stage I: CGCAT (online test) → Stage II: Preliminary Selection Board (cognitive test, picture perception & discussion) & document check → Stage III: Final Selection Board at Noida (psychological test, group tasks, interview) → Stage IV: medical exam at Base Hospital, New Delhi → Stage V: induction at INA Ezhimala",
+      "remarks": "This is a Group A gazetted officer post, with starting basic pay of Rs. 56,100/- (Pay Level 10). The final all-India merit list combines Stage I and Stage III marks.",
+      "applicants": null,
+      "vacancies": {
+        "year": 2025,
+        "count": 170,
+        "source_url": "https://joinindiancoastguard.cdac.in/cgcat/assets/img/news/Advertisement_for_Asst_Comdt_2027_Batch.pdf",
+        "source_type": "official",
+        "note": "Assistant Commandant 2027 batch, notified July 2025: General Duty 140 + Technical (Engg/Elect) 30. Tentative."
+      },
+      "sources": [
+        "https://joinindiancoastguard.cdac.in/cgcat/assets/img/news/Advertisement_for_Asst_Comdt_2027_Batch.pdf",
+        "https://joinindiancoastguard.cdac.in/cgcat/careerOpportunity/assistantCommandant/gd"
+      ],
+      "notes": "Latest advertisement found is for the 2027 batch (applications 08-27 Jul 2025). No later batch notice was found on the official portal or in searches, so the 2025 notification is used. The advertisement lists men only and states no minimum percentage. No official or attributed applicant count found. The CGCAT test date is not in the advertisement; a news report puts it in September 2025, but I did not open that report."
+    }
+  ]
+}

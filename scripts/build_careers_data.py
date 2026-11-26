@@ -145,6 +145,22 @@ CAREER_EXAMS = {
     # undergraduate routes the cutoff tables don't carry
     "Business Administration (BBA / MBA)": ["cuet-ug", "jipmat", "nmims-npat"],
     "Philosophy": ["cuet-ug"],
+    # ICAI's own levels, after Class 12 (Inter also direct after a degree)
+    "Chartered Accountancy (CA)": ["ca-foundation", "ca-inter"],
+    # UPSC's own exam; every state PSC's names this career on its page
+    "Public Administration (Civil Services)": ["upsc-cse"],
+}
+
+# the Sports domain on the Careers menu
+SPORTS_CAREERS = {
+    "Physical Education Teaching",
+    "Professional Athlete (Sports Quota and Khelo India)",
+    "Sports Analytics and Performance Analysis",
+    "Sports Coaching and Athletics",
+    "Sports Journalism and Broadcasting",
+    "Sports Management",
+    "Sports Psychology",
+    "Sports Science and Exercise Physiology",
 }
 
 RIASEC = ["R", "I", "A", "S", "E", "C"]
@@ -708,6 +724,10 @@ def main():
             "Defence": "Armed Forces",
         }
         vertical = DOMAIN_FOLD.get(vertical, vertical)
+        # sport is its own domain, whatever branch the career sits on
+        # (Sports Management on MBA, Sports Psychology on Psychology)
+        if name in SPORTS_CAREERS:
+            vertical = "Sports"
         # the armed forces are their own domain on the Careers menu;
         # everything without one is "Others"
         if vertical == "Other":
@@ -756,6 +776,8 @@ def main():
     # the list reads A-Z whatever order the sheet's rows are in (renamed
     # careers keep their old row; new ones are appended)
     cards.sort(key=lambda c: c["name"].lower())
+    lost = SPORTS_CAREERS - {c["name"] for c in cards}
+    assert not lost, f"SPORTS_CAREERS names careers that are gone: {lost}"
     ids = [c["career_id"] for c in cards]
     dupes = {i for i in ids if ids.count(i) > 1}
     assert not dupes, f"duplicate career ids: {dupes}"
