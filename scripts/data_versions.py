@@ -79,8 +79,10 @@ def keyed(text, key):
 
 def at_ref(ref, rel):
     try:
+        # bytes, decoded here: text=True would turn CRLF into LF
+        # (branch_taxonomy.csv), so an unchanged file would differ
         return subprocess.run(["git", "show", f"{ref}:{rel}"], cwd=ROOT,
-                              capture_output=True, text=True, check=True).stdout
+                              capture_output=True, check=True).stdout.decode("utf-8")
     except subprocess.CalledProcessError:
         return None
 

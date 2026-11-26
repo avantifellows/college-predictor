@@ -6,10 +6,10 @@
         "row_id"
       ],
       "sheet": "Google sheet: List of entrance exams in India",
-      "version": 2,
-      "updated": "2026-11-25",
+      "version": 3,
+      "updated": "2026-11-26",
       "rows": 508,
-      "sha256": "3efda56e43587c3718d3c15846f7017391fd0af56431a351d0ff7ce34d1e82cc",
+      "sha256": "6185272e989ad4b876ef53bd5486db03dc3dc031e5f4311b55930bb1c65a77ca",
       "sheet_synced_version": 0
     },
     "data-sources/exam_applicants.csv": {
@@ -17,10 +17,10 @@
         "exam_id"
       ],
       "sheet": null,
-      "version": 2,
-      "updated": "2026-11-25",
+      "version": 3,
+      "updated": "2026-11-26",
       "rows": 88,
-      "sha256": "f951b46371caa0a97e6860cba3c899ce73bbd9ffe1edd3b597ac7631c63ac1a1",
+      "sha256": "30f1d77d20a7cee1a2ec84c5e9106bd5b9ed172cdb62f77347ba81effbcdf100",
       "sheet_synced_version": null
     },
     "data-sources/career_streams.csv": {
@@ -110,10 +110,10 @@
         "new_value"
       ],
       "sheet": null,
-      "version": 2,
-      "updated": "2026-11-25",
-      "rows": 183,
-      "sha256": "2b594521448463735b9797e6e4b6e73aacc125892cdd7746f8b5aefadeb5e881",
+      "version": 3,
+      "updated": "2026-11-26",
+      "rows": 185,
+      "sha256": "fa0107941633841e288ca0b760da38e028b675016a674dd9c6ac784c0f9bb1ce",
       "sheet_synced_version": null
     },
     "docs/audits/career_pay_sources.csv": {

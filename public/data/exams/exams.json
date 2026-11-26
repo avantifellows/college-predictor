@@ -13934,7 +13934,7 @@
   "colleges_link": null,
   "applicants": null,
   "vacancies": {
-   "count": 2018,
+   "count": 1871,
    "year": 2026,
    "what": "Posts notified",
    "source": "https://www.adda247.com/jobs/wp-content/uploads/sites/22/2026/07/10130954/Notice_of_adv_capf_2026.pdf"
@@ -15283,8 +15283,8 @@
   "fills_private": false,
   "url": "https://www.abvmuup.edu.in/cpet.php",
   "eligibility": "Class 12 with Physics, Chemistry and Biology plus a pass in English (PCM accepted for Optometry and Audiology & Speech Language Pathology; PC with Computer Science/Statistics/Electronics/Psychology for Audiology). Minimum 17 years by 31 December of the admission year. For 2026 the minimum was 50% in the science subjects (40% for SC/ST/OBC-NCL and PwD). For 2025, news reports gave 45%. Indian citizens only. UP domicile (or Class 10 and 12 both passed in UP) is needed for government colleges. Admission is subject to medical fitness.",
-  "fee_display": "2026 (CAHET merit registration): Rs. 750/- (UR/OBC), Rs. 500/- (SC/ST/PwD). 2025 CPET: Rs. 3,000/- (General/OBC), Rs. 2,000/- (SC/ST/PwD), per news reports",
-  "fee_number": 2026,
+  "fee_display": "Rs. 750/- (UR/OBC), Rs. 500/- (SC/ST/PwD) for the 2026 CAHET merit registration. 2025 CPET: Rs. 3,000/- (General/OBC), Rs. 2,000/- (SC/ST/PwD), per news reports",
+  "fee_number": 750,
   "test_month": "June",
   "test_month_n": 6,
   "apply_month": "May",

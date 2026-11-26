@@ -13,3 +13,6 @@ docs/audits/career_pay_sources.csv,1,2026-11-25,468,,,,,,Baseline: main after PR
 data-sources/exams_cleaned.csv,2,2026-11-25,508,65,11,,stage; selection_process; row_id,,"Nov 2026 audit: 65 new rows (UPSC CSE, SSC, RRB, IBPS/SBI, 30 state PSCs, 11 state police, Indian Coast Guard x4, CA Foundation/Inter, UP CPET, IAT Engineering for IISER Bhopal B.Tech); stage and selection_process filled for the armed forces. Sources per exam in docs/audits/exams_audit.csv."
 data-sources/exam_applicants.csv,2,2026-11-25,88,67,0,,vacancies_year; vacancies; vacancies_what; source_vacancies_url,,"Nov 2026 audit: applicants and notified vacancies for the armed forces, Coast Guard, CA and the new government exams; estimated, rounded or unattributed figures left out (kept in exams_audit notes)."
 docs/audits/exams_audit.csv,2,2026-11-25,183,77,0,,,,"Nov 2026 audit: one row per new exam and per changed field, with sources"
+data-sources/exams_cleaned.csv,3,2026-11-26,508,0,1,,,,"Review fix: UP CPET fee text leads with the amount (site showed Rs. 2,026)"
+data-sources/exam_applicants.csv,3,2026-11-26,88,0,1,,,,"Review fix: SSC CPO vacancies 1,871, not 2,018 (CAPF 1,320 already includes the 147 women)"
+docs/audits/exams_audit.csv,3,2026-11-26,185,2,0,,,,Review fixes for SSC CPO vacancies and UP CPET fee

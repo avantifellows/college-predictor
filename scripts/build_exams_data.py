@@ -129,7 +129,10 @@ def first_month(text):
 
 
 def fee_number(text):
-    m = re.search(r"(\d[\d,]*)", str(text).replace(",", ""))
+    """The fee in rupees: the first amount after "Rs." / "₹", else the first
+    number. Not a leading year ("2026 (CAHET ...): Rs. 750/-" is 750)."""
+    t = str(text).replace(",", "")
+    m = re.search(r"(?:Rs\.?|₹|INR)\s*(\d+)", t) or re.search(r"(\d+)", t)
     return int(m.group(1)) if m else None
 
 
