@@ -946,7 +946,8 @@
    "tg-eapcet-am",
    "tg-eapcet-e",
    "wbjee",
-   "iat"
+   "iat",
+   "sppu-oee"
   ],
   "pay": {
    "start": "\u20b95-10 LPA",
@@ -1051,7 +1052,6 @@
    "pwc-et",
    "set-general",
    "snusat",
-   "sppu-oee",
    "sssihl-ugt",
    "tslas-ot",
    "ug-jet",
@@ -1317,7 +1317,9 @@
   "impact": "Engineers working with Air India, IndiGo, and Hindustan Aeronautics Limited (HAL) keep aircraft airworthy and safe, which is why flights carrying millions of Indian passengers each year land safely.",
   "entry_exams_text": null,
   "exams": null,
-  "exam_ids": null,
+  "exam_ids": [
+   "sppu-oee"
+  ],
   "pay": {
    "start": "\u20b94-8 LPA",
    "mid": "\u20b910-22 LPA",
@@ -8680,7 +8682,8 @@
    "jee-advanced",
    "kea-cet",
    "keam",
-   "wbjee"
+   "wbjee",
+   "imu-cet"
   ],
   "pay": {
    "start": "\u20b95-9 LPA",
@@ -9173,7 +9176,6 @@
    "nmims-cet",
    "siteee",
    "snusat-apt",
-   "sppu-oee",
    "srmjeee-ug",
    "sru-aiee",
    "upeseat-exam-test-centre-based",
@@ -9410,7 +9412,9 @@
   "impact": "Nautical officers keep global trade moving \u2014 nearly 90% of everything India imports and exports, from oil to electronics, travels by sea, and these officers make sure that cargo reaches ports like Mumbai and Chennai safely and on time.",
   "entry_exams_text": null,
   "exams": null,
-  "exam_ids": null,
+  "exam_ids": [
+   "imu-cet"
+  ],
   "pay": {
    "start": "\u20b96-12 LPA",
    "mid": "\u20b915-35 LPA",
@@ -9989,8 +9993,15 @@
   "day_in_life": "A nautical science graduate works as a deck officer on a large cargo or passenger ship, steering the vessel, planning its route across oceans, and making sure it doesn't collide with anything. On a normal day they check navigation equipment, plot the ship's position on charts, supervise loading of cargo, and keep watch on the bridge (the ship's control room).",
   "impact": "These officers physically command the ships that carry almost everything India imports and exports, from crude oil to phones to grain, since over 90% of India's trade by volume moves by sea. Companies like Shipping Corporation of India and Maersk depend entirely on trained deck officers to move goods safely across the world's oceans.",
   "entry_exams_text": "IMU-CET (Indian Maritime University Common Entrance Test, the main exam to get into merchant navy officer training) is the standard route into a B.Sc. Nautical Science degree.",
-  "exams": null,
-  "exam_ids": null,
+  "exams": [
+   {
+    "label": "IMU CET",
+    "href": "/exams?q=IMU CET"
+   }
+  ],
+  "exam_ids": [
+   "imu-cet"
+  ],
   "pay": {
    "start": "\u20b96-12 LPA",
    "mid": "\u20b915-30 LPA",

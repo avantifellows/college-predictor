@@ -1,0 +1,122 @@
+{
+  "new": [
+    {
+      "exam_name": "IMU CET (Indian Maritime University Common Entrance Test)",
+      "aliases": "IMU-CET; IMUCET; Indian Maritime University CET; Merchant Navy entrance",
+      "course": "Engineering; Science",
+      "degrees": "BTech; BSc; Diploma",
+      "scope": "All India",
+      "url": "https://www.imu.edu.in/imunew/admission-2026-27",
+      "stage": "After Class 12",
+      "duration": "180 minutes",
+      "mode": "Computer Based",
+      "forms_out": "February",
+      "last_date": "Last week of April",
+      "test_date": "Last week of May",
+      "marking": "-0.25 per wrong answer (marks per correct answer not confirmed)",
+      "eligibility": "Class 12 with Physics, Chemistry and Mathematics, at least 60% aggregate in PCM and at least 50% in English (5% PCM relaxation for SC/ST; none on English). Upper age limit for B.Tech (General): 25 years for men, 27 for women; OBC-NCL and SC/ST get higher limits. Must meet Directorate General of Shipping medical fitness standards; Marine Engineering, B.Sc Nautical Science and DNS also need DG Shipping eyesight standards (no squint or morbid eye condition, normal colour vision on the Ishihara test).",
+      "application_fee": "Rs. 1000/- (Rs. 700/- for SC/ST)",
+      "paper_pattern": "One computer-based objective paper of 200 questions in 3 hours at Class 12 level: Physics (50), Mathematics (50), Chemistry (25), English (25), General Aptitude (25), General Knowledge (25); 0.25 marks deducted per wrong answer. The same CET is used for B.Tech, B.Sc Nautical Science and DNS.",
+      "selection_process": "IMU CET (computer-based) → Rank list → Online counselling and seat allotment → Document verification → DG Shipping medical",
+      "remarks": "Admits to B.Tech Marine Engineering, B.Tech Naval Architecture & Ocean Engineering, B.Tech Naval Architecture & Ship Building, B.Sc Nautical Science and the 1-year Diploma in Nautical Science at IMU campuses and affiliated institutes. IMU's BBA programmes use a separate registration and rank list, not the UG CET.",
+      "applicants": null,
+      "vacancies": null,
+      "sources": [
+        "https://www.imu.edu.in/imunew/admission-2026-27",
+        "https://www.imu.edu.in/imunew/admissions-2026-27",
+        "https://www.imu.edu.in/imunew/academic-brochure",
+        "https://www.imu.edu.in/imunew/admission-flyers",
+        "https://www.imu.edu.in/imunew/uploads/files/admissions/2026/Admission_Flyer2_2026.png",
+        "https://www.imu.edu.in/imunew/uploads/files/admissions/2026/Admission_Flyer3_2026.png",
+        "https://www.imu.edu.in/imunew/uploads/files/admissions/2026/Admission_Flyer4_2026.png",
+        "https://imu.cbexams.com/IMU_AxDSite/MainSite",
+        "https://engineering.careers360.com/articles/imu-cet-2026",
+        "https://engineering.careers360.com/articles/imu-cet-application-form",
+        "https://www.collegedekho.com/exam/imu-cet",
+        "https://www.freepressjournal.in/education/imu-cet-2026-result-out-for-72000-candidates-at-imucbexamscom-counselling-registration-begins-first-phase-ends-june-17"
+      ],
+      "notes": "Cycle: 2026. imu.edu.in fails certificate verification in WebFetch and curl. The HTML pages opened normally in the browser pane, but the official Prospectus 2026-27 PDF (https://www.imu.edu.in/imunew/uploads/files/admissions/2026/Prospectus_2026-27_19032026.pdf) and all CET notification PDFs could not be read. CONFIRMED FROM OFFICIAL IMU PAGES: the UG programme list (admission page enquiry form and campus flyers 3-4); that the UG CET covers B.Tech, B.Sc and DNS, with BBA admitted separately (admissions-2026-27 page section headings); that the CET registration deadline was extended to 28.04.2026 12:00 PM (notice title and cbexams portal); that the CET ran in two shifts with a normalisation procedure (notice titles); that results and UG rank lists were published 14.06.2026 (notice titles and filenames); that counselling ran in three allotment rounds plus spot rounds; that a mock test was run on imu.cbexams.com, which supports the CBT mode; and the special state reservation in UG programmes (flyer 2: A&N 7, Lakshadweep 10, NE states 40, J&K+Ladakh 10 seats; SC/ST/OBC-NCL/GEN-EWS and PwD reservation; 2/3/5% CET incentive for NCC A/B/C certificate holders). FROM AGGREGATORS ONLY (Careers360, CollegeDekho), not verified against the prospectus: PCM 60% / English 50%, age limits (men: General 25, OBC-NCL 28, SC/ST 30; women: General 27, OBC-NCL 30, SC/ST 32), the medical and eyesight details, the fee of Rs. 1000/- (Gen/OBC) and Rs. 700/- (SC/ST) (CollegeDekho for 2026; Careers360 shows the same figures labelled 2027), the 200-question / 3-hour pattern with its section split (Careers360), and the -0.25 negative marking. Marks per correct answer were not stated anywhere I read. Forms opened 6 Feb 2026 per CollegeDekho (Careers360 also gives 24 Feb); the exam was on 24 May 2026 per Careers360, CollegeDekho and Free Press Journal. A search snippet of IMU's Citizen Charter PDF (May 2025) showed 60% PCM and 50% English for B.Sc NS, but I could not open that PDF. Applicants: Free Press Journal reports 'nearly 72,000' appeared in 2026 but does not attribute the figure to IMU; aggregators give conflicting registration figures (Collegedunia 1 lakh+, Shiksha 30-45k). Left null. Seats: no official total intake was readable (it is in the prospectus PDF). Careers360 lists per-institute intakes but no total. Left null. Course listed as 'Engineering; Science' because B.Sc Nautical Science and DNS are non-engineering. 'Diploma' in degrees refers to DNS, a 1-year diploma leading to B.Sc (Applied Nautical Science)."
+    }
+  ],
+  "amu": {
+    "official_test_name": {
+      "value": "The Guide calls it the 'Admission Test' for B.Tech (Selection Process: 'Through Admission Test'). No name such as 'AMUEEE' or 'B.Tech. Admission Test' appears anywhere in the AMU Guide to Admissions 2026-27. The same Paper-I is common to B.Tech and B.Arch.",
+      "source": "https://amucontrollerexams.com/uploads/files/e97cf6112508c8e79149275de5ae1cb3.pdf",
+      "source_type": "official"
+    },
+    "admission_route": {
+      "value": "AMU's own Admission Test conducted by the Office of the Controller of Examinations. The B.Tech entry in the Guide mentions neither JEE Main nor CUET; CUET-UG is named only for certain other UG courses (e.g. B.A. Hons Hindi, Persian).",
+      "source": "https://amucontrollerexams.com/uploads/files/e97cf6112508c8e79149275de5ae1cb3.pdf",
+      "source_type": "official"
+    },
+    "test_date_2026": {
+      "value": "19 April 2026, 10:00 AM, 2 hours (Appendix II test schedule). B.Arch Paper-I was on the same date and time.",
+      "source": "https://amucontrollerexams.com/uploads/files/e97cf6112508c8e79149275de5ae1cb3.pdf",
+      "source_type": "official"
+    },
+    "application_dates_2026": {
+      "value": "Forms opened 01-02-2026; closed 28-02-2026 without late fee and 07-03-2026 with late fee of Rs. 300/-.",
+      "source": "https://amucontrollerexams.com/uploads/files/e97cf6112508c8e79149275de5ae1cb3.pdf",
+      "source_type": "official"
+    },
+    "application_fee": {
+      "value": "Rs. 1050/- processing charges for B.Tech (one form covers all B.Tech branches; B.Arch form Rs. 1150/-). The Guide shows a single figure and no category-wise concession. Online payment only; non-refundable.",
+      "source": "https://amucontrollerexams.com/uploads/files/e97cf6112508c8e79149275de5ae1cb3.pdf",
+      "source_type": "official"
+    },
+    "pattern": {
+      "value": "One objective paper of 100 marks, 100 questions on Physics, Chemistry and Mathematics; 2 hours; OMR-based; negative marking of 25% of a question's marks (-0.25 for a 1-mark question).",
+      "source": "https://amucontrollerexams.com/uploads/files/e97cf6112508c8e79149275de5ae1cb3.pdf",
+      "source_type": "official"
+    },
+    "eligibility": {
+      "value": "Senior Secondary School Certificate (Class 12) of AMU or equivalent with at least 50% aggregate in English, Physics, Chemistry and Mathematics; OR Diploma in Engineering of AMU or equivalent with at least 50% aggregate. No maximum age limit is stated in the B.Tech entry (other courses such as BBA state one).",
+      "source": "https://amucontrollerexams.com/uploads/files/e97cf6112508c8e79149275de5ae1cb3.pdf",
+      "source_type": "official"
+    },
+    "test_centres": {
+      "value": "Aligarh, Lucknow, Srinagar, Kolkata, Patna, Kozhikode",
+      "source": "https://amucontrollerexams.com/uploads/files/e97cf6112508c8e79149275de5ae1cb3.pdf",
+      "source_type": "official"
+    },
+    "intake": {
+      "value": "11 branches: Chemical 30+5, Civil 70+20, Computer 50, Electrical 60, Electronics & Communication 50+7, Mechanical 90+10, Chemical Technology (Refining & Petrochemicals) 30+5, Chemical Engg (Food Technology) 25+4, Computer Engg (AI) 25, Automobile Engg (Electric & Hybrid Vehicles) 25+3, Electronics & Comm. Engg (VLSI Design & Tech.) 30. The '+' figures are self-finance seats. Total 485 + 54 self-finance = 539 (my sum of the listed figures).",
+      "source": "https://amucontrollerexams.com/uploads/files/e97cf6112508c8e79149275de5ae1cb3.pdf",
+      "source_type": "official"
+    },
+    "fee_at_admission": {
+      "value": "Rs. 25,500/- for most regular B.Tech branches; Rs. 51,500/- Food Technology; Rs. 70,500/- AI, Automobile (EHV) and VLSI; self-finance seats Rs. 1,25,500/- to Rs. 1,70,500/- (Appendix XI, fee payable at the time of admission).",
+      "source": "https://amucontrollerexams.com/uploads/files/e97cf6112508c8e79149275de5ae1cb3.pdf",
+      "source_type": "official"
+    },
+    "notes": "Cycle: 2026-27. All facts are from the official AMU Guide to Admissions 2026-27 PDF, linked from https://www.amucontrollerexams.com/page/view/application-forms-and-admission-guide-for-programmes-offered-by-the-university-for-the-academic-session-2026-27-are-now-available-1769943641. amu.ac.in (ZHCET faculty page) failed certificate verification and was not opened. The Guide also has an 'Internal' (AMU-passed) candidate definition, but I did not find the internal/external seat split for B.Tech, so it is not reported. Also in the Guide: B.E. (Civil/Electrical/Mechanical, 50 seats each) is for diploma holders with a separate test on 03-06-2026, and the B.Arch Paper-II is NATA."
+  },
+  "sppu": {
+    "oee_covers_btech": {
+      "value": "Yes. The OEE 2026-27 notification (Revised circular No. 80/2026, PGS/2293, dated 05/05/2026) covers PG, UG and Integrated programmes in SPPU departments. Its Annexure 'A' (revised 17/04/2026) lists two B.Tech programmes under the Department of Technology: B.Tech (Aviation), 4 years, intake 20, eligibility '10 + 2 (with Physics, Chemistry, Mathematics)'; and B.Tech Data Science, 4 years, intake 120, eligibility 'First Year: 12th Science with Maths; Second Year: Diploma/Polytechnic in Any Branch'. No B.E. programme is admitted through OEE.",
+      "source": "https://campus.unipune.ac.in/CCEP/Documents_2026_27/Notification_OEE_2026_06May2026.pdf",
+      "source_type": "official"
+    },
+    "which_btech_actually_had_an_exam_2026": {
+      "value": "The revised OEE timetable (PGS/2536, 05/06/2026) lists 'B.Tech Data Sciences' (Department of Technology) on Friday 12 June 2026, 4:00-6:00 PM. B.Tech (Aviation) is NOT in the timetable. The circular says the timetable includes only programmes that received more applications than seats, and the notification says the university may admit without an entrance exam if applications are fewer than the intake. So in 2026 B.Tech (Aviation) appears to have been filled without a test (an inference from these two documents).",
+      "source": "https://campus.unipune.ac.in/CCEP/Documents_2026_27/OEE2026_Schedule_Revised_05062026.pdf",
+      "source_type": "official"
+    },
+    "seats": {
+      "value": "B.Tech (Aviation) 20; B.Tech Data Science 120 (Annexure A, 2026-27). The Department of Technology academic page also lists B.Tech (Aviation) intake 20. The notification reserves 30% of UG seats for female candidates as per Maharashtra rules.",
+      "source": "https://campus.unipune.ac.in/CCEP/Documents_2026_27/Notification_OEE_2026_06May2026.pdf; http://www.unipune.ac.in/dot/tech_webfiles/academic.htm",
+      "source_type": "official"
+    },
+    "other_state_candidates": {
+      "value": "Yes, they can apply. Applications are invited 'from all eligible candidates' and no Maharashtra domicile requirement is stated. The notification says reserved-category candidates from states other than Maharashtra are treated as Open (General). Reservation follows Government of Maharashtra norms.",
+      "source": "https://campus.unipune.ac.in/CCEP/Documents_2026_27/Notification_OEE_2026_06May2026.pdf",
+      "source_type": "official"
+    },
+    "oee_pattern_and_fee": {
+      "value": "100 marks MCQ, 2 hours: Section A general knowledge/aptitude/logic/comprehension 20 marks + Section B subject-specific 80 marks; -1/4 of a question's marks per wrong answer where applicable. In 2026 it was held 11-13 June in online human-proctored mode, taken from home on the candidate's own device. Fee per programme: Rs. 800/- General, Rs. 600/- Reserved. Applications 13/04/2026 to 15/05/2026, extended to 25/05/2026.",
+      "source": "https://campus.unipune.ac.in/CCEP/Documents_2026_27/Notification_OEE_2026_06May2026.pdf; https://campus.unipune.ac.in/CCEP/Documents_2026_27/OEE2026_Schedule_Revised_05062026.pdf; https://campus.unipune.ac.in/CCEP/Login.aspx",
+      "source_type": "official"
+    },
+    "notes": "All SPPU facts come from official SPPU pages and PDFs (campus.unipune.ac.in, unipune.ac.in). The notification and schedule PDFs are scanned images: I rendered the pages and read them visually, so treat the figures as transcribed. I did not check the Annexure page covering the Humanities faculty (page 11), which would not hold engineering programmes. The campus admission portal's 'Apply Now' popup also names branches such as CSE (AI & ML), ECE and Mechanical, without a degree level; these do not appear in Annexure A and may relate to a different scheme, so they are not counted. I did not open the Department of Technology merit list PDF (scanned)."
+  }
+}

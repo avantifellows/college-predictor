@@ -140,15 +140,29 @@ def keyed(text, key):
     return out, head, bad
 
 
-def diff(old_text, new_text, key):
+def diff(old_text, new_text, key, first_ids=None):
     """Rows added / removed / changed by key, and columns added / removed.
-    If the old text predates the key column (row_id, audit_id), rows are
-    compared whole on the shared columns: a base row not found unchanged
-    counts as removed (an edited row looks removed), `keyless` says so."""
+    If the old text predates the key column (row_id, audit_id): with
+    `first_ids` (the ids were numbered in the old file's row order, e.g.
+    {"format": "x{:04d}", "start": 1}) its N-th row is matched to that id;
+    otherwise rows are compared whole on the shared columns, and a row not
+    found unchanged counts as removed (an edited row looks removed)."""
     oh = parse(old_text)[0] if old_text else []
     nh = parse(new_text)[0]
     cols = {"columns_added": [c for c in nh if c not in oh],
             "columns_removed": [c for c in oh if c not in nh]}
+    if old_text and first_ids and len(key) == 1 and key[0] not in oh:
+        new, _, _ = keyed(new_text, key)
+        old = {}
+        for n, r in enumerate(parse(old_text)[1]):
+            r = r + [""] * (len(oh) - len(r))
+            old[(first_ids["format"].format(n + first_ids["start"]),)] = dict(zip(oh, r))
+        shared = [c for c in nh if c in oh]
+        return {"added": [k for k in new if k not in old],
+                "removed": [k for k in old if k not in new],
+                "changed": [k for k in new if k in old
+                            and any(new[k][c] != old[k][c] for c in shared)],
+                "keyless": False, **cols}
     if old_text and not all(k in oh for k in key):
         shared = [c for c in oh if c in nh]
         proj = lambda h, rows: [tuple((r + [""] * len(h))[h.index(c)] for c in shared)
@@ -204,7 +218,7 @@ def cmd_status(args, m):
         line = f"{rel}: v{f['version']} {state}{behind}"
         base = at_ref(args.base, rel) if ok else None
         if base is not None and base != text:
-            d = diff(base, text, f["key"])
+            d = diff(base, text, f["key"], f.get("first_ids"))
             if d["keyless"]:
                 line += (f"\n    vs {args.base}: rows can't be matched ({args.base} has no "
                          f"{'/'.join(f['key'])} column); {len(d['removed'])} of its rows "
@@ -240,7 +254,7 @@ def cmd_bump(args, m):
         if prev is None:
             sys.exit(f"{rel}: the content of v{f['version']} isn't in this "
                      "clone's git objects; pass --base REF (a commit that has it)")
-        d = diff(prev, text, f["key"])
+        d = diff(prev, text, f["key"], f.get("first_ids"))
         f["version"] += 1
         f.update(updated=today, rows=records(text), sha256=sha(text),
                  blob=store_blob(text))
@@ -311,7 +325,7 @@ def cmd_check(args, m):
             continue
         if base_text != text and f["version"] <= bv:
             errors.append(f"{rel}: differs from {args.base} but is still v{f['version']}")
-        d = diff(base_text, text, f["key"])
+        d = diff(base_text, text, f["key"], f.get("first_ids"))
         # removals count only in rows for versions after the base's, up to
         # the current one
         mine = [r for r in log if r["file"] == rel

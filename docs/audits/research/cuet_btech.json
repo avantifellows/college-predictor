@@ -1,0 +1,411 @@
+{
+  "cycle": "2026-27 (CUET (UG) 2026)",
+  "via_cuet": [
+    {
+      "university": "Babasaheb Bhimrao Ambedkar University (BBAU), Lucknow",
+      "programmes": [
+        "B.Tech Civil Engineering",
+        "B.Tech Computer Engineering",
+        "B.Tech Electrical Engineering",
+        "B.Tech Electronics & Communication Engineering",
+        "B.Tech Mechanical Engineering",
+        "B.Tech Lateral Entry (Civil, Computer, Electrical, ...)"
+      ],
+      "subjects": "Any one language (101-113) + any three of Physics (322), Chemistry (306), Mathematics/Applied Mathematics (319), Computer Science/Informatics Practices (308); 10+2 PCM with 50% (45% SC/ST/PwD)",
+      "seats": null,
+      "source_url": "https://cdnbbsr.s3waas.gov.in/s3d1a21da7bca4abff8b0b61b87597de73/uploads/2025/12/2025122738197355.pdf",
+      "source_type": "NTA CUET (UG) 2026 official university-wise programme mapping (linked from cuet.nta.nic.in/participating-universities/)",
+      "admission_note": "BBAU's own 2026-27 pages show B.Tech merit lists, spot rounds and vacant-seat notices 'through CUET' (https://www.bbau.ac.in/meritlistcuetug.aspx, https://www.bbau.ac.in/Meritlistugphase3.aspx). Seat totals not captured."
+    },
+    {
+      "university": "Central University of Jharkhand",
+      "programmes": [
+        "4-year B.Tech Computer Science & Engineering",
+        "4-year B.Tech Civil Engineering",
+        "4-year B.Tech Electrical Engineering",
+        "4-year B.Tech Metallurgical & Materials Engineering"
+      ],
+      "subjects": "Physics (322), Chemistry (306), Mathematics/Applied Mathematics (319); 10+2 PCM with 45% (40% reserved)",
+      "seats": null,
+      "source_url": "https://cdnbbsr.s3waas.gov.in/s3d1a21da7bca4abff8b0b61b87597de73/uploads/2025/12/20251227673023518.pdf",
+      "source_type": "NTA CUET (UG) 2026 official university-wise programme mapping (linked from cuet.nta.nic.in/participating-universities/)",
+      "admission_note": "CUJ also runs B.Tech admission through JoSAA/CSAB (https://cuj.ac.in/CSAB%2026.php). Its 2025-26 admission procedure filled B.Tech through JoSAA/CSAB first and vacant seats through CUET; a CUET UG 2026 first allotment page lists these B.Tech branches (https://www.cuj.ac.in/CUET%2026-1st%20Allotment.PHP, seen only in search results). The 2026 seat matrix was not retrieved."
+    },
+    {
+      "university": "Central University of Karnataka",
+      "programmes": [
+        "B.Tech Mathematics and Computing",
+        "B.Tech Computer Science & Engineering (AI & ML)",
+        "B.Tech Electronics & Communication Engineering",
+        "B.Tech Electrical Engineering"
+      ],
+      "subjects": "Physics, Chemistry, Mathematics (Section II domain); 10+2 PCM with 50% (45% OBC-NCL/SC/ST/PwD/KM)",
+      "seats": null,
+      "source_url": "https://cdnbbsr.s3waas.gov.in/s3d1a21da7bca4abff8b0b61b87597de73/uploads/2026/01/202601281557532856.pdf",
+      "source_type": "NTA CUET (UG) 2026 official university-wise programme mapping (linked from cuet.nta.nic.in/participating-universities/)",
+      "admission_note": "For CSE (AI&ML), ECE and EE the mapping says 50% of seats are filled on JEE Main 2026 and the other 50% on CUET (UG) 2026. B.Tech Mathematics & Computing is merit on CUET Section II only."
+    },
+    {
+      "university": "Central University of Rajasthan",
+      "programmes": [
+        "B.Tech Electronics and Communication",
+        "B.Tech Biomedical Engineering"
+      ],
+      "subjects": "ECE: Physics, Chemistry, Mathematics. Biomedical: Physics, Chemistry, Mathematics OR Physics, Chemistry, Mathematics, Biology; 10+2 with 75% (65% SC/ST/PwD)",
+      "seats": null,
+      "source_url": "https://cdnbbsr.s3waas.gov.in/s3d1a21da7bca4abff8b0b61b87597de73/uploads/2026/01/202601121699747678.pdf",
+      "source_type": "NTA CUET (UG) 2026 official university-wise programme mapping (linked from cuet.nta.nic.in/participating-universities/)",
+      "admission_note": "Mapping says 'Subject to availability of seats after JoSAA/CSAB counselling process', so CUET fills only seats left after JoSAA/CSAB. CURAJ also published 'Eligibility Criteria for B.Tech Programmes through CUET-UG 2025-26' (https://www.curaj.ac.in/sites/default/files/Eligibility%20Criteria%20for%20B.Tech%20Programmes%20through%20CUET-UG-2025-26.pdf, not opened)."
+    },
+    {
+      "university": "Central University of Punjab",
+      "programmes": [
+        "B.Tech Computer Science and Engineering",
+        "B.Tech-M.Tech (Dual Degree) Artificial Intelligence and Machine Learning"
+      ],
+      "subjects": "B.Tech CSE: Physics and Mathematics compulsory + one of Chemistry/Biotechnology/Biology/Technical Vocational/Computer Science/IT/Informatics Practices/Engineering Graphics. Dual degree: Computer Science/Informatics Practices (308). 10+2 with 50%",
+      "seats": null,
+      "source_url": "https://cdnbbsr.s3waas.gov.in/s3d1a21da7bca4abff8b0b61b87597de73/uploads/2026/01/20260113245767313.pdf",
+      "source_type": "NTA CUET (UG) 2026 official university-wise programme mapping (linked from cuet.nta.nic.in/participating-universities/)"
+    },
+    {
+      "university": "Central University of Andhra Pradesh",
+      "programmes": [
+        "B.Tech Computer Science and Engineering"
+      ],
+      "subjects": "Computer Science (308); 10+2 with 60% (55% SC/ST) in Physics, Mathematics and one of Chemistry/Biology/Biotechnology/Technical Vocational",
+      "seats": null,
+      "source_url": "https://cdnbbsr.s3waas.gov.in/s3d1a21da7bca4abff8b0b61b87597de73/uploads/2025/12/2025122767163162.pdf",
+      "source_type": "NTA CUET (UG) 2026 official university-wise programme mapping (linked from cuet.nta.nic.in/participating-universities/)"
+    },
+    {
+      "university": "Central University of Tamil Nadu",
+      "programmes": [
+        "Four-year B.Tech Computer Science & Engineering"
+      ],
+      "subjects": "Mathematics, Physics & Computer Science (or) Chemistry; 10+2 with 60% (55% OBC-NCL/EWS, 50% SC/ST/PwD)",
+      "seats": null,
+      "source_url": "https://cdnbbsr.s3waas.gov.in/s3d1a21da7bca4abff8b0b61b87597de73/uploads/2026/03/20260319440452624.pdf",
+      "source_type": "NTA CUET (UG) 2026 official university-wise programme mapping (linked from cuet.nta.nic.in/participating-universities/)"
+    },
+    {
+      "university": "Central University of Odisha",
+      "programmes": [
+        "B.Tech Dairy Technology"
+      ],
+      "subjects": "Chemistry (306), Mathematics (319), Physics (322); 10+2 with PCM or PCMB with 50% (5% relaxation SC/ST/PwD)",
+      "seats": null,
+      "source_url": "https://cdnbbsr.s3waas.gov.in/s3d1a21da7bca4abff8b0b61b87597de73/uploads/2025/12/202512271820103382.pdf",
+      "source_type": "NTA CUET (UG) 2026 official university-wise programme mapping (linked from cuet.nta.nic.in/participating-universities/)"
+    },
+    {
+      "university": "Pondicherry University",
+      "programmes": [
+        "B.Tech Computer Science & Engineering",
+        "B.Tech Energy Science & Technology",
+        "B.Tech Materials Science and Technology",
+        "B.Tech Electronics & Communication Engineering",
+        "B.Tech Environmental Engineering",
+        "5-year Integrated B.Tech, MBA (Computer Science and Business Systems)"
+      ],
+      "subjects": "CSE: Mathematics, Physics and Chemistry/Computer Science. Energy Sci / Materials Sci / ECE: Mathematics, Physics & Chemistry/Biology/(Environmental Studies)/Computer Science. Environmental Engg: Mathematics, Chemistry and Physics/Biology/Environmental Studies. Integrated B.Tech-MBA: Mathematics/Applied Mathematics/Business Mathematics",
+      "seats": "Not confirmed. Search-index text of Pondicherry's official 2026-27 rank lists shows 'TOTAL INTAKE 30' for code UGBTECH22 (apparently B.Tech CSE) and 'TOTAL INTAKE 60' for INTBTECH26 (apparently Integrated B.Tech-MBA CSBS). The PDFs returned HTTP 503 and could not be opened.",
+      "source_url": "https://cdnbbsr.s3waas.gov.in/s3d1a21da7bca4abff8b0b61b87597de73/uploads/2026/03/20260307496061.pdf",
+      "source_type": "NTA CUET (UG) 2026 official university-wise programme mapping (linked from cuet.nta.nic.in/participating-universities/)",
+      "admission_note": "Pondicherry's 2026-27 brochure says CUET (UG) is compulsory for UG admission (https://admissions.pondiuni.edu.in/api/uploads/2026-27/pdf/Information_Brochure_Revised_on_30012026__1780654026.pdf, seen in search results only)."
+    },
+    {
+      "university": "Mahatma Gandhi Central University, Motihari",
+      "programmes": [
+        "5-year Integrated B.Tech-M.Tech Computer Science and Engineering (B.Tech awarded on exit after 4 years)"
+      ],
+      "subjects": "Physics; Mathematics; and Chemistry/Biology/Computer Science/Informatics Practices; 10+2 with 50% (45% reserved)",
+      "seats": null,
+      "source_url": "https://cdnbbsr.s3waas.gov.in/s3d1a21da7bca4abff8b0b61b87597de73/uploads/2025/12/202512271239936821.pdf",
+      "source_type": "NTA CUET (UG) 2026 official university-wise programme mapping (linked from cuet.nta.nic.in/participating-universities/)"
+    },
+    {
+      "university": "Sammakka Sarakka Central Tribal University, Telangana",
+      "programmes": [
+        "B.Tech Computer Science Engineering & Artificial Intelligence (CSE & AI)"
+      ],
+      "subjects": "Computer Science/Informatics Practices (308); 10+2 with 50% and MPC compulsory",
+      "seats": null,
+      "source_url": "https://cdnbbsr.s3waas.gov.in/s3d1a21da7bca4abff8b0b61b87597de73/uploads/2026/01/20260112407901222.pdf",
+      "source_type": "NTA CUET (UG) 2026 official university-wise programme mapping (linked from cuet.nta.nic.in/participating-universities/)"
+    },
+    {
+      "university": "Rajiv Gandhi National Aviation University",
+      "programmes": [
+        "B.Tech Electronics & Communication Engineering",
+        "B.Tech Aerospace Engineering"
+      ],
+      "subjects": "Physics (322), Chemistry (306), Mathematics/Applied Mathematics (319), English (101); 10+2 PCM + English with 50%; maximum age 21",
+      "seats": null,
+      "source_url": "https://cdnbbsr.s3waas.gov.in/s3d1a21da7bca4abff8b0b61b87597de73/uploads/2025/12/202512271377958576.pdf",
+      "source_type": "NTA CUET (UG) 2026 official university-wise programme mapping (linked from cuet.nta.nic.in/participating-universities/)"
+    },
+    {
+      "university": "Tezpur University",
+      "programmes": [
+        "B.Tech Food Engineering and Technology (FET) - CUET share only"
+      ],
+      "subjects": "Mathematics (319, weight 30%), Physics (322, 35%), Chemistry (306, 35%); 10+2 with 60%",
+      "seats": "FET intake 51, of which 30% is filled through CUET-UG 2026 (Tezpur Prospectus 2026)",
+      "source_url": "https://cdnbbsr.s3waas.gov.in/s3d1a21da7bca4abff8b0b61b87597de73/uploads/2025/12/202512271232796039.pdf",
+      "source_type": "NTA CUET (UG) 2026 mapping + Tezpur University Prospectus 2026 (official): https://www.tezu.ernet.in/adm26/notice/Prospectus2026.pdf",
+      "admission_note": "Tezpur's other B.Tech branches (CE 63, CSE 63, EE 33, ECE 63, ME 63) and the dual B.Tech-MBA are JEE Main only. See via_jee_not_cuet."
+    },
+    {
+      "university": "Assam University, Silchar",
+      "programmes": [
+        "Four-year B.Tech Agricultural Engineering"
+      ],
+      "subjects": "Physics/Chemistry/Agriculture/Mathematics; 10+2 with 50% (40% SC/ST/PwD)",
+      "seats": null,
+      "source_url": "https://cdnbbsr.s3waas.gov.in/s3d1a21da7bca4abff8b0b61b87597de73/uploads/2025/12/202512271873630584.pdf",
+      "source_type": "NTA CUET (UG) 2026 official university-wise programme mapping (linked from cuet.nta.nic.in/participating-universities/)",
+      "admission_note": "Only Agricultural Engineering is mapped to CUET. No other Assam University B.Tech branch appears in the CUET 2026 mapping."
+    },
+    {
+      "university": "University of Delhi",
+      "programmes": [
+        "B.Tech Information Technology and Mathematical Innovations (IT & MI)"
+      ],
+      "subjects": "One language from List A + Mathematics/Applied Mathematics + General Aptitude Test",
+      "seats": null,
+      "source_url": "https://cdnbbsr.s3waas.gov.in/s3d1a21da7bca4abff8b0b61b87597de73/uploads/2025/12/202512271200063091.pdf",
+      "source_type": "NTA CUET (UG) 2026 official university-wise programme mapping (linked from cuet.nta.nic.in/participating-universities/)",
+      "admission_note": "DU's Faculty of Technology B.Tech (CSE, ECE, EE) is JEE Main only. See via_jee_not_cuet."
+    },
+    {
+      "university": "HNB Garhwal University (lateral entry only)",
+      "programmes": [
+        "B.Tech Lateral Entry (2nd year): CSE, ECE, Instrumentation, Mechanical, Information Technology"
+      ],
+      "subjects": "Physics, Mathematics and Computer Science/Informatics Practices; diploma or B.Sc. holders only; merit on CUET (UG) score",
+      "seats": null,
+      "source_url": "https://cdnbbsr.s3waas.gov.in/s3d1a21da7bca4abff8b0b61b87597de73/uploads/2025/12/202512271285359664.pdf",
+      "source_type": "NTA CUET (UG) 2026 official university-wise programme mapping (linked from cuet.nta.nic.in/participating-universities/)",
+      "admission_note": "Lateral entry only, not first-year B.Tech after Class 12."
+    },
+    {
+      "university": "Baba Ghulam Shah Badshah University, Rajouri (J&K state)",
+      "programmes": [
+        "B.Tech Electronics & Communication Engineering",
+        "B.Tech Electrical Engineering",
+        "B.Tech Civil Engineering",
+        "B.Tech Information Technology & Engineering",
+        "B.Tech Computer Science & Engineering",
+        "B.Tech Artificial Intelligence & Machine Learning",
+        "B.Tech Electrical & Computer Engineering"
+      ],
+      "subjects": "Physics (322), Chemistry (306), Core Mathematics/Applied Mathematics (319); 10+2 with 45% (40% SC/ST), Physics and Mathematics compulsory",
+      "seats": null,
+      "source_url": "https://cdnbbsr.s3waas.gov.in/s3d1a21da7bca4abff8b0b61b87597de73/uploads/2025/12/202512281423364762.pdf",
+      "source_type": "NTA CUET (UG) 2026 official university-wise programme mapping (linked from cuet.nta.nic.in/participating-universities/)"
+    },
+    {
+      "university": "University of Jammu (state)",
+      "programmes": [
+        "B.Tech Engineering (Civil / Computer Science)"
+      ],
+      "subjects": "Physics/Computer Science, Mathematics; 10+2 PCM with 50% (45% SC/ST)",
+      "seats": null,
+      "source_url": "https://cdnbbsr.s3waas.gov.in/s3d1a21da7bca4abff8b0b61b87597de73/uploads/2025/12/20251228412871007.pdf",
+      "source_type": "NTA CUET (UG) 2026 official university-wise programme mapping (linked from cuet.nta.nic.in/participating-universities/)"
+    },
+    {
+      "university": "Islamic University of Science and Technology, Kashmir (state)",
+      "programmes": [
+        "B.Tech Food Technology"
+      ],
+      "subjects": "Biology/Biological Studies/Biotechnology/Biochemistry (304); Mathematics/Applied Mathematics (319); 10+2 with PCM or PCB",
+      "seats": null,
+      "source_url": "https://cdnbbsr.s3waas.gov.in/s3d1a21da7bca4abff8b0b61b87597de73/uploads/2025/12/202512281557785700.pdf",
+      "source_type": "NTA CUET (UG) 2026 official university-wise programme mapping (linked from cuet.nta.nic.in/participating-universities/)"
+    },
+    {
+      "university": "Shri Mata Vaishno Devi University (state)",
+      "programmes": [
+        "B.Tech Biotechnology"
+      ],
+      "subjects": "Biology/Biological Studies/Biotechnology/Biochemistry (304); 10+2 PCB/PCM with 60%",
+      "seats": null,
+      "source_url": "https://cdnbbsr.s3waas.gov.in/s3d1a21da7bca4abff8b0b61b87597de73/uploads/2025/12/202512281288169654.pdf",
+      "source_type": "NTA CUET (UG) 2026 official university-wise programme mapping (linked from cuet.nta.nic.in/participating-universities/)"
+    },
+    {
+      "university": "Gautam Buddha University, Greater Noida (UP state)",
+      "programmes": [
+        "B.Tech: several branches (CSE incl. specialisations such as AI/ML, IT, ECE / VLSI Design & Embedded Systems, Electrical & Computer Engineering, Robotics & AI, Electrical, Civil, Mechanical, Biotechnology, Food Technology)",
+        "Integrated B.Tech-M.Tech/MBA (Biotechnology, CSE, ECE, Electrical)",
+        "B.Tech for working professionals (diploma holders)"
+      ],
+      "subjects": "English (101)/Hindi (102) + General Aptitude (501) + Physics (322), Chemistry (306), Mathematics (319), and Biology (304) for biotech/food programmes",
+      "seats": null,
+      "source_url": "https://cdnbbsr.s3waas.gov.in/s3d1a21da7bca4abff8b0b61b87597de73/uploads/2026/04/202604241824308065.pdf",
+      "source_type": "NTA CUET (UG) 2026 official university-wise programme mapping (linked from cuet.nta.nic.in/participating-universities/)",
+      "admission_note": "The mapping PDF's table extracts poorly, so check the branch list against the PDF."
+    },
+    {
+      "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow (UP state)",
+      "programmes": [
+        "B.Tech",
+        "B.Tech 2nd-year Lateral Entry"
+      ],
+      "subjects": "Physics (322), Chemistry (306), Biology (304)/Core Mathematics (319)/Agriculture (302); eligibility 'As per AICTE'",
+      "seats": null,
+      "source_url": "https://cdnbbsr.s3waas.gov.in/s3d1a21da7bca4abff8b0b61b87597de73/uploads/2025/12/202512281648977632.pdf",
+      "source_type": "NTA CUET (UG) 2026 official university-wise programme mapping (linked from cuet.nta.nic.in/participating-universities/)"
+    },
+    {
+      "university": "Dr. Rammanohar Lohia Avadh University, Ayodhya (UP state) - Institute of Engineering & Technology",
+      "programmes": [
+        "B.Tech Computer Science, Information Technology, Civil, Mechanical, Electrical, ... (IET)",
+        "B.Tech Lateral Entry"
+      ],
+      "subjects": "Physics (322) + Chemistry (306) + Mathematics/Applied Mathematics (319); eligibility as per AICTE norms",
+      "seats": null,
+      "source_url": "https://cdnbbsr.s3waas.gov.in/s3d1a21da7bca4abff8b0b61b87597de73/uploads/2026/01/202601052084255795.pdf",
+      "source_type": "NTA CUET (UG) 2026 official university-wise programme mapping (linked from cuet.nta.nic.in/participating-universities/)"
+    },
+    {
+      "university": "Dr. Shakuntala Misra National Rehabilitation University, Lucknow (UP state)",
+      "programmes": [
+        "B.Tech (Faculty of Engineering & Technology)"
+      ],
+      "subjects": "Physics, Chemistry, Mathematics/Applied Mathematics",
+      "seats": null,
+      "source_url": "https://cdnbbsr.s3waas.gov.in/s3d1a21da7bca4abff8b0b61b87597de73/uploads/2025/12/202512282074857220.pdf",
+      "source_type": "NTA CUET (UG) 2026 official university-wise programme mapping (linked from cuet.nta.nic.in/participating-universities/)"
+    },
+    {
+      "university": "Harcourt Butler Technical University, Kanpur (UP state)",
+      "programmes": [
+        "B.Tech Biotechnology",
+        "B.Tech Lateral Entry (multiple branches, UP domicile)"
+      ],
+      "subjects": "Biotechnology: Chemistry (306) or Mathematics (319) or Physics (322), as listed; 10+2 with 55% (50% reserved)",
+      "seats": null,
+      "source_url": "https://cdnbbsr.s3waas.gov.in/s3d1a21da7bca4abff8b0b61b87597de73/uploads/2025/12/202512281384418568.pdf",
+      "source_type": "NTA CUET (UG) 2026 official university-wise programme mapping (linked from cuet.nta.nic.in/participating-universities/)",
+      "admission_note": "The only first-year B.Tech mapped is Biotechnology. The other mapped entries are lateral entry."
+    },
+    {
+      "university": "Madan Mohan Malaviya University of Technology, Gorakhpur (UP state)",
+      "programmes": [
+        "B.Tech 2nd-year Lateral Entry (diploma holders): CSE, IT, ME, CE, EE, ECE, ECE(IoT), CHE"
+      ],
+      "subjects": "Mathematics (319) and General Aptitude Test (501)",
+      "seats": null,
+      "source_url": "https://cdnbbsr.s3waas.gov.in/s3d1a21da7bca4abff8b0b61b87597de73/uploads/2025/12/202512282068601681.pdf",
+      "source_type": "NTA CUET (UG) 2026 official university-wise programme mapping (linked from cuet.nta.nic.in/participating-universities/)",
+      "admission_note": "Lateral entry only."
+    },
+    {
+      "university": "Guru Gobind Singh Indraprastha University, Delhi (state)",
+      "programmes": [
+        "B.Tech Biotechnology (BT)"
+      ],
+      "subjects": "Physics, Chemistry, Mathematics/Applied Mathematics (319), Biology/Biotechnology/Biochemistry (304), as listed",
+      "seats": null,
+      "source_url": "https://cdnbbsr.s3waas.gov.in/s3d1a21da7bca4abff8b0b61b87597de73/uploads/2025/12/202512282051857860.pdf",
+      "source_type": "NTA CUET (UG) 2026 official university-wise programme mapping (linked from cuet.nta.nic.in/participating-universities/)",
+      "admission_note": "Only B.Tech (BT) is mapped. GGSIPU's other B.Tech admissions are not in the CUET mapping."
+    },
+    {
+      "university": "Devi Ahilya Vishwavidyalaya, Indore (MP state)",
+      "programmes": [
+        "5-year Integrated M.Tech (B.Tech + M.Tech) Dual Degree: AI & Data Science, CS, Electronics (Embedded Systems), Energy & Environmental Engineering, IoT, IT"
+      ],
+      "subjects": "English + Physics + Chemistry + Mathematics (Energy & Environmental: Mathematics/Biology); 10+2 PCM with 50% (CS 60%)",
+      "seats": null,
+      "source_url": "https://cdnbbsr.s3waas.gov.in/s3d1a21da7bca4abff8b0b61b87597de73/uploads/2025/12/20251228108577754.pdf",
+      "source_type": "NTA CUET (UG) 2026 official university-wise programme mapping (linked from cuet.nta.nic.in/participating-universities/)"
+    },
+    {
+      "university": "Samrat Vikramaditya Vishwavidyalaya, Ujjain (MP state)",
+      "programmes": [
+        "B.Tech Dairy Technology"
+      ],
+      "subjects": "Agriculture/Biology/Biological Studies/Biotechnology/Biochemistry, as listed; 10+2 Science with 60%",
+      "seats": null,
+      "source_url": "https://cdnbbsr.s3waas.gov.in/s3d1a21da7bca4abff8b0b61b87597de73/uploads/2025/12/202512281108453389.pdf",
+      "source_type": "NTA CUET (UG) 2026 official university-wise programme mapping (linked from cuet.nta.nic.in/participating-universities/)"
+    },
+    {
+      "university": "Ratan Tata Maharashtra State Skills University (state)",
+      "programmes": [
+        "B.Tech Information Technology, Computer Technology, Mechatronics (Navi Mumbai and Pune campuses)"
+      ],
+      "subjects": "Physics, Chemistry, Computer Science/Informatics Practices; also open to ITI or diploma holders",
+      "seats": null,
+      "source_url": "https://cdnbbsr.s3waas.gov.in/s3d1a21da7bca4abff8b0b61b87597de73/uploads/2025/12/202512281684561855.pdf",
+      "source_type": "NTA CUET (UG) 2026 official university-wise programme mapping (linked from cuet.nta.nic.in/participating-universities/)"
+    },
+    {
+      "university": "NIFTEM-Kundli (central government institute)",
+      "programmes": [
+        "B.Tech (Food Technology and Management), 4 years"
+      ],
+      "subjects": "Physics, Chemistry and Mathematics/Biology; accepts a valid JEE Main / NEET / CUET 2026 score",
+      "seats": null,
+      "source_url": "https://cdnbbsr.s3waas.gov.in/s3d1a21da7bca4abff8b0b61b87597de73/uploads/2026/03/202603251828477652.pdf",
+      "source_type": "NTA CUET (UG) 2026 official university-wise programme mapping (linked from cuet.nta.nic.in/participating-universities/)",
+      "admission_note": "CUET is one of three accepted scores."
+    },
+    {
+      "university": "ICAR - CUET (ICAR-UG) for agricultural universities",
+      "programmes": [
+        "B.Tech Agricultural Engineering",
+        "B.Tech Dairy Technology",
+        "B.Tech Food Technology",
+        "B.Tech Biotechnology"
+      ],
+      "subjects": "Three of Agriculture (302), Biology (304), Chemistry (306), Mathematics (319), Physics (322), matching Class 12 subjects",
+      "seats": null,
+      "source_url": "https://cdnbbsr.s3waas.gov.in/s3d1a21da7bca4abff8b0b61b87597de73/uploads/2025/12/20251228917047543.pdf",
+      "source_type": "NTA CUET (UG) 2026 official university-wise programme mapping (linked from cuet.nta.nic.in/participating-universities/)",
+      "admission_note": "This is the ICAR all-India quota at agricultural universities, not a single university."
+    }
+  ],
+  "via_jee_not_cuet": [
+    {
+      "university": "University of Delhi - Faculty of Technology (B.Tech CSE, ECE, EE)",
+      "source_url": "https://admission.uod.ac.in/userfiles/downloads/2026/31052026_BTech-BOI.pdf",
+      "source_type": "official DU B.Tech Bulletin of Information 2026 (merit on the JEE Main 2026 Paper-I CRL)"
+    },
+    {
+      "university": "Tezpur University - B.Tech CE, CSE, EE, ECE, ME (and FET 70%), dual B.Tech-MBA",
+      "source_url": "https://www.tezu.ernet.in/adm26/notice/Prospectus2026.pdf",
+      "source_type": "official Tezpur Prospectus 2026 ('All admission shall be on the basis of JEE (Main) 2026'; 60% NE quota via TU portal, 40% via JoSAA/CSAB)"
+    },
+    {
+      "university": "Central University of Karnataka - 50% of seats in B.Tech CSE (AI&ML), ECE, EE",
+      "source_url": "https://cdnbbsr.s3waas.gov.in/s3d1a21da7bca4abff8b0b61b87597de73/uploads/2026/01/202601281557532856.pdf",
+      "source_type": "NTA CUET 2026 mapping (official). The other 50% is via CUET."
+    },
+    {
+      "university": "Central University of Jharkhand - B.Tech primarily via JoSAA/CSAB (CUET for vacant seats)",
+      "source_url": "https://cuj.ac.in/CSAB%2026.php",
+      "source_type": "official CUJ page (seen via search result)"
+    },
+    {
+      "university": "Central University of Rajasthan - B.Tech primarily via JoSAA/CSAB (CUET only for seats left over)",
+      "source_url": "https://cdnbbsr.s3waas.gov.in/s3d1a21da7bca4abff8b0b61b87597de73/uploads/2026/01/202601121699747678.pdf",
+      "source_type": "NTA CUET 2026 mapping (official)"
+    },
+    {
+      "university": "Jamia Millia Islamia - B.Tech (Faculty of Engineering & Technology)",
+      "source_url": "https://engineering.careers360.com/articles/jamia-millia-islamia-jmi-btech-admissions",
+      "source_type": "aggregator (Careers360): merit on JEE Main. The official NTA mapping for JMI has no B.Tech entry."
+    },
+    {
+      "university": "Central University of Haryana - B.Tech",
+      "source_url": "https://www.collegedekho.com/university/central-university-of-haryana-btech-dpid-172092",
+      "source_type": "aggregator (CollegeDekho / Careers360): JEE Main via JoSAA/CSAB. The official NTA mapping for CUH has no B.Tech entry."
+    }
+  ],
+  "notes": "Cycle: CUET (UG) 2026 = academic year 2026-27. The primary source is the NTA's official university-wise 'CUET (UG) 2026 programme mapping' PDFs (cdnbbsr.s3waas.gov.in), linked from https://cuet.nta.nic.in/participating-universities/ (central, state and other-government lists). All 97 public-institution mapping PDFs (central, state, other government) were read as text and searched for B.Tech/BE/integrated B.Tech-M.Tech. Being in the mapping means the programme accepts CUET scores, not necessarily that CUET is the only route. See admission_note for CUK (50/50 with JEE), CURAJ and CUJ (JoSAA/CSAB first, CUET for leftover seats), Tezpur (CUET only for 30% of Food Engg seats) and NIFTEM (JEE/NEET/CUET). Seat counts are mostly null: the mapping PDFs do not publish intake, and only Tezpur FET is confirmed from an official prospectus. Universities from the brief with NO B.Tech/BE/integrated B.Tech in their CUET 2026 mapping: University of Hyderabad, Central University of Haryana, University of Allahabad, Central University of Kashmir, Central University of Jammu, Sikkim University, Mizoram University, Rajiv Gandhi University, Visva-Bharati, Jamia Millia Islamia, BHU, AMU, Central University of Kerala, JNU. Their absence from the mapping is official evidence that they do not admit B.Tech via CUET. Only DU-FoT and Tezpur (official) and JMI and CUH (aggregator) were checked for a JEE route. The others may run JEE-based B.Tech or have none; this was not verified. Private and deemed universities (120 + 27 on the NTA lists) were not scanned. Not done: the NTA Information Bulletin itself was not parsed (the per-university mappings supersede it). The Pondicherry rank-list PDFs returned HTTP 503, so the Pondicherry seat figures are search-snippet only."
+}

@@ -692,7 +692,14 @@
  },
  "sppu-oee": {
   "eligible_in": "All India",
-  "run_by": "Public"
+  "run_by": "Public",
+  "careers": [
+   "Artificial Intelligence and Data Science",
+   "Aviation Engineering and Maintenance",
+   "Biotechnology",
+   "Computer Science / Information Technology",
+   "Hotel Management"
+  ]
  },
  "srmjee-l-ug": {
   "eligible_in": "All India",
@@ -1269,5 +1276,17 @@
   "reserved_for": "Gujarat"
  },
  "_comment_reserved_for": "reserved_for: a state exam any Indian can sit, with reservation (and usually fee and age concessions) for that state's residents. Shown in the All India list and in that state's list.",
- "_comment_recruitment": "recruitment: an armed forces entry that recruits into a job (Agniveer, Coast Guard, commissions through AFCAT, TGC/SSC Tech, Navy SSC, NCC entry), labelled 'Recruitment exam'. NDA, CDS, Army TES and the Navy 10+2 B.Tech entry admit to an academy and stay 'Entrance exam'. Every Government Jobs exam is a recruitment."
+ "_comment_recruitment": "recruitment: an armed forces entry that recruits into a job (Agniveer, Coast Guard, commissions through AFCAT, TGC/SSC Tech, Navy SSC, NCC entry), labelled 'Recruitment exam'. NDA, CDS, Army TES and the Navy 10+2 B.Tech entry admit to an academy and stay 'Entrance exam'. Every Government Jobs exam is a recruitment.",
+ "imu-cet": {
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "careers": [
+   "Marine / Ocean Engineering",
+   "Merchant Navy (Nautical Officer)",
+   "Nautical Science"
+  ],
+  "subjects": {
+   "_": "pcm"
+  }
+ }
 }

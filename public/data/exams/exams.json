@@ -794,11 +794,13 @@
    ]
   ],
   "pattern_note": null,
-  "remarks": "Candidates applying for admission to B.Tech. can also apply for admission to B.Arch. on the with additional application fee.",
+  "remarks": "B.Tech at Zakir Husain College of Engineering & Technology (11 branches) is filled through AMU's own Admission Test, not JEE Main: in 2026, 100 multiple-choice questions on Physics, Chemistry and Maths, 2 hours, 0.25 marks off per wrong answer, held on 19 April. Candidates applying for B.Tech can also apply for B.Arch with an additional fee.",
   "stage": "After Class 12",
   "selection_process": null,
   "replaces": null,
-  "aliases": null,
+  "aliases": [
+   "AMUEEE; AMU B.Tech Admission Test; AMU Admission Test"
+  ],
   "predictor_exam": null,
   "open_data_id": null,
   "careers": [
@@ -3862,6 +3864,7 @@
    "Commerce",
    "Computer Application",
    "Economics",
+   "Engineering",
    "Journalism & Media",
    "Science",
    "Yoga"
@@ -3872,7 +3875,8 @@
    "BCA",
    "BCom",
    "BPES",
-   "BSc"
+   "BSc",
+   "BTech"
   ],
   "scope": "All India",
   "scope_type": "All India",
@@ -3900,7 +3904,7 @@
   "pattern": "Choose up to 5 subjects in all, from 13 Languages, 23 Domain Subjects and the General Aptitude Test",
   "pattern_rows": null,
   "pattern_note": null,
-  "remarks": "Up to 5 subjects in total, including languages and the General Aptitude Test.",
+  "remarks": "Up to 5 subjects in total, including languages and the General Aptitude Test. A few central universities admit to B.Tech through CUET, with Physics, Chemistry and Maths: BBAU Lucknow, Pondicherry University, and the Central Universities of Jharkhand, Karnataka, Punjab, Rajasthan, Andhra Pradesh and Tamil Nadu, among others. Some fill only part of their seats this way, and most B.Tech seats elsewhere go through JEE Main.",
   "stage": "After Class 12",
   "selection_process": null,
   "replaces": [
@@ -6023,6 +6027,72 @@
   "predictor_exam": null,
   "open_data_id": null,
   "careers": null,
+  "colleges_link": null,
+  "applicants": null,
+  "vacancies": null
+ },
+ {
+  "exam_id": "imu-cet",
+  "name": "IMU CET (Indian Maritime University Common Entrance Test)",
+  "acronym": "IMU CET",
+  "streams": [
+   "Engineering",
+   "Science"
+  ],
+  "degrees": [
+   "BTech; BSc; Diploma"
+  ],
+  "scope": "All India",
+  "scope_type": "All India",
+  "scope_state": null,
+  "eligible_in": "All India",
+  "run_by": "Public",
+  "subjects": {
+   "_": "pcm"
+  },
+  "fills_private": false,
+  "reserved_for": null,
+  "recruitment": false,
+  "url": "https://www.imu.edu.in/imunew/admission-2026-27",
+  "eligibility": "Class 12 with Physics, Chemistry, Maths and English. Minimum marks, upper age limits and the Directorate General of Shipping medical and eyesight standards: see the prospectus.",
+  "fee_display": "See the prospectus",
+  "fee_number": null,
+  "test_month": "May",
+  "test_month_n": 5,
+  "apply_month": null,
+  "apply_month_n": null,
+  "forms_out": "As per notification",
+  "last_date": "Late April",
+  "test_date": "May",
+  "mode": "Computer Based",
+  "duration": null,
+  "marking": "See the prospectus",
+  "pattern": "One computer-based test, held in two shifts with scores normalised, for B.Tech, B.Sc Nautical Science and the Diploma in Nautical Science. Subjects, number of questions and negative marking: see the prospectus.",
+  "pattern_rows": null,
+  "pattern_note": null,
+  "remarks": "Admits to B.Tech Marine Engineering, B.Tech Naval Architecture & Ocean Engineering, B.Tech Naval Architecture & Ship Building, B.Sc Nautical Science and the 1-year Diploma in Nautical Science at IMU campuses and affiliated institutes. IMU's BBA programmes use a separate registration and rank list, not the UG CET.",
+  "stage": "After Class 12",
+  "selection_process": "IMU CET (computer-based) \u2192 Rank list \u2192 Online counselling and seat allotment \u2192 Document verification \u2192 DG Shipping medical",
+  "replaces": null,
+  "aliases": [
+   "IMU-CET; IMUCET; Indian Maritime University CET; Merchant Navy entrance"
+  ],
+  "predictor_exam": null,
+  "open_data_id": null,
+  "careers": [
+   {
+    "label": "Marine / Ocean Engineering",
+    "slug": "marine-ocean-engineering"
+   },
+   {
+    "label": "Merchant Navy (Nautical Officer)",
+    "slug": "merchant-navy-nautical-officer"
+   },
+   {
+    "label": "Nautical Science",
+    "slug": "nautical-science"
+   }
+  ],
   "colleges_link": null,
   "applicants": null,
   "vacancies": null
@@ -13716,7 +13786,7 @@
    ]
   ],
   "pattern_note": null,
-  "remarks": null,
+  "remarks": "At SPPU's Department of Technology: B.Tech Data Science (120 seats) and B.Tech Aviation (20 seats). A test is held only for programmes with more applicants than seats; in 2026 B.Tech Data Science had one on 12 June. Candidates from other states can apply.",
   "stage": "After Class 12",
   "selection_process": null,
   "replaces": null,
@@ -13725,8 +13795,12 @@
   "open_data_id": null,
   "careers": [
    {
-    "label": "Arts",
-    "slug": "arts"
+    "label": "Artificial Intelligence and Data Science",
+    "slug": "artificial-intelligence-and-data-science"
+   },
+   {
+    "label": "Aviation Engineering and Maintenance",
+    "slug": "aviation-engineering-and-maintenance"
    },
    {
     "label": "Biotechnology",
@@ -13739,10 +13813,6 @@
    {
     "label": "Hotel Management",
     "slug": "hotel-management"
-   },
-   {
-    "label": "Mechanical / Mechatronics Engineering",
-    "slug": "mechanical-mechatronics-engineering"
    }
   ],
   "colleges_link": null,

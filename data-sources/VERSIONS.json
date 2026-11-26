@@ -1,17 +1,21 @@
 {
-  "_doc": "Versions of the hand-kept CSVs: scripts/data_versions.py. The CSV in this repo is the master copy; `sheet` names the Google sheet it is copied to and sheet_synced_version the last version that sheet has (0: older than v1). blob is the git object holding that version's exact content (what `bump` compares with). Log: docs/audits/data_changelog.csv.",
+  "_doc": "Versions of the hand-kept CSVs: scripts/data_versions.py. The CSV in this repo is the master copy; `sheet` names the Google sheet it is copied to and sheet_synced_version the last version that sheet has (0: older than v1). blob is the git object holding that version's exact content (what `bump` compares with). Log: docs/audits/data_changelog.csv. first_ids: the key column was added later, numbered in the file's row order then, so a copy from before it is matched row N -> that id.",
   "files": {
     "data-sources/exams_cleaned.csv": {
       "key": [
         "row_id"
       ],
       "sheet": "Google sheet: List of entrance exams in India",
-      "version": 5,
+      "version": 6,
       "updated": "2026-11-26",
-      "rows": 508,
-      "sha256": "48179f2de221877e91f0201e7ebd804881ef7360f59fde22c3064932a7d65aa8",
+      "rows": 511,
+      "sha256": "19209db8726a6b07d7c3324aaa29cf602ddbff5c948629effcd5422e7768f19c",
       "sheet_synced_version": 0,
-      "blob": "4627fc7fa5bfeb565781eb4d28b6c777e4f4e106"
+      "blob": "b23a223a27f7357a655bb285faa07a87042821ab",
+      "first_ids": {
+        "format": "x{:04d}",
+        "start": 1
+      }
     },
     "data-sources/exam_applicants.csv": {
       "key": [
@@ -115,12 +119,16 @@
         "audit_id"
       ],
       "sheet": null,
-      "version": 4,
+      "version": 5,
       "updated": "2026-11-26",
-      "rows": 185,
-      "sha256": "e1327db996270cdc8147f3532957b31db755ae23dbf94d2db7c810f869d02075",
+      "rows": 189,
+      "sha256": "96d7add9d4d4bef23eac8123b4643ee873e1e4e65e594c4249ed92d18b361c85",
       "sheet_synced_version": null,
-      "blob": "19428df045afec29eb5e8bf2a5473ed8fc859ee0"
+      "blob": "7dcd34e9a8cd203ff74fdcc0b13d0be6bdac12cb",
+      "first_ids": {
+        "format": "a{:04d}",
+        "start": 1
+      }
     },
     "docs/audits/career_pay_sources.csv": {
       "key": [
