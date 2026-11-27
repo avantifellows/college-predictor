@@ -15,9 +15,11 @@ import examConfigs from "../examConfig";
 import CoachMarks from "./CoachMarks";
 import StarButton from "./StarButton";
 import ChoiceBuilder from "./ChoiceBuilder";
+import OrderNote from "./OrderNote";
 import {
   BRANCH_FAMILIES,
   INTERESTS,
+  PRIORITIES,
   WORKPLACES,
   buildOrder,
   compareKeys,
@@ -463,11 +465,11 @@ const PredictedCollegesTable = ({
       prev.some((x) => x.key === key)
         ? prev.filter((x) => x.key !== key)
         : prev.length >= 3
-        ? prev
-        : [
-            ...prev,
-            { key, cid: compareIdOf(t), program: t.academic_program_name },
-          ]
+          ? prev
+          : [
+              ...prev,
+              { key, cid: compareIdOf(t), program: t.academic_program_name },
+            ]
     );
   };
   // NEET: which seat pool the results tab is showing — home-state vs All India.
@@ -1183,8 +1185,8 @@ const PredictedCollegesTable = ({
         cutoff_score: item["Cutoff Note"]
           ? "All admitted"
           : item["Cutoff Score"] == null
-          ? null
-          : `${item["Cutoff Score"]} / ${item["Out Of"]}`,
+            ? null
+            : `${item["Cutoff Score"]} / ${item["Out Of"]}`,
         seat: item["Seat"],
       };
     }
@@ -1540,11 +1542,8 @@ const PredictedCollegesTable = ({
   // so a search or exam tab doesn't move the percentiles
   const choiceScore = useMemo(() => {
     if (!choicePrefs || !branchParents) return null;
-    return buildOrder(fullData, choicePrefs, branchParents, {
-      "JEE Main": mainRank,
-      "JEE Advanced": advRank,
-    });
-  }, [fullData, choicePrefs, branchParents, mainRank, advRank]);
+    return buildOrder(fullData, choicePrefs, branchParents);
+  }, [fullData, choicePrefs, branchParents]);
   // in the combined list a closing rank only compares within its exam
   const examOrder = (item) =>
     isCombinedView ? (getJeeExamType(item) === "JEE Advanced" ? 0 : 1) : 0;
@@ -1700,8 +1699,8 @@ const PredictedCollegesTable = ({
   const rowLimit = isCombinedJosaaExam
     ? pageSize
     : showAllRows
-    ? Infinity
-    : ROWS_PER_PAGE_INITIAL;
+      ? Infinity
+      : ROWS_PER_PAGE_INITIAL;
 
   const displayData = useMemo(() => {
     if (!isNeet) return stateOrdered;
@@ -1967,6 +1966,9 @@ const PredictedCollegesTable = ({
     [
       choicePrefs.states?.length ? choicePrefs.states.join(", ") : null,
       labelOf(BRANCH_FAMILIES, choicePrefs.families?.[0]),
+      choicePrefs.families?.length
+        ? labelOf(PRIORITIES, choicePrefs.priority)
+        : null,
       labelOf(INTERESTS, choicePrefs.interest),
       labelOf(WORKPLACES, choicePrefs.workplace),
     ].filter(Boolean);
@@ -2189,8 +2191,8 @@ const PredictedCollegesTable = ({
             supportsSalarySort && column.key === rankColumnKey
               ? "sort-first"
               : supportsSalarySort && column.key === salaryColumnKey
-              ? "sort-last"
-              : undefined
+                ? "sort-last"
+                : undefined
           }
           className="px-4 py-3 border-b border-[#decac3] whitespace-nowrap"
         >
@@ -2616,13 +2618,13 @@ const PredictedCollegesTable = ({
                     ? josaaCollegeGroup === "advanced"
                       ? "JEE Advanced college options."
                       : josaaCollegeGroup === "all"
-                      ? "college options (JEE Main and Advanced)."
-                      : "JEE Main college options."
+                        ? "college options (JEE Main and Advanced)."
+                        : "JEE Main college options."
                     : isNeet
-                    ? neetSeatTab === "home"
-                      ? "home-state seats."
-                      : "All India Quota seats."
-                    : "matching options."}
+                      ? neetSeatTab === "home"
+                        ? "home-state seats."
+                        : "All India Quota seats."
+                      : "matching options."}
                 </p>
                 {/* Year + round caption. NEET states the round too, because round depth is not
                     comparable across states; other exams show the year alone. Both read the data
@@ -2763,6 +2765,9 @@ const PredictedCollegesTable = ({
             Change
           </button>
         </div>
+      )}
+      {isCombinedJosaaExam && sortConfig?.key === "choice" && choicePrefs && (
+        <OrderNote prefs={choicePrefs} className="mb-3" />
       )}
       {filtersOpen && (
         <div

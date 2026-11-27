@@ -2,8 +2,8 @@ import React, { useMemo } from "react";
 import { analyzeMhtcetList } from "../utils/mhtcetListAnalyzer";
 import { formatRank, cardClass } from "./mockAllotmentTheme";
 
-// Presentational twin of components/ListAnalyzer.js (JoSAA's "Analyse &
-// Improve Your List"), driven by analyzeMhtcetList instead. Candidate rows
+// MHT-CET's "Analyse & Improve Your List" (it began as a twin of JoSAA's,
+// since replaced by components/MockResults.js), driven by analyzeMhtcetList. Candidate rows
 // show closing rank only — MHT-CET has no colleges.json-style enrichment, so
 // there's no NIRF/CTC/fee to show alongside it (see MatchStats in
 // InstituteRankedList.js, which JoSAA's version uses for that).

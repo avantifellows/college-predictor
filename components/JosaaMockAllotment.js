@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { ArrowDown, CheckCircle2 } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import { josaaConfig, statesList } from "../examConfig";
 import {
   loadAllRoundsData,
@@ -31,7 +31,11 @@ import {
   RestoredRunNotice,
 } from "./mockAllotmentShared";
 import { MatchStats } from "./InstituteRankedList";
-import ListAnalyzer from "./ListAnalyzer";
+import JosaaFlashCards, {
+  CARDS_SEEN_KEY,
+  markCardsSeen,
+} from "./JosaaFlashCards";
+import MockResults from "./MockResults";
 import { useRecordUse } from "../utils/useGetStarted";
 
 // Practice JoSAA choice-filling + locking + a round-by-round freeze/float mock,
@@ -171,7 +175,9 @@ const defaultProfile = {
 };
 
 const defaultState = {
-  step: "info",
+  // a fresh run opens on the JoSAA flash cards; a saved run resumes where
+  // it was (older saves have no "intro" and start at "info", as before)
+  step: "intro",
   profile: defaultProfile,
   choices: [],
   locked: false,
@@ -182,7 +188,10 @@ const defaultState = {
 export function loadPersistedState() {
   try {
     const raw = window.localStorage.getItem(STORAGE_KEY);
-    if (!raw) return defaultState;
+    if (!raw)
+      return window.localStorage.getItem(CARDS_SEEN_KEY) === "1"
+        ? { ...defaultState, step: "info" }
+        : defaultState;
     const parsed = JSON.parse(raw);
     return {
       ...defaultState,
@@ -218,6 +227,8 @@ const JosaaMockAllotment = ({ onChangeExam }) => {
   const [dataError, setDataError] = useState("");
   const [dataLoading, setDataLoading] = useState(false);
 
+  // the flash cards reopened over a later step (header link)
+  const [showCards, setShowCards] = useState(false);
   const [search, setSearch] = useState("");
   const [programType, setProgramType] = useState("all");
 
@@ -245,7 +256,8 @@ const JosaaMockAllotment = ({ onChangeExam }) => {
 
   // Load the JoSAA round data + college enrichment once the student needs it.
   useEffect(() => {
-    if (state.step === "info" || rows || dataLoading) return;
+    if (state.step === "intro" || state.step === "info" || rows || dataLoading)
+      return;
     setDataLoading(true);
     setDataError("");
     Promise.all([loadAllRoundsData(), loadCollegesData()])
@@ -424,7 +436,8 @@ const JosaaMockAllotment = ({ onChangeExam }) => {
   const restart = () => {
     setRestoredRun(false);
     window.localStorage.removeItem(STORAGE_KEY);
-    setState(defaultState);
+    // the flash cards were already seen on this run: straight to the form
+    setState({ ...defaultState, step: "info" });
     setSearch("");
     setProgramType("all");
   };
@@ -451,8 +464,8 @@ const JosaaMockAllotment = ({ onChangeExam }) => {
         Fill your choices, lock them, then play the rounds: freeze, float or
         slide, just as JoSAA runs them.
       </p>
-      {onChangeExam && (
-        <p className="mt-1 text-center">
+      <p className="mt-1 flex flex-wrap justify-center gap-x-4 gap-y-1 text-center">
+        {onChangeExam && (
           <button
             type="button"
             onClick={onChangeExam}
@@ -460,18 +473,65 @@ const JosaaMockAllotment = ({ onChangeExam }) => {
           >
             ← Choose a different exam
           </button>
-        </p>
+        )}
+        {state.step !== "intro" && (
+          <button
+            type="button"
+            onClick={() => setShowCards(true)}
+            className="text-xs font-semibold text-[#7a635d] underline hover:text-[#b52326]"
+          >
+            How JoSAA works
+          </button>
+        )}
+      </p>
+
+      {!transitionLabel && state.step === "intro" && (
+        <div className="mt-6">
+          <JosaaFlashCards
+            doneLabel="Start the mock"
+            onDone={() => {
+              markCardsSeen();
+              setStep("info");
+            }}
+            onSkip={() => {
+              markCardsSeen();
+              setStep("info");
+            }}
+          />
+        </div>
       )}
 
-      {state.step !== "simulate" && state.step !== "options" && (
-        <StepBar
-          current={state.step}
-          profileValid={profileValid}
-          choicesCount={state.choices.length}
-          locked={state.locked}
-          onSelect={setStep}
-        />
+      {showCards && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-[#2f2320]/55 p-4"
+          onClick={() => setShowCards(false)}
+        >
+          <div
+            role="dialog"
+            aria-label="How JoSAA works"
+            className="w-full max-w-md"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <JosaaFlashCards
+              doneLabel="Back to the mock"
+              onDone={() => setShowCards(false)}
+              onSkip={() => setShowCards(false)}
+            />
+          </div>
+        </div>
       )}
+
+      {state.step !== "intro" &&
+        state.step !== "simulate" &&
+        state.step !== "options" && (
+          <StepBar
+            current={state.step}
+            profileValid={profileValid}
+            choicesCount={state.choices.length}
+            locked={state.locked}
+            onSelect={setStep}
+          />
+        )}
 
       {transitionLabel && <LoadingCard label={transitionLabel} />}
 
@@ -1188,31 +1248,18 @@ const SimulateStep = ({
         </div>
       )}
 
-      {/* once the run is over, the verdict on the LIST lives right here —
-          balance gauge, reach/match/safety, and a few concrete suggestions —
-          instead of behind a button hop */}
-      {/* the analyzer needs the loaded JoSAA data — on a reload of a
-          finished run it arrives a beat after the page does */}
+      {/* once the run is over, the verdict on the LIST: High / Moderate /
+          Low chance cards, one line on its balance, and Help me improve my
+          list. Needs the loaded JoSAA data, which on a reload of a finished
+          run arrives a beat after the page does. */}
       {finalRevealed && collegesByName && seatIndex && catalog.length > 0 && (
-        <>
-          <div className="pt-2 text-center">
-            <p className="text-sm font-semibold text-[#7a635d]">
-              How strong was your list?
-            </p>
-            <ArrowDown
-              size={18}
-              className="mx-auto mt-2 text-[#B52326]/60"
-              aria-hidden="true"
-            />
-          </div>
-          <ListAnalyzer
-            choices={choices}
-            catalog={catalog}
-            seatIndex={seatIndex}
-            collegesByName={collegesByName}
-            profile={profile}
-          />
-        </>
+        <MockResults
+          choices={choices}
+          catalog={catalog}
+          seatIndex={seatIndex}
+          collegesByName={collegesByName}
+          profile={profile}
+        />
       )}
 
       <div className="flex flex-wrap items-center gap-3 border-t border-[#eaded8] pt-4">

@@ -1,15 +1,23 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { X } from "lucide-react";
-import { BRANCH_FAMILIES, INTERESTS, WORKPLACES } from "../utils/choiceScore";
+import {
+  BRANCH_FAMILIES,
+  INTERESTS,
+  PRIORITIES,
+  WORKPLACES,
+} from "../utils/choiceScore";
 import Dropdown from "./dropdown";
 
 // College choice builder (JoSAA): a short quiz whose answers order the
 // predictor's combined list into a choice list (planFor in
 // utils/choiceScore.js). Always four questions; a one-tap answer moves on
-// by itself. The answers:
+// by itself; a fifth (college or branch?) is asked only when they pick a
+// branch. The answers:
 //   states     preferred states (college location), or null for none; not
 //              part of the order: the results table can put these first
 //   families   the one branch family they want (BRANCH_FAMILIES id), or null
+//   priority   "college" or "branch": which wins when the two pull apart
+//              (PRIORITIES id); null when no branch was picked
 //   interest   what they want to do after college (INTERESTS id)
 //   workplace  where they see themselves working (WORKPLACES id)
 
@@ -44,6 +52,7 @@ const ChoiceBuilder = ({ states, branches, initial, onDone, onClose }) => {
     family: initial ? initial.families?.[0] || "any" : null,
     interest: initial?.interest || null,
     workplace: initial?.workplace || null,
+    priority: initial?.priority || null,
     anywhere: initial ? !initial.states?.length : false,
   }));
   // branch families with a branch in these results
@@ -54,7 +63,15 @@ const ChoiceBuilder = ({ states, branches, initial, onDone, onClose }) => {
       ),
     [branches]
   );
-  const STEPS = ["states", "branch", "interest", "workplace"];
+  // college-or-branch only means something once a branch is picked
+  const pickedBranch = answers.family && answers.family !== "any";
+  const STEPS = [
+    "states",
+    "branch",
+    ...(pickedBranch ? ["priority"] : []),
+    "interest",
+    "workplace",
+  ];
   const [stepIndex, setStepIndex] = useState(0);
   const step = STEPS[stepIndex];
   const last = stepIndex === STEPS.length - 1;
@@ -77,6 +94,7 @@ const ChoiceBuilder = ({ states, branches, initial, onDone, onClose }) => {
     onDone({
       states: !a.anywhere && a.states.length ? a.states : null,
       families: a.family && a.family !== "any" ? [a.family] : null,
+      priority: a.family && a.family !== "any" ? a.priority : null,
       branches: null,
       interest: a.interest,
       workplace: a.workplace,
@@ -148,6 +166,28 @@ const ChoiceBuilder = ({ states, branches, initial, onDone, onClose }) => {
               sub={f.hint}
             >
               {f.label}
+            </Choice>
+          ))}
+        </div>
+      </>
+    ),
+    priority: (
+      <>
+        <h3 className="choice-q">What matters more to you?</h3>
+        <p className="choice-help">
+          When a better college has a different branch, which do you pick?
+        </p>
+        <div className="grid gap-2">
+          {PRIORITIES.map((p) => (
+            <Choice
+              key={p.id}
+              on={answers.priority === p.id}
+              onClick={() => choose({ priority: p.id })}
+              sub={p.hint(
+                BRANCH_FAMILIES.find((f) => f.id === answers.family)?.label
+              )}
+            >
+              {p.label}
             </Choice>
           ))}
         </div>
