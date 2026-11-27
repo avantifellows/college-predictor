@@ -143,90 +143,142 @@ export const ReorderableChoiceList = ({
   // Pointer Events (not the native HTML5 drag API) so the same handlers drive
   // mouse, touch, and pen — the native drag API doesn't fire on touch at all,
   // which would leave mobile students with no way to reorder.
-  const [dragIndex, setDragIndex] = useState(null);
-  // A GAP position in the pre-drag array, not an item index: 0..choices.length,
-  // where choices.length means "after the last item". onReorder expects this
-  // exact shape — see reorderChoices' comment for why a plain index isn't enough.
-  const [overGap, setOverGap] = useState(null);
-  // Where the pointer currently is, so a floating label can follow it — the
-  // browser's native drag API draws its own ghost image automatically;
-  // Pointer Events don't, so without this the item being dragged is
-  // invisible the whole time it's moving (only the dimmed original row and
-  // the drop-target highlight are visible otherwise).
-  const [pointerPos, setPointerPos] = useState(null);
-  const itemRefs = useRef([]);
-  const findGapAtY = (clientY) => {
-    for (let i = 0; i < itemRefs.current.length; i += 1) {
-      const rect = itemRefs.current[i]?.getBoundingClientRect();
-      if (rect && clientY < rect.top + rect.height / 2) return i;
-    }
-    return choices.length;
+  //
+  // The list reorders LIVE while dragging: the dragged row sits where it
+  // will land, so there is no "which row does the highlight mean" guess.
+  // (The old version highlighted the row below the gap, so the pointer on
+  // row 3 lit up row 4 and the drop landed one slot above the highlight.)
+  //
+  // drag: { from, to, mids } — `from` is the dragged item's index in
+  // `choices`, `to` its index in the previewed order, `mids` every row's
+  // page-space middle measured once at drag start. Frozen rects keep the
+  // target stable while the rows move under the pointer (re-measuring the
+  // live, reordered DOM makes the target flicker between two slots).
+  const [drag, setDrag] = useState(null);
+  const dragRef = useRef(null);
+  dragRef.current = drag;
+  const itemRefs = useRef(new Map());
+  const lastClientY = useRef(0);
+
+  const targetFor = (clientY, d) => {
+    const y = clientY + window.scrollY;
+    let to = 0;
+    d.mids.forEach((mid, i) => {
+      if (i !== d.from && y > mid) to += 1;
+    });
+    return to;
   };
 
   const handlePointerDown = (index) => (e) => {
-    e.currentTarget.setPointerCapture(e.pointerId); // routes later move/up here even off-element
-    setDragIndex(index);
-    setOverGap(index);
-    setPointerPos({ x: e.clientX, y: e.clientY });
-  };
-  const handlePointerMove = (e) => {
-    if (dragIndex === null) return;
-    setPointerPos({ x: e.clientX, y: e.clientY });
-    const target = findGapAtY(e.clientY);
-    if (target !== overGap) setOverGap(target);
-  };
-  const endDrag = () => {
-    // A gap equal to fromIndex or fromIndex+1 both mean "drop back where it
-    // started" (nothing before/after it actually moves), so only reorder
-    // outside that no-op range.
-    if (
-      dragIndex !== null &&
-      overGap !== null &&
-      overGap !== dragIndex &&
-      overGap !== dragIndex + 1
-    ) {
-      onReorder(dragIndex, overGap);
-    }
-    setDragIndex(null);
-    setOverGap(null);
-    setPointerPos(null);
+    if (e.button !== 0) return; // right-click / middle-click: not a drag
+    e.preventDefault(); // no text selection, no touch scroll
+    const mids = choices.map((item) => {
+      const rect = itemRefs.current.get(itemKey(item))?.getBoundingClientRect();
+      return rect ? rect.top + window.scrollY + rect.height / 2 : 0;
+    });
+    lastClientY.current = e.clientY;
+    setDrag({ from: index, to: index, mids });
   };
 
-  // Approximate which row to highlight as the drop target — just the
-  // nearest row to the gap, not a true "insert here" line between rows.
-  const highlightIndex =
-    overGap === null ? null : Math.min(overGap, choices.length - 1);
+  const dragging = drag !== null;
+  // Move/up listen on window, not the handle: the dragged row is moved in
+  // the DOM as the preview reorders, and pointer capture on a moved node is
+  // dropped by the browser mid-drag.
+  React.useEffect(() => {
+    if (!dragging) return undefined;
+    const update = () => {
+      const d = dragRef.current;
+      if (!d) return;
+      const to = targetFor(lastClientY.current, d);
+      if (to !== d.to) setDrag({ ...d, to });
+    };
+    const onMove = (e) => {
+      lastClientY.current = e.clientY;
+      update();
+    };
+    const onUp = () => {
+      const d = dragRef.current;
+      // onReorder takes a GAP in the original array; moving down, the gap
+      // after the item that now sits above the dragged one is `to + 1`
+      if (d && d.to !== d.from)
+        onReorder(d.from, d.to > d.from ? d.to + 1 : d.to);
+      setDrag(null);
+    };
+    // Auto-scroll near the top/bottom edge so a long list can be dragged
+    // past what's on screen.
+    let frame;
+    const EDGE = 70;
+    const tick = () => {
+      const y = lastClientY.current;
+      let dy = 0;
+      if (y < EDGE) dy = -Math.ceil((EDGE - y) / 5);
+      else if (y > window.innerHeight - EDGE)
+        dy = Math.ceil((y - (window.innerHeight - EDGE)) / 5);
+      if (dy) {
+        window.scrollBy(0, dy);
+        update();
+      }
+      frame = window.requestAnimationFrame(tick);
+    };
+    frame = window.requestAnimationFrame(tick);
+    const prevSelect = document.body.style.userSelect;
+    document.body.style.userSelect = "none";
+    window.addEventListener("pointermove", onMove);
+    window.addEventListener("pointerup", onUp);
+    window.addEventListener("pointercancel", onUp);
+    window.addEventListener("scroll", update, { passive: true });
+    return () => {
+      window.cancelAnimationFrame(frame);
+      document.body.style.userSelect = prevSelect;
+      window.removeEventListener("pointermove", onMove);
+      window.removeEventListener("pointerup", onUp);
+      window.removeEventListener("pointercancel", onUp);
+      window.removeEventListener("scroll", update);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dragging]);
+
+  // the order shown: the real one, or, mid-drag, the dragged row at `to`
+  const shown = choices.map((item, index) => ({ item, index }));
+  if (drag && drag.to !== drag.from) {
+    const [moved] = shown.splice(drag.from, 1);
+    shown.splice(drag.to, 0, moved);
+  }
 
   return (
     <>
       <ol className="mt-3 space-y-2">
-        {choices.map((item, index) => {
+        {shown.map(({ item, index }, position) => {
           const key = itemKey(item);
+          const isDragged = drag && drag.from === index;
           return (
             <li
               key={key}
               ref={(el) => {
-                itemRefs.current[index] = el;
+                if (el) itemRefs.current.set(key, el);
+                else itemRefs.current.delete(key);
               }}
-              className={`flex items-center gap-2 rounded-lg border px-3 py-2 text-sm transition ${
-                highlightIndex === index
-                  ? "border-[#b52326] bg-[#fdf3f1]"
-                  : "border-[#f0e6e1]"
-              } ${dragIndex === index ? "opacity-50" : ""}`}
+              className={`flex items-center gap-2 rounded-lg border px-3 py-2 text-sm ${
+                isDragged
+                  ? "relative z-10 border-[#b52326] bg-[#fdf3f1] shadow-lg ring-2 ring-[#b52326]/20"
+                  : "border-[#f0e6e1] bg-white"
+              }`}
             >
               <span
                 onPointerDown={handlePointerDown(index)}
-                onPointerMove={handlePointerMove}
-                onPointerUp={endDrag}
-                onPointerCancel={endDrag}
                 style={{ touchAction: "none" }}
-                className="shrink-0 cursor-grab touch-none active:cursor-grabbing"
+                className={`-my-1 -ml-2 flex h-9 w-8 shrink-0 touch-none items-center justify-center rounded-md hover:bg-[#fbeeec] ${
+                  isDragged ? "cursor-grabbing" : "cursor-grab"
+                }`}
                 aria-label="Drag to reorder"
               >
-                <GripVertical size={16} className="text-[#c9b8b2]" />
+                <GripVertical
+                  size={18}
+                  className={isDragged ? "text-[#b52326]" : "text-[#b9a39c]"}
+                />
               </span>
               <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#fbeeec] text-xs font-black text-[#b52326]">
-                {index + 1}
+                {position + 1}
               </span>
               <div className="min-w-0 flex-1">
                 <p className="text-sm font-semibold text-[#3a2c28]">
@@ -266,20 +318,6 @@ export const ReorderableChoiceList = ({
           );
         })}
       </ol>
-
-      {dragIndex !== null && pointerPos && (
-        <div
-          style={{
-            position: "fixed",
-            left: pointerPos.x + 16,
-            top: pointerPos.y + 16,
-            zIndex: 9999,
-          }}
-          className="pointer-events-none max-w-[240px] rounded-lg border-2 border-[#b52326] bg-white px-3 py-2 text-xs font-semibold text-[#3a2c28] shadow-lg"
-        >
-          #{dragIndex + 1}. {choices[dragIndex]?.institute}
-        </div>
-      )}
     </>
   );
 };

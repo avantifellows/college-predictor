@@ -5,6 +5,7 @@
 // college shows one salary everywhere. Server-only: it reads the file.
 import fs from "fs";
 import path from "path";
+import { isSatelliteCampus } from "./satelliteCampus";
 
 let index = null;
 
@@ -86,12 +87,7 @@ export const cardFor = (row, exam, { links = true } = {}) => {
 // Adds "NIRF Rank", "NIRF List", "Median Salary", "Placed %" and "Students
 // Placed" (the size behind the median) from the row's card. A row with a card always takes the card's values (null where
 // NIRF has none); JoSAA's spreadsheet "Expected Salary" is dropped either way.
-// A satellite campus shares its parent's College ID (BIT Patna and Deoghar
-// off-campuses under BIT Mesra, IIT Delhi's Abu Dhabi programmes, IIIT
-// Vadodara's Diu campus) but not its NIRF return: no rank or salary for it.
-const isSatelliteCampus = (row) =>
-  /off[- ]campus|international campus/i.test(String(row["Institute"] || "")) ||
-  /^abu dhabi campus/i.test(String(row["Academic Program Name"] || ""));
+// A satellite campus gets no rank or salary: see utils/satelliteCampus.js.
 
 export const withCollegeFacts = (rows, exam) =>
   rows.map((row) => {

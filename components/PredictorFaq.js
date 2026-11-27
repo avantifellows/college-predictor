@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { ChevronDown, CircleHelp, X } from "lucide-react";
 
 // JoSAA results FAQ: a red button that opens the answers in a small window.
-const FAQS = [
+export const FAQS = [
   {
     q: "Are closing ranks for my category or all India?",
     a: "Your category: each closing rank is for seats in your category, so compare it with your category rank.",
@@ -27,6 +27,8 @@ const FAQS = [
   },
 ];
 
+export const OPEN_FAQ_EVENT = "futures:open-faq";
+
 const PredictorFaq = ({ className = "" }) => {
   const [open, setOpen] = useState(false);
   // which answer is showing (one at a time)
@@ -38,6 +40,21 @@ const PredictorFaq = ({ className = "" }) => {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [open]);
+
+  // other parts of the page open the FAQ at one answer ("What is NIRF?" in
+  // the Why this order note): dispatch OPEN_FAQ_EVENT with the question;
+  // preventDefault tells the sender the FAQ is on this page and took it
+  useEffect(() => {
+    const onOpen = (e) => {
+      const i = FAQS.findIndex((f) => f.q === e.detail);
+      if (i < 0) return;
+      e.preventDefault();
+      setShown(i);
+      setOpen(true);
+    };
+    window.addEventListener(OPEN_FAQ_EVENT, onOpen);
+    return () => window.removeEventListener(OPEN_FAQ_EVENT, onOpen);
+  }, []);
 
   return (
     <>

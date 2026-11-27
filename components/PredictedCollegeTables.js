@@ -15,9 +15,11 @@ import examConfigs from "../examConfig";
 import CoachMarks from "./CoachMarks";
 import StarButton from "./StarButton";
 import ChoiceBuilder from "./ChoiceBuilder";
+import OrderNote from "./OrderNote";
 import {
   BRANCH_FAMILIES,
   INTERESTS,
+  PRIORITIES,
   WORKPLACES,
   buildOrder,
   compareKeys,
@@ -1540,11 +1542,8 @@ const PredictedCollegesTable = ({
   // so a search or exam tab doesn't move the percentiles
   const choiceScore = useMemo(() => {
     if (!choicePrefs || !branchParents) return null;
-    return buildOrder(fullData, choicePrefs, branchParents, {
-      "JEE Main": mainRank,
-      "JEE Advanced": advRank,
-    });
-  }, [fullData, choicePrefs, branchParents, mainRank, advRank]);
+    return buildOrder(fullData, choicePrefs, branchParents);
+  }, [fullData, choicePrefs, branchParents]);
   // in the combined list a closing rank only compares within its exam
   const examOrder = (item) =>
     isCombinedView ? (getJeeExamType(item) === "JEE Advanced" ? 0 : 1) : 0;
@@ -1967,6 +1966,9 @@ const PredictedCollegesTable = ({
     [
       choicePrefs.states?.length ? choicePrefs.states.join(", ") : null,
       labelOf(BRANCH_FAMILIES, choicePrefs.families?.[0]),
+      choicePrefs.families?.length
+        ? labelOf(PRIORITIES, choicePrefs.priority)
+        : null,
       labelOf(INTERESTS, choicePrefs.interest),
       labelOf(WORKPLACES, choicePrefs.workplace),
     ].filter(Boolean);
@@ -2763,6 +2765,9 @@ const PredictedCollegesTable = ({
             Change
           </button>
         </div>
+      )}
+      {isCombinedJosaaExam && sortConfig?.key === "choice" && choicePrefs && (
+        <OrderNote prefs={choicePrefs} className="mb-3" />
       )}
       {filtersOpen && (
         <div

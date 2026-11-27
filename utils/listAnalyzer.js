@@ -228,5 +228,15 @@ export function analyzeList({
     });
   }
 
-  return { evaluated, nReach, nMatch, nSafety, balanceScore, recommendations };
+  // candidates: every eligible program NOT on the list, tagged — the mock's
+  // "Help me improve my list" orders these by the student's quiz answers
+  return {
+    evaluated,
+    nReach,
+    nMatch,
+    nSafety,
+    balanceScore,
+    recommendations,
+    candidates,
+  };
 }
