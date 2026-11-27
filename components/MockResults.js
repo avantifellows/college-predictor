@@ -3,6 +3,7 @@ import { Sparkles } from "lucide-react";
 import { analyzeList } from "../utils/listAnalyzer";
 import { buildOrder, compareKeys } from "../utils/choiceScore";
 import { examSpaceFor } from "../utils/josaaSimulator";
+import { isSatelliteCampus } from "../utils/satelliteCampus";
 import ChoiceBuilder from "./ChoiceBuilder";
 import OrderNote from "./OrderNote";
 import { formatRank, formatSalary } from "./mockAllotmentTheme";
@@ -223,22 +224,31 @@ const MockResults = ({
       .filter((c) => c.tag && c.tag !== "reach")
       .map((c) => {
         const college = collegesByName.get(c.institute);
+        // a satellite campus (IIT Delhi's Abu Dhabi programmes, say) shares
+        // its parent's card but not its NIRF rank or salary, same as the
+        // predictor (utils/satelliteCampus.js)
+        const facts = isSatelliteCampus({
+          Institute: c.institute,
+          "Academic Program Name": c.program,
+        })
+          ? null
+          : college;
         return {
           institute: c.institute,
           program: c.program,
           tag: c.tag,
           onList: onList.has(pairKey(c)),
           state: college?.state || null,
-          nirf: nirfLabel(college),
-          salary: college?.placement?.median_salary ?? null,
+          nirf: nirfLabel(facts),
+          salary: facts?.placement?.median_salary ?? null,
           closingRank: c.closingRank,
           exam: examSpaceFor(c.institute, collegesByName),
           row: {
             Institute: c.institute,
             Exam: examSpaceFor(c.institute, collegesByName),
             "Closing Rank": c.closingRank,
-            "NIRF List": college?.nirf?.category || null,
-            "NIRF Rank": college?.nirf?.rank ?? null,
+            "NIRF List": facts?.nirf?.category || null,
+            "NIRF Rank": facts?.nirf?.rank ?? null,
             "Academic Program Name": c.program,
           },
         };

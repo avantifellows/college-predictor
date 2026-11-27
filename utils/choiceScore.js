@@ -680,7 +680,9 @@ export const explainOrder = (prefs) => {
   steps.push(
     `${
       branchSplit ? "Within your branch, and again for the rest, top" : "Top"
-    } 10 {NIRF} IITs are ranked above ${branchSplit ? "" : "all "}NITs and IIITs, because along with great placements, they also offer a strong alumni network and research environment.`
+    } 10 {NIRF} IITs are ranked above ${
+      branchSplit ? "" : "all "
+    }NITs and IIITs, because along with great placements, they also offer a strong alumni network and research environment.`
   );
   if (states.length)
     steps.push(

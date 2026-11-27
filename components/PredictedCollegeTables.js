@@ -465,11 +465,11 @@ const PredictedCollegesTable = ({
       prev.some((x) => x.key === key)
         ? prev.filter((x) => x.key !== key)
         : prev.length >= 3
-          ? prev
-          : [
-              ...prev,
-              { key, cid: compareIdOf(t), program: t.academic_program_name },
-            ]
+        ? prev
+        : [
+            ...prev,
+            { key, cid: compareIdOf(t), program: t.academic_program_name },
+          ]
     );
   };
   // NEET: which seat pool the results tab is showing — home-state vs All India.
@@ -1185,8 +1185,8 @@ const PredictedCollegesTable = ({
         cutoff_score: item["Cutoff Note"]
           ? "All admitted"
           : item["Cutoff Score"] == null
-            ? null
-            : `${item["Cutoff Score"]} / ${item["Out Of"]}`,
+          ? null
+          : `${item["Cutoff Score"]} / ${item["Out Of"]}`,
         seat: item["Seat"],
       };
     }
@@ -1699,8 +1699,8 @@ const PredictedCollegesTable = ({
   const rowLimit = isCombinedJosaaExam
     ? pageSize
     : showAllRows
-      ? Infinity
-      : ROWS_PER_PAGE_INITIAL;
+    ? Infinity
+    : ROWS_PER_PAGE_INITIAL;
 
   const displayData = useMemo(() => {
     if (!isNeet) return stateOrdered;
@@ -2191,8 +2191,8 @@ const PredictedCollegesTable = ({
             supportsSalarySort && column.key === rankColumnKey
               ? "sort-first"
               : supportsSalarySort && column.key === salaryColumnKey
-                ? "sort-last"
-                : undefined
+              ? "sort-last"
+              : undefined
           }
           className="px-4 py-3 border-b border-[#decac3] whitespace-nowrap"
         >
@@ -2618,13 +2618,13 @@ const PredictedCollegesTable = ({
                     ? josaaCollegeGroup === "advanced"
                       ? "JEE Advanced college options."
                       : josaaCollegeGroup === "all"
-                        ? "college options (JEE Main and Advanced)."
-                        : "JEE Main college options."
+                      ? "college options (JEE Main and Advanced)."
+                      : "JEE Main college options."
                     : isNeet
-                      ? neetSeatTab === "home"
-                        ? "home-state seats."
-                        : "All India Quota seats."
-                      : "matching options."}
+                    ? neetSeatTab === "home"
+                      ? "home-state seats."
+                      : "All India Quota seats."
+                    : "matching options."}
                 </p>
                 {/* Year + round caption. NEET states the round too, because round depth is not
                     comparable across states; other exams show the year alone. Both read the data

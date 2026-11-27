@@ -87,10 +87,10 @@ export const StepBar = ({
                   active
                     ? "border-[#b52326] bg-[#b52326] text-white"
                     : done
-                      ? "border-[#b52326] bg-white text-[#b52326]"
-                      : disabled
-                        ? "border-[#e4d8d2] bg-[#f8efec] text-[#c9b8b2]"
-                        : "border-[#d8c7c1] bg-white text-[#5b4a45]"
+                    ? "border-[#b52326] bg-white text-[#b52326]"
+                    : disabled
+                    ? "border-[#e4d8d2] bg-[#f8efec] text-[#c9b8b2]"
+                    : "border-[#d8c7c1] bg-white text-[#5b4a45]"
                 }`}
               >
                 {done && !active ? (
@@ -104,8 +104,8 @@ export const StepBar = ({
                   active
                     ? "text-[#b52326]"
                     : disabled
-                      ? "text-[#c9b8b2]"
-                      : "text-[#5b4a45]"
+                    ? "text-[#c9b8b2]"
+                    : "text-[#5b4a45]"
                 }`}
               >
                 {STEP_LABELS[step]}

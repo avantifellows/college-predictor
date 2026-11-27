@@ -268,8 +268,8 @@ const JosaaFlashCards = ({ onDone, doneLabel = "Start the mock", onSkip }) => {
                 i === index
                   ? "w-6 bg-[#B52326]"
                   : i < index
-                    ? "w-2 bg-[#B52326]/40"
-                    : "w-2 bg-[#e4d8d2]"
+                  ? "w-2 bg-[#B52326]/40"
+                  : "w-2 bg-[#e4d8d2]"
               }`}
             />
           ))}

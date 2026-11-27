@@ -114,8 +114,8 @@ const OrderNote = ({ prefs, className = "" }) => {
                 i === index
                   ? "w-5 bg-[#B52326]"
                   : i < index
-                    ? "w-2 bg-[#B52326]/40"
-                    : "w-2 bg-[#e4d8d2]"
+                  ? "w-2 bg-[#B52326]/40"
+                  : "w-2 bg-[#e4d8d2]"
               }`}
             />
           ))}
