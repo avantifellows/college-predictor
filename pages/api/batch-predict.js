@@ -1,5 +1,6 @@
 import fs from "fs/promises";
 import ExcelJS from "exceljs";
+import rateLimit from "express-rate-limit";
 import examConfigs, { statesList } from "../../examConfig";
 
 const MAX_RECOMMENDATIONS = 5;
@@ -99,6 +100,53 @@ export const config = {
     },
   },
 };
+
+// Issue #307: this endpoint accepts up to 10 MB uploads but had no limiter.
+// Keep a dedicated instance (and therefore a dedicated MemoryStore) so an
+// exhausted batch quota does not block /api/exam-result for the same client.
+// req.ip is undefined in Next.js Node API routes, so derive the key from
+// x-forwarded-for with a socket fallback, as exam-result.js does.
+const getIp = (req) => {
+  const xForwardedFor = req.headers["x-forwarded-for"];
+  if (typeof xForwardedFor === "string") {
+    return xForwardedFor.split(",")[0].trim();
+  }
+  if (Array.isArray(xForwardedFor) && xForwardedFor.length > 0) {
+    return xForwardedFor[0].trim();
+  }
+  return req.socket?.remoteAddress || req.connection?.remoteAddress;
+};
+
+// The "100 requests" in the issue report is stale: commit 72eb9235 raised the
+// predictor limit to 2000 because a school lab shares a single IP. Start from
+// that same value; the env override exists for load tests and private deploys.
+const configuredBatchLimit = Number(process.env.BATCH_PREDICT_RATE_LIMIT_MAX);
+const batchLimitMax =
+  Number.isInteger(configuredBatchLimit) && configuredBatchLimit > 0
+    ? configuredBatchLimit
+    : 2000;
+
+const batchLimit = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: batchLimitMax, // express-rate-limit v6 uses `max`, not v7's `limit`
+  standardHeaders: true, // RateLimit-Limit / -Remaining / -Reset on responses
+  legacyHeaders: false,
+  keyGenerator: (req) => {
+    const ip = getIp(req);
+    if (!ip) {
+      console.warn(
+        "Rate limiter: IP address could not be determined for batch-predict."
+      );
+      return "default-fallback-key";
+    }
+    return ip;
+  },
+  handler: (req, res) => {
+    res
+      .status(429)
+      .json({ error: "Too many requests. Please try again later." });
+  },
+});
 
 const normalizeText = (value) => String(value || "").trim();
 
@@ -913,6 +961,20 @@ const sendWorkbook = (res, workbookBuffer, filename) => {
 };
 
 export default async function handler(req, res) {
+  // express-rate-limit v6 sends the 429 from `handler` and returns WITHOUT
+  // calling next(). A bare `await limiter(...)` (the exam-result.js pattern)
+  // would therefore keep running this handler after the 429 was sent: parsing
+  // up to 10 MB of upload and attempting a second response, which throws
+  // ERR_HTTP_HEADERS_SENT. The `allowed` flag is the required early return.
+  // It runs before the 405 check to match exam-result.js; the trade-off is
+  // that non-POST probes also consume quota, which is preferable for a DoS
+  // control. Next.js parses the body before this handler either way.
+  let allowed = false;
+  await batchLimit(req, res, () => {
+    allowed = true;
+  });
+  if (!allowed) return;
+
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
   }
